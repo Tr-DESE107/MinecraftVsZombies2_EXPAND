@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpiderQueen
+  m_Controller: {fileID: 9100000, guid: 815f1a2eefe8a6b4dafe40e0b9296fe2, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 7390c7536abc71e41af94a854d36eafd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 70072c734bdaebe43ae80b4d68c4eac8, type: 2}

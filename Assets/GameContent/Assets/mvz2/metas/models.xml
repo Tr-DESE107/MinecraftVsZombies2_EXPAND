@@ -69,6 +69,8 @@
 
 	<model name="HostZombie" type="entity" path="mvz2:enemy/dream/HostZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
 	<model name="BloodlustHostZombie" type="entity" path="mvz2:enemy/dream/BloodlustHostZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="SpiderQueen" type="entity" path="mvz2:enemy/dream/SpiderQueen" width="108" height="108" xOffset="0" yOffset="-48"/>
+	<model name="HostMutant" type="entity" path="mvz2:enemy/dream/HostMutant" width="200" height="180" xOffset="0" yOffset="-90"/>
 	
     <model name="spider" type="entity" path="mvz2:enemy/dream/spider" width="108" height="108" xOffset="0" yOffset="-48"/>
     <model name="cave_spider" type="entity" path="mvz2:enemy/dream/cave_spider" width="54" height="54" xOffset="0" yOffset="-24"/>
@@ -83,6 +85,8 @@
     <model name="anubisand" type="entity" path="mvz2:enemy/castle/anubisand" width="52" height="88" xOffset="12" yOffset="-41"/>
 
 	<model name="MonkZombie" type="entity" path="mvz2:enemy/temple/MonkZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
+
+	<model name="HeavyGutant" type="entity" path="mvz2:enemy/ship/HeavyGutant" width="200" height="180" xOffset="0" yOffset="-90"/>
 
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/shrine/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
     <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/shrine/mega_mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>

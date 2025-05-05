@@ -25,6 +25,8 @@ namespace MVZ2.GameContent.Enemies
 
         public const string HostZombie = "HostZombie";
         public const string BloodlustHostZombie = "BloodlustHostZombie";
+        public const string SpiderQueen = "SpiderQueen";
+        public const string HostMutant = "HostMutant";
 
         public const string spider = "spider";
         public const string caveSpider = "cave_spider";
@@ -39,6 +41,8 @@ namespace MVZ2.GameContent.Enemies
         public const string anubisand = "anubisand";
 
         public const string MonkZombie = "MonkZombie";
+
+        public const string HeavyGutant = "HeavyGutant";
 
         public const string mutantZombie = "mutant_zombie";
         public const string megaMutantZombie = "mega_mutant_zombie";
@@ -76,13 +80,14 @@ namespace MVZ2.GameContent.Enemies
 
         public static readonly NamespaceID HostZombie = Get(VanillaEnemyNames.HostZombie);
         public static readonly NamespaceID BloodlustHostZombie = Get(VanillaEnemyNames.BloodlustHostZombie);
+        public static readonly NamespaceID SpiderQueen = Get(VanillaEnemyNames.SpiderQueen);
+        public static readonly NamespaceID HostMutant = Get(VanillaEnemyNames.HostMutant);
 
         public static readonly NamespaceID spider = Get(VanillaEnemyNames.spider);
         public static readonly NamespaceID caveSpider = Get(VanillaEnemyNames.caveSpider);
         public static readonly NamespaceID ghast = Get(VanillaEnemyNames.ghast);
         public static readonly NamespaceID motherTerror = Get(VanillaEnemyNames.motherTerror);
         public static readonly NamespaceID parasiteTerror = Get(VanillaEnemyNames.parasiteTerror);
-
         public static readonly NamespaceID mesmerizer = Get(VanillaEnemyNames.mesmerizer);
         public static readonly NamespaceID berserker = Get(VanillaEnemyNames.berserker);
         public static readonly NamespaceID dullahan = Get(VanillaEnemyNames.dullahan);
@@ -90,6 +95,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID anubisand = Get(VanillaEnemyNames.anubisand);
 
         public static readonly NamespaceID MonkZombie = Get(VanillaEnemyNames.MonkZombie);
+
+        public static readonly NamespaceID HeavyGutant = Get(VanillaEnemyNames.HeavyGutant);
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
         public static readonly NamespaceID megaMutantZombie = Get(VanillaEnemyNames.megaMutantZombie);

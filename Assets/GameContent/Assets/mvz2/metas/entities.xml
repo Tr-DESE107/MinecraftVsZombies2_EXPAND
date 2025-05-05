@@ -182,7 +182,7 @@
 			<bool name="nocturnal" value="true"/>
 
 			<float name="range" value="255"/>
-			<id name="projectileId" value="mvz2:snowball"/>
+			<id name="projectileId" value="mvz2:Poisonball"/>
 			<id name="shootSound" value="mvz2:bow"/>
 			<id name="fragmentId" value="mvz2:furnace"/>
 			<vector3 name="shotOffset" x="25" y="15" z="0"/>
@@ -715,6 +715,24 @@
             <int name="cost" value="75" />
             <int name="waterInteraction" value="2"/>
         </enemy>
+		<enemy id="SpiderQueen" name="蜘蛛女王" deathMessage="我的蜘蛛感应又有反应了。" unlock="mvz2:level.dream_1">
+			<float name="maxHealth" value="160"/>
+			<float name="maxAttackHeight" value="30"/>
+			<float name="speed" value="2"/>
+			<float name="fallResistance" value="15"/>
+			<bool name="undead" value="false"/>
+			<vector3 name="size" x="104" y="48" z="48"/>
+			<id name="crySound" value="mvz2:spider_cry"/>
+			<id name="deathSound" value="mvz2:spider_death"/>
+
+			<vector3 name="shadowScale" x="2" y="1" z="1"/>
+
+			<color name="bloodColor" value="#007F00FF"/>
+			<color name="bloodColorCensored" value="#007F00FF"/>
+
+			<int name="cost" value="75" />
+			<int name="waterInteraction" value="2"/>
+		</enemy>
         <enemy id="cave_spider" name="洞穴蜘蛛" deathMessage="你有蜂蜜瓶还是牛奶桶呢？都没有。" unlock="mvz2:level.dream_3">
             <float name="maxHealth" value="120"/>
             <float name="maxAttackHeight" value="15"/>
@@ -789,6 +807,24 @@
             <int name="cost" value="125" />
             <int name="waterInteraction" value="2"/>
         </enemy>
+		
+		<enemy id="HostMutant" name="突变宿主" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
+            <float name="maxHealth" value="3000"/>
+            <float name="maxAttackHeight" value="100"/>
+            <float name="speed" value="1"/>
+            <float name="range" value="40"/>
+            <vector3 name="size" x="80" y="170" z="60"/>
+            <id name="crySound" value="mvz2:mutant_cry"/>
+            <id name="deathSound" value="mvz2:mutant_death"/>
+            <float name="takenCrushDamage" value="900"/>
+            <bool name="immuneVortex" value="true"/>
+            <int name="vehicleInteraction" value="2"/>
+
+            <vector3 name="shadowScale" x="2" y="2" z="1"/>
+
+            <int name="cost" value="300" />
+            <int name="waterInteraction" value="3"/>
+        </enemy>
 
         <!-- Castle Enemies -->
         <enemy id="mesmerizer" name="催眠者" deathMessage="服从凋灵吧" unlock="mvz2:level.castle_1">
@@ -850,6 +886,25 @@
             <int name="cost" value="100" />
         </enemy>
 
+
+		<enemy id="HeavyGutant" name="突变重炮手" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
+			<float name="maxHealth" value="3000"/>
+			<float name="maxAttackHeight" value="100"/>
+			<float name="speed" value="1"/>
+			<float name="range" value="40"/>
+			<vector3 name="size" x="80" y="170" z="60"/>
+			<id name="crySound" value="mvz2:mutant_cry"/>
+			<id name="deathSound" value="mvz2:mutant_death"/>
+			<float name="takenCrushDamage" value="900"/>
+			<bool name="immuneVortex" value="true"/>
+			<int name="vehicleInteraction" value="2"/>
+
+			<vector3 name="shadowScale" x="2" y="2" z="1"/>
+
+			<int name="cost" value="300" />
+			<int name="waterInteraction" value="3"/>
+		</enemy>
+		
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <float name="maxHealth" value="3000"/>
             <float name="maxAttackHeight" value="100"/>

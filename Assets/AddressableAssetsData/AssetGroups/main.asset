@@ -596,7 +596,8 @@ MonoBehaviour:
   - m_GUID: 1987417ea27d79f4fa2ddfa1bf586c53
     m_Address: mvz2:projectile/largePoisonball
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a62ec6260923674096be59047f89949
     m_Address: mvz2:artifacts/dark_matter
@@ -685,7 +686,8 @@ MonoBehaviour:
   - m_GUID: 1db111bae309876428aa5045504dc0dc
     m_Address: mvz2:projectile/Poisonball
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e040a7ca0ea87148a69fcf7c9a900a3
     m_Address: mvz2:mechanism
@@ -2023,6 +2025,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d44ee70be474aa42a441d61c0ad08f7
+    m_Address: mvz2:entity/enemy/SpiderQueen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d49d253e83fc104d9eb629a8a238ee3
     m_Address: mvz2:mobile_blueprint/obsidian
@@ -3454,7 +3462,8 @@ MonoBehaviour:
   - m_GUID: 8704afd3cd249c24cbccf308e1212371
     m_Address: mvz2:entity/contraption/Poisonser
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 870eee8567c7c8948aa1357afdc15d62
     m_Address: mvz2:starshards/dream
@@ -3840,6 +3849,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 921fdd631ebf1e34aaefbf5018150b4a
+    m_Address: mvz2:contraption/halloween/Poisonser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 924887d4b0c49ca4a95e462a77626841
     m_Address: mvz2:random/crystal/crystal_place3
     m_ReadOnly: 0
@@ -4091,6 +4106,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b9b96e4bf2fe79488039cf97b35a4cb
+    m_Address: mvz2:enemy/dream/SpiderQueen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9be88d49c2a357e42825f5e2320b26c1
     m_Address: mvz2:pickup/starshards/halloween
@@ -4751,6 +4772,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3e7832436d04624098dde1806c64d04
+    m_Address: mvz2:entity/enemy/SpiderQueen 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b3fb8d61fec87704189d63aacaa3814c
     m_Address: mvz2:ui/level/starshard_point
@@ -5733,7 +5760,8 @@ MonoBehaviour:
   - m_GUID: d6b1b75abee2c694e9df829b165b558a
     m_Address: mvz2:entity/projectiles/Poisonball
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6bc73c94a1f99a4783bbd0bb5714d72
     m_Address: mvz2:mainmenu/store
@@ -6688,6 +6716,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8d557de66232d649822b444bbc0dc09
+    m_Address: mvz2:entity/enemy/SpiderQueen_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8dbc419c62dfc148a2d10db9f0ce0d3
     m_Address: mvz2:note/background_dream
     m_ReadOnly: 0
@@ -6753,6 +6787,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa8aa09227f46034b8b939a68f700d45
+    m_Address: mvz2:entity/enemy/MonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa8fc80a727b0a549974a51278bbe414
     m_Address: mvz2:soul_sand_break1

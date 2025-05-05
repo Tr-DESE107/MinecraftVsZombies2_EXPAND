@@ -98,6 +98,21 @@
                 <p>雪球里包着石头，别问了。</p>
             </flavor>
         </entry>
+		
+		<entry id="mvz2:Poisonser">
+			<header>
+				<p>淬毒发射器能发射短距离的毒球。</p>
+			</header>
+			<properties>
+				<p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>技能：<![CDATA[<color=red>射出一个越滚越大的雪球</color>]]></p>
+			</properties>
+			<flavor>
+				<p>染了毒，别问了。</p>
+			</flavor>
+		</entry>
+		
         <entry id="mvz2:moonlight_sensor">
             <header>
                 <p>月光传感器可以在晚上提供能量，并在一段时间后提升生产量。</p>

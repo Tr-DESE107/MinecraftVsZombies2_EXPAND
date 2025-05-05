@@ -603,6 +603,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a5c1e4e7edb774e48a12ea382df65f15, type: 3}
   - name: entity/projectiles/parabot
     sprite: {fileID: 21300000, guid: d270746c6b1f84442af0d2614257f2e6, type: 3}
+  - name: entity/projectiles/Poisonball
+    sprite: {fileID: 21300000, guid: d6b1b75abee2c694e9df829b165b558a, type: 3}
   - name: entity/projectiles/purpleArrow
     sprite: {fileID: 21300000, guid: 22329831853e27345acc3890a79e175f, type: 3}
   - name: entity/projectiles/seija_bullet
@@ -1254,6 +1256,9 @@ MonoBehaviour:
     - {fileID: -2007905710, guid: ba5959cbb21e70e46930dced2270fecb, type: 3}
     - {fileID: 1534824516, guid: ba5959cbb21e70e46930dced2270fecb, type: 3}
     - {fileID: -845001243, guid: ba5959cbb21e70e46930dced2270fecb, type: 3}
+  - name: entity/contraption/Poisonser
+    spritesheet:
+    - {fileID: 21300000, guid: 8704afd3cd249c24cbccf308e1212371, type: 3}
   - name: entity/contraption/punchton
     spritesheet:
     - {fileID: 343615464, guid: f821b6a9d26a8a643b60d869c28ce5fd, type: 3}
@@ -1503,11 +1508,11 @@ MonoBehaviour:
     - {fileID: -1594074141, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - name: entity/enemy/MonkZombie
     spritesheet:
-    - {fileID: 919865981, guid: 465eacd466cbdc541bd5e0143def4f49, type: 3}
-    - {fileID: 1188514607, guid: 465eacd466cbdc541bd5e0143def4f49, type: 3}
-    - {fileID: 285873942, guid: 465eacd466cbdc541bd5e0143def4f49, type: 3}
-    - {fileID: -1276609078, guid: 465eacd466cbdc541bd5e0143def4f49, type: 3}
-    - {fileID: -1072585341, guid: 465eacd466cbdc541bd5e0143def4f49, type: 3}
+    - {fileID: -1724426877, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
+    - {fileID: -1711784147, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
+    - {fileID: -70730126, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
+    - {fileID: 2084068873, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
+    - {fileID: -1646566641, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
   - name: entity/enemy/mother_terror
     spritesheet:
     - {fileID: -105107332, guid: 614ed32a96b18ee45b196d855175f379, type: 3}
@@ -1621,6 +1626,22 @@ MonoBehaviour:
     - {fileID: -719498444, guid: b05d578e666fa614c871c4984041189f, type: 3}
     - {fileID: 793676620, guid: b05d578e666fa614c871c4984041189f, type: 3}
     - {fileID: 2118705680, guid: b05d578e666fa614c871c4984041189f, type: 3}
+  - name: entity/enemy/SpiderQueen 1
+    spritesheet:
+    - {fileID: 21300000, guid: b3e7832436d04624098dde1806c64d04, type: 3}
+  - name: entity/enemy/SpiderQueen
+    spritesheet:
+    - {fileID: -1401032857, guid: 4d44ee70be474aa42a441d61c0ad08f7, type: 3}
+    - {fileID: -1825757006, guid: 4d44ee70be474aa42a441d61c0ad08f7, type: 3}
+    - {fileID: -1579983891, guid: 4d44ee70be474aa42a441d61c0ad08f7, type: 3}
+    - {fileID: 1491859589, guid: 4d44ee70be474aa42a441d61c0ad08f7, type: 3}
+    - {fileID: -2089800000, guid: 4d44ee70be474aa42a441d61c0ad08f7, type: 3}
+  - name: entity/enemy/SpiderQueen_death
+    spritesheet:
+    - {fileID: -111454300, guid: f8d557de66232d649822b444bbc0dc09, type: 3}
+    - {fileID: 857508465, guid: f8d557de66232d649822b444bbc0dc09, type: 3}
+    - {fileID: 1312012733, guid: f8d557de66232d649822b444bbc0dc09, type: 3}
+    - {fileID: 1934972767, guid: f8d557de66232d649822b444bbc0dc09, type: 3}
   - name: entity/enemy/spider_death
     spritesheet:
     - {fileID: -41998495, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}

@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 velocity.x *= -1;
             }
-            entity.ShootProjectile(VanillaProjectileID.largeSnowball, velocity);
+            entity.ShootProjectile(VanillaProjectileID.largePoisonball, velocity);
             entity.PlaySound(VanillaSoundID.odd);
         }
     }

@@ -97,6 +97,10 @@
 		<terrain water="true"/>
 		<weight base="4000"/>
 	</entry>
+	<entry id="SpiderQueen" entity="mvz2:SpiderQueen" >
+		<spawn level="2" />
+		<weight base="2000" />
+	</entry>
     <entry id="spider" entity="mvz2:spider" >
         <spawn level="2" />
         <weight base="2000" />
@@ -115,7 +119,12 @@
         <spawn level="3"/>
         <weight base="2000" />
     </entry>
-
+	<entry id="HostMutant" entity="mvz2:HostMutant" >
+		<spawn level="10"/>
+		<terrain water="true"/>
+		<weight base="1500" />
+	</entry>
+	
     <!-- Castle -->
     <entry id="mesmerizer" entity="mvz2:mesmerizer" >
         <spawn level="3" />
@@ -133,7 +142,13 @@
         <spawn level="6" />
         <weight base="2000" />
     </entry>
-    
+
+	<entry id="HeavyGutant" entity="mvz2:HeavyGutant" >
+		<spawn level="10"/>
+		<terrain water="true"/>
+		<weight base="1500" />
+	</entry>
+	
     <entry id="mutant_zombie" entity="mvz2:mutant_zombie" >
         <spawn level="10"/>
         <terrain water="true"/>
