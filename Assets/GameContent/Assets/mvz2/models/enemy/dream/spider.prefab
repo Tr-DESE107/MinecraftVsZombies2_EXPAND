@@ -882,6 +882,7 @@ GameObject:
   - component: {fileID: 5348731535069068385}
   - component: {fileID: 8813316175546445049}
   - component: {fileID: 9121248714789347174}
+  - component: {fileID: 3114632183978015481}
   m_Layer: 0
   m_Name: DeathRenderer
   m_TagString: Untagged
@@ -969,6 +970,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &3114632183978015481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5806268436031293645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -41998495, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
+  - {fileID: 1747900964, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
+  - {fileID: 2035029268, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
+  - {fileID: -1930513632, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
+  index: 0
 --- !u!1 &6261922969065112735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,6 +1244,7 @@ GameObject:
   - component: {fileID: 4424032078652646507}
   - component: {fileID: 5102171393267091551}
   - component: {fileID: 363496779674261978}
+  - component: {fileID: 1775198368392684673}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -1333,6 +1353,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1775198368392684673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8304686068079835052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -939527422, guid: b05d578e666fa614c871c4984041189f, type: 3}
+  - {fileID: -719498444, guid: b05d578e666fa614c871c4984041189f, type: 3}
+  index: 0
 --- !u!1001 &21500200205723279
 PrefabInstance:
   m_ObjectHideFlags: 0

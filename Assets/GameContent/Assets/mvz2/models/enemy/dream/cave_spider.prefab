@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1336028926, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
+    - target: {fileID: 1775198368392684673, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -448787342, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
+    - target: {fileID: 1775198368392684673, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1916710286, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
     - target: {fileID: 2199613036599832468, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -76,6 +84,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1336028926, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1253464880, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -1477107463, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 1435127597, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 556428364, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
     - target: {fileID: 3138126465319318176, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
       propertyPath: m_Name
       value: cave_spider
@@ -124,6 +148,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1336028926, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
+    - target: {fileID: 8813316175546445049, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1435127597, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
     - target: {fileID: 8825746642513065212, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
       propertyPath: m_Sprite
       value: 

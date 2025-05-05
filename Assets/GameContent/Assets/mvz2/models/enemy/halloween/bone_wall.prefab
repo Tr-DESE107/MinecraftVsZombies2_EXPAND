@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 7557533436908888096}
   - component: {fileID: 8643334507448902593}
   - component: {fileID: 7105678492239789316}
+  - component: {fileID: 2763630522082365189}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -227,6 +228,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &2763630522082365189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3654582897771761292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1078924827, guid: 7bf48cdb4ddd8074c8c39a084c5e181f, type: 3}
+  - {fileID: -431149792, guid: 7bf48cdb4ddd8074c8c39a084c5e181f, type: 3}
+  index: 0
 --- !u!1001 &370424150283063926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -433,6 +450,14 @@ PrefabInstance:
       propertyPath: transforms.Array.data[0]
       value: 
       objectReference: {fileID: 3040870309583435402}
+    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: subSortingGroups.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: subSortingGroups.Array.data[0]
+      value: 
+      objectReference: {fileID: 1590616073638675333}
     - target: {fileID: 7717581738674343506, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: m_Controller
       value: 

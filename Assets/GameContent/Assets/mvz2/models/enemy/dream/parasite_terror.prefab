@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1669841365, guid: 8b6fcf46139505d41b1ef83b75aedd0d, type: 3}
+    - target: {fileID: 1775198368392684673, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 395815112, guid: 8b6fcf46139505d41b1ef83b75aedd0d, type: 3}
+    - target: {fileID: 1775198368392684673, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 630717968, guid: 8b6fcf46139505d41b1ef83b75aedd0d, type: 3}
     - target: {fileID: 2199613036599832468, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -76,6 +84,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1669841365, guid: 8b6fcf46139505d41b1ef83b75aedd0d, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -2098574841, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -938367861, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 516429795, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: -1181326684, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - target: {fileID: 3138126465319318176, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
       propertyPath: m_Name
       value: parasite_terror

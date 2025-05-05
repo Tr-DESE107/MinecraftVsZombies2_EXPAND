@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4962861824457678880}
   - component: {fileID: 556845793797077537}
   - component: {fileID: 3212144021173326565}
-  - component: {fileID: 2342791222277018359}
+  - component: {fileID: 415243684544519589}
   m_Layer: 0
   m_Name: Icon1
   m_TagString: Untagged
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &2342791222277018359
+--- !u!114 &415243684544519589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,9 +108,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1008756196997741545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfc407fef2adb174fbe34d5fb6918389, type: 3}
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1697089634, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}
+  - {fileID: -1292817976, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}
+  index: 1
 --- !u!1 &4728572120436255652
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +126,7 @@ GameObject:
   - component: {fileID: 7088461226574452171}
   - component: {fileID: 6712368203866384730}
   - component: {fileID: 4755097213772766593}
-  - component: {fileID: 1069686462166334803}
+  - component: {fileID: 8128736417151796724}
   m_Layer: 0
   m_Name: Icon2
   m_TagString: Untagged
@@ -210,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &1069686462166334803
+--- !u!114 &8128736417151796724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,9 +223,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4728572120436255652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfc407fef2adb174fbe34d5fb6918389, type: 3}
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1697089634, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}
+  - {fileID: -1292817976, guid: b3a86d0fdd9f49043b0ec319c8c28d4c, type: 3}
+  index: 1
 --- !u!1001 &6918996579605802393
 PrefabInstance:
   m_ObjectHideFlags: 0

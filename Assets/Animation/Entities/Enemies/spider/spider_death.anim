@@ -59,22 +59,37 @@ AnimationClip:
     classID: 1
     script: {fileID: 0}
     flags: 0
-  m_PPtrCurves:
   - serializedVersion: 2
     curve:
-    - time: 0
-      value: {fileID: -41998495, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
-    - time: 0.11666667
-      value: {fileID: 1747900964, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
-    - time: 0.21666667
-      value: {fileID: 2035029268, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
-    - time: 0.33333334
-      value: {fileID: -1930513632, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
-    attribute: m_Sprite
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 9
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.33333334
+        value: 3
+        inSlope: 9
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: index
     path: Root/Center/DeathRenderer
-    classID: 212
-    script: {fileID: 0}
-    flags: 2
+    classID: 114
+    script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+    flags: 0
+  m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -102,24 +117,20 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 3314358861
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
+      attribute: 2155046657
+      script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+      typeID: 114
+      customType: 0
+      isPPtrCurve: 0
       isIntCurve: 0
       isSerializeReferenceCurve: 0
-    pptrCurveMapping:
-    - {fileID: -41998495, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
-    - {fileID: 1747900964, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
-    - {fileID: 2035029268, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
-    - {fileID: -1930513632, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.33333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -176,6 +187,36 @@ AnimationClip:
     path: Root/Center/DeathRenderer
     classID: 1
     script: {fileID: 0}
+    flags: 0
+  - serializedVersion: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 9
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.33333334
+        value: 3
+        inSlope: 9
+        outSlope: 0
+        tangentMode: 69
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: index
+    path: Root/Center/DeathRenderer
+    classID: 114
+    script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
     flags: 0
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0

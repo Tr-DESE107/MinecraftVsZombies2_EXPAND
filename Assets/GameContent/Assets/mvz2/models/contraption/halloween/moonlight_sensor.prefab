@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 534586902165037194}
   - component: {fileID: 7331202230353699986}
   - component: {fileID: 1058195629310469900}
+  - component: {fileID: 8977860118272297352}
   m_Layer: 0
   m_Name: Sensor
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1532640040, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+  m_Sprite: {fileID: 2073939680, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,6 +99,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &8977860118272297352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836961328742624686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1532640040, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+  - {fileID: 1066157882, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+  - {fileID: -1376072912, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+  - {fileID: 662959243, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+  - {fileID: 2073939680, guid: 6b600f1f5110d7644843e4595de25748, type: 3}
+  index: 0
 --- !u!1001 &1586506072868367642
 PrefabInstance:
   m_ObjectHideFlags: 0

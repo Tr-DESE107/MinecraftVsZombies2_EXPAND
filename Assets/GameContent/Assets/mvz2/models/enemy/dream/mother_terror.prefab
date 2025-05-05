@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1737368842, guid: 614ed32a96b18ee45b196d855175f379, type: 3}
+    - target: {fileID: 1775198368392684673, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -105107332, guid: 614ed32a96b18ee45b196d855175f379, type: 3}
+    - target: {fileID: 1775198368392684673, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 456860188, guid: 614ed32a96b18ee45b196d855175f379, type: 3}
     - target: {fileID: 2199613036599832468, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -64,6 +72,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1737368842, guid: 614ed32a96b18ee45b196d855175f379, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -251057602, guid: 5ce8038d74bfbca429e3e9ad92eded0f, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -409604661, guid: 5ce8038d74bfbca429e3e9ad92eded0f, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -1535647298, guid: 5ce8038d74bfbca429e3e9ad92eded0f, type: 3}
+    - target: {fileID: 3114632183978015481, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 663338578, guid: 5ce8038d74bfbca429e3e9ad92eded0f, type: 3}
     - target: {fileID: 3138126465319318176, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
       propertyPath: m_Name
       value: mother_terror
@@ -100,6 +124,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1737368842, guid: 614ed32a96b18ee45b196d855175f379, type: 3}
+    - target: {fileID: 8813316175546445049, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -251057602, guid: 5ce8038d74bfbca429e3e9ad92eded0f, type: 3}
     - target: {fileID: 8825746642513065212, guid: a66a8e7b59dead94fb585912ec7a67af, type: 3}
       propertyPath: m_Sprite
       value: 
