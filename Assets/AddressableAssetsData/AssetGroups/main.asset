@@ -1679,7 +1679,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e7fe45dbc36534488feaa5a129a0df0
-    m_Address: mvz2:armor/wicked_hermit_helmet
+    m_Address: mvz2:armor/wicked_hermit_hat
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3045,6 +3045,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70bd3779c2eea2b4fb4e071481e6acb1
+    m_Address: mvz2:mobile_blueprint/talisman_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71622a34f9dcc4f4689cee2fc30656c3
     m_Address: mvz2:enemy/castle/berserker

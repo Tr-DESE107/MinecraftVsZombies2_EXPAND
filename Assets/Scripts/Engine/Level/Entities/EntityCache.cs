@@ -14,6 +14,7 @@ namespace PVZEngine.Entities
             VelocityDampen = entity.GetVelocityDampen();
             Size = entity.GetSize();
             Scale = entity.GetScale();
+            FlipX = entity.IsFlipX();
             BoundsPivot = entity.GetBoundsPivot();
             CollisionDetection = entity.GetCollisionDetection();
             CollisionSampleLength = entity.GetCollisionSampleLength();
@@ -48,6 +49,10 @@ namespace PVZEngine.Entities
             {
                 Scale = value.ToGeneric<Vector3>();
             }
+            else if (name == EngineEntityProps.FLIP_X)
+            {
+                FlipX = value.ToGeneric<bool>();
+            }
             else if (name == EngineEntityProps.BOUNDS_PIVOT)
             {
                 BoundsPivot = value.ToGeneric<Vector3>();
@@ -61,7 +66,14 @@ namespace PVZEngine.Entities
                 CollisionSampleLength = value.ToGeneric<float>();
             }
         }
+        public Vector3 GetFinalScale()
+        {
+            var scale = Scale;
+            scale.x *= FlipX ? -1 : 1;
+            return scale;
+        }
         public int Faction { get; private set; }
+        public bool FlipX { get; private set; }
         public float Gravity { get; private set; }
         public float Friction { get; private set; }
         public float GroundLimitOffset { get; private set; }

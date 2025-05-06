@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.Armors
         public const string berserkerHelmet = "berserker_helmet";
         public const string bedserkerHelmet = "bedserker_helmet";
         public const string reflectiveBarrier = "reflective_barrier";
+        public const string wickedHermitHat = "wicked_hermit_hat";
     }
     public static class VanillaArmorID
     {
@@ -20,6 +21,7 @@ namespace MVZ2.GameContent.Armors
         public static readonly NamespaceID bersekerHelmet = Get(VanillaArmorNames.berserkerHelmet);
         public static readonly NamespaceID bedserkerHelmet = Get(VanillaArmorNames.bedserkerHelmet);
         public static readonly NamespaceID reflectiveBarrier = Get(VanillaArmorNames.reflectiveBarrier);
+        public static readonly NamespaceID wickedHermitHat = Get(VanillaArmorNames.wickedHermitHat);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

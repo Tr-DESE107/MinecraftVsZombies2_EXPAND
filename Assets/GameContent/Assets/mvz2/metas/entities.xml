@@ -842,8 +842,12 @@
             <int name="cost" value="100" />
             <int name="waterInteraction" value="2"/>
         </enemy>
-        <enemy id="talisman_zombie" name="灵符僵尸" deathMessage="好吃" unlock="mvz2/:level.mausoleum_3">
+        <enemy id="talisman_zombie" name="灵符僵尸" deathMessage="好吃" unlock="mvz2:level.mausoleum_3">
             <int name="cost" value="100" />
+            <int name="waterInteraction" value="2"/>
+        </enemy>
+        <enemy id="wicked_hermit_zombie" name="邪仙僵尸" deathMessage="省得找个铲子来挖坟了。" unlock="mvz2:level.mausoleum_3">
+            <int name="cost" value="225" />
             <int name="waterInteraction" value="2"/>
         </enemy>
 

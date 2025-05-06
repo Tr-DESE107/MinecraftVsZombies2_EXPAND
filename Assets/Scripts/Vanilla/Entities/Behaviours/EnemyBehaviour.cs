@@ -57,7 +57,7 @@ namespace MVZ2.Vanilla.Entities
                 entity.Position = pos;
             }
             ChangeLaneUpdate(entity);
-            var scale = entity.GetDisplayScale();
+            var scale = entity.GetFinalDisplayScale();
             var scaleX = Mathf.Abs(scale.x);
             var attackSpeed = entity.GetAttackSpeed() / entity.GetAttackSpeed(ignoreBuffs: true) / scaleX;
             var speed = entity.GetSpeed() / entity.GetSpeed(ignoreBuffs: true) / scaleX;

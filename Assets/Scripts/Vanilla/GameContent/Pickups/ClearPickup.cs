@@ -112,7 +112,7 @@ namespace MVZ2.GameContent.Pickups
         private static Vector3 GetMoveTargetPosition(Entity entity)
         {
             var level = entity.Level;
-            Vector3 slotPosition = level.GetScreenCenterPosition() + Vector2.down * (entity.GetSize().y * entity.GetDisplayScale().y * 0.5f);
+            Vector3 slotPosition = level.GetScreenCenterPosition() + Vector2.down * (entity.GetSize().y * entity.GetFinalDisplayScale().y * 0.5f);
             return new Vector3(slotPosition.x, slotPosition.y - COLLECTED_Z - 15, COLLECTED_Z);
         }
         private NamespaceID GetPickupModelID(Entity entity)

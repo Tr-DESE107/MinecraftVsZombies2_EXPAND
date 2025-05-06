@@ -47,13 +47,13 @@ namespace MVZ2.GameContent.Stages
             {
 
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.talismanZombie,
+                VanillaEnemyID.wickedHermitZombie,
                 VanillaEnemyID.caveSpider,
                 VanillaEnemyID.ghast,
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.dispenser,
 
-                VanillaContraptionID.pistenser,
+                VanillaContraptionID.goldenApple,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.mineTNT,
                 VanillaContraptionID.tnt,

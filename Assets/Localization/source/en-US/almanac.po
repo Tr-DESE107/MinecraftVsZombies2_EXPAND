@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-06 10:08+0800\n"
-"PO-Revision-Date: 2025-05-06 10:14+0800\n"
+"POT-Creation-Date: 2025-05-06 02:24+0800\n"
+"PO-Revision-Date: 2025-05-06 14:31+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -297,7 +297,7 @@ msgstr ""
 #. Flavor for contraptions mvz2:tnt
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "注意：并不能用于治疗设备尔的核心病，以及在一百年后因为能够治疗心脏病而获得设备尔奖。"
+msgid "注意：并不能用于治疗设备尔的核心病，以及在一百年后因为能够治疗核心病而获得设备尔奖。"
 msgstr ""
 "Note: It cannot be used to treat Disbel's core disease, nor can it be used to award the Disbel Prize for being able to treat core "
 "disease a hundred years later."
@@ -1534,6 +1534,41 @@ msgid ""
 msgstr ""
 "Y'know, as long as you write anything on that talisman, Talisman Zombie will do what it says.\n"
 "For example... write \"Don't do what this paper says\"."
+
+#. Header for enemies mvz2:wicked_hermit_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "邪仙僵尸出场时会召唤一只灵符僵尸，在灵符僵尸死后会传送到最左侧，反向破坏你的阵型。"
+msgstr ""
+"Wicked Hermit Zombie will summon a Talisman Zombie once it enters the field. It will teleport to the left side once the Talisman "
+"Zombie dies, destroying your defense from behind."
+
+#. Properties for enemies mvz2:wicked_hermit_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+50</color>\n"
+"速度：<color=red>1</color>\n"
+"特点：<color=red>自带灵符僵尸。灵符僵尸死后传送到最左侧，从后方攻击</color>"
+msgstr ""
+"Toughness: <color=red>200+50</color>\n"
+"Speed: <color=red>1</color>\n"
+"Special: <color=red>Comes with a Talisman Zombie. Teleports to the left side once the Talisman Zombie dies, attacking from behind</"
+"color>"
+
+#. Flavor for enemies mvz2:wicked_hermit_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"邪仙僵尸生前害怕死亡，因此他打算成为邪仙，逃避死亡的命运。\n"
+"即使是在他死后，这份执念也依然没有结束。他变成了僵尸，为的就是继续生前的进程。\n"
+"终于，他成为了邪仙，现在他再也不用害怕死亡了！\n"
+"……你就不觉得哪里不对吗？"
+msgstr ""
+"The Wicked Hermit Zombie was afraid of death when he was alive, so he planned to become a wicked hermit to escape his fate.\n"
+"Even after death, that obsession has not ended. He became a zombie in order to continue his pursuit from his past life.\n"
+"In the end, he became a wicked hermit, and now he no longer has to be afraid of death again!\n"
+"...Don’t you think something is off?"
 
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
@@ -3588,6 +3623,18 @@ msgstr "Talisman Zombie"
 msgctxt "death_message"
 msgid "好吃"
 msgstr "Yummy"
+
+#. Header for entity mvz2:wicked_hermit_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "邪仙僵尸"
+msgstr "Wicked Hermit Zombie"
+
+#. Death message for entity mvz2:wicked_hermit_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "省得找个铲子来挖坟了。"
+msgstr "At least you don't have to find a shovel to dig the grave."
 
 #. Header for entity mvz2:mutant_zombie
 #: Entity meta file

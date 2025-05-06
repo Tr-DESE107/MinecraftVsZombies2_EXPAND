@@ -879,6 +879,22 @@
                 <p>比如……写上“不要照着这句话做”。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:wicked_hermit_zombie">
+            <header>
+                <p>邪仙僵尸出场时会召唤一只灵符僵尸，在灵符僵尸死后会传送到最左侧，反向破坏你的阵型。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200+50</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+                <p>特点：<![CDATA[<color=red>自带灵符僵尸。灵符僵尸死后传送到最左侧，从后方攻击</color>]]></p>
+            </properties>
+            <flavor>
+                <p>邪仙僵尸生前害怕死亡，因此他打算成为邪仙，逃避死亡的命运。</p>
+                <p>即使是在他死后，这份执念也依然没有结束。他变成了僵尸，为的就是继续生前的进程。</p>
+                <p>终于，他成为了邪仙，现在他再也不用害怕死亡了！</p>
+                <p>……你就不觉得哪里不对吗？</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

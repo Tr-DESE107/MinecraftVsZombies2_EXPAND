@@ -60,5 +60,11 @@
                 <id name="deathSound" value="mvz2:glass_break" />
             </props>
         </entry>
+        <entry id="wicked_hermit_hat">
+            <props>
+                <id name="shell" value="mvz2:leather" />
+                <float name="maxHealth" value="50" />
+            </props>
+        </entry>
     </entries>
 </armors>

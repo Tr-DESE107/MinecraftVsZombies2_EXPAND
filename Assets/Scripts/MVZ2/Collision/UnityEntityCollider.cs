@@ -44,7 +44,7 @@ namespace MVZ2.Collisions
         }
         public void UpdateFromEntity()
         {
-            var scale = Entity.GetScale();
+            var scale = Entity.GetFinalScale();
             switch (updateMode)
             {
                 case EntityColliderUpdateMode.Main:

@@ -512,7 +512,7 @@ namespace MVZ2.Entities
                 var rendererGroup = model.GraphicGroup;
                 rendererGroup.SetTint(entity.GetTint());
                 rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
-                model.transform.localScale = entity.GetDisplayScale();
+                model.transform.localScale = entity.GetFinalDisplayScale();
                 rendererGroup.SortingLayerID = entity.GetSortingLayer();
                 rendererGroup.SortingOrder = entity.GetSortingOrder();
                 if (model is SpriteModel sprModel)
@@ -546,8 +546,9 @@ namespace MVZ2.Entities
                         case PropertyName.ColorOffset:
                             rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
                             break;
+                        case PropertyName.FlipX:
                         case PropertyName.DisplayScale:
-                            model.transform.localScale = entity.GetDisplayScale();
+                            model.transform.localScale = entity.GetFinalDisplayScale();
                             break;
                         case PropertyName.SortingLayer:
                             rendererGroup.SortingLayerID = entity.GetSortingLayer();
@@ -624,6 +625,7 @@ namespace MVZ2.Entities
             {
                 { EngineEntityProps.TINT, PropertyName.Tint },
                 { EngineEntityProps.COLOR_OFFSET, PropertyName.ColorOffset },
+                { EngineEntityProps.FLIP_X, PropertyName.FlipX },
                 { EngineEntityProps.DISPLAY_SCALE, PropertyName.DisplayScale },
                 { VanillaEntityProps.SORTING_LAYER, PropertyName.SortingLayer },
                 { VanillaEntityProps.SORTING_ORDER, PropertyName.SortingOrder },
@@ -641,6 +643,7 @@ namespace MVZ2.Entities
             {
                 Tint,
                 ColorOffset,
+                FlipX,
                 DisplayScale,
                 SortingLayer,
                 SortingOrder,

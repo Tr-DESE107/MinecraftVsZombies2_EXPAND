@@ -53,6 +53,18 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(GRAVITY, value);
         }
+        public static readonly PropertyMeta FLIP_X = Get("flipX");
+        public static bool IsFlipX(this Entity entity)
+        {
+            return entity.GetProperty<bool>(FLIP_X);
+        }
+        public static Vector3 GetFinalScale(this Entity entity)
+        {
+            var scale = entity.GetScale();
+            var flipX = entity.IsFlipX() ? -1 : 1;
+            scale.x *= flipX;
+            return scale;
+        }
         public static Vector3 GetScale(this Entity entity)
         {
             return entity.GetProperty<Vector3>(SCALE);
@@ -60,6 +72,13 @@ namespace PVZEngine.Entities
         public static void SetScale(this Entity entity, Vector3 value)
         {
             entity.SetProperty(SCALE, value);
+        }
+        public static Vector3 GetFinalDisplayScale(this Entity entity)
+        {
+            var scale = entity.GetDisplayScale();
+            var flipX = entity.IsFlipX() ? -1 : 1;
+            scale.x *= flipX;
+            return scale;
         }
         public static Vector3 GetDisplayScale(this Entity entity)
         {

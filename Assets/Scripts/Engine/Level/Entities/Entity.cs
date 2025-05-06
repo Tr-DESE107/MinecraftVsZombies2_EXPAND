@@ -295,7 +295,7 @@ namespace PVZEngine.Entities
         public Vector3 GetScaledSize()
         {
             var size = Cache.Size;
-            size.Scale(Cache.Scale);
+            size.Scale(Cache.GetFinalScale());
             return size;
         }
         public void SetCenter(Vector3 center)
@@ -597,7 +597,7 @@ namespace PVZEngine.Entities
             }
         }
         #endregion
-        public bool IsFacingLeft() => this.FaceLeftAtDefault() != FlipX;
+        public bool IsFacingLeft() => this.FaceLeftAtDefault() != (Cache.GetFinalScale().x < 0);
 
         #region 模型
         public void SetModelInterface(IModelInterface model)
@@ -913,7 +913,6 @@ namespace PVZEngine.Entities
         public Vector3 Position { get; set; }
         public Vector3 Velocity { get; set; }
         public Vector3 RenderRotation { get; set; } = Vector3.zero;
-        public bool FlipX => this.GetScale().x < 0;
         #region Collision
         public int CollisionMaskHostile { get; set; }
         public int CollisionMaskFriendly { get; set; }

@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void Explode(Entity entity, float damage, int faction)
         {
-            var scale = entity.GetScale();
+            var scale = entity.GetFinalScale();
             var scaleX = Mathf.Abs(scale.x);
             var range = entity.GetRange() * scaleX;
             entity.Level.Explode(entity.GetCenter(), range, faction, damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE), entity);
