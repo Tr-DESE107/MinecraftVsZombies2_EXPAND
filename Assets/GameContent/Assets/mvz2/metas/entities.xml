@@ -842,6 +842,10 @@
             <int name="cost" value="100" />
             <int name="waterInteraction" value="2"/>
         </enemy>
+        <enemy id="talisman_zombie" name="灵符僵尸" deathMessage="好吃" unlock="mvz2/:level.mausoleum_3">
+            <int name="cost" value="100" />
+            <int name="waterInteraction" value="2"/>
+        </enemy>
 
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <float name="maxHealth" value="3000"/>

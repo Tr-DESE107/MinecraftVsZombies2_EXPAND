@@ -145,7 +145,7 @@
                 <p>技能：<![CDATA[<color=red>炸出4个TNT分身</color>]]></p>
             </properties>
             <flavor>
-                <p>注意：并不能用于治疗诺贝尔的心脏病，以及在一百年后因为能够治疗心脏病而获得诺贝尔奖。</p>
+                <p>注意：并不能用于治疗设备尔的核心病，以及在一百年后因为能够治疗核心病而获得设备尔奖。</p>
             </flavor>
         </entry>
         <entry id="mvz2:soul_furnace">
@@ -863,6 +863,20 @@
                 <p>“再反弹！”</p>
                 <p>“反弹回去！”</p>
                 <p>“再弹！”</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:talisman_zombie">
+            <header>
+                <p>灵符僵尸跳跃前进，并能够在攻击的同时恢复生命值。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
+                <p>特点：<![CDATA[<color=red>攻击时恢复等量生命值</color>]]></p>
+            </properties>
+            <flavor>
+                <p>你知道的，伙计——只要在那个灵符上写上任何东西，它就会按照上面写的事情去照办。</p>
+                <p>比如……写上“不要照着这句话做”。</p>
             </flavor>
         </entry>
     </enemies>

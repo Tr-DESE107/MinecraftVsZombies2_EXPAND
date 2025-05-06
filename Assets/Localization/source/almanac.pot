@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-05 07:21+0800\n"
+"POT-Creation-Date: 2025-05-06 10:08+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -225,7 +225,7 @@ msgstr ""
 #. Flavor for contraptions mvz2:tnt
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "注意：并不能用于治疗诺贝尔的心脏病，以及在一百年后因为能够治疗心脏病而获得诺贝尔奖。"
+msgid "注意：并不能用于治疗设备尔的核心病，以及在一百年后因为能够治疗心脏病而获得设备尔奖。"
 msgstr ""
 
 #. Header for contraptions mvz2:soul_furnace
@@ -1201,6 +1201,29 @@ msgid ""
 "“再反弹！”\n"
 "“反弹回去！”\n"
 "“再弹！”"
+msgstr ""
+
+#. Header for enemies mvz2:talisman_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "灵符僵尸跳跃前进，并能够在攻击的同时恢复生命值。"
+msgstr ""
+
+#. Properties for enemies mvz2:talisman_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"速度：<color=red>1</color>\n"
+"特点：<color=red>攻击时恢复等量生命值</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:talisman_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"你知道的，伙计——只要在那个灵符上写上任何东西，它就会按照上面写的事情去照办。\n"
+"比如……写上“不要照着这句话做”。"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -3012,6 +3035,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "我反弹你的反弹"
+msgstr ""
+
+#. Header for entity mvz2:talisman_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "灵符僵尸"
+msgstr ""
+
+#. Death message for entity mvz2:talisman_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "好吃"
 msgstr ""
 
 #. Header for entity mvz2:mutant_zombie

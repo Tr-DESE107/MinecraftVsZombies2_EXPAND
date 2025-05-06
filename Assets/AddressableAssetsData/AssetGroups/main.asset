@@ -677,6 +677,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c4cde1b18c294a4bbc35ce35dcaf143
+    m_Address: mvz2:enemy/mausoleum/talisman_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c5ef86d50d239a47a36537b14f214d0
     m_Address: mvz2:projectile/reflection_bullet
     m_ReadOnly: 0
@@ -706,6 +712,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d01491d6c38d40428fedd37cfac8db6
+    m_Address: mvz2:entity/enemy/wicked_hermit_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d837605fa2501f4687ff04e54213ea3
     m_Address: mvz2:artifacts
@@ -1073,6 +1085,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2be33464724166c4fa3a121643edceb8
+    m_Address: mvz2:mobile_blueprint/cave_spider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2becb83796290cb438ce963aff698ae4
     m_Address: mvz2:achievements/double_trouble
     m_ReadOnly: 0
@@ -1273,6 +1291,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32f36e28f5381c345b9988e80c40ee5a
     m_Address: mvz2:note/prologue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 333296bf7a142dd43a413222f3881bcb
+    m_Address: mvz2:mobile_blueprint/parasite_terror
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -1486,6 +1510,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38f39658893e90548a7455a7585c6c63
+    m_Address: mvz2:mausoleum_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 392d5a1a4322ba24193d5f42088e6c59
     m_Address: mvz2:ui/musicroom/bar_handler
     m_ReadOnly: 0
@@ -1527,6 +1557,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a4d775ca16aed8489fddf37bc1ced64
+    m_Address: mvz2:mobile_blueprint/mother_terror
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a6ff83055599244a872a7e3cd5865cd
     m_Address: mvz2:effect/crushing_walls
@@ -1642,6 +1678,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e7fe45dbc36534488feaa5a129a0df0
+    m_Address: mvz2:armor/wicked_hermit_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e851dc827c8f314388c4b8d31edba82
     m_Address: mvz2:contraption/halloween/punchton
     m_ReadOnly: 0
@@ -1752,6 +1794,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 410f8ec80407d6e4ab481954c0ce2d49
     m_Address: mvz2:ui/ui_arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 414519a6962fb994b855ea73bd0d44e9
+    m_Address: mvz2:entity/enemies/iron_shovel
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4095,6 +4143,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97bbf718dcb8d714cbce072750f648a2
+    m_Address: mvz2:entity/armor/wicked_hermit_hat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 97fb6eef6b0b240438ad3bc4f783cf48
     m_Address: mvz2:entity/cart/rainbow_trail
     m_ReadOnly: 0
@@ -4388,6 +4442,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a11a5b163ead6624ea57a93be24665a2
+    m_Address: mvz2:mobile_blueprint/spider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2044f7fe14b6814d8a3c3cde1ff9c74
     m_Address: mvz2:effect/soulfire_blast
@@ -4947,6 +5007,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4d85ffb8a267074f81e4c9862d40fed
+    m_Address: mvz2:entity/enemy/talisman_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4e9422216680bb4fa02c86bd69e4f47
     m_Address: mvz2:sand4
     m_ReadOnly: 0
@@ -5384,6 +5450,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c45e65a66018ee54cb5c8165984aaa2d
+    m_Address: mvz2:enemy/mausoleum/wicked_hermit_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4b8257cfe3564b43890a309b80d59ac
     m_Address: mvz2:effect/nightmare_portal
@@ -5894,12 +5966,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d6e56aff1f4b5864ab81b594175a95f1
-    m_Address: mvz2:mausoleum_map
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6f6e44ab2a3c4b4e82764fd5c5a2cdc
     m_Address: mvz2:armor/leather_cap

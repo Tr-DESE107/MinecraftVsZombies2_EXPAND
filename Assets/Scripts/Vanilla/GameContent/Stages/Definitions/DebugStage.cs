@@ -47,7 +47,7 @@ namespace MVZ2.GameContent.Stages
             {
 
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.leatherCappedZombie,
+                VanillaEnemyID.talismanZombie,
                 VanillaEnemyID.caveSpider,
                 VanillaEnemyID.ghast,
                 VanillaContraptionID.furnace,

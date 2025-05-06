@@ -88,8 +88,9 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (target == null)
                 return;
-            target.TakeDamage(enemy.GetDamage() * enemy.GetAttackSpeed() / 30f, new DamageEffectList(VanillaDamageEffects.MUTE), enemy);
-            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_MELEE_ATTACK, c => c(enemy, target));
+            var damage = enemy.GetDamage() * enemy.GetAttackSpeed() / 30f;
+            target.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.ENEMY_MELEE), enemy);
+            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_MELEE_ATTACK, c => c(enemy, target, damage));
         }
     }
 

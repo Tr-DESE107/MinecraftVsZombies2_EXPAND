@@ -69,6 +69,7 @@
     <model name="anubisand" type="entity" path="mvz2:enemy/castle/anubisand" width="52" height="88" xOffset="12" yOffset="-41"/>
 
     <model name="reflective_barrier_zombie" type="entity" path="mvz2:enemy/mausoleum/reflective_barrier_zombie" width="80" height="116" xOffset="16" yOffset="-50"/>
+    <model name="talisman_zombie" type="entity" path="mvz2:enemy/mausoleum/talisman_zombie" width="64" height="96" xOffset="10" yOffset="-44"/>
 
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/shrine/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
     <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/shrine/mega_mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>

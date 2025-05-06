@@ -36,7 +36,7 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void PreEnemyNeutralize(Entity entity, TriggerResultBoolean result);
         public delegate void PostEnemyNeutralize(Entity entity);
         public delegate void EnemyDropRewards(Entity entity);
-        public delegate void PostEnemyMeleeAttack(Entity enemy, Entity target);
+        public delegate void PostEnemyMeleeAttack(Entity enemy, Entity target, float amount);
 
         public delegate void CanPickupCollect(Entity entity, TriggerResultBoolean result);
 

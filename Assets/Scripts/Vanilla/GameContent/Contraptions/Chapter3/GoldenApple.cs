@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.sparkle);
         }
 
-        private void PostEnemyMeleeAttackCallback(Entity enemy, Entity target)
+        private void PostEnemyMeleeAttackCallback(Entity enemy, Entity target, float amount)
         {
             if (!target.IsEntityOf(VanillaContraptionID.goldenApple))
                 return;

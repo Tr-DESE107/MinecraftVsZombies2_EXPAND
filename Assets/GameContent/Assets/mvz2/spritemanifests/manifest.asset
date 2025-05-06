@@ -267,6 +267,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7daa974a99689d84d8b0323b1817ce90, type: 3}
   - name: mobile_blueprint/stone_shield
     sprite: {fileID: 21300000, guid: a001063ac6b540b42a716f3b66388328, type: 3}
+  - name: mobile_blueprint/talisman_zombie
+    sprite: {fileID: 21300000, guid: 70bd3779c2eea2b4fb4e071481e6acb1, type: 3}
   - name: mobile_blueprint/tesla_coil
     sprite: {fileID: 21300000, guid: d8b4a6fef193f41428666f3177af2af7, type: 3}
   - name: mobile_blueprint/thunder_drum
@@ -393,6 +395,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7b5b04fa7d4703a48867a2ec9b7c31f6, type: 3}
   - name: entity/armor/mesmerizer_crown
     sprite: {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
+  - name: entity/armor/wicked_hermit_hat
+    sprite: {fileID: 21300000, guid: 97bbf718dcb8d714cbce072750f648a2, type: 3}
   - name: entity/boss/gun_fire
     sprite: {fileID: 21300000, guid: c6834e54b22c072438a7aa1583ebc4f5, type: 3}
   - name: entity/boss/seija_bomb
@@ -575,6 +579,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8b9310b7e61da30448b5d9b66c4cf9f3, type: 3}
   - name: entity/enemies/golden_axe
     sprite: {fileID: 21300000, guid: ffc82409076aa3e4481bb54a1438d1db, type: 3}
+  - name: entity/enemies/iron_shovel
+    sprite: {fileID: 21300000, guid: 414519a6962fb994b855ea73bd0d44e9, type: 3}
   - name: entity/enemies/mesmerizer_head
     sprite: {fileID: 21300000, guid: 580a757d547930b41a026df31631b7c9, type: 3}
   - name: entity/enemies/mesmerizer_rod
@@ -1668,6 +1674,24 @@ MonoBehaviour:
     - {fileID: 1747900964, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
     - {fileID: 2035029268, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
     - {fileID: -1930513632, guid: bd7c4ef1623396741baeff42ae95e4d8, type: 3}
+  - name: entity/enemy/talisman_zombie
+    spritesheet:
+    - {fileID: -1930873355, guid: b4d85ffb8a267074f81e4c9862d40fed, type: 3}
+    - {fileID: 531878883, guid: b4d85ffb8a267074f81e4c9862d40fed, type: 3}
+    - {fileID: -469190119, guid: b4d85ffb8a267074f81e4c9862d40fed, type: 3}
+    - {fileID: 1600815500, guid: b4d85ffb8a267074f81e4c9862d40fed, type: 3}
+    - {fileID: -1075604742, guid: b4d85ffb8a267074f81e4c9862d40fed, type: 3}
+  - name: entity/enemy/wicked_hermit_zombie
+    spritesheet:
+    - {fileID: -59632489, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+    - {fileID: -1203203049, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+    - {fileID: 556359814, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+    - {fileID: -1828951996, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+    - {fileID: 1977289048, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+    - {fileID: -1272525814, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+    - {fileID: -238351258, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+    - {fileID: 1356556440, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+    - {fileID: 1828943734, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
   - name: entity/enemy/wither_skeleton
     spritesheet:
     - {fileID: 21300000, guid: 2223b622235c77b41858ab56433232a5, type: 3}
