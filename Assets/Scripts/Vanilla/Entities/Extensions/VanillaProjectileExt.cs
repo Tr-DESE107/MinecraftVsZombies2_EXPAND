@@ -60,13 +60,18 @@ namespace MVZ2.Vanilla.Entities
                 velocity = velocity
             };
         }
-        public static Vector3 GetShootPoint(this Entity entity)
+        public static Vector3 ModifyShotOffset(this Entity entity, Vector3 offset)
         {
-            Vector3 offset = entity.GetShotOffset();
             if (entity.IsFacingLeft())
             {
                 offset.x *= -1;
             }
+            return offset;
+        }
+        public static Vector3 GetShootPoint(this Entity entity)
+        {
+            Vector3 offset = entity.GetShotOffset();
+            offset = ModifyShotOffset(entity, offset);
             return entity.Position + offset;
         }
         public static void UpdatePointTowardsDirection(this Entity entity)

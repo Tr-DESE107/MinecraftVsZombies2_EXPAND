@@ -3495,6 +3495,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 824a13f315e37c0479a2e4a8e03f358f
+    m_Address: mvz2:entity/contraption/splitenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 824ceee383f361649b57e79656c673da
     m_Address: mvz2:entity/contraption/thunder_drum
     m_ReadOnly: 0
@@ -3773,6 +3779,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8bf802c92af01e14ab7d98dedcdb86a1
     m_Address: mvz2:entity/effects/pow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bfd3910470132e4a94c08e6054dcebc
+    m_Address: mvz2:mobile_blueprint/wicked_hermit_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4931,6 +4943,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b2d31dd0c8208b34192a17491789d379
     m_Address: mvz2:effect/splash_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b32722c795d045a438c1dc667c6760c4
+    m_Address: mvz2:contraption/mausoleum/splitenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model

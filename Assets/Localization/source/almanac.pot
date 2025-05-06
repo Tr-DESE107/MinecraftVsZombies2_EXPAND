@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-06 02:24+0800\n"
+"POT-Creation-Date: 2025-05-06 05:25+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -675,6 +675,36 @@ msgctxt "contraptions.description"
 msgid ""
 "它就是音符盒的邻居。\n"
 "天哪！还好它能吸收掉那些噪音……"
+msgstr ""
+
+#. Header for contraptions mvz2:splitenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "双向发射器在向前发射箭矢的同时，也会向后方发射双倍的箭矢。"
+msgstr ""
+
+#. Properties for contraptions mvz2:splitenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1发/1.5秒（前方），2发/1.5秒（后方）</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>快速向前后分别发射60支箭矢，最后向后发射一支大箭矢</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:splitenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"“别射了，你把我晃得头晕！”后面的发射器很不爽。\n"
+"“可是你每次都发射两次，论头晕，我比你还要严重哩！”前面的发射器反驳。\n"
+"自从双向发射器被发明以来，它和自己的争吵就从来没停过。\n"
+"“你这么和你哥哥说的话吗？放尊重点！”\n"
+"“谁是你弟弟？我们都不知道是谁先被造出来的！”\n"
+"“我发射更快，理应当哥哥！”\n"
+"“那大部分时候还是我把前面的敌人干掉的嘞！”\n"
+"……\n"
+"幸好他邻居是闪电之珠，不然就又有人要来投诉了。"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -2756,6 +2786,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "阻碍敌人前进，并吸收子弹来治疗自己"
+msgstr ""
+
+#. Header for entity mvz2:splitenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "双向发射器"
+msgstr ""
+
+#. Properties for entity mvz2:splitenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "向前后双方射出箭"
 msgstr ""
 
 #. Header for entity mvz2:infectenser

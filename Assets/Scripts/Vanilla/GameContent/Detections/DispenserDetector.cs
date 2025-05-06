@@ -17,7 +17,8 @@ namespace MVZ2.GameContent.Detections
             var projectileSize = projectileDef.GetProperty<Vector3>(EngineEntityProps.SIZE);
 
             var sizeX = range < 0 ? 800 : range;
-            var centerX = source.x + sizeX * 0.5f * self.GetFacingX();
+            var direction = reversed ? -1 : 1;
+            var centerX = source.x + sizeX * 0.5f * self.GetFacingX() * direction;
 
             float sizeY;
             float centerY;
@@ -68,6 +69,7 @@ namespace MVZ2.GameContent.Detections
         }
         public bool ignoreLowEnemy;
         public bool ignoreHighEnemy;
+        public bool reversed;
         public Func<DetectionParams, IEntityCollider, bool> colliderFilter;
     }
 }

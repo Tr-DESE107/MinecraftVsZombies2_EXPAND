@@ -39,6 +39,7 @@ namespace MVZ2.GameContent.Contraptions
 
         public const string noteBlock = "note_block";
         public const string lightningOrb = "lightning_orb";
+        public const string splitenser = "splitenser";
 
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";
@@ -84,6 +85,7 @@ namespace MVZ2.GameContent.Contraptions
 
         public static readonly NamespaceID noteBlock = Get(VanillaContraptionNames.noteBlock);
         public static readonly NamespaceID lightningOrb = Get(VanillaContraptionNames.lightningOrb);
+        public static readonly NamespaceID splitenser = Get(VanillaContraptionNames.splitenser);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);

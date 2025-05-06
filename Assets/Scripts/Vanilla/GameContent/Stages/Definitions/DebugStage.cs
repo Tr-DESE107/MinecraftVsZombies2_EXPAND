@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.dispenser,
 
                 VanillaContraptionID.goldenApple,
-                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.splitenser,
                 VanillaContraptionID.mineTNT,
                 VanillaContraptionID.tnt,
             });

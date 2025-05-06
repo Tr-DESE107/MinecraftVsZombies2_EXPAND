@@ -514,6 +514,10 @@
             <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
+        <dispenser id="splitenser" name="双向发射器" tooltip="向前后双方射出箭" unlock="mvz2:level.mausoleum_3">
+            <id name="fragmentId" value="mvz2:dispenser"/>
+            <int name="cost" value="125" />
+        </dispenser>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">

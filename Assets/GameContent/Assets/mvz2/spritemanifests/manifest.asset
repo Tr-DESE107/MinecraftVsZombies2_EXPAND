@@ -263,6 +263,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a11a5b163ead6624ea57a93be24665a2, type: 3}
   - name: mobile_blueprint/spike_block
     sprite: {fileID: 21300000, guid: d0f973bcd4babdc40b8ee0cfc233300c, type: 3}
+  - name: mobile_blueprint/splitenser
+    sprite: {fileID: 21300000, guid: b8020c439faa36e4a93b2a903db60899, type: 3}
   - name: mobile_blueprint/stone_dropper
     sprite: {fileID: 21300000, guid: 7daa974a99689d84d8b0323b1817ce90, type: 3}
   - name: mobile_blueprint/stone_shield
@@ -1329,6 +1331,11 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 1795380811, guid: 4b61b6a8f9cd754419a8862656f249c1, type: 3}
     - {fileID: 1116002968, guid: 4b61b6a8f9cd754419a8862656f249c1, type: 3}
+  - name: entity/contraption/splitenser
+    spritesheet:
+    - {fileID: -391827783, guid: 824a13f315e37c0479a2e4a8e03f358f, type: 3}
+    - {fileID: -1257104159, guid: 824a13f315e37c0479a2e4a8e03f358f, type: 3}
+    - {fileID: 1631164139, guid: 824a13f315e37c0479a2e4a8e03f358f, type: 3}
   - name: entity/contraption/stone_shield
     spritesheet:
     - {fileID: 1538110737, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
