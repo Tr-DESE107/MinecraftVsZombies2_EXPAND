@@ -2026,6 +2026,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d302cd3c2b446b43995be19e002dc43
+    m_Address: mvz2:entity/enemy/HeavyGutant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d44ee70be474aa42a441d61c0ad08f7
     m_Address: mvz2:entity/enemy/SpiderQueen
     m_ReadOnly: 0
@@ -2248,6 +2254,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 564b8ca059de5014f9cbd052fee77b9e
+    m_Address: mvz2:enemy/castle/WitherSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 565b39729d8fd1b469bef688b67f08d3
     m_Address: mvz2:contraption/castle/golden_apple
     m_ReadOnly: 0
@@ -2302,6 +2314,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58c6512707afe544a8fe8f1c6738e909
+    m_Address: mvz2:entity/enemy/HostMutant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58cd365da4a132942b0437a7a378f1a1
     m_Address: mvz2:entity/ghast/ghast5
     m_ReadOnly: 0
@@ -2350,6 +2368,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a4797741c8aaf345a3a9b08e4e92a9c
+    m_Address: mvz2:enemy/castle/IronWitherSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a71c983a20b667478dd88d44c1a96b3
     m_Address: mvz2:artifacts/smart_phone
     m_ReadOnly: 0
@@ -2382,6 +2406,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5bd1acbcd90ebbb4fb6dfed80ef2a88b
     m_Address: mvz2:enemy/castle/seija_cursed_doll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c049b6336f13bf419d3a10d5c9f1173
+    m_Address: mvz2:enemy/castle/LeatherWitherSkeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -4773,12 +4803,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b3e7832436d04624098dde1806c64d04
-    m_Address: mvz2:entity/enemy/SpiderQueen 1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b3fb8d61fec87704189d63aacaa3814c
     m_Address: mvz2:ui/level/starshard_point
     m_ReadOnly: 0
@@ -5583,6 +5607,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf9ffa6a46d127542b3c7e594733ca93
+    m_Address: mvz2:enemy/castle/FlagWitherSkeleton Variant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d00aabb5514ee4743a361ad46e38de95
     m_Address: mvz2:entity/contraptions/punchton_arm
     m_ReadOnly: 0
@@ -5738,6 +5768,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d60b89b6504897a468030f74b58c2b21
+    m_Address: mvz2:enemy/dream/HostMutant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6598510d1ea3de4aac158689e0dd22d
     m_Address: mvz2:tesla_attack

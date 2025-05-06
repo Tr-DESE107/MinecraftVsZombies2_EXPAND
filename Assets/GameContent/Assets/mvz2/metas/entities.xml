@@ -1269,6 +1269,17 @@
             <vector3 name="size" x="24" y="24" z="24" />
             <idArray name="damageEffects" value="mvz2:damage_both_armor_and_body" />
         </projectile>
+		<projectile id="Poisonball">
+			<vector3 name="size" x="24" y="24" z="24" />
+		</projectile>
+		<projectile id="largePoisonball">
+			<bool name="rolls" value="true" />
+			<bool name="killOnGround" value="false" />
+			<bool name="piercing" value="true" />
+			<float name="gravity" value="1" />
+			<vector3 name="size" x="24" y="24" z="24" />
+			<idArray name="damageEffects" value="mvz2:damage_both_armor_and_body" />
+		</projectile>
         <projectile id="flying_tnt">
             <bool name="noHitEntities" value="true"/>
             <bool name="noDestroyOutsideLawn" value="true"/>

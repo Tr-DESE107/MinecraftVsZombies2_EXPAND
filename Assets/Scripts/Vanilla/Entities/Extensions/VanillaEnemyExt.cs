@@ -38,6 +38,18 @@ namespace MVZ2.Vanilla.Entities
             }
             buff.SetProperty(EnemyWeaknessBuff.PROP_TIMEOUT, time);
         }
+
+        public static void InflictRegenerationBuff(this Entity enemy, float Heal, int time)
+        {
+            Buff buff = enemy.GetFirstBuff<RegenerationBuff>();
+            if (buff == null)
+            {
+                buff = enemy.AddBuff<RegenerationBuff>();
+            }
+            buff.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, Heal);
+            buff.SetProperty(RegenerationBuff.REGEN_TIMEOUT, time);
+        }
+
         public static void UpdateWalkVelocity(this Entity enemy)
         {
             var velocity = enemy.Velocity;
