@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using PVZEngine;
@@ -151,7 +152,7 @@ namespace MVZ2.GameContent.Contraptions
             if (targetGrid == null)
                 return;
             var layers = targetGrid.GetLayers();
-            var orderedLayers = layers.OrderByDescending(l => Global.Game.GetGridLayerGroup(l)).ThenByDescending(l => Global.Game.GetGridLayerPriority(l));
+            var orderedLayers = VanillaGridLayers.sacrificeLayers;
             foreach (var layer in orderedLayers)
             {
                 var ent = targetGrid.GetLayerEntity(layer);

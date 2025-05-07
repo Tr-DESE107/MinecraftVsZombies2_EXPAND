@@ -54,16 +54,7 @@ namespace MVZ2.Vanilla.Entities
             var grid = contraption?.GetGrid();
             if (grid == null || grid.GetProtectorEntity() != contraption)
                 return null;
-            var game = Global.Game;
-            // 选取当前实体所占有图格的最高的Group。
-            var gridGroup = contraption.GetTakingGridLayers(grid).Max(l => game.GetGridLayerGroup(l));
-
-            // 选取当前实体所占有图格的Group更低的所有层。
-            var layers = grid.GetLayers();
-            var protectingLayers = layers
-                .Where(l => game.GetGridLayerGroup(l) < gridGroup)
-                .OrderByDescending(l => game.GetGridLayerGroup(l))
-                .ThenByDescending(l => game.GetGridLayerPriority(l));
+            var protectingLayers = VanillaGridLayers.protectedLayers;
 
             foreach (var layer in protectingLayers)
             {
@@ -78,16 +69,7 @@ namespace MVZ2.Vanilla.Entities
             var grid = contraption?.GetGrid();
             if (grid == null || grid.GetProtectorEntity() != contraption)
                 return Array.Empty<Entity>();
-            var game = Global.Game;
-            // 选取当前实体所占有图格的最高的Group。
-            var gridGroup = contraption.GetTakingGridLayers(grid).Max(l => game.GetGridLayerGroup(l));
-
-            // 选取当前实体所占有图格的Group更低的所有层。
-            var layers = grid.GetLayers();
-            var protectingLayers = layers
-                .Where(l => game.GetGridLayerGroup(l) < gridGroup)
-                .OrderByDescending(l => game.GetGridLayerGroup(l))
-                .ThenByDescending(l => game.GetGridLayerPriority(l));
+            var protectingLayers = VanillaGridLayers.protectedLayers;
 
             List<Entity> targets = new List<Entity>();
             foreach (var layer in protectingLayers)

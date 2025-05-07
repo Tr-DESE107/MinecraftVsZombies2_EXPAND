@@ -21,20 +21,6 @@ namespace MVZ2.Games
         {
             return definitionGroup.GetDefinitions();
         }
-        public int GetGridLayerGroup(NamespaceID layer)
-        {
-            var meta = GetGridLayerMeta(layer);
-            if (meta == null)
-                return 0;
-            return meta.Group;
-        }
-        public int GetGridLayerPriority(NamespaceID layer)
-        {
-            var meta = GetGridLayerMeta(layer);
-            if (meta == null)
-                return 0;
-            return meta.Priority;
-        }
         public string GetGridErrorMessage(NamespaceID error)
         {
             var meta = GetGridErrorMeta(error);

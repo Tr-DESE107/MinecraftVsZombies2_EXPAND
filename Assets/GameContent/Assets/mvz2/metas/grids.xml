@@ -1,9 +1,9 @@
 <grids>
     <layers>
-        <layer id="protector" group="1" priority="0" />
-        <layer id="tool" group="0" priority="100" />
-        <layer id="main" group="0" priority="0" />
-        <layer id="carrier" group="0" priority="-100" />
+        <layer id="protector" />
+        <layer id="tool" />
+        <layer id="main" />
+        <layer id="carrier" />
     </layers>
     <errors>
         <error id="already_taken"/>

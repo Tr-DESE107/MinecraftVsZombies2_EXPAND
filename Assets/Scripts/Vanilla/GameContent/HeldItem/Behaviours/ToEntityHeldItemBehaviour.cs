@@ -71,10 +71,7 @@ namespace MVZ2.GameContent.HeldItem
 
                         var game = Global.Game;
                         var protector = grid.GetProtectorEntity();
-                        var protectedLayers = grid.GetLayers()
-                            .Where(l => game.GetGridLayerGroup(l) < VanillaGridLayers.GROUP_PROTECTOR)
-                            .OrderByDescending(l => game.GetGridLayerGroup(l))
-                            .ThenByDescending(l => game.GetGridLayerPriority(l));
+                        var protectedLayers = VanillaGridLayers.protectedLayers;
 
                         var main = protectedLayers
                             .Select(t => grid.GetLayerEntity(t))
@@ -179,10 +176,7 @@ namespace MVZ2.GameContent.HeldItem
                         var grid = gridTarget.Target;
                         var game = Global.Game;
                         var protector = grid.GetProtectorEntity();
-                        var protectedLayers = grid.GetLayers()
-                            .Where(l => game.GetGridLayerGroup(l) < VanillaGridLayers.GROUP_PROTECTOR)
-                            .OrderByDescending(l => game.GetGridLayerGroup(l))
-                            .ThenByDescending(l => game.GetGridLayerPriority(l));
+                        var protectedLayers = VanillaGridLayers.protectedLayers;
 
                         var main = protectedLayers
                             .Select(t => grid.GetLayerEntity(t))

@@ -3,6 +3,7 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
@@ -25,7 +26,7 @@ namespace MVZ2.GameContent.Contraptions
             if (grid != null)
             {
                 var layers = grid.GetLayers();
-                var orderedLayers = layers.OrderBy(l => Global.Game.GetGridLayerGroup(l)).ThenByDescending(l => Global.Game.GetGridLayerPriority(l));
+                var orderedLayers = VanillaGridLayers.dreamSilkLayers;
                 foreach (var layer in orderedLayers)
                 {
                     var entity = grid.GetLayerEntity(layer);

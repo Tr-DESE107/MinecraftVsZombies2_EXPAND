@@ -9,9 +9,33 @@ namespace MVZ2.Vanilla.Grids
         public static readonly NamespaceID protector = Get("protector");
         public static readonly NamespaceID tool = Get("tool");
 
-        public const int GROUP_PROTECTOR = 1;
-        public const int GROUP_MAIN = 0;
-        public const int GROUP_CARRIER = -1;
+        public static NamespaceID[] protectedLayers = new NamespaceID[]
+        {
+            tool,
+            main,
+            carrier
+        };
+        public static NamespaceID[] sacrificeLayers = new NamespaceID[]
+        {
+            protector,
+            tool,
+            main,
+            carrier
+        };
+        public static NamespaceID[] dreamSilkLayers = new NamespaceID[]
+        {
+            protector,
+            tool,
+            main,
+            carrier
+        };
+        public static NamespaceID[] devourerLayers = new NamespaceID[]
+        {
+            main,
+            protector,
+            carrier
+        };
+
 
         private static NamespaceID Get(string name)
         {
