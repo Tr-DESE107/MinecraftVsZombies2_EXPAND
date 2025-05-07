@@ -25,6 +25,9 @@ namespace PVZEngine.Modifiers
     public class NamespaceIDCalculator : SetModifierCalculator<NamespaceID>
     {
     }
+    public class NamespaceIDArrayCalculator : SetModifierCalculator<NamespaceID[]>
+    {
+    }
     public class StringCalculator : SetModifierCalculator<string>
     {
     }

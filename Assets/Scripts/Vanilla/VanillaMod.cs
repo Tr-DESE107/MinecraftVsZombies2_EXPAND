@@ -88,7 +88,7 @@ namespace MVZ2.Vanilla
             // 加载所有实体蓝图。
             LoadEntityBlueprints(game);
             // 加载所有选项蓝图。
-            LoadOptionSeedBlueprints(game);
+            LoadOptionBlueprints(game);
         }
         public override void PostGameInit()
         {
@@ -383,16 +383,20 @@ namespace MVZ2.Vanilla
                 // 将实体作为蓝图添加到游戏中。
                 var info = new EntitySeedInfo()
                 {
+                    entityID = id,
+                    cost = def.GetCost(),
+                    rechargeID = def.GetRechargeID(),
                     triggerActive = def.IsTriggerActive(),
                     canInstantTrigger = def.CanInstantTrigger(),
                     upgrade = def.IsUpgradeBlueprint(),
                     canInstantEvoke = def.CanInstantEvoke()
                 };
-                var seedDef = new EntitySeed(id.SpaceName, id.Path, def.GetCost(), def.GetRechargeID(), info);
+                var blueprintID = VanillaBlueprintID.FromEntity(id);
+                var seedDef = new EntitySeed(blueprintID.SpaceName, blueprintID.Path, info);
                 AddDefinition(seedDef);
             }
         }
-        private void LoadOptionSeedBlueprints(IGame game)
+        private void LoadOptionBlueprints(IGame game)
         {
             foreach (var option in GetDefinitions<SeedOptionDefinition>(LogicDefinitionTypes.SEED_OPTION))
             {

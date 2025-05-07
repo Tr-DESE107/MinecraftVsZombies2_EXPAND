@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-06 05:25+0800\n"
+"POT-Creation-Date: 2025-05-07 09:19+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1236,25 +1236,25 @@ msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
 # 实体提示
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:251
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:249
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:870
+#: Scripts\MVZ2\Level\LevelController_UI.cs:874
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:872
+#: Scripts\MVZ2\Level\LevelController_UI.cs:876
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:874
+#: Scripts\MVZ2\Level\LevelController_UI.cs:878
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
@@ -2126,6 +2126,12 @@ msgstr ""
 #: Grid meta file
 msgctxt "advice"
 msgid "只能放置在可以睡觉的器械上"
+msgstr ""
+
+#. Message for grid error mvz2:only_can_mill
+#: Grid meta file
+msgctxt "advice"
+msgid "只能放置在刷怪笼或者器械上"
 msgstr ""
 
 #. Message for grid error mvz2:only_upgrade

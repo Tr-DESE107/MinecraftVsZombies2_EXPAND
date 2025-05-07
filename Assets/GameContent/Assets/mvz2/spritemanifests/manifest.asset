@@ -145,6 +145,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: db41f5cca7edeb34a8465f62eae3d2c3, type: 3}
   - name: mobile_blueprint/anubisand
     sprite: {fileID: 21300000, guid: 2d37eb66e5d769343ab9e6ee42496b68, type: 3}
+  - name: mobile_blueprint/anvil
+    sprite: {fileID: 21300000, guid: 07fea5983538e114e87a25057c32b6c2, type: 3}
   - name: mobile_blueprint/bedserker
     sprite: {fileID: 21300000, guid: 10f0a75a79063264f8e9d4e7413c683f, type: 3}
   - name: mobile_blueprint/berserker

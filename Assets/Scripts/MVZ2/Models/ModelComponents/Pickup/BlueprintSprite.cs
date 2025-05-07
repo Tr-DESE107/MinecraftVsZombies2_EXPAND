@@ -24,6 +24,8 @@ namespace MVZ2.Models
         protected void UpdateIcon()
         {
             var iconSprite = iconRenderer.sprite;
+            if (!iconSprite)
+                return;
             var spriteScale = new Vector2(iconSprite.rect.width / iconSpriteSize.x, iconSprite.rect.height / iconSpriteSize.y);
             Vector3 iconScale;
             if (lockAspect)

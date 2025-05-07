@@ -29,11 +29,15 @@ namespace MVZ2.GameContent.Pickups
         public BlueprintPickup(string nsp, string name) : base(nsp, name)
         {
         }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            entity.SetAnimationBool("HideEnergy", true);
+        }
         public override void Update(Entity pickup)
         {
             base.Update(pickup);
             pickup.SetModelProperty("BlueprintID", GetBlueprintID(pickup));
-            pickup.SetAnimationBool("HideEnergy", true);
             pickup.SetAnimationBool("Dark", (pickup.Timeout < 100 && pickup.Timeout % 20 < 10) || pickup.Level.IsHoldingEntity(pickup));
         }
         public override void PostContactGround(Entity entity, Vector3 velocity)

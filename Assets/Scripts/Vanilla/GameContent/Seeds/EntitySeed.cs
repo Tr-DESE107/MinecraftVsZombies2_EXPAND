@@ -15,12 +15,12 @@ namespace MVZ2.GameContent.Seeds
 {
     public class EntitySeed : SeedDefinition
     {
-        public EntitySeed(string nsp, string name, int cost, NamespaceID rechargeID, EntitySeedInfo info) : base(nsp, name)
+        public EntitySeed(string nsp, string name, EntitySeedInfo info) : base(nsp, name)
         {
             SetProperty(VanillaSeedProps.SEED_TYPE, SeedTypes.ENTITY);
-            SetProperty(VanillaSeedProps.SEED_ENTITY_ID, new NamespaceID(nsp, name));
-            SetProperty(EngineSeedProps.COST, cost);
-            SetProperty(EngineSeedProps.RECHARGE_ID, rechargeID);
+            SetProperty(VanillaSeedProps.SEED_ENTITY_ID, info.entityID);
+            SetProperty(EngineSeedProps.COST, info.cost);
+            SetProperty(EngineSeedProps.RECHARGE_ID, info.rechargeID);
             SetProperty(VanillaSeedProps.TRIGGER_ACTIVE, info.triggerActive);
             SetProperty(VanillaSeedProps.CAN_INSTANT_EVOKE, info.canInstantEvoke);
             SetProperty(VanillaSeedProps.CAN_INSTANT_TRIGGER, info.canInstantTrigger);
@@ -66,6 +66,9 @@ namespace MVZ2.GameContent.Seeds
     }
     public struct EntitySeedInfo
     {
+        public NamespaceID entityID;
+        public int cost;
+        public NamespaceID rechargeID;
         public bool triggerActive;
         public bool canInstantTrigger;
         public bool upgrade;

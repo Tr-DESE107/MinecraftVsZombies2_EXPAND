@@ -155,6 +155,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - SpriteManifest
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07fea5983538e114e87a25057c32b6c2
+    m_Address: mvz2:mobile_blueprint/anvil
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0812e0f0861318c47b85593400d1388d
     m_Address: mvz2:entity/boss/seija_doll
     m_ReadOnly: 0
@@ -643,6 +649,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a6dd592d75f77949b5f1183e7c15b3c
     m_Address: mvz2:random/explosion2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a8ffe6b2a694d04494eab0a724bcf8e
+    m_Address: mvz2:pacman_attack
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -3124,6 +3136,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74a28834da3b28c4380e26cdf32209e1
+    m_Address: mvz2:pacman_ghost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74da7e893d261a549a659cfaef15b372
     m_Address: mvz2:entity/boss/frankenstein
     m_ReadOnly: 0
@@ -3254,6 +3272,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79cd64436df420841af7d99b9c0ed2a6
+    m_Address: mvz2:pacman_start
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a8db72eb32f2374786990b1c3e9de7a
     m_Address: mvz2:misc/nightmare_censored
@@ -7063,6 +7087,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fafac1d45c5bdb24b9dfb56a50fc4fe2
+    m_Address: mvz2:pacman_kill
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fbd4f223bde2b0548986faf783bc0f17
     m_Address: mvz2:effect/magnetic_line

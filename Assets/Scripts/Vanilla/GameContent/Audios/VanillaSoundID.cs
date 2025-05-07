@@ -98,6 +98,10 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID nimbleFabric = Get("nimble_fabric");
         public readonly static NamespaceID nyaightmareScream = Get("nyaightmare_scream");
         public readonly static NamespaceID odd = Get("odd");
+        public readonly static NamespaceID pacmanStart = Get("pacman_start");
+        public readonly static NamespaceID pacmanAttack = Get("pacman_attack");
+        public readonly static NamespaceID pacmanGhost = Get("pacman_ghost");
+        public readonly static NamespaceID pacmanKill = Get("pacman_kill");
         public readonly static NamespaceID paper = Get("paper");
         public readonly static NamespaceID parabotTick = Get("parabot_tick");
         public readonly static NamespaceID parasitize = Get("parasitize");

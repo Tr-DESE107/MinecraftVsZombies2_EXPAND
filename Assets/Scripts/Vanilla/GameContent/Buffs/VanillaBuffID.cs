@@ -49,6 +49,7 @@ namespace MVZ2.GameContent.Buffs
         public const string bottledBlackholeDamage = "bottled_blackhole_damage";
         public const string noteBlockLoud = "note_block_loud";
         public const string lightningOrbEvoked = "lightning_orb_evoked";
+        public const string devourerInvincible = "devourer_invincible";
 
         // Enemy
         public const string gemCarrier = "gem_carrier";
