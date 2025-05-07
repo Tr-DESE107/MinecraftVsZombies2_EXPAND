@@ -38,22 +38,22 @@ namespace MVZ2.Vanilla.Entities
         {
             return projectile.GetProperty<NamespaceID[]>(DAMAGE_EFFECTS);
         }
-        public static void IgnoreProjectileCollider(this Entity entity, IEntityCollider other)
+        public static void AddIgnoredProjectileCollider(this Entity projectile, IEntityCollider other)
         {
-            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);
+            var colliders = projectile.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);
             if (colliders == null)
             {
                 colliders = new List<EntityColliderReference>();
-                entity.SetBehaviourField(IGNORED_COLLIDERS, colliders);
+                projectile.SetBehaviourField(IGNORED_COLLIDERS, colliders);
             }
             var reference = other.ToReference();
             if (colliders.Contains(reference))
                 return;
             colliders.Add(reference);
         }
-        public static void DismissProjectileCollider(this Entity entity, IEntityCollider other)
+        public static void RemoveIgnoredProjectileCollider(this Entity projectile, IEntityCollider other)
         {
-            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);
+            var colliders = projectile.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);
             if (colliders == null)
             {
                 return;
@@ -61,9 +61,9 @@ namespace MVZ2.Vanilla.Entities
             var reference = other.ToReference();
             colliders.Remove(reference);
         }
-        public static bool IsProjectileColliderIgnored(this Entity entity, IEntityCollider other)
+        public static bool IsProjectileColliderIgnored(this Entity projectile, IEntityCollider other)
         {
-            var colliders = entity.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);
+            var colliders = projectile.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);
             if (colliders == null)
             {
                 return false;

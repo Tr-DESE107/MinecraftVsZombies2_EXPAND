@@ -66,13 +66,13 @@ namespace MVZ2.Vanilla.Entities
             var otherCollider = collision.OtherCollider;
             if (state == EntityCollisionHelper.STATE_EXIT)
             {
-                entity.DismissProjectileCollider(otherCollider);
+                entity.RemoveIgnoredProjectileCollider(otherCollider);
             }
             else
             {
                 if (collision.Other == spawner && GetStartHitSpawnerProtectTimeout(entity) > 0)
                 {
-                    entity.IgnoreProjectileCollider(otherCollider);
+                    entity.AddIgnoredProjectileCollider(otherCollider);
                 }
                 UnitCollide(collision);
             }
@@ -179,7 +179,7 @@ namespace MVZ2.Vanilla.Entities
                 }
             }
             // 将碰撞箱加入到已被碰撞的的列表。
-            projectile.IgnoreProjectileCollider(otherCollider);
+            projectile.AddIgnoredProjectileCollider(otherCollider);
 
             // 触发击中后回调。
             PostHitEntity(hitOutput, damageOutput);

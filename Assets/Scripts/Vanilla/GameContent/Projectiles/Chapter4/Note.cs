@@ -59,7 +59,7 @@ namespace MVZ2.GameContent.Projectiles
                 return;
             note.SetDamage(noteBlock.GetDamage());
             note.Velocity = noteBlock.GetFacingDirection() * noteBlock.GetShotVelocity().magnitude;
-            note.IgnoreProjectileCollider(collision.OtherCollider);
+            note.AddIgnoredProjectileCollider(collision.OtherCollider);
             noteBlock.TriggerAnimation("Shoot");
             NoteBlock.PlayHarpSound(noteBlock);
         }
