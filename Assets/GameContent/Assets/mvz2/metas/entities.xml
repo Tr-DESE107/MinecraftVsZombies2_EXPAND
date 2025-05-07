@@ -518,6 +518,20 @@
             <id name="fragmentId" value="mvz2:dispenser"/>
             <int name="cost" value="125" />
         </dispenser>
+        <contraption id="devourer" name="吞噬者" tooltip="移除刷怪笼，或将器械变回蓝图掉落物" unlock="mvz2:level.mausoleum_4">
+            <id name="fragmentId" value="mvz2:furnace"/>
+            <bool name="canDeactive" value="false"/>
+            <bool name="loyal" value="true"/>
+            <int name="maxTimeout" value="135"/>
+            <float name="gravity" value="0"/>
+            <vector3 name="size" x="48" y="48" z="48"/>
+            <id name="placement" value="mvz2:devourer"/>
+            <idArray name="gridLayers" value="mvz2:tool"/>
+            <int name="waterInteraction" value="0"/>
+
+            <int name="cost" value="75" />
+            <id name="rechargeId" value="mvz2:short" />
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">
@@ -1130,6 +1144,12 @@
             <float name="gravity" value="0"/>
             <id name="collectSound" value="mvz2:starshard_use"/>
             <id name="modelId" value="mvz2:entity.starshard.default"/>
+        </pickup>
+        <pickup id="blueprint_pickup" name="蓝图掉落物">
+            <bool name="noAutoCollect" value="true"/>
+            <bool name="strictCollect" value="true"/>
+            <int name="maxTimeout" value="450"/>
+            <id name="collectSound" value="mvz2:pick"/>
         </pickup>
 
         <!-- Projectiles -->

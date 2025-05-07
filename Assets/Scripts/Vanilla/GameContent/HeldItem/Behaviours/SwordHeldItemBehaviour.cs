@@ -42,6 +42,11 @@ namespace MVZ2.GameContent.HeldItems
 
             return false;
         }
+        public override void Update(LevelEngine level, IHeldItemData data)
+        {
+            base.Update(level, data);
+            level.GetHeldItemModelInterface()?.SetAnimationBool("Paralyzed", level.HasBuff<SwordParalyzedBuff>());
+        }
         public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction phase)
         {
             base.Use(target, data, phase);

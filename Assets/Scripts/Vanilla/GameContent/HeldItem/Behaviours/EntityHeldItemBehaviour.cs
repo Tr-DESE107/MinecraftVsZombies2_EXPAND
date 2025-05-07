@@ -14,11 +14,17 @@ namespace MVZ2.GameContent.HeldItems
         public EntityHeldItemBehaviour(HeldItemDefinition definition) : base(definition)
         {
         }
+        public override void Update(LevelEngine level, IHeldItemData data)
+        {
+            var entity = GetEntity(level, data.ID);
+            var behaviour = GetBehaviour(entity);
+            behaviour?.Update(entity, level, data);
+        }
         public override bool IsValidFor(HeldItemTarget target, IHeldItemData data)
         {
             var entity = GetEntity(target.GetLevel(), data.ID);
             var behaviour = GetBehaviour(entity);
-            return behaviour?.CheckRaycast(entity, target, data) ?? false;
+            return behaviour?.IsValidFor(entity, target, data) ?? false;
         }
         public override HeldHighlight GetHighlight(HeldItemTarget target, IHeldItemData data)
         {

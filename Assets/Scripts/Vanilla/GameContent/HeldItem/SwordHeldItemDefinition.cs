@@ -26,11 +26,6 @@ namespace MVZ2.GameContent.HeldItems
             AddBehaviour(new TriggerCartHeldItemBehaviour(this));
             AddBehaviour(new SwordHeldItemBehaviour(this));
         }
-        public override void Update(LevelEngine level, IHeldItemData data)
-        {
-            base.Update(level, data);
-            level.GetHeldItemModelInterface()?.SetAnimationBool("Paralyzed", level.HasBuff<SwordParalyzedBuff>());
-        }
         public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
             return VanillaModelID.swordHeldItem;

@@ -356,6 +356,9 @@
     <sound name="mechanism">
         <sample path="mvz2:mechanism" weight="1" />
     </sound>
+    <sound name="metal_saw" loopPitchStart="0" loopPitchEnd="1" loopFadeInSpeed="2" loopFadeOutSpeed="1">
+        <sample path="mvz2:metal_saw" weight="1" />
+    </sound>
     <sound name="meow">
         <sample path="mvz2:meow" weight="1" />
     </sound>

@@ -15,18 +15,6 @@ namespace MVZ2.GameContent.HeldItems
         {
             AddBehaviour(new EntityHeldItemBehaviour(this));
         }
-        public override void Update(LevelEngine level, IHeldItemData data)
-        {
-            var entity = GetEntity(level, data.ID);
-            var behaviour = GetBehaviour(entity);
-            behaviour?.Update(entity, level, data);
-        }
-        public override SeedPack GetSeedPack(LevelEngine level, IHeldItemData data)
-        {
-            var entity = GetEntity(level, data.ID);
-            var behaviour = GetBehaviour(entity);
-            return behaviour?.GetSeedPack(entity, level, data);
-        }
         public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
             var entity = GetEntity(level, data.ID);
@@ -53,10 +41,9 @@ namespace MVZ2.GameContent.HeldItems
 
     public interface IHeldEntityBehaviour
     {
-        bool CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data);
+        bool IsValidFor(Entity entity, HeldItemTarget target, IHeldItemData data);
         HeldHighlight GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data);
-        void Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction phase);
-        SeedPack GetSeedPack(Entity entity, LevelEngine level, IHeldItemData data);
+        void Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction);
         NamespaceID GetModelID(Entity entity, LevelEngine level, IHeldItemData data);
         float GetRadius(Entity entity, LevelEngine level, IHeldItemData data);
         void Update(Entity entity, LevelEngine level, IHeldItemData data);

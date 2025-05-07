@@ -1,7 +1,9 @@
-﻿using MVZ2.Vanilla.Entities;
+﻿using MVZ2.HeldItems;
+using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.SeedPacks;
@@ -19,7 +21,7 @@ namespace MVZ2.Vanilla.Callbacks
         public delegate void CanPlaceEntity(LawnGrid grid, NamespaceID entityID, TriggerResultNamespaceID error);
         public delegate void PrePlaceEntity(LawnGrid grid, NamespaceID entityID, TriggerResultBoolean cancel);
         public delegate void PostPlaceEntity(LawnGrid grid, Entity entity);
-        public delegate void PostUseEntityBlueprint(SeedPack blueprint, Entity entity);
+        public delegate void PostUseEntityBlueprint(Entity entity, SeedDefinition definition, SeedPack blueprint, IHeldItemData heldData);
         public delegate void PostEntityCharm(Entity entity, Buff buff);
 
         public delegate void PostContraptionTrigger(Entity entity);

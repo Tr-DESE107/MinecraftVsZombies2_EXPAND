@@ -70,7 +70,11 @@ namespace MVZ2.Level
 
             // 显示触发器图标。
             bool triggerVisible = false;
-            var blueprint = definition.GetSeedPack(level, data);
+            SeedPack blueprint = null;
+            if (definition is IBlueprintHeldItemDefinition blueprintHeld)
+            {
+                blueprint = blueprintHeld.GetSeedPack(level, data);
+            }
             if (blueprint != null && blueprint.IsTriggerActive() && blueprint.CanInstantTrigger())
             {
                 triggerVisible = true;

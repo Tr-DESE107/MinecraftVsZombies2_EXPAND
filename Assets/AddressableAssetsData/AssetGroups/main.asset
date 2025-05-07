@@ -359,6 +359,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f9ff25f9f164584e85c12f40dbebdd0
+    m_Address: mvz2:entity/contraptions/devourer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0fb72eb4c6c7c2e4dae8be0c2e9e203f
     m_Address: mvz2:chest_close
     m_ReadOnly: 0
@@ -4629,6 +4635,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7805641052139445a0dcbc8b61de294
+    m_Address: mvz2:contraption/mausoleum/devourer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
     m_Address: mvz2:talk/villager/villager_short2
     m_ReadOnly: 0
@@ -5162,6 +5174,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8020c439faa36e4a93b2a903db60899
+    m_Address: mvz2:mobile_blueprint/splitenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b817bd6b5917ccb4399c12157028cd39
     m_Address: mvz2:contraption/upgrade/golden_dropper
@@ -6543,6 +6561,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebc1bc1b42e137b42adfbcca2cba53b4
+    m_Address: mvz2:metal_saw
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec212abe3448fae468e8a869c194bb7c
     m_Address: mvz2:entity/contraption/totenser
     m_ReadOnly: 0
@@ -7009,6 +7033,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9f35a26c043a7b4fa4d6f5836941b01
+    m_Address: mvz2:mobile_blueprint/devourer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9f740f9b1248114bbb7d3e4726e5922
     m_Address: mvz2:evocation

@@ -14,7 +14,6 @@ namespace MVZ2.Vanilla.Entities
         {
             if (!CanCollect(pickup))
                 return;
-            pickup.State = VanillaEntityStates.PICKUP_COLLECTED;
             var collectible = pickup.Definition.GetBehaviour<ICollectiblePickup>();
             if (collectible != null)
                 collectible.PostCollect(pickup);

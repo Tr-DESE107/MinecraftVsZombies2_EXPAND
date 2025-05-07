@@ -449,7 +449,7 @@ namespace MVZ2.Talk
                             {
                                 NamespaceID soundId = ParseArgumentNamespaceID(args[1]);
                                 float volume = ParseArgumentFloat(args[2]);
-                                Main.SoundManager.SetLoopSoundVolume(soundId, volume);
+                                Main.SoundManager.SetLoopSoundIntensity(soundId, volume);
                                 Main.SoundManager.StopFadeLoopSound(soundId);
                             }
                             break;
@@ -458,7 +458,7 @@ namespace MVZ2.Talk
                                 NamespaceID soundId = ParseArgumentNamespaceID(args[1]);
                                 if (args.Length >= 5)
                                 {
-                                    Main.SoundManager.SetLoopSoundVolume(soundId, ParseArgumentFloat(args[2]));
+                                    Main.SoundManager.SetLoopSoundIntensity(soundId, ParseArgumentFloat(args[2]));
                                     Main.SoundManager.StartFadeLoopSound(soundId, ParseArgumentFloat(args[3]), ParseArgumentFloat(args[4]));
                                 }
                                 else if (args.Length == 4)

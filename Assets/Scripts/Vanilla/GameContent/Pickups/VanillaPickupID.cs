@@ -13,6 +13,7 @@ namespace MVZ2.GameContent.Pickups
         public const string clearPickup = "clear_pickup";
         public const string starshard = "starshard";
         public const string artifactPickup = "artifact_pickup";
+        public const string blueprintPickup = "blueprint_pickup";
     }
     public static class VanillaPickupID
     {
@@ -24,6 +25,7 @@ namespace MVZ2.GameContent.Pickups
         public static readonly NamespaceID clearPickup = Get(VanillaPickupNames.clearPickup);
         public static readonly NamespaceID starshard = Get(VanillaPickupNames.starshard);
         public static readonly NamespaceID artifactPickup = Get(VanillaPickupNames.artifactPickup);
+        public static readonly NamespaceID blueprintPickup = Get(VanillaPickupNames.blueprintPickup);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

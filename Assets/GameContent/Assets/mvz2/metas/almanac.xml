@@ -450,7 +450,21 @@
                 <p>幸好他邻居是闪电之珠，不然就又有人要来投诉了。</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:devourer">
+            <header>
+                <p>吞噬者可以用于消除刷怪笼，或者用于将器械变回一张蓝图掉落物。</p>
+            </header>
+            <properties>
+                <p>技能：<![CDATA[<color=red>变成吃豆人中的小幽灵！</color>]]></p>
+            </properties>
+            <flavor>
+                <p>“我受不了了！！！！！！！！！！！！”</p>
+                <p>“吵死了！！！！！！！！！！！！”</p>
+                <p>“我要搬家！！！！！！！！！！！！”</p>
+                <p/>
+                <p>……至少上一个这栋楼的住户是这么说的。</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>

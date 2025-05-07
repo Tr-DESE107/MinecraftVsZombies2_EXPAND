@@ -40,9 +40,14 @@ namespace MVZ2.GameContent.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.PICKUP:
-                    if (interaction != PointerInteraction.Release)
+                    if (!entity.IsCollected())
                     {
-                        if (!entity.IsCollected())
+                        bool interacted = interaction != PointerInteraction.Release;
+                        if (entity.IsStrictCollect())
+                        {
+                            interacted = interaction == PointerInteraction.Press;
+                        }
+                        if (interacted)
                         {
                             if (entity.CanCollect())
                             {

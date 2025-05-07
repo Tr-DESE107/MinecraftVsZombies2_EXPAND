@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.CART:
-                    return HeldHighlight.Entity;
+                    return HeldHighlight.Entity(entity);
             }
             return HeldHighlight.None;
         }

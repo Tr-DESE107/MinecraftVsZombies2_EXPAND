@@ -24,7 +24,9 @@ namespace MVZ2.GameContent.Contraptions
             var grid = silk.GetGrid();
             if (grid != null)
             {
-                foreach (var layer in grid.GetLayers().OrderByDescending(l => Global.Game.GetGridLayerPriority(l)))
+                var layers = grid.GetLayers();
+                var orderedLayers = layers.OrderBy(l => Global.Game.GetGridLayerGroup(l)).ThenByDescending(l => Global.Game.GetGridLayerPriority(l));
+                foreach (var layer in orderedLayers)
                 {
                     var entity = grid.GetLayerEntity(layer);
                     if (!CanSleep(entity))

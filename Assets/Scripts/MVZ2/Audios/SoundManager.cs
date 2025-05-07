@@ -121,17 +121,18 @@ namespace MVZ2.Audios
                 return;
             source.transform.position = position;
         }
-        public float GetLoopSoundVolume(NamespaceID id)
+        public float GetLoopSoundIntensity(NamespaceID id)
         {
             if (!loopSoundSources.TryGetValue(id, out var source))
                 return -1;
-            return source.Volume;
+            return source.Intensity;
         }
-        public void SetLoopSoundVolume(NamespaceID id, float volume)
+        public void SetLoopSoundIntensity(NamespaceID id, float intensity)
         {
             if (!loopSoundSources.TryGetValue(id, out var source))
                 return;
-            source.Volume = volume;
+            source.Intensity = intensity;
+            UpdateLoopSound(id, source, intensity);
         }
         #endregion
         private void Update()
@@ -143,6 +144,22 @@ namespace MVZ2.Audios
                     RemoveSoundSource(source);
                 }
             }
+        }
+        private void UpdateLoopSound(NamespaceID id, SoundSource source, float intensity)
+        {
+            var meta = Main.ResourceManager.GetSoundMeta(id);
+            if (meta == null)
+            {
+                source.Volume = intensity;
+                source.Pitch = 1;
+                return;
+            }
+
+            var pitchStart = meta.loopPitchStart;
+            var pitchEnd = meta.loopPitchEnd;
+            var pitch = (pitchEnd - pitchStart) * intensity + pitchStart;
+            source.Volume = intensity;
+            source.Pitch = pitch;
         }
         private void RemoveSoundSource(SoundSource source)
         {

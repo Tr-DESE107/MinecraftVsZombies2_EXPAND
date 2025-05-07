@@ -29,7 +29,6 @@ namespace MVZ2.GameContent.Stages
             level.LevelProgressVisible = true;
             level.SetProgressBarToBoss(VanillaProgressBarID.wither);
             level.SetTriggerActive(true);
-            level.SetStarshardCount(5);
             var cartRef = level.GetProperty<NamespaceID>(EngineAreaProps.CART_REFERENCE);
             level.SpawnCarts(cartRef, VanillaLevelExt.CART_START_X, 20);
         }
@@ -37,6 +36,7 @@ namespace MVZ2.GameContent.Stages
         {
             base.OnUpdate(level);
             level.SetStarshardSlotCount(5);
+            level.SetStarshardCount(5);
             level.CheckGameOver();
         }
         private void ClassicStart(LevelEngine level) 
@@ -45,18 +45,17 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.wickedHermitZombie,
-                VanillaEnemyID.caveSpider,
-                VanillaEnemyID.ghast,
-                VanillaContraptionID.furnace,
-                VanillaContraptionID.dispenser,
-
-                VanillaContraptionID.goldenApple,
-                VanillaContraptionID.splitenser,
-                VanillaContraptionID.mineTNT,
+                VanillaObstacleID.monsterSpawner,
                 VanillaContraptionID.tnt,
+                VanillaContraptionID.devourer,
+                VanillaContraptionID.furnace,
+
+                VanillaContraptionID.dispenser,
+                VanillaContraptionID.stoneShield,
+                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.forcePad,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

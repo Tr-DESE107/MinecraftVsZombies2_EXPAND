@@ -47,7 +47,7 @@ namespace MVZ2.Vanilla.Entities
                 }
 
 
-                if (!pickup.IsImportantPickup() && pickup.Timeout >= 0)
+                if (!pickup.IsImportantPickup() && !level.IsHoldingEntity(pickup) && pickup.Timeout >= 0)
                 {
                     pickup.Timeout--;
                     if (pickup.Timeout <= 0)
@@ -69,6 +69,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public virtual void PostCollect(Entity pickup)
         {
+            pickup.State = VanillaEntityStates.PICKUP_COLLECTED;
             if (pickup.RemoveOnCollect())
             {
                 pickup.Remove();

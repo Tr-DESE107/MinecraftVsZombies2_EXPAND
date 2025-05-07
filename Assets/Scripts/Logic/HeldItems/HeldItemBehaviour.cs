@@ -1,6 +1,7 @@
 ﻿using MVZ2.HeldItems;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
+using PVZEngine.Level;
 
 namespace MVZ2Logic.HeldItems
 {
@@ -9,6 +10,9 @@ namespace MVZ2Logic.HeldItems
         public HeldItemBehaviour(HeldItemDefinition definition)
         {
             Definition = definition;
+        }
+        public virtual void Update(LevelEngine level, IHeldItemData data)
+        {
         }
 
         public virtual bool IsValidFor(HeldItemTarget target, IHeldItemData data)

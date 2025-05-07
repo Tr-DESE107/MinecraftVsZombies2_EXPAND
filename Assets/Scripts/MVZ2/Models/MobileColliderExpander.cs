@@ -57,6 +57,7 @@ namespace MVZ2.Models
             }
         }
         private bool active;
-        private const float scale = 2.5f;
+        [SerializeField]
+        private float scale = 2.5f;
     }
 }

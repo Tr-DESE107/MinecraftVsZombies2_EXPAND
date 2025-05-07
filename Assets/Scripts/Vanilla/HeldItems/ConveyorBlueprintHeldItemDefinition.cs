@@ -15,7 +15,6 @@ namespace MVZ2.Vanilla.HeldItems
         {
             AddBehaviour(new ConveyorBlueprintHeldItemBehaviour(this));
         }
-
         public override SeedPack GetSeedPack(LevelEngine level, IHeldItemData data)
         {
             return level.GetConveyorSeedPackAt((int)data.ID);

@@ -113,13 +113,13 @@ namespace MVZ2.Level.Components
             var pos = Controller.LawnToTrans(position);
             Main.SoundManager.SetLoopSoundPosition(id, pos);
         }
-        private float GetLoopSoundVolume(NamespaceID id)
+        private float GetLoopSoundIntensity(NamespaceID id)
         {
-            return Main.SoundManager.GetLoopSoundVolume(id);
+            return Main.SoundManager.GetLoopSoundIntensity(id);
         }
-        private void SetLoopSoundVolume(NamespaceID id, float volume)
+        private void SetLoopSoundIntensity(NamespaceID id, float level)
         {
-            Main.SoundManager.SetLoopSoundVolume(id, volume);
+            Main.SoundManager.SetLoopSoundIntensity(id, level);
         }
         private void UpdateLoopSoundEntities(NamespaceID id)
         {
@@ -151,12 +151,19 @@ namespace MVZ2.Level.Components
             for (int i = playingLoopSounds.Count - 1; i >= 0; i--)
             {
                 var soundID = playingLoopSounds[i];
-                if (HasLoopSoundEntities(soundID) && Controller.IsGameRunning())
-                    continue;
-                var volume = GetLoopSoundVolume(soundID);
-                volume -= deltaTime;
-                SetLoopSoundVolume(soundID, volume);
-                if (volume <= 0)
+                var intensity = GetLoopSoundIntensity(soundID);
+                var meta = Main.ResourceManager.GetSoundMeta(soundID);
+                bool active = HasLoopSoundEntities(soundID) && Controller.IsGameRunning();
+                float speed = active ? 1 : -1;
+                if (meta != null)
+                {
+                    speed = active ? meta.loopFadeInSpeed : -meta.loopFadeOutSpeed;
+                }
+                speed *= deltaTime;
+                intensity = Mathf.Clamp01(intensity + speed);
+                SetLoopSoundIntensity(soundID, intensity);
+
+                if (!active && intensity <= 0)
                 {
                     StopLoopSound(soundID);
                 }

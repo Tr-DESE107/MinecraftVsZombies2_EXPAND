@@ -97,7 +97,7 @@ namespace MVZ2.GameContent.Pickups
 
             foreach (var p in level.GetEntities(EntityTypes.PICKUP))
             {
-                if (p == pickup || p.IsCollected())
+                if (p == pickup || p.IsCollected() || !p.NoAutoCollect())
                     continue;
                 p.Collect();
             }

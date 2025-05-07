@@ -32,7 +32,6 @@ namespace PVZEngine.SeedPacks
                 auras.Add(level, new AuraEffect(auraDef, i, this));
             }
         }
-        public abstract int GetIndex();
         public NamespaceID GetDefinitionID()
         {
             return Definition?.GetID();

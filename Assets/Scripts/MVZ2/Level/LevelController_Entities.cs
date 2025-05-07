@@ -6,6 +6,7 @@ using MVZ2.Collisions;
 using MVZ2.Entities;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
+using MVZ2.HeldItems;
 using MVZ2.Level.UI;
 using MVZ2.Metas;
 using MVZ2.Supporters;
@@ -17,6 +18,7 @@ using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
 using PVZEngine.SeedPacks;
@@ -47,7 +49,7 @@ namespace MVZ2.Level
         {
             RemoveControllerFromEntity(entity);
         }
-        private void Engine_PostUseEntityBlueprintCallback(SeedPack blueprint, Entity entity)
+        private void Engine_PostUseEntityBlueprintCallback(Entity entity, SeedDefinition definition, SeedPack blueprint, IHeldItemData heldData)
         {
             if (!Main.OptionsManager.ShowSponsorNames())
                 return;
@@ -206,17 +208,13 @@ namespace MVZ2.Level
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(pointerPosition);
             var target = hoveredEntity.GetHeldItemTarget(worldPosition);
             var highlight = level.GetHeldHighlight(target);
-            if (highlight == HeldHighlight.Entity)
+            if (highlight.mode == HeldHighlightMode.Entity)
             {
-                SetHighlightedEntity(hoveredEntity);
-            }
-            else if (highlight == HeldHighlight.ProtectedEntity)
-            {
-                var protectTarget = hoveredEntity.Entity.GetProtectingTarget();
-                if (protectTarget != null)
+                var targetEntity = highlight.entity;
+                if (targetEntity != null)
                 {
-                    var protectCtrl = GetEntityController(protectTarget);
-                    SetHighlightedEntity(protectCtrl);
+                    var ctrl = GetEntityController(targetEntity);
+                    SetHighlightedEntity(ctrl);
                 }
             }
         }

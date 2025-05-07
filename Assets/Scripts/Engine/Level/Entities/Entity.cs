@@ -397,7 +397,14 @@ namespace PVZEngine.Entities
         {
             return Level.GetLane(Position.z);
         }
-        public void GetTakingGridLayers(LawnGrid grid, List<NamespaceID> results)
+        public NamespaceID[] GetTakingGridLayers(LawnGrid grid)
+        {
+            var hashSet = GetTakenGridLayerHashSet(grid);
+            if (hashSet == null)
+                return Array.Empty<NamespaceID>();
+            return hashSet.ToArray();
+        }
+        public void GetTakingGridLayersNonAlloc(LawnGrid grid, List<NamespaceID> results)
         {
             var hashSet = GetTakenGridLayerHashSet(grid);
             if (hashSet == null)

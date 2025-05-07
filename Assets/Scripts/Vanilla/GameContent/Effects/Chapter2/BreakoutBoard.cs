@@ -295,7 +295,7 @@ namespace MVZ2.GameContent.Effects
             return entryTime;
         }
 
-        bool IHeldEntityBehaviour.CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data)
+        bool IHeldEntityBehaviour.IsValidFor(Entity entity, HeldItemTarget target, IHeldItemData data)
         {
             return target is HeldItemTargetLawn targetLawn && targetLawn.Area == LawnArea.Main;
         }
@@ -311,11 +311,6 @@ namespace MVZ2.GameContent.Effects
             if (interaction != targetPhase)
                 return;
             FirePearl(entity);
-        }
-
-        SeedPack IHeldEntityBehaviour.GetSeedPack(Entity entity, LevelEngine level, IHeldItemData data)
-        {
-            return null;
         }
 
         NamespaceID IHeldEntityBehaviour.GetModelID(Entity entity, LevelEngine level, IHeldItemData data)

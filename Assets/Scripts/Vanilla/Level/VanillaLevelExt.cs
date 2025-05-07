@@ -80,9 +80,9 @@ namespace MVZ2.Vanilla.Level
         {
             var heldType = level.GetHeldItemType();
             var heldDefinition = level.Content.GetHeldItemDefinition(heldType);
-            if (heldDefinition == null)
+            if (heldDefinition is not IBlueprintHeldItemDefinition blueprintheldDef)
                 return null;
-            var seed = heldDefinition.GetSeedPack(level, level.GetHeldItemData());
+            var seed = blueprintheldDef.GetSeedPack(level, level.GetHeldItemData());
             var seedDef = seed?.Definition;
             if (seedDef == null)
                 return null;

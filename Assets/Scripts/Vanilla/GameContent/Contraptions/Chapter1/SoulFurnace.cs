@@ -151,7 +151,7 @@ namespace MVZ2.GameContent.Contraptions
             if (targetGrid == null)
                 return;
             var layers = targetGrid.GetLayers();
-            var orderedLayers = layers.OrderByDescending(l => Global.Game.GetGridLayerPriority(l));
+            var orderedLayers = layers.OrderByDescending(l => Global.Game.GetGridLayerGroup(l)).ThenByDescending(l => Global.Game.GetGridLayerPriority(l));
             foreach (var layer in orderedLayers)
             {
                 var ent = targetGrid.GetLayerEntity(layer);

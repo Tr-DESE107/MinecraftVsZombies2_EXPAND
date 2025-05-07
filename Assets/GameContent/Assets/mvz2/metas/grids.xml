@@ -1,8 +1,9 @@
 <grids>
     <layers>
-        <layer id="protector" priority="100" />
-        <layer id="main" priority="0" />
-        <layer id="carrier" priority="-100" />
+        <layer id="protector" group="1" priority="0" />
+        <layer id="tool" group="0" priority="100" />
+        <layer id="main" group="0" priority="0" />
+        <layer id="carrier" group="0" priority="-100" />
     </layers>
     <errors>
         <error id="already_taken"/>
@@ -13,6 +14,7 @@
         <error id="not_on_plane" message="你不能在薄面上放置该器械"/>
         <error id="not_on_land" message="你不能在陆地上放置该器械"/>
         <error id="only_can_sleep" message="只能放置在可以睡觉的器械上"/>
+        <error id="only_can_mill" message="只能放置在刷怪笼或者器械上"/>
         <error id="only_upgrade" message="只能放置在目标器械上"/>
     </errors>
 </grids>

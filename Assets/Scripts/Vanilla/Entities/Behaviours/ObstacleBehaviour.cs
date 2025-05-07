@@ -44,12 +44,12 @@ namespace MVZ2.Vanilla.Entities
         {
             var grid = entity.GetGrid();
             var statueTakenLayers = new List<NamespaceID>();
-            entity.GetTakingGridLayers(grid, statueTakenLayers);
+            entity.GetTakingGridLayersNonAlloc(grid, statueTakenLayers);
             var entityTakenLayers = new List<NamespaceID>();
             foreach (var contraption in entity.Level.FindEntities(e => e.Type == EntityTypes.PLANT && e.GetGrid() == grid))
             {
                 entityTakenLayers.Clear();
-                contraption.GetTakingGridLayers(grid, entityTakenLayers);
+                contraption.GetTakingGridLayersNonAlloc(grid, entityTakenLayers);
                 if (!entityTakenLayers.Any(l => statueTakenLayers.Contains(l)))
                     continue;
                 contraption.Die();

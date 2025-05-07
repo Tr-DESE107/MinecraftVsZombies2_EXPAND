@@ -434,7 +434,7 @@ namespace MVZ2.Vanilla.Entities
             foreach (var grid in entityGridBuffer)
             {
                 entityGridLayerBuffer.Clear();
-                entity.GetTakingGridLayers(grid, entityGridLayerBuffer);
+                entity.GetTakingGridLayersNonAlloc(grid, entityGridLayerBuffer);
                 foreach (var layer in entityGridLayerBuffer)
                 {
                     if (CanTakeGrid(entity, grid, layer))

@@ -1,12 +1,13 @@
-﻿using MVZ2.Vanilla.Callbacks;
+﻿using MVZ2.HeldItems;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
+using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Implements
 {
@@ -22,7 +23,7 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, PostEnemyNeutralizeCallback);
             mod.AddTrigger(LevelCallbacks.POST_GAME_OVER, PostGameOverCallback);
         }
-        private void PostUseEntityBlueprintCallback(SeedPack blueprint, Entity entity)
+        private void PostUseEntityBlueprintCallback(Entity entity, SeedDefinition definition, SeedPack blueprint, IHeldItemData heldData)
         {
             if (entity.Type != EntityTypes.PLANT)
                 return;
