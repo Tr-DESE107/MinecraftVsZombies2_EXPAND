@@ -38,6 +38,10 @@ namespace MVZ2.GameContent.Enemies
             {
                 jumpTimes = 0;
             }
+            else if (entity.Level.Difficulty == VanillaDifficulties.lunatic)
+            {
+                jumpTimes = 2;
+            }
             SetGallopTime(entity, jumpTimes);
         }
         public override void PostContactGround(Entity entity, Vector3 velocity)

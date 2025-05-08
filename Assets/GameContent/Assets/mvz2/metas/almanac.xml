@@ -85,31 +85,21 @@
         <entry />
         <entry />
         <entry />
-        <entry id="mvz2:small_dispenser">
-            <header>
-                <p>小型发射器能发射短距离的雪球。</p>
-            </header>
-            <properties>
-                <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>射出一个越滚越大的雪球</color>]]></p>
-            </properties>
-            <flavor>
-                <p>雪球里包着石头，别问了。</p>
-            </flavor>
-        </entry>
+        
 		
 		<entry id="mvz2:Poisonser">
 			<header>
-				<p>淬毒发射器能发射短距离的毒球。</p>
+				<p>蚀毒发射器能发射短距离的毒球。</p>
 			</header>
 			<properties>
 				<p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
 				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
-				<p>技能：<![CDATA[<color=red>射出一个越滚越大的雪球</color>]]></p>
+				<p>技能：<![CDATA[<color=red>射出一个越滚越大的毒球</color>]]></p>
 			</properties>
 			<flavor>
 				<p>染了毒，别问了。</p>
+				<p>你知道的，亡灵生物不受中毒效果伤害，所以这不是普通的毒。</p>
+				<p><![CDATA[<color=green>这是蚀毒</color>]]></p>
 			</flavor>
 		</entry>
 		
@@ -123,6 +113,14 @@
             </properties>
             <flavor>
                 <p>有时候你们也许很好奇为什么一开始它不是日光传感器，我也可以告诉你：其实月光传感只是它的兼职，只不过它太喜欢这份工作了。</p>
+				<p>他本想放置后立刻倒贴给你们25机械能的，但一个声音拦住了他：</p>
+				<p />
+				<p />
+				<p />
+				<p />
+				<p />
+				<p />
+				<p>你并未氪金，所以并不强大，等未来你氪金买了秘籍再说罢</p>
             </flavor>
         </entry>
         <entry id="mvz2:glowstone">
@@ -505,6 +503,21 @@
         <entry/>
         <entry/>
 
+		<!-- EXPAND 1 -->
+		<entry id="mvz2:small_dispenser">
+			<header>
+				<p>小型发射器能发射短距离的雪球。</p>
+			</header>
+			<properties>
+				<p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>技能：<![CDATA[<color=red>射出一个越滚越大的雪球</color>]]></p>
+			</properties>
+			<flavor>
+				<p>雪球里包着石头，别问了。</p>
+			</flavor>
+		</entry>
+		
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">
             <header>

@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Projectiles
                 return;
             if (enemy.GetShellID() != VanillaShellID.flesh)
                 return;
-            enemy.InflictRegenerationBuff(-2f,150);
+            enemy.InflictRegenerationBuff(-1f,150);
         }
     }
 }

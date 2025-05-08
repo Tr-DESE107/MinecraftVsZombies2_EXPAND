@@ -92,7 +92,8 @@ namespace MVZ2.GameContent.Buffs
         public const string easyContraption = "easy_contraption";
         public const string easyArmor = "easy_armor";
         public const string hardEnemy = "hard_enemy";
-
+        public const string lunaticEnemy = "lunaticEnemy";
+        
         public const string littleZombieArmor = "little_zombie_armor";
         public const string bigTroubleArmor = "big_trouble_armor";
 
@@ -115,6 +116,8 @@ namespace MVZ2.GameContent.Buffs
         {
             public const string levelEasy = "level_easy";
             public const string levelHard = "level_hard";
+            public const string levellunatic = "levellunatic";
+            
             public const string taintedSun = "tainted_sun";
             public const string tutorialPickaxeDisable = "tutorial_pickaxe_disable";
             public const string tutorialTriggerDisable = "tutorial_trigger_disable";
@@ -160,6 +163,8 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID easyContraption = Get(VanillaBuffNames.easyContraption);
         public static readonly NamespaceID easyArmor = Get(VanillaBuffNames.easyArmor);
         public static readonly NamespaceID hardEnemy = Get(VanillaBuffNames.hardEnemy);
+        public static readonly NamespaceID lunaticEnemy = Get(VanillaBuffNames.lunaticEnemy);
+
         public static readonly NamespaceID dreamKeyShield = Get(VanillaBuffNames.dreamKeyShield);
         public static readonly NamespaceID carriedByLilyPad = Get(VanillaBuffNames.carriedByLilyPad);
         public static readonly NamespaceID carryingOther = Get(VanillaBuffNames.carryingOther);
@@ -190,6 +195,7 @@ namespace MVZ2.GameContent.Buffs
         {
             public static readonly NamespaceID levelEasy = Get(VanillaBuffNames.Level.levelEasy);
             public static readonly NamespaceID levelHard = Get(VanillaBuffNames.Level.levelHard);
+            public static readonly NamespaceID levellunatic = Get(VanillaBuffNames.Level.levellunatic);
             public static readonly NamespaceID tutorialPickaxeDisable = Get(VanillaBuffNames.Level.tutorialPickaxeDisable);
             public static readonly NamespaceID darkMatterDark = Get(VanillaBuffNames.Level.darkMatterDark);
             public static readonly NamespaceID pagodaBranchLevel = Get(VanillaBuffNames.Level.pagodaBranchLevel);

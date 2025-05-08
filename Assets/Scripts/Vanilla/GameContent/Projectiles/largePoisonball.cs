@@ -1,4 +1,5 @@
 using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -7,6 +8,7 @@ using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Armors;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
@@ -56,6 +58,20 @@ namespace MVZ2.GameContent.Projectiles
                 source.PlaySound(VanillaSoundID.grind);
             }
         }
+
+        protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput damage)
+        {
+            base.PostHitEntity(hitResult, damage);
+            var enemy = hitResult.Other;
+            if (enemy.Type != EntityTypes.ENEMY)
+                return;
+            if (damage.BodyResult == null)
+                return;
+            if (enemy.GetShellID() != VanillaShellID.flesh)
+                return;
+            enemy.InflictRegenerationBuff(-2f, 300);
+        }
+
         public static float GetSnowballScale(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_SNOWBALL_SCALE);
         public static void SetSnowballScale(Entity entity, float scale) => entity.SetBehaviourField(ID, PROP_SNOWBALL_SCALE, scale);
 

@@ -200,7 +200,7 @@
             <vector3 name="size" x="48" y="24" z="48"/>
             <color name="lightColor" value="#0000FF"/>
 
-            <int name="cost" value="-25" />
+            <int name="cost" value="0" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
 		
@@ -214,7 +214,7 @@
             <vector3 name="lightRange" x="240" y="240" z="240"/>
             <color name="lightColor" value="#FFFF7F"/>
 
-            <int name="cost" value="25" />
+            <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
         <contraption id="punchton" name="冲击活塞" tooltip="冲击前方敌人，需要时间再次准备" unlock="mvz2:level.halloween_4">
@@ -354,7 +354,7 @@
         <contraption id="dream_crystal" name="梦境结晶" tooltip="能够自我修复的障碍墙"  unlock="mvz2:level.dream_8">
             <bool name="canDeactive" value="false"/>
             <bool name="defensive" value="true"/>
-            <float name="maxHealth" value="2000"/>
+            <float name="maxHealth" value="4000"/>
             <id name="placeSound" value="mvz2:crystal_place"/>
             <id name="deathSound" value="mvz2:crystal_break"/>
             <id name="hitSound" value="mvz2:crystal"/>

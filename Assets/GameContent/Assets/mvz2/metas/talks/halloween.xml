@@ -15,6 +15,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">哦对了，顺带一提：</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long3">我们的矿场是以太阳能工作的，而现在是晚上。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">所以，它现在没法被使用了！</sentence>
+		  <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream2">哈哈，开心吗？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2" onClick="end">靠着你的熔炉活过今晚吧！</sentence>
       </sentences>
     </section>

@@ -26,6 +26,27 @@ namespace MVZ2.GameContent.Contraptions
             base.Init(entity);
             entity.PlaySound(VanillaSoundID.glowstone);
             entity.UpdateShineRing();
+
+            entity.AddBuff<GlowstoneEvokeBuff>();
+            entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetCenter(), entity);
+            bool stunned = false;
+            foreach (var target in entity.Level.GetEntities())
+            {
+                if (target.Type == EntityTypes.ENEMY && target.IsHostile(entity) && target.CanDeactive())
+                {
+                    target.Stun(100);
+                    stunned = true;
+                }
+                else if (target.IsEntityOf(VanillaProjectileID.compellingOrb) && target.IsHostile(entity))
+                {
+                    target.Die();
+                }
+            }
+            if (stunned)
+            {
+                entity.PlaySound(VanillaSoundID.stunned);
+            }
+
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -42,7 +63,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 if (target.Type == EntityTypes.ENEMY && target.IsHostile(entity) && target.CanDeactive())
                 {
-                    target.Stun(150);
+                    target.Stun(210);
                     stunned = true;
                 }
                 else if (target.Type == EntityTypes.PLANT && target.IsCharmed())
