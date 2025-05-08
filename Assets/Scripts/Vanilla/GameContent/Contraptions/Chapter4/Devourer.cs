@@ -264,10 +264,11 @@ namespace MVZ2.GameContent.Contraptions
             else
             {
                 target.Remove();
-                var pickup = devourer.Produce(VanillaPickupID.blueprintPickup);
+                var spawnParams = devourer.GetSpawnParams();
                 var entityID = target.GetDefinitionID();
                 var blueprintID = VanillaBlueprintID.FromEntity(entityID);
-                BlueprintPickup.SetBlueprintID(pickup, blueprintID);
+                spawnParams.SetProperty(BlueprintPickup.PROP_BLUEPRINT_ID, blueprintID);
+                devourer.Produce(VanillaPickupID.blueprintPickup, spawnParams);
             }
         }
         private void UpdateDevourerPosition(Entity devourer)
