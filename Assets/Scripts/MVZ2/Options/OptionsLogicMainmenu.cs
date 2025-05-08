@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using MVZ2.Cameras;
+using MVZ2.Mainmenu;
 using MVZ2.UI;
 using MVZ2Logic;
 using UnityEngine;
@@ -10,12 +11,13 @@ namespace MVZ2.Options
     using static MVZ2.UI.OptionsDialog;
     public class OptionsLogicMainmenu : OptionsLogic
     {
-        public OptionsLogicMainmenu(OptionsDialog dialog) : base(dialog)
+        public OptionsLogicMainmenu(OptionsDialog dialog, MainmenuController controller) : base(dialog)
         {
             ResolutionManager.OnResolutionChanged += OnResolutionChangedCallback;
 
             Language = Main.OptionsManager.GetLanguage();
             BloodAndGore = Main.OptionsManager.HasBloodAndGore();
+            mainmenu = controller;
         }
         public override void InitDialog()
         {
@@ -72,6 +74,11 @@ namespace MVZ2.Options
                     {
                         Main.OptionsManager.SwitchShowSponsorNames();
                         UpdateShowSponsorNamesButton();
+                    }
+                    break;
+                case ButtonType.Credits:
+                    {
+                        mainmenu.ShowCredits();
                     }
                     break;
             }
@@ -186,6 +193,7 @@ namespace MVZ2.Options
         public bool NeedsReload { get; private set; }
         public bool BloodAndGore { get; private set; }
         public string Language { get; private set; }
+        private MainmenuController mainmenu;
         private string[] languageValues;
         private Vector2Int[] resolutionValues;
     }

@@ -8,6 +8,10 @@ namespace MVZ2.Mainmenu.UI
 {
     public class MainmenuUI : MonoBehaviour
     {
+        public void SetVersion(string name)
+        {
+            versionText.text = name;
+        }
         public void SetUserName(string name)
         {
             userNameText.text = name;
@@ -73,6 +77,15 @@ namespace MVZ2.Mainmenu.UI
         {
             achievements.UpdateAchievements(viewDatas);
         }
+        public void ShowCredits(CreditsCategoryViewData[] viewDatas)
+        {
+            credits.gameObject.SetActive(true);
+            credits.UpdateCredits(viewDatas);
+        }
+        public void HideCredits()
+        {
+            credits.gameObject.SetActive(false);
+        }
         public IEnumerable<MainmenuButton> GetAllButtons()
         {
             return mainmenuButtonDict.Values;
@@ -106,6 +119,7 @@ namespace MVZ2.Mainmenu.UI
 
             stats.OnReturnClick += () => OnStatsReturnButtonClick?.Invoke();
             achievements.OnReturnClick += () => OnAchievementsReturnButtonClick?.Invoke();
+            credits.OnBackButtonClick += () => OnCreditsReturnButtonClick?.Invoke();
         }
         public event Action<MainmenuButtonType> OnMainmenuButtonClick;
         public event Action OnUserManageDialogCreateNewUserButtonClick;
@@ -113,6 +127,7 @@ namespace MVZ2.Mainmenu.UI
         public event Action<int> OnUserManageDialogUserSelect;
         public event Action OnStatsReturnButtonClick;
         public event Action OnAchievementsReturnButtonClick;
+        public event Action OnCreditsReturnButtonClick;
 
 
         public OptionsDialog OptionsDialog => optionsDialog;
@@ -124,6 +139,8 @@ namespace MVZ2.Mainmenu.UI
         private StatsUI stats;
         [SerializeField]
         private AchievementsUI achievements;
+        [SerializeField]
+        private CreditsPage credits;
 
         [Header("Backgrounds")]
         [SerializeField]
@@ -134,6 +151,8 @@ namespace MVZ2.Mainmenu.UI
         private TextMeshPro userNameText;
         [SerializeField]
         private TextMeshPro userNameGoldText;
+        [SerializeField]
+        private TextMeshPro versionText;
         [SerializeField]
         private SpriteRenderer windowViewSpriteRenderer;
 

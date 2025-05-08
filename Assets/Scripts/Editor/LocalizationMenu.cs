@@ -256,6 +256,16 @@ namespace MVZ2.Editor
                     AddTranslation(potGenerator, stage.Text, storeReference, $"Store item text of {id}");
                 }
             }
+            // 制作人员名单
+            {
+                var creditsDocument = LoadMetaXmlDocument(spaceName, "credits.xml");
+                var creditsList = CreditMetaList.FromXmlNode(creditsDocument["credits"], spaceName);
+                var creditsReference = "Credits meta file";
+                foreach (var category in creditsList.categories)
+                {
+                    AddTranslation(potGenerator, category.Name, creditsReference, $"Name for credits category {category.Name}", VanillaStrings.CONTEXT_STAFF_CATEGORY);
+                }
+            }
 
             potGenerator.WriteOut(GetPoTemplatePath("general.pot"));
             Debug.Log("Script Translations Updated.");

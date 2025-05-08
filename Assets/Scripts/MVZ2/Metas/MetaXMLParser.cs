@@ -84,6 +84,9 @@ namespace MVZ2.Metas
                 case "grids":
                     resource.GridMetaList = GridMetaList.FromXmlNode(document["grids"], defaultNsp);
                     break;
+                case "credits":
+                    resource.CreditsMetaList = CreditMetaList.FromXmlNode(document["credits"], defaultNsp);
+                    break;
             }
         }
         public static ColliderConstructor LoadColliderConstructor(this XmlNode node)

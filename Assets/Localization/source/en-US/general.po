@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-05 07:21+0800\n"
-"PO-Revision-Date: 2025-05-05 19:48+0800\n"
+"POT-Creation-Date: 2025-05-08 08:53+0800\n"
+"PO-Revision-Date: 2025-05-08 08:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -109,6 +109,12 @@ msgstr "More Options"
 #: View/Viewport/Content/Dropdowns/Dropdown2/ResolutionDropdown/Label
 msgid "分辨率"
 msgstr "Resolution"
+
+#. 按钮文本
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
+#: View/Viewport/Content/Buttons/Line2/Credits/Text
+msgid "制作人员名单"
+msgstr "Credits"
 
 #. 对话跳过按钮
 #: /MainGame/MainScene/Note/Talk/SkipButton/Text
@@ -1085,19 +1091,19 @@ msgstr ""
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:618
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:640
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:620
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:642
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:622
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:644
 msgid "没有其他有效的用户可供切换。"
 msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:624
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:646
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
@@ -1135,12 +1141,12 @@ msgstr ""
 "The blueprint selected last time contained artifacts that are not unlocked "
 "yet."
 
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:251
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:248
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:870
+#: Scripts\MVZ2\Level\LevelController_UI.cs:874
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -1148,11 +1154,11 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:872
+#: Scripts\MVZ2\Level\LevelController_UI.cs:876
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:874
+#: Scripts\MVZ2\Level\LevelController_UI.cs:878
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "
@@ -2201,6 +2207,12 @@ msgctxt "advice"
 msgid "只能放置在可以睡觉的器械上"
 msgstr "Can only be placed on contraptions that can sleep"
 
+#. Message for grid error mvz2:only_can_mill
+#: Grid meta file
+msgctxt "advice"
+msgid "只能放置在刷怪笼或者器械上"
+msgstr "Can only be placed on spawners or contraptions"
+
 #. Message for grid error mvz2:only_upgrade
 #: Grid meta file
 msgctxt "advice"
@@ -2543,6 +2555,60 @@ msgid "闪亮亮的星星！每当你使用4次神奇的碎片，会再次生成
 msgstr ""
 "A shiny star! It spawns a magical shard for every 4 magical shards you have "
 "used!"
+
+#. Name for credits category 内容设计
+#: Credits meta file
+msgctxt "credits_category"
+msgid "内容设计"
+msgstr "Content Designer"
+
+#. Name for credits category 程序
+#: Credits meta file
+msgctxt "credits_category"
+msgid "程序"
+msgstr "Programmer"
+
+#. Name for credits category 编剧
+#: Credits meta file
+msgctxt "credits_category"
+msgid "编剧"
+msgstr "Scriptwriter"
+
+#. Name for credits category 关卡背景
+#: Credits meta file
+msgctxt "credits_category"
+msgid "关卡背景"
+msgstr "Stage Backgrounds"
+
+#. Name for credits category 角色立绘
+#: Credits meta file
+msgctxt "credits_category"
+msgid "角色立绘"
+msgstr "Character Arts"
+
+#. Name for credits category 背景插图
+#: Credits meta file
+msgctxt "credits_category"
+msgid "背景插图"
+msgstr "Background Pictures"
+
+#. Name for credits category 音乐
+#: Credits meta file
+msgctxt "credits_category"
+msgid "音乐"
+msgstr "Music"
+
+#. Name for credits category 本地化（英文）
+#: Credits meta file
+msgctxt "credits_category"
+msgid "本地化（英文）"
+msgstr "Localization (English)"
+
+#. Name for credits category 特别感谢
+#: Credits meta file
+msgctxt "credits_category"
+msgid "特别感谢"
+msgstr "Special Thanks"
 
 #~ msgctxt "stat_category"
 #~ msgid "使用星之碎片"

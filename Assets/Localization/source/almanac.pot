@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-07 09:19+0800\n"
+"POT-Creation-Date: 2025-05-08 09:19+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2029,6 +2029,12 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "与史蒂夫共同生活的白衣村民，原名戴夫。"
+msgstr ""
+
+#. Properties for misc mvz2:villager
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "画师：<color=red>Cuerzor58</color>"
 msgstr ""
 
 #. Flavor for misc mvz2:villager

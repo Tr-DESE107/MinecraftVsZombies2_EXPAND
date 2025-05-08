@@ -4905,6 +4905,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af8ae476c30921a47b13d90441b45f33
+    m_Address: mvz2:credits
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: afdd031f724f50d45a87c6542c2948e2
     m_Address: mvz2:icon/nocturnal
     m_ReadOnly: 0

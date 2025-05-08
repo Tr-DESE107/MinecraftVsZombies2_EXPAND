@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-07 09:19+0800\n"
-"PO-Revision-Date: 2025-05-07 21:27+0800\n"
+"POT-Creation-Date: 2025-05-08 09:19+0800\n"
+"PO-Revision-Date: 2025-05-08 09:20+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2493,6 +2493,12 @@ msgstr "Villager"
 msgctxt "misc.description"
 msgid "与史蒂夫共同生活的白衣村民，原名戴夫。"
 msgstr "A crazy villager in a white outfit who lives together with Steve. His name is Dave."
+
+#. Properties for misc mvz2:villager
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "画师：<color=red>Cuerzor58</color>"
+msgstr "Artist: <color=red>Cuerzor58</color>"
 
 #. Flavor for misc mvz2:villager
 #: Almanac meta file

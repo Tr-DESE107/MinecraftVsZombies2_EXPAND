@@ -14,6 +14,7 @@ using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
+using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
@@ -51,6 +52,7 @@ namespace MVZ2.Mainmenu
             {
                 main.MusicManager.Play(VanillaMusicID.mainmenu);
             }
+            ui.SetVersion(Application.version);
             var name = main.SaveManager.GetCurrentUserName();
             bool isSpecialName = main.Game.IsSpecialUserName(name);
             ui.SetUserName(name);
@@ -87,6 +89,21 @@ namespace MVZ2.Mainmenu
             }
             ui.SetRayblockerActive(false);
         }
+        public void ShowCredits()
+        {
+            var viewDatas = new List<CreditsCategoryViewData>();
+            var categories = main.ResourceManager.GetAllCreditsCategories();
+            foreach (var category in categories)
+            {
+                var viewData = new CreditsCategoryViewData()
+                {
+                    name = main.LanguageManager._p(VanillaStrings.CONTEXT_STAFF_CATEGORY, category.Name),
+                    entries = category.Entries
+                };
+                viewDatas.Add(viewData);
+            }
+            ui.ShowCredits(viewDatas.ToArray());
+        }
         #region 生命周期
         private void Awake()
         {
@@ -112,6 +129,7 @@ namespace MVZ2.Mainmenu
 
             ui.OnStatsReturnButtonClick += OnStatsReturnClickCallback;
             ui.OnAchievementsReturnButtonClick += OnAchievementsReturnClickCallback;
+            ui.OnCreditsReturnButtonClick += OnCreditsReturnClickCallback;
         }
         private void Update()
         {
@@ -152,7 +170,7 @@ namespace MVZ2.Mainmenu
         private void OnOptionsButtonClickCallback()
         {
             ui.SetOptionsDialogVisible(true);
-            optionsLogic = new OptionsLogicMainmenu(ui.OptionsDialog);
+            optionsLogic = new OptionsLogicMainmenu(ui.OptionsDialog, this);
             optionsLogic.InitDialog();
             optionsLogic.OnClose += OnOptionsCloseClickCallback;
         }
@@ -309,6 +327,10 @@ namespace MVZ2.Mainmenu
         private void OnAchievementsReturnClickCallback()
         {
             StartAnimatorTransition(basementBlend);
+        }
+        private void OnCreditsReturnClickCallback()
+        {
+            ui.HideCredits();
         }
         #endregion
 
