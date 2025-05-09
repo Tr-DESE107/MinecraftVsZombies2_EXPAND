@@ -836,7 +836,6 @@ MonoBehaviour:
   destTransform: {fileID: 9101454346562929753}
   arcShiver: 0.03
   arcLevitation: 0.01
-  pointCount: 50
 --- !u!4 &5687295266573721509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3664503004788589356, guid: 7b69825c292961840a29fdc677b9453a, type: 3}

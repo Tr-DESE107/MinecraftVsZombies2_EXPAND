@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2872901922863352548}
   - component: {fileID: 3349927831005241951}
+  - component: {fileID: 936155524734075868}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -85,6 +86,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &936155524734075868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296704465642302697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &865370617524770749
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +965,7 @@ GameObject:
   - component: {fileID: 7726987811559464092}
   - component: {fileID: 2343584082378804533}
   - component: {fileID: 2459582538196613976}
+  - component: {fileID: 7916809363697943535}
   m_Layer: 0
   m_Name: RightTrail
   m_TagString: Untagged
@@ -1108,6 +1123,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 2343584082378804533}
   velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &7916809363697943535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4374965277114401704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &4704897719107684566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,6 +1803,7 @@ GameObject:
   - component: {fileID: 4306567935227585695}
   - component: {fileID: 4217574144208595496}
   - component: {fileID: 7060444354972721332}
+  - component: {fileID: 4510566152612866966}
   m_Layer: 0
   m_Name: LeftTrail
   m_TagString: Untagged
@@ -1932,6 +1961,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 4217574144208595496}
   velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &4510566152612866966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067565693006859872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &6403122433310747709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,7 +2432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       propertyPath: renderers.Array.size
-      value: 17
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       propertyPath: transforms.Array.size
@@ -2464,6 +2506,18 @@ PrefabInstance:
       propertyPath: renderers.Array.data[16]
       value: 
       objectReference: {fileID: 3213136117774338990}
+    - target: {fileID: 6691928640828811806, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
+      propertyPath: renderers.Array.data[17]
+      value: 
+      objectReference: {fileID: 936155524734075868}
+    - target: {fileID: 6691928640828811806, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
+      propertyPath: renderers.Array.data[18]
+      value: 
+      objectReference: {fileID: 4510566152612866966}
+    - target: {fileID: 6691928640828811806, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
+      propertyPath: renderers.Array.data[19]
+      value: 
+      objectReference: {fileID: 7916809363697943535}
     - target: {fileID: 7717581738674343506, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       propertyPath: m_Controller
       value: 
