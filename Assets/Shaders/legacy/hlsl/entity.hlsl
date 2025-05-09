@@ -17,13 +17,8 @@
         
 half4 Tint(half4 color, half4 tint)
 {
-#if HSV_TINT
-    return HSVTint(color, tint);
-#else
     return color * tint;
-#endif
 }
-
 
 
 struct appdata_entity
@@ -54,6 +49,7 @@ sampler2D _MainTex;
 float4 _MainTex_ST;
 float4 _Color;
 half4 _ColorOffset;
+float3 _HSVOffset;
 
 v2f_entity EntityVert(appdata_entity v)
 {
@@ -81,6 +77,9 @@ half4 EntityFrag(v2f_entity i) : SV_Target
     half4 col = tex2D(_MainTex, i.uv);
     col = Tint(col, _Color);
     col = Tint(col, i.color);
+#if HSV_TINT
+    col = ModifyHSV(col, _HSVOffset);
+#endif
                 
     col.rgb = col.rgb + _ColorOffset.rgb;
                             

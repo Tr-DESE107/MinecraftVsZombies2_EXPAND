@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-08 09:19+0800\n"
-"PO-Revision-Date: 2025-05-08 09:20+0800\n"
+"POT-Creation-Date: 2025-05-09 10:41+0800\n"
+"PO-Revision-Date: 2025-05-09 10:44+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -915,6 +915,42 @@ msgstr ""
 "\"I'm moving out!!!!!!!!!!!!!!!!\"\n"
 "\n"
 "...At least, that's what the previous tenant of this building said."
+
+#. Header for contraptions mvz2:hellfire
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "地狱火会点燃穿过它的箭矢，使其额外造成火焰伤害。"
+msgstr "Hellfire will ignite arrows passing through it, make them deal additional fire damages."
+
+#. Properties for contraptions mvz2:hellfire
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"伤害增幅：<color=red>+20火焰伤害，+13.33溅射伤害</color>\n"
+"技能：<color=red>变为诅咒火焰，为箭矢+40火焰伤害，+26.66溅射伤害</color>"
+msgstr ""
+"Damage Addition: <color=red>+20 fire damage, +13.33 splash damage</color>\n"
+"Evocation: <color=red>Become cursed flame, provides +40 fire damage, +26.66 splash damage for arrows</color>"
+
+#. Flavor for contraptions mvz2:hellfire
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"烧吧！我内心中的熊熊烈火，点燃我的<color=red>愤怒</color>！\n"
+"烧吧！将我眼前的所有不公，全部烧成灰烬！\n"
+"烧吧！我所憎恨的邪恶之物，尽数应受惩罚！\n"
+"烧吧！在他们惊恐的眼神中，向其降下毁灭！\n"
+"\n"
+"火焰啊！把我内心中的黑暗，沮丧，还有憎恨，统统烧个干净！\n"
+"<b>让这明亮的火光，照亮整个世界！！！</b>"
+msgstr ""
+"Burn! The blazing flames within my soul, ignite my <color=red>anger</color>!\n"
+"Burn! Reduce all the injustice before my eyes to ashes!\n"
+"Burn! Let all the evil I despise be punished accordingly!\n"
+"Burn! Bring down destruction upon them amidst their terrified gazes!\n"
+"\n"
+"Flames! Burn away the darkness, despair, and hatred within my heart!\n"
+"<b>May this brilliant blaze illuminate the entire world!!!</b>"
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -3397,6 +3433,18 @@ msgstr "Devourer"
 msgctxt "entity.tooltip"
 msgid "移除刷怪笼，或将器械变回蓝图掉落物"
 msgstr "Removes spawners, or turn contraptions into blueprints"
+
+#. Header for entity mvz2:hellfire
+#: Entity meta file
+msgctxt "entity.name"
+msgid "地狱火"
+msgstr "Hellfire"
+
+#. Properties for entity mvz2:hellfire
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "点燃穿过的箭矢"
+msgstr "Ignites arrows passing through"
 
 #. Header for entity mvz2:infectenser
 #: Entity meta file

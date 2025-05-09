@@ -14,11 +14,10 @@ float3 HSV2RGB(float3 c)
     rgb = rgb * rgb * (3.0 - 2.0 * rgb);
     return c.z * lerp(float3(1, 1, 1), rgb, c.y);
 }
-half4 HSVTint(half4 color, half4 tint)
+half4 ModifyHSV(half4 color, float3 offset)
 {
     float3 hsv = RGB2HSV(color.rgb);
-    float3 tintHsv = RGB2HSV(tint.rgb);
-    float t = hsv.y * hsv.z;
-    float3 tintedHsv = float3(hsv.x + tintHsv.x, hsv.y * tintHsv.y, hsv.z * tintHsv.z);
-    return half4(HSV2RGB(tintedHsv), color.a * tint.a);
+    float hue = frac(hsv.x + offset.x / 360.0);
+    float3 tintedHsv = float3(hue, hsv.y + offset.y / 100.0, hsv.z + offset.z / 100.0);
+    return half4(HSV2RGB(tintedHsv), color.a);
 }

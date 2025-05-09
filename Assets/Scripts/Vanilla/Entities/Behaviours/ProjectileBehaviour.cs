@@ -164,7 +164,8 @@ namespace MVZ2.Vanilla.Entities
             {
                 Projectile = hitInput.Projectile,
                 Other = hitInput.Other,
-                Pierce = hitInput.Pierce
+                Pierce = hitInput.Pierce,
+                Collider = otherCollider,
             };
             if (damageOutput != null)
             {

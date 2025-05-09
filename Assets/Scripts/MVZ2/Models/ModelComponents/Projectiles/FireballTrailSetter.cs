@@ -27,11 +27,8 @@ namespace MVZ2.Models
             {
                 trail.UpdateFrame();
             }
-            fireTime += deltaTime;
-            Model.SetShaderFloat("_FireTime", fireTime);
         }
         [SerializeField]
         private TrailController[] trails;
-        private float fireTime = 0;
     }
 }

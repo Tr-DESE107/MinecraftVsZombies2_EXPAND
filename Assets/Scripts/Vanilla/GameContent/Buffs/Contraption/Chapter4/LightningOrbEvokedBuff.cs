@@ -58,7 +58,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                         {
                             var thunder = level.Spawn(VanillaEffectID.thunderBoltHorizontal, centerPos, entity);
                             var color = new Color(0, 0.733333f, 1);
-                            thunder.SetTint(color);
+                            thunder.SetHSVToColor(color);
                             thunder.SetLightColor(color);
                             var scale = new Vector3(i * 2 - 1, 1, 1);
                             thunder.SetDisplayScale(scale);

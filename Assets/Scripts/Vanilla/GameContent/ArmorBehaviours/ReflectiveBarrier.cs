@@ -66,8 +66,7 @@ namespace MVZ2.GameContent.Armors
             shootParams.damage = shieldResult.Amount;
             shootParams.soundID = VanillaSoundID.reflection;
             shootParams.velocity = owner.GetFacingDirection() * 10;
-            var bullet = owner.ShootProjectile(shootParams);
-            bullet.SetTint(Color.red);
+            owner.ShootProjectile(shootParams);
         }
     }
 }

@@ -92,7 +92,7 @@ namespace MVZ2.Models
         {
             foreach (var element in renderers)
             {
-                if (element.ExcludedInGroup)
+                if (!element || element.ExcludedInGroup)
                     continue;
                 element.SetInt(name, value);
             }
@@ -102,7 +102,7 @@ namespace MVZ2.Models
         {
             foreach (var element in renderers)
             {
-                if (element.ExcludedInGroup)
+                if (!element || element.ExcludedInGroup)
                     continue;
                 element.SetFloat(name, alpha);
             }
@@ -112,9 +112,18 @@ namespace MVZ2.Models
         {
             foreach (var element in renderers)
             {
-                if (element.ExcludedInGroup)
+                if (!element || element.ExcludedInGroup)
                     continue;
                 element.SetColor(name, color);
+            }
+        }
+        public override void SetShaderVector(string name, Vector4 vector)
+        {
+            foreach (var element in renderers)
+            {
+                if (!element || element.ExcludedInGroup)
+                    continue;
+                element.SetVector(name, vector);
             }
         }
         #endregion

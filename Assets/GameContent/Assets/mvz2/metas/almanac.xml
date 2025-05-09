@@ -465,7 +465,24 @@
                 <p>……至少上一个这栋楼的住户是这么说的。</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="hellfire">
+            <header>
+                <p>地狱火会点燃穿过它的箭矢，使其额外造成火焰伤害。</p>
+            </header>
+            <properties>
+                <p>伤害增幅：<![CDATA[<color=red>+20火焰伤害，+13.33溅射伤害</color>]]></p>
+                <p>技能：<![CDATA[<color=red>变为诅咒火焰，为箭矢+40火焰伤害，+26.66溅射伤害</color>]]></p>
+            </properties>
+            <flavor>
+                <p>烧吧！我内心中的熊熊烈火，点燃我的<![CDATA[<color=red>愤怒</color>]]>！</p>
+                <p>烧吧！将我眼前的所有不公，全部烧成灰烬！</p>
+                <p>烧吧！我所憎恨的邪恶之物，尽数应受惩罚！</p>
+                <p>烧吧！在他们惊恐的眼神中，向其降下毁灭！</p>
+                <p/>
+                <p>火焰啊！把我内心中的黑暗，沮丧，还有憎恨，统统烧个干净！</p>
+                <p><![CDATA[<b>让这明亮的火光，照亮整个世界！！！</b>]]></p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>

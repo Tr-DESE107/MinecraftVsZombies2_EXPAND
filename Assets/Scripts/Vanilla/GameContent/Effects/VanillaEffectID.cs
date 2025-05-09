@@ -68,6 +68,10 @@ namespace MVZ2.GameContent.Effects
         public const string thunderBoltHorizontal = "thunder_bolt_horizontal";
         public const string emberParticles = "ember_particles";
         public const string spawnerAppearEmbers = "spawner_appear_embers";
+        public const string fireburn = "fireburn";
+        public const string cursedFireburn = "cursed_fireburn";
+        public const string cursedMeteor = "cursed_meteor";
+        public const string cursedFireParticles = "cursed_fire_particles";
     }
     public static class VanillaEffectID
     {
@@ -134,6 +138,10 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID thunderBoltHorizontal = Get(VanillaEffectNames.thunderBoltHorizontal);
         public static readonly NamespaceID emberParticles = Get(VanillaEffectNames.emberParticles);
         public static readonly NamespaceID spawnerAppearEmbers = Get(VanillaEffectNames.spawnerAppearEmbers);
+        public static readonly NamespaceID fireburn = Get(VanillaEffectNames.fireburn);
+        public static readonly NamespaceID cursedFireburn = Get(VanillaEffectNames.cursedFireburn);
+        public static readonly NamespaceID cursedMeteor = Get(VanillaEffectNames.cursedMeteor);
+        public static readonly NamespaceID cursedFireParticles = Get(VanillaEffectNames.cursedFireParticles);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

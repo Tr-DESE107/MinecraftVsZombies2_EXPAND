@@ -50,6 +50,7 @@ namespace MVZ2.GameContent.Buffs
         public const string noteBlockLoud = "note_block_loud";
         public const string lightningOrbEvoked = "lightning_orb_evoked";
         public const string devourerInvincible = "devourer_invincible";
+        public const string hellfireCursed = "hellfire_cursed";
 
         // Enemy
         public const string gemCarrier = "gem_carrier";
@@ -91,6 +92,7 @@ namespace MVZ2.GameContent.Buffs
         public const string projectileWait = "projectile_wait";
         public const string projectileKnockback = "projectile_knockback";
         public const string invertedMirror = "inverted_mirror";
+        public const string hellfireIgnited = "hellfire_ignited";
 
         // Cart
         public const string cartFadeIn = "cart_fade_in";

@@ -425,6 +425,25 @@ namespace MVZ2.Vanilla.Entities
             buff.SetProperty(StunBuff.PROP_TIMER, new FrameTimer(timeout));
         }
 
+        #region 阻挡火焰
+        public static bool WillDamageBlockFire(this DamageOutput damage)
+        {
+            foreach (var result in damage.GetAllResults())
+            {
+                if (result == null)
+                    continue;
+                var shell = result.ShellDefinition;
+                if (shell == null)
+                    continue;
+                if (shell.BlocksFire())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        #endregion
+
 
         #region 网格
         public static void UpdateTakenGrids(this Entity entity)

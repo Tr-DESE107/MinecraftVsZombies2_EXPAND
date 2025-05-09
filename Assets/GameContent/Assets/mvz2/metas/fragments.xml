@@ -150,6 +150,22 @@
             <key hex="#000000" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="hellfire" blend="true">
+        <colorKeys>
+            <key hex="#854242" time="0"/>
+            <key hex="#723232" time="0.333"/>
+            <key hex="#652828" time="0.667"/>
+            <key hex="#411616" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="hellfire_cursed" blend="true">
+        <colorKeys>
+            <key hex="#1A231A" time="0"/>
+            <key hex="#161E16" time="0.333"/>
+            <key hex="#0E150E" time="0.667"/>
+            <key hex="#0C110C" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2"/>

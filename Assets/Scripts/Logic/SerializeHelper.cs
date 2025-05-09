@@ -34,6 +34,7 @@ namespace MVZ2Logic
                 return;
             RegisterSerializer(new Vector2Serializer());
             RegisterSerializer(new Vector3Serializer());
+            RegisterSerializer(new Vector4Serializer());
             RegisterSerializer(new ColorSerializer());
             RegisterSerializer(new RandomGeneratorSerializer());
             RegisterSerializer(new NamespaceIDSerializer(defaultNsp));

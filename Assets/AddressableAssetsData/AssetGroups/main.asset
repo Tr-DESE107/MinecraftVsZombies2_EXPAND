@@ -437,6 +437,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1143ec22777085e4da98117d2864f022
+    m_Address: mvz2:entity/contraption/fire_block_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 114ce1ebae93833479298364ca7af9c2
     m_Address: mvz2:tesla_power
     m_ReadOnly: 0
@@ -851,6 +857,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22299f5c8ec924d4087fdcd23f6cc3ce
+    m_Address: mvz2:effect/cursed_fireburn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 227276bdfee6c7545b14314ef224f18b
     m_Address: mvz2:random/wood3
     m_ReadOnly: 0
@@ -880,6 +892,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 233204fa76832aa469a18c6784597383
+    m_Address: mvz2:bomb_falling
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23518f4eda2b37a4d93c7c80da15582c
     m_Address: mvz2:entity/effect/miner
@@ -947,6 +965,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2562dbc08cdc1bd459d0a70219d7d4e4
+    m_Address: mvz2:entity/contraption/hellfire_base
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2574e617cf0030645966d0a257f50050
     m_Address: mvz2:entity/effects/crushing_wall_left
     m_ReadOnly: 0
@@ -982,6 +1006,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25f988ff03e536a4e82397cc65d1cd24
+    m_Address: mvz2:entity/contraption/fire_block_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 260130923ac844f49944f60222d0780e
     m_Address: mvz2:entity/nightmareaper/nightmareaper_rage
@@ -1099,6 +1129,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b9d667f27217564cb53414f7acb2f80
     m_Address: mvz2:ui/mind_swap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b9fae87b9691f24cafc1954b3175993
+    m_Address: mvz2:contraption/mausoleum/hellfire
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -1408,6 +1444,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 358463c4a1670b441b15bd6423009e35
+    m_Address: mvz2:mobile_blueprint/hellfire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35f80fb8af94a064f86a987dc6dae8e0
     m_Address: mvz2:mobile_blueprint/reverse_satellite
     m_ReadOnly: 0
@@ -1542,6 +1584,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 397b6bb85fb44e64991eac4dd82cd72a
     m_Address: mvz2:effect/slice_spark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39a33c0f8c6d0d94caae439b37fd8a95
+    m_Address: mvz2:effect/fireburn
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3082,6 +3130,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71a7ba7c7df69b841954861c6b96faf5
+    m_Address: mvz2:effect/cursed_meteor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71b25725cf3bab549914b21563c0c4ad
     m_Address: mvz2:pickup/wither_scroll
     m_ReadOnly: 0
@@ -4232,6 +4286,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 991a81354ec62874f9d612eed2d8a6ad
+    m_Address: mvz2:effect/cursed_fire_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 994dcad1586f82f45bf48985a9e06321
     m_Address: mvz2:ui/banished_mark
@@ -6351,6 +6411,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2f7e29ca0c62d5468d4cab32fae9562
+    m_Address: mvz2:entity/effects/cursed_fire_particle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e331ed1f540bbb04db318b073f0720ac
     m_Address: mvz2:talk/dialog_faint
     m_ReadOnly: 0
@@ -6410,6 +6476,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5f55c79902a78144ad75fe40e59c592
+    m_Address: mvz2:meteor_land
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e65c8602a6db8284fa1069847600d372
     m_Address: mvz2:level/dream/nightmare_ground_censored

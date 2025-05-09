@@ -30,6 +30,7 @@
 		[Header(HSV)]
 		[Toggle(HSV_TINT)]
 		_HSVTint("HSVTint", Int) = 0
+		_HSVOffset("HSV Offset", Vector) = (0,0,0,0)
 
 		[Header(Lighting)]
 		[Toggle(LIT)]

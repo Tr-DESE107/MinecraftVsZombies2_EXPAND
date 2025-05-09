@@ -531,6 +531,18 @@
             <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
+        <contraption id="hellfire" name="地狱火" tooltip="点燃穿过的箭矢" >
+            <bool name="canDeactive" value="false" />
+            <bool name="isFire" value="true" />
+            <vector3 name="size" x="32" y="48" z="32"/>
+
+            <bool name="isLightSource" value="true"/>
+            <vector3 name="lightRange" x="80" y="80" z="80"/>
+            <color name="lightColor" value="#FFAA00"/>
+
+            <int name="cost" value="175" />
+            <id name="rechargeId" value="mvz2:short" />
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人" unlock="mvz2:contraption.infectenser">
@@ -1357,7 +1369,7 @@
             <bool name="isLightSource" value="true"/>
             <vector3 name="lightRange" x="3000" y="3000" z="3000"/>
             <color name="lightColor" value="#FF00FF"/>
-            <color name="tint" value="#FF00FF" />
+            <vector3 name="hsv" x="300" y="0" z="0" />
         </effect>
         <effect id="evocation_star" >
             <int name="maxTimeout" value="45"/>
@@ -1372,14 +1384,17 @@
             <vector3 name="size" x="240" y="240" z="240" />
         </effect>
         <effect id="soulfire" >
+            <bool name="effective" value="true"/>
             <bool name="isFire" value="true" />
             <int name="maxTimeout" value="30"/>
         </effect>
         <effect id="soulfire_burn" >
+            <bool name="effective" value="true"/>
             <bool name="isFire" value="true" />
             <int name="maxTimeout" value="45"/>
         </effect>
         <effect id="soulfire_blast" >
+            <bool name="effective" value="true"/>
             <bool name="isFire" value="true" />
             <int name="maxTimeout" value="15"/>
         </effect>
@@ -1576,6 +1591,28 @@
         </effect>
         <effect id="ember_particles">
             <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="fireburn" >
+            <bool name="effective" value="true"/>
+            <bool name="isFire" value="true" />
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="cursed_fireburn" >
+            <bool name="effective" value="true"/>
+            <bool name="isFire" value="true" />
+            <int name="maxTimeout" value="30"/>
+        </effect>
+        <effect id="cursed_meteor" >
+            <float name="gravity" value="5"/>
+            <float name="range" value="40"/>
+            <float name="damage" value="1800"/>
+            <bool name="effective" value="true"/>
+            <bool name="isFire" value="true" />
+        </effect>
+        <effect id="cursed_fire_particles" >
+            <bool name="effective" value="true"/>
+            <bool name="isFire" value="true" />
+            <int name="maxTimeout" value="45"/>
         </effect>
     </entries>
 </entities>

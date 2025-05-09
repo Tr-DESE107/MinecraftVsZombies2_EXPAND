@@ -511,6 +511,7 @@ namespace MVZ2.Entities
                 var model = entityCtrl.Model;
                 var rendererGroup = model.GraphicGroup;
                 rendererGroup.SetTint(entity.GetTint());
+                rendererGroup.SetHSV(entity.GetHSV());
                 rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
                 model.transform.localScale = entity.GetFinalDisplayScale();
                 rendererGroup.SortingLayerID = entity.GetSortingLayer();
@@ -545,6 +546,9 @@ namespace MVZ2.Entities
                             break;
                         case PropertyName.ColorOffset:
                             rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
+                            break;
+                        case PropertyName.HSV:
+                            rendererGroup.SetHSV(entity.GetHSV());
                             break;
                         case PropertyName.FlipX:
                         case PropertyName.DisplayScale:
@@ -625,6 +629,7 @@ namespace MVZ2.Entities
             {
                 { EngineEntityProps.TINT, PropertyName.Tint },
                 { EngineEntityProps.COLOR_OFFSET, PropertyName.ColorOffset },
+                { VanillaEntityProps.HSV, PropertyName.HSV },
                 { EngineEntityProps.FLIP_X, PropertyName.FlipX },
                 { EngineEntityProps.DISPLAY_SCALE, PropertyName.DisplayScale },
                 { VanillaEntityProps.SORTING_LAYER, PropertyName.SortingLayer },
@@ -643,6 +648,7 @@ namespace MVZ2.Entities
             {
                 Tint,
                 ColorOffset,
+                HSV,
                 FlipX,
                 DisplayScale,
                 SortingLayer,

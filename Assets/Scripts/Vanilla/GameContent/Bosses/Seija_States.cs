@@ -185,7 +185,7 @@ namespace MVZ2.GameContent.Bosses
                         param.damage = entity.GetDamage() * 0.5f;
                         param.velocity = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0, Mathf.Sin(angle * Mathf.Deg2Rad)) * SeijaBullet.LIGHT_SPEED;
                         var bullet = entity.ShootProjectile(param);
-                        bullet.SetTint(color);
+                        bullet.SetHSVToColor(color);
                     }
                     SetBulletAngle(entity, bulletAngle);
                     entity.PlaySound(VanillaSoundID.danmaku, volume: 0.5f);

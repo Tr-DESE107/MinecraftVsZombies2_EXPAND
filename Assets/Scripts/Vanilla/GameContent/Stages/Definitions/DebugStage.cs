@@ -45,16 +45,16 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
-                VanillaEnemyID.zombie,
-                VanillaEnemyID.wickedHermitZombie,
+                VanillaEnemyID.reflectiveBarrierZombie,
+                VanillaBossID.seija,
                 VanillaObstacleID.monsterSpawner,
                 VanillaContraptionID.tnt,
-                VanillaContraptionID.devourer,
+                VanillaContraptionID.hellfire,
                 VanillaContraptionID.furnace,
 
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.stoneShield,
-                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.lightningOrb,
                 VanillaContraptionID.forcePad,
             });
             level.SetArtifactSlotCount(3);

@@ -37,6 +37,7 @@
     <model name="lightning_orb" type="entity" path="mvz2:contraption/mausoleum/lightning_orb" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="splitenser" type="entity" path="mvz2:contraption/mausoleum/splitenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="devourer" type="entity" path="mvz2:contraption/mausoleum/devourer" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="hellfire" type="entity" path="mvz2:contraption/mausoleum/hellfire" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="infectenser" type="entity" path="mvz2:contraption/upgrade/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="force_pad" type="entity" path="mvz2:contraption/upgrade/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -190,6 +191,10 @@
     <model name="thunder_bolt_horizontal" type="entity" path="mvz2:effect/thunder_bolt_horizontal" width="920" height="120" xOffset="437" yOffset="0"/>
     <model name="spawner_appear_embers" type="entity" path="mvz2:effect/spawner_appear_embers" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="ember_particles" type="entity" path="mvz2:effect/ember_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="fireburn" type="entity" path="mvz2:effect/fireburn" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="cursed_fireburn" type="entity" path="mvz2:effect/cursed_fireburn" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="cursed_meteor" type="entity" path="mvz2:effect/cursed_meteor" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="cursed_fire_particles" type="entity" path="mvz2:effect/cursed_fire_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

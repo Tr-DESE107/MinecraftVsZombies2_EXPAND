@@ -24,6 +24,9 @@
     <sound name="biohazard">
         <sample path="mvz2:biohazard" weight="1" />
     </sound>
+    <sound name="bomb_falling">
+        <sample path="mvz2:bomb_falling" weight="1" />
+    </sound>
     <sound name="bone_hit">
         <sample path="mvz2:damage/bone/bone_hit1" weight="1" />
         <sample path="mvz2:damage/bone/bone_hit2" weight="1" />
@@ -361,6 +364,9 @@
     </sound>
     <sound name="meow">
         <sample path="mvz2:meow" weight="1" />
+    </sound>
+    <sound name="meteor_land">
+        <sample path="mvz2:meteor_land" weight="1" />
     </sound>
     <sound name="mind_control">
         <sample path="mvz2:mind_control" weight="1" />

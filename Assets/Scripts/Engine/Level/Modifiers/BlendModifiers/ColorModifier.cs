@@ -31,6 +31,14 @@ namespace PVZEngine.Modifiers
         {
             return new ColorModifier(propertyName, BlendOperator.DstColor, BlendOperator.Zero, buffPropertyName);
         }
+        public static ColorModifier Override(PropertyKey propertyName, Color valueConst)
+        {
+            return new ColorModifier(propertyName, BlendOperator.One, BlendOperator.Zero, valueConst);
+        }
+        public static ColorModifier Override(PropertyKey propertyName, PropertyKey buffPropertyName)
+        {
+            return new ColorModifier(propertyName, BlendOperator.One, BlendOperator.Zero, buffPropertyName);
+        }
         public override ModifierCalculator GetCalculator()
         {
             return CalculatorMap.colorCalculator;

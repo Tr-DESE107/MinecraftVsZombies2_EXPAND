@@ -296,6 +296,26 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region HSV
+        public static readonly PropertyMeta HSV = Get("hsv");
+        public static void SetHSV(this Entity entity, float h, float s, float v) => entity.SetHSV(new Vector3(h, s, v));
+        public static void SetHSV(this Entity entity, Vector3 value) => entity.SetProperty(HSV, value);
+        public static Vector3 GetHSV(this Entity entity) => entity.GetProperty<Vector3>(HSV);
+        public static void SetHSVToColor(this Entity entity, Color srcColor)
+        {
+            entity.SetHSVToColor(srcColor, Color.red);
+        }
+        public static void SetHSVToColor(this Entity entity, Color srcColor, Color dstColor)
+        {
+            Color.RGBToHSV(srcColor, out var srcH, out var srcS, out var srcV);
+            Color.RGBToHSV(dstColor, out var dstH, out var dstS, out var dstV);
+            var h = (srcH - dstH) * 360;
+            var s = (srcS - dstS) * 100;
+            var v = (srcV - dstV) * 100;
+            entity.SetHSV(h, s, v);
+        }
+        #endregion
+
         #region 蓝图
         public static readonly PropertyMeta COST = Get("cost");
         public static readonly PropertyMeta RECHARGE_ID = Get("rechargeId");

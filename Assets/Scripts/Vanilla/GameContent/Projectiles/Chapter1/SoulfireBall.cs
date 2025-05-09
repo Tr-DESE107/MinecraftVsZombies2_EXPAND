@@ -24,17 +24,10 @@ namespace MVZ2.GameContent.Projectiles
             base.PostHitEntity(hitResult, damageOutput);
             if (damageOutput == null)
                 return;
-            var bodyResult = damageOutput.BodyResult;
-            var armorResult = damageOutput.ArmorResult;
-
             var entity = hitResult.Projectile;
             var other = hitResult.Other;
 
-            var bodyShell = bodyResult?.ShellDefinition;
-            var armorShell = armorResult?.ShellDefinition;
-            var bodyBlocksFire = bodyShell != null ? bodyShell.BlocksFire() : false;
-            var armorBlocksFire = armorShell != null ? armorShell.BlocksFire() : false;
-            var blocksFire = bodyBlocksFire || armorBlocksFire;
+            bool blocksFire = damageOutput.WillDamageBlockFire();
 
             var blast = IsBlast(entity);
             if (blast)

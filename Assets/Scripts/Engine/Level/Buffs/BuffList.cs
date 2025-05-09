@@ -151,11 +151,27 @@ namespace PVZEngine.Buffs
             GetBuffsNonAlloc<T>(list);
             return list.ToArray();
         }
+        public Buff[] GetBuffs(BuffDefinition definition)
+        {
+            var list = new List<Buff>();
+            GetBuffsNonAlloc(definition, list);
+            return list.ToArray();
+        }
         public void GetBuffsNonAlloc<T>(List<Buff> results) where T : BuffDefinition
         {
             foreach (var buff in buffs)
             {
                 if (buff.Definition is T)
+                {
+                    results.Add(buff);
+                }
+            }
+        }
+        public void GetBuffsNonAlloc(BuffDefinition definition, List<Buff> results)
+        {
+            foreach (var buff in buffs)
+            {
+                if (buff.Definition == definition)
                 {
                     results.Add(buff);
                 }
