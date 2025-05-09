@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 567889048094451750, guid: 5a4797741c8aaf345a3a9b08e4e92a9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6546968570795344957, guid: 5a4797741c8aaf345a3a9b08e4e92a9c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -50,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8989161180821315737, guid: 5a4797741c8aaf345a3a9b08e4e92a9c, type: 3}
       propertyPath: m_Name
-      value: WitherSkeleton Variant
+      value: FlagWitherSkeleton Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

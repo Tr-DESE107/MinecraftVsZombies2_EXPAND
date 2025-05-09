@@ -10,6 +10,8 @@ namespace MVZ2.GameContent.Contraptions
         public const string obsidian = "obsidian";
         public const string mineTNT = "mine_tnt";
 
+        public const string GlowingObsidian = "GlowingObsidian";
+
         public const string smallDispenser = "small_dispenser";
         public const string moonlightSensor = "moonlight_sensor";
         public const string glowstone = "glowstone";
@@ -53,6 +55,8 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID furnace = Get(VanillaContraptionNames.furnace);
         public static readonly NamespaceID obsidian = Get(VanillaContraptionNames.obsidian);
         public static readonly NamespaceID mineTNT = Get(VanillaContraptionNames.mineTNT);
+
+        public static readonly NamespaceID GlowingObsidian = Get(VanillaContraptionNames.GlowingObsidian);
 
         public static readonly NamespaceID smallDispenser = Get(VanillaContraptionNames.smallDispenser);
         public static readonly NamespaceID moonlightSensor = Get(VanillaContraptionNames.moonlightSensor);

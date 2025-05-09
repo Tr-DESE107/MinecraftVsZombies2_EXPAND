@@ -1103,6 +1103,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e21d868152b2694ba986dbeccca603f
+    m_Address: mvz2:contraption/prologue/GlowingObsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e2acf8f4e91cab468eae2cf860e025a
     m_Address: mvz2:artifacts/broken_lantern
     m_ReadOnly: 0
@@ -1317,6 +1323,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35db3ac19691f3f46841da983adaaa56
+    m_Address: mvz2:entity/contraption/GlowingObsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35f80fb8af94a064f86a987dc6dae8e0
     m_Address: mvz2:mobile_blueprint/reverse_satellite
@@ -2877,6 +2889,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c6aa1e4c0e62bc489a05b3e0f80c600
+    m_Address: mvz2:enemy/ship/HeavyGutant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d4fb10897c35604091f5eba0e397a41
     m_Address: mvz2:entity/wakeup
@@ -4959,6 +4977,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b72aed6688108b94d85665c8a5a4a88a
+    m_Address: mvz2:map_button_9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b75237ff7ac07d84ca23add635c58097
     m_Address: mvz2:map/dream/nightmare_box_open
     m_ReadOnly: 0
@@ -6931,6 +6955,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fffbd509c304b904e9fcedd4125885ac
+    m_Address: mvz2:map_buttonL
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

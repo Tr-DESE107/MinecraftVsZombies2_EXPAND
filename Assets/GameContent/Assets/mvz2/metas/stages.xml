@@ -559,6 +559,7 @@
 			<spawn id="mvz2:WitherSkeleton"/>
 			<spawn id="mvz2:LeatherWitherSkeleton"/>
 			<spawn id="mvz2:IronWitherSkeleton"/>
+			<spawn id="mvz2:mutant_zombie"/>
 		</spawns>
 	</stage>
 	<stage id="castle_2" name="辉针城" dayNumber="2" unlock="mvz2:level.castle_1">

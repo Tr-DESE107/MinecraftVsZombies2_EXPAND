@@ -162,6 +162,18 @@
             <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
+		<contraption id="GlowingObsidian" name="发光的黑曜石" tooltip="阻碍敌人的前进，在被摧毁时爆炸" >
+			<bool name="canDeactive" value="false"/>
+			<bool name="defensive" value="true"/>
+			<float name="maxHealth" value="4000"/>
+			<float name="damage" value="50"/>
+			<vector3 name="shotVelocity" x="10" y="0" z="0"/>
+			<vector3 name="shotOffset" x="15" y="30" z="0"/>
+			<vector3 name="size" x="48" y="48" z="48"/>
+
+			<int name="cost" value="50" />
+			<id name="rechargeId" value="mvz2:long" />
+		</contraption>
 
         <!-- Halloween Contraptions -->
         <dispenser id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球" unlock="mvz2:level.halloween_1">
@@ -827,28 +839,28 @@
         </enemy>
 
         <!-- Castle Enemies -->
-		<enemy id="WitherSkeleton" name="凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了">
+		<enemy id="WitherSkeleton" name="凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了" unlock="mvz2:level.castle_1" >
 			<int name="cost" value="50" />
 			<int name="waterInteraction" value="2"/>
 			<id name="crySound" value="mvz2:wither_skeleton_cry"/>
 			<id name="hitSound" value="mvz2:bone_hit"/>
 			<id name="deathSound" value="mvz2:wither_skeleton_death"/>
 		</enemy>
-		<enemy id="LeatherWitherSkeleton" name="皮帽凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了">
+		<enemy id="LeatherWitherSkeleton" name="皮帽凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了" unlock="mvz2:level.castle_1">
 			<int name="cost" value="75" />
 			<int name="waterInteraction" value="2"/>
 			<id name="crySound" value="mvz2:wither_skeleton_cry"/>
 			<id name="hitSound" value="mvz2:bone_hit"/>
 			<id name="deathSound" value="mvz2:wither_skeleton_death"/>
 		</enemy>
-		<enemy id="IronWitherSkeleton" name="铁盔凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了">
+		<enemy id="IronWitherSkeleton" name="铁盔凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了" unlock="mvz2:level.castle_1">
 			<int name="cost" value="125" />
 			<int name="waterInteraction" value="2"/>
 			<id name="crySound" value="mvz2:wither_skeleton_cry"/>
 			<id name="hitSound" value="mvz2:bone_hit"/>
 			<id name="deathSound" value="mvz2:wither_skeleton_death"/>
 		</enemy>
-		<enemy id="FlagWitherSkeleton" name="旗帜凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了">
+		<enemy id="FlagWitherSkeleton" name="旗帜凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了" unlock="mvz2:level.castle_1">
 			<int name="cost" value="300" />
 			<int name="waterInteraction" value="2"/>
 			<id name="crySound" value="mvz2:wither_skeleton_cry"/>
@@ -938,7 +950,7 @@
 			<int name="waterInteraction" value="3"/>
 		</enemy>
 		
-        <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
+        <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.prologue">
             <float name="maxHealth" value="3000"/>
             <float name="maxAttackHeight" value="100"/>
             <float name="speed" value="1"/>
@@ -972,7 +984,7 @@
             <int name="cost" value="500" />
             <int name="waterInteraction" value="3"/>
         </enemy>
-        <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了">
+        <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了" unlock="mvz2:level.prologue">
             <float name="fallResistance" value="18"/>
             <float name="cryPitch" value="2"/>
             <int name="cost" value="50" />

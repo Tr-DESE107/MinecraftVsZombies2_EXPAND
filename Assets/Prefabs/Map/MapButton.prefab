@@ -564,7 +564,7 @@ PrefabInstance:
     - target: {fileID: 281039522360905801, guid: 387e16c11b7c2ae4892a02254934bd8a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2690208585031789568, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+      objectReference: {fileID: 184262221, guid: fffbd509c304b904e9fcedd4125885ac, type: 3}
     - target: {fileID: 1091189037285701475, guid: 387e16c11b7c2ae4892a02254934bd8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -608,11 +608,11 @@ PrefabInstance:
     - target: {fileID: 1144179827827571055, guid: 387e16c11b7c2ae4892a02254934bd8a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b72aed6688108b94d85665c8a5a4a88a, type: 3}
+      objectReference: {fileID: -441824990, guid: fffbd509c304b904e9fcedd4125885ac, type: 3}
     - target: {fileID: 2178533228361697750, guid: 387e16c11b7c2ae4892a02254934bd8a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8725691012614211750, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+      objectReference: {fileID: -1453651356, guid: fffbd509c304b904e9fcedd4125885ac, type: 3}
     - target: {fileID: 3116369900608033494, guid: 387e16c11b7c2ae4892a02254934bd8a, type: 3}
       propertyPath: m_Name
       value: lunatic

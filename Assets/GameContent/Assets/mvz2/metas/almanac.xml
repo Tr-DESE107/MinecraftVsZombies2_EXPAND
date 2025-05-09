@@ -517,7 +517,21 @@
 				<p>雪球里包着石头，别问了。</p>
 			</flavor>
 		</entry>
-		
+		<entry id="mvz2:GlowingObsidian">
+			<header>
+				<p>发光黑曜石的强力装甲能够抵御敌人的攻击，受损时发射弹幕</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>4000</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>每受到100伤害发射一枚50伤害的弹幕</color>]]></p>
+				<p>技能：<![CDATA[<color=red>获得下界合金装甲，耐久提高至10000</color>]]></p>
+			</properties>
+			<flavor>
+				<p>听说把黑曜石摆成地狱门的形状再放一个熔炉有惊喜。不如试试看？</p>
+				<p />
+				<p>恭喜你被耍了</p>
+			</flavor>
+		</entry>
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">
             <header>
@@ -635,13 +649,37 @@
                 <p>旗帜僵尸的出现标志着一大波怪物的到来。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
             </properties>
             <flavor>
-                <p>当他被授予旗帜时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人在嘲笑他是个肉盾。</p>
+                <p>当他被授予旗帜和铁盔时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人在嘲笑他是个肉盾。</p>
             </flavor>
         </entry>
+		<entry id="mvz2:mutant_zombie">
+			<header>
+				<p>突变僵尸可以粉碎你的器械，并在血量低至一半时投掷小鬼僵尸</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>3000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>给你一锤</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:imp">
+			<header>
+				<p>小鬼僵尸</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>3000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>给你一锤</p>
+			</flavor>
+		</entry>
         <entry />
         <entry id="mvz2:skeleton">
             <header>
@@ -775,6 +813,48 @@
             </flavor>
         </entry>
 
+		<entry id="mvz2:WitherSkeleton">
+			<header>
+				<p>凋零骷髅会作为凋灵帝国的炮灰冲向你。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>看来地狱的凋零骷髅并非都经过了严格的军事训练，这些凋零骷髅没有任何装备就冲上了战场。像这种没有能力，一股脑死冲的怪物我们一般称为炮灰。</p>
+				<p>某人严厉表示鼓动这些未受训练的骷髅上战场的野心家绝对要上法庭。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:LeatherWitherSkeleton">
+			<header>
+				<p>皮帽凋零骷髅会作为凋灵帝国的炮灰冲向你。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200+370</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>和普通凋零骷髅相比有点脑子，但不多，他们做皮帽的皮革或许来源于猪灵和疣猪兽。</p>
+				<p>...所以都会做帽子了为什么还没意识到一股脑送死是愚蠢的？</p>
+				<p>还有为什么不用更容易获取的金锭做帽子？</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:IronWitherSkeleton">
+			<header>
+				<p>皮帽凋零骷髅会作为凋灵帝国的炮灰冲向你。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200+370</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>比皮帽和普通凋零骷髅更有脑子，但还是不多</p>
+				<p>...喂，他们哪来的铁啊？</p>
+			</flavor>
+		</entry>
+		
+		
         <entry id="mvz2:mesmerizer">
             <header>
                 <p>催眠者能够精神控制你的器械使其倒戈。杀死催眠者可以解除精神控制。</p>
