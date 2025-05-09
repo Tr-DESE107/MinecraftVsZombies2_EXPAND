@@ -1029,6 +1029,14 @@
             <int name="cost" value="1000" />
             <int name="waterInteraction" value="2"/>
         </enemy>
+        <enemy id="skeleton_warrior" name="骷髅战士" deathMessage="骸死我了" unlock="mvz2:level.mausoleum_7">
+            <id name="shell" value="mvz2:bone"/>
+            <id name="crySound" value="mvz2:skeleton_cry"/>
+            <id name="deathSound" value="mvz2:skeleton_death"/>
+
+            <int name="cost" value="75" />
+            <int name="waterInteraction" value="2"/>
+        </enemy>
 
         <!-- Obstacles -->
         <obstacle id="gargoyle_statue" name="石像鬼雕像">

@@ -31,62 +31,48 @@ namespace MVZ2.Models
                 group.sortAtRoot = false;
             }
         }
+        private void ReplaceComponents<T>(List<T> list, IEnumerable<T> targets)
+        {
+            list.RemoveAll(e => !targets.Contains(e));
+            list.AddRange(targets.Except(list));
+        }
         public override void UpdateElements()
         {
-            subSortingGroups.Clear();
-            foreach (var sortingGroup in GetComponentsInChildren<SortingGroup>(true))
-            {
-                if (!IsChildOfGroup(sortingGroup.transform, this))
-                    continue;
-                if (sortingGroup.gameObject == gameObject)
-                    continue;
-                subSortingGroups.Add(sortingGroup);
-            }
+            var groups = GetComponentsInChildren<SortingGroup>(true)
+                .Where(g => IsChildOfGroup(g.transform, this) && g.gameObject != gameObject);
+            ReplaceComponents(subSortingGroups, groups);
 
-            renderers.Clear();
-            foreach (var renderer in GetComponentsInChildren<Renderer>(true))
-            {
-                if (!IsChildOfGroup(renderer.transform, this))
-                    continue;
-                if (renderer is SpriteMask)
-                    continue;
-                if (renderer.gameObject.layer == Layers.LIGHT)
-                    continue;
-                var element = renderer.GetComponent<RendererElement>();
-                if (!element)
-                {
-                    element = renderer.gameObject.AddComponent<RendererElement>();
-                }
-                renderers.Add(element);
-            }
-            transforms.Clear();
-            foreach (var trans in GetComponentsInChildren<TransformElement>(true))
-            {
-                if (!IsChildOfGroup(trans.transform, this))
-                    continue;
-                transforms.Add(trans);
-            }
+            var renderer = GetComponentsInChildren<Renderer>(true)
+                .Where(g => IsChildOfGroup(g.transform, this) && g is not SpriteMask && g.gameObject.layer != Layers.LIGHT)
+                .Select(r => {
+                    var element = r.GetComponent<RendererElement>();
+                    if (!element)
+                    {
+                        element = r.gameObject.AddComponent<RendererElement>();
+                    }
+                    return element;
+                });
+            ReplaceComponents(renderers, renderer);
 
-            particles.Clear();
-            foreach (var ps in GetComponentsInChildren<ParticleSystem>(true))
-            {
-                if (!IsParticleChildOfGroup(ps.transform, this))
-                    continue;
-                var player = ps.GetComponent<ParticlePlayer>();
-                if (!player)
-                {
-                    player = ps.gameObject.AddComponent<ParticlePlayer>();
-                }
-                particles.Add(player);
-            }
+            var trans = GetComponentsInChildren<TransformElement>(true)
+                .Where(g => IsChildOfGroup(g.transform, this));
+            ReplaceComponents(transforms, trans);
 
-            animators.Clear();
-            foreach (var animator in GetComponentsInChildren<Animator>(true))
-            {
-                if (!IsChildOfGroup(animator.transform, this))
-                    continue;
-                animators.Add(animator);
-            }
+            var parts = GetComponentsInChildren<ParticleSystem>(true)
+                .Where(p => IsParticleChildOfGroup(p.transform, this))
+                .Select(r => {
+                     var element = r.GetComponent<ParticlePlayer>();
+                     if (!element)
+                     {
+                         element = r.gameObject.AddComponent<ParticlePlayer>();
+                     }
+                     return element;
+                 });
+            ReplaceComponents(particles, parts);
+
+            var anims = GetComponentsInChildren<Animator>(true)
+                .Where(g => IsChildOfGroup(g.transform, this));
+            ReplaceComponents(animators, anims);
         }
         public override void SetShaderInt(string name, int value)
         {

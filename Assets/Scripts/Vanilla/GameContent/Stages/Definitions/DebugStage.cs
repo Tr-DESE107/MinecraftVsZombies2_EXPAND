@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaEnemyID.reflectiveBarrierZombie,
-                VanillaBossID.seija,
+                VanillaEnemyID.skeletonWarrior,
                 VanillaObstacleID.monsterSpawner,
                 VanillaContraptionID.tnt,
                 VanillaContraptionID.hellfire,

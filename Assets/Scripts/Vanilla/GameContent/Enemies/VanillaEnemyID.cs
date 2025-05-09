@@ -44,6 +44,7 @@ namespace MVZ2.GameContent.Enemies
         public const string soulsand = "soulsand";
         public const string seijaCursedDoll = "seija_cursed_doll";
         public const string bedserker = "bedserker";
+        public const string skeletonWarrior = "skeleton_warrior";
 
     }
     public static class VanillaEnemyID
@@ -87,6 +88,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID soulsand = Get(VanillaEnemyNames.soulsand);
         public static readonly NamespaceID seijaCursedDoll = Get(VanillaEnemyNames.seijaCursedDoll);
         public static readonly NamespaceID bedserker = Get(VanillaEnemyNames.bedserker);
+        public static readonly NamespaceID skeletonWarrior = Get(VanillaEnemyNames.skeletonWarrior);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
