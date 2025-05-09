@@ -30,6 +30,23 @@ namespace MVZ2.GameContent.Contraptions
             base.UpdateAI(entity);
             ProductionUpdate(entity);
         }
+        protected override void OnEvoke(Entity entity)
+        {
+            base.OnEvoke(entity);
+            var pos = entity.Position;
+            pos.y = entity.GetGroundY() - 100;
+            var mageClass = SkeletonMage.mageClasses.Random(entity.RNG);
+            for (int i = 0; i < MAGE_COUNT; i++)
+            {
+                var mage = entity.SpawnWithParams(VanillaEnemyID.skeletonMage, pos);
+                SkeletonMage.SetClass(mage, mageClass);
+                mage.AddBuff<NecrotombstoneRisingBuff>();
+                mage.UpdateModel();
+
+                mage.PlaySound(VanillaSoundID.dirtRise);
+                mage.PlaySound(VanillaSoundID.boneWallBuild);
+            }
+        }
         public static FrameTimer GetProductionTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_PRODUCTION_TIMER);
         public static void SetProductionTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_PRODUCTION_TIMER, timer);
         private void ProductionUpdate(Entity entity)
@@ -50,6 +67,7 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
         public const int SPAWN_INTERVAL = 450;
+        public const int MAGE_COUNT = 3;
         private static readonly VanillaEntityPropertyMeta PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta("ProductionTimer");
     }
 }

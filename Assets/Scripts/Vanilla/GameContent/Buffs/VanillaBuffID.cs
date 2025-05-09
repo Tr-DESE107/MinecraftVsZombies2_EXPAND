@@ -81,6 +81,7 @@ namespace MVZ2.GameContent.Buffs
         public const string wickedHermitWarp = "wicked_hermit_warp";
         public const string wickedHermitWarpped = "wicked_hermit_warpped";
         public const string necrotombstoneRising = "necrotombstone_rising";
+        public const string slow = "slow";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";

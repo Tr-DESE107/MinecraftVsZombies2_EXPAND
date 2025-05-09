@@ -34,7 +34,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: index
-    path: Center/Main/Body/Head/Headwear/Sprite
+    path: Body/Head/Headwear/Sprite
     classID: 114
     script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
     flags: 0
@@ -55,7 +55,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: Center/Main/Body/InnerArm/Light/Renderer
+    path: Body/InnerArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -76,7 +76,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: Center/Main/Body/InnerArm/Light/Renderer
+    path: Body/InnerArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -97,7 +97,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: Center/Main/Body/InnerArm/Light/Renderer
+    path: Body/InnerArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -118,7 +118,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: Center/Main/Body/OuterArm/Light/Renderer
+    path: Body/OuterArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -139,7 +139,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: Center/Main/Body/OuterArm/Light/Renderer
+    path: Body/OuterArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -160,7 +160,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: Center/Main/Body/OuterArm/Light/Renderer
+    path: Body/OuterArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -173,7 +173,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 803944009
+      path: 117277522
       attribute: 2155046657
       script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
       typeID: 114
@@ -182,7 +182,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 101729640
+      path: 2063984252
       attribute: 2526845255
       script: {fileID: 0}
       typeID: 212
@@ -191,7 +191,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 101729640
+      path: 2063984252
       attribute: 4215373228
       script: {fileID: 0}
       typeID: 212
@@ -200,7 +200,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 101729640
+      path: 2063984252
       attribute: 2334886179
       script: {fileID: 0}
       typeID: 212
@@ -209,7 +209,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1220865268
+      path: 902909920
       attribute: 2526845255
       script: {fileID: 0}
       typeID: 212
@@ -218,7 +218,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1220865268
+      path: 902909920
       attribute: 4215373228
       script: {fileID: 0}
       typeID: 212
@@ -227,7 +227,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1220865268
+      path: 902909920
       attribute: 2334886179
       script: {fileID: 0}
       typeID: 212
@@ -274,7 +274,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: index
-    path: Center/Main/Body/Head/Headwear/Sprite
+    path: Body/Head/Headwear/Sprite
     classID: 114
     script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
     flags: 0
@@ -295,7 +295,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: Center/Main/Body/InnerArm/Light/Renderer
+    path: Body/InnerArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -316,7 +316,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: Center/Main/Body/InnerArm/Light/Renderer
+    path: Body/InnerArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -337,7 +337,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: Center/Main/Body/InnerArm/Light/Renderer
+    path: Body/InnerArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -358,7 +358,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.r
-    path: Center/Main/Body/OuterArm/Light/Renderer
+    path: Body/OuterArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -379,7 +379,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.g
-    path: Center/Main/Body/OuterArm/Light/Renderer
+    path: Body/OuterArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -400,7 +400,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Color.b
-    path: Center/Main/Body/OuterArm/Light/Renderer
+    path: Body/OuterArm/Light/Renderer
     classID: 212
     script: {fileID: 0}
     flags: 0

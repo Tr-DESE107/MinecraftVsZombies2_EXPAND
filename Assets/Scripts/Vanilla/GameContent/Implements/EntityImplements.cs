@@ -20,6 +20,7 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, PostContactGroundCallback);
             mod.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PlayHitSoundCallback);
+            mod.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, DamageEffectCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, HealParticlesUpdateCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
             mod.AddTrigger(LevelCallbacks.POST_DESTROY_ARMOR, PostArmorDestroyCallback);
@@ -54,7 +55,6 @@ namespace MVZ2.GameContent.Implements
         private void PlayHitSoundCallback(DamageOutput result)
         {
             var bodyResult = result.BodyResult;
-            var armorResult = result.ArmorResult;
             var entity = result.Entity;
             if (bodyResult != null)
             {
@@ -65,6 +65,46 @@ namespace MVZ2.GameContent.Implements
                 }
             }
             result.PlayHitSound();
+        }
+        private void DamageEffectCallback(DamageOutput output)
+        {
+            var entity = output.Entity;
+            if (entity.Type != EntityTypes.ENEMY)
+                return;
+            var bodyResult = output.BodyResult;
+            var armorResult = output.ArmorResult;
+            bool slow = false;
+            bool unfreeze = false;
+            if (bodyResult != null)
+            {
+                if (bodyResult.HasEffect(VanillaDamageEffects.SLOW))
+                {
+                    slow = true;
+                }
+                if (bodyResult.HasEffect(VanillaDamageEffects.FIRE))
+                {
+                    unfreeze = true;
+                }
+            }
+            if (armorResult != null)
+            {
+                if (armorResult.HasEffect(VanillaDamageEffects.SLOW))
+                {
+                    slow = true;
+                }
+                if (armorResult.HasEffect(VanillaDamageEffects.FIRE))
+                {
+                    unfreeze = true;
+                }
+            }
+            if (unfreeze)
+            {
+                entity.Unfreeze();
+            }
+            else if (slow)
+            {
+                entity.Slow(300);
+            }
         }
         private void PostEnemyDeathCallback(Entity entity, DeathInfo damage)
         {

@@ -547,7 +547,7 @@
             <int name="cost" value="175" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
-        <contraption id="necrotombstone" name="死灵墓碑" tooltip="召唤友方骷髅战士" >
+        <contraption id="necrotombstone" name="死灵墓碑" tooltip="召唤友方骷髅战士"  unlock="mvz2:level.mausoleum_7">
             <id name="placement" value="mvz2:buried"/>
             <vector3 name="size" x="48" y="48" z="48"/>
             <idArray name="gridLayers" value="mvz2:main mvz2:carrier"/>
@@ -1049,6 +1049,18 @@
             <int name="cost" value="75" />
             <int name="waterInteraction" value="2"/>
         </enemy>
+        <enemy id="skeleton_mage" name="骷髅法师" deathMessage="骸死我了" unlock="mvz2:level.mausoleum_7">
+            <float name="range" value="800"/>
+            <vector3 name="shotOffset" x="10" y="40" z="0"/>
+            <vector3 name="shotVelocity" x="15" y="0" z="0"/>
+            <id name="projectileId" value="mvz2:arrow"/>
+            <id name="shell" value="mvz2:bone"/>
+            <id name="crySound" value="mvz2:skeleton_cry"/>
+            <id name="deathSound" value="mvz2:skeleton_death"/>
+
+            <int name="cost" value="75" />
+            <int name="waterInteraction" value="2"/>
+        </enemy>
 
         <!-- Obstacles -->
         <obstacle id="gargoyle_statue" name="石像鬼雕像">
@@ -1355,6 +1367,26 @@
             <vector3 name="size" x="32" y="32" z="32" />
             <bool name="piercing" value="true" />
             <vector3 name="shadowScale" x="0.25" y="0.25" z="0.25" />
+        </projectile>
+        <projectile id="fireball">
+            <vector3 name="size" x="24" y="24" z="24" />
+            <idArray name="damageEffects" value="mvz2:fire" />
+            <bool name="isLightSource" value="true"/>
+            <vector3 name="lightRange" x="80" y="80" z="80"/>
+            <color name="lightColor" value="#FF7F00"/>
+            <bool name="isFire" value="true" />
+        </projectile>
+        <projectile id="ice_bolt">
+            <bool name="pointToDirection" value="true" />
+            <vector3 name="size" x="52" y="20" z="20" />
+            <idArray name="damageEffects" value="mvz2:ice mvz2:slow" />
+        </projectile>
+        <projectile id="charged_bolt">
+            <vector3 name="size" x="52" y="20" z="20" />
+            <idArray name="damageEffects" value="mvz2:lightning" />
+            <bool name="isLightSource" value="true"/>
+            <vector3 name="lightRange" x="64" y="64" z="64"/>
+            <color name="lightColor" value="#FFFFFF"/>
         </projectile>
 
         <!-- Effects -->

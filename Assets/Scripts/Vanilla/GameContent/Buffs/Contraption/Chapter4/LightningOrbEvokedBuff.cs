@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                         for (int i = 0; i < thunderBuffer.Count; i++)
                         {
                             var collider = thunderBuffer[i];
-                            collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.MUTE), entity);
+                            collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.LIGHTNING), entity);
                         }
                         var centerPos = entity.GetCenter();
                         for (int i = 0; i < 2; i++)

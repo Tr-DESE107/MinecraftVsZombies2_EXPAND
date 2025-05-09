@@ -64,6 +64,11 @@
     <sound name="chapter_transition" maxCount="1" priority="0">
         <sample path="mvz2:chapter_transition" weight="1" />
     </sound>
+    <sound name="charged_bolt">
+        <sample path="mvz2:charged_bolt1" weight="1" />
+        <sample path="mvz2:charged_bolt2" weight="1" />
+        <sample path="mvz2:charged_bolt3" weight="1" />
+    </sound>
     <sound name="charmed">
         <sample path="mvz2:charmed" weight="1" />
     </sound>
@@ -222,6 +227,9 @@
     </sound>
     <sound name="frankenstein_steel_laugh">
         <sample path="mvz2:frankenstein_steel_laugh" weight="1" />
+    </sound>
+    <sound name="freeze">
+        <sample path="mvz2:freeze" weight="1" />
     </sound>
     <sound name="fuse">
         <sample path="mvz2:fuse" weight="1" />
@@ -589,6 +597,9 @@
     <sound name="smash">
         <sample path="mvz2:smash" weight="1" />
     </sound>
+    <sound name="snow">
+        <sample path="mvz2:snow" weight="1" />
+    </sound>
     <sound name="soul_sand">
         <sample path="mvz2:soul_sand1" weight="1" />
         <sample path="mvz2:soul_sand2" weight="1" />
@@ -806,6 +817,12 @@
         <sample path="mvz2:random/wood2" weight="1" />
         <sample path="mvz2:random/wood3" weight="1" />
         <sample path="mvz2:random/wood4" weight="1" />
+    </sound>
+    <sound name="zap">
+        <sample path="mvz2:zap1" weight="1" />
+        <sample path="mvz2:zap2" weight="1" />
+        <sample path="mvz2:zap3" weight="1" />
+        <sample path="mvz2:zap4" weight="1" />
     </sound>
     <sound name="zombie_cry">
         <sample path="mvz2:entity/zombie/zombie_cry1" weight="1" />

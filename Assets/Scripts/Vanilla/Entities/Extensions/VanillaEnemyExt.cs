@@ -1,4 +1,6 @@
-﻿using MVZ2.GameContent.Buffs.Enemies;
+﻿using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
@@ -109,5 +111,21 @@ namespace MVZ2.Vanilla.Entities
             passenger.Position = horse.Position + horse.GetPassengerOffset();
         }
         #endregion
+
+
+        public static void Unfreeze(this Entity entity)
+        {
+            entity.RemoveBuffs<SlowBuff>();
+        }
+        public static void Slow(this Entity entity, int time)
+        {
+            var buff = entity.GetFirstBuff<SlowBuff>();
+            if (buff == null)
+            {
+                entity.PlaySound(VanillaSoundID.freeze);
+                buff = entity.AddBuff<SlowBuff>();
+            }
+            SlowBuff.SetTimeout(buff, time);
+        }
     }
 }

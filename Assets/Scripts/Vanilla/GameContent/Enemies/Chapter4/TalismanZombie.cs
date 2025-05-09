@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 if (result == null)
                     continue;
-                if (!result.HasEffects(VanillaDamageEffects.ENEMY_MELEE))
+                if (!result.HasEffect(VanillaDamageEffects.ENEMY_MELEE))
                     continue;
                 var source = result.Source?.GetEntity(level);
                 if (source == null)

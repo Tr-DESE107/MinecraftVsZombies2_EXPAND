@@ -14,7 +14,7 @@ namespace PVZEngine.Damages
         public ShellDefinition ShellDefinition { get; set; }
         public Entity Entity { get; set; }
         public abstract Vector3 GetPosition();
-        public bool HasEffects(NamespaceID effect)
+        public bool HasEffect(NamespaceID effect)
         {
             return Effects?.HasEffect(effect) ?? false;
         }

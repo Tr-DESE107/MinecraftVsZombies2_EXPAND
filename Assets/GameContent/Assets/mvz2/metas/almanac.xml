@@ -483,7 +483,23 @@
                 <p><![CDATA[<b>让这明亮的火光，照亮整个世界！！！</b>]]></p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="necrotombstone">
+            <header>
+                <p>死灵墓碑会不断召唤友方的骷髅战士，让它们为你而战。</p>
+            </header>
+            <properties>
+                <p>召唤时间：<![CDATA[<color=red>15秒</color>]]></p>
+                <p>骷髅战士生命：<![CDATA[<color=red>200+300（头盔）+200（盾）</color>]]></p>
+                <p>骷髅战士速度：<![CDATA[<color=red>1</color>]]></p>
+                <p>技能：<![CDATA[<color=red>召唤3个同种的火焰、冰霜或闪电骷髅法师</color>]]></p>
+            </properties>
+            <flavor>
+                <p>看着这座墓碑，恍惚中，你的脑海中似乎浮现出了一句熟悉的话：</p>
+                <p>“比起死亡，我更害怕的是被遗忘。”</p>
+                <p/>
+                <p>这是谁说的呢？</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         

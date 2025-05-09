@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-09 10:41+0800\n"
-"PO-Revision-Date: 2025-05-09 10:44+0800\n"
+"POT-Creation-Date: 2025-05-09 08:14+0800\n"
+"PO-Revision-Date: 2025-05-09 20:21+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -951,6 +951,40 @@ msgstr ""
 "\n"
 "Flames! Burn away the darkness, despair, and hatred within my heart!\n"
 "<b>May this brilliant blaze illuminate the entire world!!!</b>"
+
+#. Header for contraptions mvz2:necrotombstone
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "死灵墓碑会不断召唤友方的骷髅战士，让它们为你而战。"
+msgstr "Necrotombstone will constantly summon friendly skeleton warriors to fight for you."
+
+#. Properties for contraptions mvz2:necrotombstone
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"召唤时间：<color=red>15秒</color>\n"
+"骷髅战士生命：<color=red>200+300（头盔）+200（盾）</color>\n"
+"骷髅战士速度：<color=red>1</color>\n"
+"技能：<color=red>召唤3个同种的火焰、冰霜或闪电骷髅法师</color>"
+msgstr ""
+"Summon Cooldown: <color=red>15 seconds</color>\n"
+"Warrior Toughness: <color=red>200+300 (Helmet)+200 (Shield)</color>\n"
+"Warrior Speed: <color=red>1</color>\n"
+"Evocation: <color=red>Summon 3 skeleton mages of the same class: Fire, Frost, or Lightning</color>"
+
+#. Flavor for contraptions mvz2:necrotombstone
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"看着这座墓碑，恍惚中，你的脑海中似乎浮现出了一句熟悉的话：\n"
+"“比起死亡，我更害怕的是被遗忘。”\n"
+"\n"
+"这是谁说的呢？"
+msgstr ""
+"Gazing at this tombstone, in a daze, a familiar phrase seems to flash into your mind:\n"
+"\"More than death itself, what I truly fear is being forgotten.\"\n"
+"\n"
+"Who was it that said this?"
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -3446,6 +3480,18 @@ msgctxt "entity.tooltip"
 msgid "点燃穿过的箭矢"
 msgstr "Ignites arrows passing through"
 
+#. Header for entity mvz2:necrotombstone
+#: Entity meta file
+msgctxt "entity.name"
+msgid "死灵墓碑"
+msgstr "Necrotombstone"
+
+#. Properties for entity mvz2:necrotombstone
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "召唤友方骷髅战士"
+msgstr "Summon friendly skeleton warriors"
+
 #. Header for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -3903,6 +3949,24 @@ msgstr "Bedserker"
 msgctxt "death_message"
 msgid "晚安"
 msgstr "Good night"
+
+#. Header for entity mvz2:skeleton_warrior
+#: Entity meta file
+msgctxt "entity.name"
+msgid "骷髅战士"
+msgstr "Skeleton Warrior"
+
+#. Death message for entity mvz2:skeleton_warrior
+#: Entity meta file
+msgctxt "death_message"
+msgid "骸死我了"
+msgstr "Spooked"
+
+#. Header for entity mvz2:skeleton_mage
+#: Entity meta file
+msgctxt "entity.name"
+msgid "骷髅法师"
+msgstr "Skeleton Mage"
 
 #. Header for entity mvz2:gargoyle_statue
 #: Entity meta file

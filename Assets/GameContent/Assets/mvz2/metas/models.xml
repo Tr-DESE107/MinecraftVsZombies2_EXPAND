@@ -90,6 +90,7 @@
     <model name="seija_cursed_doll" type="entity" path="mvz2:enemy/castle/seija_cursed_doll"  width="32" height="32" xOffset="0" yOffset="-16"/>
     <model name="bedserker" type="entity" path="mvz2:enemy/castle/bedserker" width="72" height="100" xOffset="10" yOffset="-48"/>
     <model name="skeleton_warrior" type="entity" path="mvz2:enemy/mausoleum/skeleton_warrior" width="64" height="96" xOffset="16" yOffset="-44"/>
+    <model name="skeleton_mage" type="entity" path="mvz2:enemy/mausoleum/skeleton_mage" width="64" height="96" xOffset="10" yOffset="-44"/>
 
 
     <!-- Obstacles -->
@@ -230,6 +231,9 @@
     <model name="crossbow_bolt" type="entity" path="mvz2:projectile/crossbow_bolt" width="32" height="5" xOffset="0" yOffset="0"/>
     <model name="reflection_bullet" type="entity" path="mvz2:projectile/reflection_bullet" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="note" type="entity" path="mvz2:projectile/note" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="fireball" type="entity" path="mvz2:projectile/fireball" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="ice_bolt" type="entity" path="mvz2:projectile/ice_bolt" width="64" height="20" xOffset="6" yOffset="0"/>
+    <model name="charged_bolt" type="entity" path="mvz2:projectile/charged_bolt" width="64" height="64" xOffset="0" yOffset="0"/>
 
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>

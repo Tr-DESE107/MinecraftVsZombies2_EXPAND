@@ -325,6 +325,10 @@ namespace MVZ2.Vanilla.Entities
             {
                 return VanillaSoundID.smallHit;
             }
+            else if (damageEffects.HasEffect(VanillaDamageEffects.LIGHTNING))
+            {
+                return VanillaSoundID.zap;
+            }
             return null;
         }
         public static void EmitBlood(this Entity entity)

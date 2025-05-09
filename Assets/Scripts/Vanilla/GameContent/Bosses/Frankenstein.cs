@@ -187,7 +187,7 @@ namespace MVZ2.GameContent.Bosses
         }
         public static void Paralyze(Entity boss, Entity source)
         {
-            boss.TakeDamage(1200, new DamageEffectList(VanillaDamageEffects.LIGHTNING), source);
+            boss.TakeDamage(1200, new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.MUTE), source);
             if (!boss.IsDead)
             {
                 SetParalyzed(boss, true);
