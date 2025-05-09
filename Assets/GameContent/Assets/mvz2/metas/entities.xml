@@ -1051,7 +1051,7 @@
         </enemy>
         <enemy id="skeleton_mage" name="骷髅法师" deathMessage="骸死我了" unlock="mvz2:level.mausoleum_7">
             <float name="range" value="800"/>
-            <vector3 name="shotOffset" x="10" y="40" z="0"/>
+            <vector3 name="shotOffset" x="10" y="60" z="0"/>
             <vector3 name="shotVelocity" x="15" y="0" z="0"/>
             <id name="projectileId" value="mvz2:arrow"/>
             <id name="shell" value="mvz2:bone"/>
