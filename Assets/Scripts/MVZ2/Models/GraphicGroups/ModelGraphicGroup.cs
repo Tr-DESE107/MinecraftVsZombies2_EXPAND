@@ -20,13 +20,15 @@ namespace MVZ2.Models
         public virtual void SetSimulationSpeed(float speed)
         {
         }
-        public void SetGroundPosition(Vector3 position)
+        public void SetGroundY(float y)
         {
             foreach (var trans in transforms)
             {
                 if (!trans.LockToGround)
                     continue;
-                trans.transform.position = position;
+                var pos = trans.transform.position;
+                pos.y = y;
+                trans.transform.position = pos;
             }
         }
         public abstract void UpdateElements();

@@ -62,8 +62,7 @@ namespace MVZ2.GameContent.Contraptions
                     ArtifactPickup.SetArtifactID(lantern, VanillaArtifactID.brokenLantern);
                 }
             }
-            var anvil = level.Spawn(VanillaContraptionID.anvil, pos, entity);
-            anvil.SetFactionAndDirection(entity.GetFaction());
+            var anvil = entity.SpawnWithParams(VanillaContraptionID.anvil, pos);
         }
         public const float AFFECT_HEIGHT = 64;
         public const float MIN_HEIGHT = 5;

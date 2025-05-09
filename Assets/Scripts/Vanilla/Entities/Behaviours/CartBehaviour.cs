@@ -23,7 +23,6 @@ namespace MVZ2.Vanilla.Entities
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetFaction(entity.Level.Option.LeftFaction);
             entity.SetCanUpdateBeforeGameStart(true);
             entity.AddBuff<CartFadeInBuff>();
         }

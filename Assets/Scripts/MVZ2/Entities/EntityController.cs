@@ -58,15 +58,15 @@ namespace MVZ2.Entities
             if (Model)
             {
                 Destroy(Model.gameObject);
+                Model.OnUpdateFrame -= OnModelUpdateFrameCallback;
                 Model = null;
             }
             var model = Models.Model.Create(modelId, transform, Level.GetCamera(), Entity.InitSeed);
             Model = model;
             if (!Model)
                 return;
-            UpdateEntityModel();
+            Model.OnUpdateFrame += OnModelUpdateFrameCallback;
             modelPropertyCache.UpdateAll(this);
-            UpdateArmorModels();
             Model.UpdateFrame(0);
         }
         public void SetSimulationSpeed(float simulationSpeed)
@@ -103,8 +103,6 @@ namespace MVZ2.Entities
             UpdateShadow(finalOffset);
             if (Model)
             {
-                UpdateEntityModel();
-                UpdateArmorModels();
                 Model.UpdateFrame(deltaTime);
             }
         }
@@ -255,6 +253,11 @@ namespace MVZ2.Entities
         private void OnArmorRemoveCallback(NamespaceID slot, Armor armor)
         {
             RemoveArmorModel(slot);
+        }
+        private void OnModelUpdateFrameCallback(float deltaTime)
+        {
+            UpdateArmorModels();
+            UpdateEntityModel();
         }
         #endregion
 
@@ -409,11 +412,7 @@ namespace MVZ2.Entities
             var groundPos = Entity.Position;
             groundPos.y = Entity.GetGroundY();
             var transGroundPos = Level.LawnToTrans(groundPos);
-            var transPos = Level.LawnToTrans(Entity.Position);
-            var transOffset = transGroundPos - transPos;
-
-            var rendererGroup = Model.GraphicGroup;
-            Model.SetGroundPosition(transform.position + transOffset);
+            Model.SetGroundY(transGroundPos.y);
             Model.GetCenterTransform().localEulerAngles = Entity.RenderRotation;
 
             if (modelPropertyCache.IsDirty)

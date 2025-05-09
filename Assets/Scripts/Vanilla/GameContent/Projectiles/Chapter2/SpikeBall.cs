@@ -27,10 +27,10 @@ namespace MVZ2.GameContent.Projectiles
             base.PostContactGround(entity, velocity);
             Vector3 position = entity.Position;
             position.y = entity.GetGroundY();
-            var spike = entity.Level.Spawn(VanillaEffectID.giantSpike, position, entity);
+            var param = entity.GetSpawnParams();
+            param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage());
+            var spike = entity.Spawn(VanillaEffectID.giantSpike, position, param);
             spike.PlaySound(VanillaSoundID.giantSpike);
-            spike.SetFaction(entity.GetFaction());
-            spike.SetDamage(entity.GetDamage());
             foreach (Entity target in entity.Level.FindEntities(e => IsEnemyAndInRange(spike, e)))
             {
                 target.TakeDamage(spike.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR), spike);

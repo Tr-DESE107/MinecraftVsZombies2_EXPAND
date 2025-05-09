@@ -274,10 +274,10 @@ namespace MVZ2.GameContent.Bosses
                             if (count >= BACKFLIP_ENEMY_COUNT && CanBackflip(entity))
                             {
                                 stateMachine.StartState(entity, STATE_BACKFLIP);
-                                var tnt = entity.Spawn(VanillaProjectileID.seijaMagicBomb, entity.GetCenter());
-                                tnt.SetFaction(entity.GetFaction());
-                                tnt.SetDamage(entity.GetDamage());
-                                tnt.Velocity = new Vector3(0, 5, 0);
+                                var param = entity.GetSpawnParams();
+                                param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage());
+                                var bomb = entity.Spawn(VanillaProjectileID.seijaMagicBomb, entity.GetCenter(), param);
+                                bomb.Velocity = new Vector3(0, 5, 0);
                             }
                             else
                             {
@@ -343,10 +343,10 @@ namespace MVZ2.GameContent.Bosses
 
                             var pos = entity.Position;
                             pos.y += 40;
-                            var tnt = entity.Spawn(VanillaProjectileID.seijaMagicBomb, pos);
-                            tnt.SetFaction(entity.GetFaction());
-                            tnt.SetDamage(entity.GetDamage());
-                            tnt.Velocity = new Vector3(entity.GetFacingX() * -5, 10, 0);
+                            var param = entity.GetSpawnParams();
+                            param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage());
+                            var bomb = entity.Spawn(VanillaProjectileID.seijaMagicBomb, pos, param);
+                            bomb.Velocity = new Vector3(entity.GetFacingX() * -5, 10, 0);
                             entity.PlaySound(VanillaSoundID.fling);
                         }
                         break;
@@ -413,8 +413,7 @@ namespace MVZ2.GameContent.Bosses
                             var pos = entity.Position;
                             pos.x += entity.GetFacingX() * 80;
                             pos.y = entity.Level.GetGroundY(pos);
-                            var frame = entity.Spawn(VanillaEffectID.seijaCameraFrame, pos);
-                            frame.SetFaction(entity.GetFaction());
+                            var frame = entity.SpawnWithParams(VanillaEffectID.seijaCameraFrame, pos);
                             frame.Velocity = new Vector3(entity.GetFacingX() * 30, 0, 0);
                             entity.Velocity = new Vector3(entity.GetFacingX() * 10, 10, GetChangeAdjacentLaneZSpeed(entity));
                         }

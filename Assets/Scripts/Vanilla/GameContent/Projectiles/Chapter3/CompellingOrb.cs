@@ -63,9 +63,10 @@ namespace MVZ2.GameContent.Projectiles
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            var smoke = entity.Spawn(VanillaEffectID.smoke, entity.Position);
-            smoke.SetTint(Color.magenta);
-            smoke.SetSize(entity.GetScaledSize());
+            var param = entity.GetSpawnParams();
+            param.SetProperty(EngineEntityProps.TINT, Color.magenta);
+            param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
+            entity.Spawn(VanillaEffectID.smoke, entity.Position, param);
         }
         public static bool CanControl(Entity target)
         {

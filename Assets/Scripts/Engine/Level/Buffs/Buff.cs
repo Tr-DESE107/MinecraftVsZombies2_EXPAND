@@ -95,8 +95,8 @@ namespace PVZEngine.Buffs
                 modifier.PostRemove(this);
             }
             auras.PostRemove();
-            Target = null;
             Definition.PostRemove(this);
+            Target = null;
         }
         public void Remove()
         {

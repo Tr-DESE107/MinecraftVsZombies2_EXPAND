@@ -689,6 +689,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bd643181a7ae694bb749f3e6fd4619b
+    m_Address: mvz2:armor/skeleton_warrior_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1bf54b349ebb4ae48b1cee1197c7c2ae
     m_Address: mvz2:entity/enemy/zombie
     m_ReadOnly: 0
@@ -6350,6 +6356,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de2f50015df9b2341aa191a0813d294f
+    m_Address: mvz2:mobile_blueprint/skeleton_warrior
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de6b0433a1c4ece4bb335cdc66630b49
     m_Address: mvz2:entity/pickup/ruby

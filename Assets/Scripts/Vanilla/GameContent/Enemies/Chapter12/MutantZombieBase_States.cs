@@ -201,9 +201,8 @@ namespace MVZ2.Vanilla.Enemies
 
                             var impPos = entity.Position + new Vector3(entity.GetFacingX() * 24, 155, 0);
                             var impVel = new Vector3(entity.GetFacingX() * 20, 0, 0);
-                            var imp = entity.Spawn(VanillaEnemyID.imp, impPos);
+                            var imp = entity.SpawnWithParams(VanillaEnemyID.imp, impPos);
                             imp.PlaySound(VanillaSoundID.impLaugh);
-                            imp.SetFactionAndDirection(entity.GetFaction());
                             imp.Velocity = impVel;
 
                             subStateTimer.ResetTime(10);
@@ -255,8 +254,9 @@ namespace MVZ2.Vanilla.Enemies
                     case SUBSTATE_DROP:
                         if (subStateTimer.Expired)
                         {
-                            var smoke = entity.Spawn(VanillaEffectID.smoke, entity.Position);
-                            smoke.SetSize(entity.GetSize());
+                            var param = entity.GetSpawnParams();
+                            param.SetProperty(EngineEntityProps.SIZE, entity.GetSize());
+                            var smoke = entity.Spawn(VanillaEffectID.smoke, entity.Position, param);
                             entity.Remove();
                         }
                         break;

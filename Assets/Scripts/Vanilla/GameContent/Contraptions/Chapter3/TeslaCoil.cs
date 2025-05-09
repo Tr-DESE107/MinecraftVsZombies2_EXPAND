@@ -35,8 +35,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.lightningAttack);
             var pos = entity.Position;
             pos.y += 240;
-            var cloud = entity.Spawn(VanillaEffectID.thunderCloud, pos);
-            cloud.SetFaction(entity.GetFaction());
+            var cloud = entity.SpawnWithParams(VanillaEffectID.thunderCloud, pos);
 
             CreateArc(entity, entity.Position + ARC_OFFSET, cloud.GetCenter());
         }

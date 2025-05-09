@@ -47,7 +47,7 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaEnemyID.reflectiveBarrierZombie,
                 VanillaEnemyID.skeletonWarrior,
-                VanillaObstacleID.monsterSpawner,
+                VanillaContraptionID.necrotombstone,
                 VanillaContraptionID.tnt,
                 VanillaContraptionID.hellfire,
                 VanillaContraptionID.furnace,

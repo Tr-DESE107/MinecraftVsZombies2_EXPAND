@@ -654,6 +654,10 @@ namespace PVZEngine.Entities
         {
             return modelInterface.GetChildModel(key);
         }
+        public void UpdateModel()
+        {
+            modelInterface.UpdateModel();
+        }
         public void TriggerAnimation(string name)
         {
             modelInterface.TriggerAnimation(name);

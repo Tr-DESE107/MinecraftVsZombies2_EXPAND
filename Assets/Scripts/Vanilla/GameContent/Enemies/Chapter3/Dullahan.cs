@@ -104,8 +104,7 @@ namespace MVZ2.GameContent.Enemies
         {
             if (IsHeadDropped(entity))
                 return null;
-            var head = entity.Spawn(VanillaEnemyID.dullahanHead, entity.GetCenter());
-            head.SetFactionAndDirection(entity.GetFaction());
+            var head = entity.SpawnWithParams(VanillaEnemyID.dullahanHead, entity.GetCenter());
             SetHead(entity, head);
             DullahanHead.SetBody(head, entity);
             SetHeadDropped(entity, true);

@@ -9,11 +9,6 @@ namespace MVZ2.Vanilla.Entities
         protected BossBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.SetFaction(entity.Level.Option.RightFaction);
-        }
         public override sealed void Update(Entity entity)
         {
             base.Update(entity);

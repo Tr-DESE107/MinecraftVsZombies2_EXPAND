@@ -101,9 +101,9 @@ namespace MVZ2.GameContent.Contraptions
                             var posOffset = direction * layerRadius;
                             Vector3 knifePos = target + posOffset;
 
-                            var projectile = entity.Level.Spawn(entity.GetProjectileID(), knifePos, entity);
-                            projectile.SetDamage(entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
-                            projectile.SetFaction(entity.GetFaction());
+                            var param = entity.GetSpawnParams();
+                            param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
+                            var projectile = entity.Spawn(entity.GetProjectileID(), knifePos, param);
                             projectile.Velocity = direction * -10;
 
                             var buff = projectile.AddBuff<ProjectileWaitBuff>();

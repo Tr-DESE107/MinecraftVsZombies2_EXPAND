@@ -49,8 +49,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
             var pos = entity.Position + new Vector3(0, 1280, 0);
-            var param = entity.GetSpawnParams();
-            var meteor = entity.Spawn(VanillaEffectID.cursedMeteor, pos, param);
+            var meteor = entity.SpawnWithParams(VanillaEffectID.cursedMeteor, pos);
             meteor.SetParent(entity);
             SetMeteor(entity, new EntityID(meteor));
             meteor.PlaySound(VanillaSoundID.bombFalling);

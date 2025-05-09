@@ -23,8 +23,6 @@ namespace MVZ2.Vanilla.Entities
             buff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, GetRandomSpeedMultiplier(entity));
             entity.AddBuff(buff);
 
-            entity.SetFaction(entity.Level.Option.RightFaction);
-
             entity.CollisionMaskHostile = EntityCollisionHelper.MASK_PLANT
                 | EntityCollisionHelper.MASK_ENEMY
                 | EntityCollisionHelper.MASK_OBSTACLE

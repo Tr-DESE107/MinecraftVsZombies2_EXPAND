@@ -36,9 +36,8 @@ namespace MVZ2.GameContent.Enemies
                 timer.Reset();
                 var offset = SUMMON_OFFSET;
                 offset.x *= enemy.GetFacingX();
-                var sand = enemy.Spawn(VanillaEnemyID.soulsand, enemy.Position + offset);
+                var sand = enemy.SpawnWithParams(VanillaEnemyID.soulsand, enemy.Position + offset);
                 sand.AddBuff<SoulsandSummonedBuff>();
-                sand.SetFactionAndDirection(enemy.GetFaction());
                 enemy.PlaySound(VanillaSoundID.cave);
             }
         }

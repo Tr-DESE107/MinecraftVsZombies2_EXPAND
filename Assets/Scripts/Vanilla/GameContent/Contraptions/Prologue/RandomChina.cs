@@ -63,8 +63,7 @@ namespace MVZ2.GameContent.Contraptions
             if (validContraptions.Count() <= 0)
                 return;
             var contraptionID = validContraptions.Random(rng);
-            var spawnParam = entity.GetSpawnParams();
-            var spawned = entity.Spawn(contraptionID, entity.Position, spawnParam);
+            var spawned = entity.SpawnWithParams(contraptionID, entity.Position);
             if (spawned != null && spawned.HasBuff<NocturnalBuff>())
             {
                 spawned.RemoveBuffs<NocturnalBuff>();
@@ -134,9 +133,8 @@ namespace MVZ2.GameContent.Contraptions
                         var grid = level.GetGrid(column, lane);
                         if (grid.CanPlaceEntity(VanillaContraptionID.obsidian))
                         {
-                            var spawnParams = contraption.GetSpawnParams();
                             var pos = grid.GetEntityPosition();
-                            contraption.Spawn(VanillaContraptionID.obsidian, pos, spawnParams);
+                            contraption.SpawnWithParams(VanillaContraptionID.obsidian, pos);
                         }
                     }
                 }
@@ -152,9 +150,8 @@ namespace MVZ2.GameContent.Contraptions
                     var grid = level.GetGrid(column, lane);
                     if (grid.CanPlaceEntity(VanillaContraptionID.randomChina))
                     {
-                        var spawnParams = contraption.GetSpawnParams();
                         var pos = grid.GetEntityPosition();
-                        contraption.Spawn(VanillaContraptionID.randomChina, pos, spawnParams);
+                        contraption.SpawnWithParams(VanillaContraptionID.randomChina, pos);
                     }
                 }
             }
@@ -168,8 +165,7 @@ namespace MVZ2.GameContent.Contraptions
                 float x = rng.Next(VanillaLevelExt.ATTACK_LEFT_BORDER, VanillaLevelExt.ATTACK_RIGHT_BORDER);
                 float y = rng.Next(600f, 2000f);
                 float z = rng.Next(level.GetGridBottomZ(), level.GetGridTopZ());
-                var spawnParams = contraption.GetSpawnParams();
-                contraption.Spawn(VanillaProjectileID.flyingTNT, new Vector3(x, y, z), spawnParams);
+                contraption.SpawnWithParams(VanillaProjectileID.flyingTNT, new Vector3(x, y, z));
             }
         }
         private void RunEventRedstoneReady(Entity contraption, RandomGenerator rng)

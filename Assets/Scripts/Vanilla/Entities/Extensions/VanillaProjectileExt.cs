@@ -29,18 +29,18 @@ namespace MVZ2.Vanilla.Entities
         }
         public static Entity ShootProjectile(this Entity entity, ShootParams parameters)
         {
-            var game = entity.Level;
             entity.PlaySound(parameters.soundID);
 
             var velocity = entity.ModifyProjectileVelocity(parameters.velocity);
 
-            var projectile = game.Spawn(parameters.projectileID, parameters.position, entity);
-            projectile.SetDamage(parameters.damage);
-            projectile.SetFaction(parameters.faction);
+            var param = entity.GetSpawnParams();
+            param.SetProperty(VanillaEntityProps.DAMAGE, parameters.damage);
+            param.SetProperty(EngineEntityProps.FACTION, parameters.faction);
+            var projectile = entity.Spawn(parameters.projectileID, parameters.position, param);
             projectile.Velocity = velocity;
             projectile.UpdatePointTowardsDirection();
 
-            game.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_SHOT, projectile.Definition.GetID(), c => c(projectile));
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_SHOT, projectile.Definition.GetID(), c => c(projectile));
             return projectile;
         }
         public static ShootParams GetShootParams(this Entity entity)

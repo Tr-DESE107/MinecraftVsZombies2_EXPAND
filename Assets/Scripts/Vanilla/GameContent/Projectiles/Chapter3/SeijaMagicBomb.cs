@@ -41,8 +41,9 @@ namespace MVZ2.GameContent.Projectiles
                     target.Velocity = target.Velocity + Vector3.up * speed;
                 }
             }
-            var explosion = entity.Spawn(VanillaEffectID.magicBombExplosion, entity.GetCenter());
-            explosion.SetDisplayScale(Vector3.one * (range * 2 / 100f));
+            var param = entity.GetSpawnParams();
+            param.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * (range * 2 / 100f));
+            var explosion = entity.Spawn(VanillaEffectID.magicBombExplosion, entity.GetCenter(), param);
             entity.PlaySound(VanillaSoundID.evocation);
         }
     }

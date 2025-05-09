@@ -13,6 +13,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using static MVZ2.GameContent.Buffs.VanillaBuffNames;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -57,9 +58,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
             int count = 3 + level.GetEnemyAILevel();
             for (int i = 0; i < count; i++)
             {
-                var parasite = level.Spawn(VanillaEnemyID.parasiteTerror, host.GetCenter(), host);
+                var parasite = host.SpawnWithParams(VanillaEnemyID.parasiteTerror, host.GetCenter());
                 parasite.Health = health;
-                parasite.SetFactionAndDirection(host.GetFaction());
             }
             host.PlaySound(VanillaSoundID.bloody);
             host.EmitBlood();

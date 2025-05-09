@@ -691,16 +691,6 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.HasBuff<CharmBuff>();
         }
-        public static void SetFactionAndDirection(this Entity entity, int faction)
-        {
-            entity.SetFaction(faction);
-            var buff = entity.GetFirstBuff<FactionBuff>();
-            if (buff == null)
-            {
-                buff = entity.AddBuff<FactionBuff>();
-            }
-            buff.Update();
-        }
         #endregion
 
         #region 护甲
@@ -718,6 +708,11 @@ namespace MVZ2.Vanilla.Entities
             var param = new SpawnParams();
             param.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
             return param;
+        }
+        public static Entity SpawnWithParams(this Entity entity, NamespaceID id, Vector3 pos)
+        {
+            var param = entity.GetSpawnParams();
+            return entity.Spawn(id, pos, param);
         }
 
         private const string PROP_REGION = "entities";

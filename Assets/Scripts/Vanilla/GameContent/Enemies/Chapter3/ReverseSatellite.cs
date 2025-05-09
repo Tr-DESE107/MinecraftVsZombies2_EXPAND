@@ -77,8 +77,9 @@ namespace MVZ2.GameContent.Enemies
                 {
                     entity.Level.Explode(entity.GetCenter(), radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION), entity);
                 }
-                var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter());
-                explosion.SetSize(entity.GetScaledSize());
+                var param = entity.GetSpawnParams();
+                param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
+                var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
                 entity.PlaySound(VanillaSoundID.explosion);
 
                 entity.Remove();

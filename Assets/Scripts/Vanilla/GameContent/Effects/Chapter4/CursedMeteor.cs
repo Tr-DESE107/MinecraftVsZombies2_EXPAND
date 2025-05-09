@@ -32,9 +32,14 @@ namespace MVZ2.GameContent.Effects
             var range = entity.GetRange();
             var effects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
             entity.Level.Explode(entity.GetCenter(), range, entity.GetFaction(), entity.GetDamage(), effects, entity);
-            var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter());
-            explosion.SetSize(Vector3.one * (range * 2));
+
+
+            var param = entity.GetSpawnParams();
+            param.SetProperty(EngineEntityProps.SIZE, Vector3.one * (range * 2));
+            var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
+
             entity.Spawn(VanillaEffectID.cursedFireParticles, entity.GetCenter());
+
             entity.PlaySound(VanillaSoundID.meteorLand);
             entity.Level.ShakeScreen(10, 0, 15);
             entity.Remove();

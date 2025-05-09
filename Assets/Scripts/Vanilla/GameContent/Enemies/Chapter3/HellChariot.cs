@@ -133,14 +133,14 @@ namespace MVZ2.GameContent.Enemies
             if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
 
-            var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter());
-            explosion.SetSize(entity.GetScaledSize());
+            var param = entity.GetSpawnParams();
+            param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
+            var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
             entity.PostFragmentDeath(info);
 
             var anubisandOffset = ANUBISAND_OFFSET;
             anubisandOffset.x *= entity.GetFacingX();
-            var anubisand = entity.Spawn(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
-            anubisand.SetFactionAndDirection(entity.GetFaction());
+            var anubisand = entity.SpawnWithParams(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
             entity.Remove();
         }
         #endregion

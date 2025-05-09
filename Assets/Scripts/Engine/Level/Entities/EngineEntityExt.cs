@@ -32,9 +32,13 @@ namespace PVZEngine.Entities
         {
             return entity?.Definition?.GetID();
         }
-        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position, SpawnParams param = null)
+        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position, SpawnParams param)
         {
             return entity.Level.Spawn(id, position, entity, param);
+        }
+        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position)
+        {
+            return entity.Level.Spawn(id, position, entity);
         }
         public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position, int seed, SpawnParams param = null)
         {

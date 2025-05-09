@@ -137,8 +137,7 @@ namespace MVZ2.GameContent.Enemies
                 var z = entity.Position.z + level.GetGridHeight() * i * 0.5f;
                 var y = level.GetGroundY(x, z);
                 Vector3 wallPos = new Vector3(x, y, z);
-                var boneWall = level.Spawn(VanillaEnemyID.boneWall, wallPos, entity);
-                boneWall.SetFactionAndDirection(entity.GetFaction());
+                entity.SpawnWithParams(VanillaEnemyID.boneWall, wallPos);
             }
         }
         #region 常量

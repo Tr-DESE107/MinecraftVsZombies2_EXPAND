@@ -38,6 +38,7 @@
     <model name="splitenser" type="entity" path="mvz2:contraption/mausoleum/splitenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="devourer" type="entity" path="mvz2:contraption/mausoleum/devourer" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="hellfire" type="entity" path="mvz2:contraption/mausoleum/hellfire" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="necrotombstone" type="entity" path="mvz2:contraption/mausoleum/necrotombstone" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="infectenser" type="entity" path="mvz2:contraption/upgrade/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="force_pad" type="entity" path="mvz2:contraption/upgrade/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>

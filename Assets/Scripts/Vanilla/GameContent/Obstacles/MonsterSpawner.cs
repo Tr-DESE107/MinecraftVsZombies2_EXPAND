@@ -103,10 +103,8 @@ namespace MVZ2.GameContent.Obstacles
             spawned = null;
             if (grid == null || !grid.CanPlaceEntity(id))
                 return false;
-            var spawnParams = spawner.GetSpawnParams();
             var pos = grid.GetEntityPosition();
-            spawned = spawner.Spawn(id, pos, spawnParams);
-            spawned.SetFaction(spawner.GetFaction());
+            spawned = spawner.SpawnWithParams(id, pos);
             return true;
         }
         public static NamespaceID GetEntityToSpawn(Entity entity)

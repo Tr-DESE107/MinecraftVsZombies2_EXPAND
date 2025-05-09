@@ -34,8 +34,7 @@ namespace MVZ2.GameContent.Effects
                     var enemyID = GetEnemyID(entity);
                     if (NamespaceID.IsValid(enemyID))
                     {
-                        var enemy = entity.Level.Spawn(enemyID, entity.Position, entity);
-                        enemy.SetFactionAndDirection(entity.GetFaction());
+                        entity.SpawnWithParams(enemyID, entity.Position);
                     }
                 }
             }

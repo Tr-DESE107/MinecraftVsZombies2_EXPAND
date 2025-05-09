@@ -29,6 +29,7 @@ using PVZEngine.Triggers;
 using Tools;
 using Tools.Mathematics;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -226,9 +227,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private Entity SpawnPortal(Entity boss, Vector3 position, NamespaceID enemyID)
         {
-            var level = boss.Level;
-            var portal = level.Spawn(VanillaEffectID.nightmarePortal, position, boss);
-            portal.SetFactionAndDirection(boss.GetFaction());
+            var portal = boss.SpawnWithParams(VanillaEffectID.nightmarePortal, position);
             NightmarePortal.SetEnemyID(portal, enemyID);
             return portal;
         }
@@ -394,8 +393,7 @@ namespace MVZ2.GameContent.Bosses
             var targets = level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsFriendly(boss) && !e.IsEntityOf(VanillaEnemyID.ghast));
             foreach (var enemy in targets)
             {
-                var ghast = level.Spawn(VanillaEnemyID.ghast, enemy.Position, boss);
-                ghast.SetFactionAndDirection(boss.GetFaction());
+                var ghast = boss.SpawnWithParams(VanillaEnemyID.ghast, enemy.Position);
                 ghast.AddBuff<NightmareComeTrueBuff>();
                 enemy.Remove();
             }

@@ -21,8 +21,7 @@ namespace MVZ2.GameContent.Projectiles
             cooldown--;
             if (cooldown <= 0)
             {
-                var gas = projectile.Level.Spawn(VanillaEffectID.weaknessGas, projectile.Position, projectile);
-                gas.SetFaction(projectile.GetFaction());
+                var gas = projectile.SpawnWithParams(VanillaEffectID.weaknessGas, projectile.Position);
                 cooldown = MAX_COOLDOWN;
             }
             SetGasCooldown(projectile, cooldown);

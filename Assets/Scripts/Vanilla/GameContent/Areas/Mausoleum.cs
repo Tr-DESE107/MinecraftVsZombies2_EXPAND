@@ -76,8 +76,9 @@ namespace MVZ2.GameContent.Areas
                 var entityToSpawn = GetEntityToSpawn(rng);
                 MonsterSpawner.SetEntityToSpawn(spawner, entityToSpawn);
 
-                var embers = spawner.Spawn(VanillaEffectID.spawnerAppearEmbers, spawner.GetCenter());
-                embers.SetCanUpdateBeforeGameStart(true);
+                var param = spawner.GetSpawnParams();
+                param.SetProperty(VanillaEntityProps.UPDATE_BEFORE_GAME, true);
+                var embers = spawner.Spawn(VanillaEffectID.spawnerAppearEmbers, spawner.GetCenter(), param);
                 spawner.PlaySound(VanillaSoundID.odd);
             }
         }

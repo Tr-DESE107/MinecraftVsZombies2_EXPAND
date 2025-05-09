@@ -14,11 +14,6 @@ namespace MVZ2.Vanilla.Entities
         protected ObstacleBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.SetFaction(entity.Level.Option.RightFaction);
-        }
         public override void PostTakeDamage(DamageOutput result)
         {
             base.PostTakeDamage(result);

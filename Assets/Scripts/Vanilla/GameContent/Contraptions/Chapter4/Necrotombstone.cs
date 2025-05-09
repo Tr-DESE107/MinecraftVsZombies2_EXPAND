@@ -1,0 +1,55 @@
+﻿using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Pickups;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
+using PVZEngine;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using Tools;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Contraptions
+{
+    [EntityBehaviourDefinition(VanillaContraptionNames.necrotombstone)]
+    public class Necrotombstone : ContraptionBehaviour
+    {
+        public Necrotombstone(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            SetProductionTimer(entity, new FrameTimer(SPAWN_INTERVAL));
+        }
+        protected override void UpdateAI(Entity entity)
+        {
+            base.UpdateAI(entity);
+            ProductionUpdate(entity);
+        }
+        public static FrameTimer GetProductionTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_PRODUCTION_TIMER);
+        public static void SetProductionTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_PRODUCTION_TIMER, timer);
+        private void ProductionUpdate(Entity entity)
+        {
+            var productionTimer = GetProductionTimer(entity);
+            productionTimer.Run(entity.GetProduceSpeed());
+            if (productionTimer.Expired)
+            {
+                var pos = entity.Position;
+                pos.y = entity.GetGroundY() - 100;
+                var warrior = entity.SpawnWithParams(VanillaEnemyID.skeletonWarrior, pos);
+                warrior.AddBuff<NecrotombstoneRisingBuff>();
+                warrior.UpdateModel();
+
+                warrior.PlaySound(VanillaSoundID.dirtRise);
+
+                productionTimer.ResetTime(SPAWN_INTERVAL);
+            }
+        }
+        public const int SPAWN_INTERVAL = 450;
+        private static readonly VanillaEntityPropertyMeta PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta("ProductionTimer");
+    }
+}

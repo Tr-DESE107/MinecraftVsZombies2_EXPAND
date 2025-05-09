@@ -6,6 +6,13 @@ namespace MVZ2.Models
 {
     public abstract class ModelInterface : IModelInterface
     {
+        public void UpdateModel()
+        {
+            var targetModel = GetModel();
+            if (!targetModel)
+                return;
+            targetModel.UpdateFrame(0);
+        }
         public void TriggerAnimation(string name)
         {
             var targetModel = GetModel();

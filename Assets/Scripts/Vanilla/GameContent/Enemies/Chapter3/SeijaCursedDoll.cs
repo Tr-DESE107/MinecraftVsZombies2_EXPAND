@@ -60,8 +60,9 @@ namespace MVZ2.GameContent.Enemies
             base.PostDeath(entity, info);
             if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
-            var smoke = entity.Spawn(VanillaEffectID.smoke, entity.GetCenter());
-            smoke.SetSize(entity.GetSize());
+            var param = entity.GetSpawnParams();
+            param.SetProperty(EngineEntityProps.SIZE, entity.GetSize());
+            var smoke = entity.Spawn(VanillaEffectID.smoke, entity.GetCenter(), param);
             entity.Remove();
         }
         public static float GetOrbitAngle(Entity entity) => entity.GetBehaviourField<float>(PROP_ORBIT_ANGLE);
