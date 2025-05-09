@@ -75,5 +75,18 @@
                 <float name="maxHealth" value="300" />
             </props>
         </entry>
+        <entry id="skeleton_warrior_shield">
+            <colliders>
+                <collider name="main" >
+                    <offset x="-40" y="34" z="0"/>
+                    <size x="10" y="34" z="40"/>
+                    <pivot x="0.5" y="0" z="0.5"/>
+                </collider>
+            </colliders>
+            <props>
+                <id name="shell" value="mvz2:metal" />
+                <float name="maxHealth" value="200" />
+            </props>
+        </entry>
     </entries>
 </armors>

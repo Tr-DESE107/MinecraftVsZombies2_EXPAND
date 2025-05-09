@@ -803,6 +803,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fd96b56021772842a0225b291f70542
+    m_Address: mvz2:enemy/mausoleum/skeleton_mage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20958533b91069a45b0be07ee94c9c4a
     m_Address: mvz2:entity/ghost/ghost_cry2
     m_ReadOnly: 0
@@ -1924,6 +1930,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 440294be06b4bd14785efb5767c9116a
+    m_Address: mvz2:enemy/mausoleum/skeleton_warrior
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44bd337d7a161b2498137668fbec6e35
     m_Address: mvz2:entity/contraptions/spike_block
     m_ReadOnly: 0
@@ -2044,6 +2056,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47894eab01daa474ea408a1b6540ca96
+    m_Address: mvz2:enemy/halloween/skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47aa6cbff8c048c40a3da0ad86fa845d
     m_Address: mvz2:artifacts/the_creatures_heart
     m_ReadOnly: 0
@@ -2097,6 +2115,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49b1a512188fac74ca800a74456f2675
+    m_Address: mvz2:entity/projectiles/charge_bolt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49ce9f6fb80015c47ae81c9411d9d103
     m_Address: mvz2:entity/contraptions/golden_dropper
@@ -3184,6 +3208,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74521e763130e2249885ce873fba23f2
+    m_Address: mvz2:entity/projectiles/ice_bolt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7490e9324285caa4194143af3411c4df
     m_Address: mvz2:level/mausoleum/mausoleum
     m_ReadOnly: 0
@@ -3314,6 +3344,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7933393e5a9fbec4495c064e00c7d75d
+    m_Address: mvz2:entity/enemy/skeleton_warrior_weapons
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 794c8f0b77af644418898bcd66583207
     m_Address: mvz2:shading/musicroom/background
@@ -3880,7 +3916,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c5cc48f60d7d3e4f81a1b121d8fdde2
-    m_Address: mvz2:enemy/halloween/skeleton
+    m_Address: mvz2:enemy/halloween/skeleton_base
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -3986,6 +4022,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f4a25505be15d244b85ae394574d811
+    m_Address: mvz2:entity/armor/skeleton_warrior_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f515a416fe31cb4b8033bfb9fb4dc5b
     m_Address: mvz2:misc/nightmare
@@ -5343,6 +5385,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: babb5d02ad003f04386275ffa8ddfc64
+    m_Address: mvz2:entity/enemy/skeleton_mage_headwear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bafd8d60319920d40a5881b8a2776d56
     m_Address: mvz2:entity/contraption/force_pad_evoking
     m_ReadOnly: 0
@@ -6584,6 +6632,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9b8077c4b1f2d64eaf85c7b670d6528
+    m_Address: mvz2:armor/skeleton_warrior_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eac3297eb77eaa9469a14df4d15e1125
     m_Address: mvz2:random/crystal/crystal_place4

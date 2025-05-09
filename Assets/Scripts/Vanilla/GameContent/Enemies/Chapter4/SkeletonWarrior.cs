@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             entity.EquipMainArmor(VanillaArmorID.skeletonWarriorHelmet);
+            entity.EquipArmorTo(VanillaArmorSlots.shield, VanillaArmorID.skeletonWarriorShield);
         }
         protected override void UpdateLogic(Entity entity)
         {
