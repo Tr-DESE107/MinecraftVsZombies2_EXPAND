@@ -125,7 +125,7 @@ namespace MVZ2.GameContent.Contraptions
                 collider.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
 
                 var ent = collider.Entity;
-                if (ent.Type == EntityTypes.ENEMY)
+                if (collider.IsForMain() && ent.Type == EntityTypes.ENEMY)
                 {
                     ent.Velocity += entity.GetFacingDirection() * 20;
                     CheckAchievement(ent);

@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Projectiles
         protected override void PreHitEntity(ProjectileHitInput hit, DamageInput damage, CallbackResult result)
         {
             base.PreHitEntity(hit, damage, result);
-            result.SetFinalValue(false);
+            damage.SetAmount(0);
         }
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
