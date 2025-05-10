@@ -1065,7 +1065,7 @@
             <int name="cost" value="75" />
             <int name="waterInteraction" value="2"/>
         </enemy>
-        <enemy id="shikaisen_staff" name="尸解仙之杖" deathMessage="？" unlock="mvz2:level.mausoleum_9">
+        <enemy id="shikaisen_staff" name="尸解仙之杖" deathMessage="？" unlock="mvz2:level.mausoleum_6">
             <bool name="harmless" value="true" />
             <bool name="notActiveEnemy" value="true"/>
             <bool name="loyal" value="true"/>

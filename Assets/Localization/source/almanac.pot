@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-09 08:14+0800\n"
+"POT-Creation-Date: 2025-05-10 04:46+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1355,6 +1355,28 @@ msgid ""
 "即使是在他死后，这份执念也依然没有结束。他变成了僵尸，为的就是继续生前的进程。\n"
 "终于，他成为了邪仙，现在他再也不用害怕死亡了！\n"
 "……你就不觉得哪里不对吗？"
+msgstr ""
+
+#. Header for enemies mvz2:shikaisen_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有敌人的图腾。"
+msgstr ""
+
+#. Properties for enemies mvz2:shikaisen_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"竹杖耐久：<color=red>1200</color>\n"
+"特点：<color=red>生命低于50%时将竹杖插入地面，竹杖会以自己的耐久为代价复活周围死亡并倒下的敌人</color>\n"
+"弱点：<color=red>火焰会直接烧掉竹杖</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:shikaisen_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "非常擅长做仰卧起坐。"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -3246,6 +3268,18 @@ msgctxt "death_message"
 msgid "省得找个铲子来挖坟了。"
 msgstr ""
 
+#. Header for entity mvz2:shikaisen_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "尸解仙僵尸"
+msgstr ""
+
+#. Death message for entity mvz2:shikaisen_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "那我怎么没复活？"
+msgstr ""
+
 #. Header for entity mvz2:mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -3382,6 +3416,12 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.name"
 msgid "骷髅法师"
+msgstr ""
+
+#. Header for entity mvz2:shikaisen_staff
+#: Entity meta file
+msgctxt "entity.name"
+msgid "尸解仙之杖"
 msgstr ""
 
 #. Header for entity mvz2:gargoyle_statue
@@ -3660,6 +3700,18 @@ msgctxt "artifact.tooltip"
 msgid "器械生产效率×200%，但场景变得黑暗"
 msgstr ""
 
+#. Name for artifact mvz2:bottled_blackhole
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "瓶装黑洞"
+msgstr ""
+
+#. Tooltip for artifact mvz2:bottled_blackhole
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "每有一个蓝图空位，+15%器械伤害"
+msgstr ""
+
 #. Name for artifact mvz2:smart_phone
 #: Artifact meta file
 msgctxt "artifact.name"
@@ -3778,17 +3830,5 @@ msgstr ""
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "器械x250%伤害，但x50%攻击速度"
-msgstr ""
-
-#. Name for artifact mvz2:bottled_blackhole
-#: Artifact meta file
-msgctxt "artifact.name"
-msgid "瓶装黑洞"
-msgstr ""
-
-#. Tooltip for artifact mvz2:bottled_blackhole
-#: Artifact meta file
-msgctxt "artifact.tooltip"
-msgid "每有一个蓝图空位，+15%器械伤害"
 msgstr ""
 

@@ -81,7 +81,17 @@
 
     <!-- Mausoleum -->
     <entry id="reflective_barrier_zombie" entity="mvz2:reflective_barrier_zombie" >
-        <spawn level="3" />
+        <spawn level="3" minWave="5"/>
+        <terrain water="true"/>
+        <weight base="3000" />
+    </entry>
+    <entry id="wicked_hermit_zombie" entity="mvz2:wicked_hermit_zombie" >
+        <spawn level="4" minWave="10"/>
+        <terrain water="true"/>
+        <weight base="3000" />
+    </entry>
+    <entry id="shikaisen_zombie" entity="mvz2:shikaisen_zombie" >
+        <spawn level="4" minWave="5"/>
         <terrain water="true"/>
         <weight base="3000" />
     </entry>

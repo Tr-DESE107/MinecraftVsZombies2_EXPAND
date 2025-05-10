@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-09 08:14+0800\n"
-"PO-Revision-Date: 2025-05-10 14:27+0800\n"
+"POT-Creation-Date: 2025-05-10 04:46+0800\n"
+"PO-Revision-Date: 2025-05-10 16:51+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1709,6 +1709,35 @@ msgstr ""
 "Even after death, that obsession has not ended. He became a zombie in order to continue his pursuit from his past life.\n"
 "In the end, he became a wicked hermit, and now he no longer has to be afraid of death again!\n"
 "...Don’t you think something is off?"
+
+#. Header for enemies mvz2:shikaisen_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有敌人的图腾。"
+msgstr ""
+"When at low health, Shikaisen Zombie plunges its bamboo staff into the ground to create a totem that revives all nearby defeated "
+"enemies."
+
+#. Properties for enemies mvz2:shikaisen_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200</color>\n"
+"竹杖耐久：<color=red>1200</color>\n"
+"特点：<color=red>生命低于50%时将竹杖插入地面，竹杖会以自己的耐久为代价复活周围死亡并倒下的敌人</color>\n"
+"弱点：<color=red>火焰会直接烧掉竹杖</color>"
+msgstr ""
+"Toughness: <color=red>200</color>\n"
+"Staff Toughness: <color=red>1200</color>\n"
+"Special: <color=red>Plunges its staff into the ground when health drops below 50%, reviving all nearby defeated enemies at the cost of "
+"its own toughness</color>\n"
+"Weakness: <color=red>Fire instantly burns the staff</color>"
+
+#. Flavor for enemies mvz2:shikaisen_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "非常擅长做仰卧起坐。"
+msgstr "Exceptionally skilled at doing sit-ups."
 
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
@@ -3830,6 +3859,18 @@ msgctxt "death_message"
 msgid "省得找个铲子来挖坟了。"
 msgstr "At least you don't have to find a shovel to dig the grave."
 
+#. Header for entity mvz2:shikaisen_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "尸解仙僵尸"
+msgstr "Shikaisen Zombie"
+
+#. Death message for entity mvz2:shikaisen_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "那我怎么没复活？"
+msgstr "Then how come I didn’t get revived?"
+
 #. Header for entity mvz2:mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -3967,6 +4008,12 @@ msgstr "Spooked"
 msgctxt "entity.name"
 msgid "骷髅法师"
 msgstr "Skeleton Mage"
+
+#. Header for entity mvz2:shikaisen_staff
+#: Entity meta file
+msgctxt "entity.name"
+msgid "尸解仙之杖"
+msgstr "Shikaisen Zombie"
 
 #. Header for entity mvz2:gargoyle_statue
 #: Entity meta file
@@ -4244,6 +4291,18 @@ msgctxt "artifact.tooltip"
 msgid "器械生产效率×200%，但场景变得黑暗"
 msgstr "x200% contraption produce speed, but the battlefield is pitch black"
 
+#. Name for artifact mvz2:bottled_blackhole
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "瓶装黑洞"
+msgstr "Bottled Blackhole"
+
+#. Tooltip for artifact mvz2:bottled_blackhole
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "每有一个蓝图空位，+15%器械伤害"
+msgstr "+15% contraption damage for each empty blueprint slot"
+
 #. Name for artifact mvz2:smart_phone
 #: Artifact meta file
 msgctxt "artifact.name"
@@ -4363,18 +4422,6 @@ msgstr "Eye of the Giant"
 msgctxt "artifact.tooltip"
 msgid "器械x250%伤害，但x50%攻击速度"
 msgstr "x250% damage but x50% attack speed for contraptions"
-
-#. Name for artifact mvz2:bottled_blackhole
-#: Artifact meta file
-msgctxt "artifact.name"
-msgid "瓶装黑洞"
-msgstr "Bottled Blackhole"
-
-#. Tooltip for artifact mvz2:bottled_blackhole
-#: Artifact meta file
-msgctxt "artifact.tooltip"
-msgid "每有一个蓝图空位，+15%器械伤害"
-msgstr "+15% contraption damage for each empty blueprint slot"
 
 #~ msgctxt "artifacts.description"
 #~ msgid "还没想好写什么"
