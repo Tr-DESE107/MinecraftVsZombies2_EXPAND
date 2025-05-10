@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 7304122027608031259}
   - component: {fileID: 3644524034541536750}
   - component: {fileID: 5244756624707596614}
+  - component: {fileID: 3357252526006448838}
   m_Layer: 0
   m_Name: Armor
   m_TagString: Untagged
@@ -376,6 +377,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: armor
+--- !u!114 &3357252526006448838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708226682141513631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &1781785060974275836
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +925,7 @@ GameObject:
   - component: {fileID: 2048500070565454891}
   - component: {fileID: 6077838655691183337}
   - component: {fileID: 5467354951383866608}
+  - component: {fileID: 7512601349844230995}
   m_Layer: 0
   m_Name: Armor
   m_TagString: Untagged
@@ -958,6 +973,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: armor
+--- !u!114 &7512601349844230995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2576175890179847754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &2966546468131990608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 842742465694269340}
   - component: {fileID: 7313407588051911703}
+  - component: {fileID: 6618197181018544053}
   m_Layer: 0
   m_Name: Imp
   m_TagString: Untagged
@@ -1553,6 +1582,19 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_SortAtRoot: 0
+--- !u!114 &6618197181018544053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457460958072245970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &4620806710184943229
 GameObject:
   m_ObjectHideFlags: 0
@@ -3194,15 +3236,15 @@ PrefabInstance:
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
       value: 
-      objectReference: {fileID: 3644524034541536750}
+      objectReference: {fileID: 3357252526006448838}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: subSortingGroups.Array.data[1]
       value: 
-      objectReference: {fileID: 7313407588051911703}
+      objectReference: {fileID: 6618197181018544053}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: subSortingGroups.Array.data[2]
       value: 
-      objectReference: {fileID: 6077838655691183337}
+      objectReference: {fileID: 7512601349844230995}
     - target: {fileID: 7717581738674343506, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: m_Controller
       value: 

@@ -206,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3561699065797858663}
   - component: {fileID: 2809468909373603807}
+  - component: {fileID: 193099277120293055}
   m_Layer: 0
   m_Name: Aura
   m_TagString: Untagged
@@ -242,6 +243,19 @@ SortingGroup:
   m_SortingLayer: -5
   m_SortingOrder: 0
   m_SortAtRoot: 1
+--- !u!114 &193099277120293055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833226272378619010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 1
 --- !u!1 &5082412779010370473
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +505,7 @@ GameObject:
   - component: {fileID: 3624547769151512285}
   - component: {fileID: 8899641995486890752}
   - component: {fileID: 5542692888951776678}
+  - component: {fileID: 8780679083288261563}
   m_Layer: 0
   m_Name: Armor
   m_TagString: Untagged
@@ -538,6 +553,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: armor
+--- !u!114 &8780679083288261563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5537037680809434109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &5582160882077530838
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,11 +855,11 @@ PrefabInstance:
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
       value: 
-      objectReference: {fileID: 8899641995486890752}
+      objectReference: {fileID: 8780679083288261563}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: subSortingGroups.Array.data[1]
       value: 
-      objectReference: {fileID: 2809468909373603807}
+      objectReference: {fileID: 193099277120293055}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: subSortingGroups.Array.data[2]
       value: 

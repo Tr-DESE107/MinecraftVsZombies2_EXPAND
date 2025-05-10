@@ -26,8 +26,11 @@ namespace MVZ2.Models
         }
         public void CancelSortAtRoot()
         {
-            foreach (var group in subSortingGroups)
+            foreach (var element in subSortingGroups)
             {
+                if (element.ExcludedInGroup)
+                    continue;
+                var group = element.Group;
                 group.sortAtRoot = false;
             }
         }
@@ -39,7 +42,15 @@ namespace MVZ2.Models
         public override void UpdateElements()
         {
             var groups = GetComponentsInChildren<SortingGroup>(true)
-                .Where(g => IsChildOfGroup(g.transform, this) && g.gameObject != gameObject);
+                .Where(g => IsChildOfGroup(g.transform, this) && g.gameObject != gameObject)
+                .Select(r => {
+                    var element = r.GetComponent<SortingGroupElement>();
+                    if (!element)
+                    {
+                        element = r.gameObject.AddComponent<SortingGroupElement>();
+                    }
+                    return element;
+                });
             ReplaceComponents(subSortingGroups, groups);
 
             var renderer = GetComponentsInChildren<Renderer>(true)
@@ -157,8 +168,11 @@ namespace MVZ2.Models
             set
             {
                 sortingGroup.sortingLayerID = value;
-                foreach (var group in subSortingGroups)
+                foreach (var element in subSortingGroups)
                 {
+                    if (element.ExcludedInGroup)
+                        continue;
+                    var group = element.Group;
                     if (!group.sortAtRoot)
                         continue;
                     group.sortingLayerID = value;
@@ -171,8 +185,11 @@ namespace MVZ2.Models
             set
             {
                 sortingGroup.sortingLayerName = value;
-                foreach (var group in subSortingGroups)
+                foreach (var element in subSortingGroups)
                 {
+                    if (element.ExcludedInGroup)
+                        continue;
+                    var group = element.Group;
                     if (!group.sortAtRoot)
                         continue;
                     group.sortingLayerName = value;
@@ -185,8 +202,11 @@ namespace MVZ2.Models
             set
             {
                 sortingGroup.sortingOrder = value;
-                foreach (var group in subSortingGroups)
+                foreach (var element in subSortingGroups)
                 {
+                    if (element.ExcludedInGroup)
+                        continue;
+                    var group = element.Group;
                     if (!group.sortAtRoot)
                         continue;
                     group.sortingOrder = value;
@@ -197,7 +217,7 @@ namespace MVZ2.Models
         [SerializeField]
         private SortingGroup sortingGroup;
         [SerializeField]
-        private List<SortingGroup> subSortingGroups = new List<SortingGroup>();
+        private List<SortingGroupElement> subSortingGroups = new List<SortingGroupElement>();
         [SerializeField]
         private List<RendererElement> renderers = new List<RendererElement>();
         [SerializeField]

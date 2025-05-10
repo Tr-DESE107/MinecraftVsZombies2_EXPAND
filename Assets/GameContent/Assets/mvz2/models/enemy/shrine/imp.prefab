@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 5795746347716959356}
   - component: {fileID: 7172769817493710939}
   - component: {fileID: 2310118289990033872}
+  - component: {fileID: 7058620708879898426}
   m_Layer: 0
   m_Name: Armor
   m_TagString: Untagged
@@ -203,6 +204,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: armor
+--- !u!114 &7058620708879898426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3875394997873838390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &3937826066836800300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,7 +1180,7 @@ PrefabInstance:
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
       value: 
-      objectReference: {fileID: 7172769817493710939}
+      objectReference: {fileID: 7058620708879898426}
     - target: {fileID: 7717581738674343506, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: m_Controller
       value: 

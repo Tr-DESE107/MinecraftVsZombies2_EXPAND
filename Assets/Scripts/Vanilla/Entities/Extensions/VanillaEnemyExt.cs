@@ -62,7 +62,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 var param = enemy.GetSpawnParams();
                 param.SetProperty(EngineEntityProps.SIZE, enemy.GetSize());
-                enemy.Level.Spawn(VanillaEffectID.smoke, enemy.Position, enemy);
+                enemy.Level.Spawn(VanillaEffectID.smoke, enemy.Position, enemy, param);
                 enemy.Remove();
                 enemy.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_ENEMY_FAINT, new EntityCallbackParams(enemy), enemy.GetDefinitionID());
             }
