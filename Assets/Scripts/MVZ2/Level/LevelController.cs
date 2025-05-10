@@ -9,14 +9,12 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.Games;
 using MVZ2.Grids;
 using MVZ2.Level.Components;
-using MVZ2.Level.UI;
 using MVZ2.Localization;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
-using MVZ2.Talk;
 using MVZ2.Talks;
 using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
@@ -25,13 +23,11 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
-using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Level.Collisions;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -80,7 +76,7 @@ namespace MVZ2.Level
             var collisionSystem = GetCollisionSystem();
             level = new LevelEngine(game, game, game, collisionSystem);
             InitLevelEngine(level, game, areaID, stageID);
-            
+
             var option = new LevelOption()
             {
                 CardSlotCount = 10,
@@ -201,7 +197,7 @@ namespace MVZ2.Level
         public void StopLevel()
         {
             level.ResetHeldItem();
-            level.Triggers.RunCallback(LogicLevelCallbacks.POST_LEVEL_STOP, c => c(level));
+            level.Triggers.RunCallback(LogicLevelCallbacks.POST_LEVEL_STOP, new LevelCallbackParams(level));
             SetUIVisibleState(VisibleState.Nothing);
             pointingGrid = -1;
             pointingPointerId = -1;
@@ -651,16 +647,16 @@ namespace MVZ2.Level
         {
             await ExitLevelToNote(exitTargetNoteID);
         }
-        private void PostWaveFinishedCallback(LevelEngine level, int wave)
+        private void PostWaveFinishedCallback(LevelCallbacks.PostWaveParams param, CallbackResult result)
         {
             UpdateLevelName();
         }
-        private void PostHugeWaveApproachCallback(LevelEngine level)
+        private void PostHugeWaveApproachCallback(LevelCallbackParams param, CallbackResult result)
         {
             var ui = GetUIPreset();
             ui.ShowHugeWaveText();
         }
-        private void PostFinalWaveCallback(LevelEngine level)
+        private void PostFinalWaveCallback(LevelCallbackParams param, CallbackResult result)
         {
             var ui = GetUIPreset();
             ui.ShowFinalWaveText();

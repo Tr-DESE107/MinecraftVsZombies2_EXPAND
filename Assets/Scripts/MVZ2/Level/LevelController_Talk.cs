@@ -4,7 +4,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
 using MVZ2Logic.Talk;
 using PVZEngine;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.Level
@@ -40,7 +40,7 @@ namespace MVZ2.Level
 
         private void UI_OnTalkActionCallback(string cmd, string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, c => c(talkSystem, cmd, parameters));
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
         #endregion
 

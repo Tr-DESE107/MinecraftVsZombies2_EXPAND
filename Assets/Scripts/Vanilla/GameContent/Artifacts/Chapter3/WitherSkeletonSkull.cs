@@ -25,8 +25,9 @@ namespace MVZ2.GameContent.Artifacts
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
         }
-        private void PostContraptionInitCallback(Entity contraption)
+        private void PostContraptionInitCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var contraption = param.entity;
             var level = contraption.Level;
             var artifacts = level.GetArtifacts();
             foreach (var artifact in artifacts)

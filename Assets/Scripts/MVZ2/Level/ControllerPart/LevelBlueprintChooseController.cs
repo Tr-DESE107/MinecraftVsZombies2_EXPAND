@@ -19,7 +19,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -853,7 +853,7 @@ namespace MVZ2.Level
             }
             NamespaceID[] blueprintsForChoose = choosingBlueprints.Where(i => CanChooseBlueprint(i)).ToArray();
             var chosen = chosenBlueprints.ToArray();
-            Game.RunCallback(LogicLevelCallbacks.GET_BLUEPRINT_WARNINGS, c => c(Level, blueprintsForChoose, chosen, warnings));
+            Game.RunCallback(LogicLevelCallbacks.GET_BLUEPRINT_WARNINGS, new LogicLevelCallbacks.GetBlueprintWarningsParams(Level, blueprintsForChoose, chosen, warnings));
             foreach (var warning in warnings)
             {
                 var title = Main.LanguageManager._(VanillaStrings.WARNING);
@@ -872,7 +872,7 @@ namespace MVZ2.Level
                 artifacts = chosenArtifacts.Where(e => NamespaceID.IsValid(e)).Select(id => new ArtifactSelectionItem() { id = id }).ToArray()
             };
             Main.SaveManager.SetLastSelection(selection);
-            Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, c => c(Level, chosen));
+            Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, new LogicLevelCallbacks.PostBlueprintSelectionParams(Level, chosen));
 
             StartCoroutine(BlueprintChosenTransition());
         }

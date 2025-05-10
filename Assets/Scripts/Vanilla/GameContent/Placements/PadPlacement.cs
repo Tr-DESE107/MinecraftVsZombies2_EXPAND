@@ -3,7 +3,7 @@ using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.Placements;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Placements
 {
@@ -14,11 +14,11 @@ namespace MVZ2.GameContent.Placements
         {
         }
 
-        public override void CanPlaceEntityOnGrid(LawnGrid grid, EntityDefinition entityDef, TriggerResultNamespaceID error)
+        public override void CanPlaceEntityOnGrid(LawnGrid grid, EntityDefinition entityDef, CallbackResult error)
         {
             if (grid.IsWater())
             {
-                error.Result = VanillaGridStatus.notOnWater;
+                error.SetFinalValue(VanillaGridStatus.notOnWater);
                 return;
             }
             base.CanPlaceEntityOnGrid(grid, entityDef, error);

@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -64,9 +65,9 @@ namespace MVZ2.GameContent.Bosses
             boss.Spawn(VanillaEffectID.seijaFaintEffect, boss.GetCenter());
             stateMachine.StartState(boss, STATE_FAINT);
         }
-        public override void PreTakeDamage(DamageInput damageInfo)
+        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
         {
-            base.PreTakeDamage(damageInfo);
+            base.PreTakeDamage(damageInfo, result);
             var boss = damageInfo.Entity;
             if (damageInfo.Amount > 600)
             {
@@ -77,7 +78,8 @@ namespace MVZ2.GameContent.Bosses
             }
             if (boss.State == STATE_FABRIC)
             {
-                damageInfo.Cancel();
+                result.SetFinalValue(false);
+                return;
             }
             if (damageInfo.Amount > 600)
             {

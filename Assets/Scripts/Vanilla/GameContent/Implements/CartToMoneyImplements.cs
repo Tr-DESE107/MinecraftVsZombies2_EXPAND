@@ -13,8 +13,9 @@ namespace MVZ2.GameContent.Implements
         {
             mod.AddTrigger(LevelCallbacks.POST_LEVEL_CLEAR, PostLevelClearCallback);
         }
-        private void PostLevelClearCallback(LevelEngine level)
+        private void PostLevelClearCallback(LevelCallbackParams param, CallbackResult result)
         {
+            var level = param.level;
             foreach (var cart in level.GetEntities(EntityTypes.CART))
             {
                 if (cart.IsCartTriggered())

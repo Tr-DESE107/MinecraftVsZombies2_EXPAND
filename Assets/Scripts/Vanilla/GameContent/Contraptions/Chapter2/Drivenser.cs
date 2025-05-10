@@ -6,7 +6,7 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using Tools;
 using UnityEngine;
 
@@ -108,11 +108,11 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetBlockerBlend(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_BLOCKER_BLEND, value);
 
 
-        void IStackEntity.CanStackOnEntity(Entity target, TriggerResultBoolean result)
+        void IStackEntity.CanStackOnEntity(Entity target, CallbackResult result)
         {
             if (target.IsEntityOf(VanillaContraptionID.drivenser) && GetUpgradeLevel(target) < MAX_UPGRADE_LEVEL)
             {
-                result.Result = true;
+                result.SetValue(true);
             }
         }
         void IStackEntity.StackOnEntity(Entity target)

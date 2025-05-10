@@ -11,6 +11,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -123,9 +124,9 @@ namespace MVZ2.GameContent.Bosses
                 FinishEat(self);
             }
         }
-        public override void PreTakeDamage(DamageInput damageInfo)
+        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
         {
-            base.PreTakeDamage(damageInfo);
+            base.PreTakeDamage(damageInfo, result);
             if (damageInfo.Amount > 600)
             {
                 damageInfo.SetAmount(600);
@@ -158,15 +159,16 @@ namespace MVZ2.GameContent.Bosses
                 }
             }
         }
-        private void PreProjectileHitCallback(ProjectileHitInput hitInput, DamageInput damageInput)
+        private void PreProjectileHitCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult result)
         {
-            var self = hitInput.Other;
+            var hit = param.hit;
+            var self = hit.Other;
             if (!self.IsEntityOf(VanillaBossID.wither))
                 return;
             if (!HasArmor(self))
                 return;
-            hitInput.Cancel();
-            var projectile = hitInput.Projectile;
+            result.SetFinalValue(false);
+            var projectile = hit.Projectile;
             projectile.Remove();
         }
         #endregion 事件

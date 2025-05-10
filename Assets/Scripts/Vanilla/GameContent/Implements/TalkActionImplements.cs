@@ -15,6 +15,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Talk;
+using PVZEngine.Callbacks;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -26,8 +27,11 @@ namespace MVZ2.GameContent.Implements
         {
             mod.AddTrigger(VanillaCallbacks.TALK_ACTION, TalkAction);
         }
-        private void TalkAction(ITalkSystem system, string cmd, string[] parameters)
+        private void TalkAction(VanillaCallbacks.TalkActionParams param, CallbackResult result)
         {
+            var system = param.system;
+            var cmd = param.action;
+            var parameters = param.parameters;
             TalkPreset preset = null;
             if (system.IsInArchive())
             {

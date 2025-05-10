@@ -89,8 +89,10 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             }
             return 1;
         }
-        private void PostEntityDeathCallback(Entity entity, DeathInfo info)
+        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var info = param.deathInfo;
             entity.RemoveBuffs<DreamSilkBuff>();
         }
         public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");

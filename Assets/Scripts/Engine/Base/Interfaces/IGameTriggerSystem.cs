@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace PVZEngine
 {
-    public interface IGameTriggerSystem
+    public interface IGameTriggerSystem : ICallbackRunner
     {
         void AddTrigger(ITrigger trigger);
         bool RemoveTrigger(ITrigger trigger);
-        void GetTriggers(CallbackReference callbackID, List<ITrigger> results);
     }
 }

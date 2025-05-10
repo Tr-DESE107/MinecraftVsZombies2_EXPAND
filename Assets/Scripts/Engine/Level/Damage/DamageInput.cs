@@ -1,9 +1,8 @@
 ﻿using PVZEngine.Entities;
-using PVZEngine.Triggers;
 
 namespace PVZEngine.Damages
 {
-    public class DamageInput : IInterruptSource
+    public class DamageInput
     {
         public float OriginalAmount { get; private set; }
         public float Amount { get; private set; }
@@ -11,7 +10,6 @@ namespace PVZEngine.Damages
         public Entity Entity { get; private set; }
         public NamespaceID ShieldTarget { get; private set; }
         public EntityReferenceChain Source { get; set; }
-        public bool IsInterrupted { get; private set; }
 
         public DamageInput(float amount, DamageEffectList effects, Entity entity, EntityReferenceChain source, NamespaceID shieldTarget = null)
         {
@@ -33,10 +31,6 @@ namespace PVZEngine.Damages
         public void Multiply(float value)
         {
             Amount *= value;
-        }
-        public void Cancel()
-        {
-            IsInterrupted = true;
         }
     }
 }

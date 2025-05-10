@@ -21,11 +21,13 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback);
         }
-        private void PostEntityDeathCallback(Entity enemy, DeathInfo info)
+        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
-            if (!enemy.HasBuff<SeijaMesmerizerBuff>())
+            var entity = param.entity;
+            var info = param.deathInfo;
+            if (!entity.HasBuff<SeijaMesmerizerBuff>())
                 return;
-            foreach (var seija in enemy.Level.FindEntities(VanillaBossID.seija))
+            foreach (var seija in entity.Level.FindEntities(VanillaBossID.seija))
             {
                 if (seija.IsDead)
                     continue;

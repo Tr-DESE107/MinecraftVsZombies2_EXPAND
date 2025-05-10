@@ -13,7 +13,7 @@ using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.Level
@@ -78,7 +78,7 @@ namespace MVZ2.Level
         {
             SetCameraPosition(LevelCameraPosition.Lawn);
             UpdateDifficulty();
-            Game.RunCallback(LogicLevelCallbacks.PRE_BATTLE, c => c(level));
+            Game.RunCallback(LogicLevelCallbacks.PRE_BATTLE, new LevelCallbackParams(level));
             level.PrepareForBattle();
             StartGame();
         }
@@ -94,7 +94,7 @@ namespace MVZ2.Level
         {
             yield return MoveCameraToLawn();
             UpdateDifficulty();
-            Game.RunCallback(LogicLevelCallbacks.PRE_BATTLE, c => c(level));
+            Game.RunCallback(LogicLevelCallbacks.PRE_BATTLE, new LevelCallbackParams(level));
             level.PrepareForBattle();
             yield return new WaitForSeconds(0.5f);
             PlayReadySetBuild();
@@ -151,7 +151,7 @@ namespace MVZ2.Level
                 }
                 var seedPacks = chooseItems.Select(i => i.id).ToArray();
                 level.ReplaceSeedPacks(seedPacks);
-                Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, c => c(level, chooseItems.ToArray()));
+                Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, new LogicLevelCallbacks.PostBlueprintSelectionParams(level, chooseItems.ToArray()));
                 yield return GameStartToLawnTransition();
             }
         }

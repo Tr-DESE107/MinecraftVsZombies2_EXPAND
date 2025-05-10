@@ -14,7 +14,7 @@ using MVZ2Logic;
 using MVZ2Logic.Archives;
 using MVZ2Logic.Talk;
 using PVZEngine;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.MusicRoom

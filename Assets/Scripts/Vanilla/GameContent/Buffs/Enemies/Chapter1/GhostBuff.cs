@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -37,8 +38,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
             base.PostUpdate(buff);
             UpdateIllumination(buff);
         }
-        private void PreEntityTakeDamageCallback(DamageInput damageInfo)
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult callbackResult)
         {
+            var damageInfo = param.input;
             var entity = damageInfo.Entity;
             if (entity == null)
                 return;

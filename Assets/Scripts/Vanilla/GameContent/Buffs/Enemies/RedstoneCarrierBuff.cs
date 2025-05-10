@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -14,8 +15,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddTrigger(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, PostEnemyDropRewardsCallback);
         }
-        private void PostEnemyDropRewardsCallback(Entity enemy)
+        private void PostEnemyDropRewardsCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var enemy = param.entity;
             var buffs = enemy.GetBuffs<RedstoneCarrierBuff>();
             foreach (var buff in buffs)
             {

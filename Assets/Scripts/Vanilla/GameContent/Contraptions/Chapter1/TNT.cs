@@ -14,7 +14,6 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -66,8 +65,10 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetEvoked(true);
             Ignite(entity);
         }
-        private void PostEntityDeathCallback(Entity entity, DeathInfo info)
+        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var info = param.deathInfo;
             if (!entity.IsEntityOf(VanillaContraptionID.tnt))
                 return;
             if (!info.HasEffect(VanillaDamageEffects.SACRIFICE) &&
@@ -131,7 +132,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 ChargedExplode(entity);
             }
-            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, entity.GetDefinitionID(), c => c(entity));
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(entity), entity.GetDefinitionID());
 
             return damageOutputs;
         }

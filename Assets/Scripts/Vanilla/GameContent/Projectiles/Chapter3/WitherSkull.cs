@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -33,10 +34,10 @@ namespace MVZ2.GameContent.Projectiles
             projectile.SetModelProperty("Source", projectile.Position);
             projectile.SetModelProperty("Dest", projectile.Position + projectile.Velocity);
         }
-        protected override void PreHitEntity(ProjectileHitInput hit, DamageInput damage)
+        protected override void PreHitEntity(ProjectileHitInput hit, DamageInput damage, CallbackResult result)
         {
-            base.PreHitEntity(hit, damage);
-            damage.Cancel();
+            base.PreHitEntity(hit, damage, result);
+            result.SetFinalValue(false);
         }
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
@@ -54,8 +55,9 @@ namespace MVZ2.GameContent.Projectiles
             var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE);
             entity.Level.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects, entity);
         }
-        private void PostEntityTakeDamageCallback(DamageOutput output)
+        private void PostEntityTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
         {
+            var output = param.output;
             if (output == null)
                 return;
             var entity = output.Entity;

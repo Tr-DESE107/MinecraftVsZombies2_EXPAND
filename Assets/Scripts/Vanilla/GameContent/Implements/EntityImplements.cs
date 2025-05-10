@@ -25,16 +25,19 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
             mod.AddTrigger(LevelCallbacks.POST_DESTROY_ARMOR, PostArmorDestroyCallback);
         }
-        private void PostEntityInitCallback(Entity entity)
+        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var entity = param.entity;
             entity.AddBuff<EntityPhysicsBuff>();
             if (entity.IsVulnerableEntity())
             {
                 entity.AddBuff<FactionBuff>();
             }
         }
-        private void PostContactGroundCallback(Entity entity, Vector3 velocity)
+        private void PostContactGroundCallback(LevelCallbacks.PostEntityContactGroundParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var velocity = param.velocity;
             if (!entity.IsVulnerableEntity())
                 return;
             if (entity.IsOnWater())
@@ -52,10 +55,11 @@ namespace MVZ2.GameContent.Implements
                 entity.TakeDamage(fallDamage, effects, entity);
             }
         }
-        private void PlayHitSoundCallback(DamageOutput result)
+        private void PlayHitSoundCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
         {
-            var bodyResult = result.BodyResult;
-            var entity = result.Entity;
+            var output = param.output;
+            var bodyResult = output.BodyResult;
+            var entity = output.Entity;
             if (bodyResult != null)
             {
                 var shellDefinition = bodyResult.ShellDefinition;
@@ -64,10 +68,11 @@ namespace MVZ2.GameContent.Implements
                     entity.EmitBlood();
                 }
             }
-            result.PlayHitSound();
+            output.PlayHitSound();
         }
-        private void DamageEffectCallback(DamageOutput output)
+        private void DamageEffectCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
         {
+            var output = param.output;
             var entity = output.Entity;
             if (entity.Type != EntityTypes.ENEMY)
                 return;
@@ -106,18 +111,23 @@ namespace MVZ2.GameContent.Implements
                 entity.Slow(300);
             }
         }
-        private void PostEnemyDeathCallback(Entity entity, DeathInfo damage)
+        private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
-            if (damage.HasEffect(VanillaDamageEffects.NO_NEUTRALIZE))
+            var entity = param.entity;
+            var info = param.deathInfo;
+            if (info.HasEffect(VanillaDamageEffects.NO_NEUTRALIZE))
                 return;
             entity.Neutralize();
         }
-        private void HealParticlesUpdateCallback(Entity entity)
+        private void HealParticlesUpdateCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var entity = param.entity;
             entity.UpdateHealParticles();
         }
-        private void PostArmorDestroyCallback(Entity entity, NamespaceID slot, Armor armor, ArmorDestroyInfo damageResult)
+        private void PostArmorDestroyCallback(LevelCallbacks.PostArmorDestroyParams param, CallbackResult result)
         {
+            var armor = param.armor;
+            var entity = param.entity;
             var deathSound = armor.GetDeathSound();
             if (!NamespaceID.IsValid(deathSound))
                 return;

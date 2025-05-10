@@ -17,8 +17,9 @@ namespace MVZ2.GameContent.Artifacts
         {
             AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);
         }
-        private void PostLevelStartCallback(LevelEngine level)
+        private void PostLevelStartCallback(LevelCallbackParams param, CallbackResult result)
         {
+            var level = param.level;
             foreach (var artifact in level.GetArtifacts())
             {
                 if (artifact?.Definition?.GetID() != ID)

@@ -3,6 +3,7 @@ using System.Linq;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Base;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Modifiers;
@@ -74,11 +75,13 @@ namespace PVZEngine.Entities
                 behaviour.Update(entity);
             }
         }
-        public void PreTakeDamage(DamageInput input)
+        public void PreTakeDamage(DamageInput input, CallbackResult result)
         {
             foreach (var behaviour in behaviours)
             {
-                behaviour.PreTakeDamage(input);
+                behaviour.PreTakeDamage(input, result);
+                if (result.IsBreakRequested)
+                    break;
             }
         }
         public void PostTakeDamage(DamageOutput result)
@@ -102,14 +105,14 @@ namespace PVZEngine.Entities
                 behaviour.PostLeaveGround(entity);
             }
         }
-        public bool PreCollision(EntityCollision collision)
+        public void PreCollision(EntityCollision collision, CallbackResult callbackResult)
         {
             foreach (var behaviour in behaviours)
             {
-                if (!behaviour.PreCollision(collision))
-                    return false;
+                behaviour.PreCollision(collision, callbackResult);
+                if (callbackResult.IsBreakRequested)
+                    break;
             }
-            return true;
         }
         public void PostCollision(EntityCollision collision, int state)
         {

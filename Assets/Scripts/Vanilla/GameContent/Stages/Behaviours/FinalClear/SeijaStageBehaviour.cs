@@ -13,6 +13,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -101,8 +102,9 @@ namespace MVZ2.GameContent.Stages
             entity.AddBuff<SeijaMesmerizerBuff>();
             return entity;
         }
-        private void PostGravityPadEvokeCallback(Entity contraption)
+        private void PostGravityPadEvokeCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var contraption = param.entity;
             var level = contraption.Level;
             if (!level.HasBehaviour<SeijaStageBehaviour>())
                 return;

@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -29,8 +30,10 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             base.PostAdd(buff);
             Uncurse(buff);
         }
-        private void PostProjectileHitCallback(ProjectileHitOutput hit, DamageOutput damage)
+        private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
+            var hit = param.hit;
+            var damage = param.damage;
             var projectile = hit.Projectile;
             var buffs = projectile.GetBuffs(this);
             float additionalDamage = 0;

@@ -9,7 +9,7 @@ using MVZ2Logic.HeldItems;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.HeldItems
 {

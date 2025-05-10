@@ -25,7 +25,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using Tools;
 using Tools.Mathematics;
 using UnityEngine;
@@ -91,9 +91,9 @@ namespace MVZ2.GameContent.Bosses
             }
             entity.SetAnimationBool("IsDead", entity.IsDead);
         }
-        public override void PreTakeDamage(DamageInput damage)
+        public override void PreTakeDamage(DamageInput damage, CallbackResult result)
         {
-            base.PreTakeDamage(damage);
+            base.PreTakeDamage(damage, result);
             if (damage.Amount > 500)
             {
                 damage.SetAmount(500);

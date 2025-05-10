@@ -12,11 +12,11 @@ using PVZEngine.Level;
 using PVZEngine.Level.Collisions;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEditor.Graphs;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEditor.Search;
 
 namespace PVZEngine.Entities
 {
@@ -53,7 +53,11 @@ namespace PVZEngine.Entities
             Definition.Init(this);
             auras.PostAdd();
             Cache.UpdateAll(this);
-            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_INIT, Type, c => c(this));
+            var param = new EntityCallbackParams()
+            {
+                entity = this
+            };
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_INIT, param, Type);
             PostInit?.Invoke();
         }
         public void Update()
@@ -69,7 +73,11 @@ namespace PVZEngine.Entities
                 }
                 auras.Update();
                 buffs.Update();
-                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, c => c(this));
+                var param = new EntityCallbackParams()
+                {
+                    entity = this
+                };
+                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, param, Type);
             }
             catch (Exception ex)
             {
@@ -110,7 +118,11 @@ namespace PVZEngine.Entities
                 takenConveyorSeeds.Clear();
                 Definition.PostRemove(this);
                 auras.PostRemove();
-                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REMOVE, Type, c => c(this));
+                var param = new EntityCallbackParams()
+                {
+                    entity = this
+                };
+                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REMOVE, param, Type);
             }
         }
         public bool IsEntityOf(NamespaceID id)
@@ -137,7 +149,12 @@ namespace PVZEngine.Entities
             info = info ?? new DeathInfo(this, new DamageEffectList(), new EntityReferenceChain(null), null);
             IsDead = true;
             Definition.PostDeath(this, info);
-            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, Type, c => c(this, info));
+            var param = new LevelCallbacks.PostEntityDeathParams()
+            {
+                entity = this,
+                deathInfo = info
+            };
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, param, Type);
         }
         #endregion
 
@@ -501,16 +518,27 @@ namespace PVZEngine.Entities
         }
         public bool PreCollision(EntityCollision collision)
         {
-            bool canCollide = Definition.PreCollision(collision);
-            var result = new TriggerResultBoolean();
-            result.Result = canCollide;
-            Level.Triggers.RunCallback(LevelCallbacks.PRE_ENTITY_COLLISION, result, c => c(collision, result));
-            return result.Result;
+            var result = new CallbackResult(true);
+            Definition.PreCollision(collision, result);
+            if (!result.IsBreakRequested)
+            {
+                var param = new LevelCallbacks.PreEntityCollisionParams()
+                {
+                    collision = collision,
+                };
+                Level.Triggers.RunCallbackWithResult(LevelCallbacks.PRE_ENTITY_COLLISION, param, result);
+            }
+            return result.GetValue<bool>();
         }
         public void PostCollision(EntityCollision collision, int state)
         {
             Definition.PostCollision(collision, state);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, c => c(collision, state));
+            var param = new LevelCallbacks.PostEntityCollisionParams()
+            {
+                collision = collision,
+                state = state
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, param);
         }
         #endregion
 
@@ -553,7 +581,13 @@ namespace PVZEngine.Entities
             CreateCollidersForArmor(slot, armor);
 
             Definition.PostEquipArmor(this, slot, armor);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, c => c(this, slot, armor));
+            var param = new LevelCallbacks.ArmorParams()
+            {
+                entity = this,
+                slot = slot,
+                armor = armor
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, param);
             OnEquipArmor?.Invoke(slot, armor);
         }
         public void RemoveArmor(NamespaceID slot)
@@ -568,17 +602,30 @@ namespace PVZEngine.Entities
             RemoveCollidersFromArmor(slot, armor);
 
             Definition.PostRemoveArmor(this, slot, armor);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, c => c(this, slot, armor));
+            var param = new LevelCallbacks.ArmorParams()
+            {
+                entity = this,
+                slot = slot,
+                armor = armor
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, param);
             OnRemoveArmor?.Invoke(slot, armor);
         }
-        public void DestroyArmor(NamespaceID slot, ArmorDestroyInfo result)
+        public void DestroyArmor(NamespaceID slot, ArmorDestroyInfo info)
         {
             if (!armorDict.TryGetValue(slot, out var armor))
                 return;
             if (armor == null)
                 return;
-            Definition.PostDestroyArmor(this, slot, armor, result);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_DESTROY_ARMOR, c => c(this, slot, armor, result));
+            Definition.PostDestroyArmor(this, slot, armor, info);
+            var param = new LevelCallbacks.PostArmorDestroyParams()
+            {
+                entity = this,
+                slot = slot,
+                armor = armor,
+                info = info
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_DESTROY_ARMOR, param);
         }
         public Armor GetArmorAtSlot(NamespaceID slot)
         {
@@ -856,12 +903,21 @@ namespace PVZEngine.Entities
         private void OnContactGround(Vector3 velocity)
         {
             Definition.PostContactGround(this, velocity);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, c => c(this, velocity));
+            var param = new LevelCallbacks.PostEntityContactGroundParams()
+            {
+                entity = this,
+                velocity = velocity
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, param);
         }
         private void OnLeaveGround()
         {
             Definition.PostLeaveGround(this);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_LEAVE_GROUND, c => c(this));
+            var param = new EntityCallbackParams()
+            {
+                entity = this,
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_LEAVE_GROUND, param);
         }
         private void OnBuffModelAddCallback(string anchorName, NamespaceID key, NamespaceID modelID)
         {

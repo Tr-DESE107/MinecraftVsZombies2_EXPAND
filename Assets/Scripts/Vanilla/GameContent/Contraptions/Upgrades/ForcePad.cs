@@ -22,7 +22,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
@@ -302,11 +302,11 @@ namespace MVZ2.GameContent.Contraptions
             return GetPadDirection(pad);
         }
 
-        void IStackEntity.CanStackOnEntity(Entity target, TriggerResultBoolean result)
+        void IStackEntity.CanStackOnEntity(Entity target, CallbackResult result)
         {
             if (!target.IsEntityOf(VanillaContraptionID.gravityPad))
                 return;
-            result.Result = true;
+            result.SetValue(true);
         }
 
         void IStackEntity.StackOnEntity(Entity target)

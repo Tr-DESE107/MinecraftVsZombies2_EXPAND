@@ -194,8 +194,8 @@ namespace MVZ2.Level
             level.OnClear += Engine_OnClearCallback;
 
             level.AddTrigger(LevelCallbacks.POST_WAVE_FINISHED, PostWaveFinishedCallback);
-            level.AddTrigger(VanillaCallbacks.POST_HUGE_WAVE_APPROACH, PostHugeWaveApproachCallback);
-            level.AddTrigger(VanillaCallbacks.POST_FINAL_WAVE, PostFinalWaveCallback);
+            level.AddTrigger(VanillaLevelCallbacks.POST_HUGE_WAVE_APPROACH, PostHugeWaveApproachCallback);
+            level.AddTrigger(VanillaLevelCallbacks.POST_FINAL_WAVE, PostFinalWaveCallback);
 
             level.AddTrigger(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, Engine_PostUseEntityBlueprintCallback);
         }

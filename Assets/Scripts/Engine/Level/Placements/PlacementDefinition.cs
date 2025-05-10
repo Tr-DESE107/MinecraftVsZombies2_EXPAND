@@ -2,7 +2,7 @@
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace PVZEngine.Placements
 {
@@ -11,7 +11,7 @@ namespace PVZEngine.Placements
         public PlacementDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public virtual void CanPlaceEntityOnGrid(LawnGrid grid, EntityDefinition entity, TriggerResultNamespaceID error)
+        public virtual void CanPlaceEntityOnGrid(LawnGrid grid, EntityDefinition entity, CallbackResult error)
         {
         }
         public sealed override string GetDefinitionType() => EngineDefinitionTypes.PLACEMENT;

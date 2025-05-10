@@ -1,9 +1,7 @@
 ﻿using MVZ2Logic.Callbacks;
-using MVZ2Logic.Triggers;
 using PVZEngine;
-using PVZEngine.Entities;
+using PVZEngine.Callbacks;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 
 namespace MVZ2Logic.Level
 {
@@ -11,9 +9,14 @@ namespace MVZ2Logic.Level
     {
         public static bool IsBlueprintNotRecommmended(this LevelEngine level, NamespaceID blueprint)
         {
-            var result = new TriggerResultBoolean();
-            level.Triggers.RunCallbackFiltered(LogicLevelCallbacks.GET_BLUEPRINT_NOT_RECOMMONDED, blueprint, result, c => c(level, blueprint, result));
-            return result.Result;
+            var result = new CallbackResult(false);
+            var param = new LogicLevelCallbacks.GetBlueprintNotRecommondedParams()
+            {
+                level = level,
+                blueprintID = blueprint
+            };
+            level.Triggers.RunCallbackWithResultFiltered(LogicLevelCallbacks.GET_BLUEPRINT_NOT_RECOMMONDED, param, result, blueprint);
+            return result.GetValue<bool>();
         }
         public static void SetBehaviourField(this LevelEngine level, NamespaceID id, PropertyKey name, object value)
         {

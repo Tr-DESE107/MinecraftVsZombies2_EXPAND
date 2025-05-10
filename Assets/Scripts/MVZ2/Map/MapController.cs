@@ -26,7 +26,7 @@ using MVZ2Logic.Maps;
 using MVZ2Logic.Scenes;
 using MVZ2Logic.Talk;
 using PVZEngine;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -211,7 +211,7 @@ namespace MVZ2.Map
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, c => c(talkSystem, cmd, parameters));
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
         private void OnOptionsDialogCloseCallback()
         {

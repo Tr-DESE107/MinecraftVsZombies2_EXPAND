@@ -65,9 +65,9 @@ namespace MVZ2.GameContent.Bosses
 
             CheckTimerAndWallsDestruction(entity);
         }
-        public override void PreTakeDamage(DamageInput input)
+        public override void PreTakeDamage(DamageInput input, CallbackResult result)
         {
-            base.PreTakeDamage(input);
+            base.PreTakeDamage(input, result);
             if (input.Amount > 600)
             {
                 input.SetAmount(600);
@@ -75,9 +75,11 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
-        private void PostEnemyDeathCallback(Entity entity, DeathInfo deathInfo)
+        private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
-            if (deathInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            var entity = param.entity;
+            var info = param.deathInfo;
+            if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
             if (entity.IsOnWater())
                 return;

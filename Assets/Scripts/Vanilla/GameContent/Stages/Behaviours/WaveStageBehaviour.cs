@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -8,10 +7,10 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 using Tools;
 
 namespace MVZ2.GameContent.Stages
@@ -145,7 +144,7 @@ namespace MVZ2.GameContent.Stages
             level.WaveState = STATE_HUGE_WAVE_APPROACHING;
             var waveTimer = GetWaveTimer(level);
             waveTimer.ResetTime(180);
-            level.Triggers.RunCallback(VanillaCallbacks.POST_HUGE_WAVE_APPROACH, c => c(level));
+            level.Triggers.RunCallback(VanillaLevelCallbacks.POST_HUGE_WAVE_APPROACH, new LevelCallbackParams(level));
         }
         private void NextWave(LevelEngine level)
         {
@@ -159,7 +158,7 @@ namespace MVZ2.GameContent.Stages
                 if (HasFinalWave)
                 {
                     SetFinalWaveEventTimer(level, new FrameTimer(60));
-                    level.Triggers.RunCallback(VanillaCallbacks.POST_FINAL_WAVE, c => c(level));
+                    level.Triggers.RunCallback(VanillaLevelCallbacks.POST_FINAL_WAVE, new LevelCallbackParams(level));
                 }
             }
         }

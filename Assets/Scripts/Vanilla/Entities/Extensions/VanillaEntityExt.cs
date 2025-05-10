@@ -19,15 +19,14 @@ using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEditor;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -109,19 +108,29 @@ namespace MVZ2.Vanilla.Entities
             Entity entity = damageInfo.Entity;
             if (entity == null)
                 return false;
-            entity.Definition.PreTakeDamage(damageInfo);
-            if (damageInfo.IsInterrupted)
-                return false;
-            damageInfo.Entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, damageInfo, c => c(damageInfo));
-            return !damageInfo.IsInterrupted;
+            var result = new CallbackResult(true);
+            entity.Definition.PreTakeDamage(damageInfo, result);
+            if (!result.IsBreakRequested)
+            {
+                var param = new VanillaLevelCallbacks.PreTakeDamageParams()
+                {
+                    input = damageInfo
+                };
+                damageInfo.Entity.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, param, result);
+            }
+            return result.GetValue<bool>();
         }
-        private static void PostTakeDamage(DamageOutput result)
+        private static void PostTakeDamage(DamageOutput output)
         {
-            Entity entity = result.Entity;
+            Entity entity = output.Entity;
             if (entity == null)
                 return;
-            entity.Definition.PostTakeDamage(result);
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, c => c(result));
+            entity.Definition.PostTakeDamage(output);
+            var param = new VanillaLevelCallbacks.PostTakeDamageParams()
+            {
+                output = output
+            };
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, param);
         }
         private static void ArmoredTakeDamage(DamageInput info, DamageOutput result)
         {
@@ -542,15 +551,24 @@ namespace MVZ2.Vanilla.Entities
             var entity = info.Entity;
             if (entity == null)
                 return false;
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_ENTITY_HEAL, info, c => c(info));
-            return !info.IsInterrupted;
+            var result = new CallbackResult(true);
+            var param = new VanillaLevelCallbacks.PreHealParams()
+            {
+                input = info
+            };
+            entity.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_ENTITY_HEAL, param, result);
+            return result.GetValue<bool>();
         }
-        private static void PostHeal(HealOutput result)
+        private static void PostHeal(HealOutput output)
         {
-            var entity = result.Entity;
+            var entity = output.Entity;
             if (entity == null)
                 return;
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_HEAL, c => c(result));
+            var param = new VanillaLevelCallbacks.PostHealParams()
+            {
+                output = output
+            };
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_HEAL, param);
         }
         private static HealOutput ArmorHeal(HealInput info)
         {
@@ -646,12 +664,14 @@ namespace MVZ2.Vanilla.Entities
         {
             var level = target.Level;
             var definition = level.Content.GetEntityDefinition(entityID);
-            var result = new TriggerResultBoolean();
+            var result = new CallbackResult(false);
             foreach (var behaviour in definition.GetBehaviours<IStackEntity>())
             {
                 behaviour.CanStackOnEntity(target, result);
+                if (result.IsBreakRequested)
+                    break;
             }
-            return result.Result;
+            return result.GetValue<bool>();
         }
         public static void StackFromEntity(this Entity target, NamespaceID entityID)
         {
@@ -674,7 +694,7 @@ namespace MVZ2.Vanilla.Entities
             }
             CharmBuff.SetPermanent(buff, faction);
             buff.Update();
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, c => c(entity, buff));
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, new VanillaLevelCallbacks.PostEntityCharmParams(entity, buff));
         }
         public static void CharmWithSource(this Entity entity, Entity source)
         {
@@ -685,7 +705,7 @@ namespace MVZ2.Vanilla.Entities
             }
             CharmBuff.SetSource(buff, source);
             buff.Update();
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, c => c(entity, buff));
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, new VanillaLevelCallbacks.PostEntityCharmParams(entity, buff));
         }
         public static void RemoveCharm(this Entity entity)
         {

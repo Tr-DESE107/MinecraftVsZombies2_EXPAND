@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
@@ -15,8 +16,9 @@ namespace MVZ2.GameContent.Artifacts
         {
             AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_SHOT, PostProjectileShotCallback);
         }
-        private void PostProjectileShotCallback(Entity projectile)
+        private void PostProjectileShotCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var projectile = param.entity;
             if (!projectile.IsHostileEntity())
                 return;
             var level = projectile.Level;

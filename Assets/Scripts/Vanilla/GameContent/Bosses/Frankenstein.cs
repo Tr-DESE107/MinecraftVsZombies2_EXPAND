@@ -13,6 +13,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -73,9 +74,9 @@ namespace MVZ2.GameContent.Bosses
             base.PostDeath(boss, damageInfo);
             stateMachine.StartState(boss, STATE_DEAD);
         }
-        public override void PreTakeDamage(DamageInput damageInfo)
+        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
         {
-            base.PreTakeDamage(damageInfo);
+            base.PreTakeDamage(damageInfo, result);
             if (damageInfo.Amount > 600)
             {
                 damageInfo.SetAmount(600);

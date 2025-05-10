@@ -9,6 +9,7 @@ using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools.Mathematics;
@@ -27,8 +28,12 @@ namespace MVZ2.GameContent.Effects
         }
         #endregion
 
-        public void PostPointerActionCallback(int type, int index, Vector2 screenPosition, PointerPhase phase)
+        public void PostPointerActionCallback(VanillaCallbacks.PostPointerActionParams param, CallbackResult result)
         {
+            var type = param.type;
+            var phase = param.phase;
+            var screenPosition = param.screenPos;
+            var index = param.index;
             if (!Global.Game.IsInLevel())
                 return;
             var level = Global.Game.GetLevel();

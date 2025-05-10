@@ -11,7 +11,6 @@ using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Artifacts
@@ -31,8 +30,9 @@ namespace MVZ2.GameContent.Artifacts
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
         }
-        private void PostLevelStartCallback(LevelEngine level)
+        private void PostLevelStartCallback(LevelCallbackParams param, CallbackResult result)
         {
+            var level = param.level;
             foreach (var artifact in level.GetArtifacts())
             {
                 if (artifact == null || artifact.Definition != this)
@@ -43,8 +43,9 @@ namespace MVZ2.GameContent.Artifacts
                 aura.UpdateAura();
             }
         }
-        private void PostEntityInitCallback(Entity contraption)
+        private void PostEntityInitCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var contraption = param.entity;
             var level = contraption.Level;
             foreach (var artifact in level.GetArtifacts())
             {
@@ -56,8 +57,9 @@ namespace MVZ2.GameContent.Artifacts
                 aura.UpdateAura();
             }
         }
-        private void PostEntityRemoveCallback(Entity contraption)
+        private void PostEntityRemoveCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var contraption = param.entity;
             var level = contraption.Level;
             foreach (var artifact in level.GetArtifacts())
             {

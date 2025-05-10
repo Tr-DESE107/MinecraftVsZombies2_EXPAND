@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -42,9 +43,10 @@ namespace MVZ2.GameContent.Projectiles
             projectile.SetShadowScale(scaleVector * 0.5f);
             projectile.SetDamage(Mathf.Max(0, (scale - 1) * 300));
         }
-        private void PostEnemyTakeDamageCallback(DamageOutput result)
+        private void PostEnemyTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
         {
-            var bodyResult = result.BodyResult;
+            var output = param.output;
+            var bodyResult = output.BodyResult;
             if (bodyResult == null)
                 return;
             var entity = bodyResult.Entity;

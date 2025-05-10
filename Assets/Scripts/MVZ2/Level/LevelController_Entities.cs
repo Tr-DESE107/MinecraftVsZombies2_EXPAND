@@ -13,11 +13,13 @@ using MVZ2.Supporters;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
@@ -48,8 +50,12 @@ namespace MVZ2.Level
         {
             RemoveControllerFromEntity(entity);
         }
-        private void Engine_PostUseEntityBlueprintCallback(Entity entity, SeedDefinition definition, SeedPack blueprint, IHeldItemData heldData)
+        private void Engine_PostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
         {
+            var entity = param.entity;
+            var seed = param.blueprint;
+            var definition = param.definition;
+            var heldData = param.heldData;
             if (!Main.OptionsManager.ShowSponsorNames())
                 return;
             if (entity.IsEntityOf(VanillaContraptionID.furnace))

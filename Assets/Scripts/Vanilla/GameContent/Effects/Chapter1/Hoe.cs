@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Callbacks;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -84,8 +85,9 @@ namespace MVZ2.GameContent.Effects
             }
         }
         #endregion
-        private void PostLevelStopCallback(LevelEngine level)
+        private void PostLevelStopCallback(LevelCallbackParams param, CallbackResult result)
         {
+            var level = param.level;
             foreach (var hoe in level.FindEntities(e => e.IsEntityOf(VanillaEffectID.hoe)))
             {
                 hoe.Remove();

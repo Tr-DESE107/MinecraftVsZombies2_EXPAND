@@ -12,7 +12,7 @@ using MVZ2Logic;
 using MVZ2Logic.Archives;
 using MVZ2Logic.Talk;
 using PVZEngine;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.Archives
@@ -90,7 +90,7 @@ namespace MVZ2.Archives
         }
         private void OnTalkActionCallback(string cmd, params string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, c => c(talkSystem, cmd, parameters));
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
         #endregion
 

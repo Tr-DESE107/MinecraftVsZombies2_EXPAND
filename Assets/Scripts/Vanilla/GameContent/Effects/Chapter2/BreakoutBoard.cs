@@ -9,9 +9,11 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
@@ -99,8 +101,12 @@ namespace MVZ2.GameContent.Effects
             }
             entity.SetAnimationBool("Upgraded", IsUpgraded(entity));
         }
-        private void PostPointerActionCallback(int type, int index, Vector2 screenPosition, PointerPhase phase)
+        private void PostPointerActionCallback(VanillaCallbacks.PostPointerActionParams param, CallbackResult result)
         {
+            var type = param.type;
+            var phase = param.phase;
+            var screenPosition = param.screenPos;
+            var index = param.index;
             if (!Global.Game.IsInLevel())
                 return;
             var level = Global.Game.GetLevel();

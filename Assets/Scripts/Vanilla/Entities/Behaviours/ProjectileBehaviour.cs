@@ -5,9 +5,9 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -107,7 +107,7 @@ namespace MVZ2.Vanilla.Entities
                 position.y > VanillaLevelExt.PROJECTILE_TOP_BORDER ||
                 position.y < VanillaLevelExt.PROJECTILE_BOTTOM_BORDER;
         }
-        protected virtual void PreHitEntity(ProjectileHitInput hit, DamageInput damage)
+        protected virtual void PreHitEntity(ProjectileHitInput hit, DamageInput damage, CallbackResult result)
         {
         }
         protected virtual void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput damage)
@@ -148,12 +148,19 @@ namespace MVZ2.Vanilla.Entities
                 return;
 
             // 触发击中前回调。
-            PreHitEntity(hitInput, damageInput);
-            if (hitInput.IsInterrupted)
-                return;
-            var filterValue = projectile.GetDefinitionID();
-            projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, filterValue, hitInput, c => c(hitInput, damageInput));
-            if (hitInput.IsInterrupted)
+            var callbackResult = new CallbackResult(true);
+            PreHitEntity(hitInput, damageInput, callbackResult);
+            if (!callbackResult.IsBreakRequested)
+            {
+                var filterValue = projectile.GetDefinitionID();
+                var preParam = new VanillaLevelCallbacks.PreProjectileHitParams()
+                {
+                    hit = hitInput,
+                    damage = damageInput
+                };
+                projectile.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, preParam, callbackResult, filterValue);
+            }
+            if (!callbackResult.GetValue<bool>())
                 return;
 
             // 对敌人造成伤害
@@ -184,7 +191,12 @@ namespace MVZ2.Vanilla.Entities
 
             // 触发击中后回调。
             PostHitEntity(hitOutput, damageOutput);
-            projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, projectile.GetDefinitionID(), c => c(hitOutput, damageOutput));
+            var postParam = new VanillaLevelCallbacks.PostProjectileHitParams()
+            {
+                hit = hitOutput,
+                damage = damageOutput
+            };
+            projectile.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_HIT, postParam, projectile.GetDefinitionID());
 
             if (!hitOutput.Pierce)
             {

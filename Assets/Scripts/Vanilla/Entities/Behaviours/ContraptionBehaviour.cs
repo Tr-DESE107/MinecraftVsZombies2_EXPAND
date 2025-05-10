@@ -6,7 +6,7 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -65,7 +65,7 @@ namespace MVZ2.Vanilla.Entities
             }
             if (!damageInfo.Effects.HasEffect(VanillaDamageEffects.SELF_DAMAGE))
             {
-                entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DESTROY, entity.GetDefinitionID(), c => c(entity));
+                entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DESTROY, new EntityCallbackParams(entity), entity.GetDefinitionID());
             }
         }
         public override void PostTakeDamage(DamageOutput result)

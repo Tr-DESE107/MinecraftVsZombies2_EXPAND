@@ -3,7 +3,7 @@ using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using PVZEngine;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.Vanilla.Saves
 {
@@ -81,12 +81,9 @@ namespace MVZ2.Vanilla.Saves
             {
                 count = saveData.GetBlueprintSlots();
             }
-            var result = new TriggerResultInt()
-            {
-                Result = count,
-            };
-            Global.Game.RunCallback(LogicCallbacks.GET_BLUEPRINT_SLOT_COUNT, result, c => c(result));
-            return result.Result;
+            var result = new CallbackResult(count);
+            Global.Game.RunCallbackWithResult(LogicCallbacks.GET_BLUEPRINT_SLOT_COUNT, new EmptyCallbackParams(), result);
+            return result.GetValue<int>();
         }
         public static int GetArtifactSlots(this IGameSaveData save)
         {

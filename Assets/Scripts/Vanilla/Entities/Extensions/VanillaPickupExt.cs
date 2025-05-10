@@ -3,7 +3,7 @@ using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -25,10 +25,9 @@ namespace MVZ2.Vanilla.Entities
                 return false;
             if (!collectible.CanCollect(entity))
                 return false;
-            var result = new TriggerResultBoolean();
-            result.Result = true;
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.CAN_PICKUP_COLLECT, result, c => c(entity, result));
-            return result.Result;
+            var result = new CallbackResult(true);
+            entity.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.CAN_PICKUP_COLLECT, new EntityCallbackParams(entity), result);
+            return result.GetValue<bool>();
         }
         public static bool IsCollected(this Entity entity)
         {

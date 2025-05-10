@@ -24,8 +24,12 @@ namespace MVZ2.GameContent.Implements
         {
             mod.AddTrigger(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, PostUseEntityBlueprintCallback);
         }
-        private void PostUseEntityBlueprintCallback(Entity entity, SeedDefinition seedDef, SeedPack seed, IHeldItemData heldData)
+        private void PostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
         {
+            var entity = param.entity;
+            var seed = param.blueprint;
+            var definition = param.definition;
+            var heldData = param.heldData;
             if (entity == null)
                 return;
             if (heldData.InstantTrigger && entity.CanTrigger())

@@ -4,6 +4,7 @@ using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 
@@ -16,8 +17,9 @@ namespace MVZ2.GameContent.Artifacts
         {
             AddTrigger(VanillaLevelCallbacks.POST_PLACE_ENTITY, PostEntityPlaceCallback);
         }
-        private void PostEntityPlaceCallback(LawnGrid grid, Entity entity)
+        private void PostEntityPlaceCallback(VanillaLevelCallbacks.PostPlaceEntityParams param, CallbackResult result)
         {
+            var entity = param.entity;
             if (entity.Type != EntityTypes.PLANT)
                 return;
             var level = entity.Level;

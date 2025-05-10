@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -25,16 +26,18 @@ namespace MVZ2.GameContent.Enemies
             var buff = entity.AddBuff<FlyBuff>();
             buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 20);
         }
-        public override void PreTakeDamage(DamageInput input)
+        public override void PreTakeDamage(DamageInput input, CallbackResult result)
         {
-            base.PreTakeDamage(input);
+            base.PreTakeDamage(input, result);
             if (input.Effects.HasEffect(VanillaDamageEffects.GOLD))
             {
                 input.Multiply(3);
             }
         }
-        private void PostEntityCharmCallback(Entity entity, Buff buff)
+        private void PostEntityCharmCallback(VanillaLevelCallbacks.PostEntityCharmParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var buff = param.buff;
             if (!entity.IsEntityOf(VanillaEnemyID.dullahanHead))
                 return;
             var body = GetBody(entity);

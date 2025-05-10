@@ -9,7 +9,6 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.HeldItems;
@@ -27,7 +26,6 @@ using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -185,7 +183,7 @@ namespace MVZ2.Vanilla.Level
             {
                 level.CurrentFlag++;
             }
-            level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_WAVE_FINISHED, wave, c => c(level, wave));
+            level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_WAVE_FINISHED, new LevelCallbacks.PostWaveParams(level, wave), wave);
         }
         public static void NextWave(this LevelEngine level)
         {
@@ -199,7 +197,7 @@ namespace MVZ2.Vanilla.Level
 
             var wave = level.CurrentWave;
             level.StageDefinition.PostWave(level, wave);
-            level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, c => c(level, wave));
+            level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, new LevelCallbacks.PostWaveParams(level, wave));
         }
         public static int GetLevelTotalWaves(this LevelEngine level, int wave, int flags)
         {
@@ -330,7 +328,7 @@ namespace MVZ2.Vanilla.Level
             var enemy = level.Spawn(spawnDef.EntityID, pos, null);
             level.AddSpawnedEnemyID(spawnDef.GetID());
             level.StageDefinition.PostEnemySpawned(enemy);
-            level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, c => c(enemy));
+            level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, new EntityCallbackParams(enemy));
             return enemy;
         }
         public static Entity SpawnFlagZombie(this LevelEngine level)

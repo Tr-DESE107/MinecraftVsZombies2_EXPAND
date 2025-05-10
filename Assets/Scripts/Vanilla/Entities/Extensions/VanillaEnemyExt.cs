@@ -4,7 +4,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -17,19 +17,18 @@ namespace MVZ2.Vanilla.Entities
             if (enemy.IsNeutralized())
                 return;
 
-            var result = new TriggerResultBoolean();
-            result.Result = true;
-            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_ENEMY_NEUTRALIZE, result, c => c(enemy, result));
-            if (result.Result == false)
+            var result = new CallbackResult(true);
+            enemy.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_ENEMY_NEUTRALIZE, new EntityCallbackParams(enemy), result);
+            if (!result.GetValue<bool>())
                 return;
             enemy.SetNeutralized(true);
-            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, c => c(enemy));
+            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, new EntityCallbackParams(enemy));
         }
         public static void DropRewards(this Entity enemy)
         {
             if (enemy.HasNoReward())
                 return;
-            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, c => c(enemy));
+            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, new EntityCallbackParams(enemy));
         }
         public static void InflictWeakness(this Entity enemy, int time)
         {

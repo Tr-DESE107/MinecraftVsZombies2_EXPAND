@@ -1,10 +1,5 @@
-﻿using MVZ2Logic.Artifacts;
-using MVZ2Logic.Callbacks;
-using MVZ2Logic.Triggers;
-using PVZEngine;
-using PVZEngine.Entities;
+﻿using PVZEngine;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2Logic.Level

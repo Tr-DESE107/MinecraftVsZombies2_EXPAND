@@ -4,12 +4,8 @@ using MVZ2.GameContent.Fragments;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using PVZEngine;
-using PVZEngine.Armors;
 using PVZEngine.Callbacks;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -25,8 +21,10 @@ namespace MVZ2.GameContent.Armors
             AddTrigger(LevelCallbacks.POST_DESTROY_ARMOR, PostArmorDestroyCallback);
             AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostProjectileHitCallback);
         }
-        private void PostEntityDeathCallback(Entity entity, DeathInfo info)
+        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var info = param.deathInfo;
             if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
             var shield = entity.GetArmorAtSlot(VanillaArmorSlots.shield);
@@ -36,8 +34,11 @@ namespace MVZ2.GameContent.Armors
                 return;
             shield.Destroy();
         }
-        private void PostArmorDestroyCallback(Entity entity, NamespaceID slot, Armor armor, ArmorDestroyInfo info)
+        private void PostArmorDestroyCallback(LevelCallbacks.PostArmorDestroyParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var armor = param.armor;
+            var info = param.info;
             if (!armor.Definition.HasBehaviour(this))
                 return;
             var pos = entity.Position + new Vector3(entity.GetFacingX() * 20, 40, 0);
@@ -45,8 +46,10 @@ namespace MVZ2.GameContent.Armors
             Fragment.SetFragmentID(fragment, VanillaFragmentID.reflectiveBarrier);
             Fragment.AddEmitSpeed(fragment, 500);
         }
-        private void PostProjectileHitCallback(ProjectileHitOutput hit, DamageOutput damage)
+        private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
+            var hit = param.hit;
+            var damage = param.damage;
             if (hit.Pierce)
                 return;
 

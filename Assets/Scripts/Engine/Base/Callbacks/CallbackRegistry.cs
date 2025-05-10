@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using PVZEngine.Triggers;
 
-namespace PVZEngine.Base
+namespace PVZEngine.Callbacks
 {
     public class CallbackRegistry
     {

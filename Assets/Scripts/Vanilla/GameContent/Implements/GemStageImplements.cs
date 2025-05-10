@@ -27,8 +27,9 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, Gem_PostEnemyInitCallback, filter: EntityTypes.ENEMY);
             mod.AddTrigger(LevelCallbacks.POST_LEVEL_UPDATE, Gem_PostUpdateCallback);
         }
-        private void Gem_PostUpdateCallback(LevelEngine level)
+        private void Gem_PostUpdateCallback(LevelCallbackParams param, CallbackResult result)
         {
+            var level = param.level;
             var firstGem = level.GetProperty<EntityID>(VanillaLevelProps.FIRST_GEM);
             if (firstGem == null)
                 return;
@@ -42,8 +43,9 @@ namespace MVZ2.GameContent.Implements
                 level.HideHintArrow();
             }
         }
-        private void Gem_PostPickupInitCallback(Entity pickup)
+        private void Gem_PostPickupInitCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var pickup = param.entity;
             var gem = pickup.Definition.GetBehaviour<Gem>();
             if (gem == null)
                 return;
@@ -60,8 +62,9 @@ namespace MVZ2.GameContent.Implements
                 level.ShowAdvice(adviceContext, adviceText, 1000, -1);
             }
         }
-        private void Gem_PostEnemyInitCallback(Entity enemy)
+        private void Gem_PostEnemyInitCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var enemy = param.entity;
             var level = enemy.Level;
             if (!level.HasBehaviour<GemStageBehaviour>())
                 return;

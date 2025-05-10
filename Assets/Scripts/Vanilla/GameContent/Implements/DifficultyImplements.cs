@@ -17,12 +17,14 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(LogicLevelCallbacks.PRE_BATTLE, PreBattleCallback);
             mod.AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);
         }
-        public void PreBattleCallback(LevelEngine level)
+        public void PreBattleCallback(LevelCallbackParams param, CallbackResult result)
         {
+            var level = param.level;
             EvaluateDifficultyBuff(level);
         }
-        public void PostLevelStartCallback(LevelEngine level)
+        public void PostLevelStartCallback(LevelCallbackParams param, CallbackResult result)
         {
+            var level = param.level;
             EvaluateDifficultyBuff(level);
         }
         private void EvaluateDifficultyBuff(LevelEngine level)

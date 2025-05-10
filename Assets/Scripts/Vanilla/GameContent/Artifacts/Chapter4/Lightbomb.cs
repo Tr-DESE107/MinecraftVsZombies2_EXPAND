@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 
@@ -18,8 +19,9 @@ namespace MVZ2.GameContent.Artifacts
         {
             AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, PostContraptionDetonateCallback);
         }
-        public void PostContraptionDetonateCallback(Entity contraption)
+        public void PostContraptionDetonateCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var contraption = param.entity;
             var level = contraption.Level;
             foreach (var artifact in level.GetArtifacts())
             {

@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace PVZEngine.Level
 {
     public partial class LevelEngine
     {
         #region 公有方法
-        public void AddTrigger(ITrigger trigger)
+        public void AddTrigger<TArgs>(Trigger<TArgs> trigger)
         {
             Triggers.AddTrigger(trigger);
             addedTriggers.Add(trigger);
         }
-        public void AddTrigger<T>(CallbackReference<T> callbackID, T action, int priority = 0, object filter = null) where T : Delegate
+        public void AddTrigger<TArgs>(CallbackType<TArgs> callbackID, Action<TArgs, CallbackResult> action, int priority = 0, object filter = null)
         {
-            AddTrigger(new Trigger<T>(callbackID, action, priority, filter));
+            AddTrigger(new Trigger<TArgs>(callbackID, action, priority, filter));
         }
         public bool RemoveTrigger(ITrigger trigger)
         {
@@ -25,13 +25,6 @@ namespace PVZEngine.Level
                 return true;
             }
             return false;
-        }
-        public void AddTriggers(IEnumerable<ITrigger> triggers)
-        {
-            foreach (var trigger in triggers)
-            {
-                AddTrigger(trigger);
-            }
         }
         public int RemoveTriggers(IEnumerable<ITrigger> triggers)
         {

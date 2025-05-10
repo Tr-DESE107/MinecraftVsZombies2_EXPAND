@@ -9,6 +9,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -89,13 +90,14 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 }
             }
         }
-        private void PreEntityTakeDamageCallback(DamageInput damage)
+        private void PreEntityTakeDamageCallback(VanillaLevelCallbacks.PreTakeDamageParams param, CallbackResult result)
         {
+            var damage = param.input;
             var entity = damage.Entity;
             foreach (var buff in entity.GetBuffs<LightningOrbEvokedBuff>())
             {
                 AddTakenDamage(buff, damage.Amount);
-                damage.Cancel();
+                result.SetFinalValue(false);
             }
         }
         public static FrameTimer GetSoundTimer(Buff buff) => buff.GetProperty<FrameTimer>(PROP_SOUND_TIMER);

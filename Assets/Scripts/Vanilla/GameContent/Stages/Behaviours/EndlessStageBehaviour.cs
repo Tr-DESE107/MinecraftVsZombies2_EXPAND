@@ -48,8 +48,9 @@ namespace MVZ2.GameContent.Stages
                 roundTimer.ResetTime(1800);
             }
         }
-        private void PostWaveFinishedCallback(LevelEngine level, int wave)
+        private void PostWaveFinishedCallback(LevelCallbacks.PostWaveParams param, CallbackResult result)
         {
+            var level = param.level;
             if (!level.IsEndless())
                 return;
             if (Global.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)

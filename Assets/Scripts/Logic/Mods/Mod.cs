@@ -4,7 +4,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Base;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace MVZ2Logic.Modding
 {
@@ -73,9 +73,9 @@ namespace MVZ2Logic.Modding
         {
             triggers.RevertCallbacks();
         }
-        public void AddTrigger<T>(CallbackReference<T> callbackID, T action, int priority = 0, object filter = null) where T : Delegate
+        public void AddTrigger<TArgs>(CallbackType<TArgs> callbackID, Action<TArgs, CallbackResult> action, int priority = 0, object filter = null)
         {
-            triggers.AddTrigger(new Trigger<T>(callbackID, action, priority, filter));
+            triggers.AddTrigger(new Trigger<TArgs>(callbackID, action, priority, filter));
         }
         public string Namespace { get; }
         private DefinitionGroup definitionGroup = new DefinitionGroup();

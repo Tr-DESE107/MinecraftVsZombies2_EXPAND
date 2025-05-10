@@ -6,7 +6,6 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
 
 namespace MVZ2.GameContent.Implements
 {
@@ -16,8 +15,9 @@ namespace MVZ2.GameContent.Implements
         {
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, EntityUpdateCallback);
         }
-        private void EntityUpdateCallback(Entity entity)
+        private void EntityUpdateCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var entity = param.entity;
             // 头目、掉落物、特效：无效果。
 
             // 敌人：可以游泳的，在水中漂浮；不能游泳但支持在水中的动画的，沉入水中淹死；不支持在水中动画的，直接沉没。
@@ -42,7 +42,13 @@ namespace MVZ2.GameContent.Implements
                     entity.Neutralize();
                 }
                 entity.Remove();
-                entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_REMOVE, c => c(entity, WaterInteraction.ACTION_REMOVE));
+                var action = WaterInteraction.ACTION_REMOVE;
+                var callbackParam = new VanillaLevelCallbacks.WaterInteractionParams()
+                {
+                    entity = entity,
+                    action = action
+                };
+                entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, callbackParam, action);
                 entity.SetAnimationBool("InWater", false);
                 return;
             }
@@ -54,14 +60,26 @@ namespace MVZ2.GameContent.Implements
                     entity.AddBuff<InWaterBuff>();
                     entity.PlaySplashEffect();
                     entity.PlaySplashSound();
-                    entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_ENTER, c => c(entity, WaterInteraction.ACTION_ENTER));
+                    var action = WaterInteraction.ACTION_ENTER;
+                    var callbackParam = new VanillaLevelCallbacks.WaterInteractionParams()
+                    {
+                        entity = entity,
+                        action = action
+                    };
+                    entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, callbackParam, action);
                 }
                 else
                 {
                     entity.RemoveBuffs<InWaterBuff>();
                     entity.PlaySplashEffect();
                     entity.PlaySound(VanillaSoundID.water);
-                    entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, WaterInteraction.ACTION_EXIT, c => c(entity, WaterInteraction.ACTION_EXIT));
+                    var action = WaterInteraction.ACTION_EXIT;
+                    var callbackParam = new VanillaLevelCallbacks.WaterInteractionParams()
+                    {
+                        entity = entity,
+                        action = action
+                    };
+                    entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, callbackParam, action);
                 }
                 entity.SetAnimationBool("InWater", inWater);
             }

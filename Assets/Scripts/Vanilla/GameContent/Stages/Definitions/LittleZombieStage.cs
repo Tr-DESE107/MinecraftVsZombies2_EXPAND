@@ -32,8 +32,9 @@ namespace MVZ2.GameContent.Stages
                 level.PlaySound(VanillaSoundID.growBig);
             }
         }
-        public void PostEnemyInitCallback(Entity entity)
+        public void PostEnemyInitCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var entity = param.entity;
             var level = entity.Level;
             if (level.StageDefinition != this)
                 return;

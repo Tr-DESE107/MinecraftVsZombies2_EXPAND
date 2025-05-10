@@ -10,7 +10,7 @@ using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -29,7 +29,8 @@ namespace MVZ2.Vanilla.Entities
             if (evokable == null)
                 return;
             evokable.Evoke(contraption);
-            contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, contraption.GetDefinitionID(), c => c(contraption));
+            var param = new EntityCallbackParams(contraption);
+            contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, param, contraption.GetDefinitionID());
         }
         public static bool HasPassenger(this Entity contraption)
         {
@@ -105,7 +106,7 @@ namespace MVZ2.Vanilla.Entities
             if (triggerable == null)
                 return;
             triggerable.Trigger(contraption);
-            contraption.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_CONTRAPTION_TRIGGER, c => c(contraption));
+            contraption.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_CONTRAPTION_TRIGGER, new EntityCallbackParams(contraption));
         }
         public static Entity UpgradeToContraption(this Entity contraption, NamespaceID target)
         {

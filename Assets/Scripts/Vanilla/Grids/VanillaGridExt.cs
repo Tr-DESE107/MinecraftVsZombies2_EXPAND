@@ -13,7 +13,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.SeedPacks;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
@@ -92,7 +92,7 @@ namespace MVZ2.Vanilla.Grids
                 return;
             var entity = grid.PlaceBlueprintEntity(seedDef, heldItemData);
             var level = grid.Level;
-            level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, c => c(entity, seedDef, seed, heldItemData));
+            level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, new VanillaLevelCallbacks.PostUseEntityBlueprintParams(entity, seedDef, seed, heldItemData));
         }
         #endregion
 
@@ -110,7 +110,7 @@ namespace MVZ2.Vanilla.Grids
                 return;
             var entity = grid.PlaceBlueprintEntity(seedDef, heldItemData);
             var level = grid.Level;
-            level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, c => c(entity, seedDef, null, heldItemData));
+            level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, new VanillaLevelCallbacks.PostUseEntityBlueprintParams(entity, seedDef, null, heldItemData));
         }
         #endregion
 
@@ -139,27 +139,28 @@ namespace MVZ2.Vanilla.Grids
         }
         public static NamespaceID GetEntityPlaceOrStackStatus(this LawnGrid grid, NamespaceID entityID)
         {
-            var error = new TriggerResultNamespaceID();
             var level = grid.Level;
             var entityDef = level.Content.GetEntityDefinition(entityID);
             if (entityDef == null)
                 return null;
             if (grid.GetEntities().Any(e => e.CanStackFrom(entityID) && e.IsFriendlyEntity()))
             {
-                // 可堆叠
-                error.Result = null;
+                // 可堆叠。
+                return null;
             }
-            else
+
+            // 可放置。
+            var placementID = entityDef.GetPlacementID();
+            var placementDef = level.Content.GetPlacementDefinition(placementID);
+            if (placementDef == null)
+                return null;
+            var error = new CallbackResult(null);
+            placementDef.CanPlaceEntityOnGrid(grid, entityDef, error);
+            if (!error.IsBreakRequested)
             {
-                // 可放置。
-                var placementID = entityDef.GetPlacementID();
-                var placementDef = level.Content.GetPlacementDefinition(placementID);
-                if (placementDef == null)
-                    return null;
-                placementDef.CanPlaceEntityOnGrid(grid, entityDef, error);
-                level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.CAN_PLACE_ENTITY, entityID, error, c => c(grid, entityID, error));
+                level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.CAN_PLACE_ENTITY, new VanillaLevelCallbacks.PlaceEntityParams(grid, entityID), error, entityID);
             }
-            return error.Result;
+            return error.GetValue<NamespaceID>();
         }
         /// <summary>
         /// 放置一个蓝图的实体，或升级器械，或在已有实体上堆叠。
@@ -214,30 +215,33 @@ namespace MVZ2.Vanilla.Grids
         {
             if (entityDef == null)
                 return null;
-            var error = new TriggerResultNamespaceID();
             var level = grid.Level;
             // 可放置。
             var placementID = entityDef.GetPlacementID();
             var placementDef = level.Content.GetPlacementDefinition(placementID);
             if (placementDef == null)
                 return null;
-            placementDef.CanPlaceEntityOnGrid(grid, entityDef, error);
             var entityID = entityDef.GetID();
-            level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.CAN_PLACE_ENTITY, entityID, error, c => c(grid, entityID, error));
-            return error.Result;
+            var error = new CallbackResult(null);
+            placementDef.CanPlaceEntityOnGrid(grid, entityDef, error);
+            if (!error.IsBreakRequested)
+            {
+                level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.CAN_PLACE_ENTITY, new VanillaLevelCallbacks.PlaceEntityParams(grid, entityID), error, entityID);
+            }
+            return error.GetValue<NamespaceID>();
         }
-        public static void PrePlaceEntity(this LawnGrid grid, NamespaceID entityID, TriggerResultBoolean cancelPlace)
+        public static void PrePlaceEntity(this LawnGrid grid, NamespaceID entityID, CallbackResult result)
         {
             if (grid == null)
                 return;
             var level = grid.Level;
-            level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.PRE_PLACE_ENTITY, entityID, cancelPlace, c => c(grid, entityID, cancelPlace));
+            level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_PLACE_ENTITY, new VanillaLevelCallbacks.PlaceEntityParams(grid, entityID), result, entityID);
         }
         public static Entity PlaceEntity(this LawnGrid grid, NamespaceID entityID)
         {
-            var result = new TriggerResultBoolean();
+            var result = new CallbackResult(true);
             grid.PrePlaceEntity(entityID, result);
-            if (result.Result)
+            if (!result.GetValue<bool>())
                 return null;
 
             var level = grid.Level;
@@ -257,7 +261,7 @@ namespace MVZ2.Vanilla.Grids
         public static void PostPlaceEntity(this LawnGrid grid, Entity entity)
         {
             var level = grid.Level;
-            level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PLACE_ENTITY, entity.GetDefinitionID(), c => c(grid, entity));
+            level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PLACE_ENTITY, new VanillaLevelCallbacks.PostPlaceEntityParams(grid, entity), entity.GetDefinitionID());
         }
         #endregion
     }

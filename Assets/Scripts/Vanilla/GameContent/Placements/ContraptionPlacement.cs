@@ -5,7 +5,7 @@ using MVZ2.Vanilla.Grids;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Placements;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Placements
 {
@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Placements
         {
         }
 
-        public override void CanPlaceEntityOnGrid(LawnGrid grid, EntityDefinition entityDef, TriggerResultNamespaceID error)
+        public override void CanPlaceEntityOnGrid(LawnGrid grid, EntityDefinition entityDef, CallbackResult error)
         {
             var layersToTake = entityDef.GetGridLayersToTake();
             var conflictEntities = layersToTake.Select(l => grid.GetLayerEntity(l)).Where(e => e != null);
@@ -23,15 +23,15 @@ namespace MVZ2.GameContent.Placements
             {
                 if (conflictEntities.Any(e => e.IsEntityOf(VanillaObstacleID.gargoyleStatue)))
                 {
-                    error.Result = VanillaGridStatus.notOnStatues;
+                    error.SetFinalValue(VanillaGridStatus.notOnStatues);
                     return;
                 }
                 if (conflictEntities.Any(e => e.IsEntityOf(VanillaObstacleID.monsterSpawner)))
                 {
-                    error.Result = VanillaGridStatus.notOnSpawners;
+                    error.SetFinalValue(VanillaGridStatus.notOnSpawners);
                     return;
                 }
-                error.Result = VanillaGridStatus.alreadyTaken;
+                error.SetFinalValue(VanillaGridStatus.alreadyTaken);
                 return;
             }
         }

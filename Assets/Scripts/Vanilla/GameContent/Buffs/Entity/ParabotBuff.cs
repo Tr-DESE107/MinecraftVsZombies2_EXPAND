@@ -136,8 +136,10 @@ namespace MVZ2.GameContent.Buffs
         {
             return buff.GetProperty<int>(PROP_EXPLODE_TIME);
         }
-        private void PostEntityDeathCallback(Entity entity, DeathInfo info)
+        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var info = param.deathInfo;
             var buffs = entity.GetBuffs<ParabotBuff>();
             foreach (var buff in buffs)
             {

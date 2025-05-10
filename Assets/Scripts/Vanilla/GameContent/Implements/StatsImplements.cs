@@ -23,30 +23,39 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, PostEnemyNeutralizeCallback);
             mod.AddTrigger(LevelCallbacks.POST_GAME_OVER, PostGameOverCallback);
         }
-        private void PostUseEntityBlueprintCallback(Entity entity, SeedDefinition definition, SeedPack blueprint, IHeldItemData heldData)
+        private void PostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
         {
+            var entity = param.entity;
+            var seed = param.blueprint;
+            var definition = param.definition;
+            var heldData = param.heldData;
             if (entity.Type != EntityTypes.PLANT)
                 return;
             Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_PLACE, entity.GetDefinitionID(), 1);
         }
-        private void PostContraptionDestroyCallback(Entity contraption)
+        private void PostContraptionDestroyCallback(EntityCallbackParams param, CallbackResult result)
         {
-            Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_DESTROY, contraption.GetDefinitionID(), 1);
+            var entity = param.entity;
+            Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_DESTROY, entity.GetDefinitionID(), 1);
         }
-        private void PostContraptionEvokeCallback(Entity contraption)
+        private void PostContraptionEvokeCallback(EntityCallbackParams param, CallbackResult result)
         {
-            Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_EVOKE, contraption.GetDefinitionID(), 1);
+            var entity = param.entity;
+            Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_EVOKE, entity.GetDefinitionID(), 1);
         }
-        private void PostEnemySpawnedCallback(Entity enemy)
+        private void PostEnemySpawnedCallback(EntityCallbackParams param, CallbackResult result)
         {
-            Global.AddSaveStat(VanillaStats.CATEGORY_ENEMY_SPAWN, enemy.GetDefinitionID(), 1);
+            var entity = param.entity;
+            Global.AddSaveStat(VanillaStats.CATEGORY_ENEMY_SPAWN, entity.GetDefinitionID(), 1);
         }
-        private void PostEnemyNeutralizeCallback(Entity enemy)
+        private void PostEnemyNeutralizeCallback(EntityCallbackParams param, CallbackResult result)
         {
-            Global.AddSaveStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemy.GetDefinitionID(), 1);
+            var entity = param.entity;
+            Global.AddSaveStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, entity.GetDefinitionID(), 1);
         }
-        private void PostGameOverCallback(LevelEngine level, int type, Entity killer, string message)
+        private void PostGameOverCallback(LevelCallbacks.PostGameOverParams param, CallbackResult result)
         {
+            var killer = param.killer;
             if (killer == null)
                 return;
             Global.AddSaveStat(VanillaStats.CATEGORY_ENEMY_GAME_OVER, killer.GetDefinitionID(), 1);

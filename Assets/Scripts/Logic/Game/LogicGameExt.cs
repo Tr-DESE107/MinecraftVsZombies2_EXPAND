@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using PVZEngine;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace MVZ2Logic
 {
@@ -11,21 +10,19 @@ namespace MVZ2Logic
     {
         public static bool IsSpecialUserName(this IGame game, string name)
         {
-            var result = new TriggerResultBoolean()
-            {
-                Result = false
-            };
-            game.RunCallback(LogicCallbacks.IS_SPECIAL_USER_NAME, result, c => c(name, result));
-            return result.Result;
+            var result = new CallbackResult(false);
+            game.RunCallbackWithResult(LogicCallbacks.IS_SPECIAL_USER_NAME, new StringCallbackParams(name), result);
+            return result.GetValue<bool>();
         }
         public static NamespaceID[] GetInnateBlueprints(this IGame game)
         {
-            var result = new TriggerResultNamespaceIDList()
+            var list = new List<NamespaceID>();
+            var param = new LogicCallbacks.GetInnateBlueprintsParams()
             {
-                Result = new List<NamespaceID>()
+                list = list
             };
-            game.RunCallback(LogicCallbacks.GET_INNATE_BLUEPRINTS, result, c => c(result));
-            return result.Result.ToArray();
+            game.RunCallback(LogicCallbacks.GET_INNATE_BLUEPRINTS, param);
+            return list.ToArray();
         }
     }
 }

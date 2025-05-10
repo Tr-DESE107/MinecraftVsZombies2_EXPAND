@@ -17,8 +17,10 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
         }
-        private void PostContraptionDeathCallback(Entity entity, DeathInfo info)
+        private void PostContraptionDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var info = param.deathInfo;
             if (entity.IsHostileEntity())
             {
                 var level = entity.Level;
@@ -29,8 +31,10 @@ namespace MVZ2.GameContent.Implements
                 }
             }
         }
-        private void PostEnemyDeathCallback(Entity entity, DeathInfo info)
+        private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var info = param.deathInfo;
             if (entity.IsEntityOf(VanillaEnemyID.skeleton) && info.Effects.HasEffect(VanillaDamageEffects.FALL_DAMAGE))
             {
                 Global.Game.Unlock(VanillaUnlockID.bonebreaker);

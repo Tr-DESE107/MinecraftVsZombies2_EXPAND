@@ -1,11 +1,9 @@
 ﻿using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Modifiers;
 using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using PVZEngine.Triggers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {

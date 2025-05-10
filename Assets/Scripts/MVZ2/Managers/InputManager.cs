@@ -2,7 +2,7 @@
 using MVZ2.Managers;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.Assets.Scripts.MVZ2.Managers
@@ -181,7 +181,7 @@ namespace MVZ2.Assets.Scripts.MVZ2.Managers
         }
         private void RunPointerCallback(int type, int index, Vector2 screenPosition, PointerPhase phase)
         {
-            Main.Game.RunCallbackFiltered(VanillaCallbacks.POST_POINTER_ACTION, phase, c => c(type, index, screenPosition, phase));
+            Main.Game.RunCallbackFiltered(VanillaCallbacks.POST_POINTER_ACTION, new VanillaCallbacks.PostPointerActionParams(type, index, screenPosition, phase), phase);
         }
         public MainManager Main => MainManager.Instance;
         private int currentPointerType = PointerTypes.MOUSE;

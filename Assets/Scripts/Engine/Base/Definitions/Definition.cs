@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace PVZEngine.Base
 {
@@ -34,9 +34,9 @@ namespace PVZEngine.Base
         {
             return triggers.ToArray();
         }
-        public void AddTrigger<T>(CallbackReference<T> callbackID, T action, int priority = 0, object filter = null) where T : Delegate
+        public void AddTrigger<TArgs>(CallbackType<TArgs> callbackID, Action<TArgs, CallbackResult> action, int priority = 0, object filter = null)
         {
-            triggers.Add(new Trigger<T>(callbackID, action, priority, filter));
+            triggers.Add(new Trigger<TArgs>(callbackID, action, priority, filter));
         }
         public NamespaceID GetID()
         {

@@ -64,8 +64,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
             host.PlaySound(VanillaSoundID.bloody);
             host.EmitBlood();
         }
-        private void PostEntityDeathCallback(Entity entity, DeathInfo info)
+        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var info = param.deathInfo;
             if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
             foreach (var buff in entity.GetBuffs<TerrorParasitizedBuff>())

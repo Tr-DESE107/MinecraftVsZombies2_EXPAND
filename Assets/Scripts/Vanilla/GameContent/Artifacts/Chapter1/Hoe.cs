@@ -17,8 +17,9 @@ namespace MVZ2.GameContent.Artifacts
             AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);
             AddTrigger(LevelCallbacks.POST_ENEMY_SPAWNED, PostEnemySpawnedCallback);
         }
-        private void PostLevelStartCallback(LevelEngine level)
+        private void PostLevelStartCallback(LevelCallbackParams param, CallbackResult result)
         {
+            var level = param.level;
             var artifacts = level.GetArtifacts();
             foreach (var artifact in artifacts)
             {
@@ -29,8 +30,9 @@ namespace MVZ2.GameContent.Artifacts
                 artifact.SetInactive(false);
             }
         }
-        private void PostEnemySpawnedCallback(Entity enemy)
+        private void PostEnemySpawnedCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var enemy = param.entity;
             var level = enemy.Level;
             var artifacts = level.GetArtifacts();
             foreach (var artifact in artifacts)

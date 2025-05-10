@@ -4,9 +4,11 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using static UnityEngine.Networking.UnityWebRequest;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -23,8 +25,10 @@ namespace MVZ2.GameContent.Contraptions
             contraption.SetAnimationFloat("Damaged", 1 - contraption.Health / contraption.GetMaxHealth());
             contraption.SetAnimationBool("Absorbing", contraption.HasBuff<LightningOrbEvokedBuff>());
         }
-        private void PreProjectileHitCallback(ProjectileHitInput hit, DamageInput damage)
+        private void PreProjectileHitCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult result)
         {
+            var hit = param.hit;
+            var damage = param.damage;
             if (NamespaceID.IsValid(damage.ShieldTarget))
                 return;
             var orb = hit.Other;
@@ -39,7 +43,7 @@ namespace MVZ2.GameContent.Contraptions
                 LightningOrbEvokedBuff.AddTakenDamage(buff, damage.Amount);
             }
             projectile.Remove();
-            hit.Cancel();
+            result.SetFinalValue(false);
             orb.PlaySound(VanillaSoundID.energyShieldHit);
         }
         public override bool CanEvoke(Entity entity)

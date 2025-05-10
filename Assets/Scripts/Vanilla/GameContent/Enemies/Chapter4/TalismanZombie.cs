@@ -3,6 +3,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -42,8 +43,9 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
         }
-        private void PostEntityTakeDamageCallback(DamageOutput output)
+        private void PostEntityTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
         {
+            var output = param.output;
             var level = output.Entity.Level;
             foreach (var result in output.GetAllResults())
             {
