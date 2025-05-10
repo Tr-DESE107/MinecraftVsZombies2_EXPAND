@@ -83,6 +83,7 @@ namespace PVZEngine.Callbacks
         public readonly static CallbackType<PostEntityCollisionParams> POST_ENTITY_COLLISION = new();
 
         public readonly static CallbackType<PostEntityDeathParams> POST_ENTITY_DEATH = new();
+        public readonly static CallbackType<EntityCallbackParams> POST_ENTITY_REVIVE = new();
 
         public readonly static CallbackType<ArmorParams> POST_EQUIP_ARMOR = new();
         public readonly static CallbackType<PostArmorDestroyParams> POST_DESTROY_ARMOR = new();

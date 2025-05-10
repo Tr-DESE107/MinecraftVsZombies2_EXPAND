@@ -6,6 +6,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Callbacks;
 using UnityEngine;
+using MVZ2.GameContent.Effects;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -52,6 +53,19 @@ namespace MVZ2.Vanilla.Entities
                 velocity.x = Mathf.Clamp(velocity.x, min, max);
             }
             enemy.Velocity = velocity;
+        }
+        public static void FaintRemove(this Entity enemy)
+        {
+            var callbackResult = new CallbackResult(true);
+            enemy.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ENEMY_FAINT, new EntityCallbackParams(enemy), callbackResult, enemy.GetDefinitionID());
+            if (callbackResult.GetValue<bool>())
+            {
+                var param = enemy.GetSpawnParams();
+                param.SetProperty(EngineEntityProps.SIZE, enemy.GetSize());
+                enemy.Level.Spawn(VanillaEffectID.smoke, enemy.Position, enemy);
+                enemy.Remove();
+                enemy.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_ENEMY_FAINT, new EntityCallbackParams(enemy), enemy.GetDefinitionID());
+            }
         }
 
         #region 骑乘

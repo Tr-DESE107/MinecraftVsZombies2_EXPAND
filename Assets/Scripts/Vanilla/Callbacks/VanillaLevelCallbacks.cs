@@ -161,9 +161,11 @@ namespace MVZ2.Vanilla.Callbacks
 
         public readonly static CallbackType<WaterInteractionParams> POST_WATER_INTERACTION = new();
 
-        public readonly static CallbackType<EntityCallbackParams> POST_ENEMY_NEUTRALIZE = new();
         public readonly static CallbackType<EntityCallbackParams> ENEMY_DROP_REWARDS = new();
         public readonly static CallbackType<EntityCallbackParams> PRE_ENEMY_NEUTRALIZE = new();
+        public readonly static CallbackType<EntityCallbackParams> POST_ENEMY_NEUTRALIZE = new();
+        public readonly static CallbackType<EntityCallbackParams> PRE_ENEMY_FAINT = new();
+        public readonly static CallbackType<EntityCallbackParams> POST_ENEMY_FAINT = new();
         public readonly static CallbackType<EnemyMeleeAttackParams> POST_ENEMY_MELEE_ATTACK = new();
 
         public readonly static CallbackType<EntityCallbackParams> CAN_PICKUP_COLLECT = new();

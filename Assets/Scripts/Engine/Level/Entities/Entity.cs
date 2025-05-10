@@ -146,6 +146,8 @@ namespace PVZEngine.Entities
         }
         public void Die(DeathInfo info)
         {
+            if (IsDead)
+                return;
             info = info ?? new DeathInfo(this, new DamageEffectList(), new EntityReferenceChain(null), null);
             IsDead = true;
             Definition.PostDeath(this, info);
@@ -155,6 +157,17 @@ namespace PVZEngine.Entities
                 deathInfo = info
             };
             Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, param, Type);
+        }
+        public void Revive()
+        {
+            if (!IsDead)
+                return;
+            IsDead = false;
+            var param = new EntityCallbackParams()
+            {
+                entity = this,
+            };
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REVIVE, param, Type);
         }
         #endregion
 

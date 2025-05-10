@@ -1648,7 +1648,7 @@ msgstr ""
 #. Properties for artifacts mvz2:manipulative_talismans
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>敌人死亡并倒下时，有3%的概率复活并变为友方</color>"
+msgid "效果：<color=red>敌人死亡并倒下时，有10%的概率复活并变为友方</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:manipulative_talismans
@@ -3741,7 +3741,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:manipulative_talismans
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "怪物死亡并倒下时有3%的概率复活，并变为友方"
+msgid "怪物死亡并倒下时有10%的概率复活，并变为友方"
 msgstr ""
 
 #. Name for artifact mvz2:greedy_vacuum

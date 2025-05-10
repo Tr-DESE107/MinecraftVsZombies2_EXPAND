@@ -891,6 +891,10 @@
             <int name="cost" value="225" />
             <int name="waterInteraction" value="2"/>
         </enemy>
+        <enemy id="shikaisen_zombie" name="尸解仙僵尸" deathMessage="那我怎么没复活？" unlock="mvz2:level.mausoleum_6">
+            <int name="cost" value="125" />
+            <int name="waterInteraction" value="2"/>
+        </enemy>
 
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <float name="maxHealth" value="3000"/>
@@ -1060,6 +1064,23 @@
 
             <int name="cost" value="75" />
             <int name="waterInteraction" value="2"/>
+        </enemy>
+        <enemy id="shikaisen_staff" name="尸解仙之杖" deathMessage="？" unlock="mvz2:level.mausoleum_9">
+            <bool name="harmless" value="true" />
+            <bool name="notActiveEnemy" value="true"/>
+            <bool name="loyal" value="true"/>
+            <bool name="canDeactive" value="false"/>
+            <float name="fallResistance" value="10000"/>
+            <id name="shell" value="mvz2:wood"/>
+            <id name="crySound" null="true"/>
+            <id name="hitSound" value="mvz2:wood"/>
+            <id name="deathSound" value="mvz2:wood"/>
+            <id name="fragmentId" value="mvz2:shikaisen_staff"/>
+            <float name="maxHealth" value="1200"/>
+            <int name="maxTimeout" value="1800"/>
+            <vector3 name="size" x="10" y="56" z="10"/>
+
+            <int name="cost" value="125" />
         </enemy>
 
         <!-- Obstacles -->

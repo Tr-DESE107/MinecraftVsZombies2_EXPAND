@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-05-09 08:14+0800\n"
-"PO-Revision-Date: 2025-05-09 20:21+0800\n"
+"PO-Revision-Date: 2025-05-10 14:27+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2042,8 +2042,8 @@ msgstr "A stack of talismans gifted by Seiga, it's said to be able to control zo
 #. Properties for artifacts mvz2:manipulative_talismans
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>敌人死亡并倒下时，有3%的概率复活并变为友方</color>"
-msgstr "Effect: <color=red>Enemies have 3% chance to be revived as friendly ones when they die and faint</color>"
+msgid "效果：<color=red>敌人死亡并倒下时，有10%的概率复活并变为友方</color>"
+msgstr "Effect: <color=red>Enemies have 10% chance to be revived as friendly ones when they die and faint</color>"
 
 #. Flavor for artifacts mvz2:manipulative_talismans
 #: Almanac meta file
@@ -2055,11 +2055,11 @@ msgid ""
 "但是，可不止你们两个人之间可以有秘密。\n"
 "<b>一个人也是可以有秘密的。</b>"
 msgstr ""
-"\"This is our little secret, you know...\"\n"
-"She tells you.\n"
+"\"This is a secret between us...\"\n"
+"She told you so.\n"
 "\n"
-"But secrets aren't limited to just between two people.\n"
-"<b>Even a single person can hold secrets.</b>"
+"However, it's not just between the two of you that can have secrets.\n"
+"<b>A single person can have secrets too.</b>"
 
 #. Header for artifacts mvz2:greedy_vacuum
 #: Almanac meta file
@@ -4325,8 +4325,8 @@ msgstr "Manipulative Talismans"
 #. Tooltip for artifact mvz2:manipulative_talismans
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "怪物死亡并倒下时有3%的概率复活，并变为友方"
-msgstr "Enemies have 3% chance to be revived as friendly ones when they die and faint"
+msgid "怪物死亡并倒下时有10%的概率复活，并变为友方"
+msgstr "Enemies have 10% chance to be revived as friendly ones when they die and faint"
 
 #. Name for artifact mvz2:greedy_vacuum
 #: Artifact meta file

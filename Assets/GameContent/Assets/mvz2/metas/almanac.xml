@@ -1157,7 +1157,7 @@
                 <p>青娥赠送的一叠符箓，据说可以控制僵尸。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>敌人死亡并倒下时，有3%的概率复活并变为友方</color>]]></p>
+                <p>效果：<![CDATA[<color=red>敌人死亡并倒下时，有10%的概率复活并变为友方</color>]]></p>
             </properties>
             <flavor>
                 <p>“这是我们之间的秘密哦……”</p>

@@ -254,12 +254,13 @@ namespace MVZ2.Vanilla.Enemies
                     case SUBSTATE_DROP:
                         if (subStateTimer.Expired)
                         {
-                            var param = entity.GetSpawnParams();
-                            param.SetProperty(EngineEntityProps.SIZE, entity.GetSize());
-                            var smoke = entity.Spawn(VanillaEffectID.smoke, entity.Position, param);
-                            entity.Remove();
+                            entity.FaintRemove();
                         }
                         break;
+                }
+                if (!entity.IsDead)
+                {
+                    stateMachine.StartState(entity, STATE_IDLE);
                 }
             }
             public const int SUBSTATE_START = 0;
