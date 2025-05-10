@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-10 08:18+0800\n"
+"POT-Creation-Date: 2025-05-10 09:28+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1501,6 +1501,30 @@ msgstr ""
 #: Achievements meta file
 msgctxt "achievement"
 msgid "摔死一只骷髅。（射箭的那个！）"
+msgstr ""
+
+#. Name for achievement mvz2:forged
+#: Achievements meta file
+msgctxt "achievement"
+msgid "重铸版"
+msgstr ""
+
+#. Description for achievement mvz2:forged
+#: Achievements meta file
+msgctxt "achievement"
+msgid "使用黑曜石修复术修复一个铁砧。"
+msgstr ""
+
+#. Name for achievement mvz2:overdraw
+#: Achievements meta file
+msgctxt "achievement"
+msgid "往死里抽"
+msgstr ""
+
+#. Description for achievement mvz2:overdraw
+#: Achievements meta file
+msgctxt "achievement"
+msgid "使用欲望壶的技能抽到欲望壶。"
 msgstr ""
 
 #. Name for music mvz2:mainmenu

@@ -1061,6 +1061,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 270f9f88fa47f494a8c5a3ed1591711a
+    m_Address: mvz2:icon/divine_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 275fc689fc1d1194ba400f58348f339b
     m_Address: mvz2:held/target
     m_ReadOnly: 0
@@ -1450,12 +1456,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 34e7bae3989decc4da109eb01520ccb6
-    m_Address: mvz2:mausoleum_level
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34ea81d5c696f1a4d8ae72c0da539742
     m_Address: mvz2:halloween_map
@@ -3051,6 +3051,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6990d1364b53e3b40b784f6e3b7754e5
+    m_Address: mvz2:mobile_blueprint/shikaisen_staff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6a18698f112f8244db4b1e5de5873248
     m_Address: mvz2:entity/effects/crushing_wall_right
@@ -4677,6 +4683,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a24f2a1292d3c6949ae1ebf80560127c
+    m_Address: mvz2:mausoleum_level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2c663f155f7ff44eb88ea0b4b0a285e
     m_Address: mvz2:mobile_blueprint/iron_helmetted_zombie
     m_ReadOnly: 0
@@ -5523,6 +5535,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbbfd6a4e3820bb4c9fafefc9a604b80
+    m_Address: mvz2:icons/divine_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbeefbb207c94ad428e3fdbcab7acbbd
     m_Address: mvz2:entity/effects/nightmare_broken_glass
     m_ReadOnly: 0
@@ -5576,6 +5594,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf91b1cffcf2bb948bcdb815c1916e71
+    m_Address: mvz2:mobile_blueprint/shikaisen_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfce65959617bce4ab0ffb4a5d19df4c
     m_Address: mvz2:level/dream/pool_sparkle

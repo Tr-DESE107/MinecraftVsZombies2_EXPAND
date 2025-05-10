@@ -441,6 +441,8 @@ namespace MVZ2.Vanilla.Entities
         #region 阻挡火焰
         public static bool WillDamageBlockFire(this DamageOutput damage)
         {
+            if (damage == null)
+                return false;
             foreach (var result in damage.GetAllResults())
             {
                 if (result == null)

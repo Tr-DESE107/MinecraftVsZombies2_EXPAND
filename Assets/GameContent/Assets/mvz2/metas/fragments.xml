@@ -225,4 +225,12 @@
             <key hex="#DAB276" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="divine_shield">
+        <colorKeys>
+            <key hex="#FFE45B" time="1"/>
+        </colorKeys>
+        <alphaKeys>
+            <key alpha="0.5" time="1"/>
+        </alphaKeys>
+    </fragment>
 </fragments>

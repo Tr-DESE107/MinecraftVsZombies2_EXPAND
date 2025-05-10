@@ -15,6 +15,7 @@ namespace MVZ2.GameContent.Buffs
         public const string faction = "faction";
         public const string withered = "withered";
         public const string changeLane = "change_lane";
+        public const string divineShield = "divine-shield";
 
         // Contraption
         public const string productionColor = "production_color";

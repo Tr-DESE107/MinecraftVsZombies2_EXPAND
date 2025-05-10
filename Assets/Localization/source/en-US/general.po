@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-10 08:18+0800\n"
-"PO-Revision-Date: 2025-05-10 20:21+0800\n"
+"POT-Creation-Date: 2025-05-10 09:28+0800\n"
+"PO-Revision-Date: 2025-05-10 21:28+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1401,6 +1401,30 @@ msgctxt "achievement"
 msgid "摔死一只骷髅。（射箭的那个！）"
 msgstr "Make a Skeleton (which shoots arrows!) fall to its death."
 
+#. Name for achievement mvz2:forged
+#: Achievements meta file
+msgctxt "achievement"
+msgid "重铸版"
+msgstr "Reforged"
+
+#. Description for achievement mvz2:forged
+#: Achievements meta file
+msgctxt "achievement"
+msgid "使用黑曜石修复术修复一个铁砧。"
+msgstr "Fix an Anvil by using Obsidian First Aid."
+
+#. Name for achievement mvz2:overdraw
+#: Achievements meta file
+msgctxt "achievement"
+msgid "往死里抽"
+msgstr "Overdraw"
+
+#. Description for achievement mvz2:overdraw
+#: Achievements meta file
+msgctxt "achievement"
+msgid "使用欲望壶的技能抽到欲望壶。"
+msgstr "Evoke a Desire Pot to draw a Desire Pot blueprint."
+
 #. Name for music mvz2:mainmenu
 #: Music meta file
 msgctxt "music.name"
@@ -2638,6 +2662,14 @@ msgstr "Localization (English)"
 msgctxt "credits_category"
 msgid "特别感谢"
 msgstr "Special Thanks"
+
+#~ msgctxt "achievement"
+#~ msgid "精心铸造"
+#~ msgstr "Forged"
+
+#~ msgctxt "achievement"
+#~ msgid "激发同一个欲望壶10次。"
+#~ msgstr "Evoke a single Desire Pot for 10 times."
 
 #~ msgctxt "music.name"
 #~ msgid "梦殿大祀庙"

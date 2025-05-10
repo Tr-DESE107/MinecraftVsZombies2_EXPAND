@@ -931,6 +931,7 @@
             <int name="waterInteraction" value="3"/>
         </enemy>
         <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了">
+            <vector3 name="size" x="32" y="54" z="32"/>
             <float name="fallResistance" value="18"/>
             <float name="cryPitch" value="2"/>
             <int name="cost" value="50" />
