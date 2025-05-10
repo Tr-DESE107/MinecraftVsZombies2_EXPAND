@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-09 08:14+0800\n"
+"POT-Creation-Date: 2025-05-10 08:18+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -541,33 +541,33 @@ msgid "试着挖掉所有器械！"
 msgstr ""
 
 # 选卡警告，{0}为原器械，{1}为升级器械
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:152
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:161
 msgid "你确定想要在没有{0}的情况下使用{1}？"
 msgstr ""
 
 # 选卡警告，{0}为目标敌人
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:154
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:163
 msgid "你没有选能干掉{0}的器械，确定要继续吗？"
 msgstr ""
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:156
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:165
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:158
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:167
 msgid "你确定这关不使用任何水生器械吗？"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:88
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:91
 msgctxt "advice.collect_money"
 msgid "点击收集宝石！"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:90
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:93
 msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
@@ -1241,7 +1241,7 @@ msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
 # 实体提示
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:248
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:254
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr ""
@@ -2016,7 +2016,29 @@ msgstr ""
 #. Name for music mvz2:mausoleum_level
 #: Music meta file
 msgctxt "music.name"
-msgid "梦殿大祀庙"
+msgid "欲望缓步"
+msgstr ""
+
+#. Origin for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.origin"
+msgid "欲望加速"
+msgstr ""
+
+#. Author for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.author"
+msgid "Dr.糕萌酸钾-Studio"
+msgstr ""
+
+#. Description for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"梦殿大祀庙关卡的音乐。\n"
+"原曲是《东方神灵庙》第四关的音乐《欲望加速》，感谢Dr.糕萌酸钾-Studio帮我制作这个版本。\n"
+"这里虽然充满了欲望，不过似乎也没有什么适合疾驰的地方。\n"
+"那就在这里，慢慢地散个步吧。"
 msgstr ""
 
 #. Name for archive tag mvz2:prologue

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-08 08:53+0800\n"
-"PO-Revision-Date: 2025-05-08 08:54+0800\n"
+"POT-Creation-Date: 2025-05-10 08:18+0800\n"
+"PO-Revision-Date: 2025-05-10 20:21+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -519,105 +519,105 @@ msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
 
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:152
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:161
 msgid "你确定想要在没有{0}的情况下使用{1}？"
 msgstr "Are you sure you want to use the {1} without the {0}?"
 
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:154
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:163
 msgid "你没有选能干掉{0}的器械，确定要继续吗？"
 msgstr ""
 "You haven't chosen any contraptions that fight off {0}, are you sure you "
 "want to continue?"
 
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:156
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:165
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
 "You haven't chosen any energy producing contraptions, are you sure you want "
 "to continue?"
 
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:158
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:167
 msgid "你确定这关不使用任何水生器械吗？"
 msgstr "Are you sure want to play this level without any aquatic contraptions?"
 
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:88
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:91
 msgctxt "advice.collect_money"
 msgid "点击收集宝石！"
 msgstr "Click to collect the gem!"
 
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:90
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:93
 msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:221
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:217
 msgctxt "random_china.event_name"
 msgid "黑曜石囚牢"
 msgstr "Obsidian Prisons"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:223
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:219
 msgctxt "random_china.event_name"
 msgid "陶瓷镇"
 msgstr "China Town"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:225
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:221
 msgctxt "random_china.event_name"
 msgid "塔-XVI"
 msgstr "The Tower - XVI"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:227
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:223
 msgctxt "random_china.event_name"
 msgid "红石俱备"
 msgstr "Redstone Ready"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:229
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:225
 msgctxt "random_china.event_name"
 msgid "方片A"
 msgstr "Ace of Diamonds"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:231
+#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:227
 msgctxt "random_china.event_name"
 msgid "地狱金属"
 msgstr "Hell Metal"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:487
 msgid "选择你的命运"
 msgstr "Choose your fate"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
 msgid "选吧。"
 msgstr "Choose."
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
 msgid "潘多拉的魔盒"
 msgstr "Pandora's Box"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
 msgid "尸潮"
 msgstr "Biohazard"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
 msgid "衰老"
 msgstr "Decrepify"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
 msgid "疯狂"
 msgstr "Insanity"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
 msgid "成真"
 msgstr "Come True"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:503
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
 msgid "深潜者"
 msgstr "The Lurker"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:505
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:503
 msgid "黑太阳"
 msgstr "The Black Sun"
 
@@ -1141,7 +1141,7 @@ msgstr ""
 "The blueprint selected last time contained artifacts that are not unlocked "
 "yet."
 
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:248
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:254
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
@@ -2090,8 +2090,37 @@ msgstr ""
 #. Name for music mvz2:mausoleum_level
 #: Music meta file
 msgctxt "music.name"
-msgid "梦殿大祀庙"
-msgstr "The Hall of Dreams' Great Mausoleum"
+msgid "欲望缓步"
+msgstr "Desire Stroll"
+
+#. Origin for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.origin"
+msgid "欲望加速"
+msgstr "Desire Drive"
+
+#. Author for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.author"
+msgid "Dr.糕萌酸钾-Studio"
+msgstr "Dr.糕萌酸钾-Studio"
+
+#. Description for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"梦殿大祀庙关卡的音乐。\n"
+"原曲是《东方神灵庙》第四关的音乐《欲望加速》，感谢Dr.糕萌酸钾-Studio帮我制作"
+"这个版本。\n"
+"这里虽然充满了欲望，不过似乎也没有什么适合疾驰的地方。\n"
+"那就在这里，慢慢地散个步吧。"
+msgstr ""
+"The music for the levels of Hall of Dreams' Great Mausoleum.\n"
+"The original music is the 4th stage music <i>Desire Drive</i> in <i>Ten "
+"Desires</i>, thanks Dr.糕萌酸钾-Studio for making this remix.\n"
+"Though this place is filled with desires, there seems to be no suitable path "
+"for driving.\n"
+"Let's just take a leisurely stroll here instead."
 
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
@@ -2609,6 +2638,10 @@ msgstr "Localization (English)"
 msgctxt "credits_category"
 msgid "特别感谢"
 msgstr "Special Thanks"
+
+#~ msgctxt "music.name"
+#~ msgid "梦殿大祀庙"
+#~ msgstr "The Hall of Dreams' Great Mausoleum"
 
 #~ msgctxt "stat_category"
 #~ msgid "使用星之碎片"

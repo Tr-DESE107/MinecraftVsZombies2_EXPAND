@@ -241,6 +241,15 @@
             <p>可是，人明明已经死去，这般欲望又有什么意义呢？</p>
         </description>
     </music>
-    <music id="mausoleum_level" path="mvz2:mausoleum_level" name="梦殿大祀庙">
+    <music id="mausoleum_level" path="mvz2:mausoleum_level" name="欲望缓步" unlock="mvz2:level.mausoleum_1">
+        <source>东方神灵庙</source>
+        <origin>欲望加速</origin>
+        <author>Dr.糕萌酸钾-Studio</author>
+        <description>
+            <p>梦殿大祀庙关卡的音乐。</p>
+            <p>原曲是《东方神灵庙》第四关的音乐《欲望加速》，感谢Dr.糕萌酸钾-Studio帮我制作这个版本。</p>
+            <p>这里虽然充满了欲望，不过似乎也没有什么适合疾驰的地方。</p>
+            <p>那就在这里，慢慢地散个步吧。</p>
+        </description>
     </music>
 </musics>
