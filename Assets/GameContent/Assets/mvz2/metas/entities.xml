@@ -1070,6 +1070,7 @@
             <bool name="notActiveEnemy" value="true"/>
             <bool name="loyal" value="true"/>
             <bool name="canDeactive" value="false"/>
+            <float name="range" value="120"/>
             <float name="fallResistance" value="10000"/>
             <id name="shell" value="mvz2:wood"/>
             <id name="crySound" null="true"/>

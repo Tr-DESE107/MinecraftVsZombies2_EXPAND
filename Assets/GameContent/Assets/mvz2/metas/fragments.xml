@@ -219,4 +219,10 @@
             <key alpha="0.75" time="1"/>
         </alphaKeys>
     </fragment>
+    <fragment name="shikaisen_staff">
+        <colorKeys>
+            <key hex="#BB8028" time="1"/>
+            <key hex="#DAB276" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

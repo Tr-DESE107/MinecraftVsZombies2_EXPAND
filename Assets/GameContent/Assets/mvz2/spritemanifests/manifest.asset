@@ -253,6 +253,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9390c4e06c35d1849b57a496ba6b0339, type: 3}
   - name: mobile_blueprint/seija_cursed_doll
     sprite: {fileID: 21300000, guid: f178164255d2e4740ba2c8e66ba459e5, type: 3}
+  - name: mobile_blueprint/shikaisen_staff
+    sprite: {fileID: 21300000, guid: 6990d1364b53e3b40b784f6e3b7754e5, type: 3}
+  - name: mobile_blueprint/shikaisen_zombie
+    sprite: {fileID: 21300000, guid: bf91b1cffcf2bb948bcdb815c1916e71, type: 3}
   - name: mobile_blueprint/silvenser
     sprite: {fileID: 21300000, guid: 3c7cacc742c9f154e80d19b1b5b133c2, type: 3}
   - name: mobile_blueprint/skeleton
@@ -497,6 +501,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1f0a8eaf9b153b3429a373a0155f968f, type: 3}
   - name: entity/contraptions/wooden_dropper
     sprite: {fileID: 21300000, guid: 9ff472ab3deed244c8552a2bd5d7c949, type: 3}
+  - name: entity/effects/aura
+    sprite: {fileID: 21300000, guid: 3948499a4aba6874da51b8a013304ee0, type: 3}
   - name: entity/effects/boat_item
     sprite: {fileID: 21300000, guid: b412e38a906dfb1429079b79047f12d3, type: 3}
   - name: entity/effects/boom
@@ -637,6 +643,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 838820327528a4d439a51f03582183f9, type: 3}
   - name: entity/projectiles/dart
     sprite: {fileID: 21300000, guid: 0a0f7cbdb4c6650409a18d59ba158a03, type: 3}
+  - name: entity/projectiles/fireball
+    sprite: {fileID: 21300000, guid: c8fd47e22cd27394895621742e549446, type: 3}
   - name: entity/projectiles/fire_charge
     sprite: {fileID: 21300000, guid: 98f6783386f0a7b43bea535a34495e61, type: 3}
   - name: entity/projectiles/fire_trail
@@ -1738,6 +1746,20 @@ MonoBehaviour:
     - {fileID: 93071313, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
     - {fileID: -1939588279, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
     - {fileID: 1767264598, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
+  - name: entity/enemy/shikaisen_staff
+    spritesheet:
+    - {fileID: -927248566, guid: d486f2b8240e28443aaeb03d25e81b9c, type: 3}
+    - {fileID: 1451799744, guid: d486f2b8240e28443aaeb03d25e81b9c, type: 3}
+    - {fileID: 405859414, guid: d486f2b8240e28443aaeb03d25e81b9c, type: 3}
+    - {fileID: 1555804945, guid: d486f2b8240e28443aaeb03d25e81b9c, type: 3}
+    - {fileID: 1858951590, guid: d486f2b8240e28443aaeb03d25e81b9c, type: 3}
+  - name: entity/enemy/shikaisen_zombie
+    spritesheet:
+    - {fileID: -554830954, guid: 8fa972da5f508ff4fb74e14c8fc0ac2b, type: 3}
+    - {fileID: -615365547, guid: 8fa972da5f508ff4fb74e14c8fc0ac2b, type: 3}
+    - {fileID: 1508109061, guid: 8fa972da5f508ff4fb74e14c8fc0ac2b, type: 3}
+    - {fileID: 2061647914, guid: 8fa972da5f508ff4fb74e14c8fc0ac2b, type: 3}
+    - {fileID: -425194149, guid: 8fa972da5f508ff4fb74e14c8fc0ac2b, type: 3}
   - name: entity/enemy/skeleton
     spritesheet:
     - {fileID: 21300000, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
@@ -1855,9 +1877,12 @@ MonoBehaviour:
     - {fileID: -1967336653, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
     - {fileID: 871944358, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
     - {fileID: 1189697081, guid: 7d587f3c033da1846a38537e4e37d193, type: 3}
-  - name: entity/projectiles/charge_bolt
+  - name: entity/projectiles/charged_bolt
     spritesheet:
-    - {fileID: 21300000, guid: 49b1a512188fac74ca800a74456f2675, type: 3}
+    - {fileID: 344187334, guid: cdb53ab5c1044c94bbfc0ef3da28259e, type: 3}
+    - {fileID: 1756366700, guid: cdb53ab5c1044c94bbfc0ef3da28259e, type: 3}
+    - {fileID: 783071837, guid: cdb53ab5c1044c94bbfc0ef3da28259e, type: 3}
+    - {fileID: -807408713, guid: cdb53ab5c1044c94bbfc0ef3da28259e, type: 3}
   - name: mainmenu/view/castle
     spritesheet:
     - {fileID: 1026532252, guid: 03dafdf2ab6ba7e499b6f7a6f350be32, type: 3}

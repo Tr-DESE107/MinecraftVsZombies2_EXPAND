@@ -581,6 +581,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1638747b3e81fd143ba72fe5035844ea
+    m_Address: mvz2:enemy/mausoleum/shikaisen_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16432db882004f24084a9ab5a4c88143
     m_Address: mvz2:random/glass_break2
     m_ReadOnly: 0
@@ -1626,6 +1632,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 392d5a1a4322ba24193d5f42088e6c59
     m_Address: mvz2:ui/musicroom/bar_handler
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3948499a4aba6874da51b8a013304ee0
+    m_Address: mvz2:entity/effects/aura
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4107,6 +4119,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fa972da5f508ff4fb74e14c8fc0ac2b
+    m_Address: mvz2:entity/enemy/shikaisen_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9000fae04f3098546b6e8a44331c4077
     m_Address: mvz2:entities
     m_ReadOnly: 0
@@ -6165,6 +6183,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d486f2b8240e28443aaeb03d25e81b9c
+    m_Address: mvz2:entity/enemy/shikaisen_staff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d502efd9e6fce1543ae6919e926b244c
     m_Address: mvz2:mobile_blueprint/lily_pad
     m_ReadOnly: 0
@@ -6836,6 +6860,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec2e102bd348bc54db8709ba32961542
+    m_Address: mvz2:enemy/mausoleum/shikaisen_staff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec4b089e7682f9041bf3edd496701567
     m_Address: mvz2:icon/parabot_insected

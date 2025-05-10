@@ -49,13 +49,13 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.spider,
                 VanillaEnemyID.ghast,
                 VanillaEnemyID.mutantZombie,
-                VanillaContraptionID.hellfire,
-                VanillaContraptionID.furnace,
+                VanillaEnemyID.shikaisenZombie,
+                VanillaEnemyID.shikaisenStaff,
 
+                VanillaContraptionID.hellfire,
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.stoneShield,
                 VanillaContraptionID.lightningOrb,
-                VanillaContraptionID.forcePad,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

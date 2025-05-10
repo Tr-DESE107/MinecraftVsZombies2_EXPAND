@@ -32,5 +32,9 @@ namespace PVZEngine.Damages
         {
             Amount *= value;
         }
+        public bool HasEffect(NamespaceID effect)
+        {
+            return Effects?.HasEffect(effect) ?? false;
+        }
     }
 }
