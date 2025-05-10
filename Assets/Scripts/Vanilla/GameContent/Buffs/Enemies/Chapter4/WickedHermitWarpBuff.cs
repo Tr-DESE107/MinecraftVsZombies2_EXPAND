@@ -54,6 +54,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                     }
                     position.x = entity.Level.GetEntityColumnX(column);
                     entity.Position = position;
+                    entity.Velocity = Vector3.zero;
                     entity.AddBuff<WickedHermitWarppedBuff>();
                 }
                 var scaleT = 1 - Mathf.Abs(timer.Frame - WARP_TIME) / (float)WARP_TIME;

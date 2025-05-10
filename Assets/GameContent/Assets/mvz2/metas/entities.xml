@@ -1070,6 +1070,7 @@
             <bool name="notActiveEnemy" value="true"/>
             <bool name="loyal" value="true"/>
             <bool name="canDeactive" value="false"/>
+            <bool name="undead" value="false"/>
             <float name="range" value="120"/>
             <float name="fallResistance" value="10000"/>
             <id name="shell" value="mvz2:wood"/>
@@ -1080,6 +1081,7 @@
             <float name="maxHealth" value="1200"/>
             <int name="maxTimeout" value="1800"/>
             <vector3 name="size" x="10" y="56" z="10"/>
+            <vector3 name="velocityDampen" x="1" y="1" z="1"/>
 
             <int name="cost" value="125" />
         </enemy>
