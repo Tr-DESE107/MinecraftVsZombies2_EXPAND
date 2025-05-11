@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-05-11 09:49+0800\n"
-"PO-Revision-Date: 2025-05-11 09:49+0800\n"
+"PO-Revision-Date: 2025-05-11 18:50+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1715,8 +1715,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid "尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有怪物的图腾。"
 msgstr ""
-"When at low health, Shikaisen Zombie plunges its bamboo staff into the ground to create a totem that revives all nearby defeated "
-"monsters."
+"Shikaisen Zombie plunges its bamboo staff into the ground at low health, to create a totem that revives all nearby defeated monsters."
 
 #. Properties for enemies mvz2:shikaisen_zombie
 #: Almanac meta file
@@ -1766,8 +1765,8 @@ msgid ""
 "<color=red>【图鉴 已被禁言，有效期是永久】</color>"
 msgstr ""
 "He isn't the emperor of any great nation—just a petty tyrant within a small clique of zombies.\n"
-"Constantly praised and elevated by his peers, he believes himself all-powerful, but in reality, he only knows how to apply shields. "
-"His fragile defenses crumble at the slightest touch, yet he clings to the delusion of his own grandeur.\n"
+"Constantly praised and elevated by his peers, he believes himself to be all-powerful, but in reality, he only knows how to apply "
+"shields. His fragile defenses crumble at the slightest touch, yet he clings to the delusion of his own grandeur.\n"
 "<color=red>【@Almanac has been permanently muted】</color>"
 
 #. Header for artifacts mvz2:almanac
@@ -2097,7 +2096,7 @@ msgstr "Uh, better not tell Shinmyoumaru about this. She might get mad."
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "青娥赠送的一叠符箓，据说可以控制僵尸。"
-msgstr "A stack of talismans gifted by Seiga, it's said to be able to control zombies."
+msgstr "A stack of talismans gifted by Seiga, which is said to be able to control zombies."
 
 #. Properties for artifacts mvz2:manipulative_talismans
 #: Almanac meta file
