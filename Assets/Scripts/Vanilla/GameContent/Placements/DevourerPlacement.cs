@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Placements
         public DevourerPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.devourer)
         {
             AddMethod(VanillaPlaceMethods.entity);
+            AddMethod(VanillaPlaceMethods.firstAid);
         }
     }
 }

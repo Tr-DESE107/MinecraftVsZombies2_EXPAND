@@ -28,6 +28,10 @@ namespace MVZ2.Vanilla.Contraptions
         {
             return contraption.GetProperty<bool>(DEFENSIVE);
         }
+        public static bool IsDefensive(this EntityDefinition contraptionDef)
+        {
+            return contraptionDef.GetProperty<bool>(DEFENSIVE);
+        }
         #endregion
 
         #region 克制

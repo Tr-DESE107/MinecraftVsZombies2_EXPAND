@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Placements
         public AquaticPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.aquatic)
         {
             AddMethod(VanillaPlaceMethods.entity);
+            AddMethod(VanillaPlaceMethods.firstAid);
         }
     }
 }

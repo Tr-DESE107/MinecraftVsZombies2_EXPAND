@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Placements
         public PadPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.pad)
         {
             AddMethod(VanillaPlaceMethods.entity);
+            AddMethod(VanillaPlaceMethods.firstAid);
         }
     }
 }

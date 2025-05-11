@@ -47,12 +47,12 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaEnemyID.zombie,
 
-                VanillaContraptionID.woodenDropper,
-                VanillaContraptionID.mineTNT,
-                VanillaContraptionID.lilyPad,
-                VanillaContraptionID.vortexHopper,
+                VanillaContraptionID.obsidian,
+                VanillaContraptionID.dreamCrystal,
+                VanillaContraptionID.stoneShield,
+                VanillaContraptionID.lightningOrb,
                 VanillaContraptionID.devourer,
-                VanillaContraptionID.dreamSilk,
+                VanillaContraptionID.anvil,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.drivenser,

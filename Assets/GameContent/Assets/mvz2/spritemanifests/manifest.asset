@@ -17,14 +17,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7c96fdff5dc5fde4ab6559e24a67dc99, type: 3}
   - name: achievements/double_trouble
     sprite: {fileID: 21300000, guid: 2becb83796290cb438ce963aff698ae4, type: 3}
-  - name: achievements/forged
-    sprite: {fileID: 21300000, guid: 7b5ab4ce3e848bf4f95807e6a0a2cc4d, type: 3}
   - name: achievements/ghost_buster
     sprite: {fileID: 21300000, guid: cd6294e0e010f934b90fb1f9ca35e623, type: 3}
   - name: achievements/mesmerised_matchup
     sprite: {fileID: 21300000, guid: 1f79614fcb97c93488cfbb1f01cd6ec4, type: 3}
   - name: achievements/overdraw
     sprite: {fileID: 21300000, guid: 5ddce6aa3c01acf40aa89b5845c9d961, type: 3}
+  - name: achievements/reforged
+    sprite: {fileID: 21300000, guid: 7b5ab4ce3e848bf4f95807e6a0a2cc4d, type: 3}
   - name: achievements/return_to_sender
     sprite: {fileID: 21300000, guid: d9dd31bf028bdda498cb850149535586, type: 3}
   - name: achievements/rickroll_drown
@@ -419,6 +419,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: e44b0e9757080bf4dbf0ae5b2420e15c, type: 3}
   - name: entity/armor/berserker_helmet
     sprite: {fileID: 21300000, guid: 7b5b04fa7d4703a48867a2ec9b7c31f6, type: 3}
+  - name: entity/armor/emperor_crown
+    sprite: {fileID: 21300000, guid: 58755531f1cc59b4ab7563c5bedf58b2, type: 3}
   - name: entity/armor/mesmerizer_crown
     sprite: {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
   - name: entity/armor/wicked_hermit_hat
@@ -479,6 +481,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6794bb31d9d949f4398a80691187140f, type: 3}
   - name: entity/contraptions/golden_dropper
     sprite: {fileID: 21300000, guid: 49ce9f6fb80015c47ae81c9411d9d103, type: 3}
+  - name: entity/contraptions/gravitation_bomb
+    sprite: {fileID: 21300000, guid: 412713fe007467441a2952c3fd3f3ba9, type: 3}
   - name: entity/contraptions/gravity_force
     sprite: {fileID: 21300000, guid: 87605de12ede6fe43818bbbae557666e, type: 3}
   - name: entity/contraptions/gravity_pad
@@ -1240,6 +1244,10 @@ MonoBehaviour:
     - {fileID: -1083742067, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 413586417, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 1656711901, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
+  - name: entity/contraption/desire_pot
+    spritesheet:
+    - {fileID: -55935898, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
+    - {fileID: 864879685, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
   - name: entity/contraption/diamond_spikes
     spritesheet:
     - {fileID: 1691000209, guid: a3186b48658bcbe458396f03e2f38590, type: 3}
@@ -1653,6 +1661,7 @@ MonoBehaviour:
     - {fileID: -800743289, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
     - {fileID: 21769090, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
     - {fileID: -1155102574, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
+    - {fileID: -1727391113, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
   - name: entity/enemy/gargoyle
     spritesheet:
     - {fileID: 21300000, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}

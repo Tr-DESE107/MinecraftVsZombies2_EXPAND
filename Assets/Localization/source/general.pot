@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-11 01:48+0800\n"
+"POT-Creation-Date: 2025-05-11 07:19+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1503,13 +1503,13 @@ msgctxt "achievement"
 msgid "摔死一只骷髅。（射箭的那个！）"
 msgstr ""
 
-#. Name for achievement mvz2:forged
+#. Name for achievement mvz2:reforged
 #: Achievements meta file
 msgctxt "achievement"
 msgid "重铸版"
 msgstr ""
 
-#. Description for achievement mvz2:forged
+#. Description for achievement mvz2:reforged
 #: Achievements meta file
 msgctxt "achievement"
 msgid "使用黑曜石修复术修复一个铁砧。"

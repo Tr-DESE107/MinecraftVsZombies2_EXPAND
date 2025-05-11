@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Placements
         public DreamSilkPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.dreamSilk)
         {
             AddMethod(VanillaPlaceMethods.entity);
+            AddMethod(VanillaPlaceMethods.firstAid);
         }
     }
 }

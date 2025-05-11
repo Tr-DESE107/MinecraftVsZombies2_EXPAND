@@ -124,6 +124,13 @@ namespace MVZ2.Vanilla.Entities
             }
             return upgraded;
         }
+        public static Entity FirstAid(this Entity contraption)
+        {
+            var defID = contraption.GetDefinitionID();
+            var entity = contraption.UpgradeToContraption(defID);
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_OBSIDIAN_FIRST_AID, new EntityCallbackParams(entity), defID);
+            return entity;
+        }
         public static bool IsEvoked(this Entity contraption)
         {
             return contraption.GetProperty<bool>(PROP_EVOKED);

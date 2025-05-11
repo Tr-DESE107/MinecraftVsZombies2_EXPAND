@@ -28,6 +28,7 @@ namespace MVZ2.Vanilla
         public const string enteredGensokyo = "entered_gensokyo";
 
         public const string dreamIsNightmare = "dream_is_nightmare";
+        public const string obsidianFirstAid = "obsidian_first_aid";
 
         public const string ghostBuster = "achievement.ghost_buster";
         public const string doubleTrouble = "achievement.double_trouble";
@@ -35,6 +36,7 @@ namespace MVZ2.Vanilla
         public const string returnToSender = "achievement.return_to_sender";
         public const string mesmerisedMatchup = "achievement.mesmerised_matchup";
         public const string bonebreaker = "achievement.bonebreaker";
+        public const string reforged = "achievement.reforged";
 
         public const string brokenLantern = "artifact.broken_lantern";
     }
@@ -56,6 +58,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID enteredDream = Get(VanillaUnlockNames.enteredDream);
         public static readonly NamespaceID enteredGensokyo = Get(VanillaUnlockNames.enteredGensokyo); 
         public static readonly NamespaceID dreamIsNightmare = Get(VanillaUnlockNames.dreamIsNightmare);
+        public static readonly NamespaceID obsidianFirstAid = Get(VanillaUnlockNames.obsidianFirstAid);
         public static readonly NamespaceID blueprintSlot1 = Get(VanillaUnlockNames.blueprintSlot1);
 
         public static readonly NamespaceID ghostBuster = Get(VanillaUnlockNames.ghostBuster);
@@ -64,6 +67,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID returnToSender = Get(VanillaUnlockNames.returnToSender);
         public static readonly NamespaceID mesmerisedMatchup = Get(VanillaUnlockNames.mesmerisedMatchup);
         public static readonly NamespaceID bonebreaker = Get(VanillaUnlockNames.bonebreaker);
+        public static readonly NamespaceID reforged = Get(VanillaUnlockNames.reforged);
 
         public static readonly NamespaceID brokenLantern = Get(VanillaUnlockNames.brokenLantern);
         private static NamespaceID Get(string name)

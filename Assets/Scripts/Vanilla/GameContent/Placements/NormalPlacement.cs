@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Placements
         public NormalPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.normal)
         {
             AddMethod(VanillaPlaceMethods.entity);
+            AddMethod(VanillaPlaceMethods.firstAid);
         }
     }
 }

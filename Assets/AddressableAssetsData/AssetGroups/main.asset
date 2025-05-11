@@ -3490,7 +3490,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b5ab4ce3e848bf4f95807e6a0a2cc4d
-    m_Address: mvz2:achievements/forged
+    m_Address: mvz2:achievements/reforged
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

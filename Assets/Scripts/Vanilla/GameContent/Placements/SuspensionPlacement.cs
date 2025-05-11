@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Placements
         public SuspensionPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.suspension)
         {
             AddMethod(VanillaPlaceMethods.entity);
+            AddMethod(VanillaPlaceMethods.firstAid);
         }
     }
 }

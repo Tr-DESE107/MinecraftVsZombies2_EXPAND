@@ -165,6 +165,7 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackType<EntityCallbackParams> POST_ENEMY_NEUTRALIZE = new();
         public readonly static CallbackType<EntityCallbackParams> PRE_ENEMY_FAINT = new();
         public readonly static CallbackType<EntityCallbackParams> POST_ENEMY_FAINT = new();
+        public readonly static CallbackType<EntityCallbackParams> POST_OBSIDIAN_FIRST_AID = new();
         public readonly static CallbackType<EnemyMeleeAttackParams> POST_ENEMY_MELEE_ATTACK = new();
 
         public readonly static CallbackType<EntityCallbackParams> CAN_PICKUP_COLLECT = new();

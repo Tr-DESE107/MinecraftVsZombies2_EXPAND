@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Placements
         public BuriedPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.buried)
         {
             AddMethod(VanillaPlaceMethods.entity);
+            AddMethod(VanillaPlaceMethods.firstAid);
         }
     }
 }
