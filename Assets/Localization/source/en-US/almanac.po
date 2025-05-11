@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-11 09:49+0800\n"
-"PO-Revision-Date: 2025-05-11 19:28+0800\n"
+"POT-Creation-Date: 2025-05-11 09:13+0800\n"
+"PO-Revision-Date: 2025-05-11 21:13+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -920,7 +920,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "地狱火会点燃穿过它的箭矢，使其额外造成火焰伤害。"
-msgstr "Hellfire will ignite arrows passing through it, make them deal additional fire damages."
+msgstr "Hellfire will ignite arrows passing through it, make them deal additional fire damage."
 
 #. Properties for contraptions mvz2:hellfire
 #: Almanac meta file
