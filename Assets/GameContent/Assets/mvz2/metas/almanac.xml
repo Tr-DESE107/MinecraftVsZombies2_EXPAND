@@ -350,10 +350,10 @@
         </entry>
         <entry id="mvz2:golden_apple">
             <header>
-                <p>金苹果可以魅惑一个近战攻击它的敌人，使其为你而战。</p>
+                <p>金苹果可以魅惑一个近战攻击它的敌怪，使其为你而战。</p>
             </header>
             <properties>
-                <p>技能：<![CDATA[<color=red>发出彩色炫光，被魅惑的敌人变为突变僵尸</color>]]></p>
+                <p>技能：<![CDATA[<color=red>发出彩色炫光，被魅惑的敌怪变为突变僵尸</color>]]></p>
             </properties>
             <flavor>
                 <p>金苹果对于砸伤重力方块这件事情感到很抱歉，所以它赔了重力方块自己的一块金皮。</p>
@@ -362,11 +362,11 @@
         </entry>
         <entry id="mvz2:thunder_drum">
             <header>
-                <p>雷鼓在触发后会震飞所有地面上的敌人，使其后退并换行。之后进入破损状态，需要时间修复。</p>
+                <p>雷鼓在触发后会震飞所有地面上的敌怪，使其后退并换行。之后进入破损状态，需要时间修复。</p>
             </header>
             <properties>
                 <p>修复时间：<![CDATA[<color=red>60秒</color>]]></p>
-                <p>技能：<![CDATA[<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命的伤害</color>]]></p>
+                <p>技能：<![CDATA[<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<rotate="-20">别乱震啊卧槽！</rotate>]]></p>
@@ -600,12 +600,12 @@
         </entry>
         <entry id="mvz2:force_pad">
             <header>
-                <p>传动力板可以通过触发更改力的方向，以此改变上方敌人的移动轨迹，并加强上方的子弹。</p>
+                <p>传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。</p>
             </header>
             <properties>
                 <p>上下方向：<![CDATA[<color=red>转移物体</color>]]></p>
-                <p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的敌人</color>]]></p>
-                <p>技能：<![CDATA[<color=red>将周围的敌人移动到一个指定的位置</color>]]></p>
+                <p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>]]></p>
+                <p>技能：<![CDATA[<color=red>将周围的敌怪移动到一个指定的位置</color>]]></p>
                 <p><![CDATA[<color=red>必须放置在重力板上</color>]]></p>
             </properties>
             <flavor>
@@ -870,7 +870,7 @@
         </entry>
         <entry id="mvz2:dullahan">
             <header>
-                <p>无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的敌人。</p>
+                <p>无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的怪物。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>400（马），300（身体），200（头）</color>]]></p>
@@ -964,16 +964,30 @@
         </entry>
         <entry id="mvz2:shikaisen_zombie">
             <header>
-                <p>尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有敌人的图腾。</p>
+                <p>尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有怪物的图腾。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
                 <p>竹杖耐久：<![CDATA[<color=red>1200</color>]]></p>
-                <p>特点：<![CDATA[<color=red>生命低于50%时将竹杖插入地面，竹杖会以自己的耐久为代价复活周围死亡并倒下的敌人</color>]]></p>
+                <p>特点：<![CDATA[<color=red>生命低于50%时将竹杖插入地面，竹杖会以自己的耐久为代价复活周围死亡并倒下的怪物</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>火焰会直接烧掉竹杖</color>]]></p>
             </properties>
             <flavor>
                 <p>非常擅长做仰卧起坐。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:emperor_zombie">
+            <header>
+                <p>皇帝僵尸使用手中的圣剑来给予周围的敌人圣盾，使它们免疫下一次受到的伤害。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200+50</color>]]></p>
+                <p>施法冷却：<![CDATA[<color=red>5秒</color>]]></p>
+                <p>特点：<![CDATA[<color=red>一次最多给予10个周围的敌人圣盾，抵消下一次受到的伤害</color>]]></p>
+            </properties>
+            <flavor>
+                <p>他并不是什么大国的皇帝，就是一个僵尸小圈子里面，天天被捧的高高的，实际上就只会套盾，被碰一下就破防，还以为自己有多大能耐的土皇帝罢了。</p>
+                <p><![CDATA[<color=red>【图鉴 已被禁言，有效期是永久】</color>]]></p>
             </flavor>
         </entry>
     </enemies>
@@ -1047,7 +1061,7 @@
                 <p>槐树上的树枝。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>开始战斗时获得2个星之碎片，但敌人出现数量+200%</color>]]></p>
+                <p>效果：<![CDATA[<color=red>开始战斗时获得2个星之碎片，但怪物出现数量+200%</color>]]></p>
             </properties>
             <flavor>
                 <p>据说能让你一生荣华富贵，最终却也会因战火流离失所。</p>
@@ -1171,7 +1185,7 @@
                 <p>青娥赠送的一叠符箓，据说可以控制僵尸。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>敌人死亡并倒下时，有10%的概率复活并变为友方</color>]]></p>
+                <p>效果：<![CDATA[<color=red>敌怪死亡并倒下时，有10%的概率复活并变为友方</color>]]></p>
             </properties>
             <flavor>
                 <p>“这是我们之间的秘密哦……”</p>

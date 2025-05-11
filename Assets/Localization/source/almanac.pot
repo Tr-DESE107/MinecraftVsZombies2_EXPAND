@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-10 04:46+0800\n"
+"POT-Creation-Date: 2025-05-11 09:49+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -552,13 +552,13 @@ msgstr ""
 #. Header for contraptions mvz2:golden_apple
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "金苹果可以魅惑一个近战攻击它的敌人，使其为你而战。"
+msgid "金苹果可以魅惑一个近战攻击它的敌怪，使其为你而战。"
 msgstr ""
 
 #. Properties for contraptions mvz2:golden_apple
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>发出彩色炫光，被魅惑的敌人变为突变僵尸</color>"
+msgid "技能：<color=red>发出彩色炫光，被魅惑的敌怪变为突变僵尸</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:golden_apple
@@ -572,7 +572,7 @@ msgstr ""
 #. Header for contraptions mvz2:thunder_drum
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "雷鼓在触发后会震飞所有地面上的敌人，使其后退并换行。之后进入破损状态，需要时间修复。"
+msgid "雷鼓在触发后会震飞所有地面上的敌怪，使其后退并换行。之后进入破损状态，需要时间修复。"
 msgstr ""
 
 #. Properties for contraptions mvz2:thunder_drum
@@ -580,7 +580,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "修复时间：<color=red>60秒</color>\n"
-"技能：<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命的伤害</color>"
+"技能：<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:thunder_drum
@@ -808,7 +808,7 @@ msgstr ""
 #. Header for contraptions mvz2:force_pad
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "传动力板可以通过触发更改力的方向，以此改变上方敌人的移动轨迹，并加强上方的子弹。"
+msgid "传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。"
 msgstr ""
 
 #. Properties for contraptions mvz2:force_pad
@@ -816,8 +816,8 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "上下方向：<color=red>转移物体</color>\n"
-"前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的敌人</color>\n"
-"技能：<color=red>将周围的敌人移动到一个指定的位置</color>\n"
+"前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>\n"
+"技能：<color=red>将周围的敌怪移动到一个指定的位置</color>\n"
 "<color=red>必须放置在重力板上</color>"
 msgstr ""
 
@@ -1215,7 +1215,7 @@ msgstr ""
 #. Header for enemies mvz2:dullahan
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的敌人。"
+msgid "无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的怪物。"
 msgstr ""
 
 #. Properties for enemies mvz2:dullahan
@@ -1360,7 +1360,7 @@ msgstr ""
 #. Header for enemies mvz2:shikaisen_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有敌人的图腾。"
+msgid "尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有怪物的图腾。"
 msgstr ""
 
 #. Properties for enemies mvz2:shikaisen_zombie
@@ -1369,7 +1369,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "竹杖耐久：<color=red>1200</color>\n"
-"特点：<color=red>生命低于50%时将竹杖插入地面，竹杖会以自己的耐久为代价复活周围死亡并倒下的敌人</color>\n"
+"特点：<color=red>生命低于50%时将竹杖插入地面，竹杖会以自己的耐久为代价复活周围死亡并倒下的怪物</color>\n"
 "弱点：<color=red>火焰会直接烧掉竹杖</color>"
 msgstr ""
 
@@ -1377,6 +1377,29 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "非常擅长做仰卧起坐。"
+msgstr ""
+
+#. Header for enemies mvz2:emperor_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "皇帝僵尸使用手中的圣剑来给予周围的敌人圣盾，使它们免疫下一次受到的伤害。"
+msgstr ""
+
+#. Properties for enemies mvz2:emperor_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+50</color>\n"
+"施法冷却：<color=red>5秒</color>\n"
+"特点：<color=red>一次最多给予10个周围的敌人圣盾，抵消下一次受到的伤害</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:emperor_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"他并不是什么大国的皇帝，就是一个僵尸小圈子里面，天天被捧的高高的，实际上就只会套盾，被碰一下就破防，还以为自己有多大能耐的土皇帝罢了。\n"
+"<color=red>【图鉴 已被禁言，有效期是永久】</color>"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -1488,7 +1511,7 @@ msgstr ""
 #. Properties for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>开始战斗时获得2个星之碎片，但敌人出现数量+200%</color>"
+msgid "效果：<color=red>开始战斗时获得2个星之碎片，但怪物出现数量+200%</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:pagoda_branch
@@ -1670,7 +1693,7 @@ msgstr ""
 #. Properties for artifacts mvz2:manipulative_talismans
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>敌人死亡并倒下时，有10%的概率复活并变为友方</color>"
+msgid "效果：<color=red>敌怪死亡并倒下时，有10%的概率复活并变为友方</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:manipulative_talismans
@@ -3278,6 +3301,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "那我怎么没复活？"
+msgstr ""
+
+#. Header for entity mvz2:emperor_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "皇帝僵尸"
+msgstr ""
+
+#. Death message for entity mvz2:emperor_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "中道崩殂"
 msgstr ""
 
 #. Header for entity mvz2:mutant_zombie

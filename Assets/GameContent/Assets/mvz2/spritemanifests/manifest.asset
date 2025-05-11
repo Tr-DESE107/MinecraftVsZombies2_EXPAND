@@ -175,6 +175,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8866a258ae8eb3e458f9c444ebdba22c, type: 3}
   - name: mobile_blueprint/dullahan_head
     sprite: {fileID: 21300000, guid: 9e859336bcdaf054593a5dc4ca4b79ae, type: 3}
+  - name: mobile_blueprint/emperor_zombie
+    sprite: {fileID: 21300000, guid: d018395fbcf32f44c92a79b061e11d83, type: 3}
   - name: mobile_blueprint/flag_zombie
     sprite: {fileID: 21300000, guid: 4756509eba10d744bb3323a794303f92, type: 3}
   - name: mobile_blueprint/force_pad
@@ -611,6 +613,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8b9310b7e61da30448b5d9b66c4cf9f3, type: 3}
   - name: entity/enemies/golden_axe
     sprite: {fileID: 21300000, guid: ffc82409076aa3e4481bb54a1438d1db, type: 3}
+  - name: entity/enemies/holy_sword
+    sprite: {fileID: 21300000, guid: 1774c2ed9635c694080b89ce4c6e09bf, type: 3}
   - name: entity/enemies/iron_shovel
     sprite: {fileID: 21300000, guid: 414519a6962fb994b855ea73bd0d44e9, type: 3}
   - name: entity/enemies/mesmerizer_head
@@ -1640,6 +1644,15 @@ MonoBehaviour:
     - {fileID: -1477107463, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
     - {fileID: 1435127597, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
     - {fileID: 556428364, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
+  - name: entity/enemy/emperor_zombie
+    spritesheet:
+    - {fileID: -1928287117, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
+    - {fileID: 1245023437, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
+    - {fileID: -969802035, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
+    - {fileID: 422755761, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
+    - {fileID: -800743289, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
+    - {fileID: 21769090, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
+    - {fileID: -1155102574, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
   - name: entity/enemy/gargoyle
     spritesheet:
     - {fileID: 21300000, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}

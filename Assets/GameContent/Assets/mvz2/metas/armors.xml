@@ -88,5 +88,11 @@
                 <float name="maxHealth" value="200" />
             </props>
         </entry>
+        <entry id="emperor_crown">
+            <props>
+                <id name="shell" value="mvz2:wood" />
+                <float name="maxHealth" value="50" />
+            </props>
+        </entry>
     </entries>
 </armors>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-10 04:46+0800\n"
-"PO-Revision-Date: 2025-05-10 16:51+0800\n"
+"POT-Creation-Date: 2025-05-11 09:49+0800\n"
+"PO-Revision-Date: 2025-05-11 09:49+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -697,14 +697,14 @@ msgstr ""
 #. Header for contraptions mvz2:golden_apple
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "金苹果可以魅惑一个近战攻击它的敌人，使其为你而战。"
-msgstr "Golden Apple can charm an enemy that attacks it, makes it fight for you."
+msgid "金苹果可以魅惑一个近战攻击它的敌怪，使其为你而战。"
+msgstr "Golden Apple can charm an enemy monster that attacks it, makes it fight for you."
 
 #. Properties for contraptions mvz2:golden_apple
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>发出彩色炫光，被魅惑的敌人变为突变僵尸</color>"
-msgstr "Evocation: <color=red>Radiates colorful light, the charmed enemy transforms into a mutant zombie</color>"
+msgid "技能：<color=red>发出彩色炫光，被魅惑的敌怪变为突变僵尸</color>"
+msgstr "Evocation: <color=red>Radiates colorful light, the charmed enemy monster transforms into a mutant zombie</color>"
 
 #. Flavor for contraptions mvz2:golden_apple
 #: Almanac meta file
@@ -719,21 +719,21 @@ msgstr ""
 #. Header for contraptions mvz2:thunder_drum
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "雷鼓在触发后会震飞所有地面上的敌人，使其后退并换行。之后进入破损状态，需要时间修复。"
+msgid "雷鼓在触发后会震飞所有地面上的敌怪，使其后退并换行。之后进入破损状态，需要时间修复。"
 msgstr ""
-"Thunder Drum will knock all enemies on the ground into the air after being triggered, this knocks back them and changes their lanes. "
-"Afterwards the drum breaks and needs time to repair itself."
+"Thunder Drum will knock all enemy monsters on the ground into the air after being triggered, this knocks back them and changes their "
+"lanes. Afterwards the drum breaks and needs time to repair itself."
 
 #. Properties for contraptions mvz2:thunder_drum
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
 "修复时间：<color=red>60秒</color>\n"
-"技能：<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命的伤害</color>"
+"技能：<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>"
 msgstr ""
 "Repair time：<color=red>60 seconds</color>\n"
-"Evocation: <color=red>Makes a earthquake for 4 seconds, dealing a total damage of 25% maximum health to all enemies on the ground</"
-"color>"
+"Evocation: <color=red>Makes a earthquake for 4 seconds, dealing a total damage of 25% maximum health to all enemy monsters on the "
+"ground</color>"
 
 #. Flavor for contraptions mvz2:thunder_drum
 #: Almanac meta file
@@ -1017,7 +1017,7 @@ msgstr "Infectenser has won the Disbel Prize in virology, but due to the epidemi
 #. Header for contraptions mvz2:force_pad
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "传动力板可以通过触发更改力的方向，以此改变上方敌人的移动轨迹，并加强上方的子弹。"
+msgid "传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。"
 msgstr ""
 "The direction of Force Pads can be changed by triggering. Take advantage of this to change the movement of medium height objects above "
 "it, and boost projectiles."
@@ -1027,13 +1027,13 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "上下方向：<color=red>转移物体</color>\n"
-"前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的敌人</color>\n"
-"技能：<color=red>将周围的敌人移动到一个指定的位置</color>\n"
+"前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>\n"
+"技能：<color=red>将周围的敌怪移动到一个指定的位置</color>\n"
 "<color=red>必须放置在重力板上</color>"
 msgstr ""
 "Up/Down: <color=red>Change objects' lanes.</color>\n"
 "Front/Back: <color=red>Make projectiles turn back, or speed-boosted and have knockback effect.</color>\n"
-"Evocation: <color=red>Move nearby enemies to a certain spot</color>\n"
+"Evocation: <color=red>Move nearby enemy monsters to a certain spot</color>\n"
 "<color=red>Must be placed on Gravity Pad</color>"
 
 #. Flavor for contraptions mvz2:force_pad
@@ -1525,10 +1525,10 @@ msgstr ""
 #. Header for enemies mvz2:dullahan
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的敌人。"
+msgid "无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的怪物。"
 msgstr ""
 "Dullahan appears with a skeleton horse that can jump over contraptions. Then Dullahan will leave his head, making there 3 different "
-"enemies eventually."
+"monsters eventually."
 
 #. Properties for enemies mvz2:dullahan
 #: Almanac meta file
@@ -1713,10 +1713,10 @@ msgstr ""
 #. Header for enemies mvz2:shikaisen_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有敌人的图腾。"
+msgid "尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有怪物的图腾。"
 msgstr ""
 "When at low health, Shikaisen Zombie plunges its bamboo staff into the ground to create a totem that revives all nearby defeated "
-"enemies."
+"monsters."
 
 #. Properties for enemies mvz2:shikaisen_zombie
 #: Almanac meta file
@@ -1724,13 +1724,13 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "竹杖耐久：<color=red>1200</color>\n"
-"特点：<color=red>生命低于50%时将竹杖插入地面，竹杖会以自己的耐久为代价复活周围死亡并倒下的敌人</color>\n"
+"特点：<color=red>生命低于50%时将竹杖插入地面，竹杖会以自己的耐久为代价复活周围死亡并倒下的怪物</color>\n"
 "弱点：<color=red>火焰会直接烧掉竹杖</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
 "Staff Toughness: <color=red>1200</color>\n"
-"Special: <color=red>Plunges its staff into the ground when health drops below 50%, reviving all nearby defeated enemies at the cost of "
-"its own toughness</color>\n"
+"Special: <color=red>Plunges its staff into the ground when health drops below 50%, reviving all nearby defeated monsters at the cost "
+"of its own toughness</color>\n"
 "Weakness: <color=red>Fire instantly burns the staff</color>"
 
 #. Flavor for enemies mvz2:shikaisen_zombie
@@ -1738,6 +1738,37 @@ msgstr ""
 msgctxt "enemies.description"
 msgid "非常擅长做仰卧起坐。"
 msgstr "Exceptionally skilled at doing sit-ups."
+
+#. Header for enemies mvz2:emperor_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "皇帝僵尸使用手中的圣剑来给予周围的敌人圣盾，使它们免疫下一次受到的伤害。"
+msgstr "Emperor Zombie uses the Holy Sword to grant Divine Shields to nearby enemies, making them immune to the next damage."
+
+#. Properties for enemies mvz2:emperor_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+50</color>\n"
+"施法冷却：<color=red>5秒</color>\n"
+"特点：<color=red>一次最多给予10个周围的敌人圣盾，抵消下一次受到的伤害</color>"
+msgstr ""
+"Toughness: <color=red>200+50</color>\n"
+"Cast Cooldown: <color=red>5 seconds</color>\n"
+"Special: <color=red>Gives divine shields to up to 10 nearby enemies, negating the next damage they take</color>"
+
+#. Flavor for enemies mvz2:emperor_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"他并不是什么大国的皇帝，就是一个僵尸小圈子里面，天天被捧的高高的，实际上就只会套盾，被碰一下就破防，还以为自己有多大能耐的土皇帝罢"
+"了。\n"
+"<color=red>【图鉴 已被禁言，有效期是永久】</color>"
+msgstr ""
+"He isn't the emperor of any great nation—just a petty tyrant within a small clique of zombies.\n"
+"Constantly praised and elevated by his peers, he believes himself all-powerful, but in reality, he only knows how to apply shields. "
+"His fragile defenses crumble at the slightest touch, yet he clings to the delusion of his own grandeur.\n"
+"<color=red>【@Almanac has been permanently muted】</color>"
 
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
@@ -1860,8 +1891,8 @@ msgstr "A branch on the pagoda tree."
 #. Properties for artifacts mvz2:pagoda_branch
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>开始战斗时获得2个星之碎片，但敌人出现数量+200%</color>"
-msgstr "Effect: <color=red>+2 starshards at start, but +200% amount of spawned enemies</color>"
+msgid "效果：<color=red>开始战斗时获得2个星之碎片，但怪物出现数量+200%</color>"
+msgstr "Effect: <color=red>+2 starshards at start, but +200% amount of spawned monsters</color>"
 
 #. Flavor for artifacts mvz2:pagoda_branch
 #: Almanac meta file
@@ -2071,8 +2102,8 @@ msgstr "A stack of talismans gifted by Seiga, it's said to be able to control zo
 #. Properties for artifacts mvz2:manipulative_talismans
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>敌人死亡并倒下时，有10%的概率复活并变为友方</color>"
-msgstr "Effect: <color=red>Enemies have 10% chance to be revived as friendly ones when they die and faint</color>"
+msgid "效果：<color=red>敌怪死亡并倒下时，有10%的概率复活并变为友方</color>"
+msgstr "Effect: <color=red>Enemy monsters have 10% chance to be revived as friendly ones when they die and faint</color>"
 
 #. Flavor for artifacts mvz2:manipulative_talismans
 #: Almanac meta file
@@ -3870,6 +3901,18 @@ msgstr "Shikaisen Zombie"
 msgctxt "death_message"
 msgid "那我怎么没复活？"
 msgstr "Then how come I didn’t get revived?"
+
+#. Header for entity mvz2:emperor_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "皇帝僵尸"
+msgstr "Emperor Zombie"
+
+#. Death message for entity mvz2:emperor_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "中道崩殂"
+msgstr "Demise of the Crown"
 
 #. Header for entity mvz2:mutant_zombie
 #: Entity meta file

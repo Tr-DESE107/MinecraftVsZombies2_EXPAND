@@ -641,6 +641,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1774c2ed9635c694080b89ce4c6e09bf
+    m_Address: mvz2:entity/enemies/holy_sword
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 17f5395d50f99fb4db1fd94d850e5eba
     m_Address: mvz2:damage/small_hit2
     m_ReadOnly: 0
@@ -2770,6 +2776,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ddce6aa3c01acf40aa89b5845c9d961
+    m_Address: mvz2:achievements/overdraw
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5df818bf9a22615498b1e3d554dd4730
+    m_Address: mvz2:armor/emperor_crown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e0d511055abdf94593c9141ee15a16a
     m_Address: mvz2:entity/totenser/fling
     m_ReadOnly: 0
@@ -3334,6 +3352,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 760834d448ce9774eb4067b60ed5bfe0
+    m_Address: mvz2:divine_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7653a3ea24e1f0e41b42d54f5d1fed14
     m_Address: mvz2:map_pin
     m_ReadOnly: 0
@@ -3461,6 +3485,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ad59fee145905345a3241aca0804d48
     m_Address: mvz2:mobile_blueprint/infectenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b5ab4ce3e848bf4f95807e6a0a2cc4d
+    m_Address: mvz2:achievements/forged
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -4311,6 +4341,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - MapModel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95860ad70aaf9b048b4e87974f29e947
+    m_Address: mvz2:enemy/mausoleum/emperor_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95a0ff4bc65b3c3489a4dd2274848c9d
     m_Address: mvz2:entity/enemy/reverse_satellite
     m_ReadOnly: 0
@@ -4905,6 +4941,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9654ff76c5f31a4d87e757c55e35a6d
+    m_Address: mvz2:entity/enemy/emperor_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a983f0772541d504c8614fb33d2a87ec
     m_Address: mvz2:entity/boss/seija_gap
     m_ReadOnly: 0
@@ -5168,6 +5210,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b239514763953b4498b7ec47fc965b78
+    m_Address: mvz2:divine_shield_cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b27d973956921144f81710753ef50c35
     m_Address: mvz2:ui/level/pause_image_4

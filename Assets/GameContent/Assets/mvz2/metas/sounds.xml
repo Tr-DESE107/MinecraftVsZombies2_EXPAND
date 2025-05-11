@@ -162,6 +162,12 @@
     <sound name="dirt_rise">
         <sample path="mvz2:dirt_rise" weight="1" />
     </sound>
+    <sound name="divine_shield_cast">
+        <sample path="mvz2:divine_shield_cast" weight="1" />
+    </sound>
+    <sound name="divine_shield">
+        <sample path="mvz2:divine_shield" weight="1" />
+    </sound>
     <sound name="dream_alarm">
         <sample path="mvz2:entity/dream_alarm" weight="1" />
     </sound>

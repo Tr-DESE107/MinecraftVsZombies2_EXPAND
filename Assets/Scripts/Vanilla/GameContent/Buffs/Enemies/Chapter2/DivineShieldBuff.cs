@@ -25,6 +25,14 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback, priority: -100);
             AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback);
         }
+        public override void PostAdd(Buff buff)
+        {
+            base.PostAdd(buff);
+            var entity = buff.GetEntity();
+            if (entity == null)
+                return;
+            entity.PlaySound(VanillaSoundID.divineShield);
+        }
         public override void PostUpdate(Buff buff)
         {
             base.PostUpdate(buff);

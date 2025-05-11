@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.ghast,
                 VanillaEnemyID.mutantZombie,
                 VanillaEnemyID.shikaisenZombie,
-                VanillaEnemyID.shikaisenStaff,
+                VanillaEnemyID.emperorZombie,
 
                 VanillaContraptionID.hellfire,
                 VanillaContraptionID.dispenser,
