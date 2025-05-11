@@ -88,7 +88,13 @@ namespace PVZEngine.Auras
             buffCaches.Clear();
             foreach (var seriBuff in serializable.buffs)
             {
-                buffCaches.Add(seriBuff.GetTarget(level), seriBuff.GetBuff(level));
+                var entity = seriBuff.GetTarget(level);
+                if (entity == null)
+                    continue;
+                var buff = seriBuff.GetBuff(level);
+                if (buff == null)
+                    continue;
+                buffCaches.Add(entity, buff);
             }
         }
         private Buff AddTargetBuff(IBuffTarget target)

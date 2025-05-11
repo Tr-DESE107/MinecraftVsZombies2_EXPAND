@@ -10,11 +10,6 @@ namespace PVZEngine
     {
         public bool SetProperty(PropertyKey key, object value)
         {
-            if (value is IntPtr ptr)
-            {
-                value = ptr.ToInt32();
-                Debug.LogWarning($"Trying to set a property named \"{key}\" of type IntPtr! Converted it into Int32 {value}.");
-            }
             if (value == null)
             {
                 if (!propertyDict.TryGetValue(key, out var valueBefore) || valueBefore == null)
@@ -76,13 +71,7 @@ namespace PVZEngine
                     Debug.LogWarning($"Trying to serialize a property with key {pair.Key}, which is not registered.");
                     continue;
                 }
-                var value = pair.Value;
-                if (value is IntPtr ptr)
-                {
-                    value = ptr.ToInt32();
-                    Debug.LogWarning($"Trying to serialize a property named \"{key}\" of type IntPtr! Converted it into Int32 {value}.");
-                }
-                properties.Add(key, value);
+                properties.Add(key, pair.Value);
             }
             return new SerializablePropertyDictionary()
             {
@@ -98,13 +87,7 @@ namespace PVZEngine
                 foreach (var pair in seri.properties)
                 {
                     var key = PropertyMapper.ConvertFromName(pair.Key);
-                    var value = pair.Value;
-                    if (value is IntPtr ptr)
-                    {
-                        value = ptr.ToInt32();
-                        Debug.LogWarning($"Trying to deserialize a property named \"{key}\" of type IntPtr! Converted it into Int32 {value}.");
-                    }
-                    dict.propertyDict.Add(key, value);
+                    dict.propertyDict.Add(key, pair.Value);
                 }
             }
             return dict;

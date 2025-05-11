@@ -6,6 +6,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -24,8 +25,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public override void PostRemove(Buff buff)
         {
             base.PostRemove(buff);
-            var stars = buff.GetProperty<Entity>(PROP_STUN_STARS);
-            if (stars != null)
+            var starsID = GetStunStars(buff);
+            var stars = starsID?.GetEntity(buff.Level);
+            if (stars != null && stars.Exists())
             {
                 stars.Remove();
             }
@@ -62,14 +64,17 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
-            var stars = buff.GetProperty<Entity>(PROP_STUN_STARS);
-            if (stars == null)
+            var starsID = GetStunStars(buff);
+            var stars = starsID?.GetEntity(entity.Level);
+            if (stars == null || !stars.Exists())
             {
                 stars = buff.Level.Spawn(VanillaEffectID.stunStars, entity.Position, entity);
                 stars.SetParent(entity);
-                buff.SetProperty(PROP_STUN_STARS, stars);
+                SetStunStars(buff, new EntityID(stars));
             }
         }
+        public static EntityID GetStunStars(Buff buff) => buff.GetProperty<EntityID>(PROP_STUN_STARS);
+        public static void SetStunStars(Buff buff, EntityID value) => buff.SetProperty(PROP_STUN_STARS, value);
         public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");
         public static readonly VanillaBuffPropertyMeta PROP_STUN_STARS = new VanillaBuffPropertyMeta("StunStars");
     }
