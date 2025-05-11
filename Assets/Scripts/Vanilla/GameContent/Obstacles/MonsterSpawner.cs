@@ -102,7 +102,7 @@ namespace MVZ2.GameContent.Obstacles
         public static bool TrySpawnEntityAt(Entity spawner, NamespaceID id, LawnGrid grid, out Entity spawned)
         {
             spawned = null;
-            if (grid == null || !grid.CanPlaceEntity(id))
+            if (grid == null || !grid.CanSpawnEntityAt(id))
                 return false;
             var pos = grid.GetEntityPosition();
             spawned = spawner.SpawnWithParams(id, pos);

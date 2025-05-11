@@ -14,6 +14,7 @@ namespace MVZ2.Vanilla.Grids
         public static readonly NamespaceID onlyCanSleep = Get("only_can_sleep");
         public static readonly NamespaceID onlyCanMill = Get("only_can_mill");
         public static readonly NamespaceID onlyUpgrade = Get("only_upgrade");
+        public static readonly NamespaceID onlyDrivenser = Get("only_drivenser");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

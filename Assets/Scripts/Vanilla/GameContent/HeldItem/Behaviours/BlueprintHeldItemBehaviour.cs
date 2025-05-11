@@ -69,7 +69,7 @@ namespace MVZ2.GameContent.HeldItems
                         if (seedDef == null)
                             return;
                         var grid = gridTarget.Target;
-                        if (!grid.CanPlaceOrStackBlueprint(seedDef.GetID(), out var error))
+                        if (!grid.CanPlaceBlueprint(seedDef.GetID(), out var error))
                         {
                             var message = Global.Game.GetGridErrorMessage(error);
                             if (!string.IsNullOrEmpty(message))

@@ -144,7 +144,6 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackType<PreHealParams> PRE_ENTITY_HEAL = new();
         public readonly static CallbackType<PostHealParams> POST_ENTITY_HEAL = new();
 
-        public readonly static CallbackType<PlaceEntityParams> CAN_PLACE_ENTITY = new();
         public readonly static CallbackType<PlaceEntityParams> PRE_PLACE_ENTITY = new();
         public readonly static CallbackType<PostPlaceEntityParams> POST_PLACE_ENTITY = new();
         public readonly static CallbackType<PostUseEntityBlueprintParams> POST_USE_ENTITY_BLUEPRINT = new();

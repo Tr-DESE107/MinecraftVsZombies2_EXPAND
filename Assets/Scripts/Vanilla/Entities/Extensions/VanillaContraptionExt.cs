@@ -115,7 +115,7 @@ namespace MVZ2.Vanilla.Entities
                 return null;
             var awake = !contraption.HasBuff<NocturnalBuff>();
             contraption.Remove();
-            var upgraded = contraption.GetGrid().PlaceEntity(target);
+            var upgraded = contraption.GetGrid().SpawnPlacedEntity(target);
             if (upgraded == null)
                 return null;
             if (awake)

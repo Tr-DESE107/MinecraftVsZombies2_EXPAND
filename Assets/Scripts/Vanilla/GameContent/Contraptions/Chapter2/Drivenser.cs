@@ -6,14 +6,13 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Callbacks;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
     [EntityBehaviourDefinition(VanillaContraptionNames.drivenser)]
-    public class Drivenser : DispenserFamily, IStackEntity
+    public class Drivenser : DispenserFamily
     {
         public Drivenser(string nsp, string name) : base(nsp, name)
         {
@@ -107,22 +106,17 @@ namespace MVZ2.GameContent.Contraptions
         public static float GetBlockerBlend(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_BLOCKER_BLEND);
         public static void SetBlockerBlend(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_BLOCKER_BLEND, value);
 
-
-        void IStackEntity.CanStackOnEntity(Entity target, CallbackResult result)
+        public static bool CanUpgrade(Entity drivenser)
         {
-            if (target.IsEntityOf(VanillaContraptionID.drivenser) && GetUpgradeLevel(target) < MAX_UPGRADE_LEVEL)
-            {
-                result.SetValue(true);
-            }
+            return drivenser.IsEntityOf(VanillaContraptionID.drivenser) && drivenser.IsFriendlyEntity() && GetUpgradeLevel(drivenser) < MAX_UPGRADE_LEVEL;
         }
-        void IStackEntity.StackOnEntity(Entity target)
+        public static void Upgrade(Entity drivenser)
         {
-            if (!target.IsEntityOf(VanillaContraptionID.drivenser))
+            if (!drivenser.IsEntityOf(VanillaContraptionID.drivenser))
                 return;
-            SetUpgradeLevel(target, GetUpgradeLevel(target) + 1);
-            target.PlaySound(VanillaSoundID.mechanism);
-            target.Level.Spawn(VanillaEffectID.gearParticles, target.Position, target);
-
+            SetUpgradeLevel(drivenser, GetUpgradeLevel(drivenser) + 1);
+            drivenser.PlaySound(VanillaSoundID.mechanism);
+            drivenser.Level.Spawn(VanillaEffectID.gearParticles, drivenser.Position, drivenser);
         }
         public const int MAX_UPGRADE_LEVEL = 4;
         private static readonly NamespaceID ID = VanillaContraptionID.drivenser;

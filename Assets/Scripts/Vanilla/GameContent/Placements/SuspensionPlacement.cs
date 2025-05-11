@@ -1,16 +1,14 @@
-﻿using MVZ2.Vanilla.Grids;
-using PVZEngine.Entities;
-using PVZEngine.Grids;
-using PVZEngine.Level;
-using PVZEngine.Callbacks;
+﻿using PVZEngine.Level;
+using PVZEngine.Placements;
 
 namespace MVZ2.GameContent.Placements
 {
     [PlacementDefinition(VanillaPlacementNames.suspension)]
-    public class SuspensionPlacement : ContraptionPlacement
+    public class SuspensionPlacement : PlacementDefinition
     {
-        public SuspensionPlacement(string nsp, string name) : base(nsp, name)
+        public SuspensionPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.suspension)
         {
+            AddMethod(VanillaPlaceMethods.entity);
         }
     }
 }

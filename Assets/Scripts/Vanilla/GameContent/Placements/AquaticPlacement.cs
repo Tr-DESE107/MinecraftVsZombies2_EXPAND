@@ -1,33 +1,14 @@
-﻿using MVZ2.Vanilla.Grids;
-using PVZEngine.Entities;
-using PVZEngine.Grids;
-using PVZEngine.Level;
-using PVZEngine.Callbacks;
-using MVZ2.Vanilla.Callbacks;
+﻿using PVZEngine.Level;
+using PVZEngine.Placements;
 
 namespace MVZ2.GameContent.Placements
 {
     [PlacementDefinition(VanillaPlacementNames.aquatic)]
-    public class AquaticPlacement : ContraptionPlacement
+    public class AquaticPlacement : PlacementDefinition
     {
-        public AquaticPlacement(string nsp, string name) : base(nsp, name)
+        public AquaticPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.aquatic)
         {
-        }
-
-        public override void CanPlaceEntityOnGrid(LawnGrid grid, EntityDefinition entityDef, CallbackResult error)
-        {
-            if (!grid.IsWater())
-            {
-                error.SetFinalValue(VanillaGridStatus.notOnLand);
-                return;
-            }
-            var carrier = grid.GetLayerEntity(VanillaGridLayers.carrier);
-            if (carrier != null)
-            {
-                error.SetFinalValue(VanillaGridStatus.notOnLand);
-                return;
-            }
-            base.CanPlaceEntityOnGrid(grid, entityDef, error);
+            AddMethod(VanillaPlaceMethods.entity);
         }
     }
 }

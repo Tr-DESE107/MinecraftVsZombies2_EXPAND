@@ -291,7 +291,7 @@
         </contraption>
         <dispenser id="drivenser" name="驱动发射器" tooltip="能够堆叠放置，堆叠后子弹数量增加" unlock="mvz2:level.dream_2">
             <id name="fragmentId" value="mvz2:furnace"/>
-            <id name="stackOn" value="mvz2:drivenser"/>
+            <id name="placement" value="mvz2:drivenser"/>
 
             <int name="cost" value="125" />
             <id name="rechargeId" value="mvz2:short" />
@@ -582,7 +582,7 @@
             <bool name="shadowHidden" value="true"/>
             <bool name="isFloor" value="true"/>
             <id name="shell" value="mvz2:metal"/>
-            <id name="placement" value="mvz2:upgrade"/>
+            <id name="placement" value="mvz2:force_pad"/>
             <vector3 name="size" x="64" y="2" z="64"/>
             <idArray name="gridLayers" value="mvz2:carrier"/>
 

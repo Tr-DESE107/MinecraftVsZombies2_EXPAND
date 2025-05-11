@@ -16,6 +16,7 @@ using PVZEngine.SeedPacks;
 using PVZEngine.Callbacks;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
+using UnityEditor.PackageManager;
 
 namespace MVZ2.Vanilla.Grids
 {
@@ -31,7 +32,7 @@ namespace MVZ2.Vanilla.Grids
             if (seedDef != null)
             {
                 var seedID = seedDef.GetID();
-                if (grid.CanPlaceOrStackBlueprint(seedID, out _))
+                if (grid.CanPlaceBlueprint(seedID, out _))
                 {
                     return HeldHighlight.Green();
                 }
@@ -80,7 +81,7 @@ namespace MVZ2.Vanilla.Grids
         #region 放置蓝图
         /// <summary>
         /// 在一个网格的位置上放置一个蓝图。
-        /// 如果是实体蓝图，则会调用<see cref="PlaceBlueprintEntity"/>，放置一个实体，或在已有实体上堆叠。
+        /// 如果是实体蓝图，则会调用<see cref="PlaceEntityBlueprint"/>，放置一个实体，或在已有实体上堆叠。
         /// </summary>
         /// <param name="grid"></param>
         /// <param name="seedDef"></param>
@@ -90,7 +91,9 @@ namespace MVZ2.Vanilla.Grids
             var seedDef = seed?.Definition;
             if (seedDef == null)
                 return;
-            var entity = grid.PlaceBlueprintEntity(seedDef, heldItemData);
+            var entity = grid.PlaceEntityBlueprint(seedDef);
+            if (entity == null)
+                return;
             var level = grid.Level;
             level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, new VanillaLevelCallbacks.PostUseEntityBlueprintParams(entity, seedDef, seed, heldItemData));
         }
@@ -99,7 +102,7 @@ namespace MVZ2.Vanilla.Grids
         #region 放置蓝图定义
         /// <summary>
         /// 在一个网格的位置上放置一个蓝图。
-        /// 如果是实体蓝图，则会调用<see cref="PlaceBlueprintEntity"/>，放置一个实体，或在已有实体上堆叠。
+        /// 如果是实体蓝图，则会调用<see cref="PlaceEntityBlueprint"/>，放置一个实体，或在已有实体上堆叠。
         /// </summary>
         /// <param name="grid"></param>
         /// <param name="seedDef"></param>
@@ -108,14 +111,38 @@ namespace MVZ2.Vanilla.Grids
         {
             if (seedDef == null)
                 return;
-            var entity = grid.PlaceBlueprintEntity(seedDef, heldItemData);
+            var entity = grid.PlaceEntityBlueprint(seedDef);
             var level = grid.Level;
             level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, new VanillaLevelCallbacks.PostUseEntityBlueprintParams(entity, seedDef, null, heldItemData));
         }
         #endregion
 
-        #region 放置或堆叠实体
-        public static bool CanPlaceOrStackBlueprint(this LawnGrid grid, NamespaceID seedID, out NamespaceID error)
+        #region 生成实体
+        public static bool CanSpawnEntityAt(this LawnGrid grid, NamespaceID entityID)
+        {
+            return grid.GetEntitySpawnStatus(entityID) == null;
+        }
+        public static NamespaceID GetEntitySpawnStatus(this LawnGrid grid, NamespaceID entityID)
+        {
+            var level = grid.Level;
+            var entityDef = level.Content.GetEntityDefinition(entityID);
+            return grid.GetEntitySpawnStatus(entityDef);
+        }
+        public static NamespaceID GetEntitySpawnStatus(this LawnGrid grid, EntityDefinition entityDef)
+        {
+            if (entityDef == null)
+                return null;
+            var level = grid.Level;
+            // 可放置。
+            var placementID = entityDef.GetPlacementID();
+            var placementDef = level.Content.GetPlacementDefinition(placementID);
+            if (placementDef == null)
+                return null;
+            return placementDef.GetSpawnError(grid, entityDef);
+        }
+        #endregion
+        #region 放置实体
+        public static bool CanPlaceBlueprint(this LawnGrid grid, NamespaceID seedID, out NamespaceID error)
         {
             error = null;
             if (!NamespaceID.IsValid(seedID))
@@ -127,80 +154,11 @@ namespace MVZ2.Vanilla.Grids
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
                 var entityID = seedDef.GetSeedEntityID();
-                error = GetEntityPlaceOrStackStatus(grid, entityID);
+                error = GetEntityPlaceStatus(grid, entityID);
                 return error == null;
             }
             return false;
         }
-        public static bool CanPlaceOrStackEntity(this LawnGrid grid, NamespaceID entityID)
-        {
-            var status = grid.GetEntityPlaceOrStackStatus(entityID);
-            return status == null;
-        }
-        public static NamespaceID GetEntityPlaceOrStackStatus(this LawnGrid grid, NamespaceID entityID)
-        {
-            var level = grid.Level;
-            var entityDef = level.Content.GetEntityDefinition(entityID);
-            if (entityDef == null)
-                return null;
-            if (grid.GetEntities().Any(e => e.CanStackFrom(entityID) && e.IsFriendlyEntity()))
-            {
-                // 可堆叠。
-                return null;
-            }
-
-            // 可放置。
-            var placementID = entityDef.GetPlacementID();
-            var placementDef = level.Content.GetPlacementDefinition(placementID);
-            if (placementDef == null)
-                return null;
-            var error = new CallbackResult(null);
-            placementDef.CanPlaceEntityOnGrid(grid, entityDef, error);
-            if (!error.IsBreakRequested)
-            {
-                level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.CAN_PLACE_ENTITY, new VanillaLevelCallbacks.PlaceEntityParams(grid, entityID), error, entityID);
-            }
-            return error.GetValue<NamespaceID>();
-        }
-        /// <summary>
-        /// 放置一个蓝图的实体，或升级器械，或在已有实体上堆叠。
-        /// </summary>
-        /// <param name="grid"></param>
-        /// <param name="seedDef"></param>
-        /// <param name="heldItemData"></param>
-        /// <returns></returns>
-        public static Entity PlaceBlueprintEntity(this LawnGrid grid, SeedDefinition seedDef, IHeldItemData heldItemData)
-        {
-            var level = grid.Level;
-            var entityID = seedDef.GetSeedEntityID();
-            var entityDef = level.Content.GetEntityDefinition(entityID);
-            if (entityDef == null)
-                return null;
-            var stackOnEntity = entityDef.GetStackOnEntity();
-            if (NamespaceID.IsValid(stackOnEntity))
-            {
-                var entity = grid.GetEntities().FirstOrDefault(e => e.IsEntityOf(stackOnEntity));
-                if (entity != null && entity.Exists() && entity.CanStackFrom(entityID))
-                {
-                    entity.StackFromEntity(entityID);
-                    return entity;
-                }
-            }
-            var upgradeFromEntity = entityDef.GetUpgradeFromEntity();
-            if (NamespaceID.IsValid(upgradeFromEntity))
-            {
-                var entity = grid.GetEntities().FirstOrDefault(e => e.IsEntityOf(upgradeFromEntity));
-                if (entity != null && entity.Exists())
-                {
-                    return entity.UpgradeToContraption(entityID);
-                }
-            }
-            return grid.PlaceEntity(entityID);
-        }
-
-        #endregion
-
-        #region 放置实体
         public static bool CanPlaceEntity(this LawnGrid grid, NamespaceID entityID)
         {
             return grid.GetEntityPlaceStatus(entityID) == null;
@@ -221,27 +179,41 @@ namespace MVZ2.Vanilla.Grids
             var placementDef = level.Content.GetPlacementDefinition(placementID);
             if (placementDef == null)
                 return null;
-            var entityID = entityDef.GetID();
-            var error = new CallbackResult(null);
-            placementDef.CanPlaceEntityOnGrid(grid, entityDef, error);
-            if (!error.IsBreakRequested)
-            {
-                level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.CAN_PLACE_ENTITY, new VanillaLevelCallbacks.PlaceEntityParams(grid, entityID), error, entityID);
-            }
-            return error.GetValue<NamespaceID>();
+            return placementDef.GetPlaceError(grid, entityDef);
         }
-        public static void PrePlaceEntity(this LawnGrid grid, NamespaceID entityID, CallbackResult result)
+        /// <summary>
+        /// 放置一个蓝图的实体，或升级器械，或在已有实体上堆叠。
+        /// </summary>
+        /// <param name="grid"></param>
+        /// <param name="seedDef"></param>
+        /// <param name="heldItemData"></param>
+        /// <returns></returns>
+        public static Entity PlaceEntityBlueprint(this LawnGrid grid, SeedDefinition seedDef)
         {
-            if (grid == null)
-                return;
-            var level = grid.Level;
-            level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_PLACE_ENTITY, new VanillaLevelCallbacks.PlaceEntityParams(grid, entityID), result, entityID);
+            return PlaceEntity(grid, seedDef.GetSeedEntityID());
         }
         public static Entity PlaceEntity(this LawnGrid grid, NamespaceID entityID)
         {
-            var result = new CallbackResult(true);
-            grid.PrePlaceEntity(entityID, result);
-            if (!result.GetValue<bool>())
+            var level = grid.Level;
+            var entityDef = level.Content.GetEntityDefinition(entityID);
+            return grid.PlaceEntity(entityDef);
+        }
+        public static Entity PlaceEntity(this LawnGrid grid, EntityDefinition entityDef)
+        {
+            var level = grid.Level;
+            if (entityDef == null)
+                return null;
+            var placementID = entityDef.GetPlacementID();
+            var placement = level.Content.GetPlacementDefinition(placementID);
+            if (placement == null)
+                return null;
+            return placement.PlaceEntity(grid, entityDef);
+        }
+        public static Entity SpawnPlacedEntity(this LawnGrid grid, NamespaceID entityID)
+        {
+            if (grid == null)
+                return null;
+            if (!grid.PrePlaceEntity(entityID))
                 return null;
 
             var level = grid.Level;
@@ -258,7 +230,14 @@ namespace MVZ2.Vanilla.Grids
 
             return entity;
         }
-        public static void PostPlaceEntity(this LawnGrid grid, Entity entity)
+        private static bool PrePlaceEntity(this LawnGrid grid, NamespaceID entityID)
+        {
+            var level = grid.Level;
+            var result = new CallbackResult(true);
+            level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_PLACE_ENTITY, new VanillaLevelCallbacks.PlaceEntityParams(grid, entityID), result, entityID);
+            return result.GetValue<bool>();
+        }
+        private static void PostPlaceEntity(this LawnGrid grid, Entity entity)
         {
             var level = grid.Level;
             level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PLACE_ENTITY, new VanillaLevelCallbacks.PostPlaceEntityParams(grid, entity), entity.GetDefinitionID());

@@ -661,31 +661,6 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 堆叠
-        public static bool CanStackFrom(this Entity target, NamespaceID entityID)
-        {
-            var level = target.Level;
-            var definition = level.Content.GetEntityDefinition(entityID);
-            var result = new CallbackResult(false);
-            foreach (var behaviour in definition.GetBehaviours<IStackEntity>())
-            {
-                behaviour.CanStackOnEntity(target, result);
-                if (result.IsBreakRequested)
-                    break;
-            }
-            return result.GetValue<bool>();
-        }
-        public static void StackFromEntity(this Entity target, NamespaceID entityID)
-        {
-            var level = target.Level;
-            var definition = level.Content.GetEntityDefinition(entityID);
-            foreach (var behaviour in definition.GetBehaviours<IStackEntity>())
-            {
-                behaviour.StackOnEntity(target);
-            }
-        }
-        #endregion
-
         #region 阵营
         public static void Charm(this Entity entity, int faction)
         {

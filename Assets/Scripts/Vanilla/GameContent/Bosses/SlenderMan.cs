@@ -339,7 +339,7 @@ namespace MVZ2.GameContent.Bosses
                 var placementDef = level.Content.GetPlacementDefinition(placementID);
                 if (placementDef == null)
                     continue;
-                var targetGrids = grids.Where(g => g.CanPlaceEntity(contraption.GetDefinitionID()));
+                var targetGrids = grids.Where(g => g.CanSpawnEntityAt(contraption.GetDefinitionID()));
                 if (targetGrids.Count() <= 0)
                     continue;
                 var grid = targetGrids.Random(rng);

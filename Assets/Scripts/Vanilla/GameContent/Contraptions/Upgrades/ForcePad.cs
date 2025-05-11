@@ -28,7 +28,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Contraptions
 {
     [EntityBehaviourDefinition(VanillaContraptionNames.forcePad)]
-    public class ForcePad : ContraptionBehaviour, IStackEntity, IHeldEntityBehaviour
+    public class ForcePad : ContraptionBehaviour, IHeldEntityBehaviour
     {
         public ForcePad(string nsp, string name) : base(nsp, name)
         {
@@ -300,20 +300,6 @@ namespace MVZ2.GameContent.Contraptions
             if (pad.IsEvoked())
                 return 4;
             return GetPadDirection(pad);
-        }
-
-        void IStackEntity.CanStackOnEntity(Entity target, CallbackResult result)
-        {
-            if (!target.IsEntityOf(VanillaContraptionID.gravityPad))
-                return;
-            result.SetValue(true);
-        }
-
-        void IStackEntity.StackOnEntity(Entity target)
-        {
-            if (!target.IsEntityOf(VanillaContraptionID.gravityPad))
-                return;
-            target.UpgradeToContraption(VanillaContraptionID.forcePad);
         }
         public static readonly VanillaEntityPropertyMeta PROP_PAD_DIRECTION = new VanillaEntityPropertyMeta("PadDirection");
         public static readonly VanillaEntityPropertyMeta PROP_AFFECTED_ENTITIES = new VanillaEntityPropertyMeta("AffectedEntities");

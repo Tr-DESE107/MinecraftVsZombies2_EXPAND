@@ -97,7 +97,7 @@ namespace MVZ2.GameContent.Pickups
                             return;
                         var grid = gridTarget.Target;
                         var level = grid.Level;
-                        if (!grid.CanPlaceOrStackBlueprint(seedDef.GetID(), out var error))
+                        if (!grid.CanPlaceBlueprint(seedDef.GetID(), out var error))
                         {
                             var message = Global.Game.GetGridErrorMessage(error);
                             if (!string.IsNullOrEmpty(message))

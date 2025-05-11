@@ -14,6 +14,8 @@ namespace MVZ2.GameContent.Placements
         public const string devourer = "devourer";
         public const string suspension = "suspension";
         public const string upgrade = "upgrade";
+        public const string forcePad = "force_pad";
+        public const string drivenser = "drivenser";
     }
     public static class VanillaPlacementID
     {
@@ -26,6 +28,8 @@ namespace MVZ2.GameContent.Placements
         public static readonly NamespaceID devourer = Get(VanillaPlacementNames.devourer);
         public static readonly NamespaceID suspension = Get(VanillaPlacementNames.suspension);
         public static readonly NamespaceID upgrade = Get(VanillaPlacementNames.upgrade);
+        public static readonly NamespaceID forcePad = Get(VanillaPlacementNames.forcePad);
+        public static readonly NamespaceID drivenser = Get(VanillaPlacementNames.drivenser);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

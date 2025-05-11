@@ -1,19 +1,65 @@
-﻿using PVZEngine.Base;
+﻿using System.Collections.Generic;
+using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
-using PVZEngine.Callbacks;
 
 namespace PVZEngine.Placements
 {
     public abstract class PlacementDefinition : Definition
     {
-        public PlacementDefinition(string nsp, string name) : base(nsp, name)
+        public PlacementDefinition(string nsp, string name, SpawnCondition condition) : base(nsp, name)
         {
+            spawnCondition = condition;
         }
-        public virtual void CanPlaceEntityOnGrid(LawnGrid grid, EntityDefinition entity, CallbackResult error)
+        public void AddMethod(PlaceMethod method)
         {
+            methods.Add(method);
+        }
+        public bool RemoveMethod(PlaceMethod method)
+        {
+            return methods.Remove(method);
+        }
+        public bool ValidateSpawn(LawnGrid grid, EntityDefinition entity)
+        {
+            var e = spawnCondition.GetSpawnError(this, grid, entity);
+            return !NamespaceID.IsValid(e);
+        }
+        public NamespaceID GetSpawnError(LawnGrid grid, EntityDefinition entity)
+        {
+            return spawnCondition.GetSpawnError(this, grid, entity);
+        }
+        public NamespaceID GetPlaceError(LawnGrid grid, EntityDefinition entity)
+        {
+            NamespaceID error = null;
+            foreach (var method in methods)
+            {
+                var e = method.GetPlaceError(this, grid, entity);
+                if (!NamespaceID.IsValid(e))
+                {
+                    return null;
+                }
+                if (error == null)
+                {
+                    error = e;
+                }
+            }
+            return error;
+        }
+        public Entity PlaceEntity(LawnGrid grid, EntityDefinition entity)
+        {
+            foreach (var method in methods)
+            {
+                var e = method.GetPlaceError(this, grid, entity);
+                if (!NamespaceID.IsValid(e))
+                {
+                    return method.PlaceEntity(this, grid, entity);
+                }
+            }
+            return null;
         }
         public sealed override string GetDefinitionType() => EngineDefinitionTypes.PLACEMENT;
+        private SpawnCondition spawnCondition;
+        private List<PlaceMethod> methods = new List<PlaceMethod>();
     }
 }

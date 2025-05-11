@@ -51,9 +51,9 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static bool CanSleep(Entity entity)
         {
-            if (entity.Type != EntityTypes.PLANT)
-                return false;
             if (!entity.ExistsAndAlive())
+                return false;
+            if (entity.Type != EntityTypes.PLANT)
                 return false;
             if (entity.IsAIFrozen())
                 return false;

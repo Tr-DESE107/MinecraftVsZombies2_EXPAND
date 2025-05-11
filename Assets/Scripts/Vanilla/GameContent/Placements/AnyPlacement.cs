@@ -6,8 +6,9 @@ namespace MVZ2.GameContent.Placements
     [PlacementDefinition(VanillaPlacementNames.any)]
     public class AnyPlacement : PlacementDefinition
     {
-        public AnyPlacement(string nsp, string name) : base(nsp, name)
+        public AnyPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.any)
         {
+            AddMethod(VanillaPlaceMethods.entity);
         }
     }
 }

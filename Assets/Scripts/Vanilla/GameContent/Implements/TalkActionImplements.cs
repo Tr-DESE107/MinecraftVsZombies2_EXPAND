@@ -84,7 +84,7 @@ namespace MVZ2.GameContent.Implements
                             var grid = level.GetGrid(4, 2);
                             if (grid == null)
                                 break;
-                            if (!grid.CanPlaceOrStackEntity(VanillaContraptionID.dispenser))
+                            if (!grid.CanSpawnEntityAt(VanillaContraptionID.dispenser))
                                 break;
                             var x = level.GetEntityColumnX(4);
                             var z = level.GetEntityLaneZ(2);

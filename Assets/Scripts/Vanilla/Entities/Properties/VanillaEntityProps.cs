@@ -349,14 +349,6 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 堆叠
-        public static readonly PropertyMeta STACK_ON = Get("stackOn");
-        public static NamespaceID GetStackOnEntity(this EntityDefinition entity)
-        {
-            return entity.GetProperty<NamespaceID>(STACK_ON);
-        }
-        #endregion
-
         #region 升级
         public static readonly PropertyMeta UPGRADE_FROM = Get("upgradeFrom");
         public static NamespaceID GetUpgradeFromEntity(this EntityDefinition entity)
