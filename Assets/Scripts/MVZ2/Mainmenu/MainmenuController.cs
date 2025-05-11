@@ -97,8 +97,8 @@ namespace MVZ2.Mainmenu
             {
                 var viewData = new CreditsCategoryViewData()
                 {
-                    name = main.LanguageManager._p(VanillaStrings.CONTEXT_STAFF_CATEGORY, category.Name),
-                    entries = category.Entries
+                    name = main.LanguageManager._p(VanillaStrings.CONTEXT_CREDITS_CATEGORY, category.Name),
+                    entries = category.Entries.Select(e => main.LanguageManager._p(VanillaStrings.CONTEXT_STAFF_NAME, e)).ToArray(),
                 };
                 viewDatas.Add(viewData);
             }

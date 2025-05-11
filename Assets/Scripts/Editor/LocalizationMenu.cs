@@ -263,7 +263,11 @@ namespace MVZ2.Editor
                 var creditsReference = "Credits meta file";
                 foreach (var category in creditsList.categories)
                 {
-                    AddTranslation(potGenerator, category.Name, creditsReference, $"Name for credits category {category.Name}", VanillaStrings.CONTEXT_STAFF_CATEGORY);
+                    AddTranslation(potGenerator, category.Name, creditsReference, $"Name for credits category {category.Name}", VanillaStrings.CONTEXT_CREDITS_CATEGORY);
+                    foreach (var entry in category.Entries)
+                    {
+                        AddTranslation(potGenerator, entry, creditsReference, $"Name for credit staff {category.Name}", VanillaStrings.CONTEXT_STAFF_NAME);
+                    }
                 }
             }
 

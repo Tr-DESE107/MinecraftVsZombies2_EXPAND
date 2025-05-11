@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-10 09:28+0800\n"
-"PO-Revision-Date: 2025-05-10 21:28+0800\n"
+"POT-Creation-Date: 2025-05-11 01:48+0800\n"
+"PO-Revision-Date: 2025-05-11 13:49+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2615,6 +2615,12 @@ msgctxt "credits_category"
 msgid "内容设计"
 msgstr "Content Designer"
 
+#. Name for credit staff 内容设计
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Cuerzor58"
+msgstr "Cuerzor58"
+
 #. Name for credits category 程序
 #: Credits meta file
 msgctxt "credits_category"
@@ -2639,11 +2645,29 @@ msgctxt "credits_category"
 msgid "角色立绘"
 msgstr "Character Arts"
 
+#. Name for credit staff 角色立绘
+#: Credits meta file
+msgctxt "staff_name"
+msgid "三花花"
+msgstr "三花花"
+
+#. Name for credit staff 角色立绘
+#: Credits meta file
+msgctxt "staff_name"
+msgid "小幽喜欢口乙烯"
+msgstr "小幽喜欢口乙烯"
+
 #. Name for credits category 背景插图
 #: Credits meta file
 msgctxt "credits_category"
 msgid "背景插图"
 msgstr "Background Pictures"
+
+#. Name for credit staff 背景插图
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Minecraft幻想乡地图-TouhouCraft团队"
+msgstr "Minecraft Gensokyo Map-TouhouCraft Team"
 
 #. Name for credits category 音乐
 #: Credits meta file
@@ -2651,17 +2675,59 @@ msgctxt "credits_category"
 msgid "音乐"
 msgstr "Music"
 
+#. Name for credit staff 音乐
+#: Credits meta file
+msgctxt "staff_name"
+msgid "幻梦忧"
+msgstr "幻梦忧"
+
+#. Name for credit staff 音乐
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Dr.糕萌酸钾-Studio"
+msgstr "Dr.糕萌酸钾-Studio"
+
 #. Name for credits category 本地化（英文）
 #: Credits meta file
 msgctxt "credits_category"
 msgid "本地化（英文）"
 msgstr "Localization (English)"
 
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Reale"
+msgstr "Reale"
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Charlie Calvin"
+msgstr "Charlie Calvin"
+
 #. Name for credits category 特别感谢
 #: Credits meta file
 msgctxt "credits_category"
 msgid "特别感谢"
 msgstr "Special Thanks"
+
+#. Name for credit staff 特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "A Random Chinese"
+msgstr "A Random Chinese"
+
+#. Name for credit staff 特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "新概念论士"
+msgstr "新概念论士"
+
+#. Name for credit staff 特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "正邪の老鼠"
+msgstr "正邪の老鼠"
 
 #~ msgctxt "achievement"
 #~ msgid "精心铸造"

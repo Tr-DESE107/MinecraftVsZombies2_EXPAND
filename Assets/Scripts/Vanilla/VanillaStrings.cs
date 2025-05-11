@@ -188,7 +188,8 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_RECHARGE_TIME = "recharge_time";
         public const string CONTEXT_STAT_CATEGORY = "stat_category";
         public const string CONTEXT_STORE_TALK = "store_talk";
-        public const string CONTEXT_STAFF_CATEGORY = "credits_category";
+        public const string CONTEXT_CREDITS_CATEGORY = "credits_category";
+        public const string CONTEXT_STAFF_NAME = "staff_name";
         public const string CONTEXT_TALK = "talk";
         public const string CONTEXT_RANDOM_CHINA_EVENT_NAME = "random_china.event_name";
     }
