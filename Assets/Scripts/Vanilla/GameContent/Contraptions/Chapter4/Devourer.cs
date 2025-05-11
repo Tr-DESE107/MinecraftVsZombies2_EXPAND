@@ -70,14 +70,17 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             var level = devourer.Level;
             var output = other.TakeDamage(devourer.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH), devourer);
-            if (output.HasAnyFatal())
+            if (output != null)
             {
-                level.PlaySound(VanillaSoundID.pacmanKill);
-            }
-            if (!level.IsPlayingSound(VanillaSoundID.pacmanAttack))
-            {
-                level.PlaySound(VanillaSoundID.pacmanAttack);
-            }
+                if (output.HasAnyFatal())
+                {
+                    level.PlaySound(VanillaSoundID.pacmanKill);
+                }
+                if (!level.IsPlayingSound(VanillaSoundID.pacmanAttack))
+                {
+                    level.PlaySound(VanillaSoundID.pacmanAttack);
+                }
+            } 
         }
         #region 更新
         protected override void UpdateLogic(Entity devourer)

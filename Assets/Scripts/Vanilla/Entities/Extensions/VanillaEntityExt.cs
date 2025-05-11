@@ -67,18 +67,18 @@ namespace MVZ2.Vanilla.Entities
         }
         public static DamageOutput TakeDamage(DamageInput input)
         {
-            if (input == null)
-                return null;
-            if (input.Entity.IsInvincible() || input.Entity.IsDead)
-                return null;
-            if (!PreTakeDamage(input))
-                return null;
-            if (input.Amount <= 0)
-                return null;
             var result = new DamageOutput()
             {
                 Entity = input.Entity
             };
+            if (input == null)
+                return result;
+            if (input.Entity.IsInvincible() || input.Entity.IsDead)
+                return result;
+            if (!PreTakeDamage(input))
+                return result;
+            if (input.Amount <= 0)
+                return result;
             if (!NamespaceID.IsValid(input.ShieldTarget))
             {
                 if (Armor.Exists(input.Entity.GetMainArmor()) && !input.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
