@@ -87,13 +87,15 @@
     </entry>
     <entry id="wicked_hermit_zombie" entity="mvz2:wicked_hermit_zombie" >
         <spawn level="4" minWave="10"/>
-        <terrain water="true"/>
         <weight base="3000" />
     </entry>
     <entry id="shikaisen_zombie" entity="mvz2:shikaisen_zombie" >
         <spawn level="4" minWave="5"/>
-        <terrain water="true"/>
-        <weight base="3000" />
+        <weight base="2000" />
+    </entry>
+    <entry id="emperor_zombie" entity="mvz2:emperor_zombie" >
+        <spawn level="3" minWave="10"/>
+        <weight base="2000" />
     </entry>
     
     <entry id="mutant_zombie" entity="mvz2:mutant_zombie" >

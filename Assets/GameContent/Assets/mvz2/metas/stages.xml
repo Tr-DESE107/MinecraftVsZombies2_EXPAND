@@ -690,4 +690,138 @@
             <integer name="spawnerCount" value="1" />
         </properties>
     </stage>
+    <stage id="mausoleum_3" name="梦殿大祀庙" dayNumber="3" unlock="mvz2:level.mausoleum_2">
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_3"/>
+            <talk type="end" value="mvz2:mausoleum_3_over"/>
+            <talk type="map" value="mvz2:mausoleum_3_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:splitenser"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:skeleton"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="2" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_4" name="梦殿大祀庙" dayNumber="4" unlock="mvz2:level.mausoleum_3">
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_4"/>
+            <talk type="end" value="mvz2:mausoleum_4_over"/>
+            <talk type="map" value="mvz2:mausoleum_4_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:devourer"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="3" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_5" name="梦殿大祀庙" dayNumber="5" unlock="mvz2:level.mausoleum_4">
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_5"/>
+            <talk type="end" value="mvz2:mausoleum_5_over"/>
+            <talk type="map" value="mvz2:mausoleum_5_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:command_block"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:ghast"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="4" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_7" name="梦殿大祀庙" dayNumber="7" unlock="mvz2:level.mausoleum_6">
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_7"/>
+            <talk type="end" value="mvz2:mausoleum_7_over"/>
+            <talk type="map" value="mvz2:mausoleum_7_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:necrotombstone"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="5" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_8" name="梦殿大祀庙" dayNumber="8" unlock="mvz2:level.mausoleum_7">
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_8"/>
+            <talk type="end" value="mvz2:mausoleum_8_over"/>
+            <talk type="map" value="mvz2:mausoleum_8_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:gravitation_bomb"/>
+        <spawns flags="3">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:ghost"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="6" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_9" name="梦殿大祀庙" dayNumber="9" unlock="mvz2:level.mausoleum_8">
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_9"/>
+            <talk type="end" value="mvz2:mausoleum_9_over"/>
+            <talk type="map" value="mvz2:mausoleum_9_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:desire_pot"/>
+        <spawns flags="2">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+            <spawn id="mvz2:emperor_zombie"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="7" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_10" name="梦殿大祀庙" dayNumber="10" unlock="mvz2:level.mausoleum_9">
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_10"/>
+            <talk type="end" value="mvz2:mausoleum_10_over"/>
+            <talk type="map" value="mvz2:mausoleum_10_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.zombie_scroll" note="mvz2:mausoleum"/>
+        <spawns flags="3">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+            <spawn id="mvz2:emperor_zombie"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="8" />
+        </properties>
+    </stage>
 </stages>
