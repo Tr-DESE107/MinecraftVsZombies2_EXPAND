@@ -19,8 +19,12 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             entity.EquipMainArmor(VanillaArmorID.wickedHermitHat);
-            var talisman = entity.SpawnWithParams(VanillaEnemyID.talismanZombie, entity.Position);
-            SetTalismanZombie(entity, new EntityID(talisman));
+
+            if (!entity.IsPreviewEnemy())
+            {
+                var talisman = entity.SpawnWithParams(VanillaEnemyID.talismanZombie, entity.Position);
+                SetTalismanZombie(entity, new EntityID(talisman));
+            }
         }
         protected override void UpdateAI(Entity enemy)
         {
