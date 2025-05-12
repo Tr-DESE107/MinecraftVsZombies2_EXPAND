@@ -10,15 +10,21 @@ namespace MVZ2.Audios
 {
     public class MusicManager : MonoBehaviour, IMusicManager
     {
+        #region 播放
         public void Play(NamespaceID id)
         {
             var meta = main.ResourceManager.GetMusicMeta(id);
             if (meta == null)
                 return;
             var mainTrack = main.ResourceManager.GetMusicClip(meta.MainTrack);
-            var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack) ?? mainTrack;
-            Play(mainTrack, subTrack);
+            var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack);
             musicID = id;
+            SetSourceClip(mainTrackSource, mainTrack);
+            SetSourceClip(subTrackSource, subTrack);
+            IsPaused = false;
+
+            mainTrackSource.Play();
+            subTrackSource.Play();
         }
         public void SetPlayingMusic(NamespaceID id)
         {
@@ -26,10 +32,22 @@ namespace MVZ2.Audios
             if (meta == null)
                 return;
             var mainTrack = main.ResourceManager.GetMusicClip(meta.MainTrack);
-            var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack) ?? mainTrack;
-            SetPlayingMusic(mainTrack, subTrack);
+            var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack);
             musicID = id;
+            SetSourceClip(mainTrackSource, mainTrack);
+            SetSourceClip(subTrackSource, subTrack);
+            IsPaused = false;
+            Time = 0;
         }
+        private void SetSourceClip(AudioSource source, AudioClip clip)
+        {
+            source.clip = clip;
+            source.gameObject.SetActive(clip);
+            UpdateTrackWeight();
+        }
+        #endregion
+
+        #region 暂停、还原
         public void Pause()
         {
             if (IsPaused)
@@ -50,6 +68,9 @@ namespace MVZ2.Audios
             mainTrackSource.UnPause();
             subTrackSource.UnPause();
         }
+        #endregion
+
+        #region 停止
         public void Stop()
         {
             IsPaused = false;
@@ -57,6 +78,9 @@ namespace MVZ2.Audios
             subTrackSource.Stop();
             musicID = null;
         }
+        #endregion
+
+        #region 当前音乐
         public NamespaceID GetCurrentMusicID()
         {
             return musicID;
@@ -65,6 +89,9 @@ namespace MVZ2.Audios
         {
             return musicID == id;
         }
+        #endregion
+
+        #region 渐变
         public void StartFade(float target, float duration)
         {
             volumeFader.StartFade(target, duration);
@@ -73,6 +100,9 @@ namespace MVZ2.Audios
         {
             volumeFader.StopFade();
         }
+        #endregion
+
+        #region 音量
         public void SetVolume(float volume)
         {
             volumeFader.Value = volume;
@@ -85,6 +115,9 @@ namespace MVZ2.Audios
         {
             mixer.SetFloat("MusicVolume", AudioHelper.PercentageToDbA(volume));
         }
+        #endregion
+
+        #region 副轨权重
         public float GetTrackWeight()
         {
             return trackWeight;
@@ -92,9 +125,17 @@ namespace MVZ2.Audios
         public void SetTrackWeight(float weight)
         {
             trackWeight = weight;
-            mixer.SetFloat("MainWeight", AudioHelper.PercentageToDbA(1 - trackWeight));
-            mixer.SetFloat("SubWeight", AudioHelper.PercentageToDbA(trackWeight));
+            UpdateTrackWeight();
         }
+        private void UpdateTrackWeight()
+        {
+            float w = subTrackSource.isActiveAndEnabled ? trackWeight : 0;
+            mixer.SetFloat("MainWeight", AudioHelper.PercentageToDbA(1 - w));
+            mixer.SetFloat("SubWeight", AudioHelper.PercentageToDbA(w));
+        }
+        #endregion
+
+        #region 时间
         public void SetNormalizedMusicTime(float time)
         {
             if (!mainTrackSource || !mainTrackSource.clip)
@@ -107,6 +148,8 @@ namespace MVZ2.Audios
                 return 0;
             return Time / mainTrackSource.clip.length;
         }
+        #endregion
+
         private void Awake()
         {
             volumeFader.OnValueChanged += value =>
@@ -115,23 +158,6 @@ namespace MVZ2.Audios
             };
             volumeFader.SetValueWithoutNotify(1);
             SetTrackWeight(0);
-        }
-        private void Play(AudioClip main, AudioClip sub)
-        {
-            SetClips(main, sub);
-            mainTrackSource.Play();
-            subTrackSource.Play();
-        }
-        private void SetPlayingMusic(AudioClip main, AudioClip sub)
-        {
-            SetClips(main, sub);
-            Time = 0;
-        }
-        private void SetClips(AudioClip mainTrack, AudioClip subTrack)
-        {
-            mainTrackSource.clip = mainTrack;
-            subTrackSource.clip = subTrack;
-            IsPaused = false;
         }
         public MainManager Main => main;
         public float Time
