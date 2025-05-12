@@ -126,10 +126,12 @@ namespace MVZ2.Vanilla.Entities
         }
         public static Entity FirstAid(this Entity contraption)
         {
-            var defID = contraption.GetDefinitionID();
-            var entity = contraption.UpgradeToContraption(defID);
-            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_OBSIDIAN_FIRST_AID, new EntityCallbackParams(entity), defID);
-            return entity;
+            if (contraption == null)
+                return null;
+            contraption.HealEffects(contraption.GetMaxHealth(), contraption);
+            contraption.PlaySound(contraption.GetGrid()?.GetPlaceSound(contraption));
+            contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_OBSIDIAN_FIRST_AID, new EntityCallbackParams(contraption), contraption.GetDefinitionID());
+            return contraption;
         }
         public static bool IsEvoked(this Entity contraption)
         {

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-11 07:19+0800\n"
+"POT-Creation-Date: 2025-05-12 03:11+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1139,41 +1139,41 @@ msgid ""
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐来源
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:162
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:192
 msgid "来源：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐原曲
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:164
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:194
 msgid "原曲：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐作者
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:166
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:196
 msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:666
+#: Scripts\MVZ2\Map\MapController.cs:671
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:668
+#: Scripts\MVZ2\Map\MapController.cs:673
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:670
+#: Scripts\MVZ2\Map\MapController.cs:675
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:672
+#: Scripts\MVZ2\Map\MapController.cs:677
 msgid ""
 "轮数\n"
 "{0}/{1}"
