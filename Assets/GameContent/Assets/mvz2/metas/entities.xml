@@ -500,7 +500,7 @@
             <bool name="canDeactive" value="false"/>
             <bool name="defensive" value="true"/>
             <bool name="fragments/noDamageFragments" value="true"/>
-            <float name="maxHealth" value="3000"/>
+            <float name="maxHealth" value="4000"/>
             <vector3 name="size" x="48" y="48" z="48"/>
             <id name="placement" value="mvz2:suspension"/>
             <id name="shell" value="mvz2:metal"/>

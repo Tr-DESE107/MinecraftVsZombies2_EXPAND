@@ -420,7 +420,7 @@
                 <p>闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹来治疗自己。</p>
             </header>
             <properties>
-                <p>耐久：<![CDATA[<color=red>3000</color>]]></p>
+                <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
                 <p>特点：<![CDATA[<color=red>吸收敌弹，并恢复100耐久</color>]]></p>
                 <p>技能：<![CDATA[<color=red>在3秒内吸收所有伤害，之后将这些伤害返还给本行内所有敌人（最高1800）</color>]]></p>
             </properties>
