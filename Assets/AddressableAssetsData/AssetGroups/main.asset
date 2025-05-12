@@ -671,6 +671,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1969da4876c7d6b4e86f72d69e483f78
+    m_Address: mvz2:mausoleum_level_sub
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a62ec6260923674096be59047f89949
     m_Address: mvz2:artifacts/dark_matter
     m_ReadOnly: 0
@@ -1930,6 +1936,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 412713fe007467441a2952c3fd3f3ba9
+    m_Address: mvz2:entity/contraptions/gravitation_bomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 414519a6962fb994b855ea73bd0d44e9
     m_Address: mvz2:entity/enemies/iron_shovel
     m_ReadOnly: 0
@@ -1983,6 +1995,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 439af6a040ba009429682529df6aaa94
+    m_Address: mvz2:ui/musicroom/track_button
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43d0c46d78f545946b9f8472fc64be72
     m_Address: mvz2:ui/level/progress_bar/level_progress_banner
@@ -2560,6 +2578,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58755531f1cc59b4ab7563c5bedf58b2
+    m_Address: mvz2:entity/armor/emperor_crown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58b00e65f2d3cf54e95b866108f55a09
     m_Address: mvz2:artifacts/nether_star
     m_ReadOnly: 0
@@ -2607,6 +2631,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a0c08fed03edc745bbc7ea6e497cf14
+    m_Address: mvz2:entity/contraption/desire_pot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a0ed5d8cf792294fb28827ccdea1c42
     m_Address: mvz2:entity/armor/mesmerizer_crown
@@ -3184,6 +3214,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f0c46a4061bb484c8387f99fe8dc33f
+    m_Address: mvz2:contraption/mausoleum/gravitation_bomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f22bfed212241144ada2b8c00f2bea2
     m_Address: mvz2:blueprints
     m_ReadOnly: 0
@@ -3650,6 +3686,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fb6fff3fc682484cbf8d8a0e678d781
+    m_Address: mvz2:contraption/mausoleum/desire_pot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7fb868cd756467a47a78f7ef5cd25ba2
     m_Address: mvz2:entity/cart/nightmare_trail
@@ -5001,6 +5043,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab08bd07ffd6071449dab1110b8b41d7
+    m_Address: mvz2:mausoleum_level_sub
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab1cac139d76a6f478c12842a619042d
     m_Address: mvz2:entity/contraptions/magichest_flash
     m_ReadOnly: 0
@@ -6003,6 +6051,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb45335c2b627fc44bf0ec9462cfff89
+    m_Address: mvz2:mausoleum_level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb62f8c3ae2709d4889b0322abb7a98b
     m_Address: mvz2:talk/dialog_surprised
     m_ReadOnly: 0
@@ -6134,6 +6188,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d018395fbcf32f44c92a79b061e11d83
+    m_Address: mvz2:mobile_blueprint/emperor_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d01a2a78c4760e3408aba65d73824db6
     m_Address: mvz2:random/crystal/crystal_break4

@@ -2,6 +2,7 @@
 using MVZ2.UI;
 using MVZ2Logic;
 using PVZEngine;
+using UnityEditor.Hardware;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -14,8 +15,9 @@ namespace MVZ2.Audios
             var meta = main.ResourceManager.GetMusicMeta(id);
             if (meta == null)
                 return;
-            var clip = main.ResourceManager.GetMusicClip(meta.Path);
-            Play(clip);
+            var mainTrack = main.ResourceManager.GetMusicClip(meta.MainTrack);
+            var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack) ?? mainTrack;
+            Play(mainTrack, subTrack);
             musicID = id;
         }
         public void SetPlayingMusic(NamespaceID id)
@@ -23,8 +25,9 @@ namespace MVZ2.Audios
             var meta = main.ResourceManager.GetMusicMeta(id);
             if (meta == null)
                 return;
-            var clip = main.ResourceManager.GetMusicClip(meta.Path);
-            SetPlayingMusic(clip);
+            var mainTrack = main.ResourceManager.GetMusicClip(meta.MainTrack);
+            var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack) ?? mainTrack;
+            SetPlayingMusic(mainTrack, subTrack);
             musicID = id;
         }
         public void Pause()
@@ -32,22 +35,26 @@ namespace MVZ2.Audios
             if (IsPaused)
                 return;
             IsPaused = true;
-            musicSource.Pause();
+            mainTrackSource.Pause();
+            subTrackSource.Pause();
         }
         public void Resume()
         {
             if (!IsPaused)
             {
-                musicSource.Play();
+                mainTrackSource.Play();
+                subTrackSource.Play();
                 return;
             }
             IsPaused = false;
-            musicSource.UnPause();
+            mainTrackSource.UnPause();
+            subTrackSource.UnPause();
         }
         public void Stop()
         {
             IsPaused = false;
-            musicSource.Stop();
+            mainTrackSource.Stop();
+            subTrackSource.Stop();
             musicID = null;
         }
         public NamespaceID GetCurrentMusicID()
@@ -78,44 +85,58 @@ namespace MVZ2.Audios
         {
             mixer.SetFloat("MusicVolume", AudioHelper.PercentageToDbA(volume));
         }
+        public void SetTrackWeight(float weight)
+        {
+            mixer.SetFloat("MainWeight", AudioHelper.PercentageToDbA(1 - weight));
+            mixer.SetFloat("SubWeight", AudioHelper.PercentageToDbA(weight));
+        }
         public void SetNormalizedMusicTime(float time)
         {
-            if (!musicSource || !musicSource.clip)
+            if (!mainTrackSource || !mainTrackSource.clip)
                 return;
-            musicSource.time = time * musicSource.clip.length;
+            Time = time * mainTrackSource.clip.length;
         }
         public float GetNormalizedMusicTime()
         {
-            if (!musicSource || !musicSource.clip)
+            if (!mainTrackSource || !mainTrackSource.clip)
                 return 0;
-            return musicSource.time / musicSource.clip.length;
+            return Time / mainTrackSource.clip.length;
         }
         private void Awake()
         {
-            volumeFader.OnValueChanged += value => musicSource.volume = value;
-            volumeFader.SetValueWithoutNotify(musicSource.volume);
+            volumeFader.OnValueChanged += value =>
+            {
+                mixer.SetFloat("FadeVolume", AudioHelper.PercentageToDbA(value));
+            };
+            volumeFader.SetValueWithoutNotify(1);
+            SetTrackWeight(0);
         }
-        private void Play(AudioClip clip)
+        private void Play(AudioClip main, AudioClip sub)
         {
-            if (!clip)
-                return;
-            musicSource.clip = clip;
-            IsPaused = false;
-            musicSource.Play();
+            SetClips(main, sub);
+            mainTrackSource.Play();
+            subTrackSource.Play();
         }
-        private void SetPlayingMusic(AudioClip clip)
+        private void SetPlayingMusic(AudioClip main, AudioClip sub)
         {
-            if (!clip)
-                return;
-            musicSource.clip = clip;
+            SetClips(main, sub);
+            Time = 0;
+        }
+        private void SetClips(AudioClip mainTrack, AudioClip subTrack)
+        {
+            mainTrackSource.clip = mainTrack;
+            subTrackSource.clip = subTrack;
             IsPaused = false;
-            musicSource.time = 0;
         }
         public MainManager Main => main;
         public float Time
         {
-            get => musicSource.time;
-            set => musicSource.time = value;
+            get => mainTrackSource.time;
+            set
+            {
+                mainTrackSource.time = value;
+                subTrackSource.time = value;
+            }
         }
         public bool IsPaused { get; private set; }
         private NamespaceID musicID;
@@ -124,7 +145,9 @@ namespace MVZ2.Audios
         [SerializeField]
         private AudioMixer mixer;
         [SerializeField]
-        private AudioSource musicSource;
+        private AudioSource mainTrackSource;
+        [SerializeField]
+        private AudioSource subTrackSource;
         [SerializeField]
         private FloatFader volumeFader;
     }

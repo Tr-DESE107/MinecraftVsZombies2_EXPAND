@@ -1,5 +1,6 @@
 <musics>
-    <music id="mainmenu" path="mvz2:mainmenu" name="疯狂戴夫">
+    <music id="mainmenu" name="疯狂戴夫">
+        <track main="mvz2:mainmenu"/>
         <source>植物大战僵尸</source>
         <description>
             <p>主界面，以及关卡前对话的音乐。</p>
@@ -7,14 +8,16 @@
             <p>请好好享受这音乐，并怀念2009年的快乐吧。</p>
         </description>
     </music>
-    <music id="choosing" path="mvz2:choosing" name="选择你的种子">
+    <music id="choosing" name="选择你的种子">
+        <track main="mvz2:choosing"/>
         <source>植物大战僵尸</source>
         <description>
             <p>选择蓝图时，以及一些界面中的音乐。</p>
             <p>这关要选什么呢？</p>
         </description>
     </music>
-    <music id="day" path="mvz2:day" name="草地行走">
+    <music id="day" name="草地行走">
+        <track main="mvz2:day"/>
         <source>植物大战僵尸</source>
         <description>
             <p>序章的音乐。</p>
@@ -22,7 +25,8 @@
         </description>
     </music>
 
-    <music id="halloween" path="mvz2:halloween" name="莱克死灵之书-关卡">
+    <music id="halloween" name="莱克死灵之书-关卡">
+        <track main="mvz2:halloween"/>
         <source>书虫大冒险</source>
         <description>
             <p>万圣夜关卡的音乐。</p>
@@ -30,7 +34,8 @@
             <p>实在是太可惜了。</p>
         </description>
     </music>
-    <music id="halloween_map" path="mvz2:halloween_map" name="莱克死灵之书-地图">
+    <music id="halloween_map" name="莱克死灵之书-地图">
+        <track main="mvz2:halloween_map"/>
         <source>书虫大冒险</source>
         <description>
             <p>万圣夜地图的音乐。</p>
@@ -39,21 +44,24 @@
             <p>而这首音乐则来自于第三本书——欧洲鬼怪故事中。其游戏内的名称即为《莱克死灵之书》，是Lex的名字和《死灵之书》的组合词。</p>
         </description>
     </music>
-    <music id="minigame" path="mvz2:minigame" name="狂人的愉悦">
+    <music id="minigame" name="狂人的愉悦">
+        <track main="mvz2:minigame"/>
         <source>植物大战僵尸</source>
         <description>
             <p>小游戏的音乐。</p>
             <p>紧张又刺激的小游戏来了。</p>
         </description>
     </music>
-    <music id="ultimate_battle" path="mvz2:ultimate_battle" name="终极之战">
+    <music id="ultimate_battle" name="终极之战">
+        <track main="mvz2:ultimate_battle"/>
         <source>植物大战僵尸</source>
         <description>
             <p>万圣夜最终关的音乐。</p>
             <p>原来是大部分传送带关卡都会播放的音乐，在这里只用于万圣夜。</p>
         </description>
     </music>
-    <music id="halloween_boss" path="mvz2:halloween_boss" name="莱克死灵之书-首领">
+    <music id="halloween_boss" name="莱克死灵之书-首领">
+        <track main="mvz2:halloween_boss"/>
         <source>书虫大冒险</source>
         <description>
             <p>科学怪人的怪物的音乐。</p>
@@ -64,7 +72,8 @@
         </description>
     </music>
 
-    <music id="dream_level" path="mvz2:dream_level" name="破碎的童话-关卡">
+    <music id="dream_level" name="破碎的童话-关卡">
+        <track main="mvz2:dream_level"/>
         <source>书虫大冒险 Vol.2</source>
         <description>
             <p>梦境世界关卡的音乐。</p>
@@ -73,7 +82,8 @@
             <p>而这首音乐则来源于第四本书——童话故事，游戏内也称《破碎的童话》。</p>
         </description>
     </music>
-    <music id="dream_map" path="mvz2:dream_map" name="破碎的童话-地图">
+    <music id="dream_map" name="破碎的童话-地图">
+        <track main="mvz2:dream_map"/>
         <source>书虫大冒险 Vol.2</source>
         <description>
             <p>梦境世界地图的音乐。</p>
@@ -82,14 +92,16 @@
             <p>如同这美丽的梦境世界一样。</p>
         </description>
     </music>
-    <music id="suspension" path="mvz2:suspension" name="悬念">
+    <music id="suspension" name="悬念">
+        <track main="mvz2:suspension"/>
         <source>逆转裁判</source>
         <description>
             <p>剧情音乐。</p>
             <p>常用在紧张时刻的音乐。</p>
         </description>
     </music>
-    <music id="nightmare_map" path="mvz2:nightmare_map" name="以撒的结合">
+    <music id="nightmare_map" name="以撒的结合">
+        <track main="mvz2:nightmare_map"/>
         <source>以撒的结合</source>
         <description>
             <p>噩梦世界地图的音乐。</p>
@@ -98,7 +110,8 @@
             <p>来吧，如同这噩梦世界一样，窒息而死吧。</p>
         </description>
     </music>
-    <music id="nightmare_level" path="mvz2:nightmare_level" name="忏悔">
+    <music id="nightmare_level" name="忏悔">
+        <track main="mvz2:nightmare_level"/>
         <source>以撒的结合</source>
         <description>
             <p>噩梦世界关卡的音乐。</p>
@@ -107,7 +120,8 @@
             <p>只是，那箱子里在逐渐消散的，不止有他的想象，还有他的生命。</p>
         </description>
     </music>
-    <music id="nightmare_final" path="mvz2:nightmare_final" name="飞翔于宇宙的不可思议巫女">
+    <music id="nightmare_final" name="飞翔于宇宙的不可思议巫女">
+        <track main="mvz2:nightmare_final"/>
         <source>东方绀珠传</source>
         <description>
             <p>噩梦世界最终关的音乐。</p>
@@ -116,7 +130,8 @@
             <p>等着吧，哆来咪，我们绝对会把你救出来的。</p>
         </description>
     </music>
-    <music id="nightmare_boss" path="mvz2:nightmare_boss" name="Pandemonic Planet（前段）">
+    <music id="nightmare_boss" name="Pandemonic Planet（前段）">
+        <track main="mvz2:nightmare_boss"/>
         <source>东方绀珠传</source>
         <description>
             <p>梦魇第一阶段的音乐。</p>
@@ -125,7 +140,8 @@
             <p>至今还有很多人对我的这个改动不满意。不过既然都改了，就让它去吧。</p>
         </description>
     </music>
-    <music id="nightmare_boss2" path="mvz2:nightmare_boss2" name="Pandemonic Planet（后段）">
+    <music id="nightmare_boss2" name="Pandemonic Planet（后段）">
+        <track main="mvz2:nightmare_boss2"/>
         <source>东方绀珠传</source>
         <description>
             <p>梦魇第二阶段的音乐。</p>
@@ -135,7 +151,8 @@
         </description>
     </music>
 
-    <music id="gensokyo_map" path="mvz2:gensokyo_map" name="青空之影">
+    <music id="gensokyo_map" name="青空之影">
+        <track main="mvz2:gensokyo_map"/>
         <source>东方星莲船</source>
         <description>
             <p>幻想乡和香霖堂的音乐。</p>
@@ -145,7 +162,8 @@
             <p>……也是我们这些被现实的压力压垮的人的暂歇之所。</p>
         </description>
     </music>
-    <music id="distress" path="mvz2:distress" name="记忆的回响">
+    <music id="distress" name="记忆的回响">
+        <track main="mvz2:distress"/>
         <source>原创</source>
         <author>幻梦忧</author>
         <description>
@@ -158,7 +176,8 @@
         </description>
     </music>
 
-    <music id="castle_map" path="mvz2:castle_map" name="沉默空洞的辉针城">
+    <music id="castle_map" name="沉默空洞的辉针城">
+        <track main="mvz2:castle_map"/>
         <source>东方辉针城</source>
         <origin>沉向空中的辉针城</origin>
         <author>幻梦忧</author>
@@ -169,7 +188,8 @@
             <p>不过，似乎还有一种东西在这辉针城中消失了。</p>
         </description>
     </music>
-    <music id="castle_level" path="mvz2:castle_level" name="凋灵舞曲">
+    <music id="castle_level" name="凋灵舞曲">
+        <track main="mvz2:castle_level"/>
         <source>Minecraft</source>
         <origin>Pigstep</origin>
         <author>幻梦忧</author>
@@ -181,7 +201,8 @@
             <p>也就欺负欺负猪灵们没有能力反抗了。</p>
         </description>
     </music>
-    <music id="phone_ring" path="mvz2:phone_ring" name="有只僵尸在你的手机里" unlock="mvz2:kourindou_visited_castle">
+    <music id="phone_ring" name="有只僵尸在你的手机里" unlock="mvz2:kourindou_visited_castle">
+        <track main="mvz2:phone_ring"/>
         <source>植物大战僵尸</source>
         <origin>有只僵尸在你的草坪上</origin>
         <author>幻梦忧</author>
@@ -191,7 +212,8 @@
             <p>你电话响了。</p>
         </description>
     </music>
-    <music id="seija" path="mvz2:seija" name="Reverse Ideology" unlock="mvz2:level.castle_7">
+    <music id="seija" name="Reverse Ideology" unlock="mvz2:level.castle_7">
+        <track main="mvz2:seija"/>
         <source>东方辉针城</source>
         <description>
             <p>鬼人正邪的音乐。</p>
@@ -199,7 +221,8 @@
             <p>一切都倒过来了！</p>
         </description>
     </music>
-    <music id="sad_shinmyoumaru" path="mvz2:sad_shinmyoumaru" name="针折线断的天守阁" unlock="mvz2:level.castle_8">
+    <music id="sad_shinmyoumaru" name="针折线断的天守阁" unlock="mvz2:level.castle_8">
+        <track main="mvz2:sad_shinmyoumaru"/>
         <source>东方辉针城</source>
         <origin>针小棒大的天守阁</origin>
         <author>幻梦忧</author>
@@ -209,7 +232,8 @@
             <p>言语如同锋芒，扎向城主的心。</p>
         </description>
     </music>
-    <music id="castle_final" path="mvz2:castle_final" name="辉光之针的小人族 ~ Little Princess" unlock="mvz2:level.castle_11">
+    <music id="castle_final" name="辉光之针的小人族 ~ Little Princess" unlock="mvz2:level.castle_11">
+        <track main="mvz2:castle_final"/>
         <source>东方辉针城</source>
         <description>
             <p>辉针城最终关的音乐。</p>
@@ -218,7 +242,8 @@
             <p>“这是我唯一剩下的愿望了”</p>
         </description>
     </music>
-    <music id="wither_boss" path="mvz2:wither_boss" name="惊疑星球-首领" unlock="mvz2:level.castle_11">
+    <music id="wither_boss" name="惊疑星球-首领" unlock="mvz2:level.castle_11">
+        <track main="mvz2:wither_boss"/>
         <source>书虫大冒险 Vol.2</source>
         <description>
             <p>凋灵的音乐。</p>
@@ -228,7 +253,8 @@
         </description>
     </music>
 
-    <music id="mausoleum_map" path="mvz2:mausoleum_map" name="游魂的夜樱" unlock="mvz2:level.mausoleum_1">
+    <music id="mausoleum_map" name="游魂的夜樱" unlock="mvz2:level.mausoleum_1">
+        <track main="mvz2:mausoleum_map"/>
         <source>东方神灵庙</source>
         <origin>死灵的夜樱</origin>
         <author>幻梦忧</author>
@@ -241,7 +267,8 @@
             <p>可是，人明明已经死去，这般欲望又有什么意义呢？</p>
         </description>
     </music>
-    <music id="mausoleum_level" path="mvz2:mausoleum_level" name="欲望缓步" unlock="mvz2:level.mausoleum_1">
+    <music id="mausoleum_level" name="欲望缓步" unlock="mvz2/:level.mausoleum_1">
+        <track main="mvz2:mausoleum_level" sub="mvz2:mausoleum_level_sub"/>
         <source>东方神灵庙</source>
         <origin>欲望加速</origin>
         <author>Dr.糕萌酸钾-Studio</author>
