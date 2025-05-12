@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-12 03:11+0800\n"
+"POT-Creation-Date: 2025-05-12 07:37+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2388,22 +2388,22 @@ msgid ""
 "据说，她也可以使用许多邪术，包括使用灵符来操纵僵尸。"
 msgstr ""
 
-#. Name for misc mvz2:mysterious_image
+#. Name for misc mvz2:mysterious_hologram
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "神秘影像"
 msgstr ""
 
-#. Header for misc mvz2:mysterious_image
+#. Header for misc mvz2:mysterious_hologram
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "出现在被僵尸包围的香霖堂的神秘影像，对史蒂夫发出了威胁。"
+msgid "出现在被僵尸包围的香霖堂的神秘影像，它对史蒂夫发出了威胁。"
 msgstr ""
 
-#. Flavor for misc mvz2:mysterious_image
+#. Flavor for misc mvz2:mysterious_hologram
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "他到底是谁？"
+msgid "这到底是什么东西？"
 msgstr ""
 
 #. Name for almanac group mvz2:areas
@@ -2785,19 +2785,19 @@ msgid ""
 "后来辉针城内产生的凋灵骷髅可能也是这件事所导致的。"
 msgstr ""
 
-#. Name for misc mvz2:two_voyagers
+#. Name for misc mvz2:two_travelers
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "两位旅人"
 msgstr ""
 
-#. Header for misc mvz2:two_voyagers
+#. Header for misc mvz2:two_travelers
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "在四年前，曾有两个旅人来到幻想乡。"
 msgstr ""
 
-#. Flavor for misc mvz2:two_voyagers
+#. Flavor for misc mvz2:two_travelers
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
@@ -2821,7 +2821,7 @@ msgstr ""
 #. Flavor for misc mvz2:murder
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "物部 布都无意间透露了这些情报，细节尚不知情。"
+msgid "布都无意间透露了这些情报，细节尚不知情。"
 msgstr ""
 
 #. Header for entity mvz2:dispenser

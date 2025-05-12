@@ -1566,15 +1566,15 @@
                     <p>据说，她也可以使用许多邪术，包括使用灵符来操纵僵尸。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:mysterious_image" name="神秘影像" sprite="mvz2:characters/mysterious_image[0]" unlock="mvz2:level.mausoleum_11">
+            <entry id="mvz2:mysterious_hologram" name="神秘影像" sprite="mvz2:characters/mysterious_hologram[0]" unlock="mvz2:level.mausoleum_11">
                 <header>
-                    <p>出现在被僵尸包围的香霖堂的神秘影像，对史蒂夫发出了威胁。</p>
+                    <p>出现在被僵尸包围的香霖堂的神秘影像，它对史蒂夫发出了威胁。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>Cuerzor58</color>]]></p>
                 </properties>
                 <flavor>
-                    <p>他到底是谁？</p>
+                    <p>这到底是什么东西？</p>
                 </flavor>
             </entry>
         </group>
@@ -1782,7 +1782,7 @@
                     <p>后来辉针城内产生的凋灵骷髅可能也是这件事所导致的。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:two_voyagers" name="两位旅人" sprite="mvz2:misc/two_voyagers" unlock="mvz2:level.mausoleum_4">
+            <entry id="mvz2:two_travelers" name="两位旅人" sprite="mvz2:misc/two_travelers" unlock="mvz2:level.mausoleum_4">
                 <header>
                     <p>在四年前，曾有两个旅人来到幻想乡。</p>
                 </header>
@@ -1797,7 +1797,7 @@
                     <p>三年前，幻想乡中发生过一场凶杀案。</p>
                 </header>
                 <flavor>
-                    <p>物部 布都无意间透露了这些情报，细节尚不知情。</p>
+                    <p>布都无意间透露了这些情报，细节尚不知情。</p>
                 </flavor>
             </entry>
         </group>

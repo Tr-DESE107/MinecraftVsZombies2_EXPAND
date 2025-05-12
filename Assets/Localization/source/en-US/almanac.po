@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-12 10:23+0800\n"
-"PO-Revision-Date: 2025-05-12 10:24+0800\n"
+"POT-Creation-Date: 2025-05-12 07:37+0800\n"
+"PO-Revision-Date: 2025-05-12 21:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2349,6 +2349,68 @@ msgstr ""
 "\"Hohoh, pay it no mind. You shall know its true purpose when the time comes.\" The diviner left.\n"
 "The knight held the protective charm. Within the black skull shined a bright, uncanny white light."
 
+#. Name for misc mvz2:giant
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "巨人"
+msgstr "The Giant"
+
+#. Header for misc mvz2:giant
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "巨人是众多僵尸的集合体，它吞噬、吞噬，要吃掉一切。"
+msgstr "The Giant is an amalgamation of numerous zombies. It devours and devours, wanting to eat everything."
+
+#. Properties for misc mvz2:giant
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生命：<color=red>？</color>\n"
+"阶段1：<color=red>？</color>\n"
+"阶段2：<color=red>？</color>\n"
+"阶段3：<color=red>？</color>"
+msgstr ""
+"Toughness: <color=red>?</color>\n"
+"Phase 1: <color=red>?</color>\n"
+"Phase 2: <color=red>?</color>\n"
+"Phase 3: <color=red>?</color>"
+
+#. Flavor for misc mvz2:giant
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"骑士招募了六个同伴，开始了讨伐怪物的征途。\n"
+"这天，他们斩除了很多野外的怪物，晚上来到了一处偏远处。正打算休息时，却突然听到悬崖下面传来了声音。\n"
+"骑士上前一看，发现居然有很多人的尸体堆积在这里，不由得大吃一惊。这些人的尸体全部都骨瘦如柴，在这尸堆之上，还有一颗黑色的球体在上空盘"
+"旋。\n"
+"“这些人很可能是几年前大饥荒时被饿死的人。”有一位同伴似乎了解一些事情。\n"
+"“当时人们颗粒无收，民不聊生。有人请求王室放出一些食粮，却遭到了拒绝，甚至把这些人的尸体集中处理掉了。”\n"
+"骑士想起之前那宏伟的皇宫和外面的泔水，皱了皱眉头。\n"
+"这些尸体上不断渗出黑色的怨念，汇聚到那颗黑色的球体中。那颗球体越来越大，最后把所有的尸体都吞噬，融合成了一只巨大的僵尸。他发出饥饿的哀"
+"嚎，向他们的队伍发起攻击。\n"
+"所有人都举起了武器，准备和这位巨人战斗。\n"
+"他们和巨人一直战斗到天亮。最后，巨人的核心被摧毁，所有尸体又再一次散落到悬崖下方。只不过这次，再也没有怨念出现了。\n"
+"骑士往下面扔了一点食物，随后带着大家离开了。\n"
+"“他们已经饿了很久了，就让他们吃一点吧。”"
+msgstr ""
+"The Knight recruited six companions and set out on a journey to slay monsters.\n"
+"That day, they slew many wild monsters and arrived at a remote place by nightfall. Just as they were about to rest, they suddenly "
+"heard sounds coming from beneath the cliff.\n"
+"The Knight stepped forward to take a look and was shocked to find many thin skeletal bodies piled up there. Above this pile of "
+"corpses, there was a black sphere hovering in the air. \n"
+"\"These people were most likely those who starved to death during the great famine years ago.\" One companion seemed to know something "
+"about it.\n"
+"\"Back then, people had no harvest and suffered terribly. Some begged the royal family to give out some food, but were refused. They "
+"even disposed the bodies in mass graves.\"\n"
+"The Knight frowned as he recalled that magnificent royal palace and the foul waste outside.\n"
+"Black resentment kept seeping from these corpses, gathering into the black sphere. The sphere grew larger and larger until  finally, "
+"it devoured all the corpses, merging into a giant zombie. It let a ravenous howl, attacking the group.\n"
+"Everyone raised their weapons, ready to fight the Giant.\n"
+"They kept fighting the Giant until dawn. Finally, the Giant's core was destroyed, and the corpses tumbled back down beneath the cliff. "
+"This time however, no trace of resentment lingered.\n"
+"The knight tossed some food down below, then led the group away.\n"
+"\"They've been starving for ages. Let them have this much to eat.\""
+
 #. Name for almanac group mvz2:misc_entities
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -2775,6 +2837,129 @@ msgstr ""
 "\n"
 "But now, in her time, those lessons are etched in blood and memory — never to be forgotten again."
 
+#. Name for misc mvz2:futo
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "物部 布都"
+msgstr "Mononobe no Futo"
+
+#. Header for misc mvz2:futo
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "日本古代大氏族物部氏的后人，丰聪耳神子的手下。"
+msgstr "A descendant of Japan's ancient Mononobe clan and a follower of Toyosatomimi no Miko."
+
+#. Properties for misc mvz2:futo
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "画师：<color=red>小幽喜欢口乙烯</color>"
+msgstr "Artist: <color=red>小幽喜欢口乙烯</color>"
+
+#. Flavor for misc mvz2:futo
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"一千余年前，伴随着其主丰聪耳神子成为尸解仙，陷入长眠。后来在多年前，于梦殿大祀庙随丰聪耳神子等人一起复活。\n"
+"思考方式比较古董，千年后的很多事情都无法理解，古文和现代语法混杂的讲话方式也有些让人听不懂。\n"
+"后来也被时代的浪潮推动，开始慢慢习惯现代的生活了，变成了一位看起来稍微有点傻傻的女孩。"
+msgstr ""
+"Over a thousand years ago, she fell into a long slumber alongside her master Toyosatomimi no Miko, who became a Shikaisen. Later on, "
+"many years earlier, she was revived with Toyosatomimi no Miko and the others at the Hall of Dreams' Great Mausoleum.\n"
+"Her way of thinking is relatively old-fashioned, making it hard for her to comprehend many things after a thousand years. Her mixed "
+"style of speech with classical and modern grammar can also be difficult to understand.\n"
+"As time passed, she slowly adapted to modern life, becoming a girl who seems just a little silly."
+
+#. Name for misc mvz2:marisa
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "雾雨 魔理沙"
+msgstr "Marisa Kirisame"
+
+#. Header for misc mvz2:marisa
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一位普通的魔法使，也是森近 霖之助曾经的好友。"
+msgstr ""
+
+#. Properties for misc mvz2:marisa
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "画师：<color=red>尚未完成</color>"
+msgstr "Artist: <color=red>Not done yet</color>"
+
+#. Flavor for misc mvz2:marisa
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"在幻想乡四处游荡、采集的人类，职业是魔法使（而非种族）。\n"
+"曾经和森近 霖之助关系很好，后来也因他的失踪翻遍了整个幻想乡，无果。\n"
+"随后她为霖之助立了衣冠冢，隔三岔五就会去纪念一次。"
+msgstr ""
+
+#. Name for misc mvz2:miko
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "丰聪耳 神子"
+msgstr "Toyosatomimi no Miko"
+
+#. Header for misc mvz2:miko
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到幻想乡。"
+msgstr ""
+
+#. Flavor for misc mvz2:miko
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"千年以前，神子诞生在这世界上。年幼的她能听懂所有人的倾诉，并给出一针见血的见解，她自己也因这个传言而被人们奉为圣人。\n"
+"后来她开始惧怕、不满人类的有限寿命，听从了青娥的建议，表面推崇佛教，背地里通过道教手段而达到不死的目的。之后她和物部布都、苏我屠自古一"
+"起通过尸解的方法陷入长眠。\n"
+"之后在幻想乡又和佛教徒产生了矛盾，被干扰了复活。但随着事态发展，两派之间的关系也有所缓和。\n"
+"而这次，她们两者达成合作，一起抵御来自幻想乡外的巨物威胁。"
+msgstr ""
+
+#. Name for misc mvz2:seiga
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "霍 青娥"
+msgstr "Seiga Kaku"
+
+#. Header for misc mvz2:seiga
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "一名仙人，能够使用邪术，是一名邪仙。"
+msgstr ""
+
+#. Flavor for misc mvz2:seiga
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"她本是一位中国古代的普通人类女性，自幼便深深受道教吸引。\n"
+"后来她成了婚，却又因为想要成仙而郁郁寡欢。那之后她使用假死的法术欺骗了家人，离开了自己的家。\n"
+"最终她也确实成为了仙人，但是她性格邪恶，路途不正，最后成为的是一名邪仙。\n"
+"那之后她向神子建议了道教，让她信奉了道教，她们一行人也成为了尸解仙。\n"
+"据说，她也可以使用许多邪术，包括使用灵符来操纵僵尸。"
+msgstr ""
+
+#. Name for misc mvz2:mysterious_hologram
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "神秘影像"
+msgstr "Mysterious Hologram"
+
+#. Header for misc mvz2:mysterious_hologram
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "出现在被僵尸包围的香霖堂的神秘影像，它对史蒂夫发出了威胁。"
+msgstr "A mysterious hologram appeared in Kourindou surrounded by zombies. It threatened Steve."
+
+#. Flavor for misc mvz2:mysterious_hologram
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "这到底是什么东西？"
+msgstr "What the hell is this?"
+
 #. Name for almanac group mvz2:areas
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -2915,6 +3100,36 @@ msgstr ""
 "\n"
 "By the way, the ceiling—or floor, rather—seems to have something glowing on it."
 
+#. Name for misc mvz2:hall_of_dreams_great_mausoleum
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "梦殿大祀庙"
+msgstr "Hall of Dreams' Great Mausoleum"
+
+#. Header for misc mvz2:hall_of_dreams_great_mausoleum
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "物部 布都和丰聪耳 神子曾复活于幻想乡的地点。"
+msgstr "Hall of Dreams' Great Mausoleum is where Toyosatomimi no Miko and Mononobe no Futo were once resurrected in Gensokyo."
+
+#. Flavor for misc mvz2:hall_of_dreams_great_mausoleum
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"这地方位于命莲寺地下——这并非神子有意为之，佛教徒们为了防止她的复活，故意将命莲寺建在了它的上方。\n"
+"如今神子已经复活，她又将梦殿大祀庙搬到了仙界，而这里则成为了遗址。众多欲望的化身——小神灵仍然徘徊在这里，点缀着这里的黑暗。\n"
+"如今，这地方又再次被使用，作为封印巨人的囚笼。\n"
+"\n"
+"远处似乎有什么金属工具深深嵌在了墙壁上。"
+msgstr ""
+"This location is located underneath the Myouren Temple—not by Miko's intention, but in order to prevent her resurrection, the "
+"Buddhists deliberately built the Myouren Temple on top of it.\n"
+"Now that Miko has been resurrected and moved the Hall of Dreams' Great Mausoleum to Senkai, this site has become a ruin. Yet the "
+"embodiment of many desires—Little Divine Spirits—still wanders here, dotting the darkness with their presence.\n"
+"Now, this place is being used again, as the cage to seal the Giant.\n"
+"\n"
+"There seem to be a metallic tool deeply embedded in the wall in the distance."
+
 #. Name for almanac group mvz2:starshards
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -2938,6 +3153,7 @@ msgstr "Starshards can <b>evoke</b> your contraptions, and make your contraption
 msgctxt "misc.description"
 msgid ""
 "未知人士留下了一些记录。\n"
+"\n"
 "星之记录 其一：\n"
 "自那件事以来，每当我沉睡于梦中，总会在深不可测的黑暗中看到一个物体，它闪着星形的光，随之它便离我远去。\n"
 "我并不理解这是什么意思。后来即使不在梦中，我也总是能看到类似的物体，这十分反常。\n"
@@ -2964,6 +3180,7 @@ msgstr "Starshard: Lucid Dream"
 msgctxt "misc.description"
 msgid ""
 "未知人士留下了一些记录。\n"
+"\n"
 "星之记录 其二：\n"
 "我做了一个很古怪的梦。\n"
 "我梦见我在一个满是眼睛的紫色空间中，不断漂浮沉沦。我看到一个黄色头发的少女，持着紫色的阳伞坐在空中。\n"
@@ -2990,6 +3207,7 @@ msgstr "Starshard: Miracle Mallet"
 msgctxt "misc.description"
 msgid ""
 "未知人士留下了一些记录。\n"
+"\n"
 "星之记录 其三：\n"
 "我来到这里已经三年了。这三年来，我一直独居在某个荒无人烟的地方，常打交道的那位店主似乎也没有发现我的真实身份。\n"
 "最近几天，我又做了一个梦。\n"
@@ -3010,6 +3228,36 @@ msgstr ""
 "Everyone praised and was happy for me. As if they hadn't done anything to me in the past.\n"
 "What a nice wish it would be. From the bottom of my heart, I hope my wish would come true.\n"
 ". . .As if there would be anything that could truly grant this wish. How ludicrous."
+
+#. Name for misc mvz2:starshard.shinrei
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "星之碎片：小神灵"
+msgstr "Starshard: Little Divine Spirit"
+
+#. Flavor for misc mvz2:starshard.shinrei
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"未知人士留下了一些记录。\n"
+"\n"
+"星之记录 其四：\n"
+"我想回家。\n"
+"我已经不知道多少次产生这个念头了。\n"
+"这份欲望不断地膨胀，但是，却没有任何人能够回应它。\n"
+"最后也只能什么也不剩下。\n"
+"这里固然很美，各种奇特的力量也值得进行研究。\n"
+"但是，我真的很想回家。"
+msgstr ""
+"Records left by an anonymous person.\n"
+"\n"
+"Star Record 4:\n"
+"I want to go home.\n"
+"I don't know how many times I have had this thought.\n"
+"The desire continues to grow, but no one can respond to it.\n"
+"In the end, there is nothing left.\n"
+"This place is certainly beautiful, and the various strange powers are worth studying.\n"
+"Yet I really want to go home."
 
 #. Name for almanac group mvz2:important
 #: Almanac meta file
@@ -3080,6 +3328,38 @@ msgstr ""
 "A map with neither scale nor compass. The only way to find the way is with pictures and markings.\n"
 "Being able to use this map is a feat in itself."
 
+#. Name for misc mvz2:obsidian_first_aid
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "黑曜石修复术"
+msgstr "Obsidian First Aid"
+
+#. Header for misc mvz2:obsidian_first_aid
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "用于修复防御型器械的技术。"
+msgstr "A technique used to repair defensive contraptions."
+
+#. Properties for misc mvz2:obsidian_first_aid
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "效果：<color=red>可以直接在防御器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
+msgstr ""
+"Effect: <color=red>Defensive contraptions can be placed directly on the same contraptions to restore all toughness, without the need "
+"to be dug up</color>"
+
+#. Flavor for misc mvz2:obsidian_first_aid
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"“你的修复术好像和我的不太一样，你这是怎么修的？”\n"
+"“只要你手速够快，就可以在一瞬间内挖掉器械，再重新放一个。”\n"
+"“？”"
+msgstr ""
+"\"Your repair technique seems to be different from mine, how did you do it?\"\n"
+"\"If your hands are fast enough, you can dig the contraption up and place a new one in an instant.\"\n"
+"\"?\""
+
 #. Name for almanac group mvz2:lore
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -3144,6 +3424,48 @@ msgid ""
 msgstr ""
 "According to Shinmyoumaru, there seemed to be an explosion somewhere under the Castle, and these blocky monsters started to appear.\n"
 "This incident may also cause the wither skeletons that appeared in Shining Needle Castle later."
+
+#. Name for misc mvz2:two_travelers
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "两位旅人"
+msgstr "Two Travelers"
+
+#. Header for misc mvz2:two_travelers
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "在四年前，曾有两个旅人来到幻想乡。"
+msgstr "Four years ago, two travelers arrived in Gensokyo."
+
+#. Flavor for misc mvz2:two_travelers
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"据说一位身材娇小，且十分聪慧。另一位好像很擅长和机械打交道。\n"
+"他们来到这里，与这里的许多人类和妖怪都交流过，并在这里行商，带来一些从没见过的东西。\n"
+"但是，不久之后，异变就发生了。并且他们两个再也没有出现在幻想乡过。"
+msgstr ""
+"It was said that one was petite and exceptionally intelligent, while the other seemed highly skilled with machinery.\n"
+"They interacted with many humans and youkai in the land, engaged in trade, and introduced never-before-seen goods.\n"
+"However, shortly afterward, the incident occurred. Since then, neither of them has been seen in Gensokyo again."
+
+#. Name for misc mvz2:murder
+#: Almanac meta file
+msgctxt "misc.name"
+msgid "凶杀"
+msgstr "Murder"
+
+#. Header for misc mvz2:murder
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "三年前，幻想乡中发生过一场凶杀案。"
+msgstr "Three years ago, there was a murder case in the Gensokyo."
+
+#. Flavor for misc mvz2:murder
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "布都无意间透露了这些情报，细节尚不知情。"
+msgstr "Futo accidentally revealed these pieces of intelligence, and the details are still unknown."
 
 #. Header for entity mvz2:dispenser
 #: Entity meta file
@@ -4239,6 +4561,18 @@ msgctxt "character.name"
 msgid "针妙丸"
 msgstr "Shinmyoumaru"
 
+#. Name for character mvz2:futo
+#: Character meta file
+msgctxt "character.name"
+msgid "布都"
+msgstr "Futo"
+
+#. Name for character mvz2:seiga
+#: Character meta file
+msgctxt "character.name"
+msgid "青娥"
+msgstr "Seiga"
+
 #. Name for artifact mvz2:almanac
 #: Artifact meta file
 msgctxt "artifact.name"
@@ -4466,6 +4800,10 @@ msgstr "Eye of the Giant"
 msgctxt "artifact.tooltip"
 msgid "器械x250%伤害，但x50%攻击速度"
 msgstr "x250% damage but x50% attack speed for contraptions"
+
+#~ msgctxt "misc.description"
+#~ msgid "他到底是谁？"
+#~ msgstr "What exactly is it?"
 
 #~ msgctxt "artifacts.description"
 #~ msgid "还没想好写什么"
