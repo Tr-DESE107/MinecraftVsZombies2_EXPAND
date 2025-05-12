@@ -338,7 +338,7 @@
             <id name="projectileId" value="mvz2:dart" />
             <idArray name="attackerFor" value="mvz2:low_enemy"/>
 
-            <int name="cost" value="175" />
+            <int name="cost" value="200" />
             <id name="rechargeId" value="mvz2:short" />
         </dispenser>
         <contraption id="dream_crystal" name="梦境结晶" tooltip="能够自我修复的障碍墙"  unlock="mvz2:level.dream_8">
@@ -402,7 +402,7 @@
             <idArray name="attackerFor" value="mvz2:low_enemy"/>
             <int name="vehicleInteraction" value="1"/>
 
-            <int name="cost" value="100" />
+            <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <dispenser id="stone_dropper" name="石制投掷器" tooltip="投出石子或巨石" unlock="mvz2:level.castle_3">
