@@ -29,6 +29,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID coin = Get("coin");
         public readonly static NamespaceID confuse = Get("confuse");
         public readonly static NamespaceID crystal = Get("crystal");
+        public readonly static NamespaceID crystalBreak = Get("crystal_break");
         public readonly static NamespaceID danmaku = Get("danmaku");
         public readonly static NamespaceID darkSkiesCast = Get("dark_skies_cast");
         public readonly static NamespaceID darkSkiesImpact = Get("dark_skies_impact");

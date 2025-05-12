@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         public static void PlayBreakEffect(Entity entity)
         {
-            entity.PlaySound(VanillaSoundID.glassBreak, volume: 0.5f);
+            entity.PlaySound(VanillaSoundID.crystalBreak, volume: 0.5f);
             var pos = entity.GetCenter();
             var fragment = entity.Level.Spawn(VanillaEffectID.fragment, pos, entity);
             Fragment.SetFragmentID(fragment, VanillaFragmentID.divineShield);
