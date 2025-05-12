@@ -77,7 +77,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public static int GetStunDuration(Entity entity)
         {
             var level = entity.Level;
-            return STUN_TIME + level.GetEnemyAILevel() * STUN_TIME_PER_LEVEL;
+            return STUN_TIME - level.GetEnemyAILevel() * STUN_TIME_PER_LEVEL;
         }
         public const int MAX_TIME = 20;
         public const int WARP_TIME = 10;
