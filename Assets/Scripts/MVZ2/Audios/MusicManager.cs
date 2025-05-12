@@ -85,10 +85,15 @@ namespace MVZ2.Audios
         {
             mixer.SetFloat("MusicVolume", AudioHelper.PercentageToDbA(volume));
         }
+        public float GetTrackWeight()
+        {
+            return trackWeight;
+        }
         public void SetTrackWeight(float weight)
         {
-            mixer.SetFloat("MainWeight", AudioHelper.PercentageToDbA(1 - weight));
-            mixer.SetFloat("SubWeight", AudioHelper.PercentageToDbA(weight));
+            trackWeight = weight;
+            mixer.SetFloat("MainWeight", AudioHelper.PercentageToDbA(1 - trackWeight));
+            mixer.SetFloat("SubWeight", AudioHelper.PercentageToDbA(trackWeight));
         }
         public void SetNormalizedMusicTime(float time)
         {
@@ -140,6 +145,7 @@ namespace MVZ2.Audios
         }
         public bool IsPaused { get; private set; }
         private NamespaceID musicID;
+        private float trackWeight;
         [SerializeField]
         private MainManager main;
         [SerializeField]

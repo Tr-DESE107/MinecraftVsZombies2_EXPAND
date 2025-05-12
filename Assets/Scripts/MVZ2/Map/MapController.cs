@@ -349,7 +349,12 @@ namespace MVZ2.Map
             var stageMeta = GetStageMeta(stageID);
             if (stageMeta == null)
                 return false;
-            return Main.SaveManager.IsUnlocked(stageMeta.Unlock);
+            if (NamespaceID.IsValid(stageMeta.Unlock))
+            {
+                if (!Main.SaveManager.IsUnlocked(stageMeta.Unlock))
+                    return false;
+            }
+            return true;
         }
         private bool IsLevelUnlocked(int index)
         {

@@ -267,7 +267,7 @@
             <p>可是，人明明已经死去，这般欲望又有什么意义呢？</p>
         </description>
     </music>
-    <music id="mausoleum_level" name="欲望缓步" unlock="mvz2/:level.mausoleum_1">
+    <music id="mausoleum_level" name="欲望缓步" unlock="mvz2:level.mausoleum_1">
         <track main="mvz2:mausoleum_level" sub="mvz2:mausoleum_level_sub"/>
         <source>东方神灵庙</source>
         <origin>欲望加速</origin>

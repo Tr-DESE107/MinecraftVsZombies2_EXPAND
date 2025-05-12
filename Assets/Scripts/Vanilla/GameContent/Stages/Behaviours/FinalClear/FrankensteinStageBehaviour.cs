@@ -60,7 +60,7 @@ namespace MVZ2.GameContent.Stages
                 var behaviour = level.GetStageBehaviour<WaveStageBehaviour>();
                 if (behaviour != null)
                 {
-                    var timer = behaviour.GetWaveTimer(level);
+                    var timer = WaveStageBehaviour.GetWaveTimer(level);
                     timer.ResetTime(200);
                 }
                 frankensteinTimer.ResetTime(300);

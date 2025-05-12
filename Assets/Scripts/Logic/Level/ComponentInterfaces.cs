@@ -40,8 +40,10 @@ namespace MVZ2Logic.Level.Components
         void Stop();
         bool IsPlayingMusic(NamespaceID id);
         void SetPlayingMusic(NamespaceID id);
-        void SetMusicVolume(float volume);
         float GetMusicVolume();
+        void SetMusicVolume(float volume);
+        float GetSubtrackWeight();
+        void SetSubtrackWeight(float volume);
     }
     public interface ISoundComponent : ILevelComponent
     {

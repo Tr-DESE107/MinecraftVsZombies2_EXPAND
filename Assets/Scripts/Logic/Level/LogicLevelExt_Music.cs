@@ -40,5 +40,15 @@ namespace MVZ2Logic.Level
             var component = level.GetMusicComponent();
             return component.GetMusicVolume();
         }
+        public static void SetSubtrackWeight(this LevelEngine level, float weight)
+        {
+            var component = level.GetMusicComponent();
+            component.SetSubtrackWeight(weight);
+        }
+        public static float GetSubtrackWeight(this LevelEngine level)
+        {
+            var component = level.GetMusicComponent();
+            return component.GetSubtrackWeight();
+        }
     }
 }

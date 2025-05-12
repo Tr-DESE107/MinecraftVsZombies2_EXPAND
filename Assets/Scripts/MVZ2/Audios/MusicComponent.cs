@@ -1,7 +1,10 @@
+using System.Diagnostics.Contracts;
 using MVZ2.Vanilla;
 using MVZ2Logic.Level.Components;
+using Newtonsoft.Json.Linq;
 using PVZEngine;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.Level.Components
 {
@@ -26,13 +29,21 @@ namespace MVZ2.Level.Components
         {
             Main.MusicManager.SetPlayingMusic(id);
         }
-        public void SetMusicVolume(float volume)
-        {
-            Main.MusicManager.SetVolume(volume);
-        }
         public float GetMusicVolume()
         {
-            return Main.MusicManager.GetVolume();
+            return Controller.MusicVolume;
+        }
+        public void SetMusicVolume(float volume)
+        {
+            Controller.MusicVolume = volume;
+        }
+        public float GetSubtrackWeight()
+        {
+            return Controller.MusicTrackWeight;
+        }
+        public void SetSubtrackWeight(float weight)
+        {
+            Controller.MusicTrackWeight = weight;
         }
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "music");
     }

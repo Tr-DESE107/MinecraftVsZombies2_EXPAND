@@ -131,6 +131,7 @@ namespace MVZ2.Level
 
             Music.Play(level.GetMusicID());
             MusicTime = 0;
+            MusicTrackWeight = 0;
 
             levelProgress = 0;
             bannerProgresses = new float[level.GetTotalFlags()];
@@ -215,6 +216,7 @@ namespace MVZ2.Level
                 optionsLogic = null;
             }
             Music.SetVolume(1);
+            Music.SetTrackWeight(0);
             level?.StopAllLoopSounds();
             level?.Dispose();
             Game.SetLevel(null);
@@ -1039,6 +1041,11 @@ namespace MVZ2.Level
         {
             get => Music.GetVolume();
             set => Music.SetVolume(value);
+        }
+        public float MusicTrackWeight
+        {
+            get => Music.GetTrackWeight();
+            set => Music.SetTrackWeight(value);
         }
         public bool EnergyActive
         {

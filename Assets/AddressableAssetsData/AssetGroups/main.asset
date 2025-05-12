@@ -5043,12 +5043,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ab08bd07ffd6071449dab1110b8b41d7
-    m_Address: mvz2:mausoleum_level_sub
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Music
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab1cac139d76a6f478c12842a619042d
     m_Address: mvz2:entity/contraptions/magichest_flash
     m_ReadOnly: 0
@@ -6050,12 +6044,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cb45335c2b627fc44bf0ec9462cfff89
-    m_Address: mvz2:mausoleum_level
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb62f8c3ae2709d4889b0322abb7a98b
     m_Address: mvz2:talk/dialog_surprised

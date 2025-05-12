@@ -41,6 +41,7 @@ namespace MVZ2.Level
                 musicID = CurrentMusic,
                 musicTime = MusicTime,
                 musicVolume = MusicVolume,
+                musicTrackWeight = MusicTrackWeight,
 
                 energyActive = EnergyActive,
                 blueprintsActive = BlueprintsActive,
@@ -235,6 +236,7 @@ namespace MVZ2.Level
         public NamespaceID musicID;
         public float musicTime;
         public float musicVolume;
+        public float musicTrackWeight;
 
         public bool energyActive;
         public bool blueprintsActive;
