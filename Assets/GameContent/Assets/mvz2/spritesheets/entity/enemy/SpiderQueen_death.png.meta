@@ -144,7 +144,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpiderQueen_death_2
+      name: SpiderQueen_death_1
       rect:
         serializedVersion: 2
         x: 115
@@ -165,7 +165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpiderQueen_death_1
+      name: SpiderQueen_death_2
       rect:
         serializedVersion: 2
         x: 0

@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public RegenerationBuff(string nsp, string name) : base(nsp, name)
         {
             // 可以添加回血特效，比如冒绿光之类（可选）
-            AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.witherParticles, VanillaModelID.witherParticles);
+            AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.RegenerationParticles, VanillaModelID.RegenerationParticles);
         }
 
         public override void PostUpdate(Buff buff)

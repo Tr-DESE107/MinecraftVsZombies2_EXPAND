@@ -50,6 +50,17 @@ namespace MVZ2.Vanilla.Entities
             buff.SetProperty(RegenerationBuff.REGEN_TIMEOUT, time);
         }
 
+        public static void InflictCorropoisonBuff(this Entity enemy, float Heal, int time)
+        {
+            Buff buff = enemy.GetFirstBuff<CorropoisonBuff>();
+            if (buff == null)
+            {
+                buff = enemy.AddBuff<CorropoisonBuff>();
+            }
+            buff.SetProperty(CorropoisonBuff.Corropoison_HEAL_AMOUNT, Heal);
+            buff.SetProperty(CorropoisonBuff.Corropoison_TIMEOUT, time);
+        }
+
         public static void UpdateWalkVelocity(this Entity enemy)
         {
             var velocity = enemy.Velocity;

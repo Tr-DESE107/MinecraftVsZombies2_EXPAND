@@ -76,7 +76,7 @@ namespace MVZ2.GameContent.Contraptions
                     proj.Velocity = new UnityEngine.Vector2(2.5f, 0f);
 
                     // 播放音效
-                    //entity.Level.PlaySound(VanillaSoundID.mvz2:bonk);
+                    entity.Level.PlaySound(VanillaSoundID.bonk);
                 }
 
                 // 更新记录的生命值
@@ -153,7 +153,7 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
 
-        // 🔧 新增字段记录生命值（用于判断是否触发攻击）
+        // 新增字段记录生命值（用于判断是否触发攻击）
         private static readonly VanillaEntityPropertyMeta PROP_LAST_SHOOT_HEALTH =
             new VanillaEntityPropertyMeta("LastShootHealth");
 

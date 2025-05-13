@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Effects
             {
                 timeout = 1800;
             }
-            else if (entity.Level.Difficulty == VanillaDifficulties.hard)
+            else if (entity.Level.Difficulty == VanillaDifficulties.lunatic)
             {
                 timeout = 900;
             }

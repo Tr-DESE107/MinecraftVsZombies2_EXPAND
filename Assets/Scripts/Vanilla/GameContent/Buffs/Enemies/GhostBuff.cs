@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2.GameContent.Difficulties;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -61,6 +62,14 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 if (buff.GetProperty<bool>(PROP_ETHEREAL))
                 {
                     damageInfo.Multiply(0.1f);
+                    if (entity.Level.Difficulty == VanillaDifficulties.hard)
+                    {
+                        damageInfo.Multiply(0f);
+                    }
+                    if (entity.Level.Difficulty == VanillaDifficulties.lunatic)
+                    {
+                        damageInfo.Multiply(0f);
+                    }
                     break;
                 }
             }

@@ -127,18 +127,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 0
+        y: 1
         width: 46
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41e66f4d9cf47bb4fa44a17e24c651d1
-      internalID: -1977092148
+      spriteID: 3511a68f46c310a4fa7b39e38d2ae3b0
+      internalID: 2032054368
       vertices: []
       indices: 
       edges: []
@@ -147,19 +147,19 @@ TextureImporter:
       name: Murasame_1
       rect:
         serializedVersion: 2
-        x: 59
-        y: 19
-        width: 30
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 60
+        y: 44
+        width: 42
+        height: 23
+      alignment: 9
+      pivot: {x: 0.8571429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da7d63c0a86e33649b850deb48ac9f75
-      internalID: 897238466
+      spriteID: cf4d0f13cbe6eb348b31a186838d6828
+      internalID: -685330864
       vertices: []
       indices: 
       edges: []
@@ -168,19 +168,19 @@ TextureImporter:
       name: Murasame_2
       rect:
         serializedVersion: 2
-        x: 97
-        y: 35
-        width: 42
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 108
+        y: 13
+        width: 37
+        height: 55
+      alignment: 9
+      pivot: {x: 0.48, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ece015ae51942d4e81f757a6b5406a4
-      internalID: 852992784
+      spriteID: 349d78c2de7fabc46b5fca4b15265b25
+      internalID: 1408847349
       vertices: []
       indices: 
       edges: []
@@ -189,19 +189,19 @@ TextureImporter:
       name: Murasame_3
       rect:
         serializedVersion: 2
-        x: 151
-        y: 20
+        x: 68
+        y: 1
         width: 16
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8717949}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 525bcb29fcb0eca46bcabd5d6db9bda8
-      internalID: -45979338
+      spriteID: 1ab883f0ce422ee408fe67a224fa85a5
+      internalID: -1519332053
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Murasame_0: -1977092148
-      Murasame_1: 897238466
-      Murasame_2: 852992784
-      Murasame_3: -45979338
+      Murasame_0: 2032054368
+      Murasame_1: -685330864
+      Murasame_2: 1408847349
+      Murasame_3: -1519332053
+      Murasame_4: 1964543173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

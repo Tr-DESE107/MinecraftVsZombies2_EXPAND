@@ -15,8 +15,10 @@ namespace MVZ2.GameContent.Buffs
         public const string faction = "faction";
         public const string withered = "withered";
         public const string changeLane = "change_lane";
-        public const string Regeneration = "Regeneration";
 
+        public const string Regeneration = "Regeneration";
+        public const string Corropoison = "Corropoison";
+        
         // Contraption
         public const string productionColor = "production_color";
         public const string mineTNTInvincible = "mine_tnt_invincible";
@@ -175,7 +177,9 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID glowstoneProtected = Get(VanillaBuffNames.glowstoneProtected);
         public static readonly NamespaceID miracleMalletReplicaDamage = Get(VanillaBuffNames.miracleMalletReplicaDamage);
         public static readonly NamespaceID brokenLantern = Get(VanillaBuffNames.brokenLantern);
+
         public static readonly NamespaceID Regeneration = Get(VanillaBuffNames.Regeneration);
+        public static readonly NamespaceID Corropoison = Get(VanillaBuffNames.Corropoison);
 
 
         public static readonly NamespaceID passengerEnterHouse = Get(VanillaBuffNames.passengerEnterHouse);

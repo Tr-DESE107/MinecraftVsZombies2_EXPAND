@@ -593,6 +593,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19367036b5ca6424f82e919a1c6d205d
+    m_Address: mvz2:entity/enemy/ReverserArm
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1987417ea27d79f4fa2ddfa1bf586c53
     m_Address: mvz2:projectile/largePoisonball
     m_ReadOnly: 0
@@ -749,6 +755,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20cf19417faa6684f9f87424ffd8eecf
+    m_Address: mvz2:icon/RegenerationParticles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20dd94ff8494e4549982cfaea1303a84
     m_Address: mvz2:entity/imp/imp_laugh1
     m_ReadOnly: 0
@@ -826,6 +838,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22f9c5810b17a7143a04224c21b750cf
+    m_Address: mvz2:entity/contraption/RedStoneOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23518f4eda2b37a4d93c7c80da15582c
     m_Address: mvz2:entity/effect/miner
@@ -1104,7 +1122,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e21d868152b2694ba986dbeccca603f
-    m_Address: mvz2:contraption/prologue/GlowingObsidian
+    m_Address: mvz2:contraption/EXPAND/GlowingObsidian
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -2248,12 +2266,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 55925a3ff0509a247a624bae6ab0abeb
-    m_Address: mvz2:enemy/temple/MurasameZombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 55c4fb06ca097e24eaa9171673390143
     m_Address: mvz2:mobile_blueprint/golden_dropper
     m_ReadOnly: 0
@@ -2391,6 +2403,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b08a5371f00aff4f9e8fd237a56735f
+    m_Address: mvz2:icon/CorropoisonParticles
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b26f4e24b68dee49b2c8d3592d95d91
     m_Address: mvz2:entity/boss/seija_camera
@@ -3350,6 +3367,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 809dfb4740b4c2144bb9e10609341ad0
+    m_Address: mvz2:contraption/EXPAND/RedStoneOre
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 80ab3f88e3042a2429696411af0b0810
     m_Address: mvz2:nightmare_level
@@ -6429,6 +6452,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edbf8d7615f557542ba5d6015f37ebf0
+    m_Address: mvz2:entity/enemy/ReverserBody0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee0a778b8029fb145a6764e65f31fbac
     m_Address: mvz2:icon/static_particles
     m_ReadOnly: 0
@@ -6704,6 +6733,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6caee0d75990894d9321ba2cbeb311f
+    m_Address: mvz2:enemy/temple/Murasame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f70064fbad3e8e249acbd5365f606f06
     m_Address: mvz2:starshard_rings/castle
     m_ReadOnly: 0
@@ -6805,6 +6840,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f93254b2bdb08be49a7e75dd050b27ed
+    m_Address: mvz2:entity/enemy/ReverserBody1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f997f16a236d16f44a380a07a0235df6
     m_Address: mvz2:talk/dialog_flashback

@@ -215,11 +215,11 @@ PrefabInstance:
     - target: {fileID: 2748955311970698656, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300002, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+      objectReference: {fileID: 21300000, guid: edbf8d7615f557542ba5d6015f37ebf0, type: 3}
     - target: {fileID: 2748955311970698656, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300004, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+      objectReference: {fileID: 21300000, guid: f93254b2bdb08be49a7e75dd050b27ed, type: 3}
     - target: {fileID: 3138126465319318176, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: m_Name
       value: mesmerizer
@@ -259,11 +259,11 @@ PrefabInstance:
     - target: {fileID: 4424032078652646507, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300002, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+      objectReference: {fileID: 21300000, guid: edbf8d7615f557542ba5d6015f37ebf0, type: 3}
     - target: {fileID: 5118901920180593601, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300008, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+      objectReference: {fileID: 21300000, guid: 19367036b5ca6424f82e919a1c6d205d, type: 3}
     - target: {fileID: 6670644642867940497, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: animators.Array.size
       value: 2
@@ -311,7 +311,7 @@ PrefabInstance:
     - target: {fileID: 7835400697556474647, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300008, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+      objectReference: {fileID: 21300000, guid: 19367036b5ca6424f82e919a1c6d205d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

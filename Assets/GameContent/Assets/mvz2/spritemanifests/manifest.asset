@@ -834,6 +834,14 @@ MonoBehaviour:
     - {fileID: 1686918570674494234, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
     - {fileID: -4745778892844803770, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
     - {fileID: 4039136606957829479, guid: 9c248fa89323d594a9c08ed0413b6aea, type: 3}
+  - name: map_buttonL
+    spritesheet:
+    - {fileID: -1453651356, guid: fffbd509c304b904e9fcedd4125885ac, type: 3}
+    - {fileID: 184262221, guid: fffbd509c304b904e9fcedd4125885ac, type: 3}
+    - {fileID: -441824990, guid: fffbd509c304b904e9fcedd4125885ac, type: 3}
+  - name: map_button_9
+    spritesheet:
+    - {fileID: 21300000, guid: b72aed6688108b94d85665c8a5a4a88a, type: 3}
   - name: portal
     spritesheet:
     - {fileID: 21300000, guid: f1647e2400793da43be7f9344136d81d, type: 3}
@@ -1199,6 +1207,9 @@ MonoBehaviour:
     - {fileID: -1758956819, guid: 516d74eccaaf1e24fb1a0ab53d0f2657, type: 3}
     - {fileID: -2083500495, guid: 516d74eccaaf1e24fb1a0ab53d0f2657, type: 3}
     - {fileID: 552944845, guid: 516d74eccaaf1e24fb1a0ab53d0f2657, type: 3}
+  - name: entity/contraption/GlowingObsidian
+    spritesheet:
+    - {fileID: 21300000, guid: 35db3ac19691f3f46841da983adaaa56, type: 3}
   - name: entity/contraption/infectenser
     spritesheet:
     - {fileID: 21300000, guid: d8130bf7140daa14a9605dddcd5bd851, type: 3}
@@ -1269,6 +1280,9 @@ MonoBehaviour:
     - {fileID: -484938836, guid: d1792fc8e74e78044ba9bd1d4212f8f7, type: 3}
     - {fileID: 1812289307, guid: d1792fc8e74e78044ba9bd1d4212f8f7, type: 3}
     - {fileID: -1125990712, guid: d1792fc8e74e78044ba9bd1d4212f8f7, type: 3}
+  - name: entity/contraption/RedStoneOre
+    spritesheet:
+    - {fileID: 21300000, guid: 22f9c5810b17a7143a04224c21b750cf, type: 3}
   - name: entity/contraption/silvenser
     spritesheet:
     - {fileID: 1795380811, guid: 4b61b6a8f9cd754419a8862656f249c1, type: 3}
@@ -1552,10 +1566,10 @@ MonoBehaviour:
     - {fileID: -1885844829, guid: eb1d4fd287008034c97609f5686628e6, type: 3}
   - name: entity/enemy/Murasame
     spritesheet:
-    - {fileID: -1977092148, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
-    - {fileID: 897238466, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
-    - {fileID: 852992784, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
-    - {fileID: -45979338, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
+    - {fileID: 2032054368, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
+    - {fileID: -685330864, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
+    - {fileID: 1408847349, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
+    - {fileID: -1519332053, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
   - name: entity/enemy/mutant_zombie
     spritesheet:
     - {fileID: 1281193560, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
@@ -1602,6 +1616,15 @@ MonoBehaviour:
     - {fileID: -938367861, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: 516429795, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: -1181326684, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
+  - name: entity/enemy/ReverserArm
+    spritesheet:
+    - {fileID: 21300000, guid: 19367036b5ca6424f82e919a1c6d205d, type: 3}
+  - name: entity/enemy/ReverserBody0
+    spritesheet:
+    - {fileID: 21300000, guid: edbf8d7615f557542ba5d6015f37ebf0, type: 3}
+  - name: entity/enemy/ReverserBody1
+    spritesheet:
+    - {fileID: 21300000, guid: f93254b2bdb08be49a7e75dd050b27ed, type: 3}
   - name: entity/enemy/reverse_satellite
     spritesheet:
     - {fileID: 1053308388, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
@@ -1644,9 +1667,6 @@ MonoBehaviour:
     - {fileID: -719498444, guid: b05d578e666fa614c871c4984041189f, type: 3}
     - {fileID: 793676620, guid: b05d578e666fa614c871c4984041189f, type: 3}
     - {fileID: 2118705680, guid: b05d578e666fa614c871c4984041189f, type: 3}
-  - name: entity/enemy/SpiderQueen 1
-    spritesheet:
-    - {fileID: 21300000, guid: b3e7832436d04624098dde1806c64d04, type: 3}
   - name: entity/enemy/SpiderQueen
     spritesheet:
     - {fileID: -1401032857, guid: 4d44ee70be474aa42a441d61c0ad08f7, type: 3}
