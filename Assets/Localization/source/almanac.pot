@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-12 07:37+0800\n"
+"POT-Creation-Date: 2025-05-13 10:24+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2352,7 +2352,7 @@ msgstr ""
 #. Header for misc mvz2:miko
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到幻想乡。"
+msgid "日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。"
 msgstr ""
 
 #. Flavor for misc mvz2:miko
@@ -2374,7 +2374,7 @@ msgstr ""
 #. Header for misc mvz2:seiga
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "一名仙人，能够使用邪术，是一名邪仙。"
+msgid "一名使用邪术的邪仙。"
 msgstr ""
 
 #. Flavor for misc mvz2:seiga
@@ -2384,7 +2384,7 @@ msgid ""
 "她本是一位中国古代的普通人类女性，自幼便深深受道教吸引。\n"
 "后来她成了婚，却又因为想要成仙而郁郁寡欢。那之后她使用假死的法术欺骗了家人，离开了自己的家。\n"
 "最终她也确实成为了仙人，但是她性格邪恶，路途不正，最后成为的是一名邪仙。\n"
-"那之后她向神子建议了道教，让她信奉了道教，她们一行人也成为了尸解仙。\n"
+"那之后她向神子建议了道教，让她信奉了道教，神子一行人也成为了尸解仙。\n"
 "据说，她也可以使用许多邪术，包括使用灵符来操纵僵尸。"
 msgstr ""
 

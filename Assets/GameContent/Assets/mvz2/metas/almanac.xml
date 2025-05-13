@@ -1539,7 +1539,7 @@
             </entry>
             <entry id="mvz2:miko" name="丰聪耳 神子" sprite="mvz2:characters/armor_stand" unlock="mvz2:level.mausoleum_1">
                 <header>
-                    <p>日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到幻想乡。</p>
+                    <p>日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>尚未完成</color>]]></p>
@@ -1553,7 +1553,7 @@
             </entry>
             <entry id="mvz2:seiga" name="霍 青娥" sprite="mvz2:characters/seiga[0]" unlock="mvz2:level.mausoleum_3">
                 <header>
-                    <p>一名仙人，能够使用邪术，是一名邪仙。</p>
+                    <p>一名使用邪术的邪仙。</p>
                 </header>
                 <properties>
                     <p>画师：<![CDATA[<color=red>小幽喜欢口乙烯</color>]]></p>
@@ -1562,7 +1562,7 @@
                     <p>她本是一位中国古代的普通人类女性，自幼便深深受道教吸引。</p>
                     <p>后来她成了婚，却又因为想要成仙而郁郁寡欢。那之后她使用假死的法术欺骗了家人，离开了自己的家。</p>
                     <p>最终她也确实成为了仙人，但是她性格邪恶，路途不正，最后成为的是一名邪仙。</p>
-                    <p>那之后她向神子建议了道教，让她信奉了道教，她们一行人也成为了尸解仙。</p>
+                    <p>那之后她向神子建议了道教，让她信奉了道教，神子一行人也成为了尸解仙。</p>
                     <p>据说，她也可以使用许多邪术，包括使用灵符来操纵僵尸。</p>
                 </flavor>
             </entry>

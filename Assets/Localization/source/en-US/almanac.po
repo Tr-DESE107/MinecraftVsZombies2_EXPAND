@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-12 07:37+0800\n"
-"PO-Revision-Date: 2025-05-12 21:25+0800\n"
+"POT-Creation-Date: 2025-05-13 10:24+0800\n"
+"PO-Revision-Date: 2025-05-13 10:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2863,7 +2863,7 @@ msgid ""
 "思考方式比较古董，千年后的很多事情都无法理解，古文和现代语法混杂的讲话方式也有些让人听不懂。\n"
 "后来也被时代的浪潮推动，开始慢慢习惯现代的生活了，变成了一位看起来稍微有点傻傻的女孩。"
 msgstr ""
-"Over a thousand years ago, she fell into a long slumber alongside her master Toyosatomimi no Miko, who became a Shikaisen. Later on, "
+"Over a thousand years ago, she fell into a deep slumber alongside her master Toyosatomimi no Miko, who became a Shikaisen. Later on, "
 "many years earlier, she was revived with Toyosatomimi no Miko and the others at the Hall of Dreams' Great Mausoleum.\n"
 "Her way of thinking is relatively old-fashioned, making it hard for her to comprehend many things after a thousand years. Her mixed "
 "style of speech with classical and modern grammar can also be difficult to understand.\n"
@@ -2879,7 +2879,7 @@ msgstr "Marisa Kirisame"
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "一位普通的魔法使，也是森近 霖之助曾经的好友。"
-msgstr ""
+msgstr "An ordinary magician, and also a former good friend of Rinnosuke Morichika."
 
 #. Properties for misc mvz2:marisa
 #: Almanac meta file
@@ -2895,6 +2895,10 @@ msgid ""
 "曾经和森近 霖之助关系很好，后来也因他的失踪翻遍了整个幻想乡，无果。\n"
 "随后她为霖之助立了衣冠冢，隔三岔五就会去纪念一次。"
 msgstr ""
+"A human who wanders around Gensokyo collecting various items. Her profession is a magician (not the race).\n"
+"She was once on very good terms with Rinnosuke Morichika, but after his disappearance, she searched all over Gensokyo for him, but to "
+"no avail.\n"
+"Afterwards, she built a memorial for Rinnosuke and would visit him every now and then to commemorate him."
 
 #. Name for misc mvz2:miko
 #: Almanac meta file
@@ -2905,8 +2909,8 @@ msgstr "Toyosatomimi no Miko"
 #. Header for misc mvz2:miko
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到幻想乡。"
-msgstr ""
+msgid "日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。"
+msgstr "A great saint from Japan a thousand years ago, who later became a Shikaisen through Shijie method, came to Gensokyo."
 
 #. Flavor for misc mvz2:miko
 #: Almanac meta file
@@ -2918,6 +2922,14 @@ msgid ""
 "之后在幻想乡又和佛教徒产生了矛盾，被干扰了复活。但随着事态发展，两派之间的关系也有所缓和。\n"
 "而这次，她们两者达成合作，一起抵御来自幻想乡外的巨物威胁。"
 msgstr ""
+"Thousands of years ago, Miko was born into this world. She could understand everyone's feelings and give accurate insights, then she "
+"herself was regarded as a saint because of this rumor.\n"
+"In time, she became afraid and dissatisfied with the limited lifespan of human beings. Following Seiga's advice, she advocated "
+"Buddhism on the surface while secretly used Taoist methods to achieve immortality. After that, she fell into a long sleep through "
+"Shijie method along with Mononobe no Futo and Soga no Tojiko.\n"
+"Later, she had conflicts with the Buddhists in Gensokyo and her resurrection was interfered with. But as the events unfolded, tensions "
+"between the two factions eased.\n"
+"And this time, they have joined forces—to stand together against a giant threat from outside Gensokyo."
 
 #. Name for misc mvz2:seiga
 #: Almanac meta file
@@ -2928,8 +2940,8 @@ msgstr "Seiga Kaku"
 #. Header for misc mvz2:seiga
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "一名仙人，能够使用邪术，是一名邪仙。"
-msgstr ""
+msgid "一名使用邪术的邪仙。"
+msgstr "A wicked hermit using wicked arts."
 
 #. Flavor for misc mvz2:seiga
 #: Almanac meta file
@@ -2938,9 +2950,15 @@ msgid ""
 "她本是一位中国古代的普通人类女性，自幼便深深受道教吸引。\n"
 "后来她成了婚，却又因为想要成仙而郁郁寡欢。那之后她使用假死的法术欺骗了家人，离开了自己的家。\n"
 "最终她也确实成为了仙人，但是她性格邪恶，路途不正，最后成为的是一名邪仙。\n"
-"那之后她向神子建议了道教，让她信奉了道教，她们一行人也成为了尸解仙。\n"
+"那之后她向神子建议了道教，让她信奉了道教，神子一行人也成为了尸解仙。\n"
 "据说，她也可以使用许多邪术，包括使用灵符来操纵僵尸。"
 msgstr ""
+"She was originally an ordinary human woman in ancient China, and she has been deeply attracted to Taoism since childhood.\n"
+"She later became married, but then became depressed because she wanted to become a Hermit. After that, she used a spell to fake her "
+"death to trick her family and left her home.\n"
+"In the end, she did become a Hermit, but she had an evil personality and a twisted path, thus becoming a Wicked Hermit.\n"
+"After that, she introduced Miko to Taoism, converted her to Taoism, and became a Shikaisen.\n"
+"It is said that she is able to use a variety of wicked arts, including using talismans to manipulate zombies."
 
 #. Name for misc mvz2:mysterious_hologram
 #: Almanac meta file

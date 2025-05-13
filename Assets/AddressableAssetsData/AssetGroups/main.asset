@@ -1187,6 +1187,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bc07992dc30ad441aa98588cf8d0e90
+    m_Address: mvz2:mobile_blueprint/desire_pot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2be33464724166c4fa3a121643edceb8
     m_Address: mvz2:mobile_blueprint/cave_spider
     m_ReadOnly: 0
@@ -1450,6 +1456,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34556420d8f5af5449796aad4f0ca3f1
+    m_Address: mvz2:characters/seiga
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34816f027e0f87342850b19b65eab54d
     m_Address: mvz2:soul_sand_break3
@@ -3489,6 +3501,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79a357758cd7dff4d83ebc2928ce0812
+    m_Address: mvz2:characters/armor_stand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79c9b442bcec07f4c8e4327a27c716c8
     m_Address: mvz2:archive
     m_ReadOnly: 0
@@ -4979,6 +4997,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a91f725ba10a5c545a6a951003948a10
     m_Address: mvz2:mobile_blueprint/diamond_spikes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a947efd639075f8479b747319d6fad58
+    m_Address: mvz2:mobile_blueprint/gravitation_bomb
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -6891,6 +6915,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea93029bdd8e6d44bbca9f126b03388c
+    m_Address: mvz2:misc/mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eac3297eb77eaa9469a14df4d15e1125
     m_Address: mvz2:random/crystal/crystal_place4
     m_ReadOnly: 0
@@ -7016,6 +7046,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecf0ee3020934614c9673de172a435cd
+    m_Address: mvz2:characters/futo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ed06ff75dd7c7fc4a841871da4536f6e
     m_Address: mvz2:projectile/note
