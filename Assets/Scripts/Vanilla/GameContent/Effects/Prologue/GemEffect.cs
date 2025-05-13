@@ -25,8 +25,6 @@ namespace MVZ2.GameContent.Effects
         {
             base.Init(entity);
             entity.Timeout = MIN_TIMEOUT;
-            entity.SetSortingLayer(SortingLayers.money);
-            entity.SetSortingOrder(9999);
         }
         public override void Update(Entity entity)
         {

@@ -13,11 +13,6 @@ namespace MVZ2.GameContent.Pickups
         public Redstone(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.SetSortingOrder(9999);
-        }
         public override void Update(Entity pickup)
         {
             base.Update(pickup);

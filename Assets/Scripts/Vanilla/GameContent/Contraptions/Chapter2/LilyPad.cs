@@ -21,11 +21,6 @@ namespace MVZ2.GameContent.Contraptions
             AddAura(new LilyPadPassengerAura());
             AddAura(new LilyPadCarrierAura());
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.SetSortingLayer(SortingLayers.carriers);
-        }
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);

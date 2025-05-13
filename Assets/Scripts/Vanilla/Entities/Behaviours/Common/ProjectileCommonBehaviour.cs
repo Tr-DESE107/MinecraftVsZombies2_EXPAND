@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Level;
@@ -8,14 +7,16 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class ProjectileBehaviour : VanillaEntityBehaviour
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileCommon)]
+    public class ProjectileCommonBehaviour : EntityBehaviourDefinition
     {
-        protected ProjectileBehaviour(string nsp, string name) : base(nsp, name)
+        public ProjectileCommonBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
 
@@ -107,12 +108,6 @@ namespace MVZ2.Vanilla.Entities
                 position.y > VanillaLevelExt.PROJECTILE_TOP_BORDER ||
                 position.y < VanillaLevelExt.PROJECTILE_BOTTOM_BORDER;
         }
-        protected virtual void PreHitEntity(ProjectileHitInput hit, DamageInput damage, CallbackResult result)
-        {
-        }
-        protected virtual void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput damage)
-        {
-        }
         private void UnitCollide(EntityCollision collision)
         {
             var projectile = collision.Entity;
@@ -149,17 +144,12 @@ namespace MVZ2.Vanilla.Entities
 
             // 触发击中前回调。
             var callbackResult = new CallbackResult(true);
-            PreHitEntity(hitInput, damageInput, callbackResult);
-            if (!callbackResult.IsBreakRequested)
+            var preParam = new VanillaLevelCallbacks.PreProjectileHitParams()
             {
-                var filterValue = projectile.GetDefinitionID();
-                var preParam = new VanillaLevelCallbacks.PreProjectileHitParams()
-                {
-                    hit = hitInput,
-                    damage = damageInput
-                };
-                projectile.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, preParam, callbackResult, filterValue);
-            }
+                hit = hitInput,
+                damage = damageInput
+            };
+            projectile.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, preParam, callbackResult, projectile.GetDefinitionID());
             if (!callbackResult.GetValue<bool>())
                 return;
 
@@ -190,7 +180,6 @@ namespace MVZ2.Vanilla.Entities
             projectile.AddIgnoredProjectileCollider(otherCollider);
 
             // 触发击中后回调。
-            PostHitEntity(hitOutput, damageOutput);
             var postParam = new VanillaLevelCallbacks.PostProjectileHitParams()
             {
                 hit = hitOutput,
@@ -240,10 +229,7 @@ namespace MVZ2.Vanilla.Entities
         private void SetStartHitSpawnerProtectTimeout(Entity entity, int value) => entity.SetBehaviourField(FIELD_HIT_SPAWNER_PROTECT_TIMEOUT, value);
         private int GetStartHitSpawnerProtectTimeout(Entity entity) => entity.GetBehaviourField<int>(FIELD_HIT_SPAWNER_PROTECT_TIMEOUT);
         #endregion
-        private const string PROP_REGION = "projectile_behaviour";
-        [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta FIELD_HIT_SPAWNER_PROTECT_TIMEOUT = new VanillaEntityPropertyMeta("HitSpawnerProtectTimeout");
-        [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta FIELD_IGNORED_COLLIDERS = new VanillaEntityPropertyMeta("IgnoredColliders");
     }
 }

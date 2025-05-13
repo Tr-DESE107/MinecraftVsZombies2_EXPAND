@@ -36,11 +36,6 @@ namespace MVZ2.GameContent.Contraptions
             enemyDetector = new ForcePadDetector(EntityCollisionHelper.MASK_ENEMY, AFFECT_HEIGHT, 1);
             projectileDetector = new ForcePadDetector(EntityCollisionHelper.MASK_PROJECTILE, AFFECT_HEIGHT, 0.5f);
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.SetSortingLayer(SortingLayers.carriers);
-        }
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);

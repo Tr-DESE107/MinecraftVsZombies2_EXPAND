@@ -32,10 +32,6 @@ namespace PVZEngine.Entities
         {
             return origin;
         }
-        public virtual NamespaceID GetMatchEntityID()
-        {
-            return GetID();
-        }
         public AuraEffectDefinition[] GetAuras()
         {
             return auraDefinitions.ToArray();

@@ -15,7 +15,7 @@ namespace MVZ2.Tests
         private void Start()
         {
             var def = new MetaEntityDefinition(EntityTypes.PLANT, "mvz2", "dispenser");
-            def.AddBehaviour(new Dispenser("mvz2", "dispenser"));
+            def.AddBehaviourID(new NamespaceID("mvz2", "dispenser"));
             var container = new TestPropertyContainer(def);
             props = new ModifiableProperties(container);
 

@@ -1,4 +1,5 @@
-﻿using PVZEngine.Entities;
+﻿using MVZ2.GameContent.Buffs.Enemies;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
@@ -14,10 +15,11 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             entity.SetAnimationBool("HasFlag", true);
-        }
-        protected override float GetRandomSpeedMultiplier(Entity entity)
-        {
-            return 2;
+            var speedBuff = entity.GetFirstBuff<RandomEnemySpeedBuff>();
+            if (speedBuff != null)
+            {
+                speedBuff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, 2);
+            }
         }
     }
 }

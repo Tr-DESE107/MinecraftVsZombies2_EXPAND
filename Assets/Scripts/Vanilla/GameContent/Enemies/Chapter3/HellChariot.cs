@@ -26,7 +26,6 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             SetPunctureTimer(entity, new FrameTimer(PUNCTURE_TIME));
-            entity.InitFragment();
             if (!entity.IsPreviewEnemy())
             {
                 entity.PlaySound(VanillaSoundID.trainWhistle);
@@ -36,8 +35,6 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-
-            entity.UpdateFragment();
 
             bool broken = entity.Health <= BROKEN_THRESOLD;
             if (!entity.IsDead && broken)
@@ -118,15 +115,6 @@ namespace MVZ2.GameContent.Enemies
                 Puncture(chariot);
             }
         }
-        public override void PostTakeDamage(DamageOutput result)
-        {
-            base.PostTakeDamage(result);
-            var bodyResult = result.BodyResult;
-            if (bodyResult != null)
-            {
-                result.Entity.AddFragmentTickDamage(result.BodyResult.Amount);
-            }
-        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
@@ -136,7 +124,6 @@ namespace MVZ2.GameContent.Enemies
             var param = entity.GetSpawnParams();
             param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
             var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
-            entity.PostFragmentDeath(info);
 
             var anubisandOffset = ANUBISAND_OFFSET;
             anubisandOffset.x *= entity.GetFacingX();

@@ -1,23 +1,29 @@
+ï»¿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
-using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine;
 using Tools;
+using PVZEngine.Level;
+using MVZ2Logic.Level;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class CartBehaviour : VanillaEntityBehaviour
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.cartCommon)]
+    public class CartCommonBehaviour : EntityBehaviourDefinition
     {
-        protected CartBehaviour(string nsp, string name) : base(nsp, name)
+        public CartCommonBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
         public override void Init(Entity entity)
@@ -33,10 +39,6 @@ namespace MVZ2.Vanilla.Entities
             StateUpdate(entity);
             TriggerChargeUpdate(entity);
             TurnToMoneyUpdate(entity);
-        }
-        public virtual void PostTrigger(Entity entity)
-        {
-
         }
         private void StateUpdate(Entity entity)
         {
@@ -65,13 +67,13 @@ namespace MVZ2.Vanilla.Entities
                     break;
                 case VanillaEntityStates.CART_TRIGGERED:
                     velocity.x = 10;
-                    // »ñÈ¡ËùÓÐ½Ó´¥µ½µÄ½©Ê¬¡£
+                    // èŽ·å–æ‰€æœ‰æŽ¥è§¦åˆ°çš„åƒµå°¸ã€‚
                     foreach (Entity ent in entity.Level.FindEntities(e => entity.CanCartCrush(e)))
                     {
-                        // Åöµ½Ð¡³µµÄ½©Ê¬ÊÜµ½ÉËº¦¡£
+                        // ç¢°åˆ°å°è½¦çš„åƒµå°¸å—åˆ°ä¼¤å®³ã€‚
                         ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE), entity);
                     }
-                    // Èç¹û³¬³öÆÁÄ»£¬ÏûÊ§¡£
+                    // å¦‚æžœè¶…å‡ºå±å¹•ï¼Œæ¶ˆå¤±ã€‚
                     if (entity.GetBounds().min.x >= VanillaLevelExt.GetBorderX(true))
                     {
                         entity.Remove();
@@ -131,13 +133,9 @@ namespace MVZ2.Vanilla.Entities
         public static void SetCartTriggerCharging(Entity entity, bool value) => entity.SetBehaviourField(FIELD_TRIGGER_CHARGING, value);
         public static bool IsCartTriggerCharging(Entity entity) => entity.GetBehaviourField<bool>(FIELD_TRIGGER_CHARGING);
 
-        [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta FIELD_TRIGGER_CHARGE = new VanillaEntityPropertyMeta("TriggerCharge");
-        [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta FIELD_TRIGGER_CHARGING = new VanillaEntityPropertyMeta("TriggerCharging");
         public const float TRIGGER_DISTANCE = 28;
         public const int MAX_TRIGGER_CHARGE = 30;
-        private const string PROP_REGION = "cart_behaviour";
     }
-
 }

@@ -1,21 +1,20 @@
 ﻿using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.GameContent.Effects;
-using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using UnityEditor.Graphs;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class VanillaEntityBehaviour : EntityBehaviourDefinition
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.armorEntity)]
+    public class ArmorEntityBehaviour : EntityBehaviourDefinition
     {
         #region 公有方法
-        protected VanillaEntityBehaviour(string nsp, string name) : base(nsp, name)
+        public ArmorEntityBehaviour(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaEntityProps.SORTING_LAYER, SortingLayers.entities);
         }
         public override void PostTakeDamage(DamageOutput result)
         {
@@ -58,7 +57,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 私有方法
-        protected virtual Vector3 GetArmorPosition(Entity entity)
+        protected Vector3 GetArmorPosition(Entity entity)
         {
             var bounds = entity.GetBounds();
             return bounds.center + Vector3.up * bounds.extents.y;

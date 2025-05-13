@@ -23,7 +23,6 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             SetTargetPosition(entity, entity.Position);
-            entity.InitFragment();
             entity.Timeout = entity.GetMaxTimeout();
         }
         protected override void UpdateLogic(Entity entity)
@@ -32,9 +31,6 @@ namespace MVZ2.GameContent.Enemies
             var targetPosition = GetTargetPosition(entity);
             targetPosition.y = entity.Level.GetGroundY(targetPosition.x, targetPosition.z);
             entity.Position = targetPosition;
-
-            entity.UpdateFragment();
-
 
             entity.SetAnimationFloat("Range", entity.GetRange());
             entity.SetAnimationInt("HealthState", entity.GetHealthState(5));
@@ -54,16 +50,6 @@ namespace MVZ2.GameContent.Enemies
             if (input.HasEffect(VanillaDamageEffects.FIRE))
             {
                 input.SetAmount(entity.GetMaxHealth() * 10);
-            }
-        }
-        public override void PostTakeDamage(DamageOutput result)
-        {
-            base.PostTakeDamage(result);
-            var entity = result.Entity;
-            var bodyResult = result.BodyResult;
-            if (bodyResult != null)
-            {
-                entity.AddFragmentTickDamage(bodyResult.Amount);
             }
         }
         private void PreEnemyFaintCallback(EntityCallbackParams param, CallbackResult result)
@@ -87,7 +73,6 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            entity.PostFragmentDeath(info);
             entity.Remove();
         }
         public static Vector3 GetTargetPosition(Entity enemy) => enemy.GetBehaviourField<Vector3>(PROP_TARGET_POSITION);

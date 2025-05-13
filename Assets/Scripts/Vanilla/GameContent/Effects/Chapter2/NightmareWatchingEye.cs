@@ -19,7 +19,6 @@ namespace MVZ2.GameContent.Effects
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetSortingLayer(SortingLayers.shadow);
             SetEyeMoveCooldown(entity, 90);
         }
         public override void Update(Entity entity)

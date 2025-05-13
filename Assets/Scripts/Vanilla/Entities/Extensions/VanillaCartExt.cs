@@ -34,7 +34,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void ChargeUpCartTrigger(this Entity entity)
         {
-            CartBehaviour.ChargeUpTrigger(entity);
+            CartCommonBehaviour.ChargeUpTrigger(entity);
         }
     }
 }

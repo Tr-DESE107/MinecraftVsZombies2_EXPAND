@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using MVZ2.GameContent.Buffs.Level;
-using MVZ2.GameContent.Contraptions;
+﻿using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Entities;
@@ -13,7 +11,6 @@ using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Obstacles
 {
@@ -27,7 +24,6 @@ namespace MVZ2.GameContent.Obstacles
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.UpdateTakenGrids();
             KillConflictContraptions(entity);
             var mainCollider = entity.GetCollider(EntityCollisionHelper.NAME_MAIN);
             if (mainCollider != null)
@@ -41,15 +37,9 @@ namespace MVZ2.GameContent.Obstacles
             base.PostDeath(entity, damageInfo);
             entity.Remove();
         }
-        public override void PostRemove(Entity entity)
-        {
-            base.PostRemove(entity);
-            entity.ClearTakenGrids();
-        }
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            entity.UpdateTakenGrids();
 
             var level = entity.Level;
             float spinSpeed = 1;

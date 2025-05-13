@@ -11,25 +11,6 @@ namespace MVZ2.Vanilla.Entities
     {
         private const string PROP_REGION = "fragments";
         #region 碎片
-        public static void InitFragment(this Entity entity)
-        {
-            var fragment = entity.CreateFragment();
-            var fragmentRef = new EntityID(fragment);
-            entity.SetFragment(fragmentRef);
-        }
-        public static void UpdateFragment(this Entity entity)
-        {
-            var fragment = entity.GetOrCreateFragment();
-            Fragment.AddEmitSpeed(fragment, entity.GetFragmentTickDamage());
-            entity.SetFragmentTickDamage(0);
-        }
-        public static void PostFragmentDeath(this Entity entity, DeathInfo damageInfo)
-        {
-            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
-                return;
-            var fragment = entity.GetOrCreateFragment();
-            Fragment.AddEmitSpeed(fragment, 500);
-        }
         public static Entity CreateFragment(this Entity entity)
         {
             var fragment = entity.Level.Spawn(VanillaEffectID.fragment, entity.Position, entity);

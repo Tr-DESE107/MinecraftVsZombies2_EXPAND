@@ -5,14 +5,15 @@ using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class EnemyBehaviour : VanillaEntityBehaviour
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyCommon)]
+    public class EnemyCommonBehaviour : EntityBehaviourDefinition
     {
-        public EnemyBehaviour(string nsp, string name) : base(nsp, name)
+        public EnemyCommonBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
         public override void Init(Entity entity)
@@ -20,7 +21,7 @@ namespace MVZ2.Vanilla.Entities
             base.Init(entity);
 
             var buff = entity.CreateBuff<RandomEnemySpeedBuff>();
-            buff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, GetRandomSpeedMultiplier(entity));
+            buff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, entity.RNG.Next(1, 1.5f));
             entity.AddBuff(buff);
 
             entity.CollisionMaskHostile = EntityCollisionHelper.MASK_PLANT
@@ -28,17 +29,9 @@ namespace MVZ2.Vanilla.Entities
                 | EntityCollisionHelper.MASK_OBSTACLE
                 | EntityCollisionHelper.MASK_BOSS;
         }
-        public override sealed void Update(Entity entity)
+        public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (!entity.IsAIFrozen())
-            {
-                UpdateAI(entity);
-            }
-            UpdateLogic(entity);
-        }
-        protected virtual void UpdateLogic(Entity entity)
-        {
             if (entity.IsFriendlyEntity() || !entity.IsFacingLeft())
             {
                 if (IsOutsideView(entity))
@@ -66,9 +59,6 @@ namespace MVZ2.Vanilla.Entities
             }
             entity.SetAnimationFloat("AttackSpeed", attackSpeed);
             entity.SetAnimationFloat("MoveSpeed", speed);
-        }
-        protected virtual void UpdateAI(Entity entity)
-        {
         }
         public override void PostTakeDamage(DamageOutput result)
         {
@@ -99,10 +89,6 @@ namespace MVZ2.Vanilla.Entities
             var position = enemy.Position;
             return bounds.max.x < VanillaLevelExt.ENEMY_LEFT_BORDER ||
                 bounds.min.x > VanillaLevelExt.ENEMY_RIGHT_BORDER;
-        }
-        protected virtual float GetRandomSpeedMultiplier(Entity entity)
-        {
-            return entity.RNG.Next(1, 1.5f);
         }
         private void ChangeLaneUpdate(Entity entity)
         {

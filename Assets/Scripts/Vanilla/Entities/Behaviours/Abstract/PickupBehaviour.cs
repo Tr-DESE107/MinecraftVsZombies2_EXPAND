@@ -5,7 +5,7 @@ using PVZEngine.Entities;
 using UnityEngine;
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class PickupBehaviour : VanillaEntityBehaviour, ICollectiblePickup
+    public abstract class PickupBehaviour : EntityBehaviourDefinition, ICollectiblePickup
     {
         public PickupBehaviour(string nsp, string name) : base(nsp, name)
         {
@@ -13,7 +13,6 @@ namespace MVZ2.Vanilla.Entities
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.SetSortingLayer(SortingLayers.pickups);
             entity.Timeout = entity.GetMaxTimeout();
         }
         public override void Update(Entity pickup)
@@ -21,8 +20,6 @@ namespace MVZ2.Vanilla.Entities
             base.Update(pickup);
             if (!pickup.IsCollected())
             {
-                LimitPosition(pickup);
-
                 var level = pickup.Level;
                 var willAutoCollect = false;
                 if (level.IsAutoCollectAll())
@@ -45,27 +42,7 @@ namespace MVZ2.Vanilla.Entities
                 {
                     pickup.Collect();
                 }
-
-
-                if (!pickup.IsImportantPickup() && !level.IsHoldingEntity(pickup) && pickup.Timeout >= 0)
-                {
-                    pickup.Timeout--;
-                    if (pickup.Timeout <= 0)
-                    {
-                        pickup.Remove();
-                    }
-                }
             }
-            else
-            {
-                pickup.AddPickupCollectedTime(1);
-            }
-        }
-        private void LimitPosition(Entity entity)
-        {
-            Vector3 pos = entity.Position;
-            pos.x = Mathf.Clamp(pos.x, VanillaLevelExt.GetPickupBorderX(false), VanillaLevelExt.GetPickupBorderX(true));
-            entity.Position = pos;
         }
         public virtual void PostCollect(Entity pickup)
         {

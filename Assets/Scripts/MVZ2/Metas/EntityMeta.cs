@@ -5,6 +5,7 @@ using MVZ2.IO;
 using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
+using UnityEngine;
 
 namespace MVZ2.Metas
 {
@@ -17,6 +18,7 @@ namespace MVZ2.Metas
         public string Tooltip { get; private set; }
         public NamespaceID Unlock { get; private set; }
         public int Order { get; private set; }
+        public NamespaceID[] Behaviours { get; private set; }
         public Dictionary<string, object> Properties { get; private set; }
         public static EntityMeta FromXmlNode(XmlNode node, string defaultNsp, IEnumerable<EntityMetaTemplate> templates, int order)
         {
@@ -28,10 +30,17 @@ namespace MVZ2.Metas
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
             var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n");
 
-            Dictionary<string, object> properties = node.ToPropertyDictionary(defaultNsp);
+            var behaviours = new List<NamespaceID>();
+            var behavioursNode = node["behaviours"];
+            var propertyNode = node["properties"];
+            Dictionary<string, object> properties = propertyNode.ToPropertyDictionary(defaultNsp);
             if (template != null)
             {
                 type = template.id;
+
+                behaviours.AddRange(template.behaviours);
+                behavioursNode.ModifyEntityBehaviours(behaviours, defaultNsp);
+
                 foreach (var prop in template.properties)
                 {
                     if (properties.ContainsKey(prop.Key))
@@ -47,9 +56,41 @@ namespace MVZ2.Metas
                 DeathMessage = deathMessage,
                 Tooltip = tooltip,
                 Unlock = unlock,
+                Behaviours = behaviours.ToArray(),
                 Properties = properties,
                 Order = order,
             };
         }
+    }
+
+    public class EntityBehaviourItem
+    {
+        public BehaviourOperator Operator { get; private set; }
+        public NamespaceID ID { get; private set; }
+        public static EntityBehaviourItem FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            var opStr = node.GetAttribute("operator");
+            var op = BehaviourOperator.Add;
+            if (!string.IsNullOrEmpty(opStr) && operatorDict.TryGetValue(opStr, out var o))
+            {
+                op = o;
+            }
+            var id = node.GetAttributeNamespaceID("id", defaultNsp);
+            return new EntityBehaviourItem()
+            {
+                Operator = op,
+                ID = id
+            };
+        }
+        private static Dictionary<string, BehaviourOperator> operatorDict = new Dictionary<string, BehaviourOperator>()
+        {
+            { "add", BehaviourOperator.Add },
+            { "remove", BehaviourOperator.Remove },
+        };
+    }
+    public enum BehaviourOperator
+    {
+        Add,
+        Remove
     }
 }

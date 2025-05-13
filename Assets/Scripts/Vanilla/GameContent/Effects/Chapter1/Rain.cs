@@ -19,8 +19,6 @@ namespace MVZ2.GameContent.Effects
         {
             base.Init(entity);
             entity.Level.AddLoopSoundEntity(VanillaSoundID.rain, entity.ID);
-            entity.SetSortingLayer(SortingLayers.foreground);
-            entity.SetSortingOrder(9999);
         }
         #endregion
     }

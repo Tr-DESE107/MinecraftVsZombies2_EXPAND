@@ -25,11 +25,6 @@ namespace MVZ2.GameContent.Contraptions
             AddAura(new GravityAura());
             projectileDetector = new GravityPadDetector(false, AFFECT_HEIGHT);
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.SetSortingLayer(SortingLayers.carriers);
-        }
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);

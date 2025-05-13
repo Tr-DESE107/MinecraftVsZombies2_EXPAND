@@ -12,12 +12,6 @@ namespace MVZ2.GameContent.Effects
         public Vortex(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.SetSortingLayer(SortingLayers.pool);
-            entity.SetSortingOrder(100);
-        }
         #endregion
     }
 }

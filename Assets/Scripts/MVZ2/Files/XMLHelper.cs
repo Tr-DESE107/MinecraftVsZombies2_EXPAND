@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
+using MVZ2.Metas;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
+using static UnityEditorInternal.ReorderableList;
 
 namespace MVZ2.IO
 {
@@ -174,6 +176,28 @@ namespace MVZ2.IO
             var alpha = node.GetAttributeFloat("alpha") ?? 1;
             var time = node.GetAttributeFloat("time") ?? 0;
             return new GradientAlphaKey(alpha, time);
+        }
+        public static void ModifyEntityBehaviours(this XmlNode node, List<NamespaceID> behaviours, string defaultNsp)
+        {
+            if (node == null)
+                return;
+            for (int i = 0; i < node.ChildNodes.Count; i++)
+            {
+                var behaviourNode = node.ChildNodes[i];
+                if (behaviourNode.Name == "behaviour")
+                {
+                    var item = EntityBehaviourItem.FromXmlNode(behaviourNode, defaultNsp);
+                    switch (item.Operator)
+                    {
+                        case BehaviourOperator.Add:
+                            behaviours.Add(item.ID);
+                            break;
+                        case BehaviourOperator.Remove:
+                            behaviours.Remove(item.ID);
+                            break;
+                    }
+                }
+            }
         }
         public static Dictionary<string, object> ToPropertyDictionary(this XmlNode node, string defaultNsp)
         {

@@ -1,10 +1,12 @@
 ﻿using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class EffectBehaviour : VanillaEntityBehaviour
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.effectCommon)]
+    public class EffectCommonBehaviour : EntityBehaviourDefinition
     {
-        protected EffectBehaviour(string nsp, string name) : base(nsp, name)
+        public EffectCommonBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
         public override void Init(Entity entity)

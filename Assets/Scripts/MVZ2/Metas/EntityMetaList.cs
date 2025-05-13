@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
+using PVZEngine;
 
 namespace MVZ2.Metas
 {
@@ -29,22 +30,25 @@ namespace MVZ2.Metas
     {
         public string name;
         public int id;
+        public List<NamespaceID> behaviours;
         public Dictionary<string, object> properties;
         private static EntityMetaTemplate LoadTemplate(XmlNode node, string defaultNsp, XmlNode rootNode)
         {
             var name = node.Name;
             var id = node.GetAttributeInt("id") ?? -1;
+            var behaviours = new List<NamespaceID>();
             var properties = new Dictionary<string, object>();
-            LoadTemplatePropertiesFromNode(node, defaultNsp, rootNode, properties);
+            LoadTemplatePropertiesFromNode(node, defaultNsp, rootNode, behaviours, properties);
 
             return new EntityMetaTemplate()
             {
                 name = name,
                 id = id,
+                behaviours = behaviours,
                 properties = properties
             };
         }
-        private static void LoadTemplatePropertiesFromNode(XmlNode node, string defaultNsp, XmlNode rootNode, Dictionary<string, object> target)
+        private static void LoadTemplatePropertiesFromNode(XmlNode node, string defaultNsp, XmlNode rootNode, List<NamespaceID> behaviours, Dictionary<string, object> properties)
         {
             var parent = node.GetAttribute("parent");
             if (!string.IsNullOrEmpty(parent))
@@ -52,13 +56,17 @@ namespace MVZ2.Metas
                 var parentNode = rootNode[parent];
                 if (parentNode != null)
                 {
-                    LoadTemplatePropertiesFromNode(parentNode, defaultNsp, rootNode, target);
+                    LoadTemplatePropertiesFromNode(parentNode, defaultNsp, rootNode, behaviours, properties);
                 }
             }
-            var props = node.ToPropertyDictionary(defaultNsp);
+            var behavioursNode = node["behaviours"];
+            behavioursNode.ModifyEntityBehaviours(behaviours, defaultNsp);
+
+            var propsNode = node["properties"];
+            var props = propsNode.ToPropertyDictionary(defaultNsp);
             foreach (var prop in props)
             {
-                target[prop.Key] = prop.Value;
+                properties[prop.Key] = prop.Value;
             }
         }
         public static EntityMetaTemplate[] LoadTemplates(XmlNode node, string defaultNsp)

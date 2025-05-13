@@ -513,7 +513,7 @@ namespace MVZ2.Entities
                 rendererGroup.SetHSV(entity.GetHSV());
                 rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
                 model.transform.localScale = entity.GetFinalDisplayScale();
-                rendererGroup.SortingLayerID = entity.GetSortingLayer();
+                rendererGroup.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
                 rendererGroup.SortingOrder = entity.GetSortingOrder();
                 if (model is SpriteModel sprModel)
                 {
@@ -554,7 +554,7 @@ namespace MVZ2.Entities
                             model.transform.localScale = entity.GetFinalDisplayScale();
                             break;
                         case PropertyName.SortingLayer:
-                            rendererGroup.SortingLayerID = entity.GetSortingLayer();
+                            rendererGroup.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
                             break;
                         case PropertyName.SortingOrder:
                             rendererGroup.SortingOrder = entity.GetSortingOrder();

@@ -156,11 +156,11 @@ namespace MVZ2.Vanilla.Entities
         #region 显示
         public static readonly PropertyMeta SORTING_LAYER = Get("sortingLayer");
         public static readonly PropertyMeta SORTING_ORDER = Get("sortingOrder");
-        public static int GetSortingLayer(this Entity entity)
+        public static string GetSortingLayer(this Entity entity)
         {
-            return entity.GetProperty<int>(VanillaEntityProps.SORTING_LAYER);
+            return entity.GetProperty<string>(VanillaEntityProps.SORTING_LAYER);
         }
-        public static void SetSortingLayer(this Entity entity, int layer)
+        public static void SetSortingLayer(this Entity entity, string layer)
         {
             entity.SetProperty(VanillaEntityProps.SORTING_LAYER, layer);
         }

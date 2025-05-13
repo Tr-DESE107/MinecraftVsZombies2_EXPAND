@@ -46,7 +46,8 @@ namespace MVZ2.GameContent.Effects
         }
         public static void UpdateFragmentID(Entity entity)
         {
-            SetFragmentID(entity, entity.Parent?.GetFragmentID());
+            var parent = entity?.Parent;
+            SetFragmentID(entity, parent?.GetFragmentID() ?? parent?.GetDefinitionID());
         }
         #endregion
         private static readonly NamespaceID ID = VanillaEffectID.fragment;

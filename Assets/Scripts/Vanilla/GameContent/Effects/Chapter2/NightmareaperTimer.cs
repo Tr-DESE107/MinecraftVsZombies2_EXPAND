@@ -24,8 +24,6 @@ namespace MVZ2.GameContent.Effects
             base.Init(entity);
             var timeout = 2700 + entity.Level.GetBossAILevel() * 900;
             SetTimeout(entity, timeout);
-            entity.SetSortingLayer(SortingLayers.frontUI);
-            entity.SetSortingOrder(-9000);
         }
         public override void Update(Entity entity)
         {

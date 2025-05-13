@@ -357,18 +357,23 @@ namespace MVZ2.Vanilla
         }
         private void LoadEntityBehaviours(IGame game)
         {
-            foreach (var behaviour in GetDefinitions<EntityBehaviourDefinition>(EngineDefinitionTypes.ENTITY_BEHAVIOUR))
+            foreach (var entityDef in GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY))
             {
-                var entity = this.GetEntityDefinition(behaviour.GetMatchEntityID());
-                if (entity == null)
+                if (entityDef == null)
                     continue;
-                if (entity.HasBehaviour(behaviour))
+                var entityID = entityDef.GetID();
+                var meta = game.GetEntityMeta(entityID);
+                if (meta != null)
                 {
-                    Debug.LogWarning($"Entity {entity.GetID()} has multiple Entity Behaviours.");
+                    foreach (var behaviourID in meta.Behaviours)
+                    {
+                        entityDef.AddBehaviourID(behaviourID);
+                    }
                 }
-                else
+                var mainBehaviour = this.GetEntityBehaviourDefinition(entityID);
+                if (mainBehaviour != null)
                 {
-                    entity.AddBehaviour(behaviour);
+                    entityDef.AddBehaviourID(entityID);
                 }
             }
         }

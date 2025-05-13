@@ -9,7 +9,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class ObstacleBehaviour : VanillaEntityBehaviour
+    public abstract class ObstacleBehaviour : EntityBehaviourDefinition
     {
         protected ObstacleBehaviour(string nsp, string name) : base(nsp, name)
         {

@@ -1,27 +1,14 @@
 ﻿using MVZ2.GameContent.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class BossBehaviour : VanillaEntityBehaviour
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.bossCommon)]
+    public class BossCommonBehaviour : EntityBehaviourDefinition
     {
-        protected BossBehaviour(string nsp, string name) : base(nsp, name)
-        {
-        }
-        public override sealed void Update(Entity entity)
-        {
-            base.Update(entity);
-            if (!entity.IsAIFrozen())
-            {
-                UpdateAI(entity);
-            }
-            UpdateLogic(entity);
-        }
-        protected virtual void UpdateLogic(Entity entity)
-        {
-        }
-        protected virtual void UpdateAI(Entity entity)
+        public BossCommonBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
         public override void PostTakeDamage(DamageOutput result)

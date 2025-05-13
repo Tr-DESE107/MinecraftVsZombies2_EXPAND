@@ -14,7 +14,6 @@ namespace MVZ2.GameContent.Pickups
     {
         public Emerald(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaEntityProps.SHADOW_SCALE, Vector3.one * 0.5f);
         }
         protected override bool CanMerge => true;
         protected override int MergeCount => 5;

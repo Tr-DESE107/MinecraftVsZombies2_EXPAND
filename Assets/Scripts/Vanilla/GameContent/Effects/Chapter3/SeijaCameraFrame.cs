@@ -19,11 +19,6 @@ namespace MVZ2.GameContent.Effects
         {
             flashDetector = new CameraFlashDetector();
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.SetSortingOrder(9999);
-        }
         public override void Update(Entity entity)
         {
             base.Update(entity);

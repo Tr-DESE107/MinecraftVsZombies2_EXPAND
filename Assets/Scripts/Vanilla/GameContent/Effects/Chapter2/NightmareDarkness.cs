@@ -21,7 +21,6 @@ namespace MVZ2.GameContent.Effects
         {
             base.Init(entity);
             entity.Position = Vector3.zero;
-            entity.SetSortingLayer(SortingLayers.night);
             GenerateEyes(entity);
         }
         private void GenerateEyes(Entity entity)
