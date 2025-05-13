@@ -101,7 +101,7 @@ namespace MVZ2.GameContent.Stages
             buff.SetProperty(MinigameEnemySpeedBuff.PROP_SPEED_MULTIPLIER, Mathf.Lerp(3, 5, entity.Level.CurrentWave / (float)entity.Level.GetTotalWaveCount()));
         }
         private const string PROP_REGION = "whack_a_ghost";
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_THUNDER_TIMER = new VanillaLevelPropertyMeta("ThunderTimer");
     }
 }

@@ -8,9 +8,9 @@ using PVZEngine.Level;
 namespace MVZ2.Vanilla.Entities
 {
     [EntityBehaviourDefinition(VanillaEntityBehaviourNames.fragmented)]
-    public class FragmentBehaviour : EntityBehaviourDefinition
+    public class FragmentedBehaviour : EntityBehaviourDefinition
     {
-        public FragmentBehaviour(string nsp, string name) : base(nsp, name)
+        public FragmentedBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
         public override void Init(Entity entity)

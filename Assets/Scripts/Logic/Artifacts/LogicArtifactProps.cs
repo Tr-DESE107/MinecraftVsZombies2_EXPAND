@@ -2,7 +2,7 @@
 
 namespace MVZ2Logic.Artifacts
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.artifact)]
     public static class LogicArtifactProps
     {
         public static readonly PropertyMeta SPRITE_REFERENCE = new PropertyMeta("spriteReference");

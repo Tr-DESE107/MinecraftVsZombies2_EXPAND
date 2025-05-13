@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PVZEngine.Armors
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.armor)]
     public static class EngineArmorProps
     {
         private static PropertyMeta Get(string name)

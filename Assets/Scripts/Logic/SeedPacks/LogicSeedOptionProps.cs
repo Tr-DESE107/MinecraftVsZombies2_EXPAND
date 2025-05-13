@@ -3,7 +3,7 @@ using PVZEngine;
 
 namespace MVZ2Logic.SeedPacks
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(LogicPropertyRegions.seedOption)]
     public static class LogicSeedOptionProps
     {
         private static PropertyMeta Get(string name)

@@ -17,8 +17,8 @@ namespace MVZ2.Tests
         {
             var levelEngineAssembly = typeof(LevelEngine).Assembly;
             var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
-            PropertyMapper.InitPropertyMaps(string.Empty, levelEngineAssembly.GetTypes());
-            PropertyMapper.InitPropertyMaps(string.Empty, logicAssembly.GetTypes());
+            PropertyMapper.InitPropertyMaps("mvz2", levelEngineAssembly.GetTypes());
+            PropertyMapper.InitPropertyMaps("mvz2", logicAssembly.GetTypes());
             ModManager.OnRegisterMod += RegisterMod;
             await main.Initialize();
         }

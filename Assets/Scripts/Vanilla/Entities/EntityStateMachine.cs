@@ -119,13 +119,13 @@ namespace MVZ2.Vanilla.Entities
 
         private List<EntityStateMachineState> states = new List<EntityStateMachineState>();
 
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         private static readonly VanillaEntityPropertyMeta PROP_SUBSTATE = new VanillaEntityPropertyMeta("SubState");
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         private static readonly VanillaEntityPropertyMeta PROP_PREVIOUS_STATE = new VanillaEntityPropertyMeta("PreviousState");
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         private static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         private static readonly VanillaEntityPropertyMeta PROP_SUBSTATE_TIMER = new VanillaEntityPropertyMeta("SubStateTimer");
         public const string PROP_REGION = "state_machine";
     }

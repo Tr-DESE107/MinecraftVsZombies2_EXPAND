@@ -156,7 +156,7 @@ namespace MVZ2.GameContent.Pickups
         private List<Entity> mergeBuffer = new List<Entity>();
         private GemMergeDetector mergeDetector;
         public const string PROP_REGION = "gem";
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_MERGE_TIMER = new VanillaEntityPropertyMeta("mergeTimer");
         protected virtual bool CanMerge => false;
         protected virtual int MergeCount => 1;

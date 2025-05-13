@@ -21,7 +21,14 @@ namespace PVZEngine
                     string regionName;
                     if (fieldAttribute != null)
                     {
-                        regionName = fieldAttribute.RegionName;
+                        if (!string.IsNullOrEmpty(fieldAttribute.TypeName))
+                        {
+                            regionName = $"{fieldAttribute.TypeName}/{fieldAttribute.RegionName}";
+                        }
+                        else
+                        {
+                            regionName = $"{fieldAttribute.RegionName}";
+                        }
                     }
                     else if (regionAttribute != null)
                     {
@@ -73,6 +80,17 @@ namespace PVZEngine
                 return key;
             }
             Debug.LogWarning($"Property with name {propertyName} is not registered.");
+            return PropertyKey.Invalid;
+        }
+        public static PropertyKey ConvertFromName(string propertyName, string regionName, string defaultNsp)
+        {
+            var id = NamespaceID.Parse(propertyName, defaultNsp);
+            var newName = PropertyKey.CombineName(id.SpaceName, regionName, id.Path);
+            if (registries.TryGetKeyOfFullName(newName, out var key))
+            {
+                return key;
+            }
+            Debug.LogWarning($"Property with name {newName} is not registered.");
             return PropertyKey.Invalid;
         }
         public static string ConvertToFullName(PropertyKey key)

@@ -4,7 +4,7 @@ using Tools;
 
 namespace MVZ2.Vanilla.Entities
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class VanillaCartProps
     {
         public static readonly PropertyMeta CART_TRIGGER_SOUND = new PropertyMeta("cartTriggerSound");

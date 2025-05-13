@@ -4,7 +4,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class VanillaProjectileProps
     {
         public static readonly PropertyMeta ROLLS = new PropertyMeta("rolls");

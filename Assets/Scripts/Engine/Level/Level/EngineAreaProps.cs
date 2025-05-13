@@ -2,7 +2,7 @@
 
 namespace PVZEngine.Definitions
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.level)]
     public static class EngineAreaProps
     {
         private static PropertyMeta Get(string name)

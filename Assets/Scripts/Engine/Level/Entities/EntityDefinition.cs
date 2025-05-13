@@ -47,7 +47,10 @@ namespace PVZEngine.Entities
             {
                 var behaviour = content.GetEntityBehaviourDefinition(behaviourID);
                 if (behaviour == null)
+                {
+                    Debug.LogWarning($"Cannot find entity behaviour with ID {behaviourID}");
                     continue;
+                }
                 behaviourCaches.Add(behaviour);
             }
         }

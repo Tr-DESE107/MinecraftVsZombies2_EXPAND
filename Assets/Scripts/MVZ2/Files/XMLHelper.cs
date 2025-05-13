@@ -39,6 +39,10 @@ namespace MVZ2.IO
             document.Load(xmlReader);
             return document;
         }
+        public static bool HasAttribute(this XmlNode node, string name)
+        {
+            return node.Attributes[name] != null;
+        }
         public static string GetAttribute(this XmlNode node, string name)
         {
             var attr = node.Attributes[name];
@@ -250,6 +254,16 @@ namespace MVZ2.IO
                         if (valid)
                             propValue = value.Value;
                         return valid;
+                    }
+                case "string":
+                    {
+                        if (!node.HasAttribute("value"))
+                        {
+                            propValue = null;
+                            return false;
+                        }
+                        propValue = node.GetAttribute("value");
+                        return true;
                     }
                 case "vector2":
                     {

@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         protected DispenserDetector detector;
         private const string PROP_REGION = "dispenser_family";
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_SHOOT_TIMER = new VanillaEntityPropertyMeta("ShootTimer");
     }
 }

@@ -79,9 +79,9 @@ namespace MVZ2.GameContent.Stages
         }
 
         private const string PROP_REGION = "starshard_drop_stage";
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_STARSHARD_RNG = new VanillaLevelPropertyMeta("StarshardRNG");
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_STARSHARD_CHANCE = new VanillaLevelPropertyMeta("StarshardChance");
         public const int MIN_STARSHARD_CHANCE = -15;
         public const int STARSHARD_INCREAMENT = 10;

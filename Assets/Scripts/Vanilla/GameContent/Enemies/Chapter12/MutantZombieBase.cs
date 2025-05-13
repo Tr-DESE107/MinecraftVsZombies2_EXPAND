@@ -46,9 +46,9 @@ namespace MVZ2.Vanilla.Enemies
         public static int GetWeapon(Entity entity) => entity.GetBehaviourField<int>(FIELD_WEAPON);
         public static void SetWeapon(Entity entity, int value) => entity.SetBehaviourField(FIELD_WEAPON, value);
 
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta FIELD_HAS_IMP = new VanillaEntityPropertyMeta("HasImp");
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta FIELD_WEAPON = new VanillaEntityPropertyMeta("Weapon");
 
         private const string PROP_REGION = "mutant_zombie_base";

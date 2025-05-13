@@ -116,7 +116,7 @@ namespace MVZ2.GameContent.Stages
             SpawnMesmerizer(level, new Vector3(x, y, z));
         }
         public const string PROP_REGION = "seija_stage_behaviour";
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta FIELD_MESMERIZER_SPAWNED = new VanillaLevelPropertyMeta("MesmerizerSpawned");
     }
 }

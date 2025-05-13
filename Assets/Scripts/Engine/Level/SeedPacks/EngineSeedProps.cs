@@ -3,7 +3,7 @@ using PVZEngine.SeedPacks;
 
 namespace PVZEngine.Level
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.seed)]
     public static class EngineSeedProps
     {
         private static PropertyMeta Get(string name)

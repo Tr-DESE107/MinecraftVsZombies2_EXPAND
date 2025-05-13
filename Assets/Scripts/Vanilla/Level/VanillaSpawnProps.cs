@@ -3,7 +3,7 @@ using PVZEngine.Definitions;
 
 namespace MVZ2.Vanilla.Level
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.spawn)]
     public static class VanillaSpawnProps
     {
         private static PropertyMeta Get(string name)

@@ -3,7 +3,7 @@ using PVZEngine.Damages;
 
 namespace MVZ2.Vanilla.Shells
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.shell)]
     public static class VanillaShellProps
     {
         private static PropertyMeta Get(string name)

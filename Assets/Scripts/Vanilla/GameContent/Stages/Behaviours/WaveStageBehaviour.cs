@@ -270,13 +270,13 @@ namespace MVZ2.GameContent.Stages
         private const string PROP_REGION = "wave_stage";
         public bool SpawnFlagZombie { get; set; } = true;
         public bool HasFinalWave { get; set; } = true;
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_WAVE_TIMER = new VanillaLevelPropertyMeta("WaveTimer");
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_WAVE_MAX_HEALTH = new VanillaLevelPropertyMeta("WaveMaxHealth");
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_FINAL_WAVE_EVENT_TIMER = new VanillaLevelPropertyMeta("FinalWaveEventTimer");
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_HIGH_WAVE = new VanillaLevelPropertyMeta("HighWave");
         public const float SUBTRACK_WEIGHT_SPEED = 1 / 90f;
         public const int STATE_NOT_STARTED = VanillaLevelStates.STATE_NOT_STARTED;

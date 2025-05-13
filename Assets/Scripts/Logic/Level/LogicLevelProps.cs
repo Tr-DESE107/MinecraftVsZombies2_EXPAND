@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MVZ2Logic.Level
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.level)]
     public static class LogicLevelProps
     {
         public static readonly PropertyMeta SCREEN_COVER = new PropertyMeta("screenCover");

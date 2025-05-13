@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class VanillaEnemyProps
     {
         public static readonly PropertyMeta SPEED = new PropertyMeta("speed");

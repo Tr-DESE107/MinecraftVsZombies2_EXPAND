@@ -74,9 +74,9 @@ namespace MVZ2.GameContent.Stages
             SetRedstoneChance(level, GetRedstoneChance(level) + value);
         }
         private const string PROP_REGION = "redstone_drop_stage";
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_REDSTONE_RNG = new VanillaLevelPropertyMeta("RedstoneRNG");
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_REDSTONE_CHANCE = new VanillaLevelPropertyMeta("RedstoneChance");
         public const int MIN_CHANCE = -15;
         public const int CHANCE_INCREAMENT = 10;

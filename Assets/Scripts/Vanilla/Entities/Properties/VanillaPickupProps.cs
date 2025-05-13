@@ -3,7 +3,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class VanillaPickupProps
     {
         private static PropertyMeta Get(string name)

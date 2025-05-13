@@ -717,7 +717,7 @@ namespace MVZ2.Vanilla.Entities
         }
 
         private const string PROP_REGION = "entities";
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_SHINE_RING = new VanillaEntityPropertyMeta("LightShineRing");
     }
 }

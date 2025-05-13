@@ -54,11 +54,11 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<bool>(PROP_NO_DAMAGE_FRAGMENTS);
         }
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_FRAGMENT = new VanillaEntityPropertyMeta("Fragment");
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_TICK_DAMAGE = new VanillaEntityPropertyMeta("TickDamage");
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_NO_DAMAGE_FRAGMENTS = new VanillaEntityPropertyMeta("noDamageFragments");
         #endregion
 
@@ -111,9 +111,9 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.SetProperty(PROP_HEALING_PARTICLES, value);
         }
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_HEALING_PARTICLES = new VanillaEntityPropertyMeta("HealingParticles");
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_TICK_HEALING = new VanillaEntityPropertyMeta("TickHealing");
         #endregion
     }

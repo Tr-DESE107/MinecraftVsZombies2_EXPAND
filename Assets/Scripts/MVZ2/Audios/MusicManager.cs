@@ -23,8 +23,8 @@ namespace MVZ2.Audios
             SetSourceClip(subTrackSource, subTrack);
             IsPaused = false;
 
-            mainTrackSource.Play();
-            subTrackSource.Play();
+            PlaySource(mainTrackSource);
+            PlaySource(subTrackSource);
         }
         public void SetPlayingMusic(NamespaceID id)
         {
@@ -44,6 +44,12 @@ namespace MVZ2.Audios
             source.clip = clip;
             source.gameObject.SetActive(clip);
             UpdateTrackWeight();
+        }
+        private void PlaySource(AudioSource source)
+        {
+            if (!source.isActiveAndEnabled)
+                return;
+            source.Play();
         }
         #endregion
 

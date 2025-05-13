@@ -114,7 +114,7 @@ namespace MVZ2.Vanilla.Enemies
         {
         }
         private const string PROP_REGION = "state_enemy";
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_DEATH_TIMER = new VanillaEntityPropertyMeta("DeathTimer");
     }
 

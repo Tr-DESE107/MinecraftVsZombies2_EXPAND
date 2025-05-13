@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla.Level
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.level)]
     public static class VanillaAreaProps
     {
         private static PropertyMeta Get(string name)

@@ -2,7 +2,7 @@
 
 namespace PVZEngine.Level
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.recharge)]
     public static class EngineRechargeProps
     {
         public static readonly PropertyMeta START_MAX_RECHARGE = new PropertyMeta("startMaxRecharge");

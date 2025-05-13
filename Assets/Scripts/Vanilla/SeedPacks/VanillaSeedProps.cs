@@ -4,7 +4,7 @@ using PVZEngine.SeedPacks;
 
 namespace MVZ2.Vanilla.SeedPacks
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.seed)]
     public static class VanillaSeedProps
     {
         private static PropertyMeta Get(string name)

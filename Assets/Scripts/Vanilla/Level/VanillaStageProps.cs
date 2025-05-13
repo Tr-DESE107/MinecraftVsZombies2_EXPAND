@@ -8,7 +8,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.Vanilla.Level
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.level)]
     public static class VanillaStageProps
     {
         private static PropertyMeta Get(string name)

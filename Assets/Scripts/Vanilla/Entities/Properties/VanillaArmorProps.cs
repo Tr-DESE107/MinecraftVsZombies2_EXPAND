@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.armor)]
     public static class VanillaArmorProps
     {
         private static PropertyMeta Get(string name)

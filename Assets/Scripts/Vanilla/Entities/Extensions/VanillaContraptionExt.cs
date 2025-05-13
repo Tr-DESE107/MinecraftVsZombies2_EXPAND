@@ -157,7 +157,7 @@ namespace MVZ2.Vanilla.Entities
             buff.SetProperty(WitheredBuff.PROP_TIMEOUT, time);
         }
         private const string PROP_REGION = "contraptions";
-        [PropertyRegistry(PROP_REGION)]
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta PROP_EVOKED = new VanillaEntityPropertyMeta("Evoked");
     }
 }

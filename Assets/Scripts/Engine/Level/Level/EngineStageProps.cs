@@ -1,6 +1,6 @@
 ﻿namespace PVZEngine.Level
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.level)]
     public static class EngineStageProps
     {
         private static PropertyMeta Get(string name)

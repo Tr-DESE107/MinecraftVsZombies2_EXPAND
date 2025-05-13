@@ -3,7 +3,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Contraptions
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class VanillaContraptionProps
     {
         private static PropertyMeta Get(string name)

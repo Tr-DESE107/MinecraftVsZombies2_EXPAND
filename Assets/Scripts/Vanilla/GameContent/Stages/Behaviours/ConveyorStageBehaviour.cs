@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Stages
 
         #region 属性字段
         public const string PROP_REGION = "conveyor";
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_CONVEYOR_TIMER = new VanillaLevelPropertyMeta("ConveyorTimer");
         public const int CONVEYOR_INTERVAL = 120;
         #endregion

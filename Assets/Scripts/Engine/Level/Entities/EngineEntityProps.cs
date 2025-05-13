@@ -2,7 +2,7 @@
 
 namespace PVZEngine.Entities
 {
-    [PropertyRegistryRegion]
+    [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class EngineEntityProps
     {
         private static PropertyMeta Get(string name)

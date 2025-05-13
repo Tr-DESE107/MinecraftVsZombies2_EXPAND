@@ -108,7 +108,7 @@ namespace MVZ2.GameContent.Stages
             return roundTimer;
         }
         private const string PROP_REGION = "frankenstein_stage";
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_FRANKENSTEIN_TIMER = new VanillaLevelPropertyMeta("FrankensteinTimer");
     }
 }

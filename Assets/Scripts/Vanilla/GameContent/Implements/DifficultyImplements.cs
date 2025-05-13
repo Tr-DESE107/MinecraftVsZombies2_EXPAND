@@ -64,7 +64,7 @@ namespace MVZ2.GameContent.Implements
             level.SetProperty(PROP_DIFFICULTY_BUFF, value);
         }
         private const string PROP_REGION = "difficulty";
-        [PropertyRegistry(PROP_REGION)]
+        [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta PROP_DIFFICULTY_BUFF = new VanillaLevelPropertyMeta("DifficultyBuff");
     }
 }

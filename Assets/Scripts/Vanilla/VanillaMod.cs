@@ -120,7 +120,7 @@ namespace MVZ2.Vanilla
             foreach (var assembly in assemblies)
             {
                 var types = assembly.GetTypes();
-                PropertyMapper.InitPropertyMaps(string.Empty, types);
+                PropertyMapper.InitPropertyMaps(Namespace, types);
             }
         }
         protected void LoadDefinitionsFromAssemblies(Assembly[] assemblies)
@@ -158,7 +158,7 @@ namespace MVZ2.Vanilla
                 // 加载实体的属性。
                 foreach (var pair in meta.Properties)
                 {
-                    def.SetProperty(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
+                    def.SetProperty(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.entity, Global.BuiltinNamespace), pair.Value);
                 }
                 AddDefinition(def);
             }
@@ -175,7 +175,7 @@ namespace MVZ2.Vanilla
                 // 加载护甲的属性。
                 foreach (var pair in meta.Properties)
                 {
-                    def.SetProperty(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
+                    def.SetProperty(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.armor, Global.BuiltinNamespace), pair.Value);
                 }
                 AddDefinition(def);
             }
@@ -306,7 +306,7 @@ namespace MVZ2.Vanilla
 
                 foreach (var pair in meta.Properties)
                 {
-                    stage.SetProperty(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
+                    stage.SetProperty(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.level, Global.BuiltinNamespace), pair.Value);
                 }
             }
         }

@@ -23,8 +23,8 @@ namespace MVZ2
             }
             var levelEngineAssembly = typeof(LevelEngine).Assembly;
             var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
-            PropertyMapper.InitPropertyMaps(string.Empty, levelEngineAssembly.GetTypes());
-            PropertyMapper.InitPropertyMaps(string.Empty, logicAssembly.GetTypes());
+            PropertyMapper.InitPropertyMaps("mvz2", levelEngineAssembly.GetTypes());
+            PropertyMapper.InitPropertyMaps("mvz2", logicAssembly.GetTypes());
             ModManager.OnRegisterMod += RegisterMod;
             Addressables.LoadSceneAsync("Main", LoadSceneMode.Single);
         }
