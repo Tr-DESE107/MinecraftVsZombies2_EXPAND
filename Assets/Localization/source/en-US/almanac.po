@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-13 04:59+0800\n"
-"PO-Revision-Date: 2025-05-13 17:00+0800\n"
+"POT-Creation-Date: 2025-05-13 08:00+0800\n"
+"PO-Revision-Date: 2025-05-14 07:52+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1018,6 +1018,36 @@ msgstr ""
 "You know, sound can't travel through a vacuum, so he actually can't hear the noise from his neighbors.\n"
 "\n"
 "GOSH! Stop telling that joke of yours! It's awful!!!"
+
+#. Header for contraptions mvz2:desire_pot
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "欲望壶会复制敌人身上拥有的星之碎片。"
+msgstr "Desire Pot can duplicate the starshards carried by enemies."
+
+#. Properties for contraptions mvz2:desire_pot
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "技能：<color=red>按从左到右的顺序，生成2张你所携带的蓝图的掉落物复制。（下一次技能会从上一次结束的位置开始复制）</color>"
+msgstr ""
+"Evocation: <color=red>Spawn the clone pickups of 2 carrying blueprints from the left to the right. (The next evocation will continue "
+"from the previous position)</color>"
+
+#. Flavor for contraptions mvz2:desire_pot
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"我是壶中的神灵，我能实现你的愿望，让我听听你内心中的欲望吧……\n"
+"\n"
+"让壶解禁？\n"
+"\n"
+"嗯……我刚才好像什么都没有听到。"
+msgstr ""
+"I am the divine spirit in the pot, I can fulfill your wishes. Let me hear the desires in your heart...\n"
+"\n"
+"Unban the pot?\n"
+"\n"
+"Um... I didn't seem to hear anything just now."
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -3937,6 +3967,18 @@ msgstr "Gravitation Bomb"
 msgctxt "entity.tooltip"
 msgid "触发后产生引力黑洞"
 msgstr "Create a black hole after being triggered"
+
+#. Header for entity mvz2:desire_pot
+#: Entity meta file
+msgctxt "entity.name"
+msgid "欲望壶"
+msgstr "Desire Pot"
+
+#. Properties for entity mvz2:desire_pot
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "复制敌人身上的星之碎片"
+msgstr "Duplicate starshards carried by enemies"
 
 #. Header for entity mvz2:infectenser
 #: Entity meta file

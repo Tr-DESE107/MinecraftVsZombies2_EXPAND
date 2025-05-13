@@ -205,6 +205,7 @@
     <model name="cursed_fire_particles" type="entity" path="mvz2:effect/cursed_fire_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="blackhole" type="entity" path="mvz2:effect/blackhole" width="130" height="130" xOffset="0" yOffset="0"/>
     <model name="annihilation_field" type="entity" path="mvz2:effect/annihilation_field" width="130" height="130" xOffset="0" yOffset="0"/>
+    <model name="desire_lump" type="entity" path="mvz2:effect/desire_lump" width="64" height="64" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

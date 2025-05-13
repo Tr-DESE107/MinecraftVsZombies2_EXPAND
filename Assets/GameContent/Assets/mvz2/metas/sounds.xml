@@ -9,6 +9,9 @@
     <sound name="anvil">
         <sample path="mvz2:anvil" weight="1" />
     </sound>
+    <sound name="arcane_intellect">
+        <sample path="mvz2:arcane_intellect" weight="1" />
+    </sound>
     <sound name="armor_up">
         <sample path="mvz2:armor_up" weight="1" />
     </sound>
@@ -120,6 +123,9 @@
     <sound name="decrepify">
         <sample path="mvz2:decrepify" weight="1" />
     </sound>
+    <sound name="desire_pot_evocation">
+        <sample path="mvz2:desire_pot_evocation" weight="1" />
+    </sound>
     <sound name="dialog_bang">
         <sample path="mvz2:talk/dialog_bang" weight="1" />
     </sound>
@@ -203,6 +209,9 @@
     </sound>
     <sound name="fast_forward" priority="64">
         <sample path="mvz2:fast_forward" weight="1" />
+    </sound>
+    <sound name="fatigue" >
+        <sample path="mvz2:fatigue" weight="1" />
     </sound>
     <sound name="final_item" priority="0">
         <sample path="mvz2:final_item" weight="1" />
@@ -557,6 +566,9 @@
     </sound>
     <sound name="shock">
         <sample path="mvz2:shock" weight="1" />
+    </sound>
+    <sound name="shadow_cast">
+        <sample path="mvz2:shadow_cast" weight="1" />
     </sound>
     <sound name="siren" maxCount="1" priority="64">
         <sample path="mvz2:siren" weight="1" />

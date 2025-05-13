@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-11 07:19+0800\n"
-"PO-Revision-Date: 2025-05-11 19:20+0800\n"
+"POT-Creation-Date: 2025-05-13 09:47+0800\n"
+"PO-Revision-Date: 2025-05-13 21:48+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -655,37 +655,49 @@ msgctxt "advice"
 msgid "点击以继续"
 msgstr "Click to continue"
 
+# 欲望壶技能的提示
+#: Scripts\Vanilla\VanillaStrings.cs:24
+msgctxt "advice"
+msgid "没有抽到牌！受到{0}点疲劳伤害！"
+msgstr "No cards are drawn! Take {0} fatigue damage!"
+
+# 欲望壶技能的提示
+#: Scripts\Vanilla\VanillaStrings.cs:26
+msgctxt "advice"
+msgid "没有抽到牌！但那又怎样呢？"
+msgstr "No cards are drawn! But so what?"
+
 # 固有蓝图的提示
-#: Scripts\Vanilla\VanillaStrings.cs:25
+#: Scripts\Vanilla\VanillaStrings.cs:29
 msgid "固有"
 msgstr "Innate"
 
-#: Scripts\Vanilla\VanillaStrings.cs:27
+#: Scripts\Vanilla\VanillaStrings.cs:31
 msgid "不推荐在这关使用"
 msgstr "Not recommended for level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:30
+#: Scripts\Vanilla\VanillaStrings.cs:34
 msgid "购买"
 msgstr "Purchase"
 
-#: Scripts\Vanilla\VanillaStrings.cs:32
+#: Scripts\Vanilla\VanillaStrings.cs:36
 msgid "购买第七个器械槽位？"
 msgstr "Buy the 7th contraption slot?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:34
+#: Scripts\Vanilla\VanillaStrings.cs:38
 msgid "是否进行新手教程？"
 msgstr "Do you want to have a tutorial?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:36
+#: Scripts\Vanilla\VanillaStrings.cs:40
 msgid "新手教程"
 msgstr "Tutorial"
 
-#: Scripts\Vanilla\VanillaStrings.cs:38
+#: Scripts\Vanilla\VanillaStrings.cs:42
 msgid "通关"
 msgstr "Game Completed"
 
 # 获得新制品提示
-#: Scripts\Vanilla\VanillaStrings.cs:40
+#: Scripts\Vanilla\VanillaStrings.cs:44
 msgid ""
 "恭喜通关！\n"
 "接下来的内容还在开发中，敬请期待！"
@@ -693,24 +705,24 @@ msgstr ""
 "Congratulations! You have completed the game...for now!\n"
 "The following content is under development and coming soon!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:43
+#: Scripts\Vanilla\VanillaStrings.cs:47
 msgid "用户名不能为空"
 msgstr "Username cannot be empty"
 
-#: Scripts\Vanilla\VanillaStrings.cs:45
+#: Scripts\Vanilla\VanillaStrings.cs:49
 msgid "已经存在该用户名"
 msgstr "This username already exists"
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:47
+#: Scripts\Vanilla\VanillaStrings.cs:51
 msgid "无法重命名为该用户名"
 msgstr "Cannot rename to this name"
 
-#: Scripts\Vanilla\VanillaStrings.cs:49
+#: Scripts\Vanilla\VanillaStrings.cs:53
 msgid "第一次游戏必须输入用户名"
 msgstr "Username must be set when starting the game for the first time"
 
-#: Scripts\Vanilla\VanillaStrings.cs:51
+#: Scripts\Vanilla\VanillaStrings.cs:55
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
@@ -719,175 +731,175 @@ msgstr ""
 "This user's data will be all deleted!"
 
 # 重命名特殊用户时的警告
-#: Scripts\Vanilla\VanillaStrings.cs:53
+#: Scripts\Vanilla\VanillaStrings.cs:57
 msgid "你无法重命名该用户"
 msgstr "Cannot rename this user"
 
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\VanillaStrings.cs:61
 msgctxt "recharge_time"
 msgid "无"
 msgstr "None"
 
-#: Scripts\Vanilla\VanillaStrings.cs:59
+#: Scripts\Vanilla\VanillaStrings.cs:63
 msgctxt "recharge_time"
 msgid "短"
 msgstr "Short"
 
-#: Scripts\Vanilla\VanillaStrings.cs:61
+#: Scripts\Vanilla\VanillaStrings.cs:65
 msgctxt "recharge_time"
 msgid "长"
 msgstr "Long"
 
-#: Scripts\Vanilla\VanillaStrings.cs:63
+#: Scripts\Vanilla\VanillaStrings.cs:67
 msgctxt "recharge_time"
 msgid "很长"
 msgstr "Very Long"
 
-#: Scripts\Vanilla\VanillaStrings.cs:67
+#: Scripts\Vanilla\VanillaStrings.cs:71
 msgctxt "archive"
 msgid "剧情分支"
 msgstr "Plot Branch"
 
-#: Scripts\Vanilla\VanillaStrings.cs:69
+#: Scripts\Vanilla\VanillaStrings.cs:73
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr "Do you have enough money to buy this?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:71
+#: Scripts\Vanilla\VanillaStrings.cs:75
 msgctxt "archive"
 msgid "对话结束"
 msgstr "Replay Ended"
 
-#: Scripts\Vanilla\VanillaStrings.cs:73
+#: Scripts\Vanilla\VanillaStrings.cs:77
 msgctxt "archive"
 msgid "是否重新播放？"
 msgstr "Play again?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:77
+#: Scripts\Vanilla\VanillaStrings.cs:81
 msgid "是"
 msgstr "Yes"
 
-#: Scripts\Vanilla\VanillaStrings.cs:79
+#: Scripts\Vanilla\VanillaStrings.cs:83
 msgid "否"
 msgstr "No"
 
-#: Scripts\Vanilla\VanillaStrings.cs:85
+#: Scripts\Vanilla\VanillaStrings.cs:89
 msgid "返回地图"
 msgstr "Back to map"
 
-#: Scripts\Vanilla\VanillaStrings.cs:87
+#: Scripts\Vanilla\VanillaStrings.cs:91
 msgid "返回主菜单"
 msgstr "Back to main menu"
 
-#: Scripts\Vanilla\VanillaStrings.cs:91
+#: Scripts\Vanilla\VanillaStrings.cs:95
 msgid "警告"
 msgstr "Warning"
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:93
+#: Scripts\Vanilla\VanillaStrings.cs:97
 msgid "提示"
 msgstr "Hint"
 
-#: Scripts\Vanilla\VanillaStrings.cs:95
+#: Scripts\Vanilla\VanillaStrings.cs:99
 msgid "退出"
 msgstr "Quit"
 
-#: Scripts\Vanilla\VanillaStrings.cs:99
+#: Scripts\Vanilla\VanillaStrings.cs:103
 msgid "确认"
 msgstr "Accept"
 
-#: Scripts\Vanilla\VanillaStrings.cs:102
+#: Scripts\Vanilla\VanillaStrings.cs:106
 msgid "能量不足"
 msgstr "Not enough energy"
 
-#: Scripts\Vanilla\VanillaStrings.cs:104
+#: Scripts\Vanilla\VanillaStrings.cs:108
 msgid "重新充能中…"
 msgstr "Recharging…"
 
-#: Scripts\Vanilla\VanillaStrings.cs:106
+#: Scripts\Vanilla\VanillaStrings.cs:110
 msgid "挖掉器械"
 msgstr "Dig a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:108
+#: Scripts\Vanilla\VanillaStrings.cs:112
 msgid "触发器械"
 msgstr "Trigger a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:112
+#: Scripts\Vanilla\VanillaStrings.cs:116
 msgctxt "difficulty"
 msgid "简单"
 msgstr "EASY"
 
-#: Scripts\Vanilla\VanillaStrings.cs:114
+#: Scripts\Vanilla\VanillaStrings.cs:118
 msgctxt "difficulty"
 msgid "普通"
 msgstr "NORMAL"
 
-#: Scripts\Vanilla\VanillaStrings.cs:116
+#: Scripts\Vanilla\VanillaStrings.cs:120
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
 
-#: Scripts\Vanilla\VanillaStrings.cs:118
+#: Scripts\Vanilla\VanillaStrings.cs:122
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr "Unknown"
 
-#: Scripts\Vanilla\VanillaStrings.cs:122
+#: Scripts\Vanilla\VanillaStrings.cs:126
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr "Unknown Level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:124
+#: Scripts\Vanilla\VanillaStrings.cs:128
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr "{0} - Day {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:126
+#: Scripts\Vanilla\VanillaStrings.cs:130
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
 msgstr "{0} - Flag {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:130
+#: Scripts\Vanilla\VanillaStrings.cs:134
 msgctxt "death_message"
 msgid "你死了！"
 msgstr "You died!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:132
+#: Scripts\Vanilla\VanillaStrings.cs:136
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr "<color=red>COME TO US</color>"
 
-#: Scripts\Vanilla\VanillaStrings.cs:135
+#: Scripts\Vanilla\VanillaStrings.cs:139
 msgctxt "entity.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:138
+#: Scripts\Vanilla\VanillaStrings.cs:142
 msgctxt "option.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:141
+#: Scripts\Vanilla\VanillaStrings.cs:145
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:144
+#: Scripts\Vanilla\VanillaStrings.cs:148
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:147
+#: Scripts\Vanilla\VanillaStrings.cs:151
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr "???"
 
-#: Scripts\Vanilla\VanillaStrings.cs:150
+#: Scripts\Vanilla\VanillaStrings.cs:154
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr "(Not encountered yet)"
 
-#: Scripts\Vanilla\VanillaStrings.cs:154
+#: Scripts\Vanilla\VanillaStrings.cs:158
 msgctxt "music.name"
 msgid "无"
 msgstr "None"
@@ -1047,19 +1059,19 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:162
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:192
 msgid "来源：{0}"
 msgstr "Source: {0}"
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:164
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:194
 msgid "原曲：{0}"
 msgstr "Origin: {0}"
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:166
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:196
 msgid "作者：{0}"
 msgstr "Author: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:666
+#: Scripts\MVZ2\Map\MapController.cs:671
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1067,7 +1079,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:668
+#: Scripts\MVZ2\Map\MapController.cs:673
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1075,11 +1087,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:670
+#: Scripts\MVZ2\Map\MapController.cs:675
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:672
+#: Scripts\MVZ2\Map\MapController.cs:677
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1422,8 +1434,8 @@ msgstr "Overdraw"
 #. Description for achievement mvz2:overdraw
 #: Achievements meta file
 msgctxt "achievement"
-msgid "使用欲望壶的技能抽到欲望壶。"
-msgstr "Evoke a Desire Pot to draw a Desire Pot blueprint."
+msgid "使用欲望壶的技能抽到两张欲望壶。"
+msgstr "Evoke a Desire Pot to draw 2 Desire Pot blueprints."
 
 #. Name for music mvz2:mainmenu
 #: Music meta file

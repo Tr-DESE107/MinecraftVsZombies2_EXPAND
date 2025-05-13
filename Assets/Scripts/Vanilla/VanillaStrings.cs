@@ -21,6 +21,10 @@ namespace MVZ2.Vanilla
         public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的敌人要来了！";
         [TranslateMsg("预览战场的提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_CONTINUE = "点击以继续";
+        [TranslateMsg("欲望壶技能的提示", CONTEXT_ADVICE)]
+        public const string ADVICE_NO_CARDS_DRAWN = "没有抽到牌！受到{0}点疲劳伤害！";
+        [TranslateMsg("欲望壶技能的提示", CONTEXT_ADVICE)]
+        public const string ADVICE_NO_CARDS_DRAWN_CONVEYOR = "没有抽到牌！但那又怎样呢？";
 
         [TranslateMsg("固有蓝图的提示")]
         public const string INNATE = "固有";

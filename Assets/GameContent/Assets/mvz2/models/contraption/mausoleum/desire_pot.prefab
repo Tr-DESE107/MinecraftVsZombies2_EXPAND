@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8706503471715863083}
   - component: {fileID: 6095126361630674286}
   - component: {fileID: 7013773349306411641}
+  - component: {fileID: 1678972860978741213}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 1.2, y: 0.55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,6 +99,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &1678972860978741213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2776252855385795526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -55935898, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
+  - {fileID: 864879685, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
+  index: 0
 --- !u!1001 &1586506072868367642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -182,6 +199,10 @@ PrefabInstance:
       propertyPath: renderers.Array.data[0]
       value: 
       objectReference: {fileID: 7013773349306411641}
+    - target: {fileID: 7694393783756858985, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e1806254e1916fb4cbe57cbeace74b23, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -241,7 +262,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48, y: 0.54}
+  m_Size: {x: 0.3, y: 0.54}
   m_EdgeRadius: 0
 --- !u!4 &8708317998892296488 stripped
 Transform:

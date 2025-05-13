@@ -74,6 +74,7 @@ namespace MVZ2.GameContent.Effects
         public const string cursedFireParticles = "cursed_fire_particles";
         public const string blackhole = "blackhole";
         public const string annihilationField = "annihilation_field";
+        public const string desireLump = "desire_lump";
     }
     public static class VanillaEffectID
     {
@@ -146,6 +147,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID cursedFireParticles = Get(VanillaEffectNames.cursedFireParticles);
         public static readonly NamespaceID blackhole = Get(VanillaEffectNames.blackhole);
         public static readonly NamespaceID annihilationField = Get(VanillaEffectNames.annihilationField);
+        public static readonly NamespaceID desireLump = Get(VanillaEffectNames.desireLump);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

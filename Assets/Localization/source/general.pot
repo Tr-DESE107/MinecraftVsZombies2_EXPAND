@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-12 03:11+0800\n"
+"POT-Creation-Date: 2025-05-13 09:47+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -693,274 +693,286 @@ msgctxt "advice"
 msgid "点击以继续"
 msgstr ""
 
+# 欲望壶技能的提示
+#: Scripts\Vanilla\VanillaStrings.cs:24
+msgctxt "advice"
+msgid "没有抽到牌！受到{0}点疲劳伤害！"
+msgstr ""
+
+# 欲望壶技能的提示
+#: Scripts\Vanilla\VanillaStrings.cs:26
+msgctxt "advice"
+msgid "没有抽到牌！但那又怎样呢？"
+msgstr ""
+
 # 固有蓝图的提示
-#: Scripts\Vanilla\VanillaStrings.cs:25
+#: Scripts\Vanilla\VanillaStrings.cs:29
 msgid "固有"
 msgstr ""
 
 # 不推荐使用的提示
-#: Scripts\Vanilla\VanillaStrings.cs:27
+#: Scripts\Vanilla\VanillaStrings.cs:31
 msgid "不推荐在这关使用"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:30
+#: Scripts\Vanilla\VanillaStrings.cs:34
 msgid "购买"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:32
+#: Scripts\Vanilla\VanillaStrings.cs:36
 msgid "购买第七个器械槽位？"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:34
+#: Scripts\Vanilla\VanillaStrings.cs:38
 msgid "是否进行新手教程？"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:36
+#: Scripts\Vanilla\VanillaStrings.cs:40
 msgid "新手教程"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:38
+#: Scripts\Vanilla\VanillaStrings.cs:42
 msgid "通关"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:40
+#: Scripts\Vanilla\VanillaStrings.cs:44
 msgid ""
 "恭喜通关！\n"
 "接下来的内容还在开发中，敬请期待！"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:43
+#: Scripts\Vanilla\VanillaStrings.cs:47
 msgid "用户名不能为空"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:45
+#: Scripts\Vanilla\VanillaStrings.cs:49
 msgid "已经存在该用户名"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:47
+#: Scripts\Vanilla\VanillaStrings.cs:51
 msgid "无法重命名为该用户名"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:49
+#: Scripts\Vanilla\VanillaStrings.cs:53
 msgid "第一次游戏必须输入用户名"
 msgstr ""
 
 # 删除用户时的警告，{0}为名称
-#: Scripts\Vanilla\VanillaStrings.cs:51
+#: Scripts\Vanilla\VanillaStrings.cs:55
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
 msgstr ""
 
 # 重命名特殊用户时的警告
-#: Scripts\Vanilla\VanillaStrings.cs:53
-msgid "你无法重命名该用户"
-msgstr ""
-
-# 冷却时间
 #: Scripts\Vanilla\VanillaStrings.cs:57
-msgctxt "recharge_time"
-msgid "无"
-msgstr ""
-
-# 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:59
-msgctxt "recharge_time"
-msgid "短"
+msgid "你无法重命名该用户"
 msgstr ""
 
 # 冷却时间
 #: Scripts\Vanilla\VanillaStrings.cs:61
 msgctxt "recharge_time"
-msgid "长"
+msgid "无"
 msgstr ""
 
 # 冷却时间
 #: Scripts\Vanilla\VanillaStrings.cs:63
 msgctxt "recharge_time"
-msgid "很长"
+msgid "短"
 msgstr ""
 
-# 对话档案对话框标题
+# 冷却时间
+#: Scripts\Vanilla\VanillaStrings.cs:65
+msgctxt "recharge_time"
+msgid "长"
+msgstr ""
+
+# 冷却时间
 #: Scripts\Vanilla\VanillaStrings.cs:67
-msgctxt "archive"
-msgid "剧情分支"
-msgstr ""
-
-# 对话档案对话框内容
-#: Scripts\Vanilla\VanillaStrings.cs:69
-msgctxt "archive"
-msgid "是否拥有足够的金钱？"
+msgctxt "recharge_time"
+msgid "很长"
 msgstr ""
 
 # 对话档案对话框标题
 #: Scripts\Vanilla\VanillaStrings.cs:71
 msgctxt "archive"
-msgid "对话结束"
+msgid "剧情分支"
 msgstr ""
 
 # 对话档案对话框内容
 #: Scripts\Vanilla\VanillaStrings.cs:73
 msgctxt "archive"
+msgid "是否拥有足够的金钱？"
+msgstr ""
+
+# 对话档案对话框标题
+#: Scripts\Vanilla\VanillaStrings.cs:75
+msgctxt "archive"
+msgid "对话结束"
+msgstr ""
+
+# 对话档案对话框内容
+#: Scripts\Vanilla\VanillaStrings.cs:77
+msgctxt "archive"
 msgid "是否重新播放？"
 msgstr ""
 
 # 通用的是
-#: Scripts\Vanilla\VanillaStrings.cs:77
+#: Scripts\Vanilla\VanillaStrings.cs:81
 msgid "是"
 msgstr ""
 
 # 通用的否
-#: Scripts\Vanilla\VanillaStrings.cs:79
+#: Scripts\Vanilla\VanillaStrings.cs:83
 msgid "否"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:85
+#: Scripts\Vanilla\VanillaStrings.cs:89
 msgid "返回地图"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:87
+#: Scripts\Vanilla\VanillaStrings.cs:91
 msgid "返回主菜单"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:91
+#: Scripts\Vanilla\VanillaStrings.cs:95
 msgid "警告"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:93
+#: Scripts\Vanilla\VanillaStrings.cs:97
 msgid "提示"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:95
+#: Scripts\Vanilla\VanillaStrings.cs:99
 msgid "退出"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:99
+#: Scripts\Vanilla\VanillaStrings.cs:103
 msgid "确认"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:102
+#: Scripts\Vanilla\VanillaStrings.cs:106
 msgid "能量不足"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:104
+#: Scripts\Vanilla\VanillaStrings.cs:108
 msgid "重新充能中…"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:106
+#: Scripts\Vanilla\VanillaStrings.cs:110
 msgid "挖掉器械"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:108
-msgid "触发器械"
-msgstr ""
-
-# 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:112
-msgctxt "difficulty"
-msgid "简单"
-msgstr ""
-
-# 关卡难度
-#: Scripts\Vanilla\VanillaStrings.cs:114
-msgctxt "difficulty"
-msgid "普通"
+msgid "触发器械"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:116
 msgctxt "difficulty"
-msgid "困难"
+msgid "简单"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:118
 msgctxt "difficulty"
+msgid "普通"
+msgstr ""
+
+# 关卡难度
+#: Scripts\Vanilla\VanillaStrings.cs:120
+msgctxt "difficulty"
+msgid "困难"
+msgstr ""
+
+# 关卡难度
+#: Scripts\Vanilla\VanillaStrings.cs:122
+msgctxt "difficulty"
 msgid "未知难度"
 msgstr ""
 
 # 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:122
+#: Scripts\Vanilla\VanillaStrings.cs:126
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr ""
 
 # 关卡名称，{0}为关卡名，{1}为冒险模式天数
-#: Scripts\Vanilla\VanillaStrings.cs:124
+#: Scripts\Vanilla\VanillaStrings.cs:128
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgstr ""
 
 # 关卡名称，{0}为关卡名，{1}为无尽模式轮数
-#: Scripts\Vanilla\VanillaStrings.cs:126
+#: Scripts\Vanilla\VanillaStrings.cs:130
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
 msgstr ""
 
 # 死亡信息-未知
-#: Scripts\Vanilla\VanillaStrings.cs:130
+#: Scripts\Vanilla\VanillaStrings.cs:134
 msgctxt "death_message"
 msgid "你死了！"
 msgstr ""
 
 # 死亡信息-未知
-#: Scripts\Vanilla\VanillaStrings.cs:132
+#: Scripts\Vanilla\VanillaStrings.cs:136
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr ""
 
 # 实体名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:135
+#: Scripts\Vanilla\VanillaStrings.cs:139
 msgctxt "entity.name"
 msgid "？？？"
 msgstr ""
 
 # 蓝图选项名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:138
+#: Scripts\Vanilla\VanillaStrings.cs:142
 msgctxt "option.name"
 msgid "？？？"
 msgstr ""
 
 # 实体说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:141
+#: Scripts\Vanilla\VanillaStrings.cs:145
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 制品名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:144
+#: Scripts\Vanilla\VanillaStrings.cs:148
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr ""
 
 # 制品说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:147
+#: Scripts\Vanilla\VanillaStrings.cs:151
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 怪物说明-还没有遇到
-#: Scripts\Vanilla\VanillaStrings.cs:150
+#: Scripts\Vanilla\VanillaStrings.cs:154
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr ""
 
 # 音乐名-无
-#: Scripts\Vanilla\VanillaStrings.cs:154
+#: Scripts\Vanilla\VanillaStrings.cs:158
 msgctxt "music.name"
 msgid "无"
 msgstr ""
@@ -1524,7 +1536,7 @@ msgstr ""
 #. Description for achievement mvz2:overdraw
 #: Achievements meta file
 msgctxt "achievement"
-msgid "使用欲望壶的技能抽到欲望壶。"
+msgid "使用欲望壶的技能抽到两张欲望壶。"
 msgstr ""
 
 #. Name for music mvz2:mainmenu

@@ -45,11 +45,11 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.ReplaceSeedPacks(new NamespaceID[]
             {
+                VanillaContraptionID.desirePot,
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.megaMutantZombie,
 
                 VanillaObstacleID.monsterSpawner,
-                VanillaContraptionID.stoneShield,
                 VanillaContraptionID.lightningOrb,
                 VanillaContraptionID.devourer,
                 VanillaContraptionID.gravitationBomb,

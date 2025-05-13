@@ -37,6 +37,7 @@ namespace MVZ2.Vanilla
         public const string mesmerisedMatchup = "achievement.mesmerised_matchup";
         public const string bonebreaker = "achievement.bonebreaker";
         public const string reforged = "achievement.reforged";
+        public const string overdraw = "achievement.overdraw";
 
         public const string brokenLantern = "artifact.broken_lantern";
         public const string bottledBlackhole = "artifact.bottled_blackhole";
@@ -69,6 +70,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID mesmerisedMatchup = Get(VanillaUnlockNames.mesmerisedMatchup);
         public static readonly NamespaceID bonebreaker = Get(VanillaUnlockNames.bonebreaker);
         public static readonly NamespaceID reforged = Get(VanillaUnlockNames.reforged);
+        public static readonly NamespaceID overdraw = Get(VanillaUnlockNames.overdraw);
 
         public static readonly NamespaceID brokenLantern = Get(VanillaUnlockNames.brokenLantern);
         public static readonly NamespaceID bottledBlackhole = Get(VanillaUnlockNames.bottledBlackhole);

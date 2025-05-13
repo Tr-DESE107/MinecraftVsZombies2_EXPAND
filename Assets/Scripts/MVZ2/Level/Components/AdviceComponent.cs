@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MVZ2.Vanilla;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
@@ -12,7 +13,7 @@ namespace MVZ2.Level.Components
         {
         }
 
-        public void ShowAdvice(string context, string textKey, int priority, int timeout)
+        public void ShowAdvice(string context, string textKey, int priority, int timeout, params string[] args)
         {
             if (AdvicePriority > priority && AdviceTimeout != 0)
                 return;
@@ -20,6 +21,7 @@ namespace MVZ2.Level.Components
             AdviceKey = textKey;
             AdvicePriority = priority;
             AdviceTimeout = timeout;
+            AdviceArgs = args;
             var ui = Controller.GetUIPreset();
             ui.ShowAdvice(GetAdvice());
 
@@ -30,6 +32,7 @@ namespace MVZ2.Level.Components
             AdviceKey = null;
             AdvicePriority = 0;
             AdviceTimeout = 0;
+            AdviceArgs = Array.Empty<string>();
             var ui = Controller.GetUIPreset();
             ui.HideAdvice();
         }
@@ -49,7 +52,8 @@ namespace MVZ2.Level.Components
                 adviceContext = AdviceContext,
                 adviceKey = AdviceKey,
                 advicePriority = AdvicePriority,
-                adviceTimeout = AdviceTimeout
+                adviceTimeout = AdviceTimeout,
+                adviceArgs = AdviceArgs?.ToArray(),
             };
         }
         public override void LoadSerializable(ISerializableLevelComponent seri)
@@ -60,6 +64,7 @@ namespace MVZ2.Level.Components
             AdviceKey = comp.adviceKey;
             AdvicePriority = comp.advicePriority;
             AdviceTimeout = comp.adviceTimeout;
+            AdviceArgs = comp.adviceArgs?.ToArray();
         }
         public override void PostLevelLoad()
         {
@@ -72,10 +77,11 @@ namespace MVZ2.Level.Components
         }
         public string GetAdvice()
         {
-            return Level.Localization.GetTextParticular(AdviceKey, AdviceContext);
+            return Level.Localization.GetTextParticular(AdviceKey, AdviceContext, AdviceArgs);
         }
         public string AdviceContext { get; private set; }
         public string AdviceKey { get; private set; }
+        public string[] AdviceArgs { get; private set; } = Array.Empty<string>();
         public int AdvicePriority { get; private set; }
         public int AdviceTimeout { get; private set; }
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "advice");
@@ -87,5 +93,6 @@ namespace MVZ2.Level.Components
         public string adviceKey;
         public int advicePriority;
         public int adviceTimeout;
+        public string[] adviceArgs;
     }
 }

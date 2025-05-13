@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-13 04:59+0800\n"
+"POT-Creation-Date: 2025-05-13 08:00+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -806,6 +806,29 @@ msgid ""
 "你知道的，真空不能传声，所以他其实听不到他邻居产生的噪音。\n"
 "\n"
 "天哪！别再讲你这笑话了！烂死了！！！"
+msgstr ""
+
+#. Header for contraptions mvz2:desire_pot
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "欲望壶会复制敌人身上拥有的星之碎片。"
+msgstr ""
+
+#. Properties for contraptions mvz2:desire_pot
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "技能：<color=red>按从左到右的顺序，生成2张你所携带的蓝图的掉落物复制。（下一次技能会从上一次结束的位置开始复制）</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:desire_pot
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"我是壶中的神灵，我能实现你的愿望，让我听听你内心中的欲望吧……\n"
+"\n"
+"让壶解禁？\n"
+"\n"
+"嗯……我刚才好像什么都没有听到。"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -3269,6 +3292,18 @@ msgctxt "entity.tooltip"
 msgid "触发后产生引力黑洞"
 msgstr ""
 
+#. Header for entity mvz2:desire_pot
+#: Entity meta file
+msgctxt "entity.name"
+msgid "欲望壶"
+msgstr ""
+
+#. Properties for entity mvz2:desire_pot
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "复制敌人身上的星之碎片"
+msgstr ""
+
 #. Header for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -4183,5 +4218,23 @@ msgstr ""
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "器械x250%伤害，但x50%攻击速度"
+msgstr ""
+
+#. Name for blueprint option return_pearl
+#: Blueprints meta file
+msgctxt "option.name"
+msgid "返回弹珠"
+msgstr ""
+
+#. Name for blueprint option lengthen_board
+#: Blueprints meta file
+msgctxt "option.name"
+msgid "增长挡板"
+msgstr ""
+
+#. Name for blueprint option add_pearl
+#: Blueprints meta file
+msgctxt "option.name"
+msgid "增加弹珠"
 msgstr ""
 

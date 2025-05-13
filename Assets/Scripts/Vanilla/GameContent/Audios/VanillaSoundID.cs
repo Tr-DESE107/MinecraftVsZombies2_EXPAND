@@ -6,7 +6,8 @@ namespace MVZ2.Vanilla.Audios
     {
         public readonly static NamespaceID achievement = Get("achievement");
         public readonly static NamespaceID agnoy = Get("agnoy");
-        public readonly static NamespaceID anvil = Get("anvil");
+        public readonly static NamespaceID anvil = Get("anvil"); 
+        public readonly static NamespaceID arcaneIntellect = Get("arcane_intellect");
         public readonly static NamespaceID armorUp = Get("armor_up");
         public readonly static NamespaceID awooga = Get("awooga");
         public readonly static NamespaceID bash = Get("bash");
@@ -34,6 +35,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID darkSkiesCast = Get("dark_skies_cast");
         public readonly static NamespaceID darkSkiesImpact = Get("dark_skies_impact");
         public readonly static NamespaceID decrepify = Get("decrepify");
+        public readonly static NamespaceID desirePotEvocation = Get("desire_pot_evocation");
         public readonly static NamespaceID dialogItemShow = Get("dialog_item_show");
         public readonly static NamespaceID dialogItemHide = Get("dialog_item_hide");
         public readonly static NamespaceID dialogJudge = Get("dialog_judge");
@@ -52,6 +54,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID fastForward = Get("fast_forward");
         public readonly static NamespaceID fallBig = Get("fall_big");
         public readonly static NamespaceID fallSmall = Get("fall_small");
+        public readonly static NamespaceID fatigue = Get("fatigue");
         public readonly static NamespaceID fire = Get("fire");
         public readonly static NamespaceID fireBreath = Get("fire_breath");
         public readonly static NamespaceID fireCharge = Get("fire_charge");
@@ -141,6 +144,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID shot = Get("shot");
         public readonly static NamespaceID siren = Get("siren");
         public readonly static NamespaceID slice = Get("slice");
+        public readonly static NamespaceID shadowCast = Get("shadow_cast");
         public readonly static NamespaceID shieldHit = Get("shield_hit");
         public readonly static NamespaceID shutter = Get("shutter");
         public readonly static NamespaceID skeletonCry = Get("skeleton_cry");

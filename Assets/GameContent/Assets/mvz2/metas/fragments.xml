@@ -170,7 +170,12 @@
         <colorKeys>
             <key hex="#760CE0" time="0.6"/>
             <key hex="#FFFFFF" time="0.9"/>
-            <key hex="#000000" time="1"/>
+            <key hex="#FFFF00" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="desire_pot">
+        <colorKeys>
+            <key hex="#69976C" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="infectenser">
