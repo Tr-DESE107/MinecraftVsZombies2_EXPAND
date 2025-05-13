@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-05-14 07:53+0800\n"
-"PO-Revision-Date: 2025-05-14 07:53+0800\n"
+"PO-Revision-Date: 2025-05-14 07:56+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2975,6 +2975,12 @@ msgctxt "misc.description"
 msgid "日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。"
 msgstr "A great saint from Japan a thousand years ago, who later became a Shikaisen through Shijie method, came to Gensokyo."
 
+#. Properties for misc mvz2:miko
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "画师：<color=red>三花花</color>"
+msgstr "Artist: <color=red>三花花</color>"
+
 #. Flavor for misc mvz2:miko
 #: Almanac meta file
 msgctxt "misc.description"
@@ -4910,19 +4916,19 @@ msgstr "x250% damage but x50% attack speed for contraptions"
 #: Blueprints meta file
 msgctxt "option.name"
 msgid "返回弹珠"
-msgstr "Return the pearl"
+msgstr ""
 
 #. Name for blueprint option lengthen_board
 #: Blueprints meta file
 msgctxt "option.name"
 msgid "增长挡板"
-msgstr "Lengthen the board"
+msgstr ""
 
 #. Name for blueprint option add_pearl
 #: Blueprints meta file
 msgctxt "option.name"
 msgid "增加弹珠"
-msgstr "Add a pearl"
+msgstr ""
 
 #~ msgctxt "misc.description"
 #~ msgid "他到底是谁？"

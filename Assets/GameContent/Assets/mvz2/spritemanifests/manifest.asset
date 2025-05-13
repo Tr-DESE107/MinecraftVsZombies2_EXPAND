@@ -523,6 +523,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9ff472ab3deed244c8552a2bd5d7c949, type: 3}
   - name: entity/effects/aura
     sprite: {fileID: 21300000, guid: 3948499a4aba6874da51b8a013304ee0, type: 3}
+  - name: entity/effects/blackhole_core
+    sprite: {fileID: 21300000, guid: 582cedb9b6522194f81088aa7777208e, type: 3}
+  - name: entity/effects/blackhole_ring
+    sprite: {fileID: 21300000, guid: 1e61769d70b3e5d4eb4a6eddeb6ebdb9, type: 3}
+  - name: entity/effects/blackhole_star
+    sprite: {fileID: 21300000, guid: dff4473dc445dc440931e5ad7992ff90, type: 3}
+  - name: entity/effects/blackhole_vortex
+    sprite: {fileID: 21300000, guid: dc2e7ced59042654cb859d0e409c5700, type: 3}
   - name: entity/effects/boat_item
     sprite: {fileID: 21300000, guid: b412e38a906dfb1429079b79047f12d3, type: 3}
   - name: entity/effects/boom
@@ -545,6 +553,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 26dc0bfdc50bd814f9f2c3f60f62e366, type: 3}
   - name: entity/effects/cursed_fire_particle
     sprite: {fileID: 21300000, guid: e2f7e29ca0c62d5468d4cab32fae9562, type: 3}
+  - name: entity/effects/desire_lump
+    sprite: {fileID: 21300000, guid: c278e895010ef2449998e67c90983780, type: 3}
   - name: entity/effects/diamond_spike_particles
     sprite: {fileID: 21300000, guid: 832e7d1ecf7d7eb42a2921e2909679f6, type: 3}
   - name: entity/effects/evocation_star
@@ -1000,6 +1010,16 @@ MonoBehaviour:
     - {fileID: -1580232334, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
     - {fileID: -1028235923, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
     - {fileID: -430792853, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
+  - name: characters/miko
+    spritesheet:
+    - {fileID: -1815168315, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
+    - {fileID: -1222824308, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
+    - {fileID: -1530328765, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
+    - {fileID: 1774968722, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
+    - {fileID: 988351196, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
+    - {fileID: -353247052, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
+    - {fileID: -1472680690, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
+    - {fileID: 1527462565, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}
   - name: characters/orant
     spritesheet:
     - {fileID: -337755752, guid: 403593c82a7adb74b8cc7ce5e0a7e925, type: 3}

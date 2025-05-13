@@ -2403,6 +2403,12 @@ msgctxt "misc.description"
 msgid "日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。"
 msgstr ""
 
+#. Properties for misc mvz2:miko
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "画师：<color=red>三花花</color>"
+msgstr ""
+
 #. Flavor for misc mvz2:miko
 #: Almanac meta file
 msgctxt "misc.description"

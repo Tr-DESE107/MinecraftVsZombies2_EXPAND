@@ -1566,12 +1566,12 @@
                     <p>随后她为霖之助立了衣冠冢，隔三岔五就会去纪念一次。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:miko" name="丰聪耳 神子" sprite="mvz2:characters/armor_stand" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:miko" name="丰聪耳 神子" sprite="mvz2:characters/miko[0]" unlock="mvz2:level.mausoleum_1">
                 <header>
                     <p>日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。</p>
                 </header>
                 <properties>
-                    <p>画师：<![CDATA[<color=red>尚未完成</color>]]></p>
+                    <p>画师：<![CDATA[<color=red>三花花</color>]]></p>
                 </properties>
                 <flavor>
                     <p>千年以前，神子诞生在这世界上。年幼的她能听懂所有人的倾诉，并给出一针见血的见解，她自己也因这个传言而被人们奉为圣人。</p>
