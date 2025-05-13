@@ -286,15 +286,18 @@ namespace MVZ2.Editor
             var entitiesDocument = LoadMetaXmlDocument(spaceName, "entities.xml");
             var talkcharacterDocument = LoadMetaXmlDocument(spaceName, "talkcharacters.xml");
             var artifactsDocument = LoadMetaXmlDocument(spaceName, "artifacts.xml");
+            var blueprintsDocument = LoadMetaXmlDocument(spaceName, "blueprints.xml");
 
             var almanacEntryList = AlmanacMetaList.FromXmlNode(almanacDocument["almanac"], spaceName);
             var entitiesList = EntityMetaList.FromXmlNode(entitiesDocument["entities"], spaceName);
             var characterList = TalkCharacterMetaList.FromXmlNode(talkcharacterDocument["characters"], spaceName);
             var artifactsList = ArtifactMetaList.FromXmlNode(artifactsDocument["artifacts"], spaceName);
+            var blueprintsList = BlueprintMetaList.FromXmlNode(blueprintsDocument["blueprints"], spaceName);
 
             var entitiesReference = "Entity meta file";
             var characterReference = "Character meta file";
             var artifactsReference = "Artifact meta file";
+            var blueprintsReference = "Blueprints meta file";
             foreach (var category in almanacEntryList.categories)
             {
                 var categoryName = category.name;
@@ -328,6 +331,10 @@ namespace MVZ2.Editor
                 var id = new NamespaceID(spaceName, meta.ID);
                 AddTranslation(potGenerator, meta.Name, artifactsReference, $"Name for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_NAME);
                 AddTranslation(potGenerator, meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
+            }
+            foreach (var option in blueprintsList.Options)
+            {
+                AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", VanillaStrings.CONTEXT_OPTION_NAME);
             }
             potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
             Debug.Log("Almanac Translations Updated.");
