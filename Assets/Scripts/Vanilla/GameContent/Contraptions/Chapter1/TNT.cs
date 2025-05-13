@@ -123,8 +123,9 @@ namespace MVZ2.GameContent.Contraptions
                     target.Velocity = target.Velocity + Vector3.up * speed;
                 }
             }
-            var explosion = entity.Level.Spawn(VanillaEffectID.explosion, entity.GetCenter(), entity);
-            explosion.SetSize(Vector3.one * (range * 2));
+            var explosionParam = entity.GetSpawnParams();
+            explosionParam.SetProperty(EngineEntityProps.SIZE, Vector3.one * (range * 2));
+            var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), explosionParam);
             entity.PlaySound(VanillaSoundID.explosion);
             entity.Level.ShakeScreen(10, 0, 15);
 

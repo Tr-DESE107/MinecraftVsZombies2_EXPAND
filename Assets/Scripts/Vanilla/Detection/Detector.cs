@@ -160,8 +160,6 @@ namespace MVZ2.Vanilla.Detections
                 return false;
             if (!canDetectInvisible && target.IsInvisible())
                 return false;
-            if (!target.IsVulnerableEntity() && (invulnerableFilter == null || !invulnerableFilter(self, target)))
-                return false;
             return true;
         }
         protected abstract Bounds GetDetectionBounds(Entity self);
@@ -203,7 +201,6 @@ namespace MVZ2.Vanilla.Detections
         public bool canDetectInvisible;
         public bool ignoreBoss;
         public bool includeSelf;
-        public Func<DetectionParams, Entity, bool> invulnerableFilter;
         private List<IEntityCollider> resultsBuffer = new List<IEntityCollider>();
         private List<Entity> entityBuffer = new List<Entity>();
         private Dictionary<NamespaceID, EntityDefinition> definitionCaches = new Dictionary<NamespaceID, EntityDefinition>();

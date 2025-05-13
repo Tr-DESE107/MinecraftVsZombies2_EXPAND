@@ -39,6 +39,7 @@ namespace MVZ2.Vanilla
         public const string reforged = "achievement.reforged";
 
         public const string brokenLantern = "artifact.broken_lantern";
+        public const string bottledBlackhole = "artifact.bottled_blackhole";
     }
     public static class VanillaUnlockID
     {
@@ -70,6 +71,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID reforged = Get(VanillaUnlockNames.reforged);
 
         public static readonly NamespaceID brokenLantern = Get(VanillaUnlockNames.brokenLantern);
+        public static readonly NamespaceID bottledBlackhole = Get(VanillaUnlockNames.bottledBlackhole);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

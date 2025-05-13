@@ -803,6 +803,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e61769d70b3e5d4eb4a6eddeb6ebdb9
+    m_Address: mvz2:entity/effects/blackhole_ring
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e784c0427ce232488fd2f10b6bee02f
     m_Address: mvz2:ui/level/speed_up_active
     m_ReadOnly: 0
@@ -2590,6 +2596,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 582cedb9b6522194f81088aa7777208e
+    m_Address: mvz2:entity/effects/blackhole_core
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58755531f1cc59b4ab7563c5bedf58b2
     m_Address: mvz2:entity/armor/emperor_crown
     m_ReadOnly: 0
@@ -3740,6 +3752,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 809e4de12be7bbe449af3c985df50630
+    m_Address: mvz2:gravitation
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 80ab3f88e3042a2429696411af0b0810
     m_Address: mvz2:nightmare_level
@@ -5775,6 +5793,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c299450423625414dbb891d3de2bed18
+    m_Address: mvz2:effect/blackhole
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2aeb2a3155f07e428c69e806e0e4b32
     m_Address: mvz2:talk/dialog_bang
     m_ReadOnly: 0
@@ -6014,6 +6038,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c97af9f0f5b17654188e82b19cc1350a
+    m_Address: mvz2:gravitation_surge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c98850842ba8ff14f919f63ce5114326
     m_Address: mvz2:ui/level/pickaxe
@@ -6561,6 +6591,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc2e7ced59042654cb859d0e409c5700
+    m_Address: mvz2:entity/effects/blackhole_vortex
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc31d7ec879cbfb46b0c94dba87b9a4a
     m_Address: mvz2:damage/slice/slice2
     m_ReadOnly: 0
@@ -6675,6 +6711,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dff4473dc445dc440931e5ad7992ff90
+    m_Address: mvz2:entity/effects/blackhole_star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e0c7697228ff843469a11a3a633766bb
     m_Address: mvz2:ui/gear
     m_ReadOnly: 0
@@ -6734,6 +6776,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e372daf1266c17947961b45c5f9f3549
+    m_Address: mvz2:effect/annihilation_field
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e38a27801323ac8439ac0a77da330ec7
     m_Address: mvz2:contraption/halloween/moonlight_sensor

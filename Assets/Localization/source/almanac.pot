@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-13 10:24+0800\n"
+"POT-Creation-Date: 2025-05-13 04:59+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -664,7 +664,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"耐久：<color=red>4000</color>\n"
+"耐久：<color=red>3000</color>\n"
 "特点：<color=red>吸收敌弹，并恢复100耐久</color>\n"
 "技能：<color=red>在3秒内吸收所有伤害，之后将这些伤害返还给本行内所有敌人（最高1800）</color>"
 msgstr ""
@@ -781,6 +781,31 @@ msgid ""
 "“比起死亡，我更害怕的是被遗忘。”\n"
 "\n"
 "这是谁说的呢？"
+msgstr ""
+
+#. Header for contraptions mvz2:gravitation_bomb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。"
+msgstr ""
+
+#. Properties for contraptions mvz2:gravitation_bomb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"持续时间：<color=red>8秒</color>\n"
+"伤害：<color=red>30/秒</color>\n"
+"半径：<color=red>1.5格</color>\n"
+"技能：<color=red>产生湮灭领域，直接消灭范围内的所有敌人和敌弹</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:gravitation_bomb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"你知道的，真空不能传声，所以他其实听不到他邻居产生的噪音。\n"
+"\n"
+"天哪！别再讲你这笑话了！烂死了！！！"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -3230,6 +3255,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "召唤友方骷髅战士"
+msgstr ""
+
+#. Header for entity mvz2:gravitation_bomb
+#: Entity meta file
+msgctxt "entity.name"
+msgid "黑洞炸弹"
+msgstr ""
+
+#. Properties for entity mvz2:gravitation_bomb
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "触发后产生引力黑洞"
 msgstr ""
 
 #. Header for entity mvz2:infectenser

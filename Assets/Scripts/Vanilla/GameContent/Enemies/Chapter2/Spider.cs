@@ -144,7 +144,7 @@ namespace MVZ2.GameContent.Enemies
                 return false;
             if (target.Type != EntityTypes.PLANT)
                 return false;
-            if (target.IsFloor() || !target.IsDefensive())
+            if (target.IsFloor() || !target.IsDefensive() || target.NoClimb())
                 return false;
             return true;
         }

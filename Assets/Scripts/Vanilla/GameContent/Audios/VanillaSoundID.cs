@@ -71,6 +71,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID glassBreak = Get("glass_break");
         public readonly static NamespaceID glassBreakBig = Get("glass_break_big");
         public readonly static NamespaceID grass = Get("grass");
+        public readonly static NamespaceID gravitation = Get("gravitation");
+        public readonly static NamespaceID gravitationSurge = Get("gravitation_surge");
         public readonly static NamespaceID grind = Get("grind");
         public readonly static NamespaceID growBig = Get("grow_big");
         public readonly static NamespaceID gunReload = Get("gun_reload");

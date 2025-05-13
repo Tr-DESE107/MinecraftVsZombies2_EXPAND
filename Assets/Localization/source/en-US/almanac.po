@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-13 10:24+0800\n"
-"PO-Revision-Date: 2025-05-13 10:25+0800\n"
+"POT-Creation-Date: 2025-05-13 04:59+0800\n"
+"PO-Revision-Date: 2025-05-13 17:00+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -827,11 +827,11 @@ msgstr "Lightning Orb can block enemy attacks and absorb projectiles to heal its
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"耐久：<color=red>4000</color>\n"
+"耐久：<color=red>3000</color>\n"
 "特点：<color=red>吸收敌弹，并恢复100耐久</color>\n"
 "技能：<color=red>在3秒内吸收所有伤害，之后将这些伤害返还给本行内所有敌人（最高1800）</color>"
 msgstr ""
-"Toughness: <color=red>4000</color>\n"
+"Toughness: <color=red>3000</color>\n"
 "Special: <color=red>Absorbs projectiles, heals 100 toughness for each projectile</color>\n"
 "Evocation: <color=red>In 3 seconds, absorbs all damage and returns the damage back to all enemies in its row. (up to 1800 damage)</"
 "color>"
@@ -985,6 +985,39 @@ msgstr ""
 "\"More than death itself, what I truly fear is being forgotten.\"\n"
 "\n"
 "Who was it that said this?"
+
+#. Header for contraptions mvz2:gravitation_bomb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。"
+msgstr ""
+"Gravitation Bomb will create a tiny black hole after being triggered, which absorbs all enemy monsters and projectiles in a radius."
+
+#. Properties for contraptions mvz2:gravitation_bomb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"持续时间：<color=red>8秒</color>\n"
+"伤害：<color=red>30/秒</color>\n"
+"半径：<color=red>1.5格</color>\n"
+"技能：<color=red>产生湮灭领域，直接消灭范围内的所有敌人和敌弹</color>"
+msgstr ""
+"Lifetime: <color=red>8 seconds</color>\n"
+"Damage: <color=red>30/s</color>\n"
+"Radius: <color=red>1.5 grids</color>\n"
+"Evocation: <color=red>Creates an annihilation field instead, instantly destroys all enemies and enemy projectiles in the radius</color>"
+
+#. Flavor for contraptions mvz2:gravitation_bomb
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"你知道的，真空不能传声，所以他其实听不到他邻居产生的噪音。\n"
+"\n"
+"天哪！别再讲你这笑话了！烂死了！！！"
+msgstr ""
+"You know, sound can't travel through a vacuum, so he actually can't hear the noise from his neighbors.\n"
+"\n"
+"GOSH! Stop telling that joke of yours! It's awful!!!"
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -3892,6 +3925,18 @@ msgstr "Necrotombstone"
 msgctxt "entity.tooltip"
 msgid "召唤友方骷髅战士"
 msgstr "Summon friendly skeleton warriors"
+
+#. Header for entity mvz2:gravitation_bomb
+#: Entity meta file
+msgctxt "entity.name"
+msgid "黑洞炸弹"
+msgstr "Gravitation Bomb"
+
+#. Properties for entity mvz2:gravitation_bomb
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "触发后产生引力黑洞"
+msgstr "Create a black hole after being triggered"
 
 #. Header for entity mvz2:infectenser
 #: Entity meta file

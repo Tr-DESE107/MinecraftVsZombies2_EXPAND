@@ -21,7 +21,6 @@ namespace MVZ2.GameContent.Enemies
             absorbDetector = new SphereDetector(ABSORB_RADIUS)
             {
                 mask = EntityCollisionHelper.MASK_PROJECTILE,
-                invulnerableFilter = (param, e) => e.Type == EntityTypes.PROJECTILE
             };
         }
         protected override void UpdateLogic(Entity entity)

@@ -46,13 +46,13 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceSeedPacks(new NamespaceID[]
             {
                 VanillaEnemyID.zombie,
+                VanillaEnemyID.megaMutantZombie,
 
-                VanillaContraptionID.obsidian,
-                VanillaContraptionID.dreamCrystal,
+                VanillaObstacleID.monsterSpawner,
                 VanillaContraptionID.stoneShield,
                 VanillaContraptionID.lightningOrb,
                 VanillaContraptionID.devourer,
-                VanillaContraptionID.anvil,
+                VanillaContraptionID.gravitationBomb,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.drivenser,
@@ -61,7 +61,7 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceArtifacts(new NamespaceID[]
             {
                 VanillaArtifactID.netherStar,
-                VanillaArtifactID.lightbomb,
+                VanillaArtifactID.greedyVacuum,
                 VanillaArtifactID.theCreaturesHeart,
             });
             level.RechargeSpeed = 9999999;

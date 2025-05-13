@@ -305,6 +305,12 @@
         <sample path="mvz2:random/grass2" weight="1" />
         <sample path="mvz2:random/grass3" weight="1" />
     </sound>
+    <sound name="gravitation">
+        <sample path="mvz2:gravitation" weight="1" />
+    </sound>
+    <sound name="gravitation_surge">
+        <sample path="mvz2:gravitation_surge" weight="1" />
+    </sound>
     <sound name="grind">
         <sample path="mvz2:grind1" weight="1" />
         <sample path="mvz2:grind2" weight="1" />

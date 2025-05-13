@@ -22,6 +22,14 @@ namespace MVZ2.Vanilla.Contraptions
         }
         #endregion
 
+        #region 可攀爬
+        public static readonly PropertyMeta NO_CLIMB = Get("noClimb");
+        public static bool NoClimb(this Entity contraption)
+        {
+            return contraption.GetProperty<bool>(NO_CLIMB);
+        }
+        #endregion
+
         #region 防御性
         public static readonly PropertyMeta DEFENSIVE = Get("defensive");
         public static bool IsDefensive(this Entity contraption)

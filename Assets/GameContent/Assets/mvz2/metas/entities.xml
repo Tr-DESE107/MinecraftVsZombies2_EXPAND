@@ -86,6 +86,7 @@
                 <float name="mvz2:gravity" value="1" />
                 <float name="mvz2:fallResistance" value="9" />
                 <id name="mvz2:shell" value="mvz2:stone" />
+                <id name="mvz2:placement" value="mvz2:normal" />
                 <id name="mvz2:deathSound" value="mvz2:stone" />
                 <bool name="mvz2:receivesLight" value="true" />
                 <bool name="mvz2:faceLeftAtDefault" value="true" />
@@ -617,8 +618,9 @@
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
+                <bool name="mvz2:noClimb" value="true" />
                 <bool name="mvz2:fragments/noDamageFragments" value="true" />
-                <float name="mvz2:maxHealth" value="4000" />
+                <float name="mvz2:maxHealth" value="3000" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <id name="mvz2:placement" value="mvz2:suspension" />
                 <id name="mvz2:shell" value="mvz2:metal" />
@@ -682,6 +684,21 @@
 
                 <int name="mvz2:cost" value="175" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
+            </properties>
+        </contraption>
+        <contraption id="gravitation_bomb" name="黑洞炸弹" tooltip="触发后产生引力黑洞" unlock="mvz2:level.mausoleum_8">
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <float name="mvz2:range" value="120" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:placeSound" value="mvz2:grass" />
+                <id name="mvz2:shell" value="mvz2:grass" />
+                <id name="mvz2:deathSound" value="mvz2:grass" />
+                <bool name="mvz2:triggerActive" value="true" />
+                <bool name="mvz2:instantTrigger" value="true" />
+
+                <int name="mvz2:cost" value="125" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
 
@@ -2192,6 +2209,21 @@
                 <bool name="mvz2:decorative" value="false" />
                 <bool name="mvz2:isFire" value="true" />
                 <int name="mvz2:maxTimeout" value="45" />
+            </properties>
+        </effect>
+        <effect id="blackhole">
+            <properties>
+                <bool name="mvz2:decorative" value="false" />
+                <int name="mvz2:maxTimeout" value="245" />
+                <float name="range" value="120" />
+                <float name="damage" value="1" />
+            </properties>
+        </effect>
+        <effect id="annihilation_field">
+            <properties>
+                <bool name="mvz2:decorative" value="false" />
+                <int name="mvz2:maxTimeout" value="35" />
+                <float name="range" value="120" />
             </properties>
         </effect>
     </entries>
