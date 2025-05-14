@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Effects
         {
             base.Init(entity);
             entity.Level.AddLoopSoundEntity(VanillaSoundID.gravitationSurge, entity.ID);
-            entity.PlaySound(VanillaSoundID.thunder, 0.5f);
+            entity.PlaySound(VanillaSoundID.annihilationField);
         }
 
         public override void Update(Entity entity)
