@@ -251,7 +251,9 @@ namespace MVZ2.GameContent.Bosses
                 return;
 
             var rng = GetMindSwapRNG(entity);
-            NamespaceID[] pool = level.Difficulty == VanillaDifficulties.hard ? hardMindSwapPool : mindSwapPool;
+            NamespaceID[] pool = (level.Difficulty == VanillaDifficulties.hard || level.Difficulty == VanillaDifficulties.lunatic)
+                ? hardMindSwapPool 
+                : mindSwapPool;
             for (int i = 0; i < level.GetConveyorSeedPackCount(); i++)
             {
                 var blueprint = level.GetConveyorSeedPackAt(i);
@@ -286,7 +288,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 count = 4;
             }
-            else if (level.Difficulty == VanillaDifficulties.hard)
+            else if (level.Difficulty == VanillaDifficulties.hard || level.Difficulty == VanillaDifficulties.lunatic)
             {
                 count = 2;
             }
@@ -451,7 +453,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 return 3;
             }
-            else if (level.Difficulty == VanillaDifficulties.hard)
+            else if (level.Difficulty == VanillaDifficulties.hard || level.Difficulty == VanillaDifficulties.lunatic)
             {
                 return 5;
             }
@@ -551,14 +553,19 @@ namespace MVZ2.GameContent.Bosses
         {
             VanillaEnemyID.zombie,
             VanillaEnemyID.leatherCappedZombie,
+            VanillaEnemyID.HostZombie,
             VanillaEnemyID.ironHelmettedZombie,
+            VanillaEnemyID.flagZombie,
+            
         };
 
         private static int[] portalPoolWeights = new int[]
         {
+            20,
+            10,
             10,
             5,
-            2
+            1
         };
         private static NamespaceID[] mindSwapPool = new NamespaceID[]
         {
@@ -581,7 +588,8 @@ namespace MVZ2.GameContent.Bosses
             VanillaBlueprintID.FromEntity(VanillaContraptionID.totenser),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
-            VanillaBlueprintID.FromEntity(VanillaEnemyID.zombie)
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.zombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.flagZombie)
         };
         private static int[] fateOptions = new int[]
         {

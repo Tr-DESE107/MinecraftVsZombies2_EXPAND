@@ -61,8 +61,9 @@ namespace MVZ2.GameContent.Projectiles
             var entity = output.Entity;
             if (entity == null)
                 return;
-            if (entity.Level.Difficulty != VanillaDifficulties.hard)
+            if (entity.Level.Difficulty != VanillaDifficulties.hard && entity.Level.Difficulty != VanillaDifficulties.lunatic)
                 return;
+            
             if (entity.IsUndead())
                 return;
             if (output.BodyResult == null)

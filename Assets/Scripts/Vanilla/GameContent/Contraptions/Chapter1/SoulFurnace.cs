@@ -147,6 +147,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             var column = furnace.GetColumn();
             var lane = furnace.GetLane();
+            //var targetGrid = furnace.Level.GetGrid(column + 1 * furnace.GetFacingX(), lane);
             var targetGrid = furnace.Level.GetGrid(column, lane);
             if (targetGrid == null)
                 return;

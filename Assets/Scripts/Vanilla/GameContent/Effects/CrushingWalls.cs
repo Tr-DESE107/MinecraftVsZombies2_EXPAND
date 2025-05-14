@@ -83,6 +83,10 @@ namespace MVZ2.GameContent.Effects
                         {
                             speed = 5;
                         }
+                        else if (difficulty == VanillaDifficulties.lunatic)
+                        {
+                            speed = 6;
+                        }
 
                         progress += speed * 0.01f / 30f;
                         progress = Mathf.Clamp01(progress);

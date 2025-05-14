@@ -121,6 +121,10 @@ namespace MVZ2.GameContent.Enemies
             {
                 damageMultiplier = 3;
             }
+            if (self.Level.Difficulty == VanillaDifficulties.lunatic)
+            {
+                damageMultiplier = 3;
+            }
             param.damage = self.GetDamage() * damageMultiplier;
             var bullet = self.ShootProjectile(param);
             self.PlaySound(VanillaSoundID.fireCharge);

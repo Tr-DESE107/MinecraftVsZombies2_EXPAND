@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Bosses
             stateMachine.Init(boss);
             stateMachine.StartState(boss, STATE_WAKING);
 
-            if (boss.Level.Difficulty == VanillaDifficulties.hard)
+            if (boss.Level.Difficulty == VanillaDifficulties.hard || boss.Level.Difficulty == VanillaDifficulties.lunatic)
             {
                 EnterSteelPhase(boss);
             }
@@ -208,7 +208,9 @@ namespace MVZ2.GameContent.Bosses
 
         public static float GetFrankensteinActionSpeed(Entity boss)
         {
-            return boss.Level.Difficulty == VanillaDifficulties.hard ? 2 : 1;
+            return (boss.Level.Difficulty == VanillaDifficulties.hard || boss.Level.Difficulty == VanillaDifficulties.lunatic)
+                ? 2 
+                : 1;
         }
 
         #region 属性

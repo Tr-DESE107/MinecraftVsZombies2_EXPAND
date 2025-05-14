@@ -414,7 +414,9 @@ namespace MVZ2.GameContent.Bosses
                     {
                         var target = collider.Entity;
                         var colliderReference = collider.ToReference();
-                        var damage = level.Difficulty == VanillaDifficulties.hard ? SPIN_DAMAGE_HARD : SPIN_DAMAGE;
+                        var damage = (level.Difficulty == VanillaDifficulties.hard || level.Difficulty == VanillaDifficulties.lunatic)
+                            ? SPIN_DAMAGE_HARD 
+                            : SPIN_DAMAGE;
                         var damageOutput = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.SLICE), entity);
                         PostSpinDamage(entity, damageOutput);
                     }

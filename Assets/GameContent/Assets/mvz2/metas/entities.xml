@@ -193,7 +193,7 @@
 		<dispenser id="Poisonser" name="蚀毒发射器" tooltip="发射短距离毒球" unlock="mvz2:level.halloween_1">
 			<bool name="nocturnal" value="true"/>
 
-			<float name="range" value="255"/>
+			<float name="range" value="500"/>
 			<id name="projectileId" value="mvz2:Poisonball"/>
 			<id name="shootSound" value="mvz2:bow"/>
 			<id name="fragmentId" value="mvz2:furnace"/>
@@ -614,7 +614,7 @@
             <int name="cost" value="300" />
             <int name="waterInteraction" value="2"/>
 			<float name="damage" value="200"/>
-			<float name="speed" value="2"/>
+			<float name="speed" value="1.5"/>
 
 		</enemy>
 
@@ -1324,7 +1324,7 @@
         </projectile>
         <projectile id="missile">
             <bool name="pointToDirection" value="true" />
-            <float name="range" value="40"/>
+            <float name="range" value="120"/>
             <vector3 name="size" x="64" y="8" z="8" />
         </projectile>
         <projectile id="fire_charge">

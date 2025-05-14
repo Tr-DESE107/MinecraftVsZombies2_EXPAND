@@ -71,6 +71,10 @@ namespace MVZ2.GameContent.Enemies
             {
                 count = 2;
             }
+            if (level.Difficulty == VanillaDifficulties.lunatic)
+            {
+                count = 3;
+            }
             for (int i = 0; i < count; i++)
             {
                 var parasite = level.Spawn(VanillaEnemyID.parasiteTerror, entity.GetCenter(), entity);
