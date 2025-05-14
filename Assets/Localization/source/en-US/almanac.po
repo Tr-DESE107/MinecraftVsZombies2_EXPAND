@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-14 02:30+0800\n"
-"PO-Revision-Date: 2025-05-14 14:32+0800\n"
+"POT-Creation-Date: 2025-05-14 02:55+0800\n"
+"PO-Revision-Date: 2025-05-14 14:59+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1028,10 +1028,8 @@ msgstr "Desire Pot can duplicate the starshards carried by enemies."
 #. Properties for contraptions mvz2:desire_pot
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>按从左到右的顺序，生成2张你所携带的蓝图的掉落物复制。（下一次技能会从上一次结束的位置开始复制）</color>"
-msgstr ""
-"Evocation: <color=red>Spawn the clone pickups of 2 carrying blueprints from the left to the right. (The next evocation will continue "
-"from the previous position)</color>"
+msgid "技能：<color=red>按顺序将两张当前携带的蓝图复制为掉落物（若超出目前蓝图数量，则循环接续）</color>"
+msgstr "Evocation: <color=red>Copy 2 carried blueprints in sequence as pickups (looping when exceeding current count)</color>"
 
 #. Flavor for contraptions mvz2:desire_pot
 #: Almanac meta file
@@ -4975,6 +4973,12 @@ msgstr "Lengthen the board"
 msgctxt "option.name"
 msgid "增加弹珠"
 msgstr "Add a pearl"
+
+#~ msgctxt "contraptions.description"
+#~ msgid "技能：<color=red>按从左到右的顺序，生成2张你所携带的蓝图的掉落物复制。（下一次技能会从上一次结束的位置开始复制）</color>"
+#~ msgstr ""
+#~ "Evocation: <color=red>Spawn the clone pickups of 2 carrying blueprints from the left to the right. (The next evocation will "
+#~ "continue from the previous position)</color>"
 
 #~ msgctxt "misc.description"
 #~ msgid "他到底是谁？"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-14 02:30+0800\n"
+"POT-Creation-Date: 2025-05-14 02:55+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -817,7 +817,7 @@ msgstr ""
 #. Properties for contraptions mvz2:desire_pot
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>按从左到右的顺序，生成2张你所携带的蓝图的掉落物复制。（下一次技能会从上一次结束的位置开始复制）</color>"
+msgid "技能：<color=red>按顺序将两张当前携带的蓝图复制为掉落物（若超出目前蓝图数量，则循环接续）</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:desire_pot
