@@ -31,6 +31,10 @@ namespace MVZ2.Level
             ui.SetTwinkling(ShouldBlueprintTwinkle(SeedPack));
             ui.SetSelected(Level.IsHoldingClassicBlueprint(Index));
         }
+        public override bool IsCommandBlock()
+        {
+            return SeedPack.IsCommandBlock();
+        }
         protected override void OnPickup(BlueprintPickupInfo info)
         {
             var blueprint = SeedPack;

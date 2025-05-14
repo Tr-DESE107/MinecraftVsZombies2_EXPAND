@@ -35,6 +35,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID danmaku = Get("danmaku");
         public readonly static NamespaceID darkSkiesCast = Get("dark_skies_cast");
         public readonly static NamespaceID darkSkiesImpact = Get("dark_skies_impact");
+        public readonly static NamespaceID dataStream = Get("data_stream");
         public readonly static NamespaceID decrepify = Get("decrepify");
         public readonly static NamespaceID desirePotEvocation = Get("desire_pot_evocation");
         public readonly static NamespaceID dialogItemShow = Get("dialog_item_show");
@@ -48,7 +49,8 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID earthquake = Get("earthquake");
         public readonly static NamespaceID electricSpark = Get("electric_spark");
         public readonly static NamespaceID energyShield = Get("energy_shield");
-        public readonly static NamespaceID energyShieldHit = Get("energy_shield_hit"); 
+        public readonly static NamespaceID energyShieldHit = Get("energy_shield_hit");
+        public readonly static NamespaceID errorXP = Get("error_xp");
         public readonly static NamespaceID explosion = Get("explosion");
         public readonly static NamespaceID evocation = Get("evocation");
         public readonly static NamespaceID gapWarp = Get("gap_warp");

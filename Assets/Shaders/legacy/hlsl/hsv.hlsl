@@ -18,6 +18,8 @@ half4 ModifyHSV(half4 color, float3 offset)
 {
     float3 hsv = RGB2HSV(color.rgb);
     float hue = frac(hsv.x + offset.x / 360.0);
-    float3 tintedHsv = float3(hue, hsv.y + offset.y / 100.0, hsv.z + offset.z / 100.0);
+    float sat = clamp(hsv.y + offset.y / 100.0, 0, 1);
+    float value = clamp(hsv.z + offset.z / 100.0, 0, 1);
+    float3 tintedHsv = float3(hue, sat, value);
     return half4(HSV2RGB(tintedHsv), color.a);
 }

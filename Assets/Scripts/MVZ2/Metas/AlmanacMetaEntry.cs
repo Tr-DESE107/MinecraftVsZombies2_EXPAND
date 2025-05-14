@@ -22,6 +22,7 @@ namespace MVZ2.Metas
         public string properties;
         public AlmanacMetaFlavor[] flavors;
         public int index = -1;
+        public bool hidden = false;
         public static AlmanacMetaEntry FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
@@ -33,6 +34,8 @@ namespace MVZ2.Metas
             var propertiesNode = node["properties"];
             var header = headerNode != null ? ConcatNodeParagraphs(headerNode) : string.Empty;
             var properties = propertiesNode != null ? ConcatNodeParagraphs(propertiesNode) : string.Empty;
+
+            var hidden = node.GetAttributeBool("hidden") ?? false;
 
             AlmanacMetaFlavor[] flavors;
             var flavorsNode = node["flavors"];
@@ -67,6 +70,7 @@ namespace MVZ2.Metas
                 name = name,
                 unlock = unlock,
                 sprite = sprite,
+                hidden = hidden,
                 model = model,
                 header = header,
                 properties = properties,

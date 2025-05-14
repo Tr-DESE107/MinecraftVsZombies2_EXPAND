@@ -6,11 +6,13 @@ using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using Newtonsoft.Json.Linq;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Entities;
@@ -512,6 +514,8 @@ namespace MVZ2.Entities
                 rendererGroup.SetTint(entity.GetTint());
                 rendererGroup.SetHSV(entity.GetHSV());
                 rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
+                rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
+
                 model.transform.localScale = entity.GetFinalDisplayScale();
                 rendererGroup.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
                 rendererGroup.SortingOrder = entity.GetSortingOrder();
@@ -548,6 +552,9 @@ namespace MVZ2.Entities
                             break;
                         case PropertyName.HSV:
                             rendererGroup.SetHSV(entity.GetHSV());
+                            break;
+                        case PropertyName.Grayscale:
+                            rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
                             break;
                         case PropertyName.FlipX:
                         case PropertyName.DisplayScale:
@@ -629,6 +636,7 @@ namespace MVZ2.Entities
                 { EngineEntityProps.TINT, PropertyName.Tint },
                 { EngineEntityProps.COLOR_OFFSET, PropertyName.ColorOffset },
                 { VanillaEntityProps.HSV, PropertyName.HSV },
+                { VanillaEntityProps.GRAYSCALE, PropertyName.Grayscale },
                 { EngineEntityProps.FLIP_X, PropertyName.FlipX },
                 { EngineEntityProps.DISPLAY_SCALE, PropertyName.DisplayScale },
                 { VanillaEntityProps.SORTING_LAYER, PropertyName.SortingLayer },
@@ -648,6 +656,7 @@ namespace MVZ2.Entities
                 Tint,
                 ColorOffset,
                 HSV,
+                Grayscale,
                 FlipX,
                 DisplayScale,
                 SortingLayer,

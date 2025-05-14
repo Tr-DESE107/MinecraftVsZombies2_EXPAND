@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Entities;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Games;
 using MVZ2.Grids;
@@ -19,6 +21,7 @@ using MVZ2.Talks;
 using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
@@ -806,6 +809,20 @@ namespace MVZ2.Level
                 foreach (var boss in level.FindEntities(e => e.Type == EntityTypes.BOSS && !e.IsDead))
                 {
                     boss.Die();
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.F6))
+            {
+                var contraptions = Main.SaveManager.GetUnlockedContraptions();
+                var grids = level.GetAllGrids();
+                for (int i = 0; i < contraptions.Length; i++)
+                {
+                    var contraption = contraptions[i];
+                    var grid = grids.FirstOrDefault(g => g.CanSpawnEntity(contraption));
+                    if (grid == null)
+                        continue;
+                    var spawnParams = CommandBlock.GetImitateSpawnParams(contraption);
+                    var command = grid.SpawnPlacedEntity(VanillaContraptionID.commandBlock, spawnParams);
                 }
             }
 #endif

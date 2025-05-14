@@ -203,10 +203,24 @@
             <key hex="#30C6C6" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="command_block">
+        <colorKeys>
+            <key hex="#C27546" time="0.3"/>
+            <key hex="#CB9F83" time="0.6"/>
+            <key hex="#B3B0B9" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="random_china">
         <colorKeys>
             <key hex="#FFFFFF" time="0.66"/>
             <key hex="#0000FF" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="error_block">
+        <colorKeys>
+            <key hex="#0072FF" time="0.25"/>
+            <key hex="#E8E6D9" time="0.75"/>
+            <key hex="#FF0000" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="hell_chariot">

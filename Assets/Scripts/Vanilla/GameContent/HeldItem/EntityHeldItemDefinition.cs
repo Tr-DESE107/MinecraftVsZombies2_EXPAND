@@ -4,6 +4,7 @@ using MVZ2Logic.HeldItems;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.HeldItems
@@ -20,6 +21,13 @@ namespace MVZ2.GameContent.HeldItems
             var entity = GetEntity(level, data.ID);
             var behaviour = GetBehaviour(entity);
             return behaviour?.GetModelID(entity, level, data);
+        }
+        public override void PostSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
+        {
+            base.PostSetModel(level, data, model);
+            var entity = GetEntity(level, data.ID);
+            var behaviour = GetBehaviour(entity);
+            behaviour?.PostSetModel(entity, level, data, model);
         }
         public override float GetRadius(LevelEngine level, IHeldItemData data)
         {
@@ -45,6 +53,7 @@ namespace MVZ2.GameContent.HeldItems
         HeldHighlight GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data);
         void Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction);
         NamespaceID GetModelID(Entity entity, LevelEngine level, IHeldItemData data);
+        void PostSetModel(Entity entity, LevelEngine level, IHeldItemData data, IModelInterface model);
         float GetRadius(Entity entity, LevelEngine level, IHeldItemData data);
         void Update(Entity entity, LevelEngine level, IHeldItemData data);
     }

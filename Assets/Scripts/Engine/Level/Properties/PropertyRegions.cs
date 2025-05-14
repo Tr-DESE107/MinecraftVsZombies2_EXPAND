@@ -11,5 +11,6 @@
         public const string shell = "shell";
         public const string spawn = "spawn";
         public const string recharge = "recharge";
+        public const string placeParams = "place_params";
     }
 }

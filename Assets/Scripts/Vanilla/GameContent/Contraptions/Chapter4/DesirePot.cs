@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -90,12 +91,7 @@ namespace MVZ2.GameContent.Contraptions
             base.OnEvoke(entity);
 
             var level = entity.Level;
-            var selected = GetCardsToDraw(entity);
-            var selectedCount = selected.Count(s => NamespaceID.IsValid(s));
-            if (selectedCount < EVOCATION_CARD_COUNT)
-            {
-                TakeFatigue(entity, EVOCATION_CARD_COUNT - selectedCount);
-            }
+            var selected = GetBlueprintsToCopy(entity);
             SpawnBlueprintPickups(entity, selected);
 
             var evocationTimer = GetEvocationTimer(entity);
@@ -115,39 +111,32 @@ namespace MVZ2.GameContent.Contraptions
                 entity.State = STATE_IDLE;
             }
         }
-        private void TakeFatigue(Entity entity, int count)
-        {
-            var level = entity.Level;
-            if (level.IsConveyorMode())
-            {
-                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_NO_CARDS_DRAWN_CONVEYOR, 0, 150);
-            }
-            else
-            {
-                float sumDamage = 0;
-                for (int i = 0; i < count; i++)
-                {
-                    sumDamage += Fatigue(entity);
-                }
-                level.ShakeScreen(10, 0, 15);
-                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_NO_CARDS_DRAWN, 0, 150, Mathf.FloorToInt(sumDamage).ToString());
-                entity.PlaySound(VanillaSoundID.fatigue);
-            }
-        }
-        private void SpawnBlueprintPickups(Entity entity, IEnumerable<NamespaceID> selected)
+        private void SpawnBlueprintPickups(Entity entity, IEnumerable<SeedPack> selected)
         {
             var selectedCount = selected.Count();
             var minXSpeed = -3;
             var maxXSpeed = 3;
 
+            var level = entity.Level;
             int drawnDesirePots = 0;
+            int missDrawCount = 0;
             for (int i = 0; i < selectedCount; i++)
             {
-                var blueprintID = selected.ElementAt(i);
-                if (!NamespaceID.IsValid(blueprintID))
+                var seed = selected.ElementAt(i);
+                if (seed == null)
+                {
+                    missDrawCount++;
                     continue;
+                }
+                var blueprintID = seed.GetDefinitionID();
+                if (!NamespaceID.IsValid(blueprintID))
+                {
+                    missDrawCount++;
+                    continue;
+                }
                 var spawnParams = entity.GetSpawnParams();
                 spawnParams.SetProperty(BlueprintPickup.PROP_BLUEPRINT_ID, blueprintID);
+                spawnParams.SetProperty(BlueprintPickup.PROP_COMMAND_BLOCK, seed.IsCommandBlock());
                 var pickup = entity.Spawn(VanillaPickupID.blueprintPickup, entity.GetCenter(), spawnParams);
 
                 float xSpeed = 0;
@@ -163,12 +152,33 @@ namespace MVZ2.GameContent.Contraptions
                     drawnDesirePots++;
                 }
             }
+
+
+            if (missDrawCount > 0)
+            {
+                if (level.IsConveyorMode())
+                {
+                    level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_NO_CARDS_DRAWN_CONVEYOR, 0, 150);
+                }
+                else
+                {
+                    float fatigueDamageSum = 0;
+                    for (int i = 0; i < missDrawCount; i++)
+                    {
+                        fatigueDamageSum += Fatigue(entity);
+                    }
+                    level.ShakeScreen(10, 0, 15);
+                    level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_NO_CARDS_DRAWN, 0, 150, Mathf.FloorToInt(fatigueDamageSum).ToString());
+                    entity.PlaySound(VanillaSoundID.fatigue);
+                }
+            }
+
             if (drawnDesirePots >= 2)
             {
                 Global.Game.Unlock(VanillaUnlockID.overdraw);
             }
         }
-        private NamespaceID[] GetCardsToDraw(Entity entity)
+        private SeedPack[] GetBlueprintsToCopy(Entity entity)
         {
             var level = entity.Level;
             IEnumerable<SeedPack> heldBlueprintsID;
@@ -180,7 +190,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 heldBlueprintsID = level.GetAllSeedPacks();
             }
-            List<NamespaceID> pile = new List<NamespaceID>();
+            List<SeedPack> pile = new List<SeedPack>();
             var count = heldBlueprintsID.Count();
             if (count > 0)
             {
@@ -192,7 +202,7 @@ namespace MVZ2.GameContent.Contraptions
                         index = 0;
                     }
                     var seedPack = heldBlueprintsID.ElementAt(index);
-                    pile.Add(seedPack?.GetDefinitionID());
+                    pile.Add(seedPack);
                     index++;
                     SetCurrentDrawIndex(level, index);
                 }

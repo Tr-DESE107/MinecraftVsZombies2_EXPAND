@@ -77,9 +77,17 @@ namespace MVZ2.Vanilla.Entities
 
         #region 沉没
         public static readonly PropertyMeta WATER_INTERACTION = Get("waterInteraction");
+        public static int GetWaterInteraction(this EntityDefinition entityDef)
+        {
+            return entityDef.GetProperty<int>(WATER_INTERACTION);
+        }
         public static int GetWaterInteraction(this Entity entity)
         {
             return entity.GetProperty<int>(WATER_INTERACTION);
+        }
+        public static void SetWaterInteraction(this Entity entity, int value)
+        {
+            entity.SetProperty(WATER_INTERACTION, value);
         }
         #endregion
 
@@ -316,6 +324,12 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 灰度
+        public static readonly PropertyMeta GRAYSCALE = Get("grayscale");
+        public static void SetGrayscale(this Entity entity, bool value) => entity.SetProperty(GRAYSCALE, value);
+        public static bool IsGrayscale(this Entity entity) => entity.GetProperty<bool>(GRAYSCALE);
+        #endregion
+
         #region 蓝图
         public static readonly PropertyMeta COST = Get("cost");
         public static readonly PropertyMeta RECHARGE_ID = Get("rechargeId");
@@ -346,6 +360,10 @@ namespace MVZ2.Vanilla.Entities
         public static NamespaceID[] GetGridLayersToTake(this Entity entity)
         {
             return entity.GetProperty<NamespaceID[]>(GRID_LAYERS);
+        }
+        public static void SetGridLayersToTake(this Entity entity, NamespaceID[] value)
+        {
+            entity.SetProperty(GRID_LAYERS, value);
         }
         #endregion
 

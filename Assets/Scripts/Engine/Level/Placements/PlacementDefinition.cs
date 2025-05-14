@@ -3,6 +3,7 @@ using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
 
 namespace PVZEngine.Placements
 {
@@ -46,14 +47,14 @@ namespace PVZEngine.Placements
             }
             return error;
         }
-        public Entity PlaceEntity(LawnGrid grid, EntityDefinition entity)
+        public Entity PlaceEntity(LawnGrid grid, EntityDefinition entity, PlaceParams param)
         {
             foreach (var method in methods)
             {
                 var e = method.GetPlaceError(this, grid, entity);
                 if (!NamespaceID.IsValid(e))
                 {
-                    return method.PlaceEntity(this, grid, entity);
+                    return method.PlaceEntity(this, grid, entity, param);
                 }
             }
             return null;

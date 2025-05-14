@@ -20,10 +20,10 @@ namespace MVZ2.Almanacs
         {
             indexUI.SetArtifactVisible(visible);
         }
-        public void SetContraptionEntries(ChoosingBlueprintViewData[] entries, bool commandBlockVisible)
+        public void SetContraptionEntries(ChoosingBlueprintViewData[] entries, bool commandBlockVisible, ChoosingBlueprintViewData commandBlockViewData)
         {
-            standaloneContraptions.SetEntries(entries, commandBlockVisible);
-            mobileContraptions.SetEntries(entries, commandBlockVisible);
+            standaloneContraptions.SetEntries(entries, commandBlockVisible, commandBlockViewData);
+            mobileContraptions.SetEntries(entries, commandBlockVisible, commandBlockViewData);
         }
         public void SetEnemyEntries(AlmanacEntryViewData[] entries)
         {
@@ -62,7 +62,9 @@ namespace MVZ2.Almanacs
         {
             indexUI.OnButtonClick += type => OnIndexButtonClick?.Invoke(type);
             standaloneContraptions.OnEntryClick += index => OnContraptionEntryClick?.Invoke(index);
+            standaloneContraptions.OnCommandBlockClick += () => OnCommandBlockClick?.Invoke();
             mobileContraptions.OnEntryClick += index => OnContraptionEntryClick?.Invoke(index);
+            mobileContraptions.OnCommandBlockClick += () => OnCommandBlockClick?.Invoke();
             enemies.OnEntryClick += index => OnEnemyEntryClick?.Invoke(index);
             artifacts.OnEntryClick += index => OnArtifactEntryClick?.Invoke(index);
             miscs.OnGroupEntryClick += (groupIndex, entryIndex) => OnMiscGroupEntryClick?.Invoke(groupIndex, entryIndex);
@@ -78,6 +80,7 @@ namespace MVZ2.Almanacs
         public event Action OnPageReturnClick;
         public event Action<IndexAlmanacPage.ButtonType> OnIndexButtonClick;
         public event Action<int> OnContraptionEntryClick;
+        public event Action OnCommandBlockClick;
         public event Action<int> OnEnemyEntryClick;
         public event Action<int> OnArtifactEntryClick;
         public event Action<int, int> OnMiscGroupEntryClick;

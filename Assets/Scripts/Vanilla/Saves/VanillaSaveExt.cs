@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Callbacks;
+﻿using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
@@ -126,6 +127,10 @@ namespace MVZ2.Vanilla.Saves
         public static bool IsStarshardUnlocked(this IGameSaveData save)
         {
             return save.IsUnlocked(VanillaUnlockID.starshard);
+        }
+        public static bool IsCommandBlockUnlocked(this IGameSaveData save)
+        {
+            return save.IsContraptionUnlocked(VanillaContraptionID.commandBlock);
         }
         /// <summary>
         /// 梦境世界是否是梦魇状态。

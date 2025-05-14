@@ -123,6 +123,9 @@
     <sound name="dark_skies_impact" maxCount="10">
         <sample path="mvz2:dark_skies_impact" weight="1" />
     </sound>
+    <sound name="data_stream">
+        <sample path="mvz2:data_stream" weight="1" />
+    </sound>
     <sound name="decrepify">
         <sample path="mvz2:decrepify" weight="1" />
     </sound>
@@ -194,6 +197,9 @@
         <sample path="mvz2:energy_shield_hit2" weight="1" />
         <sample path="mvz2:energy_shield_hit3" weight="1" />
         <sample path="mvz2:energy_shield_hit4" weight="1" />
+    </sound>
+    <sound name="error_xp">
+        <sample path="mvz2:error_xp" weight="1" />
     </sound>
     <sound name="evocation" priority="64">
         <sample path="mvz2:evocation" weight="1" />

@@ -8,10 +8,8 @@ namespace MVZ2.Models
     {
         public void UpdateView(BlueprintViewData viewData)
         {
-            iconRenderer.sprite = viewData.icon;
             costText.text = viewData.cost;
             triggerCostRoot.SetActive(viewData.triggerActive);
-            UpdateIcon();
             foreach (var preset in normalPresets)
             {
                 preset.SetActive(viewData.preset == BlueprintPreset.Normal);
@@ -20,6 +18,16 @@ namespace MVZ2.Models
             {
                 preset.SetActive(viewData.preset == BlueprintPreset.Upgrade);
             }
+            foreach (var preset in commandBlockPresets)
+            {
+                preset.SetActive(viewData.preset == BlueprintPreset.CommandBlock);
+            }
+            var icon = viewData.icon;
+            iconRenderer.enabled = icon && !viewData.iconGrayscale;
+            iconRenderer.sprite = icon;
+            iconCommandBlockRenderer.enabled = icon && viewData.iconGrayscale;
+            iconCommandBlockRenderer.sprite = icon;
+            UpdateIcon();
         }
         protected void UpdateIcon()
         {
@@ -37,10 +45,14 @@ namespace MVZ2.Models
             {
                 iconScale = new Vector3(1 / spriteScale.x, 1 / spriteScale.y);
             }
-            iconRenderer.transform.localScale = iconScale;
+            iconRoot.localScale = iconScale;
         }
         [SerializeField]
+        protected Transform iconRoot;
+        [SerializeField]
         protected SpriteRenderer iconRenderer;
+        [SerializeField]
+        protected SpriteRenderer iconCommandBlockRenderer;
         [SerializeField]
         protected GameObject triggerCostRoot;
         [SerializeField]
@@ -49,6 +61,8 @@ namespace MVZ2.Models
         protected GameObject[] normalPresets;
         [SerializeField]
         protected GameObject[] upgradePresets;
+        [SerializeField]
+        protected GameObject[] commandBlockPresets;
         [SerializeField]
         protected Vector2 iconSpriteSize;
         [SerializeField]

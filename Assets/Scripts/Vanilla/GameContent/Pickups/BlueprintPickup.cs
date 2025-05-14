@@ -18,6 +18,7 @@ using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using UnityEngine;
 
@@ -61,6 +62,7 @@ namespace MVZ2.GameContent.Pickups
         private static void UpdateModel(Entity pickup)
         {
             pickup.SetModelProperty("BlueprintID", GetBlueprintID(pickup));
+            pickup.SetModelProperty("CommandBlock", IsCommandBlock(pickup));
             pickup.SetAnimationBool("HideEnergy", true);
             pickup.SetAnimationBool("Dark", (pickup.Timeout < 100 && pickup.Timeout % 20 < 10) || pickup.Level.IsHoldingEntity(pickup));
         }
@@ -109,8 +111,9 @@ namespace MVZ2.GameContent.Pickups
 
                         if (seedDef.GetSeedType() == SeedTypes.ENTITY)
                         {
+                            var commandBlock = IsCommandBlock(entity);
                             entity.Remove();
-                            grid.UseEntityBlueprintDefinition(seedDef, data);
+                            grid.UseEntityBlueprintDefinition(seedDef, data, commandBlock);
                             level.ResetHeldItem();
                         }
                     }
@@ -144,6 +147,15 @@ namespace MVZ2.GameContent.Pickups
             }
             return null;
         }
+        void IHeldEntityBehaviour.PostSetModel(Entity entity, LevelEngine level, IHeldItemData data, IModelInterface model)
+        {
+            if (entity == null)
+                return;
+            if (IsCommandBlock(entity))
+            {
+                model.SetShaderInt("_Grayscale", 1);
+            }
+        }
 
         float IHeldEntityBehaviour.GetRadius(Entity entity, LevelEngine level, IHeldItemData data)
         {
@@ -160,6 +172,9 @@ namespace MVZ2.GameContent.Pickups
         #endregion
         public static NamespaceID GetBlueprintID(Entity pickup) => pickup.GetBehaviourField<NamespaceID>(PROP_BLUEPRINT_ID);
         public static void SetBlueprintID(Entity pickup, NamespaceID value) => pickup.SetBehaviourField(PROP_BLUEPRINT_ID, value);
+        public static bool IsCommandBlock(Entity pickup) => pickup.GetBehaviourField<bool>(PROP_COMMAND_BLOCK);
+        public static void SetCommandBlock(Entity pickup, bool value) => pickup.SetBehaviourField(PROP_COMMAND_BLOCK, value);
         public static readonly VanillaEntityPropertyMeta PROP_BLUEPRINT_ID = new VanillaEntityPropertyMeta("BlueprintID");
+        public static readonly VanillaEntityPropertyMeta PROP_COMMAND_BLOCK = new VanillaEntityPropertyMeta("CommandBlock");
     }
 }

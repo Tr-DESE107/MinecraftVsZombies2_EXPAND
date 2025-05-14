@@ -6,16 +6,8 @@ namespace MVZ2.UI
 {
     public abstract class BlueprintDisplayer : MonoBehaviour
     {
-        public void SetCommandBlockActive(bool value)
-        {
-            commandBlockRoot.SetActive(value);
-        }
         public abstract void UpdateItems(ChoosingBlueprintViewData[] viewDatas);
         public abstract Blueprint GetItem(int index);
-        private void Awake()
-        {
-            commandBlockBlueprint.OnPointerDown += (blueprint, eventData) => OnCommandBlockBlueprintClick?.Invoke();
-        }
         protected void CallBlueprintPointerEnter(int index, PointerEventData eventData)
         {
             OnBlueprintPointerEnter?.Invoke(index, eventData);
@@ -28,14 +20,9 @@ namespace MVZ2.UI
         {
             OnBlueprintSelect?.Invoke(index, eventData);
         }
-        public event Action OnCommandBlockBlueprintClick;
         public event Action<int, PointerEventData> OnBlueprintPointerEnter;
         public event Action<int, PointerEventData> OnBlueprintPointerExit;
         public event Action<int, PointerEventData> OnBlueprintSelect;
-        [SerializeField]
-        GameObject commandBlockRoot;
-        [SerializeField]
-        Blueprint commandBlockBlueprint;
     }
     public struct ChoosingBlueprintViewData
     {

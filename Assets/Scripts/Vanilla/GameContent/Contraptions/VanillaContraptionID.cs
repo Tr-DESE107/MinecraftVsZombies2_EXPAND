@@ -50,9 +50,11 @@ namespace MVZ2.GameContent.Contraptions
         public const string forcePad = "force_pad";
         public const string goldenDropper = "golden_dropper";
         public const string diamondSpikes = "diamond_spikes";
+        public const string commandBlock = "command_block";
 
         public const string anvil = "anvil";
         public const string randomChina = "random_china";
+        public const string errorBlock = "error_block";
     }
     public static class VanillaContraptionID
     {
@@ -101,9 +103,11 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);
         public static readonly NamespaceID goldenDropper = Get(VanillaContraptionNames.goldenDropper);
         public static readonly NamespaceID diamondSpikes = Get(VanillaContraptionNames.diamondSpikes);
+        public static readonly NamespaceID commandBlock = Get(VanillaContraptionNames.commandBlock);
 
         public static readonly NamespaceID anvil = Get(VanillaContraptionNames.anvil);
         public static readonly NamespaceID randomChina = Get(VanillaContraptionNames.randomChina);
+        public static readonly NamespaceID errorBlock = Get(VanillaContraptionNames.errorBlock);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

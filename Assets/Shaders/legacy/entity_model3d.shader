@@ -5,6 +5,8 @@ Shader "MinecraftVSZombies2/Legacy/Model"
         _MainTex ("Diffuse", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
         _ColorOffset ("Color Offset", Color) = (1,1,1,1)
+		[Toggle]
+		_Grayscale("Grayscale", Int) = 0
         
 		[Header(Lighting)]
 		[Toggle(LIT)]

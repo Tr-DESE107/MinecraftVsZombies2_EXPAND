@@ -7,6 +7,7 @@ using MVZ2.GameContent.Obstacles;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -49,7 +50,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.megaMutantZombie,
 
-                VanillaObstacleID.monsterSpawner,
+                VanillaContraptionID.commandBlock,
                 VanillaContraptionID.lightningOrb,
                 VanillaContraptionID.devourer,
                 VanillaContraptionID.gravitationBomb,
@@ -57,6 +58,12 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.drivenser,
             });
+            foreach (var seed in level.GetAllSeedPacks())
+            {
+                if (seed == null)
+                    continue;
+                seed.SetCommandBlock(true);
+            }
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {

@@ -798,6 +798,17 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
+        <contraption id="command_block" name="命令方块" tooltip="模仿一个器械" unlock="mvz2:level.mausoleum_5">
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:instantEvoke" value="false" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+
+                <int name="mvz2:cost" value="0" />
+                <id name="mvz2:rechargeId" value="mvz2:none" />
+            </properties>
+        </contraption>
 
         <!-- Token Contraptions -->
         <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
@@ -822,6 +833,17 @@
 
                 <int name="mvz2:cost" value="50" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
+            </properties>
+        </contraption>
+        <contraption id="error_block" name="错误方块" tooltip="出错了！">
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:instantEvoke" value="false" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+
+                <int name="mvz2:cost" value="0" />
+                <id name="mvz2:rechargeId" value="mvz2:none" />
             </properties>
         </contraption>
 
@@ -2240,6 +2262,11 @@
         <effect id="desire_lump">
             <properties>
                 <bool name="mvz2:decorative" value="false" />
+                <int name="mvz2:maxTimeout" value="30" />
+            </properties>
+        </effect>
+        <effect id="binary_particles">
+            <properties>
                 <int name="mvz2:maxTimeout" value="30" />
             </properties>
         </effect>

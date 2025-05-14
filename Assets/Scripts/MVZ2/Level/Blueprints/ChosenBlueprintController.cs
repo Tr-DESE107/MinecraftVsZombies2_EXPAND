@@ -39,8 +39,12 @@ namespace MVZ2.Level
             var tooltip = base.GetTooltipViewData();
             var id = Definition.GetID();
             tooltip.error = Controller.BlueprintChoosePart.GetChosenBlueprintTooltipError(Index);
-            tooltip.description = Controller.BlueprintChoosePart.GetBlueprintTooltip(id);
+            tooltip.description = Controller.BlueprintChoosePart.GetBlueprintTooltip(id, IsCommandBlock());
             return tooltip;
+        }
+        public override bool IsCommandBlock()
+        {
+            return Controller.BlueprintChoosePart.IsChosenBlueprintCommandBlock(Index);
         }
         public override void Click()
         {

@@ -686,6 +686,19 @@
             </flavor>
         </entry>
         <entry/>
+
+        <entry id="mvz2:command_block" hidden="true">
+            <header>
+                <p>命令方块允许你同时携带两份同样的蓝图，分别计算充能时间。</p>
+            </header>
+            <properties>
+                <p>耐久：<![CDATA[<color=red>300</color>]]></p>
+                <p>变形时间：<![CDATA[<color=red>3.2秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>你这样搞是要被踢出服务器的。</p>
+            </flavor>
+        </entry>
     </contraptions>
     <enemies>
         <entry id="mvz2:zombie">

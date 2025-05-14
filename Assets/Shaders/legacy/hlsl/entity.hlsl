@@ -20,6 +20,14 @@ half4 Tint(half4 color, half4 tint)
     return color * tint;
 }
 
+half4 Grayscale(half4 color)
+{
+    //获取灰度值
+    half _texGray = dot(color.rgb, half3(0.5, 0.5, 0.5)); //dot(_texCol.rgb, vec3(0.299, 0.587, 0.114));
+    //将灰度值分别赋予rgb三色通道
+    return half4(_texGray, _texGray, _texGray, color.a);
+}
+
 
 struct appdata_entity
 {
@@ -50,6 +58,7 @@ float4 _MainTex_ST;
 float4 _Color;
 half4 _ColorOffset;
 float3 _HSVOffset;
+int _Grayscale;
 
 v2f_entity EntityVert(appdata_entity v)
 {
@@ -80,6 +89,10 @@ half4 EntityFrag(v2f_entity i) : SV_Target
 #if HSV_TINT
     col = ModifyHSV(col, _HSVOffset);
 #endif
+    if (_Grayscale > 0)
+    {
+        col = Grayscale(col);
+    }
                 
     col.rgb = col.rgb + _ColorOffset.rgb;
                             

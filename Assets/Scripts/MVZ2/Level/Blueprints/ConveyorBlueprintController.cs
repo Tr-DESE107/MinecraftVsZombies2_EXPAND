@@ -52,6 +52,10 @@ namespace MVZ2.Level
 
             Controller.BlueprintController.SetConveyorBlueprintUIPosition(Index, Position);
         }
+        public override bool IsCommandBlock()
+        {
+            return SeedPack.IsCommandBlock();
+        }
         protected override void OnPickup(BlueprintPickupInfo info)
         {
             var blueprint = SeedPack;

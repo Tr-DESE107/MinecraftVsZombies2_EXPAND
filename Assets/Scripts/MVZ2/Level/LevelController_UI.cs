@@ -67,6 +67,11 @@ namespace MVZ2.Level
             // 设置图标。
             var modelID = definition?.GetModelID(level, data);
             SetHeldItemModel(modelID);
+            var model = GetHeldItemModel();
+            if (model != null)
+            {
+                definition?.PostSetModel(level, data, heldItemModelInterface);
+            }
 
             // 显示触发器图标。
             bool triggerVisible = false;

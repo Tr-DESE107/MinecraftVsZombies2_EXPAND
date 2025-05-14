@@ -163,6 +163,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 02d02d3206dc8484c8e80a0aa53c8725, type: 3}
   - name: mobile_blueprint/cave_spider
     sprite: {fileID: 21300000, guid: 2be33464724166c4fa3a121643edceb8, type: 3}
+  - name: mobile_blueprint/command_block
+    sprite: {fileID: 21300000, guid: c5e0b87d540b275409a8860725de7933, type: 3}
   - name: mobile_blueprint/desire_pot
     sprite: {fileID: 21300000, guid: 2bc07992dc30ad441aa98588cf8d0e90, type: 3}
   - name: mobile_blueprint/devourer
@@ -183,6 +185,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9e859336bcdaf054593a5dc4ca4b79ae, type: 3}
   - name: mobile_blueprint/emperor_zombie
     sprite: {fileID: 21300000, guid: d018395fbcf32f44c92a79b061e11d83, type: 3}
+  - name: mobile_blueprint/error_block
+    sprite: {fileID: 21300000, guid: 4a95d1fe4c3e9f342a64658402ac3669, type: 3}
   - name: mobile_blueprint/flag_zombie
     sprite: {fileID: 21300000, guid: 4756509eba10d744bb3323a794303f92, type: 3}
   - name: mobile_blueprint/force_pad
@@ -1287,6 +1291,11 @@ MonoBehaviour:
     - {fileID: -1083742067, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 413586417, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 1656711901, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
+  - name: entity/contraption/command_block
+    spritesheet:
+    - {fileID: -1167386140, guid: 8efa2e79b292918498e73ab732763604, type: 3}
+    - {fileID: 1746660995, guid: 8efa2e79b292918498e73ab732763604, type: 3}
+    - {fileID: 1849823880, guid: 8efa2e79b292918498e73ab732763604, type: 3}
   - name: entity/contraption/desire_pot
     spritesheet:
     - {fileID: -55935898, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
@@ -1321,6 +1330,9 @@ MonoBehaviour:
     - {fileID: 320034190, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
     - {fileID: 1628297157, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
     - {fileID: 789365403, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
+  - name: entity/contraption/error_block
+    spritesheet:
+    - {fileID: 21300000, guid: 1106f96e2391f404caf8c7b2974ba5ea, type: 3}
   - name: entity/contraption/fire_block_0
     spritesheet:
     - {fileID: 1207791398, guid: 1143ec22777085e4da98117d2864f022, type: 3}
@@ -1532,6 +1544,12 @@ MonoBehaviour:
     - {fileID: 1173679832, guid: 58158142a20bad54bb1d4d18b73f88aa, type: 3}
     - {fileID: 287798520, guid: 58158142a20bad54bb1d4d18b73f88aa, type: 3}
     - {fileID: -1565348314, guid: 58158142a20bad54bb1d4d18b73f88aa, type: 3}
+  - name: entity/effect/binary
+    spritesheet:
+    - {fileID: 286012358, guid: f01f837c93d457f419e47ac4a3528a7e, type: 3}
+    - {fileID: -1711203643, guid: f01f837c93d457f419e47ac4a3528a7e, type: 3}
+    - {fileID: -2087466903, guid: f01f837c93d457f419e47ac4a3528a7e, type: 3}
+    - {fileID: 1325005566, guid: f01f837c93d457f419e47ac4a3528a7e, type: 3}
   - name: entity/effect/ember
     spritesheet:
     - {fileID: -1235474060, guid: d135750d2a9f15040ba57b8b867fe2c1, type: 3}

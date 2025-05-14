@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Placements
             }
             return null;
         }
-        public override Entity PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef)
+        public override Entity PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
         {
             if (!entityDef.IsDefensive())
                 return null;

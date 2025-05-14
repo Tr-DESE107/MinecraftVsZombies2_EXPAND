@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Placements
             return null;
         }
 
-        public override Entity PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
+        public override Entity PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity, PlaceParams param)
         {
             var entities = grid.GetEntities();
             var drivenser = entities.FirstOrDefault(e => Drivenser.CanUpgrade(e));

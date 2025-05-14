@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using PVZEngine;
@@ -19,7 +20,7 @@ namespace MVZ2.GameContent.Placements
             }
             return null;
         }
-        public override Entity PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef)
+        public override Entity PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
         {
             var upgradeFromEntity = entityDef.GetUpgradeFromEntity();
             if (NamespaceID.IsValid(upgradeFromEntity))
@@ -27,7 +28,12 @@ namespace MVZ2.GameContent.Placements
                 var entity = grid.GetEntities().FirstOrDefault(e => e.IsEntityOf(upgradeFromEntity));
                 if (entity != null && entity.Exists())
                 {
-                    return entity.UpgradeToContraption(entityDef.GetID());
+                    var ent = entity.UpgradeToContraption(entityDef.GetID());
+                    if (ent != null && param.IsCommandBlock())
+                    {
+                        ent.AddBuff<ImitatedBuff>();
+                    }
+                    return ent;
                 }
             }
             return null;

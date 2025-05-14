@@ -46,9 +46,11 @@
     <model name="force_pad" type="entity" path="mvz2:contraption/upgrade/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="golden_dropper" type="entity" path="mvz2:contraption/upgrade/golden_dropper" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="diamond_spikes" type="entity" path="mvz2:contraption/upgrade/diamond_spikes" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="command_block" type="entity" path="mvz2:contraption/upgrade/command_block" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="anvil" type="entity" path="mvz2:contraption/dream/anvil" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="random_china" type="entity" path="mvz2:contraption/prologue/random_china" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="error_block" type="entity" path="mvz2:contraption/upgrade/error_block" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <!-- Enemies -->
     <model name="zombie" type="entity" path="mvz2:enemy/prologue/zombie" width="64" height="96" xOffset="10" yOffset="-44"/>
@@ -206,6 +208,7 @@
     <model name="blackhole" type="entity" path="mvz2:effect/blackhole" width="130" height="130" xOffset="0" yOffset="0"/>
     <model name="annihilation_field" type="entity" path="mvz2:effect/annihilation_field" width="130" height="130" xOffset="0" yOffset="0"/>
     <model name="desire_lump" type="entity" path="mvz2:effect/desire_lump" width="64" height="64" xOffset="0" yOffset="0"/>
+    <model name="binary_particles" type="entity" path="mvz2:effect/binary_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

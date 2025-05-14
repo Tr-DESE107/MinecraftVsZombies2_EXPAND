@@ -1,22 +1,21 @@
-﻿using System.Linq;
-using System.Security.Cryptography;
+﻿using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Grids;
+using MVZ2.GameContent.Placements;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
+using PVZEngine.Placements;
 using PVZEngine.SeedPacks;
-using PVZEngine.Callbacks;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
-using UnityEditor.PackageManager;
 
 namespace MVZ2.Vanilla.Grids
 {
@@ -79,19 +78,14 @@ namespace MVZ2.Vanilla.Grids
         #endregion
 
         #region 放置蓝图
-        /// <summary>
-        /// 在一个网格的位置上放置一个蓝图。
-        /// 如果是实体蓝图，则会调用<see cref="PlaceEntityBlueprint"/>，放置一个实体，或在已有实体上堆叠。
-        /// </summary>
-        /// <param name="grid"></param>
-        /// <param name="seedDef"></param>
-        /// <param name="heldItemData"></param>
         public static void UseEntityBlueprint(this LawnGrid grid, SeedPack seed, IHeldItemData heldItemData)
         {
             var seedDef = seed?.Definition;
             if (seedDef == null)
                 return;
-            var entity = grid.PlaceEntityBlueprint(seedDef);
+            var param = new PlaceParams();
+            param.SetCommandBlock(seed.IsCommandBlock());
+            var entity = grid.PlaceEntityBlueprint(seedDef, param);
             if (entity == null)
                 return;
             var level = grid.Level;
@@ -107,18 +101,20 @@ namespace MVZ2.Vanilla.Grids
         /// <param name="grid"></param>
         /// <param name="seedDef"></param>
         /// <param name="heldItemData"></param>
-        public static void UseEntityBlueprintDefinition(this LawnGrid grid, SeedDefinition seedDef, IHeldItemData heldItemData)
+        public static void UseEntityBlueprintDefinition(this LawnGrid grid, SeedDefinition seedDef, IHeldItemData heldItemData, bool isCommandBlock = false)
         {
             if (seedDef == null)
                 return;
-            var entity = grid.PlaceEntityBlueprint(seedDef);
+            var param = new PlaceParams();
+            param.SetCommandBlock(isCommandBlock);
+            var entity = grid.PlaceEntityBlueprint(seedDef, param);
             var level = grid.Level;
             level.Triggers.RunCallback(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, new VanillaLevelCallbacks.PostUseEntityBlueprintParams(entity, seedDef, null, heldItemData));
         }
         #endregion
 
         #region 生成实体
-        public static bool CanSpawnEntityAt(this LawnGrid grid, NamespaceID entityID)
+        public static bool CanSpawnEntity(this LawnGrid grid, NamespaceID entityID)
         {
             return grid.GetEntitySpawnStatus(entityID) == null;
         }
@@ -181,35 +177,32 @@ namespace MVZ2.Vanilla.Grids
                 return null;
             return placementDef.GetPlaceError(grid, entityDef);
         }
-        /// <summary>
-        /// 放置一个蓝图的实体，或升级器械，或在已有实体上堆叠。
-        /// </summary>
-        /// <param name="grid"></param>
-        /// <param name="seedDef"></param>
-        /// <param name="heldItemData"></param>
-        /// <returns></returns>
-        public static Entity PlaceEntityBlueprint(this LawnGrid grid, SeedDefinition seedDef)
+        public static Entity PlaceEntityBlueprint(this LawnGrid grid, SeedDefinition seedDef, PlaceParams param)
         {
-            return PlaceEntity(grid, seedDef.GetSeedEntityID());
+            return PlaceEntity(grid, seedDef.GetSeedEntityID(), param);
         }
-        public static Entity PlaceEntity(this LawnGrid grid, NamespaceID entityID)
+        public static Entity PlaceEntity(this LawnGrid grid, NamespaceID entityID, PlaceParams param)
         {
             var level = grid.Level;
             var entityDef = level.Content.GetEntityDefinition(entityID);
-            return grid.PlaceEntity(entityDef);
+            return grid.PlaceEntity(entityDef, param);
         }
-        public static Entity PlaceEntity(this LawnGrid grid, EntityDefinition entityDef)
+        public static Entity PlaceEntity(this LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
         {
             var level = grid.Level;
             if (entityDef == null)
                 return null;
             var placementID = entityDef.GetPlacementID();
             var placement = level.Content.GetPlacementDefinition(placementID);
-            if (placement == null)
-                return null;
-            return placement.PlaceEntity(grid, entityDef);
+            return grid.PlaceEntity(entityDef, placement, param);
         }
-        public static Entity SpawnPlacedEntity(this LawnGrid grid, NamespaceID entityID)
+        public static Entity PlaceEntity(this LawnGrid grid, EntityDefinition entityDef, PlacementDefinition placement, PlaceParams param)
+        {
+            if (entityDef == null || placement == null)
+                return null;
+            return placement.PlaceEntity(grid, entityDef, param);
+        }
+        public static Entity SpawnPlacedEntity(this LawnGrid grid, NamespaceID entityID, SpawnParams param = null)
         {
             if (grid == null)
                 return null;
@@ -223,7 +216,7 @@ namespace MVZ2.Vanilla.Grids
 
             var position = new Vector3(x, y, z);
             var entityDef = level.Content.GetEntityDefinition(entityID);
-            var entity = level.Spawn(entityID, position, null);
+            var entity = level.Spawn(entityID, position, null, param);
             entity.PlaySound(grid.GetPlaceSound(entity));
 
             grid.PostPlaceEntity(entity);

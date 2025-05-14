@@ -8,6 +8,8 @@
 		[Space(10)]
         _Color("Tint", Color) = (1,1,1,1)
 		_ColorOffset("Color Offset", Color) = (0,0,0,0)
+		[Toggle]
+		_Grayscale("Grayscale", Int) = 0
 
 		[Header(Burn)]
 		[Toggle(BURN_ON)]

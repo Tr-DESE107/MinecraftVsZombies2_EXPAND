@@ -73,9 +73,29 @@ namespace MVZ2.UI
         {
             blueprintChoosePanel.UpdateItems(viewDatas);
         }
+        public void UpdateCommandBlockItem(ChoosingBlueprintViewData viewData)
+        {
+            blueprintChoosePanel.UpdateCommandBlockItem(viewData);
+        }
+        public void ShowCommandBlockPanel()
+        {
+            commandBlockChoosePanel.gameObject.SetActive(true);
+        }
+        public void HideCommandBlockPanel()
+        {
+            commandBlockChoosePanel.gameObject.SetActive(false);
+        }
+        public void UpdateCommandBlockChooseItems(ChoosingBlueprintViewData[] viewDatas)
+        {
+            commandBlockChoosePanel.UpdateItems(viewDatas);
+        }
         public Blueprint GetBlueprintChooseItem(int index)
         {
             return blueprintChoosePanel.GetItem(index);
+        }
+        public Blueprint GetCommandBlockChooseItem(int index)
+        {
+            return commandBlockChoosePanel.GetItem(index);
         }
         #endregion
 
@@ -175,6 +195,11 @@ namespace MVZ2.UI
         }
         #endregion
 
+        public Blueprint GetCommandBlockSlotBlueprint()
+        {
+            return blueprintChoosePanel.GetCommandBlockBlueprintItem();
+        }
+
         private void Awake()
         {
             viewLawnReturnButton.onClick.AddListener(() => OnViewLawnReturnClick?.Invoke());
@@ -187,11 +212,18 @@ namespace MVZ2.UI
             blueprintChoosePanel.OnStartButtonClick += () => OnStartClick?.Invoke();
             blueprintChoosePanel.OnViewLawnButtonClick += () => OnViewLawnClick?.Invoke();
             blueprintChoosePanel.OnRepickButtonClick += () => OnRepickClick?.Invoke();
+            blueprintChoosePanel.OnCommandBlockBlueprintPointerEnter += () => OnCommandBlockPointerEnter?.Invoke();
+            blueprintChoosePanel.OnCommandBlockBlueprintPointerExit += () => OnCommandBlockPointerExit?.Invoke();
             blueprintChoosePanel.OnCommandBlockBlueprintClick += () => OnCommandBlockClick?.Invoke();
 
-            blueprintChoosePanel.OnBlueprintPointerEnter += (index, data) => OnBlueprintItemPointerEnter?.Invoke(index, data);
-            blueprintChoosePanel.OnBlueprintPointerExit += (index, data) => OnBlueprintItemPointerExit?.Invoke(index, data);
-            blueprintChoosePanel.OnBlueprintPointerDown += (index, data) => OnBlueprintItemPointerDown?.Invoke(index, data);
+            blueprintChoosePanel.OnBlueprintPointerEnter += (index, data) => OnBlueprintItemPointerEnter?.Invoke(index, data, false);
+            blueprintChoosePanel.OnBlueprintPointerExit += (index, data) => OnBlueprintItemPointerExit?.Invoke(index, data, false);
+            blueprintChoosePanel.OnBlueprintPointerDown += (index, data) => OnBlueprintItemPointerDown?.Invoke(index, data, false);
+
+            commandBlockChoosePanel.OnCancelButtonClick += () => OnCommandBlockPanelCancelClick?.Invoke();
+            commandBlockChoosePanel.OnBlueprintPointerEnter += (index, data) => OnBlueprintItemPointerEnter?.Invoke(index, data, true);
+            commandBlockChoosePanel.OnBlueprintPointerExit += (index, data) => OnBlueprintItemPointerExit?.Invoke(index, data, true);
+            commandBlockChoosePanel.OnBlueprintPointerDown += (index, data) => OnBlueprintItemPointerDown?.Invoke(index, data, true);
 
             choosingViewAlmanacButton.onClick.AddListener(() => OnViewAlmanacClick?.Invoke());
             choosingViewStoreButton.onClick.AddListener(() => OnViewStoreClick?.Invoke());
@@ -226,13 +258,16 @@ namespace MVZ2.UI
         public event Action OnStartClick;
         public event Action OnViewLawnClick;
         public event Action OnRepickClick;
+        public event Action OnCommandBlockPointerEnter;
+        public event Action OnCommandBlockPointerExit;
         public event Action OnCommandBlockClick;
+        public event Action OnCommandBlockPanelCancelClick;
         public event Action<int> OnArtifactSlotClick;
         public event Action<int> OnArtifactSlotPointerEnter;
         public event Action<int> OnArtifactSlotPointerExit;
-        public event Action<int, PointerEventData> OnBlueprintItemPointerEnter;
-        public event Action<int, PointerEventData> OnBlueprintItemPointerExit;
-        public event Action<int, PointerEventData> OnBlueprintItemPointerDown;
+        public event Action<int, PointerEventData, bool> OnBlueprintItemPointerEnter;
+        public event Action<int, PointerEventData, bool> OnBlueprintItemPointerExit;
+        public event Action<int, PointerEventData, bool> OnBlueprintItemPointerDown;
 
         public event Action OnViewAlmanacClick;
         public event Action OnViewStoreClick;
@@ -267,6 +302,8 @@ namespace MVZ2.UI
         MovingBlueprintList movingBlueprints;
         [SerializeField]
         BlueprintChoosePanel blueprintChoosePanel;
+        [SerializeField]
+        CommandBlockChoosePanel commandBlockChoosePanel;
         [SerializeField]
         Button choosingViewAlmanacButton;
         [SerializeField]

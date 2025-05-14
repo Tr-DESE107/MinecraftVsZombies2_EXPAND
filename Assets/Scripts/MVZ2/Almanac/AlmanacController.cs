@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Placements;
 using MVZ2.Managers;
 using MVZ2.Metas;
@@ -12,6 +13,7 @@ using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
@@ -52,6 +54,7 @@ namespace MVZ2.Almanacs
 
             ui.OnIndexButtonClick += OnIndexButtonClickCallback;
             ui.OnContraptionEntryClick += OnContraptionEntryClickCallback;
+            ui.OnCommandBlockClick += OnCommandBlockClickCallback;
             ui.OnEnemyEntryClick += OnEnemyEntryClickCallback;
             ui.OnArtifactEntryClick += OnArtifactEntryClickCallback;
             ui.OnMiscGroupEntryClick += OnMiscGroupEntryClickCallback;
@@ -86,6 +89,11 @@ namespace MVZ2.Almanacs
         private void OnContraptionEntryClickCallback(int index)
         {
             SetActiveContraptionEntry(contraptionEntries[index]);
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
+        }
+        private void OnCommandBlockClickCallback()
+        {
+            SetActiveContraptionEntry(VanillaContraptionID.commandBlock);
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
         private void OnEnemyEntryClickCallback(int index)
@@ -293,7 +301,8 @@ namespace MVZ2.Almanacs
 
 
             var contraptionViewDatas = contraptionEntries.Select(c => Main.AlmanacManager.GetChoosingBlueprintViewData(c, false)).ToArray();
-            ui.SetContraptionEntries(contraptionViewDatas, false);
+            var commandBlockViewData = Main.AlmanacManager.GetChoosingBlueprintViewData(VanillaContraptionID.commandBlock, false);
+            ui.SetContraptionEntries(contraptionViewDatas, Main.SaveManager.IsCommandBlockUnlocked(), commandBlockViewData);
 
             var enemyViewDatas = enemyEntries.Select(c => Main.AlmanacManager.GetEnemyEntryViewData(c)).ToArray();
             ui.SetEnemyEntries(enemyViewDatas);

@@ -58,7 +58,7 @@ namespace MVZ2.GameContent.Contraptions
                 var def = game.GetEntityDefinition(id);
                 if (def.IsUpgradeBlueprint())
                     return false;
-                return grid.CanSpawnEntityAt(id);
+                return grid.CanSpawnEntity(id);
             });
             if (validContraptions.Count() <= 0)
                 return;
@@ -131,7 +131,7 @@ namespace MVZ2.GameContent.Contraptions
                     if (column >= 0 && column < level.GetMaxColumnCount() && lane >= 0 && lane < level.GetMaxLaneCount())
                     {
                         var grid = level.GetGrid(column, lane);
-                        if (grid.CanSpawnEntityAt(VanillaContraptionID.obsidian))
+                        if (grid.CanSpawnEntity(VanillaContraptionID.obsidian))
                         {
                             var pos = grid.GetEntityPosition();
                             contraption.SpawnWithParams(VanillaContraptionID.obsidian, pos);
@@ -148,7 +148,7 @@ namespace MVZ2.GameContent.Contraptions
                 for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
                 {
                     var grid = level.GetGrid(column, lane);
-                    if (grid.CanSpawnEntityAt(VanillaContraptionID.randomChina))
+                    if (grid.CanSpawnEntity(VanillaContraptionID.randomChina))
                     {
                         var pos = grid.GetEntityPosition();
                         contraption.SpawnWithParams(VanillaContraptionID.randomChina, pos);

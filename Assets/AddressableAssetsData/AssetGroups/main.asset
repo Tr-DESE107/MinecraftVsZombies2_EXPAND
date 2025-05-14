@@ -431,6 +431,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1106f96e2391f404caf8c7b2974ba5ea
+    m_Address: mvz2:entity/contraption/error_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11174ea26786a1e48ae51b07178b33da
     m_Address: mvz2:contraption/mausoleum/lightning_orb
     m_ReadOnly: 0
@@ -1312,6 +1318,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ed94ca4477dddd4d8e58ecc9da541c5
+    m_Address: mvz2:characters/miko
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f37ee72c04034a4d930b31185d1e90e
     m_Address: mvz2:level/halloween/halloween_cloudy
@@ -2254,6 +2266,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a95d1fe4c3e9f342a64658402ac3669
+    m_Address: mvz2:mobile_blueprint/error_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ac894cccf343c44e81c86c063ac4d75
     m_Address: mvz2:entity/enemies/bedserker_bed
     m_ReadOnly: 0
@@ -2379,6 +2397,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ef140d83ec44cd41971cbbd2fc302fd
+    m_Address: mvz2:annihilation_field
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f1e8833ddcff2246a43e4d3b98c6fc4
     m_Address: mvz2:entity/effects/fire_particle
@@ -4215,6 +4239,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8efa2e79b292918498e73ab732763604
+    m_Address: mvz2:entity/contraption/command_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f0549f9c8e9dd84d96e7d8dd50ece84
     m_Address: mvz2:soul_sand_break6
     m_ReadOnly: 0
@@ -4322,6 +4352,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 913ffaf3bda1b2f4081954fc48a51232
+    m_Address: mvz2:effect/desire_lump
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 914f50fbb1e39a2489d87071c979c50c
     m_Address: mvz2:random/glass5
@@ -5349,6 +5385,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b35c8286eeeb0354ca878b6d3ab7b93a
+    m_Address: mvz2:contraption/upgrade/error_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b362171cd0a32824e9b3ac7c42f24dd7
     m_Address: mvz2:mobile_blueprint/gravity_pad
     m_ReadOnly: 0
@@ -5727,6 +5769,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: beaefb38f5a5fce469c095db69c2fbdc
+    m_Address: mvz2:effect/binary_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: beb139d5d07db39408272c27eaea0034
     m_Address: mvz2:products/obsidian_first_aid
     m_ReadOnly: 0
@@ -5807,6 +5855,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2578011139751f4ebed15184256f29d
     m_Address: mvz2:map/dream/apollo_meridian_blue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c278e895010ef2449998e67c90983780
+    m_Address: mvz2:entity/effects/desire_lump
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -5942,6 +5996,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5e0b87d540b275409a8860725de7933
+    m_Address: mvz2:mobile_blueprint/command_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5e542b668451eb45987e6cfc2d49ead
     m_Address: mvz2:entity/enemies/dullahan_head
@@ -6375,6 +6435,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4437c9a030322a468d926213790a942
+    m_Address: mvz2:shadow_cast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d486f2b8240e28443aaeb03d25e81b9c
     m_Address: mvz2:entity/enemy/shikaisen_staff
     m_ReadOnly: 0
@@ -6515,6 +6581,18 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d8c2736fc27a8e04493b3b49320d67db
     m_Address: mvz2:cart/nyan_cat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d91984897dc86e944bbd58ed0228ba7c
+    m_Address: mvz2:data_stream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d92f5ffadfee2e946891fc34cf8e2fbc
+    m_Address: mvz2:contraption/upgrade/command_block
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -7101,6 +7179,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecb89f5e6d5b79944b789e19aa78bd2d
+    m_Address: mvz2:error_xp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ecc7209e07d89f24ab9328d718a340a9
     m_Address: mvz2:day
     m_ReadOnly: 0
@@ -7214,6 +7298,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f01f837c93d457f419e47ac4a3528a7e
+    m_Address: mvz2:entity/effect/binary
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f022b6ff2c7efb247b94a9b7a2f0d006
     m_Address: mvz2:chapter_transition/chapter_wheel

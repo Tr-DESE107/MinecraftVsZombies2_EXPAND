@@ -72,5 +72,14 @@ namespace MVZ2.Vanilla.SeedPacks
         {
             seed.SetProperty(DRAWN_CONVEYOR_SEED, value);
         }
+        public static readonly PropertyMeta COMMAND_BLOCK = Get("command_block");
+        public static bool IsCommandBlock(this SeedPack seed)
+        {
+            return seed.GetProperty<bool>(COMMAND_BLOCK);
+        }
+        public static void SetCommandBlock(this SeedPack seed, bool value)
+        {
+            seed.SetProperty(COMMAND_BLOCK, value);
+        }
     }
 }

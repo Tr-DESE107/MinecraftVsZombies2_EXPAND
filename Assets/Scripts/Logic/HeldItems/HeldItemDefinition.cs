@@ -6,6 +6,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using static UnityEngine.GraphicsBuffer;
 
@@ -61,6 +62,7 @@ namespace MVZ2Logic.HeldItems
         }
 
         public virtual NamespaceID GetModelID(LevelEngine level, IHeldItemData data) => null;
+        public virtual void PostSetModel(LevelEngine level, IHeldItemData data, IModelInterface model) { }
         public virtual float GetRadius(LevelEngine level, IHeldItemData data) => 0;
         public sealed override string GetDefinitionType() => LogicDefinitionTypes.HELD_ITEM;
 

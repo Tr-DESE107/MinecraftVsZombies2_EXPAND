@@ -9,6 +9,10 @@ namespace MVZ2.Vanilla
         public const string TOOLTIP_DISABLE_MESSAGE = "无法使用";
         [TranslateMsg("教程无法使用提示")]
         public const string TOOLTIP_DECREPIFY = "受到衰老诅咒！";
+        [TranslateMsg("无法携带提示")]
+        public const string TOOLTIP_CANNOT_IMITATE_THIS_CONTRAPTION = "无法模仿此器械";
+        [TranslateMsg("命令方块蓝图名，{0}为原名称")]
+        public const string COMMAND_BLOCK_BLUEPRINT_NAME_TEMPLATE = "[命令方块]{0}";
 
         [TranslateMsg("梦魇战斗提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_DRAG_CRUSHING_WALLS = "点击屏幕阻止碾压墙！";

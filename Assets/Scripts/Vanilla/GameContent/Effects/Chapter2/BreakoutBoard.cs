@@ -9,16 +9,14 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
-using MVZ2Logic.Callbacks;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.SeedPacks;
+using PVZEngine.Models;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -322,6 +320,10 @@ namespace MVZ2.GameContent.Effects
         NamespaceID IHeldEntityBehaviour.GetModelID(Entity entity, LevelEngine level, IHeldItemData data)
         {
             return null;
+        }
+        void IHeldEntityBehaviour.PostSetModel(Entity entity, LevelEngine level, IHeldItemData data, IModelInterface model)
+        {
+
         }
 
         float IHeldEntityBehaviour.GetRadius(Entity entity, LevelEngine level, IHeldItemData data)

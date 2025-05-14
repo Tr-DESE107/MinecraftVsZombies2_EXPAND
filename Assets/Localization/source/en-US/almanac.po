@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-14 07:53+0800\n"
-"PO-Revision-Date: 2025-05-14 07:56+0800\n"
+"POT-Creation-Date: 2025-05-14 02:30+0800\n"
+"PO-Revision-Date: 2025-05-14 14:32+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1171,6 +1171,28 @@ msgid ""
 msgstr ""
 "Can be used to purchase some game items, such as a vegetable that can destroy everything.\n"
 "...Haha, how could such a ridiculous thing happen?"
+
+#. Header for contraptions mvz2:command_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "命令方块允许你同时携带两份同样的蓝图，分别计算充能时间。"
+msgstr "Command block allows you to carry two same blueprints. They recharge separately."
+
+#. Properties for contraptions mvz2:command_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"耐久：<color=red>300</color>\n"
+"变形时间：<color=red>3.2秒</color>"
+msgstr ""
+"Toughness: <color=red>300</color>\n"
+"Transformation Time: <color=red>3.2s</color>"
+
+#. Flavor for contraptions mvz2:command_block
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "你这样搞是要被踢出服务器的。"
+msgstr "You will be banned from the server if you do this."
 
 #. Header for enemies mvz2:zombie
 #: Almanac meta file
@@ -4050,6 +4072,18 @@ msgstr ""
 "(Requires Spike Block)\n"
 "Damage enemies above quicker, and has more toughness"
 
+#. Header for entity mvz2:command_block
+#: Entity meta file
+msgctxt "entity.name"
+msgid "命令方块"
+msgstr "Command Block"
+
+#. Properties for entity mvz2:command_block
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "模仿一个器械"
+msgstr "Imitate a contraption"
+
 #. Header for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.name"
@@ -4073,6 +4107,18 @@ msgstr "Random China"
 msgctxt "entity.tooltip"
 msgid "被摧毁后生成随机器械"
 msgstr "Spawn a random contraption upon destroyed"
+
+#. Header for entity mvz2:error_block
+#: Entity meta file
+msgctxt "entity.name"
+msgid "错误方块"
+msgstr "Error Block"
+
+#. Properties for entity mvz2:error_block
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "出错了！"
+msgstr "Error!"
 
 #. Header for entity mvz2:zombie
 #: Entity meta file
@@ -4916,19 +4962,19 @@ msgstr "x250% damage but x50% attack speed for contraptions"
 #: Blueprints meta file
 msgctxt "option.name"
 msgid "返回弹珠"
-msgstr ""
+msgstr "Return the pearl"
 
 #. Name for blueprint option lengthen_board
 #: Blueprints meta file
 msgctxt "option.name"
 msgid "增长挡板"
-msgstr ""
+msgstr "Lengthen the board"
 
 #. Name for blueprint option add_pearl
 #: Blueprints meta file
 msgctxt "option.name"
 msgid "增加弹珠"
-msgstr ""
+msgstr "Add a pearl"
 
 #~ msgctxt "misc.description"
 #~ msgid "他到底是谁？"

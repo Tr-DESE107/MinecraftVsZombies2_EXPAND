@@ -23,10 +23,12 @@ namespace MVZ2.Models
             var resourceManager = main.ResourceManager;
             bool isMobile = main.IsMobile();
             var blueprintID = Model.GetProperty<NamespaceID>("BlueprintID");
-            if (lastID != blueprintID)
+            var commandBlock = Model.GetProperty<bool>("CommandBlock");
+            if (lastID != blueprintID || lastCommandBlock != commandBlock)
             {
                 lastID = blueprintID;
-                BlueprintViewData viewData = resourceManager.GetBlueprintViewData(blueprintID, false);
+                lastCommandBlock = commandBlock;
+                BlueprintViewData viewData = resourceManager.GetBlueprintViewData(blueprintID, false, commandBlock);
                 var blueprintSprite = isMobile ? blueprintSpriteMobile : blueprintSpriteStandalone;
                 blueprintSprite.UpdateView(viewData);
             }
@@ -44,5 +46,6 @@ namespace MVZ2.Models
         [SerializeField]
         private BlueprintSprite blueprintSpriteMobile;
         private NamespaceID lastID;
+        private bool lastCommandBlock;
     }
 }

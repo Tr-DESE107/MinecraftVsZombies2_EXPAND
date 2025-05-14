@@ -24,6 +24,7 @@ using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using PVZEngine.Callbacks;
 using UnityEngine;
+using PVZEngine.Models;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -349,7 +350,9 @@ namespace MVZ2.GameContent.Contraptions
         {
             return VanillaModelID.targetHeldItem;
         }
-
+        void IHeldEntityBehaviour.PostSetModel(Entity entity, LevelEngine level, IHeldItemData data, IModelInterface model)
+        {
+        }
         float IHeldEntityBehaviour.GetRadius(Entity entity, LevelEngine level, IHeldItemData data)
         {
             return 0;

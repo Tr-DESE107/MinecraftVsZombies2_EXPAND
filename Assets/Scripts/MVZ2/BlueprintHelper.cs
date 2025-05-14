@@ -8,15 +8,5 @@ namespace MVZ2
 {
     public static class BlueprintHelper
     {
-        public static BlueprintViewData[] GetBlueprintsViewData(MainManager main, IEnumerable<NamespaceID> blueprints, bool isEndless)
-        {
-            return blueprints.Select(id =>
-            {
-                if (!NamespaceID.IsValid(id))
-                    return BlueprintViewData.Empty;
-                var blueprintDef = main.Game.GetSeedDefinition(id);
-                return main.ResourceManager.GetBlueprintViewData(blueprintDef, isEndless);
-            }).ToArray();
-        }
     }
 }

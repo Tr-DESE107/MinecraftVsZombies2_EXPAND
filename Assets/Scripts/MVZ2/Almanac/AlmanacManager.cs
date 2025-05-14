@@ -109,7 +109,7 @@ namespace MVZ2.Almanacs
         {
             if (idList == null || idList.Count() == 0)
                 return Array.Empty<NamespaceID>();
-            var almanacIndexes = idList.Select(id => (id, index: Main.ResourceManager.GetAlmanacMetaEntry(category, id)?.index ?? 0));
+            var almanacIndexes = idList.Select(id => (id, index: Main.ResourceManager.GetAlmanacMetaEntry(category, id)?.index ?? -1));
             var maxAlmanacIndex = almanacIndexes.Max(tuple => tuple.index);
             var ordered = new NamespaceID[maxAlmanacIndex + 1];
             for (int i = 0; i < ordered.Length; i++)

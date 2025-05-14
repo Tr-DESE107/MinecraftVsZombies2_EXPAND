@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Projectiles
             var column = entity.GetColumn();
             var lane = level.GetNearestEntityLane(entity.Position.z);
             var grid = level.GetGrid(column, lane);
-            if (grid != null && grid.CanSpawnEntityAt(VanillaContraptionID.mineTNT))
+            if (grid != null && grid.CanSpawnEntity(VanillaContraptionID.mineTNT))
             {
                 var x = level.GetEntityColumnX(column);
                 var z = level.GetEntityLaneZ(lane);

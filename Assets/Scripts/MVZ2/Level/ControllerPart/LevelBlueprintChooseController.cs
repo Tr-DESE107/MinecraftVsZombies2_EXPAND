@@ -22,6 +22,8 @@ using PVZEngine.Definitions;
 using PVZEngine.Callbacks;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Seeds;
 
 namespace MVZ2.Level
 {
@@ -30,9 +32,11 @@ namespace MVZ2.Level
         void ApplyChoose();
         void ShowBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints);
         void DestroyChosenBlueprintUIAt(int index);
+        bool IsChosenBlueprintCommandBlock(int index);
         string GetChosenBlueprintTooltipError(int index);
-        string GetBlueprintTooltipError(NamespaceID blueprintID);
-        string GetBlueprintTooltip(NamespaceID blueprintID);
+        string GetBlueprintName(NamespaceID blueprintID, bool commandBlock);
+        string GetBlueprintTooltipError(NamespaceID blueprintID, bool commandBlock);
+        string GetBlueprintTooltip(NamespaceID blueprintID, bool commandBlock);
         bool IsInteractable();
         void UnchooseBlueprint(int index);
         void Refresh(IEnumerable<NamespaceID> blueprints);
@@ -50,7 +54,10 @@ namespace MVZ2.Level
             chooseUI.OnArtifactSlotPointerEnter += UI_OnArtifactSlotPointerEnterCallback;
             chooseUI.OnArtifactSlotPointerExit += UI_OnArtifactSlotPointerExitCallback;
 
+            chooseUI.OnCommandBlockPointerEnter += UI_OnCommandBlockPointerEnterCallback;
+            chooseUI.OnCommandBlockPointerExit += UI_OnCommandBlockPointerExitCallback;
             chooseUI.OnCommandBlockClick += UI_OnCommandBlockClickCallback;
+            chooseUI.OnCommandBlockPanelCancelClick += UI_OnCommandBlockPanelCancelClickCallback;
             chooseUI.OnStartClick += UI_OnStartClickCallback;
             chooseUI.OnViewLawnClick += UI_OnViewLawnClickCallback;
             chooseUI.OnRepickClick += UI_OnRepickClickCallback;
@@ -90,11 +97,19 @@ namespace MVZ2.Level
             for (int i = 0; i < Level.GetSeedSlotCount(); i++)
             {
                 NamespaceID blueprintID = null;
+                bool commandBlock = false;
                 if (i < chosenBlueprints.Count)
                 {
-                    blueprintID = chosenBlueprints[i].id;
+                    var item = chosenBlueprints[i];
+                    blueprintID = item.id;
+                    commandBlock = item.isCommandBlock;
                 }
                 Level.ReplaceSeedPackAt(i, blueprintID);
+                var seedPack = Level.GetSeedPackAt(i);
+                if (seedPack != null)
+                {
+                    seedPack.SetCommandBlock(commandBlock);
+                }
             }
             chosenBlueprints.Clear();
             choosingBlueprints = null;
@@ -106,6 +121,8 @@ namespace MVZ2.Level
         }
 
         #region 选择蓝图
+
+        #region 已选蓝图控制器
         private void CreateChosenBlueprintController(Blueprint blueprint, int index, SeedDefinition seedDef)
         {
             var controller = new ChosenBlueprintController(Controller, blueprint, index, seedDef);
@@ -133,6 +150,8 @@ namespace MVZ2.Level
             chosenBlueprintControllers.Clear();
         }
 
+        #endregion
+
         #region 蓝图移动
         private void AddChosenBlueprint(int seedPackIndex, BlueprintChooseItem item)
         {
@@ -140,8 +159,7 @@ namespace MVZ2.Level
             var seedID = item.id;
 
             // 更新可选蓝图UI。
-            var choosingIndex = Array.IndexOf(choosingBlueprints, seedID);
-            UpdateBlueprintChooseItem(choosingIndex);
+            UpdateBlueprintChooseItem(seedID, item.isCommandBlock);
 
             // 创造已选蓝图UI。
             var seedDef = Game.GetSeedDefinition(seedID);
@@ -167,14 +185,22 @@ namespace MVZ2.Level
 
         public void ChooseBlueprint(int index)
         {
+            var id = choosingBlueprints[index];
+            ChooseBlueprint(id, false);
+        }
+        public void ChooseCommandBlockBlueprint(NamespaceID id)
+        {
+            ChooseBlueprint(id, true);
+        }
+        public void ChooseBlueprint(NamespaceID id, bool commandBlock)
+        {
             var seedSlots = Level.GetSeedSlotCount();
             var seedPackIndex = chosenBlueprints.Count;
             if (seedPackIndex >= seedSlots)
                 return;
-            var id = choosingBlueprints[index];
-            if (chosenBlueprints.Any(i => i.id == id))
+            if (chosenBlueprints.Any(i => i.id == id && i.isCommandBlock == commandBlock))
                 return;
-            LoadBlueprint(seedPackIndex, id);
+            LoadBlueprint(seedPackIndex, id, commandBlock);
 
             // 播放音效。
             Level.PlaySound(VanillaSoundID.tap);
@@ -192,11 +218,10 @@ namespace MVZ2.Level
             Controller.HideTooltip();
         }
 
-        private void LoadBlueprint(int seedPackIndex, NamespaceID seedID)
+        private void LoadBlueprint(int seedPackIndex, NamespaceID seedID, bool commandBlock)
         {
-            AddChosenBlueprint(seedPackIndex, new BlueprintChooseItem() { id = seedID });
+            AddChosenBlueprint(seedPackIndex, new BlueprintChooseItem() { id = seedID, isCommandBlock = commandBlock });
 
-            var choosingIndex = Array.IndexOf(choosingBlueprints, seedID);
             var blueprintUI = chooseUI.GetChosenBlueprintAt(seedPackIndex);
             chooseUI.RemoveChosenBlueprintAt(seedPackIndex);
 
@@ -204,7 +229,18 @@ namespace MVZ2.Level
             Vector3 sourcePos;
             Vector3 targetPos = chooseUI.GetChosenBlueprintPosition(seedPackIndex);
 
-            var choosingBlueprintItem = chooseUI.GetBlueprintChooseItem(choosingIndex);
+            Blueprint choosingBlueprintItem = null;
+            if (commandBlock)
+            {
+                choosingBlueprintItem = chooseUI.GetCommandBlockSlotBlueprint();
+            }
+            else
+            {
+
+                var choosingIndex = Array.IndexOf(choosingBlueprints, seedID);
+                choosingBlueprintItem = chooseUI.GetBlueprintChooseItem(choosingIndex);
+            }
+
             if (choosingBlueprintItem)
             {
                 sourcePos = choosingBlueprintItem.transform.position;
@@ -236,13 +272,24 @@ namespace MVZ2.Level
         private void UnloadBlueprint(int index)
         {
             var choosingItem = chosenBlueprints[index];
-            var choosingIndex = Array.IndexOf(choosingBlueprints, choosingItem.id);
             var blueprintUI = chooseUI.GetChosenBlueprintAt(index);
 
             RemoveChosenBlueprint(index);
 
             Vector3 sourcePos = blueprintUI.transform.position;
-            var targetBlueprint = chooseUI.GetBlueprintChooseItem(choosingIndex);
+
+            NamespaceID id = choosingItem.id;
+            bool commandBlock = choosingItem.isCommandBlock;
+            Blueprint targetBlueprint = null;
+            if (commandBlock)
+            {
+                targetBlueprint = chooseUI.GetCommandBlockSlotBlueprint();
+            }
+            else
+            {
+                var choosingIndex = Array.IndexOf(choosingBlueprints, id);
+                targetBlueprint = chooseUI.GetBlueprintChooseItem(choosingIndex);
+            }
 
             if (targetBlueprint)
             {
@@ -252,13 +299,13 @@ namespace MVZ2.Level
                 movingBlueprint.SetMotion(sourcePos, targetBlueprint.transform);
                 movingBlueprint.OnMotionFinished += (movingBlueprint) =>
                 {
-                    UpdateBlueprintChooseItem(choosingIndex);
+                    UpdateBlueprintChooseItem(id, commandBlock);
                     RemoveMovingBlueprint(movingBlueprint);
                 };
             }
             else
             {
-                UpdateBlueprintChooseItem(choosingIndex);
+                UpdateBlueprintChooseItem(id, commandBlock);
             }
         }
 
@@ -366,6 +413,11 @@ namespace MVZ2.Level
                 errorMessage = REPLACE_ERROR_CONTRAPTION_LOCKED;
                 return false;
             }
+            if (blueprints.Any(item => item.isCommandBlock) && !Main.SaveManager.IsCommandBlockUnlocked())
+            {
+                errorMessage = REPLACE_ERROR_CONTRAPTION_LOCKED;
+                return false;
+            }
             errorMessage = null;
             return true;
         }
@@ -409,12 +461,11 @@ namespace MVZ2.Level
             {
                 var id = item.id;
                 var targetIndex = Array.IndexOf(targets, item) + innateCount;
-                LoadBlueprint(targetIndex, id);
+                LoadBlueprint(targetIndex, id, item.isCommandBlock);
             }
             // 最后将要保留的蓝图交换位置。
             foreach (var item in retainBlueprints)
             {
-                var id = item.id;
                 var targetIndex = Array.IndexOf(targets, item) + innateCount;
                 var existingIndex = chosenBlueprints.FindIndex(i => item.Compare(i));
                 SwapChosenBlueprints(existingIndex, targetIndex);
@@ -443,6 +494,7 @@ namespace MVZ2.Level
 
             isChoosingBlueprints = true;
 
+            chooseUI.HideCommandBlockPanel();
             UI.SetBlueprintsSortingToChoosing(true);
             chooseUI.SetChosenBlueprintsVisible(true);
             // 制品。
@@ -470,13 +522,15 @@ namespace MVZ2.Level
             var panelViewData = new BlueprintChoosePanelViewData()
             {
                 canViewLawn = Level.CurrentFlag > 0,
-                hasCommandBlock = false,
+                hasCommandBlock = Main.SaveManager.IsCommandBlockUnlocked(),
                 canRepick = canRepick,
             };
+
             var orderedBlueprints = new List<NamespaceID>();
             Main.AlmanacManager.GetOrderedBlueprints(blueprints, orderedBlueprints);
             var blueprintViewDatas = orderedBlueprints.Select(id => Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless())).ToArray();
             choosingBlueprints = orderedBlueprints.ToArray();
+
 
             var seedSlotCount = Level.GetSeedSlotCount();
             ClearMovingBlueprints();
@@ -497,14 +551,17 @@ namespace MVZ2.Level
             }
 
             // 更新UI。
+            var commandBlockSlotViewData = Main.AlmanacManager.GetChoosingBlueprintViewData(VanillaContraptionID.commandBlock, Level.IsEndless());
             chooseUI.SetBlueprintChooseViewAlmanacButtonActive(Main.SaveManager.IsAlmanacUnlocked());
             chooseUI.SetBlueprintChooseViewStoreButtonActive(Main.SaveManager.IsStoreUnlocked());
             chooseUI.UpdateBlueprintChooseElements(panelViewData);
             chooseUI.UpdateBlueprintChooseItems(blueprintViewDatas);
+            chooseUI.UpdateCommandBlockItem(commandBlockSlotViewData);
             for (int i = 0; i < orderedBlueprints.Count; i++)
             {
                 UpdateBlueprintChooseItem(i);
             }
+            UpdateCommandBlockItem();
             UpdateChosenBlueprints();
 
             // 如果有丢失的卡牌，取消他们的选择。
@@ -526,11 +583,12 @@ namespace MVZ2.Level
                 BlueprintViewData viewData = BlueprintViewData.Empty;
                 if (i < chosenBlueprints.Count)
                 {
-                    var blueprint = chosenBlueprints[i].id;
+                    var item = chosenBlueprints[i];
+                    var blueprint = item.id;
                     var seedDef = Game.GetSeedDefinition(blueprint);
                     if (seedDef != null)
                     {
-                        viewData = Main.ResourceManager.GetBlueprintViewData(seedDef, Level.IsEndless());
+                        viewData = Main.ResourceManager.GetBlueprintViewData(seedDef, Level.IsEndless(), item.isCommandBlock);
                     }
                 }
                 var blueprintUI = chooseUI.GetChosenBlueprintAt(i);
@@ -544,41 +602,67 @@ namespace MVZ2.Level
                 }
             }
         }
+        private void UpdateBlueprintChooseItem(NamespaceID id, bool commandBlock)
+        {
+            if (commandBlock)
+            {
+                UpdateCommandBlockItem();
+            }
+            else
+            {
+                var index = Array.IndexOf(choosingBlueprints, id);
+                UpdateBlueprintChooseItem(index);
+            }
+        }
         private void UpdateBlueprintChooseItem(int index)
         {
             var blueprintChooseItem = chooseUI.GetBlueprintChooseItem(index);
             if (!blueprintChooseItem)
                 return;
             var id = choosingBlueprints[index];
-            bool selected = chosenBlueprints.Any(i => i.id == id);
+            bool selected = chosenBlueprints.Any(i => i.id == id && !i.isCommandBlock);
             bool notRecommended = Level.IsBlueprintNotRecommmended(id);
 
             blueprintChooseItem.SetDisabled(selected);
             blueprintChooseItem.SetRecharge((selected || notRecommended) ? 1 : 0);
         }
+        private void UpdateCommandBlockItem()
+        {
+            var blueprintChooseItem = chooseUI.GetCommandBlockSlotBlueprint();
+            if (!blueprintChooseItem)
+                return;
+            bool selected = chosenBlueprints.Any(i => i.isCommandBlock);
+            blueprintChooseItem.SetDisabled(selected);
+            blueprintChooseItem.SetRecharge(selected ? 1 : 0);
+        }
         public void DestroyChosenBlueprintUIAt(int index)
         {
             chooseUI.DestroyChosenBlueprintAt(index);
         }
-        public string GetBlueprintName(NamespaceID blueprintID)
+        public string GetBlueprintName(NamespaceID blueprintID, bool commandBlock)
         {
+            string name = string.Empty;
             var definition = Game.GetSeedDefinition(blueprintID);
             if (definition == null)
-                return string.Empty;
+                return name;
             var seedType = definition.GetSeedType();
             if (seedType == SeedTypes.ENTITY)
             {
                 var entityID = definition.GetSeedEntityID();
-                return Main.ResourceManager.GetEntityName(entityID);
+                name = Main.ResourceManager.GetEntityName(entityID);
             }
             else if (seedType == SeedTypes.OPTION)
             {
                 var optionID = definition.GetSeedOptionID();
-                return Main.ResourceManager.GetSeedOptionName(optionID);
+                name = Main.ResourceManager.GetSeedOptionName(optionID);
             }
-            return string.Empty;
+            if (commandBlock)
+            {
+                name = Main.LanguageManager._(VanillaStrings.COMMAND_BLOCK_BLUEPRINT_NAME_TEMPLATE, name);
+            }
+            return name;
         }
-        public string GetBlueprintTooltip(NamespaceID blueprintID)
+        public string GetBlueprintTooltip(NamespaceID blueprintID, bool commandBlock)
         {
             var definition = Game.GetSeedDefinition(blueprintID);
             if (definition == null)
@@ -591,6 +675,13 @@ namespace MVZ2.Level
             }
             return string.Empty;
         }
+        public bool IsChosenBlueprintCommandBlock(int index)
+        {
+            var item = chosenBlueprints[index];
+            if (item == null)
+                return false;
+            return item.isCommandBlock;
+        }
         public bool GetChosenBlueprintTooltipError(int index, out string errorMessage)
         {
             errorMessage = null;
@@ -602,7 +693,7 @@ namespace MVZ2.Level
                 errorMessage = Main.LanguageManager._(VanillaStrings.INNATE);
                 return true;
             }
-            return GetBlueprintTooltipError(item.id, out errorMessage);
+            return GetBlueprintTooltipError(item.id, out errorMessage, item.isCommandBlock);
         }
         public string GetChosenBlueprintTooltipError(int index)
         {
@@ -612,10 +703,19 @@ namespace MVZ2.Level
             }
             return string.Empty;
         }
-        public bool GetBlueprintTooltipError(NamespaceID blueprintID, out string errorMessage)
+        public bool GetBlueprintTooltipError(NamespaceID blueprintID, out string errorMessage, bool commandBlock)
         {
             errorMessage = null;
             var level = Controller.GetEngine();
+            if (commandBlock)
+            {
+                var seedDef = Main.Game.GetSeedDefinition(blueprintID);
+                if (seedDef != null && seedDef.IsUpgradeBlueprint())
+                {
+                    errorMessage = Main.LanguageManager._(VanillaStrings.TOOLTIP_CANNOT_IMITATE_THIS_CONTRAPTION);
+                    return true;
+                }
+            }
             if (level.IsBlueprintNotRecommmended(blueprintID))
             {
                 errorMessage = Main.LanguageManager._(VanillaStrings.NOT_RECOMMONEDED_IN_LEVEL);
@@ -623,9 +723,9 @@ namespace MVZ2.Level
             }
             return false;
         }
-        public string GetBlueprintTooltipError(NamespaceID blueprintID)
+        public string GetBlueprintTooltipError(NamespaceID blueprintID, bool commandBlock)
         {
-            if (GetBlueprintTooltipError(blueprintID, out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
+            if (GetBlueprintTooltipError(blueprintID, out var errorMessage, commandBlock) && !string.IsNullOrEmpty(errorMessage))
             {
                 return errorMessage;
             }
@@ -633,6 +733,21 @@ namespace MVZ2.Level
         }
         private bool CanChooseBlueprint(NamespaceID id)
         {
+            return true;
+        }
+        private bool CanChooseCommandBlock()
+        {
+            if (chosenBlueprints.Any(i => i.isCommandBlock))
+                return false;
+            return true;
+        }
+        private bool CanChooseCommandBlockBlueprint(NamespaceID id)
+        {
+            var seedDef = Main.Game.GetSeedDefinition(id);
+            if (seedDef != null && seedDef.IsUpgradeBlueprint())
+            {
+                return false;
+            }
             return true;
         }
         #endregion
@@ -802,22 +917,33 @@ namespace MVZ2.Level
         #region 事件回调
 
         #region 可选蓝图
-        private void UI_OnBlueprintPointerEnterCallback(int index, PointerEventData eventData)
+        private void UI_OnBlueprintPointerEnterCallback(int index, PointerEventData eventData, bool commandBlock)
         {
             var id = choosingBlueprints[index];
-            var ui = chooseUI.GetBlueprintChooseItem(index);
-            Controller.ShowTooltip(new BlueprintTooltipSource(this, id, ui));
+            var ui = commandBlock ? chooseUI.GetCommandBlockChooseItem(index) : chooseUI.GetBlueprintChooseItem(index);
+            Controller.ShowTooltip(new BlueprintTooltipSource(this, id, ui, commandBlock));
         }
-        private void UI_OnBlueprintPointerExitCallback(int index, PointerEventData eventData)
+        private void UI_OnBlueprintPointerExitCallback(int index, PointerEventData eventData, bool commandBlock)
         {
             Controller.HideTooltip();
         }
-        private void UI_OnBlueprintPointerDownCallback(int index, PointerEventData eventData)
+        private void UI_OnBlueprintPointerDownCallback(int index, PointerEventData eventData, bool commandBlock)
         {
-            var id = choosingBlueprints[index];
-            if (!CanChooseBlueprint(id))
-                return;
-            ChooseBlueprint(index);
+            if (commandBlock)
+            {
+                var id = choosingBlueprints[index];
+                if (!CanChooseCommandBlockBlueprint(id))
+                    return;
+                ChooseCommandBlockBlueprint(id);
+                chooseUI.HideCommandBlockPanel();
+            }
+            else
+            {
+                var id = choosingBlueprints[index];
+                if (!CanChooseBlueprint(id))
+                    return;
+                ChooseBlueprint(index);
+            }
         }
         #endregion
 
@@ -886,9 +1012,37 @@ namespace MVZ2.Level
         {
             viewLawnFinished = true;
         }
+        private void UI_OnCommandBlockPointerEnterCallback()
+        {
+            var ui = chooseUI.GetCommandBlockSlotBlueprint();
+            Controller.ShowTooltip(new BlueprintTooltipSource(this, VanillaContraptionID.commandBlock, ui, false));
+        }
+        private void UI_OnCommandBlockPointerExitCallback()
+        {
+            Controller.HideTooltip();
+        }
         private void UI_OnCommandBlockClickCallback()
         {
-
+            if (!CanChooseCommandBlock())
+                return;
+            chooseUI.ShowCommandBlockPanel();
+            var commandBlockViewDatas = choosingBlueprints.Select(id => {
+                var viewData = Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless());
+                viewData.blueprint.preset = BlueprintPreset.CommandBlock;
+                viewData.blueprint.iconGrayscale = true;
+                var blueprintDef = Main.Game.GetSeedDefinition(id);
+                if (blueprintDef != null && blueprintDef.IsUpgradeBlueprint())
+                {
+                    // 命令方块不能模仿升级蓝图。
+                    viewData.disabled = true;
+                }
+                return viewData;
+            }).ToArray();
+            chooseUI.UpdateCommandBlockChooseItems(commandBlockViewDatas);
+        }
+        private void UI_OnCommandBlockPanelCancelClickCallback()
+        {
+            chooseUI.HideCommandBlockPanel();
         }
         private void UI_OnViewAlmanacClickCallback()
         {
@@ -991,11 +1145,12 @@ namespace MVZ2.Level
 
         private class BlueprintTooltipSource : ITooltipSource
         {
-            public BlueprintTooltipSource(LevelBlueprintChooseController controller, NamespaceID blueprintID, ITooltipTarget target)
+            public BlueprintTooltipSource(LevelBlueprintChooseController controller, NamespaceID blueprintID, ITooltipTarget target, bool commandBlock)
             {
                 this.controller = controller;
                 this.blueprintID = blueprintID;
                 this.target = target;
+                this.commandBlock = commandBlock;
             }
             public ITooltipTarget GetTarget(LevelController level)
             {
@@ -1003,9 +1158,9 @@ namespace MVZ2.Level
             }
             public TooltipViewData GetViewData(LevelController level)
             {
-                var name = controller.GetBlueprintName(blueprintID);
-                var tooltip = controller.GetBlueprintTooltip(blueprintID);
-                var error = controller.GetBlueprintTooltipError(blueprintID);
+                var name = controller.GetBlueprintName(blueprintID, commandBlock);
+                var tooltip = controller.GetBlueprintTooltip(blueprintID, commandBlock);
+                var error = controller.GetBlueprintTooltipError(blueprintID, commandBlock);
                 return new TooltipViewData()
                 {
                     name = name,
@@ -1016,6 +1171,7 @@ namespace MVZ2.Level
             private LevelBlueprintChooseController controller;
             private NamespaceID blueprintID;
             private ITooltipTarget target;
+            private bool commandBlock;
         }
         private class ArtifactTooltipSource : ITooltipSource
         {
