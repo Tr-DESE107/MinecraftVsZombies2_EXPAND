@@ -29,12 +29,7 @@ namespace MVZ2.GameContent.Enemies
                 entity.AddBuff<BoatBuff>();
                 entity.SetAnimationBool("HasBoat", true);
             }
-            var regen = entity.AddBuff<RegenerationBuff>(); 
-            if (regen != null)
-            {
-                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 2f); 
-                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);  
-            }
+            
         }
         protected override void UpdateLogic(Entity entity)
         {

@@ -2407,7 +2407,8 @@ MonoBehaviour:
   - m_GUID: 5b08a5371f00aff4f9e8fd237a56735f
     m_Address: mvz2:icon/CorropoisonParticles
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b26f4e24b68dee49b2c8d3592d95d91
     m_Address: mvz2:entity/boss/seija_camera

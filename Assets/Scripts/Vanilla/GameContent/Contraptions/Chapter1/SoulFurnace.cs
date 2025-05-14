@@ -104,7 +104,7 @@ namespace MVZ2.GameContent.Contraptions
         public bool CanSacrifice(Entity entity, Entity soulFurnace)
         {
             var result = new TriggerResultBoolean();
-            result.Result = entity.Type == EntityTypes.PLANT && !entity.IsDead && GetFuel(soulFurnace) <= REFUEL_THRESOLD;
+            result.Result = entity.Type == EntityTypes.PLANT && !entity.IsDead;
             entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.CAN_CONTRAPTION_SACRIFICE, result, c => c(entity, soulFurnace, result));
             return result.Result;
         }
@@ -147,7 +147,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             var column = furnace.GetColumn();
             var lane = furnace.GetLane();
-            var targetGrid = furnace.Level.GetGrid(column + 1 * furnace.GetFacingX(), lane);
+            var targetGrid = furnace.Level.GetGrid(column, lane);
             if (targetGrid == null)
                 return;
             var layers = targetGrid.GetLayers();
@@ -155,7 +155,7 @@ namespace MVZ2.GameContent.Contraptions
             foreach (var layer in orderedLayers)
             {
                 var ent = targetGrid.GetLayerEntity(layer);
-                if (ent == null || !CanSacrifice(ent, furnace))
+                if (ent == null || ent == furnace || !CanSacrifice(ent, furnace))
                     continue;
                 var fuel = GetSacrificeFuel(ent, furnace);
                 Sacrifice(ent, furnace, fuel);
