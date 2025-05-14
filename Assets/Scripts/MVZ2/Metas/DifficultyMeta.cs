@@ -12,6 +12,7 @@ namespace MVZ2.Metas
         public string Name { get; private set; }
         public int Value { get; private set; }
         public NamespaceID BuffID { get; private set; }
+        public NamespaceID IZombieBuffID { get; private set; }
 
         public int CartConvertMoney { get; private set; }
         public int ClearMoney { get; private set; }
@@ -27,13 +28,9 @@ namespace MVZ2.Metas
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
             var value = node.GetAttributeInt("value") ?? 0;
-
-            NamespaceID buffID = null;
-            var buffNode = node["buff"];
-            if (buffNode != null)
-            {
-                buffID = buffNode.GetAttributeNamespaceID("id", defaultNsp);
-            }
+            
+            var buffID = node["buff"]?.GetAttributeNamespaceID("id", defaultNsp);
+            var IZBuffID = node["buff"]?.GetAttributeNamespaceID("iZombie", defaultNsp);
 
             int cartMoney = 50;
             int clearMoney = 0;
@@ -63,6 +60,7 @@ namespace MVZ2.Metas
                 Name = name,
                 Value = value,
                 BuffID = buffID,
+                IZombieBuffID = IZBuffID,
 
                 CartConvertMoney = cartMoney,
                 ClearMoney = clearMoney,

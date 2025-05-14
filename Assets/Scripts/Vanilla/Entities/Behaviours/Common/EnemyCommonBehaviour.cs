@@ -32,7 +32,7 @@ namespace MVZ2.Vanilla.Entities
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (entity.IsFriendlyEntity() || !entity.IsFacingLeft())
+            if (entity.IsFriendlyEntity() || !entity.IsFacingLeft() || entity.Level.IsIZombie())
             {
                 if (IsOutsideView(entity))
                 {

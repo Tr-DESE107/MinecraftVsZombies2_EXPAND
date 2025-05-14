@@ -213,6 +213,7 @@ namespace MVZ2.Vanilla
             AddDefinition(new BreakoutStage(spaceName, VanillaStageNames.dream6));
             AddDefinition(new LittleZombieStage(spaceName, VanillaStageNames.castle6));
             AddDefinition(new SeijaStage(spaceName, VanillaStageNames.castle7));
+            AddDefinition(new IZombieStage(spaceName, VanillaStageNames.mausoleum6));
             foreach (var meta in game.GetModStageMetas(spaceName))
             {
                 if (meta == null)
@@ -280,6 +281,7 @@ namespace MVZ2.Vanilla
                     continue;
                 stage.SetLevelName(meta.Name);
                 stage.SetDayNumber(meta.DayNumber);
+                stage.SetStartEnergy(meta.StartEnergy);
 
                 stage.SetProperty(VanillaLevelProps.MUSIC_ID, meta.MusicID);
 

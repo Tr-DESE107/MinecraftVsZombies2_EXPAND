@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Properties;
+﻿using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;
@@ -35,6 +36,10 @@ namespace MVZ2.GameContent.Implements
             if (difficultyMeta != null)
             {
                 var buffId = difficultyMeta.BuffID;
+                if (level.IsIZombie())
+                {
+                    buffId = difficultyMeta.IZombieBuffID;
+                }
                 buffDef = level.Content.GetBuffDefinition(buffId);
             }
 

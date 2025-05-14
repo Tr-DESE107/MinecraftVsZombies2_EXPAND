@@ -252,5 +252,17 @@ namespace MVZ2.Vanilla.Level
             level.SetProperty(NAPSTABLOOK_PARALYSIS_TIME, value);
         }
         #endregion
+
+        #region 熔炉掉落红石量
+        public static readonly PropertyMeta FURNACE_DROP_REDSTONE_COUNT = Get("furnaceDropRedstoneCount");
+        public static int GetFurnaceDropRedstoneCount(this LevelEngine level)
+        {
+            return level.GetProperty<int>(FURNACE_DROP_REDSTONE_COUNT);
+        }
+        public static void SetFurnaceDropRedstoneCount(this LevelEngine level, int value)
+        {
+            level.SetProperty(FURNACE_DROP_REDSTONE_COUNT, value);
+        }
+        #endregion
     }
 }

@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Artifacts
             var artifacts = level.GetArtifacts();
             foreach (var artifact in artifacts)
             {
-                if (artifact.Definition != this)
+                if (artifact?.Definition != this)
                     continue;
                 var rng = artifact.GetRNG();
                 if (rng.Next(100) < REVIVE_CHANCE)

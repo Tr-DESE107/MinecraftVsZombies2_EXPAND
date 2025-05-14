@@ -13,6 +13,7 @@ namespace MVZ2Logic.Level
         string Name { get; }
         int DayNumber { get; }
         string Type { get; }
+        float StartEnergy { get; }
         NamespaceID Unlock { get; }
 
         NamespaceID MusicID { get; }

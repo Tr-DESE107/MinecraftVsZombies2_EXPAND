@@ -10,5 +10,6 @@ namespace MVZ2.GameContent.Placements
         public static readonly PlaceMethod upgrade = new UpgradePlaceMethod();
         public static readonly PlaceMethod drivenser = new DrivenserPlaceMethod();
         public static readonly PlaceMethod firstAid = new FirstAidPlaceMethod();
+        public static readonly PlaceMethod enemy = new EnemyPlaceMethod();
     }
 }

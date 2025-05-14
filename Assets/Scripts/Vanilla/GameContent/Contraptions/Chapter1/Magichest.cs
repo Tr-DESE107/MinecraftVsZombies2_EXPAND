@@ -7,6 +7,7 @@ using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
@@ -142,7 +143,10 @@ namespace MVZ2.GameContent.Contraptions
                         stateTimer.Run();
                         if (stateTimer.Expired)
                         {
-                            entity.Level.Spawn(VanillaPickupID.starshard, entity.Position, entity);
+                            if (!entity.Level.IsIZombie())
+                            {
+                                entity.Level.Spawn(VanillaPickupID.starshard, entity.Position, entity);
+                            }
                             entity.Remove();
                             var effect = entity.Level.Spawn(VanillaEffectID.smokeCluster, entity.GetCenter(), entity);
                             effect.SetTint(new Color(1, 0.8f, 1, 1));

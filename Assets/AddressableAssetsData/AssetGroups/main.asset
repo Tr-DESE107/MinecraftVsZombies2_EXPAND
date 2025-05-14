@@ -47,6 +47,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03686950f619ced4a8354b626d1c347e
+    m_Address: mvz2:entity/effects/redline
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03832b8b573fa884993ba7232246622f
     m_Address: mvz2:entity/armor/leather_cap
     m_ReadOnly: 0
@@ -977,6 +983,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23b957b748ac9d34a837575bad5a4e3d
+    m_Address: mvz2:effect/redline
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24543ba35a4b2b248b19964dc8587095
     m_Address: mvz2:entity/contraptions/soul_furnace
     m_ReadOnly: 0
@@ -1839,6 +1851,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3dbdc96cab9eea847bf295ab52b4a5de
+    m_Address: mvz2:entity/effect/iz_observer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e0db9919161e1f4d8204af2dba2d3d6
     m_Address: mvz2:entity/effects/shell_case
@@ -3591,6 +3609,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ad35b8fd25fd594d8dee60a271deaf8
+    m_Address: mvz2:puzzle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7ad59fee145905345a3241aca0804d48
     m_Address: mvz2:mobile_blueprint/infectenser
     m_ReadOnly: 0
@@ -4761,6 +4785,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9eef34f8d7ef2c7479e4559a492dc320
+    m_Address: mvz2:mausoleum_minigame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AreaModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f3677037dfb70d4b9d5a6856f524235
     m_Address: mvz2:projectile/dart
     m_ReadOnly: 0
@@ -4913,6 +4943,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a517e81da420e4941880bb250f059923
     m_Address: mvz2:entity/enemies/bow_texture
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a536357a72bfdb04184c7a08c9a9d57d
+    m_Address: mvz2:level/mausoleum/mausoleum_minigame
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -7329,6 +7365,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f06b4e6d36bea8c4bb91bc0eeb3d059c
+    m_Address: mvz2:ui/level/card_command_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f085da7c74324734eb3998b3ea1a3dd0
     m_Address: mvz2:contraption/castle/stone_shield
     m_ReadOnly: 0
@@ -7445,6 +7487,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f33715c080e647f4eb47909df824bc60
     m_Address: mvz2:note/help_back
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f45a057d7f3b72d4883d7d18d28ea03a
+    m_Address: mvz2:ui/level/mobile/card_command_block_mobile
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

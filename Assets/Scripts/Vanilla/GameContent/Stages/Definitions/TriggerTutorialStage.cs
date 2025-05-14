@@ -247,7 +247,7 @@ namespace MVZ2.GameContent.Stages
                     level.StopLevel();
                     level.PlayMusic(VanillaMusicID.mainmenu);
                     level.HideAdvice();
-                    level.SetEnergy(level.Option.StartEnergy);
+                    level.SetEnergy(level.GetStartEnergy());
                     level.ClearSeedPacks();
                     level.ChangeStage(VanillaStageID.halloween7);
                     level.SetBlueprintsActive(true);

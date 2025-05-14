@@ -70,7 +70,7 @@ namespace PVZEngine.Level
 
             miscRandom = CreateRNG();
 
-            Energy = option.StartEnergy;
+            Energy = this.GetStartEnergy();
 
 
             ChangeArea(areaId);

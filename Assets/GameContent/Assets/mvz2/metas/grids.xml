@@ -10,6 +10,7 @@
         <error id="only_drivenser" />
         <error id="first_aid" />
         <error id="not_unlocked" />
+        <error id="right_of_line" message="必须放置在红线右侧"/>
         <error id="not_on_statues" message="你不能在雕像上放置器械"/>
         <error id="not_on_spawners" message="你不能在刷怪笼上放置器械"/>
         <error id="need_lilypad" message="请先放睡莲"/>

@@ -64,6 +64,7 @@
                 <id name="mvz2:shell" value="mvz2:flesh" />
                 <id name="mvz2:crySound" value="mvz2:zombie_cry" />
                 <id name="mvz2:deathSound" value="mvz2:zombie_death" />
+                <id name="mvz2:placement" value="mvz2:enemy" />
                 <bool name="mvz2:receivesLight" value="true" />
                 <bool name="mvz2:faceLeftAtDefault" value="true" />
                 <bool name="mvz2:undead" value="true" />
@@ -2268,6 +2269,13 @@
         <effect id="binary_particles">
             <properties>
                 <int name="mvz2:maxTimeout" value="30" />
+            </properties>
+        </effect>
+        <effect id="redline">
+            <properties>
+                <string name="mvz2:sortingLayer" value="Background"/>
+                <int name="mvz2:sortingOrder" value="9999"/>
+                <bool name="mvz2:decorative" value="false" />
             </properties>
         </effect>
     </entries>

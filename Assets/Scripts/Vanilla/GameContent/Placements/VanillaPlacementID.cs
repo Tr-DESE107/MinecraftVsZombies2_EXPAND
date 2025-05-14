@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Placements
         public const string upgrade = "upgrade";
         public const string forcePad = "force_pad";
         public const string drivenser = "drivenser";
+        public const string enemy = "enemy";
     }
     public static class VanillaPlacementID
     {
@@ -30,6 +31,7 @@ namespace MVZ2.GameContent.Placements
         public static readonly NamespaceID upgrade = Get(VanillaPlacementNames.upgrade);
         public static readonly NamespaceID forcePad = Get(VanillaPlacementNames.forcePad);
         public static readonly NamespaceID drivenser = Get(VanillaPlacementNames.drivenser);
+        public static readonly NamespaceID enemy = Get(VanillaPlacementNames.enemy);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

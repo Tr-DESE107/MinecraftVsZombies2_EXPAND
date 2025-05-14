@@ -142,6 +142,8 @@ namespace MVZ2.GameContent.Buffs
             // 难度
             public const string levelEasy = "level_easy";
             public const string levelHard = "level_hard";
+            public const string iZombieEasy = "i_zombie_easy";
+            public const string iZombieHard = "i_zombie_hard";
 
             // 制品
             public const string pagodaBranchLevel = "pagoda_branch_level";

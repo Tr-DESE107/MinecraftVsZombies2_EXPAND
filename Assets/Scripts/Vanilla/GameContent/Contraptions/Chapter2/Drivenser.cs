@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -23,6 +24,10 @@ namespace MVZ2.GameContent.Contraptions
             base.Init(entity);
             InitShootTimer(entity);
             SetRepeatTimer(entity, new FrameTimer(15));
+            if (entity.Level.IsIZombie())
+            {
+                SetUpgradeLevel(entity, I_ZOMBIE_LEVEL);
+            }
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -119,6 +124,7 @@ namespace MVZ2.GameContent.Contraptions
             drivenser.Level.Spawn(VanillaEffectID.gearParticles, drivenser.Position, drivenser);
         }
         public const int MAX_UPGRADE_LEVEL = 4;
+        public const int I_ZOMBIE_LEVEL = 2;
         private static readonly NamespaceID ID = VanillaContraptionID.drivenser;
         public static readonly VanillaEntityPropertyMeta PROP_REPEAT_TIMER = new VanillaEntityPropertyMeta("RepeatTimer");
         public static readonly VanillaEntityPropertyMeta PROP_REPEAT_COUNT = new VanillaEntityPropertyMeta("RepeatCount");

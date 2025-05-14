@@ -1,0 +1,35 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla.Entities;
+using PVZEngine;
+using PVZEngine.Level;
+using Tools;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Stages
+{
+    public class IZombieMapEntry
+    {
+        public IZombieMapEntry(int column, int lane, NamespaceID entity, NamespaceID[] takenLayers)
+        {
+            this.column = column;
+            this.lane = lane;
+            this.entity = entity;
+            this.takenLayers = takenLayers;
+        }
+        public void Apply(LevelEngine level)
+        {
+            var x = level.GetEntityColumnX(column);
+            var z = level.GetEntityLaneZ(lane);
+            var y = level.GetGroundY(x, z);
+            var pos = new Vector3(x, y, z);
+            level.Spawn(entity, pos, null);
+        }
+        public int column;
+        public int lane;
+        public NamespaceID entity;
+        public NamespaceID[] takenLayers;
+
+    }
+}

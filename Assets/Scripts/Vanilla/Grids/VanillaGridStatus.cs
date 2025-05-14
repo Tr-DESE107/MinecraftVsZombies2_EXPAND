@@ -17,6 +17,7 @@ namespace MVZ2.Vanilla.Grids
         public static readonly NamespaceID onlyDrivenser = Get("only_drivenser");
         public static readonly NamespaceID firstAid = Get("first_aid");
         public static readonly NamespaceID notUnlocked = Get("not_unlocked");
+        public static readonly NamespaceID rightOfLine = Get("right_of_line");
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

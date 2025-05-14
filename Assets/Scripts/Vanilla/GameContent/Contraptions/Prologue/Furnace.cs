@@ -38,6 +38,10 @@ namespace MVZ2.GameContent.Contraptions
             {
                 EvokedUpdate(entity);
             }
+            else if (entity.Level.IsIZombie())
+            {
+                IZombieUpdate(entity);
+            }
             else
             {
                 ProductionUpdate(entity);
@@ -51,6 +55,15 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetLightSource(!frozen);
         }
 
+        public override void PostRemove(Entity entity)
+        {
+            base.PostRemove(entity);
+            if (entity.Level.IsIZombie())
+            {
+                var redstonesToDrop = GetRedstonesToDrop(entity, 0);
+                DropRedstones(entity, redstonesToDrop);
+            }
+        }
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
@@ -58,22 +71,12 @@ namespace MVZ2.GameContent.Contraptions
             evocationTimer.Reset();
             entity.SetEvoked(true);
         }
-        public static FrameTimer GetProductionTimer(Entity entity)
-        {
-            return entity.GetBehaviourField<FrameTimer>(ID, PROP_PRODUCTION_TIMER);
-        }
-        public static void SetProductionTimer(Entity entity, FrameTimer timer)
-        {
-            entity.SetBehaviourField(ID, PROP_PRODUCTION_TIMER, timer);
-        }
-        public static FrameTimer GetEvocationTimer(Entity entity)
-        {
-            return entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_TIMER);
-        }
-        public static void SetEvocationTimer(Entity entity, FrameTimer timer)
-        {
-            entity.SetBehaviourField(ID, PROP_EVOCATION_TIMER, timer);
-        }
+        public static FrameTimer GetProductionTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_PRODUCTION_TIMER);
+        public static void SetProductionTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_PRODUCTION_TIMER, timer);
+        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOCATION_TIMER);
+        public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_EVOCATION_TIMER, timer);
+        public static int GetDroppedRedstones(Entity entity) => entity.GetBehaviourField<int>(PROP_DROPPED_REDSTONES);
+        public static void SetDroppedRedstones(Entity entity, int value) => entity.SetBehaviourField(PROP_DROPPED_REDSTONES, value);
         private void ProductionUpdate(Entity entity)
         {
             var productionTimer = GetProductionTimer(entity);
@@ -116,6 +119,36 @@ namespace MVZ2.GameContent.Contraptions
                 productionTimer.ResetTime(720);
             }
         }
+
+        #region 我是僵尸
+        private void IZombieUpdate(Entity entity)
+        {
+            var redstonesToDrop = GetRedstonesToDrop(entity);
+            DropRedstones(entity, redstonesToDrop);
+        }
+        private void DropRedstones(Entity entity, int targetCount)
+        {
+            var droppedRedstones = GetDroppedRedstones(entity);
+            var count = targetCount - droppedRedstones;
+            if (count <= 0)
+                return;
+            for (int i = 0; i < count; i++)
+            {
+                entity.Produce(VanillaPickupID.redstone);
+            }
+            SetDroppedRedstones(entity, targetCount);
+        }
+        private int GetRedstonesToDrop(Entity entity)
+        {
+            return GetRedstonesToDrop(entity, entity.Health);
+        }
+        private int GetRedstonesToDrop(Entity entity, float hp)
+        {
+            var totalCount = entity.Level.GetFurnaceDropRedstoneCount();
+            var hpPerRedstone = entity.GetMaxHealth() / totalCount;
+            return Mathf.FloorToInt(totalCount - hp / hpPerRedstone);
+        }
+        #endregion
         private void EvokedUpdate(Entity entity)
         {
             var evocationTimer = GetEvocationTimer(entity);
@@ -133,9 +166,8 @@ namespace MVZ2.GameContent.Contraptions
         public const int EVOCATION_INTERVAL = 5;
         public const int EVOCATION_REDSTONES = 6;
         public const int EVOCATION_DURATION = EVOCATION_INTERVAL * EVOCATION_REDSTONES;
-        private static readonly Color productionColor = new Color(0.5f, 0.5f, 0.5f, 0);
-        private static readonly NamespaceID ID = VanillaContraptionID.furnace;
         private static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
         private static readonly VanillaEntityPropertyMeta PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta("ProductionTimer");
+        private static readonly VanillaEntityPropertyMeta PROP_DROPPED_REDSTONES = new VanillaEntityPropertyMeta("LastRemaionRedstones");
     }
 }

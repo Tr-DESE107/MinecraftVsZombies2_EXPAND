@@ -222,13 +222,14 @@ namespace MVZ2.Map
         }
         private void OnMapButtonClickCallback(int index)
         {
-            var stageID = mapMeta.stages[index];
-            StartCoroutine(EnterLevel(stageID));
+            var stageID = GetStageID(index);
+            var area = GetStageArea(index) ?? mapMeta.area;
+            StartCoroutine(EnterLevel(area, stageID));
         }
         private void OnEndlessButtonClickCallback()
         {
             var stageID = mapMeta.endlessStage;
-            StartCoroutine(EnterLevel(stageID));
+            StartCoroutine(EnterLevel(mapMeta.area, stageID));
         }
         private async void OnMapKeyClickCallback()
         {
@@ -324,7 +325,17 @@ namespace MVZ2.Map
         #region 关卡
         private NamespaceID GetStageID(int index)
         {
-            return mapMeta.stages[index];
+            var meta = mapMeta.stages[index];
+            if (meta == null)
+                return null;
+            return meta.stage;
+        }
+        private NamespaceID GetStageArea(int index)
+        {
+            var meta = mapMeta.stages[index];
+            if (meta == null)
+                return null;
+            return meta.area;
         }
         private StageMeta GetStageMeta(NamespaceID stageID)
         {
@@ -399,7 +410,7 @@ namespace MVZ2.Map
         }
         private bool IsLevelCleared(int index)
         {
-            return Main.SaveManager.IsLevelCleared(mapMeta.stages[index]);
+            return Main.SaveManager.IsLevelCleared(GetStageID(index));
         }
         #endregion
 
@@ -550,24 +561,24 @@ namespace MVZ2.Map
         }
         #endregion
 
-        private IEnumerator EnterLevel(NamespaceID stageID)
+        private IEnumerator EnterLevel(NamespaceID areaID, NamespaceID stageID)
         {
             ui.SetHintText(Main.LanguageManager._(HINT_TEXT_ENTERING_LEVEL));
             ui.SetRaycastBlockerActive(true);
             Main.MusicManager.Stop();
             Main.SoundManager.Play2D(VanillaSoundID.spring);
             yield return new WaitForSeconds(1);
-            var task = GotoLevelAsync(stageID);
+            var task = GotoLevelAsync(areaID, stageID);
             while (!task.IsCompleted)
             {
                 yield return null;
             }
         }
-        private async Task GotoLevelAsync(NamespaceID stageID)
+        private async Task GotoLevelAsync(NamespaceID areaID, NamespaceID stageID)
         {
             Main.SaveManager.SaveModDatas();
             await Main.LevelManager.GotoLevelSceneAsync();
-            Main.LevelManager.InitLevel(mapMeta.area, stageID);
+            Main.LevelManager.InitLevel(areaID, stageID);
             Hide();
         }
 

@@ -154,5 +154,10 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetProperty<bool>(ENDLESS);
         }
+
+        public static readonly PropertyMeta I_ZOMBIE = Get("iZombie");
+        public static bool IsIZombie(this StageDefinition stage) => stage.GetProperty<bool>(I_ZOMBIE);
+        public static bool IsIZombie(this LevelEngine level) => level.GetProperty<bool>(I_ZOMBIE);
+        public static void SetIZombie(this StageDefinition stage, bool value) => stage.SetProperty(I_ZOMBIE, value);
     }
 }

@@ -279,4 +279,11 @@
             <p>那就在这里，慢慢地散个步吧。</p>
         </description>
     </music>
+    <music id="puzzle" name="脑力激战" unlock="mvz2:level.mausoleum_6">
+        <track main="mvz2:puzzle" />
+        <source>植物大战僵尸</source>
+        <description>
+            <p>解谜模式的音乐。</p>
+        </description>
+    </music>
 </musics>

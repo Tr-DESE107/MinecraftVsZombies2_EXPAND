@@ -86,7 +86,6 @@ namespace MVZ2.Level
                 StarshardSlotCount = 10,
                 LeftFaction = SelfFaction,
                 RightFaction = EnemyFaction,
-                StartEnergy = 50,
                 MaxEnergy = 9990,
                 TPS = 30
             };

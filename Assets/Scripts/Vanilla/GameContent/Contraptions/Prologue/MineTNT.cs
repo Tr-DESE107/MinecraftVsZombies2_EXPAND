@@ -12,14 +12,13 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
-using PVZEngine.Callbacks;
 using Tools;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -33,11 +32,16 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
 
+            entity.CollisionMaskHostile |= EntityCollisionHelper.MASK_ENEMY;
+
             var riseTimer = new FrameTimer(450);
             SetRiseTimer(entity, riseTimer);
+            if (entity.Level.IsIZombie())
+            {
+                riseTimer.Frame = 0;
+            }
             entity.SetAnimationBool("Ready", riseTimer.Frame < 30);
 
-            entity.CollisionMaskHostile |= EntityCollisionHelper.MASK_ENEMY;
         }
         protected override void UpdateAI(Entity entity)
         {

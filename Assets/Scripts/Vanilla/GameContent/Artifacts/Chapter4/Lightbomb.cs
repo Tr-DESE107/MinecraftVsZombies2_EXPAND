@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Artifacts
             var level = contraption.Level;
             foreach (var artifact in level.GetArtifacts())
             {
-                if (artifact.Definition != this)
+                if (artifact?.Definition != this)
                     continue;
                 artifact.Highlight();
 

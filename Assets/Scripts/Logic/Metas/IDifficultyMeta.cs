@@ -7,6 +7,7 @@ namespace MVZ2Logic.Level
         string ID { get; }
         string Name { get; }
         NamespaceID BuffID { get; }
+        NamespaceID IZombieBuffID { get; }
         int CartConvertMoney { get; }
         int ClearMoney { get; }
         int RerunClearMoney { get; }

@@ -18,6 +18,7 @@ using PVZEngine.Level;
 using PVZEngine.Callbacks;
 using Tools;
 using UnityEngine;
+using MVZ2.Vanilla.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -33,7 +34,12 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
             InitShootTimer(entity);
-            SetFuel(entity, 0);
+            var fuel = 0;
+            if (entity.Level.IsIZombie())
+            {
+                fuel = I_ZOMBIE_FUEL;
+            }
+            SetFuel(entity, fuel);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -202,6 +208,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly VanillaEntityPropertyMeta PROP_DISPLAY_FUEL = new VanillaEntityPropertyMeta("DisplayFuel");
         public const int MAX_FUEL = 60;
         public const int REFUEL_THRESOLD = 10;
+        public const int I_ZOMBIE_FUEL = REFUEL_THRESOLD + 5;
         private Detector evocationDetector;
         private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
     }

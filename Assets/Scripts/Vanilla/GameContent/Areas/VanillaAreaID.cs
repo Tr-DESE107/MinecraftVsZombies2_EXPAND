@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Areas
         public const string dream = "dream";
         public const string castle = "castle";
         public const string mausoleum = "mausoleum";
+        public const string mausoleumMinigame = "mausoleum_minigame";
     }
     public static class VanillaAreaID
     {
@@ -18,6 +19,7 @@ namespace MVZ2.GameContent.Areas
         public static readonly NamespaceID dream = Get(VanillaAreaNames.dream);
         public static readonly NamespaceID castle = Get(VanillaAreaNames.castle);
         public static readonly NamespaceID mausoleum = Get(VanillaAreaNames.mausoleum);
+        public static readonly NamespaceID mausoleumMinigame = Get(VanillaAreaNames.mausoleumMinigame);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
