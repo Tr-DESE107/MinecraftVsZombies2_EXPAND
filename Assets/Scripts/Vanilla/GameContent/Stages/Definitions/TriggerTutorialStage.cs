@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Stages
             base.OnStart(level);
             SetTutorialTimer(level, new FrameTimer(90));
             level.SetSeedSlotCount(1);
-            level.ReplaceSeedPacks(new NamespaceID[] { VanillaContraptionID.tnt });
+            level.FillSeedPacks(new NamespaceID[] { VanillaContraptionID.tnt });
             level.SetStarshardActive(false);
             level.SetTriggerActive(true);
             level.SetBlueprintsActive(true);

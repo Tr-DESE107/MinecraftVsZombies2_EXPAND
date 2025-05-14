@@ -128,7 +128,7 @@ namespace MVZ2.GameContent.HeldItems
             var level = grid.Level;
             var seed = GetSeedPack(level, data);
             level.AddEnergy(-seed.GetCost());
-            level.SetRechargeTimeToUsed(seed);
+            seed.SetStartRecharge(false);
             seed.ResetRecharge();
         }
     }

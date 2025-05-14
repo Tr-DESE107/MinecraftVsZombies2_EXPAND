@@ -499,6 +499,64 @@ namespace MVZ2.Vanilla.Level
             return level.StageDefinition.GetBehaviour<T>();
         }
         #endregion
+
+        #region 蓝图
+        public static void SetupBattleBlueprints(this LevelEngine level, BlueprintChooseItem[] items)
+        {
+            var oldSeedPacks = level.GetAllSeedPacks();
+            for (int i = 0; i < level.GetSeedSlotCount(); i++)
+            {
+                NamespaceID blueprintID = null;
+                bool commandBlock = false;
+                if (i < items.Length)
+                {
+                    var item = items[i];
+                    blueprintID = item.id;
+                    commandBlock = item.isCommandBlock;
+                }
+                if (blueprintID == null)
+                {
+                    level.RemoveSeedPackAt(i);
+                    continue;
+                }
+                var seedPack = level.GetLastBlueprint(blueprintID, commandBlock, oldSeedPacks);
+                if (seedPack == null)
+                {
+                    seedPack = level.CreateSeedPack(blueprintID);
+                    if (level.CurrentFlag <= 0)
+                    {
+                        seedPack.SetStartRecharge(true);
+                    }
+                    else
+                    {
+                        seedPack.FullRecharge();
+                    }
+                    seedPack.SetCommandBlock(commandBlock);
+                }
+                level.ReplaceSeedPackAt(i, seedPack);
+            }
+        }
+        public static void FillSeedPacks(this LevelEngine level, IEnumerable<NamespaceID> seedPacks)
+        {
+            var oldSeedPacks = level.GetAllSeedPacks();
+            int count = seedPacks.Count();
+            for (int i = 0; i < count; i++)
+            {
+                var id = seedPacks.ElementAt(i);
+                var seedPack = level.GetLastBlueprint(id, false, oldSeedPacks);
+                if (seedPack == null)
+                {
+                    seedPack = level.CreateSeedPack(id);
+                    seedPack.SetStartRecharge(true);
+                }
+                level.ReplaceSeedPackAt(i, seedPack);
+            }
+        }
+        public static ClassicSeedPack GetLastBlueprint(this LevelEngine level, NamespaceID blueprintID, bool commandBlock, IEnumerable<ClassicSeedPack> oldSeedPacks)
+        {
+            return oldSeedPacks.FirstOrDefault(s => s != null && s.GetDefinitionID() == blueprintID && s.IsCommandBlock() == commandBlock);
+        }
+        #endregion
         public static SeedPack ConveyRandomSeedPack(this LevelEngine level)
         {
             if (level.CanConveySeedPack())

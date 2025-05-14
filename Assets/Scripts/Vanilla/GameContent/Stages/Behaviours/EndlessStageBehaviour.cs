@@ -86,7 +86,6 @@ namespace MVZ2.GameContent.Stages
             {
                 level.StopLevel();
                 level.SetEnemyPool(GenerateEnemyPool(level, level.CurrentFlag));
-                level.ClearSeedPacks();
                 level.CurrentWave = 0;
                 level.HideAdvice();
                 level.BeginLevel();

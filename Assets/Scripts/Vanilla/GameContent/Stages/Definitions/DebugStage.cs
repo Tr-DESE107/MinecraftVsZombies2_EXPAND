@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Stages
         {
             level.SetEnergy(9990);
             level.SetSeedSlotCount(10);
-            level.ReplaceSeedPacks(new NamespaceID[]
+            level.FillSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.desirePot,
                 VanillaEnemyID.zombie,

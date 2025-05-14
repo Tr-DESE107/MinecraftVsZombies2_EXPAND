@@ -3,17 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Cameras;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.Level.UI;
+using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Level
@@ -133,24 +137,10 @@ namespace MVZ2.Level
             }
             else
             {
-                var chooseItems = new List<BlueprintChooseItem>();
-                foreach (var innate in innateBlueprints)
-                {
-                    chooseItems.Add(new BlueprintChooseItem()
-                    {
-                        innate = true,
-                        id = innate
-                    });
-                }
-                foreach (var contraption in unlockedContraptions.Take(seedSlotCount))
-                {
-                    chooseItems.Add(new BlueprintChooseItem()
-                    {
-                        id = contraption
-                    });
-                }
-                var seedPacks = chooseItems.Select(i => i.id).ToArray();
-                level.ReplaceSeedPacks(seedPacks);
+                var innateChooseItems = innateBlueprints.Select(i => new BlueprintChooseItem() { innate = true, id = i });
+                var contraptionChooseItems = unlockedContraptions.Take(seedSlotCount).Select(i => new BlueprintChooseItem() { id = i });
+                var chooseItems = innateChooseItems.Concat(contraptionChooseItems);
+                level.SetupBattleBlueprints(chooseItems.ToArray());
                 Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, new LogicLevelCallbacks.PostBlueprintSelectionParams(level, chooseItems.ToArray()));
                 yield return GameStartToLawnTransition();
             }

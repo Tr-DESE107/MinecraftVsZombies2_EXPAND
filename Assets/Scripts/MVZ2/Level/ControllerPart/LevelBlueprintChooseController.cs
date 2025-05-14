@@ -24,6 +24,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Seeds;
+using PVZEngine.Level;
 
 namespace MVZ2.Level
 {
@@ -94,23 +95,7 @@ namespace MVZ2.Level
             Level.ReplaceArtifacts(chosenArtifacts);
 
             // 替换蓝图。
-            for (int i = 0; i < Level.GetSeedSlotCount(); i++)
-            {
-                NamespaceID blueprintID = null;
-                bool commandBlock = false;
-                if (i < chosenBlueprints.Count)
-                {
-                    var item = chosenBlueprints[i];
-                    blueprintID = item.id;
-                    commandBlock = item.isCommandBlock;
-                }
-                Level.ReplaceSeedPackAt(i, blueprintID);
-                var seedPack = Level.GetSeedPackAt(i);
-                if (seedPack != null)
-                {
-                    seedPack.SetCommandBlock(commandBlock);
-                }
-            }
+            Level.SetupBattleBlueprints(chosenBlueprints.ToArray());
             chosenBlueprints.Clear();
             choosingBlueprints = null;
             chosenArtifacts = null;

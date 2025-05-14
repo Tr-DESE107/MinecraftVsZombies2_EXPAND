@@ -44,7 +44,6 @@ namespace PVZEngine.Level
         public float rechargeSpeed;
         public float rechargeTimeMultiplier;
         public SerializableClassicSeedPack[] seedPacks;
-        public SerializableClassicSeedPack[] seedPackPool;
         public SerializableConveyorSeedPack[] conveyorSeedPacks;
         public bool requireCards;
         public long currentEntityID = 1;

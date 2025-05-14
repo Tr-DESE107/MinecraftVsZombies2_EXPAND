@@ -38,7 +38,7 @@ namespace MVZ2.GameContent.Stages
             SetTutorialRNG(level, level.CreateRNG());
             level.SetEnergy(150);
             level.SetSeedSlotCount(4);
-            level.ReplaceSeedPacks(new NamespaceID[]
+            level.FillSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.furnace,
