@@ -3,6 +3,7 @@ using MVZ2.Metas;
 using MVZ2.Vanilla.Almanacs;
 using PVZEngine;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Managers
 {
@@ -28,11 +29,13 @@ namespace MVZ2.Managers
         }
         public bool IsContraptionInAlmanac(NamespaceID id)
         {
-            return GetAlmanacMetaEntry(VanillaAlmanacCategories.CONTRAPTIONS, id) != null;
+            var entry = GetAlmanacMetaEntry(VanillaAlmanacCategories.CONTRAPTIONS, id);
+            return entry != null && entry.index >= 0;
         }
         public bool IsEnemyInAlmanac(NamespaceID id)
         {
-            return GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, id) != null;
+            var entry = GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, id);
+            return entry != null && entry.index >= 0;
         }
     }
 }
