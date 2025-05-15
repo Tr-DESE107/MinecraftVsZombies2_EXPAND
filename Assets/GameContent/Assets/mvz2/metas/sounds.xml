@@ -342,6 +342,9 @@
     <sound name="gun_shot" maxCount="3">
         <sample path="mvz2:gun_shot" weight="1" />
     </sound>
+    <sound name="gulp">
+        <sample path="mvz2:gulp" weight="1" />
+    </sound>
     <sound name="harp">
         <sample path="mvz2:harp" weight="1" />
     </sound>

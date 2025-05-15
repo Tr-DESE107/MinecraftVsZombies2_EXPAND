@@ -85,6 +85,7 @@ namespace MVZ2.GameContent.Buffs
         public const string wickedHermitWarpped = "wicked_hermit_warpped";
         public const string necrotombstoneRising = "necrotombstone_rising";
         public const string slow = "slow";
+        public const string iZombieAttackBooster = "i_zombie_attack_booster";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";
@@ -158,6 +159,7 @@ namespace MVZ2.GameContent.Buffs
             public const string seijaAutoCollect = "seija_auto_collect";
             public const string witherTransition = "wither_transition";
             public const string witherCleared = "wither_cleared";
+            public const string flashWhite = "flash_white";
         }
         public static class Boss
         {

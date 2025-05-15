@@ -2278,5 +2278,13 @@
                 <bool name="mvz2:decorative" value="false" />
             </properties>
         </effect>
+        <effect id="iz_observer">
+            <properties>
+                <string name="mvz2:sortingLayer" value="Background"/>
+                <int name="mvz2:sortingOrder" value="9999"/>
+                <bool name="mvz2:decorative" value="false" />
+                <vector3 name="mvz2:size" x="80" y="0" z="80" />
+            </properties>
+        </effect>
     </entries>
 </entities>

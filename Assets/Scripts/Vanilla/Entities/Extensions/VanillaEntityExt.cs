@@ -116,7 +116,7 @@ namespace MVZ2.Vanilla.Entities
                 {
                     input = damageInfo
                 };
-                damageInfo.Entity.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, param, result);
+                damageInfo.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, param, result, entity.Type);
             }
             return result.GetValue<bool>();
         }
@@ -130,7 +130,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 output = output
             };
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, param);
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, param, entity.Type);
         }
         private static void ArmoredTakeDamage(DamageInput info, DamageOutput result)
         {

@@ -1,13 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MVZ2.GameContent.Contraptions;
-using MVZ2.Vanilla.Entities;
-using PVZEngine;
+﻿using PVZEngine;
 using PVZEngine.Level;
-using Tools;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Stages
+namespace MVZ2Logic.IZombie
 {
     public class IZombieMapEntry
     {

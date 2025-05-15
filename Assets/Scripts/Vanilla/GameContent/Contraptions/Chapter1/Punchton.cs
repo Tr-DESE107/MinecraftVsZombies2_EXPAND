@@ -198,7 +198,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             if (entity.Type != EntityTypes.ENEMY)
                 return;
-            if (entity.HasBuff<PunchtonAchievementBuff>())
+            if (entity.HasBuff<PunchtonAchievementBuff>() && !entity.Level.IsIZombie())
             {
                 Global.Game.Unlock(VanillaUnlockID.doubleTrouble);
             }

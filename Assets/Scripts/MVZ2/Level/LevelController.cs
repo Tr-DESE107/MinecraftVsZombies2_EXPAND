@@ -195,6 +195,7 @@ namespace MVZ2.Level
         {
             this.deathMessage = deathMessage;
             SetGameOver();
+            Music.Stop();
             ShowGameOverDialog();
         }
         public void StopLevel()

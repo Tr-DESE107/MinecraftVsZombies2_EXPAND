@@ -755,6 +755,7 @@
         <camera position="lawn" transition="instant"/>
         <properties>
             <bool name="autoCollectEnergy" value="true"/>
+            <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
     <stage id="mausoleum_7" name="梦殿大祀庙" dayNumber="7" unlock="mvz2:level.mausoleum_6">

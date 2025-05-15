@@ -206,6 +206,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - Enemies drop more redstones in the levels which they will drop restones.
 - -1 spawned Parasite Terrors from enemies.
 - Skeleton Horses won't jump.
+- Wicked Hermit Zombie is stunned for 7.5 seconds after teleporting.
 
 **Bosses**
 
@@ -218,6 +219,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 **Misc**
 
 - Paralysis time for the sword in Whack-A-Ghost level is 0.75 seconds.
+- Every furnace drops 10 redstones as total in I Zombie mode.
 
 
 ## Hard
@@ -234,6 +236,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - Ghast's fire charge deals 300 damage.
 - +1 spawned Parasite Terrors from enemies.
 - Skeleton Horses jump twice.
+- Wicked Hermit Zombie is stunned for 2.5 seconds after teleporting.
 
 **Bosses**
 
@@ -248,3 +251,4 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 **Misc**
 
 - Paralysis time for the sword in Whack-A-Ghost level is 3 seconds.
+- Every furnace drops 6 redstones as total in I Zombie mode.

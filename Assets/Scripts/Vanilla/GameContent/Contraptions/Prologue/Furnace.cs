@@ -51,6 +51,13 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.UpdateLogic(entity);
             bool frozen = entity.IsAIFrozen();
+            if (entity.Level.IsIZombie())
+            {
+                if (GetDroppedRedstones(entity) >= GetRedstonesToDrop(entity, 0))
+                {
+                    frozen = true;
+                }
+            }
             entity.SetAnimationBool("Frozen", frozen);
             entity.SetLightSource(!frozen);
         }
@@ -123,7 +130,12 @@ namespace MVZ2.GameContent.Contraptions
         #region 我是僵尸
         private void IZombieUpdate(Entity entity)
         {
-            var redstonesToDrop = GetRedstonesToDrop(entity);
+            var hp = entity.Health;
+            if (!entity.IsFriendlyEntity())
+            {
+                hp = 0;
+            }
+            var redstonesToDrop = GetRedstonesToDrop(entity, hp);
             DropRedstones(entity, redstonesToDrop);
         }
         private void DropRedstones(Entity entity, int targetCount)
@@ -137,10 +149,6 @@ namespace MVZ2.GameContent.Contraptions
                 entity.Produce(VanillaPickupID.redstone);
             }
             SetDroppedRedstones(entity, targetCount);
-        }
-        private int GetRedstonesToDrop(Entity entity)
-        {
-            return GetRedstonesToDrop(entity, entity.Health);
         }
         private int GetRedstonesToDrop(Entity entity, float hp)
         {

@@ -1,17 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Level;
-using Tools;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Stages
+namespace MVZ2Logic.IZombie
 {
-    public class IZombieMap
+    public class IZombieMap : IIZombieMap
     {
         public IZombieMap(LevelEngine level, int columns, int lanes)
         {
@@ -21,30 +17,22 @@ namespace MVZ2.GameContent.Stages
         }
         public void Apply()
         {
-            foreach (var pair in entries)
+            foreach (var entry in entries)
             {
-                var entry = pair.Value;
                 entry.Apply(Level);
-            }
-            for (int lane = 0; lane < Lanes; lane++)
-            {
-                var x = Level.GetColumnX(Columns);
-                var z = Level.GetLaneZ(lane) + Level.GetGridHeight() * 0.5f;
-                var y = Level.GetGroundY(x, z);
-                var pos = new Vector3(x, y, z);
-                Level.Spawn(VanillaEffectID.redline, pos, null);
             }
         }
         public void InsertEntity(int column, int lane, NamespaceID entity)
         {
-            if (column >= Columns)
+            if (column < 0 || column >= Columns)
+                return;
+            if (lane < 0 || lane >= Lanes)
                 return;
             var definition = Level.Content.GetEntityDefinition(entity);
             if (definition == null)
                 return;
-            var key = new Vector2Int(column, lane);
             var value = new IZombieMapEntry(column, lane, entity, definition.GetGridLayersToTake());
-            entries.Add(key, value);
+            entries.Add(value);
         }
         public bool CanInsert(int column, int lane, NamespaceID entity)
         {
@@ -86,15 +74,11 @@ namespace MVZ2.GameContent.Stages
         }
         public IZombieMapEntry GetEntry(Vector2Int position)
         {
-            if (entries.TryGetValue(position, out var entry))
-            {
-                return entry;
-            }
-            return null;
+            return entries.Find(e => e.column == position.x && e.lane == position.y);
         }
         public LevelEngine Level { get; }
         public int Columns { get; }
         public int Lanes { get; }
-        private Dictionary<Vector2Int, IZombieMapEntry> entries = new Dictionary<Vector2Int, IZombieMapEntry>();
+        private List<IZombieMapEntry> entries = new List<IZombieMapEntry>();
     }
 }

@@ -6555,6 +6555,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6d776afc0f96844e9adb7a2ce6c1b99
+    m_Address: mvz2:gulp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6e400b896bc28e40ac737ef5a1feeca
+    m_Address: mvz2:effect/iz_observer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6f6e44ab2a3c4b4e82764fd5c5a2cdc
     m_Address: mvz2:armor/leather_cap
     m_ReadOnly: 0

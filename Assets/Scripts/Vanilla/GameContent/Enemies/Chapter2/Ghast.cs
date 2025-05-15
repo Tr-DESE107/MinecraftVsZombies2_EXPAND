@@ -78,7 +78,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.Source.DefinitionID == VanillaProjectileID.fireCharge)
+            if (info.Source.DefinitionID == VanillaProjectileID.fireCharge && !entity.Level.IsIZombie())
             {
                 Global.Game.Unlock(VanillaUnlockID.returnToSender);
             }
