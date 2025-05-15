@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-15 07:03+0800\n"
+"POT-Creation-Date: 2025-05-15 08:21+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2458,6 +2458,18 @@ msgstr ""
 msgid "3 槽"
 msgstr ""
 
+#. Store item description of mvz2:obsidian_first_aid by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "黑曜石修复术！可以在防御性器械上再放一个同样的器械，以此来完全修复它！"
+msgstr ""
+
+#. Store item description of mvz2:obsidian_first_aid by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "修复器械们的神奇技术！可以在防御性器械上再放一个同样的器械，来把它完全修好！"
+msgstr ""
+
 #. Store item description of mvz2:infectenser by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -2564,6 +2576,30 @@ msgstr ""
 #: Store meta file
 msgctxt "store_talk"
 msgid "闪亮亮的星星！每当你使用4次神奇的碎片，会再次生成一个神奇的碎片！"
+msgstr ""
+
+#. Store item description of mvz2:greedy_vacuum by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "贪婪的吸尘器！可以自动帮你收集能量掉落物和星之碎片！"
+msgstr ""
+
+#. Store item description of mvz2:greedy_vacuum by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "看起来很饿的吸尘器……可以自动帮你吸取粉尘和神奇的碎片！"
+msgstr ""
+
+#. Store item description of mvz2:eye_of_the_giant by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "巨人的眼睛！你的器械造成的伤害变为两倍半，但是攻击速度也会减半！"
+msgstr ""
+
+#. Store item description of mvz2:eye_of_the_giant by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "有点吓人的大眼睛……它能让你的器械造成巨额伤害，但是攻击速度会变慢许多！"
 msgstr ""
 
 #. Name for credits category 内容设计

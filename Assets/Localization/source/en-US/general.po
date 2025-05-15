@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-15 07:03+0800\n"
-"PO-Revision-Date: 2025-05-15 20:02+0800\n"
+"POT-Creation-Date: 2025-05-15 08:21+0800\n"
+"PO-Revision-Date: 2025-05-15 22:17+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2552,6 +2552,23 @@ msgstr "2 Slots"
 msgid "3 槽"
 msgstr "3 Slots"
 
+#. Store item description of mvz2:obsidian_first_aid by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "黑曜石修复术！可以在防御性器械上再放一个同样的器械，以此来完全修复它！"
+msgstr ""
+"Obsidian First Aid! You can place another identical defensive contraption on "
+"the existing one to fully repair it!"
+
+#. Store item description of mvz2:obsidian_first_aid by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid ""
+"修复器械们的神奇技术！可以在防御性器械上再放一个同样的器械，来把它完全修好！"
+msgstr ""
+"A magical technique to repair contraptions! You can place another identical "
+"defensive contraption on the existing one to fully repair it!"
+
 #. Store item description of mvz2:infectenser by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -2705,6 +2722,38 @@ msgid "闪亮亮的星星！每当你使用4次神奇的碎片，会再次生成
 msgstr ""
 "A shiny star! It spawns a magical shard for every 4 magical shards you have "
 "used!"
+
+#. Store item description of mvz2:greedy_vacuum by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "贪婪的吸尘器！可以自动帮你收集能量掉落物和星之碎片！"
+msgstr ""
+"Greedy Vacuum! It can automatically help you collect dropped energy pickups "
+"and starshards!"
+
+#. Store item description of mvz2:greedy_vacuum by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "看起来很饿的吸尘器……可以自动帮你吸取粉尘和神奇的碎片！"
+msgstr ""
+"It looks like a very hungry vacuum... it can automatically suck up dust and "
+"magical shards for you!"
+
+#. Store item description of mvz2:eye_of_the_giant by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "巨人的眼睛！你的器械造成的伤害变为两倍半，但是攻击速度也会减半！"
+msgstr ""
+"Eye of the Giant! Your contraptions' damage are increased to 2.5 times, but "
+"their attack speed are halved!"
+
+#. Store item description of mvz2:eye_of_the_giant by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "有点吓人的大眼睛……它能让你的器械造成巨额伤害，但是攻击速度会变慢许多！"
+msgstr ""
+"A big scary eye... it can make your contraptions deal massive damage, but "
+"attack much slower!"
 
 #. Name for credits category 内容设计
 #: Credits meta file
