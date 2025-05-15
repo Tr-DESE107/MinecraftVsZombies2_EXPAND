@@ -665,22 +665,60 @@
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
-				<p>给你一锤</p>
+				<p>突变僵尸生来就是力量的化身，他以自己的力量为荣，他徒手便能手撕黑曜石，他是无数器械和玩家的梦魇。如此强大的怪物，谁能想到他在背地里很喜欢小猫咪？</p>
+				<p>可是被他抱过的猫咪不知为何都去世了。</p>
+				<p/>
+				<p>他听说你家有猫，所以来找你玩了。</p>
+				<p/>
+				<p>是谁装了突变僵尸模组？是谁啊！</p>
 			</flavor>
 		</entry>
 		<entry id="mvz2:imp">
 			<header>
-				<p>小鬼僵尸</p>
+				<p>快速移动的小鬼僵尸可以被突变僵尸丢到战场当中。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>3000</color>]]></p>
-				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>生命：<![CDATA[<color=red>160</color>]]></p>
+				<p>速度：<![CDATA[<color=red>2</color>]]></p>
 			</properties>
 			<flavor>
-				<p>给你一锤</p>
+				<p>三代小登</p>
+				<p/>
+				<p>曾经小僵尸在白天是不会燃烧的，挖三填一的玩家垫方块上来时可能会被这帮小僵尸追着屁股咬——直到18w10d</p>
+				<p/>
+				<p>哦对，这个世界的亡灵白天不知怎么回事不会燃烧，所以你还是要被这帮小僵尸追着屁股咬</p>
 			</flavor>
 		</entry>
-        <entry />
+		<entry id="mvz2:SkeletonHead">
+			<header>
+				<p>骷髅头可以快速的在空中飘动</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>240</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.8</color>]]></p>
+			</properties>
+			<flavor>
+				<p>一般而言，被砍下头的骷髅身体和头都应该是死掉的、没法动弹的，但这些骷髅头确实能在空中漂浮并袭击吓傻了的玩家。这究竟是人性的扭曲，还是道德的沦丧？</p>
+				<p>我们走出科学栏目组邀请了胡说专家，专家表示，或许这些头颅在模仿自己的异世界偶像地牢守卫。</p>
+				<p/>
+				<p>说来他们的身体呢？</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:ZombieHead">
+			<header>
+				<p>僵尸头可以缓慢的在近地飘动</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.9</color>]]></p>
+				<p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
+			</properties>
+			<flavor>
+				<p>在漂浮骷髅头出现后，漂浮的僵尸头也出现在了怪物队列当中。他们本身比骷髅头重，所以只能贴近地面以近乎滚动的方式悬浮。专家认为这些僵尸头是在模仿骷髅头。</p>
+				<p/>
+				<p>或许他们是从某些玩家收藏的僵皮地毯上回魂的。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:skeleton">
             <header>
                 <p>骷髅能够在前线朝你的器械射击。</p>
@@ -712,7 +750,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
-                <p>抗性：<![CDATA[<color=red>虚无状态下减少90%受到的伤害</color>]]></p>
+                <p>抗性：<![CDATA[<color=red>虚无状态下减少90%受到的伤害，高难度下100%</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>被光照到时会失去虚无效果</color>]]></p>
             </properties>
             <flavor>
@@ -736,14 +774,25 @@
                 <p>死灵法师会生成临时的骨墙阻挡子弹。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200</color>]]></p>
-                <p>骨墙生命：<![CDATA[<color=red>350</color>]]></p>
+                <p>生命：<![CDATA[<color=red>200+400</color>]]></p>
+                <p>速度：<![CDATA[<color=red>1</color>]]></p>
             </properties>
             <flavor>
                 <p>死灵法师想不通，为什么就因为复活了死者，他们就莫名其妙的被人们称为“邪恶巫师”，然后就被多收了税。他们其实只是想砌堵墙罢了。</p>
             </flavor>
         </entry>
-        
+		<entry id="mvz2:bone_wall">
+			<header>
+				<p>自然崩溃的骨墙会爬出骷髅类敌怪</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0</color>]]></p>
+			</properties>
+			<flavor>
+				<p>被复活的死者们一开始是很高兴能够复活的，这份喜悦直到发现自己卡在墙里动弹不得为止。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:spider">
             <header>
                 <p>蜘蛛可以爬过你的防御。</p>
@@ -874,7 +923,7 @@
                 <p>狂战士在死亡时会产生猛烈的爆炸。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200+100</color>]]></p>
+                <p>生命：<![CDATA[<color=red>200+200</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
                 <p>爆炸伤害：<![CDATA[<color=red>300</color>]]></p>
             </properties>

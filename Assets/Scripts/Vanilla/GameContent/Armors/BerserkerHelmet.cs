@@ -12,6 +12,6 @@ namespace MVZ2.GameContent.Armors
             SetProperty(EngineArmorProps.SHELL, VanillaShellID.stone);
             SetProperty(EngineArmorProps.MAX_HEALTH, MAX_HEALTH);
         }
-        public const float MAX_HEALTH = 100;
+        public const float MAX_HEALTH = 200;
     }
 }

@@ -275,7 +275,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <dispenser id="silvenser" name="银质发射器" tooltip="射出穿透肉体的飞刀"  unlock="mvz2:level.halloween_8">
-            <float name="damage" value="15"/>
+            <float name="damage" value="20"/>
             <id name="projectileId" value="mvz2:knife"/>
             <id name="shell" value="mvz2:metal"/>
 
@@ -705,7 +705,7 @@
             <id name="shell" value="mvz2:bone"/>
             <id name="crySound" value="mvz2:skeleton_cry"/>
             <id name="deathSound" value="mvz2:skeleton_death"/>
-
+			<float name="maxHealth" value="200"/>
             <int name="cost" value="175" />
             <int name="waterInteraction" value="2"/>
         </enemy>
@@ -991,6 +991,8 @@
             <float name="cryPitch" value="2"/>
             <int name="cost" value="50" />
             <int name="waterInteraction" value="2"/>
+			<float name="maxHealth" value="160"/>
+			<float name="speed" value="2"/>
         </enemy>
 
         <!-- Token Enemies-->
@@ -1002,7 +1004,7 @@
             <int name="maxTimeout" value="240"/>
             <float name="friction" value="1"/>
             <float name="speed" value="0"/>
-            <float name="maxHealth" value="350"/>
+            <float name="maxHealth" value="300"/>
             <vector3 name="size" x="80" y="80" z="60"/>
             <id name="shell" value="mvz2:bone"/>
             <id name="crySound" null="true"/>
@@ -1138,7 +1140,7 @@
         <enemy id="bedserker" name="床战士" deathMessage="晚安" unlock="mvz2:level.castle_11">
             <float name="range" value="80"/>
             <float name="speed" value="2"/>
-            <float name="maxHealth" value="10000"/>
+            <float name="maxHealth" value="19600"/>
             <id name="shell" value="mvz2:nether"/>
             <id name="crySound" value="mvz2:wither_skeleton_cry"/>
             <id name="hitSound" value="mvz2:bone_hit"/>

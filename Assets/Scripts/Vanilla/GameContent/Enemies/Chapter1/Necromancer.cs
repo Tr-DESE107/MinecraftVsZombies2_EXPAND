@@ -8,6 +8,8 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Armors;
+
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -22,6 +24,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             SetStateTimer(entity, new FrameTimer(CAST_COOLDOWN));
+            entity.EquipArmor<BedserkerHelmet>();
         }
         protected override int GetActionState(Entity enemy)
         {
