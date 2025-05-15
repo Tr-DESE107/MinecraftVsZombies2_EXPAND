@@ -174,6 +174,18 @@
 			<int name="cost" value="50" />
 			<id name="rechargeId" value="mvz2:long" />
 		</contraption>
+		<contraption id="RedStoneOre" name="红石矿" tooltip="打碎后产出红石" >
+			<bool name="canDeactive" value="false"/>
+			<bool name="defensive" value="true"/>
+			<float name="maxHealth" value="600"/>
+			<float name="damage" value="50"/>
+			<vector3 name="shotVelocity" x="10" y="0" z="0"/>
+			<vector3 name="shotOffset" x="15" y="30" z="0"/>
+			<vector3 name="size" x="48" y="48" z="48"/>
+
+			<int name="cost" value="0" />
+			<id name="rechargeId" value="mvz2:very_long" />
+		</contraption>
 
         <!-- Halloween Contraptions -->
         <dispenser id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球" unlock="mvz2:level.halloween_1">
@@ -235,7 +247,7 @@
             <vector3 name="size" x="32" y="48" z="32"/>
             <id name="fragmentId" value="mvz2:dispenser"/>
 
-            <int name="cost" value="75" />
+            <int name="cost" value="125" />
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <contraption id="tnt" name="TNT" tooltip="触发后炸飞周围敌人" unlock="mvz2:level.halloween_6">
@@ -253,7 +265,7 @@
             <int name="cost" value="150" />
             <id name="rechargeId" value="mvz2:very_long" />
         </contraption>
-        <contraption id="soul_furnace" name="灵魂熔炉" tooltip="发射火球，但需要献祭前方的器械作为燃料" unlock="mvz2:level.halloween_7">
+        <contraption id="soul_furnace" name="灵魂熔炉" tooltip="发射火球，但需要献祭本格的器械作为燃料" unlock="mvz2:level.halloween_7">
             <bool name="nocturnal" value="true"/>
 
             <float name="damage" value="60"/>
@@ -823,9 +835,9 @@
         </enemy>
 		
 		<enemy id="HostMutant" name="突变宿主" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
-            <float name="maxHealth" value="3000"/>
+            <float name="maxHealth" value="8000"/>
             <float name="maxAttackHeight" value="100"/>
-            <float name="speed" value="1"/>
+            <float name="speed" value="0.5"/>
             <float name="range" value="40"/>
             <vector3 name="size" x="80" y="170" z="60"/>
             <id name="crySound" value="mvz2:mutant_cry"/>
@@ -1081,6 +1093,7 @@
 			<vector3 name="size" x="32" y="22" z="32"/>
 			<int name="cost" value="50" />
 			<int name="waterInteraction" value="2"/>
+			<idArray name="attackerTags" value="mvz2:low_enemy"/>
 		</enemy>
 		
 		<enemy id="RedEyeZombieHead" name="红眼僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">

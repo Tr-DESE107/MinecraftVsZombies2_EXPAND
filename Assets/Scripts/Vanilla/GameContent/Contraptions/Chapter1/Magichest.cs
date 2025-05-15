@@ -14,6 +14,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Buffs.Enemies;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -185,6 +186,7 @@ namespace MVZ2.GameContent.Contraptions
                         {
                             var ghast = entity.Level.Spawn(VanillaEnemyID.ghast, entity.GetCenter(), entity);
                             ghast.SetFactionAndDirection(entity.GetFaction());
+                            ghast.AddBuff<NightmareComeTrueBuff>();
                             entity.PlaySound(VanillaSoundID.fireCharge);
                         }
                         if (stateTimer.Expired)

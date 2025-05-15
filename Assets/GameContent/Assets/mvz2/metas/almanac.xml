@@ -517,6 +517,19 @@
 				<p>雪球里包着石头，别问了。</p>
 			</flavor>
 		</entry>
+		<entry id="mvz2:RedStoneOre">
+			<header>
+				<p>红石矿打碎后可以获得红石</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>600</color>]]></p>
+				<p>特点：<![CDATA[<color=red>打碎后可以获得多个红石</color>]]></p>
+			</properties>
+			<flavor>
+				<p>于是，我们终于意识到了用镐子敲掉红石矿比直接在熔炉里烧给的红石多。</p>
+				
+			</flavor>
+		</entry>
 		<entry id="mvz2:GlowingObsidian">
 			<header>
 				<p>发光黑曜石的强力装甲能够抵御敌人的攻击，受损时发射弹幕</p>
@@ -757,6 +770,24 @@
                 <p>当你走夜路时听到有人喊你的名字，千万别回头，不然就会有幽灵——被你吓死了。</p>
             </flavor>
         </entry>
+		<entry id="mvz2:skeleton_horse">
+			<header>
+				<p>骷髅马能够跳过你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>400</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1，奔跑时2</color>]]></p>
+				<p>特点：<![CDATA[<color=red>能够跳过大部分器械，高难度下可以跳两次</color>]]></p>
+				<p>弱点：<![CDATA[<color=red>重力方块或高器械</color>]]></p>
+			</properties>
+			<flavor>
+				<p>骷髅马梦想找到一名主人；</p>
+				<p>他的第一任主人被他卡在树里卡死了；</p>
+				<p>他的第二任主人被他带到海里淹死了；</p>
+				<p>他的第三任主人被他引来闪电劈死了；</p>
+				<p>久而久之，人们对他敬而远之，称呼其为死马。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:mummy">
             <header>
                 <p>木乃伊会在死后放出能治疗亡灵并伤害器械的毒雾。</p>

@@ -122,7 +122,7 @@
 	<entry id="HostMutant" entity="mvz2:HostMutant" >
 		<spawn level="10"/>
 		<terrain water="true"/>
-		<weight base="1500" />
+		<weight base="1000" />
 	</entry>
 	
     <!-- Castle -->

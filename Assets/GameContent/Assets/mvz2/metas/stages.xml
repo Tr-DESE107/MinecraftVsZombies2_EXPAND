@@ -21,6 +21,7 @@
         </talks>
         <clear pickupModel="mvz2:entity.map_pickup" note="mvz2:prologue"/>
         <spawns flags="2">
+			<!-- Halloween 
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -28,7 +29,9 @@
 			<spawn id="mvz2:MeleeSkeleton"/>
 			<spawn id="mvz2:MonkZombie"/>
 			<spawn id="mvz2:HostMutant"/>
-			<spawn id="mvz2:HeavyGutant"/>
+			<spawn id="mvz2:HeavyGutant"/>-->
+			<spawn id="mvz2:HostMutant"/>
+			<spawn id="mvz2:zombie"/>
 			
 		</spawns>
     </stage>
@@ -524,17 +527,9 @@
 			<spawn id="mvz2:cave_spider"/>
 			<spawn id="mvz2:ghast"/>
 			<spawn id="mvz2:mother_terror"/>
-			<spawn id="mvz2:ghost"/>
-			<spawn id="mvz2:mummy"/>
 			<spawn id="mvz2:necromancer"/>
 			<spawn id="mvz2:skeleton"/>
-			<spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:dullahan"/>
-			<spawn id="mvz2:hell_chariot"/>
-			<spawn id="mvz2:mutant_zombie"/>
-			<spawn id="mvz2:mega_mutant_zombie"/>
-			<spawn id="mvz2:gargoyle"/>
+			<spawn id="mvz2:HostMutant"/>
         </spawns>
         <properties>
             <bool name="noEnergy" value="true"/>
