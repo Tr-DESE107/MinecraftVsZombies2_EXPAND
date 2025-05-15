@@ -315,7 +315,7 @@
             <spawn id="mvz2:leather_capped_zombie"/>
 			<spawn id="mvz2:SkeletonHead"/>
 			<spawn id="mvz2:HostZombie"/> 
-			<spawn id="mvz2:HostHead"/>
+			
         </spawns>
     </stage>
 	

@@ -162,7 +162,7 @@
             <int name="cost" value="75" />
             <id name="rechargeId" value="mvz2:long" />
         </contraption>
-		<contraption id="GlowingObsidian" name="发光的黑曜石" tooltip="阻碍敌人的前进，在被摧毁时爆炸" >
+		<contraption id="GlowingObsidian" name="发光的黑曜石" tooltip="阻碍敌人的前进，在被摧毁时爆炸" unlock="mvz2:level.halloween_1" >
 			<bool name="canDeactive" value="false"/>
 			<bool name="defensive" value="true"/>
 			<float name="maxHealth" value="4000"/>

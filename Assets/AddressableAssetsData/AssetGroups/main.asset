@@ -707,6 +707,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e483d6e1d110974eb7c1277c611eba7
+    m_Address: mvz2:enemy/dream/AquaticSpider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e784c0427ce232488fd2f10b6bee02f
     m_Address: mvz2:ui/level/speed_up_active
     m_ReadOnly: 0
@@ -1698,6 +1704,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 407fad964d6763c4485f90c8ab1d907a
     m_Address: mvz2:entity/contraption/drivenser_gears
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40917e5514d4e964aa4edfccefa8c53f
+    m_Address: mvz2:entity/enemy/AquaticSpider
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
@@ -2853,6 +2865,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b23736b521bd0440b674f16a0460be6
+    m_Address: mvz2:entity/enemy/AquaticSpider_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b600f1f5110d7644843e4595de25748
     m_Address: mvz2:entity/contraption/moonlight_sensor

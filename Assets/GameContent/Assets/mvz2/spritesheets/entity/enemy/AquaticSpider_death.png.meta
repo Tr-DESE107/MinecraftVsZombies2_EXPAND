@@ -144,7 +144,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AquaticSpider_death_2
+      name: AquaticSpider_death_1
       rect:
         serializedVersion: 2
         x: 104
@@ -165,7 +165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AquaticSpider_death_1
+      name: AquaticSpider_death_2
       rect:
         serializedVersion: 2
         x: 5

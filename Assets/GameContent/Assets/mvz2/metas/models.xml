@@ -6,7 +6,7 @@
     <model name="obsidian" type="entity" path="mvz2:contraption/prologue/obsidian" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="mine_tnt" type="entity" path="mvz2:contraption/prologue/mine_tnt" width="64" height="64" xOffset="0" yOffset="-28"/>
 
-	<model name="GlowingObsidian" type="entity" path="mvz2:contraption/prologue/GlowingObsidian" width="64" height="64" xOffset="0" yOffset="-28"/>
+	<model name="GlowingObsidian" type="entity" path="mvz2:contraption/EXPAND/GlowingObsidian" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="small_dispenser" type="entity" path="mvz2:contraption/halloween/small_dispenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="moonlight_sensor" type="entity" path="mvz2:contraption/halloween/moonlight_sensor" width="64" height="64" xOffset="0" yOffset="-28"/>

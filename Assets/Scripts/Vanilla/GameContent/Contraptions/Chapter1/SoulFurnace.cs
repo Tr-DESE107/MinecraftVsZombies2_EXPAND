@@ -17,6 +17,8 @@ using PVZEngine.Level;
 using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
+using MVZ2Logic.Level;
+using MVZ2.Vanilla.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -43,11 +45,33 @@ namespace MVZ2.GameContent.Contraptions
                 if (!entity.IsEvoked())
                 {
                     ShootTick(entity);
+                    // 大招退出 → 清除计时器
+                    if (evokeTimerDict.ContainsKey(entity))
+                    {
+                        evokeTimerDict.Remove(entity);
+                    }
                 }
                 else
                 {
                     EvokedUpdate(entity);
+
+                    // 正在大招 → 更新计时器
+                    if (!evokeTimerDict.ContainsKey(entity))
+                        evokeTimerDict[entity] = 0;
+
+                    evokeTimerDict[entity] += Time.deltaTime;
+
+                    // 超时处理
+                    if (evokeTimerDict[entity] >= MAX_EVOKE_DURATION)
+                    {
+                        
+                        evokeTimerDict.Remove(entity);
+                        Explode(entity, 120, 600);
+                        entity.Level.ShakeScreen(10, 0, 15);
+                        entity.Remove();
+                    }
                 }
+
             }
 
             UpdateSacrifice(entity);
@@ -81,6 +105,8 @@ namespace MVZ2.GameContent.Contraptions
             fuel = Mathf.Max(REFUEL_THRESOLD, fuel);
             SetFuel(entity, fuel);
             entity.SetEvoked(true);
+
+            
         }
 
         public int GetFuel(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_FUEL);
@@ -195,6 +221,30 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
 
+        public static DamageOutput[] Explode(Entity entity, float range, float damage)
+        {
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
+            var damageOutputs = entity.Level.Explode(entity.Position, range, VanillaFactions.NEUTRAL, damage, damageEffects, entity);
+            foreach (var output in damageOutputs)
+            {
+                var result = output?.BodyResult;
+                if (result != null && result.Fatal)
+                {
+                    var target = output.Entity;
+                    var distance = (target.Position - entity.Position).magnitude;
+                    var speed = 25 * Mathf.Lerp(1f, 0.5f, distance / range);
+                    target.Velocity = target.Velocity + Vector3.up * speed;
+                }
+            }
+            var explosion = entity.Level.Spawn(VanillaEffectID.explosion, entity.GetCenter(), entity);
+            explosion.SetSize(Vector3.one * (range * 2));
+            entity.PlaySound(VanillaSoundID.explosion);
+            entity.Level.ShakeScreen(10, 0, 15);
+
+           
+            return damageOutputs;
+        }
+
         private static readonly NamespaceID ID = VanillaContraptionID.soulFurnace;
         public static readonly VanillaEntityPropertyMeta PROP_FUEL = new VanillaEntityPropertyMeta("Fuel");
         public static readonly VanillaEntityPropertyMeta PROP_DISPLAY_FUEL = new VanillaEntityPropertyMeta("DisplayFuel");
@@ -202,5 +252,9 @@ namespace MVZ2.GameContent.Contraptions
         public const int REFUEL_THRESOLD = 10;
         private Detector evocationDetector;
         private List<EntityCollider> detectBuffer = new List<EntityCollider>();
+
+        private static readonly float MAX_EVOKE_DURATION = 1.75f; 
+        private Dictionary<Entity, float> evokeTimerDict = new();
+
     }
 }
