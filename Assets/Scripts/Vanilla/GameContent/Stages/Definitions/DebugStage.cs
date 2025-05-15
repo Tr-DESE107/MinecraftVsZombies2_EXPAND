@@ -58,12 +58,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.drivenser,
             });
-            foreach (var seed in level.GetAllSeedPacks())
-            {
-                if (seed == null)
-                    continue;
-                seed.SetCommandBlock(true);
-            }
+            level.GetSeedPackAt(0).SetCommandBlock(true);
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {

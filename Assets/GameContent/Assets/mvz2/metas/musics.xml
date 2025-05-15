@@ -284,6 +284,8 @@
         <source>植物大战僵尸</source>
         <description>
             <p>解谜模式的音乐。</p>
+            <p>该敲哪个罐子？</p>
+            <p>该放什么僵尸？</p>
         </description>
     </music>
 </musics>

@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Enemies
             var speedBuff = entity.GetFirstBuff<RandomEnemySpeedBuff>();
             if (speedBuff != null)
             {
-                speedBuff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, 2);
+                RandomEnemySpeedBuff.SetSpeed(speedBuff, 2);
             }
         }
     }

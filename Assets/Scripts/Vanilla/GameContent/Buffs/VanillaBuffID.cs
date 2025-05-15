@@ -86,6 +86,7 @@ namespace MVZ2.GameContent.Buffs
         public const string necrotombstoneRising = "necrotombstone_rising";
         public const string slow = "slow";
         public const string iZombieAttackBooster = "i_zombie_attack_booster";
+        public const string iZombieImp = "i_zombie_imp";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";

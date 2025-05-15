@@ -144,7 +144,7 @@ namespace MVZ2.Vanilla
         [TranslateMsg("死亡信息-梦魇碾压墙", CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_CRUSHING_WALLS = "<color=red>来到我们之中吧</color>";
         [TranslateMsg("死亡信息-我是僵尸", CONTEXT_DEATH_MESSAGE)]
-        public const string DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES = "你失去了所有的怪物！";
+        public const string DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES = "你失去了所有能量！";
 
         [TranslateMsg("实体名称-未知", CONTEXT_ENTITY_NAME)]
         public const string UNKNOWN_ENTITY_NAME = "？？？";

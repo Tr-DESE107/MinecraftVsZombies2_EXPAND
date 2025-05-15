@@ -745,7 +745,7 @@
             <integer name="spawnerCount" value="4" />
         </properties>
     </stage>
-    <stage id="mausoleum_6" name="梦殿大祀庙" dayNumber="6" needBlueprints="false" type="minigame" startEnergy="150" unlock="mvz2/:level.mausoleum_5" music="mvz2:puzzle" >
+    <stage id="mausoleum_6" name="梦殿大祀庙" dayNumber="6" needBlueprints="false" type="minigame" startEnergy="150" unlock="mvz2:level.mausoleum_5" music="mvz2:puzzle" >
         <talks>
             <talk type="start" value="mvz2:mausoleum_6"/>
             <talk type="end" value="mvz2:mausoleum_6_over"/>

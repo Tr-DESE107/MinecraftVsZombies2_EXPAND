@@ -21,7 +21,7 @@ namespace MVZ2.Vanilla.Entities
             base.Init(entity);
 
             var buff = entity.CreateBuff<RandomEnemySpeedBuff>();
-            buff.SetProperty(RandomEnemySpeedBuff.PROP_SPEED, entity.RNG.Next(1, 1.5f));
+            RandomEnemySpeedBuff.SetSpeed(buff, entity.RNG.Next(1, 1.5f));
             entity.AddBuff(buff);
 
             entity.CollisionMaskHostile = EntityCollisionHelper.MASK_PLANT

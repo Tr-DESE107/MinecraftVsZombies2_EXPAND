@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
@@ -156,6 +157,10 @@ namespace MVZ2.GameContent.Stages
             if (!level.IsIZombie())
                 return;
             entity.AddBuff<IZombieAttackBoosterBuff>();
+            foreach (var buff in entity.GetBuffs<RandomEnemySpeedBuff>())
+            {
+                RandomEnemySpeedBuff.SetSpeed(buff, 1.25f);
+            }
         }
         private void CheckGameOver(LevelEngine level)
         {

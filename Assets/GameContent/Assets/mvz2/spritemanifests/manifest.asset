@@ -215,6 +215,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 358463c4a1670b441b15bd6423009e35, type: 3}
   - name: mobile_blueprint/hell_chariot
     sprite: {fileID: 21300000, guid: b9be44ffa4015754eaf65066f0522ab8, type: 3}
+  - name: mobile_blueprint/imp
+    sprite: {fileID: 21300000, guid: 159a0c84d11598e48abae3c94be1ed5f, type: 3}
   - name: mobile_blueprint/infectenser
     sprite: {fileID: 21300000, guid: 7ad59fee145905345a3241aca0804d48, type: 3}
   - name: mobile_blueprint/iron_helmetted_zombie
@@ -599,6 +601,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8bf802c92af01e14ab7d98dedcdb86a1, type: 3}
   - name: entity/effects/rain
     sprite: {fileID: 21300000, guid: e6ef82d213584ae4e8a121cddec4c0ca, type: 3}
+  - name: entity/effects/redline
+    sprite: {fileID: 21300000, guid: 03686950f619ced4a8354b626d1c347e, type: 3}
   - name: entity/effects/shell_case
     sprite: {fileID: 21300000, guid: 3e0db9919161e1f4d8204af2dba2d3d6, type: 3}
   - name: entity/effects/shine_ring
@@ -765,6 +769,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ec5ff71ab8787124f871adc517ed1852, type: 3}
   - name: level/mausoleum/mausoleum
     sprite: {fileID: 21300000, guid: 7490e9324285caa4194143af3411c4df, type: 3}
+  - name: level/mausoleum/mausoleum_minigame
+    sprite: {fileID: 21300000, guid: a536357a72bfdb04184c7a08c9a9d57d, type: 3}
   - name: level/mausoleum/pillbox
     sprite: {fileID: 21300000, guid: 7513cd2470186434dac756e22275249b, type: 3}
   - name: map/castle/map
@@ -811,6 +817,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a06be91936876c74d8f5b245197688cf, type: 3}
   - name: ui/level/card
     sprite: {fileID: 21300000, guid: 23576b1f7e3a27e45af33cb0ad4f201b, type: 3}
+  - name: ui/level/card_command_block
+    sprite: {fileID: 21300000, guid: f06b4e6d36bea8c4bb91bc0eeb3d059c, type: 3}
   - name: ui/level/card_curtain
     sprite: {fileID: 21300000, guid: 8377ca22c43dd784f85308891f7c59a7, type: 3}
   - name: ui/level/card_upgrade
@@ -1594,6 +1602,10 @@ MonoBehaviour:
     - {fileID: 583663355, guid: c1f7123b5f8de1640b46858b3fc6914e, type: 3}
     - {fileID: -1253441433, guid: c1f7123b5f8de1640b46858b3fc6914e, type: 3}
     - {fileID: 1407977093, guid: c1f7123b5f8de1640b46858b3fc6914e, type: 3}
+  - name: entity/effect/iz_observer
+    spritesheet:
+    - {fileID: -816891172, guid: 3dbdc96cab9eea847bf295ab52b4a5de, type: 3}
+    - {fileID: -1768560323, guid: 3dbdc96cab9eea847bf295ab52b4a5de, type: 3}
   - name: entity/effect/miner
     spritesheet:
     - {fileID: -1309202034, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
