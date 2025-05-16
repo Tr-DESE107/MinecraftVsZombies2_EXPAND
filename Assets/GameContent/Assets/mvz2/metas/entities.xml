@@ -1,4 +1,8 @@
 <entities>
+    <counters>
+        <counter id="low_enemy" name="低矮敌人" />
+        <counter id="flying_enemy" name="飞行敌人" />
+    </counters>
     <templates>
         <entity>
             <behaviours>

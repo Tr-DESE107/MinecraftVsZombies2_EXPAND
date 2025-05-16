@@ -149,6 +149,9 @@ namespace MVZ2.Vanilla
         [TranslateMsg("实体名称-未知", CONTEXT_ENTITY_NAME)]
         public const string UNKNOWN_ENTITY_NAME = "？？？";
 
+        [TranslateMsg("实体对策名称-未知", CONTEXT_ENTITY_COUNTER_NAME)]
+        public const string UNKNOWN_ENTITY_COUNTER_NAME = "？？？";
+
         [TranslateMsg("蓝图选项名称-未知", CONTEXT_OPTION_NAME)]
         public const string UNKNOWN_OPTION_NAME = "？？？";
 
@@ -186,6 +189,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ADVICE = "advice";
         public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
+        public const string CONTEXT_ENTITY_COUNTER_NAME = "entity_counter.name";
         public const string CONTEXT_CHARACTER_NAME = "character.name";
         public const string CONTEXT_MUSIC_NAME = "music.name";
         public const string CONTEXT_MUSIC_ORIGIN = "music.origin";

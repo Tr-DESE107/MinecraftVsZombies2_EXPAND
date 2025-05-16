@@ -7,22 +7,38 @@ namespace MVZ2.Metas
 {
     public class EntityMetaList
     {
+        public EntityCounterMeta[] counters;
         public EntityMeta[] metas;
         public static EntityMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
+            var countersNode = node["counters"];
+            var counters = new List<EntityCounterMeta>();
+            if (countersNode != null)
+            {
+                for (int i = 0; i < countersNode.ChildNodes.Count; i++)
+                {
+                    var meta = EntityCounterMeta.FromXmlNode(countersNode.ChildNodes[i], defaultNsp);
+                    counters.Add(meta);
+                }
+            }
+
             var templatesNode = node["templates"];
             var metaTemplates = EntityMetaTemplate.LoadTemplates(templatesNode, defaultNsp);
 
             var entriesNode = node["entries"];
-            var resources = new EntityMeta[entriesNode.ChildNodes.Count];
-            for (int i = 0; i < resources.Length; i++)
+            var entries = new List<EntityMeta>();
+            if (entriesNode != null)
             {
-                var meta = EntityMeta.FromXmlNode(entriesNode.ChildNodes[i], defaultNsp, metaTemplates, i);
-                resources[i] = meta;
+                for (int i = 0; i < entriesNode.ChildNodes.Count; i++)
+                {
+                    var meta = EntityMeta.FromXmlNode(entriesNode.ChildNodes[i], defaultNsp, metaTemplates, i);
+                    entries.Add(meta);
+                }
             }
             return new EntityMetaList()
             {
-                metas = resources,
+                counters = counters.ToArray(),
+                metas = entries.ToArray(),
             };
         }
     }

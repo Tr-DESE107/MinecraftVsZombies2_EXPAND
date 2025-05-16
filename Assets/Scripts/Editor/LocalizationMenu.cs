@@ -314,11 +314,16 @@ namespace MVZ2.Editor
                     AddAlmanacEntryTranslation(potGenerator, entry, categoryName);
                 }
             }
+            foreach (var meta in entitiesList.counters)
+            {
+                var id = new NamespaceID(spaceName, meta.ID);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity counter {id}", VanillaStrings.CONTEXT_ENTITY_COUNTER_NAME);
+            }
             foreach (var meta in entitiesList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Header for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
-                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Properties for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
+                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Tooltip for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
                 AddTranslation(potGenerator, meta.DeathMessage, entitiesReference, $"Death message for entity {id}", VanillaStrings.CONTEXT_DEATH_MESSAGE);
             }
             foreach (var meta in characterList.metas)

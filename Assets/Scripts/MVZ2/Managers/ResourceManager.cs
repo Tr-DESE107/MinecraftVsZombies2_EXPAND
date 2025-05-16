@@ -267,6 +267,7 @@ namespace MVZ2.Managers
         IAreaMeta[] IGameMetas.GetModAreaMetas(string spaceName) => GetModAreaMetas(spaceName);
 
         IEntityMeta IGameMetas.GetEntityMeta(NamespaceID id) => GetEntityMeta(id);
+        IEntityCounterMeta IGameMetas.GetEntityCounterMeta(NamespaceID id) => GetEntityCounterMeta(id);
 
         IEntityMeta[] IGameMetas.GetModEntityMetas(string spaceName) => GetModEntityMetas(spaceName);
         IArmorSlotMeta IGameMetas.GetArmorSlotMeta(NamespaceID id) => GetArmorSlotMeta(id);

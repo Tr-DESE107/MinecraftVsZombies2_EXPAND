@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-14 02:55+0800\n"
-"PO-Revision-Date: 2025-05-14 14:59+0800\n"
+"POT-Creation-Date: 2025-05-16 08:43+0800\n"
+"PO-Revision-Date: 2025-05-16 20:43+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3243,19 +3243,19 @@ msgctxt "almanac.group_name"
 msgid "星之碎片"
 msgstr "Starshard"
 
-#. Name for misc mvz2:starshard.lucid_dream
+#. Name for misc mvz2:starshard.magic_candy
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "星之碎片：神奇糖果"
 msgstr "Starshard: Magic Candy"
 
-#. Header for misc mvz2:starshard.lucid_dream
+#. Header for misc mvz2:starshard.magic_candy
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。"
 msgstr "Starshards can <b>evoke</b> your contraptions, and make your contraptions burst with superpower."
 
-#. Flavor for misc mvz2:starshard.lucid_dream
+#. Flavor for misc mvz2:starshard.magic_candy
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
@@ -3574,445 +3574,457 @@ msgctxt "misc.description"
 msgid "布都无意间透露了这些情报，细节尚不知情。"
 msgstr "Futo accidentally revealed these pieces of intelligence, and the details are still unknown."
 
-#. Header for entity mvz2:dispenser
+#. Name for entity counter mvz2:low_enemy
+#: Entity meta file
+msgctxt "entity_counter.name"
+msgid "低矮敌人"
+msgstr "low enemies"
+
+#. Name for entity counter mvz2:flying_enemy
+#: Entity meta file
+msgctxt "entity_counter.name"
+msgid "飞行敌人"
+msgstr "flying enemies"
+
+#. Name for entity mvz2:dispenser
 #: Entity meta file
 msgctxt "entity.name"
 msgid "发射器"
 msgstr "Dispenser"
 
-#. Properties for entity mvz2:dispenser
+#. Tooltip for entity mvz2:dispenser
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "向敌人射出箭"
 msgstr "Shoot arrows towards enemies"
 
-#. Header for entity mvz2:furnace
+#. Name for entity mvz2:furnace
 #: Entity meta file
 msgctxt "entity.name"
 msgid "熔炉"
 msgstr "Furnace"
 
-#. Properties for entity mvz2:furnace
+#. Tooltip for entity mvz2:furnace
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "提供给你额外的红石"
 msgstr "Provide additional redstone"
 
-#. Header for entity mvz2:obsidian
+#. Name for entity mvz2:obsidian
 #: Entity meta file
 msgctxt "entity.name"
 msgid "黑曜石"
 msgstr "Obsidian"
 
-#. Properties for entity mvz2:obsidian
+#. Tooltip for entity mvz2:obsidian
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "阻碍敌人的前进，并保护背后的其他器械"
 msgstr "Protect your other contraptions"
 
-#. Header for entity mvz2:mine_tnt
+#. Name for entity mvz2:mine_tnt
 #: Entity meta file
 msgctxt "entity.name"
 msgid "地雷TNT"
 msgstr "Mine TNT"
 
-#. Properties for entity mvz2:mine_tnt
+#. Tooltip for entity mvz2:mine_tnt
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "接触时爆炸，但需要时间准备"
 msgstr "Explode on contact, but take time to arm itself"
 
-#. Header for entity mvz2:small_dispenser
+#. Name for entity mvz2:small_dispenser
 #: Entity meta file
 msgctxt "entity.name"
 msgid "小型发射器"
 msgstr "Small Dispenser"
 
-#. Properties for entity mvz2:small_dispenser
+#. Tooltip for entity mvz2:small_dispenser
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射短距离雪球"
 msgstr "Shoot short-ranged snowballs"
 
-#. Header for entity mvz2:moonlight_sensor
+#. Name for entity mvz2:moonlight_sensor
 #: Entity meta file
 msgctxt "entity.name"
 msgid "月光传感器"
 msgstr "Moonlight Sensor"
 
-#. Properties for entity mvz2:moonlight_sensor
+#. Tooltip for entity mvz2:moonlight_sensor
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "自动提供能量，一段时间后提升生产量"
 msgstr "Automatically provides energy, increases the yield after a while"
 
-#. Header for entity mvz2:glowstone
+#. Name for entity mvz2:glowstone
 #: Entity meta file
 msgctxt "entity.name"
 msgid "荧石"
 msgstr "Glowstone"
 
-#. Properties for entity mvz2:glowstone
+#. Tooltip for entity mvz2:glowstone
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "照亮周围范围"
 msgstr "Light an area"
 
-#. Header for entity mvz2:punchton
+#. Name for entity mvz2:punchton
 #: Entity meta file
 msgctxt "entity.name"
 msgid "冲击活塞"
 msgstr "Punchton"
 
-#. Properties for entity mvz2:punchton
+#. Tooltip for entity mvz2:punchton
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "冲击前方敌人，需要时间再次准备"
 msgstr "Impacts enemies, take time to repair itself"
 
-#. Header for entity mvz2:tnt
+#. Name for entity mvz2:tnt
 #: Entity meta file
 msgctxt "entity.name"
 msgid "TNT"
 msgstr "TNT"
 
-#. Properties for entity mvz2:tnt
+#. Tooltip for entity mvz2:tnt
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "触发后炸飞周围敌人"
 msgstr "Blow up surrounding enemies after being triggered"
 
-#. Header for entity mvz2:soul_furnace
+#. Name for entity mvz2:soul_furnace
 #: Entity meta file
 msgctxt "entity.name"
 msgid "灵魂熔炉"
 msgstr "Soul Furnace"
 
-#. Properties for entity mvz2:soul_furnace
+#. Tooltip for entity mvz2:soul_furnace
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射火球，但需要献祭前方的器械作为燃料"
 msgstr "Shoot strong soulfires, but burn the contraption in front as its fuel"
 
-#. Header for entity mvz2:silvenser
+#. Name for entity mvz2:silvenser
 #: Entity meta file
 msgctxt "entity.name"
 msgid "银质发射器"
 msgstr "Silvenser"
 
-#. Properties for entity mvz2:silvenser
+#. Tooltip for entity mvz2:silvenser
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "射出穿透肉体的飞刀"
 msgstr "Shoot knives which pierce the flesh"
 
-#. Header for entity mvz2:magichest
+#. Name for entity mvz2:magichest
 #: Entity meta file
 msgctxt "entity.name"
 msgid "魔术箱"
 msgstr "Magichest"
 
-#. Properties for entity mvz2:magichest
+#. Tooltip for entity mvz2:magichest
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "将一个怪物变为星之碎片"
 msgstr "Transform an enemy into a Starshard"
 
-#. Header for entity mvz2:lily_pad
+#. Name for entity mvz2:lily_pad
 #: Entity meta file
 msgctxt "entity.name"
 msgid "睡莲"
 msgstr "Lily Pad"
 
-#. Properties for entity mvz2:lily_pad
+#. Tooltip for entity mvz2:lily_pad
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "允许在水上放置器械"
 msgstr "Allow you to place contraptions on water"
 
-#. Header for entity mvz2:drivenser
+#. Name for entity mvz2:drivenser
 #: Entity meta file
 msgctxt "entity.name"
 msgid "驱动发射器"
 msgstr "Drivenser"
 
-#. Properties for entity mvz2:drivenser
+#. Tooltip for entity mvz2:drivenser
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "能够堆叠放置，堆叠后子弹数量增加"
 msgstr "Stackable, add arrows per shot after stacked"
 
-#. Header for entity mvz2:gravity_pad
+#. Name for entity mvz2:gravity_pad
 #: Entity meta file
 msgctxt "entity.name"
 msgid "重力板"
 msgstr "Gravity Pad"
 
-#. Properties for entity mvz2:gravity_pad
+#. Tooltip for entity mvz2:gravity_pad
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "增强上方物体的重力"
 msgstr "Increase the gravity of objects above it"
 
-#. Header for entity mvz2:vortex_hopper
+#. Name for entity mvz2:vortex_hopper
 #: Entity meta file
 msgctxt "entity.name"
 msgid "漩涡漏斗"
 msgstr "Vortex Hopper"
 
-#. Properties for entity mvz2:vortex_hopper
+#. Tooltip for entity mvz2:vortex_hopper
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "把附近的僵尸拉入水底"
 msgstr "Drag enemies close to it underwater"
 
-#. Header for entity mvz2:pistenser
+#. Name for entity mvz2:pistenser
 #: Entity meta file
 msgctxt "entity.name"
 msgid "活塞发射器"
 msgstr "Pistenser"
 
-#. Properties for entity mvz2:pistenser
+#. Tooltip for entity mvz2:pistenser
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "能够伸长自己来攻击空中敌人"
 msgstr "Stretch itself to attack enemies in the air"
 
-#. Header for entity mvz2:totenser
+#. Name for entity mvz2:totenser
 #: Entity meta file
 msgctxt "entity.name"
 msgid "图腾发射器"
 msgstr "Totenser"
 
-#. Properties for entity mvz2:totenser
+#. Tooltip for entity mvz2:totenser
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射虚弱的飞镖并灼烧前方的僵尸"
 msgstr "Shoot weakening darts and burn nearby enemies"
 
-#. Header for entity mvz2:dream_crystal
+#. Name for entity mvz2:dream_crystal
 #: Entity meta file
 msgctxt "entity.name"
 msgid "梦境结晶"
 msgstr "Dream Crystal"
 
-#. Properties for entity mvz2:dream_crystal
+#. Tooltip for entity mvz2:dream_crystal
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "能够自我修复的障碍墙"
 msgstr "Barrier with regeneration"
 
-#. Header for entity mvz2:dream_silk
+#. Name for entity mvz2:dream_silk
 #: Entity meta file
 msgctxt "entity.name"
 msgid "美梦丝"
 msgstr "Dream Silk"
 
-#. Properties for entity mvz2:dream_silk
+#. Tooltip for entity mvz2:dream_silk
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "让一个器械睡着，醒来后生成一个星之碎片"
 msgstr "Make a contraption sleep, create a Starshard when it wakes up"
 
-#. Header for entity mvz2:wooden_dropper
+#. Name for entity mvz2:wooden_dropper
 #: Entity meta file
 msgctxt "entity.name"
 msgid "木制投掷器"
 msgstr "Wooden Dropper"
 
-#. Properties for entity mvz2:wooden_dropper
+#. Tooltip for entity mvz2:wooden_dropper
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "投出木制小球"
 msgstr "Fires wooden balls"
 
-#. Header for entity mvz2:spike_block
+#. Name for entity mvz2:spike_block
 #: Entity meta file
 msgctxt "entity.name"
 msgid "尖刺方块"
 msgstr "Spike Block"
 
-#. Properties for entity mvz2:spike_block
+#. Tooltip for entity mvz2:spike_block
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "扎伤上面的敌人"
 msgstr "Damage enemies above"
 
-#. Header for entity mvz2:stone_dropper
+#. Name for entity mvz2:stone_dropper
 #: Entity meta file
 msgctxt "entity.name"
 msgid "石制投掷器"
 msgstr "Stone Dropper"
 
-#. Properties for entity mvz2:stone_dropper
+#. Tooltip for entity mvz2:stone_dropper
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "投出石子或巨石"
 msgstr "Fires cobbles or boulders"
 
-#. Header for entity mvz2:stone_shield
+#. Name for entity mvz2:stone_shield
 #: Entity meta file
 msgctxt "entity.name"
 msgid "石护罩"
 msgstr "Stone Shield"
 
-#. Properties for entity mvz2:stone_shield
+#. Tooltip for entity mvz2:stone_shield
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "保护内部的器械"
 msgstr "Protect the contraption inside"
 
-#. Header for entity mvz2:golden_apple
+#. Name for entity mvz2:golden_apple
 #: Entity meta file
 msgctxt "entity.name"
 msgid "金苹果"
 msgstr "Golden Apple"
 
-#. Properties for entity mvz2:golden_apple
+#. Tooltip for entity mvz2:golden_apple
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "魅惑攻击它的敌人"
 msgstr "Charms the enemy that attacks it"
 
-#. Header for entity mvz2:thunder_drum
+#. Name for entity mvz2:thunder_drum
 #: Entity meta file
 msgctxt "entity.name"
 msgid "雷鼓"
 msgstr "Thunder Drum"
 
-#. Properties for entity mvz2:thunder_drum
+#. Tooltip for entity mvz2:thunder_drum
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "触发后震退敌人"
 msgstr "Knock back enemies on triggered"
 
-#. Header for entity mvz2:tesla_coil
+#. Name for entity mvz2:tesla_coil
 #: Entity meta file
 msgctxt "entity.name"
 msgid "磁暴线圈"
 msgstr "Tesla Coil"
 
-#. Properties for entity mvz2:tesla_coil
+#. Tooltip for entity mvz2:tesla_coil
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "电击大范围内的敌人"
 msgstr "Shocks enemies in a large range"
 
-#. Header for entity mvz2:giant_bowl
+#. Name for entity mvz2:giant_bowl
 #: Entity meta file
 msgctxt "entity.name"
 msgid "巨碗"
 msgstr "Giant Bowl"
 
-#. Properties for entity mvz2:giant_bowl
+#. Tooltip for entity mvz2:giant_bowl
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "生产并储存星之碎片"
 msgstr "Produces and stores starshards"
 
-#. Header for entity mvz2:note_block
+#. Name for entity mvz2:note_block
 #: Entity meta file
 msgctxt "entity.name"
 msgid "音符盒"
 msgstr "Note Block"
 
-#. Properties for entity mvz2:note_block
+#. Tooltip for entity mvz2:note_block
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "发射反弹的音符"
 msgstr "Fire bouncing notes"
 
-#. Header for entity mvz2:lightning_orb
+#. Name for entity mvz2:lightning_orb
 #: Entity meta file
 msgctxt "entity.name"
 msgid "闪电之珠"
 msgstr "Lightning Orb"
 
-#. Properties for entity mvz2:lightning_orb
+#. Tooltip for entity mvz2:lightning_orb
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "阻碍敌人前进，并吸收子弹来治疗自己"
 msgstr "Blocks enemies and absorb projectiles"
 
-#. Header for entity mvz2:splitenser
+#. Name for entity mvz2:splitenser
 #: Entity meta file
 msgctxt "entity.name"
 msgid "双向发射器"
 msgstr "Splitenser"
 
-#. Properties for entity mvz2:splitenser
+#. Tooltip for entity mvz2:splitenser
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "向前后双方射出箭"
 msgstr "Shoot arrows forward and backward"
 
-#. Header for entity mvz2:devourer
+#. Name for entity mvz2:devourer
 #: Entity meta file
 msgctxt "entity.name"
 msgid "吞噬者"
 msgstr "Devourer"
 
-#. Properties for entity mvz2:devourer
+#. Tooltip for entity mvz2:devourer
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "移除刷怪笼，或将器械变回蓝图掉落物"
 msgstr "Removes spawners, or turn contraptions into blueprints"
 
-#. Header for entity mvz2:hellfire
+#. Name for entity mvz2:hellfire
 #: Entity meta file
 msgctxt "entity.name"
 msgid "地狱火"
 msgstr "Hellfire"
 
-#. Properties for entity mvz2:hellfire
+#. Tooltip for entity mvz2:hellfire
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "点燃穿过的箭矢"
 msgstr "Ignites arrows passing through"
 
-#. Header for entity mvz2:necrotombstone
+#. Name for entity mvz2:necrotombstone
 #: Entity meta file
 msgctxt "entity.name"
 msgid "死灵墓碑"
 msgstr "Necrotombstone"
 
-#. Properties for entity mvz2:necrotombstone
+#. Tooltip for entity mvz2:necrotombstone
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "召唤友方骷髅战士"
 msgstr "Summon friendly skeleton warriors"
 
-#. Header for entity mvz2:gravitation_bomb
+#. Name for entity mvz2:gravitation_bomb
 #: Entity meta file
 msgctxt "entity.name"
 msgid "黑洞炸弹"
 msgstr "Gravitation Bomb"
 
-#. Properties for entity mvz2:gravitation_bomb
+#. Tooltip for entity mvz2:gravitation_bomb
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "触发后产生引力黑洞"
 msgstr "Create a black hole after being triggered"
 
-#. Header for entity mvz2:desire_pot
+#. Name for entity mvz2:desire_pot
 #: Entity meta file
 msgctxt "entity.name"
 msgid "欲望壶"
 msgstr "Desire Pot"
 
-#. Properties for entity mvz2:desire_pot
+#. Tooltip for entity mvz2:desire_pot
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "复制敌人身上的星之碎片"
 msgstr "Duplicate starshards carried by enemies"
 
-#. Header for entity mvz2:infectenser
+#. Name for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
 msgid "传染发射器"
 msgstr "Infectenser"
 
-#. Properties for entity mvz2:infectenser
+#. Tooltip for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid ""
@@ -4022,13 +4034,13 @@ msgstr ""
 "(Requires Small Dispenser)\n"
 "Shoot parabots which spread between enemies"
 
-#. Header for entity mvz2:force_pad
+#. Name for entity mvz2:force_pad
 #: Entity meta file
 msgctxt "entity.name"
 msgid "传动力板"
 msgstr "Force Pad"
 
-#. Properties for entity mvz2:force_pad
+#. Tooltip for entity mvz2:force_pad
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid ""
@@ -4038,13 +4050,13 @@ msgstr ""
 "(Requires Gravity Pad)\n"
 "Change the force of objects above it"
 
-#. Header for entity mvz2:golden_dropper
+#. Name for entity mvz2:golden_dropper
 #: Entity meta file
 msgctxt "entity.name"
 msgid "金制投掷器"
 msgstr "Golden Dropper"
 
-#. Properties for entity mvz2:golden_dropper
+#. Tooltip for entity mvz2:golden_dropper
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid ""
@@ -4054,13 +4066,13 @@ msgstr ""
 "(Requires Wooden Dropper)\n"
 "Fires bouncing golden balls which produce emeralds"
 
-#. Header for entity mvz2:diamond_spikes
+#. Name for entity mvz2:diamond_spikes
 #: Entity meta file
 msgctxt "entity.name"
 msgid "钻石尖刺"
 msgstr "Diamond Spikes"
 
-#. Properties for entity mvz2:diamond_spikes
+#. Tooltip for entity mvz2:diamond_spikes
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid ""
@@ -4070,55 +4082,55 @@ msgstr ""
 "(Requires Spike Block)\n"
 "Damage enemies above quicker, and has more toughness"
 
-#. Header for entity mvz2:command_block
+#. Name for entity mvz2:command_block
 #: Entity meta file
 msgctxt "entity.name"
 msgid "命令方块"
 msgstr "Command Block"
 
-#. Properties for entity mvz2:command_block
+#. Tooltip for entity mvz2:command_block
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "模仿一个器械"
 msgstr "Imitate a contraption"
 
-#. Header for entity mvz2:anvil
+#. Name for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.name"
 msgid "铁砧"
 msgstr "Anvil"
 
-#. Properties for entity mvz2:anvil
+#. Tooltip for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "阻碍敌人的前进"
 msgstr "Protect your other contraptions"
 
-#. Header for entity mvz2:random_china
+#. Name for entity mvz2:random_china
 #: Entity meta file
 msgctxt "entity.name"
 msgid "随机瓷器"
 msgstr "Random China"
 
-#. Properties for entity mvz2:random_china
+#. Tooltip for entity mvz2:random_china
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "被摧毁后生成随机器械"
 msgstr "Spawn a random contraption upon destroyed"
 
-#. Header for entity mvz2:error_block
+#. Name for entity mvz2:error_block
 #: Entity meta file
 msgctxt "entity.name"
 msgid "错误方块"
 msgstr "Error Block"
 
-#. Properties for entity mvz2:error_block
+#. Tooltip for entity mvz2:error_block
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "出错了！"
 msgstr "Error!"
 
-#. Header for entity mvz2:zombie
+#. Name for entity mvz2:zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "僵尸"
@@ -4130,25 +4142,25 @@ msgctxt "death_message"
 msgid "脑子是好的，但不是每个人都有"
 msgstr "I'm gonna eat your brains. We're the undead!"
 
-#. Header for entity mvz2:leather_capped_zombie
+#. Name for entity mvz2:leather_capped_zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "皮帽僵尸"
 msgstr "Leather Cap Zombie"
 
-#. Header for entity mvz2:iron_helmetted_zombie
+#. Name for entity mvz2:iron_helmetted_zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "铁盔僵尸"
 msgstr "Iron Helmet Zombie"
 
-#. Header for entity mvz2:flag_zombie
+#. Name for entity mvz2:flag_zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "旗帜僵尸"
 msgstr "Flag Zombie"
 
-#. Header for entity mvz2:skeleton
+#. Name for entity mvz2:skeleton
 #: Entity meta file
 msgctxt "entity.name"
 msgid "骷髅"
@@ -4160,7 +4172,7 @@ msgctxt "death_message"
 msgid "被射成刺猬了！"
 msgstr "What a spooky scary skeleton!"
 
-#. Header for entity mvz2:gargoyle
+#. Name for entity mvz2:gargoyle
 #: Entity meta file
 msgctxt "entity.name"
 msgid "石像鬼"
@@ -4172,7 +4184,7 @@ msgctxt "death_message"
 msgid "亲爱的日记：今天我死了。"
 msgstr "Job's done, back to vibing as a statue."
 
-#. Header for entity mvz2:ghost
+#. Name for entity mvz2:ghost
 #: Entity meta file
 msgctxt "entity.name"
 msgid "幽灵"
@@ -4184,7 +4196,7 @@ msgctxt "death_message"
 msgid "现在有伴了。"
 msgstr "Boo."
 
-#. Header for entity mvz2:mummy
+#. Name for entity mvz2:mummy
 #: Entity meta file
 msgctxt "entity.name"
 msgid "木乃伊"
@@ -4196,7 +4208,7 @@ msgctxt "death_message"
 msgid "裹成个粽子。"
 msgstr "Are you winning, son? - ur mum"
 
-#. Header for entity mvz2:necromancer
+#. Name for entity mvz2:necromancer
 #: Entity meta file
 msgctxt "entity.name"
 msgid "死灵法师"
@@ -4212,7 +4224,7 @@ msgstr ""
 "You Died\n"
 "Death took 42690 gold and some XP away"
 
-#. Header for entity mvz2:spider
+#. Name for entity mvz2:spider
 #: Entity meta file
 msgctxt "entity.name"
 msgid "蜘蛛"
@@ -4224,7 +4236,7 @@ msgctxt "death_message"
 msgid "我的蜘蛛感应又有反应了。"
 msgstr "My spider-sense is tingling."
 
-#. Header for entity mvz2:cave_spider
+#. Name for entity mvz2:cave_spider
 #: Entity meta file
 msgctxt "entity.name"
 msgid "洞穴蜘蛛"
@@ -4236,7 +4248,7 @@ msgctxt "death_message"
 msgid "你有蜂蜜瓶还是牛奶桶呢？都没有。"
 msgstr "Here comes the itsy bitsy spider!"
 
-#. Header for entity mvz2:ghast
+#. Name for entity mvz2:ghast
 #: Entity meta file
 msgctxt "entity.name"
 msgid "恶魂"
@@ -4248,7 +4260,7 @@ msgctxt "death_message"
 msgid "快拿棒球棒！"
 msgstr "Burn Baby Burn"
 
-#. Header for entity mvz2:mother_terror
+#. Name for entity mvz2:mother_terror
 #: Entity meta file
 msgctxt "entity.name"
 msgid "恐怖之母"
@@ -4260,7 +4272,7 @@ msgctxt "death_message"
 msgid "生异形啊"
 msgstr "Baby delivery!"
 
-#. Header for entity mvz2:parasite_terror
+#. Name for entity mvz2:parasite_terror
 #: Entity meta file
 msgctxt "entity.name"
 msgid "恐怖寄生虫"
@@ -4272,7 +4284,7 @@ msgctxt "death_message"
 msgid "恐怖寄生虫 已消灭世界上的所有……"
 msgstr "There are no healthy people left in the world..."
 
-#. Header for entity mvz2:mesmerizer
+#. Name for entity mvz2:mesmerizer
 #: Entity meta file
 msgctxt "entity.name"
 msgid "催眠者"
@@ -4284,7 +4296,7 @@ msgctxt "death_message"
 msgid "服从凋灵吧"
 msgstr "OBEY THE WITHER"
 
-#. Header for entity mvz2:berserker
+#. Name for entity mvz2:berserker
 #: Entity meta file
 msgctxt "entity.name"
 msgid "狂战士"
@@ -4296,7 +4308,7 @@ msgctxt "death_message"
 msgid "爆！"
 msgstr "BOOOOOOM!"
 
-#. Header for entity mvz2:dullahan
+#. Name for entity mvz2:dullahan
 #: Entity meta file
 msgctxt "entity.name"
 msgid "无头骑士"
@@ -4308,7 +4320,7 @@ msgctxt "death_message"
 msgid "真让人摸不着头脑。"
 msgstr "That's over my head."
 
-#. Header for entity mvz2:hell_chariot
+#. Name for entity mvz2:hell_chariot
 #: Entity meta file
 msgctxt "entity.name"
 msgid "地狱战车"
@@ -4320,7 +4332,7 @@ msgctxt "death_message"
 msgid "我们所做的一切，就是为了跟着那该死的火车，史蒂夫！"
 msgstr "All we had to do, was follow the damn train, Steve!"
 
-#. Header for entity mvz2:anubisand
+#. Name for entity mvz2:anubisand
 #: Entity meta file
 msgctxt "entity.name"
 msgid "灵魂沙王"
@@ -4332,7 +4344,7 @@ msgctxt "death_message"
 msgid "别把头埋在沙子里！"
 msgstr "Don't bury your head in the sand!"
 
-#. Header for entity mvz2:reflective_barrier_zombie
+#. Name for entity mvz2:reflective_barrier_zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "反射壁僵尸"
@@ -4344,7 +4356,7 @@ msgctxt "death_message"
 msgid "我反弹你的反弹"
 msgstr "I reflects your reflection"
 
-#. Header for entity mvz2:talisman_zombie
+#. Name for entity mvz2:talisman_zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "灵符僵尸"
@@ -4356,7 +4368,7 @@ msgctxt "death_message"
 msgid "好吃"
 msgstr "Yummy"
 
-#. Header for entity mvz2:wicked_hermit_zombie
+#. Name for entity mvz2:wicked_hermit_zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "邪仙僵尸"
@@ -4368,7 +4380,7 @@ msgctxt "death_message"
 msgid "省得找个铲子来挖坟了。"
 msgstr "At least you don't have to find a shovel to dig the grave."
 
-#. Header for entity mvz2:shikaisen_zombie
+#. Name for entity mvz2:shikaisen_zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "尸解仙僵尸"
@@ -4380,7 +4392,7 @@ msgctxt "death_message"
 msgid "那我怎么没复活？"
 msgstr "Then how come I didn’t get revived?"
 
-#. Header for entity mvz2:emperor_zombie
+#. Name for entity mvz2:emperor_zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "皇帝僵尸"
@@ -4392,7 +4404,7 @@ msgctxt "death_message"
 msgid "中道崩殂"
 msgstr "Demise of the Crown"
 
-#. Header for entity mvz2:mutant_zombie
+#. Name for entity mvz2:mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "突变僵尸"
@@ -4404,13 +4416,13 @@ msgctxt "death_message"
 msgid "你怎么进门的？"
 msgstr "How did you get in the door?"
 
-#. Header for entity mvz2:mega_mutant_zombie
+#. Name for entity mvz2:mega_mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
 msgid "超级突变僵尸"
 msgstr "Mega Mutant Zombie"
 
-#. Header for entity mvz2:imp
+#. Name for entity mvz2:imp
 #: Entity meta file
 msgctxt "entity.name"
 msgid "小鬼僵尸"
@@ -4422,7 +4434,7 @@ msgctxt "death_message"
 msgid "被偷家了"
 msgstr "Base stolen"
 
-#. Header for entity mvz2:bone_wall
+#. Name for entity mvz2:bone_wall
 #: Entity meta file
 msgctxt "entity.name"
 msgid "骨墙"
@@ -4434,7 +4446,7 @@ msgctxt "death_message"
 msgid "你是怎么做到的？"
 msgstr "How did you do that?"
 
-#. Header for entity mvz2:napstablook
+#. Name for entity mvz2:napstablook
 #: Entity meta file
 msgctxt "entity.name"
 msgid "小幽灵"
@@ -4446,7 +4458,7 @@ msgctxt "death_message"
 msgid "抱歉……我不是有意这么做的……"
 msgstr "Sorry...I didn't mean to do this..."
 
-#. Header for entity mvz2:reverse_satellite
+#. Name for entity mvz2:reverse_satellite
 #: Entity meta file
 msgctxt "entity.name"
 msgid "反则卫星"
@@ -4458,7 +4470,7 @@ msgctxt "death_message"
 msgid "？"
 msgstr "?"
 
-#. Header for entity mvz2:skeleton_horse
+#. Name for entity mvz2:skeleton_horse
 #: Entity meta file
 msgctxt "entity.name"
 msgid "骷髅马"
@@ -4470,7 +4482,7 @@ msgctxt "death_message"
 msgid "死因：死马"
 msgstr "Juan."
 
-#. Header for entity mvz2:dullahan_head
+#. Name for entity mvz2:dullahan_head
 #: Entity meta file
 msgctxt "entity.name"
 msgid "无头骑士的头"
@@ -4482,7 +4494,7 @@ msgctxt "death_message"
 msgid "吾头在否？！"
 msgstr "Is my head still here?!"
 
-#. Header for entity mvz2:soulsand
+#. Name for entity mvz2:soulsand
 #: Entity meta file
 msgctxt "entity.name"
 msgid "灵魂沙"
@@ -4494,13 +4506,13 @@ msgctxt "death_message"
 msgid "你被埋了？"
 msgstr "You are buried?"
 
-#. Header for entity mvz2:seija_cursed_doll
+#. Name for entity mvz2:seija_cursed_doll
 #: Entity meta file
 msgctxt "entity.name"
 msgid "正邪的诅咒人偶"
 msgstr "Seija's Cursed Doll"
 
-#. Header for entity mvz2:bedserker
+#. Name for entity mvz2:bedserker
 #: Entity meta file
 msgctxt "entity.name"
 msgid "床战士"
@@ -4512,7 +4524,7 @@ msgctxt "death_message"
 msgid "晚安"
 msgstr "Good night"
 
-#. Header for entity mvz2:skeleton_warrior
+#. Name for entity mvz2:skeleton_warrior
 #: Entity meta file
 msgctxt "entity.name"
 msgid "骷髅战士"
@@ -4524,151 +4536,151 @@ msgctxt "death_message"
 msgid "骸死我了"
 msgstr "Spooked"
 
-#. Header for entity mvz2:skeleton_mage
+#. Name for entity mvz2:skeleton_mage
 #: Entity meta file
 msgctxt "entity.name"
 msgid "骷髅法师"
 msgstr "Skeleton Mage"
 
-#. Header for entity mvz2:shikaisen_staff
+#. Name for entity mvz2:shikaisen_staff
 #: Entity meta file
 msgctxt "entity.name"
 msgid "尸解仙之杖"
 msgstr "Shikaisen Zombie"
 
-#. Header for entity mvz2:gargoyle_statue
+#. Name for entity mvz2:gargoyle_statue
 #: Entity meta file
 msgctxt "entity.name"
 msgid "石像鬼雕像"
 msgstr "Gargoyle Statue"
 
-#. Header for entity mvz2:monster_spawner
+#. Name for entity mvz2:monster_spawner
 #: Entity meta file
 msgctxt "entity.name"
 msgid "刷怪笼"
 msgstr "Monster Spawner"
 
-#. Header for entity mvz2:frankenstein
+#. Name for entity mvz2:frankenstein
 #: Entity meta file
 msgctxt "entity.name"
 msgid "科学怪人的怪物"
 msgstr "The Creature"
 
-#. Header for entity mvz2:slenderman
+#. Name for entity mvz2:slenderman
 #: Entity meta file
 msgctxt "entity.name"
 msgid "瘦长鬼影"
 msgstr "Slenderman"
 
-#. Header for entity mvz2:nightmareaper
+#. Name for entity mvz2:nightmareaper
 #: Entity meta file
 msgctxt "entity.name"
 msgid "梦魇收割者"
 msgstr "Nightmareaper"
 
-#. Header for entity mvz2:seija
+#. Name for entity mvz2:seija
 #: Entity meta file
 msgctxt "entity.name"
 msgid "鬼人正邪"
 msgstr "Seija Kijin"
 
-#. Header for entity mvz2:wither
+#. Name for entity mvz2:wither
 #: Entity meta file
 msgctxt "entity.name"
 msgid "凋灵"
 msgstr "Wither"
 
-#. Header for entity mvz2:minecart
+#. Name for entity mvz2:minecart
 #: Entity meta file
 msgctxt "entity.name"
 msgid "矿车"
 msgstr "Minecart"
 
-#. Header for entity mvz2:pumpkin_carriage
+#. Name for entity mvz2:pumpkin_carriage
 #: Entity meta file
 msgctxt "entity.name"
 msgid "南瓜马车"
 msgstr "Pumpkin Carriage"
 
-#. Header for entity mvz2:nyan_cat
+#. Name for entity mvz2:nyan_cat
 #: Entity meta file
 msgctxt "entity.name"
 msgid "彩虹猫"
 msgstr "Nyan Cat"
 
-#. Header for entity mvz2:nyaightmare
+#. Name for entity mvz2:nyaightmare
 #: Entity meta file
 msgctxt "entity.name"
 msgid "噩梦猫"
 msgstr "Nyaightmare"
 
-#. Header for entity mvz2:bowl_chariot
+#. Name for entity mvz2:bowl_chariot
 #: Entity meta file
 msgctxt "entity.name"
 msgid "碗车"
 msgstr "Bowl Cart"
 
-#. Header for entity mvz2:ballista
+#. Name for entity mvz2:ballista
 #: Entity meta file
 msgctxt "entity.name"
 msgid "小型弩车"
 msgstr "Mini Ballista"
 
-#. Header for entity mvz2:redstone
+#. Name for entity mvz2:redstone
 #: Entity meta file
 msgctxt "entity.name"
 msgid "红石"
 msgstr "Redstone"
 
-#. Header for entity mvz2:emerald
+#. Name for entity mvz2:emerald
 #: Entity meta file
 msgctxt "entity.name"
 msgid "绿宝石"
 msgstr "Emerald"
 
-#. Header for entity mvz2:ruby
+#. Name for entity mvz2:ruby
 #: Entity meta file
 msgctxt "entity.name"
 msgid "红宝石"
 msgstr "Ruby"
 
-#. Header for entity mvz2:sapphire
+#. Name for entity mvz2:sapphire
 #: Entity meta file
 msgctxt "entity.name"
 msgid "蓝宝石"
 msgstr "Sapphire"
 
-#. Header for entity mvz2:diamond
+#. Name for entity mvz2:diamond
 #: Entity meta file
 msgctxt "entity.name"
 msgid "钻石"
 msgstr "Diamond"
 
-#. Header for entity mvz2:clear_pickup
+#. Name for entity mvz2:clear_pickup
 #: Entity meta file
 msgctxt "entity.name"
 msgid "通关掉落物"
 msgstr "Clear Pickup"
 
-#. Header for entity mvz2:artifact_pickup
+#. Name for entity mvz2:artifact_pickup
 #: Entity meta file
 msgctxt "entity.name"
 msgid "制品掉落物"
 msgstr "Artifact Pickup"
 
-#. Header for entity mvz2:starshard
+#. Name for entity mvz2:starshard
 #: Entity meta file
 msgctxt "entity.name"
 msgid "星之碎片"
 msgstr "Starshard"
 
-#. Header for entity mvz2:blueprint_pickup
+#. Name for entity mvz2:blueprint_pickup
 #: Entity meta file
 msgctxt "entity.name"
 msgid "蓝图掉落物"
 msgstr "Blueprint Pickup"
 
-#. Header for entity mvz2:crushing_walls
+#. Name for entity mvz2:crushing_walls
 #: Entity meta file
 msgctxt "entity.name"
 msgid "梦魇碾压墙"

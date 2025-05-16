@@ -45,6 +45,16 @@ namespace MVZ2.Games
             var name = meta.Name ?? VanillaStrings.UNKNOWN_ENTITY_NAME;
             return GetTextParticular(name, VanillaStrings.CONTEXT_ENTITY_NAME);
         }
+        public string GetEntityCounterName(NamespaceID counterID)
+        {
+            if (counterID == null)
+                return "null";
+            var meta = GetEntityCounterMeta(counterID);
+            if (meta == null)
+                return counterID.ToString();
+            var name = meta.Name ?? VanillaStrings.UNKNOWN_ENTITY_COUNTER_NAME;
+            return GetTextParticular(name, VanillaStrings.CONTEXT_ENTITY_COUNTER_NAME);
+        }
         public string DefaultNamespace { get; private set; }
         private LevelEngine level;
         private PropertyDictionary propertyDict = new PropertyDictionary();

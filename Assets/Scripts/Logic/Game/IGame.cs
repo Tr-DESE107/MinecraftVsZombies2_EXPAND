@@ -9,6 +9,7 @@ namespace MVZ2Logic.Games
         LevelEngine GetLevel();
         string GetGridErrorMessage(NamespaceID error);
         string GetEntityName(NamespaceID entityID);
+        string GetEntityCounterName(NamespaceID counterID);
         string DefaultNamespace { get; }
     }
 }

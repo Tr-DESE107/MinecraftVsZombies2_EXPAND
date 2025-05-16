@@ -138,8 +138,8 @@ namespace MVZ2.GameContent.Implements
                     if (missingTagsList.Contains(tag))
                         continue;
                     missingTagsList.Add(tag);
-                    var enemyName = Global.Game.GetEntityName(entityID);
-                    results.Add(Global.Game.GetText(WARNING_MISSING_ATTACKER, enemyName));
+                    var counterName = Global.Game.GetEntityCounterName(tag);
+                    results.Add(Global.Game.GetText(WARNING_MISSING_ATTACKER, counterName));
                 }
             }
             // 生产者
