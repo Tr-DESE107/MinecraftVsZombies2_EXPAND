@@ -666,20 +666,20 @@
 			<id name="deathSound" value="mvz2:skeleton_death"/>
 
 		</enemy>
-		<enemy id="HostZombie" name="宿主僵尸" deathMessage="生化危机">
+		<enemy id="HostZombie" name="宿主僵尸" deathMessage="生化危机" unlock="mvz2:level.dream_1" >
 			<int name="cost" value="50" />
 			<int name="waterInteraction" value="2"/>
 			<float name="maxHealth" value="400"/>
 			<float name="speed" value="0.85"/>
 		</enemy>
-		<enemy id="BloodlustHostZombie" name="渴血宿主僵尸" deathMessage="生化危机">
+		<enemy id="BloodlustHostZombie" name="渴血宿主僵尸" deathMessage="生化危机" unlock="mvz2:level.dream_10">
 			<int name="cost" value="50" />
 			<int name="waterInteraction" value="2"/>
 			<float name="maxHealth" value="1000"/>
 			<float name="damage" value="150"/>
 			<float name="speed" value="0.6"/>
 		</enemy>
-		<enemy id="MeleeSkeleton" name="骷髅仆从" deathMessage="起来!饥寒交迫的人民!">
+		<enemy id="MeleeSkeleton" name="骷髅仆从" deathMessage="起来!饥寒交迫的人民!" unlock="mvz2:level.dream_8" >
 			<int name="cost" value="300" />
 			<int name="waterInteraction" value="2"/>
 			<float name="damage" value="100"/>
@@ -844,7 +844,7 @@
             <int name="waterInteraction" value="2"/>
         </enemy>
 		
-		<enemy id="HostMutant" name="宿主突变僵尸" deathMessage="你怎么进门的？">
+		<enemy id="HostMutant" name="宿主突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.dream_11" >
             <float name="maxHealth" value="8000"/>
             <float name="maxAttackHeight" value="100"/>
             <float name="speed" value="0.5"/>
@@ -861,7 +861,7 @@
             <int name="cost" value="300" />
             <int name="waterInteraction" value="3"/>
         </enemy>
-		<enemy id="HostIMP" name="宿主小鬼僵尸" deathMessage="被偷家了" unlock="mvz2:level.prologue">
+		<enemy id="HostIMP" name="宿主小鬼僵尸" deathMessage="被偷家了" unlock="mvz2:level.dream_11" >
 			<float name="fallResistance" value="18"/>
 			<float name="cryPitch" value="2"/>
 			<int name="cost" value="50" />
@@ -1092,7 +1092,7 @@
             <int name="cost" value="50" />
         </enemy>
 		
-		<enemy id="SkeletonHead" name="骷髅头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+		<enemy id="SkeletonHead" name="骷髅头" deathMessage="吾头在否？！" unlock="mvz2:level.halloween_1">
 			<float name="speed" value="1.8"/>
 			<float name="maxHealth" value="240"/>
 			<id name="shell" value="mvz2:bone"/>
@@ -1104,7 +1104,7 @@
 			<int name="waterInteraction" value="2"/>
 		</enemy>
 		
-		<enemy id="ZombieHead" name="僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+		<enemy id="ZombieHead" name="僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.halloween_2">
 			<float name="speed" value="0.9"/>
 			<float name="maxHealth" value="300"/>
 			<id name="shell" value="mvz2:flesh"/>
@@ -1113,7 +1113,6 @@
 			<vector3 name="size" x="32" y="22" z="32"/>
 			<int name="cost" value="50" />
 			<int name="waterInteraction" value="2"/>
-			<idArray name="attackerTags" value="mvz2:low_enemy"/>
 		</enemy>
 		
 		<enemy id="RedEyeZombieHead" name="红眼僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
