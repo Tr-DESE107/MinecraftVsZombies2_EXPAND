@@ -5709,6 +5709,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0599952c45c15b4488ce0b4c225cc3f
+    m_Address: mvz2:enemy/dream/HostIMP
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d088b4d6b29224e428f22c0184a33dc4
     m_Address: mvz2:nightmare_boss
     m_ReadOnly: 0

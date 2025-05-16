@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Enemies
             var regen = entity.AddBuff<RegenerationBuff>(); 
             if (regen != null)
             {
-                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 2f); 
+                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 1.5f); 
                 regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);  
             }
         }

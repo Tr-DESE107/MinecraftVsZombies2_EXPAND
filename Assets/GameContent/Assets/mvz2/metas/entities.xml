@@ -174,7 +174,7 @@
 			<int name="cost" value="50" />
 			<id name="rechargeId" value="mvz2:long" />
 		</contraption>
-		<contraption id="RedStoneOre" name="红石矿" tooltip="打碎后产出红石" >
+		<contraption id="RedStoneOre" name="红石矿" tooltip="打碎后产出红石" unlock="mvz2:level.halloween_1" >
 			<bool name="canDeactive" value="false"/>
 			<bool name="defensive" value="true"/>
 			<float name="maxHealth" value="600"/>
@@ -662,18 +662,21 @@
 		<enemy id="HostZombie" name="宿主僵尸" deathMessage="生化危机">
 			<int name="cost" value="50" />
 			<int name="waterInteraction" value="2"/>
+			<float name="maxHealth" value="400"/>
 			<float name="speed" value="0.85"/>
 		</enemy>
 		<enemy id="BloodlustHostZombie" name="渴血宿主僵尸" deathMessage="生化危机">
 			<int name="cost" value="50" />
 			<int name="waterInteraction" value="2"/>
+			<float name="maxHealth" value="1000"/>
+			<float name="damage" value="150"/>
 			<float name="speed" value="0.6"/>
 		</enemy>
 		<enemy id="MeleeSkeleton" name="骷髅仆从" deathMessage="起来!饥寒交迫的人民!">
 			<int name="cost" value="300" />
 			<int name="waterInteraction" value="2"/>
-			<float name="damage" value="200"/>
-			<float name="speed" value="2"/>
+			<float name="damage" value="100"/>
+			<float name="speed" value="1.75"/>
 			<id name="shell" value="mvz2:bone"/>
 			<id name="projectileId" value="mvz2:arrow"/>
 			<id name="crySound" value="mvz2:skeleton_cry"/>
@@ -834,7 +837,7 @@
             <int name="waterInteraction" value="2"/>
         </enemy>
 		
-		<enemy id="HostMutant" name="突变宿主" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
+		<enemy id="HostMutant" name="宿主突变僵尸" deathMessage="你怎么进门的？">
             <float name="maxHealth" value="8000"/>
             <float name="maxAttackHeight" value="100"/>
             <float name="speed" value="0.5"/>
@@ -851,8 +854,18 @@
             <int name="cost" value="300" />
             <int name="waterInteraction" value="3"/>
         </enemy>
+		<enemy id="HostIMP" name="宿主小鬼僵尸" deathMessage="被偷家了" unlock="mvz2:level.prologue">
+			<float name="fallResistance" value="18"/>
+			<float name="cryPitch" value="2"/>
+			<int name="cost" value="50" />
+			<int name="waterInteraction" value="2"/>
+			<float name="maxHealth" value="240"/>
+			<float name="speed" value="2.4"/>
+			<float name="damage" value="150"/>
+		</enemy>
 
-        <!-- Castle Enemies -->
+
+		<!-- Castle Enemies -->
 		<enemy id="WitherSkeleton" name="凋零骷髅" deathMessage="被未受训练的新兵打死，你也太丢人了" unlock="mvz2:level.castle_1" >
 			<int name="cost" value="50" />
 			<int name="waterInteraction" value="2"/>

@@ -664,6 +664,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>200</color>]]></p>
             </properties>
             <flavor>
                 <p>当他被授予旗帜和铁盔时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人在嘲笑他是个肉盾。</p>
@@ -824,6 +825,36 @@
 				<p>被复活的死者们一开始是很高兴能够复活的，这份喜悦直到发现自己卡在墙里动弹不得为止。</p>
 			</flavor>
 		</entry>
+		<entry id="mvz2:MeleeSkeleton">
+			<header>
+				<p>没有弓的骷髅仆从只能冲向你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.75</color>]]></p>
+			</properties>
+			<flavor>
+				<p>不是所有骷髅死亡时都自带弓和箭，也不是所有骷髅死亡时都有陪葬品。买不起防具，买不起弓的骷髅大有人在。什么都没有的骷髅只能出卖自己，或是成为国王的仆从，或是法师的实验材料。</p>
+			</flavor>
+		</entry>
+		
+		
+		<entry id="mvz2:HostZombie">
+			<header>
+				<p>宿主僵尸能够中速恢复自身血量。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>400</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.85</color>]]></p>
+				<p>特点：<![CDATA[<color=red>以60/s的速度回血</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这个僵尸不幸感染了丧尸病毒，所以这个僵尸马上就要变成丧尸了。</p>
+				<p>你问我僵尸和丧尸有什么区别？丧尸是活人变的，但是僵尸是死人，所以说......它现在应该叫活死人。</p>
+				<p/>
+				<p><![CDATA[<color=grey>比起抠字眼，我们更应该关注为什么会存在这种僵尸？这场瘟疫、这些病原体到底是怎么回事？</color>]]></p>
+			</flavor>
+		</entry>
         <entry id="mvz2:spider">
             <header>
                 <p>蜘蛛可以爬过你的防御。</p>
@@ -834,9 +865,52 @@
                 <p>特点：<![CDATA[<color=red>可以爬上并越过防御性器械</color>]]></p>
             </properties>
             <flavor>
-                <p>蜘蛛开的网吧相当赚钱，因为大家都被黏住了。</p>
+                <p>As everyone knows,蜘蛛非常like上网。他有一个user名叫“四百大妈”，并且热爱网上的everything.However,当他的帖子被delete的时候，总是会刷屏般的ask：</p>
+				<p>“帖子究竟去哪儿了？”</p>
+				<p/>
+				<p>顺带一提，蜘蛛开的网吧相当赚钱，因为大家都被黏住了。</p>
             </flavor>
         </entry>
+		
+		<!-- 溺尸 
+		<entry id="mvz2:溺尸">
+			<header>
+				<p>溺尸会生成在水里，在你意想不到的时刻对你的防线进行突袭</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>特点：<![CDATA[<color=red>会游泳，在你意想不到的时刻对你的防线进行突袭.</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这是我们目前所能观察到的最强大瘟疫体，它庞大而臃肿的躯体不断再生着无休止的血肉，被剥离下的肉块也能不断再生并形成自我的意志，它的存在本身便是对生物科学的亵渎。</p>
+				<p>不知在这庞大的身躯下是否还藏有一颗热爱小动物的心。</p>
+				<p/>
+				<p>愿所有苦痛的灵魂得到解脱。</p>
+			</flavor>
+		</entry>
+		
+		-->
+		<!-- 水生蜘蛛
+		<entry id="mvz2:水生蜘蛛">
+			<header>
+				<p>突变宿主僵尸能够慢速回复生命，可以粉碎遇到的的器械，并在血量低至一半时投掷宿主小鬼僵尸</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>8000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.5</color>]]></p>
+				<p>特点：<![CDATA[<color=red>以30/s的速度回血，血量每下降800点便会生成一个宿主僵尸。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这是我们目前所能观察到的最强大瘟疫体，它庞大而臃肿的躯体不断再生着无休止的血肉，被剥离下的肉块也能不断再生并形成自我的意志，它的存在本身便是对生物科学的亵渎。</p>
+				<p>不知在这庞大的身躯下是否还藏有一颗热爱小动物的心。</p>
+				<p/>
+				<p>愿所有苦痛的灵魂得到解脱。</p>
+			</flavor>
+		</entry>
+		
+		-->
+		
         <entry id="mvz2:cave_spider">
             <header>
                 <p>洞穴蜘蛛不能爬上障碍物，但十分低矮且不会被普通高度的子弹打中，并且能够游泳。</p>
@@ -867,6 +941,21 @@
                 <p>·禁止向恶魂投食钻石头盔</p>
             </flavor>
         </entry>
+		<entry id="mvz2:HostHead">
+			<header>
+				<p>宿主僵尸头能够中低速恢复自身血量。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.85</color>]]></p>
+				<p>特点：<![CDATA[<color=red>以45/s的速度回血</color>]]></p>
+			</properties>
+			<flavor>
+				<p>和僵尸头不同，滚动的宿主僵尸头除了诡异更多的是让我感到恶寒和恶心，即使只剩下头颅，宿主病原体也不打算放过宿主，仍然在丑恶的增值。</p>
+				<p/>
+				<p>给他们一个解脱吧。</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:mother_terror">
             <header>
                 <p>恐怖之母会向血肉之躯寄生虫卵。</p>
@@ -892,7 +981,58 @@
                 <p>它还没想好自己的网络冷笑话该怎么写。</p>
             </flavor>
         </entry>
-
+		<entry id="mvz2:BloodlustHostZombie">
+			<header>
+				<p>渴血宿主僵尸能够以疯狂的速度回复自身血量。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>1000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.6</color>]]></p>
+				<p>特点：<![CDATA[<color=red>以90/s的速度回血</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>150</color>]]></p>
+			</properties>
+			<flavor>
+				<p>难以想象这样的活死人存在于战场之上。</p>
+				<p/>
+				<p>这场瘟疫一定是人为的。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:HostMutant">
+			<header>
+				<p>宿主突变僵尸能够慢速回复生命，可以粉碎遇到的的器械，并在血量低至一半时投掷宿主小鬼僵尸</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>8000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.5</color>]]></p>
+				<p>特点：<![CDATA[<color=red>以30/s的速度回血，血量每下降800点便会生成一个宿主僵尸。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这是我们目前所能观察到的最强大瘟疫体，它庞大而臃肿的躯体不断再生着无休止的血肉，被剥离下的肉块也能不断再生并形成自我的意志，它的存在本身便是对生物科学的亵渎。</p>
+				<p>不知在这庞大的身躯下是否还藏有一颗热爱小动物的心。</p>
+				<p/>
+				<p>愿所有苦痛的灵魂得到解脱。</p>
+			</flavor>
+		</entry>
+		
+		<entry id="mvz2:HostIMP">
+			<header>
+				<p>宿主小鬼僵尸能够以疯狂的速度回复生命</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>240</color>]]></p>
+				<p>速度：<![CDATA[<color=red>2.4</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>150</color>]]></p>
+				<p>特点：<![CDATA[<color=red>以120/s的速度回血。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>年幼的血肉在病原体的催生下疯狂的增长，他的再生速度难以置信。</p>
+				<p>好在宿主突变僵尸一般情况下会把他丢到水池里，但要他单独出现呢？</p>
+			</flavor>
+		</entry>
+		
+		
+		
+		
 		<entry id="mvz2:WitherSkeleton">
 			<header>
 				<p>凋零骷髅会作为凋灵帝国的炮灰冲向你。</p>
