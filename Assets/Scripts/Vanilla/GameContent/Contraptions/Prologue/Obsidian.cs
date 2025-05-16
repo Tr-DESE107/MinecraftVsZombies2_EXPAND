@@ -6,6 +6,8 @@ using PVZEngine;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
+
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -60,6 +62,7 @@ namespace MVZ2.GameContent.Contraptions
 
             // 比较生命下降值是否超过100
             int arrowsToShoot = (int)((lastHP - currHP) / 200f);
+            arrowsToShoot = Mathf.Min(arrowsToShoot, 2);
             if (arrowsToShoot > 0)
             {
                 for (int i = 0; i < arrowsToShoot; i++)

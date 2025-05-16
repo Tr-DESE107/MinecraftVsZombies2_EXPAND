@@ -106,7 +106,7 @@ namespace MVZ2.GameContent.Contraptions
             if (productionTimer.Expired)
             {
                 var energyDirection = entity.IsFriendlyEntity() ? 1 : -1;
-                entity.Level.AddEnergy(1 * energyDirection);
+                entity.Level.AddEnergy(2 * energyDirection);
                 productionTimer.Reset();
             }
         }

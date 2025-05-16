@@ -1070,7 +1070,7 @@
 
             <int name="cost" value="25" />
         </enemy>
-        <enemy id="skeleton_horse" name="骷髅马" deathMessage="死因：死马" unlock="mvz2:level.castle_6">
+        <enemy id="skeleton_horse" name="骷髅马" deathMessage="死因：死马" unlock="mvz2:level.halloween_6">
             <float name="maxHealth" value="400"/>
             <float name="fallResistance" value="15"/>
             <id name="shell" value="mvz2:bone"/>
@@ -1126,7 +1126,7 @@
 			<int name="waterInteraction" value="2"/>
 		</enemy>
 
-		<enemy id="HostHead" name="宿主僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+		<enemy id="HostHead" name="宿主僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.dream_7">
 			<float name="speed" value="0.8"/>
 			<float name="maxHealth" value="260"/>
 			<id name="shell" value="mvz2:flesh"/>

@@ -108,7 +108,7 @@
                 <p>月光传感器可以在晚上提供能量，并在一段时间后提升生产量。</p>
             </header>
             <properties>
-                <p>提供能量：<![CDATA[<color=red>1点/1.6秒，而后1点/1秒</color>]]></p>
+                <p>提供能量：<![CDATA[<color=red>2点/1.6秒，而后2点/1秒</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即升级，发出蓝光，并使生产量变为2.5倍</color>]]></p>
             </properties>
             <flavor>
@@ -529,6 +529,7 @@
 			<properties>
 				<p>耐久：<![CDATA[<color=red>600</color>]]></p>
 				<p>特点：<![CDATA[<color=red>打碎后可以获得多个红石</color>]]></p>
+				<p>技能：<![CDATA[<color=red>造成600敌我不分的3*3爆炸伤害，产生红宝石和绿宝石</color>]]></p>
 			</properties>
 			<flavor>
 				<p>于是，我们终于意识到了用镐子敲掉红石矿比直接在熔炉里烧给的红石多。</p>
@@ -1055,7 +1056,7 @@
 		</entry>
 		<entry id="mvz2:LeatherWitherSkeleton">
 			<header>
-				<p>皮帽凋零骷髅会作为凋灵帝国的炮灰冲向你。</p>
+				<p>皮帽凋零骷髅会作为凋灵帝国的进阶炮灰冲向你。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red>200+370</color>]]></p>
@@ -1069,10 +1070,10 @@
 		</entry>
 		<entry id="mvz2:IronWitherSkeleton">
 			<header>
-				<p>皮帽凋零骷髅会作为凋灵帝国的炮灰冲向你。</p>
+				<p>铁盔凋零骷髅会作为凋灵帝国的高级炮灰冲向你。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>200+370</color>]]></p>
+				<p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
 				<p>速度：<![CDATA[<color=red>1</color>]]></p>
 			</properties>
 			<flavor>
