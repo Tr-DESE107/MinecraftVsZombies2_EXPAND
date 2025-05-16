@@ -92,10 +92,9 @@
 		<weight base="4000" />
 	</entry>
 	<entry id="BloodlustHostZombie" entity="mvz2:BloodlustHostZombie" >
-		<spawn level="2" />
-		<preview count="2" />
+		<spawn level="4" />
 		<terrain water="true"/>
-		<weight base="4000"/>
+		<weight base="3000" />
 	</entry>
 	<entry id="SpiderQueen" entity="mvz2:SpiderQueen" >
 		<spawn level="2" />

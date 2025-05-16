@@ -220,6 +220,7 @@
 	
     <model name="soulfire_ball" type="entity" path="mvz2:projectile/soulfire_ball" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="knife" type="entity" path="mvz2:projectile/knife" width="32" height="10" xOffset="0" yOffset="0"/>
+	<model name="RedKnife" type="entity" path="mvz2:projectile/RedKnife" width="32" height="10" xOffset="0" yOffset="0"/>
     <model name="fire_charge" type="entity" path="mvz2:projectile/fire_charge" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="bullet" type="entity" path="mvz2:projectile/bullet" width="32" height="2" xOffset="0" yOffset="0"/>
     <model name="missile" type="entity" path="mvz2:projectile/missile" width="64" height="20" xOffset="0" yOffset="0"/>

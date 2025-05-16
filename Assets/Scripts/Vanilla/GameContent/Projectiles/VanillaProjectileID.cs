@@ -14,6 +14,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string soulfireBall = "soulfire_ball";
         public const string spiceGas = "spice_gas";
         public const string knife = "knife";
+        public const string RedKnife = "RedKnife";
         public const string bullet = "bullet";
         public const string missile = "missile";
 
@@ -51,6 +52,8 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID soulfireBall = Get(VanillaProjectileNames.soulfireBall);
         public static readonly NamespaceID spiceGas = Get(VanillaProjectileNames.spiceGas);
         public static readonly NamespaceID knife = Get(VanillaProjectileNames.knife);
+        public static readonly NamespaceID RedKnife = Get(VanillaProjectileNames.RedKnife);
+
         public static readonly NamespaceID bullet = Get(VanillaProjectileNames.bullet);
         public static readonly NamespaceID missile = Get(VanillaProjectileNames.missile);
 

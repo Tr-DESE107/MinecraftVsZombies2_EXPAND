@@ -175,6 +175,7 @@
 			<id name="rechargeId" value="mvz2:long" />
 		</contraption>
 		<contraption id="RedStoneOre" name="红石矿" tooltip="打碎后产出红石" unlock="mvz2:level.halloween_1" >
+			<id name="fragmentId" value="mvz2:furnace"/>
 			<bool name="canDeactive" value="false"/>
 			<bool name="defensive" value="true"/>
 			<float name="maxHealth" value="600"/>
@@ -287,7 +288,7 @@
             <id name="rechargeId" value="mvz2:short" />
         </contraption>
         <dispenser id="silvenser" name="银质发射器" tooltip="射出穿透肉体的飞刀"  unlock="mvz2:level.halloween_8">
-            <float name="damage" value="20"/>
+            <float name="damage" value="25"/>
             <id name="projectileId" value="mvz2:knife"/>
             <id name="shell" value="mvz2:metal"/>
 
@@ -1345,6 +1346,11 @@
             <vector3 name="size" x="32" y="6" z="2" />
             <idArray name="damageEffects" value="mvz2:slice" />
         </projectile>
+		<projectile id="RedKnife">
+			<bool name="pointToDirection" value="true" />
+			<vector3 name="size" x="32" y="6" z="2" />
+			<idArray name="damageEffects" value="mvz2:slice" />
+		</projectile>
         <projectile id="bullet">
             <bool name="pointToDirection" value="true" />
             <vector3 name="size" x="32" y="6" z="2" />

@@ -32,6 +32,21 @@ namespace MVZ2.GameContent.Contraptions
             EvokedUpdate(entity);
         }
 
+        // 核心修改：添加随机发射逻辑
+        public override Entity Shoot(Entity entity)
+        {
+            if (entity.RNG.Next(6) == 0)
+            {
+                var param = entity.GetShootParams();
+                // 将 "mvz2:purpleArrow" 拆分为命名空间和名称
+                param.projectileID = new NamespaceID("mvz2", "RedKnife");
+                param.damage *= 2;
+                entity.TriggerAnimation("Shoot");
+                return entity.ShootProjectile(param);
+            }
+            return base.Shoot(entity);
+        }
+
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
