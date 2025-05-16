@@ -16,8 +16,12 @@ namespace MVZ2.Metas
         public NamespaceID id;
         public string name;
         public NamespaceID unlock;
+
         public SpriteReference sprite;
         public NamespaceID model;
+        public bool iconFixedSize;
+        public bool iconZoom;
+
         public string header;
         public string properties;
         public AlmanacMetaFlavor[] flavors;
@@ -28,8 +32,19 @@ namespace MVZ2.Metas
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
             var name = node.GetAttribute("name");
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-            var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
-            var model = node.GetAttributeNamespaceID("model", defaultNsp);
+
+            SpriteReference sprite = null;
+            NamespaceID model = null;
+            bool iconFixedSize = false;
+            bool iconZoom = true;
+            var iconNode = node["icon"];
+            if (iconNode != null)
+            {
+                sprite = iconNode.GetAttributeSpriteReference("sprite", defaultNsp);
+                model = iconNode.GetAttributeNamespaceID("model", defaultNsp);
+                iconFixedSize = iconNode.GetAttributeBool("fixedSize") ?? iconFixedSize;
+                iconZoom = iconNode.GetAttributeBool("zoom") ?? iconZoom;
+            }
             var headerNode = node["header"];
             var propertiesNode = node["properties"];
             var header = headerNode != null ? ConcatNodeParagraphs(headerNode) : string.Empty;
@@ -70,8 +85,10 @@ namespace MVZ2.Metas
                 name = name,
                 unlock = unlock,
                 sprite = sprite,
-                hidden = hidden,
                 model = model,
+                iconFixedSize = iconFixedSize,
+                iconZoom = iconZoom,
+                hidden = hidden,
                 header = header,
                 properties = properties,
                 flavors = flavors,

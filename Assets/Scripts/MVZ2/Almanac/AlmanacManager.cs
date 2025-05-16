@@ -36,12 +36,13 @@ namespace MVZ2.Almanacs
         }
         public void GetUnlockedMiscGroups(List<AlmanacEntryGroup> appendList)
         {
-            var metaList = Main.ResourceManager.GetAlmanacMetaList(Main.BuiltinNamespace);
+            var nsp = Main.BuiltinNamespace;
+            var metaList = Main.ResourceManager.GetAlmanacMetaList(nsp);
             var category = metaList.GetCategory(VanillaAlmanacCategories.MISC);
             var groups = category.groups.Select(g => new AlmanacEntryGroup()
             {
                 name = g.name,
-                entries = g.entries.Where(e => !NamespaceID.IsValid(e.unlock) || Main.SaveManager.IsUnlocked(e.unlock)).ToArray()
+                entries = g.entries.Where(e => !NamespaceID.IsValid(e.unlock) || Main.SaveManager.IsUnlocked(e.unlock)).Select(e => e.id).ToArray()
             }).Where(g => g != null && g.entries.Count() > 0);
             appendList.AddRange(groups);
         }
@@ -85,10 +86,13 @@ namespace MVZ2.Almanacs
             return new AlmanacEntryGroupViewData()
             {
                 name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME, group.name),
-                entries = group.entries.Select(e =>
+                entries = group.entries.Select(id =>
                 {
-                    var spriteID = e.sprite;
-                    var modelID = e.model;
+                    var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.MISC, id);
+                    if (entry == null)
+                        return AlmanacEntryViewData.Empty;
+                    var spriteID = entry.sprite;
+                    var modelID = entry.model;
                     Sprite sprite;
                     if (NamespaceID.IsValid(modelID))
                     {
@@ -154,6 +158,6 @@ namespace MVZ2.Almanacs
     public class AlmanacEntryGroup
     {
         public string name;
-        public AlmanacMetaEntry[] entries;
+        public NamespaceID[] entries;
     }
 }

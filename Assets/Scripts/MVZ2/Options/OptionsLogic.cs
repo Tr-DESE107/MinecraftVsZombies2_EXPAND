@@ -109,10 +109,6 @@ namespace MVZ2.Options
         {
         }
         #region 更新元素
-        protected string GetFloatText(float value)
-        {
-            return Main.LanguageManager._(OPTION_VALUE_PERCENT, Mathf.RoundToInt(value * 100));
-        }
         protected string GetValueText(bool value)
         {
             return Main.LanguageManager._(value ? VanillaStrings.YES : VanillaStrings.NO);
@@ -123,7 +119,7 @@ namespace MVZ2.Options
         }
         protected void UpdateSliderValue(float value, string optionKey, SliderType sliderType)
         {
-            var valueText = GetFloatText(value);
+            var valueText = Main.GetFloatPercentageText(value);
             var text = Main.LanguageManager._(optionKey, valueText);
             dialog.SetSliderValue(sliderType, value);
             dialog.SetSliderText(sliderType, text);
@@ -149,7 +145,7 @@ namespace MVZ2.Options
             var multi = Main.OptionsManager.GetFastForwardMultiplier();
             var value = FastForwardMultiplierToValue(multi);
 
-            var valueText = GetFloatText(multi);
+            var valueText = Main.GetFloatPercentageText(multi);
             var text = Main.LanguageManager._(OPTION_FASTFORWARD_MULTIPLIER, valueText);
             dialog.SetSliderRange(SliderType.FastForward, FASTFORWARD_SLIDER_START, FASTFORWARD_SLIDER_END, true);
             dialog.SetSliderValue(SliderType.FastForward, value);
@@ -230,8 +226,6 @@ namespace MVZ2.Options
         public const string OPTION_SOUND = "音效音量：{0}";
         [TranslateMsg("选项，{0}为量")]
         public const string OPTION_FASTFORWARD_MULTIPLIER = "加速倍率：{0}";
-        [TranslateMsg("值，{0}为百分数")]
-        public const string OPTION_VALUE_PERCENT = "{0}%";
 
         [TranslateMsg("选项，{0}为是否开启")]
         public const string OPTION_BLOOD_AND_GORE = "血与碎块：{0}";

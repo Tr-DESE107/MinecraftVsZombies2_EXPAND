@@ -48,16 +48,39 @@ namespace MVZ2.Almanacs
         }
         public void SetActiveArtifactEntry(Sprite sprite, string name, string description)
         {
-            artifacts.SetActiveEntry(sprite, name, description);
+            artifacts.SetActiveEntry(sprite, name, description, true, false);
         }
-        public void SetActiveMiscEntry(Sprite sprite, string name, string description)
+        public void SetActiveMiscEntry(Sprite sprite, string name, string description, bool sized = false, bool zoom = true)
         {
-            miscs.SetActiveEntry(sprite, name, description);
+            miscs.SetActiveEntry(sprite, name, description, sized, zoom);
         }
         public void SetActiveMiscEntry(Model prefab, Camera camera, string name, string description)
         {
             miscs.SetActiveEntry(prefab, camera, name, description);
         }
+
+        #region Ëõ·Å
+        public void StartZoom(Sprite sprite)
+        {
+            zoomPage.Display(sprite);
+        }
+        public void StopZoom()
+        {
+            zoomPage.Hide();
+        }
+        public void SetZoomScale(float scale)
+        {
+            zoomPage.SetScale(scale);
+        }
+        public void SetZoomScaleSliderText(string text)
+        {
+            zoomPage.SetSliderText(text);
+        }
+        public void SetZoomScaleSliderValue(float value)
+        {
+            zoomPage.SetSliderValue(value);
+        }
+        #endregion
         private void Awake()
         {
             indexUI.OnButtonClick += type => OnIndexButtonClick?.Invoke(type);
@@ -66,8 +89,11 @@ namespace MVZ2.Almanacs
             mobileContraptions.OnEntryClick += index => OnContraptionEntryClick?.Invoke(index);
             mobileContraptions.OnCommandBlockClick += () => OnCommandBlockClick?.Invoke();
             enemies.OnEntryClick += index => OnEnemyEntryClick?.Invoke(index);
+            enemies.OnZoomClick += () => OnEnemyZoomClick?.Invoke();
             artifacts.OnEntryClick += index => OnArtifactEntryClick?.Invoke(index);
+            artifacts.OnZoomClick += () => OnArtifactZoomClick?.Invoke();
             miscs.OnGroupEntryClick += (groupIndex, entryIndex) => OnMiscGroupEntryClick?.Invoke(groupIndex, entryIndex);
+            miscs.OnZoomClick += () => OnMiscZoomClick?.Invoke();
 
             indexUI.OnReturnClick += () => OnIndexReturnClick?.Invoke();
             standaloneContraptions.OnReturnClick += () => OnPageReturnClick?.Invoke();
@@ -75,6 +101,9 @@ namespace MVZ2.Almanacs
             enemies.OnReturnClick += () => OnPageReturnClick?.Invoke();
             artifacts.OnReturnClick += () => OnPageReturnClick?.Invoke();
             miscs.OnReturnClick += () => OnPageReturnClick?.Invoke();
+
+            zoomPage.OnReturnClick += () => OnZoomReturnClick?.Invoke();
+            zoomPage.OnScaleValueChanged += (v) => OnZoomScaleValueChanged?.Invoke(v);
         }
         public event Action OnIndexReturnClick;
         public event Action OnPageReturnClick;
@@ -82,8 +111,14 @@ namespace MVZ2.Almanacs
         public event Action<int> OnContraptionEntryClick;
         public event Action OnCommandBlockClick;
         public event Action<int> OnEnemyEntryClick;
+        public event Action OnEnemyZoomClick;
         public event Action<int> OnArtifactEntryClick;
+        public event Action OnArtifactZoomClick;
         public event Action<int, int> OnMiscGroupEntryClick;
+        public event Action OnMiscZoomClick;
+
+        public event Action OnZoomReturnClick;
+        public event Action<float> OnZoomScaleValueChanged;
         [SerializeField]
         private IndexAlmanacPage indexUI;
         [SerializeField]
@@ -96,6 +131,8 @@ namespace MVZ2.Almanacs
         private MiscAlmanacPage artifacts;
         [SerializeField]
         private MiscAlmanacPage miscs;
+        [SerializeField]
+        private AlmanacZoomPage zoomPage;
         public enum AlmanacPage
         {
             Index,

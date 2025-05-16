@@ -109,6 +109,8 @@ namespace MVZ2.Managers
             await SponsorManager.PullSponsors(sponsorProgress);
             pipeline.SetCurrentTask(1);
         }
+
+        #region 贴图
         public Sprite GetFinalSprite(SpriteReference spriteRef)
         {
             if (!SpriteReference.IsValid(spriteRef))
@@ -167,6 +169,15 @@ namespace MVZ2.Managers
                 return sprite;
             return GetFinalSprite(spriteID, language) ?? sprite;
         }
+        #endregion
+
+        #region 文本
+        public string GetFloatPercentageText(float value)
+        {
+            return LanguageManager._(VALUE_PERCENT, Mathf.RoundToInt(value * 100));
+        }
+        #endregion
+
         private void Awake()
         {
             if (!Instance)
@@ -366,6 +377,8 @@ namespace MVZ2.Managers
 
         [TranslateMsg("初始化任务名称")]
         public const string TASK_LOAD_SPONSORS = "获取赞助者列表……";
+        [TranslateMsg("值，{0}为百分数")]
+        public const string VALUE_PERCENT = "{0}%";
         public static MainManager Instance { get; private set; }
         public Game Game { get; private set; }
         public string BuiltinNamespace => builtinNamespace;

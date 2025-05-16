@@ -25,7 +25,10 @@ namespace MVZ2.Managers
                 return null;
             if (!metaList.TryGetCategory(type, out var entries))
                 return null;
-            return entries.entries.FirstOrDefault(e => e.id == id);
+            var entry = entries.entries.FirstOrDefault(e => e.id == id);
+            if (entry != null)
+                return entry;
+            return entries.groups.SelectMany(g => g.entries).FirstOrDefault(e => e.id == id);
         }
         public bool IsContraptionInAlmanac(NamespaceID id)
         {

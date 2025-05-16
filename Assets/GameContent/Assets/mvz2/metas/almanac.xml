@@ -1293,7 +1293,8 @@
     <misc>
         <!-- Bosses -->
         <group id="mvz2:bosses" name="头目" order="100">
-            <entry id="mvz2:frankenstein" name="科学怪人的怪物" sprite="mvz2:misc/frankenstein" unlock="mvz2:level.halloween_11">
+            <entry id="mvz2:frankenstein" name="科学怪人的怪物" unlock="mvz2:level.halloween_11">
+                <icon sprite="mvz2:misc/frankenstein"/>
                 <header>
                     <p>尸块组成的怪物，科幻小说中的杀人魔。</p>
                 </header>
@@ -1306,7 +1307,8 @@
                     <p>她的过去与你无关。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_boss" name="梦魇" sprite="mvz2:misc/nightmare_art" unlock="mvz2:level.dream_11">
+            <entry id="mvz2:nightmare_boss" name="梦魇" unlock="mvz2:level.dream_11">
+                <icon sprite="mvz2:misc/nightmare_art"/>
                 <header>
                     <p>梦魇是具有蒙骗感官和腐蚀能力的恐怖魔物，具有无数的化身。</p>
                 </header>
@@ -1323,7 +1325,8 @@
                     <p>骑士离开王宫，骑上自己的马，便准备出发了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:wither" name="凋灵" sprite="mvz2:misc/wither" unlock="mvz2:level.castle_11">
+            <entry id="mvz2:wither" name="凋灵" unlock="mvz2:level.castle_11">
+                <icon sprite="mvz2:misc/wither"/>
                 <header>
                     <p>凋灵代表着死亡和枯萎，它会抹除一切生命的迹象。</p>
                 </header>
@@ -1343,7 +1346,8 @@
                     <p>骑士握着手中的护身符。黑色的骷髅头中，闪烁着白色的，诡异的光。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:giant" name="巨人" sprite="mvz2:misc/giant" unlock="mvz2:level.mausoleum_11">
+            <entry id="mvz2:giant" name="巨人" unlock="mvz2:level.mausoleum_11">
+                <icon sprite="mvz2:misc/giant"/>
                 <header>
                     <p>巨人是众多僵尸的集合体，它吞噬、吞噬，要吃掉一切。</p>
                 </header>
@@ -1370,7 +1374,8 @@
         </group>
         <!-- Misc Entities -->
         <group id="mvz2:misc_entities" name="杂项实体" order="200">
-            <entry id="mvz2:miner" name="矿场" model="mvz2:entity.miner">
+            <entry id="mvz2:miner" name="矿场" >
+                <icon model="mvz2:entity.miner"/>
                 <header>
                     <p>史蒂夫制造的自动矿场，会在白天的时候自动挖掘红石矿。</p>
                 </header>
@@ -1379,7 +1384,8 @@
                     <p>……不过既然它需要太阳能，为什么不直接把太阳能变成能量呢？</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:minecart" name="矿车" model="mvz2:entity.minecart">
+            <entry id="mvz2:minecart" name="矿车" >
+                <icon model="mvz2:entity.minecart"/>
                 <header>
                     <p>史蒂夫家里的最后防线，当僵尸突破器械阵线后会碾压前方一行的敌人。</p>
                 </header>
@@ -1389,7 +1395,8 @@
                     <p>“那是我年轻的时候的故事……”</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:gargoyle_statue" name="石像鬼雕像" model="mvz2:entity.gargoyle_statue">
+            <entry id="mvz2:gargoyle_statue" name="石像鬼雕像" >
+                <icon model="mvz2:entity.gargoyle_statue"/>
                 <header>
                     <p>石像鬼雕像会在最后一波时变成石像鬼。</p>
                 </header>
@@ -1397,7 +1404,8 @@
                     <p>永夜沼泽的诅咒不止将天空定格在了午夜，它也把地下的石块塑造成雕像的形状，将它们移出地面。这些雕像一旦受到魔电的冲击，便会被赋予生命而变成活物。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:pumpkin_carriage" name="南瓜马车" model="mvz2:entity.pumpkin_carriage">
+            <entry id="mvz2:pumpkin_carriage" name="南瓜马车" >
+                <icon model="mvz2:entity.pumpkin_carriage"/>
                 <header>
                     <p>永夜沼泽的最后防线，会发出绿色光芒，当僵尸突破器械阵线后会碾压前方一行的敌人。</p>
                 </header>
@@ -1405,7 +1413,8 @@
                     <p>南瓜中的永恒火焰无法被水浇灭，被风吹灭或者被其他化学反应影响。如果你想藏身的话最好把它扔了——这玩意真的关不掉。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:napstablook" name="小幽灵" model="mvz2:entity.napstablook" unlock="mvz2:level.halloween_6">
+            <entry id="mvz2:napstablook" name="小幽灵" unlock="mvz2:level.halloween_6">
+                <icon model="mvz2:entity.napstablook"/>
                 <header>
                     <p>小幽灵会在你使用铁剑击中它时生气，然后麻痹你的剑。</p>
                 </header>
@@ -1413,7 +1422,8 @@
                     <p>只是个路过的幽灵而已。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nyan_cat" name="彩虹猫" model="mvz2:entity.nyan_cat" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:nyan_cat" name="彩虹猫" unlock="mvz2:level.dream_1">
+                <icon model="mvz2:entity.nyan_cat"/>
                 <header>
                     <p>彩虹猫能萌死任何接触到的敌人。</p>
                 </header>
@@ -1421,7 +1431,8 @@
                     <p>NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nyaightmare" name="噩梦猫" model="mvz2:entity.nyaightmare" unlock="mvz2:level.dream_7">
+            <entry id="mvz2:nyaightmare" name="噩梦猫" unlock="mvz2:level.dream_7">
+                <icon model="mvz2:entity.nyaightmare"/>
                 <header>
                     <p>噩梦猫会刺死任何它所恨的人。</p>
                 </header>
@@ -1429,7 +1440,8 @@
                     <p>“我恨你。”</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:bowl_chariot" name="碗车" model="mvz2:entity.bowl_chariot" unlock="mvz2:level.castle_1">
+            <entry id="mvz2:bowl_chariot" name="碗车" unlock="mvz2:level.castle_1">
+                <icon model="mvz2:entity.bowl_chariot"/>
                 <header>
                     <p>碗车在碰到敌人后会冲锋，并把碗里的巨石掉出来二次打击敌人。</p>
                 </header>
@@ -1437,7 +1449,8 @@
                     <p>之前的小人族剩下的部分防御工事，不过巨石的效果对凋灵骷髅们没什么作用就是了——甚至还不如直接用车撞死它们。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:reverse_satellite" name="反则卫星" model="mvz2:entity.reverse_satellite" unlock="mvz2:level.castle_1">
+            <entry id="mvz2:reverse_satellite" name="反则卫星" unlock="mvz2:level.castle_1">
+                <icon model="mvz2:entity.reverse_satellite"/>
                 <header>
                     <p>反则卫星是在一大波僵尸出现后，在辉针城中出现的可疑飞行物，会将你的视野180度旋转。</p>
                 </header>
@@ -1452,7 +1465,8 @@
                     <p>……甚至还可以影响人们的认知？</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:ballista" name="小型弩车" model="mvz2:entity.ballista" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:ballista" name="小型弩车" unlock="mvz2:level.mausoleum_1">
+                <icon model="mvz2:entity.ballista"/>
                 <header>
                     <p>小型弩车在碰到敌人后会发射致命弩箭，并向前冲锋碾压敌人。</p>
                 </header>
@@ -1463,7 +1477,8 @@
                     <p>你别问为什么能直接压死还要发射弩箭，不然这就不叫“画蛇添足”了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:monster_spawner" name="刷怪笼" model="mvz2:entity.monster_spawner" unlock="mvz2:level.mausoleum_2">
+            <entry id="mvz2:monster_spawner" name="刷怪笼" unlock="mvz2:level.mausoleum_2">
+                <icon model="mvz2:entity.monster_spawner"/>
                 <header>
                     <p>刷怪笼会在一大波僵尸来临时召唤一只其内部的敌人。</p>
                 </header>
@@ -1474,7 +1489,8 @@
         </group>
         <!-- Characters -->
         <group id="mvz2:characters" name="人物" order="300">
-            <entry id="mvz2:villager" name="村民" sprite="mvz2:characters/crazy_villager[0]">
+            <entry id="mvz2:villager" name="村民" >
+                <icon sprite="mvz2:characters/crazy_villager[0]"/>
                 <header>
                     <p>与史蒂夫共同生活的白衣村民，原名戴夫。</p>
                 </header>
@@ -1486,7 +1502,8 @@
                     <p>常与史蒂夫提起幻想乡的事情，而在今天终于踏上了征途。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:orant" name="欧兰特" sprite="mvz2:characters/orant[0]">
+            <entry id="mvz2:orant" name="欧兰特" >
+                <icon sprite="mvz2:characters/orant[0]"/>
                 <header>
                     <p>欧兰特是一名灵魂术士，可以操纵恐惧和灵魂。</p>
                 </header>
@@ -1498,7 +1515,8 @@
                     <p>只需要知道她常和灵魂与恐惧作伴就可以了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:doremy" name="哆来咪·苏伊特" sprite="mvz2:characters/doremy[0]" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:doremy" name="哆来咪·苏伊特" unlock="mvz2:level.dream_1">
+                <icon sprite="mvz2:characters/doremy[0]"/>
                 <header>
                     <p>哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。</p>
                 </header>
@@ -1510,7 +1528,8 @@
                     <p>被真身前来的史蒂夫和村民两人吓了一跳，但似乎从史蒂夫身上看到了一些有趣的梦。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:tokiko" name="朱鹭子" sprite="mvz2:characters/tokiko[0]" unlock="mvz2:kourindou_visited">
+            <entry id="mvz2:tokiko" name="朱鹭子" unlock="mvz2:kourindou_visited">
+                <icon sprite="mvz2:characters/tokiko[0]"/>
                 <header>
                     <p>常在香霖堂附近活动的读书妖怪，在霖之助失踪后成为了香霖堂的店主。</p>
                 </header>
@@ -1524,7 +1543,8 @@
                     <p>所以不要随便抢别人的书哦。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:seija" name="鬼人 正邪" sprite="mvz2:characters/seija[0]" unlock="mvz2:level.castle_1">
+            <entry id="mvz2:seija" name="鬼人 正邪" unlock="mvz2:level.castle_1">
+                <icon sprite="mvz2:characters/seija[0]"/>
                 <header>
                     <p>一名天邪鬼，曾利用了针妙丸，妄图使用万宝槌的力量颠覆幻想乡的强弱规则。</p>
                 </header>
@@ -1538,7 +1558,8 @@
                     <p>如今她在四处游荡，成了个不受任何人欢迎的家伙。然而，天邪鬼对“逆转”的那种渴望，似乎也并不会轻易被熄灭就是了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:shinmyoumaru" name="少名 针妙丸" sprite="mvz2:characters/shinmyoumaru[0]" unlock="mvz2:level.castle_2">
+            <entry id="mvz2:shinmyoumaru" name="少名 针妙丸" unlock="mvz2:level.castle_2">
+                <icon sprite="mvz2:characters/shinmyoumaru[0]"/>
                 <header>
                     <p>一寸法师的后代，辉针城的城主，如今小人族的领导者。</p>
                 </header>
@@ -1553,7 +1574,8 @@
                     <p>不过，至少在她这一代，这些教训是再也忘不掉的了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:futo" name="物部 布都" sprite="mvz2:characters/futo[0]" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:futo" name="物部 布都" unlock="mvz2:level.mausoleum_1">
+                <icon sprite="mvz2:characters/futo[0]"/>
                 <header>
                     <p>日本古代大氏族物部氏的后人，丰聪耳神子的手下。</p>
                 </header>
@@ -1566,7 +1588,8 @@
                     <p>后来也被时代的浪潮推动，开始慢慢习惯现代的生活了，变成了一位看起来稍微有点傻傻的女孩。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:marisa" name="雾雨 魔理沙" sprite="mvz2:characters/armor_stand" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:marisa" name="雾雨 魔理沙" unlock="mvz2:level.mausoleum_1">
+                <icon sprite="mvz2:characters/armor_stand"/>
                 <header>
                     <p>一位普通的魔法使，也是森近 霖之助曾经的好友。</p>
                 </header>
@@ -1579,7 +1602,8 @@
                     <p>随后她为霖之助立了衣冠冢，隔三岔五就会去纪念一次。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:miko" name="丰聪耳 神子" sprite="mvz2:characters/miko[0]" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:miko" name="丰聪耳 神子" unlock="mvz2:level.mausoleum_1">
+                <icon sprite="mvz2:characters/miko[0]"/>
                 <header>
                     <p>日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。</p>
                 </header>
@@ -1593,7 +1617,8 @@
                     <p>而这次，她们两者达成合作，一起抵御来自幻想乡外的巨物威胁。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:seiga" name="霍 青娥" sprite="mvz2:characters/seiga[0]" unlock="mvz2:level.mausoleum_3">
+            <entry id="mvz2:seiga" name="霍 青娥" unlock="mvz2:level.mausoleum_3">
+                <icon sprite="mvz2:characters/seiga[0]"/>
                 <header>
                     <p>一名使用邪术的邪仙。</p>
                 </header>
@@ -1608,7 +1633,8 @@
                     <p>据说，她也可以使用许多邪术，包括使用灵符来操纵僵尸。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:mysterious_hologram" name="神秘影像" sprite="mvz2:characters/mysterious_hologram[0]" unlock="mvz2:level.mausoleum_11">
+            <entry id="mvz2:mysterious_hologram" name="神秘影像" unlock="mvz2:level.mausoleum_11">
+                <icon sprite="mvz2:characters/mysterious_hologram[0]"/>
                 <header>
                     <p>出现在被僵尸包围的香霖堂的神秘影像，它对史蒂夫发出了威胁。</p>
                 </header>
@@ -1622,7 +1648,8 @@
         </group>
         <!-- Areas -->
         <group id="mvz2:areas" name="地点" order="400">
-            <entry id="mvz2:steves_house" name="史蒂夫的家" sprite="mvz2:misc/steves_house">
+            <entry id="mvz2:steves_house" name="史蒂夫的家" >
+                <icon sprite="mvz2:misc/steves_house"/>
                 <header>
                     <p>这里是史蒂夫和坑爹村民住的地方。</p>
                 </header>
@@ -1630,7 +1657,8 @@
                     <p>史蒂夫不受村庄中的其他人欢迎，于是他们搬到了公路附近的一片广阔平原上，开始了两人独居的生活。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:eternal_night_swamp" name="永夜沼泽" sprite="mvz2:misc/eternal_night_swamp">
+            <entry id="mvz2:eternal_night_swamp" name="永夜沼泽" >
+                <icon sprite="mvz2:misc/eternal_night_swamp"/>
                 <header>
                     <p>时间停在万圣夜的被诅咒的沼泽，灵魂术士欧兰特居住于此。</p>
                 </header>
@@ -1643,7 +1671,8 @@
                     </flavor>
                 </flavors>
             </entry>
-            <entry id="mvz2:dream_world" name="梦境世界" sprite="mvz2:misc/dream" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:dream_world" name="梦境世界" unlock="mvz2:level.dream_1">
+                <icon sprite="mvz2:misc/dream"/>
                 <header>
                     <p>梦境世界是由哆来咪管理的，所有人的梦境所处的地方。</p>
                 </header>
@@ -1655,7 +1684,8 @@
                     <p>这里和宇宙相通，某些宇宙中的天体在这里可能会产生奇特的反应。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_world" name="噩梦世界" sprite="mvz2:misc/nightmare" unlock="mvz2:level.dream_7">
+            <entry id="mvz2:nightmare_world" name="噩梦世界" unlock="mvz2:level.dream_7">
+                <icon sprite="mvz2:misc/nightmare"/>
                 <header>
                     <p>噩梦世界是被梦魇所腐化的梦境世界。</p>
                 </header>
@@ -1663,7 +1693,8 @@
                     <p>哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:shining_needle_castle" name="辉针城" sprite="mvz2:misc/castle" unlock="mvz2:level.castle_1">
+            <entry id="mvz2:shining_needle_castle" name="辉针城" unlock="mvz2:level.castle_1">
+                <icon sprite="mvz2:misc/castle"/>
                 <header>
                     <p>辉针城是小人族们的城池，在一年前遭到了凋灵骷髅们的入侵。</p>
                 </header>
@@ -1677,7 +1708,8 @@
                     <p>顺带一提，天花板——哦不，地板上好像有什么东西在微微发光。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:hall_of_dreams_great_mausoleum" name="梦殿大祀庙" sprite="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:hall_of_dreams_great_mausoleum" name="梦殿大祀庙" unlock="mvz2:level.mausoleum_1">
+                <icon sprite="mvz2:misc/mausoleum"/>
                 <header>
                     <p>物部 布都和丰聪耳 神子曾复活于幻想乡的地点。</p>
                 </header>
@@ -1692,7 +1724,8 @@
         </group>
         <!-- Starshards -->
         <group id="mvz2:starshards" name="星之碎片" order="500">
-            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：神奇糖果" model="mvz2:entity.starshard.halloween">
+            <entry id="mvz2:starshard.magic_candy" name="星之碎片：神奇糖果" >
+                <icon model="mvz2:entity.starshard.halloween"/>
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
                 </header>
@@ -1705,7 +1738,8 @@
                     <p>当我离开不属于我的那片土地时，我在一片沼泽中看到了它变成彩虹色的糖果，这与那些星星十分相似，但我仍不能确定这到底是什么。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：清明梦" model="mvz2:entity.starshard.dream" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：清明梦" unlock="mvz2:level.dream_1">
+                <icon model="mvz2:entity.starshard.dream"/>
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
                 </header>
@@ -1719,7 +1753,8 @@
                     <p>我睁开眼睛，发现自己正在一片粉色花朵的树环绕的空地上。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:starshard.miracle_mallet" name="星之碎片：万宝槌" model="mvz2:entity.starshard.castle" unlock="mvz2:level.castle_1">
+            <entry id="mvz2:starshard.miracle_mallet" name="星之碎片：万宝槌" unlock="mvz2:level.castle_1">
+                <icon model="mvz2:entity.starshard.castle"/>
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
                 </header>
@@ -1736,7 +1771,8 @@
                     <p>……如果真的有能实现这些愿望的东西，那才真的有鬼了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:starshard.shinrei" name="星之碎片：小神灵" model="mvz2:entity.starshard.mausoleum" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:starshard.shinrei" name="星之碎片：小神灵" unlock="mvz2:level.mausoleum_1">
+                <icon model="mvz2:entity.starshard.mausoleum"/>
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
                 </header>
@@ -1755,7 +1791,8 @@
         </group>
         <!-- Important Items -->
         <group id="mvz2:important" name="重要物品" order="600">
-            <entry id="mvz2:ender_chest" name="末影箱" model="mvz2:entity.ender_chest" unlock="mvz2:level.dream_5">
+            <entry id="mvz2:ender_chest" name="末影箱" unlock="mvz2:level.dream_5">
+                <icon model="mvz2:entity.ender_chest"/>
                 <header>
                     <p>末影箱可以将村民的存货取出来，并让他重新开张商店。</p>
                 </header>
@@ -1764,7 +1801,8 @@
                     <p>“梦里。”</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_box" name="梦魇魔盒" sprite="mvz2:map/dream/nightmare_box" unlock="mvz2:level.dream_11">
+            <entry id="mvz2:nightmare_box" name="梦魇魔盒" unlock="mvz2:level.dream_11">
+                <icon sprite="mvz2:map/dream/nightmare_box" fixedSize="true" zoom="false"/>
                 <header>
                     <p>梦魇魔盒是将梦魇的黑魔法收集起来制作而成，并可以使梦境世界变成噩梦世界的容器。</p>
                 </header>
@@ -1772,7 +1810,8 @@
                     <p>梦魇魔盒中不再包含任何有害魔力，它所能做的只有将梦境世界投影成为噩梦世界了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:gensokyo_map" name="幻想乡地图" sprite="mvz2:map/gensokyo/map" unlock="mvz2:entered_gensokyo">
+            <entry id="mvz2:gensokyo_map" name="幻想乡地图" unlock="mvz2:entered_gensokyo">
+                <icon sprite="mvz2:map/gensokyo/map"/>
                 <header>
                     <p>坑爹村民绘制的幻想乡地图。</p>
                 </header>
@@ -1781,7 +1820,8 @@
                     <p>能用这张地图的也是神人了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:obsidian_first_aid" name="黑曜石修复术" sprite="mvz2:products/obsidian_first_aid" unlock="mvz2:obsidian_first_aid">
+            <entry id="mvz2:obsidian_first_aid" name="黑曜石修复术" unlock="mvz2:obsidian_first_aid">
+                <icon sprite="mvz2:products/obsidian_first_aid" fixedSize="true" zoom="false"/>
                 <header>
                     <p>用于修复防御型器械的技术。</p>
                 </header>
@@ -1797,7 +1837,8 @@
         </group>
         <!-- Lore -->
         <group id="mvz2:lore" name="剧情" order="700">
-            <entry id="mvz2:blurred_note" name="模糊的字条" sprite="mvz2:note/dream" unlock="mvz2:level.dream_10">
+            <entry id="mvz2:blurred_note" name="模糊的字条" unlock="mvz2:level.dream_10">
+                <icon sprite="mvz2:note/dream"/>
                 <header>
                     <p>？？？</p>
                 </header>
@@ -1805,7 +1846,8 @@
                     <p>？？？</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:grave_in_dream" name="梦境中的坟墓" sprite="mvz2:misc/grave_in_dream" unlock="mvz2:level.dream_11">
+            <entry id="mvz2:grave_in_dream" name="梦境中的坟墓" unlock="mvz2:level.dream_11">
+                <icon sprite="mvz2:misc/grave_in_dream" fixedSize="true" zoom="false"/>
                 <header>
                     <p>哆来咪提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。</p>
                 </header>
@@ -1815,7 +1857,8 @@
                     <p>似乎，这个谜就要从这场冒险中解开了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:explosion_before_3_years" name="三年前的爆炸" sprite="mvz2:misc/explosion_before_3_years" unlock="mvz2:level.castle_4">
+            <entry id="mvz2:explosion_before_3_years" name="三年前的爆炸" unlock="mvz2:level.castle_4">
+                <icon sprite="mvz2:misc/explosion_before_3_years"/>
                 <header>
                     <p>在三年前，幻想乡内曾经发生过一起巨大的爆炸。</p>
                 </header>
@@ -1824,7 +1867,8 @@
                     <p>后来辉针城内产生的凋灵骷髅可能也是这件事所导致的。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:two_travelers" name="两位旅人" sprite="mvz2:misc/two_travelers" unlock="mvz2:level.mausoleum_4">
+            <entry id="mvz2:two_travelers" name="两位旅人" unlock="mvz2:level.mausoleum_4">
+                <icon sprite="mvz2:misc/two_travelers"/>
                 <header>
                     <p>在四年前，曾有两个旅人来到幻想乡。</p>
                 </header>
@@ -1834,7 +1878,8 @@
                     <p>但是，不久之后，异变就发生了。并且他们两个再也没有出现在幻想乡过。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:murder" name="凶杀" sprite="mvz2:misc/murder" unlock="mvz2:level.mausoleum_7">
+            <entry id="mvz2:murder" name="凶杀" unlock="mvz2:level.mausoleum_7">
+                <icon sprite="mvz2:misc/murder"/>
                 <header>
                     <p>三年前，幻想乡中发生过一场凶杀案。</p>
                 </header>

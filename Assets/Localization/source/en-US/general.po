@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-15 08:21+0800\n"
-"PO-Revision-Date: 2025-05-15 22:17+0800\n"
+"POT-Creation-Date: 2025-05-16 08:19+0800\n"
+"PO-Revision-Date: 2025-05-16 20:19+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -160,6 +160,12 @@ msgstr "Artifacts"
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Miscs/Center/Entries/Title
 msgid "杂项图鉴"
 msgstr "Misc"
+
+#. 图鉴中的放大镜界面标题
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/ZoomPage/Region/Top/Title/Text
+#: (TMP)
+msgid "放大镜"
+msgstr "Zoom"
 
 #: /MainGame/MainScene/Store/Canvas/StoreUI/Items/Title
 msgctxt "商店界面"
@@ -1026,59 +1032,55 @@ msgstr ""
 "All users cannot be loaded, the files may be corrupted.\n"
 "You have to delete a user and create a new one to continue."
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:215
+#: Scripts\MVZ2\Options\OptionsLogic.cs:211
 msgid "交换触发：{0}"
 msgstr "Swap Trigger: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:217
+#: Scripts\MVZ2\Options\OptionsLogic.cs:213
 msgid "全屏：{0}"
 msgstr "Full Screen: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:219
+#: Scripts\MVZ2\Options\OptionsLogic.cs:215
 msgid "设备震动：{0}"
 msgstr "Vibration: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:221
+#: Scripts\MVZ2\Options\OptionsLogic.cs:217
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:223
+#: Scripts\MVZ2\Options\OptionsLogic.cs:219
 msgid "后台暂停：{0}"
 msgstr "Pause on Focus Lost: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:227
+#: Scripts\MVZ2\Options\OptionsLogic.cs:223
 msgid "音乐音量：{0}"
 msgstr "Music Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:229
+#: Scripts\MVZ2\Options\OptionsLogic.cs:225
 msgid "音效音量：{0}"
 msgstr "Sound Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:231
+#: Scripts\MVZ2\Options\OptionsLogic.cs:227
 msgid "加速倍率：{0}"
 msgstr "Fast-forward: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:233
-msgid "{0}%"
-msgstr "{0}%"
-
-#: Scripts\MVZ2\Options\OptionsLogic.cs:236
+#: Scripts\MVZ2\Options\OptionsLogic.cs:230
 msgid "血与碎块：{0}"
 msgstr "Blood and Gore: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:239
+#: Scripts\MVZ2\Options\OptionsLogic.cs:233
 msgid "跳过对话：{0}"
 msgstr "Skip talks: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:241
+#: Scripts\MVZ2\Options\OptionsLogic.cs:235
 msgid "赞助者名称：{0}"
 msgstr "Sponsor Names: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:244
+#: Scripts\MVZ2\Options\OptionsLogic.cs:238
 msgid "粒子数量：{0}"
 msgstr "Particle Count: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:246
+#: Scripts\MVZ2\Options\OptionsLogic.cs:240
 msgid "屏幕震动：{0}"
 msgstr "Screen Shake: {0}"
 
@@ -1130,9 +1132,13 @@ msgstr ""
 "Flags\n"
 "{0}/{1}"
 
-#: Scripts\MVZ2\Managers\MainManager.cs:367
+#: Scripts\MVZ2\Managers\MainManager.cs:378
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
+
+#: Scripts\MVZ2\Managers\MainManager.cs:380
+msgid "{0}%"
+msgstr "{0}%"
 
 #: Scripts\MVZ2\Mainmenu\MainmenuController.cs:640
 msgid "无法删除用户：{0}"
@@ -1219,25 +1225,31 @@ msgstr ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:324
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:385
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:326
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:387
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:328
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:389
 msgctxt "almanac"
 msgid "<color=blue>白天失效</color>"
 msgstr "<color=blue>Can only be used at night</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:330
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:391
 msgctxt "almanac"
 msgid "<color=blue>只能放在水上</color>"
 msgstr "<color=blue>Must be placed in water</color>"
+
+# 图鉴放大选项，{0}为缩放等级
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:393
+msgctxt "almanac"
+msgid "缩放：{0}"
+msgstr "Scale: {0}"
 
 #: Scripts\MVZ2\Store\StoreManager.cs:114
 msgid "<color=red>售罄</color>"
