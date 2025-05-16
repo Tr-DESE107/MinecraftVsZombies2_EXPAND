@@ -21,19 +21,10 @@
         </talks>
         <clear pickupModel="mvz2:entity.map_pickup" note="mvz2:prologue"/>
         <spawns flags="2">
-			<!-- Halloween 
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
 			<spawn id="mvz2:mutant_zombie"/>
-			<spawn id="mvz2:MeleeSkeleton"/>
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:HostMutant"/>
-			<spawn id="mvz2:HeavyGutant"/>
-			<spawn id="mvz2:HostMutant"/>-->
-			<spawn id="mvz2:mega_mutant_zombie"/>
-			<spawn id="mvz2:zombie"/>
-			
 		</spawns>
     </stage>
 

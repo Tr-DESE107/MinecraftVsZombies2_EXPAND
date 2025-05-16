@@ -167,7 +167,7 @@
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>60</color>]]></p>
-                <p>特点：<![CDATA[<color=red>需要烧毁器械补充燃料</color>]]></p>
+                <p>特点：<![CDATA[<color=red>需要烧毁本格的器械补充燃料</color>]]></p>
                 <p>燃料上限：<![CDATA[<color=red>60</color>]]></p>
                 <p>技能：<![CDATA[<color=red>消耗所有燃料，每有一发燃料被消耗，便随机对一个敌人发射爆炸灵魂火球，单次技能时间过长会导致不分敌我的自爆</color>]]></p>
             </properties>
@@ -535,6 +535,7 @@
 				
 			</flavor>
 		</entry>
+		<!-- Upgrades 1 
 		<entry id="mvz2:GlowingObsidian">
 			<header>
 				<p>发光黑曜石的强力装甲能够抵御敌人的攻击，受损时发射弹幕</p>
@@ -550,6 +551,7 @@
 				<p>恭喜你被耍了</p>
 			</flavor>
 		</entry>
+		-->
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">
             <header>

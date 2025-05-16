@@ -601,7 +601,7 @@ namespace MVZ2.GameContent.Bosses
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
-            VanillaBlueprintID.FromEntity(VanillaEnemyID.zombie),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
             VanillaBlueprintID.FromEntity(VanillaEnemyID.HostIMP),
             VanillaBlueprintID.FromEntity(VanillaEnemyID.ghast)
 
