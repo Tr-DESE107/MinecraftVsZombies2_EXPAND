@@ -3,6 +3,8 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using MVZ2.GameContent.Projectiles;
+
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -26,6 +28,19 @@ namespace MVZ2.GameContent.Contraptions
                 ShootTick(entity);
                 return;
             }
+        }
+        public override Entity Shoot(Entity entity)
+        {
+            if (entity.RNG.Next(6) == 0)
+            {
+                var param = entity.GetShootParams();
+                // 将 "mvz2:purpleArrow" 拆分为命名空间和名称
+                param.projectileID = VanillaProjectileID.goldenBall;
+                param.damage *= 2;
+                entity.TriggerAnimation("Shoot");
+                return entity.ShootProjectile(param);
+            }
+            return base.Shoot(entity);
         }
         protected override void OnEvoke(Entity entity)
         {

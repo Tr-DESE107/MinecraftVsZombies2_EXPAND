@@ -6,6 +6,8 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using MVZ2.GameContent.Buffs.Enemies;
+
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -45,6 +47,9 @@ namespace MVZ2.GameContent.Contraptions
                 enemy.Remove();
                 enemy.PlaySound(VanillaSoundID.charmed);
                 enemy.PlaySound(VanillaSoundID.odd);
+                var regen = enemy.AddBuff<RegenerationBuff>();
+                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 2f);
+                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);
             }
             else
             {
@@ -53,6 +58,9 @@ namespace MVZ2.GameContent.Contraptions
                 enemy.Neutralize();
                 enemy.PlaySound(VanillaSoundID.charmed);
                 enemy.PlaySound(VanillaSoundID.floop);
+                var regen = enemy.AddBuff<RegenerationBuff>();
+                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 2f);
+                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);
             }
             target.Remove();
         }

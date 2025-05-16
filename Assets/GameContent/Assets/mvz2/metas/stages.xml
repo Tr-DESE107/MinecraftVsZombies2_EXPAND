@@ -392,7 +392,7 @@
 			<!-- <spawn id="mvz2:水生蜘蛛"/> -->
 			<spawn id="mvz2:mummy"/>
 			<!-- <spawn id="mvz2:石棺僵尸"/> -->
-			<!-- <spawn id="mvz2:僵尸头"/> -->
+			<spawn id="mvz2:ZombieHead"/>
 			<spawn id="mvz2:necromancer"/>
 			<spawn id="mvz2:cave_spider"/>
 		</spawns>
@@ -439,7 +439,7 @@
 			<spawn id="mvz2:spider"/>
 			<spawn id="mvz2:ghast"/>
 			<!-- <spawn id="mvz2:狼人"/> -->
-			<!-- <spawn id="mvz2:僵尸头"/> -->
+			<spawn id="mvz2:ZombieHead"/>
 		</spawns>
     </stage>
 	
@@ -457,7 +457,9 @@
 			<spawn id="mvz2:ghast"/>
 			<spawn id="mvz2:skeleton_horse"/>
 			<spawn id="mvz2:mummy"/>
-			<!-- <spawn id="mvz2:灵魂沙王"/> -->
+			<spawn id="mvz2:anubisand"/>
+			<spawn id="mvz2:HostHead"/>
+			<spawn id="mvz2:SkeletonHead"/>
 			<!-- <spawn id="mvz2:石棺僵尸"/> -->
 		</spawns>
     </stage>
@@ -476,7 +478,7 @@
 			<spawn id="mvz2:spider"/>
 			<spawn id="mvz2:mother_terror"/>
 			<spawn id="mvz2:skeleton"/>
-			<!-- <spawn id="mvz2:灵魂沙王"/> -->
+			<spawn id="mvz2:anubisand"/>
 			<spawn id="mvz2:necromancer"/>
 		</spawns>
     </stage>
@@ -496,7 +498,7 @@
 			<spawn id="mvz2:ghast"/>
 			<spawn id="mvz2:mother_terror"/>
 			<!-- <spawn id="mvz2:水生蜘蛛"/> -->
-			<!-- <spawn id="mvz2:灵魂沙王"/> -->
+			<spawn id="mvz2:anubisand"/>
 			<spawn id="mvz2:ghost"/>
 			<spawn id="mvz2:BloodlustHostZombie"/>
 		</spawns>
@@ -518,10 +520,10 @@
             <entry id="mvz2:dream_crystal" count="6"/>
             <entry id="mvz2:dream_silk" count="1"/>
 			<entry id="mvz2:glowstone" count="4"/>
-			<entry id="mvz2:tesla_coil" count="8"/>
+			
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
-        <spawns flags="1" firstWaveTime="10" >
+        <spawns flags="2" firstWaveTime="10" >
 			<spawn id="mvz2:zombie"/>
 			<spawn id="mvz2:leather_capped_zombie"/>
 			<spawn id="mvz2:iron_helmetted_zombie"/>
@@ -532,6 +534,8 @@
 			<spawn id="mvz2:necromancer"/>
 			<spawn id="mvz2:skeleton"/>
 			<spawn id="mvz2:HostMutant"/>
+			<spawn id="mvz2:HostZombie"/>
+			<spawn id="mvz2:BloodlustHostZombie"/>
         </spawns>
         <properties>
             <bool name="noEnergy" value="true"/>
@@ -725,6 +729,8 @@
 			<entry id="mvz2:thunder_drum" count="3"/>
 			<entry id="mvz2:tesla_coil" count="8"/>
 			<entry id="mvz2:giant_bowl" count="1"/>
+			<entry id="mvz2:pistenser" count="12"/>
+			<entry id="mvz2:soul_furnace" count="6"/>
 		</conveyor>
 		<clear pickupModel="mvz2:entity.money_chest"/>
 		<spawns flags="2" firstWaveTime="30" >

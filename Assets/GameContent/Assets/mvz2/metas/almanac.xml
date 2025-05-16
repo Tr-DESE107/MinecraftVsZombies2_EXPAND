@@ -230,8 +230,8 @@
                 <p>重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。</p>
             </header>
             <properties>
-                <p>特点：<![CDATA[<color=red>敌人无法发现</color>]]></p>
-                <p>技能：<![CDATA[<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进</color>]]></p>
+                <p>特点：<![CDATA[<color=red>近战敌人不会主动攻击它</color>]]></p>
+                <p>技能：<![CDATA[<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进；并使全场敌人失去飞行的能力。</color>]]></p>
             </properties>
             <flavor>
                 <p>从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
@@ -255,7 +255,7 @@
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>特点：<![CDATA[<color=red>能够攻击高处的敌人</color>]]></p>
+                <p>特点：<![CDATA[<color=red>能够攻击高处的敌人，尖刺能够穿透3个敌人</color>]]></p>
                 <p>技能：<![CDATA[<color=red>向至多10个敌人发射穿甲的巨型尖刺</color>]]></p>
             </properties>
             <flavor>
@@ -282,7 +282,7 @@
                 <p>梦境结晶会慢慢地恢复自己的生命。</p>
             </header>
             <properties>
-                <p>耐久：<![CDATA[<color=red>2000</color>]]></p>
+                <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
                 <p>恢复速度：<![CDATA[<color=red>40/秒</color>]]></p>
                 <p>技能：<![CDATA[<color=red>进入无敌状态，并为周围的器械恢复耐久</color>]]></p>
             </properties>
@@ -311,7 +311,7 @@
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20，金球40</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即喷射30发木球</color>]]></p>
             </properties>
             <flavor>
@@ -324,7 +324,7 @@
                 <p>尖刺方块会对走在上面的敌人造成伤害。</p>
             </header>
             <properties>
-                <p>攻击频率：<![CDATA[<color=red>1秒</color>]]></p>
+                <p>攻击频率：<![CDATA[<color=red>0.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
                 <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>]]></p>
             </properties>
@@ -338,7 +338,7 @@
                 <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。</p>
             </header>
             <properties>
-                <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+                <p>发射速度：<![CDATA[<color=red>1秒</color>]]></p>
                 <p>巨石概率：<![CDATA[<color=red>25%</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>10（卵石），40（巨石）</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即喷射30发巨石</color>]]></p>
@@ -352,8 +352,8 @@
                 <p>石护罩可以和其他器械放在一起，并保护其内部的器械。</p>
             </header>
             <properties>
-                <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
-                <p>技能：<![CDATA[<color=red>3x3范围内的器械无敌5秒</color>]]></p>
+                <p>耐久：<![CDATA[<color=red>6000</color>]]></p>
+                <p>技能：<![CDATA[<color=red>3x3范围内的器械无敌10秒</color>]]></p>
             </properties>
             <flavor>
                 <p>无法访问该页面：</p>
@@ -366,6 +366,7 @@
                 <p>金苹果可以魅惑一个近战攻击它的敌人，使其为你而战。</p>
             </header>
             <properties>
+				<p>特点：<![CDATA[<color=red>吃掉他的敌人能够获得60/s的生命恢复</color>]]></p>
                 <p>技能：<![CDATA[<color=red>发出彩色炫光，被魅惑的敌人变为突变僵尸</color>]]></p>
             </properties>
             <flavor>
@@ -392,11 +393,15 @@
             <properties>
                 <p>攻击速度：<![CDATA[<color=red>3秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>80</color>]]></p>
-                <p>特殊：<![CDATA[<color=red>可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>不可以攻击空中敌人；电击水域会对周围水域也造成伤害</color>]]></p>
                 <p>技能：<![CDATA[<color=red>召唤闪电风暴，劈击一定范围内的随机位置</color>]]></p>
             </properties>
             <flavor>
                 <p>我在玩什么游戏？</p>
+				<p/>
+				<p>等一下，你为什么不能对空？？？？？</p>
+				<p/>
+				<p><![CDATA[<color=white>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</color>]]></p>
             </flavor>
         </entry>
         <entry id="mvz2:giant_bowl">
@@ -608,7 +613,7 @@
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>2700</color>]]></p>
-                <p>攻击频率：<![CDATA[<color=red>0.5秒</color>]]></p>
+                <p>攻击频率：<![CDATA[<color=red>0.25秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
                 <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>]]></p>
                 <p><![CDATA[<color=red>必须放置在尖刺方块上</color>]]></p>

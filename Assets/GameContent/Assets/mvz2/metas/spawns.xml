@@ -114,7 +114,14 @@
         <terrain water="true" air="true"/>
         <weight base="2000" />
     </entry>
-    <entry id="mother_terror" entity="mvz2:mother_terror" >
+	
+	<entry id="anubisand" entity="mvz2:anubisand" >
+		<spawn level="3" />
+		<terrain water="true" air="true"/>
+		<weight base="2000" />
+	</entry>
+	
+	<entry id="mother_terror" entity="mvz2:mother_terror" >
         <spawn level="3"/>
         <weight base="2000" />
     </entry>

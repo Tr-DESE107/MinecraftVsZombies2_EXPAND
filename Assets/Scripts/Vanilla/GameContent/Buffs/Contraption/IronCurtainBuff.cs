@@ -38,6 +38,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         }
         public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
         public static readonly VanillaBuffPropertyMeta PROP_TINT = new VanillaBuffPropertyMeta("Tint");
-        public const int MAX_TIMEOUT = 150;
+        public const int MAX_TIMEOUT = 300;
     }
 }

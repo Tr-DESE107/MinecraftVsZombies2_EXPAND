@@ -24,10 +24,10 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 using Tools;
 using Tools.Mathematics;
 using UnityEngine;
+
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -69,6 +69,15 @@ namespace MVZ2.GameContent.Bosses
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
+
+            if (!entity.HasBuff<FlyBuff>())
+            {
+                var flyBuff = entity.AddBuff<FlyBuff>();
+                flyBuff.SetProperty(FlyBuff.PROP_FLY_SPEED, 0.2f);
+                flyBuff.SetProperty(FlyBuff.PROP_FLY_SPEED_FACTOR, 0.5f);
+                flyBuff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80);
+            }
+
             if (entity.IsDead)
             {
                 entity.Timeout--;
@@ -283,14 +292,15 @@ namespace MVZ2.GameContent.Bosses
             var title = Global.Game.GetText(CHOOSE_FATE_TITLE);
             var desc = Global.Game.GetText(CHOOSE_FATE_DESCRIPTION);
 
-            int count = 3;
+            int randomInt = UnityEngine.Random.Range(0, 3);
+            int count = randomInt + 2;
             if (level.Difficulty == VanillaDifficulties.easy)
             {
-                count = 4;
+                count = randomInt + 3;
             }
             else if (level.Difficulty == VanillaDifficulties.hard || level.Difficulty == VanillaDifficulties.lunatic)
             {
-                count = 2;
+                count = randomInt + 1;
             }
             var rng = GetFateOptionRNG(entity);
             var selected = fateOptions.RandomTake(count, rng).ToArray();
@@ -442,7 +452,8 @@ namespace MVZ2.GameContent.Bosses
         private static string GetFateOptionText(int option)
         {
             var index = Array.IndexOf(fateOptions, option);
-            var text = fateTexts[index];
+            int randomInt = UnityEngine.Random.Range(0, 2);
+            string text = randomInt > 1 ? fateTexts[index] : "？？？";
             return Global.Game.GetText(text);
         }
         #endregion
@@ -576,6 +587,7 @@ namespace MVZ2.GameContent.Bosses
             VanillaBlueprintID.FromEntity(VanillaContraptionID.pistenser),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.totenser),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
+            VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk)
         };
         private static NamespaceID[] hardMindSwapPool = new NamespaceID[]
@@ -588,8 +600,11 @@ namespace MVZ2.GameContent.Bosses
             VanillaBlueprintID.FromEntity(VanillaContraptionID.totenser),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamCrystal),
             VanillaBlueprintID.FromEntity(VanillaContraptionID.dreamSilk),
+            VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
             VanillaBlueprintID.FromEntity(VanillaEnemyID.zombie),
-            VanillaBlueprintID.FromEntity(VanillaEnemyID.flagZombie)
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.HostIMP),
+            VanillaBlueprintID.FromEntity(VanillaEnemyID.ghast)
+
         };
         private static int[] fateOptions = new int[]
         {

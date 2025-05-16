@@ -68,7 +68,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (timer.Expired)
                 {
                     var target = detector.DetectEntityWithTheMost(entity, t => GetTargetPriority(entity, t));
-                    if (target != null)
+                    if (target != null && target.Position.y <= entity.Position.y + 40)
                     {
                         var faction = entity.GetFaction();
                         var damage = entity.GetDamage();
@@ -103,7 +103,8 @@ namespace MVZ2.GameContent.Contraptions
             var priority = -distance;
             if (target.Position.y > self.Position.y + 40)
             {
-                priority += 300;
+                //priority += 300;
+                return float.NegativeInfinity; // 永远不选它
             }
             return priority;
         }

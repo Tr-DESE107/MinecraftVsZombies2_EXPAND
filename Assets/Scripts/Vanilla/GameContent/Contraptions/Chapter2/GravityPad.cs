@@ -14,6 +14,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using MVZ2.GameContent.Buffs.Enemies;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -64,6 +65,15 @@ namespace MVZ2.GameContent.Contraptions
             }
             var anvil = level.Spawn(VanillaContraptionID.anvil, pos, entity);
             anvil.SetFactionAndDirection(entity.GetFaction());
+
+            foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction()))
+            {
+                if (e.HasBuff<FlyBuff>())
+                {
+                    e.RemoveBuffs<FlyBuff>();
+                }
+            }
+
         }
         public const float AFFECT_HEIGHT = 64;
         public const float MIN_HEIGHT = 5;

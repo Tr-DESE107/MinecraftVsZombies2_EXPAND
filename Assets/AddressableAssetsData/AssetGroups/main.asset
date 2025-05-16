@@ -1456,6 +1456,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 384fe1c3128c2f44c8e1de62692d6358
+    m_Address: mvz2:entity/projectiles/RedKnife
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 388a6266b2292d34ea34eb9864284d7b
     m_Address: mvz2:dark_skies_cast
     m_ReadOnly: 0
@@ -5240,6 +5246,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c087775f05ed25143afa4e3a2a51350b
+    m_Address: mvz2:projectile/RedKnife
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c0b72b3636804414f96e1cc48809743f
     m_Address: mvz2:held/sword
