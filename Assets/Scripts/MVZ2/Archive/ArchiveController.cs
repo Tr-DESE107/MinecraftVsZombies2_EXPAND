@@ -122,17 +122,20 @@ namespace MVZ2.Archives
 
             talksList.Clear();
             var talks = Main.ResourceManager.GetAllTalkGroupsID();
-            var filteredTalks = talks.Where(t =>
+            var talkGroups = talks
+                .Select(id => (id, Main.ResourceManager.GetTalkGroup(id)))
+                .OrderBy(g => g.Item2.documentOrder)
+                .ThenBy(g => g.Item2.groupOrder);
+
+            var filteredTalks = talkGroups.Where(tuple =>
             {
-                var group = Main.ResourceManager.GetTalkGroup(t);
-                var unlockID = group.archive?.unlock;
+                var unlockID = tuple.Item2?.archive?.unlock;
                 return !NamespaceID.IsValid(unlockID) || Main.SaveManager.IsUnlocked(unlockID);
             });
-            talksList.AddRange(filteredTalks);
+            talksList.AddRange(filteredTalks.Select(g => g.Item1));
 
-            var talkGroups = talksList.Select(t => Main.ResourceManager.GetTalkGroup(t));
             tagsList.Clear();
-            var tags = talkGroups.SelectMany(g => g.tags).Distinct();
+            var tags = talkGroups.SelectMany(g => g.Item2.tags).Distinct();
             var orderedTags = tags.OrderBy((t) => Main.ResourceManager.GetArchiveTagMeta(t)?.Priority ?? 0);
             tagsList.AddRange(orderedTags);
 

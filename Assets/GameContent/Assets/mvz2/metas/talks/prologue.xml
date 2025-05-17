@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<talks>
+<talks order="0">
   <group id="tutorial" tags="mvz2:prologue;mvz2:tutorial">
     <archive name="教程" music="mvz2:mainmenu" background="mvz2:misc/steves_house" unlock="mvz2:level.prologue" />
     <section canAutoSkip="false" onSkip="sentence 3;action create_tutorial_form">

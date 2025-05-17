@@ -820,7 +820,7 @@
     <stage id="mausoleum_10" name="梦殿大祀庙" dayNumber="10" unlock="mvz2:level.mausoleum_9">
         <talks>
             <talk type="start" value="mvz2:mausoleum_10"/>
-            <talk type="end" value="mvz2:mausoleum_10_over"/>
+            <talk type="end" value="mvz2:zombie_scroll"/>
             <talk type="map" value="mvz2:mausoleum_10_map"/>
         </talks>
         <clear pickupModel="mvz2:entity.zombie_scroll" note="mvz2:mausoleum"/>

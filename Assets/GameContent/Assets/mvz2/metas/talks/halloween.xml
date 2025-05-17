@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<talks>
+<talks order="1000">
   <group id="halloween_1" tags="mvz2:halloween;mvz2:intro">
     <archive name="万圣夜第1天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_1" />
     <section>

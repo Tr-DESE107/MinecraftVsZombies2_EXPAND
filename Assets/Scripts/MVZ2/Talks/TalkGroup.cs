@@ -9,6 +9,8 @@ namespace MVZ2.TalkData
     public class TalkGroup
     {
         public string id;
+        public int documentOrder;
+        public int groupOrder;
         public NamespaceID requires;
         public NamespaceID requiresNot;
         public List<NamespaceID> tags;
@@ -31,7 +33,7 @@ namespace MVZ2.TalkData
             }
             return node;
         }
-        public static TalkGroup FromXmlNode(XmlNode node, string defaultNsp)
+        public static TalkGroup FromXmlNode(XmlNode node, string defaultNsp, int fileOrder, int groupOrder)
         {
             var id = node.GetAttribute("id");
             var requires = node.GetAttributeNamespaceID("requires", defaultNsp);
@@ -63,6 +65,9 @@ namespace MVZ2.TalkData
             return new TalkGroup()
             {
                 id = id,
+                groupOrder = groupOrder,
+                documentOrder = fileOrder,
+
                 requires = requires,
                 requiresNot = requiresNot,
                 tags = tags,
