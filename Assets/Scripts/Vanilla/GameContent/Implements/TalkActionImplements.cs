@@ -205,6 +205,10 @@ namespace MVZ2.GameContent.Implements
                         }
                         Global.StartCoroutine(coroutineFunc());
                         break;
+                    case "goto_mausoleum":
+                        Global.Game.SetLastMapID(VanillaMapID.mausoleum);
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.mausoleum, VanillaAreaID.mausoleum, VanillaStageID.mausoleum1));
+                        break;
                 }
             }
         }

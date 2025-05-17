@@ -672,7 +672,7 @@
     </section>
   </group>
   <group id="kourindou_first_visit" tags="mvz2:gensokyo;mvz2:store">
-    <archive name="首次访问香霖堂" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited" />
+    <archive name="第三章-访问香霖堂" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited" />
     <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited;end">
       <characters>
         <character id="mvz2:tokiko" side="right" />
@@ -737,7 +737,7 @@
     </section>
   </group>
   <group id="exited_kourindou" tags="mvz2:gensokyo">
-    <archive name="离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_castle" />
+    <archive name="第三章-离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_castle" />
     <section onSkip="foreground alpha 0;end;unlock mvz2:entered_castle;action goto_castle">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />

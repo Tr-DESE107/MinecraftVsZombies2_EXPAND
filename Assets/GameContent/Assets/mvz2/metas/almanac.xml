@@ -1840,11 +1840,16 @@
             <entry id="mvz2:blurred_note" name="模糊的字条" unlock="mvz2:level.dream_10">
                 <icon sprite="mvz2:note/dream"/>
                 <header>
-                    <p>？？？</p>
+                    <p>梦境世界捡到的一张纸条，因为身处梦境的原因，无法查看其内容。</p>
                 </header>
-                <flavor>
-                    <p>？？？</p>
-                </flavor>
+                <flavors>
+                    <flavor>
+                        <conditions>
+                            <condition required="mvz2:kourindou_visited_mausoleum_1"/>
+                        </conditions>
+                        <p>在辉针城结束后的香霖堂，村民曾将这张纸条拿出去看了一眼，然而却又把他慌张地收了起来。</p>
+                    </flavor>
+                </flavors>
             </entry>
             <entry id="mvz2:grave_in_dream" name="梦境中的坟墓" unlock="mvz2:level.dream_11">
                 <icon sprite="mvz2:misc/grave_in_dream" fixedSize="true" zoom="false"/>

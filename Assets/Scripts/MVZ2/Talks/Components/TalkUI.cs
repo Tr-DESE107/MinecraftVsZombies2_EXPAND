@@ -139,6 +139,37 @@ namespace MVZ2.Talk
         }
         #endregion
 
+        #region 背景图
+        public void SetBackgroundSprite(Sprite sprite)
+        {
+            backgroundImage.sprite = sprite;
+        }
+        public void SetBackgroundAlpha(float value)
+        {
+            backgroundFader.Value = value;
+        }
+        public float GetBackgroundAlpha()
+        {
+            return backgroundFader.Value;
+        }
+        public void StartBackgroundFade(float target, float duration)
+        {
+            backgroundFader.StartFade(target, duration);
+        }
+        #endregion
+
+        #region 背景色
+        public void SetBackcolor(Color value)
+        {
+            backcolorFader.Value = value;
+        }
+        public void StartBackcolorFade(Color target, float duration)
+        {
+            backcolorFader.StartFade(target, duration);
+        }
+        #endregion
+
+
         #region 展示物品
         public void ShowTalkItem(Sprite sprite)
         {
@@ -169,6 +200,8 @@ namespace MVZ2.Talk
             raycastReceiver.OnPointerDown += (eventData) => OnClick?.Invoke();
             foregroundFader.OnValueChanged += OnForegroundAlphaChangedCallback;
             forecolorFader.OnValueChanged += OnForegroundColorChangedCallback;
+            backgroundFader.OnValueChanged += OnBackgroundAlphaChangedCallback;
+            backcolorFader.OnValueChanged += OnBackgroundColorChangedCallback;
         }
         #endregion
 
@@ -185,6 +218,19 @@ namespace MVZ2.Talk
             color.b = value.b;
             color.a = value.a;
             forecolorImage.color = color;
+        }
+        private void OnBackgroundAlphaChangedCallback(float value)
+        {
+            backgroundCanvasGroup.alpha = value;
+        }
+        private void OnBackgroundColorChangedCallback(Color value)
+        {
+            var color = backcolorImage.color;
+            color.r = value.r;
+            color.g = value.g;
+            color.b = value.b;
+            color.a = value.a;
+            backcolorImage.color = color;
         }
         #endregion
 
@@ -217,16 +263,30 @@ namespace MVZ2.Talk
         private RaycastReceiver raycastReceiver;
         [SerializeField]
         private GameObject blockerObject;
+
+        [Header("Foreground")]
         [SerializeField]
         private CanvasGroup foregroundCanvasGroup;
-        [SerializeField]
-        private Image forecolorImage;
         [SerializeField]
         private Image foregroundImage;
         [SerializeField]
         private FloatFader foregroundFader;
         [SerializeField]
+        private Image forecolorImage;
+        [SerializeField]
         private ColorFader forecolorFader;
+
+        [Header("Background")]
+        [SerializeField]
+        private CanvasGroup backgroundCanvasGroup;
+        [SerializeField]
+        private Image backgroundImage;
+        [SerializeField]
+        private FloatFader backgroundFader;
+        [SerializeField]
+        private Image backcolorImage;
+        [SerializeField]
+        private ColorFader backcolorFader;
         private List<TalkCharacterController> characters = new List<TalkCharacterController>();
         #endregion 属性
     }

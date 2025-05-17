@@ -133,6 +133,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 831f7ad8d2311d448970951982d07ad8, type: 3}
   - name: misc/frankenstein
     sprite: {fileID: 21300000, guid: c52ffe26b09fa8d43bfa1881edcd3b04, type: 3}
+  - name: misc/graveyard
+    sprite: {fileID: 21300000, guid: 6661be6b03238a2409e5b705222184e0, type: 3}
   - name: misc/grave_in_dream
     sprite: {fileID: 21300000, guid: 7aa4f566f4d21f94ab8a60d2c9dac47c, type: 3}
   - name: misc/letter_for_help
@@ -415,6 +417,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 54d15402f15189c42a0e0e0955892f6e, type: 3}
   - name: ui/charge_bar_background
     sprite: {fileID: 21300000, guid: 43fcd92f2a72ca443ab18701d0b8563c, type: 3}
+  - name: ui/close
+    sprite: {fileID: 21300000, guid: ecbd7380d218ae0499f9db9112f463a4, type: 3}
   - name: ui/form
     sprite: {fileID: 21300000, guid: ecdea1f2d39df2049be852b3107d40a4, type: 3}
   - name: ui/form_hollow
@@ -1152,6 +1156,10 @@ MonoBehaviour:
   - name: obstacles/gargoyle_statue
     spritesheet:
     - {fileID: 21300000, guid: af4197b7fa73c8644895197de59ed07d, type: 3}
+  - name: ui/zoom
+    spritesheet:
+    - {fileID: 2118295651, guid: 6d34689b106ed35498dffaa3069fa3f5, type: 3}
+    - {fileID: 1378232367, guid: 6d34689b106ed35498dffaa3069fa3f5, type: 3}
   - name: entity/armor/flag
     spritesheet:
     - {fileID: 21300000, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
@@ -2000,6 +2008,9 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -1727161419, guid: f5552ce73b0b41f449c646da8a2a69c2, type: 3}
     - {fileID: 1799146924, guid: f5552ce73b0b41f449c646da8a2a69c2, type: 3}
+  - name: mainmenu/view/mausoleum
+    spritesheet:
+    - {fileID: 21300000, guid: 3e57f352886e4c34095d087c6410bcda, type: 3}
   - name: mainmenu/view/nightmare
     spritesheet:
     - {fileID: 1569080980082683700, guid: 8887a1348e7752d4bb4aab022fbc8847, type: 3}

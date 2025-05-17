@@ -581,6 +581,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 159a0c84d11598e48abae3c94be1ed5f
+    m_Address: mvz2:mobile_blueprint/imp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15ce728e9e2a2b24d8c46704c5c59b8c
     m_Address: mvz2:earthquake
     m_ReadOnly: 0
@@ -1870,6 +1876,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e57f352886e4c34095d087c6410bcda
+    m_Address: mvz2:mainmenu/view/mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e623a643b588284a9d22ed7fc755230
     m_Address: mvz2:entity/projectiles/soulfire_ball_trail
     m_ReadOnly: 0
@@ -3124,6 +3136,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6661be6b03238a2409e5b705222184e0
+    m_Address: mvz2:misc/graveyard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6681443b3fb27c349a8924c62f3fbc43
     m_Address: mvz2:ufo
     m_ReadOnly: 0
@@ -3267,6 +3285,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d34689b106ed35498dffaa3069fa3f5
+    m_Address: mvz2:ui/zoom
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d4fb10897c35604091f5eba0e397a41
     m_Address: mvz2:entity/wakeup
@@ -4388,6 +4412,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91ae67d5349e99642bec0a99ba515628
+    m_Address: mvz2:talks/mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92095e42f0867964a8529bd7c6e7fcb7
     m_Address: mvz2:effect/frankenstein_jump_trail
@@ -7232,6 +7262,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecbd7380d218ae0499f9db9112f463a4
+    m_Address: mvz2:ui/close
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ecc7209e07d89f24ab9328d718a340a9
     m_Address: mvz2:day

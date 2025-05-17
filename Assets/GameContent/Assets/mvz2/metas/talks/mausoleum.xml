@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<talks>
+  <!-- Day 1 -->
+  <group id="kourindou_visit_mausoleum_1" tags="mvz2:gensokyo;mvz2:store">
+    <archive name="第四章-访问香霖堂" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited_mausoleum_1" />
+    <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited_mausoleum_1;end">
+      <characters>
+        <character id="mvz2:tokiko" side="right" />
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">昨晚久违地做了一次梦，还梦到了哆来咪小姐。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">哦，怎么样？她跟你说了什么？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">她看到了我在辉针城的的那些功绩，还夸奖了我，昨晚因此还睡得格外舒服。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">哆来咪小姐是梦境世界的管理者吧？好慈祥的人啊，跟妈妈一样。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">说起来，戴夫。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">咋了？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">我想起来，我们离开梦境世界前，好像捡到过一张纸条。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">之前那上面的字因为梦境的原因完全看不清，所以只能放起来了。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">现在已经离开梦境世界了，我挺好奇上面究竟写了什么。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那张纸条应该在你身上来着，看看吧。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">哦！说的是！我差点就把它给忘了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">好！让我看看！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:dialog_cut" onStart="shake;music stop;character variant mvz2:tokiko mvz2:surprised" >……！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake" >怎、怎么了？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">……啊！没啥！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">不是什么重要的东西，我来处理就行！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">……？让我看看？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">好了，我先收起来吧！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake;character variant mvz2:tokiko mvz2:worried"><![CDATA[<color=blue>（……太可疑了！）</color>]]></sentence>
+        <sentence speaker="mvz2:futo" speakerName="？？？" sounds="mvz2:dialog_weird" onStart="shake;music stop;character variant mvz2:tokiko mvz2:surprised">打扰了，史蒂夫在这吗？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="character create mvz2:futo left;bubble hide;delay 0.5;playsound mvz2:dialog_surprised;delay 1;next;">啊，我在，您是？</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk" description="（布都出场）" onStart="character variant mvz2:tokiko mvz2:normal;music play mvz2:gensokyo_map;">吾乃物部 布都，受神子大人之命，请汝来到命莲寺地下的祀庙遗址帮我们清除异变。</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">不知汝意向如何？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">命莲寺？那里发生了什么？</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">命莲寺后方即是一片大墓地，久之，其地下埋藏吾们用于复活的梦殿大祀庙，如今已经成了遗址。</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">之后，那里又曾用于封印一只巨大魔怪。如今封印薄弱，束缚即将打破。</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">吾们听说了汝于辉针城的事迹，特此托汝前往，铲除此怪。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（……文绉绉的，有点听不懂。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">总之，命莲寺的底下有一只巨型怪物要突破封印了，要我们帮忙，对吗？</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">是。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">好的，我搞清楚了，那稍等我们一会，之后带我们去那里吧。</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk" onClick="unlock mvz2:kourindou_visited_mausoleum_1;end">是，随时恭候阁下大驾光临！</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="exited_kourindou_mausoleum" tags="mvz2:gensokyo">
+    <archive name="第四章-离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_mausoleum" />
+    <section onSkip="background change mvz2:misc/graveyard;unlock mvz2:entered_mausoleum;action goto_mausoleum;end">
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:futo" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">差不多该走了。布都，带我们去吧。</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">
+          <click>
+            <script>bubble hide</script>
+            <script>character leave mvz2:crazy_villager</script>
+            <script>character leave mvz2:futo</script>
+            <script>delay 0.5</script>
+            <script>background change mvz2:misc/graveyard</script>
+            <script>background fade 2</script>
+            <script>delay 1</script>
+            <script>character create mvz2:crazy_villager left</script>
+            <script>character create mvz2:futo right</script>
+            <script>delay 0.5</script>
+            <script>next</script>
+          </click>
+          <text>遵命。</text>
+        </sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">到了，此处乃是吾们梦殿大祀庙上方的墓地。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">嗯？那边好像有人？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那个人是——魔理沙？她在这里干什么？</sentence>
+        <sentence speaker="mvz2:marisa" speakerName="？？？" sounds="mvz2:talk;mvz2:dialog_surprised" onClick="character create mvz2:marisa right;bubble hide;delay 1;next">嗯？</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk" description="（魔理沙出现）" >生面孔呢，你们是？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">你好，我们是前来帮助你们清除僵尸的人，这位——大鼻子也是。</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk">原来是你们啊，我听说过你们的事迹。是把针妙丸从亡灵的手中救出来了吧？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">是的。</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk" variant="mvz2:happy">没想到你年纪轻轻，就能做出如此惊人之事啊。真是不可思议daze⭐。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">那么，魔理沙小姐在干什么呢？</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk" variant="mvz2:sad">……扫墓。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">扫墓？</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk">霖之助的衣冠冢。</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk">这个笨蛋，仗着自己的体质就去冒险。结果成了这个样子。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk">每年的这一天，我都会来这里一趟，前来纪念这个家伙。今天正好是他失踪的那一天啊。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">很抱歉提到了你的伤心往事。</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk" variant="mvz2:happy">没事啦，都让它过去吧。</sentence>
+        <sentence speaker="mvz2:marisa" sounds="mvz2:talk" variant="mvz2:normal" onClick="character leave mvz2:marisa;bubble hide;delay 1;next">我也该离开了，再见喽。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="unlock mvz2:entered_mausoleum;end;action goto_mausoleum">好了，布都，我们继续吧。</sentence>
+      </sentences>
+    </section>
+  </group>
+
+  <!-- Day 1 -->
+  <group id="mausoleum_1" tags="mvz2:mausoleum;mvz2:intro">
+    <archive name="梦殿大祀庙第1天入场" music="mvz2:mainmenu" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_1" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:futo" side="left" />
+        <character id="mvz2:miko" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:miko" sounds="mvz2:talk">布都，你们到了？</sentence>
+        <sentence speaker="mvz2:miko" sounds="mvz2:talk">很好，史蒂夫先生，我们现在需要你的帮助。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">详细内容我从布都那里听说了，要清除这里的敌人，保证封印能够正常巩固不受干扰，是吧。</sentence>
+        <sentence speaker="mvz2:miko" sounds="mvz2:talk">是的。</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" onClick="end">那么，眼前的这些僵尸，就交给我的邻居了，加油吧！</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="mausoleum_1_over" tags="mvz2:mausoleum;mvz2:over">
+    <archive name="梦殿大祀庙第1天结束" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_1" />
+    <section>
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是音符盒！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能发射音符，音符会在音符盒和敌人之间来回反弹！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">也就是说，它与敌人的距离越近，造成的伤害就越高！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">让怪物们听听这美妙的音乐吧！</sentence>
+      </sentences>
+    </section>
+  </group>
+  <group id="kourindou_visit_mausoleum_2" requiresNot="mvz2:kourindou_visit_mausoleum_2" tags="mvz2:mausoleum;mvz2:store">
+    <archive name="访问香霖堂-梦殿大祀庙" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visit_mausoleum_2" />
+    <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visit_mausoleum_2;item hide;end">
+      <characters>
+        <character id="mvz2:crazy_villager" side="left" />
+        <character id="mvz2:tokiko" side="right" />
+        <character id="mvz2:steve" side="self" />
+      </characters>
+      <sentences>
+      </sentences>
+    </section>
+  </group>
+</talks>

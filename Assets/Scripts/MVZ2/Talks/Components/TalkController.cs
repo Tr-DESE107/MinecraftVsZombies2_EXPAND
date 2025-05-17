@@ -313,6 +313,34 @@ namespace MVZ2.Talk
                         }
                     }
                     break;
+                case "background":
+                    {
+                        switch (args[0])
+                        {
+                            case "change":
+                                ui.SetBackgroundSprite(Main.GetFinalSprite(ParseArgumentSpriteReference(args[1])));
+                                break;
+                            case "alpha":
+                                ui.SetBackgroundAlpha(ParseArgumentFloat(args[1]));
+                                break;
+                            case "fade":
+                                if (args.Length >= 4)
+                                {
+                                    ui.SetBackgroundAlpha(ParseArgumentFloat(args[1]));
+                                    ui.StartBackgroundFade(ParseArgumentFloat(args[2]), ParseArgumentFloat(args[3]));
+                                }
+                                else if (args.Length == 3)
+                                {
+                                    ui.StartBackgroundFade(ParseArgumentFloat(args[1]), ParseArgumentFloat(args[2]));
+                                }
+                                else if (args.Length == 2)
+                                {
+                                    ui.StartBackgroundFade(ParseArgumentFloat(args[1]), 1);
+                                }
+                                break;
+                        }
+                    }
+                    break;
                 case "portal":
                     {
                         switch (args[0])

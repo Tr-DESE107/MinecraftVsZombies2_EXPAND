@@ -59,6 +59,11 @@
                     <condition required="mvz2:kourindou_visited" requiredNot="mvz2:entered_castle"/>
                 </conditions>
             </talk>
+            <talk id="mvz2:exited_kourindou_mausoleum">
+                <conditions>
+                    <condition required="mvz2:kourindou_visited_mausoleum_1" requiredNot="mvz2:entered_mausoleum"/>
+                </conditions>
+            </talk>
         </talks>
     </map>
     <map id="castle" area="mvz2:castle" >
