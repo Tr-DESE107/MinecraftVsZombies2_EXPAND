@@ -518,7 +518,7 @@
   </group>
   <group id="halloween_final" tags="mvz2:halloween;mvz2:special">
     <archive name="万圣夜临别" music="mvz2:halloween_map" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:entered_dream" />
-    <section onSkip="end;action goto_dream">
+    <section onSkip="bubble hide;music fade 0;forecolor fade #0000 #000F 1;delay 1;action goto_dream;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:orant" side="right" />
@@ -529,7 +529,7 @@
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">嘿，邻居！我们终于可以去到幻想乡了！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="bubble hide;character leave mvz2:crazy_villager;playsound mvz2:travel;portal fade 1 2;delay 2;portal fade 0 2;delay 3;next">一起来吧！</sentence>
         <sentence speaker="mvz2:orant" description="（史蒂夫和村民前往了梦境世界。）" sounds="mvz2:talk">……</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="end;action goto_dream">该你出场的时候了，朋友。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk" onClick="bubble hide;forecolor fade #0000 #000F 1;delay 1;action goto_dream;end">该你出场的时候了，朋友。</sentence>
       </sentences>
     </section>
   </group>

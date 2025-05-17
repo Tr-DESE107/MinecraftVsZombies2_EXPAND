@@ -296,6 +296,9 @@
     <sound name="ghost_death">
         <sample path="mvz2:entity/ghost/ghost_death" weight="1" />
     </sound>
+    <sound name="giant_roar">
+        <sample path="mvz2:giant_roar" weight="1" />
+    </sound>
     <sound name="giant_spike">
         <sample path="mvz2:giant_spike" weight="1" />
     </sound>
@@ -556,6 +559,9 @@
     </sound>
     <sound name="revived">
         <sample path="mvz2:revived" weight="1" />
+    </sound>
+    <sound name="ring_off">
+        <sample path="mvz2:ring_off" weight="1" />
     </sound>
     <sound name="scream">
         <sample path="mvz2:scream" weight="1" />

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2ed94ca4477dddd4d8e58ecc9da541c5
+guid: 7891ad9049ccbeb45810adbce12d4cfa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -21,7 +21,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -123,169 +123,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: miko_0
+      name: giant_in_mausoleum_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1350
+        width: 1200
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2d80657a8876f42b6069d1177f31ea
+      internalID: -1014266225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giant_in_mausoleum_1
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1350
+        width: 1200
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78821bda12f163d41b001392fe5093e7
+      internalID: 2130550728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giant_in_mausoleum_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 675
+        width: 1200
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0fb67438d1c9cf4fa1f924fba892093
+      internalID: 678876980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giant_in_mausoleum_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 675
+        width: 1200
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a12419b5ebbc64fa1f05328961e0a5
+      internalID: 1861134033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giant_in_mausoleum_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 817
-        height: 1280
+        width: 1200
+        height: 675
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 299d1bcf20c55814b85c25ce2a5f742b
-      internalID: -1815168315
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: miko_1
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 976
-        width: 448
-        height: 304
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65b3dc69fda1db949b914be98ac22c24
-      internalID: -1222824308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: miko_2
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 670
-        width: 448
-        height: 304
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 39a2b5f1e0ef7144a862f4730234fff5
-      internalID: -1530328765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: miko_3
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 331
-        width: 448
-        height: 336
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ca92ff3468b70a478b591f004f1b69e
-      internalID: 1774968722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: miko_4
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 24
-        width: 448
-        height: 304
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32ed72d6e843473428a07d3579caf357
-      internalID: 988351196
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: miko_5
-      rect:
-        serializedVersion: 2
-        x: 1271
-        y: 560
-        width: 592
-        height: 720
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31efcf484c5810e4fb341759cbebbc4c
-      internalID: -353247052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: miko_6
-      rect:
-        serializedVersion: 2
-        x: 1271
-        y: 253
-        width: 448
-        height: 304
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3dcd4519b185f346863497a0e28bf0f
-      internalID: -1472680690
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: miko_7
-      rect:
-        serializedVersion: 2
-        x: 1866
-        y: 560
-        width: 592
-        height: 720
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2fc468cd78101f4468798bd5686ebede
-      internalID: 1527462565
+      spriteID: 80c0c38b28c94cf408edd5b5dd18ecce
+      internalID: 1080469031
       vertices: []
       indices: 
       edges: []
@@ -301,14 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Miko_0: -1815168315
-      Miko_1: -1222824308
-      Miko_2: -1530328765
-      Miko_3: 1774968722
-      Miko_4: 988351196
-      Miko_5: -353247052
-      Miko_6: -1472680690
-      Miko_7: 1527462565
+      giant_in_mausoleum_0: -1014266225
+      giant_in_mausoleum_1: 2130550728
+      giant_in_mausoleum_2: 678876980
+      giant_in_mausoleum_3: 1861134033
+      giant_in_mausoleum_4: 1080469031
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ecf0ee3020934614c9673de172a435cd
+guid: 39cde1f66d40cb14d8f732d41ea867f2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,133 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: futo_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 584
-        height: 1271
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2824e913207514047aee63a3f3513e40
-      internalID: 329402412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: futo_1
-      rect:
-        serializedVersion: 2
-        x: 587
-        y: 503
-        width: 583
-        height: 768
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa6e9ca56c7f0aa4a9aea2852f05cae8
-      internalID: 1021984077
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: futo_2
-      rect:
-        serializedVersion: 2
-        x: 587
-        y: 180
-        width: 336
-        height: 320
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea363203028bc5f49b4e3b6f12489825
-      internalID: -560731718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: futo_3
-      rect:
-        serializedVersion: 2
-        x: 926
-        y: 180
-        width: 336
-        height: 320
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a442280c8992dde4eb23fc78e41ad52c
-      internalID: -1580232334
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: futo_4
-      rect:
-        serializedVersion: 2
-        x: 1173
-        y: 903
-        width: 336
-        height: 368
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a439d83501f3d4b4297466315b7b7bd7
-      internalID: -1028235923
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: futo_5
-      rect:
-        serializedVersion: 2
-        x: 1173
-        y: 532
-        width: 336
-        height: 368
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e20c910f1fd07934897041edcef558bd
-      internalID: -430792853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -258,15 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      futo_0: -1600458214
-      futo_1: 329402412
-      futo_2: 1021984077
-      futo_3: 1472672960
-      futo_4: -560731718
-      futo_5: -1580232334
-      futo_6: -1028235923
-      futo_7: -430792853
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

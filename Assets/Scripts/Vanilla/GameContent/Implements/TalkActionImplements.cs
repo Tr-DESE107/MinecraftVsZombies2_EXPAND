@@ -184,7 +184,7 @@ namespace MVZ2.GameContent.Implements
                     case "goto_dream":
                         Global.Game.Unlock(VanillaUnlockID.enteredDream);
                         Global.Game.SetLastMapID(VanillaMapID.dream);
-                        Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
                         break;
                     case "show_nightmare":
                         map.SetPreset(VanillaMapPresetID.nightmare);
@@ -192,9 +192,16 @@ namespace MVZ2.GameContent.Implements
                         break;
                     case "goto_castle":
                         Global.Game.SetLastMapID(VanillaMapID.castle);
-                        Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
                         break;
                     case "chapter_3_finish":
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo));
+                        break;
+                    case "goto_mausoleum":
+                        Global.Game.SetLastMapID(VanillaMapID.mausoleum);
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.mausoleum, VanillaAreaID.mausoleum, VanillaStageID.mausoleum1));
+                        break;
+                    case "chapter_4_finish":
                         IEnumerator coroutineFunc()
                         {
                             yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo);
@@ -204,10 +211,6 @@ namespace MVZ2.GameContent.Implements
                             Global.ShowDialog(title, desc, options);
                         }
                         Global.StartCoroutine(coroutineFunc());
-                        break;
-                    case "goto_mausoleum":
-                        Global.Game.SetLastMapID(VanillaMapID.mausoleum);
-                        Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.mausoleum, VanillaAreaID.mausoleum, VanillaStageID.mausoleum1));
                         break;
                 }
             }

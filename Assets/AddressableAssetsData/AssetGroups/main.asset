@@ -545,6 +545,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 144cca570f4221548b158b752ec68d85
+    m_Address: mvz2:ring_off
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 148c98d98027b904fbf234d5a5b60f7a
     m_Address: mvz2:ui/musicroom/bar_frame
     m_ReadOnly: 0
@@ -796,6 +802,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d01c78f7d98df044b653eab390c102e
+    m_Address: mvz2:misc/kourindou_front
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d837605fa2501f4687ff04e54213ea3
     m_Address: mvz2:artifacts
@@ -1725,6 +1737,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39cde1f66d40cb14d8f732d41ea867f2
+    m_Address: mvz2:characters/hologram
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39dba51e774ee3145a53fe76c529faa8
     m_Address: mvz2:energy_shield_hit1
@@ -3572,6 +3590,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7891ad9049ccbeb45810adbce12d4cfa
+    m_Address: mvz2:misc/giant_in_mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79171aca3bcf918459cf2160bda1f9f2
     m_Address: mvz2:entity/effects/nightmareaper_shadow
@@ -6285,6 +6309,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccd2a604f2ad58647907f41a4d1443fa
+    m_Address: mvz2:giant_roar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd0fcd035e19f2b4c8f8a3029a1241d3
     m_Address: mvz2:entity/boss/seija_bomb
     m_ReadOnly: 0
@@ -7511,6 +7541,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f25d2b94a621a1e4d8cd823493b4a29f
     m_Address: mvz2:mobile_blueprint/force_pad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f27fff12ebffcfe4cb3a825f5f701c61
+    m_Address: mvz2:misc/surrounded_kourindou
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

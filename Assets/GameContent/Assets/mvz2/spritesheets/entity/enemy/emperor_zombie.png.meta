@@ -165,7 +165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: emperor_zombie_7
+      name: emperor_zombie_2
       rect:
         serializedVersion: 2
         x: 79
@@ -186,7 +186,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: emperor_zombie_2
+      name: emperor_zombie_3
       rect:
         serializedVersion: 2
         x: 0
@@ -207,7 +207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: emperor_zombie_3
+      name: emperor_zombie_4
       rect:
         serializedVersion: 2
         x: 19
@@ -228,7 +228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: emperor_zombie_4
+      name: emperor_zombie_5
       rect:
         serializedVersion: 2
         x: 39
@@ -249,7 +249,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: emperor_zombie_5
+      name: emperor_zombie_6
       rect:
         serializedVersion: 2
         x: 59
@@ -270,7 +270,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: emperor_zombie_6
+      name: emperor_zombie_7
       rect:
         serializedVersion: 2
         x: 68

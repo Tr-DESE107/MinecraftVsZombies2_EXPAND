@@ -13,6 +13,7 @@ namespace MVZ2.TalkData
         public static bool TryParse(string str, out TalkScript script)
         {
             script = null;
+            str = str.Trim(' ', ';');
             var strings = str.Split(' ');
             if (strings.Length <= 0)
                 return false;

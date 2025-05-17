@@ -45,6 +45,12 @@ namespace MVZ2.Talk
             ui.SetSpeechBubbleShowing(false);
             ui.SetBlockerActive(true);
             ui.SetRaycastReceiverActive(true);
+            ui.SetForecolor(Color.clear);
+            ui.SetBackcolor(Color.clear);
+            ui.SetForegroundAlpha(0);
+            ui.SetBackgroundAlpha(0);
+            ui.SetForegroundSprite(null);
+            ui.SetBackgroundSprite(null);
             ClearCharacters();
 
             // 执行开始指令。
@@ -709,7 +715,7 @@ namespace MVZ2.Talk
                 showSpeakerName = true;
             }
 
-            if (ui.GetForegroundAlpha() > 0.1f)
+            if (ui.GetForegroundAlpha() > 0.1f && bubbleDirection != SpeechBubbleDirection.Up)
             {
                 bubbleDirection = SpeechBubbleDirection.Down;
                 showSpeakerName = true;
@@ -742,6 +748,11 @@ namespace MVZ2.Talk
             ui.SetSkipButtonActive(false);
             ui.SetBlockerActive(false);
             ui.SetRaycastReceiverActive(false);
+
+            ui.StartBackcolorFade(Color.clear, 1);
+            ui.StartForecolorFade(Color.clear, 1);
+            ui.StartBackgroundFade(0, 1);
+            ui.StartForegroundFade(0, 1);
             if (tcs != null)
             {
                 var source = tcs;

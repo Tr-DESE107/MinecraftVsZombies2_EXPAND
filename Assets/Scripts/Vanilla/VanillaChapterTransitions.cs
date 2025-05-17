@@ -23,8 +23,13 @@ namespace MVZ2.Vanilla
 
             yield return new WaitForSeconds(2);
 
+            yield return TransitionTalkToLevel(transition, areaID, stageID);
+        }
+        public static IEnumerator TransitionTalkToLevel(NamespaceID transition, NamespaceID areaID, NamespaceID stageID)
+        {
             Global.StopMusic();
-            Global.SetBlackScreen(0);
+            Global.SetBlackScreen(1);
+            Global.FadeBlackScreen(0, 0.5f);
             yield return Global.DisplayChapterTransition(transition);
 
             Global.SetBlackScreen(1);
@@ -39,10 +44,8 @@ namespace MVZ2.Vanilla
         }
         public static IEnumerator TransitionEndToMap(NamespaceID transition, NamespaceID mapID)
         {
-            Global.FadeBlackScreen(1, 0.5f);
-            yield return new WaitForSeconds(2);
-
-            Global.SetBlackScreen(0);
+            Global.SetBlackScreen(1);
+            Global.FadeBlackScreen(0, 0.5f);
             yield return Global.DisplayChapterTransition(transition, true);
 
             Global.FadeMusic(0, 1);

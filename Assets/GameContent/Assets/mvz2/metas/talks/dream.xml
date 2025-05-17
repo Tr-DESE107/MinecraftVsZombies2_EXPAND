@@ -379,7 +379,7 @@
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">诅咒、是吗？那时……</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk" variant="mvz2:cursed_close_eyes">我在找……一样东西。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">那是……一匹马。在你们来之前，就已经来到梦境的黑马。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="bubble hide;foreground change mvz2:misc/nightmare_appear;foreground fade 2;delay 1;next">马？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="bubble hide;foreground change mvz2:misc/nightmare_appear;foreground fade 1 0.5;delay 1;next">马？</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我在几个月前、发现了它的存在。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">那个时候，它仅仅是一匹马而已……当我见到它时，感到非常奇怪，但当时我并没有去深究。</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">我单纯的认为那只是其他妖怪罢了——但是第二天，它不见了。</sentence>
@@ -388,7 +388,7 @@
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">所以我才会拼了命的去找到那个东西……</sentence>
         <sentence speaker="mvz2:doremy" sounds="mvz2:talk">最终，我找到了它，但那已经不是一匹马了，那是……一个怪物。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">然后，你就被诅咒了？</sentence>
-        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onClick="bubble hide;foreground fade -1;delay 1;next">没错、在那之后我就变成了现在这样子……</sentence>
+        <sentence speaker="mvz2:doremy" sounds="mvz2:talk" onClick="bubble hide;foreground fade 0 0.5;delay 1;next">没错、在那之后我就变成了现在这样子……</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">是吗，我们明白了。</sentence>
       </sentences>
     </section>
@@ -738,7 +738,7 @@
   </group>
   <group id="exited_kourindou" tags="mvz2:gensokyo">
     <archive name="第三章-离开香霖堂" music="mvz2:gensokyo_map" background="mvz2:map/gensokyo/map" unlock="mvz2:entered_castle" />
-    <section onSkip="foreground alpha 0;end;unlock mvz2:entered_castle;action goto_castle">
+    <section onSkip="unlock mvz2:entered_castle;bubble hide;music fade 0;forecolor fade #0000 #000F 1;delay 1;action goto_castle;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
@@ -750,7 +750,7 @@
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">那个那个，如果说是帮忙的话，我这里有个东西。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">什么？</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk">有天，我在窗口发呆的时候，外面突然飘来一封信。</sentence>
-        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" onClick="bubble hide;foreground change mvz2:misc/letter_for_help;foreground fade 2;delay 1;next">就是这个。</sentence>
+        <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" onClick="bubble hide;foreground change mvz2:misc/letter_for_help;foreground fade 1 0.5;delay 1;next">就是这个。</sentence>
 
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">这是？辉针城的求助信？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1">看来，我们的下一站就是辉针城了！</sentence>
@@ -761,7 +761,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">怎么上去？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">你不是会机械吗？造个活塞虫呗！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_cut" onStart="shake;character variant mvz2:tokiko mvz2:surprised">这能行吗！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="unlock mvz2:entered_castle;end;action goto_castle">试试就知道了！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onClick="unlock mvz2:entered_castle;music fade 0;bubble hide;forecolor fade #0000 #000F 1;delay 1;action goto_castle;end">试试就知道了！</sentence>
       </sentences>
     </section>
   </group>
