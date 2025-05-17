@@ -1634,7 +1634,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:mysterious_hologram" name="神秘影像" unlock="mvz2:level.mausoleum_11">
-                <icon sprite="mvz2:characters/mysterious_hologram[0]"/>
+                <icon sprite="mvz2:characters/hologram"/>
                 <header>
                     <p>出现在被僵尸包围的香霖堂的神秘影像，它对史蒂夫发出了威胁。</p>
                 </header>
@@ -1843,6 +1843,12 @@
                     <p>梦境世界捡到的一张纸条，因为身处梦境的原因，无法查看其内容。</p>
                 </header>
                 <flavors>
+                    <flavor>
+                        <conditions>
+                            <condition requiredNot="mvz2:kourindou_visited_mausoleum_1"/>
+                        </conditions>
+                        <p>？？？</p>
+                    </flavor>
                     <flavor>
                         <conditions>
                             <condition required="mvz2:kourindou_visited_mausoleum_1"/>

@@ -930,7 +930,7 @@
     </section>
   </group>
   <group id="zombie_scroll" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="僵尸卷轴" background="mvz2:misc/mausoleum" unlock="mvz2/:level.mausoleum_10" />
+    <archive name="僵尸卷轴" background="mvz2:misc/zombie_scroll" unlock="mvz2/:level.mausoleum_10" />
     <section>
       <characters>
         <character id="mvz2:futo" side="left" variant="mvz2:daze" />
@@ -1122,7 +1122,7 @@
             <script>forecolor fade #FFF0 #FFFF 0.5</script>
             <script>delay 0.5</script>
 
-            <script>character create mvz2:tokiko right mvz2:frighten</script>
+            <script>character create mvz2:tokiko right mvz2:frightened</script>
             <script>background change mvz2:store/background_kourindou</script>
             <script>delay 1</script>
 
@@ -1143,14 +1143,16 @@
           <click>
             <script>bubble hide</script>
             <script>playsound mvz2:data_stream</script>
-            <script>delay 1</script>
+            <script>delay 0.75</script>
 
-            <script>forecolor set #FFFF</script>
+            <script>forecolor fade #FFF0 #FFFF 0.25</script>
+            <script>delay 0.25</script>
+
             <script>character create mvz2:hologram right</script>
             <script>delay 0.5</script>
 
             <script>forecolor fade #FFFF #FFF0 1</script>
-            <script>delay 0.5</script>
+            <script>delay 1.5</script>
 
             <script>playsound mvz2:dialog_weird</script>
             <script>music play mvz2:suspension</script>
@@ -1170,9 +1172,11 @@
           <click>
             <script>bubble hide</script>
             <script>playsound mvz2:data_stream</script>
-            <script>delay 1</script>
+            <script>delay 0.75</script>
 
-            <script>forecolor set #FFFF</script>
+            <script>forecolor fade #FFF0 #FFFF 0.25</script>
+            <script>delay 0.25</script>
+
             <script>character leave mvz2:hologram</script>
             <script>music fade 0</script>
             <script>delay 0.5</script>

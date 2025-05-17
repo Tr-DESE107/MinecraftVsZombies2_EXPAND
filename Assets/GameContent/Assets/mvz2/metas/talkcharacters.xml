@@ -87,6 +87,9 @@
         <variant id="mvz2:afraid" parent="mvz2:normal">
             <layer sprite="mvz2:characters/tokiko[4]" positionX="0" positionY="0" />
         </variant>
+        <variant id="mvz2:frightened" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/tokiko[5]" positionX="0" positionY="0" />
+        </variant>
     </character>
     <character id="seija" name="正邪">
         <variant id="mvz2:normal" width="560" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">

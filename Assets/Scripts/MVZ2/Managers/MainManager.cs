@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using MukioI18n;
@@ -25,6 +26,7 @@ using MVZ2.Scenes;
 using MVZ2.Supporters;
 using MVZ2Logic;
 using MVZ2Logic.Games;
+using Newtonsoft.Json.Linq;
 using PVZEngine;
 using PVZEngine.Level.Collisions;
 using UnityEngine;
@@ -338,11 +340,14 @@ namespace MVZ2.Managers
             sb.AppendLine($"usesLoadStoreActions: {SystemInfo.usesLoadStoreActions}");
 
             sb.Append($"supportedTextureFormats: ");
-            foreach (var v in Enum.GetValues(typeof(TextureFormat)))
+            var enumType = typeof(TextureFormat);
+            foreach (var v in Enum.GetValues(enumType))
             {
                 try
                 {
                     var format = (TextureFormat)v;
+                    if (!IsValidEnumValue(format))
+                        continue;
                     if (SystemInfo.SupportsTextureFormat(format))
                     {
                         sb.Append($"{format},");
@@ -372,6 +377,20 @@ namespace MVZ2.Managers
             }
             sb.AppendLine();
             Debug.Log(sb.ToString());
+        }
+
+        private bool IsValidEnumValue(Enum value)
+        {
+            var enumType = value.GetType();
+            FieldInfo[] fields = enumType.GetFields(BindingFlags.Public | BindingFlags.Static);
+            foreach (FieldInfo fieldInfo in fields)
+            {
+                if (object.Equals(fieldInfo.GetValue(null), value))
+                {
+                    return fieldInfo.GetCustomAttribute<ObsoleteAttribute>() == null;
+                }
+            }
+            return false;
         }
         IGame IMainManager.Game => Game;
 

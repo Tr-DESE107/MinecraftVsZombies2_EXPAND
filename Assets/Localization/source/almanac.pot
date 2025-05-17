@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-16 08:43+0800\n"
+"POT-Creation-Date: 2025-05-17 07:37+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2815,7 +2815,19 @@ msgstr ""
 #. Header for misc mvz2:blurred_note
 #: Almanac meta file
 msgctxt "misc.description"
+msgid "梦境世界捡到的一张纸条，因为身处梦境的原因，无法查看其内容。"
+msgstr ""
+
+#. Flavor for misc mvz2:blurred_note
+#: Almanac meta file
+msgctxt "misc.description"
 msgid "？？？"
+msgstr ""
+
+#. Flavor for misc mvz2:blurred_note
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "在辉针城结束后的香霖堂，村民曾将这张纸条拿出去看了一眼，然而却又把他慌张地收了起来。"
 msgstr ""
 
 #. Name for misc mvz2:grave_in_dream
@@ -4048,10 +4060,28 @@ msgctxt "character.name"
 msgid "布都"
 msgstr ""
 
+#. Name for character mvz2:marisa
+#: Character meta file
+msgctxt "character.name"
+msgid "魔理沙"
+msgstr ""
+
 #. Name for character mvz2:seiga
 #: Character meta file
 msgctxt "character.name"
 msgid "青娥"
+msgstr ""
+
+#. Name for character mvz2:miko
+#: Character meta file
+msgctxt "character.name"
+msgid "神子"
+msgstr ""
+
+#. Name for character mvz2:hologram
+#: Character meta file
+msgctxt "character.name"
+msgid "影像"
 msgstr ""
 
 #. Name for artifact mvz2:almanac

@@ -1096,6 +1096,7 @@ MonoBehaviour:
     - {fileID: 5995139, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
     - {fileID: -377323089, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
     - {fileID: -79018707, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
+    - {fileID: -2106919776, guid: b2bf598c00945bb44bb3ca45c9a2a9f6, type: 3}
   - name: mainmenu/achievement
     spritesheet:
     - {fileID: 8313590956605005368, guid: d5a796bc539a0c245afcb4ad033aef4f, type: 3}

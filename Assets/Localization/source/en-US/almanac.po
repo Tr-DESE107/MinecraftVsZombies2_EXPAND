@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-16 08:43+0800\n"
-"PO-Revision-Date: 2025-05-16 20:43+0800\n"
+"POT-Creation-Date: 2025-05-17 07:33+0800\n"
+"PO-Revision-Date: 2025-05-17 19:42+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3482,8 +3482,16 @@ msgstr "Blurred Note"
 #. Header for misc mvz2:blurred_note
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "？？？"
-msgstr "???"
+msgid "梦境世界捡到的一张纸条，因为身处梦境的原因，无法查看其内容。"
+msgstr "A note found in the dream world. It cannot be viewed due to being in a dream."
+
+#. Flavor for misc mvz2:blurred_note
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "在辉针城结束后的香霖堂，村民曾将这张纸条拿出去看了一眼，然而却又把他慌张地收了起来。"
+msgstr ""
+"After the end of journey in Shining Needle Castle, Villager once took out this note and glanced at it in Kourindou, but then hastily "
+"put it away."
 
 #. Name for misc mvz2:grave_in_dream
 #: Almanac meta file
@@ -4734,11 +4742,29 @@ msgctxt "character.name"
 msgid "布都"
 msgstr "Futo"
 
+#. Name for character mvz2:marisa
+#: Character meta file
+msgctxt "character.name"
+msgid "魔理沙"
+msgstr "Marisa Kirisame"
+
 #. Name for character mvz2:seiga
 #: Character meta file
 msgctxt "character.name"
 msgid "青娥"
 msgstr "Seiga"
+
+#. Name for character mvz2:miko
+#: Character meta file
+msgctxt "character.name"
+msgid "神子"
+msgstr "Miko"
+
+#. Name for character mvz2:hologram
+#: Character meta file
+msgctxt "character.name"
+msgid "影像"
+msgstr "Hologram"
 
 #. Name for artifact mvz2:almanac
 #: Artifact meta file
@@ -4985,6 +5011,10 @@ msgstr "Lengthen the board"
 msgctxt "option.name"
 msgid "增加弹珠"
 msgstr "Add a pearl"
+
+#~ msgctxt "misc.description"
+#~ msgid "？？？"
+#~ msgstr "???"
 
 #~ msgctxt "contraptions.description"
 #~ msgid "技能：<color=red>按从左到右的顺序，生成2张你所携带的蓝图的掉落物复制。（下一次技能会从上一次结束的位置开始复制）</color>"
