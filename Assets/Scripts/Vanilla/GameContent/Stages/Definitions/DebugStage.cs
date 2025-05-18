@@ -45,17 +45,16 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.desirePot,
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.megaMutantZombie,
+                VanillaEnemyID.wickedHermitZombie,
 
                 VanillaContraptionID.commandBlock,
                 VanillaContraptionID.lightningOrb,
-                VanillaContraptionID.soulFurnace,
+                VanillaContraptionID.devourer,
                 VanillaContraptionID.gravitationBomb,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.forcePad,
                 VanillaContraptionID.drivenser,
             });
-            level.GetSeedPackAt(0).SetCommandBlock(true);
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {

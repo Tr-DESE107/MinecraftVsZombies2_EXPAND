@@ -15,7 +15,7 @@ namespace MVZ2.Collisions
             Entity = entity;
             gameObject.name = Entity.ToString();
             gameObject.layer = UnityCollisionHelper.ToObjectLayer(Entity.Type);
-            Simulate();
+            UpdateEntity();
         }
         public void Simulate()
         {
@@ -25,6 +25,15 @@ namespace MVZ2.Collisions
             {
                 collider.UpdateFromEntity();
                 collider.Simulate();
+            }
+        }
+        public void UpdateEntity()
+        {
+            rigid.position = Entity.Position;
+
+            foreach (var collider in colliders)
+            {
+                collider.UpdateFromEntity();
             }
         }
         private UnityEntityCollider CreateCollider(string name)

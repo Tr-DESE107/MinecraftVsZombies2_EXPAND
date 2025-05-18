@@ -44,18 +44,22 @@ namespace PVZEngine.Entities
             else if (name == EngineEntityProps.SIZE)
             {
                 Size = value.ToGeneric<Vector3>();
+                entity.UpdateCollision();
             }
             else if (name == EngineEntityProps.SCALE)
             {
                 Scale = value.ToGeneric<Vector3>();
+                entity.UpdateCollision();
             }
             else if (name == EngineEntityProps.FLIP_X)
             {
                 FlipX = value.ToGeneric<bool>();
+                entity.UpdateCollision();
             }
             else if (name == EngineEntityProps.BOUNDS_PIVOT)
             {
                 BoundsPivot = value.ToGeneric<Vector3>();
+                entity.UpdateCollision();
             }
             else if (name == EngineEntityProps.COLLISION_DETECTION)
             {

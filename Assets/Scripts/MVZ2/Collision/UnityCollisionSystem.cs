@@ -27,6 +27,14 @@ namespace MVZ2.Collisions
             var col = CreateCollisionEntity(entity);
             col.CreateMainCollider(EntityCollisionHelper.NAME_MAIN);
         }
+        public void UpdateEntity(Entity entity)
+        {
+            var ent = GetCollisionEntity(entity);
+            if (ent != null)
+            {
+                ent.UpdateEntity();
+            }
+        }
         public void DestroyEntity(Entity entity)
         {
             DestroyCollisionEntity(entity);

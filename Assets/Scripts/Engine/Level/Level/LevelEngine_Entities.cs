@@ -251,6 +251,10 @@ namespace PVZEngine.Level
         #endregion
 
         #region 碰撞检测
+        public void UpdateEntityCollision(Entity entity)
+        {
+            collisionSystem.UpdateEntity(entity);
+        }
         public IEntityCollider[] OverlapBox(Vector3 center, Vector3 size, int faction, int hostileMask, int friendlyMask)
         {
             return collisionSystem.OverlapBox(center, size, faction, hostileMask, friendlyMask);

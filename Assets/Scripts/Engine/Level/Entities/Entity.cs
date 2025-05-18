@@ -509,6 +509,10 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 碰撞
+        public void UpdateCollision()
+        {
+            Level.UpdateEntityCollision(this);
+        }
         public IEntityCollider CreateCollider(ColliderConstructor info)
         {
             return Level.AddEntityCollider(this, info);
@@ -988,7 +992,15 @@ namespace PVZEngine.Entities
         public Entity Parent { get; private set; }
         public LevelEngine Level { get; private set; }
         public Vector3 PreviousPosition { get; private set; }
-        public Vector3 Position { get; set; }
+        public Vector3 Position 
+        {
+            get => _position;
+            set
+            {
+                _position = value;
+                UpdateCollision();
+            }
+        }
         public Vector3 Velocity { get; set; }
         public Vector3 RenderRotation { get; set; } = Vector3.zero;
         #region Collision
@@ -1008,6 +1020,7 @@ namespace PVZEngine.Entities
         internal EntityCache Cache { get; }
 
         private PropertyBlock properties;
+        private Vector3 _position;
 
         #region 护盾
         private Dictionary<NamespaceID, Armor> armorDict = new Dictionary<NamespaceID, Armor>();
