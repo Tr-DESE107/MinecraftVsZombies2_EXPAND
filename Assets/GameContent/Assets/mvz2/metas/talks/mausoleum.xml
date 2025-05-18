@@ -37,10 +37,10 @@
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">不知汝意向如何？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">命莲寺？那里发生了什么？</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">命莲寺后方即是一片大墓地，久之，其地下埋藏吾们用于复活的梦殿大祀庙，如今已经成了遗址。</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">之后，那里又曾用于封印一只巨大魔怪。如今封印薄弱，束缚即将打破。</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">之后，那里又曾用于封印一只巨型僵尸，吾们称其为“巨人”。如今封印薄弱，束缚即将打破。</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">吾们听说了汝于辉针城的事迹，特此托汝前往，铲除此怪。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（……文绉绉的，有点听不懂。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">总之，命莲寺的底下有一只巨型怪物要突破封印了，要我们帮忙，对吗？</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">总之，命莲寺的底下有一只巨型僵尸要突破封印了，要我们帮忙，对吗？</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">是。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">好的，我搞清楚了，那稍等我们一会，之后带我们去那里吧。</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk" onClick="unlock mvz2:kourindou_visited_mausoleum_1;end">是，随时恭候阁下大驾光临！</sentence>

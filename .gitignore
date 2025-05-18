@@ -75,3 +75,4 @@ InitTestScene*.unity
 .vscode
 /ProjectSettings/ProjectVersion.txt
 /[Rr]eleases/
+/TestBuild

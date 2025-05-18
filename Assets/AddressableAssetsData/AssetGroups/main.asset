@@ -4749,6 +4749,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b9a2f9380fc526438941269f2b944e5
+    m_Address: mvz2:misc/murder_censored
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9be88d49c2a357e42825f5e2320b26c1
     m_Address: mvz2:pickup/starshards/halloween
     m_ReadOnly: 0
