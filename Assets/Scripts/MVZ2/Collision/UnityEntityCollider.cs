@@ -49,6 +49,7 @@ namespace MVZ2.Collisions
                         var size = Entity.GetSize();
                         var offset = Vector3.Scale(Vector3.one * 0.5f - Entity.GetBoundsPivot(), size);
                         offset = Vector3.Scale(offset, scale);
+                        size = Vector3.Scale(size, scale);
                         boxCollider.center = offset;
                         boxCollider.size = size;
                     }
@@ -59,6 +60,7 @@ namespace MVZ2.Collisions
                         var offset = Vector3.Scale(Vector3.one * 0.5f - customPivot, size);
                         offset += customOffset;
                         offset = Vector3.Scale(offset, scale);
+                        size = Vector3.Scale(size, scale);
                         boxCollider.center = offset;
                         boxCollider.size = size;
                     }
