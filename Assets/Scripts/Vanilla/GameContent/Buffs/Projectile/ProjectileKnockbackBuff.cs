@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         public ProjectileKnockbackBuff(string nsp, string name) : base(nsp, name)
         {
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.knockbackWave, VanillaModelID.knockbackWave);
-            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostProjectileHitCallback);
+            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostProjectileHitCallback, priority: -1000); // 先于音符触发，否则击退方向会相反。
         }
         private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
