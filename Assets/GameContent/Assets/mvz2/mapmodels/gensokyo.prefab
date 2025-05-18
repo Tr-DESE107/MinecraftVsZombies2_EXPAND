@@ -176,6 +176,7 @@ MonoBehaviour:
   - {fileID: 312569940046479787}
   - {fileID: 5185649237076258177}
   - {fileID: 2163936039810279270}
+  - {fileID: 5551361931082482605}
   mapPins:
   - {fileID: 2290749253855181897}
   - {fileID: 6191565572381766325}
@@ -392,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3228762297769693718, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: unlock.path
-      value: futo_visited
+      value: entered_mausoleum
       objectReference: {fileID: 0}
     - target: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -459,6 +460,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5461804978657357290, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
   m_PrefabInstance: {fileID: 7044958510159811003}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5551361931082482605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3228762297769693718, guid: 7653a3ea24e1f0e41b42d54f5d1fed14, type: 3}
+  m_PrefabInstance: {fileID: 7044958510159811003}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f26acd6faf848d24587466a3c571a0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7115154001633353025
 PrefabInstance:
   m_ObjectHideFlags: 0
