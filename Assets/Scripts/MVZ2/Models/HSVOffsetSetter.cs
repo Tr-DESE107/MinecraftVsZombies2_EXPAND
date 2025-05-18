@@ -1,5 +1,4 @@
-﻿using Tools;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MVZ2.Models
 {

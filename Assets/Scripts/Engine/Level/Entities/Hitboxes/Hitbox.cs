@@ -64,7 +64,7 @@ namespace PVZEngine.Entities
             var selfBounds = GetBounds();
             selfBounds.center += offset;
             var otherBounds = other.GetBounds();
-                
+
             if (selfBounds.Intersects(otherBounds))
             {
                 seperation = otherBounds.center - selfBounds.center;

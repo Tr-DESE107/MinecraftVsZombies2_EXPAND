@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace MVZ2Logic.Models
+﻿namespace MVZ2Logic.Models
 {
     public static class SortingLayers
     {

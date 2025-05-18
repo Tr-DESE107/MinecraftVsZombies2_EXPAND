@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using PVZEngine.Entities;
+﻿using PVZEngine.Entities;
 using UnityEngine;
 
 namespace PVZEngine.Level.Collisions

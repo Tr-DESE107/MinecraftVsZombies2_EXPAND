@@ -1,14 +1,9 @@
-﻿using MVZ2.GameContent.Contraptions;
-using MVZ2.Games;
-using MVZ2.Level.UI;
+﻿using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2.SeedPacks;
 using MVZ2.UI;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic.SeedPacks;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.Models;
@@ -52,7 +47,7 @@ namespace MVZ2.Level
         {
             RemoveCallbacks();
         }
-        public void Destroy() 
+        public void Destroy()
         {
             Remove();
             OnDestroy();

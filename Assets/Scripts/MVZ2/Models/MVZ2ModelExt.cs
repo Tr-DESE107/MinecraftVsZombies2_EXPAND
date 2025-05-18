@@ -1,9 +1,6 @@
-﻿using MVZ2.Managers;
-using MVZ2Logic;
-using MVZ2Logic.Models;
+﻿using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Armors;
-using UnityEditor.Graphs;
 
 namespace MVZ2.Models
 {

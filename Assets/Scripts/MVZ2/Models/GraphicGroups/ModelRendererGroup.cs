@@ -43,7 +43,8 @@ namespace MVZ2.Models
         {
             var groups = GetComponentsInChildren<SortingGroup>(true)
                 .Where(g => IsChildOfGroup(g.transform, this) && g.gameObject != gameObject)
-                .Select(r => {
+                .Select(r =>
+                {
                     var element = r.GetComponent<SortingGroupElement>();
                     if (!element)
                     {
@@ -55,7 +56,8 @@ namespace MVZ2.Models
 
             var renderer = GetComponentsInChildren<Renderer>(true)
                 .Where(g => IsChildOfGroup(g.transform, this) && g is not SpriteMask && g.gameObject.layer != Layers.LIGHT)
-                .Select(r => {
+                .Select(r =>
+                {
                     var element = r.GetComponent<RendererElement>();
                     if (!element)
                     {
@@ -71,14 +73,15 @@ namespace MVZ2.Models
 
             var parts = GetComponentsInChildren<ParticleSystem>(true)
                 .Where(p => IsParticleChildOfGroup(p.transform, this))
-                .Select(r => {
-                     var element = r.GetComponent<ParticlePlayer>();
-                     if (!element)
-                     {
-                         element = r.gameObject.AddComponent<ParticlePlayer>();
-                     }
-                     return element;
-                 });
+                .Select(r =>
+                {
+                    var element = r.GetComponent<ParticlePlayer>();
+                    if (!element)
+                    {
+                        element = r.gameObject.AddComponent<ParticlePlayer>();
+                    }
+                    return element;
+                });
             ReplaceComponents(particles, parts);
 
             var anims = GetComponentsInChildren<Animator>(true)
@@ -162,9 +165,9 @@ namespace MVZ2.Models
         #endregion
 
         #region 属性字段
-        public override int SortingLayerID 
-        { 
-            get => sortingGroup.sortingLayerID; 
+        public override int SortingLayerID
+        {
+            get => sortingGroup.sortingLayerID;
             set
             {
                 sortingGroup.sortingLayerID = value;
@@ -179,8 +182,8 @@ namespace MVZ2.Models
                 }
             }
         }
-        public override string SortingLayerName 
-        { 
+        public override string SortingLayerName
+        {
             get => sortingGroup.sortingLayerName;
             set
             {
@@ -196,8 +199,8 @@ namespace MVZ2.Models
                 }
             }
         }
-        public override int SortingOrder 
-        { 
+        public override int SortingOrder
+        {
             get => sortingGroup.sortingOrder;
             set
             {

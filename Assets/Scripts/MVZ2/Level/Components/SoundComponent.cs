@@ -6,7 +6,6 @@ using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace MVZ2.Level.Components
 {

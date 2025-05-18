@@ -1,6 +1,4 @@
-﻿using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla.Level;
-using MVZ2Logic.Models;
+﻿using MVZ2.Vanilla.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;

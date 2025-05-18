@@ -1,6 +1,4 @@
-﻿using PVZEngine.Entities;
-
-namespace PVZEngine.Placements
+﻿namespace PVZEngine.Placements
 {
     public class PlaceParams
     {

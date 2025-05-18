@@ -4,7 +4,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
-using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -67,7 +66,7 @@ namespace MVZ2.GameContent.Contraptions
                 var backTarget = detectorBack.Detect(entity);
                 if (backTarget != null)
                 {
-                   RepeatShootBack(entity);
+                    RepeatShootBack(entity);
                 }
                 shootTimer.ResetTime(GetTimerTime(entity));
             }

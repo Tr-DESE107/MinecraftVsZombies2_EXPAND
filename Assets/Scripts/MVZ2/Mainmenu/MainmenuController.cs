@@ -20,7 +20,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Saves;
-using MVZ2Logic.Scenes;
 using PVZEngine;
 using Tools.Mathematics;
 using UnityEngine;
@@ -572,7 +571,7 @@ namespace MVZ2.Mainmenu
 
                 var title = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_CATEGORY, metaName);
                 long categoryNumber = 0;
-                switch (metaOperation) 
+                switch (metaOperation)
                 {
                     case StatOperation.Sum:
                         categoryNumber = category.GetSum();

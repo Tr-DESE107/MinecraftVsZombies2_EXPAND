@@ -1,10 +1,4 @@
-﻿using MVZ2Logic.Level;
-using PVZEngine;
-using PVZEngine.Definitions;
-using PVZEngine.Level;
-using UnityEngine;
-
-namespace MVZ2.Vanilla.Level
+﻿namespace MVZ2.Vanilla.Level
 {
     public static class VanillaLevelStates
     {

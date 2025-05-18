@@ -19,7 +19,6 @@ using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -67,7 +66,7 @@ namespace MVZ2.GameContent.Contraptions
         private void Detect(Entity entity)
         {
             detectBuffer.Clear();
-            entity.Level.FindEntitiesNonAlloc(e => e.IsVulnerableEntity() && e.Position.x < VanillaLevelExt.ATTACK_RIGHT_BORDER && e.HasBuff<StarshardCarrierBuff>() && !HasDrainedEnemies(entity,e.ID), detectBuffer);
+            entity.Level.FindEntitiesNonAlloc(e => e.IsVulnerableEntity() && e.Position.x < VanillaLevelExt.ATTACK_RIGHT_BORDER && e.HasBuff<StarshardCarrierBuff>() && !HasDrainedEnemies(entity, e.ID), detectBuffer);
             bool updated = false;
             foreach (var enemy in detectBuffer)
             {

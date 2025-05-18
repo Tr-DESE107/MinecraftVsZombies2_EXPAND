@@ -2,7 +2,6 @@
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
-using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Detections

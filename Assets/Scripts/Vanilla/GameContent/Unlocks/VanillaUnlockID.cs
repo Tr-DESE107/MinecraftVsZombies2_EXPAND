@@ -58,7 +58,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID starshard = Get(VanillaUnlockNames.starshard);
         public static readonly NamespaceID money = Get(VanillaUnlockNames.money);
         public static readonly NamespaceID enteredDream = Get(VanillaUnlockNames.enteredDream);
-        public static readonly NamespaceID enteredGensokyo = Get(VanillaUnlockNames.enteredGensokyo); 
+        public static readonly NamespaceID enteredGensokyo = Get(VanillaUnlockNames.enteredGensokyo);
         public static readonly NamespaceID dreamIsNightmare = Get(VanillaUnlockNames.dreamIsNightmare);
         public static readonly NamespaceID obsidianFirstAid = Get(VanillaUnlockNames.obsidianFirstAid);
         public static readonly NamespaceID blueprintSlot1 = Get(VanillaUnlockNames.blueprintSlot1);

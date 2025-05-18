@@ -1,9 +1,7 @@
 ﻿using MVZ2.GameContent.Obstacles;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
-using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Level

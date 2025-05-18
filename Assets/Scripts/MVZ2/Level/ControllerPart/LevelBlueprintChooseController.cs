@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using MukioI18n;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.Level.UI;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -19,12 +19,8 @@ using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;
-using PVZEngine.Callbacks;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Seeds;
-using PVZEngine.Level;
 
 namespace MVZ2.Level
 {
@@ -835,7 +831,7 @@ namespace MVZ2.Level
         {
             var lastSelection = Main.SaveManager.GetLastSelection();
             if (lastSelection == null || lastSelection.artifacts == null)
-                return; 
+                return;
             int artifactCount = Level.GetArtifactSlotCount();
             chosenArtifacts = new NamespaceID[artifactCount];
             for (int i = 0; i < chosenArtifacts.Length; i++)
@@ -1011,7 +1007,8 @@ namespace MVZ2.Level
             if (!CanChooseCommandBlock())
                 return;
             chooseUI.ShowCommandBlockPanel();
-            var commandBlockViewDatas = choosingBlueprints.Select(id => {
+            var commandBlockViewDatas = choosingBlueprints.Select(id =>
+            {
                 var viewData = Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless());
                 viewData.blueprint.preset = BlueprintPreset.CommandBlock;
                 viewData.blueprint.iconGrayscale = true;

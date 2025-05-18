@@ -1,6 +1,5 @@
 ﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla.Contraptions;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;

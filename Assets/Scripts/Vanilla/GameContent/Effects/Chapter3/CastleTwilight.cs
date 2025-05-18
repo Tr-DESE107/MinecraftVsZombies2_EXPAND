@@ -1,10 +1,6 @@
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Models;
-using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
@@ -25,7 +21,7 @@ namespace MVZ2.GameContent.Effects
             }
             else
             {
-                entity.SetTint(new Color(1,1,1, entity.Timeout / 30f));
+                entity.SetTint(new Color(1, 1, 1, entity.Timeout / 30f));
             }
         }
         #endregion

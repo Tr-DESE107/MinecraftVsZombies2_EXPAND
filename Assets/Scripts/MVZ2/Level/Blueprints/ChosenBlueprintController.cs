@@ -1,21 +1,6 @@
-﻿using System;
-using System.Reflection;
-using MVZ2.GameContent.Effects;
-using MVZ2.Level.UI;
-using MVZ2.Managers;
-using MVZ2.Models;
+﻿using MVZ2.Level.UI;
 using MVZ2.UI;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
-using PVZEngine;
 using PVZEngine.Definitions;
-using PVZEngine.Level;
-using PVZEngine.Models;
-using PVZEngine.SeedPacks;
-using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace MVZ2.Level
 {

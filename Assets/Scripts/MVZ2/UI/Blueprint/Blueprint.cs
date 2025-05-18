@@ -1,5 +1,4 @@
 ﻿using System;
-using MVZ2.GameContent.Projectiles;
 using MVZ2.Level.UI;
 using MVZ2.Models;
 using TMPro;

@@ -11,8 +11,6 @@ using MVZ2.Talks;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
-using MVZ2Logic.Map;
 using PVZEngine;
 using Tools;
 using UnityEngine;

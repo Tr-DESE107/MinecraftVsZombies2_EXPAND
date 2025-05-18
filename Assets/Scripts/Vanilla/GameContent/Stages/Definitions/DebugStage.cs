@@ -1,11 +1,8 @@
 ﻿using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Obstacles;
 using MVZ2.GameContent.ProgressBars;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Level;
@@ -40,7 +37,7 @@ namespace MVZ2.GameContent.Stages
             level.SetStarshardCount(5);
             level.CheckGameOver();
         }
-        private void ClassicStart(LevelEngine level) 
+        private void ClassicStart(LevelEngine level)
         {
             level.SetEnergy(9990);
             level.SetSeedSlotCount(10);

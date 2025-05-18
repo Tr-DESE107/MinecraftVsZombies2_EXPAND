@@ -1,5 +1,4 @@
 ﻿using System;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;

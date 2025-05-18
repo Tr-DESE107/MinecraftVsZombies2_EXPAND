@@ -1,10 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Scenes;
-using MVZ2.Supporters;
-using MVZ2Logic.Scenes;
 using UnityEngine;
 
 namespace MVZ2.Titlescreen

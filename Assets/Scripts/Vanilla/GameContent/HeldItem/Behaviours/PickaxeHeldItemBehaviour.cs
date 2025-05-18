@@ -1,10 +1,7 @@
 ﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.HeldItem;
-using MVZ2.HeldItems;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.HeldItems;
-using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using PVZEngine.Damages;
 using PVZEngine.Entities;

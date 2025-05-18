@@ -1,9 +1,6 @@
-﻿using MVZ2.GameContent.Contraptions;
-using MVZ2.Vanilla.Detections;
+﻿using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Level;
-using MVZ2Logic.Level;
 using PVZEngine.Entities;
-using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Detections

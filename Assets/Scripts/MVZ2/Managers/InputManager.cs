@@ -2,7 +2,6 @@
 using MVZ2.Managers;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
-using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.Assets.Scripts.MVZ2.Managers

@@ -1,5 +1,4 @@
 ﻿using MVZ2.Level.UI;
-using MVZ2.SeedPacks;
 using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
@@ -7,7 +6,6 @@ using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine.Definitions;
-using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.Level

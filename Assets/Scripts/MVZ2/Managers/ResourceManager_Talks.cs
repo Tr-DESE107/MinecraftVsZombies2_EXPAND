@@ -3,10 +3,7 @@ using System.Linq;
 using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
-using MVZ2Logic.Level;
-using MVZ2Logic;
 using PVZEngine;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Managers

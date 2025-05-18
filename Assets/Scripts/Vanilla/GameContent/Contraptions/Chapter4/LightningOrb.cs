@@ -5,10 +5,8 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using static UnityEngine.Networking.UnityWebRequest;
 
 namespace MVZ2.GameContent.Contraptions
 {

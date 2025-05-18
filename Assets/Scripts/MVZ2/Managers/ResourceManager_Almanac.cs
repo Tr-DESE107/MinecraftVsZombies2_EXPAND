@@ -3,7 +3,6 @@ using MVZ2.Metas;
 using MVZ2.Vanilla.Almanacs;
 using PVZEngine;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Managers
 {

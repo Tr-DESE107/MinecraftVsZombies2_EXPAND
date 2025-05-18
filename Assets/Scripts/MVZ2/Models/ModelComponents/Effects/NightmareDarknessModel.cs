@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
 using MVZ2.GameContent.Effects;
-using PVZEngine.Entities;
 using UnityEngine;
 
 namespace MVZ2.Models

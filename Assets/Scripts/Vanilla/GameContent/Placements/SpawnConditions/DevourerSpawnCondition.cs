@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using PVZEngine;
 using PVZEngine.Entities;

@@ -81,7 +81,7 @@ namespace PVZEngine.Buffs
         {
             changedPropertiesBuffer.Clear();
             int count = 0;
-            for (int i = buffs.Count - 1; i >= 0; i --)
+            for (int i = buffs.Count - 1; i >= 0; i--)
             {
                 var buff = buffs[i];
                 if (buff.Definition is not T)

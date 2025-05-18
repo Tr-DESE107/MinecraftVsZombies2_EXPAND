@@ -3,7 +3,6 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;

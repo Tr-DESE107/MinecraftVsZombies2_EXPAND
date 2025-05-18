@@ -3,9 +3,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Text;
 using System.Threading.Tasks;
-using MVZ2.Sprites;
 using NGettext;
-using UnityEngine;
 
 namespace MVZ2.IO
 {

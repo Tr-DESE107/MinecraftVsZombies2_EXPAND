@@ -1,5 +1,4 @@
 ﻿using MVZ2Logic.Artifacts;
-using MVZ2Logic;
 using PVZEngine;
 using Tools;
 

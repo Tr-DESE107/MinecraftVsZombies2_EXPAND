@@ -1,5 +1,4 @@
-﻿using PVZEngine.Entities;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PVZEngine.Armors
 {

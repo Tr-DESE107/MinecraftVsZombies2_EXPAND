@@ -1,5 +1,4 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Buffs.Level;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Properties;

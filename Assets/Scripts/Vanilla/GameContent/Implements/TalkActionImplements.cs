@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Maps;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;

@@ -1,4 +1,3 @@
-using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -7,7 +6,6 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Level;
-using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;

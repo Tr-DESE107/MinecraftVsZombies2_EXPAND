@@ -1,6 +1,5 @@
 ﻿using MVZ2.HeldItems;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.HeldItems;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using PVZEngine.Entities;

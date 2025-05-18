@@ -3,7 +3,6 @@ using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -35,8 +34,8 @@ namespace MVZ2.GameContent.Bosses
             stateMachine.Init(boss);
             stateMachine.StartState(boss, STATE_IDLE);
 
-            boss.CollisionMaskHostile |= 
-                EntityCollisionHelper.MASK_PLANT | 
+            boss.CollisionMaskHostile |=
+                EntityCollisionHelper.MASK_PLANT |
                 EntityCollisionHelper.MASK_ENEMY |
                 EntityCollisionHelper.MASK_OBSTACLE |
                 EntityCollisionHelper.MASK_BOSS;

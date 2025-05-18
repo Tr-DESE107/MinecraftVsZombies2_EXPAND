@@ -1,6 +1,5 @@
 ﻿using MVZ2.Vanilla.Detections;
 using PVZEngine.Entities;
-using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Detections

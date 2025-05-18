@@ -1,21 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Scenes;
-using MVZ2.Talk;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2Logic;
-using MVZ2Logic.Archives;
-using MVZ2Logic.Talk;
-using Newtonsoft.Json.Linq;
 using PVZEngine;
-using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.MusicRoom
@@ -139,7 +130,7 @@ namespace MVZ2.MusicRoom
             {
                 ui.SetMusicTime(Main.MusicManager.GetNormalizedMusicTime());
             }
-            float weightSpeed = playingSubTrack  ? 1 : - 1;
+            float weightSpeed = playingSubTrack ? 1 : -1;
             subTrackWeight = Mathf.Clamp01(subTrackWeight + weightSpeed * 0.03f);
             Main.MusicManager.SetTrackWeight(subTrackWeight);
         }

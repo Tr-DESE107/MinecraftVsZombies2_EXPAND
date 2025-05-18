@@ -1,8 +1,6 @@
-﻿using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Effects;
+﻿using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities

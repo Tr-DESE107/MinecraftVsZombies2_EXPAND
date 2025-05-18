@@ -1,23 +1,16 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Cameras;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.Level.UI;
-using MVZ2.UI;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Saves;
-using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Level
@@ -123,7 +116,7 @@ namespace MVZ2.Level
             var unlockedContraptions = Saves.GetUnlockedContraptions().Where(id => Main.ResourceManager.IsContraptionInAlmanac(id));
             var unlockedArtifacts = Saves.GetUnlockedArtifacts();
             var seedSlotCount = level.GetSeedSlotCount();
-            bool willChooseBlueprint = innateBlueprints.Length + unlockedContraptions.Count() > seedSlotCount || unlockedArtifacts.Length > 0; 
+            bool willChooseBlueprint = innateBlueprints.Length + unlockedContraptions.Count() > seedSlotCount || unlockedArtifacts.Length > 0;
 
             if (willChooseBlueprint && level.NeedBlueprints())
             {

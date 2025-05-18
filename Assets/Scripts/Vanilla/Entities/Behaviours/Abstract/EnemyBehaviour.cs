@@ -1,5 +1,3 @@
-using PVZEngine.Entities;
-
 namespace MVZ2.Vanilla.Entities
 {
     public abstract class EnemyBehaviour : AIEntityBehaviour

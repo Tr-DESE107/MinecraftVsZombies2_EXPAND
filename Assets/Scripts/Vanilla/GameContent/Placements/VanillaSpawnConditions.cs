@@ -1,6 +1,4 @@
-﻿using MVZ2.Vanilla;
-using PVZEngine;
-using PVZEngine.Placements;
+﻿using PVZEngine.Placements;
 
 namespace MVZ2.GameContent.Placements
 {

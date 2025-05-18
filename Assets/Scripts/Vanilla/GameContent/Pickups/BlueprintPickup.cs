@@ -1,7 +1,4 @@
-using MVZ2.GameContent.Difficulties;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.HeldItems;
-using MVZ2.GameContent.Models;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
@@ -19,7 +16,6 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
-using PVZEngine.SeedPacks;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups

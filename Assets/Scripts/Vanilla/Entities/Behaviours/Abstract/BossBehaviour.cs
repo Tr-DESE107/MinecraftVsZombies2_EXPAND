@@ -1,8 +1,4 @@
-﻿using MVZ2.GameContent.Buffs;
-using PVZEngine.Damages;
-using PVZEngine.Entities;
-
-namespace MVZ2.Vanilla.Entities
+﻿namespace MVZ2.Vanilla.Entities
 {
     public abstract class BossBehaviour : AIEntityBehaviour
     {

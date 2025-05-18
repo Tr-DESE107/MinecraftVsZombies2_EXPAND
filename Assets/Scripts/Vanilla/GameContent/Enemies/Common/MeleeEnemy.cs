@@ -5,7 +5,6 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Callbacks;
 
 namespace MVZ2.Vanilla.Enemies
 {

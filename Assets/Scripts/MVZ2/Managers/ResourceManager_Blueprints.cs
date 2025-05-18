@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Text;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.Level.UI;
 using MVZ2.Metas;
 using MVZ2.UI;
 using MVZ2.Vanilla;

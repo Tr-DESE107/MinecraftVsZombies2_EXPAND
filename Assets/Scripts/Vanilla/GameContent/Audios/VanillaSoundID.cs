@@ -7,7 +7,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID achievement = Get("achievement");
         public readonly static NamespaceID annihilationField = Get("annihilation_field");
         public readonly static NamespaceID agnoy = Get("agnoy");
-        public readonly static NamespaceID anvil = Get("anvil"); 
+        public readonly static NamespaceID anvil = Get("anvil");
         public readonly static NamespaceID arcaneIntellect = Get("arcane_intellect");
         public readonly static NamespaceID armorUp = Get("armor_up");
         public readonly static NamespaceID awooga = Get("awooga");

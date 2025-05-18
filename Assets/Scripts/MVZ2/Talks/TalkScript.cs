@@ -50,7 +50,7 @@ namespace MVZ2.TalkData
         {
             List<TalkScript> scripts = new List<TalkScript>();
             var childNodes = node.ChildNodes;
-            for (int i = 0; i < childNodes.Count;i++)
+            for (int i = 0; i < childNodes.Count; i++)
             {
                 var child = childNodes[i];
                 if (child.Name == "script")

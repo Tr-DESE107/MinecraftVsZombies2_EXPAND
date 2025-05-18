@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace MVZ2.Models
+﻿namespace MVZ2.Models
 {
     public class FireTimeModel : ModelComponent
     {

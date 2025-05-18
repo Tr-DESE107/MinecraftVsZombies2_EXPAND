@@ -28,7 +28,7 @@ namespace MVZ2.Metas
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
             var value = node.GetAttributeInt("value") ?? 0;
-            
+
             var buffID = node["buff"]?.GetAttributeNamespaceID("id", defaultNsp);
             var IZBuffID = node["buff"]?.GetAttributeNamespaceID("iZombie", defaultNsp);
 

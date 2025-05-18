@@ -6,11 +6,9 @@ using MVZ2.Games;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
-using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
@@ -52,7 +50,7 @@ namespace MVZ2.Level
                 entities = entities.Select(e => e.ToSerializable()).ToArray(),
 
                 parts = parts.Select(p => p.ToSerializable()).ToArray(),
-                
+
                 areaModel = model.ToSerializable(),
 
                 level = SerializeLevel(),
@@ -186,7 +184,7 @@ namespace MVZ2.Level
             level.OnEntitySpawn += Engine_OnEntitySpawnCallback;
             level.OnEntityRemove += Engine_OnEntityRemoveCallback;
             level.OnGameOver += Engine_OnGameOverCallback;
-            
+
             foreach (var controller in parts)
             {
                 controller.AddEngineCallbacks(level);

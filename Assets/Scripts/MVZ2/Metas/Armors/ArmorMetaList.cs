@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Xml;
-using MVZ2.IO;
+﻿using System.Xml;
 
 namespace MVZ2.Metas
 {

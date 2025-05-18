@@ -8,7 +8,6 @@ using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Implements

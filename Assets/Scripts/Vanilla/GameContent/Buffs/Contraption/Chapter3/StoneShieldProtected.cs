@@ -2,7 +2,6 @@
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using PVZEngine.Damages;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Contraptions

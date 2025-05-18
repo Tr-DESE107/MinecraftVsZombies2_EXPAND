@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;
@@ -33,7 +32,7 @@ namespace MVZ2.MusicRoom
             informationText.text = info;
             descriptionText.text = description;
         }
-        public void SetPlaying(bool playing) 
+        public void SetPlaying(bool playing)
         {
             playButtonObj.SetActive(!playing);
             pauseButtonObj.SetActive(playing);

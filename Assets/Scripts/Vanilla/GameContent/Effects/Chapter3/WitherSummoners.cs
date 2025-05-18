@@ -1,10 +1,8 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using static MVZ2.GameContent.Buffs.VanillaBuffNames;
 
 namespace MVZ2.GameContent.Effects
 {

@@ -1,13 +1,9 @@
-using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
-using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Vanilla.Enemies
 {

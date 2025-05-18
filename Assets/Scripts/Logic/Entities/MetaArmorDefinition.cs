@@ -1,5 +1,4 @@
 ﻿using PVZEngine.Armors;
-using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
 
 namespace MVZ2Logic.Entities

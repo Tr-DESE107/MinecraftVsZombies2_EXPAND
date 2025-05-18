@@ -13,7 +13,6 @@ using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 namespace MVZ2.GameContent.Effects
 {

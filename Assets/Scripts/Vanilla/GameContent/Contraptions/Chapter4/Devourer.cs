@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
@@ -8,21 +7,16 @@ using MVZ2.GameContent.Obstacles;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -80,7 +74,7 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     level.PlaySound(VanillaSoundID.pacmanAttack);
                 }
-            } 
+            }
         }
         #region 更新
         protected override void UpdateLogic(Entity devourer)

@@ -5,7 +5,6 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
-using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.HeldItems
 {

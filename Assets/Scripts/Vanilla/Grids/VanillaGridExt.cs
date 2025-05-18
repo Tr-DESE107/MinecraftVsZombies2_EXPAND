@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Grids;
+﻿using MVZ2.GameContent.Grids;
 using MVZ2.GameContent.Placements;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla.Callbacks;

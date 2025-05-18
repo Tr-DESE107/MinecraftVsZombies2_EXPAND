@@ -1,7 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
@@ -11,7 +10,6 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {

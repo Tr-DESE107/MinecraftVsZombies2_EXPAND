@@ -6,7 +6,6 @@ using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Detections

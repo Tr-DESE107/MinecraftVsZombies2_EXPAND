@@ -1,6 +1,4 @@
-﻿using MVZ2.Managers;
-using MVZ2.UI;
-using MVZ2Logic.Artifacts;
+﻿using MVZ2Logic.Artifacts;
 using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;

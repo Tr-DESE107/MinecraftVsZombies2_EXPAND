@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using MVZ2.Collision;
-using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Level.Collisions;

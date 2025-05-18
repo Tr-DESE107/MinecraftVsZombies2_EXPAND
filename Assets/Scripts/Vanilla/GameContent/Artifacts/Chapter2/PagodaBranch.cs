@@ -8,7 +8,6 @@ using MVZ2Logic.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Artifacts

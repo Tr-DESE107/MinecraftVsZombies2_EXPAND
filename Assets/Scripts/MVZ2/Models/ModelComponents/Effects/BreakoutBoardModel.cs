@@ -1,7 +1,5 @@
 ﻿using TMPro;
-using Tools;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace MVZ2.Models
 {

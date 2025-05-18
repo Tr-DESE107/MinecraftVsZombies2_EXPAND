@@ -1,6 +1,4 @@
 ﻿using PVZEngine;
-using PVZEngine.Entities;
-using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {

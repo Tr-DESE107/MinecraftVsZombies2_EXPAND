@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
-using MVZ2.GameContent.Effects;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Saves;

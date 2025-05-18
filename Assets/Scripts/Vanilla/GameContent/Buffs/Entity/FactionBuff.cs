@@ -1,10 +1,8 @@
-﻿using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Properties;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs
 {

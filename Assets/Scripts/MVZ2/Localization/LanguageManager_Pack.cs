@@ -13,7 +13,6 @@ using NGettext;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.UIElements;
 
 namespace MVZ2.Localization
 {
@@ -442,7 +441,7 @@ namespace MVZ2.Localization
                             foreach (var localizedSprite in manifest.sprites)
                             {
                                 var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "sprites", localizedSprite.texture);
-                                var textureEntry = entries.FirstOrDefault(e=> e.FullName.Replace("\\", "/") == texturePath.Replace("\\", "/"));
+                                var textureEntry = entries.FirstOrDefault(e => e.FullName.Replace("\\", "/") == texturePath.Replace("\\", "/"));
 
                                 if (textureEntry == null)
                                     continue;

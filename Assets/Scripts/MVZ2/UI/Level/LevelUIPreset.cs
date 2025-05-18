@@ -1,5 +1,4 @@
 using System;
-using MVZ2.Entities;
 using MVZ2.Models;
 using MVZ2.UI;
 using TMPro;

@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
+﻿using MVZ2.Vanilla;
 using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Level;

@@ -15,7 +15,6 @@ using MVZ2.MusicRoom;
 using MVZ2.Note;
 using MVZ2.Save;
 using MVZ2.Store;
-using MVZ2.Supporters;
 using MVZ2.Titlescreen;
 using MVZ2.UI;
 using MVZ2.Vanilla;

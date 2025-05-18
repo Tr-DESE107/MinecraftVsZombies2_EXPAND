@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MVZ2.Localization;
-using MVZ2.Scenes;
-using MVZ2.Talk;
-using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,15 +1,12 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using static MVZ2.GameContent.Buffs.VanillaBuffNames;
 
 namespace MVZ2.GameContent.Artifacts
 {

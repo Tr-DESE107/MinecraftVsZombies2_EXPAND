@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using MVZ2Logic.Artifacts;
-using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level.Components;
 using PVZEngine;

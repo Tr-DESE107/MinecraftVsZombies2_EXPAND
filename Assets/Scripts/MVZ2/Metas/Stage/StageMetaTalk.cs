@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Xml;
+﻿using System.Xml;
 using MVZ2.IO;
 using MVZ2.Saves;
 using MVZ2Logic.Games;

@@ -2,7 +2,6 @@
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Models;
 using PVZEngine.Entities;
-using UnityEngine;
 namespace MVZ2.Vanilla.Entities
 {
     public abstract class PickupBehaviour : EntityBehaviourDefinition, ICollectiblePickup

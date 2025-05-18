@@ -1,9 +1,7 @@
 ﻿using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2Logic;
-using Newtonsoft.Json.Linq;
 using PVZEngine;
-using UnityEditor.Hardware;
 using UnityEngine;
 using UnityEngine.Audio;
 

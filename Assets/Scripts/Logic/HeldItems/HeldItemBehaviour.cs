@@ -1,6 +1,4 @@
 ﻿using MVZ2.HeldItems;
-using MVZ2Logic;
-using MVZ2Logic.HeldItems;
 using PVZEngine.Level;
 
 namespace MVZ2Logic.HeldItems

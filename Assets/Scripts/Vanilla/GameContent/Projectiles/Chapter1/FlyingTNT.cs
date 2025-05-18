@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Contraptions;
+﻿using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;

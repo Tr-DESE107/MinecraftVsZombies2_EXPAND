@@ -2,7 +2,6 @@
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 
 namespace MVZ2.GameContent.Implements

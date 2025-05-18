@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic.Entities;
 using PVZEngine;
-using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
 
 namespace MVZ2.Metas

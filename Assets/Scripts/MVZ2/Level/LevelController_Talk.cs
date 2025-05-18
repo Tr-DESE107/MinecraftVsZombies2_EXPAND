@@ -4,7 +4,6 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
 using MVZ2Logic.Talk;
 using PVZEngine;
-using PVZEngine.Callbacks;
 using UnityEngine;
 
 namespace MVZ2.Level

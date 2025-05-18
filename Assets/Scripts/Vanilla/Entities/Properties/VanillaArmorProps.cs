@@ -1,8 +1,5 @@
 ﻿using PVZEngine;
 using PVZEngine.Armors;
-using PVZEngine.Buffs;
-using PVZEngine.Entities;
-using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {

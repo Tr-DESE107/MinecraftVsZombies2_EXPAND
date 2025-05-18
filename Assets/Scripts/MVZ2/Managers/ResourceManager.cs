@@ -119,7 +119,7 @@ namespace MVZ2.Managers
             {
                 achievementCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
-            foreach (var meta in modResource.MainmenuViewMetaList.Metas) 
+            foreach (var meta in modResource.MainmenuViewMetaList.Metas)
             {
                 mainmenuViewCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
