@@ -1,12 +1,14 @@
 ﻿using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -18,6 +20,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public CommandBlock(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.CAN_CONTRAPTION_SACRIFICE, CanContraptionSacrificeCallback, filter: VanillaContraptionID.commandBlock);
         }
         public override void Init(Entity entity)
         {
@@ -96,6 +99,10 @@ namespace MVZ2.GameContent.Contraptions
                 spawnParam.SetProperty(VanillaEntityProps.GRID_LAYERS, definition.GetGridLayersToTake());
             }
             return spawnParam;
+        }
+        private void CanContraptionSacrificeCallback(VanillaLevelCallbacks.ContraptionSacrificeValueParams param, CallbackResult result)
+        {
+            result.SetFinalValue(false);
         }
         public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_PRODUCTION_TIMER);
         public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_PRODUCTION_TIMER, timer);
