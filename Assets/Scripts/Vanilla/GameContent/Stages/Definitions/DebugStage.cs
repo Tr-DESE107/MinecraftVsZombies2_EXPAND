@@ -47,7 +47,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.megaMutantZombie,
 
-                VanillaContraptionID.commandBlock,
+                VanillaContraptionID.dispenser,
                 VanillaContraptionID.lightningOrb,
                 VanillaContraptionID.devourer,
                 VanillaContraptionID.gravitationBomb,

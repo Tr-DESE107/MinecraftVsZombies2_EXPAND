@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Detections
         public ForcePadDetector(int mask, float affectHeight, float sizeMultiplier)
         {
             this.mask = mask;
+            factionTarget = FactionTarget.Any;
             this.affectHeight = affectHeight;
             this.sizeMultiplier = sizeMultiplier;
         }
