@@ -13,6 +13,7 @@ namespace MVZ2.Collisions
     {
         void ICollisionSystem.Update()
         {
+            Physics.Simulate(1);
             simulateBuffer.Clear();
             simulateBuffer.CopyFrom(entities);
             for (int i = 0; i < simulateBuffer.Count; i++)
@@ -20,7 +21,6 @@ namespace MVZ2.Collisions
                 var entity = simulateBuffer[i];
                 entity.Simulate();
             }
-            Physics.Simulate(1);
         }
         public void InitEntity(Entity entity)
         {

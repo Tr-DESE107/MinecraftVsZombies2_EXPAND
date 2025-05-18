@@ -19,11 +19,8 @@ namespace MVZ2.Collisions
         }
         public void Simulate()
         {
-            rigid.position = Entity.Position;
-
             foreach (var collider in colliders)
             {
-                collider.UpdateFromEntity();
                 collider.Simulate();
             }
         }
@@ -104,6 +101,7 @@ namespace MVZ2.Collisions
                 var collider = CreateCollider(extraCollider.name);
                 collider.LoadFromSerializable(extraCollider, entity);
             }
+            UpdateEntity();
         }
         public void LoadCollisions(LevelEngine level, SerializableUnityCollisionEntity seri)
         {
