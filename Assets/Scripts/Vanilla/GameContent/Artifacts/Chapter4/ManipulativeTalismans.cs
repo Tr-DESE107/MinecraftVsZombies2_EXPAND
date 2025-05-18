@@ -17,11 +17,6 @@ namespace MVZ2.GameContent.Artifacts
         {
             AddTrigger(VanillaLevelCallbacks.PRE_ENEMY_FAINT, PreEnemyFaintCallback, priority: -100);
         }
-        public override void PostAdd(Artifact artifact)
-        {
-            base.PostAdd(artifact);
-            artifact.SetRNG(artifact.Level.CreateRNG());
-        }
         private void PreEnemyFaintCallback(EntityCallbackParams param, CallbackResult result)
         {
             var enemy = param.entity;
@@ -33,7 +28,7 @@ namespace MVZ2.GameContent.Artifacts
             {
                 if (artifact?.Definition != this)
                     continue;
-                var rng = artifact.GetRNG();
+                var rng = artifact.RNG;
                 if (rng.Next(100) < REVIVE_CHANCE)
                 {
                     enemy.Revive();

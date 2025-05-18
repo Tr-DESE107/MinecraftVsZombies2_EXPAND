@@ -1,5 +1,6 @@
 ﻿using PVZEngine;
 using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2Logic.Level
@@ -34,5 +35,23 @@ namespace MVZ2Logic.Level
         {
             level.SetProperty(CAMERA_ROTATION, value);
         }
+
+        #region RNG
+        public static readonly PropertyMeta ARTIFACT_RNG = new PropertyMeta("artifactRNG");
+        public static RandomGenerator GetArtifactRNG(this LevelEngine level)
+        {
+            var rng = level.GetProperty<RandomGenerator>(ARTIFACT_RNG);
+            if (rng == null)
+            {
+                rng = level.CreateRNG();
+                level.SetArtifactRNG(rng);
+            }
+            return rng;
+        }
+        public static void SetArtifactRNG(this LevelEngine level, RandomGenerator value)
+        {
+            level.SetProperty(ARTIFACT_RNG, value);
+        }
+        #endregion
     }
 }

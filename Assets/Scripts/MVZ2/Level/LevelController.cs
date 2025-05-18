@@ -90,6 +90,7 @@ namespace MVZ2.Level
                 TPS = 30
             };
             level.Init(areaID, stageID, option, seed);
+            level.SetArtifactRNG(level.CreateRNG());
             InitGrids();
             level.Setup();
 
