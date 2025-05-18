@@ -436,7 +436,7 @@
                 <id name="mvz2:projectileId" value="mvz2:dart" />
                 <idArray name="mvz2:attackerFor" value="mvz2:low_enemy" />
 
-                <int name="mvz2:cost" value="200" />
+                <int name="mvz2:cost" value="175" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
