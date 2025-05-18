@@ -1834,6 +1834,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cc2a4067785bbb479556fa02098483e
+    m_Address: mvz2:archive/mausoleum_note
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3cd0fd588f959b541adab0c41a346776
     m_Address: mvz2:entity/wither/cry2
     m_ReadOnly: 0
@@ -2014,6 +2020,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41065e0cd82278649944a62c32447ede
+    m_Address: mvz2:pickup/zombie_scroll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 410c602e03a209e49a68674fd0551a89
     m_Address: mvz2:difficulties
     m_ReadOnly: 0
@@ -2127,6 +2139,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4544057c662730c4797c8c0641b95ff3
+    m_Address: mvz2:entity/pickups/zombie_scroll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45676c5928868ae4092cf6ecaeb3f4d6
     m_Address: mvz2:ui/level/mobile/trigger_gear
@@ -4539,6 +4557,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 944683e1f0da086409759e5b63d9d066
+    m_Address: mvz2:misc/murder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9471881cde5f3d841abcd44501e0f922
     m_Address: mvz2:mobile_blueprint/mummy
     m_ReadOnly: 0
@@ -5519,6 +5543,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b43c7c77cd3ff54418daebbaccf227db
     m_Address: mvz2:archive/castle_note
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b453b81b803463f4ba41b29936133619
+    m_Address: mvz2:note/mausoleum
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -6951,6 +6981,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e22d8952fb88ae345a9f5ae2e633b5d4
+    m_Address: mvz2:note/background_mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e24fa12a26dfd2648ac35cf11b7c632f
     m_Address: mvz2:sand_dig2
     m_ReadOnly: 0
@@ -7478,6 +7514,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0f2c4189e67b6e42987f8f1b3af835d
+    m_Address: mvz2:misc/two_travelers
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0f372846ca34a64fa85f299b0504928
     m_Address: mvz2:random/grass2

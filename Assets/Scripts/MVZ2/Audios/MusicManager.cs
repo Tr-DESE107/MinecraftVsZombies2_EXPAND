@@ -1,6 +1,7 @@
 ﻿using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2Logic;
+using Newtonsoft.Json.Linq;
 using PVZEngine;
 using UnityEditor.Hardware;
 using UnityEngine;
@@ -164,6 +165,13 @@ namespace MVZ2.Audios
             };
             volumeFader.SetValueWithoutNotify(1);
             SetTrackWeight(0);
+        }
+        private void Update()
+        {
+            if (subTrackSource.isActiveAndEnabled && Mathf.Abs(subTrackSource.timeSamples - mainTrackSource.timeSamples) >= 1000)
+            {
+                subTrackSource.timeSamples = mainTrackSource.timeSamples;
+            }
         }
         public MainManager Main => main;
         public float Time

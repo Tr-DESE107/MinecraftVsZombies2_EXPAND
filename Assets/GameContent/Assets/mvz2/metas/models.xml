@@ -133,6 +133,7 @@
     <model name="ender_chest" type="entity" path="mvz2:pickup/ender_chest" width="96" height="96" xOffset="0" yOffset="-32"/>
     <model name="artifact_pickup" type="entity" path="mvz2:pickup/artifact_pickup" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="wither_scroll" type="entity" path="mvz2:pickup/wither_scroll" width="64" height="64" xOffset="0" yOffset="-16"/>
+    <model name="zombie_scroll" type="entity" path="mvz2:pickup/zombie_scroll" width="64" height="64" xOffset="0" yOffset="-16"/>
 
     <model name="starshard.default" type="entity" path="mvz2:pickup/starshards/default" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="starshard.halloween" type="entity" path="mvz2:pickup/starshards/halloween" width="64" height="64" xOffset="0" yOffset="-16"/>

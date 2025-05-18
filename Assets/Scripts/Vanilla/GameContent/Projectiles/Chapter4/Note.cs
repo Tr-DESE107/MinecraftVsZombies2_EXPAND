@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Projectiles
         {
             base.PostHitEntity(hitResult, damage);
             var note = hitResult.Projectile;
-            Reflect(note);
+            Reflect(note, hitResult.Other);
             var dmg = note.GetDamage(true);
             dmg--;
             note.SetDamage(dmg);
@@ -63,11 +63,11 @@ namespace MVZ2.GameContent.Projectiles
             noteBlock.TriggerAnimation("Shoot");
             NoteBlock.PlayHarpSound(noteBlock);
         }
-        public static void Reflect(Entity note)
+        public static void Reflect(Entity note, Entity other)
         {
             var vel = note.Velocity;
             var magnitude = vel.magnitude;
-            if (vel.x < 0)
+            if (other.Position.x < note.PreviousPosition.x)
             {
                 vel = Vector3.right * magnitude;
             }

@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateAI(Entity enemy)
         {
             base.UpdateAI(enemy);
-            if (!IsWarpped(enemy))
+            if (!IsWarpped(enemy) && !enemy.IsDead)
             {
                 var talismanID = GetTalismanZombie(enemy);
                 var talisman = talismanID?.GetEntity(enemy.Level);

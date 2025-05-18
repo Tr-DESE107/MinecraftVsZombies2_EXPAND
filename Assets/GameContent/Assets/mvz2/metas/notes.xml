@@ -4,4 +4,5 @@
     <note id="halloween" sprite="note/halloween" background="note/background_halloween" startTalk="mvz2:halloween_note" />
     <note id="dream" sprite="note/dream" background="note/background_dream" startTalk="mvz2:dream_note" />
     <note id="castle" sprite="note/castle" background="note/background_castle" startTalk="mvz2:castle_note" />
+    <note id="mausoleum" sprite="note/mausoleum" background="note/background_mausoleum" startTalk="mvz2:mausoleum_note" />
 </notes>

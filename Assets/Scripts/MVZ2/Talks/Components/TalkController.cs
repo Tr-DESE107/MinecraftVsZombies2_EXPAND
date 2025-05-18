@@ -114,6 +114,10 @@ namespace MVZ2.Talk
             ui.OnSkipClick += OnSkipClickedCallback;
             ui.OnClick += OnClickCallback;
         }
+        private void Update()
+        {
+            ui.SetShake(((Vector3)Main.ShakeManager.GetShake2D()) * 100);
+        }
         private void OnDisable()
         {
             StopAllCoroutines();

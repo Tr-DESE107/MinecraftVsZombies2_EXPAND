@@ -2,7 +2,7 @@
 <talks order="4000">
   <group id="kourindou_visit_mausoleum_1" tags="mvz2:gensokyo;mvz2:store">
     <archive name="第四章-访问香霖堂" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited_mausoleum_1" />
-    <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited_mausoleum_1;end">
+    <section onSkip="music fade 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited_mausoleum_1;end">
       <characters>
         <character id="mvz2:tokiko" side="right" />
         <character id="mvz2:crazy_villager" side="left" />
@@ -268,7 +268,7 @@
   </group>
   <group id="mausoleum_3_map" tags="mvz2:mausoleum;mvz2:map">
     <archive name="梦殿大祀庙第3天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_3" />
-    <section onSkip="item hide;music volume 1;end">
+    <section onSkip="item hide;music fade 1;end">
       <characters>
         <character id="mvz2:seiga" side="right" />
         <character id="mvz2:steve" side="self" />
@@ -303,7 +303,7 @@
         </sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_beat" onStart="shake"><![CDATA[<color=blue>（很可疑啊！）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="item hide;music volume 1;end"><![CDATA[<color=blue>（我还是不要照她说的做好了……）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="item hide;music fade 1;end"><![CDATA[<color=blue>（我还是不要照她说的做好了……）</color>]]></sentence>
       </sentences>
     </section>
   </group>
@@ -402,7 +402,7 @@
   </group>
   <group id="mausoleum_5_map" tags="mvz2:mausoleum;mvz2:map">
     <archive name="梦殿大祀庙第5天地图" music="mvz2:mausoleum_map" background="mvz2:misc/mausoleum" unlock="mvz2:level.mausoleum_5" />
-    <section onSkip="item hide;music play mvz2:mausoleum_map;foreground alpha 0;music fade 1;end">
+    <section onSkip="item hide;music fade 1;music play mvz2:suspension;forecolor fade #000F #0000 1;foreground alpha 0;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:steve" side="self" />
@@ -470,13 +470,30 @@
         <sentence speaker="mvz2:none" speakerName="巨人" sounds="mvz2:giant_roar" onStart="shake 0.1 3;music fade 1;foreground change mvz2:misc/giant_in_mausoleum[4]">喔嗷嗷嗷嗷嗷嗷嗷嗷嗷！</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:dialog_beat" onStart="shake">史蒂夫，你快跑！我们试着把它重新控制住！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake">该死……怎么会这样！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" onStart="shake" onClick="foreground fade 0;music play mvz2:mausoleum_map;music fade 0 1 1;end">快回香霖堂！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_crazy" >
+          <start>
+            <script>shake</script>
+          </start>
+          <text>快回香霖堂！</text>
+          <click>
+            <script>bubble hide</script>
+            <script>character leave mvz2:crazy_villager</script>
+            <script>forecolor fade #0000 #000F 1</script>
+            <script>delay 1</script>
+
+            <script>forecolor fade #000F #0000 1</script>
+            <script>foreground alpha 0</script>
+            <script>delay 1</script>
+            
+            <script>end</script>
+          </click>
+        </sentence>
       </sentences>
     </section>
   </group>
-  <group id="kourindou_visit_mausoleum_2" requiresNot="mvz2:kourindou_visit_mausoleum_2" tags="mvz2:mausoleum;mvz2:store">
-    <archive name="访问香霖堂-梦殿大祀庙" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visit_mausoleum_2" />
-    <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visit_mausoleum_2;item hide;end">
+  <group id="kourindou_visit_mausoleum_2" requiresNot="mvz2:kourindou_visited_mausoleum_2" tags="mvz2:mausoleum;mvz2:store">
+    <archive name="访问香霖堂-梦殿大祀庙" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited_mausoleum_2" />
+    <section onSkip="unlock mvz2:kourindou_visited_mausoleum_2;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:tokiko" side="right" />
@@ -503,7 +520,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……只是不知道，怎么该向神子她们交代呢？</sentence>
         <sentence speaker="mvz2:tokiko" sounds="mvz2:talk" variant="mvz2:normal">别太难过了，史蒂夫，开心一些吧。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">对了，我还有一些东西可以卖了！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">那么，开始令人兴奋的购物环节吧！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="unlock mvz2:kourindou_visited_mausoleum_2;end">那么，开始令人兴奋的购物环节吧！</sentence>
       </sentences>
     </section>
   </group>
@@ -631,7 +648,11 @@
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">唉……自从三年前的那场命案后，吾这么提心吊胆还是第一次啊。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird" onStart="music fade 0">……？等一下。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">三年前有命案？</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:dialog_cut" onStart="shake" variant="mvz2:scared">
+        <sentence speaker="mvz2:futo" sounds="mvz2:dialog_cut" variant="mvz2:scared">
+          <start>
+            <script>shake</script>
+          </start>
+          <text>啊，不不不，汝就当吾什么都没有说吧！</text>
           <click>
             <script>bubble hide</script>
             <script>character leave mvz2:futo</script>
@@ -639,7 +660,6 @@
             <script>delay 2</script>
             <script>next</script>
           </click>
-          <text>啊，不不不，汝就当吾什么都没有说吧！</text>
         </sentence>
         <sentence speaker="mvz2:steve" description="（布都离场）" sounds="mvz2:talk">……？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird" onClick="music fade 1;end">这件事情我没听说过啊……</sentence>
@@ -929,8 +949,8 @@
       </sentences>
     </section>
   </group>
-  <group id="zombie_scroll" tags="mvz2:mausoleum;mvz2:over">
-    <archive name="僵尸卷轴" background="mvz2:misc/zombie_scroll" unlock="mvz2:level.mausoleum_10" />
+  <group id="mausoleum_note" tags="mvz2:mausoleum;mvz2:over">
+    <archive name="僵尸卷轴" background="mvz2:archive/mausoleum_note" unlock="mvz2:level.mausoleum_10" />
     <section>
       <characters>
         <character id="mvz2:futo" side="left" variant="mvz2:daze" />
@@ -940,7 +960,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">看不懂。</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">……何物？</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk"> 似为僵尸之战书，但用者为古中国之文言文所作。</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">似为僵尸之战书，但用者为古中国之文言文所作。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">你看得懂吗，布都？</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">……</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:dialog_weird" variant="mvz2:cringe">否。</sentence>
@@ -1075,6 +1095,7 @@
             <script>forecolor fade #000F #0000 1</script>
             <script>delay 1</script>
 
+            <script>playsound mvz2:zombie_cry</script>
             <script>character create mvz2:crazy_villager left</script>
             <script>delay 0.5</script>
             <script>next</script>

@@ -183,6 +183,16 @@ namespace MVZ2.Talk
         }
         #endregion
 
+        public void SetShake(Vector3 shake)
+        {
+            foreach (var root in shakeRoots)
+            {
+                if (!root)
+                    continue;
+                root.localPosition = shake;
+            }
+        }
+
         #endregion
 
         #region 私有方法
@@ -287,6 +297,8 @@ namespace MVZ2.Talk
         private Image backcolorImage;
         [SerializeField]
         private ColorFader backcolorFader;
+        [SerializeField]
+        private Transform[] shakeRoots;
         private List<TalkCharacterController> characters = new List<TalkCharacterController>();
         #endregion 属性
     }
