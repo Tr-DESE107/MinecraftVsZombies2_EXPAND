@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-18 07:25+0800\n"
+"POT-Creation-Date: 2025-05-18 07:50+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2827,7 +2827,7 @@ msgstr ""
 #. Flavor for misc mvz2:blurred_note
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "在辉针城结束后的香霖堂，村民曾将这张纸条拿出去看了一眼，然而却又把他慌张地收了起来。"
+msgid "在辉针城结束后的香霖堂，村民曾将这张纸条拿出去看了一眼，然而却又把它慌张地收了起来。"
 msgstr ""
 
 #. Name for misc mvz2:grave_in_dream
