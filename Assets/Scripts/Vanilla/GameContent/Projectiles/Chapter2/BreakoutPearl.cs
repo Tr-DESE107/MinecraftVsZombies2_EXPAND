@@ -48,6 +48,13 @@ namespace MVZ2.GameContent.Projectiles
         }
         public override void Update(Entity projectile)
         {
+            var bounds = projectile.GetBounds();
+            if (bounds.max.x < VanillaLevelExt.PROJECTILE_LEFT_BORDER)
+            {
+                projectile.Remove();
+                return;
+            }
+
             projectile.Timeout = 30;
             var level = projectile.Level;
             var position = projectile.Position;
