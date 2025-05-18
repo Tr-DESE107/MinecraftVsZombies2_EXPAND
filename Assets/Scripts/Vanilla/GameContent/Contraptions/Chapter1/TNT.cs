@@ -170,20 +170,24 @@ namespace MVZ2.GameContent.Contraptions
                 entity.Remove();
             }
         }
-        private static void ChargedExplode(Entity entity)
+        public static void ExplodeArcs(Entity entity, Vector3 position, float arcLength = 1000)
         {
-            const float arcLength = 1000;
             var level = entity.Level;
             for (int i = 0; i < 18; i++)
             {
-                var arc = level.Spawn(VanillaEffectID.electricArc, entity.Position, entity);
+                var arc = level.Spawn(VanillaEffectID.electricArc, position, entity);
 
                 float degree = i * 20;
                 float rad = degree * Mathf.Deg2Rad;
-                Vector3 pos = entity.Position + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * arcLength;
+                Vector3 pos = position + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * arcLength;
                 ElectricArc.Connect(arc, pos);
                 ElectricArc.UpdateArc(arc);
             }
+        }
+        private static void ChargedExplode(Entity entity)
+        {
+            ExplodeArcs(entity, entity.Position);
+            var level = entity.Level;
             foreach (Entity unit in level.FindEntities(e => entity.IsHostile(e)))
             {
                 unit.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.IGNORE_ARMOR), entity);

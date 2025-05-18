@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-17 07:33+0800\n"
-"PO-Revision-Date: 2025-05-17 19:42+0800\n"
+"POT-Creation-Date: 2025-05-18 07:25+0800\n"
+"PO-Revision-Date: 2025-05-18 19:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -829,12 +829,12 @@ msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>3000</color>\n"
 "特点：<color=red>吸收敌弹，并恢复100耐久</color>\n"
-"技能：<color=red>在3秒内吸收所有伤害，之后将这些伤害返还给本行内所有敌人（最高1800）</color>"
+"技能：<color=red>在5秒内吸收所有伤害并治疗自己，之后将这些伤害返还给所有敌人（最高1800）</color>"
 msgstr ""
 "Toughness: <color=red>3000</color>\n"
 "Special: <color=red>Absorbs projectiles, heals 100 toughness for each projectile</color>\n"
-"Evocation: <color=red>In 3 seconds, absorbs all damage and returns the damage back to all enemies in its row. (up to 1800 damage)</"
-"color>"
+"Evocation: <color=red>In 5 seconds, absorbs all damage and heals itself, then returns the damage back to all enemies. (up to 1800 "
+"damage)</color>"
 
 #. Flavor for contraptions mvz2:lightning_orb
 #: Almanac meta file
@@ -3488,6 +3488,12 @@ msgstr "A note found in the dream world. It cannot be viewed due to being in a d
 #. Flavor for misc mvz2:blurred_note
 #: Almanac meta file
 msgctxt "misc.description"
+msgid "？？？"
+msgstr "???"
+
+#. Flavor for misc mvz2:blurred_note
+#: Almanac meta file
+msgctxt "misc.description"
 msgid "在辉针城结束后的香霖堂，村民曾将这张纸条拿出去看了一眼，然而却又把他慌张地收了起来。"
 msgstr ""
 "After the end of journey in Shining Needle Castle, Villager once took out this note and glanced at it in Kourindou, but then hastily "
@@ -3579,8 +3585,14 @@ msgstr "Three years ago, there was a murder case in the Gensokyo."
 #. Flavor for misc mvz2:murder
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "布都无意间透露了这些情报，细节尚不知情。"
-msgstr "Futo accidentally revealed these pieces of intelligence, and the details are still unknown."
+msgid "布都无意间透露了这件事。"
+msgstr "Futo accidentally revealed this."
+
+#. Flavor for misc mvz2:murder
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "细节尚不知情。"
+msgstr "The details are still unknown."
 
 #. Name for entity counter mvz2:low_enemy
 #: Entity meta file
@@ -5011,10 +5023,6 @@ msgstr "Lengthen the board"
 msgctxt "option.name"
 msgid "增加弹珠"
 msgstr "Add a pearl"
-
-#~ msgctxt "misc.description"
-#~ msgid "？？？"
-#~ msgstr "???"
 
 #~ msgctxt "contraptions.description"
 #~ msgid "技能：<color=red>按从左到右的顺序，生成2张你所携带的蓝图的掉落物复制。（下一次技能会从上一次结束的位置开始复制）</color>"

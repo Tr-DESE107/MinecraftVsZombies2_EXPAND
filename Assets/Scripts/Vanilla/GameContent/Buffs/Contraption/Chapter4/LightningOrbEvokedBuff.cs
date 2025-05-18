@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Damages;
+﻿using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
@@ -24,7 +25,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public LightningOrbEvokedBuff(string nsp, string name) : base(nsp, name)
         {
             AddTrigger(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, PreEntityTakeDamageCallback);
-            thunderDetector = new LaneDetector(64, 64);
+            thunderDetector = new LawnDetector();
         }
         public override void PostAdd(Buff buff)
         {
@@ -55,16 +56,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                             collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.LIGHTNING), entity);
                         }
                         var centerPos = entity.GetCenter();
-                        for (int i = 0; i < 2; i++)
-                        {
-                            var thunder = level.Spawn(VanillaEffectID.thunderBoltHorizontal, centerPos, entity);
-                            var color = new Color(0, 0.733333f, 1);
-                            thunder.SetHSVToColor(color);
-                            thunder.SetLightColor(color);
-                            var scale = new Vector3(i * 2 - 1, 1, 1);
-                            thunder.SetDisplayScale(scale);
-                            thunder.SetScale(scale);
-                        }
+                        TNT.ExplodeArcs(entity, entity.GetCenter());
                         entity.PlaySound(VanillaSoundID.thunder);
                         entity.PlaySound(VanillaSoundID.tridentThunder);
                         entity.PlaySound(VanillaSoundID.teslaAttack);
@@ -78,14 +70,15 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 var soundTimer = GetSoundTimer(buff);
                 if (soundTimer != null)
                 {
+                    soundTimer.Run();
                     if (soundTimer.Expired)
                     {
                         soundTimer.ResetTime(15);
-                    }
-                    if (entity != null)
-                    {
-                        var pitch = 1 + (1 - timer.Frame) / (float)MAX_TIMEOUT;
-                        entity.PlaySound(VanillaSoundID.energyShield, pitch);
+                        if (entity != null)
+                        {
+                            var pitch = 1 + (1 - timer.Frame) / (float)MAX_TIMEOUT;
+                            entity.PlaySound(VanillaSoundID.energyShield, pitch);
+                        }
                     }
                 }
             }
@@ -96,6 +89,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var entity = damage.Entity;
             foreach (var buff in entity.GetBuffs<LightningOrbEvokedBuff>())
             {
+                entity.HealEffects(damage.Amount, entity);
                 AddTakenDamage(buff, damage.Amount);
                 result.SetFinalValue(false);
             }
@@ -105,7 +99,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public static float GetTakenDamage(Buff buff) => buff.GetProperty<float>(PROP_TAKEN_DAMAGE);
         public static void SetTakenDamage(Buff buff, float value) => buff.SetProperty(PROP_TAKEN_DAMAGE, value);
         public static void AddTakenDamage(Buff buff, float value) => SetTakenDamage(buff, GetTakenDamage(buff) + value);
-        public const int MAX_TIMEOUT = 90;
+        public const int MAX_TIMEOUT = 150;
         public const float MAX_DAMAGE = 1800;
         public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("timer");
         public static readonly VanillaBuffPropertyMeta PROP_TAKEN_DAMAGE = new VanillaBuffPropertyMeta("takenDamage");
