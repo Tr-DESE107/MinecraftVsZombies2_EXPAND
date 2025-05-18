@@ -19,6 +19,7 @@ namespace MVZ2.GameContent.Buffs.Level
         {
             base.PostAdd(buff);
             buff.SetProperty(PROP_TIMER, new FrameTimer(MAX_TIMEOUT));
+            buff.SetProperty(PROP_SCREEN_COVER, Color.white);
         }
         public override void PostUpdate(Buff buff)
         {

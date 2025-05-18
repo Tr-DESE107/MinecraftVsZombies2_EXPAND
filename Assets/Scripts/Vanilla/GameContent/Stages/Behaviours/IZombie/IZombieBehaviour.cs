@@ -164,6 +164,8 @@ namespace MVZ2.GameContent.Stages
         }
         private void CheckGameOver(LevelEngine level)
         {
+            if (level.HasBuff<FlashWhiteBuff>())
+                return;
             bool cannotAfford = false;
             if (level.GetSeedPackCount() <= 0)
             {
