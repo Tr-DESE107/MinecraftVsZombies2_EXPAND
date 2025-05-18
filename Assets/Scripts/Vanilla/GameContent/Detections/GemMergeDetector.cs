@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Detections
         public GemMergeDetector(float size, NamespaceID gemID)
         {
             mask = EntityCollisionHelper.MASK_PICKUP;
+            factionTarget = FactionTarget.Any;
             this.size = size;
             this.gemID = gemID;
         }
