@@ -1894,9 +1894,14 @@
                 <header>
                     <p>三年前，幻想乡中发生过一场凶杀案。</p>
                 </header>
-                <flavor>
-                    <p>布都无意间透露了这些情报，细节尚不知情。</p>
-                </flavor>
+                <flavors>
+                    <flavor>
+                        <p>布都无意间透露了这件事。</p>
+                    </flavor>
+                    <flavor>
+                        <p>细节尚不知情。</p>
+                    </flavor>
+                </flavors>
             </entry>
         </group>
     </misc>

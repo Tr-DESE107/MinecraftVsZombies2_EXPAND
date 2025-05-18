@@ -145,6 +145,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7c77b2bc79808994aaee8edec5031dc8, type: 3}
   - name: misc/mausoleum
     sprite: {fileID: 21300000, guid: ea93029bdd8e6d44bbca9f126b03388c, type: 3}
+  - name: misc/murder
+    sprite: {fileID: 21300000, guid: 944683e1f0da086409759e5b63d9d066, type: 3}
   - name: misc/nightmare
     sprite: {fileID: 21300000, guid: 8f515a416fe31cb4b8033bfb9fb4dc5b, type: 3}
   - name: misc/nightmare_appear
@@ -157,6 +159,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b54bd6db18c4f8d418444457577bbd31, type: 3}
   - name: misc/surrounded_kourindou
     sprite: {fileID: 21300000, guid: f27fff12ebffcfe4cb3a825f5f701c61, type: 3}
+  - name: misc/two_travelers
+    sprite: {fileID: 21300000, guid: f0f2c4189e67b6e42987f8f1b3af835d, type: 3}
   - name: misc/wither
     sprite: {fileID: 21300000, guid: cb2161762d5c5c54f989ec0a1e6d85e9, type: 3}
   - name: mobile_blueprint/add_pearl
