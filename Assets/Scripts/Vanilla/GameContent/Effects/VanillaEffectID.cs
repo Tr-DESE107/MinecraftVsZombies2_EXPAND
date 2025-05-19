@@ -81,6 +81,7 @@ namespace MVZ2.GameContent.Effects
         public const string spiritUniverse = "spirit_universe";
         public const string zombieBlock = "zombie_block";
         public const string darkHole = "dark_hole";
+        public const string amplifiedRoar = "amplified_roar";
     }
     public static class VanillaEffectID
     {
@@ -160,6 +161,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID spiritUniverse = Get(VanillaEffectNames.spiritUniverse);
         public static readonly NamespaceID zombieBlock = Get(VanillaEffectNames.zombieBlock);
         public static readonly NamespaceID darkHole = Get(VanillaEffectNames.darkHole);
+        public static readonly NamespaceID amplifiedRoar = Get(VanillaEffectNames.amplifiedRoar); 
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

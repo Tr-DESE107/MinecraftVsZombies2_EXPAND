@@ -2334,5 +2334,10 @@
                 <int name="mvz2:maxTimeout" value="15" />
             </properties>
         </effect>
+        <effect id="amplified_roar">
+            <properties>
+                <int name="mvz2:maxTimeout" value="54" />
+            </properties>
+        </effect>
     </entries>
 </entities>

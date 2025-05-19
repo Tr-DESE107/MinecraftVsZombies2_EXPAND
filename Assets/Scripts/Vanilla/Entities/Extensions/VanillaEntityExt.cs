@@ -434,8 +434,12 @@ namespace MVZ2.Vanilla.Entities
         {
             if (entity == null)
                 return;
-            var buff = entity.AddBuff<StunBuff>();
-            buff.SetProperty(StunBuff.PROP_TIMER, new FrameTimer(timeout));
+            var buff = entity.GetFirstBuff<StunBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<StunBuff>();
+            }
+            StunBuff.SetStunTime(buff, timeout);
         }
 
         #region 阻挡火焰

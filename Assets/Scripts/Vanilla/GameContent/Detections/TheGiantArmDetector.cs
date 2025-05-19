@@ -14,7 +14,7 @@ namespace MVZ2.GameContent.Detections
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {
-            var sizeX = 200;
+            var sizeX = 80 + self.GetScaledSize().x * 0.5f;
             var sizeY = 80;
             var sizeZ = 160;
             var centerX = self.Position.x + sizeX * 0.5f * self.GetFacingX();

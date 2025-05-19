@@ -1,8 +1,13 @@
 ﻿using System.Collections.Generic;
+using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -65,6 +70,27 @@ namespace MVZ2.GameContent.Contraptions
             entity.AddBuff<NoteBlockLoudBuff>();
             entity.PlaySound(VanillaSoundID.ufo);
             entity.PlaySound(VanillaSoundID.growBig);
+
+            if (entity.HasBuff<NoteBlockLoudBuff>())
+            {
+                entity.Level.ShakeScreen(15, 0, 90);
+                foreach (var target in entity.Level.FindEntities(e => e.IsHostile(entity) && e.IsVulnerableEntity()))
+                {
+                    target.TakeDamage(entity.GetDamage() * 3, new DamageEffectList(), entity);
+                    if (target.IsEntityOf(VanillaBossID.theGiant))
+                    {
+                        TheGiant.Stun(target, 300);
+                    }
+                    else if (target.Type == EntityTypes.ENEMY)
+                    {
+                        target.Stun(300);
+                    }
+                    
+                }
+                entity.Spawn(VanillaEffectID.amplifiedRoar, entity.GetCenter());
+                entity.RemoveBuffs<NoteBlockChargedBuff>();
+                entity.PlaySound(VanillaSoundID.giantRoar, 2);
+            }
         }
         public override bool CanEvoke(Entity entity)
         {

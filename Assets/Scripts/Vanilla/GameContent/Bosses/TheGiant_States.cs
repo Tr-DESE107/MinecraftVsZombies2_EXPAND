@@ -1,9 +1,12 @@
 ﻿using System.Linq;
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -26,6 +29,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new DisassemblyState());
                 AddState(new EyeState());
                 AddState(new ArmsState());
+                AddState(new RoarState());
                 AddState(new StunState());
                 AddState(new DeathState());
             }
@@ -48,14 +52,13 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnEnter(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.ResetTime(30);
+                stateTimer.ResetTime(60);
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
                 if (GetPhase(entity) == PHASE_1 && entity.Health <= entity.GetMaxHealth() * 0.5f)
                 {
-                    SetPhase(entity, PHASE_2);
                     Stun(entity, 30);
                     return;
                 }
@@ -76,7 +79,6 @@ namespace MVZ2.GameContent.Bosses
                     {
                         var nextState = GetNextState(stateMachine, entity);
                         stateMachine.StartState(entity, nextState);
-                        stateMachine.SetPreviousState(entity, nextState);
                     }
                 }
             }
@@ -85,19 +87,31 @@ namespace MVZ2.GameContent.Bosses
                 var lastState = stateMachine.GetPreviousState(entity);
 
                 var atLeft = AtLeft(entity);
-                //if (lastState == STATE_EYES || lastState == STATE_ARMS)
-                //{
-                //    bool phase2 = GetPhase(entity) == PHASE_2;
-                //    if (!phase2)
-                //    {
-                //        lastState = atLeft ? STATE_ROAR : STATE_BREATH;
-                //    }
-                //    else
-                //    {
-                //        lastState = atLeft ? STATE_PACMAN : STATE_SNAKE;
-                //    }
-                //}
-                //else
+                if (lastState == STATE_EYES || lastState == STATE_ARMS)
+                {
+                    bool phase2 = GetPhase(entity) == PHASE_2;
+                    if (!phase2)
+                    {
+                        if (atLeft)
+                        {
+                            lastState = STATE_ROAR;
+                            if (entity.Level.EntityExists(e => CanRoarStun(entity, e)))
+                            {
+                                stateMachine.SetPreviousState(entity, lastState);
+                                return lastState;
+                            }
+                        }
+                        else
+                        {
+                            lastState = STATE_BREATH;
+                        }
+                    }
+                    else
+                    {
+                        lastState = atLeft ? STATE_PACMAN : STATE_SNAKE;
+                    }
+                }
+                else
                 {
                     if (atLeft)
                     {
@@ -106,6 +120,7 @@ namespace MVZ2.GameContent.Bosses
                         var outerTarget = FindEyeBulletTarget(entity, true);
                         if (innerTarget.ExistsAndAlive() || outerTarget.ExistsAndAlive())
                         {
+                            stateMachine.SetPreviousState(entity, lastState);
                             return lastState;
                         }
                     }
@@ -114,6 +129,7 @@ namespace MVZ2.GameContent.Bosses
                         lastState = STATE_ARMS;
                         if (CanArmsAttack(entity))
                         {
+                            stateMachine.SetPreviousState(entity, lastState);
                             return lastState;
                         }
                     }
@@ -430,20 +446,109 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_INNER_SMASH = 4;
             public const int SUBSTATE_INNER_SMASHED = 5;
         }
+        private class RoarState : EntityStateMachineState
+        {
+            public RoarState() : base(STATE_ROAR) { }
+            public override void OnEnter(EntityStateMachine machine, Entity entity)
+            {
+                base.OnEnter(machine, entity);
+                var substateTimer = machine.GetSubStateTimer(entity);
+                substateTimer.ResetTime(15);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.Run(stateMachine.GetSpeed(entity));
+
+                var substate = stateMachine.GetSubState(entity);
+                switch (substate)
+                {
+                    case SUBSTATE_START:
+                        if (substateTimer.Expired)
+                        {
+                            stateMachine.SetSubState(entity, SUBSTATE_LOOP);
+                            substateTimer.ResetTime(90);
+                            entity.PlaySound(VanillaSoundID.giantRoar);
+                        }
+                        break;
+                    case SUBSTATE_LOOP:
+                        RoarLoop(entity);
+                        if (substateTimer.Expired)
+                        {
+                            stateMachine.SetSubState(entity, SUBSTATE_END);
+                            substateTimer.ResetTime(15);
+                        }
+                        break;
+                    case SUBSTATE_END:
+                        if (substateTimer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                        }
+                        break;
+                }
+            }
+            private void RoarLoop(Entity entity)
+            {
+                entity.Level.ShakeScreen(15, 0, 5);
+                foreach (var ent in entity.Level.FindEntities(e => CanRoarStun(entity, e)))
+                {
+                    if (ent.IsEntityOf(VanillaContraptionID.lightningOrb))
+                        continue;
+                    if (ent.IsEntityOf(VanillaContraptionID.noteBlock))
+                    {
+                        if (!ent.HasBuff<NoteBlockChargedBuff>())
+                        {
+                            ent.AddBuff<NoteBlockChargedBuff>();
+                            ent.PlaySound(VanillaSoundID.growBig);
+                        }
+                        continue;
+                    }
+                    ent.Stun(ROAR_STUN_TIME);
+                }
+            }
+            public const int SUBSTATE_START = 0;
+            public const int SUBSTATE_LOOP = 1;
+            public const int SUBSTATE_END = 2;
+        }
         private class StunState : EntityStateMachineState
         {
             public StunState() : base(STATE_STUNNED) { }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
-                var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.Run(stateMachine.GetSpeed(entity));
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.Run(stateMachine.GetSpeed(entity));
 
-                if (stateTimer.Expired)
+                var substate = stateMachine.GetSubState(entity);
+                switch (substate)
                 {
-                    stateMachine.StartState(entity, STATE_IDLE);
+                    case SUBSTATE_STUNNED:
+                        if (substateTimer.PassedFrame(12))
+                        {
+                            entity.Level.ShakeScreen(5, 0, 10);
+                            entity.PlaySound(VanillaSoundID.thump);
+                        }
+                        if (substateTimer.Expired)
+                        {
+                            stateMachine.SetSubState(entity, SUBSTATE_RESTORE);
+                            substateTimer.ResetTime(30);
+                        }
+                        break;
+                    case SUBSTATE_RESTORE:
+                        if (substateTimer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                            if (GetPhase(entity) == PHASE_1 && entity.Health <= entity.GetMaxHealth() * 0.5f)
+                            {
+                                SetPhase(entity, PHASE_2);
+                            }
+                        }
+                        break;
                 }
             }
+            public const int SUBSTATE_STUNNED = 0;
+            public const int SUBSTATE_RESTORE = 1;
         }
         private class DeathState : EntityStateMachineState
         {

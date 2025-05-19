@@ -144,7 +144,11 @@ namespace MVZ2.Vanilla.Entities
 
         public static void ShortCircuit(this Entity contraption, int time)
         {
-            var buff = contraption.AddBuff<FrankensteinShockedBuff>();
+            var buff = contraption.GetFirstBuff<FrankensteinShockedBuff>();
+            if (buff == null)
+            {
+                buff = contraption.AddBuff<FrankensteinShockedBuff>();
+            }
             buff.SetProperty(FrankensteinShockedBuff.PROP_TIMEOUT, time);
         }
         public static void InflictWither(this Entity enemy, int time)

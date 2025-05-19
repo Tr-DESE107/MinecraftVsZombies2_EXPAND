@@ -4653,6 +4653,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 970bb5ce47edebd47a850d3eb892acbe
+    m_Address: mvz2:effect/amplified_roar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9745c6a03a6cf954f8359f1d2bcaf4b9
     m_Address: mvz2:pickup/sapphire
     m_ReadOnly: 0

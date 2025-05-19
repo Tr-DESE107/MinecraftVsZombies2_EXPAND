@@ -54,6 +54,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID explosion = Get("explosion");
         public readonly static NamespaceID evocation = Get("evocation");
         public readonly static NamespaceID gapWarp = Get("gap_warp");
+        public readonly static NamespaceID giantRoar = Get("giant_roar");
         public readonly static NamespaceID fastForward = Get("fast_forward");
         public readonly static NamespaceID fallBig = Get("fall_big");
         public readonly static NamespaceID fallSmall = Get("fall_small");

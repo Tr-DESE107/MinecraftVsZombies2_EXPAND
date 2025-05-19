@@ -1,6 +1,7 @@
 ﻿using System;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -17,6 +18,11 @@ namespace MVZ2.GameContent.Detections
             var projectileSize = projectileDef.GetProperty<Vector3>(EngineEntityProps.SIZE);
 
             var sizeX = range < 0 ? 800 : range;
+            if (!self.IsFacingLeft())
+            {
+                var limitedRange = VanillaLevelExt.GetAttackBorderX(true) - source.x;
+                sizeX = Mathf.Min(sizeX, limitedRange);
+            }
             var direction = reversed ? -1 : 1;
             var centerX = source.x + sizeX * 0.5f * self.GetFacingX() * direction;
 
@@ -60,9 +66,6 @@ namespace MVZ2.GameContent.Detections
             if (!ValidateTarget(self, collider.Entity))
                 return false;
             Bounds targetBounds = collider.GetBoundingBox();
-            var center = targetBounds.center;
-            if (!TargetInLawn(center.x))
-                return false;
             if (colliderFilter != null && !colliderFilter(self, collider))
                 return false;
             return true;

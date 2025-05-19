@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Effects;
+﻿using System.Threading;
+using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
@@ -20,6 +21,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             base.PostAdd(buff);
             UpdateStunStars(buff);
+            buff.SetProperty(StunBuff.PROP_TIMER, new FrameTimer(0));
         }
         public override void PostRemove(Buff buff)
         {
@@ -71,6 +73,13 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 stars.SetParent(entity);
                 SetStunStars(buff, new EntityID(stars));
             }
+        }
+        public static void SetStunTime(Buff buff, int value)
+        {
+            var timer = buff.GetProperty<FrameTimer>(PROP_TIMER);
+            if (timer == null)
+                return;
+            timer.ResetTime(value);
         }
         public static EntityID GetStunStars(Buff buff) => buff.GetProperty<EntityID>(PROP_STUN_STARS);
         public static void SetStunStars(Buff buff, EntityID value) => buff.SetProperty(PROP_STUN_STARS, value);

@@ -5,6 +5,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -19,6 +20,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -183,15 +185,29 @@ namespace MVZ2.GameContent.Bosses
         }
         public static void Stun(Entity entity, int duration)
         {
-            if (entity.IsDead)
+            if (!CanBeStunned(entity))
                 return;
             entity.PlaySound(VanillaSoundID.zombieHurt, 0.5f);
             var vel = entity.Velocity;
             vel.x = 0;
             entity.Velocity = vel;
             stateMachine.StartState(entity, STATE_STUNNED);
-            var stateTimer = stateMachine.GetStateTimer(entity);
-            stateTimer.ResetTime(duration);
+            var substateTimer = stateMachine.GetSubStateTimer(entity);
+            substateTimer.ResetTime(duration);
+        }
+        public static bool CanBeStunned(Entity entity)
+        {
+            if (entity.IsDead)
+                return false;
+            if (entity.State == STATE_DISASSEMBLY)
+                return false;
+            if (entity.State == STATE_PACMAN)
+                return false;
+            if (entity.State == STATE_SNAKE)
+                return false;
+            if (entity.State == STATE_STUNNED)
+                return false;
+            return true;
         }
         public static int GetZombieBlockLeftStartColumn(Entity entity)
         {
@@ -265,6 +281,10 @@ namespace MVZ2.GameContent.Bosses
         {
             return outerArmDetector.DetectExists(entity) || innerArmDetector.DetectExists(entity);
         }
+        public static bool CanRoarStun(Entity entity, Entity target)
+        {
+            return target.Type == EntityTypes.PLANT && target.IsHostile(entity) && target.CanDeactive();
+        }
 
         #region 常量
         private static readonly VanillaEntityPropertyMeta PROP_CRY_TIMER = new VanillaEntityPropertyMeta("CryTimer");
@@ -301,6 +321,7 @@ namespace MVZ2.GameContent.Bosses
         public const float EYE_BULLET_DAMAGE_MULTIPLIER = 3f;
         public const float EYE_BULLET_SPEED = 30;
         public const float SMASH_DAMAGE_MULTIPLIER = 100;
+        public const int ROAR_STUN_TIME = 150;
 
         public const int CRY_INTERVAL = 300;
 
