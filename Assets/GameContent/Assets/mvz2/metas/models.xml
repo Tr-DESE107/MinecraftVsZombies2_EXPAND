@@ -212,6 +212,7 @@
     <model name="binary_particles" type="entity" path="mvz2:effect/binary_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="redline" type="entity" path="mvz2:effect/redline" width="80" height="80" xOffset="0" yOffset="0"/>
     <model name="iz_observer" type="entity" path="mvz2:effect/iz_observer" width="80" height="80" xOffset="0" yOffset="0"/>
+    <model name="spirit_universe" type="entity" path="mvz2:effect/spirit_universe" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

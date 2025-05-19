@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Level;
@@ -43,11 +44,11 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.desirePot,
+                VanillaEffectID.spiritUniverse,
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.wickedHermitZombie,
 
-                VanillaContraptionID.commandBlock,
+                VanillaContraptionID.noteBlock,
                 VanillaContraptionID.lightningOrb,
                 VanillaContraptionID.devourer,
                 VanillaContraptionID.gravitationBomb,

@@ -6885,6 +6885,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de2ac3b8888568f44a60df2ff9aaa6a3
+    m_Address: mvz2:effect/spirit_universe
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de2f50015df9b2341aa191a0813d294f
     m_Address: mvz2:mobile_blueprint/skeleton_warrior
     m_ReadOnly: 0

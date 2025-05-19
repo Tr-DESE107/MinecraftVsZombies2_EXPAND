@@ -2294,5 +2294,13 @@
                 <vector3 name="mvz2:size" x="80" y="0" z="80" />
             </properties>
         </effect>
+        <effect id="spirit_universe">
+            <properties>
+                <string name="mvz2:sortingLayer" value="Background"/>
+                <int name="mvz2:sortingOrder" value="9999"/>
+                <bool name="mvz2:updateBeforeGame" value="true" />
+                <bool name="mvz2:updateAfterGameOver" value="true" />
+            </properties>
+        </effect>
     </entries>
 </entities>

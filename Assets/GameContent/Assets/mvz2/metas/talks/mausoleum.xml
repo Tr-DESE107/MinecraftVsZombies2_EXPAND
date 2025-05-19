@@ -1003,9 +1003,13 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">巨人是如何战斗的？</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">它会化作许多尸块，进行撞击，并使用它腐烂的器官进行特别的攻击。</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">并且，他还会变化为许多我们从来没见过的奇怪形态。</sentence>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">不过，此前之战，吾似乎见过与之相关器械。</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">不过，此前之战，吾似乎见过汝使用与之相关器械。</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">试用此些器械攻之！</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end">好，准备战斗！</sentence>
+        <sentence speaker="mvz2:miko" sounds="mvz2:talk">另外，它的吼叫十分吵闹。不过，如果有办法能利用它的声音，也许连他自己也会承受不住。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">好，明白了！</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（那些欲望的化身——小神灵，在此也开始大量聚集。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（它们点缀着这地下的黑暗，把这里变成了一片星空。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="end"><![CDATA[<color=blue>（而我，也该在这欲望的宇宙里——开启新的道路了。）</color>]]></sentence>
       </sentences>
     </section>
   </group>

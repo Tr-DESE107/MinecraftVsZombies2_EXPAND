@@ -288,4 +288,14 @@
             <p>该放什么僵尸？</p>
         </description>
     </music>
+    <music id="mausoleum_final" name="圣德传说 ~ True Administrator" unlock="mvz2:level.mausoleum_11">
+        <track main="mvz2:mausoleum_final"/>
+        <source>东方神灵庙</source>
+        <description>
+            <p>梦殿大祀庙最终关的音乐。</p>
+            <p>是《东方神灵庙》中第六关Boss——丰聪耳神子的音乐。</p>
+            <p>如同那些真正的统治者，以及他们的人民之间一般——</p>
+            <p>没有了这些支持你的人，你做得再好，又有什么用？</p>
+        </description>
+    </music>
 </musics>

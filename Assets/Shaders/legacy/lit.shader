@@ -4,6 +4,8 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
+        [Enum(UnityEngine.Rendering.CullMode)]
+		_Cull("Cull", Int) = 1
 
 		[Header(Lighting)]
 		[Toggle(LIT)]
@@ -22,6 +24,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
 
         ZWrite Off
         Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
+        Cull [_Cull]
 
         Pass
         {

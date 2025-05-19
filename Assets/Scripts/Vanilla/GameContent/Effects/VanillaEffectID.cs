@@ -78,6 +78,7 @@ namespace MVZ2.GameContent.Effects
         public const string binaryParticles = "binary_particles";
         public const string redline = "redline";
         public const string izObserver = "iz_observer";
+        public const string spiritUniverse = "spirit_universe";
     }
     public static class VanillaEffectID
     {
@@ -154,6 +155,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID binaryParticles = Get(VanillaEffectNames.binaryParticles);
         public static readonly NamespaceID redline = Get(VanillaEffectNames.redline);
         public static readonly NamespaceID izObserver = Get(VanillaEffectNames.izObserver);
+        public static readonly NamespaceID spiritUniverse = Get(VanillaEffectNames.spiritUniverse);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
