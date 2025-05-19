@@ -183,6 +183,7 @@ namespace MVZ2.Vanilla.Entities
 
         #region 更新
         public static readonly PropertyMeta UPDATE_BEFORE_GAME = Get("updateBeforeGame");
+        public static readonly PropertyMeta UPDATE_IN_PAUSE = Get("updateInPause");
         public static readonly PropertyMeta UPDATE_AFTER_GAME_OVER = Get("updateAfterGameOver");
         public static void SetCanUpdateBeforeGameStart(this Entity entity, bool value)
         {
@@ -191,6 +192,10 @@ namespace MVZ2.Vanilla.Entities
         public static bool CanUpdateBeforeGameStart(this Entity entity)
         {
             return entity.GetProperty<bool>(UPDATE_BEFORE_GAME);
+        }
+        public static bool CanUpdateInPause(this Entity entity)
+        {
+            return entity.GetProperty<bool>(UPDATE_IN_PAUSE);
         }
         public static bool CanUpdateAfterGameOver(this Entity entity)
         {

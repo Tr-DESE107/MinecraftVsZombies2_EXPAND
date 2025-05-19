@@ -337,7 +337,9 @@ namespace MVZ2.Level
                 {
                     foreach (var entity in entities.ToArray())
                     {
-                        if (CanUpdateBeforeGameStart(entity.Entity))
+                        bool canRunBeforeGameStart = IsGameStarted() || CanUpdateBeforeGameStart(entity.Entity);
+                        bool canRunInPause = !IsGamePaused() || CanUpdateInPause(entity.Entity);
+                        if (canRunBeforeGameStart && canRunInPause)
                         {
                             entity.Entity.Update();
                             entity.UpdateFixed();
@@ -394,7 +396,9 @@ namespace MVZ2.Level
                 else
                 {
                     // 游戏没有结束，则只有在游戏运行中，或者实体可以在游戏开始前行动，或者实体是预览敌人时，才会动起来。
-                    modelActive = gameRunning || CanUpdateBeforeGameStart(ent) || ent.IsPreviewEnemy();
+                    bool canRunBeforeGameStart = IsGameStarted() || CanUpdateBeforeGameStart(ent);
+                    bool canRunInPause = !IsGamePaused() || CanUpdateInPause(ent);
+                    modelActive = (canRunBeforeGameStart && canRunInPause) || ent.IsPreviewEnemy();
                 }
                 float speed = modelActive ? gameSpeed : 0;
                 entity.SetSimulationSpeed(speed);
@@ -907,6 +911,10 @@ namespace MVZ2.Level
         private bool CanUpdateBeforeGameStart(Entity entity)
         {
             return entity.CanUpdateBeforeGameStart();
+        }
+        private bool CanUpdateInPause(Entity entity)
+        {
+            return entity.CanUpdateInPause();
         }
         private bool CanUpdateAfterGameOver(Entity entity)
         {
