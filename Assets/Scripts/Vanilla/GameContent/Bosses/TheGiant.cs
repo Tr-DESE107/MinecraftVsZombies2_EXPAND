@@ -2,8 +2,10 @@
 using System.Linq;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Modifiers;
@@ -197,6 +199,8 @@ namespace MVZ2.GameContent.Bosses
         {
             return entity.Level.GetMaxColumnCount() - ZOMBIE_BLOCK_COLUMNS;
         }
+
+        #region 拼合位置
         public static float GetCombineX(Entity entity, bool atRight)
         {
             var level = entity.Level;
@@ -229,11 +233,23 @@ namespace MVZ2.GameContent.Bosses
             var y = level.GetGroundY(x, z);
             return new Vector3(x, y, z);
         }
+        #endregion
+
+        public static Entity FindEyeBulletTarget(Entity entity, bool outerEye)
+        {
+            var detector = outerEye ? outerEyeBulletDetector : innerEyeBulletDetector;
+            return detector.DetectEntityWithTheLeast(entity, e => e.Position.x - entity.Position.x);
+        }
+
         #region 常量
         private static readonly VanillaEntityPropertyMeta PROP_CRY_TIMER = new VanillaEntityPropertyMeta("CryTimer");
         private static readonly VanillaEntityPropertyMeta PROP_PHASE = new VanillaEntityPropertyMeta("Phase");
         private static readonly VanillaEntityPropertyMeta PROP_ZOMBIE_BLOCKS = new VanillaEntityPropertyMeta("ZombieBlocks");
         private static readonly VanillaEntityPropertyMeta PROP_FLIP_X = new VanillaEntityPropertyMeta("FlipX");
+
+
+        private static readonly Vector3 OUTER_EYE_BULLET_OFFSET = new Vector3(70, 140, 0);
+        private static readonly Vector3 INNER_EYE_BULLET_OFFSET = new Vector3(140, 140, 0);
 
         private const int STATE_IDLE = VanillaEntityStates.THE_GIANT_IDLE;
         private const int STATE_DISASSEMBLY = VanillaEntityStates.THE_GIANT_DISASSEMBLY;
@@ -255,7 +271,16 @@ namespace MVZ2.GameContent.Bosses
         public const int ZOMBIE_BLOCK_MOVE_INTERVAL = 10;
         public const float DARK_HOLE_EFFECT_SCALE = 2.5f;
 
+        public const int EYE_BULLET_INTERVAL = 30;
+        public const int EYE_BULLET_COUNT = 4;
+        public const float EYE_BULLET_DAMAGE_MULTIPLIER = 3f;
+        public const float EYE_BULLET_SPEED = 30;
+
         public const int CRY_INTERVAL = 300;
+
+        public static Detector outerEyeBulletDetector = new TheGiantEyeDetector(true);
+        public static Detector innerEyeBulletDetector = new TheGiantEyeDetector(false);
+
         #endregion 常量
 
         private static TheGiantStateMachine stateMachine = new TheGiantStateMachine();

@@ -5824,7 +5824,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9fd6a90539ab4347b130ff074920de2
-    m_Address: mvz2:effect/dark_flash
+    m_Address: mvz2:effect/dark_hole
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model

@@ -3,6 +3,7 @@ using MVZ2.Vanilla.Callbacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -33,7 +34,7 @@ namespace MVZ2.Vanilla.Entities
 
             var velocity = entity.ModifyProjectileVelocity(parameters.velocity);
 
-            var param = entity.GetSpawnParams();
+            var param = parameters.spawnParam ?? entity.GetSpawnParams();
             param.SetProperty(VanillaEntityProps.DAMAGE, parameters.damage);
             param.SetProperty(EngineEntityProps.FACTION, parameters.faction);
             var projectile = entity.Spawn(parameters.projectileID, parameters.position, param);
@@ -195,5 +196,6 @@ namespace MVZ2.Vanilla.Entities
         public NamespaceID soundID;
         public float damage;
         public int faction;
+        public SpawnParams spawnParam;
     }
 }
