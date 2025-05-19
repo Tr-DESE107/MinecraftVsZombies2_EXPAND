@@ -1476,7 +1476,8 @@
                 <int name="mvz2:waterInteraction" value="1" />
                 <float name="mvz2:maxHealth" value="20000" />
                 <vector3 name="mvz2:size" x="240" y="320" z="320" />
-                <vector3 name="mvz2:shadowScale" x="4" y="10" z="4" />
+                <vector3 name="mvz2:shadowOffset" x="0" y="-100" z="0" />
+                <vector3 name="mvz2:shadowScale" x="4" y="6" z="4" />
                 <color name="mvz2:bloodColor" value="#7F0000FF" />
                 <color name="mvz2:bloodColorCensored" value="#00007FFF" />
             </properties>

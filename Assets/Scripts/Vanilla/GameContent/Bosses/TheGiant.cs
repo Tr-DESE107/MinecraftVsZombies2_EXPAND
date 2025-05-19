@@ -10,6 +10,8 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
+using PVZEngine.Base;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -240,6 +242,29 @@ namespace MVZ2.GameContent.Bosses
             var detector = outerEye ? outerEyeBulletDetector : innerEyeBulletDetector;
             return detector.DetectEntityWithTheLeast(entity, e => e.Position.x - entity.Position.x);
         }
+        public static void Smash(Entity entity, bool outerEye)
+        {
+            var detector = outerEye ? outerArmDetector : innerArmDetector;
+            smashDetectBuffer.Clear();
+            detector.DetectMultiple(entity, smashDetectBuffer);
+            bool damaged = false;
+            for (int i = 0; i < smashDetectBuffer.Count; i++)
+            {
+                var collider = smashDetectBuffer[i];
+                collider.TakeDamage(entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), entity);
+                damaged = true;
+                entity.Level.ShakeScreen(10, 0, 15);
+                entity.PlaySound(VanillaSoundID.thump);
+            }
+            if (damaged)
+            {
+                entity.PlaySound(VanillaSoundID.smash);
+            }
+        }
+        public static bool CanArmsAttack(Entity entity)
+        {
+            return outerArmDetector.DetectExists(entity) || innerArmDetector.DetectExists(entity);
+        }
 
         #region 常量
         private static readonly VanillaEntityPropertyMeta PROP_CRY_TIMER = new VanillaEntityPropertyMeta("CryTimer");
@@ -275,11 +300,15 @@ namespace MVZ2.GameContent.Bosses
         public const int EYE_BULLET_COUNT = 4;
         public const float EYE_BULLET_DAMAGE_MULTIPLIER = 3f;
         public const float EYE_BULLET_SPEED = 30;
+        public const float SMASH_DAMAGE_MULTIPLIER = 100;
 
         public const int CRY_INTERVAL = 300;
 
         public static Detector outerEyeBulletDetector = new TheGiantEyeDetector(true);
         public static Detector innerEyeBulletDetector = new TheGiantEyeDetector(false);
+        public static Detector outerArmDetector = new TheGiantArmDetector(true);
+        public static Detector innerArmDetector = new TheGiantArmDetector(false);
+        private static ArrayBuffer<IEntityCollider> smashDetectBuffer = new ArrayBuffer<IEntityCollider>(8);
 
         #endregion 常量
 
