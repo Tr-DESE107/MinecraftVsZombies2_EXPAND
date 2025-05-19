@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-17 07:32+0800\n"
+"POT-Creation-Date: 2025-05-19 10:32+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -550,33 +550,33 @@ msgid "试着挖掉所有器械！"
 msgstr ""
 
 # 选卡警告，{0}为原器械，{1}为升级器械
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:161
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:159
 msgid "你确定想要在没有{0}的情况下使用{1}？"
 msgstr ""
 
 # 选卡警告，{0}为目标敌人
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:163
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:161
 msgid "你没有选能干掉{0}的器械，确定要继续吗？"
 msgstr ""
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:165
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:163
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:167
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:165
 msgid "你确定这关不使用任何水生器械吗？"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:91
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:86
 msgctxt "advice.collect_money"
 msgid "点击收集宝石！"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:93
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:88
 msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
@@ -618,47 +618,47 @@ msgid "地狱金属"
 msgstr ""
 
 # 梦魇对话框标题
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:487
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:485
 msgid "选择你的命运"
 msgstr ""
 
 # 梦魇对话框文本
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:487
 msgid "选吧。"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
 msgid "潘多拉的魔盒"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
 msgid "尸潮"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
 msgid "衰老"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
 msgid "疯狂"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
 msgid "成真"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
 msgid "深潜者"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:503
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
 msgid "黑太阳"
 msgstr ""
 
@@ -1021,81 +1021,81 @@ msgid "无"
 msgstr ""
 
 # 标题页面的版本号文本，{0}为版本号
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:85
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:82
 msgid "版本{0}"
 msgstr ""
 
 # 标题界面按钮文本
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:87
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:84
 msgid "点击以开始！"
 msgstr ""
 
 # 前景图生效时的对话模板，{0}为讨论者，{1}为文本
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:840
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:844
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:234
+#: Scripts\MVZ2\Store\StoreController.cs:232
 msgid "购买物品"
 msgstr ""
 
 # 商店对话框内容，{0}为价格
-#: Scripts\MVZ2\Store\StoreController.cs:236
+#: Scripts\MVZ2\Store\StoreController.cs:234
 msgid "确定以{0:N0}的价格买下这个物品？"
 msgstr ""
 
 # 商店对话框标题
-#: Scripts\MVZ2\Store\StoreController.cs:238
+#: Scripts\MVZ2\Store\StoreController.cs:236
 msgid "金钱不足"
 msgstr ""
 
 # 商店对话框内容
-#: Scripts\MVZ2\Store\StoreController.cs:240
+#: Scripts\MVZ2\Store\StoreController.cs:238
 msgid "你没有足够的金钱！"
 msgstr ""
 
 # 商店的页面计数，{0}为当前页面，{1}为总页面
-#: Scripts\MVZ2\Store\StoreController.cs:242
+#: Scripts\MVZ2\Store\StoreController.cs:240
 msgid "{0}/{1}"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的描述，{0}为错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:142
+#: Scripts\MVZ2\Scene\GameEntrance.cs:141
 msgid ""
 "游戏加载失败：\n"
 "{0}"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:144
+#: Scripts\MVZ2\Scene\GameEntrance.cs:143
 msgid "文件目录丢失"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:146
+#: Scripts\MVZ2\Scene\GameEntrance.cs:145
 msgid "文件丢失"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:148
+#: Scripts\MVZ2\Scene\GameEntrance.cs:147
 msgid "文件被占用"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:150
+#: Scripts\MVZ2\Scene\GameEntrance.cs:149
 msgid "文件读取失败"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:152
+#: Scripts\MVZ2\Scene\GameEntrance.cs:151
 msgid "文件格式错误"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息，{0}为新使用的存档，{1}为存档列表
-#: Scripts\MVZ2\Scene\GameEntrance.cs:154
+#: Scripts\MVZ2\Scene\GameEntrance.cs:153
 msgid ""
 "部分存档无法读取，将使用存档{0}开始游戏。\n"
 "无法读取的存档：\n"
@@ -1103,14 +1103,14 @@ msgid ""
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:156
+#: Scripts\MVZ2\Scene\GameEntrance.cs:155
 msgid ""
 "所有存档均无法读取，文件可能已损坏。\n"
 "必须新建存档以继续游戏。"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:158
+#: Scripts\MVZ2\Scene\GameEntrance.cs:157
 msgid ""
 "所有存档均无法读取，文件可能已损坏。\n"
 "必须删除一个存档，并新建存档以继续游戏。"
@@ -1189,73 +1189,73 @@ msgid ""
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐来源
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:192
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:183
 msgid "来源：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐原曲
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:194
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:185
 msgid "原曲：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐作者
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:196
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:187
 msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:682
+#: Scripts\MVZ2\Map\MapController.cs:677
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:684
+#: Scripts\MVZ2\Map\MapController.cs:679
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:686
+#: Scripts\MVZ2\Map\MapController.cs:681
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:688
+#: Scripts\MVZ2\Map\MapController.cs:683
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:378
+#: Scripts\MVZ2\Managers\MainManager.cs:393
 msgid "获取赞助者列表……"
 msgstr ""
 
 # 值，{0}为百分数
-#: Scripts\MVZ2\Managers\MainManager.cs:380
+#: Scripts\MVZ2\Managers\MainManager.cs:395
 msgid "{0}%"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:640
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:639
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:642
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:641
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:644
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:643
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:646
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:645
 msgid "确认要退出吗？"
 msgstr ""
 
@@ -1271,32 +1271,32 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1104
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1101
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1108
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1105
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1110
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1107
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1112
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1109
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1114
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1111
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
 # 实体提示
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:254
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:249
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr ""
@@ -1319,12 +1319,12 @@ msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:252
+#: Scripts\MVZ2\Archive\ArchiveController.cs:247
 msgid "<b>[{0}]</b> {1}"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:254
+#: Scripts\MVZ2\Archive\ArchiveController.cs:249
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
@@ -1366,27 +1366,27 @@ msgid "<color=red>售罄</color>"
 msgstr ""
 
 # 覆盖语言包的警告，{0}为语言包名称
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:318
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:313
 msgid "已经存在同名语言包“{0}”，是否覆盖？"
 msgstr ""
 
 # 删除语言包的警告，{0}为语言包名称
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:320
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:315
 msgid "是否删除语言包“{0}”？"
 msgstr ""
 
 # 语言包导出失败的警告
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:322
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:317
 msgid "导出语言包失败。"
 msgstr ""
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:324
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:319
 msgid "导入语言包失败。"
 msgstr ""
 
 # 语言包导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:326
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:321
 msgid "语言包已导出至{0}。"
 msgstr ""
 
@@ -1448,6 +1448,12 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "梦殿大祀庙"
+msgstr ""
+
+#. Name for stage mvz2:mausoleum_endless
+#: Stage meta file
+msgctxt "levelname"
+msgid "梦殿大祀庙无尽"
 msgstr ""
 
 #. Name for stat category mvz2:contraption_place
@@ -2169,6 +2175,24 @@ msgid ""
 "解谜模式的音乐。\n"
 "该敲哪个罐子？\n"
 "该放什么僵尸？"
+msgstr ""
+
+#. Name for music mvz2:mausoleum_final
+#: Music meta file
+msgctxt "music.name"
+msgid "圣德传说 ~ True Administrator"
+msgstr ""
+
+#. Description for music mvz2:mausoleum_final
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"梦殿大祀庙最终关的音乐。\n"
+"是《东方神灵庙》中第六关Boss——丰聪耳神子的音乐。\n"
+"作为一名真正的领导者，她指引人民，走向了辉煌的未来。\n"
+"然而，再光明的时代，其最后也难逃衰落的命运。\n"
+"古代王朝因傲慢而衰败的事迹数不胜数，而在如今的现代，这种缩影慢慢投射到了各种作品的创作中。\n"
+"就如同领导者和他的人民一样，如果我不再听取那些支持我的人的，有相当价值的意见，甚至不把这些人放在眼里，就算我做的再好，那又有什么用呢？"
 msgstr ""
 
 #. Name for archive tag mvz2:prologue
