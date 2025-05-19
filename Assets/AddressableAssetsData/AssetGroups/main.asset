@@ -1720,6 +1720,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40bc86920be37bc4cb2b15d875a1b62c
+    m_Address: mvz2:entity/enemy/Berserker_clothing
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40c5d6493088d5344a631523effc16e7
     m_Address: mvz2:fragments
     m_ReadOnly: 0

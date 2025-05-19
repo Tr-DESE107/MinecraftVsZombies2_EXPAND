@@ -1484,6 +1484,11 @@ MonoBehaviour:
     - {fileID: 1260698952, guid: 6b23736b521bd0440b674f16a0460be6, type: 3}
     - {fileID: 523747295, guid: 6b23736b521bd0440b674f16a0460be6, type: 3}
     - {fileID: 1877517199, guid: 6b23736b521bd0440b674f16a0460be6, type: 3}
+  - name: entity/enemy/Berserker_clothing
+    spritesheet:
+    - {fileID: 174426161, guid: 40bc86920be37bc4cb2b15d875a1b62c, type: 3}
+    - {fileID: -760182462, guid: 40bc86920be37bc4cb2b15d875a1b62c, type: 3}
+    - {fileID: -2122488040, guid: 40bc86920be37bc4cb2b15d875a1b62c, type: 3}
   - name: entity/enemy/boat
     spritesheet:
     - {fileID: 21300000, guid: 8ee7e3c6233a6be4191bfd80ff87e80e, type: 3}

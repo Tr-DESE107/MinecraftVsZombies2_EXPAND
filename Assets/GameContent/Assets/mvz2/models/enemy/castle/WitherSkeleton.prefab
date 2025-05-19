@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 231513367689164127, guid: 1bbe75d5487a3c0488fa0041cebec312, type: 3}
       propertyPath: m_Name
-      value: wither_skeleton Variant
+      value: WitherSkeleton
       objectReference: {fileID: 0}
     - target: {fileID: 2689470740539855355, guid: 1bbe75d5487a3c0488fa0041cebec312, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4894397569794617122, guid: 1bbe75d5487a3c0488fa0041cebec312, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 892e4149fd693fe46b55bb7bc3236fe8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
