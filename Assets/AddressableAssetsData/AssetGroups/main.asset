@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0099e1948a249c246a1f5ad7d269ff7a
+    m_Address: mvz2:boss/the_giant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01ea06eaff14a0746a137123701e46b3
     m_Address: mvz2:entity/projectiles/arrow
     m_ReadOnly: 0
@@ -1169,6 +1175,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2971dd77bfe3eb84d96509cf84ff3024
+    m_Address: mvz2:mausoleum_final
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 298e862cc9309854ab568ce21aa8fff4
     m_Address: mvz2:contraption/upgrade/infectenser
     m_ReadOnly: 0
@@ -1569,6 +1581,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3590acf3c0fc41942bbc489c7fe290aa
+    m_Address: mvz2:entity/zombie/hurt1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35f80fb8af94a064f86a987dc6dae8e0
     m_Address: mvz2:mobile_blueprint/reverse_satellite
@@ -2572,6 +2590,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52ceb446c2cda534b811b64884781054
+    m_Address: mvz2:entity/zombie/hurt2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52d0c9dce5e1cc34e97bc3379cbf9f36
     m_Address: mvz2:effect/blood_particles
     m_ReadOnly: 0
@@ -3225,6 +3249,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68a34c0352f30f44fbe869081863c16f
+    m_Address: mvz2:mobile_blueprint/the_giant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 691131bb6028ac44c8e585797df31cec
     m_Address: mvz2:talk/villager/villager_long2
@@ -5793,6 +5823,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9fd6a90539ab4347b130ff074920de2
+    m_Address: mvz2:effect/dark_flash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ba5959cbb21e70e46930dced2270fecb
     m_Address: mvz2:entity/contraption/pistenser
     m_ReadOnly: 0
@@ -5870,6 +5906,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd0166eac6ec2f24bb929b81e615e7cc
+    m_Address: mvz2:effect/zombie_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd020c04ecf41f542b2e72b0e73bf3d7
     m_Address: mvz2:mainmenu/gold_name_shine
@@ -6357,6 +6399,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd590dd9f5d29994db2a5356364308e6
+    m_Address: mvz2:entity/boss/the_giant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd6294e0e010f934b90fb1f9ca35e623
     m_Address: mvz2:achievements/ghost_buster
     m_ReadOnly: 0
@@ -6627,6 +6675,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d666b54ec2852694a99c839ab3cea3b6
+    m_Address: mvz2:entity/boss/the_giant_pac_man
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d68293222c12bc843af1cd1c799a59bd
     m_Address: mvz2:projectile/fireball
     m_ReadOnly: 0
@@ -6854,6 +6908,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd81e2f5e01461d4c9186fe9648f2c1f
+    m_Address: mvz2:entity/effects/zombie_block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd8c6ce9188411b4fb4dd3430ef1cb94
     m_Address: mvz2:entity/ghast/ghast3

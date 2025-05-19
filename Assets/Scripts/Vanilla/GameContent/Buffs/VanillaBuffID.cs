@@ -170,6 +170,7 @@ namespace MVZ2.GameContent.Buffs
             public const string nightmareaperEnraged = "nightmareaper_enraged";
             public const string seijaFabric = "seija_fabric";
             public const string seijaGap = "seija_gap";
+            public const string theGiantInactive = "the_giant_inactive";
         }
     }
     public static class VanillaBuffID

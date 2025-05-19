@@ -1265,7 +1265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5441237328102164597, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       propertyPath: particles.Array.size
@@ -1321,7 +1321,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 951fe82cc0290d54c9646a1e8656ed22, type: 2}
     - target: {fileID: 7999499151332666377, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.66
+      value: -1.26
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1376,7 +1376,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.66}
+  m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1387,7 +1387,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.54, y: 3.32}
+  m_Size: {x: 2.56, y: 3.32}
   m_EdgeRadius: 0
 --- !u!1001 &9079730683048719115
 PrefabInstance:

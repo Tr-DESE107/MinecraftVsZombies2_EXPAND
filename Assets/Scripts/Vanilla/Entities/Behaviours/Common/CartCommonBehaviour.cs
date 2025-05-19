@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
@@ -121,7 +122,16 @@ namespace MVZ2.Vanilla.Entities
             }
             SetCartTriggerCharge(entity, charge);
         }
-
+        public override void PostDeath(Entity entity, DeathInfo deathInfo)
+        {
+            base.PostDeath(entity, deathInfo);
+            if (!deathInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            {
+                var fragment = entity.GetOrCreateFragment();
+                Fragment.AddEmitSpeed(fragment, 500);
+            }
+            entity.Remove();
+        }
         public static void SetCartTriggerCharge(Entity entity, int value) => entity.SetBehaviourField(FIELD_TRIGGER_CHARGE, value);
         public static int GetCartTriggerCharge(Entity entity) => entity.GetBehaviourField<int>(FIELD_TRIGGER_CHARGE);
         public static void SetCartTriggerCharging(Entity entity, bool value) => entity.SetBehaviourField(FIELD_TRIGGER_CHARGING, value);

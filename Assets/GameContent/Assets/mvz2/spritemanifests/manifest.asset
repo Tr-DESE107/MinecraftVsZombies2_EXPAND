@@ -325,6 +325,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 70bd3779c2eea2b4fb4e071481e6acb1, type: 3}
   - name: mobile_blueprint/tesla_coil
     sprite: {fileID: 21300000, guid: d8b4a6fef193f41428666f3177af2af7, type: 3}
+  - name: mobile_blueprint/the_giant
+    sprite: {fileID: 21300000, guid: 68a34c0352f30f44fbe869081863c16f, type: 3}
   - name: mobile_blueprint/thunder_drum
     sprite: {fileID: 21300000, guid: 904706dca625dc84db7ba9432de30ec2, type: 3}
   - name: mobile_blueprint/tnt
@@ -645,6 +647,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 57a43fd6f9e8d124fb3ac37bc690d4aa, type: 3}
   - name: entity/effects/water_splash
     sprite: {fileID: 21300000, guid: 9d730e080bace4646938c15cdabc88d0, type: 3}
+  - name: entity/effects/zombie_block
+    sprite: {fileID: 21300000, guid: dd81e2f5e01461d4c9186fe9648f2c1f, type: 3}
   - name: entity/enemies/bedserker_bed
     sprite: {fileID: 21300000, guid: 4ac894cccf343c44e81c86c063ac4d75, type: 3}
   - name: entity/enemies/bedserker_head
@@ -1280,6 +1284,17 @@ MonoBehaviour:
     - {fileID: 6494446197138225416, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
     - {fileID: 5653982790268467409, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
     - {fileID: 5039749940984752654, guid: ae1a22e91a039eb4ab8bed023d69ca2d, type: 3}
+  - name: entity/boss/the_giant
+    spritesheet:
+    - {fileID: 2106222037, guid: cd590dd9f5d29994db2a5356364308e6, type: 3}
+    - {fileID: -482268163, guid: cd590dd9f5d29994db2a5356364308e6, type: 3}
+    - {fileID: -75763533, guid: cd590dd9f5d29994db2a5356364308e6, type: 3}
+    - {fileID: -685544824, guid: cd590dd9f5d29994db2a5356364308e6, type: 3}
+    - {fileID: -1785123263, guid: cd590dd9f5d29994db2a5356364308e6, type: 3}
+    - {fileID: -702476823, guid: cd590dd9f5d29994db2a5356364308e6, type: 3}
+  - name: entity/boss/the_giant_pac_man
+    spritesheet:
+    - {fileID: 21300000, guid: d666b54ec2852694a99c839ab3cea3b6, type: 3}
   - name: entity/cart/bowl_chariot
     spritesheet:
     - {fileID: -1314042680, guid: 66fb8eb08bbc74b40895bb373bead3ee, type: 3}

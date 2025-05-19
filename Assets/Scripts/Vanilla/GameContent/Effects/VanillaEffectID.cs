@@ -79,6 +79,8 @@ namespace MVZ2.GameContent.Effects
         public const string redline = "redline";
         public const string izObserver = "iz_observer";
         public const string spiritUniverse = "spirit_universe";
+        public const string zombieBlock = "zombie_block";
+        public const string darkFlash = "dark_hole";
     }
     public static class VanillaEffectID
     {
@@ -156,6 +158,8 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID redline = Get(VanillaEffectNames.redline);
         public static readonly NamespaceID izObserver = Get(VanillaEffectNames.izObserver);
         public static readonly NamespaceID spiritUniverse = Get(VanillaEffectNames.spiritUniverse);
+        public static readonly NamespaceID zombieBlock = Get(VanillaEffectNames.zombieBlock);
+        public static readonly NamespaceID darkFlash = Get(VanillaEffectNames.darkFlash);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -82,8 +82,12 @@ namespace MVZ2.Vanilla.Entities
         }
         public void StartState(Entity entity, int state)
         {
-            ExitState(entity, entity.State);
+            ExitState(entity, GetEntityState(entity));
             EnterState(entity, state);
+        }
+        public int GetEntityState(Entity entity)
+        {
+            return entity.State;
         }
         private void EnterState(Entity entity, int stateNum)
         {

@@ -110,6 +110,7 @@
     <model name="nightmareaper" type="entity" path="mvz2:boss/nightmareaper" width="240" height="200" xOffset="0" yOffset="-15"/>
     <model name="seija" type="entity" path="mvz2:boss/seija" width="30" height="88" xOffset="0" yOffset="-44"/>
     <model name="wither" type="entity" path="mvz2:boss/wither" width="112" height="168" xOffset="6" yOffset="-84"/>
+    <model name="the_giant" type="entity" path="mvz2:boss/the_giant" width="256" height="332" xOffset="0" yOffset="-40"/>
 
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:cart/minecart" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -213,6 +214,8 @@
     <model name="redline" type="entity" path="mvz2:effect/redline" width="80" height="80" xOffset="0" yOffset="0"/>
     <model name="iz_observer" type="entity" path="mvz2:effect/iz_observer" width="80" height="80" xOffset="0" yOffset="0"/>
     <model name="spirit_universe" type="entity" path="mvz2:effect/spirit_universe" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="zombie_block" type="entity" path="mvz2:effect/zombie_block" width="80" height="80" xOffset="0" yOffset="0"/>
+    <model name="dark_hole" type="entity" path="mvz2:effect/dark_hole" shot="false" width="120" height="120" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

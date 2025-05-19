@@ -64,6 +64,7 @@ namespace PVZEngine.Entities
             else if (name == EngineEntityProps.COLLISION_DETECTION)
             {
                 CollisionDetection = value.ToGeneric<int>();
+                entity.UpdateCollision();
             }
             else if (name == EngineEntityProps.COLLISION_SAMPLE_LENGTH)
             {

@@ -871,6 +871,10 @@
         <sample path="mvz2:entity/zombie/zombie_cry2" weight="1" />
         <sample path="mvz2:entity/zombie/zombie_cry3" weight="1" />
     </sound>
+    <sound name="zombie_hurt">
+        <sample path="mvz2:entity/zombie/hurt1" weight="1" />
+        <sample path="mvz2:entity/zombie/hurt2" weight="1" />
+    </sound>
     <sound name="zombie_death">
         <sample path="mvz2:entity/zombie/zombie_death" weight="1" />
     </sound>

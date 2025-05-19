@@ -267,6 +267,13 @@ namespace PVZEngine.Level
         {
             return GetGridLeftX() + column * GetGridWidth();
         }
+        public Vector3 GetEntityGridPosition(int column, int lane)
+        {
+            var x = GetEntityColumnX(column);
+            var z = GetEntityLaneZ(lane);
+            var y = GetGroundY(x, z);
+            return new Vector3(x, y, z);
+        }
         public float GetLaneZ(int lane)
         {
             return GetGridTopZ() - (lane + 1) * GetGridHeight();

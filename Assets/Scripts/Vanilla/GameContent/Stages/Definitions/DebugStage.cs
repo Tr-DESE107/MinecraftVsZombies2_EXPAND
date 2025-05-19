@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaEffectID.spiritUniverse,
+                VanillaBossID.theGiant,
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.wickedHermitZombie,
 
@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.gravitationBomb,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.forcePad,
-                VanillaContraptionID.drivenser,
+                VanillaContraptionID.dreamSilk,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

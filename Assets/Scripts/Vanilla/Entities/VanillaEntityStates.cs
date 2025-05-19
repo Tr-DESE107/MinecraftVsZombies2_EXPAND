@@ -19,6 +19,8 @@
         public const int BOSS_ATTACK_2 = 301;
         public const int BOSS_ATTACK_3 = 302;
         public const int BOSS_ATTACK_4 = 303;
+        public const int BOSS_ATTACK_5 = 304;
+        public const int BOSS_ATTACK_6 = 305;
         public const int BOSS_SPECIAL = 310;
         public const int BOSS_SPECIAL_2 = 311;
         public const int BOSS_SPECIAL_3 = 312;
@@ -108,6 +110,17 @@
         public const int WITHER_STUNNED = BOSS_FAINT;
         public const int WITHER_DEATH = DEAD;
 
+        public const int THE_GIANT_IDLE = BOSS_APPEAR;
+        public const int THE_GIANT_DISASSEMBLY = BOSS_SPECIAL;
+        public const int THE_GIANT_EYES = ATTACK;
+        public const int THE_GIANT_ROAR = BOSS_ATTACK_2;
+        public const int THE_GIANT_ARMS = BOSS_ATTACK_3;
+        public const int THE_GIANT_BREATH = BOSS_ATTACK_4;
+        public const int THE_GIANT_STUNNED = BOSS_FAINT;
+        public const int THE_GIANT_PACMAN = BOSS_ATTACK_5;
+        public const int THE_GIANT_SNAKE = BOSS_ATTACK_6;
+        public const int THE_GIANT_CHASE = WALK;
+        public const int THE_GIANT_DEATH = DEAD;
 
 
         public const int BREAKOUT_PEARL_IDLE = IDLE;

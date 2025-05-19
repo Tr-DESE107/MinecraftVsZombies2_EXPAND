@@ -197,6 +197,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID wood = Get("wood");
         public readonly static NamespaceID zap = Get("zap");
         public readonly static NamespaceID zombieCry = Get("zombie_cry");
+        public readonly static NamespaceID zombieHurt = Get("zombie_hurt");
         public readonly static NamespaceID zombieDeath = Get("zombie_death");
         private static NamespaceID Get(string name)
         {
