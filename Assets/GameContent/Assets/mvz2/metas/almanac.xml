@@ -1346,7 +1346,7 @@
                     <p>骑士握着手中的护身符。黑色的骷髅头中，闪烁着白色的，诡异的光。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:giant" name="巨人" unlock="mvz2:level.mausoleum_11">
+            <entry id="mvz2:the_giant" name="巨人" unlock="mvz2:level.mausoleum_11">
                 <icon sprite="mvz2:misc/giant"/>
                 <header>
                     <p>巨人是众多僵尸的集合体，它吞噬、吞噬，要吃掉一切。</p>

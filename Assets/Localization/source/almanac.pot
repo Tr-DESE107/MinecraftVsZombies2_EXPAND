@@ -1952,19 +1952,19 @@ msgid ""
 "骑士握着手中的护身符。黑色的骷髅头中，闪烁着白色的，诡异的光。"
 msgstr ""
 
-#. Name for misc mvz2:giant
+#. Name for misc mvz2:the_giant
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "巨人"
 msgstr ""
 
-#. Header for misc mvz2:giant
+#. Header for misc mvz2:the_giant
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "巨人是众多僵尸的集合体，它吞噬、吞噬，要吃掉一切。"
 msgstr ""
 
-#. Properties for misc mvz2:giant
+#. Properties for misc mvz2:the_giant
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
@@ -1974,7 +1974,7 @@ msgid ""
 "阶段3：<color=red>？</color>"
 msgstr ""
 
-#. Flavor for misc mvz2:giant
+#. Flavor for misc mvz2:the_giant
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""

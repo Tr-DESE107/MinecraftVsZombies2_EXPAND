@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-05-18 07:50+0800\n"
-"PO-Revision-Date: 2025-05-18 19:51+0800\n"
+"PO-Revision-Date: 2025-05-19 13:29+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2271,7 +2271,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "巨人的眼睛。"
-msgstr "Eyeball of the giant."
+msgstr "Eyeball of the Giant."
 
 #. Properties for artifacts mvz2:eye_of_the_giant
 #: Almanac meta file
@@ -2292,7 +2292,7 @@ msgid ""
 "\n"
 "眼睛愤怒地缩紧了瞳孔。"
 msgstr ""
-"The eye of the giant stares at you - as if it has something to say to you.\n"
+"The eye of the Giant stares at you - as if it has something to say to you.\n"
 "\n"
 "\"My friend, do you think someone like Seiga would repent and turn over a new leaf after such an ordeal, choosing to become a good "
 "person?\"\n"
@@ -2432,19 +2432,19 @@ msgstr ""
 "\"Hohoh, pay it no mind. You shall know its true purpose when the time comes.\" The diviner left.\n"
 "The knight held the protective charm. Within the black skull shined a bright, uncanny white light."
 
-#. Name for misc mvz2:giant
+#. Name for misc mvz2:the_giant
 #: Almanac meta file
 msgctxt "misc.name"
 msgid "巨人"
 msgstr "The Giant"
 
-#. Header for misc mvz2:giant
+#. Header for misc mvz2:the_giant
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "巨人是众多僵尸的集合体，它吞噬、吞噬，要吃掉一切。"
 msgstr "The Giant is an amalgamation of numerous zombies. It devours and devours, wanting to eat everything."
 
-#. Properties for misc mvz2:giant
+#. Properties for misc mvz2:the_giant
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
@@ -2458,7 +2458,7 @@ msgstr ""
 "Phase 2: <color=red>?</color>\n"
 "Phase 3: <color=red>?</color>"
 
-#. Flavor for misc mvz2:giant
+#. Flavor for misc mvz2:the_giant
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
