@@ -478,6 +478,9 @@
     <sound name="pacman_kill">
         <sample path="mvz2:pacman_kill" weight="1" />
     </sound>
+    <sound name="pacman_fail">
+        <sample path="mvz2:pacman_fail" weight="1" />
+    </sound>
     <sound name="paper" priority="64">
         <sample path="mvz2:paper" weight="1" />
     </sound>

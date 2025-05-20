@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Effects
         {
             base.Update(entity);
             var parent = entity.Parent;
-            if (!parent.ExistsAndAlive())
+            if (parent == null || !parent.Exists())
             {
                 entity.Remove();
                 return;

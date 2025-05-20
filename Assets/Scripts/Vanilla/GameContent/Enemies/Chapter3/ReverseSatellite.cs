@@ -13,6 +13,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -105,7 +106,7 @@ namespace MVZ2.GameContent.Enemies
             var pos = enemy.Position;
             var velocity = enemy.Velocity;
             var centerX = VanillaLevelExt.LAWN_CENTER_X;
-            var centerZ = (enemy.Level.GetGridTopZ() + enemy.Level.GetGridBottomZ()) * 0.5f;
+            var centerZ = enemy.Level.GetLawnCenterZ();
             var backDistanceX = 200;
             var backDistanceZ = 80;
             if (pos.x > centerX + backDistanceX)

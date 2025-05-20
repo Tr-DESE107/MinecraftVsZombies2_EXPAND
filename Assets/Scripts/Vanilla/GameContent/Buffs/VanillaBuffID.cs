@@ -172,6 +172,8 @@ namespace MVZ2.GameContent.Buffs
             public const string seijaFabric = "seija_fabric";
             public const string seijaGap = "seija_gap";
             public const string theGiantInactive = "the_giant_inactive";
+            public const string theGiantPacman = "the_giant_pacman";
+            public const string theGiantPacmanKilled = "the_giant_pacman_killed";
         }
     }
     public static class VanillaBuffID

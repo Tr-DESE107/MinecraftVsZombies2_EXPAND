@@ -1,4 +1,5 @@
-﻿using PVZEngine.Entities;
+﻿using System.Linq;
+using PVZEngine.Entities;
 
 namespace PVZEngine.Damages
 {
@@ -28,6 +29,28 @@ namespace PVZEngine.Damages
             if (ShieldResult != null && ShieldResult.Fatal)
                 return true;
             return false;
+        }
+        public float GetTotalAmount()
+        {
+            float sum = 0;
+            if (ArmorResult != null)
+                sum += ArmorResult.Amount;
+            if (BodyResult != null)
+                sum += BodyResult.Amount;
+            if (ShieldResult != null)
+                sum += ShieldResult.Amount;
+            return sum;
+        }
+        public float GetTotalSpendAmount()
+        {
+            float sum = 0;
+            if (ArmorResult != null)
+                sum += ArmorResult.SpendAmount;
+            if (BodyResult != null)
+                sum += BodyResult.SpendAmount;
+            if (ShieldResult != null)
+                sum += ShieldResult.SpendAmount;
+            return sum;
         }
         public DamageResult[] GetAllResults()
         {

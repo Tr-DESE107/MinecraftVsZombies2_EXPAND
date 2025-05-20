@@ -3256,6 +3256,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68ec678f2e1fdfc4eab7a8de70fdf77c
+    m_Address: mvz2:entity/effects/sonic_wave
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 691131bb6028ac44c8e585797df31cec
     m_Address: mvz2:talk/villager/villager_long2
     m_ReadOnly: 0
@@ -3414,6 +3420,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7017edb31ab2f3a418840893c3162370
     m_Address: mvz2:grow_big
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 702352f264a9bce47b8651469e71d4cf
+    m_Address: mvz2:pacman_fail
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -6682,7 +6694,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d666b54ec2852694a99c839ab3cea3b6
-    m_Address: mvz2:entity/boss/the_giant_pac_man
+    m_Address: mvz2:entity/boss/the_giant_pacman
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet

@@ -59,8 +59,8 @@ namespace MVZ2.GameContent.Stages
                     }
                     else
                     {
-                        var x = (level.GetGridLeftX() + level.GetGridRightX()) * 0.5f;
-                        var z = (level.GetGridTopZ() + level.GetGridBottomZ()) * 0.5f;
+                        var x = level.GetLawnCenterX();
+                        var z = level.GetLawnCenterZ();
                         var y = level.GetGroundY(x, z);
                         position = new Vector3(x, y, z);
                     }

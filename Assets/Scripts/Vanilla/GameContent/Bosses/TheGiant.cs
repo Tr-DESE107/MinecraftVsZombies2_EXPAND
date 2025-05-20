@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
@@ -19,6 +21,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -82,6 +85,35 @@ namespace MVZ2.GameContent.Bosses
                 return;
             if (!other.Exists() || !other.IsHostile(self))
                 return;
+            if (self.State == STATE_PACMAN)
+            {
+                if (IsPacmanGhost(other) && IsPacman(self))
+                {
+                    var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE);
+                    self.TakeDamage(PACMAN_GHOST_DAMAGE, damageEffects, other);
+                    KillPacman(self);
+                    return;
+                }
+                if (!other.IsInvincible() && !IsPacmanPanic(self))
+                {
+                    var damageEffects = new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.MUTE);
+                    var result = collision.OtherCollider.TakeDamage(self.GetDamage() * PACMAN_DAMAGE_MULTIPLIER, damageEffects, self);
+                    if (result != null)
+                    {
+                        var level = self.Level;
+                        self.HealEffects(result.GetTotalSpendAmount(), other);
+                        if (!level.IsPlayingSound(VanillaSoundID.pacmanAttack))
+                        {
+                            level.PlaySound(VanillaSoundID.pacmanAttack);
+                        }
+                        if (result.HasAnyFatal())
+                        {
+                            other.PlaySound(VanillaSoundID.pacmanKill);
+                        }
+                    } 
+                }
+                return;
+            }
             if (other.Type == EntityTypes.CART)
             {
                 other.Die(self);
@@ -97,10 +129,6 @@ namespace MVZ2.GameContent.Bosses
                 if (result != null && result.HasAnyFatal())
                 {
                     other.PlaySound(VanillaSoundID.smash);
-                    if (self.State == STATE_PACMAN)
-                    {
-                        self.HealEffects(STATE_PACMAN, other);
-                    }
                 }
             }
         }
@@ -121,6 +149,8 @@ namespace MVZ2.GameContent.Bosses
         public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
         public static bool IsFlipX(Entity entity) => entity.GetBehaviourField<bool>(PROP_FLIP_X);
         public static void SetFlipX(Entity entity, bool value) => entity.SetBehaviourField(PROP_FLIP_X, value);
+        public static int GetTargetGridIndex(Entity entity) => entity.GetBehaviourField<int>(PROP_TARGET_GRID_INDEX);
+        public static void SetTargetGridIndex(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_GRID_INDEX, value);
 
         #region 僵尸块
         public static List<EntityID> GetZombieBlocks(Entity entity) => entity.GetBehaviourField<List<EntityID>>(PROP_ZOMBIE_BLOCKS);
@@ -203,22 +233,69 @@ namespace MVZ2.GameContent.Bosses
         {
             return entity.Level.GetMaxColumnCount() - ZOMBIE_BLOCK_COLUMNS;
         }
+        public static int GetZombieBlockStartColumn(Entity entity, int x, bool atLeft)
+        {
+            int column;
+            if (atLeft)
+            {
+                column = GetZombieBlockLeftStartColumn(entity) - x;
+            }
+            else
+            {
+                column = GetZombieBlockRightStartColumn(entity) + x;
+            }
+            return column;
+        }
+        public static int GetZombieBlockEndColumn(Entity entity, int x, bool atLeft)
+        {
+            int columnEnd;
+            if (atLeft)
+            {
+                columnEnd = GetZombieBlockRightStartColumn(entity) - x + (ZOMBIE_BLOCK_COLUMNS - 1);
+            }
+            else
+            {
+                columnEnd = GetZombieBlockLeftStartColumn(entity) + x - (ZOMBIE_BLOCK_COLUMNS - 1);
+            }
+            return columnEnd;
+        }
+        public static Vector3 GetZombieBlockPosition(Entity entity, int index, bool atLeft)
+        {
+            int x = index % ZOMBIE_BLOCK_COLUMNS;
+            int y = index / ZOMBIE_BLOCK_COLUMNS;
+            int column = GetZombieBlockStartColumn(entity, x, atLeft);
+            int columnEnd = GetZombieBlockEndColumn(entity, x, atLeft);
+            var lane = y;
+            return entity.Level.GetEntityGridPosition(column, lane);
+        }
+        public static Vector3 GetPacmanBlockPosition(Entity entity, int index, bool atLeft)
+        {
+            var level = entity.Level;
+            var gridPositionOffset = pacmanBlockGridOffsets[index];
+            var originX = level.GetEntityColumnX(atLeft ? 0 : (level.GetMaxColumnCount() - 1));
+            var originZ = entity.Position.z;
+            var xOffset = gridPositionOffset.x * level.GetGridWidth();
+            var x = originX + (atLeft ? xOffset : -xOffset);
+            var z = originZ + gridPositionOffset.y * level.GetGridHeight();
+            var y = level.GetGroundY(x, z);
+            return new Vector3(x, y, z);
+        }
 
         #region 拼合位置
-        public static float GetCombineX(Entity entity, bool atRight)
+        public static float GetCombineX(Entity entity, bool atLeft)
         {
             var level = entity.Level;
             int startColumn;
             int endColumn;
-            if (atRight)
-            {
-                startColumn = GetZombieBlockRightStartColumn(entity);
-                endColumn = startColumn + ZOMBIE_BLOCK_COLUMNS;
-            }
-            else
+            if (atLeft)
             {
                 startColumn = GetZombieBlockLeftStartColumn(entity);
                 endColumn = startColumn - ZOMBIE_BLOCK_COLUMNS;
+            }
+            else
+            {
+                startColumn = GetZombieBlockRightStartColumn(entity);
+                endColumn = startColumn + ZOMBIE_BLOCK_COLUMNS;
             }
             var startX = level.GetEntityColumnX(startColumn);
             var endX = level.GetEntityColumnX(endColumn);
@@ -226,13 +303,12 @@ namespace MVZ2.GameContent.Bosses
         }
         public static float GetCombineZ(Entity entity)
         {
-            var level = entity.Level;
-            return (level.GetGridTopZ() + level.GetGridBottomZ()) * 0.5f;
+            return entity.Level.GetLawnCenterZ();
         }
-        public static Vector3 GetCombinePosition(Entity entity, bool atRight)
+        public static Vector3 GetCombinePosition(Entity entity, bool atLeft)
         {
             var level = entity.Level;
-            var x = GetCombineX(entity, atRight);
+            var x = GetCombineX(entity, atLeft);
             var z = GetCombineZ(entity);
             var y = level.GetGroundY(x, z);
             return new Vector3(x, y, z);
@@ -272,11 +348,39 @@ namespace MVZ2.GameContent.Bosses
             return target.Type == EntityTypes.PLANT && target.IsHostile(entity) && target.CanDeactive();
         }
 
+        public static bool IsPacman(Entity entity)
+        {
+            var state = stateMachine.GetEntityState(entity);
+            var subState = stateMachine.GetSubState(entity);
+            return state == STATE_PACMAN && subState == PacmanState.SUBSTATE_PACMAN;
+        }
+        public static bool IsPacmanPanic(Entity entity)
+        {
+            return IsPacmanGhost(entity.Target);
+        }
+        public static Entity GetPacmanPanicDevourer(Entity entity)
+        {
+            return entity.Level.FindFirstEntityWithTheLeast(IsPacmanGhost, e => (e.Position - entity.Position).sqrMagnitude);
+        }
+        public static bool IsPacmanGhost(Entity entity)
+        {
+            return entity.ExistsAndAlive() && entity.IsEntityOf(VanillaContraptionID.devourer) && entity.IsEvoked();
+        }
+        public static void KillPacman(Entity entity)
+        {
+            stateMachine.SetSubState(entity, PacmanState.SUBSTATE_PACMAN_DEATH);
+            var substateTimer = stateMachine.GetSubStateTimer(entity);
+            substateTimer.ResetTime(60);
+            entity.PlaySound(VanillaSoundID.pacmanFail);
+            entity.AddBuff<TheGiantPacmanKilledBuff>();
+        }
+
         #region 常量
         private static readonly VanillaEntityPropertyMeta PROP_CRY_TIMER = new VanillaEntityPropertyMeta("CryTimer");
         private static readonly VanillaEntityPropertyMeta PROP_PHASE = new VanillaEntityPropertyMeta("Phase");
         private static readonly VanillaEntityPropertyMeta PROP_ZOMBIE_BLOCKS = new VanillaEntityPropertyMeta("ZombieBlocks");
         private static readonly VanillaEntityPropertyMeta PROP_FLIP_X = new VanillaEntityPropertyMeta("FlipX");
+        private static readonly VanillaEntityPropertyMeta PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta("TargetGridIndex");
 
 
         private static readonly Vector3 OUTER_EYE_BULLET_OFFSET = new Vector3(70, 140, 0);
@@ -324,6 +428,12 @@ namespace MVZ2.GameContent.Bosses
         public const float SMASH_DAMAGE_MULTIPLIER = 100;
         public const int ROAR_STUN_TIME = 150;
 
+        public const int PACMAN_BLOCK_COUNT = 8;
+        public const int PACMAN_DURATION = 300;
+        public const float PACMAN_MOVE_SPEED = 3;
+        public const float PACMAN_DAMAGE_MULTIPLIER = 0.03f;
+        public const float PACMAN_GHOST_DAMAGE = 600;
+
         public const int CRY_INTERVAL = 300;
 
         public static int[] unstunnableStates = new int[]
@@ -334,10 +444,22 @@ namespace MVZ2.GameContent.Bosses
             STATE_STUNNED,
             STATE_FAINT
         };
+        public static Vector2Int[] pacmanBlockGridOffsets = new Vector2Int[]
+        {
+            new Vector2Int(0, 0),
+            new Vector2Int(0, 1),
+            new Vector2Int(0, -1),
+            new Vector2Int(1, 0),
+            new Vector2Int(1, 1),
+            new Vector2Int(1, -1),
+            new Vector2Int(2, 1),
+            new Vector2Int(2, -1)
+        };
         public static Detector outerEyeBulletDetector = new TheGiantEyeDetector(true);
         public static Detector innerEyeBulletDetector = new TheGiantEyeDetector(false);
         public static Detector outerArmDetector = new TheGiantArmDetector(true);
         public static Detector innerArmDetector = new TheGiantArmDetector(false);
+        public static Detector pacmanDetector = new DevourerEvokedDetector();
         private static ArrayBuffer<IEntityCollider> smashDetectBuffer = new ArrayBuffer<IEntityCollider>(8);
 
         #endregion 常量

@@ -120,6 +120,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID pacmanAttack = Get("pacman_attack");
         public readonly static NamespaceID pacmanGhost = Get("pacman_ghost");
         public readonly static NamespaceID pacmanKill = Get("pacman_kill");
+        public readonly static NamespaceID pacmanFail = Get("pacman_fail");
         public readonly static NamespaceID paper = Get("paper");
         public readonly static NamespaceID parabotTick = Get("parabot_tick");
         public readonly static NamespaceID parasitize = Get("parasitize");

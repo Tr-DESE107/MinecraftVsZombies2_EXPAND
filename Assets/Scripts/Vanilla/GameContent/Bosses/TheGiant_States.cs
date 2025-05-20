@@ -2,12 +2,9 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
-using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
@@ -15,7 +12,6 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -32,6 +28,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new ArmsState());
                 AddState(new RoarState());
                 AddState(new BreathState());
+                AddState(new PacmanState());
                 AddState(new StunState());
                 AddState(new FaintState());
                 AddState(new ChaseState());
@@ -97,6 +94,42 @@ namespace MVZ2.GameContent.Bosses
                 stateMachine.StartState(entity, STATE_DEATH);
             }
         }
+        private static Entity SpawnZombieBlock(Entity spawner, Vector3 position)
+        {
+            var block = spawner.Spawn(VanillaEffectID.zombieBlock, position, spawner.GetSpawnParams());
+            block.SetParent(spawner);
+            AddZombieBlock(spawner, new EntityID(block));
+            return block;
+        }
+        private static bool AreAllZombieBlocksReached(Entity parent)
+        {
+            var blocks = GetZombieBlocks(parent);
+            if (blocks == null)
+                return true;
+            foreach (var blockID in blocks)
+            {
+                var block = blockID.GetEntity(parent.Level);
+                if (!block.ExistsAndAlive())
+                    continue;
+                if (!ZombieBlock.IsReached(block))
+                    return false;
+            }
+            return true;
+        }
+        private static void RemoveAllZombieBlocks(Entity parent)
+        {
+            var blocks = GetZombieBlocks(parent);
+            if (blocks == null)
+                return;
+            foreach (var blockID in blocks)
+            {
+                var block = blockID.GetEntity(parent.Level);
+                if (block == null || !block.Exists())
+                    continue;
+                block.Remove();
+            }
+            blocks.Clear();
+        }
 
         #region 状态
         private class IdleState : EntityStateMachineState
@@ -159,6 +192,7 @@ namespace MVZ2.GameContent.Bosses
             }
             private int GetNextState(EntityStateMachine stateMachine, Entity entity)
             {
+                return STATE_PACMAN;
                 var lastState = stateMachine.GetPreviousState(entity);
 
                 var atLeft = AtLeft(entity);
@@ -250,33 +284,22 @@ namespace MVZ2.GameContent.Bosses
                             var validLanes = Enumerable.Range(0, lanes);
                             for (int x = 0; x < ZOMBIE_BLOCK_COLUMNS; x++)
                             {
-                                int column;
-                                int columnEnd;
-                                if (atLeft)
-                                {
-                                    column = GetZombieBlockLeftStartColumn(entity) - x;
-                                    columnEnd = GetZombieBlockRightStartColumn(entity) - x + (ZOMBIE_BLOCK_COLUMNS - 1);
-                                }
-                                else
-                                {
-                                    column = GetZombieBlockRightStartColumn(entity) + x;
-                                    columnEnd = GetZombieBlockLeftStartColumn(entity) + x - (ZOMBIE_BLOCK_COLUMNS - 1);
-                                }
+                                int column = GetZombieBlockStartColumn(entity, x, atLeft);
+                                int columnEnd = GetZombieBlockEndColumn(entity, x, atLeft);
                                 var lanesPool = validLanes.Shuffle(rng);
                                 for (int y = 0; y < lanes; y++)
                                 {
                                     var i = y + x * lanes;
                                     var lane = lanesPool.ElementAt(y);
-                                    var block = entity.Spawn(VanillaEffectID.zombieBlock, entity.Position, entity.GetSpawnParams());
-                                    block.SetParent(entity);
+
+                                    var block = SpawnZombieBlock(entity, entity.Position);
                                     ZombieBlock.SetStartGrid(block, column, lane);
                                     ZombieBlock.SetTargetGrid(block, columnEnd, lane);
                                     ZombieBlock.SetMoveCooldown(block, 30 + i * ZOMBIE_BLOCK_MOVE_INTERVAL);
-                                    AddZombieBlock(entity, new EntityID(block));
                                 }
                             }
                             SpawnDarkHole(entity);
-                            entity.Position = GetCombinePosition(entity, atLeft);
+                            entity.Position = GetCombinePosition(entity, !atLeft);
                         }
                         break;
                     case SUBSTATE_TO_LEFT:
@@ -284,43 +307,13 @@ namespace MVZ2.GameContent.Bosses
                         if (substateTimer.Expired)
                         {
                             var blocks = GetZombieBlocks(entity);
-                            bool allReached = true;
-                            if (blocks != null)
+                            if (!AreAllZombieBlocksReached(entity))
                             {
-                                foreach (var blockID in blocks)
-                                {
-                                    var block = blockID.GetEntity(entity.Level);
-                                    if (!block.ExistsAndAlive())
-                                        continue;
-                                    if (!ZombieBlock.IsReached(block))
-                                    {
-                                        substateTimer.Reset();
-                                        allReached = false;
-                                        break;
-                                    }
-                                }
+                                substateTimer.Reset();
+                                break;
                             }
-                            if (allReached)
-                            {
-                                stateMachine.SetSubState(entity, SUBSTATE_COMBINE);
-                                substateTimer.ResetTime(15);
-                                if (blocks != null)
-                                {
-                                    foreach (var blockID in blocks)
-                                    {
-                                        var block = blockID.GetEntity(entity.Level);
-                                        if (block == null || !block.Exists())
-                                            continue;
-                                        ZombieBlock.SetTargetPosition(block, entity.Position);
-                                    }
-                                }
-                            }
-                        }
-                        break;
-                    case SUBSTATE_COMBINE:
-                        if (substateTimer.Expired)
-                        {
-                            var blocks = GetZombieBlocks(entity);
+                            stateMachine.SetSubState(entity, SUBSTATE_COMBINE);
+                            substateTimer.ResetTime(15);
                             if (blocks != null)
                             {
                                 foreach (var blockID in blocks)
@@ -328,11 +321,16 @@ namespace MVZ2.GameContent.Bosses
                                     var block = blockID.GetEntity(entity.Level);
                                     if (block == null || !block.Exists())
                                         continue;
-                                    block.Remove();
+                                    ZombieBlock.SetTargetPosition(block, entity.Position);
                                 }
                             }
+                        }
+                        break;
+                    case SUBSTATE_COMBINE:
+                        if (substateTimer.Expired)
+                        {
+                            RemoveAllZombieBlocks(entity);
                             SpawnDarkHole(entity);
-                            ClearZombieBlocks(entity);
                             SetInactive(entity, false);
                             SetFlipX(entity, AtLeft(entity));
                             stateMachine.SetSubState(entity, SUBSTATE_RESTORE);
@@ -666,6 +664,238 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_BREATH = 1;
             public const int SUBSTATE_END = 2;
+        }
+        private class PacmanState : EntityStateMachineState
+        {
+            public PacmanState() : base(STATE_PACMAN, ANIMATION_STATE_PACMAN) { }
+            public override void OnEnter(EntityStateMachine machine, Entity entity)
+            {
+                base.OnEnter(machine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetTime(10);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.Run(stateMachine.GetSpeed(entity));
+
+                var substate = stateMachine.GetSubState(entity);
+                switch (substate)
+                {
+                    case SUBSTATE_CURL:
+                        if (substateTimer.Expired)
+                        {
+                            SetInactive(entity, true);
+                            // 分离。
+                            bool atLeft = AtLeft(entity);
+                            var targetState = SUBSTATE_FORM;
+                            stateMachine.SetSubState(entity, targetState);
+                            substateTimer.ResetTime(30);
+
+                            var level = entity.Level;
+                            var rng = entity.RNG;
+                            var lanes = level.GetMaxLaneCount();
+                            var validLanes = Enumerable.Range(0, lanes);
+                            for (int i = 0; i < PACMAN_BLOCK_COUNT; i++)
+                            {
+                                var startPosition = GetZombieBlockPosition(entity, i, false);
+                                var targetPosition = GetPacmanBlockPosition(entity, i, false);
+                                var block = SpawnZombieBlock(entity, entity.Position);
+                                ZombieBlock.SetStartPosition(block, startPosition);
+                                ZombieBlock.SetTargetPosition(block, targetPosition);
+                                ZombieBlock.SetMoveCooldown(block, 30);
+                                block.SetDamage(0);
+                            }
+                            SpawnDarkHole(entity);
+                            entity.Position = GetCombinePosition(entity, !atLeft);
+                        }
+                        break;
+                    case SUBSTATE_FORM:
+                        if (substateTimer.Expired)
+                        {
+                            if (!AreAllZombieBlocksReached(entity))
+                            {
+                                substateTimer.Reset();
+                                break;
+                            }
+                            RemoveAllZombieBlocks(entity);
+
+                            SpawnDarkHole(entity);
+                            SetInactive(entity, false);
+                            SetFlipX(entity, false);
+                            stateMachine.SetSubState(entity, SUBSTATE_PACMAN);
+                            stateMachine.SetAnimationSubstate(entity, ANIMATION_SUBSTATE_PACMAN);
+                            substateTimer.ResetTime(PACMAN_DURATION);
+                            entity.PlaySound(VanillaSoundID.pacmanStart, 0.75f);
+                            entity.AddBuff<TheGiantPacmanBuff>();
+                            FindPacmanTarget(entity);
+                        }
+                        break;
+                    case SUBSTATE_PACMAN:
+                        UpdatePacman(entity);
+                        if (!IsPacmanPanic(entity) && (substateTimer.Expired || entity.IsDead))
+                        {
+                            for (int i = 0; i < PACMAN_BLOCK_COUNT; i++)
+                            {
+                                var targetPosition = GetZombieBlockPosition(entity, i, true);
+                                var block = SpawnZombieBlock(entity, entity.Position);
+                                ZombieBlock.SetStartPosition(block, entity.Position);
+                                ZombieBlock.SetTargetPosition(block, targetPosition);
+                                ZombieBlock.SetMoveCooldown(block, 0);
+                                block.SetDamage(0);
+                            }
+                            SpawnDarkHole(entity);
+                            SetInactive(entity, true);
+                            entity.RemoveBuffs<TheGiantPacmanBuff>();
+                            stateMachine.SetSubState(entity, SUBSTATE_PACMAN_END);
+                            substateTimer.ResetTime(30);
+                            entity.Position = GetCombinePosition(entity, true);
+                        }
+                        break;
+                    case SUBSTATE_PACMAN_DEATH:
+                        entity.SetAnimationInt("PacmanRotation", 4);
+                        entity.SetAnimationInt("PacmanState", 2);
+                        if (substateTimer.Expired || entity.IsDead)
+                        {
+                            for (int i = 0; i < PACMAN_BLOCK_COUNT; i++)
+                            {
+                                var targetPosition = GetZombieBlockPosition(entity, i, true);
+                                var block = SpawnZombieBlock(entity, entity.Position);
+                                ZombieBlock.SetStartPosition(block, entity.Position);
+                                ZombieBlock.SetTargetPosition(block, targetPosition);
+                                ZombieBlock.SetMoveCooldown(block, 0);
+                                block.SetDamage(0);
+                            }
+                            SpawnDarkHole(entity);
+                            SetInactive(entity, true);
+                            entity.RemoveBuffs<TheGiantPacmanBuff>();
+                            entity.RemoveBuffs<TheGiantPacmanKilledBuff>();
+                            stateMachine.SetSubState(entity, SUBSTATE_PACMAN_END);
+                            substateTimer.ResetTime(30);
+                            entity.Position = GetCombinePosition(entity, true);
+                        }
+                        break;
+                    case SUBSTATE_PACMAN_END:
+                        if (substateTimer.Expired)
+                        {
+                            if (!AreAllZombieBlocksReached(entity))
+                            {
+                                substateTimer.Reset();
+                                break;
+                            }
+                            stateMachine.SetSubState(entity, SUBSTATE_COMBINE);
+                            substateTimer.ResetTime(15);
+                            var blocks = GetZombieBlocks(entity);
+                            if (blocks != null)
+                            {
+                                foreach (var blockID in blocks)
+                                {
+                                    var block = blockID.GetEntity(entity.Level);
+                                    if (block == null || !block.Exists())
+                                        continue;
+                                    ZombieBlock.SetTargetPosition(block, entity.Position);
+                                }
+                            }
+                        }
+                        break;
+                    case SUBSTATE_COMBINE:
+                        if (substateTimer.Expired)
+                        {
+                            RemoveAllZombieBlocks(entity);
+                            SpawnDarkHole(entity);
+                            SetInactive(entity, false);
+                            SetFlipX(entity, true);
+                            if (entity.IsDead)
+                            {
+                                stateMachine.StartState(entity, STATE_FAINT);
+                            }
+                            else
+                            {
+                                stateMachine.SetSubState(entity, SUBSTATE_REFORMED);
+                                stateMachine.SetAnimationSubstate(entity, ANIMATION_SUBSTATE_REFROMED);
+                                substateTimer.ResetTime(30);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_REFORMED:
+                        if (substateTimer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                            stateMachine.SetSubState(entity, IdleState.SUBSTATE_REFORMED);
+                        }
+                        break;
+                }
+            }
+            public void UpdatePacman(Entity entity)
+            {
+                var level = entity.Level;
+                var targetGridIndex = GetTargetGridIndex(entity);
+                var targetGridCol = level.GetGridColumnByIndex(targetGridIndex);
+                var targetGridLane = level.GetGridLaneByIndex(targetGridIndex);
+                var targetGridX = level.GetEntityColumnX(targetGridCol);
+                var targetGridZ = level.GetEntityLaneZ(targetGridLane);
+                var targetGridY = level.GetGroundY(targetGridX, targetGridZ);
+                var targetGridPosition = new Vector3(targetGridX, targetGridY, targetGridZ);
+                var targetGridDistance = targetGridPosition - entity.Position;
+                if (targetGridDistance.magnitude <= PACMAN_MOVE_SPEED)
+                {
+                    // 更新目标。
+                    entity.Position = targetGridPosition;
+
+                    FindPacmanTarget(entity);
+                }
+
+                entity.Position += targetGridDistance.normalized * PACMAN_MOVE_SPEED;
+                entity.SetAnimationInt("PacmanRotation", GetPacmanRotation(targetGridDistance));
+                entity.SetAnimationInt("PacmanState", IsPacmanPanic(entity) ? 1 : 0);
+            }
+            public static int GetPacmanRotation(Vector3 direction)
+            {
+                var dir = direction.normalized;
+                if (Mathf.Abs(dir.z) > Mathf.Abs(dir.x))
+                {
+                    if (direction.z < 0)
+                    {
+                        return 3; // Down.
+                    }
+                    return 1; // Up.
+                }
+                if (direction.x > 0)
+                {
+                    return 2; // Right.
+                }
+                return 0; // Left.
+            }
+            public static void FindPacmanTarget(Entity entity)
+            {
+                var devourer = GetPacmanPanicDevourer(entity);
+                if (devourer != null)
+                {
+                    entity.Target = devourer;
+                    var grid = entity.GetEvadeTargetGrid(devourer);
+                    SetTargetGridIndex(entity, grid.GetIndex());
+                }
+                else
+                {
+                    var level = entity.Level;
+                    var target = pacmanDetector.DetectEntityWithTheLeast(entity, e => Vector3.SqrMagnitude(e.Position - entity.Position));
+                    entity.Target = target;
+                    var grid = entity.GetChaseTargetGrid(entity.Target);
+                    SetTargetGridIndex(entity, grid.GetIndex());
+                }
+
+            }
+            public const int SUBSTATE_CURL = 0;
+            public const int SUBSTATE_FORM = 1;
+            public const int SUBSTATE_PACMAN = 2;
+            public const int SUBSTATE_PACMAN_END = 3;
+            public const int SUBSTATE_COMBINE = 4;
+            public const int SUBSTATE_REFORMED = 5;
+            public const int SUBSTATE_PACMAN_DEATH = 6;
+            public const int ANIMATION_SUBSTATE_CURL = 0;
+            public const int ANIMATION_SUBSTATE_PACMAN = 1;
+            public const int ANIMATION_SUBSTATE_REFROMED = 2;
         }
         private class StunState : EntityStateMachineState
         {

@@ -235,6 +235,14 @@ namespace PVZEngine.Level
         {
             return gridBottomZ;
         }
+        public float GetLawnCenterX()
+        {
+            return (GetGridLeftX() + GetGridRightX()) * 0.5f;
+        }
+        public float GetLawnCenterZ()
+        {
+            return (GetGridBottomZ() + GetGridTopZ()) * 0.5f;
+        }
         public int GetMaxLaneCount()
         {
             return maxLaneCount;

@@ -89,7 +89,7 @@ namespace MVZ2.GameContent.Stages
                     {
                         level.WaveState = STATE_FINISHED;
                         var x = level.GetEntityColumnX(Mathf.FloorToInt(level.GetMaxColumnCount() * 0.5f));
-                        var z = level.GetEntityLaneZ(Mathf.CeilToInt(level.GetMaxLaneCount() * 0.5f));
+                        var z = level.GetEntityLaneZ(Mathf.FloorToInt(level.GetMaxLaneCount() * 0.5f));
                         var y = level.GetGroundY(x, z);
                         var position = new Vector3(x, y, z);
                         level.Produce(VanillaPickupID.clearPickup, position, null);

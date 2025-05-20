@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
@@ -153,72 +154,17 @@ namespace MVZ2.GameContent.Contraptions
         private void FindPacmanGhostTarget(Entity devourer)
         {
             var level = devourer.Level;
-            var target = evokedDetector.DetectEntityWithTheLeast(devourer, e => Vector3.SqrMagnitude(e.Position - devourer.Position));
-            devourer.Target = target;
-
-            var lane = devourer.GetLane();
-            var column = devourer.GetColumn();
-            var x = devourer.Position.x;
-
-            Vector2Int newTargetGridOffset = Vector2Int.zero;
-
-            if (target.ExistsAndAlive())
+            var giant = level.FindFirstEntity(e => e.IsEntityOf(VanillaBossID.theGiant) && TheGiant.IsPacman(e));
+            if (giant != null)
             {
-                var targetLane = target.GetLane();
-                var targetX = target.Position.x;
-                if (targetLane < lane)
-                {
-                    if (lane > 0)
-                    {
-                        newTargetGridOffset = new Vector2Int(0, -1);
-                    }
-                }
-                else if (targetLane > lane)
-                {
-                    if (lane < level.GetMaxLaneCount())
-                    {
-                        newTargetGridOffset = new Vector2Int(0, 1);
-                    }
-                }
-                else if (targetX > x)
-                {
-                    if (column < level.GetMaxColumnCount())
-                    {
-                        newTargetGridOffset = new Vector2Int(1, 0);
-                    }
-                }
-                else
-                {
-                    if (column > 0)
-                    {
-                        newTargetGridOffset = new Vector2Int(-1, 0);
-                    }
-                }
+                devourer.Target = giant;
             }
             else
             {
-                var rng = devourer.RNG;
-                List<Vector2Int> possibleDirections = new List<Vector2Int>();
-
-                if (lane > 0)
-                {
-                    possibleDirections.Add(new Vector2Int(0, -1));
-                }
-                if (lane < level.GetMaxLaneCount())
-                {
-                    possibleDirections.Add(new Vector2Int(0, 1));
-                }
-                if (column < level.GetMaxColumnCount())
-                {
-                    possibleDirections.Add(new Vector2Int(1, 0));
-                }
-                if (column > 0)
-                {
-                    possibleDirections.Add(new Vector2Int(-1, 0));
-                }
-                newTargetGridOffset = possibleDirections.Random(rng);
+                var target = evokedDetector.DetectEntityWithTheLeast(devourer, e => Vector3.SqrMagnitude(e.Position - devourer.Position));
+                devourer.Target = target;
             }
-            var grid = level.GetGrid(column + newTargetGridOffset.x, lane + newTargetGridOffset.y) ?? devourer.GetGrid();
+            var grid = devourer.GetChaseTargetGrid(devourer.Target);
             SetTargetGridIndex(devourer, grid.GetIndex());
         }
         private void StartPacmanGhost(Entity devourer)

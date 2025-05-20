@@ -5,6 +5,7 @@ using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
@@ -27,6 +28,7 @@ using PVZEngine.Level;
 using Tools;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -707,6 +709,88 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.EquipArmorTo(VanillaArmorSlots.main, id);
         }
+        #endregion
+
+        #region 寻路
+        public static LawnGrid GetChaseTargetGrid(this Entity entity, Entity target, Func<Entity, Vector2Int, bool> gridValidator)
+        {
+            var level = entity.Level;
+            var lane = entity.GetLane();
+            var column = entity.GetColumn();
+            var x = entity.Position.x;
+
+            Vector2Int currentGrid = new Vector2Int(column, lane);
+            Vector2Int newTargetGridOffset = Vector2Int.zero;
+            var possibleDirections = adjacentGridOffsets.Where(o => gridValidator(entity, currentGrid + o));
+
+            if (target.ExistsAndAlive() && possibleDirections.Count() > 0)
+            {
+                var targetLane = target.GetLane();
+                float currentDistanceY = currentGrid.y - targetLane;
+                float currentDistanceX = entity.Position.x - target.Position.x;
+                var orderedDirections = possibleDirections
+                    .OrderBy(o => Mathf.Abs(currentDistanceY + o.y) - Mathf.Abs(currentDistanceY))
+                    .ThenBy(o => Mathf.Abs(currentDistanceX + o.x * level.GetGridWidth()) - Mathf.Abs(currentDistanceX));
+                newTargetGridOffset = orderedDirections.FirstOrDefault();
+            }
+            else
+            {
+                var rng = entity.RNG;
+                newTargetGridOffset = possibleDirections.Random(rng);
+            }
+            return level.GetGrid(currentGrid + newTargetGridOffset) ?? entity.GetGrid();
+        }
+        public static LawnGrid GetChaseTargetGrid(this Entity entity, Entity target)
+        {
+            return GetChaseTargetGrid(entity, target, (e, p) => ValidateGridOutOfBounds(e.Level, p));
+        }
+        public static LawnGrid GetEvadeTargetGrid(this Entity entity, Entity target, Func<Entity, Vector2Int, bool> gridValidator)
+        {
+            var level = entity.Level;
+            var lane = entity.GetLane();
+            var column = entity.GetColumn();
+            var x = entity.Position.x;
+
+            Vector2Int currentGrid = new Vector2Int(column, lane);
+            Vector2Int newTargetGridOffset = Vector2Int.zero;
+            var possibleDirections = adjacentGridOffsets.Where(o => gridValidator(entity, currentGrid + o));
+
+            if (target.ExistsAndAlive() && possibleDirections.Count() > 0)
+            {
+                var targetLane = target.GetLane();
+                float currentDistanceY = currentGrid.y - targetLane;
+                float currentDistanceX = entity.Position.x - target.Position.x;
+                var orderedDirections = possibleDirections
+                    .OrderByDescending(o => Mathf.Abs(currentDistanceY + o.y) - Mathf.Abs(currentDistanceY))
+                    .ThenByDescending(o => Mathf.Abs(currentDistanceX + o.x * level.GetGridWidth()) - Mathf.Abs(currentDistanceX));
+                newTargetGridOffset = orderedDirections.FirstOrDefault();
+            }
+            else
+            {
+                var rng = entity.RNG;
+                newTargetGridOffset = possibleDirections.Random(rng);
+            }
+            return level.GetGrid(currentGrid + newTargetGridOffset) ?? entity.GetGrid();
+        }
+        public static LawnGrid GetEvadeTargetGrid(this Entity entity, Entity target)
+        {
+            return GetEvadeTargetGrid(entity, target, (e, p) => ValidateGridOutOfBounds(e.Level, p));
+        }
+        public static bool ValidateGridOutOfBounds(LevelEngine level, Vector2Int position)
+        {
+            if (position.x < 0 || position.y < 0)
+                return false;
+            if (position.x >= level.GetMaxColumnCount() || position.y >= level.GetMaxLaneCount())
+                return false;
+            return true;
+        }
+        public static readonly Vector2Int[] adjacentGridOffsets = new Vector2Int[]
+        {
+            Vector2Int.down,
+            Vector2Int.up,
+            Vector2Int.right,
+            Vector2Int.left
+        };
         #endregion
         public static SpawnParams GetSpawnParams(this Entity entity)
         {
