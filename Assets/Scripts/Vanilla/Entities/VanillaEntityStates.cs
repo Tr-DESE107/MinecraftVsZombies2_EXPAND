@@ -119,6 +119,7 @@
         public const int THE_GIANT_STUNNED = BOSS_FAINT;
         public const int THE_GIANT_PACMAN = BOSS_ATTACK_5;
         public const int THE_GIANT_SNAKE = BOSS_ATTACK_6;
+        public const int THE_GIANT_FAINT = BOSS_SPECIAL_2;
         public const int THE_GIANT_CHASE = WALK;
         public const int THE_GIANT_DEATH = DEAD;
 

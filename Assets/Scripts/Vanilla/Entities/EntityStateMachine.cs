@@ -105,6 +105,8 @@ namespace MVZ2.Vanilla.Entities
             nextStateTimer.Stop();
 
             entity.SetAnimationInt("State", stateNum);
+            entity.SetAnimationInt("AnimationState", state.animationState);
+            SetAnimationSubstate(entity, 0);
 
             state.OnEnter(this, entity);
             OnEnterState(entity, stateNum);
@@ -120,6 +122,10 @@ namespace MVZ2.Vanilla.Entities
         protected virtual void OnEnterState(Entity entity, int state) { }
         protected virtual void OnExitState(Entity entity, int state) { }
 
+        public void SetAnimationSubstate(Entity entity, int substate)
+        {
+            entity.SetAnimationInt("AnimationSubstate", substate);
+        }
 
         private List<EntityStateMachineState> states = new List<EntityStateMachineState>();
 

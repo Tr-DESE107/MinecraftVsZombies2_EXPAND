@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -76,10 +77,10 @@ namespace MVZ2.GameContent.Contraptions
                 entity.Level.ShakeScreen(15, 0, 90);
                 foreach (var target in entity.Level.FindEntities(e => e.IsHostile(entity) && e.IsVulnerableEntity()))
                 {
-                    target.TakeDamage(entity.GetDamage() * 3, new DamageEffectList(), entity);
+                    target.TakeDamage(12 * entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.MUTE), entity);
                     if (target.IsEntityOf(VanillaBossID.theGiant))
                     {
-                        TheGiant.Stun(target, 300);
+                        TheGiant.Stun(target, 150);
                     }
                     else if (target.Type == EntityTypes.ENEMY)
                     {

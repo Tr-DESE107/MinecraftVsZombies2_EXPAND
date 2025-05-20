@@ -3,7 +3,6 @@ using System.Linq;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
-using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
@@ -20,7 +19,6 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -50,9 +48,9 @@ namespace MVZ2.GameContent.Bosses
         {
             base.UpdateAI(entity);
 
+            stateMachine.UpdateAI(entity);
             if (entity.IsDead)
                 return;
-            stateMachine.UpdateAI(entity);
 
             var cryTimer = GetCryTimer(entity);
             if (cryTimer == null)
@@ -80,6 +78,8 @@ namespace MVZ2.GameContent.Bosses
             base.PostCollision(collision, state);
             var other = collision.Other;
             var self = collision.Entity;
+            if (self.IsDead)
+                return;
             if (!other.Exists() || !other.IsHostile(self))
                 return;
             if (other.Type == EntityTypes.CART)
@@ -125,7 +125,7 @@ namespace MVZ2.GameContent.Bosses
         #region 僵尸块
         public static List<EntityID> GetZombieBlocks(Entity entity) => entity.GetBehaviourField<List<EntityID>>(PROP_ZOMBIE_BLOCKS);
         public static void SetZombieBlocks(Entity entity, List<EntityID> value) => entity.SetBehaviourField(PROP_ZOMBIE_BLOCKS, value);
-        public static void AddZombieBlock(Entity entity, EntityID value) 
+        public static void AddZombieBlock(Entity entity, EntityID value)
         {
             var blocks = GetZombieBlocks(entity);
             if (blocks == null)
@@ -183,22 +183,8 @@ namespace MVZ2.GameContent.Bosses
         {
             return entity.Position.x < VanillaLevelExt.LAWN_CENTER_X;
         }
-        public static void Stun(Entity entity, int duration)
-        {
-            if (!CanBeStunned(entity))
-                return;
-            entity.PlaySound(VanillaSoundID.zombieHurt, 0.5f);
-            var vel = entity.Velocity;
-            vel.x = 0;
-            entity.Velocity = vel;
-            stateMachine.StartState(entity, STATE_STUNNED);
-            var substateTimer = stateMachine.GetSubStateTimer(entity);
-            substateTimer.ResetTime(duration);
-        }
         public static bool CanBeStunned(Entity entity)
         {
-            if (entity.IsDead)
-                return false;
             if (entity.State == STATE_DISASSEMBLY)
                 return false;
             if (entity.State == STATE_PACMAN)
@@ -241,7 +227,7 @@ namespace MVZ2.GameContent.Bosses
         public static float GetCombineZ(Entity entity)
         {
             var level = entity.Level;
-            return (level.GetGridTopZ() + level.GetGridBottomZ()) *0.5f;
+            return (level.GetGridTopZ() + level.GetGridBottomZ()) * 0.5f;
         }
         public static Vector3 GetCombinePosition(Entity entity, bool atRight)
         {
@@ -296,20 +282,35 @@ namespace MVZ2.GameContent.Bosses
         private static readonly Vector3 OUTER_EYE_BULLET_OFFSET = new Vector3(70, 140, 0);
         private static readonly Vector3 INNER_EYE_BULLET_OFFSET = new Vector3(140, 140, 0);
 
-        private const int STATE_IDLE = VanillaEntityStates.THE_GIANT_IDLE;
-        private const int STATE_DISASSEMBLY = VanillaEntityStates.THE_GIANT_DISASSEMBLY;
-        private const int STATE_EYES = VanillaEntityStates.THE_GIANT_EYES;
-        private const int STATE_ROAR = VanillaEntityStates.THE_GIANT_ROAR;
-        private const int STATE_ARMS = VanillaEntityStates.THE_GIANT_ARMS;
-        private const int STATE_BREATH = VanillaEntityStates.THE_GIANT_BREATH;
-        private const int STATE_STUNNED = VanillaEntityStates.THE_GIANT_STUNNED;
-        private const int STATE_PACMAN = VanillaEntityStates.THE_GIANT_PACMAN;
-        private const int STATE_SNAKE = VanillaEntityStates.THE_GIANT_SNAKE;
-        private const int STATE_CHASE = VanillaEntityStates.THE_GIANT_CHASE;
-        private const int STATE_DEATH = VanillaEntityStates.THE_GIANT_DEATH;
+        public const int STATE_IDLE = VanillaEntityStates.THE_GIANT_IDLE;
+        public const int STATE_DISASSEMBLY = VanillaEntityStates.THE_GIANT_DISASSEMBLY;
+        public const int STATE_EYES = VanillaEntityStates.THE_GIANT_EYES;
+        public const int STATE_ROAR = VanillaEntityStates.THE_GIANT_ROAR;
+        public const int STATE_ARMS = VanillaEntityStates.THE_GIANT_ARMS;
+        public const int STATE_BREATH = VanillaEntityStates.THE_GIANT_BREATH;
+        public const int STATE_STUNNED = VanillaEntityStates.THE_GIANT_STUNNED;
+        public const int STATE_PACMAN = VanillaEntityStates.THE_GIANT_PACMAN;
+        public const int STATE_SNAKE = VanillaEntityStates.THE_GIANT_SNAKE;
+        public const int STATE_FAINT = VanillaEntityStates.THE_GIANT_FAINT;
+        public const int STATE_CHASE = VanillaEntityStates.THE_GIANT_CHASE;
+        public const int STATE_DEATH = VanillaEntityStates.THE_GIANT_DEATH;
+
+        public const int ANIMATION_STATE_IDLE = 0;
+        public const int ANIMATION_STATE_DISASSEMBLY = 1;
+        public const int ANIMATION_STATE_EYES = 2;
+        public const int ANIMATION_STATE_ARMS = 3;
+        public const int ANIMATION_STATE_ROAR = 4;
+        public const int ANIMATION_STATE_BREATH = 5;
+        public const int ANIMATION_STATE_CHASE = 6;
+        public const int ANIMATION_STATE_PACMAN = 7;
+        public const int ANIMATION_STATE_SNAKE = 8;
+        public const int ANIMATION_STATE_STUNNED = 100;
+        public const int ANIMATION_STATE_FAINT = 101;
+        public const int ANIMATION_STATE_DEATH = 102;
 
         public const int PHASE_1 = 0;
         public const int PHASE_2 = 1;
+        public const int PHASE_3 = 2;
 
         public const int ZOMBIE_BLOCK_COLUMNS = 2;
         public const int ZOMBIE_BLOCK_LEFT_COLUMN_START = -1;
@@ -325,6 +326,14 @@ namespace MVZ2.GameContent.Bosses
 
         public const int CRY_INTERVAL = 300;
 
+        public static int[] unstunnableStates = new int[]
+        {
+            STATE_DISASSEMBLY,
+            STATE_PACMAN,
+            STATE_SNAKE,
+            STATE_STUNNED,
+            STATE_FAINT
+        };
         public static Detector outerEyeBulletDetector = new TheGiantEyeDetector(true);
         public static Detector innerEyeBulletDetector = new TheGiantEyeDetector(false);
         public static Detector outerArmDetector = new TheGiantArmDetector(true);

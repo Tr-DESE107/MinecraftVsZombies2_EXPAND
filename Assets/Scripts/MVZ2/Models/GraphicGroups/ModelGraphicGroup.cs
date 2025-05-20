@@ -12,8 +12,15 @@ namespace MVZ2.Models
         {
             foreach (var animator in animators)
             {
-                animator.enabled = false;
-                animator.Update(deltaTime);
+                if (testMode && Application.isEditor)
+                {
+                    animator.enabled = true;
+                }
+                else
+                {
+                    animator.enabled = false;
+                    animator.Update(deltaTime);
+                }
             }
         }
         public virtual void SetSimulationSpeed(float speed)
@@ -121,6 +128,9 @@ namespace MVZ2.Models
         public abstract string SortingLayerName { get; set; }
         public abstract int SortingOrder { get; set; }
 
+
+        [SerializeField]
+        private bool testMode = false;
         [SerializeField]
         protected List<Animator> animators = new List<Animator>();
         [SerializeField]
