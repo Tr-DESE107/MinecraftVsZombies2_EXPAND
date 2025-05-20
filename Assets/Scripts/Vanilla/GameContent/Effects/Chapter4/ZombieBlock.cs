@@ -32,26 +32,54 @@ namespace MVZ2.GameContent.Effects
                 entity.Remove();
                 return;
             }
-            var cooldownTimer = GetMoveCooldownTimer(entity);
-            cooldownTimer.Run();
-            if (cooldownTimer.Expired)
+
+
+            var mode = GetMode(entity);
+            switch (mode)
             {
-                var targetPosition = GetTargetPosition(entity);
-                if (!IsReached(entity))
-                {
-                    var vel = (targetPosition - entity.Position).normalized * MOVE_SPEED;
-                    entity.Velocity = vel;
-                }
-                else
-                {
-                    entity.Velocity = Vector3.zero;
-                    entity.Position = entity.Position * 0.7f + targetPosition * 0.3f;
-                }
-            }
-            else
-            {
-                var startPosition = GetStartPosition(entity);
-                entity.Position = entity.Position * 0.7f + startPosition * 0.3f;
+                case MODE_FLY:
+                case MODE_TRANSFORM:
+                    {
+                        var cooldownTimer = GetMoveCooldownTimer(entity);
+                        cooldownTimer.Run();
+                        if (!cooldownTimer.Expired)
+                        {
+                            var startPosition = GetStartPosition(entity);
+                            entity.Position = entity.Position * 0.7f + startPosition * 0.3f;
+                        }
+                        else
+                        {
+                            var targetPosition = GetTargetPosition(entity);
+                            if (!IsReached(entity))
+                            {
+                                var vel = (targetPosition - entity.Position).normalized * MOVE_SPEED;
+                                entity.Velocity = vel;
+                            }
+                            else
+                            {
+                                entity.Velocity = Vector3.zero;
+                                entity.Position = entity.Position * 0.7f + targetPosition * 0.3f;
+                            }
+                        }
+                    }
+                    break;
+                case MODE_JUMP:
+                    {
+                        var cooldownTimer = GetMoveCooldownTimer(entity);
+                        cooldownTimer.Run();
+                        if (!cooldownTimer.Expired)
+                        {
+                            var startPosition = GetStartPosition(entity);
+                            entity.Position = entity.Position * 0.7f + startPosition * 0.3f;
+                        }
+                    }
+                    break;
+                case MODE_SNAKE_FOOD:
+                    {
+                        var startPosition = GetStartPosition(entity);
+                        entity.Position = entity.Position * 0.7f + startPosition * 0.3f;
+                    }
+                    break;
             }
         }
         public override void PostCollision(EntityCollision collision, int state)
@@ -61,9 +89,22 @@ namespace MVZ2.GameContent.Effects
                 return;
             var block = collision.Entity;
             var other = collision.Other;
-            if (!block.IsHostile(other))
-                return;
-            collision.OtherCollider.TakeDamage(block.GetDamage(), new DamageEffectList(), block);
+            var mode = GetMode(block);
+            switch (mode)
+            {
+                case MODE_FLY:
+                    if (block.IsHostile(other))
+                    {
+                        collision.OtherCollider.TakeDamage(block.GetDamage() * 0.3f, new DamageEffectList(), block);
+                    }
+                    break;
+                case MODE_JUMP:
+                    if (block.IsHostile(other))
+                    {
+                        collision.OtherCollider.TakeDamage(block.GetDamage(), new DamageEffectList(), block);
+                    }
+                    break;
+            }
         }
         public static bool IsReached(Entity entity)
         {
@@ -77,6 +118,8 @@ namespace MVZ2.GameContent.Effects
                 return;
             moveTimer.ResetTime(time);
         }
+        public static int GetMode(Entity entity) => entity.GetBehaviourField<int>(PROP_MODE);
+        public static void SetMode(Entity entity, int value) => entity.SetBehaviourField(PROP_MODE, value);
         public static FrameTimer GetMoveCooldownTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_MOVE_COOLDOWN_TIMER);
         public static void SetMoveCooldownTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_MOVE_COOLDOWN_TIMER, value);
         public static Vector3 GetStartPosition(Entity entity) => entity.GetBehaviourField<Vector3>(PROP_START_POSITION);
@@ -87,6 +130,13 @@ namespace MVZ2.GameContent.Effects
         public static void SetTargetGrid(Entity entity, int column, int lane) => entity.SetBehaviourField(PROP_TARGET_POSITION, entity.Level.GetEntityGridPosition(column, lane));
 
         public const float MOVE_SPEED = 20;
+
+        public const int MODE_FLY = 0;
+        public const int MODE_JUMP = 1;
+        public const int MODE_TRANSFORM = 2;
+        public const int MODE_SNAKE_FOOD = 3;
+
+        private static readonly VanillaEntityPropertyMeta PROP_MODE = new VanillaEntityPropertyMeta("Mode");
         private static readonly VanillaEntityPropertyMeta PROP_MOVE_COOLDOWN_TIMER = new VanillaEntityPropertyMeta("MoveCooldownTimer");
         private static readonly VanillaEntityPropertyMeta PROP_START_POSITION = new VanillaEntityPropertyMeta("StartPosition");
         private static readonly VanillaEntityPropertyMeta PROP_TARGET_POSITION = new VanillaEntityPropertyMeta("TargetPosition");

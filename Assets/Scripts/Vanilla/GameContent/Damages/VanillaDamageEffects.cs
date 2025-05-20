@@ -27,6 +27,8 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID GOLD = Get("gold");
         public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
         public static readonly NamespaceID ENEMY_MELEE = Get("enemy_melee");
+        public static readonly NamespaceID TRANSFERRED = Get("transferred");
+        public static readonly NamespaceID NO_DAMAGE_BLINK = Get("no_damage_blink");
 
         public static NamespaceID Get(string name)
         {

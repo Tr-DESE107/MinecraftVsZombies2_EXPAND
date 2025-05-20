@@ -111,6 +111,7 @@
     <model name="seija" type="entity" path="mvz2:boss/seija" width="30" height="88" xOffset="0" yOffset="-44"/>
     <model name="wither" type="entity" path="mvz2:boss/wither" width="112" height="168" xOffset="6" yOffset="-84"/>
     <model name="the_giant" type="entity" path="mvz2:boss/the_giant" width="256" height="332" xOffset="0" yOffset="-40"/>
+    <model name="the_giant_snake_tail" type="entity" path="mvz2:boss/the_giant_snake_tail" width="80" height="80" xOffset="0" yOffset="-40"/>
 
     <!-- Carts -->
     <model name="minecart" type="entity" path="mvz2:cart/minecart" width="64" height="64" xOffset="0" yOffset="-28"/>

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
@@ -53,7 +55,22 @@ namespace MVZ2.GameContent.Effects
                 bool hostile = target.IsHostile(entity);
                 if (collider.IsMainCollider())
                 {
-                    if (target.Type == EntityTypes.ENEMY)
+                    if (target.Type == EntityTypes.BOSS)
+                    {
+                        if (hostile)
+                        {
+                            if (target.IsEntityOf(VanillaBossID.theGiantSnakeTail) || (target.IsEntityOf(VanillaBossID.theGiant) && TheGiant.CanAttractByBlackhole(target)))
+                            {
+                                snakeBuffer.Clear();
+                                TheGiantSnakeTail.GetFullSnake(target, snakeBuffer);
+                                foreach (var segment in snakeBuffer)
+                                {
+                                    segment.Velocity = segment.Velocity * 0.7f + (entity.Position - segment.Position) * 0.3f;
+                                }
+                            }
+                        }
+                    }
+                    else if (target.Type == EntityTypes.ENEMY)
                     {
                         if (hostile)
                         {
@@ -73,6 +90,7 @@ namespace MVZ2.GameContent.Effects
             }
         }
         private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
+        private List<Entity> snakeBuffer = new List<Entity>();
         private Detector absorbDetector;
     }
 }

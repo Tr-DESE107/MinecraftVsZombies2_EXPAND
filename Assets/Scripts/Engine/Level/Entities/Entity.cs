@@ -490,6 +490,10 @@ namespace PVZEngine.Entities
         {
             return Level.GetGrid(GetColumn(), GetLane());
         }
+        public Vector2Int GetGridPosition()
+        {
+            return new Vector2Int(GetColumn(), GetLane());
+        }
         private HashSet<NamespaceID> GetOrCreateTakenGridHashSet(LawnGrid grid)
         {
             var hashSet = GetTakenGridLayerHashSet(grid);

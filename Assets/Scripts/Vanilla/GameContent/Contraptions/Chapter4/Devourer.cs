@@ -18,6 +18,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -124,25 +125,12 @@ namespace MVZ2.GameContent.Contraptions
         {
             var level = devourer.Level;
 
-            #region 确定移动方向
             var targetGridIndex = GetTargetGridIndex(devourer);
-            var targetGridCol = level.GetGridColumnByIndex(targetGridIndex);
-            var targetGridLane = level.GetGridLaneByIndex(targetGridIndex);
-            var targetGridX = level.GetEntityColumnX(targetGridCol);
-            var targetGridZ = level.GetEntityLaneZ(targetGridLane);
-            var targetGridY = level.GetGroundY(targetGridX, targetGridZ);
-            var targetGridPosition = new Vector3(targetGridX, targetGridY, targetGridZ);
-            var targetGridDistance = targetGridPosition - devourer.Position;
-            if (targetGridDistance.magnitude <= EVOKED_MOVE_SPEED)
+            var reached = devourer.MoveOrthogonally(targetGridIndex, EVOKED_MOVE_SPEED);
+            if (reached)
             {
-                // 更新目标。
-                devourer.Position = targetGridPosition;
-
                 FindPacmanGhostTarget(devourer);
             }
-            #endregion
-
-            devourer.Position += targetGridDistance.normalized * EVOKED_MOVE_SPEED;
 
             var timer = GetDevourTimer(devourer);
             timer?.Run();

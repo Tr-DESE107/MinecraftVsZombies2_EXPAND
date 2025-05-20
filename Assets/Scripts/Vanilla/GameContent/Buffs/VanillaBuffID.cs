@@ -174,6 +174,7 @@ namespace MVZ2.GameContent.Buffs
             public const string theGiantInactive = "the_giant_inactive";
             public const string theGiantPacman = "the_giant_pacman";
             public const string theGiantPacmanKilled = "the_giant_pacman_killed";
+            public const string theGiantSnake = "the_giant_snake";
         }
     }
     public static class VanillaBuffID

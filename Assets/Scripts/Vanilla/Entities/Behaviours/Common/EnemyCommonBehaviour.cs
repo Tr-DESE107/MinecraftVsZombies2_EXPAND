@@ -64,11 +64,10 @@ namespace MVZ2.Vanilla.Entities
         {
             base.PostTakeDamage(result);
             var bodyResult = result.BodyResult;
-            if (bodyResult != null && bodyResult.Amount > 0)
+            if (bodyResult != null && bodyResult.Amount > 0 && !bodyResult.HasEffect(VanillaDamageEffects.NO_DAMAGE_BLINK))
             {
                 var entity = bodyResult.Entity;
-                if (!entity.HasBuff<DamageColorBuff>())
-                    entity.AddBuff<DamageColorBuff>();
+                entity.DamageBlink();
             }
         }
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
@@ -79,8 +78,7 @@ namespace MVZ2.Vanilla.Entities
                 entity.Remove();
                 return;
             }
-            if (!entity.HasBuff<DamageColorBuff>())
-                entity.AddBuff<DamageColorBuff>();
+            entity.DamageBlink();
             entity.PlaySound(entity.GetDeathSound(), entity.GetCryPitch());
         }
         protected virtual bool IsOutsideView(Entity enemy)

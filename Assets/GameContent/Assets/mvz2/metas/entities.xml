@@ -1482,6 +1482,18 @@
                 <color name="mvz2:bloodColorCensored" value="#00007FFF" />
             </properties>
         </boss>
+        <boss id="the_giant_snake_tail" name="巨人蛇尾">
+            <properties>
+                <bool name="mvz2:canDeactive" value="false" />
+                <int name="mvz2:waterInteraction" value="1" />
+                <float name="mvz2:maxHealth" value="1" />
+                <float name="mvz2:damage" value="1" />
+                <vector3 name="mvz2:size" x="80" y="80" z="80" />
+                <vector3 name="mvz2:shadowScale" x="2" y="2" z="2" />
+                <color name="mvz2:bloodColor" value="#7F0000FF" />
+                <color name="mvz2:bloodColorCensored" value="#00007FFF" />
+            </properties>
+        </boss>
 
         <!-- Carts -->
         <cart id="minecart" name="矿车" />
@@ -2323,7 +2335,7 @@
         <effect id="zombie_block">
             <properties>
                 <bool name="mvz2:decorative" value="false" />
-                <float name="mvz2:damage" value="30" />
+                <float name="mvz2:damage" value="100" />
                 <vector3 name="mvz2:size" x="80" y="80" z="80" />
                 <bool name="mvz2:shadowHidden" value="false" />
                 <vector3 name="mvz2:shadowScale" x="1.5" y="1.5" z="1.5" />
@@ -2331,6 +2343,7 @@
         </effect>
         <effect id="dark_hole">
             <properties>
+                <int name="mvz2:sortingOrder" value="9999"/>
                 <int name="mvz2:maxTimeout" value="15" />
             </properties>
         </effect>

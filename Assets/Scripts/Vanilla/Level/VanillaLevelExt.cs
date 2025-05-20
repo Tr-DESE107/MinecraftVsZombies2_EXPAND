@@ -663,5 +663,13 @@ namespace MVZ2.Vanilla.Level
             level.SetStarshardSlotCount(game.GetStarshardSlots());
             level.SetArtifactSlotCount(game.GetArtifactSlots());
         }
+        public static bool ValidateGridOutOfBounds(this LevelEngine level, Vector2Int position)
+        {
+            if (position.x < 0 || position.y < 0)
+                return false;
+            if (position.x >= level.GetMaxColumnCount() || position.y >= level.GetMaxLaneCount())
+                return false;
+            return true;
+        }
     }
 }

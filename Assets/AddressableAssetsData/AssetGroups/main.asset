@@ -875,6 +875,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f7e2d1bb6589b7489834ad1f5ea68c0
+    m_Address: mvz2:boss/the_giant_snake_tail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1fa7f21a7f8675f47a19b64ae5086153
     m_Address: mvz2:mainmenu/mainmenu
     m_ReadOnly: 0
@@ -2274,6 +2280,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47aa6cbff8c048c40a3da0ad86fa845d
     m_Address: mvz2:artifacts/the_creatures_heart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47e358101a35f3c4eb66d746582948c4
+    m_Address: mvz2:entity/boss/the_giant_snake_tail
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

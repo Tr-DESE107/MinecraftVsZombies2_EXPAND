@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Damages;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -15,11 +16,10 @@ namespace MVZ2.Vanilla.Entities
         {
             base.PostTakeDamage(result);
             var bodyResult = result.BodyResult;
-            if (bodyResult != null && bodyResult.Amount > 0)
+            if (bodyResult != null && bodyResult.Amount > 0 && !bodyResult.HasEffect(VanillaDamageEffects.NO_DAMAGE_BLINK))
             {
                 var entity = bodyResult.Entity;
-                if (!entity.HasBuff<DamageColorBuff>())
-                    entity.AddBuff<DamageColorBuff>();
+                entity.DamageBlink();
             }
         }
     }

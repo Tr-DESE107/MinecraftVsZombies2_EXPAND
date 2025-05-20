@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Armors;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using PVZEngine;
 using PVZEngine.Armors;
@@ -20,19 +21,17 @@ namespace MVZ2.Vanilla.Entities
         {
             base.PostTakeDamage(result);
             var armorResult = result.ArmorResult;
-            if (armorResult != null && armorResult.Amount > 0)
+            if (armorResult != null && armorResult.Amount > 0 && !armorResult.HasEffect(VanillaDamageEffects.NO_DAMAGE_BLINK))
             {
                 var armor = armorResult.Armor;
-                if (armor != null && !armor.HasBuff<ArmorDamageColorBuff>())
-                    armor.AddBuff<ArmorDamageColorBuff>();
+                armor.DamageBlink();
             }
 
             var shieldResult = result.ShieldResult;
-            if (shieldResult != null && shieldResult.Amount > 0)
+            if (shieldResult != null && shieldResult.Amount > 0 && !shieldResult.HasEffect(VanillaDamageEffects.NO_DAMAGE_BLINK))
             {
                 var shield = shieldResult.Armor;
-                if (shield != null && !shield.HasBuff<ArmorDamageColorBuff>())
-                    shield.AddBuff<ArmorDamageColorBuff>();
+                shield.DamageBlink();
             }
         }
         public override void PostDestroyArmor(Entity entity, NamespaceID slot, Armor armor, ArmorDestroyInfo result)

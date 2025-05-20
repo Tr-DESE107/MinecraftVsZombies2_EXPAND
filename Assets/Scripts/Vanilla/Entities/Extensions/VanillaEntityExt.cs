@@ -46,6 +46,11 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 伤害和血量
+        public static void DamageBlink(this Entity entity)
+        {
+            if (entity != null && !entity.HasBuff<DamageColorBuff>())
+                entity.AddBuff<DamageColorBuff>();
+        }
         public static int GetHealthState(this Entity entity, int stateCount)
         {
             return GetHealthState(entity.Health, entity.GetMaxHealth(), stateCount);
@@ -712,6 +717,23 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 寻路
+        public static bool MoveOrthogonally(this Entity entity, int targetGridIndex, float speed)
+        {
+            var level = entity.Level;
+            var targetGridPosition = level.GetEntityGridPositionByIndex(targetGridIndex);
+            var targetGridDistance = targetGridPosition - entity.Position;
+            if (targetGridDistance.magnitude <= speed)
+            {
+                // 更新目标。
+                entity.Position = targetGridPosition;
+                return true;
+            }
+            else
+            {
+                entity.Position += targetGridDistance.normalized * speed;
+            }
+            return false;
+        }
         public static LawnGrid GetChaseTargetGrid(this Entity entity, Entity target, Func<Entity, Vector2Int, bool> gridValidator)
         {
             var level = entity.Level;
@@ -722,6 +744,8 @@ namespace MVZ2.Vanilla.Entities
             Vector2Int currentGrid = new Vector2Int(column, lane);
             Vector2Int newTargetGridOffset = Vector2Int.zero;
             var possibleDirections = adjacentGridOffsets.Where(o => gridValidator(entity, currentGrid + o));
+            if (possibleDirections.Count() <= 0)
+                return entity.GetGrid();
 
             if (target.ExistsAndAlive() && possibleDirections.Count() > 0)
             {
@@ -742,7 +766,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static LawnGrid GetChaseTargetGrid(this Entity entity, Entity target)
         {
-            return GetChaseTargetGrid(entity, target, (e, p) => ValidateGridOutOfBounds(e.Level, p));
+            return GetChaseTargetGrid(entity, target, (e, p) => e.Level.ValidateGridOutOfBounds(p));
         }
         public static LawnGrid GetEvadeTargetGrid(this Entity entity, Entity target, Func<Entity, Vector2Int, bool> gridValidator)
         {
@@ -754,6 +778,8 @@ namespace MVZ2.Vanilla.Entities
             Vector2Int currentGrid = new Vector2Int(column, lane);
             Vector2Int newTargetGridOffset = Vector2Int.zero;
             var possibleDirections = adjacentGridOffsets.Where(o => gridValidator(entity, currentGrid + o));
+            if (possibleDirections.Count() <= 0)
+                return entity.GetGrid();
 
             if (target.ExistsAndAlive() && possibleDirections.Count() > 0)
             {
@@ -774,15 +800,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static LawnGrid GetEvadeTargetGrid(this Entity entity, Entity target)
         {
-            return GetEvadeTargetGrid(entity, target, (e, p) => ValidateGridOutOfBounds(e.Level, p));
-        }
-        public static bool ValidateGridOutOfBounds(LevelEngine level, Vector2Int position)
-        {
-            if (position.x < 0 || position.y < 0)
-                return false;
-            if (position.x >= level.GetMaxColumnCount() || position.y >= level.GetMaxLaneCount())
-                return false;
-            return true;
+            return GetEvadeTargetGrid(entity, target, (e, p) => e.Level.ValidateGridOutOfBounds(p));
         }
         public static readonly Vector2Int[] adjacentGridOffsets = new Vector2Int[]
         {

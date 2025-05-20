@@ -10,6 +10,8 @@ using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
@@ -29,6 +31,7 @@ namespace MVZ2.GameContent.Bosses
                 AddState(new RoarState());
                 AddState(new BreathState());
                 AddState(new PacmanState());
+                AddState(new SnakeState());
                 AddState(new StunState());
                 AddState(new FaintState());
                 AddState(new ChaseState());
@@ -94,42 +97,6 @@ namespace MVZ2.GameContent.Bosses
                 stateMachine.StartState(entity, STATE_DEATH);
             }
         }
-        private static Entity SpawnZombieBlock(Entity spawner, Vector3 position)
-        {
-            var block = spawner.Spawn(VanillaEffectID.zombieBlock, position, spawner.GetSpawnParams());
-            block.SetParent(spawner);
-            AddZombieBlock(spawner, new EntityID(block));
-            return block;
-        }
-        private static bool AreAllZombieBlocksReached(Entity parent)
-        {
-            var blocks = GetZombieBlocks(parent);
-            if (blocks == null)
-                return true;
-            foreach (var blockID in blocks)
-            {
-                var block = blockID.GetEntity(parent.Level);
-                if (!block.ExistsAndAlive())
-                    continue;
-                if (!ZombieBlock.IsReached(block))
-                    return false;
-            }
-            return true;
-        }
-        private static void RemoveAllZombieBlocks(Entity parent)
-        {
-            var blocks = GetZombieBlocks(parent);
-            if (blocks == null)
-                return;
-            foreach (var blockID in blocks)
-            {
-                var block = blockID.GetEntity(parent.Level);
-                if (block == null || !block.Exists())
-                    continue;
-                block.Remove();
-            }
-            blocks.Clear();
-        }
 
         #region 状态
         private class IdleState : EntityStateMachineState
@@ -192,7 +159,7 @@ namespace MVZ2.GameContent.Bosses
             }
             private int GetNextState(EntityStateMachine stateMachine, Entity entity)
             {
-                return STATE_PACMAN;
+                return STATE_SNAKE;
                 var lastState = stateMachine.GetPreviousState(entity);
 
                 var atLeft = AtLeft(entity);
@@ -293,6 +260,7 @@ namespace MVZ2.GameContent.Bosses
                                     var lane = lanesPool.ElementAt(y);
 
                                     var block = SpawnZombieBlock(entity, entity.Position);
+                                    ZombieBlock.SetMode(block, ZombieBlock.MODE_FLY);
                                     ZombieBlock.SetStartGrid(block, column, lane);
                                     ZombieBlock.SetTargetGrid(block, columnEnd, lane);
                                     ZombieBlock.SetMoveCooldown(block, 30 + i * ZOMBIE_BLOCK_MOVE_INTERVAL);
@@ -702,10 +670,10 @@ namespace MVZ2.GameContent.Bosses
                                 var startPosition = GetZombieBlockPosition(entity, i, false);
                                 var targetPosition = GetPacmanBlockPosition(entity, i, false);
                                 var block = SpawnZombieBlock(entity, entity.Position);
+                                ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
                                 ZombieBlock.SetStartPosition(block, startPosition);
                                 ZombieBlock.SetTargetPosition(block, targetPosition);
                                 ZombieBlock.SetMoveCooldown(block, 30);
-                                block.SetDamage(0);
                             }
                             SpawnDarkHole(entity);
                             entity.Position = GetCombinePosition(entity, !atLeft);
@@ -740,10 +708,9 @@ namespace MVZ2.GameContent.Bosses
                             {
                                 var targetPosition = GetZombieBlockPosition(entity, i, true);
                                 var block = SpawnZombieBlock(entity, entity.Position);
+                                ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
                                 ZombieBlock.SetStartPosition(block, entity.Position);
                                 ZombieBlock.SetTargetPosition(block, targetPosition);
-                                ZombieBlock.SetMoveCooldown(block, 0);
-                                block.SetDamage(0);
                             }
                             SpawnDarkHole(entity);
                             SetInactive(entity, true);
@@ -756,16 +723,15 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_PACMAN_DEATH:
                         entity.SetAnimationInt("PacmanRotation", 4);
                         entity.SetAnimationInt("PacmanState", 2);
-                        if (substateTimer.Expired || entity.IsDead)
+                        if (substateTimer.Expired)
                         {
                             for (int i = 0; i < PACMAN_BLOCK_COUNT; i++)
                             {
                                 var targetPosition = GetZombieBlockPosition(entity, i, true);
                                 var block = SpawnZombieBlock(entity, entity.Position);
+                                ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
                                 ZombieBlock.SetStartPosition(block, entity.Position);
                                 ZombieBlock.SetTargetPosition(block, targetPosition);
-                                ZombieBlock.SetMoveCooldown(block, 0);
-                                block.SetDamage(0);
                             }
                             SpawnDarkHole(entity);
                             SetInactive(entity, true);
@@ -831,22 +797,14 @@ namespace MVZ2.GameContent.Bosses
             {
                 var level = entity.Level;
                 var targetGridIndex = GetTargetGridIndex(entity);
-                var targetGridCol = level.GetGridColumnByIndex(targetGridIndex);
-                var targetGridLane = level.GetGridLaneByIndex(targetGridIndex);
-                var targetGridX = level.GetEntityColumnX(targetGridCol);
-                var targetGridZ = level.GetEntityLaneZ(targetGridLane);
-                var targetGridY = level.GetGroundY(targetGridX, targetGridZ);
-                var targetGridPosition = new Vector3(targetGridX, targetGridY, targetGridZ);
+                var targetGridPosition = level.GetEntityGridPositionByIndex(targetGridIndex);
                 var targetGridDistance = targetGridPosition - entity.Position;
-                if (targetGridDistance.magnitude <= PACMAN_MOVE_SPEED)
+                var reached = entity.MoveOrthogonally(targetGridIndex, PACMAN_MOVE_SPEED);
+                if (reached)
                 {
-                    // 更新目标。
-                    entity.Position = targetGridPosition;
-
                     FindPacmanTarget(entity);
                 }
 
-                entity.Position += targetGridDistance.normalized * PACMAN_MOVE_SPEED;
                 entity.SetAnimationInt("PacmanRotation", GetPacmanRotation(targetGridDistance));
                 entity.SetAnimationInt("PacmanState", IsPacmanPanic(entity) ? 1 : 0);
             }
@@ -895,6 +853,307 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_PACMAN_DEATH = 6;
             public const int ANIMATION_SUBSTATE_CURL = 0;
             public const int ANIMATION_SUBSTATE_PACMAN = 1;
+            public const int ANIMATION_SUBSTATE_REFROMED = 2;
+        }
+        private class SnakeState : EntityStateMachineState
+        {
+            public SnakeState() : base(STATE_SNAKE, ANIMATION_STATE_SNAKE) { }
+            public override void OnEnter(EntityStateMachine machine, Entity entity)
+            {
+                base.OnEnter(machine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetTime(10);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.Run(stateMachine.GetSpeed(entity));
+
+                var substate = stateMachine.GetSubState(entity);
+                switch (substate)
+                {
+                    case SUBSTATE_CURL:
+                        if (substateTimer.Expired)
+                        {
+                            SetInactive(entity, true);
+                            // 分离。
+                            bool atLeft = AtLeft(entity);
+                            var targetState = SUBSTATE_FORM;
+                            stateMachine.SetSubState(entity, targetState);
+                            substateTimer.ResetTime(30);
+
+                            var level = entity.Level;
+                            var rng = entity.RNG;
+                            var lanes = level.GetMaxLaneCount();
+                            var validLanes = Enumerable.Range(0, lanes);
+                            for (int i = 0; i < SNAKE_BLOCK_COUNT; i++)
+                            {
+                                var startPosition = GetZombieBlockPosition(entity, i, true);
+                                var targetPosition = GetSnakeBlockPosition(entity, i, true);
+                                var block = SpawnZombieBlock(entity, entity.Position);
+                                ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
+                                ZombieBlock.SetStartPosition(block, startPosition);
+                                ZombieBlock.SetTargetPosition(block, targetPosition);
+                                ZombieBlock.SetMoveCooldown(block, 30);
+                            }
+                            SpawnDarkHole(entity);
+                            entity.Position = GetCombinePosition(entity, !atLeft);
+                        }
+                        break;
+                    case SUBSTATE_FORM:
+                        if (substateTimer.Expired)
+                        {
+                            if (!AreAllZombieBlocksReached(entity))
+                            {
+                                substateTimer.Reset();
+                                break;
+                            }
+                            var blocks = GetZombieBlocks(entity);
+                            if (blocks != null)
+                            {
+                                Entity lastSnakeTail = null;
+                                for (int i = 0; i < blocks.Count; i++)
+                                {
+                                    var blockID = blocks[i];
+                                    var block = blockID.GetEntity(entity.Level);
+                                    if (block == null || !block.Exists())
+                                        continue;
+                                    if (i == 0)
+                                    {
+                                        entity.Position = block.Position;
+                                        lastSnakeTail = entity;
+                                    }
+                                    else if (i < SNAKE_COMBINE_ZOMBIE_BLOCK_COUNT)
+                                    {
+                                        lastSnakeTail = SpawnSnakeTail(entity, block.Position, lastSnakeTail);
+                                    }
+                                }
+                            }
+                            RemoveAllZombieBlocks(entity);
+
+                            SpawnDarkHole(entity);
+                            SetInactive(entity, false);
+                            SetFlipX(entity, false);
+                            stateMachine.SetSubState(entity, SUBSTATE_SNAKE);
+                            stateMachine.SetAnimationSubstate(entity, ANIMATION_SUBSTATE_SNAKE);
+                            entity.AddBuff<TheGiantSnakeBuff>();
+
+                            SetTargetGridIndex(entity, entity.GetGridIndex());
+                            FindSnakeTarget(entity);
+                        }
+                        break;
+                    case SUBSTATE_SNAKE:
+                        if (IsSnakeFull(entity) || entity.IsDead)
+                        {
+                            EndSnake(entity);
+                            break;
+                        }
+                        UpdateSnake(entity);
+                        break;
+                    case SUBSTATE_SNAKE_DEATH:
+                        entity.SetAnimationInt("SnakeState", 1);
+                        if (substateTimer.Expired)
+                        {
+                            EndSnake(entity);
+                        }
+                        break;
+                    case SUBSTATE_SNAKE_END:
+                        if (substateTimer.Expired)
+                        {
+                            if (!AreAllZombieBlocksReached(entity))
+                            {
+                                substateTimer.Reset();
+                                break;
+                            }
+                            stateMachine.SetSubState(entity, SUBSTATE_COMBINE);
+                            substateTimer.ResetTime(15);
+                            var blocks = GetZombieBlocks(entity);
+                            if (blocks != null)
+                            {
+                                foreach (var blockID in blocks)
+                                {
+                                    var block = blockID.GetEntity(entity.Level);
+                                    if (block == null || !block.Exists())
+                                        continue;
+                                    ZombieBlock.SetTargetPosition(block, entity.Position);
+                                }
+                            }
+                        }
+                        break;
+                    case SUBSTATE_COMBINE:
+                        if (substateTimer.Expired)
+                        {
+                            RemoveAllZombieBlocks(entity);
+                            SpawnDarkHole(entity);
+                            SetInactive(entity, false);
+                            SetFlipX(entity, true);
+                            if (entity.IsDead)
+                            {
+                                stateMachine.StartState(entity, STATE_FAINT);
+                            }
+                            else
+                            {
+                                stateMachine.SetSubState(entity, SUBSTATE_REFORMED);
+                                stateMachine.SetAnimationSubstate(entity, ANIMATION_SUBSTATE_REFROMED);
+                                substateTimer.ResetTime(30);
+                            }
+                        }
+                        break;
+                    case SUBSTATE_REFORMED:
+                        if (substateTimer.Expired)
+                        {
+                            stateMachine.StartState(entity, STATE_IDLE);
+                            stateMachine.SetSubState(entity, IdleState.SUBSTATE_REFORMED);
+                        }
+                        break;
+                }
+            }
+            public void UpdateSnake(Entity entity)
+            {
+                TheGiantSnakeTail.MoveTail(entity, SNAKE_MOVE_SPEED);
+                var level = entity.Level;
+                var targetGridIndex = GetTargetGridIndex(entity);
+                var targetGridPosition = level.GetEntityGridPositionByIndex(targetGridIndex);
+                var targetGridDistance = targetGridPosition - entity.Position;
+                var reached = entity.MoveOrthogonally(targetGridIndex, SNAKE_MOVE_SPEED);
+                if (reached)
+                {
+                    OnSnakeMovedToTarget(entity);
+                }
+                entity.SetAnimationInt("SnakeRotation", GetSnakeRotation(targetGridDistance));
+                entity.SetAnimationInt("SnakeState", 0);
+            }
+            public void EndSnake(Entity entity)
+            {
+                RemoveAllZombieBlocks(entity);
+                RemoveAllSnakeTails(entity);
+
+                for (int i = 0; i < SNAKE_BLOCK_COUNT; i++)
+                {
+                    var targetPosition = GetZombieBlockPosition(entity, i, true);
+                    var block = SpawnZombieBlock(entity, entity.Position);
+                    ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
+                    ZombieBlock.SetStartPosition(block, entity.Position);
+                    ZombieBlock.SetTargetPosition(block, targetPosition);
+                }
+
+                SpawnDarkHole(entity);
+                SetInactive(entity, true);
+                entity.RemoveBuffs<TheGiantSnakeBuff>();
+                stateMachine.SetSubState(entity, SUBSTATE_SNAKE_END);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetTime(30);
+                entity.Position = GetCombinePosition(entity, true);
+            }
+            public static int GetSnakeRotation(Vector3 direction)
+            {
+                var dir = direction.normalized;
+                if (Mathf.Abs(dir.z) > Mathf.Abs(dir.x))
+                {
+                    if (direction.z < 0)
+                    {
+                        return 3; // Down.
+                    }
+                    return 1; // Up.
+                }
+                if (direction.x > 0)
+                {
+                    return 2; // Right.
+                }
+                return 0; // Left.
+            }
+            public static void OnSnakeMovedToTarget(Entity entity)
+            {
+                FindSnakeTarget(entity);
+            }
+            public static void FindSnakeTarget(Entity entity)
+            {
+                var level = entity.Level;
+
+                // Eat Food.
+                var gridPosition = entity.GetGridPosition();
+                var blocks = GetGridZombieBlocks(level, gridPosition);
+                foreach (var block in blocks)
+                {
+                    if (block == null || !block.Exists())
+                        continue;
+                    block.Remove();
+                    entity.PlaySound(VanillaSoundID.pacmanKill);
+                    var tail = TheGiantSnakeTail.FindTail(entity);
+                    if (tail != null)
+                    {
+                        SpawnSnakeTail(entity, tail.Position, tail);
+                    }
+                }
+
+                // Find Next Target.
+                var target = level.FindFirstEntityWithTheLeast(e => e.IsEntityOf(VanillaEffectID.zombieBlock), e => Vector3.SqrMagnitude(e.Position - entity.Position));
+                if (target == null)
+                {
+                    target = SpawnZombieBlockAtRandomGrid(entity);
+                }
+
+                entity.Target = target;
+                var grid = entity.GetChaseTargetGrid(entity.Target, GridValidator);
+
+                var gridIndex = GetTargetGridIndex(entity);
+                TheGiantSnakeTail.PassTargetGrids(entity, gridIndex);
+                SetTargetGridIndex(entity, grid.GetIndex());
+
+
+            }
+            public static Entity SpawnZombieBlockAtRandomGrid(Entity entity)
+            {
+                var level = entity.Level;
+                var grids = level.GetAllGrids();
+                var validGrids = grids.Where(g => !GridHasTail(g));
+                if (validGrids.Count() <= 0)
+                    return null;
+                var grid = validGrids.Random(entity.RNG);
+                var pos = grid.GetEntityPosition();
+                var spawnPos = pos;
+                spawnPos.y = 800;
+                var block = SpawnZombieBlock(entity, spawnPos);
+                ZombieBlock.SetMode(block, ZombieBlock.MODE_SNAKE_FOOD);
+                ZombieBlock.SetStartPosition(block, pos);
+                return block;
+            }
+            public static bool GridHasTail(LawnGrid grid)
+            {
+                var level = grid.Level;
+                return level.EntityExists(e => e.IsEntityOf(VanillaBossID.theGiantSnakeTail) && e.GetGrid() == grid);
+            }
+            public static bool GridHasTail(LevelEngine level, Vector2Int position)
+            {
+                return level.EntityExists(e => e.IsEntityOf(VanillaBossID.theGiantSnakeTail) && e.GetColumn() == position.x && e.GetLane() == position.y);
+            }
+            public static Entity[] GetGridZombieBlocks(LevelEngine level, Vector2Int position)
+            {
+                return level.FindEntities(e => e.IsEntityOf(VanillaEffectID.zombieBlock) && ZombieBlock.GetMode(e) == ZombieBlock.MODE_SNAKE_FOOD && e.GetColumn() == position.x && e.GetLane() == position.y);
+            }
+            public static bool IsSnakeFull(Entity head)
+            {
+                var tails = GetSnakeTails(head);
+                return tails != null && tails.Count >= SNAKE_MAX_EAT_COUNT - 1;
+            }
+            public static bool GridValidator(Entity entity, Vector2Int position)
+            {
+                if (!entity.Level.ValidateGridOutOfBounds(position))
+                    return false;
+                if (GridHasTail(entity.Level, position))
+                    return false;
+                return true;
+            }
+            public const int SUBSTATE_CURL = 0;
+            public const int SUBSTATE_FORM = 1;
+            public const int SUBSTATE_SNAKE = 2;
+            public const int SUBSTATE_SNAKE_END = 3;
+            public const int SUBSTATE_COMBINE = 4;
+            public const int SUBSTATE_REFORMED = 5;
+            public const int SUBSTATE_SNAKE_DEATH = 6;
+            public const int ANIMATION_SUBSTATE_CURL = 0;
+            public const int ANIMATION_SUBSTATE_SNAKE = 1;
             public const int ANIMATION_SUBSTATE_REFROMED = 2;
         }
         private class StunState : EntityStateMachineState

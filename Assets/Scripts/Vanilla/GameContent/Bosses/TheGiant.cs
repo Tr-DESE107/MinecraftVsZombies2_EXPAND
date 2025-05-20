@@ -85,6 +85,17 @@ namespace MVZ2.GameContent.Bosses
                 return;
             if (!other.Exists() || !other.IsHostile(self))
                 return;
+            if (self.State == STATE_SNAKE)
+            {
+                var substate = stateMachine.GetSubState(self);
+                if (substate != SnakeState.SUBSTATE_SNAKE)
+                    return;
+                if (other.IsInvincible())
+                    return;
+                var damageEffects = new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
+                collision.OtherCollider.TakeDamage(self.GetDamage() * SNAKE_DAMAGE_MULTIPLIER, damageEffects, self);
+                return;
+            }
             if (self.State == STATE_PACMAN)
             {
                 if (IsPacmanGhost(other) && IsPacman(self))
@@ -122,7 +133,6 @@ namespace MVZ2.GameContent.Bosses
             }
             var otherCollider = collision.OtherCollider;
             var crushDamage = 1000000;
-            var substate = stateMachine.GetSubState(self);
             if (!other.IsInvincible())
             {
                 var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
@@ -194,6 +204,48 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
+        #region 贪吃蛇尾巴
+        public static List<EntityID> GetSnakeTails(Entity entity) => entity.GetBehaviourField<List<EntityID>>(PROP_SNAKE_TAILS);
+        public static void SetSnakeTails(Entity entity, List<EntityID> value) => entity.SetBehaviourField(PROP_SNAKE_TAILS, value);
+        public static void AddSnakeTail(Entity entity, EntityID value)
+        {
+            var blocks = GetSnakeTails(entity);
+            if (blocks == null)
+            {
+                blocks = new List<EntityID>();
+                SetSnakeTails(entity, blocks);
+            }
+            blocks.Add(value);
+        }
+        public static bool RemoveSnakeTail(Entity entity, EntityID value)
+        {
+            var blocks = GetSnakeTails(entity);
+            if (blocks == null)
+            {
+                return false;
+            }
+            return blocks.Remove(value);
+        }
+        public static bool HasSnakeTail(Entity entity, EntityID value)
+        {
+            var blocks = GetSnakeTails(entity);
+            if (blocks == null)
+            {
+                return false;
+            }
+            return blocks.Contains(value);
+        }
+        public static void ClearSnakeTails(Entity entity)
+        {
+            var blocks = GetSnakeTails(entity);
+            if (blocks == null)
+            {
+                return;
+            }
+            blocks.Clear();
+        }
+        #endregion
+
         #endregion
 
         public static void SetInactive(Entity entity, bool value)
@@ -225,6 +277,8 @@ namespace MVZ2.GameContent.Bosses
                 return false;
             return true;
         }
+
+        #region 僵尸块
         public static int GetZombieBlockLeftStartColumn(Entity entity)
         {
             return ZOMBIE_BLOCK_LEFT_COLUMN_START + ZOMBIE_BLOCK_COLUMNS - 1;
@@ -268,18 +322,68 @@ namespace MVZ2.GameContent.Bosses
             var lane = y;
             return entity.Level.GetEntityGridPosition(column, lane);
         }
-        public static Vector3 GetPacmanBlockPosition(Entity entity, int index, bool atLeft)
+        private static Entity SpawnZombieBlock(Entity spawner, Vector3 position)
         {
-            var level = entity.Level;
-            var gridPositionOffset = pacmanBlockGridOffsets[index];
-            var originX = level.GetEntityColumnX(atLeft ? 0 : (level.GetMaxColumnCount() - 1));
-            var originZ = entity.Position.z;
-            var xOffset = gridPositionOffset.x * level.GetGridWidth();
-            var x = originX + (atLeft ? xOffset : -xOffset);
-            var z = originZ + gridPositionOffset.y * level.GetGridHeight();
-            var y = level.GetGroundY(x, z);
-            return new Vector3(x, y, z);
+            var block = spawner.Spawn(VanillaEffectID.zombieBlock, position, spawner.GetSpawnParams());
+            block.SetParent(spawner);
+            AddZombieBlock(spawner, new EntityID(block));
+            return block;
         }
+        private static bool AreAllZombieBlocksReached(Entity parent)
+        {
+            var blocks = GetZombieBlocks(parent);
+            if (blocks == null)
+                return true;
+            foreach (var blockID in blocks)
+            {
+                var block = blockID.GetEntity(parent.Level);
+                if (!block.ExistsAndAlive())
+                    continue;
+                if (!ZombieBlock.IsReached(block))
+                    return false;
+            }
+            return true;
+        }
+        private static void RemoveAllZombieBlocks(Entity parent)
+        {
+            var blocks = GetZombieBlocks(parent);
+            if (blocks == null)
+                return;
+            foreach (var blockID in blocks)
+            {
+                var block = blockID.GetEntity(parent.Level);
+                if (block == null || !block.Exists())
+                    continue;
+                block.Remove();
+            }
+            blocks.Clear();
+        }
+        #endregion
+
+        #region 僵尸块
+        private static Entity SpawnSnakeTail(Entity spawner, Vector3 position, Entity parent)
+        {
+            var tail = spawner.Spawn(VanillaBossID.theGiantSnakeTail, position, spawner.GetSpawnParams());
+            tail.SetParent(parent);
+            TheGiantSnakeTail.SetChildTail(parent, new EntityID(tail));
+            AddSnakeTail(spawner, new EntityID(tail));
+            return tail;
+        }
+        private static void RemoveAllSnakeTails(Entity parent)
+        {
+            var tails = GetSnakeTails(parent);
+            if (tails == null)
+                return;
+            foreach (var tailID in tails)
+            {
+                var tail = tailID.GetEntity(parent.Level);
+                if (tail == null || !tail.Exists())
+                    continue;
+                tail.Remove();
+            }
+            tails.Clear();
+        }
+        #endregion
 
         #region 拼合位置
         public static float GetCombineX(Entity entity, bool atLeft)
@@ -348,6 +452,7 @@ namespace MVZ2.GameContent.Bosses
             return target.Type == EntityTypes.PLANT && target.IsHostile(entity) && target.CanDeactive();
         }
 
+        #region 吃豆人
         public static bool IsPacman(Entity entity)
         {
             var state = stateMachine.GetEntityState(entity);
@@ -368,17 +473,72 @@ namespace MVZ2.GameContent.Bosses
         }
         public static void KillPacman(Entity entity)
         {
+            if (!IsPacman(entity))
+                return;
             stateMachine.SetSubState(entity, PacmanState.SUBSTATE_PACMAN_DEATH);
             var substateTimer = stateMachine.GetSubStateTimer(entity);
             substateTimer.ResetTime(60);
             entity.PlaySound(VanillaSoundID.pacmanFail);
             entity.AddBuff<TheGiantPacmanKilledBuff>();
         }
+        public static Vector3 GetPacmanBlockPosition(Entity entity, int index, bool atLeft)
+        {
+            var level = entity.Level;
+            var gridPositionOffset = pacmanBlockGridOffsets[index];
+            var originX = level.GetEntityColumnX(atLeft ? 0 : (level.GetMaxColumnCount() - 1));
+            var originZ = entity.Position.z;
+            var xOffset = gridPositionOffset.x * level.GetGridWidth();
+            var x = originX + (atLeft ? xOffset : -xOffset);
+            var z = originZ + gridPositionOffset.y * level.GetGridHeight();
+            var y = level.GetGroundY(x, z);
+            return new Vector3(x, y, z);
+        }
+        #endregion
+
+
+        #region 贪吃蛇
+        public static bool IsSnake(Entity entity)
+        {
+            var state = stateMachine.GetEntityState(entity);
+            var subState = stateMachine.GetSubState(entity);
+            return state == STATE_SNAKE && subState == SnakeState.SUBSTATE_SNAKE;
+        }
+        public static bool CanAttractByBlackhole(Entity entity)
+        {
+            var state = stateMachine.GetEntityState(entity);
+            var subState = stateMachine.GetSubState(entity);
+            return state == STATE_SNAKE && (subState == SnakeState.SUBSTATE_SNAKE || subState == SnakeState.SUBSTATE_SNAKE_DEATH);
+        }
+        public static void KillSnake(Entity entity)
+        {
+            if (!IsSnake(entity))
+                return;
+            stateMachine.SetSubState(entity, SnakeState.SUBSTATE_SNAKE_DEATH);
+            var substateTimer = stateMachine.GetSubStateTimer(entity);
+            substateTimer.ResetTime(30);
+            entity.PlaySound(VanillaSoundID.pacmanFail);
+        }
+        public static Vector3 GetSnakeBlockPosition(Entity entity, int index, bool atLeft)
+        {
+            var level = entity.Level;
+            var lanes = level.GetMaxLaneCount();
+            var col = index / lanes;
+            var lane = index % lanes;
+            var column = atLeft ? col : (level.GetMaxColumnCount() - 1 - col);
+            var pos = level.GetEntityGridPosition(column, lane);
+            if (index >= SNAKE_COMBINE_ZOMBIE_BLOCK_COUNT)
+            {
+                pos.y += 600;
+            }
+            return pos;
+        }
+        #endregion
 
         #region 常量
         private static readonly VanillaEntityPropertyMeta PROP_CRY_TIMER = new VanillaEntityPropertyMeta("CryTimer");
         private static readonly VanillaEntityPropertyMeta PROP_PHASE = new VanillaEntityPropertyMeta("Phase");
         private static readonly VanillaEntityPropertyMeta PROP_ZOMBIE_BLOCKS = new VanillaEntityPropertyMeta("ZombieBlocks");
+        private static readonly VanillaEntityPropertyMeta PROP_SNAKE_TAILS = new VanillaEntityPropertyMeta("SnakeTails");
         private static readonly VanillaEntityPropertyMeta PROP_FLIP_X = new VanillaEntityPropertyMeta("FlipX");
         private static readonly VanillaEntityPropertyMeta PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta("TargetGridIndex");
 
@@ -433,6 +593,13 @@ namespace MVZ2.GameContent.Bosses
         public const float PACMAN_MOVE_SPEED = 3;
         public const float PACMAN_DAMAGE_MULTIPLIER = 0.03f;
         public const float PACMAN_GHOST_DAMAGE = 600;
+
+        public const int SNAKE_BLOCK_COUNT = 8;
+        public const float SNAKE_MOVE_SPEED = 6;
+        public const float SNAKE_DAMAGE_MULTIPLIER = 0.03f;
+        public const float SNAKE_SELF_EAT_DAMAGE = 600;
+        public const float SNAKE_COMBINE_ZOMBIE_BLOCK_COUNT = 3;
+        public const float SNAKE_MAX_EAT_COUNT = 8;
 
         public const int CRY_INTERVAL = 300;
 
