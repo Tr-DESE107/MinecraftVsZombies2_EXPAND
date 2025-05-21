@@ -24,6 +24,10 @@ namespace MVZ2.UI
             });
             dialog.ResetPosition();
         }
+        public bool HasDialog()
+        {
+            return dialog.gameObject.activeSelf;
+        }
         private void Awake()
         {
             blackscreenFader.OnValueChanged += OnBlackscreenFaderValueChangedCallback;

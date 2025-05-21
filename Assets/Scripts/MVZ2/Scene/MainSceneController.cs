@@ -65,6 +65,10 @@ namespace MVZ2.Scenes
             ShowDialogSelect(title, desc, (result) => tcs.SetResult(result));
             return tcs.Task;
         }
+        public bool HasDialog()
+        {
+            return ui.HasDialog();
+        }
         public Task<string> ShowInputNameDialogAsync(InputNameType type)
         {
             return inputNameDialog.Show(type);

@@ -497,6 +497,8 @@ namespace MVZ2.Level
         {
             if (!isPaused || level < pauseLevel)
                 return false;
+            if (Main.Scene.HasDialog())
+                return false;
             pauseLevel = 0;
             isPaused = false;
             Music.Resume();
