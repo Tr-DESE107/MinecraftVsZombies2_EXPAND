@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -27,12 +28,25 @@ namespace MVZ2.GameContent.Projectiles
             base.Update(projectile);
             var dmg = projectile.GetDamage();
             projectile.SetProperty(PROP_DISPLAY_SCALE_MULTIPLIER, Vector3.one * Mathf.Min(5, Mathf.Pow(dmg / 10f, 0.5f)));
+            SetHitProtected(projectile, false);
+        }
+        protected override void PreHitEntity(ProjectileHitInput hit, DamageInput damage, CallbackResult result)
+        {
+            base.PreHitEntity(hit, damage, result);
+            if (IsHitProtected(hit.Projectile))
+            {
+                result.SetFinalValue(false);
+            }
         }
         protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput damage)
         {
             base.PostHitEntity(hitResult, damage);
             var note = hitResult.Projectile;
             Reflect(note, hitResult.Other);
+
+            SetHitProtected(note, true);
+            SetNoteCharged(note, false);
+
             var dmg = note.GetDamage(true);
             dmg--;
             note.SetDamage(dmg);
@@ -50,15 +64,17 @@ namespace MVZ2.GameContent.Projectiles
             var noteBlock = collision.Other;
             if (!noteBlock.IsEntityOf(VanillaContraptionID.noteBlock))
                 return;
-            if (!collision.OtherCollider.IsMainCollider())
+            if (IsNoteCharged(note))
                 return;
-            if (note.IsProjectileColliderIgnored(collision.OtherCollider))
+            if (!collision.OtherCollider.IsMainCollider())
                 return;
             if (note.Parent != noteBlock || !note.IsFriendly(noteBlock))
                 return;
             note.SetDamage(noteBlock.GetDamage());
             note.Velocity = noteBlock.GetFacingDirection() * noteBlock.GetShotVelocity().magnitude;
-            note.AddIgnoredProjectileCollider(collision.OtherCollider);
+            SetNoteCharged(note, true);
+            SetHitProtected(note, false);
+            note.ClearIgnoredProjectileColliders();
             noteBlock.TriggerAnimation("Shoot");
             NoteBlock.PlayHarpSound(noteBlock);
         }
@@ -76,6 +92,12 @@ namespace MVZ2.GameContent.Projectiles
             }
             note.Velocity = vel;
         }
+        public static void SetHitProtected(Entity note, bool value) => note.SetBehaviourField(PROP_HIT_PROTECTED, value);
+        public static bool IsHitProtected(Entity note) => note.GetBehaviourField<bool>(PROP_HIT_PROTECTED);
+        public static void SetNoteCharged(Entity note, bool value) => note.SetBehaviourField(PROP_NOTE_CHARGED, value);
+        public static bool IsNoteCharged(Entity note) => note.GetBehaviourField<bool>(PROP_NOTE_CHARGED);
         private static readonly VanillaEntityPropertyMeta PROP_DISPLAY_SCALE_MULTIPLIER = new VanillaEntityPropertyMeta("DisplayScaleMultiplier");
+        private static readonly VanillaEntityPropertyMeta PROP_HIT_PROTECTED = new VanillaEntityPropertyMeta("HitProtected");
+        private static readonly VanillaEntityPropertyMeta PROP_NOTE_CHARGED = new VanillaEntityPropertyMeta("NoteCharged");
     }
 }

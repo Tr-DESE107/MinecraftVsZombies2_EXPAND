@@ -71,5 +71,14 @@ namespace MVZ2.Vanilla.Entities
             var reference = other.ToReference();
             return colliders.Contains(reference);
         }
+        public static void ClearIgnoredProjectileColliders(this Entity projectile)
+        {
+            var colliders = projectile.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);
+            if (colliders == null)
+            {
+                return;
+            }
+            colliders.Clear();
+        }
     }
 }
