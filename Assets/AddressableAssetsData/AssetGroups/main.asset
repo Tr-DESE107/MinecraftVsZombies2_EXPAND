@@ -4185,6 +4185,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87b336d7b20b7a145a9300914c7bf0e8
+    m_Address: mvz2:characters/marisa
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87f9b1bee6f8e76429b41c86118b6aae
     m_Address: mvz2:projectile/spike_ball
     m_ReadOnly: 0
@@ -6687,6 +6693,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d45f50a6e09e447469497cf77a6d16b5
+    m_Address: mvz2:ui/level/progress_bar/the_giant_bar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d486f2b8240e28443aaeb03d25e81b9c
     m_Address: mvz2:entity/enemy/shikaisen_staff
     m_ReadOnly: 0
@@ -7987,6 +7999,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb49bf03d7a39f74493d7f10e7512dfc
+    m_Address: mvz2:ui/level/progress_bar/the_giant_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fbd4f223bde2b0548986faf783bc0f17
     m_Address: mvz2:effect/magnetic_line

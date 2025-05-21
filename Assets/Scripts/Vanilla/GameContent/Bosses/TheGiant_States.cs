@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Projectiles;
@@ -9,14 +8,11 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using static MVZ2.GameContent.Bosses.Nightmareaper;
-using static UnityEditorInternal.VersionControl.ListControl;
 
 namespace MVZ2.GameContent.Bosses
 {
