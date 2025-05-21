@@ -128,7 +128,14 @@ namespace MVZ2.GameContent.Bosses
                 {
                     if (CanCrawl(entity))
                     {
-                        stateMachine.StartState(entity, STATE_CHASE);
+                        if (IsFlipX(entity))
+                        {
+                            stateMachine.StartState(entity, STATE_DISASSEMBLY);
+                        }
+                        else
+                        {
+                            stateMachine.StartState(entity, STATE_CHASE);
+                        }
                     }
                     return;
                 }
@@ -372,7 +379,14 @@ namespace MVZ2.GameContent.Bosses
                         {
                             if (GetPhase(entity) == PHASE_3)
                             {
-                                stateMachine.StartState(entity, STATE_CHASE);
+                                if (IsFlipX(entity))
+                                {
+                                    stateMachine.StartState(entity, STATE_DISASSEMBLY);
+                                }
+                                else
+                                {
+                                    stateMachine.StartState(entity, STATE_CHASE);
+                                }
                             }
                             else
                             {
@@ -716,7 +730,7 @@ namespace MVZ2.GameContent.Bosses
                         {
                             SetInactive(entity, true);
                             // 分离。
-                            bool atLeft = AtLeft(entity);
+                            bool atLeft = false;
                             var targetState = SUBSTATE_FORM;
                             stateMachine.SetSubState(entity, targetState);
                             substateTimer.ResetTime(30);
@@ -727,8 +741,8 @@ namespace MVZ2.GameContent.Bosses
                             var validLanes = Enumerable.Range(0, lanes);
                             for (int i = 0; i < PACMAN_BLOCK_COUNT; i++)
                             {
-                                var startPosition = GetZombieBlockPosition(entity, i, false);
-                                var targetPosition = GetPacmanBlockPosition(entity, i, false);
+                                var startPosition = GetZombieBlockPosition(entity, i, atLeft);
+                                var targetPosition = GetPacmanBlockPosition(entity, i, atLeft);
                                 var block = SpawnZombieBlock(entity, entity.Position);
                                 ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
                                 ZombieBlock.SetStartPosition(block, startPosition);
@@ -749,9 +763,10 @@ namespace MVZ2.GameContent.Bosses
                             }
                             RemoveAllZombieBlocks(entity);
 
+                            bool atLeft = false;
                             SpawnDarkHole(entity);
                             SetInactive(entity, false);
-                            SetFlipX(entity, false);
+                            SetFlipX(entity, atLeft);
                             ResetMalleable(entity);
 
                             stateMachine.SetSubState(entity, SUBSTATE_PACMAN);
@@ -766,20 +781,7 @@ namespace MVZ2.GameContent.Bosses
                         UpdatePacman(entity);
                         if (!IsPacmanPanic(entity) && (substateTimer.Expired || entity.IsDead))
                         {
-                            for (int i = 0; i < PACMAN_BLOCK_COUNT; i++)
-                            {
-                                var targetPosition = GetZombieBlockPosition(entity, i, true);
-                                var block = SpawnZombieBlock(entity, entity.Position);
-                                ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
-                                ZombieBlock.SetStartPosition(block, entity.Position);
-                                ZombieBlock.SetTargetPosition(block, targetPosition);
-                            }
-                            SpawnDarkHole(entity);
-                            SetInactive(entity, true);
-                            entity.RemoveBuffs<TheGiantPacmanBuff>();
-                            stateMachine.SetSubState(entity, SUBSTATE_PACMAN_END);
-                            substateTimer.ResetTime(30);
-                            entity.Position = GetCombinePosition(entity, true);
+                            EndPacman(entity);
                         }
                         break;
                     case SUBSTATE_PACMAN_DEATH:
@@ -787,21 +789,7 @@ namespace MVZ2.GameContent.Bosses
                         entity.SetAnimationInt("PacmanState", 2);
                         if (substateTimer.Expired)
                         {
-                            for (int i = 0; i < PACMAN_BLOCK_COUNT; i++)
-                            {
-                                var targetPosition = GetZombieBlockPosition(entity, i, true);
-                                var block = SpawnZombieBlock(entity, entity.Position);
-                                ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
-                                ZombieBlock.SetStartPosition(block, entity.Position);
-                                ZombieBlock.SetTargetPosition(block, targetPosition);
-                            }
-                            SpawnDarkHole(entity);
-                            SetInactive(entity, true);
-                            entity.RemoveBuffs<TheGiantPacmanBuff>();
-                            entity.RemoveBuffs<TheGiantPacmanKilledBuff>();
-                            stateMachine.SetSubState(entity, SUBSTATE_PACMAN_END);
-                            substateTimer.ResetTime(30);
-                            entity.Position = GetCombinePosition(entity, true);
+                            EndPacman(entity);
                         }
                         break;
                     case SUBSTATE_PACMAN_END:
@@ -831,10 +819,11 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_COMBINE:
                         if (substateTimer.Expired)
                         {
+                            bool atLeft = true;
                             RemoveAllZombieBlocks(entity);
                             SpawnDarkHole(entity);
                             SetInactive(entity, false);
-                            SetFlipX(entity, true);
+                            SetFlipX(entity, atLeft);
                             ResetMalleable(entity);
                             if (entity.IsDead)
                             {
@@ -870,6 +859,25 @@ namespace MVZ2.GameContent.Bosses
 
                 entity.SetAnimationInt("PacmanRotation", GetPacmanRotation(targetGridDistance));
                 entity.SetAnimationInt("PacmanState", IsPacmanPanic(entity) ? 1 : 0);
+            }
+            public static void EndPacman(Entity entity)
+            {
+                for (int i = 0; i < PACMAN_BLOCK_COUNT; i++)
+                {
+                    var targetPosition = GetZombieBlockPosition(entity, i, true);
+                    var block = SpawnZombieBlock(entity, entity.Position);
+                    ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
+                    ZombieBlock.SetStartPosition(block, entity.Position);
+                    ZombieBlock.SetTargetPosition(block, targetPosition);
+                }
+                SpawnDarkHole(entity);
+                SetInactive(entity, true);
+                entity.RemoveBuffs<TheGiantPacmanBuff>();
+                entity.RemoveBuffs<TheGiantPacmanKilledBuff>();
+                stateMachine.SetSubState(entity, SUBSTATE_PACMAN_END);
+                var substateTimer = stateMachine.GetSubStateTimer(entity);
+                substateTimer.ResetTime(30);
+                entity.Position = GetCombinePosition(entity, true);
             }
             public static int GetPacmanRotation(Vector3 direction)
             {
@@ -1328,7 +1336,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_ROAR_END:
                         if (substateTimer.Expired)
                         {
-                            if (AtLeft(entity))
+                            if (IsFlipX(entity))
                             {
                                 stateMachine.StartState(entity, STATE_DISASSEMBLY);
                             }
@@ -1385,14 +1393,21 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_CRAWL_END:
                         if (substateTimer.Expired)
                         {
-                            if (!CanCrawl(entity))
+                            if (IsFlipX(entity))
                             {
-                                stateMachine.StartState(entity, STATE_IDLE);
+                                stateMachine.StartState(entity, STATE_DISASSEMBLY);
                             }
                             else
                             {
-                                stateMachine.SetSubState(entity, SUBSTATE_CRAWL_START);
-                                substateTimer.ResetTime(10);
+                                if (!CanCrawl(entity))
+                                {
+                                    stateMachine.StartState(entity, STATE_IDLE);
+                                }
+                                else
+                                {
+                                    stateMachine.SetSubState(entity, SUBSTATE_CRAWL_START);
+                                    substateTimer.ResetTime(10);
+                                }
                             }
                         }
                         break;
