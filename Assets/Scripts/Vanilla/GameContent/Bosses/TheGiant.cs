@@ -162,9 +162,6 @@ namespace MVZ2.GameContent.Bosses
             var entity = result.Entity;
             if (entity.Level.GetBossAILevel() <= 0)
                 return;
-            var phase = GetPhase(entity);
-            if (phase != PHASE_1 && phase != PHASE_2)
-                return;
             var bodyResult = result.BodyResult;
             if (bodyResult != null)
             {
@@ -625,6 +622,7 @@ namespace MVZ2.GameContent.Bosses
         public const float SNAKE_MAX_EAT_COUNT = 8;
 
         public const float MAX_MALLEABLE_DAMAGE = 3000;
+        public const float MALLEABLE_DECAY_PHASE_3 = 10;
 
         public const int CRY_INTERVAL = 300;
 

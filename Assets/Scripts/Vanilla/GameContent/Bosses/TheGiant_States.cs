@@ -1416,6 +1416,11 @@ namespace MVZ2.GameContent.Bosses
             public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
             {
                 base.OnUpdateLogic(machine, entity);
+
+                var malleable = GetMalleable(entity);
+                malleable = Mathf.Max(0, malleable - MALLEABLE_DECAY_PHASE_3);
+                SetMalleable(entity, malleable);
+
                 CheckDeath(entity);
             }
             public const int SUBSTATE_CRAWL_START = 0;
