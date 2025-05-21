@@ -624,7 +624,7 @@ namespace MVZ2.GameContent.Bosses
         public const float SNAKE_COMBINE_ZOMBIE_BLOCK_COUNT = 3;
         public const float SNAKE_MAX_EAT_COUNT = 8;
 
-        public const float MAX_MALLEABLE_DAMAGE = 4000;
+        public const float MAX_MALLEABLE_DAMAGE = 3000;
 
         public const int CRY_INTERVAL = 300;
 
