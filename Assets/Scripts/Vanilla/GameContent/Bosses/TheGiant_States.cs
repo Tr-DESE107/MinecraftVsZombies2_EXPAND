@@ -159,7 +159,6 @@ namespace MVZ2.GameContent.Bosses
             }
             private int GetNextState(EntityStateMachine stateMachine, Entity entity)
             {
-                return STATE_SNAKE;
                 var lastState = stateMachine.GetPreviousState(entity);
 
                 var atLeft = AtLeft(entity);
@@ -177,6 +176,7 @@ namespace MVZ2.GameContent.Bosses
                         else
                         {
                             lastState = STATE_SNAKE;
+                            return lastState;
                         }
                     }
                     lastState = STATE_EYES;
@@ -211,6 +211,7 @@ namespace MVZ2.GameContent.Bosses
                     else
                     {
                         lastState = STATE_PACMAN;
+                        return lastState;
                     }
                 }
                 return STATE_IDLE;
@@ -249,6 +250,7 @@ namespace MVZ2.GameContent.Bosses
                             var rng = entity.RNG;
                             var lanes = level.GetMaxLaneCount();
                             var validLanes = Enumerable.Range(0, lanes);
+                            var phase2 = GetPhase(entity) == PHASE_2;
                             for (int x = 0; x < ZOMBIE_BLOCK_COLUMNS; x++)
                             {
                                 int column = GetZombieBlockStartColumn(entity, x, atLeft);
@@ -260,7 +262,18 @@ namespace MVZ2.GameContent.Bosses
                                     var lane = lanesPool.ElementAt(y);
 
                                     var block = SpawnZombieBlock(entity, entity.Position);
-                                    ZombieBlock.SetMode(block, ZombieBlock.MODE_FLY);
+                                    if (!phase2)
+                                    {
+                                        ZombieBlock.SetMode(block, ZombieBlock.MODE_FLY);
+                                    }
+                                    else
+                                    {
+                                        ZombieBlock.SetMode(block, ZombieBlock.MODE_JUMP);
+                                        var gravity = 3;
+                                        var distance = (rng.Next(2) + 1) * level.GetGridWidth();
+                                        block.SetGravity(gravity);
+                                        ZombieBlock.SetJumpDistance(block, distance);
+                                    }
                                     ZombieBlock.SetStartGrid(block, column, lane);
                                     ZombieBlock.SetTargetGrid(block, columnEnd, lane);
                                     ZombieBlock.SetMoveCooldown(block, 30 + i * ZOMBIE_BLOCK_MOVE_INTERVAL);
@@ -289,6 +302,7 @@ namespace MVZ2.GameContent.Bosses
                                     var block = blockID.GetEntity(entity.Level);
                                     if (block == null || !block.Exists())
                                         continue;
+                                    ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
                                     ZombieBlock.SetTargetPosition(block, entity.Position);
                                 }
                             }
@@ -760,6 +774,7 @@ namespace MVZ2.GameContent.Bosses
                                     var block = blockID.GetEntity(entity.Level);
                                     if (block == null || !block.Exists())
                                         continue;
+                                    ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
                                     ZombieBlock.SetTargetPosition(block, entity.Position);
                                 }
                             }
@@ -976,6 +991,7 @@ namespace MVZ2.GameContent.Bosses
                                     var block = blockID.GetEntity(entity.Level);
                                     if (block == null || !block.Exists())
                                         continue;
+                                    ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
                                     ZombieBlock.SetTargetPosition(block, entity.Position);
                                 }
                             }

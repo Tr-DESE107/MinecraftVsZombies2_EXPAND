@@ -18,6 +18,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
     {
         public HellfireIgnitedBuff(string nsp, string name) : base(nsp, name)
         {
+            AddModifier(new BooleanModifier(VanillaEntityProps.IS_FIRE, true));
             AddModifier(new BooleanModifier(VanillaEntityProps.IS_LIGHT_SOURCE, true));
             AddModifier(new Vector3Modifier(VanillaEntityProps.LIGHT_RANGE, NumberOperator.Add, Vector3.one * 20));
             AddModifier(ColorModifier.Override(VanillaEntityProps.LIGHT_COLOR, PROP_LIGHT_COLOR));

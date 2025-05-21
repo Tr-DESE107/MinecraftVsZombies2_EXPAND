@@ -117,7 +117,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private void Punch(Entity entity)
         {
-            entity.PlaySound(VanillaSoundID.punch);
+            entity.PlaySound(VanillaSoundID.impact);
             detectBuffer.Clear();
             detector.DetectMultiple(entity, detectBuffer);
             foreach (var collider in detectBuffer)
@@ -167,7 +167,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private void LongPunch(Entity entity)
         {
-            entity.PlaySound(VanillaSoundID.punch);
+            entity.PlaySound(VanillaSoundID.impact);
             detectBuffer.Clear();
             evokedDetector.DetectMultiple(entity, detectBuffer);
             foreach (var collider in detectBuffer)

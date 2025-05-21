@@ -91,6 +91,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID horseGallop = Get("horse_gallop");
         public readonly static NamespaceID hugeWave = Get("huge_wave");
         public readonly static NamespaceID impLaugh = Get("imp_laugh");
+        public readonly static NamespaceID impact = Get("impact");
         public readonly static NamespaceID ironCurtain = Get("iron_curtain");
         public readonly static NamespaceID launch = Get("launch");
         public readonly static NamespaceID leatherHit = Get("leather_hit");

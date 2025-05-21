@@ -2335,7 +2335,7 @@
         <effect id="zombie_block">
             <properties>
                 <bool name="mvz2:decorative" value="false" />
-                <float name="mvz2:damage" value="100" />
+                <float name="mvz2:damage" value="50" />
                 <vector3 name="mvz2:size" x="80" y="80" z="80" />
                 <bool name="mvz2:shadowHidden" value="false" />
                 <vector3 name="mvz2:shadowScale" x="1.5" y="1.5" z="1.5" />

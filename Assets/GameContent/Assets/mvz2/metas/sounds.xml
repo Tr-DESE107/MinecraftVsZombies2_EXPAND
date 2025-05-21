@@ -372,6 +372,9 @@
         <sample path="mvz2:entity/imp/imp_laugh1" weight="1" />
         <sample path="mvz2:entity/imp/imp_laugh2" weight="1" />
     </sound>
+    <sound name="impact">
+        <sample path="mvz2:impact" weight="1" />
+    </sound>
     <sound name="iron_curtain">
         <sample path="mvz2:iron_curtain" weight="1" />
     </sound>
@@ -466,7 +469,7 @@
     <sound name="odd">
         <sample path="mvz2:odd" weight="1" />
     </sound>
-    <sound name="pacman_start" priority="64">
+    <sound name="pacman_start" maxCount="1" priority="64">
         <sample path="mvz2:pacman_start" weight="1" />
     </sound>
     <sound name="pacman_ghost">
@@ -540,7 +543,8 @@
         <sample path="mvz2:prize" weight="1" />
     </sound>
     <sound name="punch">
-        <sample path="mvz2:punch" weight="1" />
+        <sample path="mvz2:punch1" weight="1" />
+        <sample path="mvz2:punch2" weight="1" />
     </sound>
     <sound name="rain">
         <sample path="mvz2:rain" weight="1" />

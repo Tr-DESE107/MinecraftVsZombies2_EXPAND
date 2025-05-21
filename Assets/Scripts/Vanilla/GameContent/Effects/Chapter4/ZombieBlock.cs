@@ -1,4 +1,10 @@
-﻿using MVZ2.Vanilla.Entities;
+﻿using System.Collections.Generic;
+using MVZ2.GameContent.Bosses;
+using MVZ2.GameContent.Detections;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -72,6 +78,52 @@ namespace MVZ2.GameContent.Effects
                             var startPosition = GetStartPosition(entity);
                             entity.Position = entity.Position * 0.7f + startPosition * 0.3f;
                         }
+                        else if (entity.IsOnGround)
+                        {
+                            var targetPosition = GetTargetPosition(entity);
+                            if (IsReached(entity))
+                            {
+                                entity.Velocity = Vector3.zero;
+                            }
+                            else
+                            {
+                                var jumpDistance = GetJumpDistance(entity);
+
+                                var gravity = entity.GetGravity();
+                                var distance = targetPosition - entity.Position;
+
+                                jumpDistance *= Mathf.Sign(distance.x);
+                                if (distance.x > 0 && jumpDistance > distance.x)
+                                {
+                                    jumpDistance = distance.x;
+                                }
+                                else if (distance.x < 0 && jumpDistance < distance.x)
+                                {
+                                    jumpDistance = distance.x;
+                                }
+                                var nextX = entity.Position.x + jumpDistance;
+                                var nextColumn = entity.Level.GetColumn(nextX);
+                                nextX = entity.Level.GetEntityColumnX(nextColumn);
+                                var nextZ = entity.Position.z;
+                                var nextY = entity.Level.GetGroundY(nextX, nextZ);
+                                var nextPosition = new Vector3(nextX, nextY, nextZ);
+
+                                var maxY = nextY + 80;
+
+                                entity.Velocity = VanillaProjectileExt.GetLobVelocity(entity.Position, nextPosition, maxY, gravity);
+                            }
+
+                            jumpBuffer.Clear();
+                            jumpDetector.DetectMultiple(entity, jumpBuffer);
+                            foreach (var collider in jumpBuffer)
+                            {
+                                var other = collider.Entity;
+                                if (entity.IsHostile(other))
+                                {
+                                    collider.TakeDamage(entity.GetDamage(), new DamageEffectList(), entity);
+                                }
+                            }
+                        }
                     }
                     break;
                 case MODE_SNAKE_FOOD:
@@ -93,15 +145,10 @@ namespace MVZ2.GameContent.Effects
             switch (mode)
             {
                 case MODE_FLY:
-                    if (block.IsHostile(other))
+                    if (block.IsHostile(other) && other.CanDeactive())
                     {
-                        collision.OtherCollider.TakeDamage(block.GetDamage() * 0.3f, new DamageEffectList(), block);
-                    }
-                    break;
-                case MODE_JUMP:
-                    if (block.IsHostile(other))
-                    {
-                        collision.OtherCollider.TakeDamage(block.GetDamage(), new DamageEffectList(), block);
+                        other.Stun(STUN_DURATION);
+                        other.PlaySound(VanillaSoundID.punch);
                     }
                     break;
             }
@@ -122,6 +169,8 @@ namespace MVZ2.GameContent.Effects
         public static void SetMode(Entity entity, int value) => entity.SetBehaviourField(PROP_MODE, value);
         public static FrameTimer GetMoveCooldownTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_MOVE_COOLDOWN_TIMER);
         public static void SetMoveCooldownTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_MOVE_COOLDOWN_TIMER, value);
+        public static float GetJumpDistance(Entity entity) => entity.GetBehaviourField<float>(PROP_JUMP_DISTANCE);
+        public static void SetJumpDistance(Entity entity, float value) => entity.SetBehaviourField(PROP_JUMP_DISTANCE, value);
         public static Vector3 GetStartPosition(Entity entity) => entity.GetBehaviourField<Vector3>(PROP_START_POSITION);
         public static void SetStartPosition(Entity entity, Vector3 value) => entity.SetBehaviourField(PROP_START_POSITION, value);
         public static void SetStartGrid(Entity entity, int column, int lane) => SetStartPosition(entity, entity.Level.GetEntityGridPosition(column, lane));
@@ -130,14 +179,19 @@ namespace MVZ2.GameContent.Effects
         public static void SetTargetGrid(Entity entity, int column, int lane) => entity.SetBehaviourField(PROP_TARGET_POSITION, entity.Level.GetEntityGridPosition(column, lane));
 
         public const float MOVE_SPEED = 20;
+        public const int STUN_DURATION = 90;
 
         public const int MODE_FLY = 0;
         public const int MODE_JUMP = 1;
         public const int MODE_TRANSFORM = 2;
         public const int MODE_SNAKE_FOOD = 3;
 
+        private Detector jumpDetector = new CollisionDetector();
+        private List<IEntityCollider> jumpBuffer = new List<IEntityCollider>();
+
         private static readonly VanillaEntityPropertyMeta PROP_MODE = new VanillaEntityPropertyMeta("Mode");
         private static readonly VanillaEntityPropertyMeta PROP_MOVE_COOLDOWN_TIMER = new VanillaEntityPropertyMeta("MoveCooldownTimer");
+        private static readonly VanillaEntityPropertyMeta PROP_JUMP_DISTANCE = new VanillaEntityPropertyMeta("JumpDistance");
         private static readonly VanillaEntityPropertyMeta PROP_START_POSITION = new VanillaEntityPropertyMeta("StartPosition");
         private static readonly VanillaEntityPropertyMeta PROP_TARGET_POSITION = new VanillaEntityPropertyMeta("TargetPosition");
     }

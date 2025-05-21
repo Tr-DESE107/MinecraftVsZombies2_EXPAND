@@ -551,6 +551,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14473ad9e6bfcf84f95366b4dc6e0f3c
+    m_Address: mvz2:mausoleum_boss_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 144cca570f4221548b158b752ec68d85
     m_Address: mvz2:ring_off
     m_ReadOnly: 0
@@ -1373,6 +1379,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ef60f7a077178f429877e76ff61731a
+    m_Address: mvz2:mausoleum_boss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f37ee72c04034a4d930b31185d1e90e
     m_Address: mvz2:level/halloween/halloween_cloudy
     m_ReadOnly: 0
@@ -2157,6 +2169,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44e56a31273dedf40ad056e7b88412bd
+    m_Address: mvz2:mausoleum_boss_sub
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 450e6aea7722acc4191546342ffd43e8
     m_Address: mvz2:entity/nightmareaper/wheel_of_death_start
@@ -3489,6 +3507,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 720fd7d8f406fad459ccc11c0d01251a
+    m_Address: mvz2:mausoleum_level_sub
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7255b794a3fcb9145becfcafa89b5c99
     m_Address: mvz2:talk/dialog_item_hide
@@ -7795,6 +7819,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7030f8746b15284cbf455af3417d758
+    m_Address: mvz2:mausoleum_level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f74aabbf5c6403f4b908c053d7ecc630
     m_Address: mvz2:starshard_rings/mausoleum

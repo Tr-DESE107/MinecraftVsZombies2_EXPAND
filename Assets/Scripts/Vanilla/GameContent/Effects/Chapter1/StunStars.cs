@@ -2,6 +2,7 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -16,13 +17,16 @@ namespace MVZ2.GameContent.Effects
         {
             base.Update(entity);
             var parent = entity.Parent;
-            if (parent == null || !parent.Exists() || parent.IsDead)
+            if (!parent.ExistsAndAlive())
             {
                 entity.Remove();
                 return;
             }
-            var pos = parent.Position;
-            entity.Position = pos + Vector3.up * parent.GetScaledSize().y;
+            entity.Position = GetPosition(parent);
+        }
+        public static Vector3 GetPosition(Entity parent)
+        {
+            return parent.Position + Vector3.up * parent.GetScaledSize().y;
         }
         #endregion
     }

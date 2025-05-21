@@ -52,6 +52,7 @@ namespace MVZ2.GameContent.Bosses
                 return;
             if (other.IsEntityOf(VanillaBossID.theGiant) && TheGiant.IsSnake(other) && (other.GetCenter() - self.GetCenter()).magnitude < KILL_SNAKE_DISTANCE)
             {
+                other.TakeDamage(COLLIDE_SELF_DAMAGE, new DamageEffectList(VanillaDamageEffects.MUTE), self);
                 TheGiant.KillSnake(other);
                 return;
             }
@@ -134,6 +135,7 @@ namespace MVZ2.GameContent.Bosses
 
         #region 常量
         public const float KILL_SNAKE_DISTANCE = 32;
+        public const float COLLIDE_SELF_DAMAGE = 600;
         private static readonly VanillaEntityPropertyMeta PROP_CHILD_TAIL = new VanillaEntityPropertyMeta("ChildTail");
         private static readonly VanillaEntityPropertyMeta PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta("TargetGridIndex");
         private static NamespaceID[] transferDamageExtraEffects = new NamespaceID[] { VanillaDamageEffects.TRANSFERRED, VanillaDamageEffects.NO_DAMAGE_BLINK };
