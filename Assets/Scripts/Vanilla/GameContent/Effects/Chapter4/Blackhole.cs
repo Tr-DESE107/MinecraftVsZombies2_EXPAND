@@ -65,7 +65,9 @@ namespace MVZ2.GameContent.Effects
                                 TheGiantSnakeTail.GetFullSnake(target, snakeBuffer);
                                 foreach (var segment in snakeBuffer)
                                 {
-                                    segment.Velocity = segment.Velocity * 0.7f + (entity.Position - segment.Position) * 0.3f;
+                                    target.Velocity = Vector3.zero;
+                                    var newCenter = target.GetCenter() * 0.7f + entity.GetCenter() * 0.3f;
+                                    target.SetCenter(newCenter);
                                 }
                             }
                         }
@@ -74,7 +76,10 @@ namespace MVZ2.GameContent.Effects
                     {
                         if (hostile)
                         {
-                            target.Velocity = target.Velocity * 0.7f + (entity.Position - target.Position) * 0.3f;
+                            target.Velocity = Vector3.zero;
+                            var newCenter = target.GetCenter() * 0.7f + entity.GetCenter() * 0.3f;
+                            target.SetCenter(newCenter);
+                            target.StopChangingLane();
                         }
                     }
                     else if (target.Type == EntityTypes.PROJECTILE)
