@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-19 10:32+0800\n"
-"PO-Revision-Date: 2025-05-19 10:32+0800\n"
+"POT-Creation-Date: 2025-05-21 08:03+0800\n"
+"PO-Revision-Date: 2025-05-21 20:03+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2293,6 +2293,74 @@ msgstr ""
 "meaning remains in my achievements—no matter how remarkable—without their "
 "voices?"
 
+#. Name for music mvz2:mausoleum_boss
+#: Music meta file
+msgctxt "music.name"
+msgid "进化恶魔"
+msgstr "Evolution Devil"
+
+#. Source for music mvz2:mausoleum_boss
+#: Music meta file
+msgctxt "music.source"
+msgid "洛克人X5/洛克人"
+msgstr "Mega Man X5 / Mega Man"
+
+#. Origin for music mvz2:mausoleum_boss
+#: Music meta file
+msgctxt "music.origin"
+msgid "暗影恶魔/威利博士关卡头目"
+msgstr "Shadow Devil / Dr. Willy Stage Boss"
+
+#. Description for music mvz2:mausoleum_boss
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"巨人的音乐。\n"
+"是《洛克人X5》的头目音乐《Shadow Devil》，以及《洛克人》初代的音乐《Dr. "
+"Willy Stage Boss》。\n"
+"分别作为头目“暗影恶魔”，以及“黄色恶魔”的主题曲。\n"
+"<b>这两名头目也是巨人的主要设计来源。</b>\n"
+"你走进头目的房间，却发现房间内空无一人。\n"
+"令人恐惧，而又怀念的回忆。"
+msgstr ""
+"The theme of The Giant.\n"
+"The 2 versions are \"Shadow Devil\" (from Mega Man X5) and \"Dr. Willy Stage "
+"Boss\" (from Mega Man).\n"
+"These serve as the themes for the bosses \"Shadow Devil\" and \"Yellow "
+"Devil\", respectively.\n"
+"<b>These two bosses are also the primary design inspirations for The Giant.</"
+"b>\n"
+"You enter the boss room, only to find it empty.\n"
+"A terrifying, yet nostalgic memory."
+
+#. Name for music mvz2:mausoleum_boss_2
+#: Music meta file
+msgctxt "music.name"
+msgid "Lamdabamda"
+msgstr "Lamdabamda"
+
+#. Source for music mvz2:mausoleum_boss_2
+#: Music meta file
+msgctxt "music.source"
+msgid "洛克人X5"
+msgstr "Mega Man X5"
+
+#. Description for music mvz2:mausoleum_boss_2
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"巨人第三阶段的音乐。\n"
+"是《洛克人X5》的头目音乐《Lamdabamda》，作为头目“Rangda Bangda”的主题曲。\n"
+"房间里是一副奇怪的壁画，整个房间内充斥着神秘的压迫感。\n"
+"而最后，这压迫感会将你推向深渊。"
+msgstr ""
+"The theme for The Giant’s third phase.\n"
+"It is \"Lamdabamda\" (from Mega Man X5), serving as the theme for the boss "
+"\"Rangda Bangda.\"\n"
+"The room features a strange mural, filled with an eerie, oppressive "
+"atmosphere.\n"
+"In the end, this oppressive force pushes you toward the abyss."
+
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
 msgctxt "archive.tagname"
@@ -2936,6 +3004,10 @@ msgstr "新概念论士"
 msgctxt "staff_name"
 msgid "正邪の老鼠"
 msgstr "正邪の老鼠"
+
+#~ msgctxt "music.name"
+#~ msgid "双生恶魔"
+#~ msgstr "Evolution Devil"
 
 #~ msgctxt "achievement"
 #~ msgid "精心铸造"
