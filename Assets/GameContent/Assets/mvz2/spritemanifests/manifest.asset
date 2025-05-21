@@ -1060,6 +1060,14 @@ MonoBehaviour:
     - {fileID: -1580232334, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
     - {fileID: -1028235923, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
     - {fileID: -430792853, guid: ecf0ee3020934614c9673de172a435cd, type: 3}
+  - name: characters/marisa
+    spritesheet:
+    - {fileID: -1133822276, guid: 87b336d7b20b7a145a9300914c7bf0e8, type: 3}
+    - {fileID: 1439448067, guid: 87b336d7b20b7a145a9300914c7bf0e8, type: 3}
+    - {fileID: -108078192, guid: 87b336d7b20b7a145a9300914c7bf0e8, type: 3}
+    - {fileID: -1190141953, guid: 87b336d7b20b7a145a9300914c7bf0e8, type: 3}
+    - {fileID: -1477286224, guid: 87b336d7b20b7a145a9300914c7bf0e8, type: 3}
+    - {fileID: -1758476239, guid: 87b336d7b20b7a145a9300914c7bf0e8, type: 3}
   - name: characters/miko
     spritesheet:
     - {fileID: -1815168315, guid: 2ed94ca4477dddd4d8e58ecc9da541c5, type: 3}

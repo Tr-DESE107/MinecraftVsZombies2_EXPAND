@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-18 07:50+0800\n"
-"PO-Revision-Date: 2025-05-19 13:29+0800\n"
+"POT-Creation-Date: 2025-05-21 04:16+0800\n"
+"PO-Revision-Date: 2025-05-21 16:18+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2448,15 +2448,15 @@ msgstr "The Giant is an amalgamation of numerous zombies. It devours and devours
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
-"生命：<color=red>？</color>\n"
-"阶段1：<color=red>？</color>\n"
-"阶段2：<color=red>？</color>\n"
-"阶段3：<color=red>？</color>"
+"生命：<color=red>20000+10000</color>\n"
+"阶段1：<color=red>直线尸块；眼弹；重砸；吼叫；喷雾</color>\n"
+"阶段2：<color=red>跳跃尸块；眼弹；重砸；吃豆人变形；贪吃蛇变形</color>\n"
+"阶段3：<color=red>爬行</color>"
 msgstr ""
-"Toughness: <color=red>?</color>\n"
-"Phase 1: <color=red>?</color>\n"
-"Phase 2: <color=red>?</color>\n"
-"Phase 3: <color=red>?</color>"
+"Toughness: <color=red>20000+10000</color>\n"
+"Phase 1: <color=red>Straight cells; Eye bullets; Smash; Roar; Breath</color>\n"
+"Phase 2: <color=red>Jumping cells; Eye bullets; Smash; Pac-Man transformation; Snake transformation</color>\n"
+"Phase 3: <color=red>Crawl</color>"
 
 #. Flavor for misc mvz2:the_giant
 #: Almanac meta file
@@ -2967,8 +2967,8 @@ msgstr "An ordinary magician, and also a former good friend of Rinnosuke Morichi
 #. Properties for misc mvz2:marisa
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "画师：<color=red>尚未完成</color>"
-msgstr "Artist: <color=red>Not done yet</color>"
+msgid "画师：<color=red>小幽喜欢口乙烯 & 三花花</color>"
+msgstr "Artist: <color=red>小幽喜欢口乙烯 & 三花花</color>"
 
 #. Flavor for misc mvz2:marisa
 #: Almanac meta file
@@ -4610,6 +4610,18 @@ msgctxt "entity.name"
 msgid "凋灵"
 msgstr "Wither"
 
+#. Name for entity mvz2:the_giant
+#: Entity meta file
+msgctxt "entity.name"
+msgid "巨人"
+msgstr "The Giant"
+
+#. Name for entity mvz2:the_giant_snake_tail
+#: Entity meta file
+msgctxt "entity.name"
+msgid "巨人蛇尾"
+msgstr "The Giant Snake Tail"
+
 #. Name for entity mvz2:minecart
 #: Entity meta file
 msgctxt "entity.name"
@@ -5023,6 +5035,10 @@ msgstr "Lengthen the board"
 msgctxt "option.name"
 msgid "增加弹珠"
 msgstr "Add a pearl"
+
+#~ msgctxt "misc.description"
+#~ msgid "画师：<color=red>尚未完成</color>"
+#~ msgstr "Artist: <color=red>Not done yet</color>"
 
 #~ msgctxt "contraptions.description"
 #~ msgid "技能：<color=red>按从左到右的顺序，生成2张你所携带的蓝图的掉落物复制。（下一次技能会从上一次结束的位置开始复制）</color>"

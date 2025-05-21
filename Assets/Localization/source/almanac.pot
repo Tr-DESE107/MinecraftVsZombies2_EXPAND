@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-18 07:50+0800\n"
+"POT-Creation-Date: 2025-05-21 04:16+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1968,10 +1968,10 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid ""
-"生命：<color=red>？</color>\n"
-"阶段1：<color=red>？</color>\n"
-"阶段2：<color=red>？</color>\n"
-"阶段3：<color=red>？</color>"
+"生命：<color=red>20000+10000</color>\n"
+"阶段1：<color=red>直线尸块；眼弹；重砸；吼叫；喷雾</color>\n"
+"阶段2：<color=red>跳跃尸块；眼弹；重砸；吃豆人变形；贪吃蛇变形</color>\n"
+"阶段3：<color=red>爬行</color>"
 msgstr ""
 
 #. Flavor for misc mvz2:the_giant
@@ -2399,7 +2399,7 @@ msgstr ""
 #. Properties for misc mvz2:marisa
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "画师：<color=red>尚未完成</color>"
+msgid "画师：<color=red>小幽喜欢口乙烯 & 三花花</color>"
 msgstr ""
 
 #. Flavor for misc mvz2:marisa
@@ -3920,6 +3920,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.name"
 msgid "凋灵"
+msgstr ""
+
+#. Name for entity mvz2:the_giant
+#: Entity meta file
+msgctxt "entity.name"
+msgid "巨人"
+msgstr ""
+
+#. Name for entity mvz2:the_giant_snake_tail
+#: Entity meta file
+msgctxt "entity.name"
+msgid "巨人蛇尾"
 msgstr ""
 
 #. Name for entity mvz2:minecart

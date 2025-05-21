@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1723b13d8d44a654a8424dc59197b0aa
+guid: 87b336d7b20b7a145a9300914c7bf0e8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,7 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -123,190 +123,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: seija_0
+      name: marisa_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 560
+        y: 0
+        width: 636
         height: 1280
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7458c1cc0cfb5d449381b0cabf50701
-      internalID: -793165027
+      spriteID: bf2e0863a54bcc946a7cf64376873998
+      internalID: -1133822276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seija_1
+      name: marisa_1
       rect:
         serializedVersion: 2
-        x: 576
-        y: 720
-        width: 560
-        height: 592
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 161aa9c697a785946acf9150885fb6c9
-      internalID: -1739069774
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: seija_2
-      rect:
-        serializedVersion: 2
-        x: 1728
-        y: 384
-        width: 496
-        height: 320
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80dffde1bcd624541b33bd9f2d72bc4c
-      internalID: -239630804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: seija_3
-      rect:
-        serializedVersion: 2
-        x: 576
+        x: 639
         y: 0
-        width: 560
-        height: 704
+        width: 636
+        height: 1280
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e9761cd853c0774f8954295e88194c3
-      internalID: 359176104
+      spriteID: 5b5944e81fd9c9a4a926ab6111f41a9a
+      internalID: 1439448067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seija_4
+      name: marisa_2
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 1278
         y: 0
-        width: 560
-        height: 704
+        width: 636
+        height: 1280
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec515edcaaf741e4c9557ece486a1e86
-      internalID: -654033036
+      spriteID: 4d4e307dc8d20154cbb9bdc749135f5b
+      internalID: -108078192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seija_5
+      name: marisa_3
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 1024
-        width: 496
-        height: 288
+        x: 1917
+        y: 1152
+        width: 160
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b7ace9e49ad6e74083da76b1a433511
-      internalID: -411135304
+      spriteID: 5b66de14ddc56144dade93ac2e794a20
+      internalID: -1190141953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seija_6
+      name: marisa_4
       rect:
         serializedVersion: 2
-        x: 1664
-        y: 1024
-        width: 496
-        height: 288
+        x: 1917
+        y: 1021
+        width: 160
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0239231ecab3e6e42973d55a2d3f8371
-      internalID: 1063143524
+      spriteID: ede2b6b170cfd5d43a8fba7362ecb851
+      internalID: -1477286224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seija_7
+      name: marisa_5
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 720
-        width: 496
-        height: 288
+        x: 1917
+        y: 890
+        width: 160
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60bb86a1d8a3b464fbb4fcfc3154a058
-      internalID: -409706261
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: seija_8
-      rect:
-        serializedVersion: 2
-        x: 1664
-        y: 720
-        width: 496
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42e366271657e174b902c1a0900f3ea5
-      internalID: 1360310571
+      spriteID: bad8ed5044545924c9ef327566066d6f
+      internalID: -1758476239
       vertices: []
       indices: 
       edges: []
@@ -322,15 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      seija_0: -793165027
-      seija_1: -1739069774
-      seija_2: -239630804
-      seija_3: 359176104
-      seija_4: -654033036
-      seija_5: -411135304
-      seija_6: 1063143524
-      seija_7: -409706261
-      seija_8: 1360310571
+      marisa_0: -1133822276
+      marisa_1: 1439448067
+      marisa_2: -108078192
+      marisa_3: -1190141953
+      marisa_4: -1477286224
+      marisa_5: -1758476239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
