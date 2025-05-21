@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     {
         public TheGiantPhase3Buff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(EngineEntityProps.MAX_HEALTH, NumberOperator.Multiply, 0.5f));
+            AddModifier(new FloatModifier(EngineEntityProps.MAX_HEALTH, NumberOperator.Multiply, 0.4f));
         }
     }
 }
