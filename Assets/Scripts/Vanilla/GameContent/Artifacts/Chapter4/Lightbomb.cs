@@ -27,16 +27,18 @@ namespace MVZ2.GameContent.Artifacts
             {
                 if (artifact?.Definition != this)
                     continue;
+                var damage = contraption.GetCost();
+                if (damage <= 0)
+                    continue;
                 artifact.Highlight();
 
                 foreach (var enemy in level.FindEntities(e => e.IsVulnerableEntity() && e.IsHostile(contraption)))
                 {
-                    enemy.TakeDamage(LIGHT_DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.MUTE), contraption);
+                    enemy.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.MUTE), contraption);
                 }
                 contraption.Spawn(VanillaEffectID.stunningFlash, contraption.GetCenter());
                 contraption.PlaySound(VanillaSoundID.evocation);
             }
         }
-        public const float LIGHT_DAMAGE = 170;
     }
 }

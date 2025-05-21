@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-21 05:44+0800\n"
+"POT-Creation-Date: 2025-05-21 07:25+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4315,7 +4315,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:lightbomb
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "器械自爆时还会额外对所有敌人造成170点伤害"
+msgid "器械自爆时还会额外对所有敌人造成等同于其能量消耗的伤害"
 msgstr ""
 
 #. Name for artifact mvz2:eye_of_the_giant
