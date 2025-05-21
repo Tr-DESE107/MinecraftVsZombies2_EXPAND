@@ -27,6 +27,7 @@ namespace MVZ2.Collisions
         public void UpdateEntity()
         {
             rigid.position = Entity.Position;
+            transform.position = rigid.position;
             var detection = Entity.GetCollisionDetection();
             gameObject.SetActive(detection != EntityCollisionHelper.DETECTION_IGNORE);
 
