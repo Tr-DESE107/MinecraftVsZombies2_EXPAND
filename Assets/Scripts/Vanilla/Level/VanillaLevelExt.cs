@@ -230,6 +230,10 @@ namespace MVZ2.Vanilla.Level
             {
                 multiplier *= 2.5f;
             }
+            if (level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT || level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT_2)
+            {
+                multiplier = 1;
+            }
             return Mathf.Ceil(Mathf.Min(Mathf.Pow(basePoints, power) * multiplier + addition, 500));
         }
         public static float CalculateSpawnPoints(this LevelEngine level)

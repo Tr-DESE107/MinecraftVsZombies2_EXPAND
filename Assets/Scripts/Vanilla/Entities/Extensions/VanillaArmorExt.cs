@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Armors;
 using PVZEngine.Armors;
 
 namespace MVZ2.Vanilla.Entities
@@ -7,8 +8,8 @@ namespace MVZ2.Vanilla.Entities
     {
         public static void DamageBlink(this Armor armor)
         {
-            if (armor != null && !armor.HasBuff<DamageColorBuff>())
-                armor.AddBuff<DamageColorBuff>();
+            if (armor != null && !armor.HasBuff<ArmorDamageColorBuff>())
+                armor.AddBuff<ArmorDamageColorBuff>();
         }
     }
 }

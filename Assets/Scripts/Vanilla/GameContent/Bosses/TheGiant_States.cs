@@ -15,6 +15,7 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using static MVZ2.GameContent.Bosses.Nightmareaper;
 using static UnityEditorInternal.VersionControl.ListControl;
 
 namespace MVZ2.GameContent.Bosses
@@ -27,6 +28,7 @@ namespace MVZ2.GameContent.Bosses
             public TheGiantStateMachine()
             {
                 AddState(new IdleState());
+                AddState(new AppearState());
                 AddState(new DisassemblyState());
                 AddState(new EyeState());
                 AddState(new ArmsState());
@@ -42,13 +44,6 @@ namespace MVZ2.GameContent.Bosses
         }
         #endregion
 
-        private static void SpawnDarkHole(Entity entity)
-        {
-            var param = entity.GetSpawnParams();
-            param.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * DARK_HOLE_EFFECT_SCALE);
-            entity.Spawn(VanillaEffectID.darkHole, entity.Position, param);
-            entity.PlaySound(VanillaSoundID.odd);
-        }
         public static void Stun(Entity entity, int duration)
         {
             if (entity.IsDead)
@@ -62,6 +57,20 @@ namespace MVZ2.GameContent.Bosses
             stateMachine.StartState(entity, STATE_STUNNED);
             var substateTimer = stateMachine.GetSubStateTimer(entity);
             substateTimer.ResetTime(duration);
+        }
+        public static void SetAppear(Entity entity)
+        {
+            if (entity.IsDead)
+                return;
+            entity.Health = 1;
+            stateMachine.StartState(entity, STATE_APPEAR);
+        }
+        private static void SpawnDarkHole(Entity entity)
+        {
+            var param = entity.GetSpawnParams();
+            param.SetProperty(EngineEntityProps.DISPLAY_SCALE, Vector3.one * DARK_HOLE_EFFECT_SCALE);
+            entity.Spawn(VanillaEffectID.darkHole, entity.Position, param);
+            entity.PlaySound(VanillaSoundID.odd);
         }
         private static void RoarLoop(Entity entity)
         {
@@ -222,6 +231,28 @@ namespace MVZ2.GameContent.Bosses
                 return STATE_IDLE;
             }
             public const int SUBSTATE_REFORMED = 1;
+        }
+        private class AppearState : EntityStateMachineState
+        {
+            public AppearState() : base(STATE_APPEAR, ANIMATION_STATE_IDLE) { }
+            public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnEnter(stateMachine, entity);
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.ResetTime(30);
+            }
+            public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
+            {
+                base.OnUpdateAI(stateMachine, entity);
+                var stateTimer = stateMachine.GetStateTimer(entity);
+                stateTimer.Run(stateMachine.GetSpeed(entity));
+                entity.Health = stateTimer.GetPassedPercentage() * entity.GetMaxHealth();
+                if (stateTimer.Expired)
+                {
+                    SetInactive(entity, true);
+                    stateMachine.StartState(entity, STATE_DISASSEMBLY);
+                }
+            }
         }
         private class DisassemblyState : EntityStateMachineState
         {
@@ -1259,6 +1290,7 @@ namespace MVZ2.GameContent.Bosses
                         {
                             stateMachine.SetSubState(entity, SUBSTATE_HEAL);
                             substateTimer.ResetTime(30);
+                            entity.AddBuff<TheGiantPhase3Buff>();
                         }
                         break;
                     case SUBSTATE_HEAL:
@@ -1330,6 +1362,8 @@ namespace MVZ2.GameContent.Bosses
                         {
                             stateMachine.SetSubState(entity, SUBSTATE_CRAWL);
                             substateTimer.ResetTime(10);
+                            entity.Level.ShakeScreen(5, 0, 10);
+                            entity.PlaySound(VanillaSoundID.thump);
                         }
                         break;
                     case SUBSTATE_CRAWL:
@@ -1392,6 +1426,7 @@ namespace MVZ2.GameContent.Bosses
                     var expParam = entity.GetSpawnParams();
                     expParam.SetProperty(EngineEntityProps.SIZE, Vector3.one * 240);
                     var exp = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), expParam);
+                    entity.Level.ShakeScreen(20, 0, 30);
 
                     for (int i = 0; i < 50; i++)
                     {
@@ -1404,7 +1439,6 @@ namespace MVZ2.GameContent.Bosses
                         var ySpeed = zombie.RNG.NextFloat() * 10 + 3;
                         var zSpeed = zombie.RNG.NextFloat() * 20 - 10;
                         zombie.Velocity = new Vector3(xSpeed, ySpeed, zSpeed);
-                        entity.Level.ShakeScreen(20, 0, 30);
                         entity.Remove();
                     }
                 }

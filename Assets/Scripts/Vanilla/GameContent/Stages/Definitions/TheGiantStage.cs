@@ -8,9 +8,9 @@ using UnityEngine;
 namespace MVZ2.GameContent.Stages
 {
     [StageDefinition(VanillaStageNames.mausoleum11)]
-    public partial class GiantStage : StageDefinition
+    public partial class TheGiantStage : StageDefinition
     {
-        public GiantStage(string nsp, string name) : base(nsp, name)
+        public TheGiantStage(string nsp, string name) : base(nsp, name)
         {
             AddBehaviour(new WaveStageBehaviour(this));
             AddBehaviour(new GiantStageBehaviour(this));

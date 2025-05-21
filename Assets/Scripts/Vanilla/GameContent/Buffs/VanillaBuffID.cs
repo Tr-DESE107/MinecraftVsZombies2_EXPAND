@@ -162,6 +162,9 @@ namespace MVZ2.GameContent.Buffs
             public const string witherTransition = "wither_transition";
             public const string witherCleared = "wither_cleared";
             public const string flashWhite = "flash_white";
+
+            public const string theGiantTransition = "the_giant_transition";
+            public const string theGiantCleared = "the_giant_cleared";
         }
         public static class Boss
         {
@@ -175,6 +178,7 @@ namespace MVZ2.GameContent.Buffs
             public const string theGiantPacman = "the_giant_pacman";
             public const string theGiantPacmanKilled = "the_giant_pacman_killed";
             public const string theGiantSnake = "the_giant_snake";
+            public const string theGiantPhase3 = "the_giant_phase3";
         }
     }
     public static class VanillaBuffID

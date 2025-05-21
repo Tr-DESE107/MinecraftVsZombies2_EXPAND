@@ -110,7 +110,8 @@
         public const int WITHER_STUNNED = BOSS_FAINT;
         public const int WITHER_DEATH = DEAD;
 
-        public const int THE_GIANT_IDLE = BOSS_APPEAR;
+        public const int THE_GIANT_IDLE = IDLE;
+        public const int THE_GIANT_APPEAR = BOSS_APPEAR;
         public const int THE_GIANT_DISASSEMBLY = BOSS_SPECIAL;
         public const int THE_GIANT_EYES = ATTACK;
         public const int THE_GIANT_ROAR = BOSS_ATTACK_2;

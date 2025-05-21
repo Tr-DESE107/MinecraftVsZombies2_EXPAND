@@ -203,7 +203,7 @@ namespace MVZ2.GameContent.Implements
                     case "chapter_4_finish":
                         IEnumerator coroutineFunc()
                         {
-                            yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo);
+                            yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo);
                             var title = Global.Game.GetText(VanillaStrings.UI_GAME_CLEARED);
                             var desc = Global.Game.GetText(VanillaStrings.UI_COMING_SOON);
                             var options = new string[] { Global.Game.GetText(VanillaStrings.CONFIRM) };

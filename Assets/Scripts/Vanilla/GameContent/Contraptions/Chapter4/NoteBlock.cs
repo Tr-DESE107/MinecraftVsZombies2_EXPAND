@@ -72,7 +72,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.ufo);
             entity.PlaySound(VanillaSoundID.growBig);
 
-            if (entity.HasBuff<NoteBlockLoudBuff>())
+            if (entity.HasBuff<NoteBlockChargedBuff>())
             {
                 entity.Level.ShakeScreen(15, 0, 90);
                 foreach (var target in entity.Level.FindEntities(e => e.IsHostile(entity) && e.IsVulnerableEntity()))
@@ -86,7 +86,6 @@ namespace MVZ2.GameContent.Contraptions
                     {
                         target.Stun(300);
                     }
-                    
                 }
                 entity.Spawn(VanillaEffectID.amplifiedRoar, entity.GetCenter());
                 entity.RemoveBuffs<NoteBlockChargedBuff>();

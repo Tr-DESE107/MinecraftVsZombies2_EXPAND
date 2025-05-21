@@ -48,7 +48,10 @@ namespace MVZ2.GameContent.Contraptions
         private void ProductionUpdate(Entity entity)
         {
             var productionTimer = GetProductionTimer(entity);
-            productionTimer.Run(entity.GetProduceSpeed());
+            if (!entity.Level.IsCleared)
+            {
+                productionTimer.Run(entity.GetProduceSpeed());
+            }
             if (productionTimer.Expired)
             {
                 var pos = entity.Position;

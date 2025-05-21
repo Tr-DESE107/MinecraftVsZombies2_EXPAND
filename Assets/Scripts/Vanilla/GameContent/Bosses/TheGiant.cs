@@ -132,9 +132,9 @@ namespace MVZ2.GameContent.Bosses
                 return;
             }
             var otherCollider = collision.OtherCollider;
-            var crushDamage = 1000000;
-            if (!other.IsInvincible())
+            if (!other.IsInvincible() && other.Type == EntityTypes.PLANT)
             {
+                var crushDamage = 1000000;
                 var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
                 if (result != null && result.HasAnyFatal())
                 {
@@ -550,6 +550,7 @@ namespace MVZ2.GameContent.Bosses
         private static readonly Vector3 INNER_EYE_BULLET_OFFSET = new Vector3(140, 140, 0);
 
         public const int STATE_IDLE = VanillaEntityStates.THE_GIANT_IDLE;
+        public const int STATE_APPEAR = VanillaEntityStates.THE_GIANT_APPEAR;
         public const int STATE_DISASSEMBLY = VanillaEntityStates.THE_GIANT_DISASSEMBLY;
         public const int STATE_EYES = VanillaEntityStates.THE_GIANT_EYES;
         public const int STATE_ROAR = VanillaEntityStates.THE_GIANT_ROAR;

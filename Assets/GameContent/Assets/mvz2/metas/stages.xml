@@ -850,7 +850,7 @@
             <entry id="mvz2:devourer" count="2" minCount="0"/>
             <entry id="mvz2:hellfire" count="4"/>
             <entry id="mvz2:necrotombstone" count="4"/>
-            <entry id="mvz2:gravitation_bomb" count="3"/>
+            <entry id="mvz2:gravitation_bomb" count="1"/>
             <entry id="mvz2:desire_pot" count="2" minCount="0"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
