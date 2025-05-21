@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Stages
             ClassicStart(level);
             //ConveyorStart(level);
             level.LevelProgressVisible = true;
-            level.SetProgressBarToBoss(VanillaProgressBarID.wither);
+            level.SetProgressBarToBoss(VanillaProgressBarID.theGiant);
             level.SetTriggerActive(true);
             var cartRef = level.GetProperty<NamespaceID>(EngineAreaProps.CART_REFERENCE);
             level.SpawnCarts(cartRef, VanillaLevelExt.CART_START_X, 20);

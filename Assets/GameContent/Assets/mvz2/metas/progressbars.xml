@@ -21,4 +21,9 @@
         <bar sprite="mvz2:ui/level/progress_bar/wither" fromLeft="true" mode="filled" />
         <padding left="17" right="17" top="22" bottom="4" />
     </bar>
+    <bar id="the_giant" type="boss" width="124" height="24">
+        <background sprite="mvz2:ui/level/progress_bar/the_giant_background" />
+        <bar sprite="mvz2:ui/level/progress_bar/the_giant_bar" fromLeft="true" />
+        <padding left="5" right="5" top="7" bottom="10" />
+    </bar>
 </bars>

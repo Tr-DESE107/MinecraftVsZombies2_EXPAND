@@ -479,6 +479,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1e0913b19fcf5c44984c5217dba3a10e, type: 3}
   - name: entity/boss/slenderman
     sprite: {fileID: 21300000, guid: 3f675fd783eb69c4ba235b5c1f510cd8, type: 3}
+  - name: entity/boss/the_giant_snake_tail
+    sprite: {fileID: 21300000, guid: 47e358101a35f3c4eb66d746582948c4, type: 3}
   - name: entity/boss/wither
     sprite: {fileID: 21300000, guid: 52224e26acb83e248a1a595c220c3f0d, type: 3}
   - name: entity/boss/wither_armor_white
@@ -583,6 +585,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 26dc0bfdc50bd814f9f2c3f60f62e366, type: 3}
   - name: entity/effects/cursed_fire_particle
     sprite: {fileID: 21300000, guid: e2f7e29ca0c62d5468d4cab32fae9562, type: 3}
+  - name: entity/effects/dark_hole_circle
+    sprite: {fileID: 21300000, guid: d019990e5b66306429a8c40bebc19912, type: 3}
   - name: entity/effects/desire_lump
     sprite: {fileID: 21300000, guid: c278e895010ef2449998e67c90983780, type: 3}
   - name: entity/effects/diamond_spike_particles
@@ -631,6 +635,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3e0db9919161e1f4d8204af2dba2d3d6, type: 3}
   - name: entity/effects/shine_ring
     sprite: {fileID: 21300000, guid: 0fd484fcbd2c9ed4dbad79aa98011525, type: 3}
+  - name: entity/effects/sonic_wave
+    sprite: {fileID: 21300000, guid: 68ec678f2e1fdfc4eab7a8de70fdf77c, type: 3}
   - name: entity/effects/soul
     sprite: {fileID: 21300000, guid: a6593d9123fd3ed40b97b320a74e5da3, type: 3}
   - name: entity/effects/soulfire_particle
@@ -959,6 +965,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4ffd669e6a8191a468f39575216ef435, type: 3}
   - name: ui/level/progress_bar/seija_background
     sprite: {fileID: 21300000, guid: f8e133db9e0078b42bbd5979c7143e76, type: 3}
+  - name: ui/level/progress_bar/the_giant_background
+    sprite: {fileID: 21300000, guid: fb49bf03d7a39f74493d7f10e7512dfc, type: 3}
+  - name: ui/level/progress_bar/the_giant_bar
+    sprite: {fileID: 21300000, guid: d45f50a6e09e447469497cf77a6d16b5, type: 3}
   - name: ui/level/progress_bar/wither
     sprite: {fileID: 21300000, guid: e815fc79b6c003e4788c0027be0a82e6, type: 3}
   - name: ui/level/progress_bar/wither_background
@@ -1292,9 +1302,14 @@ MonoBehaviour:
     - {fileID: -685544824, guid: cd590dd9f5d29994db2a5356364308e6, type: 3}
     - {fileID: -1785123263, guid: cd590dd9f5d29994db2a5356364308e6, type: 3}
     - {fileID: -702476823, guid: cd590dd9f5d29994db2a5356364308e6, type: 3}
-  - name: entity/boss/the_giant_pac_man
+  - name: entity/boss/the_giant_pacman
     spritesheet:
-    - {fileID: 21300000, guid: d666b54ec2852694a99c839ab3cea3b6, type: 3}
+    - {fileID: -1334192972, guid: d666b54ec2852694a99c839ab3cea3b6, type: 3}
+    - {fileID: 320818064, guid: d666b54ec2852694a99c839ab3cea3b6, type: 3}
+    - {fileID: -1352609416, guid: d666b54ec2852694a99c839ab3cea3b6, type: 3}
+    - {fileID: -475135491, guid: d666b54ec2852694a99c839ab3cea3b6, type: 3}
+    - {fileID: -264019157, guid: d666b54ec2852694a99c839ab3cea3b6, type: 3}
+    - {fileID: -727473218, guid: d666b54ec2852694a99c839ab3cea3b6, type: 3}
   - name: entity/cart/bowl_chariot
     spritesheet:
     - {fileID: -1314042680, guid: 66fb8eb08bbc74b40895bb373bead3ee, type: 3}
