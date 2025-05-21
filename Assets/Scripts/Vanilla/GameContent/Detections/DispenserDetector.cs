@@ -18,12 +18,12 @@ namespace MVZ2.GameContent.Detections
             var projectileSize = projectileDef.GetProperty<Vector3>(EngineEntityProps.SIZE);
 
             var sizeX = range < 0 ? 800 : range;
-            if (!self.IsFacingLeft())
+            var direction = reversed ? -1 : 1;
+            if (direction * self.GetFacingX() > 0)
             {
                 var limitedRange = VanillaLevelExt.GetAttackBorderX(true) - source.x;
                 sizeX = Mathf.Min(sizeX, limitedRange);
             }
-            var direction = reversed ? -1 : 1;
             var centerX = source.x + sizeX * 0.5f * self.GetFacingX() * direction;
 
             float sizeY;
