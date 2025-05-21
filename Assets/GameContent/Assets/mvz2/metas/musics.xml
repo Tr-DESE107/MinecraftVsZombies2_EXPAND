@@ -300,4 +300,27 @@
             <p>就如同领导者和他的人民一样，如果我不再听取那些支持我的人的，有相当价值的意见，甚至不把这些人放在眼里，就算我做的再好，那又有什么用呢？</p>
         </description>
     </music>
+    <music id="mausoleum_boss" name="双生恶魔" unlock="mvz2:level.mausoleum_11">
+        <track main="mvz2:mausoleum_boss" sub="mvz2:mausoleum_boss_sub"/>
+        <source>洛克人X5/洛克人</source>
+        <origin>暗影恶魔/威利博士关卡头目</origin>
+        <description>
+            <p>巨人的音乐。</p>
+            <p>原曲是《洛克人X5》的头目音乐《Shadow Devil》，以及《洛克人》初代的音乐《Dr. Willy Stage Boss》。</p>
+            <p>分别作为头目“暗影恶魔”，以及“黄色恶魔”的主题曲。</p>
+            <p><![CDATA[<b>这两名头目也是巨人的主要设计来源。</b>]]></p>
+            <p>你走进头目的房间，却发现房间内空无一人。</p>
+            <p>令人恐惧，而又怀念的回忆。</p>
+        </description>
+    </music>
+    <music id="mausoleum_boss_2" name="Lamdabamda" unlock="mvz2:level.mausoleum_11">
+        <track main="mvz2:mausoleum_boss_2"/>
+        <source>洛克人X5</source>
+        <description>
+            <p>巨人第三阶段的音乐。</p>
+            <p>原曲是《洛克人X5》的头目音乐《Lamdabamda》，作为头目“Rangda Bangda”的主题曲。</p>
+            <p>房间里是一副奇怪的壁画，整个房间内充斥着神秘的压迫感。</p>
+            <p>而最后，这压迫感会将你推向深渊。</p>
+        </description>
+    </music>
 </musics>
