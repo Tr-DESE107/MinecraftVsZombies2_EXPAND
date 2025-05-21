@@ -138,13 +138,6 @@ namespace MVZ2.GameContent.Stages
                 }
             }
         }
-        protected void ClearNonGiantEnemies(LevelEngine level)
-        {
-            foreach (var entity in level.FindEntities(e => e.Type == EntityTypes.ENEMY && !e.IsDead && e.IsHostileEntity() && (!e.IsHarmless() || e.IsOnGround)))
-            {
-                entity.Die();
-            }
-        }
 
         public const int BOSS_STATE_PHASE1_2 = 0;
         public const int BOSS_STATE_PHASE3_TRANSITION = 1;
