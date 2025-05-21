@@ -112,7 +112,7 @@ namespace MVZ2.GameContent.Bosses
                     if (result != null)
                     {
                         var level = self.Level;
-                        self.HealEffects(result.GetTotalSpendAmount(), other);
+                        self.HealEffects(result.GetTotalSpendAmount() * PACMAN_HEAL_MULTIPLIER, other);
                         if (!level.IsPlayingSound(VanillaSoundID.pacmanAttack))
                         {
                             level.PlaySound(VanillaSoundID.pacmanAttack);
@@ -614,6 +614,7 @@ namespace MVZ2.GameContent.Bosses
         public const int PACMAN_DURATION = 300;
         public const float PACMAN_MOVE_SPEED = 3;
         public const float PACMAN_DAMAGE_MULTIPLIER = 0.01f;
+        public const float PACMAN_HEAL_MULTIPLIER = 2;
         public const float PACMAN_GHOST_DAMAGE = 600;
 
         public const int SNAKE_BLOCK_COUNT = 8;
