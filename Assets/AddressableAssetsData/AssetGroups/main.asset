@@ -617,6 +617,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16156bb7e931e954da8a64716c94c87a
+    m_Address: mvz2:punch1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1638747b3e81fd143ba72fe5035844ea
     m_Address: mvz2:enemy/mausoleum/shikaisen_zombie
     m_ReadOnly: 0
@@ -1183,6 +1189,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 294712fdf799501439ac34ed9fdf68c7
     m_Address: mvz2:entity/ghast/ghast_fire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2959507373c0e944e908bc906fc4e57e
+    m_Address: mvz2:punch2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -3508,12 +3520,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 720fd7d8f406fad459ccc11c0d01251a
-    m_Address: mvz2:mausoleum_level_sub
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Music
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7255b794a3fcb9145becfcafa89b5c99
     m_Address: mvz2:talk/dialog_item_hide
     m_ReadOnly: 0
@@ -4570,7 +4576,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92c4dbf29f435db47a77583bbca3cfd6
-    m_Address: mvz2:punch
+    m_Address: mvz2:impact
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
@@ -6549,6 +6555,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d019990e5b66306429a8c40bebc19912
+    m_Address: mvz2:entity/effects/dark_hole_circle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d01a2a78c4760e3408aba65d73824db6
     m_Address: mvz2:random/crystal/crystal_break4
     m_ReadOnly: 0
@@ -7819,12 +7831,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f7030f8746b15284cbf455af3417d758
-    m_Address: mvz2:mausoleum_level
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f74aabbf5c6403f4b908c053d7ecc630
     m_Address: mvz2:starshard_rings/mausoleum

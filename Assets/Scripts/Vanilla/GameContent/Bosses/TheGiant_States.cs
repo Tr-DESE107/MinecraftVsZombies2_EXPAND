@@ -3,6 +3,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -14,6 +15,7 @@ using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using static UnityEditorInternal.VersionControl.ListControl;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -162,10 +164,13 @@ namespace MVZ2.GameContent.Bosses
                 var lastState = stateMachine.GetPreviousState(entity);
 
                 var atLeft = AtLeft(entity);
-                bool attack1Used = lastState == STATE_EYES || lastState == STATE_ARMS;
                 bool phase2 = GetPhase(entity) == PHASE_2;
+                int attackFlag = GetAttackFlag(entity);
                 if (atLeft)
                 {
+                    var attack1Used = (attackFlag & 1) != 0;
+                    attackFlag ^= 1;
+                    SetAttackFlag(entity, attackFlag);
                     if (attack1Used)
                     {
                         if (!phase2)
@@ -184,33 +189,33 @@ namespace MVZ2.GameContent.Bosses
                     var outerTarget = FindEyeBulletTarget(entity, true);
                     if (innerTarget.ExistsAndAlive() || outerTarget.ExistsAndAlive())
                     {
-                        stateMachine.SetPreviousState(entity, lastState);
                         return lastState;
                     }
                 }
                 else
                 {
+                    var attack1Used = (attackFlag & 2) != 0;
+                    attackFlag ^= 2;
+                    SetAttackFlag(entity, attackFlag);
                     if (attack1Used)
                     {
-                        lastState = STATE_ARMS;
-                        if (CanArmsAttack(entity))
+                        if (!phase2)
                         {
-                            stateMachine.SetPreviousState(entity, lastState);
+                            lastState = STATE_ROAR;
+                            if (entity.Level.EntityExists(e => CanRoarStun(entity, e)))
+                            {
+                                return lastState;
+                            }
+                        }
+                        else
+                        {
+                            lastState = STATE_PACMAN;
                             return lastState;
                         }
                     }
-                    if (!phase2)
+                    lastState = STATE_ARMS;
+                    if (CanArmsAttack(entity))
                     {
-                        lastState = STATE_ROAR;
-                        if (entity.Level.EntityExists(e => CanRoarStun(entity, e)))
-                        {
-                            stateMachine.SetPreviousState(entity, lastState);
-                            return lastState;
-                        }
-                    }
-                    else
-                    {
-                        lastState = STATE_PACMAN;
                         return lastState;
                     }
                 }
@@ -315,9 +320,16 @@ namespace MVZ2.GameContent.Bosses
                             SpawnDarkHole(entity);
                             SetInactive(entity, false);
                             SetFlipX(entity, AtLeft(entity));
-                            stateMachine.SetSubState(entity, SUBSTATE_RESTORE);
-                            stateMachine.SetAnimationSubstate(entity, ANIMATION_SUBSTATE_RESTORE);
-                            substateTimer.ResetTime(30);
+                            if (entity.IsDead)
+                            {
+                                stateMachine.StartState(entity, STATE_FAINT);
+                            }
+                            else
+                            {
+                                stateMachine.SetSubState(entity, SUBSTATE_RESTORE);
+                                stateMachine.SetAnimationSubstate(entity, ANIMATION_SUBSTATE_RESTORE);
+                                substateTimer.ResetTime(30);
+                            }
                         }
                         break;
                     case SUBSTATE_RESTORE:
@@ -619,7 +631,7 @@ namespace MVZ2.GameContent.Bosses
                                 var y = entity.Level.GetGroundY(x, z);
                                 var param = entity.GetSpawnParams();
                                 var gas = entity.Spawn(VanillaEffectID.mummyGas, new Vector3(x, y, z), param);
-                                gas.Velocity = entity.GetFacingDirection() * 2;
+                                gas.Velocity = entity.GetFacingDirection() * 1;
                             }
                         }
                         break;
@@ -690,7 +702,7 @@ namespace MVZ2.GameContent.Bosses
                                 ZombieBlock.SetMoveCooldown(block, 30);
                             }
                             SpawnDarkHole(entity);
-                            entity.Position = GetCombinePosition(entity, !atLeft);
+                            entity.Position = GetCombinePosition(entity, atLeft);
                         }
                         break;
                     case SUBSTATE_FORM:
@@ -1003,7 +1015,7 @@ namespace MVZ2.GameContent.Bosses
                             RemoveAllZombieBlocks(entity);
                             SpawnDarkHole(entity);
                             SetInactive(entity, false);
-                            SetFlipX(entity, true);
+                            SetFlipX(entity, false);
                             if (entity.IsDead)
                             {
                                 stateMachine.StartState(entity, STATE_FAINT);
@@ -1045,9 +1057,10 @@ namespace MVZ2.GameContent.Bosses
                 RemoveAllZombieBlocks(entity);
                 RemoveAllSnakeTails(entity);
 
+                var atLeft = false;
                 for (int i = 0; i < SNAKE_BLOCK_COUNT; i++)
                 {
-                    var targetPosition = GetZombieBlockPosition(entity, i, true);
+                    var targetPosition = GetZombieBlockPosition(entity, i, atLeft);
                     var block = SpawnZombieBlock(entity, entity.Position);
                     ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
                     ZombieBlock.SetStartPosition(block, entity.Position);
@@ -1060,7 +1073,7 @@ namespace MVZ2.GameContent.Bosses
                 stateMachine.SetSubState(entity, SUBSTATE_SNAKE_END);
                 var substateTimer = stateMachine.GetSubStateTimer(entity);
                 substateTimer.ResetTime(30);
-                entity.Position = GetCombinePosition(entity, true);
+                entity.Position = GetCombinePosition(entity, atLeft);
             }
             public static int GetSnakeRotation(Vector3 direction)
             {
@@ -1359,26 +1372,41 @@ namespace MVZ2.GameContent.Bosses
             {
                 base.OnEnter(stateMachine, entity);
                 var stateTimer = stateMachine.GetStateTimer(entity);
-                stateTimer.ResetTime(150);
+                stateTimer.ResetTime(120);
+                entity.PlaySound(VanillaSoundID.giantRoar);
             }
             public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateLogic(stateMachine, entity);
 
+                entity.Level.ShakeScreen(5, 5, 1);
                 var stateTimer = stateMachine.GetStateTimer(entity);
                 stateTimer.Run(stateMachine.GetSpeed(entity));
 
                 if (stateTimer.Expired)
                 {
-                    entity.PlaySound(VanillaSoundID.witherDeath);
-                    entity.PlaySound(VanillaSoundID.explosion);
-                    entity.Level.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), entity);
+                    entity.PlaySound(VanillaSoundID.zombieDeath, 0.5f);
 
-                    var param = entity.GetSpawnParams();
-                    param.SetProperty(EngineEntityProps.SIZE, Vector3.one * 240);
-                    var exp = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
-                    entity.Level.ShakeScreen(20, 0, 30);
-                    entity.Remove();
+                    entity.PlaySound(VanillaSoundID.explosion);
+
+                    var expParam = entity.GetSpawnParams();
+                    expParam.SetProperty(EngineEntityProps.SIZE, Vector3.one * 240);
+                    var exp = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), expParam);
+
+                    for (int i = 0; i < 50; i++)
+                    {
+                        var zombieParam = entity.GetSpawnParams();
+                        zombieParam.SetProperty(VanillaEnemyProps.HARMLESS, true);
+                        zombieParam.SetProperty(VanillaEnemyProps.NO_REWARD, true);
+                        zombieParam.SetProperty(VanillaEntityProps.FALL_RESISTANCE, -10000);
+                        var zombie = entity.Spawn(VanillaEnemyID.zombie, entity.GetCenter(), zombieParam);
+                        var xSpeed = zombie.RNG.NextFloat() * 20 - 10;
+                        var ySpeed = zombie.RNG.NextFloat() * 10 + 3;
+                        var zSpeed = zombie.RNG.NextFloat() * 20 - 10;
+                        zombie.Velocity = new Vector3(xSpeed, ySpeed, zSpeed);
+                        entity.Level.ShakeScreen(20, 0, 30);
+                        entity.Remove();
+                    }
                 }
             }
         }

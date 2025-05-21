@@ -161,6 +161,8 @@ namespace MVZ2.GameContent.Bosses
         public static void SetFlipX(Entity entity, bool value) => entity.SetBehaviourField(PROP_FLIP_X, value);
         public static int GetTargetGridIndex(Entity entity) => entity.GetBehaviourField<int>(PROP_TARGET_GRID_INDEX);
         public static void SetTargetGridIndex(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_GRID_INDEX, value);
+        public static int GetAttackFlag(Entity entity) => entity.GetBehaviourField<int>(PROP_ATTACK_FLAG);
+        public static void SetAttackFlag(Entity entity, int value) => entity.SetBehaviourField(PROP_ATTACK_FLAG, value);
 
         #region 僵尸块
         public static List<EntityID> GetZombieBlocks(Entity entity) => entity.GetBehaviourField<List<EntityID>>(PROP_ZOMBIE_BLOCKS);
@@ -540,6 +542,7 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta PROP_ZOMBIE_BLOCKS = new VanillaEntityPropertyMeta("ZombieBlocks");
         private static readonly VanillaEntityPropertyMeta PROP_SNAKE_TAILS = new VanillaEntityPropertyMeta("SnakeTails");
         private static readonly VanillaEntityPropertyMeta PROP_FLIP_X = new VanillaEntityPropertyMeta("FlipX");
+        private static readonly VanillaEntityPropertyMeta PROP_ATTACK_FLAG = new VanillaEntityPropertyMeta("AttackFlag");
         private static readonly VanillaEntityPropertyMeta PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta("TargetGridIndex");
 
 
@@ -591,7 +594,7 @@ namespace MVZ2.GameContent.Bosses
         public const int PACMAN_BLOCK_COUNT = 8;
         public const int PACMAN_DURATION = 300;
         public const float PACMAN_MOVE_SPEED = 3;
-        public const float PACMAN_DAMAGE_MULTIPLIER = 0.03f;
+        public const float PACMAN_DAMAGE_MULTIPLIER = 0.01f;
         public const float PACMAN_GHOST_DAMAGE = 600;
 
         public const int SNAKE_BLOCK_COUNT = 8;
