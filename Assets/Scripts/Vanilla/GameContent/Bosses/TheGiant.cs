@@ -145,9 +145,31 @@ namespace MVZ2.GameContent.Bosses
         public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
         {
             base.PreTakeDamage(damageInfo, result);
+            var entity = damageInfo.Entity;
+            var malleable = GetMalleable(entity);
+            if (malleable >= 0)
+            {
+                damageInfo.Multiply(1 - malleable / MAX_MALLEABLE_DAMAGE);
+            }
             if (damageInfo.Amount > 600)
             {
                 damageInfo.SetAmount(600);
+            }
+        }
+        public override void PostTakeDamage(DamageOutput result)
+        {
+            base.PostTakeDamage(result);
+            var entity = result.Entity;
+            if (entity.Level.GetBossAILevel() <= 0)
+                return;
+            var phase = GetPhase(entity);
+            if (phase != PHASE_1 && phase != PHASE_2)
+                return;
+            var bodyResult = result.BodyResult;
+            if (bodyResult != null)
+            {
+                var malleable = GetMalleable(entity);
+                SetMalleable(entity, malleable + bodyResult.Amount);
             }
         }
         #endregion 事件
@@ -163,6 +185,9 @@ namespace MVZ2.GameContent.Bosses
         public static void SetTargetGridIndex(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_GRID_INDEX, value);
         public static int GetAttackFlag(Entity entity) => entity.GetBehaviourField<int>(PROP_ATTACK_FLAG);
         public static void SetAttackFlag(Entity entity, int value) => entity.SetBehaviourField(PROP_ATTACK_FLAG, value);
+        public static float GetMalleable(Entity entity) => entity.GetBehaviourField<float>(PROP_MALLEABLE);
+        public static void SetMalleable(Entity entity, float value) => entity.SetBehaviourField(PROP_MALLEABLE, value);
+        public static void ResetMalleable(Entity entity) => SetMalleable(entity, 0);
 
         #region 僵尸块
         public static List<EntityID> GetZombieBlocks(Entity entity) => entity.GetBehaviourField<List<EntityID>>(PROP_ZOMBIE_BLOCKS);
@@ -269,15 +294,7 @@ namespace MVZ2.GameContent.Bosses
         }
         public static bool CanBeStunned(Entity entity)
         {
-            if (entity.State == STATE_DISASSEMBLY)
-                return false;
-            if (entity.State == STATE_PACMAN)
-                return false;
-            if (entity.State == STATE_SNAKE)
-                return false;
-            if (entity.State == STATE_STUNNED)
-                return false;
-            return true;
+            return !unstunnableStates.Contains(entity.State);
         }
 
         #region 僵尸块
@@ -544,6 +561,7 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta PROP_FLIP_X = new VanillaEntityPropertyMeta("FlipX");
         private static readonly VanillaEntityPropertyMeta PROP_ATTACK_FLAG = new VanillaEntityPropertyMeta("AttackFlag");
         private static readonly VanillaEntityPropertyMeta PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta("TargetGridIndex");
+        private static readonly VanillaEntityPropertyMeta PROP_MALLEABLE = new VanillaEntityPropertyMeta("Malleable");
 
 
         private static readonly Vector3 OUTER_EYE_BULLET_OFFSET = new Vector3(70, 140, 0);
@@ -604,6 +622,8 @@ namespace MVZ2.GameContent.Bosses
         public const float SNAKE_SELF_EAT_DAMAGE = 600;
         public const float SNAKE_COMBINE_ZOMBIE_BLOCK_COUNT = 3;
         public const float SNAKE_MAX_EAT_COUNT = 8;
+
+        public const float MAX_MALLEABLE_DAMAGE = 4000;
 
         public const int CRY_INTERVAL = 300;
 

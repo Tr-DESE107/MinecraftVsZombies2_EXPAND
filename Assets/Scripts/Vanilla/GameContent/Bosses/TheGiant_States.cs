@@ -104,6 +104,12 @@ namespace MVZ2.GameContent.Bosses
                 stateMachine.StartState(entity, STATE_DEATH);
             }
         }
+        private static void ReformToIdle(Entity entity)
+        {
+            stateMachine.StartState(entity, STATE_IDLE);
+            stateMachine.SetSubState(entity, IdleState.SUBSTATE_REFORMED);
+            ResetMalleable(entity);
+        }
 
         #region 状态
         private class IdleState : EntityStateMachineState
@@ -347,6 +353,8 @@ namespace MVZ2.GameContent.Bosses
                             SpawnDarkHole(entity);
                             SetInactive(entity, false);
                             SetFlipX(entity, AtLeft(entity));
+                            ResetMalleable(entity);
+
                             if (entity.IsDead)
                             {
                                 stateMachine.StartState(entity, STATE_FAINT);
@@ -368,8 +376,7 @@ namespace MVZ2.GameContent.Bosses
                             }
                             else
                             {
-                                stateMachine.StartState(entity, STATE_IDLE);
-                                stateMachine.SetSubState(entity, IdleState.SUBSTATE_REFORMED);
+                                ReformToIdle(entity);
                             }
                         }
                         break;
@@ -745,6 +752,8 @@ namespace MVZ2.GameContent.Bosses
                             SpawnDarkHole(entity);
                             SetInactive(entity, false);
                             SetFlipX(entity, false);
+                            ResetMalleable(entity);
+
                             stateMachine.SetSubState(entity, SUBSTATE_PACMAN);
                             stateMachine.SetAnimationSubstate(entity, ANIMATION_SUBSTATE_PACMAN);
                             substateTimer.ResetTime(PACMAN_DURATION);
@@ -826,6 +835,7 @@ namespace MVZ2.GameContent.Bosses
                             SpawnDarkHole(entity);
                             SetInactive(entity, false);
                             SetFlipX(entity, true);
+                            ResetMalleable(entity);
                             if (entity.IsDead)
                             {
                                 stateMachine.StartState(entity, STATE_FAINT);
@@ -841,8 +851,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_REFORMED:
                         if (substateTimer.Expired)
                         {
-                            stateMachine.StartState(entity, STATE_IDLE);
-                            stateMachine.SetSubState(entity, IdleState.SUBSTATE_REFORMED);
+                            ReformToIdle(entity);
                         }
                         break;
                 }
@@ -989,6 +998,8 @@ namespace MVZ2.GameContent.Bosses
                             SpawnDarkHole(entity);
                             SetInactive(entity, false);
                             SetFlipX(entity, false);
+                            ResetMalleable(entity);
+
                             stateMachine.SetSubState(entity, SUBSTATE_SNAKE);
                             stateMachine.SetAnimationSubstate(entity, ANIMATION_SUBSTATE_SNAKE);
                             entity.AddBuff<TheGiantSnakeBuff>();
@@ -1043,6 +1054,8 @@ namespace MVZ2.GameContent.Bosses
                             SpawnDarkHole(entity);
                             SetInactive(entity, false);
                             SetFlipX(entity, false);
+                            ResetMalleable(entity);
+
                             if (entity.IsDead)
                             {
                                 stateMachine.StartState(entity, STATE_FAINT);
@@ -1058,8 +1071,7 @@ namespace MVZ2.GameContent.Bosses
                     case SUBSTATE_REFORMED:
                         if (substateTimer.Expired)
                         {
-                            stateMachine.StartState(entity, STATE_IDLE);
-                            stateMachine.SetSubState(entity, IdleState.SUBSTATE_REFORMED);
+                            ReformToIdle(entity);
                         }
                         break;
                 }

@@ -247,6 +247,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - Nightmareaper's time limit is 1 minute.
 - Nightmareaper's Wheel of Death attack deals 40% more damage.
 - Contraptions damaged by Wither Skulls will be withering, losing 10 HP per second in 30 seconds.
+- The Giant will take less damage after every damage taken. Reforming from cells will reset this effect.
 
 **Misc**
 
