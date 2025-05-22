@@ -1164,6 +1164,11 @@ MonoBehaviour:
     - {fileID: 21300006, guid: 3358e00bce0b2da4cafbb5941d366592, type: 3}
     - {fileID: 21300008, guid: 3358e00bce0b2da4cafbb5941d366592, type: 3}
     - {fileID: 21300010, guid: 3358e00bce0b2da4cafbb5941d366592, type: 3}
+  - name: mainmenu/minigame
+    spritesheet:
+    - {fileID: 1873280393, guid: 55b2b4fade47008488fe31d71fcbbb96, type: 3}
+    - {fileID: -42232972, guid: 55b2b4fade47008488fe31d71fcbbb96, type: 3}
+    - {fileID: 165593909, guid: 55b2b4fade47008488fe31d71fcbbb96, type: 3}
   - name: mainmenu/more_menus
     spritesheet:
     - {fileID: -2987439667328220171, guid: b183abb28c7b13c4995d0fc7bfaa8299, type: 3}

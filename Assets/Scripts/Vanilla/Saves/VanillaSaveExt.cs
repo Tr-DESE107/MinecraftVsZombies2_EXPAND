@@ -115,6 +115,10 @@ namespace MVZ2.Vanilla.Saves
         {
             return save.IsUnlocked(VanillaUnlockID.musicRoom);
         }
+        public static bool IsMinigameUnlocked(this IGameSaveData save)
+        {
+            return save.IsUnlocked(VanillaUnlockID.minigame);
+        }
         public static bool IsGensokyoUnlocked(this IGameSaveData save)
         {
             return save.IsUnlocked(VanillaUnlockID.gensokyo);

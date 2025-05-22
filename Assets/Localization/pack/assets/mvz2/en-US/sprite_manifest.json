@@ -241,6 +241,36 @@
       ]
     },
     {
+      "name": "mainmenu/minigame",
+      "texture": "mainmenu/minigame.png",
+      "slices": [
+        {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 281.0,
+          "height": 164.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5
+        },
+        {
+          "x": 282.0,
+          "y": 0.0,
+          "width": 281.0,
+          "height": 164.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5
+        },
+        {
+          "x": 564.0,
+          "y": 0.0,
+          "width": 281.0,
+          "height": 164.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5
+        }
+      ]
+    },
+    {
       "name": "mainmenu/more_menus",
       "texture": "mainmenu/more_menus.png",
       "slices": [
@@ -360,7 +390,7 @@
           "x": 0.0,
           "y": 0.0,
           "width": 358.0,
-          "height": 278.0,
+          "height": 277.0,
           "pivotX": 0.5,
           "pivotY": 0.5
         },
@@ -368,7 +398,7 @@
           "x": 359.0,
           "y": 0.0,
           "width": 358.0,
-          "height": 278.0,
+          "height": 277.0,
           "pivotX": 0.5,
           "pivotY": 0.5
         },
@@ -376,7 +406,7 @@
           "x": 718.0,
           "y": 0.0,
           "width": 358.0,
-          "height": 278.0,
+          "height": 277.0,
           "pivotX": 0.5,
           "pivotY": 0.5
         }

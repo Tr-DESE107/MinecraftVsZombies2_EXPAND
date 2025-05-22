@@ -50,10 +50,12 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID dream7 = GetStage(VanillaStageNames.dream7);
         public static readonly NamespaceID dream11 = GetStage(VanillaStageNames.dream11);
         public static readonly NamespaceID castle5 = GetStage(VanillaStageNames.castle5);
+        public static readonly NamespaceID mausoleum6 = GetStage(VanillaStageNames.mausoleum6);
         public static readonly NamespaceID almanac = halloween5;
         public static readonly NamespaceID store = dream5;
         public static readonly NamespaceID gensokyo = dream11;
         public static readonly NamespaceID musicRoom = castle5;
+        public static readonly NamespaceID minigame = mausoleum6;
         public static readonly NamespaceID trigger = Get(VanillaUnlockNames.trigger);
         public static readonly NamespaceID starshard = Get(VanillaUnlockNames.starshard);
         public static readonly NamespaceID money = Get(VanillaUnlockNames.money);

@@ -106,6 +106,7 @@ namespace MVZ2.Mainmenu.UI
             mainmenuButtonDict.Add(MainmenuButtonType.Stats, statsButton);
             mainmenuButtonDict.Add(MainmenuButtonType.Achievement, achievementButton);
             mainmenuButtonDict.Add(MainmenuButtonType.MusicRoom, musicRoomButton);
+            mainmenuButtonDict.Add(MainmenuButtonType.Minigame, minigameButton);
 
             foreach (var pair in mainmenuButtonDict)
             {
@@ -191,6 +192,8 @@ namespace MVZ2.Mainmenu.UI
         private MainmenuButton achievementButton;
         [SerializeField]
         private MainmenuButton musicRoomButton;
+        [SerializeField]
+        private MainmenuButton minigameButton;
     }
     public enum MainmenuButtonType
     {
@@ -207,6 +210,7 @@ namespace MVZ2.Mainmenu.UI
         Stats,
         Achievement,
         Addons,
-        MusicRoom
+        MusicRoom,
+        Minigame
     }
 }

@@ -227,6 +227,16 @@ namespace MVZ2.Scenes
                 musicRoom.OnReturnClick -= OnReturn;
             }
         }
+        public void DisplayMinigame(Action onReturn)
+        {
+            //DisplayPage(MainScenePageType.Minigame);
+            //minigame.OnReturnClick += OnReturn;
+            //void OnReturn()
+            //{
+            //    onReturn?.Invoke();
+            //    minigame.OnReturnClick -= OnReturn;
+            //}
+        }
         public void DisplayEnemyAlmanac(NamespaceID enemyID)
         {
             almanac.OpenEnemyAlmanac(enemyID);

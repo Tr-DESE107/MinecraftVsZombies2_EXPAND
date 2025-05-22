@@ -38,6 +38,7 @@ namespace MVZ2.Mainmenu
             ui.SetButtonActive(MainmenuButtonType.Almanac, main.SaveManager.IsAlmanacUnlocked());
             ui.SetButtonActive(MainmenuButtonType.Store, main.SaveManager.IsStoreUnlocked());
             ui.SetButtonActive(MainmenuButtonType.MusicRoom, main.SaveManager.IsMusicRoomUnlocked());
+            ui.SetButtonActive(MainmenuButtonType.Minigame, main.SaveManager.IsMinigameUnlocked());
 
             isDark = false;
             ui.SetBackgroundDark(false);
@@ -120,6 +121,7 @@ namespace MVZ2.Mainmenu
             mainmenuActionDict.Add(MainmenuButtonType.Stats, OnStatsButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.Achievement, OnAchievementButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.MusicRoom, OnMusicRoomButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Minigame, OnMinigameButtonClickCallback);
             ui.OnMainmenuButtonClick += OnMainmenuButtonClickCallback;
 
             ui.OnUserManageDialogButtonClick += OnUserManageButtonClickCallback;
@@ -234,6 +236,10 @@ namespace MVZ2.Mainmenu
         private void OnMusicRoomButtonClickCallback()
         {
             main.Scene.DisplayMusicRoom(() => main.Scene.DisplayMainmenu());
+        }
+        private void OnMinigameButtonClickCallback()
+        {
+            main.Scene.DisplayMinigame(() => main.Scene.DisplayMainmenu());
         }
 
         private void OnOptionsCloseClickCallback()

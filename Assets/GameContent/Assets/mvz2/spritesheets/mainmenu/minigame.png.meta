@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: d6bc73c94a1f99a4783bbd0bb5714d72
+guid: 55b2b4fade47008488fe31d71fcbbb96
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 3046817259674528574
-    second: store_0
-  - first:
-      213: 3832191757669614397
-    second: store_1
-  - first:
-      213: 3804464332361517338
-    second: store_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -74,7 +65,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -120,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -132,64 +123,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: store_0
+      name: minigame_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 358
-        height: 277
+        width: 281
+        height: 164
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3bed6aa728784a20800000000000000
-      internalID: 3046817259674528574
+      spriteID: 1c8a4527824fc824a988c8386f3fe4bc
+      internalID: 1873280393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: store_1
+      name: minigame_1
       rect:
         serializedVersion: 2
-        x: 359
+        x: 282
         y: 0
-        width: 358
-        height: 277
+        width: 281
+        height: 164
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d33c31b891eae2530800000000000000
-      internalID: 3832191757669614397
+      spriteID: 3a6c6b71685b20a42a38d0617532b0b8
+      internalID: -42232972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: store_2
+      name: minigame_2
       rect:
         serializedVersion: 2
-        x: 718
+        x: 564
         y: 0
-        width: 358
-        height: 277
+        width: 281
+        height: 164
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a194d03472c2cc430800000000000000
-      internalID: 3804464332361517338
+      spriteID: 5bb32b63d7a601444bea4768df52de00
+      internalID: 165593909
       vertices: []
       indices: 
       edges: []
@@ -205,9 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      store_0: 3046817259674528574
-      store_1: 3832191757669614397
-      store_2: 3804464332361517338
+      minigame_0: 1873280393
+      minigame_1: -42232972
+      minigame_2: 165593909
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
