@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace MVZ2Logic.IZombie
 {
@@ -42,8 +43,8 @@ namespace MVZ2Logic.IZombie
             if (definition == null)
                 return false;
             var layers = definition.GetGridLayersToTake();
-            var entry = GetEntry(column, lane);
-            if (entry != null)
+            var entries = GetEntriesAt(column, lane);
+            foreach (var entry in entries)
             {
                 if (entry.takenLayers != null && entry.takenLayers.Intersect(layers).Count() > 0)
                 {
@@ -68,13 +69,21 @@ namespace MVZ2Logic.IZombie
             }
             return positions.ToArray();
         }
+        public IZombieMapEntry[] GetEntriesAt(int column, int lane)
+        {
+            return entries.Where(e => e.column == column && e.lane == lane).ToArray();
+        }
+        public IZombieMapEntry[] GetEntriesAt(Vector2Int position)
+        {
+            return GetEntriesAt(position.x, position.y);
+        }
         public IZombieMapEntry GetEntry(int column, int lane)
         {
-            return GetEntry(new Vector2Int(column, lane));
+            return entries.Find(e => e.column == column && e.lane == lane);
         }
         public IZombieMapEntry GetEntry(Vector2Int position)
         {
-            return entries.Find(e => e.column == position.x && e.lane == position.y);
+            return GetEntry(position.x, position.y);
         }
         public LevelEngine Level { get; }
         public int Columns { get; }

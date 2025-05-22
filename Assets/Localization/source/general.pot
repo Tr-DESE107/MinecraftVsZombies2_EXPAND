@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-22 03:34+0800\n"
+"POT-Creation-Date: 2025-05-22 06:04+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1213,7 +1213,7 @@ msgid "作者：{0}"
 msgstr ""
 
 # 未解锁的小游戏关卡名
-#: Scripts\MVZ2\Minigames\MinigamesController.cs:193
+#: Scripts\MVZ2\Minigames\MinigamesController.cs:195
 msgid "未解锁"
 msgstr ""
 
@@ -1486,6 +1486,48 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "小僵尸和大麻烦"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_i_zombie
+#: Stage meta file
+msgctxt "levelname"
+msgid "我是僵尸"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_i_skeleton
+#: Stage meta file
+msgctxt "levelname"
+msgid "我是骷髅"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_can_you_pass_it
+#: Stage meta file
+msgctxt "levelname"
+msgid "你能穿过它吗？"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_absolute_defense
+#: Stage meta file
+msgctxt "levelname"
+msgid "绝对防御"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_dead_balloon
+#: Stage meta file
+msgctxt "levelname"
+msgid "死亡热气球"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_unbreakable
+#: Stage meta file
+msgctxt "levelname"
+msgid "牢不可破"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_mineclear
+#: Stage meta file
+msgctxt "levelname"
+msgid "扫雷"
 msgstr ""
 
 #. Name for stat category mvz2:contraption_place

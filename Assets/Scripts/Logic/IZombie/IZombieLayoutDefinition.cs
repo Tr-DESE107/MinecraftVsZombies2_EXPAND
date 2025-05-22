@@ -25,6 +25,18 @@ namespace MVZ2Logic.IZombie
             var grids = allGrids.Where(g => map.CanInsert(g, entityID)).ToArray();
             RandomFill(map, grids, entityID, count, rng);
         }
+        public void RandomFillAtLane(IIZombieMap map, int lane, NamespaceID entityID, int count, RandomGenerator rng)
+        {
+            var allGrids = map.GetAllGridPositions();
+            var grids = allGrids.Where(g => g.y == lane && map.CanInsert(g, entityID)).ToArray();
+            RandomFill(map, grids, entityID, count, rng);
+        }
+        public void RandomFillAtColumn(IIZombieMap map, int column, NamespaceID entityID, int count, RandomGenerator rng)
+        {
+            var allGrids = map.GetAllGridPositions();
+            var grids = allGrids.Where(g => g.x == column && map.CanInsert(g, entityID)).ToArray();
+            RandomFill(map, grids, entityID, count, rng);
+        }
         public void RandomFill(IIZombieMap map, Vector2Int[] grids, NamespaceID entityID, int count, RandomGenerator rng)
         {
             var validGrids = grids.RandomTake(count, rng);

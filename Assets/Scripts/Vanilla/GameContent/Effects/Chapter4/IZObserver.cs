@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Effects
             {
                 var lane = entity.GetLane();
                 var rightX = entity.GetBounds().max.x;
-                if (entity.Level.EntityExists(e => e.IsHostileEntity() && e.GetLane() == lane && e.Position.x < rightX))
+                if (entity.Level.EntityExists(e => e.IsHostileEntity() && e.Type == EntityTypes.ENEMY && !e.IsNotActiveEnemy() && e.GetLane() == lane && e.Position.x < rightX))
                 {
                     SetPass(entity, true);
                     Global.AddSaveStat(VanillaStats.CATEGORY_IZ_OBSERVER_TRIGGER, entity.Level.StageID, 1);

@@ -68,6 +68,15 @@ namespace MVZ2.GameContent.Stages
         public const string whackAGhost = "whack_a_ghost";
         public const string breakout = "breakout";
         public const string bigTroubleAndLittleZombie = "big_trouble_and_little_zombie";
+
+        // Puzzles
+        public const string puzzleIZombie = "puzzle_i_zombie";
+        public const string puzzleISkeleton = "puzzle_i_skeleton";
+        public const string puzzleCanYouPassIt = "puzzle_can_you_pass_it";
+        public const string puzzleAbsoluteDefense = "puzzle_absolute_defense";
+        public const string puzzleDeadBalloon = "puzzle_dead_balloon";
+        public const string puzzleUnbreakable = "puzzle_unbreakable";
+        public const string puzzleMineclear = "puzzle_mineclear";
     }
     public static class VanillaStageID
     {

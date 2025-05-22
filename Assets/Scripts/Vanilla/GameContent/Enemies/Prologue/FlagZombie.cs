@@ -1,4 +1,10 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Detections;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
@@ -19,6 +25,19 @@ namespace MVZ2.GameContent.Enemies
             if (speedBuff != null)
             {
                 RandomEnemySpeedBuff.SetSpeed(speedBuff, 2);
+            }
+            var level = entity.Level;
+            if (level.IsIZombie())
+            {
+                level.PlaySound(VanillaSoundID.siren);
+                var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
+                for (var lane = 0; lane < entity.Level.GetMaxLaneCount(); lane++)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        entity.Level.SpawnEnemy(spawnDef, lane);
+                    }
+                }
             }
         }
     }

@@ -63,7 +63,10 @@ namespace MVZ2.GameContent.Implements
         private void PostEnemySpawnedCallback(EntityCallbackParams param, CallbackResult result)
         {
             var entity = param.entity;
-            Global.AddSaveStat(VanillaStats.CATEGORY_ENEMY_SPAWN, entity.GetDefinitionID(), 1);
+            if (!entity.Level.IsIZombie())
+            {
+                Global.AddSaveStat(VanillaStats.CATEGORY_ENEMY_SPAWN, entity.GetDefinitionID(), 1);
+            }
         }
         private void PostEnemyNeutralizeCallback(EntityCallbackParams param, CallbackResult result)
         {
