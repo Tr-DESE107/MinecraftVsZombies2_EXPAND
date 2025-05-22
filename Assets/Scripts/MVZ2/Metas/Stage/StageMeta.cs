@@ -24,6 +24,7 @@ namespace MVZ2.Metas
 
         public NamespaceID ClearPickupModel { get; private set; }
         public NamespaceID ClearPickupBlueprint { get; private set; }
+        public bool DropsTrophy { get; private set; }
         public NamespaceID EndNote { get; private set; }
 
         public LevelCameraPosition StartCameraPosition { get; private set; }
@@ -76,6 +77,7 @@ namespace MVZ2.Metas
             var clearNode = node["clear"];
             var clearPickupModel = clearNode?.GetAttributeNamespaceID("pickupModel", defaultNsp);
             var clearPickupBlueprint = clearNode?.GetAttributeNamespaceID("blueprint", defaultNsp);
+            var dropsTrophy = clearNode?.GetAttributeBool("trophy") ?? false;
             var endNote = clearNode?.GetAttributeNamespaceID("note", defaultNsp);
 
             var cameraNode = node["camera"];
@@ -122,6 +124,7 @@ namespace MVZ2.Metas
 
                 ClearPickupModel = clearPickupModel,
                 ClearPickupBlueprint = clearPickupBlueprint,
+                DropsTrophy = dropsTrophy,
                 EndNote = endNote,
 
                 StartCameraPosition = startCameraPosition,

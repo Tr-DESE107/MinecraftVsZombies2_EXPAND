@@ -12,6 +12,7 @@ using MVZ2.Games;
 using MVZ2.Grids;
 using MVZ2.Level.Components;
 using MVZ2.Localization;
+using MVZ2.Logic.Level;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Options;
@@ -177,7 +178,7 @@ namespace MVZ2.Level
             Saves.SaveModDatas();
             Dispose();
             await LevelManager.GotoLevelSceneAsync();
-            LevelManager.InitLevel(StartAreaID, StartStageID);
+            LevelManager.InitLevel(StartAreaID, StartStageID, exitTarget: exitTarget);
         }
         public void GameOver(Entity killer)
         {
@@ -233,9 +234,26 @@ namespace MVZ2.Level
             SetActive(false);
             await ExitScene();
         }
+        public void SetExitTarget(LevelExitTarget target)
+        {
+            exitTarget = target;
+        }
         public async Task ExitLevel()
         {
-            Scene.GotoMapOrMainmenu();
+            switch (exitTarget)
+            {
+                case LevelExitTarget.Minigame:
+                    Scene.DisplayMinigame(() => Scene.DisplayMainmenu());
+                    Scene.DisplayMinigameMinigames();
+                    break;
+                case LevelExitTarget.Puzzle:
+                    Scene.DisplayMinigame(() => Scene.DisplayMainmenu());
+                    Scene.DisplayMinigamePuzzles();
+                    break;
+                default:
+                    Scene.GotoMapOrMainmenu();
+                    break;
+            }
             SetActive(false);
             await ExitScene();
         }
@@ -1132,6 +1150,7 @@ namespace MVZ2.Level
         #endregion
 
         private ILevelControllerPart[] parts;
+        private LevelExitTarget exitTarget;
         [Header("Main")]
         [SerializeField]
         private LevelUI ui;

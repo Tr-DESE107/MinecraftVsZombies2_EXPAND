@@ -135,6 +135,14 @@ namespace MVZ2.Vanilla.Saves
         {
             return save.IsContraptionUnlocked(VanillaContraptionID.commandBlock);
         }
+        public static bool IsValidAndLocked(this IGameSaveData save, NamespaceID unlockId)
+        {
+            return NamespaceID.IsValid(unlockId) && !save.IsUnlocked(unlockId);
+        }
+        public static bool IsInvalidOrUnlocked(this IGameSaveData save, NamespaceID unlockId)
+        {
+            return !save.IsValidAndLocked(unlockId);
+        }
         /// <summary>
         /// 梦境世界是否是梦魇状态。
         /// </summary>

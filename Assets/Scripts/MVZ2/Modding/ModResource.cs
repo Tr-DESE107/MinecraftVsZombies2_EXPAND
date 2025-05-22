@@ -36,6 +36,7 @@ namespace MVZ2.Modding
         public GridMetaList GridMetaList { get; set; }
         public CreditMetaList CreditsMetaList { get; set; }
         public ChapterTransitionMetaList ChapterTransitionMetaList { get; set; }
+        public MinigameMetaList MinigameMetaList { get; set; }
         public Dictionary<string, AudioClip> Sounds = new();
         public Dictionary<string, AudioClip> Musics = new();
         public Dictionary<string, Sprite[]> SpriteSheets = new();

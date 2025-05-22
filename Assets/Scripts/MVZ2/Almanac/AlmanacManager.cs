@@ -5,6 +5,7 @@ using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Games;
 using PVZEngine;
@@ -40,7 +41,7 @@ namespace MVZ2.Almanacs
             var groups = category.groups.Select(g => new AlmanacEntryGroup()
             {
                 name = g.name,
-                entries = g.entries.Where(e => !NamespaceID.IsValid(e.unlock) || Main.SaveManager.IsUnlocked(e.unlock)).Select(e => e.id).ToArray()
+                entries = g.entries.Where(e => Main.SaveManager.IsInvalidOrUnlocked(e.unlock)).Select(e => e.id).ToArray()
             }).Where(g => g != null && g.entries.Count() > 0);
             appendList.AddRange(groups);
         }

@@ -188,8 +188,9 @@ namespace MVZ2.Vanilla
                 var weight = meta.Weight;
                 var excludedTags = terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>();
                 var water = meta.Terrain?.Water ?? false;
+                var noEndless = meta.NoEndless;
 
-                var spawnDef = new VanillaSpawnDefinition(Namespace, name, spawnLevel, new NamespaceID(Namespace, name), excludedTags);
+                var spawnDef = new VanillaSpawnDefinition(Namespace, name, spawnLevel, noEndless, new NamespaceID(Namespace, name), excludedTags);
                 spawnDef.SetProperty(VanillaSpawnProps.MIN_SPAWN_WAVE, meta.MinSpawnWave);
                 spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
                 if (weight != null)
@@ -209,6 +210,10 @@ namespace MVZ2.Vanilla
             AddDefinition(new BreakoutStage(spaceName, VanillaStageNames.dream6));
             AddDefinition(new LittleZombieStage(spaceName, VanillaStageNames.castle6));
             AddDefinition(new SeijaStage(spaceName, VanillaStageNames.castle7));
+
+            AddDefinition(new WhackAGhostStage(spaceName, VanillaStageNames.whackAGhost));
+            AddDefinition(new BreakoutStage(spaceName, VanillaStageNames.breakout));
+            AddDefinition(new LittleZombieStage(spaceName, VanillaStageNames.bigTroubleAndLittleZombie));
             foreach (var meta in game.GetModStageMetas(spaceName))
             {
                 if (meta == null)
@@ -285,6 +290,7 @@ namespace MVZ2.Vanilla
 
                 stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_MODEL, meta.ClearPickupModel);
                 stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_BLUEPRINT, meta.ClearPickupBlueprint);
+                stage.SetProperty(VanillaStageProps.DROPS_TROPHY, meta.DropsTrophy);
                 stage.SetProperty(VanillaStageProps.END_NOTE_ID, meta.EndNote);
 
                 stage.SetProperty(VanillaStageProps.START_CAMERA_POSITION, (int)meta.StartCameraPosition);

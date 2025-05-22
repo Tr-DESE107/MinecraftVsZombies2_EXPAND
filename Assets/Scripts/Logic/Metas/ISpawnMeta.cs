@@ -9,6 +9,7 @@ namespace MVZ2Logic.Spawns
         int SpawnLevel { get; }
         int MinSpawnWave { get; }
         int PreviewCount { get; }
+        bool NoEndless { get; }
         ISpawnTerrainMeta Terrain { get; }
         ISpawnWeightMeta Weight { get; }
     }

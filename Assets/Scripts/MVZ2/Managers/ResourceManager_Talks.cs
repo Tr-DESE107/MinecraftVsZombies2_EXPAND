@@ -3,6 +3,7 @@ using System.Linq;
 using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Saves;
 using PVZEngine;
 using UnityEngine;
 
@@ -30,9 +31,9 @@ namespace MVZ2.Managers
             var group = GetTalkGroup(groupId);
             if (group == null)
                 return false;
-            if (NamespaceID.IsValid(group.requires) && !Main.SaveManager.IsUnlocked(group.requires))
+            if (Main.SaveManager.IsValidAndLocked(group.requires))
                 return false;
-            if (NamespaceID.IsValid(group.requiresNot) && Main.SaveManager.IsUnlocked(group.requiresNot))
+            if (Main.SaveManager.IsUnlocked(group.requiresNot))
                 return false;
             var section = GetTalkSection(groupId, sectionIndex);
             if (section == null)

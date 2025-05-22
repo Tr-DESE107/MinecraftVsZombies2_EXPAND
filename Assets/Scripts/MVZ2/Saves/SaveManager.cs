@@ -6,6 +6,7 @@ using MVZ2.IO;
 using MVZ2.Managers;
 using MVZ2.OldSave;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
@@ -155,7 +156,7 @@ namespace MVZ2.Saves
         }
         public bool IsUnlocked(NamespaceID unlockId)
         {
-            if (unlockId == null)
+            if (!NamespaceID.IsValid(unlockId))
                 return false;
             var modSaveData = GetModSaveData(unlockId.SpaceName);
             if (modSaveData == null)
@@ -170,6 +171,19 @@ namespace MVZ2.Saves
             if (modSaveData == null)
                 return Array.Empty<NamespaceID>();
             return modSaveData.GetLevelDifficultyRecords(stageID.Path);
+        }
+        public NamespaceID GetLevelDifficulty(NamespaceID stageID)
+        {
+            if (!NamespaceID.IsValid(stageID))
+                return null;
+            var records = Main.SaveManager.GetLevelDifficultyRecords(stageID);
+            return records.OrderByDescending(r =>
+            {
+                var meta = Main.ResourceManager.GetDifficultyMeta(r);
+                if (meta == null)
+                    return int.MinValue;
+                return meta.Value;
+            }).FirstOrDefault();
         }
         public bool HasLevelDifficultyRecords(NamespaceID stageID, NamespaceID difficulty)
         {
@@ -329,7 +343,7 @@ namespace MVZ2.Saves
             var meta = resourceManager.GetAchievementMeta(achievementID);
             if (meta == null)
                 return false;
-            return !NamespaceID.IsValid(meta.Unlock) || IsUnlocked(meta.Unlock);
+            return this.IsInvalidOrUnlocked(meta.Unlock);
         }
         #endregion
 
@@ -351,7 +365,7 @@ namespace MVZ2.Saves
                 var meta = resourceManager.GetArtifactMeta(id);
                 if (meta == null)
                     continue;
-                if (NamespaceID.IsValid(meta.Unlock) && !IsUnlocked(meta.Unlock))
+                if (this.IsValidAndLocked(meta.Unlock))
                     continue;
                 unlockedArtifactsCache.Add(id);
             }
@@ -366,7 +380,7 @@ namespace MVZ2.Saves
                 var meta = resourceManager.GetProductMeta(id);
                 if (meta == null)
                     continue;
-                if (NamespaceID.IsValid(meta.Required) && !IsUnlocked(meta.Required))
+                if (this.IsValidAndLocked(meta.Required))
                     continue;
                 unlockedProductsCache.Add(id);
             }
@@ -382,7 +396,7 @@ namespace MVZ2.Saves
                 var meta = resourceManager.GetEntityMeta(id);
                 if (meta == null)
                     continue;
-                if (NamespaceID.IsValid(meta.Unlock) && !IsUnlocked(meta.Unlock))
+                if (this.IsValidAndLocked(meta.Unlock))
                     continue;
                 if (meta.Type == EntityTypes.PLANT)
                 {

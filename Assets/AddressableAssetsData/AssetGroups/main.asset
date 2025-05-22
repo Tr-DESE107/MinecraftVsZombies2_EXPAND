@@ -443,6 +443,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10fd435303e04864a945dd541211ea75
+    m_Address: mvz2:entity/pickups/trophy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1106f96e2391f404caf8c7b2974ba5ea
     m_Address: mvz2:entity/contraption/error_block
     m_ReadOnly: 0
@@ -1481,6 +1487,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 327c7ca17fc1da84993f3b15a675a7e7
+    m_Address: mvz2:ui/minigame/background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 329b9a3401e28284e914a54eee51e840
     m_Address: mvz2:entity/pickups/ender_chest
     m_ReadOnly: 0
@@ -1809,6 +1821,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39ec43a47834ee944ac7f4e6f481176a
+    m_Address: mvz2:pickup/trophy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a2d8f0334da2b349b397a3ed1cf7b97
     m_Address: mvz2:mobile_blueprint/tnt
@@ -2703,6 +2721,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55b2b4fade47008488fe31d71fcbbb96
+    m_Address: mvz2:mainmenu/minigame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 55c4fb06ca097e24eaa9171673390143
     m_Address: mvz2:mobile_blueprint/golden_dropper
@@ -3741,6 +3765,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a3b8d97209e0b4429c62e23f1046a6c
+    m_Address: mvz2:minigames
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a8db72eb32f2374786990b1c3e9de7a
     m_Address: mvz2:misc/nightmare_censored
     m_ReadOnly: 0
@@ -4094,6 +4124,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84d24c865b8c9b341a85b8104370a001
+    m_Address: mvz2:ui/minigame/clear_trophy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 850d4c9b6833d8047ac10f992af536ff
     m_Address: mvz2:products/artifact_slot

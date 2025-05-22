@@ -101,6 +101,7 @@ namespace MVZ2.GameContent.Buffs
         public const string projectileKnockback = "projectile_knockback";
         public const string invertedMirror = "inverted_mirror";
         public const string hellfireIgnited = "hellfire_ignited";
+        public const string ghastFireCharge = "ghast_fire_charge";
 
         // Cart
         public const string cartFadeIn = "cart_fade_in";

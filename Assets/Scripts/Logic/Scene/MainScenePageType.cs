@@ -11,6 +11,7 @@
         Store,
         Archive,
         Addons,
-        MusicRoom
+        MusicRoom,
+        Minigame
     }
 }

@@ -11,6 +11,7 @@ using MVZ2.Mainmenu;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Map;
+using MVZ2.Minigames;
 using MVZ2.MusicRoom;
 using MVZ2.Note;
 using MVZ2.Save;
@@ -229,13 +230,21 @@ namespace MVZ2.Scenes
         }
         public void DisplayMinigame(Action onReturn)
         {
-            //DisplayPage(MainScenePageType.Minigame);
-            //minigame.OnReturnClick += OnReturn;
-            //void OnReturn()
-            //{
-            //    onReturn?.Invoke();
-            //    minigame.OnReturnClick -= OnReturn;
-            //}
+            DisplayPage(MainScenePageType.Minigame);
+            minigames.OnReturnClick += OnReturn;
+            void OnReturn()
+            {
+                onReturn?.Invoke();
+                minigames.OnReturnClick -= OnReturn;
+            }
+        }
+        public void DisplayMinigameMinigames()
+        {
+            minigames.DisplayMinigames();
+        }
+        public void DisplayMinigamePuzzles()
+        {
+            minigames.DisplayPuzzles();
         }
         public void DisplayEnemyAlmanac(NamespaceID enemyID)
         {
@@ -282,6 +291,7 @@ namespace MVZ2.Scenes
             pages.Add(MainScenePageType.Archive, archive);
             pages.Add(MainScenePageType.Addons, addons);
             pages.Add(MainScenePageType.MusicRoom, musicRoom);
+            pages.Add(MainScenePageType.Minigame, minigames);
         }
         #endregion
 
@@ -314,6 +324,8 @@ namespace MVZ2.Scenes
         private AddonsController addons;
         [SerializeField]
         private MusicRoomController musicRoom;
+        [SerializeField]
+        private MinigamesController minigames;
         [SerializeField]
         private InputNameDialogController inputNameDialog;
         [SerializeField]

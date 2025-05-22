@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using MVZ2.Logic.Level;
 using MVZ2Logic.Games;
 using MVZ2Logic.Scenes;
 using PVZEngine;
@@ -166,7 +167,7 @@ namespace MVZ2Logic
     }
     public interface ILevelManager
     {
-        void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0);
+        void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0, LevelExitTarget exitTarget = LevelExitTarget.MapOrMainmenu);
         Coroutine GotoLevelSceneCoroutine();
     }
     public interface IOptionsManager

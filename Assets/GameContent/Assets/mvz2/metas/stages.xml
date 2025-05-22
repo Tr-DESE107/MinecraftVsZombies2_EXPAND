@@ -878,4 +878,59 @@
             <integer name="spawnerCount" value="1" />
         </properties>
     </stage>
+
+    
+    <!-- Minigames -->
+    <stage id="whack_a_ghost" name="锤幽灵" needBlueprints="false" type="minigame" music="mvz2:minigame" >
+        <model preset="cloudy" />
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <camera position="lawn" transition="instant"/>
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+            <spawn id="mvz2:ghost"/>
+            <spawn id="mvz2:skeleton_horse"/>
+            <spawn id="mvz2:dullahan_head"/>
+        </spawns>
+        <properties>
+            <color name="globalLight" value="#7F7F7F"/>
+            <bool name="noEnergy" value="true"/>
+            <bool name="autoCollectAll" value="true"/>
+        </properties>
+    </stage>
+    <stage id="breakout" name="打弹珠" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <camera position="lawn" transition="instant"/>
+        <spawns flags="2" firstWaveTime="30">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:emperor_zombie"/>
+        </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true"/>
+            <bool name="noEnergy" value="true"/>
+            <bool name="autoCollectAll" value="true"/>
+        </properties>
+    </stage>
+    <stage id="big_trouble_and_little_zombie" name="小僵尸和大麻烦" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <conveyor>
+            <entry id="mvz2:wooden_dropper" count="15"/>
+            <entry id="mvz2:pistenser" count="5"/>
+            <entry id="mvz2:obsidian" count="5"/>
+            <entry id="mvz2:tnt" count="3"/>
+        </conveyor>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:mummy"/>
+            <spawn id="mvz2:ghast"/>
+        </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true"/>
+            <bool name="noEnergy" value="true"/>
+        </properties>
+    </stage>
 </stages>

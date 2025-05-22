@@ -1,0 +1,5 @@
+<minigames>
+    <minigame id="whack_a_ghost" stage="mvz2:whack_a_ghost" area="mvz2:halloween" icon="mvz2:minigames/whack_a_ghost"/>
+    <minigame id="breakout" stage="mvz2:breakout" area="mvz2:dream" icon="mvz2:minigames/breakout"/>
+    <minigame id="big_trouble_and_little_zombie" stage="mvz2:big_trouble_and_little_zombie" area="mvz2:castle" icon="mvz2:minigames/big_trouble_and_little_zombie"/>
+</minigames>

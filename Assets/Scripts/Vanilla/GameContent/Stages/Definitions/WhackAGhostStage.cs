@@ -83,8 +83,11 @@ namespace MVZ2.GameContent.Stages
         public override void OnPostEnemySpawned(Entity entity)
         {
             base.OnPostEnemySpawned(entity);
-            var advanceDistance = entity.RNG.Next(0, entity.Level.GetGridWidth() * 3f);
-            entity.Position += Vector3.left * advanceDistance;
+            if (entity.IsEntityOf(VanillaEnemyID.ghost))
+            {
+                var advanceDistance = entity.RNG.Next(0, entity.Level.GetGridWidth() * 3f);
+                entity.Position += Vector3.left * advanceDistance;
+            }
             AddSpeedBuff(entity);
         }
         private void SetThunderTimer(LevelEngine level, FrameTimer timer)

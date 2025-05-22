@@ -8,6 +8,7 @@ using MVZ2.Talk;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Archives;
 using MVZ2Logic.Talk;
@@ -125,7 +126,7 @@ namespace MVZ2.Archives
             var filteredTalks = talkGroups.Where(tuple =>
             {
                 var unlockID = tuple.Item2?.archive?.unlock;
-                return !NamespaceID.IsValid(unlockID) || Main.SaveManager.IsUnlocked(unlockID);
+                return Main.SaveManager.IsInvalidOrUnlocked(unlockID);
             });
             talksList.AddRange(filteredTalks.Select(g => g.Item1));
 

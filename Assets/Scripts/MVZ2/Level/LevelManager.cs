@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.IO;
+using MVZ2.Logic.Level;
 using MVZ2.Managers;
 using MVZ2.Scenes;
 using MVZ2.Vanilla;
@@ -22,7 +23,7 @@ namespace MVZ2.Level
         {
             return controller;
         }
-        public void InitLevel(NamespaceID areaID, NamespaceID stageID, float beginningDelay = 0)
+        public void InitLevel(NamespaceID areaID, NamespaceID stageID, float beginningDelay = 0, LevelExitTarget exitTarget = LevelExitTarget.MapOrMainmenu)
         {
             if (!controller)
                 return;
@@ -38,6 +39,7 @@ namespace MVZ2.Level
                 controller.InitLevel(Main.Game, areaID, stageID);
                 controller.StartLevelIntro(beginningDelay);
             }
+            controller.SetExitTarget(exitTarget);
         }
         #region 关卡存读
         public void SaveLevel()

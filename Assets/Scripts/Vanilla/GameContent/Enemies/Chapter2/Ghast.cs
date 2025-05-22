@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
@@ -50,7 +51,7 @@ namespace MVZ2.GameContent.Enemies
                             {
                                 enemy.Target = target;
                                 shootTimer.ResetTime(SHOOT_DURATION);
-                                enemy.PlaySound(VanillaSoundID.ghastFire);
+                                enemy.PlaySound(VanillaSoundID.ghastFire, enemy.GetCryPitch());
                             }
                             else
                             {
@@ -109,6 +110,8 @@ namespace MVZ2.GameContent.Enemies
         }
         private void Fire(Entity self, Entity target)
         {
+            var scale = self.GetScale();
+
             var param = self.GetShootParams();
             var shootPoint = self.GetShootPoint();
             var velocity = self.GetShotVelocity();
@@ -121,8 +124,13 @@ namespace MVZ2.GameContent.Enemies
                 damageMultiplier = 3;
             }
             param.damage = self.GetDamage() * damageMultiplier;
+
             var bullet = self.ShootProjectile(param);
-            self.PlaySound(VanillaSoundID.fireCharge);
+            var buff = bullet.AddBuff<GhastFireChargeBuff>();
+            GhastFireChargeBuff.SetScaleMultiplier(buff, scale);
+            GhastFireChargeBuff.SetRangeMultiplier(buff, scale.x);
+            GhastFireChargeBuff.SetDamageMultiplier(buff, scale.x);
+            self.PlaySound(VanillaSoundID.fireCharge, scale.x);
         }
         private Detector detector;
         public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");

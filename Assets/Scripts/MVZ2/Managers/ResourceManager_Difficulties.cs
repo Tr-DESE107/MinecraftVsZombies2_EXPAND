@@ -21,6 +21,8 @@ namespace MVZ2.Managers
         #region 元数据
         public DifficultyMeta GetDifficultyMeta(NamespaceID difficulty)
         {
+            if (!NamespaceID.IsValid(difficulty))
+                return null;
             var modResource = main.ResourceManager.GetModResource(difficulty.SpaceName);
             if (modResource == null)
                 return null;

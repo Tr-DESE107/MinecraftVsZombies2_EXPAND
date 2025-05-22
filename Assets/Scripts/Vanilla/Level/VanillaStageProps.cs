@@ -32,6 +32,7 @@ namespace MVZ2.Vanilla.Level
 
         public static readonly PropertyMeta CLEAR_PICKUP_MODEL = Get("clearPickupModel");
         public static readonly PropertyMeta CLEAR_PICKUP_BLUEPRINT = Get("clearPickupBlueprint");
+        public static readonly PropertyMeta DROPS_TROPHY = Get("dropsTrophy");
         public static readonly PropertyMeta END_NOTE_ID = Get("endNoteId");
 
         public static readonly PropertyMeta START_TRANSITION = Get("startTransition");
@@ -53,6 +54,10 @@ namespace MVZ2.Vanilla.Level
         public static NamespaceID GetClearPickupBlueprint(this LevelEngine level)
         {
             return level.GetProperty<NamespaceID>(CLEAR_PICKUP_BLUEPRINT);
+        }
+        public static bool DropsTrophy(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(DROPS_TROPHY);
         }
         public static string GetLevelName(this LevelEngine level)
         {

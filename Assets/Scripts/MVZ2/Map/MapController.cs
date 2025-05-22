@@ -355,11 +355,8 @@ namespace MVZ2.Map
             var stageMeta = GetStageMeta(stageID);
             if (stageMeta == null)
                 return false;
-            if (NamespaceID.IsValid(stageMeta.Unlock))
-            {
-                if (!Main.SaveManager.IsUnlocked(stageMeta.Unlock))
-                    return false;
-            }
+            if (Main.SaveManager.IsValidAndLocked(stageMeta.Unlock))
+                return false;
             return true;
         }
         private bool IsLevelUnlocked(int index)
@@ -367,23 +364,10 @@ namespace MVZ2.Map
             var stageID = GetStageID(index);
             return IsLevelUnlocked(stageID);
         }
-        private NamespaceID GetLevelDifficulty(int index)
-        {
-            var stageID = GetStageID(index);
-            if (!NamespaceID.IsValid(stageID))
-                return null;
-            var records = Main.SaveManager.GetLevelDifficultyRecords(stageID);
-            return records.OrderByDescending(r =>
-            {
-                var meta = Main.ResourceManager.GetDifficultyMeta(r);
-                if (meta == null)
-                    return int.MinValue;
-                return meta.Value;
-            }).FirstOrDefault();
-        }
         private void SetMapButtonDifficulty(int index)
         {
-            var difficulty = GetLevelDifficulty(index);
+            var stageID = GetStageID(index);
+            var difficulty = Main.SaveManager.GetLevelDifficulty(stageID);
             if (NamespaceID.IsValid(difficulty))
             {
                 var difficultyMeta = Main.ResourceManager.GetDifficultyMeta(difficulty);

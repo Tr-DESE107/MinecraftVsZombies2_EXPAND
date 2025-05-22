@@ -86,7 +86,11 @@ namespace MVZ2.GameContent.Pickups
             }
             else
             {
-                if (difficultyMeta != null)
+                if (level.DropsTrophy())
+                {
+                    money = 1000;
+                }
+                else if (difficultyMeta != null)
                 {
                     money = difficultyMeta.ClearMoney;
                 }

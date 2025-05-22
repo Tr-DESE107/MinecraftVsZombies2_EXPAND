@@ -2,6 +2,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Games;
@@ -29,7 +30,7 @@ namespace MVZ2.GameContent.Pickups
             base.PostCollect(pickup);
             var level = pickup.Level;
             var unlockID = GetArtifactUnlockID(pickup);
-            if (NamespaceID.IsValid(unlockID) && !Global.Game.IsUnlocked(unlockID))
+            if (Global.Game.IsValidAndLocked(unlockID))
             {
                 Global.Game.Unlock(unlockID);
                 level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_YOU_FOUND_A_NEW_ARTIFACT, 0, 150);

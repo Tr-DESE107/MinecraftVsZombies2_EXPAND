@@ -21,6 +21,7 @@ namespace MVZ2.Metas
         public SpriteReference MapButtonBorderBack { get; private set; }
         public SpriteReference MapButtonBorderBottom { get; private set; }
         public SpriteReference MapButtonBorderOverlay { get; private set; }
+        public SpriteReference MinigameIcon { get; private set; }
 
 
         public static DifficultyMeta FromXmlNode(XmlNode node, string defaultNsp)
@@ -54,6 +55,13 @@ namespace MVZ2.Metas
                 overlaySprite = buttonNode.GetAttributeSpriteReference("overlay", defaultNsp);
             }
 
+            SpriteReference minigameIcon = null;
+            var iconNode = node["icon"];
+            if (iconNode != null)
+            {
+                minigameIcon = iconNode.GetAttributeSpriteReference("minigame", defaultNsp);
+            }
+
             return new DifficultyMeta()
             {
                 ID = id,
@@ -68,7 +76,8 @@ namespace MVZ2.Metas
 
                 MapButtonBorderBack = backSprite,
                 MapButtonBorderBottom = bottomSprite,
-                MapButtonBorderOverlay = overlaySprite
+                MapButtonBorderOverlay = overlaySprite,
+                MinigameIcon = minigameIcon
             };
         }
     }

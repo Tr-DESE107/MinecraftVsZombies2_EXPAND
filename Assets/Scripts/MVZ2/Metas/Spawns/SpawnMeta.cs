@@ -12,6 +12,7 @@ namespace MVZ2.Metas
         public int SpawnLevel { get; private set; }
         public int MinSpawnWave { get; private set; }
         public int PreviewCount { get; private set; }
+        public bool NoEndless { get; private set; }
         public SpawnTerrainMeta Terrain { get; private set; }
         public SpawnWeightMeta Weight { get; private set; }
         ISpawnTerrainMeta ISpawnMeta.Terrain => Terrain;
@@ -19,7 +20,8 @@ namespace MVZ2.Metas
         public static SpawnMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var entity = node.GetAttributeNamespaceID("id", defaultNsp);
+            var entity = node.GetAttributeNamespaceID("entity", defaultNsp);
+            var noEndless = node.GetAttributeBool("noEndless") ?? false;
 
             int level = 1;
             int minWave = 0;
@@ -55,6 +57,7 @@ namespace MVZ2.Metas
                 ID = id,
                 Entity = entity,
                 SpawnLevel = level,
+                NoEndless = noEndless,
                 MinSpawnWave = minWave,
                 PreviewCount = previewCount,
                 Terrain = terrain,

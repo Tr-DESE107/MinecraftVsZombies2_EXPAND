@@ -63,6 +63,11 @@ namespace MVZ2.GameContent.Stages
         public const string mausoleum10 = "mausoleum_10";
         public const string mausoleum11 = "mausoleum_11";
         public const string mausoleumEndless = "mausoleum_endless";
+
+        // Minigames
+        public const string whackAGhost = "whack_a_ghost";
+        public const string breakout = "breakout";
+        public const string bigTroubleAndLittleZombie = "big_trouble_and_little_zombie";
     }
     public static class VanillaStageID
     {
