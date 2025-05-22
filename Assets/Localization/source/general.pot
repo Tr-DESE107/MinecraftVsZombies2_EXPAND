@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-21 08:03+0800\n"
+"POT-Creation-Date: 2025-05-22 03:34+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -155,6 +155,15 @@ msgstr ""
 #. 图鉴中的放大镜界面标题
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/ZoomPage/Region/Top/Title/Text (TMP)
 msgid "放大镜"
+msgstr ""
+
+#: /MainGame/MainScene/Minigame/Canvas/Minigames/Index/Top/Title/Text (TMP)
+msgid "小游戏"
+msgstr ""
+
+#. 小游戏界面的分类按钮文本
+#: /MainGame/MainScene/Minigame/Canvas/Minigames/Index/Center/Root/Puzzle/Root/Bottom/Text
+msgid "解谜模式"
 msgstr ""
 
 #: /MainGame/MainScene/Store/Canvas/StoreUI/Items/Title
@@ -1189,41 +1198,46 @@ msgid ""
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐来源
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:183
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:184
 msgid "来源：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐原曲
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:185
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:186
 msgid "原曲：{0}"
 msgstr ""
 
 # 音乐室中的信息模板，{0}为音乐作者
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:187
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:188
 msgid "作者：{0}"
 msgstr ""
 
+# 未解锁的小游戏关卡名
+#: Scripts\MVZ2\Minigames\MinigamesController.cs:193
+msgid "未解锁"
+msgstr ""
+
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:677
+#: Scripts\MVZ2\Map\MapController.cs:661
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:679
+#: Scripts\MVZ2\Map\MapController.cs:663
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:681
+#: Scripts\MVZ2\Map\MapController.cs:665
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:683
+#: Scripts\MVZ2\Map\MapController.cs:667
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1240,22 +1254,22 @@ msgid "{0}%"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:639
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:645
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:641
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:647
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:643
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:649
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:645
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:651
 msgid "确认要退出吗？"
 msgstr ""
 
@@ -1319,12 +1333,12 @@ msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:247
+#: Scripts\MVZ2\Archive\ArchiveController.cs:248
 msgid "<b>[{0}]</b> {1}"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容
-#: Scripts\MVZ2\Archive\ArchiveController.cs:249
+#: Scripts\MVZ2\Archive\ArchiveController.cs:250
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
@@ -1454,6 +1468,24 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "梦殿大祀庙无尽"
+msgstr ""
+
+#. Name for stage mvz2:whack_a_ghost
+#: Stage meta file
+msgctxt "levelname"
+msgid "锤幽灵"
+msgstr ""
+
+#. Name for stage mvz2:breakout
+#: Stage meta file
+msgctxt "levelname"
+msgid "打砖块"
+msgstr ""
+
+#. Name for stage mvz2:big_trouble_and_little_zombie
+#: Stage meta file
+msgctxt "levelname"
+msgid "小僵尸和大麻烦"
 msgstr ""
 
 #. Name for stat category mvz2:contraption_place

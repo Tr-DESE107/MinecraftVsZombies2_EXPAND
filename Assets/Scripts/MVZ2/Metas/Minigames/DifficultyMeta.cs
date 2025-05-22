@@ -13,6 +13,7 @@ namespace MVZ2.Metas
         public NamespaceID AreaID { get; private set; }
         public NamespaceID StageID { get; private set; }
         public SpriteReference Icon { get; private set; }
+        public NamespaceID HiddenUntil { get; private set; }
 
         public static MinigameMeta FromXmlNode(XmlNode node, string defaultNsp, int index)
         {
@@ -21,7 +22,7 @@ namespace MVZ2.Metas
             var area = node.GetAttributeNamespaceID("area", defaultNsp);
             var stage = node.GetAttributeNamespaceID("stage", defaultNsp);
             var icon = node.GetAttributeSpriteReference("icon", defaultNsp);
-            var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+            var hiddenUntil = node.GetAttributeNamespaceID("hiddenUntil", defaultNsp);
 
             return new MinigameMeta()
             {
@@ -30,6 +31,7 @@ namespace MVZ2.Metas
                 AreaID = area,
                 StageID = stage,
                 Icon = icon,
+                HiddenUntil = hiddenUntil,
                 Index = index
             };
         }

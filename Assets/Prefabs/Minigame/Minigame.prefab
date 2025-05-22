@@ -1456,6 +1456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 3899248986458333254, guid: 9b280710dbf43814999524a09d68682d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cf19462984a14b4cbd808d15638e9bd, type: 3}
     - target: {fileID: 7790564818963624333, guid: 9b280710dbf43814999524a09d68682d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

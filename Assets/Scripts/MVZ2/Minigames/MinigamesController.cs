@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MukioI18n;
 using MVZ2.Almanacs;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.Level;
 using MVZ2.Logic.Level;
 using MVZ2.Managers;
@@ -122,28 +124,45 @@ namespace MVZ2.Minigames
         private MinigameItemViewData GetMinigameItemViewData(NamespaceID id)
         {
             var meta = Main.ResourceManager.GetMinigameMeta(id);
-            var stageID = meta.StageID;
+            var stageID = meta?.StageID;
             var stageMeta = Main.ResourceManager.GetStageMeta(stageID);
-            if (Main.SaveManager.IsValidAndLocked(stageMeta.Unlock) || stageMeta == null)
+            if (stageMeta == null)
             {
                 return MinigameItemViewData.Empty;
             }
-            var name = GetTranslatedString(VanillaStrings.CONTEXT_LEVEL_NAME, stageMeta.Name);
+            bool unlocked = Main.SaveManager.IsInvalidOrUnlocked(stageMeta.Unlock);
+            string name;
+            if (unlocked)
+            {
+                name = GetTranslatedStringParticular(VanillaStrings.CONTEXT_LEVEL_NAME, stageMeta.Name);
+            }
+            else
+            {
+                name = GetTranslatedString(LEVEL_NAME_NOT_UNLOCKED);
+            }
             var icon = Main.GetFinalSprite(meta.Icon);
 
-            var difficulty = Main.SaveManager.GetLevelDifficulty(stageID);
-            var difficultyMeta = Main.ResourceManager.GetDifficultyMeta(difficulty);
             Sprite clearSprite = null;
-            if (difficultyMeta != null)
+            if (Main.SaveManager.IsLevelCleared(stageID))
             {
-                var clearSpriteID = difficultyMeta.MinigameIcon;
-                clearSprite = Main.GetFinalSprite(clearSpriteID);
+                var difficulty = Main.SaveManager.GetLevelDifficulty(stageID);
+                var difficultyMeta = Main.ResourceManager.GetDifficultyMeta(difficulty);
+                if (difficultyMeta == null)
+                {
+                    difficultyMeta = Main.ResourceManager.GetDifficultyMeta(VanillaDifficulties.normal);
+                }
+                if (difficultyMeta != null)
+                {
+                    var clearSpriteID = difficultyMeta.MinigameIcon;
+                    clearSprite = Main.GetFinalSprite(clearSpriteID);
+                }
             }
             return new MinigameItemViewData()
             {
                 name = name,
                 sprite = icon,
-                clearSprite = clearSprite
+                clearSprite = clearSprite,
+                unlocked = unlocked,
             };
         }
         private void UpdateItems()
@@ -158,7 +177,7 @@ namespace MVZ2.Minigames
                 var stage = Main.ResourceManager.GetStageMeta(meta.StageID);
                 if (stage == null)
                     return false;
-                return Main.SaveManager.IsInvalidOrUnlocked(stage.Unlock);
+                return Main.SaveManager.IsInvalidOrUnlocked(meta.HiddenUntil);
             });
             GetOrderedMinigames(minigames, minigameItems);
             GetOrderedPuzzles(minigames, puzzleItems);
@@ -169,14 +188,18 @@ namespace MVZ2.Minigames
             var puzzleViewDatas = puzzleItems.Select(c => GetMinigameItemViewData(c)).ToArray();
             ui.SetPuzzleItems(puzzleViewDatas);
         }
-        private string GetTranslatedString(string context, string text, params object[] args)
+        private string GetTranslatedString(string text, params object[] args)
         {
-            if (string.IsNullOrEmpty(text))
-                return string.Empty;
+            return Main.LanguageManager._(text, args);
+        }
+        private string GetTranslatedStringParticular(string context, string text, params object[] args)
+        {
             return Main.LanguageManager._p(context, text, args);
         }
         public event Action OnReturnClick;
 
+        [TranslateMsg("未解锁的小游戏关卡名")]
+        public const string LEVEL_NAME_NOT_UNLOCKED = "未解锁";
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> minigameItems = new List<NamespaceID>();
         private List<NamespaceID> puzzleItems = new List<NamespaceID>();

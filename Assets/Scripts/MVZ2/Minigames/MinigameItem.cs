@@ -10,6 +10,12 @@ namespace MVZ2.Minigames
         public void UpdateItem(MinigameItemViewData viewData)
         {
             rootObject.SetActive(!viewData.empty);
+
+            icon.gameObject.SetActive(viewData.unlocked);
+            lockedIcon.gameObject.SetActive(!viewData.unlocked);
+
+            button.interactable = viewData.unlocked;
+
             var sprite = viewData.sprite;
             icon.sprite = sprite;
             icon.enabled = sprite;
@@ -31,6 +37,8 @@ namespace MVZ2.Minigames
         [SerializeField]
         private Image icon;
         [SerializeField]
+        private Image lockedIcon;
+        [SerializeField]
         private Image clearSprite;
         [SerializeField]
         private TextMeshProUGUI nameText;
@@ -41,6 +49,7 @@ namespace MVZ2.Minigames
         public Sprite sprite;
         public string name;
         public Sprite clearSprite;
+        public bool unlocked;
         public static readonly MinigameItemViewData Empty = new MinigameItemViewData { empty = true };
     }
 }

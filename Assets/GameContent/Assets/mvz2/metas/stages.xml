@@ -896,7 +896,7 @@
             <bool name="autoCollectAll" value="true"/>
         </properties>
     </stage>
-    <stage id="breakout" name="打弹珠" needBlueprints="false" type="minigame" music="mvz2:minigame">
+    <stage id="breakout" name="打砖块" needBlueprints="false" type="minigame" unlock="mvz2:level.mausoleum_9" music="mvz2:minigame">
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <spawns flags="2" firstWaveTime="30">
