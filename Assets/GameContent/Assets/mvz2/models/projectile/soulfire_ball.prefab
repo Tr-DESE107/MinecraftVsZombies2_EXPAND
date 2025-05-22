@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 8500279984015856736}
   velocity: {x: 0, y: 0.016, z: 0}
+  scaleWithHierarchy: 1
 --- !u!1 &8080197916029061785
 GameObject:
   m_ObjectHideFlags: 0
