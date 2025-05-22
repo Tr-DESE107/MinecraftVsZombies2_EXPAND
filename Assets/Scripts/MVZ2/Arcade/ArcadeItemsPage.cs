@@ -3,9 +3,9 @@ using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Minigames
+namespace MVZ2.Arcade
 {
-    public class MinigameItemsPage : MonoBehaviour
+    public class ArcadeItemsPage : MonoBehaviour
     {
         public void SetActive(bool active)
         {
@@ -16,25 +16,25 @@ namespace MVZ2.Minigames
         {
             returnButton.onClick.AddListener(() => OnReturnClick?.Invoke());
         }
-        public void SetItems(MinigameItemViewData[] items)
+        public void SetItems(ArcadeItemViewData[] items)
         {
             itemList.updateList(items.Length, (i, obj) =>
             {
-                var entry = obj.GetComponent<MinigameItem>();
+                var entry = obj.GetComponent<ArcadeItem>();
                 entry.UpdateItem(items[i]);
             },
             obj =>
             {
-                var entry = obj.GetComponent<MinigameItem>();
+                var entry = obj.GetComponent<ArcadeItem>();
                 entry.OnClick += OnEntryClickCallback;
             },
             obj =>
             {
-                var entry = obj.GetComponent<MinigameItem>();
+                var entry = obj.GetComponent<ArcadeItem>();
                 entry.OnClick -= OnEntryClickCallback;
             });
         }
-        private void OnEntryClickCallback(MinigameItem item)
+        private void OnEntryClickCallback(ArcadeItem item)
         {
             OnEntryClick?.Invoke(itemList.indexOf(item));
         }

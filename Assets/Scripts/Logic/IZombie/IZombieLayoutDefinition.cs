@@ -39,8 +39,19 @@ namespace MVZ2Logic.IZombie
         }
         public void RandomFill(IIZombieMap map, Vector2Int[] grids, NamespaceID entityID, int count, RandomGenerator rng)
         {
+            if (grids.Length <= 0)
+                return;
             var validGrids = grids.RandomTake(count, rng);
             foreach (var grid in validGrids)
+            {
+                Insert(map, grid, entityID);
+            }
+        }
+        public void FillColumn(IIZombieMap map, int column, NamespaceID entityID)
+        {
+            var allGrids = map.GetAllGridPositions();
+            var grids = allGrids.Where(g => g.x == column && map.CanInsert(g, entityID)).ToArray();
+            foreach (var grid in grids)
             {
                 Insert(map, grid, entityID);
             }

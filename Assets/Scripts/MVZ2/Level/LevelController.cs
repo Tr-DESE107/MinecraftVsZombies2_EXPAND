@@ -243,12 +243,12 @@ namespace MVZ2.Level
             switch (exitTarget)
             {
                 case LevelExitTarget.Minigame:
-                    Scene.DisplayMinigame(() => Scene.DisplayMainmenu());
-                    Scene.DisplayMinigameMinigames();
+                    Scene.DisplayArcade(() => Scene.DisplayMainmenu());
+                    Scene.DisplayArcadeMinigames();
                     break;
                 case LevelExitTarget.Puzzle:
-                    Scene.DisplayMinigame(() => Scene.DisplayMainmenu());
-                    Scene.DisplayMinigamePuzzles();
+                    Scene.DisplayArcade(() => Scene.DisplayMainmenu());
+                    Scene.DisplayArcadePuzzles();
                     break;
                 default:
                     Scene.GotoMapOrMainmenu();

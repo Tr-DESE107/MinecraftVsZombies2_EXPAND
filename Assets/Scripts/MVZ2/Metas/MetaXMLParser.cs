@@ -87,8 +87,8 @@ namespace MVZ2.Metas
                 case "credits":
                     resource.CreditsMetaList = CreditMetaList.FromXmlNode(document["credits"], defaultNsp);
                     break;
-                case "minigames":
-                    resource.MinigameMetaList = MinigameMetaList.FromXmlNode(document["minigames"], defaultNsp);
+                case "arcade":
+                    resource.ArcadeMetaList = ArcadeMetaList.FromXmlNode(document["arcade"], defaultNsp);
                     break;
             }
         }

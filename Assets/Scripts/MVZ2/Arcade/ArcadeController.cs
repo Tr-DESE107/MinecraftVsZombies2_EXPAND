@@ -12,14 +12,14 @@ using MVZ2.Vanilla.Saves;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Minigames
+namespace MVZ2.Arcade
 {
-    public class MinigamesController : MainScenePage
+    public class ArcadeController : MainScenePage
     {
         public override void Display()
         {
             base.Display();
-            ui.DisplayPage(MinigamesUI.MinigamePage.Index);
+            ui.DisplayPage(ArcadeUI.ArcadePage.Index);
             ui.SetAllInteractable(true);
             UpdateItems();
             if (!Main.MusicManager.IsPlaying(VanillaMusicID.choosing))
@@ -27,11 +27,11 @@ namespace MVZ2.Minigames
         }
         public void DisplayMinigames()
         {
-            ui.DisplayPage(MinigamesUI.MinigamePage.Minigame);
+            ui.DisplayPage(ArcadeUI.ArcadePage.Minigame);
         }
         public void DisplayPuzzles()
         {
-            ui.DisplayPage(MinigamesUI.MinigamePage.Puzzle);
+            ui.DisplayPage(ArcadeUI.ArcadePage.Puzzle);
         }
         private void Awake()
         {
@@ -41,88 +41,88 @@ namespace MVZ2.Minigames
             ui.OnIndexButtonClick += OnIndexButtonClickCallback;
             ui.OnItemClick += OnItemClickCallback;
         }
-        #region ÊÂ¼þ»Øµ÷
+        #region ï¿½Â¼ï¿½ï¿½Øµï¿½
         private void OnIndexReturnClickCallback()
         {
             Hide();
             OnReturnClick?.Invoke();
         }
-        private void OnPageReturnClickCallback(MinigamesUI.MinigamePage page)
+        private void OnPageReturnClickCallback(ArcadeUI.ArcadePage page)
         {
-            ui.DisplayPage(MinigamesUI.MinigamePage.Index);
+            ui.DisplayPage(ArcadeUI.ArcadePage.Index);
         }
-        private void OnIndexButtonClickCallback(IndexMinigamePage.ButtonType button)
+        private void OnIndexButtonClickCallback(IndexArcadePage.ButtonType button)
         {
             switch (button)
             {
-                case IndexMinigamePage.ButtonType.Minigame:
+                case IndexArcadePage.ButtonType.Minigame:
                     DisplayMinigames();
                     break;
-                case IndexMinigamePage.ButtonType.Puzzle:
+                case IndexArcadePage.ButtonType.Puzzle:
                     DisplayPuzzles();
                     break;
             }
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
-        private async void OnItemClickCallback(MinigamesUI.MinigamePage page, int index)
+        private async void OnItemClickCallback(ArcadeUI.ArcadePage page, int index)
         {
-            var items = page == MinigamesUI.MinigamePage.Puzzle ? puzzleItems : minigameItems;
+            var items = page == ArcadeUI.ArcadePage.Puzzle ? puzzleItems : minigameItems;
             Main.SoundManager.Play2D(VanillaSoundID.tap);
 
-            var minigameID = items[index];
-            var minigameMeta = Main.ResourceManager.GetMinigameMeta(minigameID);
-            if (minigameMeta == null)
+            var arcadeID = items[index];
+            var arcadeMeta = Main.ResourceManager.GetArcadeMeta(arcadeID);
+            if (arcadeMeta == null)
                 return;
-            var areaID = minigameMeta.AreaID;
-            var stageID = minigameMeta.StageID;
+            var areaID = arcadeMeta.AreaID;
+            var stageID = arcadeMeta.StageID;
             if (!NamespaceID.IsValid(areaID) || !NamespaceID.IsValid(stageID))
                 return;
             ui.SetAllInteractable(false);
             Main.SaveManager.SaveModDatas();
             await Main.LevelManager.GotoLevelSceneAsync();
-            var exitTarget = page == MinigamesUI.MinigamePage.Puzzle ? LevelExitTarget.Puzzle : LevelExitTarget.Minigame;
+            var exitTarget = page == ArcadeUI.ArcadePage.Puzzle ? LevelExitTarget.Puzzle : LevelExitTarget.Minigame;
             Main.LevelManager.InitLevel(areaID, stageID, exitTarget: exitTarget);
             Hide();
         }
         #endregion
 
-        private void GetOrderedMinigames(IEnumerable<NamespaceID> minigames, List<NamespaceID> appendList)
+        private void GetOrderedArcade(IEnumerable<NamespaceID> arcades, List<NamespaceID> appendList)
         {
-            var idList = GetIDListByMinigameOrder(minigames, MinigameTypes.MINIGAME);
+            var idList = GetIDListByArcadeOrder(arcades, ArcadeTypes.MINIGAME);
             appendList.AddRange(idList);
         }
-        private void GetOrderedPuzzles(IEnumerable<NamespaceID> minigames, List<NamespaceID> appendList)
+        private void GetOrderedPuzzles(IEnumerable<NamespaceID> arcades, List<NamespaceID> appendList)
         {
-            var idList = GetIDListByMinigameOrder(minigames, MinigameTypes.PUZZLE);
+            var idList = GetIDListByArcadeOrder(arcades, ArcadeTypes.PUZZLE);
             appendList.AddRange(idList);
         }
-        private NamespaceID[] GetIDListByMinigameOrder(IEnumerable<NamespaceID> idList, string type)
+        private NamespaceID[] GetIDListByArcadeOrder(IEnumerable<NamespaceID> idList, string type)
         {
             if (idList == null || idList.Count() == 0)
                 return Array.Empty<NamespaceID>();
-            var minigames = idList
-                .Select(id => (id, meta: Main.ResourceManager.GetMinigameMeta(id)))
+            var arcades = idList
+                .Select(id => (id, meta: Main.ResourceManager.GetArcadeMeta(id)))
                 .Where(tuple => tuple.meta.Type == type);
-            if (minigames.Count() <= 0)
+            if (arcades.Count() <= 0)
                 return Array.Empty<NamespaceID>();
-            var minigameIndexes = minigames.Select(tuple => (tuple.id, index: tuple.meta.Index));
-            var maxAlmanacIndex = minigameIndexes.Max(tuple => tuple.index);
+            var arcadeIndexes = arcades.Select(tuple => (tuple.id, index: tuple.meta.Index));
+            var maxAlmanacIndex = arcadeIndexes.Max(tuple => tuple.index);
             var ordered = new NamespaceID[maxAlmanacIndex + 1];
             for (int i = 0; i < ordered.Length; i++)
             {
-                var tuple = minigameIndexes.FirstOrDefault(tuple => tuple.index == i);
+                var tuple = arcadeIndexes.FirstOrDefault(tuple => tuple.index == i);
                 ordered[i] = tuple.id;
             }
             return ordered;
         }
-        private MinigameItemViewData GetMinigameItemViewData(NamespaceID id)
+        private ArcadeItemViewData GetArcadeItemViewData(NamespaceID id)
         {
-            var meta = Main.ResourceManager.GetMinigameMeta(id);
+            var meta = Main.ResourceManager.GetArcadeMeta(id);
             var stageID = meta?.StageID;
             var stageMeta = Main.ResourceManager.GetStageMeta(stageID);
             if (stageMeta == null)
             {
-                return MinigameItemViewData.Empty;
+                return ArcadeItemViewData.Empty;
             }
             bool unlocked = Main.SaveManager.IsInvalidOrUnlocked(stageMeta.Unlock);
             string name;
@@ -147,11 +147,11 @@ namespace MVZ2.Minigames
                 }
                 if (difficultyMeta != null)
                 {
-                    var clearSpriteID = difficultyMeta.MinigameIcon;
+                    var clearSpriteID = difficultyMeta.ArcadeIcon;
                     clearSprite = Main.GetFinalSprite(clearSpriteID);
                 }
             }
-            return new MinigameItemViewData()
+            return new ArcadeItemViewData()
             {
                 name = name,
                 sprite = icon,
@@ -163,9 +163,9 @@ namespace MVZ2.Minigames
         {
             minigameItems.Clear();
             puzzleItems.Clear();
-            var minigames = Main.ResourceManager.GetAllMinigames().Where(id =>
+            var arcades = Main.ResourceManager.GetAllArcadeItems().Where(id =>
             {
-                var meta = Main.ResourceManager.GetMinigameMeta(id);
+                var meta = Main.ResourceManager.GetArcadeMeta(id);
                 if (meta == null)
                     return false;
                 var stage = Main.ResourceManager.GetStageMeta(meta.StageID);
@@ -173,13 +173,13 @@ namespace MVZ2.Minigames
                     return false;
                 return Main.SaveManager.IsInvalidOrUnlocked(meta.HiddenUntil);
             });
-            GetOrderedMinigames(minigames, minigameItems);
-            GetOrderedPuzzles(minigames, puzzleItems);
+            GetOrderedArcade(arcades, minigameItems);
+            GetOrderedPuzzles(arcades, puzzleItems);
 
-            var minigameViewDatas = minigameItems.Select(c => GetMinigameItemViewData(c)).ToArray();
+            var minigameViewDatas = minigameItems.Select(c => GetArcadeItemViewData(c)).ToArray();
             ui.SetMinigameItems(minigameViewDatas);
 
-            var puzzleViewDatas = puzzleItems.Select(c => GetMinigameItemViewData(c)).ToArray();
+            var puzzleViewDatas = puzzleItems.Select(c => GetArcadeItemViewData(c)).ToArray();
             ui.SetPuzzleItems(puzzleViewDatas);
         }
         private string GetTranslatedString(string text, params object[] args)
@@ -192,8 +192,8 @@ namespace MVZ2.Minigames
         }
         public event Action OnReturnClick;
 
-        [TranslateMsg("Î´½âËøµÄÐ¡ÓÎÏ·¹Ø¿¨Ãû")]
-        public const string LEVEL_NAME_NOT_UNLOCKED = "Î´½âËø";
+        [TranslateMsg("æœªè§£é”çš„å°æ¸¸æˆå…³å¡å")]
+        public const string LEVEL_NAME_NOT_UNLOCKED = "æœªè§£é”";
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> minigameItems = new List<NamespaceID>();
         private List<NamespaceID> puzzleItems = new List<NamespaceID>();
@@ -201,6 +201,6 @@ namespace MVZ2.Minigames
         [SerializeField]
         private Camera almanacCamera;
         [SerializeField]
-        private MinigamesUI ui;
+        private ArcadeUI ui;
     }
 }

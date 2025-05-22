@@ -3,11 +3,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Minigames
+namespace MVZ2.Arcade
 {
-    public class MinigameItem : MonoBehaviour
+    public class ArcadeItem : MonoBehaviour
     {
-        public void UpdateItem(MinigameItemViewData viewData)
+        public void UpdateItem(ArcadeItemViewData viewData)
         {
             rootObject.SetActive(!viewData.empty);
 
@@ -29,7 +29,7 @@ namespace MVZ2.Minigames
         {
             button.onClick.AddListener(() => OnClick?.Invoke(this));
         }
-        public Action<MinigameItem> OnClick;
+        public Action<ArcadeItem> OnClick;
         [SerializeField]
         private GameObject rootObject;
         [SerializeField]
@@ -43,13 +43,13 @@ namespace MVZ2.Minigames
         [SerializeField]
         private TextMeshProUGUI nameText;
     }
-    public struct MinigameItemViewData
+    public struct ArcadeItemViewData
     {
         public bool empty;
         public Sprite sprite;
         public string name;
         public Sprite clearSprite;
         public bool unlocked;
-        public static readonly MinigameItemViewData Empty = new MinigameItemViewData { empty = true };
+        public static readonly ArcadeItemViewData Empty = new ArcadeItemViewData { empty = true };
     }
 }

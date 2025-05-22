@@ -55,7 +55,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID store = dream5;
         public static readonly NamespaceID gensokyo = dream11;
         public static readonly NamespaceID musicRoom = castle5;
-        public static readonly NamespaceID minigame = mausoleum6;
+        public static readonly NamespaceID arcade = mausoleum6;
         public static readonly NamespaceID trigger = Get(VanillaUnlockNames.trigger);
         public static readonly NamespaceID starshard = Get(VanillaUnlockNames.starshard);
         public static readonly NamespaceID money = Get(VanillaUnlockNames.money);

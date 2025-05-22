@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-22 06:04+0800\n"
-"PO-Revision-Date: 2025-05-22 18:05+0800\n"
+"POT-Creation-Date: 2025-05-22 08:20+0800\n"
+"PO-Revision-Date: 2025-05-22 20:20+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -167,12 +167,17 @@ msgstr "Misc"
 msgid "放大镜"
 msgstr "Zoom"
 
-#: /MainGame/MainScene/Minigame/Canvas/Minigames/Index/Top/Title/Text (TMP)
+#: /MainGame/MainScene/Arcade/Canvas/Arcade/Index/Top/Title/Text (TMP)
+msgid "游戏盒"
+msgstr "Arcade"
+
+#. 小游戏界面的分类按钮文本
+#: /MainGame/MainScene/Arcade/Canvas/Arcade/Index/Center/Root/Arcade/Root/Bottom/Text
 msgid "小游戏"
 msgstr "Minigames"
 
 #. 小游戏界面的分类按钮文本
-#: /MainGame/MainScene/Minigame/Canvas/Minigames/Index/Center/Root/Puzzle/Root/Bottom/Text
+#: /MainGame/MainScene/Arcade/Canvas/Arcade/Index/Center/Root/Puzzle/Root/Bottom/Text
 msgid "解谜模式"
 msgstr "Puzzles"
 
@@ -1118,11 +1123,6 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Author: {0}"
 
-# 未解锁的小游戏关卡名
-#: Scripts\MVZ2\Minigames\MinigamesController.cs:195
-msgid "未解锁"
-msgstr "Locked"
-
 #: Scripts\MVZ2\Map\MapController.cs:661
 msgid ""
 "按住右键拖动以移动视图\n"
@@ -1243,6 +1243,11 @@ msgid ""
 msgstr ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
+
+# 未解锁的小游戏关卡名
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:195
+msgid "未解锁"
+msgstr "Locked"
 
 #: Scripts\MVZ2\Almanac\AlmanacController.cs:385
 msgctxt "almanac"

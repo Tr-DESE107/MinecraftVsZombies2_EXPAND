@@ -202,7 +202,7 @@ MonoBehaviour:
   archive: {fileID: 342381721326407084}
   addons: {fileID: 5496570609582420947}
   musicRoom: {fileID: 4032790009486845809}
-  minigames: {fileID: 5626975616699435734}
+  arcade: {fileID: 5626975616699435734}
   inputNameDialog: {fileID: 9120389176242846396}
   deleteUserDialog: {fileID: 4682724205504364421}
   achievementHint: {fileID: 378820087554729799}
@@ -3313,7 +3313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4435000216411095977, guid: 21d9993f898a9004dabb86b0656476cb, type: 3}
       propertyPath: m_Name
-      value: Minigame
+      value: Arcade
       objectReference: {fileID: 0}
     - target: {fileID: 4435000216411095977, guid: 21d9993f898a9004dabb86b0656476cb, type: 3}
       propertyPath: m_IsActive

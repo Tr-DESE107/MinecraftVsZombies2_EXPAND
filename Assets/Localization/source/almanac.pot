@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-21 07:25+0800\n"
+"POT-Creation-Date: 2025-05-22 08:18+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1804,7 +1804,7 @@ msgstr ""
 #. Properties for artifacts mvz2:lightbomb
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>器械自爆时对所有敌人造成170点额外伤害</color>"
+msgid "效果：<color=red>器械自爆时，对所有敌人额外造成等同于该器械能量消耗的伤害</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:lightbomb

@@ -29,6 +29,20 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d9dd31bf028bdda498cb850149535586, type: 3}
   - name: achievements/rickroll_drown
     sprite: {fileID: 21300000, guid: da694241d06a5a0429d9929813653171, type: 3}
+  - name: arcade/arcade_category_minigame
+    sprite: {fileID: 21300000, guid: 70de6ddff3a791547a9503617054e1c9, type: 3}
+  - name: arcade/arcade_category_puzzle
+    sprite: {fileID: 21300000, guid: 2cf19462984a14b4cbd808d15638e9bd, type: 3}
+  - name: arcade/big_trouble_and_little_zombie
+    sprite: {fileID: 21300000, guid: 0966a8cb4bb36ec4f8354fc756227214, type: 3}
+  - name: arcade/breakout
+    sprite: {fileID: 21300000, guid: b0de64e2af2016c45ae16c1d0b361591, type: 3}
+  - name: arcade/i_zombie
+    sprite: {fileID: 21300000, guid: 954f4a9aadd5d0141a70086f5aaedcc5, type: 3}
+  - name: arcade/locked
+    sprite: {fileID: 21300000, guid: 2f65e88c41fd23d4987bba1066e05ba3, type: 3}
+  - name: arcade/whack_a_ghost
+    sprite: {fileID: 21300000, guid: ba09814b17fbf24438727f22089f7192, type: 3}
   - name: archive/castle_note
     sprite: {fileID: 21300000, guid: b43c7c77cd3ff54418daebbaccf227db, type: 3}
   - name: archive/dream_note
@@ -127,20 +141,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0bad8dd7ca96eb047840a09bdbdcc162, type: 3}
   - name: mainmenu/titlescreen
     sprite: {fileID: 21300000, guid: 36ceb837ec0bbd54e9f7ecac4e5ecc70, type: 3}
-  - name: minigames/big_trouble_and_little_zombie
-    sprite: {fileID: 21300000, guid: 0966a8cb4bb36ec4f8354fc756227214, type: 3}
-  - name: minigames/breakout
-    sprite: {fileID: 21300000, guid: b0de64e2af2016c45ae16c1d0b361591, type: 3}
-  - name: minigames/i_zombie
-    sprite: {fileID: 21300000, guid: 954f4a9aadd5d0141a70086f5aaedcc5, type: 3}
-  - name: minigames/locked
-    sprite: {fileID: 21300000, guid: 2f65e88c41fd23d4987bba1066e05ba3, type: 3}
-  - name: minigames/minigame_category
-    sprite: {fileID: 21300000, guid: 70de6ddff3a791547a9503617054e1c9, type: 3}
-  - name: minigames/puzzle_category
-    sprite: {fileID: 21300000, guid: 2cf19462984a14b4cbd808d15638e9bd, type: 3}
-  - name: minigames/whack_a_ghost
-    sprite: {fileID: 21300000, guid: ba09814b17fbf24438727f22089f7192, type: 3}
   - name: misc/castle
     sprite: {fileID: 21300000, guid: 25c22dffe2340ef439d6ebbc3478357e, type: 3}
   - name: misc/dream
@@ -865,6 +865,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: eb748549348de4d458c512aac07bb380, type: 3}
   - name: ui/almanac/book
     sprite: {fileID: 21300000, guid: a06be91936876c74d8f5b245197688cf, type: 3}
+  - name: ui/arcade/background
+    sprite: {fileID: 21300000, guid: 327c7ca17fc1da84993f3b15a675a7e7, type: 3}
   - name: ui/level/card
     sprite: {fileID: 21300000, guid: 23576b1f7e3a27e45af33cb0ad4f201b, type: 3}
   - name: ui/level/card_command_block
@@ -929,8 +931,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7bb8171db9a35d847a0d278960512921, type: 3}
   - name: ui/map/map_drag_mark
     sprite: {fileID: 21300000, guid: 4d1a02ea98fa8a440b49d3871b5d0dff, type: 3}
-  - name: ui/minigame/background
-    sprite: {fileID: 21300000, guid: 327c7ca17fc1da84993f3b15a675a7e7, type: 3}
   - name: ui/musicroom/bar
     sprite: {fileID: 21300000, guid: 3263647cc04cd5d45a3c765536cceb47, type: 3}
   - name: ui/musicroom/bar_frame
@@ -1169,6 +1169,11 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 2844d55fd599f0348a29e3ba6776c932, type: 3}
     - {fileID: 21300002, guid: 2844d55fd599f0348a29e3ba6776c932, type: 3}
     - {fileID: 21300004, guid: 2844d55fd599f0348a29e3ba6776c932, type: 3}
+  - name: mainmenu/arcade
+    spritesheet:
+    - {fileID: 1873280393, guid: 55b2b4fade47008488fe31d71fcbbb96, type: 3}
+    - {fileID: -42232972, guid: 55b2b4fade47008488fe31d71fcbbb96, type: 3}
+    - {fileID: 165593909, guid: 55b2b4fade47008488fe31d71fcbbb96, type: 3}
   - name: mainmenu/archive
     spritesheet:
     - {fileID: 3857347790767066910, guid: f74ea0e5623da9347962fc99538ad869, type: 3}
@@ -1182,11 +1187,6 @@ MonoBehaviour:
     - {fileID: 21300006, guid: 3358e00bce0b2da4cafbb5941d366592, type: 3}
     - {fileID: 21300008, guid: 3358e00bce0b2da4cafbb5941d366592, type: 3}
     - {fileID: 21300010, guid: 3358e00bce0b2da4cafbb5941d366592, type: 3}
-  - name: mainmenu/minigame
-    spritesheet:
-    - {fileID: 1873280393, guid: 55b2b4fade47008488fe31d71fcbbb96, type: 3}
-    - {fileID: -42232972, guid: 55b2b4fade47008488fe31d71fcbbb96, type: 3}
-    - {fileID: 165593909, guid: 55b2b4fade47008488fe31d71fcbbb96, type: 3}
   - name: mainmenu/more_menus
     spritesheet:
     - {fileID: -2987439667328220171, guid: b183abb28c7b13c4995d0fc7bfaa8299, type: 3}
@@ -2109,15 +2109,15 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -6034685484396218449, guid: 8a2e7dea253a9e84c910acffe8c3e79e, type: 3}
     - {fileID: 7749991839993489328, guid: 8a2e7dea253a9e84c910acffe8c3e79e, type: 3}
-  - name: ui/level/starshard_point
-    spritesheet:
-    - {fileID: 21300000, guid: b3fb8d61fec87704189d63aacaa3814c, type: 3}
-    - {fileID: 21300002, guid: b3fb8d61fec87704189d63aacaa3814c, type: 3}
-  - name: ui/minigame/clear_trophy
+  - name: ui/arcade/clear_trophy
     spritesheet:
     - {fileID: 1593830320, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
     - {fileID: 1307917129, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
     - {fileID: -1275393187, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
+  - name: ui/level/starshard_point
+    spritesheet:
+    - {fileID: 21300000, guid: b3fb8d61fec87704189d63aacaa3814c, type: 3}
+    - {fileID: 21300002, guid: b3fb8d61fec87704189d63aacaa3814c, type: 3}
   - name: ui/musicroom/pause_button
     spritesheet:
     - {fileID: -1278241251, guid: 2b4a63ffd329fbf43a452a8934978807, type: 3}

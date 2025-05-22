@@ -203,6 +203,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0966a8cb4bb36ec4f8354fc756227214
+    m_Address: mvz2:arcade/big_trouble_and_little_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09abce2230dfb324ea662a24b97c0318
     m_Address: mvz2:random/crystal/crystal4
     m_ReadOnly: 0
@@ -1331,6 +1337,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Scene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cf19462984a14b4cbd808d15638e9bd
+    m_Address: mvz2:arcade/arcade_category_puzzle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d37eb66e5d769343ab9e6ee42496b68
     m_Address: mvz2:mobile_blueprint/anubisand
     m_ReadOnly: 0
@@ -1415,6 +1427,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f65e88c41fd23d4987bba1066e05ba3
+    m_Address: mvz2:arcade/locked
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f670f36ed5e0bd4bb012d6f6f423f1a
     m_Address: mvz2:grids
     m_ReadOnly: 0
@@ -1488,7 +1506,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 327c7ca17fc1da84993f3b15a675a7e7
-    m_Address: mvz2:ui/minigame/background
+    m_Address: mvz2:ui/arcade/background
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -2723,7 +2741,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 55b2b4fade47008488fe31d71fcbbb96
-    m_Address: mvz2:mainmenu/minigame
+    m_Address: mvz2:mainmenu/arcade
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
@@ -3520,6 +3538,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70de6ddff3a791547a9503617054e1c9
+    m_Address: mvz2:arcade/arcade_category_minigame
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71622a34f9dcc4f4689cee2fc30656c3
     m_Address: mvz2:enemy/castle/berserker
     m_ReadOnly: 0
@@ -3766,7 +3790,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a3b8d97209e0b4429c62e23f1046a6c
-    m_Address: mvz2:minigames
+    m_Address: mvz2:arcade
     m_ReadOnly: 0
     m_SerializedLabels:
     - Meta
@@ -4126,7 +4150,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84d24c865b8c9b341a85b8104370a001
-    m_Address: mvz2:ui/minigame/clear_trophy
+    m_Address: mvz2:ui/arcade/clear_trophy
     m_ReadOnly: 0
     m_SerializedLabels:
     - Spritesheet
@@ -4700,6 +4724,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 954f4a9aadd5d0141a70086f5aaedcc5
+    m_Address: mvz2:arcade/i_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95860ad70aaf9b048b4e87974f29e947
     m_Address: mvz2:enemy/mausoleum/emperor_zombie
@@ -5577,6 +5607,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0de64e2af2016c45ae16c1d0b361591
+    m_Address: mvz2:arcade/breakout
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b165419e360617343bbb86eb9acb98f5
     m_Address: mvz2:effect/nightmare_glass
     m_ReadOnly: 0
@@ -5930,6 +5966,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba09814b17fbf24438727f22089f7192
+    m_Address: mvz2:arcade/whack_a_ghost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ba5959cbb21e70e46930dced2270fecb
     m_Address: mvz2:entity/contraption/pistenser

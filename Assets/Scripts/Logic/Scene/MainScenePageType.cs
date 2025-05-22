@@ -12,6 +12,6 @@
         Archive,
         Addons,
         MusicRoom,
-        Minigame
+        Arcade
     }
 }

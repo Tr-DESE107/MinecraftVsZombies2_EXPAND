@@ -9,30 +9,30 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 元数据列表
-        public MinigameMetaList GetMinigameMetaList(string nsp)
+        public ArcadeMetaList GetArcadeMetaList(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
             if (modResource == null)
                 return null;
-            return modResource.MinigameMetaList;
+            return modResource.ArcadeMetaList;
         }
         #endregion
 
         #region 元数据
-        public MinigameMeta GetMinigameMeta(NamespaceID minigame)
+        public ArcadeMeta GetArcadeMeta(NamespaceID arcade)
         {
-            if (!NamespaceID.IsValid(minigame))
+            if (!NamespaceID.IsValid(arcade))
                 return null;
-            var modResource = main.ResourceManager.GetModResource(minigame.SpaceName);
+            var modResource = main.ResourceManager.GetModResource(arcade.SpaceName);
             if (modResource == null)
                 return null;
-            return modResource.MinigameMetaList.metas.FirstOrDefault(m => m.ID == minigame.Path);
+            return modResource.ArcadeMetaList.metas.FirstOrDefault(m => m.ID == arcade.Path);
         }
         #endregion
-        public NamespaceID[] GetAllMinigames()
+        public NamespaceID[] GetAllArcadeItems()
         {
-            return minigameCache.ToArray();
+            return arcadeCache.ToArray();
         }
-        private List<NamespaceID> minigameCache = new List<NamespaceID>();
+        private List<NamespaceID> arcadeCache = new List<NamespaceID>();
     }
 }

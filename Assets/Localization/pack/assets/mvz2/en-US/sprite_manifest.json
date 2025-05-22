@@ -189,6 +189,36 @@
       ]
     },
     {
+      "name": "mainmenu/arcade",
+      "texture": "mainmenu/arcade.png",
+      "slices": [
+        {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 281.0,
+          "height": 164.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5
+        },
+        {
+          "x": 282.0,
+          "y": 0.0,
+          "width": 281.0,
+          "height": 164.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5
+        },
+        {
+          "x": 564.0,
+          "y": 0.0,
+          "width": 281.0,
+          "height": 164.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5
+        }
+      ]
+    },
+    {
       "name": "mainmenu/back_to_mainmenu",
       "texture": "mainmenu/back_to_mainmenu.png",
       "slices": [
@@ -235,36 +265,6 @@
           "y": 0.0,
           "width": 89.0,
           "height": 125.0,
-          "pivotX": 0.5,
-          "pivotY": 0.5
-        }
-      ]
-    },
-    {
-      "name": "mainmenu/minigame",
-      "texture": "mainmenu/minigame.png",
-      "slices": [
-        {
-          "x": 0.0,
-          "y": 0.0,
-          "width": 281.0,
-          "height": 164.0,
-          "pivotX": 0.5,
-          "pivotY": 0.5
-        },
-        {
-          "x": 282.0,
-          "y": 0.0,
-          "width": 281.0,
-          "height": 164.0,
-          "pivotX": 0.5,
-          "pivotY": 0.5
-        },
-        {
-          "x": 564.0,
-          "y": 0.0,
-          "width": 281.0,
-          "height": 164.0,
           "pivotX": 0.5,
           "pivotY": 0.5
         }

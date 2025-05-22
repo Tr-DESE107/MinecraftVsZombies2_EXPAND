@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u5C0F\u6E38\u620F"
+  m_text: "\u6E38\u620F\u76D2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3271dde185726664f9327d84700c9c21, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 3ffcd0d5a258fee40a459a6ccb1316de, type: 2}
@@ -348,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7559184452962609346}
   m_Layer: 14
-  m_Name: Minigames
+  m_Name: Arcade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 6820294462353836520}
   - component: {fileID: 8803844577326811919}
   m_Layer: 0
-  m_Name: Minigame
+  m_Name: Arcade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1103,7 +1103,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2791075528181117170, guid: 9b280710dbf43814999524a09d68682d, type: 3}
       propertyPath: m_Name
-      value: Minigame
+      value: Arcade
       objectReference: {fileID: 0}
     - target: {fileID: 7790564818963624333, guid: 9b280710dbf43814999524a09d68682d, type: 3}
       propertyPath: m_Pivot.x
@@ -1296,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4606620024848563902, guid: ed764d3ca1b6d3f4fbf28dc91cd39f08, type: 3}
       propertyPath: m_Name
-      value: MinigamePage
+      value: MinigamesPage
       objectReference: {fileID: 0}
     - target: {fileID: 4606620024848563902, guid: ed764d3ca1b6d3f4fbf28dc91cd39f08, type: 3}
       propertyPath: m_IsActive

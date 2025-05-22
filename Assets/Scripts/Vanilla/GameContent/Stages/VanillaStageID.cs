@@ -77,6 +77,8 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleDeadBalloon = "puzzle_dead_balloon";
         public const string puzzleUnbreakable = "puzzle_unbreakable";
         public const string puzzleMineclear = "puzzle_mineclear";
+        public const string puzzleFireInTheHole = "puzzle_fire_in_the_hole";
+        public const string puzzleAllYourObservesAreBelongToUs = "puzzle_all_your_observes_are_belong_to_us";
     }
     public static class VanillaStageID
     {

@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MVZ2.Minigames
+namespace MVZ2.Arcade
 {
-    public class IndexMinigamePage : MonoBehaviour
+    public class IndexArcadePage : MonoBehaviour
     {
         public void SetActive(bool active)
         {
@@ -19,9 +19,9 @@ namespace MVZ2.Minigames
         public event Action OnReturnClick;
         public event Action<ButtonType> OnButtonClick;
         [SerializeField]
-        private MinigameCategoryItem minigameItem;
+        private ArcadeCategoryItem minigameItem;
         [SerializeField]
-        private MinigameCategoryItem puzzleItem;
+        private ArcadeCategoryItem puzzleItem;
         [SerializeField]
         private Button returnButton;
         public enum ButtonType

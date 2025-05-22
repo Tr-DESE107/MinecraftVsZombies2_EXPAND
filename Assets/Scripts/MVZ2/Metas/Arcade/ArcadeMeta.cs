@@ -5,7 +5,7 @@ using PVZEngine;
 
 namespace MVZ2.Metas
 {
-    public class MinigameMeta
+    public class ArcadeMeta
     {
         public string ID { get; private set; }
         public string Type { get; private set; }
@@ -15,7 +15,7 @@ namespace MVZ2.Metas
         public SpriteReference Icon { get; private set; }
         public NamespaceID HiddenUntil { get; private set; }
 
-        public static MinigameMeta FromXmlNode(XmlNode node, string defaultNsp, int index)
+        public static ArcadeMeta FromXmlNode(XmlNode node, string defaultNsp, int index)
         {
             var id = node.GetAttribute("id");
             var type = node.Name;
@@ -24,7 +24,7 @@ namespace MVZ2.Metas
             var icon = node.GetAttributeSpriteReference("icon", defaultNsp);
             var hiddenUntil = node.GetAttributeNamespaceID("hiddenUntil", defaultNsp);
 
-            return new MinigameMeta()
+            return new ArcadeMeta()
             {
                 ID = id,
                 Type = type,

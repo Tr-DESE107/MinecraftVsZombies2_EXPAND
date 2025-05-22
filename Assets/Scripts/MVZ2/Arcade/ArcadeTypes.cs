@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVZ2.Minigames
+namespace MVZ2.Arcade
 {
-    public static class MinigameTypes
+    public static class ArcadeTypes
     {
         public const string MINIGAME = "minigame";
         public const string PUZZLE = "puzzle";

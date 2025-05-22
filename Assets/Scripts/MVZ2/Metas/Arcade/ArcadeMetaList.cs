@@ -4,12 +4,12 @@ using System.Xml;
 
 namespace MVZ2.Metas
 {
-    public class MinigameMetaList
+    public class ArcadeMetaList
     {
-        public MinigameMeta[] metas;
-        public static MinigameMetaList FromXmlNode(XmlNode node, string defaultNsp)
+        public ArcadeMeta[] metas;
+        public static ArcadeMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var resources = new MinigameMeta[node.ChildNodes.Count];
+            var resources = new ArcadeMeta[node.ChildNodes.Count];
             ConcurrentDictionary<string, int> indexes = new ConcurrentDictionary<string, int>();
             for (int i = 0; i < resources.Length; i++)
             { 
@@ -17,9 +17,9 @@ namespace MVZ2.Metas
                 var key = childNode.Name;
                 var index = indexes.GetOrAdd(key, 0);
                 indexes[key]++;
-                resources[i] = MinigameMeta.FromXmlNode(childNode, defaultNsp, index);
+                resources[i] = ArcadeMeta.FromXmlNode(childNode, defaultNsp, index);
             }
-            return new MinigameMetaList()
+            return new ArcadeMetaList()
             {
                 metas = resources,
             };

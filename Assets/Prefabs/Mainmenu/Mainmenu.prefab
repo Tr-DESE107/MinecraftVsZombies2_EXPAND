@@ -486,7 +486,7 @@ MonoBehaviour:
   statsButton: {fileID: 4521687206855279651}
   achievementButton: {fileID: 6140756994624433606}
   musicRoomButton: {fileID: 8807519686750588945}
-  minigameButton: {fileID: 3403126394563994632}
+  arcadeButton: {fileID: 3403126394563994632}
 --- !u!95 &1646346208041408291
 Animator:
   serializedVersion: 5
@@ -4265,7 +4265,7 @@ PrefabInstance:
       objectReference: {fileID: 165593909, guid: 55b2b4fade47008488fe31d71fcbbb96, type: 3}
     - target: {fileID: 2742125469936148500, guid: 17356241becec2741948d1ef55c6cfb0, type: 3}
       propertyPath: m_Name
-      value: Minigame
+      value: Arcade
       objectReference: {fileID: 0}
     - target: {fileID: 4979338266511659876, guid: 17356241becec2741948d1ef55c6cfb0, type: 3}
       propertyPath: spriteID.spacename

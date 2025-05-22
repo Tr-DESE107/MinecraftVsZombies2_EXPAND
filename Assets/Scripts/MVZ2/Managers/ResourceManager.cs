@@ -143,9 +143,9 @@ namespace MVZ2.Managers
                     talksCacheDict.Add(new NamespaceID(modNamespace, group.id), group);
                 }
             }
-            foreach (var meta in modResource.MinigameMetaList.metas)
+            foreach (var meta in modResource.ArcadeMetaList.metas)
             {
-                minigameCache.Add(new NamespaceID(modNamespace, meta.ID));
+                arcadeCache.Add(new NamespaceID(modNamespace, meta.ID));
             }
 
             return modResource;

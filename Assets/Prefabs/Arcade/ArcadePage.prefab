@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 3121575413500139670}
   - component: {fileID: 2268201898104836916}
   m_Layer: 14
-  m_Name: MinigamePage
+  m_Name: ArcadePage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -767,7 +767,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3118184650186795269, guid: 83eaf473aa5470643a60aa1fd664ecf0, type: 3}
       propertyPath: m_Name
-      value: MinigameItem
+      value: ArcadeItem
       objectReference: {fileID: 0}
     - target: {fileID: 3118184650186795269, guid: 83eaf473aa5470643a60aa1fd664ecf0, type: 3}
       propertyPath: m_IsActive
