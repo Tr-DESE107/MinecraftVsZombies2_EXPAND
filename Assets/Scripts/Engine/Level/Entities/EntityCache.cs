@@ -18,6 +18,7 @@ namespace PVZEngine.Entities
             BoundsPivot = entity.GetBoundsPivot();
             CollisionDetection = entity.GetCollisionDetection();
             CollisionSampleLength = entity.GetCollisionSampleLength();
+            entity.UpdateCollision();
         }
         public void UpdateProperty(Entity entity, PropertyKey name, object value)
         {

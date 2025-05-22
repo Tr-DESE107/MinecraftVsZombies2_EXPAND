@@ -45,9 +45,9 @@ namespace MVZ2.GameContent.Stages
             level.FillSeedPacks(new NamespaceID[]
             {
                 VanillaBossID.theGiant,
-                VanillaEnemyID.zombie,
+                VanillaEnemyID.skeleton,
 
-                VanillaContraptionID.noteBlock,
+                VanillaContraptionID.smallDispenser,
                 VanillaContraptionID.lightningOrb,
                 VanillaContraptionID.splitenser,
                 VanillaContraptionID.devourer,
