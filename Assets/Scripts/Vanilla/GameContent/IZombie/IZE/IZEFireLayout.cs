@@ -14,10 +14,10 @@ namespace MVZ2.GameContent.IZombie
         }
         protected override void FillEndlessContraptions(IIZombieMap map, RandomGenerator rng)
         {
-            RandomFill(map, VanillaContraptionID.smallDispenser, 2, rng);
+            RandomFill(map, VanillaContraptionID.smallDispenser, 3, rng);
             RandomFill(map, VanillaContraptionID.soulFurnace, 5, rng);
             RandomFill(map, VanillaContraptionID.dispenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.totenser, 4, rng);
+            RandomFill(map, VanillaContraptionID.totenser, 3, rng);
             RandomFill(map, VanillaContraptionID.hellfire, 3, rng);
         }
     }
