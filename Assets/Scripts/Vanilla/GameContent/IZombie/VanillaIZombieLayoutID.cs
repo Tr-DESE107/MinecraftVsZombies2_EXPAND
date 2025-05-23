@@ -20,9 +20,13 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleFireInTheHole = "puzzle_fire_in_the_hole";
         public const string puzzleAllYourObservesAreBelongToUs = "puzzle_all_your_observes_are_belong_to_us";
 
+        public const string izeComposite = "ize_composite";
+        public const string izeControl = "ize_control";
+        public const string izeInstakill = "ize_instakill";
         public const string izeDispensers = "ize_dispensers";
         public const string izeExplosives = "ize_explosives";
-        public const string izeControl = "ize_control";
+        public const string izeSpikes = "ize_spikes";
+        public const string izeFire = "ize_fire";
         public const string izeAwards = "ize_awards";
         public const string izeError = "ize_error";
     }
@@ -43,9 +47,13 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID puzzleFireInTheHole = Get(VanillaIZombieLayoutNames.puzzleFireInTheHole);
         public static readonly NamespaceID puzzleAllYourObservesAreBelongToUs = Get(VanillaIZombieLayoutNames.puzzleAllYourObservesAreBelongToUs);
 
+        public static readonly NamespaceID izeComposite = Get(VanillaIZombieLayoutNames.izeComposite);
+        public static readonly NamespaceID izeControl = Get(VanillaIZombieLayoutNames.izeControl);
+        public static readonly NamespaceID izeInstakill = Get(VanillaIZombieLayoutNames.izeInstakill);
         public static readonly NamespaceID izeDispensers = Get(VanillaIZombieLayoutNames.izeDispensers);
         public static readonly NamespaceID izeExplosives = Get(VanillaIZombieLayoutNames.izeExplosives);
-        public static readonly NamespaceID izeControl = Get(VanillaIZombieLayoutNames.izeControl);
+        public static readonly NamespaceID izeSpikes = Get(VanillaIZombieLayoutNames.izeSpikes);
+        public static readonly NamespaceID izeFire = Get(VanillaIZombieLayoutNames.izeFire);
         public static readonly NamespaceID izeAwards = Get(VanillaIZombieLayoutNames.izeAwards);
         public static readonly NamespaceID izeError = Get(VanillaIZombieLayoutNames.izeError);
         private static NamespaceID Get(string name)

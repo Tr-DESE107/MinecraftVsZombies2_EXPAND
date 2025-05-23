@@ -15,10 +15,15 @@ namespace MVZ2.GameContent.Stages
         public IZombieEndlessBehaviour(StageDefinition stageDef) : base(stageDef)
         {
             stageDef.SetProperty(VanillaStageProps.ENDLESS, true);
+            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeComposite, 1.5f));
             normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeControl, 1.5f));
-            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers));
-            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives));
+            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill));
+            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeSpikes, 0.2f));
+            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers, 0.2f));
+            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives, 0.2f));
+            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeFire, 0.2f));
             normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f));
+
             awardLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeAwards));
             awardLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeError, 0.2f));
         }
@@ -46,9 +51,9 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.caveSpider),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.necromancer),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.berserker),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
             });
         }
         private List<IZELayoutItem> normalLayouts = new List<IZELayoutItem>();
