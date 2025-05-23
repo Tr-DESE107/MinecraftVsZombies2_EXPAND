@@ -945,7 +945,7 @@
                 <id name="mvz2:crySound" value="mvz2:skeleton_cry" />
                 <id name="mvz2:deathSound" value="mvz2:skeleton_death" />
 
-                <int name="mvz2:cost" value="175" />
+                <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </enemy>
@@ -1081,7 +1081,7 @@
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
 
-                <int name="mvz2:cost" value="200" />
+                <int name="mvz2:cost" value="150" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </enemy>
@@ -1140,7 +1140,7 @@
         </enemy>
         <enemy id="talisman_zombie" name="灵符僵尸" deathMessage="好吃" unlock="mvz2:level.mausoleum_3">
             <properties>
-                <int name="mvz2:cost" value="100" />
+                <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </enemy>
@@ -1276,7 +1276,7 @@
                 <vector3 name="mvz2:size" x="56" y="50" z="40" />
                 <vector3 name="mvz2:passengerOffset" x="10" y="20" z="-1" />
 
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="75" />
             </properties>
         </enemy>
         <enemy id="dullahan_head" name="无头骑士的头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">

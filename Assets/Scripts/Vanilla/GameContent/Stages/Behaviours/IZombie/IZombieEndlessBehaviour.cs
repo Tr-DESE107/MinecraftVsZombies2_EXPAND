@@ -46,14 +46,14 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonHorse),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.caveSpider),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.necromancer),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.caveSpider),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.berserker),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
             });
         }
         private List<IZELayoutItem> normalLayouts = new List<IZELayoutItem>();
