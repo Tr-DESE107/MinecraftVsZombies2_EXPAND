@@ -209,8 +209,8 @@ namespace MVZ2.GameContent.Stages
             }
             if (cannotAfford)
             {
-                if (!level.EntityExists(e => e.Type == EntityTypes.ENEMY && e.IsHostileEntity() && !e.IsNotActiveEnemy() && 
-                    !level.EntityExists(e => e.Type == EntityTypes.PICKUP && e.GetEnergyValue() > 0)))
+                if (!level.EntityExists(e => e.Type == EntityTypes.ENEMY && e.IsHostileEntity() && !e.IsNotActiveEnemy()) && 
+                    !level.EntityExists(e => e.Type == EntityTypes.PICKUP && e.GetEnergyValue() > 0))
                 {
                     level.GameOver(GameOverTypes.INSTANT, null, VanillaStrings.DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES);
                 }
