@@ -38,6 +38,7 @@ namespace MVZ2.Options
             dialog.SetDropdownActive(DropdownType.Resolution, !Global.IsMobile());
             dialog.SetButtonActive(ButtonType.LeaveLevel, false);
             dialog.SetButtonActive(ButtonType.Restart, false);
+            dialog.SetButtonActive(ButtonType.Keybinding, !Global.IsMobile());
 
             dialog.SetPage(Page.Main);
         }

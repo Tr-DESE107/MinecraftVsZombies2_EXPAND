@@ -723,12 +723,13 @@ namespace MVZ2.Mainmenu
             var name = main.LanguageManager._p(VanillaStrings.CONTEXT_HOTKEY_NAME, nameKey);
 
             var keyCode = main.OptionsManager.GetKeyBinding(id);
-            var keyColor = conflict ? Color.red : Color.white;
+            var keyColor = Color.white;
             string keyName;
             if (bindingKeyIndex != index)
             {
                 var key = main.InputManager.GetKeyCodeNameKey(keyCode);
                 keyName = main.LanguageManager._p(InputManager.CONTEXT_KEY_NAME, key);
+                keyColor = conflict ? Color.red : Color.white;
             }
             else
             {
@@ -749,19 +750,21 @@ namespace MVZ2.Mainmenu
                 return;
             if (!Input.anyKeyDown)
                 return;
-            KeyCode code;
-            if (Input.GetKeyDown(KeyCode.Escape))
+            KeyCode code = main.InputManager.GetCurrentPressedKey();
+            if (code == KeyCode.None)
+            {
+                bindingKeyIndex = -1;
+                UpdateKeybindingItems();
+                return;
+            }
+            if (code == KeyCode.Escape)
             {
                 code = KeyCode.None;
             }
-            else
-            {
-                code = main.InputManager.GetCurrentPressedKey();
-            }
             var id = bindingKeys[bindingKeyIndex];
-            main.OptionsManager.SetKeyBinding(id, code);
-            UpdateKeybindingItem(bindingKeyIndex);
             bindingKeyIndex = -1;
+            main.OptionsManager.SetKeyBinding(id, code);
+            UpdateKeybindingItems();
         }
         #endregion
 
