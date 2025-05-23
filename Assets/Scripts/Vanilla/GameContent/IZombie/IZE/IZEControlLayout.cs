@@ -19,7 +19,8 @@ namespace MVZ2.GameContent.IZombie
             RandomFill(map, VanillaContraptionID.spikeBlock, 3, rng);
             RandomFill(map, VanillaContraptionID.stoneDropper, 2, rng);
             RandomFill(map, VanillaContraptionID.splitenser, 3, rng);
-            RandomFill(map, VanillaContraptionID.woodenDropper, 4, rng);
+            RandomFill(map, VanillaContraptionID.woodenDropper, 3, rng);
+            RandomFill(map, VanillaContraptionID.glowstone, 1, rng);
             RandomFill(map, VanillaContraptionID.soulFurnace, 1, rng);
             RandomFill(map, VanillaContraptionID.dreamCrystal, 2, rng);
             RandomFill(map, VanillaContraptionID.gravityPad, 2, rng);

@@ -921,7 +921,7 @@
 
                 <idArray name="mvz2:excludedAreaTags" value="mvz2:day" />
 
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />
             </properties>
         </enemy>
@@ -934,7 +934,7 @@
                 <color name="mvz2:bloodColor" value="#7F000F00" />
                 <color name="mvz2:bloodColorCensored" value="#00007F00" />
 
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </enemy>
@@ -1068,7 +1068,7 @@
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
 
-                <int name="mvz2:cost" value="150" />
+                <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </enemy>
