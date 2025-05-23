@@ -98,6 +98,7 @@ namespace MVZ2.UI
             textButtonDict.Add(TextButtonType.SkipAllTalks, skipAllTalksButton);
             textButtonDict.Add(TextButtonType.ShowSponsorNames, showSponsorNamesButton);
             textButtonDict.Add(TextButtonType.Credits, creditsButton);
+            textButtonDict.Add(TextButtonType.Keybinding, keybindingButton);
 
             buttonDict.Add(ButtonType.SwapTrigger, swapTriggerButton.Button);
             buttonDict.Add(ButtonType.PauseOnFocusLost, pauseOnFocusLostButton.Button);
@@ -121,6 +122,7 @@ namespace MVZ2.UI
             buttonDict.Add(ButtonType.SkipAllTalks, skipAllTalksButton.Button);
             buttonDict.Add(ButtonType.ShowSponsorNames, showSponsorNamesButton.Button);
             buttonDict.Add(ButtonType.Credits, creditsButton.Button);
+            buttonDict.Add(ButtonType.Keybinding, keybindingButton.Button);
             buttonDict.Add(ButtonType.MoreBack, moreBackButton);
 
 
@@ -209,6 +211,8 @@ namespace MVZ2.UI
         [SerializeField]
         private TextButton creditsButton;
         [SerializeField]
+        private TextButton keybindingButton;
+        [SerializeField]
         private Button moreBackButton;
         public enum Page
         {
@@ -240,6 +244,7 @@ namespace MVZ2.UI
             SkipAllTalks,
             ShowSponsorNames,
             Credits,
+            Keybinding,
         }
         public enum ButtonType
         {
@@ -262,6 +267,7 @@ namespace MVZ2.UI
             SkipAllTalks,
             ShowSponsorNames,
             Credits,
+            Keybinding,
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.GameContent.Areas;
@@ -104,6 +105,13 @@ namespace MVZ2.Mainmenu
             }
             ui.ShowCredits(viewDatas.ToArray());
         }
+        public void ShowKeybinding()
+        {
+            bindingKeys = main.OptionsManager.GetAllKeyBindings();
+            bindingKeyIndex = -1;
+            UpdateKeybindingItems();
+            ui.SetKeybindingActive(true);
+        }
         #region 生命周期
         private void Awake()
         {
@@ -131,6 +139,10 @@ namespace MVZ2.Mainmenu
             ui.OnStatsReturnButtonClick += OnStatsReturnClickCallback;
             ui.OnAchievementsReturnButtonClick += OnAchievementsReturnClickCallback;
             ui.OnCreditsReturnButtonClick += OnCreditsReturnClickCallback;
+
+            ui.OnKeybindingReturnButtonClick += OnKeybindingReturnButtonClickCallback;
+            ui.OnKeybindingResetButtonClick += OnKeybindingResetButtonClickCallback;
+            ui.OnKeybindingItemButtonClick += OnKeybindingItemButtonClickCallback;
         }
         private void Update()
         {
@@ -153,6 +165,7 @@ namespace MVZ2.Mainmenu
                 animator.SetFloat("BlendX", blend.x);
                 animator.SetFloat("BlendY", blend.y);
             }
+            UpdateKeybindingCheck();
         }
         #endregion
 
@@ -333,9 +346,39 @@ namespace MVZ2.Mainmenu
         {
             StartAnimatorTransition(basementBlend);
         }
+        #endregion
+
+        #region 制作人员名单
         private void OnCreditsReturnClickCallback()
         {
             ui.HideCredits();
+        }
+        #endregion
+
+        #region 按键绑定
+        private void OnKeybindingReturnButtonClickCallback()
+        {
+            bindingKeys = null;
+            bindingKeyIndex = -1;
+            ui.SetKeybindingActive(false);
+        }
+        private void OnKeybindingResetButtonClickCallback()
+        {
+            var title = main.LanguageManager._(VanillaStrings.WARNING);
+            var desc = main.LanguageManager._(RESET_KEY_BINDINGS_WARNING);
+            main.Scene.ShowDialogSelect(title, desc, (confirm) =>
+            {
+                if (confirm)
+                {
+                    main.OptionsManager.ResetKeyBindings();
+                    UpdateKeybindingItems();
+                }
+            });
+        }
+        private void OnKeybindingItemButtonClickCallback(int index)
+        {
+            bindingKeyIndex = index;
+            UpdateKeybindingItem(index);
         }
         #endregion
 
@@ -641,6 +684,87 @@ namespace MVZ2.Mainmenu
         }
         #endregion
 
+        #region 按键绑定
+        private void UpdateKeybindingItems()
+        {
+            var viewDatas = new List<KeybindingItemViewData>();
+            var conflictKeys = bindingKeys
+                .Select(k => main.OptionsManager.GetKeyBinding(k))
+                .GroupBy(k => k)
+                .Where(g => g.Count() > 1)
+                .Select(g => g.Key);
+            for (int i = 0; i < bindingKeys.Length; i++)
+            {
+                var id = bindingKeys[i];
+                var keyCode = main.OptionsManager.GetKeyBinding(id);
+                var conflict = conflictKeys.Contains(keyCode);
+                var viewData = GetKeybindingItemViewData(i, conflict);
+                viewDatas.Add(viewData);
+            }
+            ui.UpdateKeyBindingItems(viewDatas.ToArray());
+        }
+        private void UpdateKeybindingItem(int index)
+        {
+            var conflictKeys = bindingKeys
+                .Select(k => main.OptionsManager.GetKeyBinding(k))
+                .GroupBy(k => k)
+                .Where(g => g.Count() > 1)
+                .Select(g => g.Key);
+            var id = bindingKeys[index];
+            var keyCode = main.OptionsManager.GetKeyBinding(id);
+            var conflict = conflictKeys.Contains(keyCode);
+            var viewData = GetKeybindingItemViewData(index, conflict);
+            ui.UpdateKeyBindingItem(index, viewData);
+        }
+        private KeybindingItemViewData GetKeybindingItemViewData(int index, bool conflict)
+        {
+            var id = bindingKeys[index];
+            var nameKey = main.OptionsManager.GetHotkeyNameKey(id);
+            var name = main.LanguageManager._p(VanillaStrings.CONTEXT_HOTKEY_NAME, nameKey);
+
+            var keyCode = main.OptionsManager.GetKeyBinding(id);
+            var keyColor = conflict ? Color.red : Color.white;
+            string keyName;
+            if (bindingKeyIndex != index)
+            {
+                var key = main.InputManager.GetKeyCodeNameKey(keyCode);
+                keyName = main.LanguageManager._p(InputManager.CONTEXT_KEY_NAME, key);
+            }
+            else
+            {
+                keyName = main.LanguageManager._(PRESS_KEY_HINT);
+            }
+            return new KeybindingItemViewData()
+            {
+                name = name,
+                key = keyName,
+                keyColor = keyColor
+            };
+        }
+        private void UpdateKeybindingCheck()
+        {
+            if (bindingKeys == null)
+                return;
+            if (bindingKeyIndex < 0 || bindingKeyIndex >= bindingKeys.Length)
+                return;
+            if (!Input.anyKeyDown)
+                return;
+            KeyCode code;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                code = KeyCode.None;
+            }
+            else
+            {
+                code = main.InputManager.GetCurrentPressedKey();
+            }
+            var id = bindingKeys[bindingKeyIndex];
+            main.OptionsManager.SetKeyBinding(id, code);
+            UpdateKeybindingItem(bindingKeyIndex);
+            bindingKeyIndex = -1;
+        }
+        #endregion
+
         #region 属性字段
         [TranslateMsg("删除用户时的错误信息，{0}为错误信息")]
         public const string ERROR_MESSAGE_UNABLE_TO_DELETE_USER = "无法删除用户：{0}";
@@ -650,6 +774,10 @@ namespace MVZ2.Mainmenu
         public const string ERROR_MESSAGE_NO_SPARE_USERS_TO_SWITCH = "没有其他有效的用户可供切换。";
         [TranslateMsg("退出对话框的描述")]
         public const string QUIT_DESC = "确认要退出吗？";
+        [TranslateMsg("重置所有按键绑定的警告")]
+        public const string RESET_KEY_BINDINGS_WARNING = "确认要重置所有按键绑定吗？";
+        [TranslateMsg("设置按键提醒")]
+        public const string PRESS_KEY_HINT = "请按键";
 
         private Dictionary<MainmenuButtonType, Action> mainmenuActionDict = new Dictionary<MainmenuButtonType, Action>();
         private MainManager main => MainManager.Instance;
@@ -676,6 +804,9 @@ namespace MVZ2.Mainmenu
         private Vector2 animatorBlendStart;
         private Vector2 animatorBlendEnd;
         private float animatorBlendTimeout;
+
+        private NamespaceID[] bindingKeys;
+        public int bindingKeyIndex;
         #endregion
     }
 }

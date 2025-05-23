@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Almanacs;
-using MVZ2.Assets.Scripts.MVZ2.Managers;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Collisions;
@@ -45,6 +44,7 @@ namespace MVZ2.Managers
             Global.Init(this);
             Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);
 
+            InputManager.InitKeys();
             OptionsManager.InitOptions();
             OptionsManager.LoadOptions();
 

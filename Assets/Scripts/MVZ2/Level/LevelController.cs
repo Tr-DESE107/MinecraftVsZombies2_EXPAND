@@ -888,7 +888,7 @@ namespace MVZ2.Level
                         }
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.fastForward)))
                 {
                     SwitchSpeedUp();
                 }
@@ -906,7 +906,7 @@ namespace MVZ2.Level
                 }
                 for (int i = 0; i < 10; i++)
                 {
-                    if (Input.GetKeyDown(KeyCode.Alpha0 + i))
+                    if (Input.GetKeyDown(Options.GetBlueprintKeyBinding(i)))
                     {
                         var index = i == 0 ? 9 : i - 1;
                         var controller = BlueprintController.GetCurrentBlueprintControllerByIndex(index);
@@ -914,15 +914,15 @@ namespace MVZ2.Level
                             controller.Click();
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.pickaxe)))
                 {
                     ClickPickaxe();
                 }
-                if (Input.GetKeyDown(KeyCode.W))
+                if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.starshard)))
                 {
                     ClickStarshard();
                 }
-                if (Input.GetKeyDown(KeyCode.BackQuote))
+                if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.trigger)))
                 {
                     ClickTrigger();
                 }

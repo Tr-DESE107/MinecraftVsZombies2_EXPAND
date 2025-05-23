@@ -4,9 +4,9 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
 using UnityEngine;
 
-namespace MVZ2.Assets.Scripts.MVZ2.Managers
+namespace MVZ2.Managers
 {
-    public class InputManager : MonoBehaviour
+    public partial class InputManager : MonoBehaviour
     {
         public bool IsPointerDown(int pointerId)
         {

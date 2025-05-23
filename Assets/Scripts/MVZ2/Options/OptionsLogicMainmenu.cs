@@ -81,6 +81,11 @@ namespace MVZ2.Options
                         mainmenu.ShowCredits();
                     }
                     break;
+                case ButtonType.Keybinding:
+                    {
+                        mainmenu.ShowKeybinding();
+                    }
+                    break;
             }
         }
         protected override void OnSliderValueChangedCallback(SliderType type, float value)

@@ -210,5 +210,6 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_STAFF_NAME = "staff_name";
         public const string CONTEXT_TALK = "talk";
         public const string CONTEXT_RANDOM_CHINA_EVENT_NAME = "random_china.event_name";
+        public const string CONTEXT_HOTKEY_NAME = "hotkey.name";
     }
 }

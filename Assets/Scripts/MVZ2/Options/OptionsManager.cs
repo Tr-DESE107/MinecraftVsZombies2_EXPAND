@@ -1,18 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Linq;
+using MVZ2.IO;
 using MVZ2.Localization;
 using MVZ2.Managers;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 namespace MVZ2.Options
 {
-    public class OptionsManager : MonoBehaviour, IOptionsManager
+    public partial class OptionsManager : MonoBehaviour, IOptionsManager
     {
         public void InitOptions()
         {
             options = new Options();
+            InitKeyBindings();
         }
         public void LoadOptions()
         {
@@ -42,6 +48,34 @@ namespace MVZ2.Options
 
             UpdateMusicVolume();
             UpdateSoundVolume();
+
+            LoadOptionsFromFile();
+        }
+
+        public void LoadOptionsFromFile()
+        {
+            if (options == null)
+                return;
+            var path = GetOptionsFilePath();
+            if (!File.Exists(path))
+                return;
+            var json = Main.FileManager.ReadJsonFile(path);
+            var seri = SerializeHelper.FromBson<SerializableOptions>(json);
+            options.LoadFromSerializable(seri);
+        }
+        public void SaveOptionsToFile()
+        {
+            if (options == null)
+                return;
+            var path = GetOptionsFilePath();
+            FileHelper.ValidateDirectory(path);
+            var seri = options.ToSerializable();
+            var json = SerializeHelper.ToBson(seri);
+            Main.FileManager.WriteJsonFile(path, json);
+        }
+        public string GetOptionsFilePath()
+        {
+            return Path.Combine(Application.persistentDataPath, "options.json");
         }
 
         #region 语言
@@ -193,7 +227,6 @@ namespace MVZ2.Options
         }
         #endregion
 
-
         #region 音乐音量
         public float GetMusicVolume()
         {
@@ -263,6 +296,7 @@ namespace MVZ2.Options
             PlayerPrefs.SetFloat(PREFS_SHAKE_AMOUNT, value);
         }
         #endregion
+
         private static bool GetPlayerPrefsBool(string key, bool defaultValue)
         {
             if (!PlayerPrefs.HasKey(key))
@@ -339,23 +373,6 @@ namespace MVZ2.Options
 
         private Options options;
         private bool languageInitialized;
-    }
-    public class Options
-    {
-        public bool swapTrigger;
-        public bool vibration;
-        public NamespaceID difficulty;
-        public bool bloodAndGore;
-        public bool pauseOnFocusLost;
-        public bool skipAllTalks;
 
-        public float musicVolume;
-        public float soundVolume;
-        public float fastForwardMultiplier;
-        public float particleAmount;
-        public float shakeAmount;
-
-        public string language;
-        public bool showSponsorNames;
     }
 }
