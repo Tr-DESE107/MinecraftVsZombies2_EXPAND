@@ -1,3 +1,54 @@
+# 0.4.0
+
+## Added
+- Added Chapter 4: The Hall of Dreams' Great Mausoleum.
+- Added credits section, accessible via the options menu on the main menu.
+- Added fast-forward multiplier option.
+- Added current version number text to the main menu.
+- Pick Starshards while holding blueprints now immediately evokes the placed contraption.
+- Added dialogue explanations about artifacts to Halloween Day 7.
+- Added the zoom feature to the Misc Almanac.
+
+## Modified
+- Renamed the "Evoke" action in Simplified Chinese.
+- Gravity Pads can now pull down certain low-altitude floating enemies.
+- TNT now detonates immediately upon being destroyed by fire or explosive damage.
+- TNT struck by lightning damage now transforms into Charged TNT.
+- Increased the energy cost of Tesla Coil from 175 to 250.
+- Reduced the energy cost of Spiked Block from 100 to 75.
+- Electric damage now deals 100% damage to ghosts.
+- Spark particles from Nightmareaper's Death Wheels now glow.
+- Adjusted lighting rendering effects.
+- Mind Control Orbs now glows.
+- Dropped pickups are no longer affected by darkness.
+- Added missing bass instruments to the stage music of Shining Needle Castle.
+- Reduced volume of the Seija boss battle music.
+- Increased damage of Nightmareaper's Death Wheels by 40% in Hard Mode.
+- Added usable blueprints to Stage 1-6: Glowstone, Obsidian, and Punchton.
+- Adjusted physics for the Breakout Board in Stage 2-6.
+- Added durability descriptions to the prologue's three device entries in the Almanac.
+- Added artist credits to character entries in the Almanac.
+- Tripled enemy spawn rate on Day 11 of each chapter.
+- Added grid patterns to Shining Needle Castle's stage background.
+- Changed post-blueprint-selection warnings to display enemy types instead of specific enemy names.
+- Rain effects no longer update while the game is paused.
+- Adjusted in-game text.
+
+## Fixed
+- Fixed issue where Mine TNT's evocation would incorrectly spawn new Mine TNTs in the row above when launching seeds from the bottommost row.
+- Fixed crash caused by Nightmareaper attacking invincible contraptions.
+- Fixed Anvils failing to deal damage during the instant they hit the ground.
+- Fixed performance drops caused by prolonged light source existence.
+- Fixed the failure to save-and-exit while stunned enemies were present.
+- Fixed untranslated Blueprint names in Stage 2-6.
+- Vortex Hopper can no longer be hypnotized using Dream Silk while evocation.
+- Fixed issue where Breakout minigame pearls could be launched off-screen.
+- Fixed edge case where defeating Seiga Kaku might trigger her Nimble Fabric effect.
+- Fixed the issue where javelin throw animation of Totenser still plays while it's hypnotized by Dream Silk.
+- Fixed the issue where player can close the menu dialog and continue game bypass restart/exit confirmation dialogs using hotkeys.
+
+---
+
 # 0.3.11
 
 ## Changes
