@@ -423,7 +423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cuerzor\u5236\u4F5C"
+  m_text: "<color=yellow>Cuerzor</color>\u5236\u4F5C\n<color=yellow>EXPAND</color>\u7531<color=yellow>\u65B0\u6982\u5FF5\u8BBA\u58EB/DESE107</color>\u4FEE\u6539&\u5236\u4F5C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3271dde185726664f9327d84700c9c21, type: 2}
   m_sharedMaterial: {fileID: -4514157592466863636, guid: 3271dde185726664f9327d84700c9c21, type: 2}

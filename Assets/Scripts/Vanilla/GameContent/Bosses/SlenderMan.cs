@@ -453,7 +453,7 @@ namespace MVZ2.GameContent.Bosses
         {
             var index = Array.IndexOf(fateOptions, option);
             int randomInt = UnityEngine.Random.Range(0, 7);
-            string text = randomInt < 6 ? fateTexts[index] : "？？？";
+            string text = randomInt < 6 ? fateTexts[index] : "???";
             return Global.Game.GetText(text);
         }
         #endregion

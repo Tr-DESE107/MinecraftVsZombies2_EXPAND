@@ -624,7 +624,9 @@
 		<conveyor>
 			<entry id="mvz2:wooden_dropper" count="20"/>
 			<entry id="mvz2:obsidian" count="5"/>
-			<entry id="mvz2:tnt" count="5"/>
+			<entry id="mvz2:tnt" count="10"/>
+			<entry id="mvz2:pistenser" count="12"/>
+			<entry id="mvz2:stone_dropper" count="8"/>
 		</conveyor>
 		<clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:golden_apple"/>
 		<spawns flags="2" firstWaveTime="30">
@@ -632,6 +634,11 @@
 			<spawn id="mvz2:LeatherWitherSkeleton"/>
 			<spawn id="mvz2:IronWitherSkeleton"/>
 			<spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:ghast"/>
+			<spawn id="mvz2:dullahan"/>
+			<spawn id="mvz2:spider"/>
+			<spawn id="mvz2:HostZombie"/>
+			<spawn id="mvz2:HostMutant"/>
 		</spawns>
 		<properties>
 			<bool name="ignoreHugeWaveEvent" value="true"/>

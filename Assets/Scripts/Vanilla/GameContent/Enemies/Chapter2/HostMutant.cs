@@ -16,6 +16,7 @@ using PVZEngine.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
 using Tools;
+using UnityEngine;
 
 namespace MVZ2.Vanilla.Enemies
 {
@@ -58,6 +59,7 @@ namespace MVZ2.Vanilla.Enemies
 
             // 每掉落一定血量（例如 800 点）触发一次事件
             int triggerCount = (int)((lastHP - currHP) / 800f);
+            triggerCount = Mathf.Min(triggerCount, 2);
             if (triggerCount > 0)
             {
                 for (int i = 0; i < triggerCount; i++)
