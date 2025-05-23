@@ -1238,8 +1238,10 @@
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
                 <bool name="mvz2:noReward" value="true" />
+                <bool name="mvz2:invisible" value="true" />
                 <float name="mvz2:friction" value="0.05" />
                 <float name="mvz2:maxHealth" value="10000" />
+                <int name="mvz2:collisionDetection" value="2" />
                 <id name="mvz2:shell" value="mvz2:normal" />
                 <id name="mvz2:crySound" null="true" />
                 <id name="mvz2:deathSound" null="true" />

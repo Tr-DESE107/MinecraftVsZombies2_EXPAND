@@ -115,7 +115,7 @@
             <integer name="statueCount" value="6" />
         </properties>
     </stage>
-    <stage id="halloween_6" name="万圣夜" dayNumber="6" needBlueprints="false" type="minigame" unlock="mvz2:level.halloween_5" music="mvz2:minigame" >
+    <stage id="halloween_6" name="万圣夜" dayNumber="6" needBlueprints="false" startEnergy="0" type="minigame" unlock="mvz2:level.halloween_5" music="mvz2:minigame" >
         <model preset="cloudy" />
         <talks>
             <talk type="start" value="mvz2:halloween_6"/>
@@ -881,7 +881,7 @@
 
     
     <!-- Minigames -->
-    <stage id="whack_a_ghost" name="锤幽灵" needBlueprints="false" type="minigame" music="mvz2:minigame" >
+    <stage id="whack_a_ghost" name="锤幽灵" needBlueprints="false" type="minigame" startEnergy="0" music="mvz2:minigame" >
         <model preset="cloudy" />
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>

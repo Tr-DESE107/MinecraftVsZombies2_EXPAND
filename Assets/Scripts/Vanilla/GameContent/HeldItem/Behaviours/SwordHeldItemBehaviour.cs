@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -32,7 +33,7 @@ namespace MVZ2.GameContent.HeldItems
                         switch (entity.Type)
                         {
                             case EntityTypes.ENEMY:
-                                return entity.IsHostileEntity();
+                                return entity.IsHostileEntity() || entity.IsEntityOf(VanillaEnemyID.napstablook);
                         }
                         return false;
                     }

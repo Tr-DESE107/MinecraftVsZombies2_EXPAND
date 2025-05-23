@@ -7,10 +7,10 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.whackAGhost)]
-    public partial class WhackAGhostStage : StageDefinition
+    [StageDefinition(VanillaStageNames.halloween6)]
+    public partial class Halloween6Stage : StageDefinition
     {
-        public WhackAGhostStage(string nsp, string name) : base(nsp, name)
+        public Halloween6Stage(string nsp, string name) : base(nsp, name)
         {
             var waveStageBehaviour = new WaveStageBehaviour(this);
             waveStageBehaviour.SpawnFlagZombie = false;
@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
                 VanillaBlueprintID.FromEntity(VanillaContraptionID.obsidian),
-                VanillaBlueprintID.FromEntity(VanillaContraptionID.gravityPad),
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.punchton),
             });
         }
     }

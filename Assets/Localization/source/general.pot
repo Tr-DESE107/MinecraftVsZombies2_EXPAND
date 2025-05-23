@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-22 08:20+0800\n"
+"POT-Creation-Date: 2025-05-23 11:05+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1533,6 +1533,18 @@ msgstr ""
 #: Stage meta file
 msgctxt "levelname"
 msgid "扫雷"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_fire_in_the_hole
+#: Stage meta file
+msgctxt "levelname"
+msgid "火在洞里"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_all_your_observes_are_belong_to_us
+#: Stage meta file
+msgctxt "levelname"
+msgid "你的所有侦测都是属于我们"
 msgstr ""
 
 #. Name for stat category mvz2:contraption_place

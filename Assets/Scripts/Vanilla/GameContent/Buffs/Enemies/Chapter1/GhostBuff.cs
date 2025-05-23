@@ -105,7 +105,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         private static float GetMinAlpha(Buff buff)
         {
-            if (buff.Level.StageDefinition is WhackAGhostStage)
+            if (buff.Level.StageDefinition.HasBehaviour<WhackAGhostBehaviour>())
             {
                 return 0;
             }
