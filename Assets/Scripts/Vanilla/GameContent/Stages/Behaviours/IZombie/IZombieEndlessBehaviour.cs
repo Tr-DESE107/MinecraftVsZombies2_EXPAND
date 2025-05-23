@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.necromancer),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.caveSpider),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.shikaisenZombie),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.berserker),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
             });
