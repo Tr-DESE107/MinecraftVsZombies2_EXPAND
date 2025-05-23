@@ -662,7 +662,7 @@ namespace MVZ2.Level
         {
             if (!StarshardActive)
                 return;
-            if (level.IsHoldingItem())
+            if (level.IsHoldingItem() && !level.IsHoldingSword())
             {
                 if (level.CancelHeldItem())
                 {

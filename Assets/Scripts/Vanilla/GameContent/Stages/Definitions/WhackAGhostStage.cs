@@ -18,6 +18,7 @@ namespace MVZ2.GameContent.Stages
             AddBehaviour(new WhackAGhostBehaviour(this));
             AddBehaviour(new FinalWaveClearBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
+            AddBehaviour(new StarshardStageBehaviour(this));
             AddBehaviour(new RedstoneDropStageBehaviour(this));
         }
         public override void OnSetup(LevelEngine level)

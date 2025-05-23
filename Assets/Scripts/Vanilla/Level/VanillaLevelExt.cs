@@ -101,6 +101,10 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetHeldItemType() == VanillaHeldTypes.starshard;
         }
+        public static bool IsHoldingSword(this LevelEngine level)
+        {
+            return level.GetHeldItemType() == VanillaHeldTypes.sword;
+        }
         public static bool IsHoldingBlueprint(this LevelEngine level, SeedPack seedPack)
         {
             if (seedPack is ClassicSeedPack classic)
