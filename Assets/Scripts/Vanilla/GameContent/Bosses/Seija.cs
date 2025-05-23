@@ -95,7 +95,7 @@ namespace MVZ2.GameContent.Bosses
             var takenDamage = GetRecentTakenDamage(boss);
             takenDamage += result.BodyResult.SpendAmount;
             SetRecentTakenDamage(boss, takenDamage);
-            if (takenDamage >= FABRIC_DAMAGE_THRESOLD)
+            if (takenDamage >= FABRIC_DAMAGE_THRESOLD && !boss.IsDead)
             {
                 if (CanUseFabric(boss))
                 {
