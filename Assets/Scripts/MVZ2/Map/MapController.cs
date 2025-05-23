@@ -355,7 +355,7 @@ namespace MVZ2.Map
             var stageMeta = GetStageMeta(stageID);
             if (stageMeta == null)
                 return false;
-            if (Main.SaveManager.IsValidAndLocked(stageMeta.Unlock))
+            if (!Main.SaveManager.IsAllInvalidOrUnlocked(stageMeta.Unlocks))
                 return false;
             return true;
         }

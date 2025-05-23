@@ -10,11 +10,12 @@ namespace MVZ2Logic.IZombie
 {
     public class IZombieMap : IIZombieMap
     {
-        public IZombieMap(LevelEngine level, int columns, int lanes)
+        public IZombieMap(LevelEngine level, int columns, int lanes, int rounds)
         {
             Level = level;
             Columns = columns;
             Lanes = lanes;
+            Rounds = rounds;
         }
         public void Apply()
         {
@@ -88,6 +89,7 @@ namespace MVZ2Logic.IZombie
         public LevelEngine Level { get; }
         public int Columns { get; }
         public int Lanes { get; }
+        public int Rounds { get; }
         private List<IZombieMapEntry> entries = new List<IZombieMapEntry>();
     }
 }

@@ -14,6 +14,7 @@ namespace MVZ2Logic.IZombie
         }
         Vector2Int[] GetAllGridPositions();
         LevelEngine Level { get; }
+        int Rounds { get; }
         int Columns { get; }
         int Lanes { get; }
     }

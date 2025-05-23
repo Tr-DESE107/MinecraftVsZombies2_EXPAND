@@ -17,6 +17,7 @@ namespace MVZ2.Metas
         public int CartConvertMoney { get; private set; }
         public int ClearMoney { get; private set; }
         public int RerunClearMoney { get; private set; }
+        public int PuzzleMoney { get; private set; }
 
         public SpriteReference MapButtonBorderBack { get; private set; }
         public SpriteReference MapButtonBorderBottom { get; private set; }
@@ -36,12 +37,14 @@ namespace MVZ2.Metas
             int cartMoney = 50;
             int clearMoney = 0;
             int rerunMoney = 250;
+            int puzzleMoney = 1000;
             var clearNode = node["clear"];
             if (clearNode != null)
             {
                 cartMoney = clearNode.GetAttributeInt("cartMoney") ?? 50;
                 clearMoney = clearNode.GetAttributeInt("clearMoney") ?? 0;
                 rerunMoney = clearNode.GetAttributeInt("rerunMoney") ?? 250;
+                puzzleMoney = clearNode.GetAttributeInt("puzzleMoney") ?? 1000;
             }
 
             SpriteReference backSprite = null;
@@ -73,6 +76,7 @@ namespace MVZ2.Metas
                 CartConvertMoney = cartMoney,
                 ClearMoney = clearMoney,
                 RerunClearMoney = rerunMoney,
+                PuzzleMoney = puzzleMoney,
 
                 MapButtonBorderBack = backSprite,
                 MapButtonBorderBottom = bottomSprite,

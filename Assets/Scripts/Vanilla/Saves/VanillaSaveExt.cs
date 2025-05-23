@@ -1,4 +1,6 @@
-﻿using MVZ2.GameContent.Contraptions;
+﻿using System.Collections.Generic;
+using System.Linq;
+using MVZ2.GameContent.Contraptions;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
@@ -142,6 +144,12 @@ namespace MVZ2.Vanilla.Saves
         public static bool IsInvalidOrUnlocked(this IGameSaveData save, NamespaceID unlockId)
         {
             return !save.IsValidAndLocked(unlockId);
+        }
+        public static bool IsAllInvalidOrUnlocked(this IGameSaveData save, IEnumerable<NamespaceID> unlocks)
+        {
+            if (unlocks == null || unlocks.Count() <= 0)
+                return true;
+            return unlocks.All(u => save.IsInvalidOrUnlocked(u));
         }
         /// <summary>
         /// 梦境世界是否是梦魇状态。

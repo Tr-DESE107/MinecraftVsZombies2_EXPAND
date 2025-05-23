@@ -812,7 +812,7 @@ namespace MVZ2.Level
         #endregion
 
         #region 关卡名
-        private void UpdateLevelName()
+        public void UpdateLevelName()
         {
             var levelUI = GetUIPreset();
             levelUI.SetLevelName(LevelManager.GetStageName(level));

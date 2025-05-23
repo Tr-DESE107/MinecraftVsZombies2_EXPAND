@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Entities;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Detections
 {
@@ -11,14 +12,18 @@ namespace MVZ2.GameContent.Detections
     {
         protected override Bounds GetDetectionBounds(Entity self)
         {
-            var source = self.GetShootPoint();
+            var direction = reversed ? -1 : 1;
+
+            var shootOffset = self.GetShotOffset();
+            shootOffset = self.ModifyShotOffset(shootOffset);
+            shootOffset.x *= direction;
+            var source = self.Position + shootOffset;
             var projectileID = self.GetProjectileID();
             var projectileDef = GetEntityDefinition(self.Level, projectileID);
             var range = self.GetRange();
             var projectileSize = projectileDef.GetProperty<Vector3>(EngineEntityProps.SIZE);
 
             var sizeX = range < 0 ? 800 : range;
-            var direction = reversed ? -1 : 1;
             if (direction * self.GetFacingX() > 0)
             {
                 var limitedRange = VanillaLevelExt.GetAttackBorderX(true) - source.x;

@@ -1,0 +1,68 @@
+﻿using System.Collections.Generic;
+using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Seeds;
+using MVZ2.Vanilla.Level;
+using MVZ2Logic.IZombie;
+using PVZEngine;
+using PVZEngine.Definitions;
+using PVZEngine.Level;
+using Tools;
+
+namespace MVZ2.GameContent.Stages
+{
+    public class IZombieEndlessBehaviour : IZombieBehaviour
+    {
+        public IZombieEndlessBehaviour(StageDefinition stageDef) : base(stageDef)
+        {
+            stageDef.SetProperty(VanillaStageProps.ENDLESS, true);
+            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeControl, 1.5f));
+            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeDispensers));
+            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeExplosives));
+            normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeAwards, 0.2f));
+            awardLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeAwards));
+            awardLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeError, 0.2f));
+        }
+        protected override NamespaceID GetNewLayout(int round, RandomGenerator rng)
+        {
+            if (round % 5 == 0 && round > 0)
+            {
+                return awardLayouts.WeightedRandom(i => i.weight, rng).id;
+            }
+            return normalLayouts.WeightedRandom(i => i.weight, rng).id;
+        }
+
+        protected override int GetMaxRounds()
+        {
+            return -1;
+        }
+        protected override void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout)
+        {
+            level.FillSeedPacks(new NamespaceID[]
+            {
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.caveSpider),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.necromancer),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.berserker),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
+            });
+        }
+        private List<IZELayoutItem> normalLayouts = new List<IZELayoutItem>();
+        private List<IZELayoutItem> awardLayouts = new List<IZELayoutItem>();
+    }
+    public struct IZELayoutItem
+    {
+        public NamespaceID id;
+        public float weight;
+
+        public IZELayoutItem(NamespaceID id, float weight = 1)
+        {
+            this.id = id;
+            this.weight = weight;
+        }
+    }
+}

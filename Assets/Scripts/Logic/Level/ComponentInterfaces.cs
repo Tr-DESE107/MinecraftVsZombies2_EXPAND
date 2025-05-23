@@ -121,6 +121,7 @@ namespace MVZ2Logic.Level.Components
         void SetModelAnimatorBool(string name, bool value);
         void SetModelAnimatorInt(string name, int value);
         void SetModelAnimatorFloat(string name, float value);
+        void UpdateLevelName();
     }
     public interface IMoneyComponent : ILevelComponent
     {

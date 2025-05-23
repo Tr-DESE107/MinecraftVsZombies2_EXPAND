@@ -11,5 +11,6 @@ namespace MVZ2Logic.Level
         int CartConvertMoney { get; }
         int ClearMoney { get; }
         int RerunClearMoney { get; }
+        int PuzzleMoney { get; }
     }
 }

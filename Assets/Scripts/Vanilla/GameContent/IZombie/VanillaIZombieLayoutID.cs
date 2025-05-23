@@ -19,6 +19,12 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleMineclear = "puzzle_mineclear";
         public const string puzzleFireInTheHole = "puzzle_fire_in_the_hole";
         public const string puzzleAllYourObservesAreBelongToUs = "puzzle_all_your_observes_are_belong_to_us";
+
+        public const string izeDispensers = "ize_dispensers";
+        public const string izeExplosives = "ize_explosives";
+        public const string izeControl = "ize_control";
+        public const string izeAwards = "ize_awards";
+        public const string izeError = "ize_error";
     }
     public static class VanillaIZombieLayoutID
     {
@@ -36,6 +42,12 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID puzzleMineclear = Get(VanillaIZombieLayoutNames.puzzleMineclear);
         public static readonly NamespaceID puzzleFireInTheHole = Get(VanillaIZombieLayoutNames.puzzleFireInTheHole);
         public static readonly NamespaceID puzzleAllYourObservesAreBelongToUs = Get(VanillaIZombieLayoutNames.puzzleAllYourObservesAreBelongToUs);
+
+        public static readonly NamespaceID izeDispensers = Get(VanillaIZombieLayoutNames.izeDispensers);
+        public static readonly NamespaceID izeExplosives = Get(VanillaIZombieLayoutNames.izeExplosives);
+        public static readonly NamespaceID izeControl = Get(VanillaIZombieLayoutNames.izeControl);
+        public static readonly NamespaceID izeAwards = Get(VanillaIZombieLayoutNames.izeAwards);
+        public static readonly NamespaceID izeError = Get(VanillaIZombieLayoutNames.izeError);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

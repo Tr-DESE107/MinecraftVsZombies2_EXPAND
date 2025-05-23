@@ -124,7 +124,7 @@ namespace MVZ2.Arcade
             {
                 return ArcadeItemViewData.Empty;
             }
-            bool unlocked = Main.SaveManager.IsInvalidOrUnlocked(stageMeta.Unlock);
+            bool unlocked = Main.SaveManager.IsAllInvalidOrUnlocked(stageMeta.Unlocks);
             string name;
             if (unlocked)
             {

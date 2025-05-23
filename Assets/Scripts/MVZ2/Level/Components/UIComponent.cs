@@ -193,6 +193,10 @@ namespace MVZ2.Level.Components
         {
             Controller.SetModelAnimatorFloat(name, value);
         }
+        public void UpdateLevelName()
+        {
+            Controller.UpdateLevelName();
+        }
         public HintArrowTargetType TargetType { get; private set; }
         public long TargetID { get; private set; }
         public static readonly NamespaceID componentID = new NamespaceID(Vanilla.VanillaMod.spaceName, "ui");

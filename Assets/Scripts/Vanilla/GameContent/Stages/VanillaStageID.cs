@@ -79,6 +79,7 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleMineclear = "puzzle_mineclear";
         public const string puzzleFireInTheHole = "puzzle_fire_in_the_hole";
         public const string puzzleAllYourObservesAreBelongToUs = "puzzle_all_your_observes_are_belong_to_us";
+        public const string puzzleIZombieEndless = "puzzle_i_zombie_endless";
     }
     public static class VanillaStageID
     {

@@ -9,6 +9,8 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2.Vanilla.Stats;
+using MVZ2Logic;
 using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
 using MVZ2Logic.Level;
@@ -84,6 +86,24 @@ namespace MVZ2.GameContent.Stages
                         level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, adviceStr, 0, 150, adviceArg);
                         var roundTimer = GetRoundTimer(level);
                         roundTimer.Reset();
+
+                        level.UpdateLevelName();
+
+                        var diamondInterval = 3;
+                        if (level.CurrentFlag % diamondInterval == 0)
+                        {
+                            int money = 250;
+                            var difficulty = level.Difficulty;
+                            var difficultyMeta = Global.Game.GetDifficultyMeta(difficulty);
+                            if (difficultyMeta != null)
+                            {
+                                money = difficultyMeta.PuzzleMoney;
+                            }
+                            var x = level.GetLawnCenterX();
+                            var z = level.GetLawnCenterZ();
+                            var y = level.GetGroundY(x, z);
+                            GemEffect.SpawnGemEffects(level, money, new Vector3(x, y, z), null);
+                        }
                     }
                     else
                     {
@@ -126,10 +146,18 @@ namespace MVZ2.GameContent.Stages
             GenerateMap(level, layout);
             ReplaceBlueprints(level, layout);
             level.WaveState = STATE_NORMAL;
+
+            if (level.IsEndless())
+            {
+                if (Global.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
+                {
+                    Global.SetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
+                }
+            }
         }
         private void GenerateMap(LevelEngine level, IZombieLayoutDefinition layout)
         {
-            var map = new IZombieMap(level, layout.Columns, level.GetMaxLaneCount());
+            var map = new IZombieMap(level, layout.Columns, level.GetMaxLaneCount(), level.CurrentFlag);
             if (layout != null)
             {
                 layout.Fill(map, level.GetSpawnRNG());

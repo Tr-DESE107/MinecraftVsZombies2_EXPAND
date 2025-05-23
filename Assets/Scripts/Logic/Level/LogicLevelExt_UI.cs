@@ -153,5 +153,10 @@ namespace MVZ2Logic.Level
             var component = level.GetUIComponent();
             component.SetModelAnimatorFloat(name, value);
         }
+        public static void UpdateLevelName(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            component.UpdateLevelName();
+        }
     }
 }

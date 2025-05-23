@@ -12,7 +12,7 @@ namespace MVZ2.Metas
         public string Name { get; private set; }
         public int DayNumber { get; private set; }
         public string Type { get; private set; }
-        public NamespaceID Unlock { get; private set; }
+        public NamespaceID[] Unlocks { get; private set; }
         public float StartEnergy { get; private set; }
 
         public NamespaceID MusicID { get; private set; }
@@ -51,7 +51,7 @@ namespace MVZ2.Metas
             var type = node.GetAttribute("type") ?? StageTypes.TYPE_NORMAL;
             var dayNumber = node.GetAttributeInt("dayNumber") ?? 0;
             var startEnergy = node.GetAttributeFloat("startEnergy") ?? 50;
-            var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+            var unlocks = node.GetAttributeNamespaceIDArray("unlocks", defaultNsp);
             var musicID = node.GetAttributeNamespaceID("music", defaultNsp);
             var needBlueprints = node.GetAttributeBool("needBlueprints") ?? true;
 
@@ -114,7 +114,7 @@ namespace MVZ2.Metas
                 DayNumber = dayNumber,
                 Type = type,
                 StartEnergy = startEnergy,
-                Unlock = unlock,
+                Unlocks = unlocks,
                 MusicID = musicID,
 
                 ModelPreset = preset,
