@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Buffs.Armors
     {
         public WitherSkeletonSkullReduceHealthBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(EngineEntityProps.MAX_HEALTH, NumberOperator.Multiply, 0.6f));
+            AddModifier(new MaxHealthModifier(NumberOperator.Multiply, 0.6f));
         }
     }
 }

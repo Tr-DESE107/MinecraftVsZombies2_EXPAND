@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Buffs.Armors
     {
         public LittleZombieArmorBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(EngineArmorProps.MAX_HEALTH, NumberOperator.Multiply, 0.25f));
+            AddModifier(new ArmorMaxHealthModifier(NumberOperator.Multiply, 0.25f));
         }
     }
 }

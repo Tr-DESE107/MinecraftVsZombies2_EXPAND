@@ -238,7 +238,7 @@ namespace MVZ2.Entities
         {
             UpdateFrame(0);
         }
-        private void PostPropertyChangedCallback(PropertyKey key)
+        private void PostPropertyChangedCallback(PropertyKey key, object beforeValue, object afterValue)
         {
             modelPropertyCache.SetDirtyProperty(key);
         }

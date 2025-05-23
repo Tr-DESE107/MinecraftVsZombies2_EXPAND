@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
@@ -83,7 +84,7 @@ namespace PVZEngine.SeedPacks
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object value)
+        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object beforeValue, object afterValue)
         {
         }
         PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(PropertyKey name)
@@ -235,6 +236,7 @@ namespace PVZEngine.SeedPacks
         void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IBuffTarget.GetEntity() => null;
+        Armor IBuffTarget.GetArmor() => null;
         Entity IAuraSource.GetEntity() => null;
         LevelEngine IAuraSource.GetLevel() => Level;
         bool IBuffTarget.Exists() => true;

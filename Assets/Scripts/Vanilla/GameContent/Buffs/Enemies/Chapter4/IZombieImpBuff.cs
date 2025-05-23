@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Buffs
         public IZombieImpBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 4f));
-            AddModifier(new FloatModifier(EngineEntityProps.MAX_HEALTH, NumberOperator.Multiply, 0.25f));
+            AddModifier(new MaxHealthModifier(NumberOperator.Multiply, 0.25f));
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
@@ -185,7 +186,7 @@ namespace PVZEngine.Level
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object value)
+        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object beforeValue, object afterValue)
         {
         }
         PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(PropertyKey name)
@@ -578,6 +579,7 @@ namespace PVZEngine.Level
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         Entity IBuffTarget.GetEntity() => null;
+        Armor IBuffTarget.GetArmor() => null;
         void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Buff IBuffTarget.CreateBuff(NamespaceID id) => CreateBuff(id, AllocBuffID());

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using PVZEngine.Armors;
 using PVZEngine.Entities;
 using PVZEngine.Models;
 
@@ -11,6 +12,7 @@ namespace PVZEngine.Buffs
         bool RemoveBuff(Buff buff);
         IModelInterface GetInsertedModel(NamespaceID key);
         Entity GetEntity();
+        Armor GetArmor();
         void GetBuffs(List<Buff> results);
         BuffReference GetBuffReference(Buff buff);
         Buff GetBuff(long id);

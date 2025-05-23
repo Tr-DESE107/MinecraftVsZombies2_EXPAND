@@ -60,7 +60,6 @@ namespace MVZ2.GameContent.Stages
             {
                 entity.AddBuff<LittleZombieBuff>();
             }
-            entity.Health = entity.GetMaxHealth();
         }
         public static int GetBigCounter(LevelEngine level) => level.GetBehaviourField<int>(ID, FIELD_BIG_COUNTER);
         public static void SetBigCounter(LevelEngine level, int value) => level.SetBehaviourField(ID, FIELD_BIG_COUNTER, value);

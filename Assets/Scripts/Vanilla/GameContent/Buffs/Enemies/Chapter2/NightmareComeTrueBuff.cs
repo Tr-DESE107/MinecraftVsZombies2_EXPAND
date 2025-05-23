@@ -14,13 +14,5 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.Multiply, 2f));
             AddModifier(new FloatModifier(VanillaEntityProps.DAMAGE, NumberOperator.Multiply, 2f));
         }
-        public override void PostAdd(Buff buff)
-        {
-            base.PostAdd(buff);
-            var entity = buff.GetEntity();
-            if (entity == null)
-                return;
-            entity.Health = entity.GetMaxHealth();
-        }
     }
 }

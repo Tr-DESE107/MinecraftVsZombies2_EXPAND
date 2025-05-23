@@ -76,7 +76,7 @@ namespace MVZ2.Tests
             {
             }
 
-            public void UpdateModifiedProperty(PropertyKey name, object value)
+            public void UpdateModifiedProperty(PropertyKey name, object beforeValue, object afterValue)
             {
             }
 

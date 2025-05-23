@@ -258,10 +258,16 @@ namespace PVZEngine.Entities
             GetModifierItems(name, results);
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object value)
+        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object beforeValue, object afterValue)
         {
-            Cache.UpdateProperty(this, name, value);
-            PostPropertyChanged?.Invoke(name);
+            if (name == EngineEntityProps.MAX_HEALTH)
+            {
+                var before = beforeValue.ToGeneric<float>();
+                var after = afterValue.ToGeneric<float>();
+                Health = Mathf.Min(after, Health * (after / before));
+            }
+            Cache.UpdateProperty(this, name, beforeValue, afterValue);
+            PostPropertyChanged?.Invoke(name, beforeValue, afterValue);
         }
         #endregion
 
@@ -969,6 +975,7 @@ namespace PVZEngine.Entities
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         Entity IBuffTarget.GetEntity() => this;
+        Armor IBuffTarget.GetArmor() => null;
         void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IAuraSource.GetEntity() => this;
@@ -978,7 +985,7 @@ namespace PVZEngine.Entities
 
         #region 事件
         public event Action PostInit;
-        public event Action<PropertyKey> PostPropertyChanged;
+        public event Action<PropertyKey, object, object> PostPropertyChanged;
         public event Action<NamespaceID> OnChangeModel;
         public event Action<NamespaceID, Armor> OnEquipArmor;
         public event Action<NamespaceID, Armor> OnRemoveArmor;

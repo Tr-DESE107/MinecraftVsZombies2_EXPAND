@@ -6,6 +6,7 @@ using PVZEngine.Level;
 using PVZEngine.Level.Collisions;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
+using Tools;
 using UnityEngine;
 
 namespace PVZEngine.Armors
@@ -103,8 +104,14 @@ namespace PVZEngine.Armors
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object value)
+        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object beforeValue, object afterValue)
         {
+            if (name == EngineArmorProps.MAX_HEALTH)
+            {
+                var before = beforeValue.ToGeneric<float>();
+                var after = afterValue.ToGeneric<float>();
+                Health = Mathf.Min(after, Health * (after / before));
+            }
         }
         PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(PropertyKey name)
         {
@@ -229,6 +236,7 @@ namespace PVZEngine.Armors
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         Entity IBuffTarget.GetEntity() => Owner;
+        Armor IBuffTarget.GetArmor() => this;
         void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         bool IBuffTarget.Exists() => Owner != null && Owner.Exists() && Owner.IsEquippingArmor(this);

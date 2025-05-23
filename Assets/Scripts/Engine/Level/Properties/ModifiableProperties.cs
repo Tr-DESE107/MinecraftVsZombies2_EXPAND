@@ -105,6 +105,7 @@ namespace PVZEngine.Level
             modifierContainerBuffer.Clear();
             Container.GetModifierItems(name, modifierContainerBuffer);
 
+            var beforeValue = GetProperty(name);
             var value = baseValue;
             if (modifierContainerBuffer.Count > 0)
             {
@@ -115,7 +116,7 @@ namespace PVZEngine.Level
             {
                 buffedProperties.RemoveProperty(name);
             }
-            Container.UpdateModifiedProperty(name, value);
+            Container.UpdateModifiedProperty(name, beforeValue, value);
         }
         #endregion
         public SerializableModifiableProperties ToSerializable()

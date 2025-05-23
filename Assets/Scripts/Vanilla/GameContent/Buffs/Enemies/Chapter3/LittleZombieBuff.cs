@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddModifier(new Vector3Modifier(EngineEntityProps.SCALE, NumberOperator.Multiply, new Vector3(0.5f, 0.5f, 0.5f)));
             AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, new Vector3(0.5f, 0.5f, 0.5f)));
             AddModifier(new Vector3Modifier(VanillaEntityProps.SHADOW_SCALE, NumberOperator.Multiply, new Vector3(0.5f, 0.5f, 0.5f)));
-            AddModifier(new FloatModifier(EngineEntityProps.MAX_HEALTH, NumberOperator.Multiply, 0.25f));
+            AddModifier(new MaxHealthModifier(NumberOperator.Multiply, 0.25f));
             AddModifier(new FloatModifier(VanillaEntityProps.CRY_PITCH, NumberOperator.Multiply, 2));
         }
         public override void PostUpdate(Buff buff)
@@ -32,7 +32,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (armor.HasBuff<LittleZombieArmorBuff>())
                 return;
             armor.AddBuff<LittleZombieArmorBuff>();
-            armor.Health = armor.GetMaxHealth();
         }
     }
 }

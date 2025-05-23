@@ -6,6 +6,7 @@ using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using PVZEngine.SeedPacks;
+using static UnityEngine.GraphicsBuffer;
 
 namespace PVZEngine.Buffs
 {
@@ -81,7 +82,7 @@ namespace PVZEngine.Buffs
             Target = target;
             foreach (var modifier in GetModifiers())
             {
-                modifier.PostAdd(this);
+                modifier.PostAdd(this, target);
             }
             auras.PostAdd();
             Definition.PostAdd(this);
@@ -92,7 +93,7 @@ namespace PVZEngine.Buffs
                 return;
             foreach (var modifier in GetModifiers())
             {
-                modifier.PostRemove(this);
+                modifier.PostRemove(this, Target);
             }
             auras.PostRemove();
             Definition.PostRemove(this);

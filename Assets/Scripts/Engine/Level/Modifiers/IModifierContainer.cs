@@ -1,4 +1,6 @@
-﻿namespace PVZEngine.Modifiers
+﻿using PVZEngine.Entities;
+
+namespace PVZEngine.Modifiers
 {
     public interface IModifierContainer
     {

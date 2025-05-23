@@ -1,4 +1,5 @@
-﻿using Tools;
+﻿using PVZEngine.Buffs;
+using Tools;
 
 namespace PVZEngine.Modifiers
 {
@@ -20,11 +21,11 @@ namespace PVZEngine.Modifiers
             UsingContainerPropertyName = containerPropertyName;
             Priority = priority;
         }
-        public virtual void PostAdd(IModifierContainer container)
+        public virtual void PostAdd(IModifierContainer container, IBuffTarget target)
         {
 
         }
-        public virtual void PostRemove(IModifierContainer container)
+        public virtual void PostRemove(IModifierContainer container, IBuffTarget target)
         {
 
         }
