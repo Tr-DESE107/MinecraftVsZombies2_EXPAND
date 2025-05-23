@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -61,6 +62,15 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetLightSource(!frozen);
         }
 
+        public override void PostDeath(Entity entity, DeathInfo deathInfo)
+        {
+            base.PostDeath(entity, deathInfo);
+            if (entity.Level.IsIZombie())
+            {
+                var redstonesToDrop = GetRedstonesToDrop(entity, 0);
+                DropRedstones(entity, redstonesToDrop);
+            }
+        }
         public override void PostRemove(Entity entity)
         {
             base.PostRemove(entity);
