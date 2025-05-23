@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using MVZ2.IO;
 using MVZ2.Localization;
 using MVZ2.Managers;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 namespace MVZ2.Options
 {
