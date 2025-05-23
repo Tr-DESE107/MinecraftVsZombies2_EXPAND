@@ -30,13 +30,14 @@ namespace MVZ2.GameContent.Enemies
             if (level.IsIZombie())
             {
                 level.PlaySound(VanillaSoundID.siren);
-                var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
+                var regular = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
+                var leather = level.Content.GetSpawnDefinition(VanillaSpawnID.leatherCappedZombie);
+                var iron = level.Content.GetSpawnDefinition(VanillaSpawnID.ironHelmettedZombie);
                 for (var lane = 0; lane < entity.Level.GetMaxLaneCount(); lane++)
                 {
-                    for (int i = 0; i < 5; i++)
-                    {
-                        entity.Level.SpawnEnemy(spawnDef, lane);
-                    }
+                    entity.Level.SpawnEnemy(regular, lane);
+                    entity.Level.SpawnEnemy(leather, lane);
+                    entity.Level.SpawnEnemy(iron, lane);
                 }
             }
         }
