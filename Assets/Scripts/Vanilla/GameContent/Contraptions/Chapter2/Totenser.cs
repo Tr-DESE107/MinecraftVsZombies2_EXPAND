@@ -46,6 +46,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.UpdateLogic(entity);
             UpdateFireBreath(entity);
+            entity.SetAnimationFloat("SpearSpeed", entity.IsAIFrozen() ? 0 : 1);
         }
         protected override void OnEvoke(Entity entity)
         {
