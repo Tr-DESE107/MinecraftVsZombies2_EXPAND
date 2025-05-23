@@ -51,7 +51,7 @@ namespace MVZ2.Metas
             var type = node.GetAttribute("type") ?? StageTypes.TYPE_NORMAL;
             var dayNumber = node.GetAttributeInt("dayNumber") ?? 0;
             var startEnergy = node.GetAttributeFloat("startEnergy") ?? 50;
-            var unlocks = node.GetAttributeNamespaceIDArray("unlocks", defaultNsp);
+            var unlocks = node.GetAttributeNamespaceIDArray("unlock", defaultNsp);
             var musicID = node.GetAttributeNamespaceID("music", defaultNsp);
             var needBlueprints = node.GetAttributeBool("needBlueprints") ?? true;
 
