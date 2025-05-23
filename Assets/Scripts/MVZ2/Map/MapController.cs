@@ -573,7 +573,7 @@ namespace MVZ2.Map
                 var color = buttonColorCleared;
                 if (!unlocked)
                     color = buttonColorLocked;
-                else if (stageType == StageTypes.TYPE_MINIGAME)
+                else if (stageType == StageTypes.TYPE_MINIGAME || stageType == StageTypes.TYPE_PUZZLE)
                     color = buttonColorMinigame;
                 else if (stageType == StageTypes.TYPE_BOSS)
                     color = buttonColorBoss;

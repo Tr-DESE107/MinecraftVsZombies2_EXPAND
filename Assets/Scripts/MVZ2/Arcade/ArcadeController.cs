@@ -9,6 +9,8 @@ using MVZ2.Scenes;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
+using MVZ2.Vanilla.Stats;
+using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
 
@@ -134,6 +136,12 @@ namespace MVZ2.Arcade
             {
                 name = GetTranslatedString(LEVEL_NAME_NOT_UNLOCKED);
             }
+            var hint = string.Empty;
+            if (stageMeta.Type == StageTypes.TYPE_PUZZLE_ENDLESS)
+            {
+                var flags = Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
+                hint = GetTranslatedString(ENDLESS_MAX_STREAKS, flags);
+            }
             var icon = Main.GetFinalSprite(meta.Icon);
 
             Sprite clearSprite = null;
@@ -154,6 +162,7 @@ namespace MVZ2.Arcade
             return new ArcadeItemViewData()
             {
                 name = name,
+                hint = hint,
                 sprite = icon,
                 clearSprite = clearSprite,
                 unlocked = unlocked,
@@ -194,6 +203,8 @@ namespace MVZ2.Arcade
 
         [TranslateMsg("未解锁的小游戏关卡名")]
         public const string LEVEL_NAME_NOT_UNLOCKED = "未解锁";
+        [TranslateMsg("无尽模式的小游戏的连胜显示，{0}为最高连胜")]
+        public const string ENDLESS_MAX_STREAKS = "最高连胜：\n{0}";
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> minigameItems = new List<NamespaceID>();
         private List<NamespaceID> puzzleItems = new List<NamespaceID>();

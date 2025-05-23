@@ -24,6 +24,7 @@ namespace MVZ2.Arcade
             clearSprite.enabled = viewData.clearSprite;
 
             nameText.text = viewData.name;
+            hintText.text = viewData.hint;
         }
         private void Awake()
         {
@@ -42,11 +43,14 @@ namespace MVZ2.Arcade
         private Image clearSprite;
         [SerializeField]
         private TextMeshProUGUI nameText;
+        [SerializeField]
+        private TextMeshProUGUI hintText;
     }
     public struct ArcadeItemViewData
     {
         public bool empty;
         public Sprite sprite;
+        public string hint;
         public string name;
         public Sprite clearSprite;
         public bool unlocked;

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-23 11:05+0800\n"
+"POT-Creation-Date: 2025-05-23 02:59+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1345,8 +1345,15 @@ msgid ""
 msgstr ""
 
 # 未解锁的小游戏关卡名
-#: Scripts\MVZ2\Arcade\ArcadeController.cs:195
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:204
 msgid "未解锁"
+msgstr ""
+
+# 无尽模式的小游戏的连胜显示，{0}为最高连胜
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:206
+msgid ""
+"最高连胜：\n"
+"{0}"
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
@@ -1544,7 +1551,13 @@ msgstr ""
 #. Name for stage mvz2:puzzle_all_your_observes_are_belong_to_us
 #: Stage meta file
 msgctxt "levelname"
-msgid "你的所有侦测都是属于我们"
+msgid "你们的侦测所有是被属于我们"
+msgstr ""
+
+#. Name for stage mvz2:puzzle_i_zombie_endless
+#: Stage meta file
+msgctxt "levelname"
+msgid "我是僵尸无尽"
 msgstr ""
 
 #. Name for stat category mvz2:contraption_place

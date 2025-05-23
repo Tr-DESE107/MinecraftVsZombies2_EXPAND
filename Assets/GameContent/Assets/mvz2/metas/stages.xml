@@ -745,7 +745,7 @@
             <integer name="spawnerCount" value="4" />
         </properties>
     </stage>
-    <stage id="mausoleum_6" name="梦殿大祀庙" dayNumber="6" needBlueprints="false" type="minigame" startEnergy="150" unlock="mvz2:kourindou_visited_mausoleum_2" music="mvz2:puzzle" >
+    <stage id="mausoleum_6" name="梦殿大祀庙" dayNumber="6" needBlueprints="false" type="puzzle" startEnergy="150" unlock="mvz2:kourindou_visited_mausoleum_2" music="mvz2:puzzle" >
         <talks>
             <talk type="start" value="mvz2:mausoleum_6"/>
             <talk type="end" value="mvz2:mausoleum_6_over"/>
@@ -935,7 +935,7 @@
     </stage>
 
     <!-- Puzzles -->
-    <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="minigame" startEnergy="150" music="mvz2:puzzle" >
+    <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -943,7 +943,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_i_skeleton" name="我是骷髅" needBlueprints="false" type="minigame" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_i_zombie" >
+    <stage id="puzzle_i_skeleton" name="我是骷髅" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_i_zombie" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -951,7 +951,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_can_you_pass_it" name="你能穿过它吗？" needBlueprints="false" type="minigame" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_i_skeleton" >
+    <stage id="puzzle_can_you_pass_it" name="你能穿过它吗？" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_i_skeleton" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -959,7 +959,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_absolute_defense" name="绝对防御" needBlueprints="false" type="minigame" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_can_you_pass_it" >
+    <stage id="puzzle_absolute_defense" name="绝对防御" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_can_you_pass_it" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -967,7 +967,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_dead_balloon" name="死亡热气球" needBlueprints="false" type="minigame" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_absolute_defense" >
+    <stage id="puzzle_dead_balloon" name="死亡热气球" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_absolute_defense" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -975,7 +975,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_unbreakable" name="牢不可破" needBlueprints="false" type="minigame" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon" >
+    <stage id="puzzle_unbreakable" name="牢不可破" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -983,7 +983,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_mineclear" name="扫雷" needBlueprints="false" type="minigame" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_unbreakable" >
+    <stage id="puzzle_mineclear" name="扫雷" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_unbreakable" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -991,7 +991,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_fire_in_the_hole" name="火在洞里" needBlueprints="false" type="minigame" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_mineclear" >
+    <stage id="puzzle_fire_in_the_hole" name="火在洞里" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_mineclear" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -999,7 +999,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_all_your_observes_are_belong_to_us" name="你的所有侦测都是属于我们" needBlueprints="false" type="minigame" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_fire_in_the_hole" >
+    <stage id="puzzle_all_your_observes_are_belong_to_us" name="你们的侦测所有是被属于我们" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_fire_in_the_hole" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -1007,7 +1007,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_i_zombie_endless" name="我是僵尸无尽" needBlueprints="false" type="minigame" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_all_your_observes_are_belong_to_us;mvz2:level.mausoleum_11" >
+    <stage id="puzzle_i_zombie_endless" name="我是僵尸无尽" needBlueprints="false" type="puzzle_endless" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_all_your_observes_are_belong_to_us;mvz2:level.mausoleum_11" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>

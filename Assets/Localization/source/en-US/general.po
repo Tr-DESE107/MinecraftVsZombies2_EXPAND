@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-23 11:05+0800\n"
-"PO-Revision-Date: 2025-05-23 11:06+0800\n"
+"POT-Creation-Date: 2025-05-23 02:59+0800\n"
+"PO-Revision-Date: 2025-05-23 14:59+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1245,9 +1245,18 @@ msgstr ""
 "<b>[{1}]</b> {2}"
 
 # 未解锁的小游戏关卡名
-#: Scripts\MVZ2\Arcade\ArcadeController.cs:195
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:204
 msgid "未解锁"
 msgstr "Locked"
+
+# 无尽模式的小游戏的连胜显示，{0}为最高连胜
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:206
+msgid ""
+"最高连胜：\n"
+"{0}"
+msgstr ""
+"Best Streak:\n"
+"{0}"
 
 #: Scripts\MVZ2\Almanac\AlmanacController.cs:385
 msgctxt "almanac"
@@ -1439,8 +1448,14 @@ msgstr "Fire in the Hole"
 #. Name for stage mvz2:puzzle_all_your_observes_are_belong_to_us
 #: Stage meta file
 msgctxt "levelname"
-msgid "你的所有侦测都是属于我们"
+msgid "你们的侦测所有是被属于我们"
 msgstr "All ur Observes r belong to us"
+
+#. Name for stage mvz2:puzzle_i_zombie_endless
+#: Stage meta file
+msgctxt "levelname"
+msgid "我是僵尸无尽"
+msgstr "I, Zombie Endless"
 
 #. Name for stat category mvz2:contraption_place
 #: Stats meta file
