@@ -684,12 +684,13 @@
         <contraption id="necrotombstone" name="死灵墓碑" tooltip="召唤友方骷髅战士"
             unlock="mvz2:level.mausoleum_7">
             <properties>
+                <bool name="mvz2:nocturnal" value="true" />
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <id name="mvz2:placement" value="mvz2:buried" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <idArray name="mvz2:gridLayers" value="mvz2:main mvz2:carrier" />
 
-                <int name="mvz2:cost" value="175" />
+                <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
