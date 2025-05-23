@@ -79,7 +79,7 @@ namespace MVZ2.Vanilla.Entities
                 return;
             }
             entity.DamageBlink();
-            entity.PlaySound(entity.GetDeathSound(), entity.GetCryPitch());
+            entity.PlayCrySound(entity.GetDeathSound());
         }
         protected virtual bool IsOutsideView(Entity enemy)
         {

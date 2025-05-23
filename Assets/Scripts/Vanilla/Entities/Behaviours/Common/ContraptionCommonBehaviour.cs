@@ -33,7 +33,7 @@ namespace MVZ2.Vanilla.Entities
             }
             else
             {
-                entity.PlaySound(entity.GetDeathSound(), entity.GetCryPitch());
+                entity.PlayCrySound(entity.GetDeathSound());
                 entity.Remove();
             }
             if (!damageInfo.Effects.HasEffect(VanillaDamageEffects.SELF_DAMAGE))

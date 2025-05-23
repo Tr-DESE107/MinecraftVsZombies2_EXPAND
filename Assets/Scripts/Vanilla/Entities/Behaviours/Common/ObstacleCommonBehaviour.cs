@@ -30,7 +30,7 @@ namespace MVZ2.Vanilla.Entities
                 entity.Remove();
                 return;
             }
-            entity.PlaySound(entity.GetDeathSound(), entity.GetCryPitch());
+            entity.PlayCrySound(entity.GetDeathSound());
         }
     }
 }

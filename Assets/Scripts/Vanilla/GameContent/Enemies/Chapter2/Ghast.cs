@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Enemies
                             {
                                 enemy.Target = target;
                                 shootTimer.ResetTime(SHOOT_DURATION);
-                                enemy.PlaySound(VanillaSoundID.ghastFire, enemy.GetCryPitch());
+                                enemy.PlayCrySound(VanillaSoundID.ghastFire);
                             }
                             else
                             {

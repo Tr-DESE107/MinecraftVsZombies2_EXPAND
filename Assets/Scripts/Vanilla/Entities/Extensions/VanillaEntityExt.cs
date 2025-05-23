@@ -248,6 +248,11 @@ namespace MVZ2.Vanilla.Entities
 
         #region 音效
 
+        public static void PlayCrySound(this Entity entity, NamespaceID soundID, float pitchMultiplier = 1, float volume = 1)
+        {
+            var pitch = entity.GetCryPitch() * pitchMultiplier;
+            entity.PlaySound(soundID, pitch, volume);
+        }
         public static void PlaySound(this Entity entity, NamespaceID soundID, float pitch = 1, float volume = 1)
         {
             entity.Level.PlaySound(soundID, entity.Position, pitch, volume);
