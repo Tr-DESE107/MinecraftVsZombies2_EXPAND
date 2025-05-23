@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Audios;
+﻿using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -27,7 +28,7 @@ namespace MVZ2.GameContent.Projectiles
             if (other.Type == EntityTypes.ENEMY)
             {
                 var vel = other.Velocity;
-                vel.x += 6 * Mathf.Sign(projectile.Velocity.x);
+                vel.x += 6 * Mathf.Sign(projectile.Velocity.x) * other.GetKnockbackMultiplier();
                 other.Velocity = vel;
                 projectile.PlaySound(VanillaSoundID.bash);
             }

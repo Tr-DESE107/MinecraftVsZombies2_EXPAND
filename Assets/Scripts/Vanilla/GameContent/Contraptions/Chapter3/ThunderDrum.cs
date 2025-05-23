@@ -9,6 +9,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -108,9 +109,13 @@ namespace MVZ2.GameContent.Contraptions
                     continue;
                 var vel = target.Velocity;
                 vel.x = 4;
-                vel.y = 15;
+                vel.y = 15 * Mathf.Pow(target.GetKnockbackMultiplier(), 0.5f);
                 target.Velocity = vel;
-                target.RandomChangeAdjacentLane(self.RNG);
+
+                if (target.GetMass() <= 0)
+                {
+                    target.RandomChangeAdjacentLane(self.RNG);
+                }
 
                 var passenger = target.GetRideablePassenger();
                 if (passenger != null)

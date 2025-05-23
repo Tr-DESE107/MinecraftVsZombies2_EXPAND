@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
@@ -31,7 +32,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             if (other.Type == EntityTypes.ENEMY)
             {
                 var sign = Mathf.Sign(projectile.Velocity.x);
-                other.Velocity += new Vector3(0.5f * sign, 1);
+                other.Velocity += new Vector3(0.5f * sign, 1) * other.GetKnockbackMultiplier();
             }
         }
     }

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-23 02:41+0800\n"
+"POT-Creation-Date: 2025-05-24 12:03+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1055,7 +1055,8 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>900</color>\n"
-"弱点：<color=red>冲击活塞</color>"
+"弱点：<color=red>冲击活塞</color>\n"
+"质量：<color=red>重</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:gargoyle
@@ -1076,7 +1077,8 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "抗性：<color=red>虚无状态下减少90%受到的伤害</color>\n"
-"弱点：<color=red>被光照到时会失去虚无效果</color>"
+"弱点：<color=red>被光照到时会失去虚无效果</color>\n"
+"质量：<color=red>轻</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:ghost
@@ -1158,7 +1160,8 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>120</color>\n"
 "速度：<color=red>2</color>\n"
-"特点：<color=red>不会被一般高度的子弹打中</color>"
+"特点：<color=red>不会被一般高度的子弹打中</color>\n"
+"质量：<color=red>轻</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:cave_spider
@@ -1179,7 +1182,8 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>100</color>\n"
 "速度：<color=red>1</color>\n"
-"特点：<color=red>不会被一般高度的子弹打中</color>"
+"特点：<color=red>不会被一般高度的子弹打中</color>\n"
+"质量：<color=red>轻</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:ghast
@@ -1225,7 +1229,8 @@ msgstr ""
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>0-50</color>（变化）\n"
-"速度：<color=red>4</color>"
+"速度：<color=red>4</color>\n"
+"质量：<color=red>轻</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:parasite_terror
@@ -1294,7 +1299,8 @@ msgid ""
 "马速度：<color=red>2（跳跃前），1（跳跃后）</color>\n"
 "身体速度：<color=red>1</color>\n"
 "头颅速度：<color=red>2</color>\n"
-"弱点：<color=red>金质物品，无法跳过高器械</color>"
+"弱点：<color=red>金质物品，无法跳过高器械</color>\n"
+"质量：<color=red>轻（头），中（身体，马）</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:dullahan
@@ -1316,7 +1322,8 @@ msgid ""
 "生命：<color=red>1350，低于200时每秒失去60生命</color>\n"
 "速度：<color=red>1</color>\n"
 "碾压伤害：<color=red>10000000</color>\n"
-"弱点：<color=red>尖刺方块</color>"
+"弱点：<color=red>尖刺方块</color>\n"
+"质量：<color=red>重</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:hell_chariot

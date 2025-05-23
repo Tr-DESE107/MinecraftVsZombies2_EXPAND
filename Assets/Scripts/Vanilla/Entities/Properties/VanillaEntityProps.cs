@@ -12,6 +12,20 @@ namespace MVZ2.Vanilla.Entities
         {
             return new PropertyMeta(name);
         }
+        public static readonly PropertyMeta MASS = Get("mass");
+        public static void SetMass(this Entity entity, float value)
+        {
+            entity.SetProperty(MASS, value);
+        }
+        public static float GetMass(this Entity entity)
+        {
+            return entity.GetProperty<float>(MASS);
+        }
+        public static float GetKnockbackMultiplier(this Entity entity)
+        {
+            var mass = entity.GetMass();
+            return Mathf.Max(0, 1 - mass);
+        }
         #region 射击
         public static readonly PropertyMeta RANGE = Get("range");
         public static readonly PropertyMeta SHOT_VELOCITY = Get("shotVelocity");

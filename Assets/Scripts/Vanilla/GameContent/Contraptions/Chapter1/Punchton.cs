@@ -127,7 +127,7 @@ namespace MVZ2.GameContent.Contraptions
                 var ent = collider.Entity;
                 if (collider.IsForMain() && ent.Type == EntityTypes.ENEMY)
                 {
-                    ent.Velocity += entity.GetFacingDirection() * 20;
+                    ent.Velocity += entity.GetFacingDirection() * 20 * ent.GetKnockbackMultiplier();
                     CheckAchievement(ent);
                 }
             }
