@@ -5,7 +5,6 @@ using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Seeds;
@@ -28,7 +27,6 @@ using PVZEngine.Level;
 using Tools;
 using UnityEditor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MVZ2.Vanilla.Entities
 {

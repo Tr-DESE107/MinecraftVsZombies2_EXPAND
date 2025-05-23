@@ -32,21 +32,26 @@ namespace MVZ2.Vanilla.Entities
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (entity.IsFriendlyEntity() || !entity.IsFacingLeft() || entity.Level.IsIZombie())
+            bool remove = false;
+            if (!entity.IsFacingLeft() && IsOutsideRight(entity))
             {
-                if (IsOutsideView(entity))
-                {
-                    entity.Neutralize();
-                    entity.Remove();
-                    return;
-                }
+                remove = true;
             }
-            else
+            else if (entity.Level.IsIZombie() && IsOutsideLeft(entity))
             {
-                Vector3 pos = entity.Position;
-                pos.x = Mathf.Min(pos.x, VanillaLevelExt.GetEnemyRightBorderX());
-                entity.Position = pos;
+                remove = true;
             }
+            if (remove)
+            {
+                entity.Neutralize();
+                entity.Remove();
+                return;
+            }
+
+            Vector3 pos = entity.Position;
+            pos.x = Mathf.Min(pos.x, VanillaLevelExt.GetEnemyRightBorderX());
+            entity.Position = pos;
+
             ChangeLaneUpdate(entity);
             var scale = entity.GetFinalDisplayScale();
             var scaleX = Mathf.Abs(scale.x);
@@ -81,12 +86,17 @@ namespace MVZ2.Vanilla.Entities
             entity.DamageBlink();
             entity.PlayCrySound(entity.GetDeathSound());
         }
-        protected virtual bool IsOutsideView(Entity enemy)
+        protected virtual bool IsOutsideLeft(Entity enemy)
         {
             var bounds = enemy.GetBounds();
             var position = enemy.Position;
-            return bounds.max.x < VanillaLevelExt.ENEMY_LEFT_BORDER ||
-                bounds.min.x > VanillaLevelExt.ENEMY_RIGHT_BORDER;
+            return bounds.max.x < VanillaLevelExt.ENEMY_LEFT_BORDER;
+        }
+        protected virtual bool IsOutsideRight(Entity enemy)
+        {
+            var bounds = enemy.GetBounds();
+            var position = enemy.Position;
+            return bounds.min.x > VanillaLevelExt.ENEMY_RIGHT_BORDER;
         }
         private void ChangeLaneUpdate(Entity entity)
         {
