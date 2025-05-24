@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-05-24 06:02+0800\n"
-"PO-Revision-Date: 2025-05-24 18:04+0800\n"
+"PO-Revision-Date: 2025-05-24 18:16+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -140,7 +140,7 @@ msgstr "Key Binding"
 #. 按键绑定界面的确认按钮文本
 #: /MainGame/MainScene/Mainmenu/Canvas/KeyBinding/Layout/Buttons/ConfirmButton/Text
 msgid "确认"
-msgstr "Accept"
+msgstr "Confirm"
 
 #. 按键绑定界面的重置按钮文本
 #: /MainGame/MainScene/Mainmenu/Canvas/KeyBinding/Layout/Buttons/ResetButton/Text
@@ -649,7 +649,7 @@ msgstr ""
 #: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:163
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
-"You haven't chosen any energy producing contraptions, are you sure you want "
+"You haven't chosen any energy-producing contraptions, are you sure you want "
 "to continue?"
 
 #: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:165
@@ -782,7 +782,7 @@ msgstr "Innate"
 
 #: Scripts\Vanilla\VanillaStrings.cs:39
 msgid "不推荐在这关使用"
-msgstr "Not recommended for level"
+msgstr "Not recommended for this level"
 
 #: Scripts\Vanilla\VanillaStrings.cs:42
 msgid "购买"
@@ -1051,7 +1051,7 @@ msgstr[1] "Are you sure you want to purchase this for {0:N0}?"
 
 #: Scripts\MVZ2\Store\StoreController.cs:236
 msgid "金钱不足"
-msgstr "Insufficient Money"
+msgstr "Not Enough Money"
 
 #: Scripts\MVZ2\Store\StoreController.cs:238
 msgid "你没有足够的金钱！"
@@ -1154,7 +1154,7 @@ msgstr "Blood and Gore: {0}"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:233
 msgid "跳过对话：{0}"
-msgstr "Skip talks: {0}"
+msgstr "Skip dialogs: {0}"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:235
 msgid "赞助者名称：{0}"
@@ -1273,7 +1273,7 @@ msgstr "Origin: {0}"
 
 #: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:195
 msgid "作者：{0}"
-msgstr "Author: {0}"
+msgstr "Composer: {0}"
 
 #: Scripts\MVZ2\Map\MapController.cs:661
 msgid ""
@@ -2164,8 +2164,8 @@ msgstr "Failed to import the user. The file may corrupt."
 #: Scripts\MVZ2\Mainmenu\MainmenuController.cs:908
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
-"Failed to import the user. A user with the same name exists, but the user to "
-"be imported cannot be renamed."
+"Failed to import the user. A user with identical name exists, but the user "
+"to be imported cannot be renamed."
 
 # 语言包导出成功的提示，{0}为路径
 #: Scripts\MVZ2\Mainmenu\MainmenuController.cs:910
@@ -2184,26 +2184,28 @@ msgstr "{0}x{1}"
 
 #: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1101
 msgid "你没有携带满蓝图，确认要继续吗？"
-msgstr "Are you sure to continue while the chosen blueprints are not full?"
+msgstr "Are you sure to continue without filling up the contraption slots?"
 
 #: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1105
 msgid "上一次选择的蓝图中包含多个相同的器械。"
-msgstr "The blueprint selected last time contained multiple same contraptions."
+msgstr ""
+"The blueprints selected last time contained multiple identical contraptions."
 
 #: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1107
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
-"The blueprint selected last time contained contraptions that are not "
+"The blueprints selected last time contained contraptions that are not "
 "unlocked yet."
 
 #: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1109
 msgid "上一次选择的制品中包含多个相同的制品。"
-msgstr "The blueprint selected last time contained multiple same artifacts."
+msgstr ""
+"The artifacts selected last time contained multiple identical artifacts."
 
 #: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1111
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
-"The blueprint selected last time contained artifacts that are not unlocked "
+"The artifacts selected last time contained artifacts that are not unlocked "
 "yet."
 
 #: Scripts\MVZ2\Level\LevelController_Entities.cs:249
@@ -2739,7 +2741,7 @@ msgstr ""
 #: Music meta file
 msgctxt "music.name"
 msgid "狂人的愉悦"
-msgstr "Loon Boon"
+msgstr "Loonboon"
 
 #. Description for music mvz2:minigame
 #: Music meta file
@@ -3576,7 +3578,7 @@ msgstr "You cannot place this contraption on water"
 #: Grid meta file
 msgctxt "advice"
 msgid "你不能在薄面上放置该器械"
-msgstr "You cannot place this contraption on planes"
+msgstr "You cannot place this contraption on planks"
 
 #. Message for grid error mvz2:not_on_land
 #: Grid meta file
@@ -3660,7 +3662,7 @@ msgstr "Could you teach me how to use these machines sometime?"
 #: Store meta file
 msgctxt "store_talk"
 msgid "要读读看这本书吗？很有趣的！"
-msgstr "Try to read this book? It’s really interesting!"
+msgstr "Wanna give this book a try? It’s really interesting!"
 
 #. Store chat from character mvz2:tokiko
 #: Store meta file
@@ -3707,7 +3709,7 @@ msgstr "Why do dispensers have such a cute face?"
 msgctxt "store_talk"
 msgid "额外的蓝图槽！让你能在战斗中多携带一个器械！"
 msgstr ""
-"Extra blueprint slot! Allowing you to carry one more contraption to battle!"
+"Extra blueprint slot! Allows you to carry one more contraption to battle!"
 
 #. Store item description of mvz2:blueprint_slot by character mvz2:tokiko
 #: Store meta file
@@ -3815,7 +3817,7 @@ msgstr ""
 msgctxt "store_talk"
 msgid "传染发射器能升级小型发射器，这样它就能在怪物之间散播互相攻击的种子了！"
 msgstr ""
-"Infectenser is upgraded from a Small Dispenser, it fires parasitic micro-"
+"Infectenser is upgraded from a Small Dispenser. It fires parasitic micro-"
 "bots that can spread to nearby foes!"
 
 #. Store item description of mvz2:force_pad by character mvz2:crazy_villager
@@ -3831,8 +3833,8 @@ msgstr ""
 msgctxt "store_talk"
 msgid "传动力板能升级重力板，能改变很多很多东西的位置，很方便！"
 msgstr ""
-"Force Pad is upgraded from Gravity Pad, it can change the position of many "
-"things, conveniently!"
+"Force Pad is upgraded from Gravity Pad. It can change the position of many "
+"things, very handy!"
 
 #. Store item description of mvz2:golden_dropper by character mvz2:crazy_villager
 #: Store meta file
@@ -3922,7 +3924,7 @@ msgstr ""
 msgctxt "store_talk"
 msgid "一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！"
 msgstr ""
-"Some dark thing, it makes contraptions produce at twice the speed, but the "
+"Some dark thing that makes contraptions produce at twice the speed, but the "
 "stage will become dark!"
 
 #. Store item description of mvz2:inverted_mirror by character mvz2:crazy_villager
@@ -3977,16 +3979,16 @@ msgstr ""
 msgctxt "store_talk"
 msgid "巨人的眼睛！你的器械造成的伤害变为两倍半，但是攻击速度也会减半！"
 msgstr ""
-"Eye of the Giant! Your contraptions' damage are increased to 2.5 times, but "
-"their attack speed are halved!"
+"Eye of the Giant! Your contraptions' damage is a half more than doubled, but "
+"their attack speed is halved!"
 
 #. Store item description of mvz2:eye_of_the_giant by character mvz2:tokiko
 #: Store meta file
 msgctxt "store_talk"
 msgid "有点吓人的大眼睛……它能让你的器械造成巨额伤害，但是攻击速度会变慢许多！"
 msgstr ""
-"A big scary eye... it can make your contraptions deal massive damage, but "
-"attack much slower!"
+"A big scary eye...It can make your contraptions deal massive damage, but "
+"attack much more slowly!"
 
 #. Name for credits category 内容设计
 #: Credits meta file
