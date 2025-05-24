@@ -111,8 +111,6 @@ namespace MVZ2.GameContent.Enemies
         {
             foreach (var target in targets)
             {
-                if (!target.ExistsAndAlive())
-                    continue;
                 target.AddBuff<DivineShieldBuff>();
             }
         }
