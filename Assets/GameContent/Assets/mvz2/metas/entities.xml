@@ -1153,7 +1153,7 @@
         <enemy id="wicked_hermit_zombie" name="邪仙僵尸" deathMessage="省得找个铲子来挖坟了。"
             unlock="mvz2:level.mausoleum_3">
             <properties>
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="150" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </enemy>

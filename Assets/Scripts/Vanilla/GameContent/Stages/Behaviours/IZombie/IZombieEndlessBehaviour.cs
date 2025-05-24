@@ -29,10 +29,12 @@ namespace MVZ2.GameContent.Stages
         }
         protected override NamespaceID GetNewLayout(int round, RandomGenerator rng)
         {
-            if (round % 5 == 0 && round > 0)
-            {
+            if (round == 0)
+                return VanillaIZombieLayoutID.izeComposite;
+
+            if (round % 5 == 0)
                 return awardLayouts.WeightedRandom(i => i.weight, rng).id;
-            }
+
             return normalLayouts.WeightedRandom(i => i.weight, rng).id;
         }
 
