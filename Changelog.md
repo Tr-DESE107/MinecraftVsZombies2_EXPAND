@@ -2,14 +2,14 @@
 
 ## Added
 - Added Chapter 4: The Hall of Dreams' Great Mausoleum.
-- Added mass property for monsters, which decides how long the distance is the monster will be knocked back.
-- Added credits section, accessible via the options menu on the main menu.
+- Added mass mechanic for monsters, which determines how far the monster will be knocked back.
+- Added credits section, accessed through the options menu from the main menu.
 - Added fast-forward multiplier option.
 - Added current version number text to the main menu.
-- Pick Starshards while holding blueprints now immediately evokes the placed contraption.
-- Added dialogue explanations about artifacts to Halloween Day 7.
+- Picking a blueprint while holding a Starshard now immediately evokes the placed contraption.
+- Added dialogs to introduce artifacts in level 1-7.
 - Added the zoom feature to the Misc Almanac.
-- Added import and export feature for user save data.
+- Added import and export features for user save data.
 - Added 6 new Random China events.
 
 ## Modified
@@ -22,14 +22,14 @@
 - Electric damage now deals 100% damage to ghosts.
 - Spark particles from Nightmareaper's Death Wheels now glow.
 - Adjusted lighting rendering effects.
-- Mind Control Orbs now glows.
+- Mind Control Orbs now glow.
 - Dropped pickups are no longer affected by darkness.
 - Added missing bass instruments to the stage music of Shining Needle Castle.
 - Reduced volume of the Seija boss battle music.
 - Increased damage of Nightmareaper's Death Wheels by 40% in Hard Mode.
-- Added usable blueprints to Stage 1-6: Glowstone, Obsidian, and Punchton.
-- Adjusted physics for the Breakout Board in Stage 2-6.
-- Added durability descriptions to the prologue's three device entries in the Almanac.
+- Added usable blueprints to level 1-6: Glowstone, Obsidian, and Punchton.
+- Adjusted interaction logic of the Breakout Board in level 2-6.
+- Added health entries to three contraptions from the prologue in the Almanac.
 - Added artist credits to character entries in the Almanac.
 - Tripled enemy spawn rate on Day 11 of each chapter.
 - Added grid patterns to Shining Needle Castle's stage background.
@@ -38,17 +38,17 @@
 - Adjusted in-game text.
 
 ## Fixed
-- Fixed issue where Mine TNT's evocation would incorrectly spawn new Mine TNTs in the row above when launching seeds from the bottommost row.
+- Fixed an issue where Mine TNT's evocation would incorrectly spawn new Mine TNTs in the row above when launching them from the bottom row.
 - Fixed crash caused by Nightmareaper attacking invincible contraptions.
-- Fixed Anvils failing to deal damage during the instant they hit the ground.
-- Fixed performance drops caused by prolonged light source existence.
-- Fixed the failure to save-and-exit while stunned enemies were present.
-- Fixed untranslated Blueprint names in Stage 2-6.
-- Vortex Hopper can no longer be hypnotized using Dream Silk while evocation.
-- Fixed issue where Breakout minigame pearls could be launched off-screen.
-- Fixed edge case where defeating Seiga Kaku might trigger her Nimble Fabric effect.
-- Fixed the issue where javelin throw animation of Totenser still plays while it's hypnotized by Dream Silk.
-- Fixed the issue where player can close the menu dialog and continue game bypass restart/exit confirmation dialogs using hotkeys.
+- Fixed an issue where Anvils fail to deal damage during the instant they hit the ground.
+- Fixed the frame drops caused by prolonged light source existence.
+- Fixed an issue of being unable to save and exit when there are stunned enemies.
+- Fixed untranslated Blueprint names in level 2-6.
+- Dream Silk can no longer be applied to spinning Vortex Hopper.
+- Fixed an issue where Breakout minigame pearls could be launched off-screen.
+- Fixed an edge case where defeating Seija might trigger her Nimble Fabric effect.
+- Fixed an issue where the javelin throw animation of Totenser still plays while it's sleeping due to Dream Silk.
+- Fixed the issue where players can close the menu dialog and continue the game using hotkeys, bypassing restart/exit confirmation pop-ups.
 
 ---
 
