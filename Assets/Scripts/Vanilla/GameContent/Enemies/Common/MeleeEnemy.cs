@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using UnityEngine;
 
 namespace MVZ2.Vanilla.Enemies
 {
@@ -87,6 +88,12 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (target == null)
                 return;
+            var vel = enemy.Velocity;
+            if (enemy.IsFacingLeft() == vel.x < 0)
+            {
+                vel.x *= 0.8f;
+            }
+            enemy.Velocity = vel;
             var damage = enemy.GetDamage() * enemy.GetAttackSpeed() / 30f;
             target.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.ENEMY_MELEE), enemy);
             enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_MELEE_ATTACK, new VanillaLevelCallbacks.EnemyMeleeAttackParams(enemy, target, damage));

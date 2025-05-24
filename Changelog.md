@@ -13,29 +13,46 @@
 - Added 6 new Random China events.
 
 ## Modified
-- Renamed the "Evoke" action in Simplified Chinese.
+
+### Contraptions
 - Gravity Pads can now pull down certain low-altitude floating enemies.
 - TNT now detonates immediately upon being destroyed by fire or explosive damage.
 - TNT struck by lightning damage now transforms into Charged TNT.
 - Increased the energy cost of Tesla Coil from 175 to 250.
 - Reduced the energy cost of Spiked Block from 100 to 75.
 - Updated the texture of the stone shield to make the internal contraption easier to identify.
+
+### Enemies
 - Electric damage now deals 100% damage to ghosts.
-- Spark particles from Nightmareaper's Death Wheels now glow.
+- When melee monsters attack, their forward movement speed will rapidly decrease.
+
+### Boss
+- Increased damage of Nightmareaper's Death Wheels by 40% in Hard Mode.
+
+### Lighting
 - Adjusted lighting rendering effects.
+- Spark particles from Nightmareaper's Death Wheels now glow.
 - Mind Control Orbs now glow.
 - Dropped pickups are no longer affected by darkness.
+
+### Music
 - Added missing bass instruments to the stage music of Shining Needle Castle.
 - Reduced volume of the Seija boss battle music.
-- Increased damage of Nightmareaper's Death Wheels by 40% in Hard Mode.
+
+### Levels
 - Added usable blueprints to level 1-6: Glowstone, Obsidian, and Punchton.
 - Adjusted interaction logic of the Breakout Board in level 2-6.
+- Tripled enemy spawn rate on Day 11 of each chapter.
+
+### Almanac
 - Added health entries to three contraptions from the prologue in the Almanac.
 - Added artist credits to character entries in the Almanac.
-- Tripled enemy spawn rate on Day 11 of each chapter.
+
+### Misc
 - Added grid patterns to Shining Needle Castle's stage background.
 - Changed post-blueprint-selection warnings to display enemy types instead of specific enemy names.
 - Rain effects no longer update while the game is paused.
+- Renamed the "Evoke" action in Simplified Chinese.
 - Adjusted in-game text.
 
 ## Fixed
