@@ -901,7 +901,7 @@
                 <behaviour operator="add" id="mvz2:fragmented"/>
             </behaviours>
             <properties>
-                <int name="mvz2:mass" value="1" />
+                <float name="mvz2:mass" value="1" />
                 <bool name="mvz2:undead" value="false" />
                 <float name="mvz2:maxHealth" value="900" />
                 <id name="mvz2:shell" value="mvz2:stone" />
@@ -916,7 +916,7 @@
         <enemy id="ghost" name="幽灵" deathMessage="现在有伴了。" unlock="mvz2:level.halloween_3">
             <properties>
                 <float name="mvz2:friction" value="0.05" />
-                <int name="mvz2:mass" value="-2" />
+                <float name="mvz2:mass" value="-2" />
                 <id name="mvz2:shell" value="mvz2:bone" />
                 <id name="mvz2:crySound" value="mvz2:ghost_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghost_death" />
@@ -976,7 +976,7 @@
         <enemy id="cave_spider" name="洞穴蜘蛛" deathMessage="你有蜂蜜瓶还是牛奶桶呢？都没有。"
             unlock="mvz2:level.dream_3">
             <properties>
-                <int name="mvz2:mass" value="-1" />
+                <float name="mvz2:mass" value="-1" />
                 <float name="mvz2:maxHealth" value="120" />
                 <float name="mvz2:maxAttackHeight" value="15" />
                 <float name="mvz2:speed" value="2" />
@@ -998,7 +998,7 @@
         </enemy>
         <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
             <properties>
-                <int name="mvz2:mass" value="-2" />
+                <float name="mvz2:mass" value="-2" />
                 <bool name="mvz2:undead" value="false" />
                 <float name="mvz2:maxHealth" value="100" />
                 <float name="mvz2:damage" value="100" />
@@ -1040,7 +1040,7 @@
         <enemy id="parasite_terror" name="恐怖寄生虫" deathMessage="恐怖寄生虫 已消灭世界上的所有……"
             unlock="mvz2:level.dream_9">
             <properties>
-                <int name="mvz2:mass" value="-1" />
+                <float name="mvz2:mass" value="-1" />
                 <float name="mvz2:maxHealth" value="50" />
                 <float name="mvz2:maxAttackHeight" value="15" />
                 <float name="mvz2:speed" value="4" />
@@ -1108,7 +1108,7 @@
                 <behaviour operator="add" id="mvz2:fragmented"/>
             </behaviours>
             <properties>
-                <int name="mvz2:mass" value="2" />
+                <float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="1350" />
                 <id name="mvz2:fragmentId" value="mvz2:hell_chariot" />
                 <id name="mvz2:shell" value="mvz2:stone" />
@@ -1173,7 +1173,7 @@
 
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <properties>
-                <int name="mvz2:mass" value="2" />
+                <float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="3000" />
                 <float name="mvz2:maxAttackHeight" value="100" />
                 <float name="mvz2:speed" value="1" />
@@ -1194,7 +1194,7 @@
         <enemy id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？"
             unlock="mvz2:level.shrine_8">
             <properties>
-                <int name="mvz2:mass" value="2" />
+                <float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="6000" />
                 <float name="mvz2:maxAttackHeight" value="100" />
                 <float name="mvz2:speed" value="1" />
@@ -1214,7 +1214,7 @@
         </enemy>
         <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了">
             <properties>
-                <int name="mvz2:mass" value="-1" />
+                <float name="mvz2:mass" value="-1" />
                 <vector3 name="mvz2:size" x="32" y="54" z="32" />
                 <float name="mvz2:fallResistance" value="18" />
                 <float name="mvz2:cryPitch" value="2" />
@@ -1245,7 +1245,7 @@
         <enemy id="napstablook" name="小幽灵" deathMessage="抱歉……我不是有意这么做的……"
             unlock="mvz2:level.halloween_6">
             <properties>
-                <int name="mvz2:mass" value="-2" />
+                <float name="mvz2:mass" value="-2" />
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
                 <bool name="mvz2:noReward" value="true" />
@@ -1291,7 +1291,7 @@
         </enemy>
         <enemy id="dullahan_head" name="无头骑士的头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
             <properties>
-                <int name="mvz2:mass" value="-1" />
+                <float name="mvz2:mass" value="-1" />
                 <float name="mvz2:speed" value="2" />
                 <id name="mvz2:shell" value="mvz2:nether" />
                 <id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
