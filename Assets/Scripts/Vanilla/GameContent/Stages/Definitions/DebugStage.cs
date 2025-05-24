@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.forcePad,
                 VanillaEnemyID.caveSpider,
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.mutantZombie,
+                VanillaEnemyID.gargoyle,
                 VanillaEnemyID.ghost,
             });
             level.SetArtifactSlotCount(3);

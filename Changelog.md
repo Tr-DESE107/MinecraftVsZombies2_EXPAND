@@ -2,6 +2,7 @@
 
 ## Added
 - Added Chapter 4: The Hall of Dreams' Great Mausoleum.
+- Added mass property for monsters, which decides how long the distance is the monster will be knocked back.
 - Added credits section, accessible via the options menu on the main menu.
 - Added fast-forward multiplier option.
 - Added current version number text to the main menu.

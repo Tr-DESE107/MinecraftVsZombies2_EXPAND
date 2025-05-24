@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-24 12:03+0800\n"
+"POT-Creation-Date: 2025-05-24 10:12+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1078,7 +1078,7 @@ msgid ""
 "生命：<color=red>200</color>\n"
 "抗性：<color=red>虚无状态下减少90%受到的伤害</color>\n"
 "弱点：<color=red>被光照到时会失去虚无效果</color>\n"
-"质量：<color=red>轻</color>"
+"质量：<color=red>很轻</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:ghost
@@ -1183,7 +1183,7 @@ msgid ""
 "生命：<color=red>100</color>\n"
 "速度：<color=red>1</color>\n"
 "特点：<color=red>不会被一般高度的子弹打中</color>\n"
-"质量：<color=red>轻</color>"
+"质量：<color=red>很轻</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:ghast
@@ -1323,7 +1323,7 @@ msgid ""
 "速度：<color=red>1</color>\n"
 "碾压伤害：<color=red>10000000</color>\n"
 "弱点：<color=red>尖刺方块</color>\n"
-"质量：<color=red>重</color>"
+"质量：<color=red>很重</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:hell_chariot

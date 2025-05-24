@@ -21,11 +21,13 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<float>(MASS);
         }
-        public static float GetKnockbackMultiplier(this Entity entity)
+        public static float GetKnockbackMultiplier(this Entity entity, float massMultiplier)
         {
             var mass = entity.GetMass();
-            return Mathf.Max(0, 1 - mass);
+            return Mathf.Max(0, 2 - Mathf.Pow(2, mass * massMultiplier));
         }
+        public static float GetWeakKnockbackMultiplier(this Entity entity) => entity.GetKnockbackMultiplier(1);
+        public static float GetStrongKnockbackMultiplier(this Entity entity) => entity.GetKnockbackMultiplier(0.5f);
         #region 射击
         public static readonly PropertyMeta RANGE = Get("range");
         public static readonly PropertyMeta SHOT_VELOCITY = Get("shotVelocity");

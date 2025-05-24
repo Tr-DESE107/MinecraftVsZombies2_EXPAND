@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
@@ -107,12 +108,14 @@ namespace MVZ2.GameContent.Contraptions
             {
                 if (target.Type != EntityTypes.ENEMY)
                     continue;
+                var knockbackMultiplier = target.GetStrongKnockbackMultiplier();
+
                 var vel = target.Velocity;
-                vel.x = 4;
-                vel.y = 15 * Mathf.Pow(target.GetKnockbackMultiplier(), 0.5f);
+                vel.x = 4 * knockbackMultiplier;
+                vel.y = 15 * knockbackMultiplier;
                 target.Velocity = vel;
 
-                if (target.GetMass() <= 0)
+                if (target.GetMass() <= VanillaMass.MEDIUM)
                 {
                     target.RandomChangeAdjacentLane(self.RNG);
                 }
