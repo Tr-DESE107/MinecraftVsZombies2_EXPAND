@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.IZombie
         protected abstract void FillEndlessContraptions(IIZombieMap map, RandomGenerator rng);
         protected void FillFurnaces(IIZombieMap map, RandomGenerator rng)
         {
-            var furnaceCount = Mathf.Max(3, 8 - map.Rounds / 2);
+            var furnaceCount = Mathf.Max(4, 8 - map.Rounds / 2);
             RandomFill(map, VanillaContraptionID.furnace, furnaceCount, rng);
             RandomFill(map, VanillaContraptionID.smallDispenser, 8 - furnaceCount, rng);
         }
