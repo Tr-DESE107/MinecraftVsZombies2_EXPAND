@@ -19,6 +19,7 @@
 - TNT struck by lightning damage now transforms into Charged TNT.
 - Increased the energy cost of Tesla Coil from 175 to 250.
 - Reduced the energy cost of Spiked Block from 100 to 75.
+- Updated the texture of the stone shield to make the internal contraption easier to identify.
 - Electric damage now deals 100% damage to ghosts.
 - Spark particles from Nightmareaper's Death Wheels now glow.
 - Adjusted lighting rendering effects.
