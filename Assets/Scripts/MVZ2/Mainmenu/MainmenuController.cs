@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Notes;
 using MVZ2.GameContent.Stages;
+using MVZ2.IO;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Metas;
@@ -294,7 +295,7 @@ namespace MVZ2.Mainmenu
                     {
                         var userIndex = GetSelectedUserIndex();
                         var currentName = main.SaveManager.GetUserName(userIndex);
-                        if (main.Game.IsSpecialUserName(currentName))
+                        if (!main.SaveManager.CanRenameUser(currentName))
                         {
                             var title = main.LanguageManager._(VanillaStrings.HINT);
                             var desc = main.LanguageManager._(VanillaStrings.ERROR_MESSAGE_CANNOT_RENAME_THIS_USER);
@@ -333,6 +334,116 @@ namespace MVZ2.Mainmenu
                         HideUserManageDialog();
                     }
                     break;
+                case UserManageDialog.ButtonType.Import:
+                    {
+                        if (IsUserFull())
+                        {
+                            break;
+                        }
+                        await FileHelper.OpenExternalFile(new string[] { "zip" }, OnImportPathSelected);
+                    }
+                    break;
+                case UserManageDialog.ButtonType.Export:
+                    {
+                        var userIndex = GetSelectedUserIndex();
+                        if (userIndex < 0)
+                            break;
+                        var userName = main.SaveManager.GetUserName(userIndex);
+                        bool success = false;
+                        var fileName = userName;
+                        foreach (var chr in Path.GetInvalidFileNameChars())
+                        {
+                            fileName = fileName.Replace(chr, '_');
+                        }
+
+                        var path = await FileHelper.SaveExternalFile(fileName, new string[] { "zip" }, dest =>
+                        {
+                            if (string.IsNullOrEmpty(dest))
+                                return;
+                            try
+                            {
+                                success = main.SaveManager.ExportUserDataPack(userIndex, dest);
+                            }
+                            catch (Exception)
+                            {
+                                success = false;
+                            }
+                        });
+                        if (string.IsNullOrEmpty(path))
+                            break;
+                        string title, desc;
+                        if (!success)
+                        {
+                            title = main.LanguageManager._(VanillaStrings.ERROR);
+                            desc = main.LanguageManager._(ERROR_NOT_EXPORTED);
+                        }
+                        else
+                        {
+                            title = main.LanguageManager._(VanillaStrings.HINT);
+                            desc = main.LanguageManager._(HINT_EXPORTED, path);
+                        }
+                        await main.Scene.ShowDialogMessageAsync(title, desc);
+                    }
+                    break;
+            }
+        }
+        private async void OnImportPathSelected(string path)
+        {
+            try
+            {
+                var userIndex = main.SaveManager.FindFreeUserIndex();
+                if (userIndex < 0)
+                    return;
+                if (string.IsNullOrEmpty(path))
+                    return;
+                if (!File.Exists(path))
+                    return;
+
+                UserDataPackMetadata metadata;
+                try
+                {
+                    metadata = main.SaveManager.ImportUserDataPackMetadata(path);
+                    if (metadata == null)
+                    {
+                        throw new IOException($"Cannot import user data pack metadata from path {path}");
+                    }
+                }
+                catch (Exception)
+                {
+                    // 加载失败，用户文件可能损坏。
+                    var title = main.LanguageManager._(VanillaStrings.ERROR);
+                    var desc = main.LanguageManager._(ERROR_CORRUPT_USER_DATA_PACK);
+                    main.Scene.ShowDialogMessage(title, desc);
+                    return;
+                }
+
+                // 如果有重复的名称，则提示用户重新命名。
+                var userName = metadata.username;
+                if (main.SaveManager.HasDuplicateUserName(userName, -1))
+                {
+                    // 如果不能重命名，直接提示错误。
+                    if (!main.SaveManager.CanRenameUser(userName))
+                    {
+                        var title = main.LanguageManager._(VanillaStrings.ERROR);
+                        var desc = main.LanguageManager._(ERROR_DUPLICATE_IMPORTING_USER_NAME_AND_CANNOT_RENAME);
+                        main.Scene.ShowDialogMessage(title, desc);
+                        return;
+                    }
+                    else
+                    {
+                        var newName = await main.Scene.ShowInputNameDialogAsync(InputNameType.Rename);
+                        if (string.IsNullOrEmpty(newName))
+                            return;
+                        userName = newName;
+                    }
+                }
+
+                main.SaveManager.ImportUserDataPack(userName, userIndex, path);
+                RefreshUserManageDialog();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"导入用户存档时出现错误：{e}");
             }
         }
         #endregion
@@ -561,10 +672,17 @@ namespace MVZ2.Mainmenu
         private void UpdateUserManageButtons()
         {
             bool selected = selectedUserArrayIndex >= 0;
-            ui.SetUserManageCreateNewUserActive(managingUserIndexes.Length < SaveManager.MAX_USER_COUNT);
+            bool hasEmptySlot = !IsUserFull();
+            ui.SetUserManageCreateNewUserActive(hasEmptySlot);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Rename, selected);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Delete, selected && managingUserIndexes.Length >= 2);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Switch, selected && GetSelectedUserIndex() != main.SaveManager.GetCurrentUserIndex());
+            ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Import, hasEmptySlot);
+            ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Export, selected);
+        }
+        private bool IsUserFull()
+        {
+            return managingUserIndexes.Length >= SaveManager.MAX_USER_COUNT;
         }
         #endregion
 
@@ -781,6 +899,16 @@ namespace MVZ2.Mainmenu
         public const string RESET_KEY_BINDINGS_WARNING = "确认要重置所有按键绑定吗？";
         [TranslateMsg("设置按键提醒")]
         public const string PRESS_KEY_HINT = "请按键";
+        [TranslateMsg("语言包导出失败的警告")]
+        public const string ERROR_NOT_EXPORTED = "导出存档失败。";
+        [TranslateMsg("语言包导入失败的警告")]
+        public const string ERROR_FAILED_TO_IMPORT = "导入存档失败。";
+        [TranslateMsg("语言包导入失败的警告")]
+        public const string ERROR_CORRUPT_USER_DATA_PACK = "导入存档失败，文件可能已损坏。";
+        [TranslateMsg("语言包导入失败的警告")]
+        public const string ERROR_DUPLICATE_IMPORTING_USER_NAME_AND_CANNOT_RENAME = "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。";
+        [TranslateMsg("语言包导出成功的提示，{0}为路径")]
+        public const string HINT_EXPORTED = "存档已导出至{0}。";
 
         private Dictionary<MainmenuButtonType, Action> mainmenuActionDict = new Dictionary<MainmenuButtonType, Action>();
         private MainManager main => MainManager.Instance;

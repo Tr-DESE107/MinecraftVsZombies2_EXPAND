@@ -30,6 +30,27 @@ namespace MVZ2.IO
                 }
             }
         }
+        public static void WriteString(this ZipArchiveEntry entry, string str, Encoding encoding)
+        {
+            using (var zipStream = entry.Open())
+            {
+                using (var reader = new StreamWriter(zipStream, encoding))
+                {
+                    reader.Write(str);
+                }
+            }
+        }
+
+        public static async Task WriteStringAsync(this ZipArchiveEntry entry, string str, Encoding encoding)
+        {
+            using (var zipStream = entry.Open())
+            {
+                using (var reader = new StreamWriter(zipStream, encoding))
+                {
+                    await reader.WriteAsync(str);
+                }
+            }
+        }
         public static Catalog ReadCatalog(this ZipArchiveEntry entry, string language)
         {
             using var zipStream = entry.Open();

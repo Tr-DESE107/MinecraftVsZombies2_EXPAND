@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-23 09:56+0800\n"
+"POT-Creation-Date: 2025-05-24 12:03+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,6 +72,16 @@ msgstr ""
 #. 用户管理界面按钮
 #: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Users/CreateNewUserButton/Name
 msgid "（新建用户）"
+msgstr ""
+
+#. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Top/ImportButton/Text
+msgid "导入"
+msgstr ""
+
+#. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Top/ExportButton/Text
+msgid "导出"
 msgstr ""
 
 #. 用户管理界面按钮
@@ -275,16 +285,6 @@ msgstr ""
 
 #: /MainGame/MainScene/Addons/Canvas/LanguagePack/Center/Enabled/Scroll View/Viewport/Content/Text
 msgid "更上方的语言包的内容会更优先被加载。"
-msgstr ""
-
-#. 语言包按钮
-#: /MainGame/MainScene/Addons/Canvas/LanguagePack/Bottom/Row1/ImportButton/Text
-msgid "导入"
-msgstr ""
-
-#. 语言包按钮
-#: /MainGame/MainScene/Addons/Canvas/LanguagePack/Bottom/Row1/ExportButton/Text
-msgid "导出"
 msgstr ""
 
 #: /MainGame/MainScene/Addons/Canvas/Loading/Text
@@ -2205,33 +2205,58 @@ msgid "{0}%"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:770
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:895
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:772
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:897
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:774
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:899
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:776
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:901
 msgid "确认要退出吗？"
 msgstr ""
 
 # 重置所有按键绑定的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:778
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:903
 msgid "确认要重置所有按键绑定吗？"
 msgstr ""
 
 # 设置按键提醒
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:780
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:905
 msgid "请按键"
+msgstr ""
+
+# 语言包导出失败的警告
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:907
+msgid "导出存档失败。"
+msgstr ""
+
+# 语言包导入失败的警告
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:909
+msgid "导入存档失败。"
+msgstr ""
+
+# 语言包导入失败的警告
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:911
+msgid "导入存档失败，文件可能已损坏。"
+msgstr ""
+
+# 语言包导入失败的警告
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:913
+msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
+msgstr ""
+
+# 语言包导出成功的提示，{0}为路径
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:915
+msgid "存档已导出至{0}。"
 msgstr ""
 
 # 当前语言名称

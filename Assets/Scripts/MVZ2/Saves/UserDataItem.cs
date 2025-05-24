@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MVZ2.Save
+namespace MVZ2.Saves
 {
     public class UserDataItem
     {

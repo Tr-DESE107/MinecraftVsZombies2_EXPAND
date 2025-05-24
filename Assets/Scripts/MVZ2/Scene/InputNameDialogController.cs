@@ -76,7 +76,7 @@ namespace MVZ2.Mainmenu.UI
                 return false;
             }
 
-            if (inputNameType == InputNameType.Rename && main.Game.IsSpecialUserName(name))
+            if (inputNameType == InputNameType.Rename && !main.SaveManager.CanRenameUserTo(name))
             {
                 message = VanillaStrings.ERROR_MESSAGE_CANNOT_USE_THIS_NAME;
                 return false;
