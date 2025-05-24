@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Enemies
                 entity.AddBuff<GhostBuff>();
             }
             var buff = entity.AddBuff<FlyBuff>();
-            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 0);
+            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 1);
         }
         protected override void UpdateLogic(Entity entity)
         {
