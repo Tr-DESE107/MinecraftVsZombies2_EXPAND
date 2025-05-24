@@ -1098,7 +1098,7 @@
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
 
-                <int name="mvz2:cost" value="200" />
+                <int name="mvz2:cost" value="175" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </enemy>
@@ -1362,7 +1362,7 @@
                 <id name="mvz2:deathSound" value="mvz2:skeleton_death" />
                 <bool name="mvz2:noReward" value="true" />
 
-                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:cost" value="175" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </enemy>

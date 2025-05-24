@@ -1,6 +1,8 @@
 ﻿using MVZ2.GameContent.Armors;
+using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
@@ -15,8 +17,14 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.EquipMainArmor(VanillaArmorID.skeletonWarriorHelmet);
-            entity.EquipArmorTo(VanillaArmorSlots.shield, VanillaArmorID.skeletonWarriorShield);
+            var helmet = entity.EquipMainArmor(VanillaArmorID.skeletonWarriorHelmet);
+            var shield = entity.EquipArmorTo(VanillaArmorSlots.shield, VanillaArmorID.skeletonWarriorShield);
+            if (entity.Level.IsIZombie())
+            {
+                entity.AddBuff<IZombieSkeletonWarriorBuff>();
+                helmet?.AddBuff<IZombieSkeletonWarriorArmorBuff>();
+                shield?.AddBuff<IZombieSkeletonWarriorArmorBuff>();
+            }
         }
         protected override void UpdateLogic(Entity entity)
         {

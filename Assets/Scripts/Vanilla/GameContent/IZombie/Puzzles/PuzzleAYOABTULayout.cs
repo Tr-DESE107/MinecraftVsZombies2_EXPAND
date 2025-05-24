@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Stages;
 using MVZ2Logic;
 using MVZ2Logic.IZombie;
@@ -15,13 +16,13 @@ namespace MVZ2.GameContent.IZombie
         {
             Blueprints = new NamespaceID[]
             {
-                VanillaEnemyID.imp,
-                VanillaEnemyID.leatherCappedZombie,
-                VanillaEnemyID.reflectiveBarrierZombie,
-                VanillaEnemyID.ironHelmettedZombie,
-                VanillaEnemyID.berserker,
-                VanillaEnemyID.dullahan,
-                VanillaEnemyID.wickedHermitZombie,
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.imp),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.leatherCappedZombie),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.ghost),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)

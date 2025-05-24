@@ -713,9 +713,9 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetArmorAtSlot(VanillaArmorSlots.main);
         }
-        public static void EquipMainArmor(this Entity entity, NamespaceID id)
+        public static Armor EquipMainArmor(this Entity entity, NamespaceID id)
         {
-            entity.EquipArmorTo(VanillaArmorSlots.main, id);
+            return entity.EquipArmorTo(VanillaArmorSlots.main, id);
         }
         #endregion
 

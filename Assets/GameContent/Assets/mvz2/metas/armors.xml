@@ -78,8 +78,8 @@
         <entry id="skeleton_warrior_shield">
             <colliders>
                 <collider name="main" >
-                    <offset x="-40" y="34" z="0"/>
-                    <size x="10" y="34" z="40"/>
+                    <offset x="-40" y="28" z="0"/>
+                    <size x="10" y="40" z="40"/>
                     <pivot x="0.5" y="0" z="0.5"/>
                 </collider>
             </colliders>

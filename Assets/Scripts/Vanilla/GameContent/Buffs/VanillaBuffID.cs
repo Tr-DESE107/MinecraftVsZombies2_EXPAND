@@ -62,7 +62,6 @@ namespace MVZ2.GameContent.Buffs
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
         public const string randomEnemySpeed = "random_enemy_speed";
-        public const string armorDamageColor = "armor_damage_color";
         public const string damageColor = "damage_color";
         public const string ghost = "ghost";
         public const string stun = "stun";
@@ -89,6 +88,7 @@ namespace MVZ2.GameContent.Buffs
         public const string slow = "slow";
         public const string iZombieAttackBooster = "i_zombie_attack_booster";
         public const string iZombieImp = "i_zombie_imp";
+        public const string iZombieSkeletonWarrior = "i_zombie_skeleton_warrior";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";
@@ -109,11 +109,14 @@ namespace MVZ2.GameContent.Buffs
 
         // Difficulty
         public const string easyContraption = "easy_contraption";
-        public const string easyArmor = "easy_armor";
         public const string hardEnemy = "hard_enemy";
 
+        // Armor
+        public const string easyArmor = "easy_armor";
+        public const string armorDamageColor = "armor_damage_color";
         public const string littleZombieArmor = "little_zombie_armor";
         public const string bigTroubleArmor = "big_trouble_armor";
+        public const string iZombieSkeletonWarriorArmor = "i_zombie_skeleton_warrior_armor";
 
         public static class Effect
         {

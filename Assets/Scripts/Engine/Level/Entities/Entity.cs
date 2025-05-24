@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
+using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -575,19 +576,21 @@ namespace PVZEngine.Entities
             }
             return false;
         }
-        public void EquipArmorTo<T>(NamespaceID slot) where T : ArmorDefinition
+        public Armor EquipArmorTo<T>(NamespaceID slot) where T : ArmorDefinition
         {
-            EquipArmorTo(slot, new Armor(this, slot, Level.Content.GetArmorDefinition<T>()));
+            return EquipArmorTo(slot, Level.Content.GetArmorDefinition<T>());
         }
-        public void EquipArmorTo(NamespaceID slot, NamespaceID id)
+        public Armor EquipArmorTo(NamespaceID slot, NamespaceID id)
         {
-            EquipArmorTo(slot, new Armor(this, slot, Level.Content.GetArmorDefinition(id)));
+            return EquipArmorTo(slot, Level.Content.GetArmorDefinition(id));
         }
-        public void EquipArmorTo(NamespaceID slot, ArmorDefinition definition)
+        public Armor EquipArmorTo(NamespaceID slot, ArmorDefinition definition)
         {
             if (definition == null)
-                return;
-            EquipArmorTo(slot, new Armor(this, slot, definition));
+                return null;
+            var armor = new Armor(this, slot, definition);
+            EquipArmorTo(slot, armor);
+            return armor;
         }
         public void EquipArmorTo(NamespaceID slot, Armor armor)
         {
