@@ -92,7 +92,19 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">很抱歉提到了你的伤心往事。</sentence>
         <sentence speaker="mvz2:marisa" sounds="mvz2:talk" variant="mvz2:happy">没事啦，都让它过去吧。</sentence>
         <sentence speaker="mvz2:marisa" sounds="mvz2:talk" variant="mvz2:normal" onClick="character leave mvz2:marisa;bubble hide;delay 1;next">我也该离开了，再见喽。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="unlock mvz2:entered_mausoleum;end;action goto_mausoleum">好了，布都，我们继续吧。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text>好了，布都，我们继续吧。</text>
+          <click>
+            <script>unlock mvz2:entered_mausoleum</script>
+            <script>bubble hide</script>
+            <script>music fade 0</script>
+            <script>forecolor fade #0000 #000F 1</script>
+            <script>delay 1</script>
+
+            <script>action goto_mausoleum</script>
+            <script>end</script>
+          </click>
+        </sentence>
       </sentences>
     </section>
   </group>
