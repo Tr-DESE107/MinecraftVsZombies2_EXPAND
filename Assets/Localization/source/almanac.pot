@@ -783,13 +783,13 @@ msgid ""
 "这是谁说的呢？"
 msgstr ""
 
-#. Header for contraptions mvz2:gravitation_bomb
+#. Header for contraptions mvz2:black_hole_bomb
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。"
 msgstr ""
 
-#. Properties for contraptions mvz2:gravitation_bomb
+#. Properties for contraptions mvz2:black_hole_bomb
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
@@ -799,7 +799,7 @@ msgid ""
 "技能：<color=red>产生湮灭领域，直接消灭范围内的所有敌人和敌弹</color>"
 msgstr ""
 
-#. Flavor for contraptions mvz2:gravitation_bomb
+#. Flavor for contraptions mvz2:black_hole_bomb
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
@@ -3343,13 +3343,13 @@ msgctxt "entity.tooltip"
 msgid "召唤友方骷髅战士"
 msgstr ""
 
-#. Name for entity mvz2:gravitation_bomb
+#. Name for entity mvz2:black_hole_bomb
 #: Entity meta file
 msgctxt "entity.name"
 msgid "黑洞炸弹"
 msgstr ""
 
-#. Tooltip for entity mvz2:gravitation_bomb
+#. Tooltip for entity mvz2:black_hole_bomb
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "触发后产生引力黑洞"

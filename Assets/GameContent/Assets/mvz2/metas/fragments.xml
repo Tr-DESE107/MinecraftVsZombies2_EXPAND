@@ -166,7 +166,7 @@
             <key hex="#0C110C" time="1"/>
         </colorKeys>
     </fragment>
-    <fragment name="gravitation_bomb">
+    <fragment name="black_hole_bomb">
         <colorKeys>
             <key hex="#760CE0" time="0.6"/>
             <key hex="#FFFFFF" time="0.9"/>

@@ -694,7 +694,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <contraption id="gravitation_bomb" name="黑洞炸弹" tooltip="触发后产生引力黑洞" unlock="mvz2:level.mausoleum_8">
+        <contraption id="black_hole_bomb" name="黑洞炸弹" tooltip="触发后产生引力黑洞" unlock="mvz2:level.mausoleum_8">
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <float name="mvz2:range" value="120" />

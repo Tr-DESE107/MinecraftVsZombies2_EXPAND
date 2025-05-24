@@ -43,7 +43,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string devourer = "devourer";
         public const string hellfire = "hellfire";
         public const string necrotombstone = "necrotombstone";
-        public const string gravitationBomb = "gravitation_bomb";
+        public const string blackHoleBomb = "black_hole_bomb";
         public const string desirePot = "desire_pot";
 
         public const string infectenser = "infectenser";
@@ -96,7 +96,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID devourer = Get(VanillaContraptionNames.devourer);
         public static readonly NamespaceID hellfire = Get(VanillaContraptionNames.hellfire);
         public static readonly NamespaceID necrotombstone = Get(VanillaContraptionNames.necrotombstone);
-        public static readonly NamespaceID gravitationBomb = Get(VanillaContraptionNames.gravitationBomb);
+        public static readonly NamespaceID blackHoleBomb = Get(VanillaContraptionNames.blackHoleBomb);
         public static readonly NamespaceID desirePot = Get(VanillaContraptionNames.desirePot);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);

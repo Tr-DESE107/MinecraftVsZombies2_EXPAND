@@ -14,10 +14,10 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
-    [EntityBehaviourDefinition(VanillaContraptionNames.gravitationBomb)]
-    public class GravitationBomb : ContraptionBehaviour
+    [EntityBehaviourDefinition(VanillaContraptionNames.blackHoleBomb)]
+    public class BlackHoleBomb : ContraptionBehaviour
     {
-        public GravitationBomb(string nsp, string name) : base(nsp, name)
+        public BlackHoleBomb(string nsp, string name) : base(nsp, name)
         {
             AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback, filter: EntityTypes.PLANT);
         }

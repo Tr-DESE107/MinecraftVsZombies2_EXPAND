@@ -2123,7 +2123,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 412713fe007467441a2952c3fd3f3ba9
-    m_Address: mvz2:entity/contraptions/gravitation_bomb
+    m_Address: mvz2:entity/contraptions/black_hole_bomb
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
@@ -3479,7 +3479,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f0c46a4061bb484c8387f99fe8dc33f
-    m_Address: mvz2:contraption/mausoleum/gravitation_bomb
+    m_Address: mvz2:contraption/mausoleum/black_hole_bomb
     m_ReadOnly: 0
     m_SerializedLabels:
     - Model
@@ -5356,7 +5356,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a947efd639075f8479b747319d6fad58
-    m_Address: mvz2:mobile_blueprint/gravitation_bomb
+    m_Address: mvz2:mobile_blueprint/black_hole_bomb
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
