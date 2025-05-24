@@ -51,9 +51,9 @@ namespace MVZ2.GameContent.Stages
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.reflectiveBarrierZombie),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.gargoyle),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.ironHelmettedZombie),
+                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.skeletonWarrior),
                 VanillaBlueprintID.FromEntity(VanillaEnemyID.dullahan),
-                VanillaBlueprintID.FromEntity(VanillaEnemyID.wickedHermitZombie),
             });
         }
         private List<IZELayoutItem> normalLayouts = new List<IZELayoutItem>();

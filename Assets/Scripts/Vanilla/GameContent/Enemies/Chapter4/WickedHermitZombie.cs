@@ -3,6 +3,7 @@ using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -20,7 +21,7 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             entity.EquipMainArmor(VanillaArmorID.wickedHermitHat);
 
-            if (!entity.IsPreviewEnemy())
+            if (!entity.IsPreviewEnemy() && !entity.Level.IsIZombie())
             {
                 var talisman = entity.SpawnWithParams(VanillaEnemyID.talismanZombie, entity.Position);
                 SetTalismanZombie(entity, new EntityID(talisman));
