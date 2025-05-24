@@ -17,7 +17,6 @@ namespace MVZ2.GameContent.IZombie
             RandomFill(map, VanillaContraptionID.dispenser, 1, rng);
             RandomFill(map, VanillaContraptionID.obsidian, 1, rng);
             RandomFill(map, VanillaContraptionID.mineTNT, 1, rng);
-            RandomFill(map, VanillaContraptionID.smallDispenser, 1, rng);
             RandomFill(map, VanillaContraptionID.glowstone, 1, rng);
             RandomFill(map, VanillaContraptionID.punchton, 1, rng);
             RandomFill(map, VanillaContraptionID.soulFurnace, 1, rng);
@@ -30,7 +29,7 @@ namespace MVZ2.GameContent.IZombie
             RandomFill(map, VanillaContraptionID.woodenDropper, 1, rng);
             RandomFill(map, VanillaContraptionID.spikeBlock, 1, rng);
             RandomFill(map, VanillaContraptionID.stoneDropper, 1, rng);
-            RandomFill(map, VanillaContraptionID.splitenser, 1, rng);
+            RandomFill(map, VanillaContraptionID.splitenser, 2, rng);
             RandomFill(map, VanillaContraptionID.hellfire, 1, rng);
         }
     }
