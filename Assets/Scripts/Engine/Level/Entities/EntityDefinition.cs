@@ -36,6 +36,10 @@ namespace PVZEngine.Entities
         {
             return behaviourCaches.Contains(behaviour);
         }
+        public bool HasBehaviour<T>()
+        {
+            return behaviourCaches.Exists(b => b is T);
+        }
         public bool HasBehaviour(NamespaceID id)
         {
             return behaviourCaches.Exists(b => b.GetID() == id);

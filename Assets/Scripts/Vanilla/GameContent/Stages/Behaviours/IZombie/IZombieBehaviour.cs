@@ -6,6 +6,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -180,7 +181,10 @@ namespace MVZ2.GameContent.Stages
             var level = entity.Level;
             if (!level.IsIZombie())
                 return;
-            entity.AddBuff<IZombieAttackBoosterBuff>();
+            if (entity.Definition.HasBehaviour<MeleeEnemy>())
+            {
+                entity.AddBuff<IZombieAttackBoosterBuff>();
+            }
             foreach (var buff in entity.GetBuffs<RandomEnemySpeedBuff>())
             {
                 RandomEnemySpeedBuff.SetSpeed(buff, 1.25f);
