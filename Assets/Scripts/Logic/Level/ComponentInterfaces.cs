@@ -13,6 +13,8 @@ namespace MVZ2Logic.Level.Components
     public interface IAdviceComponent : ILevelComponent
     {
         void ShowAdvice(string context, string textKey, int priority, int timeout, params string[] args);
+        void ShowAdvicePlural(string context, string textKey, string textPlural, long n, int priority, int timeout, params string[] args);
+        void ShowAdvicePlural(string context, string textKey, long n, int priority, int timeout, params string[] args) => ShowAdvicePlural(context, textKey, textKey, n, priority, timeout, args);
         void HideAdvice();
     }
     public interface IHeldItemComponent : ILevelComponent

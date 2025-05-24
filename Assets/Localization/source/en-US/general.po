@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-24 12:03+0800\n"
-"PO-Revision-Date: 2025-05-24 12:05+0800\n"
+"POT-Creation-Date: 2025-05-24 06:02+0800\n"
+"PO-Revision-Date: 2025-05-24 18:04+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -750,7 +750,9 @@ msgstr "Click to continue"
 #: Scripts\Vanilla\VanillaStrings.cs:28
 msgctxt "advice"
 msgid "没有抽到牌！受到{0}点疲劳伤害！"
-msgstr "No cards are drawn! Take {0} fatigue damage!"
+msgid_plural "没有抽到牌！受到{0}点疲劳伤害！"
+msgstr[0] "No cards are drawn! Take {0} fatigue damage!"
+msgstr[1] "No cards are drawn! Take {0} fatigue damage!"
 
 # 欲望壶技能的提示
 #: Scripts\Vanilla\VanillaStrings.cs:30
@@ -761,13 +763,17 @@ msgstr "No cards are drawn! But so what?"
 #: Scripts\Vanilla\VanillaStrings.cs:32
 msgctxt "advice"
 msgid "干得好！还剩{0}轮！"
-msgstr "Good job! {0} rounds left!"
+msgid_plural "干得好！还剩{0}轮！"
+msgstr[0] "Good job! {0} round left!"
+msgstr[1] "Good job! {0} rounds left!"
 
 # 我是僵尸模式的提示，{0}为目前连胜
 #: Scripts\Vanilla\VanillaStrings.cs:34
 msgctxt "advice"
 msgid "干得好！目前连胜：{0}！"
-msgstr "Good job! Current streak: {0}!"
+msgid_plural "干得好！目前连胜：{0}！"
+msgstr[0] "Good job! Current streak: {0}!"
+msgstr[1] "Good job! Current streak: {0}!"
 
 # 固有蓝图的提示
 #: Scripts\Vanilla\VanillaStrings.cs:37
@@ -950,12 +956,16 @@ msgstr "Unknown Level"
 #: Scripts\Vanilla\VanillaStrings.cs:136
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
-msgstr "{0} - Day {1}"
+msgid_plural "{0} - 第{1}天"
+msgstr[0] "{0} - Day {1}"
+msgstr[1] "{0} - Day {1}"
 
 #: Scripts\Vanilla\VanillaStrings.cs:138
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
-msgstr "{0} - Flag {1}"
+msgid_plural "{0} - 第{1}轮"
+msgstr[0] "{0} - Flag {1}"
+msgstr[1] "{0} - Flag {1}"
 
 #: Scripts\Vanilla\VanillaStrings.cs:142
 msgctxt "death_message"
@@ -1035,7 +1045,9 @@ msgstr "Purchase"
 
 #: Scripts\MVZ2\Store\StoreController.cs:234
 msgid "确定以{0:N0}的价格买下这个物品？"
-msgstr "Are you sure you want to purchase this for {0:N0}?"
+msgid_plural "确定以{0:N0}的价格买下这个物品？"
+msgstr[0] "Are you sure you want to purchase this for {0:N0}?"
+msgstr[1] "Are you sure you want to purchase this for {0:N0}?"
 
 #: Scripts\MVZ2\Store\StoreController.cs:236
 msgid "金钱不足"
@@ -2107,61 +2119,61 @@ msgstr "Getting Sponsors..."
 msgid "{0}%"
 msgstr "{0}%"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:895
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:890
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:897
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:892
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:899
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:894
 msgid "没有其他有效的用户可供切换。"
 msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:901
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:896
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
 # 重置所有按键绑定的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:903
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:898
 msgid "确认要重置所有按键绑定吗？"
 msgstr "Are you sure to reset all key bindings?"
 
 # 设置按键提醒
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:905
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:900
 msgid "请按键"
 msgstr "Press a key"
 
 # 语言包导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:907
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:902
 msgid "导出存档失败。"
 msgstr "Failed to export the user."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:909
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:904
 msgid "导入存档失败。"
 msgstr "Failed to import the user."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:911
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:906
 msgid "导入存档失败，文件可能已损坏。"
 msgstr "Failed to import the user. The file may corrupt."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:913
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:908
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 "Failed to import the user. A user with the same name exists, but the user to "
 "be imported cannot be renamed."
 
 # 语言包导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:915
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:910
 msgid "存档已导出至{0}。"
 msgstr "The user has been successfully exported to {0}."
 
 # 当前语言名称
-#: Scripts\MVZ2\Localization\LanguageManager.cs:175
+#: Scripts\MVZ2\Localization\LanguageManager.cs:245
 msgctxt "language_name"
 msgid "中文"
 msgstr "English (United States)"

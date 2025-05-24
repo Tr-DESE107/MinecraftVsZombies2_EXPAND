@@ -113,7 +113,7 @@ namespace MVZ2.Level
             var dayNumber = meta.GetDayNumber();
             if (dayNumber > 0)
             {
-                levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, levelName, dayNumber);
+                levelName = Main.LanguageManager._pn(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, dayNumber, levelName, dayNumber);
             }
             return levelName;
         }
@@ -126,11 +126,11 @@ namespace MVZ2.Level
             int dayNumber = level.GetDayNumber();
             if (dayNumber > 0)
             {
-                levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, levelName, dayNumber);
+                levelName = Main.LanguageManager._pn(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, dayNumber, levelName, dayNumber);
             }
             if (level.IsEndless() && level.CurrentFlag > 0)
             {
-                levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE, levelName, level.CurrentFlag);
+                levelName = Main.LanguageManager._pn(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE, level.CurrentFlag, levelName, level.CurrentFlag);
             }
             return levelName;
         }

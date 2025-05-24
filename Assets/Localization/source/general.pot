@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-24 12:03+0800\n"
+"POT-Creation-Date: 2025-05-24 06:02+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -786,7 +786,9 @@ msgstr ""
 #: Scripts\Vanilla\VanillaStrings.cs:28
 msgctxt "advice"
 msgid "没有抽到牌！受到{0}点疲劳伤害！"
-msgstr ""
+msgid_plural "没有抽到牌！受到{0}点疲劳伤害！"
+msgstr[0] ""
+msgstr[1] ""
 
 # 欲望壶技能的提示
 #: Scripts\Vanilla\VanillaStrings.cs:30
@@ -798,13 +800,17 @@ msgstr ""
 #: Scripts\Vanilla\VanillaStrings.cs:32
 msgctxt "advice"
 msgid "干得好！还剩{0}轮！"
-msgstr ""
+msgid_plural "干得好！还剩{0}轮！"
+msgstr[0] ""
+msgstr[1] ""
 
 # 我是僵尸模式的提示，{0}为目前连胜
 #: Scripts\Vanilla\VanillaStrings.cs:34
 msgctxt "advice"
 msgid "干得好！目前连胜：{0}！"
-msgstr ""
+msgid_plural "干得好！目前连胜：{0}！"
+msgstr[0] ""
+msgstr[1] ""
 
 # 固有蓝图的提示
 #: Scripts\Vanilla\VanillaStrings.cs:37
@@ -1011,13 +1017,17 @@ msgstr ""
 #: Scripts\Vanilla\VanillaStrings.cs:136
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
-msgstr ""
+msgid_plural "{0} - 第{1}天"
+msgstr[0] ""
+msgstr[1] ""
 
 # 关卡名称，{0}为关卡名，{1}为无尽模式轮数
 #: Scripts\Vanilla\VanillaStrings.cs:138
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
-msgstr ""
+msgid_plural "{0} - 第{1}轮"
+msgstr[0] ""
+msgstr[1] ""
 
 # 死亡信息-未知
 #: Scripts\Vanilla\VanillaStrings.cs:142
@@ -1110,7 +1120,9 @@ msgstr ""
 # 商店对话框内容，{0}为价格
 #: Scripts\MVZ2\Store\StoreController.cs:234
 msgid "确定以{0:N0}的价格买下这个物品？"
-msgstr ""
+msgid_plural "确定以{0:N0}的价格买下这个物品？"
+msgstr[0] ""
+msgstr[1] ""
 
 # 商店对话框标题
 #: Scripts\MVZ2\Store\StoreController.cs:236
@@ -2205,62 +2217,62 @@ msgid "{0}%"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:895
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:890
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:897
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:892
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:899
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:894
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:901
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:896
 msgid "确认要退出吗？"
 msgstr ""
 
 # 重置所有按键绑定的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:903
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:898
 msgid "确认要重置所有按键绑定吗？"
 msgstr ""
 
 # 设置按键提醒
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:905
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:900
 msgid "请按键"
 msgstr ""
 
 # 语言包导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:907
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:902
 msgid "导出存档失败。"
 msgstr ""
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:909
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:904
 msgid "导入存档失败。"
 msgstr ""
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:911
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:906
 msgid "导入存档失败，文件可能已损坏。"
 msgstr ""
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:913
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:908
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 
 # 语言包导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:915
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:910
 msgid "存档已导出至{0}。"
 msgstr ""
 
 # 当前语言名称
-#: Scripts\MVZ2\Localization\LanguageManager.cs:175
+#: Scripts\MVZ2\Localization\LanguageManager.cs:245
 msgctxt "language_name"
 msgid "中文"
 msgstr ""

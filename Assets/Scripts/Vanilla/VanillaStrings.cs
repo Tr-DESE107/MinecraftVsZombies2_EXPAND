@@ -25,13 +25,13 @@ namespace MVZ2.Vanilla
         public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的敌人要来了！";
         [TranslateMsg("预览战场的提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_CONTINUE = "点击以继续";
-        [TranslateMsg("欲望壶技能的提示，{0}为受到的总伤害", CONTEXT_ADVICE)]
+        [TranslateMsg("欲望壶技能的提示，{0}为受到的总伤害", CONTEXT_ADVICE, selfPlural: true)]
         public const string ADVICE_NO_CARDS_DRAWN = "没有抽到牌！受到{0}点疲劳伤害！";
         [TranslateMsg("欲望壶技能的提示", CONTEXT_ADVICE)]
         public const string ADVICE_NO_CARDS_DRAWN_CONVEYOR = "没有抽到牌！但那又怎样呢？";
-        [TranslateMsg("我是僵尸模式的提示，{0}为剩余轮数", CONTEXT_ADVICE)]
+        [TranslateMsg("我是僵尸模式的提示，{0}为剩余轮数", CONTEXT_ADVICE, selfPlural: true)]
         public const string ADVICE_IZ_ROUNDS_LEFT = "干得好！还剩{0}轮！";
-        [TranslateMsg("我是僵尸模式的提示，{0}为目前连胜", CONTEXT_ADVICE)]
+        [TranslateMsg("我是僵尸模式的提示，{0}为目前连胜", CONTEXT_ADVICE, selfPlural: true)]
         public const string ADVICE_IZ_STREAK = "干得好！目前连胜：{0}！";
 
         [TranslateMsg("固有蓝图的提示")]
@@ -133,9 +133,9 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_LEVEL_NAME = "levelname";
         [TranslateMsg("关卡名称", CONTEXT_LEVEL_NAME)]
         public const string LEVEL_NAME_UNKNOWN = "未知关卡";
-        [TranslateMsg("关卡名称，{0}为关卡名，{1}为冒险模式天数", CONTEXT_LEVEL_NAME)]
+        [TranslateMsg("关卡名称，{0}为关卡名，{1}为冒险模式天数", CONTEXT_LEVEL_NAME, selfPlural: true)]
         public const string LEVEL_NAME_DAY_TEMPLATE = "{0} - 第{1}天";
-        [TranslateMsg("关卡名称，{0}为关卡名，{1}为无尽模式轮数", CONTEXT_LEVEL_NAME)]
+        [TranslateMsg("关卡名称，{0}为关卡名，{1}为无尽模式轮数", CONTEXT_LEVEL_NAME, selfPlural: true)]
         public const string LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE = "{0} - 第{1}轮";
 
         public const string CONTEXT_DEATH_MESSAGE = "death_message";

@@ -71,19 +71,15 @@ namespace MVZ2.GameContent.Stages
                     if (maxRound <= 0 || maxRound > currentRound)
                     {
                         level.WaveState = STATE_NEXT_ROUND;
-                        string adviceArg;
-                        string adviceStr;
                         if (maxRound <= 0)
                         {
-                            adviceArg = currentRound.ToString();
-                            adviceStr = VanillaStrings.ADVICE_IZ_STREAK;
+                            level.ShowAdvicePlural(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_IZ_STREAK, currentRound, 0, 150, currentRound.ToString());
                         }
                         else
                         {
-                            adviceArg = (maxRound - currentRound).ToString();
-                            adviceStr = VanillaStrings.ADVICE_IZ_ROUNDS_LEFT;
+                            var remained = maxRound - currentRound;
+                            level.ShowAdvicePlural(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_IZ_ROUNDS_LEFT, remained, 0, 150, remained.ToString());
                         }
-                        level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, adviceStr, 0, 150, adviceArg);
                         var roundTimer = GetRoundTimer(level);
                         roundTimer.Reset();
 

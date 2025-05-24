@@ -167,7 +167,8 @@ namespace MVZ2.GameContent.Contraptions
                         fatigueDamageSum += Fatigue(entity);
                     }
                     level.ShakeScreen(10, 0, 15);
-                    level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_NO_CARDS_DRAWN, 0, 150, Mathf.FloorToInt(fatigueDamageSum).ToString());
+                    var sum = Mathf.FloorToInt(fatigueDamageSum);
+                    level.ShowAdvicePlural(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_NO_CARDS_DRAWN, sum, 0, 150, sum.ToString());
                     entity.PlaySound(VanillaSoundID.fatigue);
                 }
             }

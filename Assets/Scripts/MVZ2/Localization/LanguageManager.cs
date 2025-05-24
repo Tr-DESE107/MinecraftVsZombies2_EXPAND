@@ -21,6 +21,22 @@ namespace MVZ2.Localization
         {
             return GetLocalizedStringParticular(context, text, GetCurrentLanguage(), args);
         }
+        public string _n(string text, string textPlural, long n, params object[] args)
+        {
+            return GetLocalizedStringPlural(text, textPlural, n, GetCurrentLanguage(), args);
+        }
+        public string _n(string text, long n, params object[] args)
+        {
+            return _n(text, text, n, args);
+        }
+        public string _pn(string context, string text, string textPlural, long n, params object[] args)
+        {
+            return GetLocalizedStringParticularPlural(context, text, textPlural, n, GetCurrentLanguage(), args);
+        }
+        public string _pn(string context, string text, long n, params object[] args)
+        {
+            return _pn(context, text, text, n, args);
+        }
         public string GetLocalizedString(string text, string language, params object[] args)
         {
             if (string.IsNullOrEmpty(text))
@@ -59,6 +75,52 @@ namespace MVZ2.Localization
                 if (languagePack == null)
                     continue;
                 if (languagePack.TryGetStringParticular(language, context, text, out var result, args))
+                {
+                    translated = result;
+                    return true;
+                }
+            }
+            translated = null;
+            return false;
+        }
+        public string GetLocalizedStringPlural(string text, string textPlural, long n, string language, params object[] args)
+        {
+            if (string.IsNullOrEmpty(text))
+                return string.Empty;
+            if (TryGetLocalizedStringPlural(text, textPlural, n, language, out var str, args))
+                return str;
+            return string.Format(n > 1 ? text : textPlural, args);
+        }
+        public bool TryGetLocalizedStringPlural(string text, string textPlural, long n, string language, out string translated, params object[] args)
+        {
+            foreach (var languagePack in loadedLanguagePacks)
+            {
+                if (languagePack == null)
+                    continue;
+                if (languagePack.TryGetStringPlural(language, text, textPlural, n, out var result, args))
+                {
+                    translated = result;
+                    return true;
+                }
+            }
+            translated = null;
+            return false;
+        }
+        public string GetLocalizedStringParticularPlural(string context, string text, string textPlural, long n, string language, params object[] args)
+        {
+            if (string.IsNullOrEmpty(text))
+                return string.Empty;
+            if (TryGetLocalizedStringParticularPlural(context, text, textPlural, n, language, out var str, args))
+                return str;
+            return string.Format(n > 1 ? text : textPlural, args);
+        }
+        public bool TryGetLocalizedStringParticularPlural(string context, string text, string textPlural, long n, string language, out string translated, params object[] args)
+        {
+            foreach (var languagePack in loadedLanguagePacks)
+            {
+                if (languagePack == null)
+                    continue;
+                if (languagePack.TryGetStringParticularPlural(language, context, text, textPlural, n, out var result, args))
                 {
                     translated = result;
                     return true;
@@ -165,6 +227,14 @@ namespace MVZ2.Localization
         string IGameLocalization.GetTextParticular(string textKey, string context, params string[] args)
         {
             return _p(context, textKey, args);
+        }
+        string IGameLocalization.GetTextPlural(string textKey, string textPlural, long n, params string[] args)
+        {
+            return _n(textKey, textPlural, n, args);
+        }
+        string IGameLocalization.GetTextPluralParticular(string textKey, string textPlural, long n, string context, params string[] args)
+        {
+            return _pn(context, textKey, textPlural, n, args);
         }
         public event Action<string> OnLanguageChanged;
         public MainManager Main => main;

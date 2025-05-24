@@ -59,6 +59,38 @@ namespace MVZ2.Localization
             }
             return false;
         }
+        public bool TryGetStringPlural(string language, string text, string textPlural, long n, out string result, params object[] args)
+        {
+            result = null;
+            var asset = assets.FirstOrDefault(a => a.language == language);
+            if (asset == null)
+                return false;
+            foreach (var catalog in asset.catalogs.Values)
+            {
+                if (catalog.IsTranslationExist(text))
+                {
+                    result = catalog.GetPluralString(text, textPlural, n, args);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool TryGetStringParticularPlural(string language, string context, string text, string textPlural, long n, out string result, params object[] args)
+        {
+            result = null;
+            var asset = assets.FirstOrDefault(a => a.language == language);
+            if (asset == null)
+                return false;
+            foreach (var catalog in asset.catalogs.Values)
+            {
+                if (catalog.IsTranslationExist(context + "\u0004" + text))
+                {
+                    result = catalog.GetParticularPluralString(context, text, textPlural, n, args);
+                    return true;
+                }
+            }
+            return false;
+        }
         public bool TryGetSprite(string language, NamespaceID id, out Sprite spr)
         {
             spr = null;

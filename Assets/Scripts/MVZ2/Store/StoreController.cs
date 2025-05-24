@@ -154,7 +154,7 @@ namespace MVZ2.Store
             if (money >= price)
             {
                 var title = Main.LanguageManager._(PURCHASE);
-                var desc = Main.LanguageManager._(PURCHASE_DESCRIPTION, price);
+                var desc = Main.LanguageManager._n(PURCHASE_DESCRIPTION, price, price);
                 Main.Scene.ShowDialogSelect(title, desc, (purchase) =>
                 {
                     if (purchase)
@@ -231,7 +231,7 @@ namespace MVZ2.Store
 
         [TranslateMsg("商店对话框标题")]
         public const string PURCHASE = "购买物品";
-        [TranslateMsg("商店对话框内容，{0}为价格")]
+        [TranslateMsg("商店对话框内容，{0}为价格", selfPlural: true)]
         public const string PURCHASE_DESCRIPTION = "确定以{0:N0}的价格买下这个物品？";
         [TranslateMsg("商店对话框标题")]
         public const string INSUFFICIENT_MONEY = "金钱不足";
