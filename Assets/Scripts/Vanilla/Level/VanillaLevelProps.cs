@@ -13,14 +13,10 @@ namespace MVZ2.Vanilla.Level
         {
             return new PropertyMeta(name);
         }
+
+        #region 出怪池
+
         public static readonly PropertyMeta ENEMY_POOL = Get("enemyPool");
-        public static readonly PropertyMeta CONVEYOR_POOL = Get("conveyorPool");
-        public static readonly PropertyMeta CONVEY_SPEED = Get("conveySpeed");
-        public static readonly PropertyMeta LAST_ENEMY_POSITION = Get("lastEnemyPosition");
-        public static readonly PropertyMeta MUSIC_ID = Get("musicId");
-        public static readonly PropertyMeta KEEP_HELD_ITEM_IN_SCREEN = Get("keepHeldItemInScreen");
-        public static readonly PropertyMeta TRIGGER_DISABLED = Get("triggerDisabled");
-        public static readonly PropertyMeta TRIGGER_DISABLE_MESSAGE = Get("triggerDisableMessage");
         public static NamespaceID[] GetEnemyPool(this LevelEngine game)
         {
             return game.GetProperty<NamespaceID[]>(ENEMY_POOL);
@@ -29,6 +25,11 @@ namespace MVZ2.Vanilla.Level
         {
             game.SetProperty(ENEMY_POOL, value);
         }
+        #endregion
+
+        #region 传送带
+        public static readonly PropertyMeta CONVEYOR_POOL = Get("conveyorPool");
+        public static readonly PropertyMeta CONVEY_SPEED = Get("conveySpeed");
         public static IConveyorPoolEntry[] GetConveyorPool(this LevelEngine game)
         {
             return game.GetProperty<IConveyorPoolEntry[]>(CONVEYOR_POOL);
@@ -37,6 +38,8 @@ namespace MVZ2.Vanilla.Level
         {
             return game.GetProperty<float>(CONVEY_SPEED);
         }
+        #endregion
+
         #region 星之碎片
         public static readonly PropertyMeta STARSHARD_COUNT = Get("starshardCount");
         public static readonly PropertyMeta STARSHARD_SLOT_COUNT = Get("starshardSlotCount");
@@ -59,6 +62,29 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetProperty<bool>(STARSHARD_DISABLE_ICON);
         }
+        public static bool CanUseStarshard(this LevelEngine level)
+        {
+            if (!level.IsStarshardActive())
+                return false;
+            if (level.IsStarshardDisabled())
+                return false;
+            if (level.GetStarshardCount() <= 0)
+                return false;
+            return true;
+        }
+        public static int GetStarshardCount(this LevelEngine game)
+        {
+            return game.GetProperty<int>(STARSHARD_COUNT);
+        }
+        public static void SetStarshardCount(this LevelEngine game, int value)
+        {
+            value = Mathf.Clamp(value, 0, game.GetStarshardSlotCount());
+            game.SetProperty(STARSHARD_COUNT, value);
+        }
+        public static void AddStarshardCount(this LevelEngine game, int value)
+        {
+            game.SetStarshardCount(game.GetStarshardCount() + value);
+        }
         #endregion
 
         #region 铁镐
@@ -73,6 +99,8 @@ namespace MVZ2.Vanilla.Level
         }
         public static bool CanUsePickaxe(this LevelEngine level)
         {
+            if (!level.IsPickaxeActive())
+                return false;
             if (level.IsPickaxeDisabled())
                 return false;
             if (level.IsPickaxeCountLimited() && level.GetPickaxeRemainCount() <= 0)
@@ -109,6 +137,18 @@ namespace MVZ2.Vanilla.Level
             level.SetProperty(PICKAXE_COUNT_LIMITED, value);
         }
         #endregion
+
+        #region 触发器
+        public static readonly PropertyMeta TRIGGER_DISABLED = Get("triggerDisabled");
+        public static readonly PropertyMeta TRIGGER_DISABLE_MESSAGE = Get("triggerDisableMessage");
+        public static bool CanUseTrigger(this LevelEngine level)
+        {
+            if (!level.IsTriggerActive())
+                return false;
+            if (level.IsTriggerDisabled())
+                return false;
+            return true;
+        }
         public static bool IsTriggerDisabled(this LevelEngine level)
         {
             return level.GetProperty<bool>(TRIGGER_DISABLED);
@@ -117,10 +157,22 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetProperty<string>(TRIGGER_DISABLE_MESSAGE);
         }
+        #endregion
+
+        #region 最后敌人位置
+        public static readonly PropertyMeta LAST_ENEMY_POSITION = Get("lastEnemyPosition");
         public static Vector3 GetLastEnemyPosition(this LevelEngine game)
         {
             return game.GetProperty<Vector3>(LAST_ENEMY_POSITION);
         }
+        public static void SetLastEnemyPosition(this LevelEngine game, Vector3 value)
+        {
+            game.SetProperty(LAST_ENEMY_POSITION, value);
+        }
+        #endregion
+
+        #region 音乐ID
+        public static readonly PropertyMeta MUSIC_ID = Get("musicId");
         public static NamespaceID GetMusicID(this LevelEngine game)
         {
             return game.GetProperty<NamespaceID>(MUSIC_ID);
@@ -129,40 +181,18 @@ namespace MVZ2.Vanilla.Level
         {
             game.SetProperty(MUSIC_ID, value);
         }
-        public static void SetLastEnemyPosition(this LevelEngine game, Vector3 value)
-        {
-            game.SetProperty(LAST_ENEMY_POSITION, value);
-        }
-        public static int GetStarshardCount(this LevelEngine game)
-        {
-            return game.GetProperty<int>(STARSHARD_COUNT);
-        }
-        public static void SetStarshardCount(this LevelEngine game, int value)
-        {
-            value = Mathf.Clamp(value, 0, game.GetStarshardSlotCount());
-            game.SetProperty(STARSHARD_COUNT, value);
-        }
-        public static void AddStarshardCount(this LevelEngine game, int value)
-        {
-            game.SetStarshardCount(game.GetStarshardCount() + value);
-        }
+        #endregion
+
+        #region 让手持物品保持在屏幕内
+        public static readonly PropertyMeta KEEP_HELD_ITEM_IN_SCREEN = Get("keepHeldItemInScreen");
         public static bool KeepHeldItemInScreen(this LevelEngine level)
         {
             return level.GetProperty<bool>(KEEP_HELD_ITEM_IN_SCREEN);
         }
+        #endregion
 
-        public static readonly PropertyMeta FIRST_GEM = Get("firstGem");
+        #region 所有怪物被清理
         public static readonly PropertyMeta ALL_ENEMIES_CLEARED = Get("allEnemiesCleared");
-        public static readonly PropertyMeta STATUE_COUNT = Get("statueCount");
-        public static int GetStatueCount(this LevelEngine level)
-        {
-            return level.GetProperty<int>(STATUE_COUNT);
-        }
-        public static readonly PropertyMeta SPAWNER_COUNT = Get("spawnerCount");
-        public static int GetSpawnerCount(this LevelEngine level)
-        {
-            return level.GetProperty<int>(SPAWNER_COUNT);
-        }
         public static bool IsAllEnemiesCleared(this LevelEngine level)
         {
             return level.GetProperty<bool>(VanillaLevelProps.ALL_ENEMIES_CLEARED);
@@ -171,7 +201,26 @@ namespace MVZ2.Vanilla.Level
         {
             level.SetProperty(VanillaLevelProps.ALL_ENEMIES_CLEARED, value);
         }
-        #region 出怪
+        #endregion
+
+        #region 雕像数量
+
+        public static readonly PropertyMeta STATUE_COUNT = Get("statueCount");
+        public static int GetStatueCount(this LevelEngine level)
+        {
+            return level.GetProperty<int>(STATUE_COUNT);
+        }
+        #endregion
+
+        #region 刷怪笼数量
+        public static readonly PropertyMeta SPAWNER_COUNT = Get("spawnerCount");
+        public static int GetSpawnerCount(this LevelEngine level)
+        {
+            return level.GetProperty<int>(SPAWNER_COUNT);
+        }
+        #endregion
+
+        #region 出怪点数
         public static readonly PropertyMeta SPAWN_POINTS_POWER = Get("spawnPointsPower");
         public static readonly PropertyMeta SPAWN_POINTS_MUTLIPLIER = Get("spawnPointsMultiplier");
         public static readonly PropertyMeta SPAWN_POINTS_ADDITION = Get("spawnPointsAddition");
@@ -200,6 +249,8 @@ namespace MVZ2.Vanilla.Level
             stageDef.SetProperty(SPAWN_POINTS_ADDITION, value);
         }
         #endregion
+
+        #region 忽略一大波事件
         public static readonly PropertyMeta IGNORE_HUGE_WAVE_EVENT = Get("ignoreHugeWaveEvent");
         public static bool IgnoreHugeWaveEvent(this LevelEngine level)
         {
@@ -209,6 +260,7 @@ namespace MVZ2.Vanilla.Level
         {
             level.SetProperty(IGNORE_HUGE_WAVE_EVENT, value);
         }
+        #endregion
 
         #region 无推车
         public static readonly PropertyMeta NO_CARTS = Get("noCarts");
@@ -234,7 +286,6 @@ namespace MVZ2.Vanilla.Level
         }
         #endregion
 
-
         #region 敌人AI
         public static readonly PropertyMeta ENEMY_AI_LEVEL = Get("enemyAILevel");
         public static int GetEnemyAILevel(this LevelEngine level)
@@ -246,7 +297,6 @@ namespace MVZ2.Vanilla.Level
             level.SetProperty(ENEMY_AI_LEVEL, value);
         }
         #endregion
-
 
         #region 星之碎片概率
         public static readonly PropertyMeta STARSHARD_CARRIER_CHANCE_INCREAMENT = Get("starshardCarrierChanceIncreament");

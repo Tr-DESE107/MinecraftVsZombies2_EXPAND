@@ -36,26 +36,17 @@ namespace MVZ2.Level.Components
         {
             Controller.SetMoneyFade(fade);
         }
-        public void SetEnergyActive(bool visible)
-        {
-            Controller.EnergyActive = visible;
-        }
-        public void SetBlueprintsActive(bool visible)
-        {
-            Controller.BlueprintsActive = visible;
-        }
-        public void SetPickaxeActive(bool visible)
-        {
-            Controller.PickaxeActive = visible;
-        }
-        public void SetStarshardActive(bool visible)
-        {
-            Controller.StarshardActive = visible;
-        }
-        public void SetTriggerActive(bool visible)
-        {
-            Controller.TriggerActive = visible;
-        }
+        public void SetEnergyActive(bool visible) => Controller.EnergyActive = visible;
+        public bool IsEnergyActive() => Controller.EnergyActive;
+        public void SetBlueprintsActive(bool visible) => Controller.BlueprintsActive = visible;
+        public bool AreBlueprintsActive() => Controller.BlueprintsActive;
+        public void SetPickaxeActive(bool visible) => Controller.PickaxeActive = visible;
+        public bool IsPickaxeActive() => Controller.PickaxeActive;
+        public void SetStarshardActive(bool visible) => Controller.StarshardActive = visible;
+        public bool IsStarshardActive() => Controller.StarshardActive;
+        public void SetTriggerActive(bool visible) => Controller.TriggerActive = visible;
+        public bool IsTriggerActive() => Controller.TriggerActive;
+
         public void SetHintArrowPointToBlueprint(int index)
         {
             var levelUI = Controller.GetUIPreset();

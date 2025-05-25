@@ -99,30 +99,43 @@ namespace MVZ2Logic.Level.Components
         Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float y);
         Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY);
         void ShakeScreen(float startAmplitude, float endAmplitude, int time);
+
         void ShowMoney();
         void SetMoneyFade(bool fade);
+
         void SetEnergyActive(bool visible);
+        bool IsEnergyActive();
         void SetBlueprintsActive(bool visible);
+        bool AreBlueprintsActive();
         void SetPickaxeActive(bool visible);
+        bool IsPickaxeActive();
         void SetStarshardActive(bool visible);
+        bool IsStarshardActive();
         void SetTriggerActive(bool visible);
+        bool IsTriggerActive();
+
         void SetHintArrowPointToBlueprint(int index);
         void SetHintArrowPointToPickaxe();
         void SetHintArrowPointToTrigger();
         void SetHintArrowPointToStarshard();
         void SetHintArrowPointToEntity(Entity entity);
         void HideHintArrow();
+
         void SetProgressBarToBoss(NamespaceID barStyle);
         void SetProgressBarToStage();
+
         void PauseGame(int level = 0);
         void ResumeGame(int level = 0);
+
         void SetUIAndInputDisabled(bool value);
         void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
         void SetAreaModelPreset(string name);
+
         void TriggerModelAnimator(string name);
         void SetModelAnimatorBool(string name, bool value);
         void SetModelAnimatorInt(string name, int value);
         void SetModelAnimatorFloat(string name, float value);
+
         void UpdateLevelName();
     }
     public interface IMoneyComponent : ILevelComponent

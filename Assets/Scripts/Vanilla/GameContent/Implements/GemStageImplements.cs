@@ -5,9 +5,11 @@ using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
+using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -25,7 +27,7 @@ namespace MVZ2.GameContent.Implements
         private void Gem_PostUpdateCallback(LevelCallbackParams param, CallbackResult result)
         {
             var level = param.level;
-            var firstGem = level.GetProperty<EntityID>(VanillaLevelProps.FIRST_GEM);
+            var firstGem = level.GetProperty<EntityID>(FIRST_GEM);
             if (firstGem == null)
                 return;
             var gem = firstGem.GetEntity(level);
@@ -34,7 +36,7 @@ namespace MVZ2.GameContent.Implements
                 var adviceContext = CONTEXT_ADVICE_COLLECT_MONEY;
                 var adviceText = ADVICE_COLLECT_MONEY_1;
                 level.ShowAdvice(adviceContext, adviceText, 1000, 90);
-                level.SetProperty(VanillaLevelProps.FIRST_GEM, null);
+                level.SetProperty(FIRST_GEM, null);
                 level.HideHintArrow();
             }
         }
@@ -51,7 +53,7 @@ namespace MVZ2.GameContent.Implements
             {
                 Global.Game.Unlock(VanillaUnlockID.money);
                 level.SetHintArrowPointToEntity(pickup);
-                level.SetProperty(VanillaLevelProps.FIRST_GEM, new EntityID(pickup));
+                level.SetProperty(FIRST_GEM, new EntityID(pickup));
                 var adviceContext = CONTEXT_ADVICE_COLLECT_MONEY;
                 var adviceText = ADVICE_COLLECT_MONEY_0;
                 level.ShowAdvice(adviceContext, adviceText, 1000, -1);
@@ -82,6 +84,9 @@ namespace MVZ2.GameContent.Implements
                 enemy.AddBuff<GemCarrierBuff>();
             }
         }
+        public const string REGION_NAME = "gem_stage";
+        [LevelPropertyRegistry(REGION_NAME)]
+        public static readonly VanillaLevelPropertyMeta FIRST_GEM = new VanillaLevelPropertyMeta("firstGem");
         public const string CONTEXT_ADVICE_COLLECT_MONEY = "advice.collect_money";
         [TranslateMsg("拾取宝石的帮助提示", CONTEXT_ADVICE_COLLECT_MONEY)]
         public const string ADVICE_COLLECT_MONEY_0 = "点击收集宝石！";

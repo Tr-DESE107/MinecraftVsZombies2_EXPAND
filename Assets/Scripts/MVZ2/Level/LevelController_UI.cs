@@ -680,13 +680,11 @@ namespace MVZ2.Level
                 }
                 return;
             }
-            if (level.GetStarshardCount() <= 0)
+            if (!level.CanUseStarshard())
             {
                 level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
-            if (level.IsStarshardDisabled())
-                return;
             level.SetHeldItem(VanillaHeldTypes.starshard, 0, 0);
         }
         private void ClickTrigger()
@@ -701,7 +699,7 @@ namespace MVZ2.Level
                 }
                 return;
             }
-            if (level.IsTriggerDisabled())
+            if (!level.CanUseTrigger())
                 return;
             level.SetHeldItem(VanillaHeldTypes.trigger, 0, 0);
         }

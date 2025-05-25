@@ -43,25 +43,50 @@ namespace MVZ2Logic.Level
             var component = level.GetUIComponent();
             component.SetEnergyActive(visible);
         }
+        public static bool IsEnergyActive(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            return component.IsEnergyActive();
+        }
         public static void SetBlueprintsActive(this LevelEngine level, bool visible)
         {
             var component = level.GetUIComponent();
             component.SetBlueprintsActive(visible);
+        }
+        public static bool AreBlueprintsActive(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            return component.AreBlueprintsActive();
         }
         public static void SetPickaxeActive(this LevelEngine level, bool visible)
         {
             var component = level.GetUIComponent();
             component.SetPickaxeActive(visible);
         }
+        public static bool IsPickaxeActive(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            return component.IsPickaxeActive();
+        }
         public static void SetStarshardActive(this LevelEngine level, bool visible)
         {
             var component = level.GetUIComponent();
             component.SetStarshardActive(visible);
         }
+        public static bool IsStarshardActive(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            return component.IsStarshardActive();
+        }
         public static void SetTriggerActive(this LevelEngine level, bool visible)
         {
             var component = level.GetUIComponent();
             component.SetTriggerActive(visible);
+        }
+        public static bool IsTriggerActive(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            return component.IsTriggerActive();
         }
         public static void ShakeScreen(this LevelEngine level, float startAmplitude, float endAmplitude, int time)
         {
