@@ -31,6 +31,8 @@ namespace MVZ2.GameContent.Enemies
             var targetPosition = GetTargetPosition(entity);
             targetPosition.y = entity.Level.GetGroundY(targetPosition.x, targetPosition.z);
             entity.Position = targetPosition;
+            entity.Velocity = Vector3.zero;
+            entity.StopChangingLane();
 
             entity.SetAnimationFloat("Range", entity.GetRange());
             entity.SetAnimationInt("HealthState", entity.GetHealthState(5));
