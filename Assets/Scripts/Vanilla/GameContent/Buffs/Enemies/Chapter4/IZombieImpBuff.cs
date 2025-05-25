@@ -1,4 +1,6 @@
-﻿using MVZ2.Vanilla.Entities;
+﻿using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Stages;
+using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -10,7 +12,7 @@ namespace MVZ2.GameContent.Buffs
     {
         public IZombieImpBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 3200 / 1003f));
+            AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, GetSpeedMultiplier()));
             AddModifier(new MaxHealthModifier(NumberOperator.Multiply, 0.25f));
         }
         // 如果要让小鬼能够走过尖刺时稳定被扎两次，那么它的最终速度x应为：
@@ -21,7 +23,26 @@ namespace MVZ2.GameContent.Buffs
 
         // s为地刺范围宽度，w为小鬼体积宽度，f为小鬼摩擦力，m为怪物移速的乘算倍率。
         // 若s=64，w=16，f=0.15，m=0.4，则x = 3.988036
-        // 因为IZ自带所有僵尸速度1.25倍，所以最终还需要除以1.25。
-        // 所以最终倍率为 3.190429。
+        // 因为IZ自带所有僵尸速度1.5倍，所以最终还需要除以1.5。
+        // 所以最终倍率为 80/(59*0.85*0.4*1.5) = 8000/3009。
+        private float GetSpeedMultiplier()
+        {
+            var spikeWidth = 64;
+            var impWidth = 16;
+            var spikeInterval = SpikeBlock.ATTACK_INTERVAL;
+            var targetTimes = 2;
+            var impFriction = 0.15f;
+            var speedFactor = VanillaEnemyExt.WALK_SPEED_FACTOR;
+            var izRandomSpeed = IZombieBehaviour.ZOMBIE_RANDOM_SPEED;
+            var baseSpeed = 1;
+
+            var distance = spikeWidth + impWidth;
+            var totalTime = spikeInterval * targetTimes - 1;
+            var realVelocity = distance / (float)totalTime;
+
+            var frictionMulti = 1 - impFriction;
+            var speedValue = realVelocity / frictionMulti / speedFactor / izRandomSpeed; 
+            return speedValue / baseSpeed;
+        }
     }
 }

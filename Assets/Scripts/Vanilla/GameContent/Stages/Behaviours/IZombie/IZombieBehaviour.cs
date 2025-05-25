@@ -187,7 +187,7 @@ namespace MVZ2.GameContent.Stages
             }
             foreach (var buff in entity.GetBuffs<RandomEnemySpeedBuff>())
             {
-                RandomEnemySpeedBuff.SetSpeed(buff, 1.25f);
+                RandomEnemySpeedBuff.SetSpeed(buff, ZOMBIE_RANDOM_SPEED);
             }
         }
         private void CheckGameOver(LevelEngine level)
@@ -231,6 +231,7 @@ namespace MVZ2.GameContent.Stages
         public const int STATE_NORMAL = VanillaLevelStates.STATE_IZ_NORMAL;
         public const int STATE_NEXT_ROUND = VanillaLevelStates.STATE_IZ_NEXT;
         public const int STATE_FINISHED = VanillaLevelStates.STATE_IZ_FINISHED;
+        public const float ZOMBIE_RANDOM_SPEED = 1.5f;
         #endregion
     }
 }

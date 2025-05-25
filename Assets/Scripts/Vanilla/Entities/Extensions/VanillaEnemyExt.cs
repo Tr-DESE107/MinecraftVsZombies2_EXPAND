@@ -42,7 +42,7 @@ namespace MVZ2.Vanilla.Entities
         public static void UpdateWalkVelocity(this Entity enemy)
         {
             var velocity = enemy.Velocity;
-            var speed = enemy.GetSpeed() * 0.4f;
+            var speed = enemy.GetSpeed() * WALK_SPEED_FACTOR;
             if (Mathf.Abs(velocity.x) < speed)
             {
                 float min = Mathf.Min(speed, -speed);
@@ -53,6 +53,7 @@ namespace MVZ2.Vanilla.Entities
             }
             enemy.Velocity = velocity;
         }
+        public const float WALK_SPEED_FACTOR = 0.4f; // 怪物的移速乘算倍率，默认0.4倍
         public static void FaintRemove(this Entity enemy)
         {
             var callbackResult = new CallbackResult(true);
