@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Buffs.Enemies;
@@ -110,9 +111,9 @@ namespace MVZ2.GameContent.Contraptions
                 entity.State = STATE_IDLE;
             }
         }
-        private void SpawnBlueprintPickups(Entity entity, IEnumerable<SeedPack> selected)
+        private void SpawnBlueprintPickups(Entity entity, SeedPack[] selected)
         {
-            var selectedCount = selected.Count();
+            var selectedCount = selected.Length;
             var minXSpeed = -3;
             var maxXSpeed = 3;
 
@@ -121,7 +122,7 @@ namespace MVZ2.GameContent.Contraptions
             int missDrawCount = 0;
             for (int i = 0; i < selectedCount; i++)
             {
-                var seed = selected.ElementAt(i);
+                var seed = selected[i];
                 if (seed == null)
                 {
                     missDrawCount++;
@@ -137,6 +138,12 @@ namespace MVZ2.GameContent.Contraptions
                 spawnParams.SetProperty(BlueprintPickup.PROP_BLUEPRINT_ID, blueprintID);
                 spawnParams.SetProperty(BlueprintPickup.PROP_COMMAND_BLOCK, seed.IsCommandBlock());
                 var pickup = entity.Spawn(VanillaPickupID.blueprintPickup, entity.GetCenter(), spawnParams);
+
+                if (seed is ClassicSeedPack)
+                {
+                    seed.SetStartRecharge(false);
+                    seed.ResetRecharge();
+                }
 
                 float xSpeed = 0;
                 if (selectedCount > 1)
@@ -181,30 +188,25 @@ namespace MVZ2.GameContent.Contraptions
         private SeedPack[] GetBlueprintsToCopy(Entity entity)
         {
             var level = entity.Level;
-            IEnumerable<SeedPack> heldBlueprintsID;
+            IEnumerable<SeedPack> heldBlueprints;
             if (level.IsConveyorMode())
             {
-                heldBlueprintsID = level.GetAllConveyorSeedPacks();
+                heldBlueprints = level.GetAllConveyorSeedPacks();
             }
             else
             {
-                heldBlueprintsID = level.GetAllSeedPacks();
+                heldBlueprints = level.GetAllSeedPacks().Where(e => e.IsCharged());
             }
-            List<SeedPack> pile = new List<SeedPack>();
-            var count = heldBlueprintsID.Count();
+            SeedPack[] pile = new SeedPack[EVOCATION_CARD_COUNT];
+            var count = heldBlueprints.Count();
             if (count > 0)
             {
-                var index = GetCurrentDrawIndex(level);
-                for (int i = 0; i < EVOCATION_CARD_COUNT; i++)
+                for (int i = 0; i < pile.Length; i++)
                 {
-                    if (index >= count)
-                    {
-                        index = 0;
-                    }
-                    var seedPack = heldBlueprintsID.ElementAt(index);
-                    pile.Add(seedPack);
-                    index++;
-                    SetCurrentDrawIndex(level, index);
+                    if (i >= count)
+                        continue;
+                    var seedPack = heldBlueprints.ElementAt(i);
+                    pile[i] = seedPack;
                 }
             }
             return pile.ToArray();
@@ -225,8 +227,6 @@ namespace MVZ2.GameContent.Contraptions
 
         public static float GetFatigueDamage(LevelEngine level) => level.GetBehaviourField<float>(PROP_FATIGUE_DAMAGE);
         public static void SetFatigueDamage(LevelEngine level, float value) => level.SetBehaviourField(PROP_FATIGUE_DAMAGE, value);
-        public static int GetCurrentDrawIndex(LevelEngine level) => level.GetBehaviourField<int>(PROP_CURRENT_DRAW_INDEX);
-        public static void SetCurrentDrawIndex(LevelEngine level, int value) => level.SetBehaviourField(PROP_CURRENT_DRAW_INDEX, value);
 
 
         public static List<long> GetDrainedEnemies(Entity entity) => entity.GetBehaviourField<List<long>>(PROP_DRAINED_ENEMIES);
@@ -268,8 +268,6 @@ namespace MVZ2.GameContent.Contraptions
         private List<Entity> detectBuffer = new List<Entity>();
         [LevelPropertyRegistry(PROP_REGION)]
         private static readonly VanillaLevelPropertyMeta PROP_FATIGUE_DAMAGE = new VanillaLevelPropertyMeta("FatigueDamage");
-        [LevelPropertyRegistry(PROP_REGION)]
-        private static readonly VanillaLevelPropertyMeta PROP_CURRENT_DRAW_INDEX = new VanillaLevelPropertyMeta("CurrentDrawIndex");
         private static readonly VanillaEntityPropertyMeta PROP_DETECT_TIMER = new VanillaEntityPropertyMeta("DetectTimer");
         private static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
         private static readonly VanillaEntityPropertyMeta PROP_DRAINED_ENEMIES = new VanillaEntityPropertyMeta("DrainedEnemies");
