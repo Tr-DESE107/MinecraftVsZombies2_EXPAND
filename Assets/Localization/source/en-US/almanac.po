@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-05-25 09:49+0800\n"
-"PO-Revision-Date: 2025-05-25 09:49+0800\n"
+"PO-Revision-Date: 2025-05-26 10:24+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1022,13 +1022,15 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "欲望壶会复制敌人身上拥有的星之碎片。"
-msgstr "Desire Pots can duplicate the starshards carried by enemies."
+msgstr "Desire Pots duplicate the starshards carried by enemies."
 
 #. Properties for contraptions mvz2:desire_pot
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "技能：<color=red>将最前方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>"
-msgstr "Evocation: <color=red>Copy 2 forefront fully recharged blueprints as pickups, then reset their recharges</color>"
+msgstr ""
+"Evocation: <color=red>Spawn copies of the top 2 fully-recharged blueprints as pickups, then reset the recharges of the 2 blueprints.</"
+"color>"
 
 #. Flavor for contraptions mvz2:desire_pot
 #: Almanac meta file
