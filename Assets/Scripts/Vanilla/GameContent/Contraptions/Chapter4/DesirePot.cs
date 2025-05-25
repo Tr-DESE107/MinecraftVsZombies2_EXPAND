@@ -195,7 +195,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             else
             {
-                heldBlueprints = level.GetAllSeedPacks().Where(e => e.IsCharged());
+                heldBlueprints = level.GetAllSeedPacks().Where(e => e != null && e.IsCharged());
             }
             SeedPack[] pile = new SeedPack[EVOCATION_CARD_COUNT];
             var count = heldBlueprints.Count();
