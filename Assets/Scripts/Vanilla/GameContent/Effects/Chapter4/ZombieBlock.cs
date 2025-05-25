@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;

@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using MVZ2.GameContent.Effects;
+﻿using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;

@@ -1,8 +1,5 @@
-﻿using MVZ2.GameContent.Pickups;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Properties;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;

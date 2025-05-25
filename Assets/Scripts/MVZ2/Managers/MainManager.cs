@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Almanacs;
@@ -25,7 +23,6 @@ using MVZ2Logic;
 using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
 
 namespace MVZ2.Managers
 {

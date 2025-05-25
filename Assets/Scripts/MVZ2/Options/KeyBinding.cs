@@ -1,5 +1,4 @@
-﻿using MVZ2.Managers;
-using PVZEngine;
+﻿using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Options

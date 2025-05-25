@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Buffs
             var realVelocity = distance / (float)totalTime;
 
             var frictionMulti = 1 - impFriction;
-            var speedValue = realVelocity / frictionMulti / speedFactor / izRandomSpeed; 
+            var speedValue = realVelocity / frictionMulti / speedFactor / izRandomSpeed;
             return speedValue / baseSpeed;
         }
     }

@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using MVZ2.Managers;
 using MVZ2.Vanilla;
-using MVZ2Logic;
 using UnityEngine;
 
 namespace MVZ2.Mainmenu.UI

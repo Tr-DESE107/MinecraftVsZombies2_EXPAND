@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Buffs.Armors;
+﻿using MVZ2.GameContent.Buffs.Armors;
 using PVZEngine.Armors;
 
 namespace MVZ2.Vanilla.Entities
