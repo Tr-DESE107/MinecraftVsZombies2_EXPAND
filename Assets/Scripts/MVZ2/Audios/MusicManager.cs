@@ -177,8 +177,11 @@ namespace MVZ2.Audios
             get => mainTrackSource.time;
             set
             {
-                mainTrackSource.time = value;
-                subTrackSource.time = value;
+                if (!mainTrackSource.clip)
+                    return;
+                var v = Mathf.Min(mainTrackSource.clip.length - 0.001f, value);
+                mainTrackSource.time = v;
+                subTrackSource.time = v;
             }
         }
         public bool IsPaused { get; private set; }
