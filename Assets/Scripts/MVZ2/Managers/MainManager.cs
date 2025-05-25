@@ -19,13 +19,13 @@ using MVZ2.Modding;
 using MVZ2.Models;
 using MVZ2.Options;
 using MVZ2.Saves;
-using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
 using MVZ2Logic;
 using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 namespace MVZ2.Managers
 {
@@ -37,13 +37,12 @@ namespace MVZ2.Managers
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Application.targetFrameRate = 60;
 
-            LogGraphics();
-
             InitSerializable();
 
             Global.Init(this);
             Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);
 
+            GraphicsManager.Init();
             InputManager.InitKeys();
             OptionsManager.InitOptions();
             OptionsManager.LoadOptions();
@@ -251,143 +250,7 @@ namespace MVZ2.Managers
             }
             Debug.LogError(e.Exception);
         }
-        private void LogGraphics()
-        {
-            var sb = new StringBuilder();
 
-            sb.AppendLine($"Quality: {QualitySettings.names[QualitySettings.GetQualityLevel()]}");
-
-            sb.AppendLine("系统信息：");
-            sb.AppendLine($"deviceModel: {SystemInfo.deviceModel}");
-            sb.AppendLine($"deviceType: {SystemInfo.deviceType}");
-            sb.AppendLine($"operatingSystem: {SystemInfo.operatingSystem}");
-            sb.AppendLine($"operatingSystemFamily: {SystemInfo.operatingSystemFamily}");
-            sb.AppendLine($"processorCount: {SystemInfo.processorCount}");
-            sb.AppendLine($"processorFrequency: {SystemInfo.processorFrequency}");
-            sb.AppendLine($"processorType: {SystemInfo.processorType}");
-            sb.AppendLine($"supportsAccelerometer: {SystemInfo.supportsAccelerometer}");
-            sb.AppendLine($"supportsAudio: {SystemInfo.supportsAudio}");
-            sb.AppendLine($"supportsGyroscope: {SystemInfo.supportsGyroscope}");
-            sb.AppendLine($"supportsLocationService: {SystemInfo.supportsLocationService}");
-            sb.AppendLine($"supportsVibration: {SystemInfo.supportsVibration}");
-            sb.AppendLine($"systemMemorySize: {SystemInfo.systemMemorySize}");
-
-            sb.AppendLine();
-            sb.AppendLine("显示设备信息：");
-            sb.AppendLine($"graphicsDeviceID: {SystemInfo.graphicsDeviceID}");
-            sb.AppendLine($"graphicsDeviceName: {SystemInfo.graphicsDeviceName}");
-            sb.AppendLine($"graphicsDeviceType: {SystemInfo.graphicsDeviceType}");
-            sb.AppendLine($"graphicsDeviceVendor: {SystemInfo.graphicsDeviceVendor}");
-            sb.AppendLine($"graphicsDeviceVendorID: {SystemInfo.graphicsDeviceVendorID}");
-            sb.AppendLine($"graphicsDeviceVersion: {SystemInfo.graphicsDeviceVersion}");
-            sb.AppendLine($"graphicsMemorySize: {SystemInfo.graphicsMemorySize}");
-            sb.AppendLine($"graphicsMultiThreaded: {SystemInfo.graphicsMultiThreaded}");
-            sb.AppendLine($"graphicsShaderLevel: {SystemInfo.graphicsShaderLevel}");
-            sb.AppendLine($"graphicsUVStartsAtTop: {SystemInfo.graphicsUVStartsAtTop}");
-            sb.AppendLine($"maxGraphicsBufferSize: {SystemInfo.maxGraphicsBufferSize}");
-            sb.AppendLine($"supportsGraphicsFence: {SystemInfo.supportsGraphicsFence}");
-            sb.AppendLine($"renderingThreadingMode: {SystemInfo.renderingThreadingMode}");
-            sb.AppendLine($"hasHiddenSurfaceRemovalOnGPU: {SystemInfo.hasHiddenSurfaceRemovalOnGPU}");
-            sb.AppendLine($"hasDynamicUniformArrayIndexingInFragmentShaders: {SystemInfo.hasDynamicUniformArrayIndexingInFragmentShaders}");
-            sb.AppendLine($"supportsShadows: {SystemInfo.supportsShadows}");
-            sb.AppendLine($"supportsRawShadowDepthSampling: {SystemInfo.supportsRawShadowDepthSampling}");
-            sb.AppendLine($"supportsMotionVectors: {SystemInfo.supportsMotionVectors}");
-            sb.AppendLine($"supports3DTextures: {SystemInfo.supports3DTextures}");
-            sb.AppendLine($"supports2DArrayTextures: {SystemInfo.supports2DArrayTextures}");
-            sb.AppendLine($"supports3DRenderTextures: {SystemInfo.supports3DRenderTextures}");
-            sb.AppendLine($"supportsCubemapArrayTextures: {SystemInfo.supportsCubemapArrayTextures}");
-            sb.AppendLine($"copyTextureSupport: {SystemInfo.copyTextureSupport}");
-            sb.AppendLine($"supportsComputeShaders: {SystemInfo.supportsComputeShaders}");
-            sb.AppendLine($"renderingThreadingMode: {SystemInfo.renderingThreadingMode}");
-            sb.AppendLine($"supportsGeometryShaders: {SystemInfo.supportsGeometryShaders}");
-            sb.AppendLine($"supportsTessellationShaders: {SystemInfo.supportsTessellationShaders}");
-            sb.AppendLine($"supportsInstancing: {SystemInfo.supportsInstancing}");
-            sb.AppendLine($"supportsHardwareQuadTopology: {SystemInfo.supportsHardwareQuadTopology}");
-            sb.AppendLine($"supports32bitsIndexBuffer: {SystemInfo.supports32bitsIndexBuffer}");
-            sb.AppendLine($"supportsSparseTextures: {SystemInfo.supportsSparseTextures}");
-            sb.AppendLine($"supportedRenderTargetCount: {SystemInfo.supportedRenderTargetCount}");
-            sb.AppendLine($"supportsSeparatedRenderTargetsBlend: {SystemInfo.supportsSeparatedRenderTargetsBlend}");
-            sb.AppendLine($"supportedRandomWriteTargetCount: {SystemInfo.supportedRandomWriteTargetCount}");
-            sb.AppendLine($"supportsMultisampledTextures: {SystemInfo.supportsMultisampledTextures}");
-            sb.AppendLine($"supportsMultisampleAutoResolve: {SystemInfo.supportsMultisampleAutoResolve}");
-            sb.AppendLine($"supportsTextureWrapMirrorOnce: {SystemInfo.supportsTextureWrapMirrorOnce}");
-            sb.AppendLine($"usesReversedZBuffer: {SystemInfo.usesReversedZBuffer}");
-            sb.AppendLine($"npotSupport: {SystemInfo.npotSupport}");
-            sb.AppendLine($"maxTextureSize: {SystemInfo.maxTextureSize}");
-            sb.AppendLine($"maxCubemapSize: {SystemInfo.maxCubemapSize}");
-            sb.AppendLine($"maxComputeBufferInputsVertex: {SystemInfo.maxComputeBufferInputsVertex}");
-            sb.AppendLine($"maxComputeBufferInputsFragment: {SystemInfo.maxComputeBufferInputsFragment}");
-            sb.AppendLine($"maxComputeBufferInputsGeometry: {SystemInfo.maxComputeBufferInputsGeometry}");
-            sb.AppendLine($"maxComputeBufferInputsDomain: {SystemInfo.maxComputeBufferInputsDomain}");
-            sb.AppendLine($"maxComputeBufferInputsHull: {SystemInfo.maxComputeBufferInputsHull}");
-            sb.AppendLine($"maxComputeBufferInputsCompute: {SystemInfo.maxComputeBufferInputsCompute}");
-            sb.AppendLine($"maxComputeWorkGroupSize: {SystemInfo.maxComputeWorkGroupSize}");
-            sb.AppendLine($"maxComputeWorkGroupSizeX: {SystemInfo.maxComputeWorkGroupSizeX}");
-            sb.AppendLine($"maxComputeWorkGroupSizeY: {SystemInfo.maxComputeWorkGroupSizeY}");
-            sb.AppendLine($"maxComputeWorkGroupSizeZ: {SystemInfo.maxComputeWorkGroupSizeZ}");
-            sb.AppendLine($"supportsAsyncCompute: {SystemInfo.supportsAsyncCompute}");
-            sb.AppendLine($"supportsGraphicsFence: {SystemInfo.supportsGraphicsFence}");
-            sb.AppendLine($"supportsAsyncGPUReadback: {SystemInfo.supportsAsyncGPUReadback}");
-            sb.AppendLine($"supportsRayTracing: {SystemInfo.supportsRayTracing}");
-            sb.AppendLine($"supportsSetConstantBuffer: {SystemInfo.supportsSetConstantBuffer}");
-            sb.AppendLine($"minConstantBufferOffsetAlignment: {SystemInfo.constantBufferOffsetAlignment}");
-            sb.AppendLine($"hasMipMaxLevel: {SystemInfo.hasMipMaxLevel}");
-            sb.AppendLine($"supportsMipStreaming: {SystemInfo.supportsMipStreaming}");
-            sb.AppendLine($"usesLoadStoreActions: {SystemInfo.usesLoadStoreActions}");
-
-            sb.Append($"supportedTextureFormats: ");
-            var enumType = typeof(TextureFormat);
-            foreach (var v in Enum.GetValues(enumType))
-            {
-                try
-                {
-                    var format = (TextureFormat)v;
-                    if (!IsValidEnumValue(format))
-                        continue;
-                    if (SystemInfo.SupportsTextureFormat(format))
-                    {
-                        sb.Append($"{format},");
-                    }
-                }
-                catch (ArgumentException)
-                {
-                    continue;
-                }
-            }
-            sb.AppendLine();
-            sb.Append($"supportedRenderTextureFormats: ");
-            foreach (var v in Enum.GetValues(typeof(RenderTextureFormat)))
-            {
-                try
-                {
-                    var format = (RenderTextureFormat)v;
-                    if (SystemInfo.SupportsRenderTextureFormat(format))
-                    {
-                        sb.Append($"{format},");
-                    }
-                }
-                catch (ArgumentException)
-                {
-                    continue;
-                }
-            }
-            sb.AppendLine();
-            Debug.Log(sb.ToString());
-        }
-
-        private bool IsValidEnumValue(Enum value)
-        {
-            var enumType = value.GetType();
-            FieldInfo[] fields = enumType.GetFields(BindingFlags.Public | BindingFlags.Static);
-            foreach (FieldInfo fieldInfo in fields)
-            {
-                if (object.Equals(fieldInfo.GetValue(null), value))
-                {
-                    return fieldInfo.GetCustomAttribute<ObsoleteAttribute>() == null;
-                }
-            }
-            return false;
-        }
         IGame IMainManager.Game => Game;
 
         [TranslateMsg("初始化任务名称")]
@@ -417,6 +280,7 @@ namespace MVZ2.Managers
         public InputManager InputManager => inputManager;
         public SponsorManager SponsorManager => sponsorManager;
         public ParticleManager ParticleManager => particleManager;
+        public GraphicsManager GraphicsManager => graphicsManager;
         public MainSceneController Scene => scene;
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
@@ -469,6 +333,8 @@ namespace MVZ2.Managers
         private SponsorManager sponsorManager;
         [SerializeField]
         private ParticleManager particleManager;
+        [SerializeField]
+        private GraphicsManager graphicsManager;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

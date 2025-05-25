@@ -956,6 +956,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e10ece44e3050a42a114e468c35721a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2764071074507522287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486338648524272948}
+  - component: {fileID: 4613091086933847664}
+  m_Layer: 0
+  m_Name: GraphicsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1486338648524272948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764071074507522287}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2702837359376535132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4613091086933847664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764071074507522287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400a9bef9e63fbd4b8aeb270d82f446d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  main: {fileID: 2802494976120551623}
+  renderTexturesToInit:
+  - {fileID: 8600000, guid: 9970d50c859831544b8a0c5ac4c20bbc, type: 2}
+  - {fileID: 8600000, guid: 1625456059e0b82448c58404c9208d31, type: 2}
+  - {fileID: 8600000, guid: 520d28ea1cee7004bbda9e94e545703c, type: 2}
 --- !u!1 &2940633736612825156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,6 +1826,7 @@ Transform:
   - {fileID: 664033168216589380}
   - {fileID: 3051656010451754638}
   - {fileID: 8994448404940021086}
+  - {fileID: 1486338648524272948}
   - {fileID: 7379855717041455300}
   m_Father: {fileID: 791871319312073938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1815,6 +1865,7 @@ MonoBehaviour:
   inputManager: {fileID: 993784861722068660}
   sponsorManager: {fileID: 7089875096155935536}
   particleManager: {fileID: 7348705341924211835}
+  graphicsManager: {fileID: 4613091086933847664}
   scene: {fileID: 127843766599020872}
 --- !u!1 &4822075168359775463
 GameObject:
