@@ -137,7 +137,7 @@ namespace MVZ2.Arcade
                 name = GetTranslatedString(LEVEL_NAME_NOT_UNLOCKED);
             }
             var hint = string.Empty;
-            if (stageMeta.Type == StageTypes.TYPE_PUZZLE_ENDLESS)
+            if (unlocked && stageMeta.Type == StageTypes.TYPE_PUZZLE_ENDLESS)
             {
                 var flags = Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
                 hint = GetTranslatedString(ENDLESS_MAX_STREAKS, flags);
