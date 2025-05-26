@@ -17,21 +17,60 @@ namespace MVZ2.Scenes
     {
         private async void Start()
         {
+            if (!await Initialize())
+                return;
+
+            await CheckSaveDataStatus();
+            await StartGame();
+        }
+        private async Task<bool> Initialize()
+        {
             try
             {
                 loadingText.SetActive(true);
                 await main.Initialize();
-                main.InitLoad();
+                return true;
             }
             catch (Exception e)
             {
                 ShowErrorDialog(e);
-                return;
+                return false;
             }
-            await CheckSaveDataStatus();
-            await StartGame();
-            main.MusicManager.Play(VanillaMusicID.mainmenu);
-            loadingText.SetActive(false);
+            finally
+            {
+                loadingText.SetActive(false);
+            }
+        }
+        private async Task StartGame()
+        {
+            try
+            {
+                loadingText.SetActive(true);
+                main.InitLoad();
+
+                if (!main.IsFastMode())
+                {
+                    main.Scene.DisplayPage(MainScenePageType.Splash);
+                }
+                else
+                {
+                    var initTask = main.GetInitTask();
+                    if (initTask != null)
+                    {
+                        await initTask;
+                    }
+                    main.Scene.DisplayMainmenu();
+                }
+                main.MusicManager.Play(VanillaMusicID.mainmenu);
+            }
+            catch (Exception e)
+            {
+                ShowErrorDialog(e);
+            }
+            finally
+            {
+                loadingText.SetActive(false);
+            }
         }
         private string GetErrorMessage(Exception e)
         {
@@ -116,22 +155,6 @@ namespace MVZ2.Scenes
                         main.SaveManager.SaveUserList();
                     }
                     break;
-            }
-        }
-        private async Task StartGame()
-        {
-            if (main.IsFastMode())
-            {
-                var initTask = main.GetInitTask();
-                if (initTask != null)
-                {
-                    await initTask;
-                }
-                main.Scene.DisplayMainmenu();
-            }
-            else
-            {
-                main.Scene.DisplayPage(MainScenePageType.Splash);
             }
         }
         private void Quit()

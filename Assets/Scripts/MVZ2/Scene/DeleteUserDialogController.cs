@@ -20,7 +20,8 @@ namespace MVZ2.Mainmenu.UI
             var userIndexes = users.Select((user, index) => (user, index)).Where(a => a.user != null).Select(p => p.index);
             managingUserIndexes = userIndexes.ToArray();
             selectedUserArrayIndex = 0;
-            ui.UpdateUsers(users.Select(u => new UserNameItemViewData() { name = u.Username }).ToArray());
+            ui.UpdateUsers(users.Select(u => new UserNameItemViewData() { name = u.Username, color = Color.black }).ToArray());
+            ui.SelectUser(selectedUserArrayIndex);
 
             tcs = new TaskCompletionSource<int>();
             return tcs.Task;
