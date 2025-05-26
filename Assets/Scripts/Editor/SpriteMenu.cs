@@ -20,7 +20,7 @@ namespace MVZ2.Editor
             var spriteOrders = spriteRects.Select((rect, index) => (rect.name, index)).ToDictionary(p => p.name, p => p.index);
             return AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().OrderBy(s => spriteOrders[s.name]).ToArray();
         }
-        public static void UpdateSpriteManifest(string manifestPath)
+        public static void UpdateSpriteManifest(string manifestPath, bool init)
         {
             var manifestAssetPath = AssetsMenu.FileToAssetPath(manifestPath);
             var spriteManifest = AssetDatabase.LoadAssetAtPath<SpriteManifest>(manifestAssetPath);
@@ -44,6 +44,9 @@ namespace MVZ2.Editor
                 var relativePath = Path.GetRelativePath(directory, filePath);
                 var splitPath = relativePath.Split('/', '\\');
                 bool isSheet = splitPath[0] == "spritesheets";
+                bool isInitSprite = splitPath.Contains("init");
+                if (isInitSprite != init)
+                    continue;
                 var resourceDirectory = string.Join('/', splitPath.Skip(1).SkipLast(1));
                 var resourceName = Path.Combine(resourceDirectory, Path.GetFileNameWithoutExtension(filePath)).Replace("\\", "/");
                 var assetPath = AssetsMenu.FileToAssetPath(filePath);
@@ -72,17 +75,13 @@ namespace MVZ2.Editor
 
             EditorUtility.ClearProgressBar();
         }
-        [MenuItem("Custom/Assets/Sprites/Update Sprite Manifest At File")]
-        public static void UpdateSpriteManifestAtFile()
-        {
-            var manifestPath = EditorUtility.OpenFilePanelWithFilters("Open sprite manifest", "Assets/GameContent/Assets", new string[] { "Sprite Manifest", "asset" });
-            UpdateSpriteManifest(manifestPath);
-        }
         [MenuItem("Custom/Assets/Sprites/Update Sprite Manifest")]
         public static void UpdateSpriteManifestAtGameContent()
         {
             var manifestPath = Path.Combine(Application.dataPath, "GameContent", "Assets", "mvz2", "spritemanifests", "manifest.asset");
-            UpdateSpriteManifest(manifestPath);
+            UpdateSpriteManifest(manifestPath, false);
+            var initPath = Path.Combine(Application.dataPath, "GameContent", "Assets", "mvz2", "spritemanifests", "init", "init_manifest.asset");
+            UpdateSpriteManifest(initPath, true);
         }
         [MenuItem("Custom/Assets/Sprites/Rename Sprites")]
         public static void RenameSprites()

@@ -17,12 +17,47 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 2abc22949261d4c4ca8f38103973eec5
   m_SerializeEntries:
+  - m_GUID: 249bff1de5d47004baf9588eba3757a7
+    m_Address: mvz2:init/button_disabled
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36ceb837ec0bbd54e9f7ecac4e5ecc70
+    m_Address: mvz2:init/titlescreen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 410f8ec80407d6e4ab481954c0ce2d49
+    m_Address: mvz2:init/ui_arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4df3315370b3ba445855264afd0238ac
     m_Address: mvz2:click
     m_ReadOnly: 0
     m_SerializedLabels:
     - Init
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f988ae6861089145939ee6c28bc023d
+    m_Address: mvz2:init/init_manifest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    - SpriteManifest
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54d15402f15189c42a0e0e0955892f6e
+    m_Address: mvz2:init/button_highlighted
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 582a25cb5ce4236499edbe72e8eda564
     m_Address: Assets/Mixers/Main
@@ -49,17 +84,32 @@ MonoBehaviour:
     m_SerializedLabels:
     - Init
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7fe23afedd5287c45bd95c843dece3e2
-    m_Address: Assets/GameContent/Assets/mvz2/sprites/init
+  - m_GUID: 7f2f4e63d086c1c4d8d62d9d14a418d9
+    m_Address: mvz2:init/button
     m_ReadOnly: 0
     m_SerializedLabels:
     - Init
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82a66565b905e46498878410ea661570
     m_Address: Assets/Animation/Init
     m_ReadOnly: 0
     m_SerializedLabels:
     - Init
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 878374b343a8047409456043eaeec225
+    m_Address: mvz2:init/form_hollow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a422491a28838f04aa763d050d8aa766
+    m_Address: mvz2:init/logo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c16699a876a1dea4994b47e673315a32
     m_Address: Assets/Textures/Init
@@ -72,6 +122,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Init
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecdea1f2d39df2049be852b3107d40a4
+    m_Address: mvz2:init/form
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}

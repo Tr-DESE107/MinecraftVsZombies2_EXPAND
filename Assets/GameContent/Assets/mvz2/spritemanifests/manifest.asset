@@ -129,8 +129,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c833ac401af4ce44c872c8fe55574646, type: 3}
   - name: mainmenu/gold_name_shine
     sprite: {fileID: 21300000, guid: bd020c04ecf41f542b2e72b0e73bf3d7, type: 3}
-  - name: mainmenu/logo
-    sprite: {fileID: 21300000, guid: a422491a28838f04aa763d050d8aa766, type: 3}
   - name: mainmenu/mainmenu
     sprite: {fileID: 21300000, guid: 1fa7f21a7f8675f47a19b64ae5086153, type: 3}
   - name: mainmenu/mainmenu_background_dark
@@ -139,8 +137,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0fbbba219c45ca74497d29cf6fea2c5e, type: 3}
   - name: mainmenu/submenu_background
     sprite: {fileID: 21300000, guid: 0bad8dd7ca96eb047840a09bdbdcc162, type: 3}
-  - name: mainmenu/titlescreen
-    sprite: {fileID: 21300000, guid: 36ceb837ec0bbd54e9f7ecac4e5ecc70, type: 3}
   - name: misc/castle
     sprite: {fileID: 21300000, guid: 25c22dffe2340ef439d6ebbc3478357e, type: 3}
   - name: misc/dream
@@ -191,6 +187,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 10f0a75a79063264f8e9d4e7413c683f, type: 3}
   - name: mobile_blueprint/berserker
     sprite: {fileID: 21300000, guid: 02d02d3206dc8484c8e80a0aa53c8725, type: 3}
+  - name: mobile_blueprint/black_hole_bomb
+    sprite: {fileID: 21300000, guid: a947efd639075f8479b747319d6fad58, type: 3}
   - name: mobile_blueprint/cave_spider
     sprite: {fileID: 21300000, guid: 2be33464724166c4fa3a121643edceb8, type: 3}
   - name: mobile_blueprint/command_block
@@ -237,8 +235,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 03a01e1df2865d441a9fa227eab6a1f6, type: 3}
   - name: mobile_blueprint/golden_dropper
     sprite: {fileID: 21300000, guid: 55c4fb06ca097e24eaa9171673390143, type: 3}
-  - name: mobile_blueprint/black_hole_bomb
-    sprite: {fileID: 21300000, guid: a947efd639075f8479b747319d6fad58, type: 3}
   - name: mobile_blueprint/gravity_pad
     sprite: {fileID: 21300000, guid: b362171cd0a32824e9b3ac7c42f24dd7, type: 3}
   - name: mobile_blueprint/hellfire
@@ -443,20 +439,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2a4746211870c7249adf3104c2ebdac4, type: 3}
   - name: ui/banished_mark
     sprite: {fileID: 21300000, guid: 994dcad1586f82f45bf48985a9e06321, type: 3}
-  - name: ui/button
-    sprite: {fileID: 21300000, guid: 7f2f4e63d086c1c4d8d62d9d14a418d9, type: 3}
-  - name: ui/button_disabled
-    sprite: {fileID: 21300000, guid: 249bff1de5d47004baf9588eba3757a7, type: 3}
-  - name: ui/button_highlighted
-    sprite: {fileID: 21300000, guid: 54d15402f15189c42a0e0e0955892f6e, type: 3}
   - name: ui/charge_bar_background
     sprite: {fileID: 21300000, guid: 43fcd92f2a72ca443ab18701d0b8563c, type: 3}
   - name: ui/close
     sprite: {fileID: 21300000, guid: ecbd7380d218ae0499f9db9112f463a4, type: 3}
-  - name: ui/form
-    sprite: {fileID: 21300000, guid: ecdea1f2d39df2049be852b3107d40a4, type: 3}
-  - name: ui/form_hollow
-    sprite: {fileID: 21300000, guid: 878374b343a8047409456043eaeec225, type: 3}
   - name: ui/gear
     sprite: {fileID: 21300000, guid: e0c7697228ff843469a11a3a633766bb, type: 3}
   - name: ui/gear_banned
@@ -465,8 +451,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 92e692ae88b62a541bef812a89e2bac3, type: 3}
   - name: ui/sword
     sprite: {fileID: 21300000, guid: 6bfc7d9706121e5458ed36aa87ece92c, type: 3}
-  - name: ui/ui_arrow
-    sprite: {fileID: 21300000, guid: 410f8ec80407d6e4ab481954c0ce2d49, type: 3}
   - name: entity/armor/bedserker_helmet
     sprite: {fileID: 21300000, guid: e44b0e9757080bf4dbf0ae5b2420e15c, type: 3}
   - name: entity/armor/berserker_helmet
@@ -511,6 +495,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3d9178829e9e3e340b9f8df54bfcbbb5, type: 3}
   - name: entity/carts/pumpkin_carriage
     sprite: {fileID: 21300000, guid: 65b141497a801624881cf387625a6801, type: 3}
+  - name: entity/contraptions/black_hole_bomb
+    sprite: {fileID: 21300000, guid: 412713fe007467441a2952c3fd3f3ba9, type: 3}
   - name: entity/contraptions/devourer
     sprite: {fileID: 21300000, guid: 0f9ff25f9f164584e85c12f40dbebdd0, type: 3}
   - name: entity/contraptions/dream_crystal_supernatural
@@ -535,8 +521,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6794bb31d9d949f4398a80691187140f, type: 3}
   - name: entity/contraptions/golden_dropper
     sprite: {fileID: 21300000, guid: 49ce9f6fb80015c47ae81c9411d9d103, type: 3}
-  - name: entity/contraptions/black_hole_bomb
-    sprite: {fileID: 21300000, guid: 412713fe007467441a2952c3fd3f3ba9, type: 3}
   - name: entity/contraptions/gravity_force
     sprite: {fileID: 21300000, guid: 87605de12ede6fe43818bbbae557666e, type: 3}
   - name: entity/contraptions/gravity_pad
