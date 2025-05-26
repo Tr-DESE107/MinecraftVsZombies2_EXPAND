@@ -42,12 +42,12 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.necrotombstone,
-                VanillaContraptionID.stoneDropper,
-                VanillaContraptionID.thunderDrum,
+                VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.dispenser,
+                VanillaContraptionID.thunderDrum,
+                VanillaContraptionID.hellfire,
                 VanillaContraptionID.gravityPad,
-                VanillaContraptionID.forcePad,
+                VanillaContraptionID.necrotombstone,
                 VanillaEnemyID.caveSpider,
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.shikaisenStaff,

@@ -28,6 +28,8 @@ using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
+using static System.Collections.Specialized.BitVector32;
+using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
 namespace MVZ2.Vanilla.Level
@@ -66,6 +68,25 @@ namespace MVZ2.Vanilla.Level
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
             foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
             {
+                var damageOutput = entityCollider.TakeDamage(amount, effects, source);
+                if (damageOutput != null)
+                {
+                    damageOutputs.Add(damageOutput);
+                }
+            }
+            return damageOutputs.ToArray();
+        }
+        public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
+        {
+            return level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, new EntityReferenceChain(source));
+        }
+        public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
+        {
+            List<DamageOutput> damageOutputs = new List<DamageOutput>();
+            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
+            {
+                if (entityCollider == excludeCollider)
+                    continue;
                 var damageOutput = entityCollider.TakeDamage(amount, effects, source);
                 if (damageOutput != null)
                 {

@@ -38,7 +38,7 @@ namespace MVZ2.GameContent.Projectiles
             var explosion = entity.Level.Spawn(VanillaEffectID.explosion, entity.GetCenter(), entity);
             explosion.SetSize(Vector3.one * (range * 2));
             var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE);
-            entity.Level.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects, entity);
+            entity.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects);
         }
         public static NamespaceID ID => VanillaProjectileID.fireCharge;
     }

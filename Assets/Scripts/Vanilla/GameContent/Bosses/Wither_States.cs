@@ -550,7 +550,7 @@ namespace MVZ2.GameContent.Bosses
                         stateMachine.SetSubState(entity, SUBSTATE_ON_GROUND);
                         entity.PlaySound(VanillaSoundID.witherSpawn);
                         entity.PlaySound(VanillaSoundID.explosion);
-                        entity.Level.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), entity);
+                        entity.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN));
 
                         var param = entity.GetSpawnParams();
                         param.SetProperty(EngineEntityProps.SIZE, Vector3.one * 240);
@@ -742,7 +742,7 @@ namespace MVZ2.GameContent.Bosses
                 {
                     entity.PlaySound(VanillaSoundID.witherDeath);
                     entity.PlaySound(VanillaSoundID.explosion);
-                    entity.Level.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), entity);
+                    entity.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN));
 
                     var param = entity.GetSpawnParams();
                     param.SetProperty(EngineEntityProps.SIZE, Vector3.one * 240);

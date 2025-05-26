@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Enemies
                 var damage = entity.GetDamage() * damageMutliplier;
                 if (damage >= 0)
                 {
-                    entity.Level.Explode(entity.GetCenter(), radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION), entity);
+                    entity.Explode(entity.GetCenter(), radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION));
                 }
                 var param = entity.GetSpawnParams();
                 param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());

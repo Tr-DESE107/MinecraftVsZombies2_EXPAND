@@ -27,8 +27,8 @@ namespace MVZ2.GameContent.Projectiles
             if (!blocksFire)
             {
                 var damageEffects = new DamageEffectList(VanillaDamageEffects.FIRE, VanillaDamageEffects.MUTE);
-                entity.Level.Explode(entity.Position, 40, entity.GetFaction(), entity.GetDamage() / 3f, damageEffects, entity);
-                entity.Level.Spawn(VanillaEffectID.fireburn, entity.Position, entity);
+                entity.SplashDamage(hitResult.Collider, entity.Position, 40, entity.GetFaction(), entity.GetDamage() / 4f, damageEffects);
+                entity.Spawn(VanillaEffectID.fireburn, entity.Position);
             }
         }
     }

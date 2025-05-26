@@ -109,7 +109,7 @@ namespace MVZ2.GameContent.Buffs
             var level = entity.Level;
             var range = 50;
             Vector3 centerPos = entity.GetCenter();
-            level.Explode(centerPos, range, GetFaction(buff), 500, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE), entity);
+            entity.Explode(centerPos, range, GetFaction(buff), 500, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE));
             var explosion = level.Spawn(VanillaEffectID.explosion, centerPos, entity);
             explosion.SetSize(Vector3.one * (range * 2));
             entity.PlaySound(VanillaSoundID.explosion);

@@ -64,12 +64,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
                 var radius = 40;
                 var faction = entity.GetFaction();
                 var splashAmount = additionalDamage * 2 / 3f;
-                foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
-                {
-                    if (entityCollider == hit.Collider)
-                        continue;
-                    entityCollider.TakeDamage(splashAmount, damageEffects, entity);
-                }
+                entity.SplashDamage(hit.Collider, center, radius, faction, splashAmount, damageEffects);
 
                 var effectID = cursed ? VanillaEffectID.cursedFireburn : VanillaEffectID.fireburn;
                 entity.Spawn(effectID, entity.Position);

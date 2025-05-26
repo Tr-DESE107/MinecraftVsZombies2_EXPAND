@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Projectiles
             var damage = entity.GetDamage();
 
             var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
-            var damageOutputs = entity.Level.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects, entity);
+            var damageOutputs = entity.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects);
             foreach (var output in damageOutputs)
             {
                 var result = output?.BodyResult;

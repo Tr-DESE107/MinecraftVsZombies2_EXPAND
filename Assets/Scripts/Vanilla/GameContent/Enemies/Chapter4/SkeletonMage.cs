@@ -139,7 +139,7 @@ namespace MVZ2.GameContent.Enemies
                 default:
                     {
                         var param = enemy.GetShootParams();
-                        param.damage = enemy.GetDamage() * 0.4f;
+                        param.damage = enemy.GetDamage() * 0.8f;
                         param.projectileID = VanillaProjectileID.fireball;
                         param.soundID = VanillaSoundID.fire;
                         enemy.ShootProjectile(param);

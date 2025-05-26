@@ -244,6 +244,17 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 爆炸和溅射
+        public static DamageOutput[] Explode(this Entity entity, Vector3 center, float radius, int faction, float amount, DamageEffectList effects)
+        {
+            return entity.Level.Explode(center, radius, faction, amount, effects, entity);
+        }
+        public static DamageOutput[] SplashDamage(this Entity entity, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects)
+        {
+            return entity.Level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, entity);
+        }
+        #endregion
+
         #region 音效
 
         public static void PlayCrySound(this Entity entity, NamespaceID soundID, float pitchMultiplier = 1, float volume = 1)

@@ -123,7 +123,7 @@ namespace MVZ2.GameContent.Contraptions
             if (riseTimer == null || !riseTimer.Expired)
                 return;
             var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.EXPLOSION);
-            self.Level.Explode(self.Position, self.GetRange(), self.GetFaction(), self.GetDamage(), damageEffects, self);
+            self.Explode(self.Position, self.GetRange(), self.GetFaction(), self.GetDamage(), damageEffects);
             self.Level.Spawn(VanillaEffectID.mineDebris, self.Position, self);
             self.Remove();
             self.PlaySound(VanillaSoundID.mineExplode);
