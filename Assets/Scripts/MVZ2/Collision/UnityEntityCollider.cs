@@ -6,6 +6,7 @@ using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Level.Collisions;
+using Tools;
 using UnityEngine;
 
 namespace MVZ2.Collisions
@@ -50,6 +51,7 @@ namespace MVZ2.Collisions
                         var offset = Vector3.Scale(Vector3.one * 0.5f - Entity.GetBoundsPivot(), size);
                         offset = Vector3.Scale(offset, scale);
                         size = Vector3.Scale(size, scale);
+                        size = size.Abs();
                         boxCollider.center = offset;
                         boxCollider.size = size;
                     }
@@ -61,6 +63,7 @@ namespace MVZ2.Collisions
                         offset += customOffset;
                         offset = Vector3.Scale(offset, scale);
                         size = Vector3.Scale(size, scale);
+                        size = size.Abs();
                         boxCollider.center = offset;
                         boxCollider.size = size;
                     }
