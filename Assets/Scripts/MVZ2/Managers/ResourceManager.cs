@@ -40,8 +40,9 @@ namespace MVZ2.Managers
             difficultyCache.Clear();
             noteCache.Clear();
         }
-        public async Task InitModResources()
+        public async Task Init()
         {
+            Init_Sprites();
             ClearResources();
             foreach (var mod in main.ModManager.GetAllModInfos())
             {

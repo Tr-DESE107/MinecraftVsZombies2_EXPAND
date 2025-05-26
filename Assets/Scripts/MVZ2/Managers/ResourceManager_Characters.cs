@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Metas;
+using MVZ2.Sprites;
 using MVZ2.Talk;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
@@ -96,64 +97,6 @@ namespace MVZ2.Managers
                 widthExtend = widthExtend
             };
         }
-        public Sprite GenerateCharacterVariantSprite(NamespaceID character, NamespaceID variantID)
-        {
-            TalkCharacterMeta info = GetCharacterMeta(character);
-            TalkCharacterVariant variantInfo = info.GetVariant(variantID);
-
-            // Variables
-            Vector2 spritePivot = new Vector2(variantInfo.pivotX, variantInfo.pivotY);
-
-            var width = variantInfo.width;
-            var height = variantInfo.height;
-            var imageTexture = new Texture2D(width, height);
-            imageTexture.name = $"{character}({variantID})";
-
-            // 清除颜色。
-            var bufferWidth = 16;
-            var bufferHeight = 16;
-            var colorBuffer = new Color[bufferWidth * bufferHeight];
-            Array.Fill(colorBuffer, Color.clear);
-            for (int x = 0; x < width; x += bufferWidth)
-            {
-                var w = Mathf.Min(bufferWidth, width - x);
-                for (int y = 0; y < height; y += bufferHeight)
-                {
-                    var h = Mathf.Min(bufferHeight, height - y);
-                    imageTexture.SetPixels(x, y, w, h, colorBuffer);
-                }
-            }
-
-            // 添加颜色。
-            foreach (TalkCharacterLayer layer in variantInfo.layers)
-            {
-                Sprite sourceSpr = GetSprite(layer.sprite);
-                Texture2D sourceTex = sourceSpr.texture;
-                Rect sourceRect = sourceSpr.rect;
-                var layerX = (int)sourceRect.xMin;
-                var layerY = (int)sourceRect.yMin;
-                var layerWidth = (int)sourceRect.width;
-                var layerHeight = (int)sourceRect.height;
-
-                var layerOffsetX = layer.positionX;
-                var layerOffsetY = height - (layer.positionY + layerHeight);
-                for (int x = 0; x < layerWidth; x += bufferWidth)
-                {
-                    var w = Mathf.Min(bufferWidth, layerWidth - x);
-                    for (int y = 0; y < layerHeight; y += bufferHeight)
-                    {
-                        var h = Mathf.Min(bufferHeight, layerHeight - y);
-                        var colors = sourceTex.GetPixels(x + layerX, y + layerY, w, h);
-                        imageTexture.SetPixels(x + layerOffsetX, y + layerOffsetY, w, h, colors);
-                    }
-                }
-            }
-
-            imageTexture.Apply();
-
-            Sprite spr = CreateSprite(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), spritePivot, imageTexture.name, "character");
-            return spr;
-        }
         #region 私有方法
         private async Task LoadCharacterVariantSprites(string nsp, TaskProgress progress, int maxYieldCount = 1)
         {
@@ -166,6 +109,8 @@ namespace MVZ2.Managers
             var metas = metaList.metas;
             int count = metas.Count;
             var childProgresses = progress.AddChildren(count);
+
+            characterTextureDict.Clear();
             for (int i = 0; i < count; i++)
             {
                 var meta = metas[i];
@@ -176,6 +121,8 @@ namespace MVZ2.Managers
                 progress.SetProgress(i / (float)count);
             }
             progress.SetProgress(1, "Finished");
+
+            characterTextureDict.Clear();
         }
         private async Task<CharacterVariantSprite[]> GenerateCharacterVariantSprites(string nsp, TalkCharacterMeta meta, TaskProgress progress, int maxYieldCount = 1)
         {
@@ -204,6 +151,72 @@ namespace MVZ2.Managers
             progress.SetProgress(1, "Finished");
             return sprites.ToArray();
         }
+        private Sprite GenerateCharacterVariantSprite(NamespaceID character, NamespaceID variantID)
+        {
+            TalkCharacterMeta info = GetCharacterMeta(character);
+            TalkCharacterVariant variantInfo = info.GetVariant(variantID);
+
+            // Variables
+            Vector2 spritePivot = new Vector2(variantInfo.pivotX, variantInfo.pivotY);
+
+            var width = variantInfo.width;
+            var height = variantInfo.height;
+            var imageTexture = new Texture2D(width, height);
+            imageTexture.name = $"{character}({variantID})";
+
+            // 清除颜色。
+            Array.Fill(spriteColorBuffer, new Color32(0, 0, 0, 0));
+            for (int x = 0; x < width; x += COLOR_BUFFER_WIDTH)
+            {
+                var w = Mathf.Min(COLOR_BUFFER_WIDTH, width - x);
+                for (int y = 0; y < height; y += COLOR_BUFFER_HEIGHT)
+                {
+                    var h = Mathf.Min(COLOR_BUFFER_HEIGHT, height - y);
+                    imageTexture.SetPixels32(x, y, w, h, spriteColorBuffer);
+                }
+            }
+
+            // 添加颜色。
+            foreach (TalkCharacterLayer layer in variantInfo.layers)
+            {
+                Sprite sourceSpr = GetSprite(layer.sprite);
+                Texture2D sourceTex = sourceSpr.texture;
+                Rect sourceRect = sourceSpr.rect;
+                var sourceWidth = sourceTex.width;
+                var layerX = (int)sourceRect.xMin;
+                var layerY = (int)sourceRect.yMin;
+                var layerWidth = (int)sourceRect.width;
+                var layerHeight = (int)sourceRect.height;
+
+                var layerOffsetX = layer.positionX;
+                var layerOffsetY = height - (layer.positionY + layerHeight);
+                if (!characterTextureDict.TryGetValue(sourceTex, out var fullColors))
+                {
+                    fullColors = sourceTex.GetPixels32();
+                    characterTextureDict.Add(sourceTex, fullColors);
+                }
+                for (int x = 0; x < layerWidth; x += COLOR_BUFFER_WIDTH)
+                {
+                    var w = Mathf.Min(COLOR_BUFFER_WIDTH, layerWidth - x);
+                    for (int y = 0; y < layerHeight; y += COLOR_BUFFER_HEIGHT)
+                    {
+                        var h = Mathf.Min(COLOR_BUFFER_HEIGHT, layerHeight - y);
+                        var srcX = layerX + x;
+                        var srcY = layerY + y;
+                        var dstX = layerOffsetX + x;
+                        var dstY = layerOffsetY + y;
+                        fullColors.GetPixels32(sourceWidth, srcX, srcY, w, h, spriteColorBuffer);
+                        imageTexture.SetPixels32(dstX, dstY, w, h, spriteColorBuffer);
+                    }
+                }
+            }
+
+            imageTexture.Apply();
+
+            Sprite spr = CreateSprite(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), spritePivot, imageTexture.name, "character");
+            return spr;
+        }
         #endregion
+        private Dictionary<Texture2D, Color32[]> characterTextureDict = new Dictionary<Texture2D, Color32[]>();
     }
 }

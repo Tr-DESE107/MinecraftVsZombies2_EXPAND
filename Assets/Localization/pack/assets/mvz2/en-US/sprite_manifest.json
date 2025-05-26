@@ -49,8 +49,8 @@
       "pivotY": 0.5
     },
     {
-      "name": "mainmenu/logo",
-      "texture": "mainmenu/logo.png",
+      "name": "init/logo",
+      "texture": "init/logo.png",
       "pivotX": 0.5,
       "pivotY": 0.5
     },

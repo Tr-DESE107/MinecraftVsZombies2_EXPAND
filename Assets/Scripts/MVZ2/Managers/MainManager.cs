@@ -228,7 +228,7 @@ namespace MVZ2.Managers
             await ModManager.LoadModInfos(Game);
 
             // 在MOD信息加载之后
-            await ResourceManager.InitModResources();
+            await ResourceManager.Init();
             await LanguageManager.InitLanguagePacks();
 
             // 在MOD资源加载之后

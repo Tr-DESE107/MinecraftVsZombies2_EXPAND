@@ -55,7 +55,15 @@ namespace MVZ2.Sprites
             texture.SetPixels32(pixels);
             texture.Apply();
         }
-
+        public static void GetPixels32(this Color32[] allPixels, int texWidth, int x, int y, int width, int height, Color32[] buffer)
+        {
+            for (int row = 0; row < height; row++)
+            {
+                int sourceIndex = (y + row) * texWidth + x;
+                int targetIndex = row * width;
+                Array.Copy(allPixels, sourceIndex, buffer, targetIndex, width);
+            }
+        }
         public static void FlipColors(this Texture2D texture)
         {
             var colors = texture.GetPixels32();

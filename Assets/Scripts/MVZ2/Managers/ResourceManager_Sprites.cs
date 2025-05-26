@@ -69,7 +69,6 @@ namespace MVZ2.Managers
             sprite.name = name;
             if (generatedSpriteManifest && Application.isEditor)
             {
-                var backgroundTex = GenerateSpriteBackgroundTexture(texture);
                 var background = Sprite.Create(backgroundTex, rect, pivot);
                 background.name = name;
                 generatedSpriteManifest.AddSprite(category, sprite, background);
@@ -83,6 +82,10 @@ namespace MVZ2.Managers
                 generatedSpriteManifest.RemoveSprite(category, sprite.name);
             }
             Destroy(sprite);
+        }
+        private void Init_Sprites()
+        {
+            backgroundTex = GenerateSpriteBackgroundTexture(MAX_BACKGROUND_TEX_WIDTH, MAX_BACKGROUND_TEX_HEIGHT);
         }
         private async Task LoadInitSpriteManifests(string modNamespace)
         {
@@ -159,28 +162,47 @@ namespace MVZ2.Managers
         {
             spriteReferenceCacheDict.Add(sprite, sprRef);
         }
-        private Texture2D GenerateSpriteBackgroundTexture(Texture2D texture)
+        private Texture2D GenerateSpriteBackgroundTexture(int width, int height)
         {
-            var tex = new Texture2D(texture.width, texture.height);
-            var width = tex.width;
-            var pixels = tex.GetPixels();
-            for (int i = 0; i < pixels.Length; i++)
+            var tex = new Texture2D(width, height);
+            var gray = new Color32(127, 127, 127, 255);
+            var darkGray = new Color32(63, 63, 63, 255);
+            var colorBuffer = spriteColorBuffer;
+            for (int x = 0; x < width; x += COLOR_BUFFER_WIDTH)
             {
-                var x = i % width;
-                var y = i / width;
-                var col = ((x / 16) + (y / 16)) % 2 == 0 ? Color.gray : new Color(0.25f, 0.25f, 0.25f, 1);
-                pixels[i] = col;
+                var w = Mathf.Min(COLOR_BUFFER_WIDTH, width - x);
+                for (int y = 0; y < height; y += COLOR_BUFFER_HEIGHT)
+                {
+                    var h = Mathf.Min(COLOR_BUFFER_HEIGHT, height - y);
+                    for (int ix = 0; ix < w; ix++)
+                    {
+                        for (int iy = 0; iy < h; iy++)
+                        {
+                            var dstX = x + ix;
+                            var dstY = x + iy;
+                            var dstIndex = iy * w + ix;
+                            colorBuffer[dstIndex] = ((dstX / 16) + (dstY / 16)) % 2 == 0 ? gray : darkGray;
+                        }
+                    }
+                    tex.SetPixels32(x, y, w, h, colorBuffer);
+                }
             }
-            tex.SetPixels(pixels);
             tex.Apply();
             return tex;
         }
         private Dictionary<Sprite, SpriteReference> spriteReferenceCacheDict = new Dictionary<Sprite, SpriteReference>();
         private Dictionary<Texture2D, Texture2D> generatedSpriteTextureDict = new Dictionary<Texture2D, Texture2D>();
+        private const int COLOR_BUFFER_WIDTH = 128;
+        private const int COLOR_BUFFER_HEIGHT = 128;
+        private const int MAX_BACKGROUND_TEX_WIDTH = 2560;
+        private const int MAX_BACKGROUND_TEX_HEIGHT = 2560;
+
         [Header("Sprites")]
         [SerializeField]
         private Sprite defaultSprite;
         [SerializeField]
         private GeneratedSpriteManifest generatedSpriteManifest;
+        private Texture2D backgroundTex;
+        private Color32[] spriteColorBuffer = new Color32[COLOR_BUFFER_WIDTH * COLOR_BUFFER_HEIGHT];
     }
 }
