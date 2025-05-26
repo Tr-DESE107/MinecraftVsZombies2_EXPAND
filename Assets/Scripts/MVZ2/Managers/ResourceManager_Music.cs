@@ -5,6 +5,7 @@ using MVZ2.Metas;
 using MVZ2.Vanilla;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace MVZ2.Managers
 {
@@ -67,12 +68,23 @@ namespace MVZ2.Managers
         }
 
         #region 私有方法
-        private async Task LoadModMusicClips(string nsp)
+        private async Task LoadInitModMusicClips(string nsp)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return;
-            var resources = await LoadLabeledResources<AudioClip>(nsp, "Music");
+            var resources = await LoadLabeledResources<AudioClip>(nsp, Addressables.MergeMode.Intersection, "Init", "Music");
+            foreach (var (id, res) in resources)
+            {
+                modResource.Musics.Add(id.Path, res);
+            }
+        }
+        private async Task LoadMainModMusicClips(string nsp, TaskProgress progress)
+        {
+            var modResource = GetModResource(nsp);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<AudioClip>(nsp, Addressables.MergeMode.Intersection, progress, "Main", "Music");
             foreach (var (id, res) in resources)
             {
                 modResource.Musics.Add(id.Path, res);

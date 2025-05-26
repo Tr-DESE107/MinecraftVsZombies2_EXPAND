@@ -149,6 +149,10 @@ namespace MVZ2.Scenes
                 pair.Value.Hide();
             }
         }
+        public void DisplayTitlescreen()
+        {
+            DisplayPage(MainScenePageType.Titlescreen);
+        }
         public void DisplayMainmenu()
         {
             DisplayPage(MainScenePageType.Mainmenu);
@@ -157,11 +161,6 @@ namespace MVZ2.Scenes
         {
             DisplayPage(MainScenePageType.Mainmenu);
             mainmenu.SetViewToBasement();
-        }
-        public void DisplayTitlescreen()
-        {
-            DisplayPage(MainScenePageType.Titlescreen);
-            titlescreen.Init();
         }
         public void DisplayMap(NamespaceID mapId)
         {
@@ -281,7 +280,7 @@ namespace MVZ2.Scenes
         #region 生命周期
         private void Awake()
         {
-            pages.Add(MainScenePageType.Landing, landing);
+            pages.Add(MainScenePageType.Splash, splash);
             pages.Add(MainScenePageType.Titlescreen, titlescreen);
             pages.Add(MainScenePageType.Mainmenu, mainmenu);
             pages.Add(MainScenePageType.Note, note);
@@ -297,11 +296,11 @@ namespace MVZ2.Scenes
 
         #region 属性字段
         private MainManager main => MainManager.Instance;
-        private Dictionary<MainScenePageType, MainScenePage> pages = new Dictionary<MainScenePageType, MainScenePage>();
+        private Dictionary<MainScenePageType, ScenePage> pages = new Dictionary<MainScenePageType, ScenePage>();
         [SerializeField]
         private MainSceneUI ui;
         [SerializeField]
-        private LandingController landing;
+        private SplashController splash;
         [SerializeField]
         private TitlescreenController titlescreen;
         [SerializeField]
@@ -327,11 +326,11 @@ namespace MVZ2.Scenes
         [SerializeField]
         private ArcadeController arcade;
         [SerializeField]
+        private AchievementHintController achievementHint;
+        [SerializeField]
         private InputNameDialogController inputNameDialog;
         [SerializeField]
         private DeleteUserDialogController deleteUserDialog;
-        [SerializeField]
-        private AchievementHintController achievementHint;
         #endregion
     }
 }

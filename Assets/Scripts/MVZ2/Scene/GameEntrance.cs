@@ -119,16 +119,21 @@ namespace MVZ2.Scenes
                     break;
             }
         }
-        private void StartGame()
+        private async void StartGame()
         {
             main.MusicManager.Play(VanillaMusicID.mainmenu);
             if (main.IsFastMode())
             {
+                var initTask = main.GetInitTask();
+                if (initTask != null)
+                {
+                    await initTask;
+                }
                 main.Scene.DisplayMainmenu();
             }
             else
             {
-                main.Scene.DisplayPage(MainScenePageType.Landing);
+                main.Scene.DisplayPage(MainScenePageType.Splash);
             }
         }
         private void Quit()

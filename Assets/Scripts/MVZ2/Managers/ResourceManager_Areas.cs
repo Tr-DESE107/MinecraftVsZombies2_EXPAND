@@ -45,12 +45,12 @@ namespace MVZ2.Managers
 
 
         #region 私有方法
-        private async Task LoadModAreaModels(string nsp)
+        private async Task LoadModAreaModels(string nsp, TaskProgress progress)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return;
-            var resources = await LoadLabeledResources<GameObject>(nsp, "AreaModel");
+            var resources = await LoadLabeledResources<GameObject>(nsp, "AreaModel", progress);
             foreach (var (id, res) in resources)
             {
                 var model = res.GetComponent<AreaModel>();

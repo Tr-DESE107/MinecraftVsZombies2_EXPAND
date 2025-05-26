@@ -4,7 +4,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
-        [Enum(UnityEngine.Rendering.CullMode)]
+        [Enum(None, 0, Front, 1, Back, 2)]
 		_Cull("Cull", Int) = 1
 
 		[Header(Lighting)]

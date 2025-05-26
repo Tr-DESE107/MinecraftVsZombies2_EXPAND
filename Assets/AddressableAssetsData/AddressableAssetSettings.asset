@@ -45,8 +45,7 @@ MonoBehaviour:
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: e32521ac6141d4e41a68cd79b01eef01, type: 2}
-  - {fileID: 11400000, guid: 0f768759f6bea2347b47dd7a5a7b11bc, type: 2}
-  - {fileID: 11400000, guid: f997b1243dbbccd468cda118869877f9, type: 2}
+  - {fileID: 11400000, guid: f59bd99749d576f498745dd05eab0d1f, type: 2}
   - {fileID: 11400000, guid: 6ef4e644275b14b4597ecc76385b86c4, type: 2}
   - {fileID: 11400000, guid: 54a055595b120404f9723ef07bf51d5c, type: 2}
   - {fileID: 11400000, guid: c74e880dbfbe25e419f3f4cc5611cee7, type: 2}
@@ -103,6 +102,8 @@ MonoBehaviour:
     - Sprite
     - Spritesheet
     - AreaModel
+    - Init
+    - Main
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: fb40291d9b81e0644b9d330887b30a0e, type: 2}

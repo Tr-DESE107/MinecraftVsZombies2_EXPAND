@@ -22,6 +22,7 @@ using MVZ2.Supporters;
 using MVZ2Logic;
 using MVZ2Logic.Games;
 using PVZEngine;
+using UnityEditor;
 using UnityEngine;
 
 namespace MVZ2.Managers
@@ -30,43 +31,13 @@ namespace MVZ2.Managers
     {
         public async Task Initialize()
         {
-            Screen.sleepTimeout = SleepTimeout.NeverSleep;
-            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
-            Application.targetFrameRate = 60;
-
+            InitGameSettings();
             InitSerializable();
-
-            Global.Init(this);
-            Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);
-
-            GraphicsManager.Init();
-            InputManager.InitKeys();
-            OptionsManager.InitOptions();
-            OptionsManager.LoadOptions();
-
-            await ModManager.LoadMods(Game);
-
-            // 在MOD信息加载之后
-            await ResourceManager.LoadAllModResources();
-            await LanguageManager.InitLanguagePacks();
-
-            // 在MOD资源加载之后
-            ModManager.InitModLogics(Game);
-            ModManager.LoadModLogics(Game);
-            ModManager.PostReloadMods(Game);
-
-            // 在MOD逻辑加载之后
-            SaveManager.Load();
-
-            if (IsFastMode())
-            {
-                var pipeline = new TaskPipeline();
-                await InitLoad(pipeline);
-            }
-
+            await LoadManagersInit();
             Scene.Init();
-
             ModManager.PostGameInit();
+
+            InitLoad();
         }
         public bool IsMobile()
         {
@@ -86,6 +57,14 @@ namespace MVZ2.Managers
             return false;
 #endif
         }
+        public TaskPipeline GetLoadPipeline()
+        {
+            return loadPipeline;
+        }
+        public Task GetInitTask()
+        {
+            return initTask;
+        }
         public bool IsFastMode()
         {
 #if UNITY_EDITOR
@@ -94,14 +73,19 @@ namespace MVZ2.Managers
             return false;
 #endif
         }
-        public async Task InitLoad(TaskPipeline pipeline)
+        private void InitLoad()
         {
-            var sponsorProgress = new TaskProgress(TASK_LOAD_SPONSORS);
-            pipeline.AddTask(sponsorProgress);
+            loadPipeline = new TaskPipeline();
+            loadPipeline.AddTask(new PipelineTask(TASK_LOAD_RESOURCES, (p) => ResourceManager.LoadAllModResourcesMain(p)));
+            loadPipeline.AddTask(new PipelineTask(TASK_LOAD_SPONSORS, (p) => SponsorManager.PullSponsors(p)));
 
-            pipeline.SetCurrentTask(0);
-            await SponsorManager.PullSponsors(sponsorProgress);
-            pipeline.SetCurrentTask(1);
+            var task = loadPipeline.Run();
+            initTask = task;
+            task.ContinueWith((t) =>
+            {
+                loadPipeline = null;
+                initTask = null;
+            });
         }
 
         #region 贴图
@@ -187,6 +171,15 @@ namespace MVZ2.Managers
         {
             SaveManager.SaveModDatas();
         }
+        private void InitGameSettings()
+        {
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+            Application.targetFrameRate = 60;
+
+            Global.Init(this);
+            Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);
+        }
         private void InitSerializable()
         {
             SerializeHelper.init(BuiltinNamespace);
@@ -225,6 +218,27 @@ namespace MVZ2.Managers
             SerializeHelper.RegisterClass<SerializableUnityCollisionEntity>();
             SerializeHelper.RegisterClass<SerializableUnityEntityCollider>();
         }
+        private async Task LoadManagersInit()
+        {
+            GraphicsManager.Init();
+            InputManager.InitKeys();
+            OptionsManager.InitOptions();
+            OptionsManager.LoadOptions();
+
+            await ModManager.LoadModInfos(Game);
+
+            // 在MOD信息加载之后
+            await ResourceManager.InitModResources();
+            await LanguageManager.InitLanguagePacks();
+
+            // 在MOD资源加载之后
+            ModManager.InitModLogics(Game);
+            ModManager.LoadModLogics(Game);
+            ModManager.PostReloadMods(Game);
+
+            // 在MOD逻辑加载之后
+            SaveManager.Load();
+        }
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {
             if (e.Exception == null)
@@ -251,6 +265,8 @@ namespace MVZ2.Managers
         IGame IMainManager.Game => Game;
 
         [TranslateMsg("初始化任务名称")]
+        public const string TASK_LOAD_RESOURCES = "加载中……";
+        [TranslateMsg("初始化任务名称")]
         public const string TASK_LOAD_SPONSORS = "获取赞助者列表……";
         [TranslateMsg("值，{0}为百分数")]
         public const string VALUE_PERCENT = "{0}%";
@@ -276,7 +292,6 @@ namespace MVZ2.Managers
         public StoreManager StoreManager => storeManager;
         public InputManager InputManager => inputManager;
         public SponsorManager SponsorManager => sponsorManager;
-        public ParticleManager ParticleManager => particleManager;
         public GraphicsManager GraphicsManager => graphicsManager;
         public MainSceneController Scene => scene;
         ISceneController IMainManager.Scene => scene;
@@ -284,6 +299,9 @@ namespace MVZ2.Managers
         ILevelManager IMainManager.Level => level;
         IOptionsManager IMainManager.Options => options;
         IGlobalSave IMainManager.Saves => save;
+
+        private Task initTask;
+        private TaskPipeline loadPipeline;
         [SerializeField]
         private string builtinNamespace = "mvz2";
         [SerializeField]
@@ -329,8 +347,6 @@ namespace MVZ2.Managers
         [SerializeField]
         private SponsorManager sponsorManager;
         [SerializeField]
-        private ParticleManager particleManager;
-        [SerializeField]
         private GraphicsManager graphicsManager;
         [SerializeField]
         private MainSceneController scene;
@@ -350,11 +366,21 @@ namespace MVZ2.Managers
     }
     public class TaskPipeline
     {
-        public void AddTask(TaskProgress child)
+        public async Task Run()
+        {
+            SetCurrentTask(0);
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                var task = tasks[i];
+                await task.Run();
+                SetCurrentTask(i + 1);
+            }
+        }
+        public void AddTask(PipelineTask child)
         {
             tasks.Add(child);
         }
-        public void RemoveTask(TaskProgress child)
+        public void RemoveTask(PipelineTask child)
         {
             tasks.Remove(child);
         }
@@ -373,6 +399,13 @@ namespace MVZ2.Managers
                 return string.Empty;
             return task.GetName();
         }
+        public string GetCurrentProgressName()
+        {
+            var task = GetCurrentTask();
+            if (task == null)
+                return string.Empty;
+            return task.GetProgressName();
+        }
         public float GetProgress()
         {
             if (tasks.Count > 0)
@@ -381,35 +414,113 @@ namespace MVZ2.Managers
             }
             return 1;
         }
-        private TaskProgress GetCurrentTask()
+        private PipelineTask GetCurrentTask()
         {
             if (currentTaskIndex < 0 || currentTaskIndex >= tasks.Count)
                 return null;
             return tasks[currentTaskIndex];
         }
         private int currentTaskIndex;
-        private List<TaskProgress> tasks = new List<TaskProgress>();
+        private List<PipelineTask> tasks = new List<PipelineTask>();
         private float progress;
     }
-    public class TaskProgress
+    public delegate Task TaskAction(TaskProgress progress);
+    public class PipelineTask
     {
-        public TaskProgress(string name)
+        public PipelineTask(string name, TaskAction action) : this(name, action, new TaskProgress())
+        {
+        }
+        public PipelineTask(string name, TaskAction action, TaskProgress progress)
         {
             this.name = name;
-        }
-        public void SetProgress(float progress)
-        {
+            this.action = action;
             this.progress = progress;
         }
         public float GetProgress()
         {
-            return progress;
+            return progress.GetProgress();
+        }
+        public Task Run()
+        {
+            return action?.Invoke(progress);
         }
         public string GetName()
         {
             return name;
         }
-        private float progress;
+        public string GetProgressName()
+        {
+            return progress.GetCurrentTaskName();
+        }
         private string name;
+        private TaskProgress progress;
+        private TaskAction action;
+    }
+    public class TaskProgress
+    {
+        public TaskProgress()
+        {
+        }
+        public TaskProgress AddChild()
+        {
+            var progress = new TaskProgress();
+            children.Add(progress);
+            return progress;
+        }
+        public TaskProgress[] AddChildren(int count)
+        {
+            var array = new TaskProgress[count];
+            for (int i = 0; i < count; i++)
+            {
+                array[i] = AddChild();
+            }
+            return array;
+        }
+        public float GetProgress()
+        {
+            if (children.Count > 0)
+            {
+                return children.Sum(c => c.GetProgress()) / children.Count;
+            }
+            return progress;
+        }
+        public void SetProgress(float progress)
+        {
+            this.progress = progress;
+        }
+        public void SetProgress(float progress, string taskName)
+        {
+            SetProgress(progress);
+            SetCurrentTaskName(taskName);
+        }
+        public string GetCurrentTaskName()
+        {
+            if (children.Count > 0)
+            {
+                var name = children.Where(c => c.progress < 1).Select(e => e.GetCurrentTaskName()).FirstOrDefault(c => !string.IsNullOrEmpty(c));
+                if (!string.IsNullOrEmpty(taskName))
+                {
+                    if (string.IsNullOrEmpty(name))
+                        return $"{taskName}/";
+                    else
+                        return $"{taskName}/{name}";
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(name))
+                        return string.Empty;
+                    else
+                        return name;
+                }
+            }
+            return taskName;
+        }
+        public void SetCurrentTaskName(string name)
+        {
+            this.taskName = name;
+        }
+        private float progress;
+        private string taskName;
+        private List<TaskProgress> children = new List<TaskProgress>();
     }
 }

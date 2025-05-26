@@ -6,21 +6,12 @@ using UnityEngine;
 
 namespace MVZ2.Titlescreen
 {
-    public class TitlescreenController : MainScenePage
+    public class TitlescreenController : ScenePage
     {
         public override void Display()
         {
             base.Display();
             ui.SetVersionText(GetVersionText());
-        }
-        public async void Init()
-        {
-            if (!main.IsFastMode())
-            {
-                loadPipeline = new TaskPipeline();
-                await main.InitLoad(loadPipeline);
-                loadPipeline = null;
-            }
         }
         #region 生命周期
         private void Awake()
@@ -30,14 +21,19 @@ namespace MVZ2.Titlescreen
         }
         private void Update()
         {
-            if (loadPipeline != null)
+            var pipeline = main.GetLoadPipeline();
+            if (pipeline != null)
             {
-                var progress = loadPipeline.GetProgress();
-                var name = loadPipeline.GetCurrentTaskName();
+                var progress = pipeline.GetProgress();
+                var name = pipeline.GetCurrentTaskName();
                 var text = main.LanguageManager._(name);
+                if (Application.isEditor)
+                {
+                    text = text + $"\n{pipeline.GetCurrentProgressName()}({(progress * 100):N3}%)";
+                }
                 targetProgress = progress;
                 ui.SetLoadingText(text);
-                ui.SetButtonInteractable(loadPipeline.IsFinished());
+                ui.SetButtonInteractable(pipeline.IsFinished());
             }
             else
             {
@@ -84,7 +80,6 @@ namespace MVZ2.Titlescreen
         [TranslateMsg("标题界面按钮文本")]
         public const string CLICK_TO_START = "点击以开始！";
         private MainManager main => MainManager.Instance;
-        private TaskPipeline loadPipeline;
         private float progress;
         private float targetProgress;
         [SerializeField]

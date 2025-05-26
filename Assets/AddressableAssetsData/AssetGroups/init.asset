@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: init
+  m_EditorClassIdentifier: 
+  m_GroupName: init
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2abc22949261d4c4ca8f38103973eec5
+  m_SerializeEntries:
+  - m_GUID: 4df3315370b3ba445855264afd0238ac
+    m_Address: mvz2:click
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 582a25cb5ce4236499edbe72e8eda564
+    m_Address: Assets/Mixers/Main
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58f0336839418eb4c96fc1c90d5bf596
+    m_Address: mvz2:mainmenu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68e8304474cfb6e408208744c75c9506
+    m_Address: Assets/Prefabs/Init
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d2dc5bfb75b97244916539ecf3e4ded
+    m_Address: Assets/Fonts
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fe23afedd5287c45bd95c843dece3e2
+    m_Address: Assets/GameContent/Assets/mvz2/sprites/init
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82a66565b905e46498878410ea661570
+    m_Address: Assets/Animation/Init
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c16699a876a1dea4994b47e673315a32
+    m_Address: Assets/Textures/Init
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd706561546c5454c978c77fd4f32daa
+    m_Address: Assets/Textures/GeneratedSprites.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Init
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f0d55979784ac69448b90cc9459e11b5, type: 2}
+    - {fileID: 11400000, guid: 412ddeb79be12b7479b1cafd57afcf64, type: 2}

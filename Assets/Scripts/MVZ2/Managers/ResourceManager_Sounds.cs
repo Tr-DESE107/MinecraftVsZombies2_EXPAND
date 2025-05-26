@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MVZ2.Metas;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace MVZ2.Managers
 {
@@ -40,15 +41,28 @@ namespace MVZ2.Managers
         #endregion
 
         #region 私有方法
-        private async Task LoadModSoundClips(string nsp)
+        private async Task LoadInitModSoundClips(string nsp)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return;
-            var resources = await LoadLabeledResources<AudioClip>(nsp, "Sound");
+            var resources = await LoadLabeledResources<AudioClip>(nsp, Addressables.MergeMode.Intersection, "Init", "Sound");
             foreach (var (id, res) in resources)
             {
                 modResource.Sounds.Add(id.Path, res);
+            }
+        }
+        private async Task LoadMainModSoundClips(string nsp, TaskProgress progress)
+        {
+            var modResource = GetModResource(nsp);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<AudioClip>(nsp, Addressables.MergeMode.Intersection, progress, "Main", "Sound");
+            for (int i = 0; i < resources.Length; i++)
+            {
+                var (id, res) = resources[i];
+                modResource.Sounds.Add(id.Path, res);
+                progress?.SetCurrentTaskName($"Added {id.Path}");
             }
         }
         #endregion

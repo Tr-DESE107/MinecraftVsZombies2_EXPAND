@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using MVZ2.Modding;
 using MVZ2.Sprites;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace MVZ2.Managers
 {
@@ -82,30 +84,45 @@ namespace MVZ2.Managers
             }
             Destroy(sprite);
         }
-        private async Task LoadSpriteManifests(string modNamespace)
+        private async Task LoadInitSpriteManifests(string modNamespace)
         {
             var modResource = GetModResource(modNamespace);
             if (modResource == null)
                 return;
-            var resources = await LoadLabeledResources<SpriteManifest>(modNamespace, "SpriteManifest");
+            var resources = await LoadLabeledResources<SpriteManifest>(modNamespace, Addressables.MergeMode.Intersection, "Init", "SpriteManifest");
             foreach (var (path, manifest) in resources)
             {
-                foreach (var entry in manifest.spriteEntries)
+                LoadSpriteManifest(modNamespace, modResource, manifest);
+            }
+        }
+        private async Task LoadMainSpriteManifests(string modNamespace, TaskProgress progress)
+        {
+            var modResource = GetModResource(modNamespace);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<SpriteManifest>(modNamespace, Addressables.MergeMode.Intersection, progress, "Main", "SpriteManifest");
+            foreach (var (id, res) in resources)
+            {
+                LoadSpriteManifest(modNamespace, modResource, res);
+            }
+        }
+        private void LoadSpriteManifest(string modNamespace, ModResource modResource, SpriteManifest manifest)
+        {
+            foreach (var entry in manifest.spriteEntries)
+            {
+                var sprite = entry.sprite;
+                var id = new NamespaceID(modNamespace, entry.name);
+                modResource.Sprites.Add(entry.name, sprite);
+                AddSpriteReferenceCache(new SpriteReference(id), sprite);
+            }
+            foreach (var entry in manifest.spritesheetEntries)
+            {
+                var sheet = entry.spritesheet;
+                var id = new NamespaceID(modNamespace, entry.name);
+                modResource.SpriteSheets.Add(entry.name, sheet);
+                for (int i = 0; i < sheet.Length; i++)
                 {
-                    var sprite = entry.sprite;
-                    var id = new NamespaceID(modNamespace, entry.name);
-                    modResource.Sprites.Add(entry.name, sprite);
-                    AddSpriteReferenceCache(new SpriteReference(id), sprite);
-                }
-                foreach (var entry in manifest.spritesheetEntries)
-                {
-                    var sheet = entry.spritesheet;
-                    var id = new NamespaceID(modNamespace, entry.name);
-                    modResource.SpriteSheets.Add(entry.name, sheet);
-                    for (int i = 0; i < sheet.Length; i++)
-                    {
-                        AddSpriteReferenceCache(new SpriteReference(id, i), sheet[i]);
-                    }
+                    AddSpriteReferenceCache(new SpriteReference(id, i), sheet[i]);
                 }
             }
         }

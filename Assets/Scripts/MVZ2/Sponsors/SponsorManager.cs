@@ -32,7 +32,7 @@ namespace MVZ2.Supporters
                 if (!ShouldRepull(sponserCache))
                 {
                     SetCurrentSponsorInfos(sponserCache);
-                    progress.SetProgress(1);
+                    progress.SetProgress(1, "No need to pull");
                     return;
                 }
                 var items = await GetAllSponsors(progress);
@@ -63,17 +63,18 @@ namespace MVZ2.Supporters
         {
             List<SponsorItem> sponsorList = new List<SponsorItem>();
             int numPerPage = 100;
+            progress.SetProgress(0, "Page 1");
             var resp = await RequestSponsors(1, numPerPage);
             sponsorList.AddRange(resp.Result.List);
             var totalPage = resp.Result.TotalPage;
-            progress.SetProgress(1 / (float)totalPage);
 
             for (int i = 2; i <= resp.Result.TotalPage; i++)
             {
+                progress.SetProgress((i - 1) / (float)totalPage, $"Page {i}");
                 var obj = await RequestSponsors(i, numPerPage);
                 sponsorList.AddRange(obj.Result.List);
-                progress.SetProgress(i / (float)totalPage);
             }
+            progress.SetProgress(1, "Finished");
 
             return sponsorList.ToArray();
         }

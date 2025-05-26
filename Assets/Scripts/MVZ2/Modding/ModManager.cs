@@ -13,7 +13,7 @@ namespace MVZ2.Modding
 {
     public class ModManager : MonoBehaviour, IModManager
     {
-        public async Task LoadMods(Game game)
+        public async Task LoadModInfos(Game game)
         {
             var locator = await Addressables.InitializeAsync().Task;
             modInfos.Add(new ModInfo()

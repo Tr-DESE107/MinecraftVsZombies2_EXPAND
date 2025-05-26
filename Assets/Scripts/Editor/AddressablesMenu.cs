@@ -120,17 +120,20 @@ namespace MVZ2.Editor
             var assetPath = AssetsMenu.FileToAssetPath(filePath);
             string guid = AssetDatabase.AssetPathToGUID(assetPath);
             AddressableAssetEntry entry = settings.FindAssetEntry(guid);
+            var relativePath = Path.GetRelativePath(rootDirectory, filePath);
+            if (!marker.Filter(entry, relativePath))
+                return false;
             if (entry == null)
             {
                 entry = settings.CreateOrMoveEntry(guid, group, postEvent: false);
             }
-            var relativePath = Path.GetRelativePath(rootDirectory, filePath);
             marker.MarkAsset(entry, relativePath);
             return true;
         }
     }
     public abstract class AssetMarker
     {
+        public virtual bool Filter(AddressableAssetEntry entry, string relativePath) => true;
         public abstract void MarkAsset(AddressableAssetEntry entry, string relativePath);
     }
     public class MainAssetMarker : AssetMarker
@@ -138,6 +141,7 @@ namespace MVZ2.Editor
         private string[] GetEntryLabels(string type)
         {
             var labels = new List<string>();
+            labels.Add("Main");
             switch (type.ToLower())
             {
                 case "metas":
@@ -173,29 +177,35 @@ namespace MVZ2.Editor
             }
             return labels.ToArray();
         }
+        public override bool Filter(AddressableAssetEntry entry, string relativePath)
+        {
+            var splitedPaths = relativePath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            if (splitedPaths.Contains("init"))
+                return false;
+            if (splitedPaths.Length < 2)
+                return false;
+            return true;
+        }
         public override void MarkAsset(AddressableAssetEntry entry, string relativePath)
         {
             var splitedPaths = relativePath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-            if (splitedPaths.Length >= 2)
+            string keyRoot = splitedPaths[0];
+            string nsp = null;
+            if (splitedPaths.Length >= 3)
             {
-                string keyRoot = splitedPaths[0];
-                string nsp = null;
-                if (splitedPaths.Length >= 3)
-                {
-                    nsp = splitedPaths[0];
-                    var type = splitedPaths[1];
-                    keyRoot = Path.Combine(nsp, type);
+                nsp = splitedPaths[0];
+                var type = splitedPaths[1];
+                keyRoot = Path.Combine(nsp, type);
 
-                    var labels = GetEntryLabels(type);
-                    foreach (var label in labels)
-                    {
-                        entry.SetLabel(label, true, postEvent: false);
-                    }
+                var labels = GetEntryLabels(type);
+                foreach (var label in labels)
+                {
+                    entry.SetLabel(label, true, postEvent: false);
                 }
-                var keyPath = Path.GetRelativePath(keyRoot, relativePath).Replace("\\", "/");
-                var idPath = Path.ChangeExtension(keyPath, "").TrimEnd('.');
-                entry.SetAddress(new NamespaceID(nsp, idPath).ToString(), postEvent: false);
             }
+            var keyPath = Path.GetRelativePath(keyRoot, relativePath).Replace("\\", "/");
+            var idPath = Path.ChangeExtension(keyPath, "").TrimEnd('.');
+            entry.SetAddress(new NamespaceID(nsp, idPath).ToString(), postEvent: false);
         }
     }
     public class LanguagePackMarker : AssetMarker

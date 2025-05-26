@@ -2,7 +2,7 @@
 {
     public enum MainScenePageType
     {
-        Landing,
+        Splash,
         Titlescreen,
         Mainmenu,
         Note,
