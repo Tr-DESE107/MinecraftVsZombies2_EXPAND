@@ -97,13 +97,13 @@ namespace MVZ2Logic
         {
             Scene.HideChapterTransition();
         }
-        public static void SetBlackScreen(float value)
+        public static void SetScreenCoverColor(Color value)
         {
-            Scene.SetBlackScreen(value);
+            Scene.SetScreenCoverColor(value);
         }
-        public static void FadeBlackScreen(float target, float duration)
+        public static void FadeScreenCoverColor(Color target, float duration)
         {
-            Scene.FadeBlackScreen(target, duration);
+            Scene.FadeScreenCoverColor(target, duration);
         }
 
         #region 选项
@@ -153,8 +153,8 @@ namespace MVZ2Logic
         void DisplayPage(MainScenePageType type);
         void DisplayMap(NamespaceID mapID);
         void HidePages();
-        void FadeBlackScreen(float target, float duration);
-        void SetBlackScreen(float value);
+        void FadeScreenCoverColor(Color target, float duration);
+        void SetScreenCoverColor(Color value);
         void HideChapterTransition();
         void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
         Coroutine DisplayChapterTransitionCoroutine(NamespaceID chapterID, bool end);

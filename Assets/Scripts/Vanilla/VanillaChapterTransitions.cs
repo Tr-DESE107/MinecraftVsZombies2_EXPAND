@@ -18,8 +18,8 @@ namespace MVZ2.Vanilla
         public static IEnumerator TransitionToLevel(NamespaceID transition, NamespaceID areaID, NamespaceID stageID)
         {
             Global.FadeMusic(0, 2);
-            Global.SetBlackScreen(0);
-            Global.FadeBlackScreen(1, 1);
+            Global.SetScreenCoverColor(new Color(0, 0, 0, 0));
+            Global.FadeScreenCoverColor(new Color(0, 0, 0, 1), 1);
 
             yield return new WaitForSeconds(2);
 
@@ -28,31 +28,31 @@ namespace MVZ2.Vanilla
         public static IEnumerator TransitionTalkToLevel(NamespaceID transition, NamespaceID areaID, NamespaceID stageID)
         {
             Global.StopMusic();
-            Global.SetBlackScreen(1);
-            Global.FadeBlackScreen(0, 0.5f);
+            Global.SetScreenCoverColor(new Color(0, 0, 0, 1));
+            Global.FadeScreenCoverColor(new Color(0, 0, 0, 0), 0.5f);
             yield return Global.DisplayChapterTransition(transition);
 
-            Global.SetBlackScreen(1);
+            Global.SetScreenCoverColor(new Color(0, 0, 0, 1));
             yield return Global.GotoLevel();
 
             yield return new WaitForSeconds(2);
 
-            Global.FadeBlackScreen(0, 1);
+            Global.FadeScreenCoverColor(new Color(0, 0, 0, 0), 1);
             Global.SetMusicVolume(1);
             Global.InitLevel(areaID, stageID, 1);
             Global.HideChapterTransition();
         }
         public static IEnumerator TransitionEndToMap(NamespaceID transition, NamespaceID mapID)
         {
-            Global.SetBlackScreen(1);
-            Global.FadeBlackScreen(0, 0.5f);
+            Global.SetScreenCoverColor(new Color(0, 0, 0, 1));
+            Global.FadeScreenCoverColor(new Color(0, 0, 0, 0), 0.5f);
             yield return Global.DisplayChapterTransition(transition, true);
 
             Global.FadeMusic(0, 1);
             yield return new WaitForSeconds(2);
             Global.SetMusicVolume(1);
-            Global.SetBlackScreen(1);
-            Global.FadeBlackScreen(0, 1);
+            Global.SetScreenCoverColor(new Color(0, 0, 0, 1));
+            Global.FadeScreenCoverColor(new Color(0, 0, 0, 0), 1);
             Global.HideChapterTransition();
             Global.GotoMap(mapID);
         }

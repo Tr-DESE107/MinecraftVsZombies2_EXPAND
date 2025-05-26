@@ -531,9 +531,9 @@ GameObject:
   - component: {fileID: 7613905864428061255}
   - component: {fileID: 2902647475786786140}
   - component: {fileID: 3413564443117529296}
-  - component: {fileID: 2016095494519358541}
+  - component: {fileID: 3657868704250761626}
   m_Layer: 14
-  m_Name: Blackscreen
+  m_Name: ScreenCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2016095494519358541
+--- !u!114 &3657868704250761626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4077540474257370161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbde7b08383e8074a9147fda9c6862f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6abadcaddc169fe40aa3e29fb12f7f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4778834448980054165
@@ -836,7 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 6257896535643423245}
   blackscreenImage: {fileID: 3413564443117529296}
-  blackscreenFader: {fileID: 2016095494519358541}
+  screenCoverFader: {fileID: 3657868704250761626}
 --- !u!1 &8564143904103761665
 GameObject:
   m_ObjectHideFlags: 0

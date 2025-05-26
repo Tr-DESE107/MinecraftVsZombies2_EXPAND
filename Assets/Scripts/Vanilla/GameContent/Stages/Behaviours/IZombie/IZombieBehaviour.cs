@@ -139,7 +139,8 @@ namespace MVZ2.GameContent.Stages
             {
                 ent.Remove();
             }
-            level.AddBuff<FlashWhiteBuff>();
+            Global.SetScreenCoverColor(Color.white);
+            Global.FadeScreenCoverColor(new Color(1, 1, 1, 0), 1);
             level.PlaySound(VanillaSoundID.hugeWave);
             var layoutID = GetNewLayout(level.CurrentFlag, level.GetRoundRNG());
             SetCurrentLayout(level, layoutID);
@@ -196,8 +197,6 @@ namespace MVZ2.GameContent.Stages
         }
         private void CheckGameOver(LevelEngine level)
         {
-            if (level.HasBuff<FlashWhiteBuff>())
-                return;
             bool cannotAfford = false;
             if (level.GetSeedPackCount() <= 0)
             {

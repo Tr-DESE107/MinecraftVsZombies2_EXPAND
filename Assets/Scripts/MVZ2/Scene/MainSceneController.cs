@@ -120,14 +120,14 @@ namespace MVZ2.Scenes
         }
         #endregion
 
-        #region 黑屏
-        public void SetBlackScreen(float value)
+        #region 屏
+        public void SetScreenCoverColor(Color value)
         {
-            ui.SetBlackScreen(value);
+            ui.SetScreenCoverColor(value);
         }
-        public void FadeBlackScreen(float target, float duration)
+        public void FadeScreenCoverColor(Color target, float duration)
         {
-            ui.FadeBlackScreen(target, duration);
+            ui.FadeScreenCoverColor(target, duration);
         }
         #endregion
 
