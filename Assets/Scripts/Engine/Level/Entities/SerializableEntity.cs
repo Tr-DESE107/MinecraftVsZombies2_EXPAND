@@ -13,6 +13,7 @@ namespace PVZEngine.Entities
     public class SerializableEntity
     {
         public long id;
+        public long time;
         public int type;
         public int state;
         public long target;

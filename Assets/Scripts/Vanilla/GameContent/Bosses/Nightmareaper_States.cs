@@ -397,17 +397,9 @@ namespace MVZ2.GameContent.Bosses
             {
                 SetSpinVelocity(entity);
 
-                var spinDamageTimer = GetSpinDamageTimer(entity);
-                if (spinDamageTimer == null)
-                {
-                    spinDamageTimer = new FrameTimer(SPIN_DAMAGE_INTERVAL);
-                    SetSpinDamageTimer(entity, spinDamageTimer);
-                }
                 var level = entity.Level;
-                spinDamageTimer.Run();
-                if (spinDamageTimer.Expired)
+                if (entity.IsTimeInterval(SPIN_DAMAGE_INTERVAL))
                 {
-                    spinDamageTimer.Reset();
                     var rng = GetStateRNG(entity);
                     detectBuffer.Clear();
 

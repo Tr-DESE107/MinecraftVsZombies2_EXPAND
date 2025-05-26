@@ -112,11 +112,8 @@ namespace MVZ2.Level
         #region 叫声
         private void UpdateEnemyCry()
         {
-            cryTimeCheckTimer.Run();
-            if (cryTimeCheckTimer.Expired)
+            if (level.IsTimeInterval(7))
             {
-                cryTimeCheckTimer.Reset();
-
                 var crySoundEnemies = GetCrySoundEnemies();
                 var enemyCount = crySoundEnemies.Count();
                 float t = Mathf.Clamp01((float)(enemyCount - MinEnemyCryCount) / (MaxEnemyCryCount - MinEnemyCryCount));
@@ -255,7 +252,6 @@ namespace MVZ2.Level
 
         #region 保存属性
         private FrameTimer cryTimer = new FrameTimer(MaxCryInterval);
-        private FrameTimer cryTimeCheckTimer = new FrameTimer(7);
         private int maxCryTime = MaxCryInterval;
         #endregion
 

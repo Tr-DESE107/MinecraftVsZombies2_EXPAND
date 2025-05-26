@@ -11,6 +11,7 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -29,7 +30,6 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
             InitShootTimer(entity);
-            SetExtendDetectTimer(entity, new FrameTimer(DETECT_INTERVAL));
             SetEvocationTimer(entity, new FrameTimer(30));
         }
         protected override void UpdateAI(Entity entity)
@@ -67,13 +67,10 @@ namespace MVZ2.GameContent.Contraptions
         private void ExtendUpdate(Entity pistenser)
         {
             // 检查目标。
-            var detectTimer = GetExtendDetectTimer(pistenser);
-            detectTimer.Run();
-            if (detectTimer.Expired)
+            if (pistenser.IsTimeInterval(DETECT_INTERVAL))
             {
                 var collider = detector.DetectWithTheMost(pistenser, e => e.Entity.GetRelativeY());
                 SetExtendTarget(pistenser, collider?.Entity);
-                detectTimer.Reset();
             }
 
             var target = GetExtendTarget(pistenser);
@@ -218,8 +215,6 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.SetBehaviourField(ID, PROP_EXTEND_TARGET, new EntityID(value));
         }
-        public static FrameTimer GetExtendDetectTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_EXTEND_DETECT_TIMER);
-        public static void SetExtendDetectTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, PROP_EXTEND_DETECT_TIMER, value);
         public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_TIMER);
         public static void SetEvocationTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, PROP_EVOCATION_TIMER, value);
         public static float GetExtend(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_EXTEND);
@@ -232,7 +227,6 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly VanillaEntityPropertyMeta PROP_BLOCKS_JUMP = new VanillaEntityPropertyMeta("BlocksJump");
         public static readonly VanillaEntityPropertyMeta PROP_EXTEND_DIRECTION = new VanillaEntityPropertyMeta("ExtendDirection");
         public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_EXTEND_DETECT_TIMER = new VanillaEntityPropertyMeta("ExtendDetectTimer");
         public static readonly VanillaEntityPropertyMeta PROP_EXTEND_TARGET = new VanillaEntityPropertyMeta("ExtendTarget");
         public const float BASE_SHOT_HEIGHT = 30;
         public const float EXTEND_SPEED = 10;

@@ -34,7 +34,6 @@ namespace MVZ2.Level
 
                 maxCryTime = maxCryTime,
                 cryTimer = cryTimer,
-                cryTimeCheckTimer = cryTimeCheckTimer,
 
                 musicID = CurrentMusic,
                 musicTime = MusicTime,
@@ -80,7 +79,6 @@ namespace MVZ2.Level
 
                 maxCryTime = seri.maxCryTime;
                 cryTimer = seri.cryTimer;
-                cryTimeCheckTimer = seri.cryTimeCheckTimer;
 
                 CurrentMusic = seri.musicID;
                 MusicTime = seri.musicTime;
@@ -246,7 +244,6 @@ namespace MVZ2.Level
 
         public int maxCryTime;
         public FrameTimer cryTimer;
-        public FrameTimer cryTimeCheckTimer;
 
         public SerializableEntityController[] entities;
         public SerializableAreaModelData areaModel;

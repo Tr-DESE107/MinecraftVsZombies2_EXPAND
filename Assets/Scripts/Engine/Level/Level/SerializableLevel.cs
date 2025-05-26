@@ -24,6 +24,7 @@ namespace PVZEngine.Level
 
 
         public int seed;
+        public long levelTime;
         public bool isCleared;
         public NamespaceID stageDefinitionID;
         public NamespaceID areaDefinitionID;

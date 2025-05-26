@@ -31,8 +31,6 @@ namespace MVZ2.GameContent.Contraptions
         public override void Init(Entity entity)
         {
             base.Init(entity);
-
-            SetDetectTimer(entity, new FrameTimer(DETECT_INTERVAL));
             SetEvocationTimer(entity, new FrameTimer(EVOCATION_COOLDOWN));
         }
         protected override void UpdateAI(Entity entity)
@@ -52,15 +50,9 @@ namespace MVZ2.GameContent.Contraptions
 
         private void DuplicateUpdate(Entity entity)
         {
-            var detectTimer = GetDetectTimer(entity);
-            if (detectTimer != null)
+            if (entity.IsTimeInterval(DETECT_INTERVAL))
             {
-                detectTimer.Run();
-                if (detectTimer.Expired)
-                {
-                    Detect(entity);
-                    detectTimer.Reset();
-                }
+                Detect(entity);
             }
         }
         private void Detect(Entity entity)
@@ -219,8 +211,6 @@ namespace MVZ2.GameContent.Contraptions
             entity.Level.AddEnergy(-damage);
             return damage;
         }
-        public static FrameTimer GetDetectTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_DETECT_TIMER);
-        public static void SetDetectTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_DETECT_TIMER, timer);
         public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOCATION_TIMER);
         public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_EVOCATION_TIMER, timer);
 
@@ -260,14 +250,13 @@ namespace MVZ2.GameContent.Contraptions
         public const int EVOCATION_COOLDOWN = 90;
         public const int EVOCATION_CARD_COUNT = 2;
         public const int FATIGUE_INCREAMENT = 25;
-        public const int DETECT_INTERVAL = 30;
+        public const int DETECT_INTERVAL = 10;
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         public const int STATE_EVOKED = VanillaEntityStates.CONTRAPTION_SPECIAL;
         public const string PROP_REGION = VanillaContraptionNames.desirePot;
         private List<Entity> detectBuffer = new List<Entity>();
         [LevelPropertyRegistry(PROP_REGION)]
         private static readonly VanillaLevelPropertyMeta PROP_FATIGUE_DAMAGE = new VanillaLevelPropertyMeta("FatigueDamage");
-        private static readonly VanillaEntityPropertyMeta PROP_DETECT_TIMER = new VanillaEntityPropertyMeta("DetectTimer");
         private static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
         private static readonly VanillaEntityPropertyMeta PROP_DRAINED_ENEMIES = new VanillaEntityPropertyMeta("DrainedEnemies");
     }

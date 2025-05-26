@@ -140,6 +140,7 @@ namespace PVZEngine.Level
             AreaDefinition.Update(this);
             StageDefinition.Update(this);
             Triggers.RunCallback(LevelCallbacks.POST_LEVEL_UPDATE, new LevelCallbackParams(this));
+            levelTime++;
         }
         public void Clear()
         {
@@ -408,6 +409,7 @@ namespace PVZEngine.Level
             return new SerializableLevel()
             {
                 seed = Seed,
+                levelTime = levelTime,
                 isCleared = IsCleared,
                 stageDefinitionID = StageDefinition.GetID(),
                 areaDefinitionID = AreaDefinition.GetID(),
@@ -455,6 +457,7 @@ namespace PVZEngine.Level
         {
             var level = new LevelEngine(provider, translator, triggers, collisionSystem);
             level.Seed = seri.seed;
+            level.levelTime = seri.levelTime;
             level.levelRandom = RandomGenerator.FromSerializable(seri.levelRandom);
             level.entityRandom = RandomGenerator.FromSerializable(seri.entityRandom);
             level.effectRandom = RandomGenerator.FromSerializable(seri.effectRandom);
@@ -564,6 +567,17 @@ namespace PVZEngine.Level
         }
         #endregion
 
+        #region 关卡时间
+        public long GetLevelTime()
+        {
+            return levelTime;
+        }
+        public bool IsTimeInterval(long interval, long offset = 0)
+        {
+            return levelTime % interval == offset;
+        }
+        #endregion
+
         #endregion
 
         #region 私有方法
@@ -630,6 +644,7 @@ namespace PVZEngine.Level
         private float entityLaneZOffset;
         private int maxLaneCount;
         private int maxColumnCount;
+        private long levelTime = 0;
 
         private List<ILevelComponent> levelComponents = new List<ILevelComponent>();
         #endregion 保存属性

@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Buffs
         {
             var spikeWidth = 64;
             var impWidth = 16;
-            var spikeInterval = SpikeBlock.ATTACK_INTERVAL;
+            var spikeInterval = SpikeBlock.ATTACK_COOLDOWN;
             var targetTimes = 2;
             var impFriction = 0.15f;
             var speedFactor = VanillaEnemyExt.WALK_SPEED_FACTOR;

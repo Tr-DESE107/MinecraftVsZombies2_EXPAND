@@ -181,9 +181,6 @@ namespace MVZ2.GameContent.Bosses
 
         public static List<Vector3> GetCorpsePositions(Entity entity) => GetBehaviourProperty<List<Vector3>>(entity, PROP_CORPSE_POSITIONS);
         public static void SetCorpsePositions(Entity entity, List<Vector3> value) => SetBehaviourProperty(entity, PROP_CORPSE_POSITIONS, value);
-
-        public static FrameTimer GetSpinDamageTimer(Entity entity) => GetBehaviourProperty<FrameTimer>(entity, PROP_SPIN_DAMAGE_TIMER);
-        public static void SetSpinDamageTimer(Entity entity, FrameTimer value) => SetBehaviourProperty(entity, PROP_SPIN_DAMAGE_TIMER, value);
         #endregion
 
         private static readonly VanillaEntityPropertyMeta PROP_MOVE_DIRECTION = new VanillaEntityPropertyMeta("MoveDirection");
@@ -191,7 +188,6 @@ namespace MVZ2.GameContent.Bosses
         private static readonly VanillaEntityPropertyMeta PROP_STATE_RNG = new VanillaEntityPropertyMeta("StateRNG");
         private static readonly VanillaEntityPropertyMeta PROP_SPARK_RNG = new VanillaEntityPropertyMeta("SparkRNG");
         private static readonly VanillaEntityPropertyMeta PROP_CORPSE_POSITIONS = new VanillaEntityPropertyMeta("CorpsePositions");
-        private static readonly VanillaEntityPropertyMeta PROP_SPIN_DAMAGE_TIMER = new VanillaEntityPropertyMeta("SpinDamageTimer");
 
         private const float FLY_HEIGHT = 20;
 

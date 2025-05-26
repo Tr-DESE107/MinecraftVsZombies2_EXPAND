@@ -54,19 +54,8 @@ namespace MVZ2.GameContent.Bosses
             if (entity.IsDead)
                 return;
 
-            var cryTimer = GetCryTimer(entity);
-            if (cryTimer == null)
+            if (!entity.HasBuff<TheGiantInactiveBuff>() && entity.IsTimeInterval(CRY_INTERVAL))
             {
-                cryTimer = new FrameTimer(CRY_INTERVAL);
-                SetCryTimer(entity, cryTimer);
-            }
-            if (!entity.HasBuff<TheGiantInactiveBuff>())
-            {
-                cryTimer.Run();
-            }
-            if (cryTimer.Expired)
-            {
-                cryTimer.ResetTime(CRY_INTERVAL);
                 entity.PlaySound(VanillaSoundID.zombieCry, 0.5f);
             }
         }
@@ -171,8 +160,6 @@ namespace MVZ2.GameContent.Bosses
         #endregion 事件
 
         #region 字段
-        public static FrameTimer GetCryTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_CRY_TIMER);
-        public static void SetCryTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_CRY_TIMER, value);
         public static int GetPhase(Entity entity) => entity.GetBehaviourField<int>(PROP_PHASE);
         public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
         public static bool IsFlipX(Entity entity) => entity.GetBehaviourField<bool>(PROP_FLIP_X);
@@ -550,7 +537,6 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 常量
-        private static readonly VanillaEntityPropertyMeta PROP_CRY_TIMER = new VanillaEntityPropertyMeta("CryTimer");
         private static readonly VanillaEntityPropertyMeta PROP_PHASE = new VanillaEntityPropertyMeta("Phase");
         private static readonly VanillaEntityPropertyMeta PROP_ZOMBIE_BLOCKS = new VanillaEntityPropertyMeta("ZombieBlocks");
         private static readonly VanillaEntityPropertyMeta PROP_SNAKE_TAILS = new VanillaEntityPropertyMeta("SnakeTails");

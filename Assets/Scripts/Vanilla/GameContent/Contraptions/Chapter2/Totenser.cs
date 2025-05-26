@@ -28,7 +28,6 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
             InitShootTimer(entity);
-            SetFireDetectTimer(entity, new FrameTimer(FIRE_DETECT_INTERVAL));
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -57,9 +56,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private void UpdateFireBreath(Entity entity)
         {
-            var timer = GetFireDetectTimer(entity);
-            timer.Run();
-            if (timer.Expired)
+            if (entity.IsTimeInterval(FIRE_DETECT_INTERVAL))
             {
                 var target = fireBreathDetector.Detect(entity);
                 if (target != null && !entity.IsAIFrozen())
@@ -70,7 +67,6 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     entity.State = VanillaEntityStates.IDLE;
                 }
-                timer.Reset();
             }
             if (entity.State == VanillaEntityStates.TOTENSER_FIRE_BREATH)
             {
@@ -122,8 +118,6 @@ namespace MVZ2.GameContent.Contraptions
             }
             SetEvocationTime(entity, evocationTime);
         }
-        public static FrameTimer GetFireDetectTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_FIRE_DETECT_TIMER);
-        public static void SetFireDetectTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, PROP_FIRE_DETECT_TIMER, value);
         public static int GetEvocationTime(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_EVOCATION_TIME);
         public static void SetEvocationTime(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_EVOCATION_TIME, value);
         public static Entity GetFireBreath(Entity entity)
@@ -138,7 +132,6 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetBehaviourField(ID, PROP_FIRE_BREATH, new EntityID(value));
         }
         private static readonly NamespaceID ID = VanillaContraptionID.totenser;
-        public static readonly VanillaEntityPropertyMeta PROP_FIRE_DETECT_TIMER = new VanillaEntityPropertyMeta("FireDetectTimer");
         public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIME = new VanillaEntityPropertyMeta("EvocationTime");
         public static readonly VanillaEntityPropertyMeta PROP_FIRE_BREATH = new VanillaEntityPropertyMeta("FireBreath");
         private Detector fireBreathDetector;

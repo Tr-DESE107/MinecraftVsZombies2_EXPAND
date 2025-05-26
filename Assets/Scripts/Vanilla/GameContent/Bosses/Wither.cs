@@ -48,16 +48,8 @@ namespace MVZ2.GameContent.Bosses
                 return;
             stateMachine.UpdateAI(entity);
 
-            var cryTimer = GetCryTimer(entity);
-            if (cryTimer == null)
+            if (entity.IsTimeInterval(CRY_INTERVAL))
             {
-                cryTimer = new FrameTimer(CRY_INTERVAL);
-                SetCryTimer(entity, cryTimer);
-            }
-            cryTimer.Run();
-            if (cryTimer.Expired)
-            {
-                cryTimer.ResetTime(CRY_INTERVAL);
                 entity.PlaySound(VanillaSoundID.witherCry);
             }
         }
@@ -173,8 +165,6 @@ namespace MVZ2.GameContent.Bosses
         #endregion 事件
 
         #region 字段
-        public static FrameTimer GetCryTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_CRY_TIMER);
-        public static void SetCryTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_CRY_TIMER, value);
         public static int GetPhase(Entity entity) => entity.GetBehaviourField<int>(PROP_PHASE);
         public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
         public static float[] GetHeadAngles(Entity entity) => entity.GetBehaviourField<float[]>(PROP_HEAD_ANGLES);
@@ -345,7 +335,6 @@ namespace MVZ2.GameContent.Bosses
         }
 
         #region 常量
-        private static readonly VanillaEntityPropertyMeta PROP_CRY_TIMER = new VanillaEntityPropertyMeta("CryTimer");
         private static readonly VanillaEntityPropertyMeta PROP_HEAD_ANGLES = new VanillaEntityPropertyMeta("HeadAngles");
         private static readonly VanillaEntityPropertyMeta PROP_HEAD_OPEN = new VanillaEntityPropertyMeta("HeadOpen");
         private static readonly VanillaEntityPropertyMeta PROP_HEAD_TARGETS = new VanillaEntityPropertyMeta("HeadTargets");

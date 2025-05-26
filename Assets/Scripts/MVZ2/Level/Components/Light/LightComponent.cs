@@ -20,10 +20,8 @@ namespace MVZ2.Level.Components
         public override void Update()
         {
             base.Update();
-            checkTimer.Run();
-            if (checkTimer.Expired)
+            if (Level.IsTimeInterval(4))
             {
-                checkTimer.Reset();
                 UpdateLighting();
             }
         }
@@ -32,7 +30,6 @@ namespace MVZ2.Level.Components
         {
             return new SerializableLightComponent()
             {
-                checkTimer = checkTimer,
                 lightSources = lightSources.Select(pair => new SerializableLightSourceInfo(pair.Key, pair.Value)).ToArray()
             };
         }
@@ -41,7 +38,6 @@ namespace MVZ2.Level.Components
             base.LoadSerializable(seri);
             if (seri is not SerializableLightComponent serializable)
                 return;
-            checkTimer = serializable.checkTimer;
             foreach (var info in serializable.lightSources)
             {
                 lightSources.Add(info.id, info.ToDeserialized());
@@ -102,7 +98,6 @@ namespace MVZ2.Level.Components
         #endregion
 
         #region ÊôÐÔ×Ö¶Î
-        private FrameTimer checkTimer = new FrameTimer(4);
         private LightSourceUpdateList lightSources;
 
         private List<Entity> lightSourceBuffer = new List<Entity>();
@@ -113,7 +108,6 @@ namespace MVZ2.Level.Components
     [Serializable]
     public class SerializableLightComponent : ISerializableLevelComponent
     {
-        public FrameTimer checkTimer;
         public SerializableLightSourceInfo[] lightSources;
     }
 }

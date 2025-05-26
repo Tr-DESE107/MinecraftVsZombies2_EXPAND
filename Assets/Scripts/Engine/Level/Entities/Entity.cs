@@ -80,6 +80,7 @@ namespace PVZEngine.Entities
             {
                 Debug.LogError($"更新实体时出现错误：{ex}");
             }
+            time++;
         }
         public void SetParent(Entity parent)
         {
@@ -679,6 +680,18 @@ namespace PVZEngine.Entities
             }
         }
         #endregion
+
+        #region 时间
+        public long GetEntityTime()
+        {
+            return time;
+        
+        }
+        public bool IsTimeInterval(long interval, long offset = 0)
+        {
+            return time % interval == offset;
+        }
+        #endregion
         public bool IsFacingLeft() => this.FaceLeftAtDefault() != (Cache.GetFinalScale().x < 0);
 
         #region 模型
@@ -781,6 +794,7 @@ namespace PVZEngine.Entities
         {
             var seri = new SerializableEntity();
             seri.id = ID;
+            seri.time = time;
             seri.initSeed = InitSeed;
             seri.spawnerReference = SpawnerReference;
             seri.type = Type;
@@ -839,6 +853,7 @@ namespace PVZEngine.Entities
         }
         public void ApplyDeserialize(SerializableEntity seri)
         {
+            time = seri.time;
             InitSeed = seri.initSeed;
             RNG = RandomGenerator.FromSerializable(seri.rng);
             DropRNG = RandomGenerator.FromSerializable(seri.dropRng);
@@ -1040,6 +1055,7 @@ namespace PVZEngine.Entities
         private Dictionary<NamespaceID, Armor> armorDict = new Dictionary<NamespaceID, Armor>();
         #endregion
 
+        private long time = 0;
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private AuraEffectList auras = new AuraEffectList();
