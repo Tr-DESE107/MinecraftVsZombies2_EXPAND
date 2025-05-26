@@ -21,18 +21,17 @@ namespace MVZ2.Scenes
             {
                 loadingText.SetActive(true);
                 await main.Initialize();
+                main.InitLoad();
             }
             catch (Exception e)
             {
                 ShowErrorDialog(e);
                 return;
             }
-            finally
-            {
-                loadingText.SetActive(false);
-            }
             await CheckSaveDataStatus();
-            StartGame();
+            await StartGame();
+            main.MusicManager.Play(VanillaMusicID.mainmenu);
+            loadingText.SetActive(false);
         }
         private string GetErrorMessage(Exception e)
         {
@@ -119,9 +118,8 @@ namespace MVZ2.Scenes
                     break;
             }
         }
-        private async void StartGame()
+        private async Task StartGame()
         {
-            main.MusicManager.Play(VanillaMusicID.mainmenu);
             if (main.IsFastMode())
             {
                 var initTask = main.GetInitTask();

@@ -36,8 +36,6 @@ namespace MVZ2.Managers
             await LoadManagersInit();
             Scene.Init();
             ModManager.PostGameInit();
-
-            InitLoad();
         }
         public bool IsMobile()
         {
@@ -73,7 +71,7 @@ namespace MVZ2.Managers
             return false;
 #endif
         }
-        private void InitLoad()
+        public void InitLoad()
         {
             loadPipeline = new TaskPipeline();
             loadPipeline.AddTask(new PipelineTask(TASK_LOAD_RESOURCES, (p) => ResourceManager.LoadAllModResourcesMain(p)));

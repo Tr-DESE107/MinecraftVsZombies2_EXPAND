@@ -21,6 +21,12 @@ namespace MVZ2.Tests
             PropertyMapper.InitPropertyMaps("mvz2", logicAssembly.GetTypes());
             ModManager.OnRegisterMod += RegisterMod;
             await main.Initialize();
+            main.InitLoad();
+            var initTask = main.GetInitTask();
+            if (initTask != null)
+            {
+                await initTask;
+            }
         }
         private static void RegisterMod(IModManager manager, Game game)
         {
