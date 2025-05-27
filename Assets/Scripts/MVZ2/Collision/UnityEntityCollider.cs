@@ -42,34 +42,36 @@ namespace MVZ2.Collisions
         }
         public void UpdateFromEntity()
         {
-            var scale = Entity.GetFinalScale();
+            Vector3 boundsSize;
+            Vector3 boundsPivot;
+            Vector3 boundsOffset;
             switch (updateMode)
             {
                 case EntityColliderUpdateMode.Main:
                     {
-                        var size = Entity.GetSize();
-                        var offset = Vector3.Scale(Vector3.one * 0.5f - Entity.GetBoundsPivot(), size);
-                        offset = Vector3.Scale(offset, scale);
-                        size = Vector3.Scale(size, scale);
-                        size = size.Abs();
-                        boxCollider.center = offset;
-                        boxCollider.size = size;
+                        boundsSize = Entity.GetSize();
+                        boundsPivot = Entity.GetBoundsPivot();
+                        boundsOffset = Vector3.zero;
                     }
                     break;
                 case EntityColliderUpdateMode.Custom:
                     {
-                        var size = customSize;
-                        var offset = Vector3.Scale(Vector3.one * 0.5f - customPivot, size);
-                        offset += customOffset;
-                        offset = Vector3.Scale(offset, scale);
-                        size = Vector3.Scale(size, scale);
-                        size = size.Abs();
-                        boxCollider.center = offset;
-                        boxCollider.size = size;
+                        boundsSize = customSize;
+                        boundsPivot = customPivot;
+                        boundsOffset = customOffset;
                     }
                     break;
+                default:
+                    return;
             }
 
+            var scale = Entity.GetFinalScale();
+            var center = Vector3.Scale(Vector3.one * 0.5f - boundsPivot, boundsSize) + boundsOffset;
+            center = Vector3.Scale(center, scale);
+            boundsSize = Vector3.Scale(boundsSize, scale);
+            boundsSize = boundsSize.Abs();
+            boxCollider.center = center;
+            boxCollider.size = boundsSize;
         }
         public void Simulate()
         {

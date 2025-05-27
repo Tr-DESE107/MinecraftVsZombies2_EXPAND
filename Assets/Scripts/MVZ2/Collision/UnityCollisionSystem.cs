@@ -15,7 +15,7 @@ namespace MVZ2.Collisions
         {
             Physics.Simulate(1);
             simulateBuffer.Clear();
-            simulateBuffer.CopyFrom(entities);
+            simulateBuffer.CopyFrom(entities.Values);
             for (int i = 0; i < simulateBuffer.Count; i++)
             {
                 var entity = simulateBuffer[i];
@@ -52,7 +52,7 @@ namespace MVZ2.Collisions
             var ent = Instantiate(collisionEntityTemplate, entityRoot).GetComponent<UnityCollisionEntity>();
             ent.gameObject.SetActive(true);
             ent.Init(entity);
-            entities.Add(ent);
+            entities.Add(entity.ID, ent);
             return ent;
         }
         private void DestroyCollisionEntity(Entity entity)
@@ -63,11 +63,13 @@ namespace MVZ2.Collisions
                 collisionEnt.gameObject.SetActive(false);
                 Destroy(collisionEnt.gameObject);
             }
-            entities.Remove(collisionEnt);
+            entities.Remove(entity.ID);
         }
         private UnityCollisionEntity GetCollisionEntity(Entity entity)
         {
-            return entities.Find(e => e.Entity == entity);
+            if (entities.TryGetValue(entity.ID, out var ent))
+                return ent;
+            return null;
         }
 
         #region 碰撞体
@@ -200,8 +202,9 @@ namespace MVZ2.Collisions
         {
             var seri = new SerializableUnityCollisionSystem();
             var seriEntities = new List<SerializableUnityCollisionEntity>();
-            foreach (var ent in entities)
+            foreach (var pair in entities)
             {
+                var ent = pair.Value;
                 if (!ent || ent.Entity == null)
                     continue;
                 var entity = ent.ToSerializable();
@@ -220,12 +223,12 @@ namespace MVZ2.Collisions
                 var colEntity = CreateCollisionEntity(ent);
                 colEntity.LoadFromSerializable(seriEnt, ent);
             }
-            foreach (var entity in entities)
+            foreach (var pair in entities)
             {
-                var seriEnt = seri.entities.FirstOrDefault(e => e.id == entity.Entity.ID);
+                var seriEnt = seri.entities.FirstOrDefault(e => e.id == pair.Key);
                 if (seriEnt == null)
                     continue;
-                entity.LoadCollisions(level, seriEnt);
+                pair.Value.LoadCollisions(level, seriEnt);
             }
         }
         ISerializableCollisionSystem ICollisionSystem.ToSerializable()
@@ -244,7 +247,7 @@ namespace MVZ2.Collisions
         private Transform entityRoot;
         private Collider[] overlapBuffer = new Collider[2048];
         private ArrayBuffer<UnityCollisionEntity> simulateBuffer = new ArrayBuffer<UnityCollisionEntity>(2048);
-        private List<UnityCollisionEntity> entities = new List<UnityCollisionEntity>();
+        private Dictionary<long, UnityCollisionEntity> entities = new Dictionary<long, UnityCollisionEntity>();
     }
     public class SerializableUnityCollisionSystem : ISerializableCollisionSystem
     {

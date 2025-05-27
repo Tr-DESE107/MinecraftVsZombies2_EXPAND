@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using Newtonsoft.Json;
 using NGettext;
 using PVZEngine;
@@ -94,18 +95,24 @@ namespace MVZ2.Localization
         public bool TryGetSprite(string language, NamespaceID id, out Sprite spr)
         {
             spr = null;
-            var asset = assets.FirstOrDefault(a => a.language == language);
-            if (asset == null)
-                return false;
-            return asset.Sprites.TryGetValue(id, out spr);
+            foreach (var asset in assets)
+            {
+                if (asset.language != language)
+                    continue;
+                return asset.Sprites.TryGetValue(id, out spr);
+            }
+            return false;
         }
         public bool TryGetSpriteSheet(string language, NamespaceID id, out Sprite[] res)
         {
             res = null;
-            var asset = assets.FirstOrDefault(a => a.language == language);
-            if (asset == null)
-                return false;
-            return asset.SpriteSheets.TryGetValue(id, out res);
+            foreach (var asset in assets)
+            {
+                if (asset.language != language)
+                    continue;
+                return asset.SpriteSheets.TryGetValue(id, out res);
+            }
+            return false;
         }
         public string[] GetLanguages()
         {
