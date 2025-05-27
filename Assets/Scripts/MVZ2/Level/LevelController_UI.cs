@@ -584,11 +584,12 @@ namespace MVZ2.Level
             uiPreset.SetStarshardSelected(level.IsHoldingStarshard());
             uiPreset.SetStarshardDisabled(starshardDisabled && level.ShouldShowStarshardDisableIcon());
 
+            var limit = level.GetPickaxeCountLimit();
             var remainCount = level.GetPickaxeRemainCount();
             var pickaxeNumberText = new PickaxeNumberText()
             {
                 show = level.IsPickaxeCountLimited(),
-                text = remainCount.ToString(),
+                text = $"{remainCount}/{limit}",
                 color = remainCount <= 0 ? Color.red : Color.white
             };
             uiPreset.SetPickaxeSelected(level.IsHoldingPickaxe());

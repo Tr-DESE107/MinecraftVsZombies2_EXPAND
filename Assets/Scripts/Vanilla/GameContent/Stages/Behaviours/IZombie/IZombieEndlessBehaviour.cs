@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Stages
         public IZombieEndlessBehaviour(StageDefinition stageDef) : base(stageDef)
         {
             stageDef.SetProperty(VanillaStageProps.ENDLESS, true);
-            stageDef.SetPickaxeCountLimited(true);
+            stageDef.SetPickaxeCountLimit(MAX_PICKAXE_COUNT);
             normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeComposite, 1.5f));
             normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeControl, 1.5f));
             normalLayouts.Add(new IZELayoutItem(VanillaIZombieLayoutID.izeInstakill));
@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Stages
             if (level.CurrentFlag % ROUNDS_PER_PICKAXE == 0 && level.IsPickaxeCountLimited())
             {
                 var pickaxeCount = level.GetPickaxeRemainCount();
-                pickaxeCount = Mathf.Min(MAX_PICKAXE_COUNT, pickaxeCount + 1);
+                pickaxeCount = Mathf.Min(level.GetPickaxeCountLimit(), pickaxeCount + 1);
                 level.SetPickaxeRemainCount(pickaxeCount);
             }
         }

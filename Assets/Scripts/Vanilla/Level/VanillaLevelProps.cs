@@ -92,7 +92,7 @@ namespace MVZ2.Vanilla.Level
         public static readonly PropertyMeta<string> PICKAXE_DISABLE_MESSAGE = Get<string>("pickaxeDisableMessage");
         public static readonly PropertyMeta<bool> PICKAXE_DISABLE_ICON = Get<bool>("pickaxeDisableIcon");
         public static readonly PropertyMeta<int> PICKAXE_REMAIN_COUNT = Get<int>("pickaxeRemainCount");
-        public static readonly PropertyMeta<bool> PICKAXE_COUNT_LIMITED = Get<bool>("pickaxeCountLimited");
+        public static readonly PropertyMeta<int> PICKAXE_COUNT_LIMIT = Get<int>("pickaxeCountLimit");
         public static bool IsPickaxeDisabled(this LevelEngine level)
         {
             return level.GetProperty<bool>(PICKAXE_DISABLED);
@@ -126,15 +126,19 @@ namespace MVZ2.Vanilla.Level
         public static void AddPickaxeRemainCount(this LevelEngine level, int value) => level.SetPickaxeRemainCount(level.GetPickaxeRemainCount() + value);
         public static bool IsPickaxeCountLimited(this LevelEngine level)
         {
-            return level.GetProperty<bool>(PICKAXE_COUNT_LIMITED);
+            return level.GetPickaxeCountLimit() > 0;
         }
-        public static void SetPickaxeCountLimited(this LevelEngine level, bool value)
+        public static int GetPickaxeCountLimit(this LevelEngine level)
         {
-            level.SetProperty(PICKAXE_COUNT_LIMITED, value);
+            return level.GetProperty<int>(PICKAXE_COUNT_LIMIT);
         }
-        public static void SetPickaxeCountLimited(this StageDefinition level, bool value)
+        public static void SetPickaxeCountLimit(this LevelEngine level, int value)
         {
-            level.SetProperty(PICKAXE_COUNT_LIMITED, value);
+            level.SetProperty(PICKAXE_COUNT_LIMIT, value);
+        }
+        public static void SetPickaxeCountLimit(this StageDefinition level, int value)
+        {
+            level.SetProperty(PICKAXE_COUNT_LIMIT, value);
         }
         #endregion
 
