@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-26 08:40+0800\n"
+"POT-Creation-Date: 2025-05-27 05:24+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2652,7 +2652,7 @@ msgid ""
 "星之记录 其一：\n"
 "自那件事以来，每当我沉睡于梦中，总会在深不可测的黑暗中看到一个物体，它闪着星形的光，随之它便离我远去。\n"
 "我并不理解这是什么意思。后来即使不在梦中，我也总是能看到类似的物体，这十分反常。\n"
-"当我离开不属于我的那片土地时，我在一片沼泽中看到了它变成彩虹色的糖果，这与那些星星十分相似，但我仍不能确定这到底是什么。"
+"当我离开不属于我的那片土地时，我在一片朦胧中看到了它变成彩虹色的糖果，这与那些星星十分相似，但我仍不能确定这到底是什么。"
 msgstr ""
 
 #. Name for misc mvz2:starshard.lucid_dream
