@@ -116,6 +116,6 @@ namespace MVZ2.GameContent.Stages
         }
         public const string PROP_REGION = "seija_stage_behaviour";
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta FIELD_MESMERIZER_SPAWNED = new VanillaLevelPropertyMeta("MesmerizerSpawned");
+        public static readonly VanillaLevelPropertyMeta<bool> FIELD_MESMERIZER_SPAWNED = new VanillaLevelPropertyMeta<bool>("MesmerizerSpawned");
     }
 }

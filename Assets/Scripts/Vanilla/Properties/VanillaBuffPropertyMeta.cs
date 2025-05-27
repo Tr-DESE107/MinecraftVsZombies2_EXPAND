@@ -2,7 +2,7 @@
 
 namespace MVZ2.Vanilla.Properties
 {
-    public class VanillaBuffPropertyMeta : PropertyMeta
+    public class VanillaBuffPropertyMeta<T> : PropertyMeta<T>
     {
         public VanillaBuffPropertyMeta(string name) : base(name)
         {

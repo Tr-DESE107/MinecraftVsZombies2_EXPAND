@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             }
             buff.SetProperty(PROP_TIMEOUT, time);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
         public const int MAX_TIMEOUT = 150;
         public const float HEAL_PER_FRAME = 20;
         private List<Entity> healBuffer = new List<Entity>();

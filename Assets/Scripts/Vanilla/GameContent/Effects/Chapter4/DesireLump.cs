@@ -46,6 +46,6 @@ namespace MVZ2.GameContent.Effects
         }
         public static Vector3 GetStartPosition(Entity entity) => entity.GetBehaviourField<Vector3>(PROP_START_POSITION);
         public static void SetStartPosition(Entity entity, Vector3 value) => entity.SetBehaviourField(PROP_START_POSITION, value);
-        private static readonly VanillaEntityPropertyMeta PROP_START_POSITION = new VanillaEntityPropertyMeta("StartPosition");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_START_POSITION = new VanillaEntityPropertyMeta<Vector3>("StartPosition");
     }
 }

@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Seeds
         {
             SetProperty(VanillaSeedProps.SEED_TYPE, SeedTypes.ENTITY);
             SetProperty(VanillaSeedProps.SEED_ENTITY_ID, info.entityID);
-            SetProperty(EngineSeedProps.COST, info.cost);
+            SetProperty(EngineSeedProps.COST, (float)info.cost);
             SetProperty(EngineSeedProps.RECHARGE_ID, info.rechargeID);
             SetProperty(VanillaSeedProps.TRIGGER_ACTIVE, info.triggerActive);
             SetProperty(VanillaSeedProps.CAN_INSTANT_EVOKE, info.canInstantEvoke);

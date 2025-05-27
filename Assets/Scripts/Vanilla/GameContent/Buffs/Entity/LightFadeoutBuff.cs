@@ -34,6 +34,6 @@ namespace MVZ2.GameContent.Buffs.Effects
             var color = new Color(1, 1, 1, alpha);
             buff.SetProperty(PROP_COLOR_MULTIPLIER, color);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_COLOR_MULTIPLIER = new VanillaBuffPropertyMeta("ColorMultiplier");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("ColorMultiplier");
     }
 }

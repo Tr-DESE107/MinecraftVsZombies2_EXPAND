@@ -21,8 +21,8 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         public static void SetDamageMultiplier(Buff buff, float value) => buff.SetProperty(PROP_DAMAGE_MULTIPLIER, value);
         public static void SetRangeMultiplier(Buff buff, float value) => buff.SetProperty(PROP_RANGE_MULTIPLIER, value);
         public static void SetScaleMultiplier(Buff buff, Vector3 value) => buff.SetProperty(PROP_SCALE_MULTIPLIER, value);
-        public static readonly VanillaBuffPropertyMeta PROP_DAMAGE_MULTIPLIER = new VanillaBuffPropertyMeta("damageMultiplier");
-        public static readonly VanillaBuffPropertyMeta PROP_RANGE_MULTIPLIER = new VanillaBuffPropertyMeta("rangeMultiplier");
-        public static readonly VanillaBuffPropertyMeta PROP_SCALE_MULTIPLIER = new VanillaBuffPropertyMeta("scaleMultiplier");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_DAMAGE_MULTIPLIER = new VanillaBuffPropertyMeta<float>("damageMultiplier");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_RANGE_MULTIPLIER = new VanillaBuffPropertyMeta<float>("rangeMultiplier");
+        public static readonly VanillaBuffPropertyMeta<Vector3> PROP_SCALE_MULTIPLIER = new VanillaBuffPropertyMeta<Vector3>("scaleMultiplier");
     }
 }

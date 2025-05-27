@@ -41,8 +41,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             buff.SetProperty(PROP_RANGE_MULTIPLIER, Vector3.one * percentage * 10);
             buff.SetProperty(PROP_COLOR_MULTIPLIER, new Color(percentage, percentage, percentage, percentage));
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");
-        public static readonly VanillaBuffPropertyMeta PROP_RANGE_MULTIPLIER = new VanillaBuffPropertyMeta("RangeMultiplier");
-        public static readonly VanillaBuffPropertyMeta PROP_COLOR_MULTIPLIER = new VanillaBuffPropertyMeta("ColorMultiplier");
+        public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("Timer");
+        public static readonly VanillaBuffPropertyMeta<Vector3> PROP_RANGE_MULTIPLIER = new VanillaBuffPropertyMeta<Vector3>("RangeMultiplier");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("ColorMultiplier");
     }
 }

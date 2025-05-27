@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Implements
                 var adviceContext = CONTEXT_ADVICE_COLLECT_MONEY;
                 var adviceText = ADVICE_COLLECT_MONEY_1;
                 level.ShowAdvice(adviceContext, adviceText, 1000, 90);
-                level.SetProperty(FIRST_GEM, null);
+                level.SetProperty(FIRST_GEM, (EntityID)null);
                 level.HideHintArrow();
             }
         }
@@ -85,7 +85,7 @@ namespace MVZ2.GameContent.Implements
         }
         public const string REGION_NAME = "gem_stage";
         [LevelPropertyRegistry(REGION_NAME)]
-        public static readonly VanillaLevelPropertyMeta FIRST_GEM = new VanillaLevelPropertyMeta("firstGem");
+        public static readonly VanillaLevelPropertyMeta<EntityID> FIRST_GEM = new VanillaLevelPropertyMeta<EntityID>("firstGem");
         public const string CONTEXT_ADVICE_COLLECT_MONEY = "advice.collect_money";
         [TranslateMsg("拾取宝石的帮助提示", CONTEXT_ADVICE_COLLECT_MONEY)]
         public const string ADVICE_COLLECT_MONEY_0 = "点击收集宝石！";

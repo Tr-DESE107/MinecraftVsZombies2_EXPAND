@@ -6,18 +6,18 @@ namespace MVZ2.Vanilla.Entities
     [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class VanillaPickupProps
     {
-        private static PropertyMeta Get(string name)
+        private static PropertyMeta<T> Get<T>(string name)
         {
-            return new PropertyMeta(name);
+            return new PropertyMeta<T>(name);
         }
-        public static readonly PropertyMeta COLLECTED_TIME = Get("collectedTime");
-        public static readonly PropertyMeta IMPORTANT = Get("important");
-        public static readonly PropertyMeta NO_AUTO_COLLECT = Get("noAutoCollect");
-        public static readonly PropertyMeta DROP_SOUND = Get("dropSound");
-        public static readonly PropertyMeta COLLECT_SOUND = Get("collectSound");
-        public static readonly PropertyMeta ENERGY_VALUE = Get("energyValue");
-        public static readonly PropertyMeta MONEY_VALUE = Get("moneyValue");
-        public static readonly PropertyMeta REMOVE_ON_COLLECT = Get("removeOnCollect");
+        public static readonly PropertyMeta<int> COLLECTED_TIME = Get<int>("collectedTime");
+        public static readonly PropertyMeta<bool> IMPORTANT = Get<bool>("important");
+        public static readonly PropertyMeta<bool> NO_AUTO_COLLECT = Get<bool>("noAutoCollect");
+        public static readonly PropertyMeta<NamespaceID> DROP_SOUND = Get<NamespaceID>("dropSound");
+        public static readonly PropertyMeta<NamespaceID> COLLECT_SOUND = Get<NamespaceID>("collectSound");
+        public static readonly PropertyMeta<int> ENERGY_VALUE = Get<int>("energyValue");
+        public static readonly PropertyMeta<int> MONEY_VALUE = Get<int>("moneyValue");
+        public static readonly PropertyMeta<bool> REMOVE_ON_COLLECT = Get<bool>("removeOnCollect");
         public static bool IsImportantPickup(this Entity entity)
         {
             return entity.GetProperty<bool>(IMPORTANT);
@@ -62,7 +62,7 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<bool>(REMOVE_ON_COLLECT);
         }
-        public static readonly PropertyMeta STRICT_COLLECT = Get("strictCollect");
+        public static readonly PropertyMeta<bool> STRICT_COLLECT = Get<bool>("strictCollect");
         public static bool IsStrictCollect(this Entity pickup)
         {
             return pickup.GetProperty<bool>(STRICT_COLLECT);

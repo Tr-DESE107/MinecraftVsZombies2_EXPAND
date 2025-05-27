@@ -51,6 +51,6 @@ namespace MVZ2.GameContent.Effects
         }
         #endregion
         private static readonly NamespaceID ID = VanillaEffectID.fragment;
-        public static readonly VanillaEntityPropertyMeta PROP_EMIT_SPEED = new VanillaEntityPropertyMeta("EmitSpeed");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_EMIT_SPEED = new VanillaEntityPropertyMeta<float>("EmitSpeed");
     }
 }

@@ -121,8 +121,8 @@ namespace MVZ2.GameContent.Enemies
         public const int SHIELD_DETECT_TIME = 30;
         public const float SHIELD_RADIUS = 120;
         public static readonly NamespaceID ID = VanillaEnemyID.necromancer;
-        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_CASTING = new VanillaEntityPropertyMeta("Casting");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_CASTING = new VanillaEntityPropertyMeta<bool>("Casting");
         private Detector shieldDetector;
         private List<Entity> detectBuffer = new List<Entity>();
         #endregion 常量

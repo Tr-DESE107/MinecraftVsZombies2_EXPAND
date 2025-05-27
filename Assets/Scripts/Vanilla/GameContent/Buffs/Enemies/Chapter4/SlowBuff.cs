@@ -49,6 +49,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
             timer.ResetTime(value);
         }
 
-        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");
+        public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("Timer");
     }
 }

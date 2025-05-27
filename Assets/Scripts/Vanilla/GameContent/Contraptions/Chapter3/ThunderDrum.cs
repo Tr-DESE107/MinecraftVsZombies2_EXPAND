@@ -139,9 +139,9 @@ namespace MVZ2.GameContent.Contraptions
         public const int RESTORE_TIME = 1800;
         public const int EVOCATION_DURATION = 120;
         public const float TOTAL_HP_LOSS = 0.25f;
-        public static readonly VanillaEntityPropertyMeta FIELD_BROKEN = new VanillaEntityPropertyMeta("Broken");
-        public static readonly VanillaEntityPropertyMeta FIELD_RESTORE_TIMER = new VanillaEntityPropertyMeta("RestoreTimer");
-        public static readonly VanillaEntityPropertyMeta FIELD_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
+        public static readonly VanillaEntityPropertyMeta<bool> FIELD_BROKEN = new VanillaEntityPropertyMeta<bool>("Broken");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_RESTORE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("RestoreTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
         private static readonly NamespaceID ID = VanillaContraptionID.thunderDrum;
         private List<Entity> detectBuffer = new List<Entity>();
     }

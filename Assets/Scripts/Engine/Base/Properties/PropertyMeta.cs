@@ -2,52 +2,67 @@
 
 namespace PVZEngine
 {
-    public class PropertyMeta
+    public abstract class PropertyMeta
     {
         public string namespaceName;
         public string regionName;
         public string propertyName;
-        private PropertyKey key;
-        public PropertyMeta(string name)
+        public Type propertyType;
+        public PropertyMeta(string name, Type propertyType)
         {
             propertyName = name;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is PropertyMeta meta &&
-                   namespaceName == meta.namespaceName &&
-                   propertyName == meta.propertyName &&
-                   regionName == meta.regionName;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(namespaceName, regionName, propertyName);
+            this.propertyType = propertyType;
         }
         public override string ToString()
         {
-            return PropertyKey.CombineName(namespaceName, regionName, propertyName);
+            return PropertyKeyHelper.CombineName(namespaceName, regionName, propertyName);
         }
+        public abstract void SetRegisteredKey(IPropertyKey key);
 
         public void RegisterNames(string namespaceName, string regionName)
         {
             this.namespaceName = namespaceName;
             this.regionName = regionName;
         }
-        public void SetRegisteredKey(PropertyKey key)
+    }
+    public class PropertyMeta<T> : PropertyMeta
+    {
+        private PropertyKey<T> key;
+        public PropertyMeta(string name) : base(name, typeof(T))
         {
-            this.key = key;
         }
-        public static bool operator ==(PropertyMeta lhs, PropertyMeta rhs)
+
+        public override void SetRegisteredKey(IPropertyKey key)
+        {
+            if (key is PropertyKey<T> tKey)
+            {
+                this.key = tKey;
+            }
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj is IPropertyKey key)
+            {
+                return this.key.Equals(key);
+            }
+            return obj is PropertyMeta<T> meta &&
+                   namespaceName == meta.namespaceName &&
+                   propertyName == meta.propertyName &&
+                   regionName == meta.regionName;
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(namespaceName, regionName, propertyName);
+        }
+        public static bool operator ==(PropertyMeta<T> lhs, PropertyMeta<T> rhs)
         {
             return lhs.namespaceName == rhs.namespaceName && lhs.regionName == rhs.regionName && lhs.propertyName == rhs.propertyName;
         }
-        public static bool operator !=(PropertyMeta lhs, PropertyMeta rhs)
+        public static bool operator !=(PropertyMeta<T> lhs, PropertyMeta<T> rhs)
         {
             return lhs.namespaceName != rhs.namespaceName || lhs.regionName == rhs.regionName || lhs.propertyName != rhs.propertyName;
         }
-        public static implicit operator PropertyKey(PropertyMeta meta)
+        public static implicit operator PropertyKey<T>(PropertyMeta<T> meta)
         {
             return meta.key;
         }

@@ -258,8 +258,8 @@ namespace MVZ2.GameContent.Contraptions
         public static int GetTargetGridIndex(Entity entity) => entity.GetBehaviourField<int>(PROP_TARGET_GRID_INDEX);
         public static void SetTargetGridIndex(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_GRID_INDEX, value);
         #endregion
-        public static readonly VanillaEntityPropertyMeta PROP_DEVOUR_TIMER = new VanillaEntityPropertyMeta("devourTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta("targetGridIndex");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DEVOUR_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("devourTimer");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta<int>("targetGridIndex");
         public Detector evokedDetector;
         public const int DEVOUR_TIME = 135;
         public const int EVOCATION_DURATION = 450;

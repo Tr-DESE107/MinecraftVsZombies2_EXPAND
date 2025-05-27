@@ -75,7 +75,7 @@ namespace MVZ2.GameContent.Enemies
         public static void SetExplosionTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_EXPLOSION_TIMER, timer);
         public static FrameTimer GetExplosionTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EXPLOSION_TIMER);
         public const int EXPLOSION_TIMEOUT = 300;
-        public static readonly VanillaEntityPropertyMeta PROP_EXPLOSION_TIMER = new VanillaEntityPropertyMeta("ExplosionTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_COLOR_OFFSET = new VanillaEntityPropertyMeta("ColorOffset");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EXPLOSION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ExplosionTimer");
+        public static readonly VanillaEntityPropertyMeta<Color> PROP_COLOR_OFFSET = new VanillaEntityPropertyMeta<Color>("ColorOffset");
     }
 }

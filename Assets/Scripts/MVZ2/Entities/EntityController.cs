@@ -238,7 +238,7 @@ namespace MVZ2.Entities
         {
             UpdateFrame(0);
         }
-        private void PostPropertyChangedCallback(PropertyKey key, object beforeValue, object afterValue)
+        private void PostPropertyChangedCallback(IPropertyKey key, object beforeValue, object afterValue)
         {
             modelPropertyCache.SetDirtyProperty(key);
         }
@@ -612,11 +612,11 @@ namespace MVZ2.Entities
             {
                 dirtyProperties.Add(property);
             }
-            public void SetDirtyProperty(PropertyKey key)
+            public void SetDirtyProperty(IPropertyKey key)
             {
                 foreach (var pair in propertyMap)
                 {
-                    if (pair.Key == key)
+                    if (pair.Key.Equals(key))
                     {
                         dirtyProperties.Add(pair.Value);
                         break;

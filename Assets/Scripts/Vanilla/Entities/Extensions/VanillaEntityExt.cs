@@ -838,6 +838,6 @@ namespace MVZ2.Vanilla.Entities
 
         private const string PROP_REGION = "entities";
         [EntityPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_SHINE_RING = new VanillaEntityPropertyMeta("LightShineRing");
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_SHINE_RING = new VanillaEntityPropertyMeta<EntityID>("LightShineRing");
     }
 }

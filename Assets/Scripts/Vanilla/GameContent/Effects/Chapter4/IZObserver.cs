@@ -37,6 +37,6 @@ namespace MVZ2.GameContent.Effects
         }
         public static bool IsPass(Entity entity) => entity.GetBehaviourField<bool>(PROP_PASS);
         public static void SetPass(Entity entity, bool value) => entity.SetBehaviourField(PROP_PASS, value);
-        private static readonly VanillaEntityPropertyMeta PROP_PASS = new VanillaEntityPropertyMeta("Pass");
+        private static readonly VanillaEntityPropertyMeta<bool> PROP_PASS = new VanillaEntityPropertyMeta<bool>("Pass");
     }
 }

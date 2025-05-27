@@ -29,6 +29,6 @@ namespace MVZ2.GameContent.Projectiles
         public static void SetGasCooldown(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_GAS_COOLDOWN, value);
         private static readonly NamespaceID ID = VanillaProjectileID.poisonJavelin;
         public const int MAX_COOLDOWN = 3;
-        public static readonly VanillaEntityPropertyMeta PROP_GAS_COOLDOWN = new VanillaEntityPropertyMeta("GasCooldown");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_GAS_COOLDOWN = new VanillaEntityPropertyMeta<int>("GasCooldown");
     }
 }

@@ -157,10 +157,10 @@ namespace MVZ2.GameContent.Buffs
                 priority += 100000000;
             return priority;
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
-        public static readonly VanillaBuffPropertyMeta PROP_COOLDOWN = new VanillaBuffPropertyMeta("Cooldown");
-        public static readonly VanillaBuffPropertyMeta PROP_FACTION = new VanillaBuffPropertyMeta("Faction");
-        public static readonly VanillaBuffPropertyMeta PROP_EXPLODE_TIME = new VanillaBuffPropertyMeta("ExplodeTime");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_COOLDOWN = new VanillaBuffPropertyMeta<int>("Cooldown");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_FACTION = new VanillaBuffPropertyMeta<int>("Faction");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_EXPLODE_TIME = new VanillaBuffPropertyMeta<int>("ExplodeTime");
         public const int MAX_COOLDOWN = 45;
         public const int MAX_EXPLODE_TIME = 24;
         public const float RANGE = 280;

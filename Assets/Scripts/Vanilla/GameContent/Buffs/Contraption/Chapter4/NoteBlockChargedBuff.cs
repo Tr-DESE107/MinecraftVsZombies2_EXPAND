@@ -39,7 +39,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             buff.SetProperty(PROP_COLOR_OFFSET, new Color(1, 1, 1, alpha));
         }
         public const int MAX_TIME = 90;
-        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
-        public static readonly VanillaBuffPropertyMeta PROP_COLOR_OFFSET = new VanillaBuffPropertyMeta("ColorOffset");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR_OFFSET = new VanillaBuffPropertyMeta<Color>("ColorOffset");
     }
 }

@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Buffs.Level
                 buff.Remove();
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
         public const int MAX_TIMEOUT = 1800;
     }
 }

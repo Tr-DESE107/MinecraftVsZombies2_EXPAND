@@ -96,8 +96,8 @@ namespace MVZ2.GameContent.Projectiles
         public static bool IsHitProtected(Entity note) => note.GetBehaviourField<bool>(PROP_HIT_PROTECTED);
         public static void SetNoteCharged(Entity note, bool value) => note.SetBehaviourField(PROP_NOTE_CHARGED, value);
         public static bool IsNoteCharged(Entity note) => note.GetBehaviourField<bool>(PROP_NOTE_CHARGED);
-        private static readonly VanillaEntityPropertyMeta PROP_DISPLAY_SCALE_MULTIPLIER = new VanillaEntityPropertyMeta("DisplayScaleMultiplier");
-        private static readonly VanillaEntityPropertyMeta PROP_HIT_PROTECTED = new VanillaEntityPropertyMeta("HitProtected");
-        private static readonly VanillaEntityPropertyMeta PROP_NOTE_CHARGED = new VanillaEntityPropertyMeta("NoteCharged");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_DISPLAY_SCALE_MULTIPLIER = new VanillaEntityPropertyMeta<Vector3>("DisplayScaleMultiplier");
+        private static readonly VanillaEntityPropertyMeta<bool> PROP_HIT_PROTECTED = new VanillaEntityPropertyMeta<bool>("HitProtected");
+        private static readonly VanillaEntityPropertyMeta<bool> PROP_NOTE_CHARGED = new VanillaEntityPropertyMeta<bool>("NoteCharged");
     }
 }

@@ -271,13 +271,13 @@ namespace MVZ2.GameContent.Stages
         public bool SpawnFlagZombie { get; set; } = true;
         public bool HasFinalWave { get; set; } = true;
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_WAVE_TIMER = new VanillaLevelPropertyMeta("WaveTimer");
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_WAVE_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("WaveTimer");
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_WAVE_MAX_HEALTH = new VanillaLevelPropertyMeta("WaveMaxHealth");
+        public static readonly VanillaLevelPropertyMeta<float> PROP_WAVE_MAX_HEALTH = new VanillaLevelPropertyMeta<float>("WaveMaxHealth");
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_FINAL_WAVE_EVENT_TIMER = new VanillaLevelPropertyMeta("FinalWaveEventTimer");
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_FINAL_WAVE_EVENT_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("FinalWaveEventTimer");
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_HIGH_WAVE = new VanillaLevelPropertyMeta("HighWave");
+        public static readonly VanillaLevelPropertyMeta<bool> PROP_HIGH_WAVE = new VanillaLevelPropertyMeta<bool>("HighWave");
         public const float SUBTRACK_WEIGHT_SPEED = 1 / 90f;
         public const int STATE_NOT_STARTED = VanillaLevelStates.STATE_NOT_STARTED;
         public const int STATE_STARTED = VanillaLevelStates.STATE_STARTED;

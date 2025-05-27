@@ -48,8 +48,8 @@ namespace MVZ2.GameContent.Effects
         #region ÊôÐÔ×Ö¶Î
         public static readonly NamespaceID ID = VanillaEffectID.nightmarePortal;
         public const int MAX_SPAWN_TIME = 15;
-        public static readonly VanillaEntityPropertyMeta PROP_SPAWN_TIME = new VanillaEntityPropertyMeta("SpawnTime");
-        public static readonly VanillaEntityPropertyMeta PROP_ENEMY_ID = new VanillaEntityPropertyMeta("EnemyID");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_SPAWN_TIME = new VanillaEntityPropertyMeta<int>("SpawnTime");
+        public static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_ENEMY_ID = new VanillaEntityPropertyMeta<NamespaceID>("EnemyID");
         #endregion
     }
 }

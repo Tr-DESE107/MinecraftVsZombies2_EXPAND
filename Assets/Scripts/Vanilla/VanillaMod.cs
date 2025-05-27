@@ -154,7 +154,7 @@ namespace MVZ2.Vanilla
                 // 加载实体的属性。
                 foreach (var pair in meta.Properties)
                 {
-                    def.SetProperty(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.entity, Global.BuiltinNamespace), pair.Value);
+                    def.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.entity, Global.BuiltinNamespace), pair.Value);
                 }
                 AddDefinition(def);
             }
@@ -171,7 +171,7 @@ namespace MVZ2.Vanilla
                 // 加载护甲的属性。
                 foreach (var pair in meta.Properties)
                 {
-                    def.SetProperty(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.armor, Global.BuiltinNamespace), pair.Value);
+                    def.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.armor, Global.BuiltinNamespace), pair.Value);
                 }
                 AddDefinition(def);
             }
@@ -309,7 +309,7 @@ namespace MVZ2.Vanilla
 
                 foreach (var pair in meta.Properties)
                 {
-                    stage.SetProperty(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.level, Global.BuiltinNamespace), pair.Value);
+                    stage.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.level, Global.BuiltinNamespace), pair.Value);
                 }
             }
         }

@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.Contraptions
         public static bool IsCursed(Entity entity) => entity.GetProperty<bool>(PROP_CURSED);
         public static void SetMeteor(Entity entity, EntityID value) => entity.SetProperty(PROP_METEOR, value);
         public static EntityID GetMeteor(Entity entity) => entity.GetProperty<EntityID>(PROP_METEOR);
-        public static readonly VanillaBuffPropertyMeta PROP_CURSED = new VanillaBuffPropertyMeta("cursed");
-        public static readonly VanillaBuffPropertyMeta PROP_METEOR = new VanillaBuffPropertyMeta("meteor");
+        public static readonly VanillaBuffPropertyMeta<bool> PROP_CURSED = new VanillaBuffPropertyMeta<bool>("cursed");
+        public static readonly VanillaBuffPropertyMeta<EntityID> PROP_METEOR = new VanillaBuffPropertyMeta<EntityID>("meteor");
     }
 }

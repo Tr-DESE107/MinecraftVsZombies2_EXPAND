@@ -143,7 +143,7 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
         public const float DAMAGE_MULTIPLIER = 0.01f;
-        public static readonly VanillaEntityPropertyMeta PROP_IGNITED = new VanillaEntityPropertyMeta("Ignited");
-        public static readonly VanillaEntityPropertyMeta PROP_EXPLOSION_TIMER = new VanillaEntityPropertyMeta("ExplosionTimer");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_IGNITED = new VanillaEntityPropertyMeta<bool>("Ignited");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EXPLOSION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ExplosionTimer");
     }
 }

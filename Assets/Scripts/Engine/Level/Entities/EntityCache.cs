@@ -20,54 +20,54 @@ namespace PVZEngine.Entities
             CollisionSampleLength = entity.GetCollisionSampleLength();
             entity.UpdateCollision();
         }
-        public void UpdateProperty(Entity entity, PropertyKey name, object beforeValue, object afterValue)
+        public void UpdateProperty(Entity entity, IPropertyKey name, object beforeValue, object afterValue)
         {
-            if (name == EngineEntityProps.FACTION)
+            if (EngineEntityProps.FACTION.Equals(name))
             {
                 Faction = afterValue.ToGeneric<int>();
             }
-            else if (name == EngineEntityProps.GRAVITY)
+            else if (EngineEntityProps.GRAVITY.Equals(name))
             {
                 Gravity = afterValue.ToGeneric<float>();
             }
-            else if (name == EngineEntityProps.FRICTION)
+            else if (EngineEntityProps.FRICTION.Equals(name))
             {
                 Friction = afterValue.ToGeneric<float>();
             }
-            else if (name == EngineEntityProps.GROUND_LIMIT_OFFSET)
+            else if (EngineEntityProps.GROUND_LIMIT_OFFSET.Equals(name))
             {
                 GroundLimitOffset = afterValue.ToGeneric<float>();
             }
-            else if (name == EngineEntityProps.VELOCITY_DAMPEN)
+            else if (EngineEntityProps.VELOCITY_DAMPEN.Equals(name))
             {
                 VelocityDampen = afterValue.ToGeneric<Vector3>();
             }
-            else if (name == EngineEntityProps.SIZE)
+            else if (EngineEntityProps.SIZE.Equals(name))
             {
                 Size = afterValue.ToGeneric<Vector3>();
                 entity.UpdateCollision();
             }
-            else if (name == EngineEntityProps.SCALE)
+            else if (EngineEntityProps.SCALE.Equals(name))
             {
                 Scale = afterValue.ToGeneric<Vector3>();
                 entity.UpdateCollision();
             }
-            else if (name == EngineEntityProps.FLIP_X)
+            else if (EngineEntityProps.FLIP_X.Equals(name))
             {
                 FlipX = afterValue.ToGeneric<bool>();
                 entity.UpdateCollision();
             }
-            else if (name == EngineEntityProps.BOUNDS_PIVOT)
+            else if (EngineEntityProps.BOUNDS_PIVOT.Equals(name))
             {
                 BoundsPivot = afterValue.ToGeneric<Vector3>();
                 entity.UpdateCollision();
             }
-            else if (name == EngineEntityProps.COLLISION_DETECTION)
+            else if (EngineEntityProps.COLLISION_DETECTION.Equals(name))
             {
                 CollisionDetection = afterValue.ToGeneric<int>();
                 entity.UpdateCollision();
             }
-            else if (name == EngineEntityProps.COLLISION_SAMPLE_LENGTH)
+            else if (EngineEntityProps.COLLISION_SAMPLE_LENGTH.Equals(name))
             {
                 CollisionSampleLength = afterValue.ToGeneric<float>();
             }

@@ -53,7 +53,7 @@ namespace MVZ2.GameContent.Pickups
             pickup.SetBehaviourField(ID, FIELD_ARTIFACT_ID, id);
             pickup.SetModelProperty("ArtifactID", id);
         }
-        public static readonly VanillaEntityPropertyMeta FIELD_ARTIFACT_ID = new VanillaEntityPropertyMeta("ArtifactID");
+        public static readonly VanillaEntityPropertyMeta<NamespaceID> FIELD_ARTIFACT_ID = new VanillaEntityPropertyMeta<NamespaceID>("ArtifactID");
         private static readonly NamespaceID ID = VanillaPickupID.artifactPickup;
     }
 }

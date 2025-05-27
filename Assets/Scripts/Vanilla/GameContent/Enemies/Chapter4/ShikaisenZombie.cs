@@ -42,6 +42,6 @@ namespace MVZ2.GameContent.Enemies
         }
         public static bool HasStaff(Entity enemy) => enemy.GetBehaviourField<bool>(PROP_HAS_STAFF);
         public static void SetStaff(Entity enemy, bool value) => enemy.SetBehaviourField(PROP_HAS_STAFF, value);
-        public static readonly VanillaEntityPropertyMeta PROP_HAS_STAFF = new VanillaEntityPropertyMeta("HasStaff");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_HAS_STAFF = new VanillaEntityPropertyMeta<bool>("HasStaff");
     }
 }

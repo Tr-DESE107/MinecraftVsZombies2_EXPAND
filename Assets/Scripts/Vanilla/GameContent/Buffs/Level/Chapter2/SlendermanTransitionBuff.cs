@@ -83,8 +83,8 @@ namespace MVZ2.GameContent.Buffs.Level
             multiplier.b = Mathf.Clamp01(multiplier.b + lightSpeed);
             buff.SetProperty(PROP_LIGHT_MULTIPLIER, multiplier);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
-        public static readonly VanillaBuffPropertyMeta PROP_LIGHT_MULTIPLIER = new VanillaBuffPropertyMeta("LightMultiplier");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_LIGHT_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("LightMultiplier");
         public const float LIGHT_SPEED = 0.07f;
         public const int MAX_TIMEOUT = CREATE_DARKNESS_TIMEOUT + 90;
         public const int CREATE_DARKNESS_TIMEOUT = FADEOUT_TIMEOUT + 165;

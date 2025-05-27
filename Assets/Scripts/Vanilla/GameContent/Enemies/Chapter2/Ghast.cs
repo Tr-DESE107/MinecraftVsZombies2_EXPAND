@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             SetStateTimer(entity, new FrameTimer(SHOOT_COOLDOWN));
             var buff = entity.AddBuff<FlyBuff>();
-            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80);
+            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
         }
         protected override void UpdateAI(Entity enemy)
         {
@@ -133,7 +133,7 @@ namespace MVZ2.GameContent.Enemies
             self.PlaySound(VanillaSoundID.fireCharge, scale.x);
         }
         private Detector detector;
-        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         public const int SHOOT_COOLDOWN = 135;
         public const int SHOOT_DURATION = 15;
         public static readonly NamespaceID ID = VanillaEnemyID.ghast;

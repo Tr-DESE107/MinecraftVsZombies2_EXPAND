@@ -59,6 +59,6 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
         private static readonly NamespaceID ID = VanillaContraptionID.dispenser;
-        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
     }
 }

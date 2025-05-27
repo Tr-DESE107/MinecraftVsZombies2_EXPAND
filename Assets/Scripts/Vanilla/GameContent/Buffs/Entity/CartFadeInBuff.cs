@@ -37,7 +37,7 @@ namespace MVZ2.GameContent.Buffs.Carts
             buff.SetProperty(PROP_COLOR_MULTIPLIER, new Color(1, 1, 1, alpha));
             buff.SetProperty(PROP_ALPHA_MULTIPLIER, alpha);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_COLOR_MULTIPLIER = new VanillaBuffPropertyMeta("ColorMultiplier");
-        public static readonly VanillaBuffPropertyMeta PROP_ALPHA_MULTIPLIER = new VanillaBuffPropertyMeta("AlphaMultiplier");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("ColorMultiplier");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_ALPHA_MULTIPLIER = new VanillaBuffPropertyMeta<float>("AlphaMultiplier");
     }
 }

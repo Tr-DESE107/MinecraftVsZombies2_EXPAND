@@ -36,6 +36,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             }
         }
         public const int MAX_TIMEOUT = 900;
-        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("timer");
+        public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timer");
     }
 }

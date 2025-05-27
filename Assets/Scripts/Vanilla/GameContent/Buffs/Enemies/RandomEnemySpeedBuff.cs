@@ -17,6 +17,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             buff.SetProperty(PROP_SPEED, value);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_SPEED = new VanillaBuffPropertyMeta("Speed");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_SPEED = new VanillaBuffPropertyMeta<float>("Speed");
     }
 }

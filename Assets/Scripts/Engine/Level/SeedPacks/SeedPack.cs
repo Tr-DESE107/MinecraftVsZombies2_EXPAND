@@ -53,11 +53,11 @@ namespace PVZEngine.SeedPacks
         }
 
         #region 属性
-        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             return properties.GetProperty<T>(name, ignoreBuffs);
         }
-        public void SetProperty(PropertyKey name, object value)
+        public void SetProperty<T>(PropertyKey<T> name, T value)
         {
             properties.SetProperty(name, value);
         }
@@ -65,33 +65,33 @@ namespace PVZEngine.SeedPacks
         {
             properties.UpdateAllModifiedProperties();
         }
-        private void UpdateBuffedProperty(PropertyKey name)
+        private void UpdateBuffedProperty(IPropertyKey name)
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty(PropertyKey name, out object value)
+        bool IPropertyModifyTarget.GetFallbackProperty<T>(PropertyKey<T> name, out T value)
         {
             if (Definition != null && Definition.TryGetProperty(name, out var prop))
             {
                 value = prop;
                 return true;
             }
-            value = null;
+            value = default;
             return false;
         }
 
-        void IPropertyModifyTarget.GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
+        void IPropertyModifyTarget.GetModifierItems<T>(PropertyKey<T> name, List<ModifierContainerItem> results)
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object beforeValue, object afterValue)
+        void IPropertyModifyTarget.UpdateModifiedProperty<T>(PropertyKey<T> name, T beforeValue, T afterValue)
         {
         }
-        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(PropertyKey name)
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
         {
             return null;
         }
-        IEnumerable<PropertyKey> IPropertyModifyTarget.GetModifiedProperties()
+        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
         {
             return buffs.GetModifierPropertyNames();
         }
@@ -141,7 +141,7 @@ namespace PVZEngine.SeedPacks
         #region 消耗
         public int GetCost()
         {
-            var cost = GetProperty<float>(EngineSeedProps.COST);
+            float cost = GetProperty<float>(EngineSeedProps.COST);
             cost = Mathf.Max(cost, 0);
             return Mathf.FloorToInt(cost);
         }

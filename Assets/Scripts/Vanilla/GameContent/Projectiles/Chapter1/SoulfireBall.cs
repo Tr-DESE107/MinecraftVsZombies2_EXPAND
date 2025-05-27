@@ -48,13 +48,12 @@ namespace MVZ2.GameContent.Projectiles
         }
         public static void SetBlast(Entity entity, bool value)
         {
-            entity.SetBehaviourField(ID, PROP_BLAST, value);
+            entity.SetBehaviourField(PROP_BLAST, value);
         }
         public static bool IsBlast(Entity entity)
         {
-            return entity.GetBehaviourField<bool>(ID, PROP_BLAST);
+            return entity.GetBehaviourField<bool>(PROP_BLAST);
         }
-        public static NamespaceID ID => VanillaProjectileID.soulfireBall;
-        public static readonly VanillaEntityPropertyMeta PROP_BLAST = new VanillaEntityPropertyMeta("Blast");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_BLAST = new VanillaEntityPropertyMeta<bool>("Blast");
     }
 }

@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         public const int TIME_THRESOLD = 20;
         public const int MAX_TIME = 40;
-        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
-        public static readonly VanillaBuffPropertyMeta PROP_SHADOW_SCALE = new VanillaBuffPropertyMeta("ShadowScale");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
+        public static readonly VanillaBuffPropertyMeta<Vector3> PROP_SHADOW_SCALE = new VanillaBuffPropertyMeta<Vector3>("ShadowScale");
     }
 }

@@ -42,9 +42,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var colorComp = 1 - (time / (float)MAX_TIME) * 0.5f;
             buff.SetProperty(PROP_LIGHT_MULTIPLIER, new Color(colorComp, colorComp, colorComp, 1));
         }
-        public static readonly VanillaBuffPropertyMeta PROP_LIGHT_MULTIPLIER = new VanillaBuffPropertyMeta("LightMultiplier");
-        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
-        public static readonly VanillaBuffPropertyMeta PROP_THUNDER_TIMEOUT = new VanillaBuffPropertyMeta("ThunderTimeout");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_LIGHT_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("LightMultiplier");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_THUNDER_TIMEOUT = new VanillaBuffPropertyMeta<int>("ThunderTimeout");
         public const int MAX_THUNDER_TIMEOUT = 150;
         public const int MAX_TIME = 30;
     }

@@ -2,12 +2,12 @@
 {
     public abstract class NumberModifier<T> : PropertyModifier<T>
     {
-        protected NumberModifier(PropertyKey propertyName, NumberOperator op, T constValue, int priority) : base(propertyName, constValue, priority)
+        protected NumberModifier(PropertyKey<T> propertyName, NumberOperator op, T constValue, int priority) : base(propertyName, constValue, priority)
         {
             Operator = op;
         }
 
-        protected NumberModifier(PropertyKey propertyName, NumberOperator op, PropertyKey buffPropertyName, int priority) : base(propertyName, buffPropertyName, priority)
+        protected NumberModifier(PropertyKey<T> propertyName, NumberOperator op, PropertyKey<T> buffPropertyName, int priority) : base(propertyName, buffPropertyName, priority)
         {
             Operator = op;
         }

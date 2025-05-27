@@ -179,9 +179,9 @@ namespace MVZ2.GameContent.Enemies
         public const int CLASS_FIRE = 0;
         public const int CLASS_FROST = 1;
         public const int CLASS_LIGHTNING = 2;
-        public static readonly VanillaEntityPropertyMeta PROP_ATTACK_STATE = new VanillaEntityPropertyMeta("attackState");
-        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("attackTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_CLASS = new VanillaEntityPropertyMeta("class");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_ATTACK_STATE = new VanillaEntityPropertyMeta<int>("attackState");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("attackTimer");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_CLASS = new VanillaEntityPropertyMeta<int>("class");
         public static int[] mageClasses = new int[]
         {
             SkeletonMage.CLASS_FIRE,

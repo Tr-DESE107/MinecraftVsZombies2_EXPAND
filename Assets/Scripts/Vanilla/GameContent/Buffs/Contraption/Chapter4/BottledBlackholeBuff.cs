@@ -17,6 +17,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             buff.SetProperty(PROP_DAMAGE_MULTIPLIER, value);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_DAMAGE_MULTIPLIER = new VanillaBuffPropertyMeta("damageMultiplier");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_DAMAGE_MULTIPLIER = new VanillaBuffPropertyMeta<float>("damageMultiplier");
     }
 }

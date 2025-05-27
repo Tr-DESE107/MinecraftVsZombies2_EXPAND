@@ -188,10 +188,10 @@ namespace MVZ2.GameContent.Effects
         private Detector jumpDetector = new CollisionDetector();
         private List<IEntityCollider> jumpBuffer = new List<IEntityCollider>();
 
-        private static readonly VanillaEntityPropertyMeta PROP_MODE = new VanillaEntityPropertyMeta("Mode");
-        private static readonly VanillaEntityPropertyMeta PROP_MOVE_COOLDOWN_TIMER = new VanillaEntityPropertyMeta("MoveCooldownTimer");
-        private static readonly VanillaEntityPropertyMeta PROP_JUMP_DISTANCE = new VanillaEntityPropertyMeta("JumpDistance");
-        private static readonly VanillaEntityPropertyMeta PROP_START_POSITION = new VanillaEntityPropertyMeta("StartPosition");
-        private static readonly VanillaEntityPropertyMeta PROP_TARGET_POSITION = new VanillaEntityPropertyMeta("TargetPosition");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_MODE = new VanillaEntityPropertyMeta<int>("Mode");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_MOVE_COOLDOWN_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("MoveCooldownTimer");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_JUMP_DISTANCE = new VanillaEntityPropertyMeta<float>("JumpDistance");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_START_POSITION = new VanillaEntityPropertyMeta<Vector3>("StartPosition");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_TARGET_POSITION = new VanillaEntityPropertyMeta<Vector3>("TargetPosition");
     }
 }

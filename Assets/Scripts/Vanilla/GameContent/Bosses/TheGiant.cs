@@ -537,13 +537,13 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 常量
-        private static readonly VanillaEntityPropertyMeta PROP_PHASE = new VanillaEntityPropertyMeta("Phase");
-        private static readonly VanillaEntityPropertyMeta PROP_ZOMBIE_BLOCKS = new VanillaEntityPropertyMeta("ZombieBlocks");
-        private static readonly VanillaEntityPropertyMeta PROP_SNAKE_TAILS = new VanillaEntityPropertyMeta("SnakeTails");
-        private static readonly VanillaEntityPropertyMeta PROP_FLIP_X = new VanillaEntityPropertyMeta("FlipX");
-        private static readonly VanillaEntityPropertyMeta PROP_ATTACK_FLAG = new VanillaEntityPropertyMeta("AttackFlag");
-        private static readonly VanillaEntityPropertyMeta PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta("TargetGridIndex");
-        private static readonly VanillaEntityPropertyMeta PROP_MALLEABLE = new VanillaEntityPropertyMeta("Malleable");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("Phase");
+        private static readonly VanillaEntityPropertyMeta<List<EntityID>> PROP_ZOMBIE_BLOCKS = new VanillaEntityPropertyMeta<List<EntityID>>("ZombieBlocks");
+        private static readonly VanillaEntityPropertyMeta<List<EntityID>> PROP_SNAKE_TAILS = new VanillaEntityPropertyMeta<List<EntityID>>("SnakeTails");
+        private static readonly VanillaEntityPropertyMeta<bool> PROP_FLIP_X = new VanillaEntityPropertyMeta<bool>("FlipX");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_ATTACK_FLAG = new VanillaEntityPropertyMeta<int>("AttackFlag");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta<int>("TargetGridIndex");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_MALLEABLE = new VanillaEntityPropertyMeta<float>("Malleable");
 
 
         private static readonly Vector3 OUTER_EYE_BULLET_OFFSET = new Vector3(70, 140, 0);

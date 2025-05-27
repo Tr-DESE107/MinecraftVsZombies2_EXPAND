@@ -152,8 +152,8 @@ namespace MVZ2.GameContent.Enemies
         public const float BROKEN_THRESOLD = 200;
         public static readonly Vector3 ANUBISAND_OFFSET = new Vector3(-48, 32, 0);
         public const int PUNCTURE_TIME = 40;
-        private static readonly VanillaEntityPropertyMeta FIELD_PUNCTURED = new VanillaEntityPropertyMeta("Punctured");
-        private static readonly VanillaEntityPropertyMeta FIELD_PUNCTURE_TIMER = new VanillaEntityPropertyMeta("PunctureTimer");
+        private static readonly VanillaEntityPropertyMeta<bool> FIELD_PUNCTURED = new VanillaEntityPropertyMeta<bool>("Punctured");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_PUNCTURE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("PunctureTimer");
         private static readonly NamespaceID ID = VanillaEnemyID.hellChariot;
     }
 }

@@ -27,12 +27,10 @@ namespace MVZ2.Games
             level = value;
         }
 
-        public void SetProperty(PropertyKey name, object value) => propertyDict.SetProperty(name, value);
-        public object GetProperty(PropertyKey name) => propertyDict.GetProperty(name);
-        public bool TryGetProperty(PropertyKey name, out object value) => propertyDict.TryGetProperty(name, out value);
-        public T GetProperty<T>(PropertyKey name) => propertyDict.GetProperty<T>(name);
-        public bool TryGetProperty<T>(PropertyKey name, out T value) => propertyDict.TryGetProperty<T>(name, out value);
-        public PropertyKey[] GetPropertyNames() => propertyDict.GetPropertyNames();
+        public void SetProperty<T>(PropertyKey<T> name, T value) => propertyDict.SetProperty<T>(name, value);
+        public T GetProperty<T>(PropertyKey<T> name) => propertyDict.GetProperty<T>(name);
+        public bool TryGetProperty<T>(PropertyKey<T> name, out T value) => propertyDict.TryGetProperty<T>(name, out value);
+        public IPropertyKey[] GetPropertyNames() => propertyDict.GetPropertyNames();
 
         public string GetEntityName(NamespaceID entityID)
         {

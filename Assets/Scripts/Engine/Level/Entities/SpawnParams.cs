@@ -4,7 +4,7 @@ namespace PVZEngine.Level
 {
     public class SpawnParams
     {
-        public void SetProperty(PropertyKey key, object value)
+        public void SetProperty<T>(PropertyKey<T> key, T value)
         {
             properties.SetProperty(key, value);
         }
@@ -12,7 +12,7 @@ namespace PVZEngine.Level
         {
             foreach (var property in properties.GetPropertyNames())
             {
-                entity.SetProperty(property, properties.GetProperty(property));
+                entity.SetPropertyObject(property, properties.GetPropertyObject(property));
             }
         }
         private PropertyDictionary properties = new PropertyDictionary();

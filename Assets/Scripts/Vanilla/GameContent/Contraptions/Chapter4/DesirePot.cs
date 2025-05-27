@@ -256,8 +256,8 @@ namespace MVZ2.GameContent.Contraptions
         public const string PROP_REGION = VanillaContraptionNames.desirePot;
         private List<Entity> detectBuffer = new List<Entity>();
         [LevelPropertyRegistry(PROP_REGION)]
-        private static readonly VanillaLevelPropertyMeta PROP_FATIGUE_DAMAGE = new VanillaLevelPropertyMeta("FatigueDamage");
-        private static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
-        private static readonly VanillaEntityPropertyMeta PROP_DRAINED_ENEMIES = new VanillaEntityPropertyMeta("DrainedEnemies");
+        private static readonly VanillaLevelPropertyMeta<float> PROP_FATIGUE_DAMAGE = new VanillaLevelPropertyMeta<float>("FatigueDamage");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
+        private static readonly VanillaEntityPropertyMeta<List<long>> PROP_DRAINED_ENEMIES = new VanillaEntityPropertyMeta<List<long>>("DrainedEnemies");
     }
 }

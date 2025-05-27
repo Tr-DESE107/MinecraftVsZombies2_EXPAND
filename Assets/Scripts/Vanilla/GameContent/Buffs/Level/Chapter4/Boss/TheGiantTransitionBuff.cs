@@ -77,7 +77,7 @@ namespace MVZ2.GameContent.Buffs.Level
                 }
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
         public const int MAX_TIMEOUT = STATE_1_TIMEOUT + 60;
 
         public const int STATE_1_TIMEOUT = SHAKE_TIMEOUT;

@@ -131,13 +131,13 @@ namespace MVZ2.Vanilla.Entities
             }
             entity.Remove();
         }
-        public static void SetCartTriggerCharge(Entity entity, int value) => entity.SetBehaviourField(FIELD_TRIGGER_CHARGE, value);
+        public static void SetCartTriggerCharge(Entity entity, int value) => entity.SetBehaviourField<int>(FIELD_TRIGGER_CHARGE, value);
         public static int GetCartTriggerCharge(Entity entity) => entity.GetBehaviourField<int>(FIELD_TRIGGER_CHARGE);
-        public static void SetCartTriggerCharging(Entity entity, bool value) => entity.SetBehaviourField(FIELD_TRIGGER_CHARGING, value);
+        public static void SetCartTriggerCharging(Entity entity, bool value) => entity.SetBehaviourField<bool>(FIELD_TRIGGER_CHARGING, value);
         public static bool IsCartTriggerCharging(Entity entity) => entity.GetBehaviourField<bool>(FIELD_TRIGGER_CHARGING);
 
-        public static readonly VanillaEntityPropertyMeta FIELD_TRIGGER_CHARGE = new VanillaEntityPropertyMeta("TriggerCharge");
-        public static readonly VanillaEntityPropertyMeta FIELD_TRIGGER_CHARGING = new VanillaEntityPropertyMeta("TriggerCharging");
+        public static readonly VanillaEntityPropertyMeta<int> FIELD_TRIGGER_CHARGE = new VanillaEntityPropertyMeta<int>("TriggerCharge");
+        public static readonly VanillaEntityPropertyMeta<bool> FIELD_TRIGGER_CHARGING = new VanillaEntityPropertyMeta<bool>("TriggerCharging");
         public const float TRIGGER_DISTANCE = 28;
         public const int MAX_TRIGGER_CHARGE = 30;
     }

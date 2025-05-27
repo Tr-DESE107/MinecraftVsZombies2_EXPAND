@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             }
         }
         public const int MAX_TIME = 60;
-        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
-        public static readonly VanillaBuffPropertyMeta PROP_COLOR_OFFSET = new VanillaBuffPropertyMeta("ColorOffset");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR_OFFSET = new VanillaBuffPropertyMeta<Color>("ColorOffset");
     }
 }

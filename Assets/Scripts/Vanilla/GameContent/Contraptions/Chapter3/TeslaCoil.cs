@@ -145,7 +145,7 @@ namespace MVZ2.GameContent.Contraptions
 
         public const int ATTACK_COOLDOWN = 65;
         public const int ATTACK_CHARGE = 25;
-        public static readonly VanillaEntityPropertyMeta PROP_ATTACK_TIMER = new VanillaEntityPropertyMeta("AttackTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_ATTACK_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("AttackTimer");
         public const float ATTACK_HEIGHT = 160;
         public static readonly Vector3 ARC_OFFSET = new Vector3(0, 96, 0);
         public const float SHOCK_RADIUS = 20;

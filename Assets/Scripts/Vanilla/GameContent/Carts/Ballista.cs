@@ -36,6 +36,6 @@ namespace MVZ2.GameContent.Carts
         {
             entity.SetBehaviourField(PROP_STRING_BLEND, value);
         }
-        public static readonly VanillaEntityPropertyMeta PROP_STRING_BLEND = new VanillaEntityPropertyMeta("StringBlend");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_STRING_BLEND = new VanillaEntityPropertyMeta<float>("StringBlend");
     }
 }

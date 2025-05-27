@@ -164,6 +164,6 @@ namespace MVZ2.GameContent.Stages
         }
         private const string PROP_REGION = "endless_stage";
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_ROUND_TIMER = new VanillaLevelPropertyMeta("RoundTimer");
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_ROUND_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("RoundTimer");
     }
 }

@@ -233,9 +233,9 @@ namespace MVZ2.GameContent.Stages
         private const string PROP_REGION = "i_zombie_stage";
         public const int ROUND_COOLDOWN = 150;
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_ROUND_TIMER = new VanillaLevelPropertyMeta("RoundTimer");
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_ROUND_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("RoundTimer");
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_CURRENT_LAYOUT = new VanillaLevelPropertyMeta("CurrentLayout");
+        public static readonly VanillaLevelPropertyMeta<NamespaceID> PROP_CURRENT_LAYOUT = new VanillaLevelPropertyMeta<NamespaceID>("CurrentLayout");
         public const int STATE_NORMAL = VanillaLevelStates.STATE_IZ_NORMAL;
         public const int STATE_NEXT_ROUND = VanillaLevelStates.STATE_IZ_NEXT;
         public const int STATE_FINISHED = VanillaLevelStates.STATE_IZ_FINISHED;

@@ -28,11 +28,11 @@ namespace MVZ2.GameContent.Effects
         }
         public static float GetEmitSpeed(Entity entity)
         {
-            return entity.GetBehaviourField<float>(ID, PROP_EMIT_SPEED);
+            return entity.GetBehaviourField<float>(PROP_EMIT_SPEED);
         }
         public static void SetEmitSpeed(Entity entity, float value)
         {
-            entity.SetBehaviourField(ID, PROP_EMIT_SPEED, value);
+            entity.SetBehaviourField(PROP_EMIT_SPEED, value);
         }
         public static void AddEmitSpeed(Entity entity, float value)
         {
@@ -40,7 +40,6 @@ namespace MVZ2.GameContent.Effects
         }
         #endregion
 
-        public static readonly NamespaceID ID = VanillaEffectID.healParticles;
-        public static readonly VanillaEntityPropertyMeta PROP_EMIT_SPEED = new VanillaEntityPropertyMeta("EmitSpeed");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_EMIT_SPEED = new VanillaEntityPropertyMeta<float>("EmitSpeed");
     }
 }

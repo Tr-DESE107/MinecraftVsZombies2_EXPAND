@@ -62,7 +62,7 @@ namespace MVZ2.GameContent.Buffs
         public const int ATTACK_UP_TIME_END = 300;
         public const float ATTACK_UP_MULTIPLIER_START = 1;
         public const float ATTACK_UP_MULTIPLIER_END = 5;
-        public static readonly VanillaBuffPropertyMeta PROP_ATTACK_TIME = new VanillaBuffPropertyMeta("attackTime");
-        public static readonly VanillaBuffPropertyMeta PROP_ATTACK_SPEED_MULTIPLIER = new VanillaBuffPropertyMeta("attackSpeedMultiplier");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_ATTACK_TIME = new VanillaBuffPropertyMeta<int>("attackTime");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_ATTACK_SPEED_MULTIPLIER = new VanillaBuffPropertyMeta<float>("attackSpeedMultiplier");
     }
 }

@@ -142,8 +142,8 @@ namespace MVZ2.GameContent.Effects
         public static void SetProgress(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_PROGRESS, value);
         public static ShakeInt GetShake(Entity entity) => entity.GetBehaviourField<ShakeInt>(ID, PROP_SHAKE);
         public static void SetShake(Entity entity, ShakeInt value) => entity.SetBehaviourField(ID, PROP_SHAKE, value);
-        public static readonly VanillaEntityPropertyMeta PROP_PROGRESS = new VanillaEntityPropertyMeta("Progress");
-        public static readonly VanillaEntityPropertyMeta PROP_SHAKE = new VanillaEntityPropertyMeta("Shake");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_PROGRESS = new VanillaEntityPropertyMeta<float>("Progress");
+        public static readonly VanillaEntityPropertyMeta<ShakeInt> PROP_SHAKE = new VanillaEntityPropertyMeta<ShakeInt>("Shake");
         public static readonly NamespaceID ID = VanillaEffectID.crushingWalls;
     }
 }

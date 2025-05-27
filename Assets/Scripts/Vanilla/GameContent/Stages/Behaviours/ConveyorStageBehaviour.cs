@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Stages
     {
         public ConveyorStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
-            stageDef.SetProperty(VanillaLevelProps.CONVEY_SPEED, 1);
+            stageDef.SetProperty(VanillaLevelProps.CONVEY_SPEED, 1f);
         }
         public override void Start(LevelEngine level)
         {
@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Stages
         #region 属性字段
         public const string PROP_REGION = "conveyor";
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_CONVEYOR_TIMER = new VanillaLevelPropertyMeta("ConveyorTimer");
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_CONVEYOR_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("ConveyorTimer");
         public const int CONVEYOR_INTERVAL = 120;
         #endregion
     }

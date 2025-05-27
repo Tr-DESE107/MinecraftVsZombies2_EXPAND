@@ -322,19 +322,19 @@ namespace MVZ2.GameContent.Bosses
         private static Detector gunDetector = new FrankensteinGunDetector(VanillaProjectileID.bullet);
         private static Detector missileDetector = new FrankensteinGunDetector(VanillaProjectileID.missile);
 
-        private static readonly VanillaEntityPropertyMeta PROP_PARALYZED = new VanillaEntityPropertyMeta("Paralyzed");
+        private static readonly VanillaEntityPropertyMeta<bool> PROP_PARALYZED = new VanillaEntityPropertyMeta<bool>("Paralyzed");
 
-        private static readonly VanillaEntityPropertyMeta PROP_JUMP_TARGET = new VanillaEntityPropertyMeta("JumpTarget");
-        private static readonly VanillaEntityPropertyMeta PROP_STEEL_PHASE = new VanillaEntityPropertyMeta("SteelPhase");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("JumpTarget");
+        private static readonly VanillaEntityPropertyMeta<bool> PROP_STEEL_PHASE = new VanillaEntityPropertyMeta<bool>("SteelPhase");
 
-        private static readonly VanillaEntityPropertyMeta PROP_GUN_DIRECTION = new VanillaEntityPropertyMeta("GunDirection");
-        private static readonly VanillaEntityPropertyMeta PROP_MISSILE_DIRECTION = new VanillaEntityPropertyMeta("MissileDirection");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_GUN_DIRECTION = new VanillaEntityPropertyMeta<Vector3>("GunDirection");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_MISSILE_DIRECTION = new VanillaEntityPropertyMeta<Vector3>("MissileDirection");
 
-        private static readonly VanillaEntityPropertyMeta PROP_DETECT_TIMER = new VanillaEntityPropertyMeta("DetectTimer");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DETECT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("DetectTimer");
 
-        private static readonly VanillaEntityPropertyMeta PROP_SHOCK_RNG = new VanillaEntityPropertyMeta("ShockRNG");
-        private static readonly VanillaEntityPropertyMeta PROP_JUMP_RNG = new VanillaEntityPropertyMeta("JumpRNG");
-        private static readonly VanillaEntityPropertyMeta PROP_BULLET_RNG = new VanillaEntityPropertyMeta("BulletRNG");
+        private static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_SHOCK_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("ShockRNG");
+        private static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_JUMP_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("JumpRNG");
+        private static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_BULLET_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("BulletRNG");
 
         private const int STATE_IDLE = VanillaEntityStates.FRANKENSTEIN_IDLE;
         private const int STATE_JUMP = VanillaEntityStates.FRANKENSTEIN_JUMP;

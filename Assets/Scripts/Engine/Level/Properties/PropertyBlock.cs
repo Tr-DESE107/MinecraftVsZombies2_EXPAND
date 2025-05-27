@@ -13,31 +13,27 @@ namespace PVZEngine.Level
         }
 
         #region 可修改属性
-        public void SetProperty(PropertyKey name, object value)
+        public void SetProperty<T>(PropertyKey<T> name, T value)
         {
             modifiableProperties.SetProperty(name, value);
         }
-        public object GetProperty(PropertyKey name, bool ignoreBuffs = false)
+        public void SetPropertyObject(IPropertyKey name, object value)
         {
-            return modifiableProperties.GetProperty(name, ignoreBuffs);
+            modifiableProperties.SetPropertyObject(name, value);
         }
-        public bool TryGetProperty(PropertyKey name, out object result, bool ignoreBuffs = false)
-        {
-            return modifiableProperties.TryGetProperty(name, out result, ignoreBuffs);
-        }
-        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             return modifiableProperties.GetProperty<T>(name, ignoreBuffs);
         }
-        public bool TryGetProperty<T>(PropertyKey name, out T value, bool ignoreBuffs = false)
+        public bool TryGetProperty<T>(PropertyKey<T> name, out T value, bool ignoreBuffs = false)
         {
             return modifiableProperties.TryGetProperty<T>(name, out value, ignoreBuffs);
         }
-        public bool RemoveProperty(PropertyKey name)
+        public bool RemoveProperty<T>(PropertyKey<T> name)
         {
-            return modifiableProperties.RemoveProperty(name);
+            return modifiableProperties.RemoveProperty<T>(name);
         }
-        public PropertyKey[] GetPropertyNames()
+        public IPropertyKey[] GetPropertyNames()
         {
             return modifiableProperties.GetPropertyNames();
         }
@@ -45,9 +41,13 @@ namespace PVZEngine.Level
         {
             modifiableProperties.UpdateAllModifiedProperties();
         }
-        public void UpdateModifiedProperty(PropertyKey name)
+        public void UpdateModifiedProperty<T>(PropertyKey<T> name)
         {
-            modifiableProperties.UpdateModifiedProperty(name);
+            modifiableProperties.UpdateModifiedProperty<T>(name);
+        }
+        public void UpdateModifiedProperty(IPropertyKey name)
+        {
+            modifiableProperties.UpdateModifiedPropertyObject(name);
         }
         #endregion
 

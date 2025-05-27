@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Effects
         public static string GetText(Entity entity) => entity.GetBehaviourField<string>(ID, PROP_TEXT);
         public static void SetText(Entity entity, string value) => entity.SetBehaviourField(ID, PROP_TEXT, value);
 
-        public static readonly VanillaEntityPropertyMeta PROP_TEXT = new VanillaEntityPropertyMeta("Text");
+        public static readonly VanillaEntityPropertyMeta<string> PROP_TEXT = new VanillaEntityPropertyMeta<string>("Text");
         public static readonly NamespaceID ID = VanillaEffectID.floatingText;
     }
 }

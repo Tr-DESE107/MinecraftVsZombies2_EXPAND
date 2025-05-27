@@ -79,7 +79,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public static Vector3 GetTargetPosition(Entity enemy) => enemy.GetBehaviourField<Vector3>(PROP_TARGET_POSITION);
         public static void SetTargetPosition(Entity enemy, Vector3 value) => enemy.SetBehaviourField(PROP_TARGET_POSITION, value);
-        public static readonly VanillaEntityPropertyMeta PROP_TARGET_POSITION = new VanillaEntityPropertyMeta("TargetPosition");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_TARGET_POSITION = new VanillaEntityPropertyMeta<Vector3>("TargetPosition");
         private List<Entity> detectBuffer = new List<Entity>(1024);
     }
 }

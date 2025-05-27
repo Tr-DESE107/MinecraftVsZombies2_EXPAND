@@ -294,13 +294,13 @@ namespace MVZ2.GameContent.Contraptions
                 return 4;
             return GetPadDirection(pad);
         }
-        public static readonly VanillaEntityPropertyMeta PROP_PAD_DIRECTION = new VanillaEntityPropertyMeta("PadDirection");
-        public static readonly VanillaEntityPropertyMeta PROP_AFFECTED_ENTITIES = new VanillaEntityPropertyMeta("AffectedEntities");
-        public static readonly VanillaEntityPropertyMeta PROP_DRAG_TARGET = new VanillaEntityPropertyMeta("DragTarget");
-        public static readonly VanillaEntityPropertyMeta PROP_DRAG_TARGET_LOCKED = new VanillaEntityPropertyMeta("DragTargetLocked");
-        public static readonly VanillaEntityPropertyMeta PROP_DRAGGING_LINES = new VanillaEntityPropertyMeta("DraggingLines");
-        public static readonly VanillaEntityPropertyMeta PROP_DRAGGING_ENTITIES = new VanillaEntityPropertyMeta("DraggingEntities");
-        public static readonly VanillaEntityPropertyMeta PROP_DRAG_TIMEOUT = new VanillaEntityPropertyMeta("DragTimeout");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_PAD_DIRECTION = new VanillaEntityPropertyMeta<int>("PadDirection");
+        public static readonly VanillaEntityPropertyMeta<List<EntityID>> PROP_AFFECTED_ENTITIES = new VanillaEntityPropertyMeta<List<EntityID>>("AffectedEntities");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_DRAG_TARGET = new VanillaEntityPropertyMeta<Vector3>("DragTarget");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_DRAG_TARGET_LOCKED = new VanillaEntityPropertyMeta<bool>("DragTargetLocked");
+        public static readonly VanillaEntityPropertyMeta<EntityID[]> PROP_DRAGGING_LINES = new VanillaEntityPropertyMeta<EntityID[]>("DraggingLines");
+        public static readonly VanillaEntityPropertyMeta<EntityID[]> PROP_DRAGGING_ENTITIES = new VanillaEntityPropertyMeta<EntityID[]>("DraggingEntities");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_DRAG_TIMEOUT = new VanillaEntityPropertyMeta<int>("DragTimeout");
         public const float DRAG_RADIUS = 150;
         public const int MAX_DRAG_TIMEOUT = 150;
 

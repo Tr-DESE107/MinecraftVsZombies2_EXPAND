@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Effects
         }
         public static int GetBreakTimeout(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_BREAK_TIMEOUT);
         public static void SetBreakTimeout(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_BREAK_TIMEOUT, value);
-        public static readonly VanillaEntityPropertyMeta PROP_BREAK_TIMEOUT = new VanillaEntityPropertyMeta("BreakTimeout");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_BREAK_TIMEOUT = new VanillaEntityPropertyMeta<int>("BreakTimeout");
         public static readonly NamespaceID ID = VanillaEffectID.nightmareGlass;
     }
 }

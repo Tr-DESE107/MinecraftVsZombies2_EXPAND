@@ -222,7 +222,7 @@ namespace PVZEngine.Buffs
         #endregion
 
         #region 属性
-        public object CalculateProperty(PropertyKey name, object value)
+        public object CalculateProperty<T>(PropertyKey<T> name, T value)
         {
             if (buffs.Count == 0)
                 return value;
@@ -231,11 +231,11 @@ namespace PVZEngine.Buffs
             GetModifierItems(name, modifierItemBuffer);
             return modifierItemBuffer.CalculateProperty(value);
         }
-        private void OnPropertyChangedCallback(PropertyKey name)
+        private void OnPropertyChangedCallback(IPropertyKey name)
         {
             OnPropertyChanged?.Invoke(name);
         }
-        public PropertyKey[] GetModifierPropertyNames()
+        public IPropertyKey[] GetModifierPropertyNames()
         {
             return modifierCaches.Keys.ToArray();
         }
@@ -268,7 +268,7 @@ namespace PVZEngine.Buffs
         #endregion
 
         #region 修改器缓存
-        public void GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
+        public void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
         {
             if (modifierCaches.TryGetValue(name, out var list))
             {
@@ -339,14 +339,15 @@ namespace PVZEngine.Buffs
             return buffList;
         }
         #endregion
+
         public event Action<string, NamespaceID, NamespaceID> OnModelInsertionAdded;
         public event Action<NamespaceID> OnModelInsertionRemoved;
-        public event Action<PropertyKey> OnPropertyChanged;
-        private HashSet<PropertyKey> changedPropertiesBuffer = new HashSet<PropertyKey>();
+        public event Action<IPropertyKey> OnPropertyChanged;
         private List<Buff> updateBuffer = new List<Buff>();
         private List<Buff> buffs = new List<Buff>();
         private List<NamespaceID> createdModelInsertions = new List<NamespaceID>();
-        private Dictionary<PropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<PropertyKey, List<ModifierContainerItem>>();
+        private HashSet<IPropertyKey> changedPropertiesBuffer = new HashSet<IPropertyKey>();
+        private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>();
         private List<ModifierContainerItem> modifierItemBuffer = new List<ModifierContainerItem>();
     }
     public class MultipleValueModifierException : Exception

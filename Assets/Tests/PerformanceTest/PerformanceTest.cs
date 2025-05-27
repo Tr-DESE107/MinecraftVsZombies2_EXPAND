@@ -45,11 +45,11 @@ namespace MVZ2.Tests
             {
                 this.definition = definition;
             }
-            public bool GetFallbackProperty(PropertyKey name, out object value)
+            public bool GetFallbackProperty<T>(PropertyKey<T> name, out T value)
             {
                 if (definition == null)
                 {
-                    value = null;
+                    value = default;
                     return false;
                 }
                 if (definition.TryGetProperty(name, out var defProp))
@@ -68,24 +68,24 @@ namespace MVZ2.Tests
                         return true;
                     }
                 }
-                value = null;
+                value = default;
                 return false;
             }
 
-            public void GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
+            public void GetModifierItems<T>(PropertyKey<T> name, List<ModifierContainerItem> results)
             {
             }
 
-            public void UpdateModifiedProperty(PropertyKey name, object beforeValue, object afterValue)
+            public void UpdateModifiedProperty<T>(PropertyKey<T> name, T beforeValue, T afterValue)
             {
             }
 
-            public PropertyModifier[] GetModifiersUsingProperty(PropertyKey name)
+            public PropertyModifier[] GetModifiersUsingProperty(IPropertyKey name)
             {
                 return null;
             }
 
-            public IEnumerable<PropertyKey> GetModifiedProperties()
+            public IEnumerable<IPropertyKey> GetModifiedProperties()
             {
                 yield break;
             }

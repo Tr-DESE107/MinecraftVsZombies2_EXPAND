@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Reflection;
 using PVZEngine.Modifiers;
 using Tools;
+using UnityEngine;
 
 namespace PVZEngine.Level
 {
@@ -11,55 +14,63 @@ namespace PVZEngine.Level
         {
             Container = container;
         }
-        public void SetProperty(PropertyKey name, object value)
+        public void SetProperty<T>(PropertyKey<T> name, T value)
         {
             if (properties.SetProperty(name, value))
             {
-                UpdateModifiedProperty(name);
+                UpdateModifiedProperty<T>(name);
                 // 实体属性更改时，如果有利用该实体属性修改属性的修改器，更新一次该属性。
                 var modifiersUsingThisProperty = Container.GetModifiersUsingProperty(name);
                 if (modifiersUsingThisProperty != null && modifiersUsingThisProperty.Length > 0)
                 {
                     foreach (var modifier in modifiersUsingThisProperty)
                     {
-                        UpdateModifiedProperty(modifier.PropertyName);
+                        UpdateModifiedPropertyObject(modifier.PropertyName);
                     }
                 }
             }
         }
-        public object GetProperty(PropertyKey name, bool ignoreBuffs = false)
+        public void SetPropertyObject(IPropertyKey name, object value)
         {
-            if (TryGetProperty(name, out var result, ignoreBuffs))
+            if (properties.SetPropertyObject(name, value))
             {
-                return result;
+                UpdateModifiedPropertyObject(name);
+                // 实体属性更改时，如果有利用该实体属性修改属性的修改器，更新一次该属性。
+                var modifiersUsingThisProperty = Container.GetModifiersUsingProperty(name);
+                if (modifiersUsingThisProperty != null && modifiersUsingThisProperty.Length > 0)
+                {
+                    foreach (var modifier in modifiersUsingThisProperty)
+                    {
+                        UpdateModifiedPropertyObject(modifier.PropertyName);
+                    }
+                }
             }
-            return null;
         }
-        public bool TryGetProperty(PropertyKey name, out object result, bool ignoreBuffs = false)
+        public bool TryGetProperty<T>(PropertyKey<T> name, out T result, bool ignoreBuffs = false)
         {
             if (!ignoreBuffs)
             {
-                if (buffedProperties.TryGetProperty(name, out var value))
+                if (buffedProperties.TryGetProperty<T>(name, out var value))
                 {
                     result = value;
                     return true;
                 }
             }
-            if (properties.TryGetProperty(name, out var prop))
+            if (properties.TryGetProperty<T>(name, out var prop))
             {
                 result = prop;
                 return true;
             }
 
-            if (Container.GetFallbackProperty(name, out var fallback))
+            if (Container.GetFallbackProperty<T>(name, out var fallback))
             {
                 result = fallback;
                 return true;
             }
-            result = null;
+            result = default;
             return false;
         }
-        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             if (TryGetProperty<T>(name, out var result, ignoreBuffs))
             {
@@ -67,24 +78,11 @@ namespace PVZEngine.Level
             }
             return result;
         }
-        public bool TryGetProperty<T>(PropertyKey name, out T value, bool ignoreBuffs = false)
+        public bool RemoveProperty<T>(PropertyKey<T> name)
         {
-            if (TryGetProperty(name, out object prop, ignoreBuffs))
-            {
-                if (prop.TryToGeneric<T>(out var result))
-                {
-                    value = result;
-                    return true;
-                }
-            }
-            value = default;
-            return false;
+            return properties.RemoveProperty<T>(name);
         }
-        public bool RemoveProperty(PropertyKey name)
-        {
-            return properties.RemoveProperty(name);
-        }
-        public PropertyKey[] GetPropertyNames()
+        public IPropertyKey[] GetPropertyNames()
         {
             return properties.GetPropertyNames();
         }
@@ -95,21 +93,39 @@ namespace PVZEngine.Level
             var paths = Container.GetModifiedProperties();
             foreach (var path in paths)
             {
-                UpdateModifiedProperty(path);
+                UpdateModifiedPropertyObject(path);
             }
         }
-        public void UpdateModifiedProperty(PropertyKey name)
+        public void UpdateModifiedPropertyObject(IPropertyKey name)
         {
-            var baseValue = GetProperty(name, ignoreBuffs: true);
+            var valueType = name.Type;
+            if (!DelegateCaches.TryGetDelegate<UpdateModifiedPropertyDelegate>(valueType, out var dele))
+            {
+                var selfType = GetType();
+                var propertyKeyType = typeof(PropertyKey<>).MakeGenericType(valueType);
+                var delegateType = typeof(Action<,>).MakeGenericType(selfType, propertyKeyType);
+                dele = DelegateCaches.AddDelegate<UpdateModifiedPropertyDelegate>(
+                    valueType,
+                    this,
+                    nameof(UpdateModifiedProperty),
+                    new Type[] { propertyKeyType },
+                    delegateType,
+                    d => (self, name) => d?.DynamicInvoke(self, name));
+            }
+            dele(this, name);
+        }
+        public void UpdateModifiedProperty<T>(PropertyKey<T> name)
+        {
+            var baseValue = GetProperty<T>(name, ignoreBuffs: true);
 
             modifierContainerBuffer.Clear();
             Container.GetModifierItems(name, modifierContainerBuffer);
 
-            var beforeValue = GetProperty(name);
+            var beforeValue = GetProperty<T>(name);
             var value = baseValue;
             if (modifierContainerBuffer.Count > 0)
             {
-                value = modifierContainerBuffer.CalculateProperty(baseValue);
+                value = modifierContainerBuffer.CalculateProperty<T>(baseValue);
                 buffedProperties.SetProperty(name, value);
             }
             else
@@ -136,7 +152,10 @@ namespace PVZEngine.Level
         public IPropertyModifyTarget Container { get; }
         private PropertyDictionary properties = new PropertyDictionary();
         private PropertyDictionary buffedProperties = new PropertyDictionary();
+        private readonly Dictionary<Type, Action<object, object, object>> setPropertyDelegates = new();
+        private readonly Dictionary<Type, Action<object, object>> updateModifiedPropertyDelegates = new();
         private List<ModifierContainerItem> modifierContainerBuffer = new List<ModifierContainerItem>();
+        private delegate object UpdateModifiedPropertyDelegate(ModifiableProperties self, IPropertyKey key);
     }
     [Serializable]
     public class SerializableModifiableProperties

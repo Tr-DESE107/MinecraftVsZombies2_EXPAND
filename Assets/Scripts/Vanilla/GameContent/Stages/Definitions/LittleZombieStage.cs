@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Stages
         public static void SetBigCounter(LevelEngine level, int value) => level.SetBehaviourField(ID, FIELD_BIG_COUNTER, value);
 
         public static readonly NamespaceID ID = new NamespaceID(VanillaMod.spaceName, "little_zombie_stage");
-        public static readonly VanillaLevelPropertyMeta FIELD_BIG_COUNTER = new VanillaLevelPropertyMeta("BigCounter");
+        public static readonly VanillaLevelPropertyMeta<int> FIELD_BIG_COUNTER = new VanillaLevelPropertyMeta<int>("BigCounter");
         public const int MAX_BIG_COUNTER = 6;
     }
 }

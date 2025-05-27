@@ -6,18 +6,18 @@ namespace PVZEngine.Level
     [PropertyRegistryRegion(PropertyRegions.seed)]
     public static class EngineSeedProps
     {
-        private static PropertyMeta Get(string name)
+        private static PropertyMeta<T> Get<T>(string name)
         {
-            return new PropertyMeta(name);
+            return new PropertyMeta<T>(name);
         }
-        public static readonly PropertyMeta RECHARGE_ID = Get("rechargeId");
-        public static readonly PropertyMeta COST = Get("cost");
+        public static readonly PropertyMeta<NamespaceID> RECHARGE_ID = Get<NamespaceID>("rechargeId");
+        public static readonly PropertyMeta<float> COST = Get<float>("cost");
 
-        public static readonly PropertyMeta RECHARGE_SPEED = Get("rechargeSpeed");
-        public static readonly PropertyMeta RECHARGE = Get("recharge");
-        public static readonly PropertyMeta IS_START_RECHARGE = Get("isStartRecharge");
-        public static readonly PropertyMeta DISABLED = Get("disabled");
-        public static readonly PropertyMeta DISABLE_MESSAGE = Get("disableMessage");
+        public static readonly PropertyMeta<float> RECHARGE_SPEED = Get<float>("rechargeSpeed");
+        public static readonly PropertyMeta<float> RECHARGE = Get<float>("recharge");
+        public static readonly PropertyMeta<bool> IS_START_RECHARGE = Get<bool>("isStartRecharge");
+        public static readonly PropertyMeta<bool> DISABLED = Get<bool>("disabled");
+        public static readonly PropertyMeta<string> DISABLE_MESSAGE = Get<string>("disableMessage");
         public static float GetRechargeSpeed(this SeedPack seed)
         {
             return seed.GetProperty<float>(RECHARGE_SPEED);
@@ -28,7 +28,7 @@ namespace PVZEngine.Level
         }
         public static void SetRecharge(this SeedPack seed, float value)
         {
-            seed.SetProperty(RECHARGE, value);
+            seed.SetProperty<float>(RECHARGE, value);
         }
         public static NamespaceID GetRechargeID(this SeedPack seed)
         {
@@ -38,9 +38,9 @@ namespace PVZEngine.Level
         {
             return definition.GetProperty<NamespaceID>(RECHARGE_ID);
         }
-        public static int GetCost(this SeedDefinition definition)
+        public static float GetCost(this SeedDefinition definition)
         {
-            return definition.GetProperty<int>(COST);
+            return definition.GetProperty<float>(COST);
         }
         public static bool IsStartRecharge(this SeedPack seed)
         {
@@ -51,7 +51,7 @@ namespace PVZEngine.Level
         /// </summary>
         public static void SetStartRecharge(this SeedPack seed, bool value)
         {
-            seed.SetProperty(IS_START_RECHARGE, value);
+            seed.SetProperty<bool>(IS_START_RECHARGE, value);
         }
         public static bool IsDisabled(this SeedPack seed)
         {

@@ -136,8 +136,8 @@ namespace MVZ2.GameContent.Bosses
         #region 常量
         public const float KILL_SNAKE_DISTANCE = 32;
         public const float COLLIDE_SELF_DAMAGE = 600;
-        private static readonly VanillaEntityPropertyMeta PROP_CHILD_TAIL = new VanillaEntityPropertyMeta("ChildTail");
-        private static readonly VanillaEntityPropertyMeta PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta("TargetGridIndex");
+        private static readonly VanillaEntityPropertyMeta<EntityID> PROP_CHILD_TAIL = new VanillaEntityPropertyMeta<EntityID>("ChildTail");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta<int>("TargetGridIndex");
         private static NamespaceID[] transferDamageExtraEffects = new NamespaceID[] { VanillaDamageEffects.TRANSFERRED, VanillaDamageEffects.NO_DAMAGE_BLINK };
         #endregion
     }

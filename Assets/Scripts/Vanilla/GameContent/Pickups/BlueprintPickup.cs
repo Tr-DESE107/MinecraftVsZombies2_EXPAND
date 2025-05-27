@@ -170,7 +170,7 @@ namespace MVZ2.GameContent.Pickups
         public static void SetBlueprintID(Entity pickup, NamespaceID value) => pickup.SetBehaviourField(PROP_BLUEPRINT_ID, value);
         public static bool IsCommandBlock(Entity pickup) => pickup.GetBehaviourField<bool>(PROP_COMMAND_BLOCK);
         public static void SetCommandBlock(Entity pickup, bool value) => pickup.SetBehaviourField(PROP_COMMAND_BLOCK, value);
-        public static readonly VanillaEntityPropertyMeta PROP_BLUEPRINT_ID = new VanillaEntityPropertyMeta("BlueprintID");
-        public static readonly VanillaEntityPropertyMeta PROP_COMMAND_BLOCK = new VanillaEntityPropertyMeta("CommandBlock");
+        public static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_BLUEPRINT_ID = new VanillaEntityPropertyMeta<NamespaceID>("BlueprintID");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_COMMAND_BLOCK = new VanillaEntityPropertyMeta<bool>("CommandBlock");
     }
 }

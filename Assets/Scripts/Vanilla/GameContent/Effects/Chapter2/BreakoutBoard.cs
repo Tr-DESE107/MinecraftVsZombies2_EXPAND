@@ -335,8 +335,8 @@ namespace MVZ2.GameContent.Effects
         {
         }
         public static readonly NamespaceID ID = VanillaEffectID.breakoutBoard;
-        public static readonly VanillaEntityPropertyMeta PROP_RESPAWN_COUNTDOWN = new VanillaEntityPropertyMeta("RespawnCountdown");
-        public static readonly VanillaEntityPropertyMeta PROP_NEXT_POSITION = new VanillaEntityPropertyMeta("NextPosition");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_RESPAWN_COUNTDOWN = new VanillaEntityPropertyMeta<int>("RespawnCountdown");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_NEXT_POSITION = new VanillaEntityPropertyMeta<Vector3>("NextPosition");
         public const int MAX_RESPAWN_COUNTDOWN = 90;
         public const float PEARL_SPEED = 15;
         public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;

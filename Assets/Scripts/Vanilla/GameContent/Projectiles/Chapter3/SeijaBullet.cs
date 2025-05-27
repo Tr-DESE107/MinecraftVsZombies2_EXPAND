@@ -49,8 +49,8 @@ namespace MVZ2.GameContent.Projectiles
         public static bool IsDark(Entity bullet) => bullet.GetProperty<bool>(PROP_DARK);
         public static void SetStateChangeTimer(Entity bullet, FrameTimer value) => bullet.SetProperty(PROP_STATE_CHANGE_TIMER, value);
         public static FrameTimer GetStateChangeTimer(Entity bullet) => bullet.GetProperty<FrameTimer>(PROP_STATE_CHANGE_TIMER);
-        public static readonly PropertyMeta PROP_DARK = new VanillaEntityPropertyMeta("Dark");
-        public static readonly PropertyMeta PROP_STATE_CHANGE_TIMER = new VanillaEntityPropertyMeta("StateChangeTimer");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_DARK = new VanillaEntityPropertyMeta<bool>("Dark");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_CHANGE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateChangeTimer");
         public const float LIGHT_SPEED = 3;
         public const float DARK_SPEED = 10;
     }

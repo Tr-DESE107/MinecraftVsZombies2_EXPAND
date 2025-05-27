@@ -10,26 +10,10 @@ namespace PVZEngine.Base
         {
             id = new NamespaceID(nsp, name);
         }
-        public virtual bool TryGetProperty(PropertyKey name, out object value)
-        {
-            return propertyDict.TryGetProperty(name, out value);
-        }
-        public virtual object GetProperty(PropertyKey name)
-        {
-            return propertyDict.GetProperty(name);
-        }
-        public virtual bool TryGetProperty<T>(PropertyKey name, out T value)
-        {
-            return propertyDict.TryGetProperty<T>(name, out value);
-        }
-        public virtual T GetProperty<T>(PropertyKey name)
-        {
-            return propertyDict.GetProperty<T>(name);
-        }
-        public void SetProperty(PropertyKey name, object value)
-        {
-            propertyDict.SetProperty(name, value);
-        }
+        public virtual bool TryGetProperty<T>(PropertyKey<T> name, out T value) => propertyDict.TryGetProperty<T>(name, out value);
+        public virtual T GetProperty<T>(PropertyKey<T> name) => propertyDict.GetProperty<T>(name);
+        public void SetProperty<T>(PropertyKey<T> name, T value) => propertyDict.SetProperty(name, value);
+        public void SetPropertyObject(IPropertyKey name, object value) => propertyDict.SetPropertyObject(name, value);
         public ITrigger[] GetTriggers()
         {
             return triggers.ToArray();

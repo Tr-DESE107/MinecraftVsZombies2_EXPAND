@@ -113,7 +113,7 @@ namespace MVZ2.GameContent.Contraptions
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         public const int STATE_WORKING = VanillaEntityStates.CONTRAPTION_SPECIAL;
 
-        private static readonly VanillaEntityPropertyMeta PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta("ProductionTimer");
-        private static readonly VanillaEntityPropertyMeta PROP_TARGET_ENTITY = new VanillaEntityPropertyMeta("TargetEntity");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ProductionTimer");
+        private static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_TARGET_ENTITY = new VanillaEntityPropertyMeta<NamespaceID>("TargetEntity");
     }
 }

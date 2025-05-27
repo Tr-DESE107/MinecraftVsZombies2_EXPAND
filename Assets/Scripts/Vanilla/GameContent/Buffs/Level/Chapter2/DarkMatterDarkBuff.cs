@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
 
             buff.SetProperty(PROP_LIGHT_MULTIPLIER, multiplier);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_LIGHT_MULTIPLIER = new VanillaBuffPropertyMeta("LightMultiplier");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_LIGHT_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("LightMultiplier");
         public const float DARKNESS_SPEED = 0.03f;
         public const float MIN_LIGHT = 1 / 255f;
     }

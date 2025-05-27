@@ -61,8 +61,8 @@ namespace MVZ2.GameContent.Buffs.Level
             blackScreen.a = Mathf.Clamp01(blackScreen.a + BLACK_SCREEN_SPEED);
             buff.SetProperty(PROP_SCREEN_COVER, blackScreen);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
-        public static readonly VanillaBuffPropertyMeta PROP_SCREEN_COVER = new VanillaBuffPropertyMeta("ScreenCover");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_SCREEN_COVER = new VanillaBuffPropertyMeta<Color>("ScreenCover");
         public const float BLACK_SCREEN_SPEED = 1 / 180f;
         public const int MAX_TIMEOUT = 270;
         public const int CREATE_GLASS_TIMEOUT = 60;

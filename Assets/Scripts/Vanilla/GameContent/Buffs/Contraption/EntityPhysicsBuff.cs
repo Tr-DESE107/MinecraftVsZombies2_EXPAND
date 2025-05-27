@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Buffs
         public override void PostAdd(Buff buff)
         {
             base.PostAdd(buff);
-            buff.SetProperty(PROP_FRICTION, 1);
+            buff.SetProperty(PROP_FRICTION, 1f);
             UpdateMultipliers(buff);
         }
         public override void PostUpdate(Buff buff)
@@ -37,6 +37,6 @@ namespace MVZ2.GameContent.Buffs
             }
             buff.SetProperty(PROP_FRICTION, friction);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_FRICTION = new VanillaBuffPropertyMeta("Friction");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_FRICTION = new VanillaBuffPropertyMeta<float>("Friction");
     }
 }

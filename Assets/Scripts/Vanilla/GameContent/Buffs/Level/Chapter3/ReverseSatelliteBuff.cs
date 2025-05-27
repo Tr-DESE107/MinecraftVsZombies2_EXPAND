@@ -49,9 +49,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.Remove();
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_CAMERA_ROTATION = new VanillaBuffPropertyMeta("CameraRotation");
-        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_CAMERA_ROTATION = new VanillaBuffPropertyMeta<float>("CameraRotation");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
         public const int MAX_TIMEOUT = 30;
         public const int MAX_ROTATION = 180;
     }

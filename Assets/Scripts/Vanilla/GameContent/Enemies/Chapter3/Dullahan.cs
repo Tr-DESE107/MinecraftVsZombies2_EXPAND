@@ -125,8 +125,8 @@ namespace MVZ2.GameContent.Enemies
             entity.SetBehaviourField(ID, FIELD_HEAD, new EntityID(value));
         }
 
-        public static readonly VanillaEntityPropertyMeta FIELD_HEAD = new VanillaEntityPropertyMeta("Head");
-        public static readonly VanillaEntityPropertyMeta FIELD_HEAD_DROPPED = new VanillaEntityPropertyMeta("HeadDropped");
+        public static readonly VanillaEntityPropertyMeta<EntityID> FIELD_HEAD = new VanillaEntityPropertyMeta<EntityID>("Head");
+        public static readonly VanillaEntityPropertyMeta<bool> FIELD_HEAD_DROPPED = new VanillaEntityPropertyMeta<bool>("HeadDropped");
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         private static readonly NamespaceID ID = VanillaEnemyID.dullahan;
     }

@@ -61,7 +61,7 @@ namespace MVZ2.Vanilla.Entities
         {
             base.PostCollision(collision, state);
             var entity = collision.Entity;
-            if (entity.GetProperty<bool>(VanillaProjectileProps.NO_HIT_ENTITIES))
+            if (entity.DontHitEntities())
                 return;
             var spawner = entity.SpawnerReference?.GetEntity(entity.Level);
             var otherCollider = collision.OtherCollider;
@@ -229,7 +229,6 @@ namespace MVZ2.Vanilla.Entities
         private void SetStartHitSpawnerProtectTimeout(Entity entity, int value) => entity.SetBehaviourField(FIELD_HIT_SPAWNER_PROTECT_TIMEOUT, value);
         private int GetStartHitSpawnerProtectTimeout(Entity entity) => entity.GetBehaviourField<int>(FIELD_HIT_SPAWNER_PROTECT_TIMEOUT);
         #endregion
-        public static readonly VanillaEntityPropertyMeta FIELD_HIT_SPAWNER_PROTECT_TIMEOUT = new VanillaEntityPropertyMeta("HitSpawnerProtectTimeout");
-        public static readonly VanillaEntityPropertyMeta FIELD_IGNORED_COLLIDERS = new VanillaEntityPropertyMeta("IgnoredColliders");
+        public static readonly VanillaEntityPropertyMeta<int> FIELD_HIT_SPAWNER_PROTECT_TIMEOUT = new VanillaEntityPropertyMeta<int>("HitSpawnerProtectTimeout");
     }
 }

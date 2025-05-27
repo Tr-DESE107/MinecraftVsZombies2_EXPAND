@@ -122,6 +122,6 @@ namespace MVZ2.GameContent.Contraptions
         }
 
         public const int MAX_NOTE_COUNT = 10;
-        private static readonly VanillaEntityPropertyMeta PROP_NOTE_CHILDREN = new VanillaEntityPropertyMeta("NoteChildren");
+        private static readonly VanillaEntityPropertyMeta<List<EntityID>> PROP_NOTE_CHILDREN = new VanillaEntityPropertyMeta<List<EntityID>>("NoteChildren");
     }
 }

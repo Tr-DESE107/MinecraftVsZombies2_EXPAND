@@ -82,6 +82,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public const int WARP_TIME = 10;
         public const int STUN_TIME = 150;
         public const int STUN_TIME_PER_LEVEL = 75;
-        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("timer");
+        public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timer");
     }
 }

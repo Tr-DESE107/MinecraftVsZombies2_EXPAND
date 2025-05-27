@@ -30,7 +30,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             base.PostAdd(buff);
             buff.SetProperty(PROP_TIMER, new FrameTimer(MAX_TIMEOUT));
-            SetSoundTimer(buff, new FrameTimer(0));
         }
         public override void PostUpdate(Buff buff)
         {
@@ -66,19 +65,10 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             else
             {
                 timer.Run();
-                var soundTimer = GetSoundTimer(buff);
-                if (soundTimer != null)
+                if (entity != null && entity.IsTimeInterval(15))
                 {
-                    soundTimer.Run();
-                    if (soundTimer.Expired)
-                    {
-                        soundTimer.ResetTime(15);
-                        if (entity != null)
-                        {
-                            var pitch = 1 + (1 - timer.Frame) / (float)MAX_TIMEOUT;
-                            entity.PlaySound(VanillaSoundID.energyShield, pitch);
-                        }
-                    }
+                    var pitch = 1 + (1 - timer.Frame) / (float)MAX_TIMEOUT;
+                    entity.PlaySound(VanillaSoundID.energyShield, pitch);
                 }
             }
         }
@@ -93,16 +83,13 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 result.SetFinalValue(false);
             }
         }
-        public static FrameTimer GetSoundTimer(Buff buff) => buff.GetProperty<FrameTimer>(PROP_SOUND_TIMER);
-        public static void SetSoundTimer(Buff buff, FrameTimer value) => buff.SetProperty(PROP_SOUND_TIMER, value);
         public static float GetTakenDamage(Buff buff) => buff.GetProperty<float>(PROP_TAKEN_DAMAGE);
         public static void SetTakenDamage(Buff buff, float value) => buff.SetProperty(PROP_TAKEN_DAMAGE, value);
         public static void AddTakenDamage(Buff buff, float value) => SetTakenDamage(buff, GetTakenDamage(buff) + value);
         public const int MAX_TIMEOUT = 150;
         public const float MAX_DAMAGE = 1800;
-        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("timer");
-        public static readonly VanillaBuffPropertyMeta PROP_TAKEN_DAMAGE = new VanillaBuffPropertyMeta("takenDamage");
-        public static readonly VanillaBuffPropertyMeta PROP_SOUND_TIMER = new VanillaBuffPropertyMeta("soundTimer");
+        public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timer");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_TAKEN_DAMAGE = new VanillaBuffPropertyMeta<float>("takenDamage");
         private Detector thunderDetector;
         private ArrayBuffer<IEntityCollider> thunderBuffer = new ArrayBuffer<IEntityCollider>(1024);
     }

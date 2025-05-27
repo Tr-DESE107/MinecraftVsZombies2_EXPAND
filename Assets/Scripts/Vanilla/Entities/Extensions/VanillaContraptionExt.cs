@@ -162,6 +162,6 @@ namespace MVZ2.Vanilla.Entities
         }
         private const string PROP_REGION = "contraptions";
         [EntityPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_EVOKED = new VanillaEntityPropertyMeta("Evoked");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_EVOKED = new VanillaEntityPropertyMeta<bool>("Evoked");
     }
 }

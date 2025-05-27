@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             var buff = entity.AddBuff<FlyBuff>();
-            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80);
+            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
 
             entity.Level.AddLoopSoundEntity(VanillaSoundID.morseCodeReverse, entity.ID);
 
@@ -148,7 +148,7 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_STAY = VanillaEntityStates.WALK;
         public const int STATE_LEAVING = VanillaEntityStates.ENEMY_SPECIAL;
         public const int LEAVE_TIME = 900;
-        public static readonly VanillaEntityPropertyMeta FIELD_LEAVE_TIMER = new VanillaEntityPropertyMeta("LeaveTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_LEAVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("LeaveTimer");
         private static readonly NamespaceID ID = VanillaEnemyID.reverseSatellite;
     }
 }

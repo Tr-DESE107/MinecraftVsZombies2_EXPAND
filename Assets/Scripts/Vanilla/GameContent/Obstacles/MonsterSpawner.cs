@@ -107,7 +107,7 @@ namespace MVZ2.GameContent.Obstacles
             entity.SetProperty(PROP_ENTITY_TO_SPAWN, id);
             entity.SetModelProperty("EntityToSpawn", id);
         }
-        public static readonly VanillaEntityPropertyMeta PROP_ENTITY_TO_SPAWN = new VanillaEntityPropertyMeta("EntityToSpawn");
+        public static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_ENTITY_TO_SPAWN = new VanillaEntityPropertyMeta<NamespaceID>("EntityToSpawn");
         public static readonly Vector2Int[] spawnGrids = new Vector2Int[]
         {
             new Vector2Int(0, 0),

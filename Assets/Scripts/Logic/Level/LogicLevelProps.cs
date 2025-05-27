@@ -8,7 +8,7 @@ namespace MVZ2Logic.Level
     [PropertyRegistryRegion(PropertyRegions.level)]
     public static class LogicLevelProps
     {
-        public static readonly PropertyMeta SCREEN_COVER = new PropertyMeta("screenCover");
+        public static readonly PropertyMeta<Color> SCREEN_COVER = new PropertyMeta<Color>("screenCover");
         public static Color GetScreenCover(this LevelEngine level)
         {
             return level.GetProperty<Color>(SCREEN_COVER);
@@ -17,7 +17,7 @@ namespace MVZ2Logic.Level
         {
             level.SetProperty(SCREEN_COVER, value);
         }
-        public static readonly PropertyMeta PAUSE_DISABLED = new PropertyMeta("pause_disabled");
+        public static readonly PropertyMeta<bool> PAUSE_DISABLED = new PropertyMeta<bool>("pause_disabled");
         public static bool IsPauseDisabled(this LevelEngine level)
         {
             return level.GetProperty<bool>(PAUSE_DISABLED);
@@ -26,7 +26,7 @@ namespace MVZ2Logic.Level
         {
             level.SetProperty(PAUSE_DISABLED, value);
         }
-        public static readonly PropertyMeta CAMERA_ROTATION = new PropertyMeta("cameraRotation");
+        public static readonly PropertyMeta<float> CAMERA_ROTATION = new PropertyMeta<float>("cameraRotation");
         public static float GetCameraRotation(this LevelEngine level)
         {
             return level.GetProperty<float>(CAMERA_ROTATION);
@@ -37,7 +37,7 @@ namespace MVZ2Logic.Level
         }
 
         #region RNG
-        public static readonly PropertyMeta ARTIFACT_RNG = new PropertyMeta("artifactRNG");
+        public static readonly PropertyMeta<RandomGenerator> ARTIFACT_RNG = new PropertyMeta<RandomGenerator>("artifactRNG");
         public static RandomGenerator GetArtifactRNG(this LevelEngine level)
         {
             var rng = level.GetProperty<RandomGenerator>(ARTIFACT_RNG);

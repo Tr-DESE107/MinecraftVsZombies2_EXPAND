@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Stages
     {
         public WhackAGhostBehaviour(StageDefinition stageDef) : base(stageDef)
         {
-            stageDef.SetProperty(VanillaLevelProps.CONVEY_SPEED, 1);
+            stageDef.SetProperty(VanillaLevelProps.CONVEY_SPEED, 1f);
         }
         public override void Start(LevelEngine level)
         {
@@ -88,7 +88,7 @@ namespace MVZ2.GameContent.Stages
         #region 属性字段
         private const string PROP_REGION = "whack_a_ghost";
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_THUNDER_TIMER = new VanillaLevelPropertyMeta("ThunderTimer");
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_THUNDER_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("ThunderTimer");
         #endregion
     }
 }

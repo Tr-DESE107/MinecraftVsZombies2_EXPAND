@@ -122,6 +122,6 @@ namespace MVZ2.GameContent.Enemies
             return HasEggs(entity) ? 1 : -1;
         }
         public static readonly NamespaceID ID = VanillaEnemyID.motherTerror;
-        public static readonly VanillaEntityPropertyMeta PROP_RESTORE_EGG_TIMER = new VanillaEntityPropertyMeta("RestoreEggTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_RESTORE_EGG_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("RestoreEggTimer");
     }
 }

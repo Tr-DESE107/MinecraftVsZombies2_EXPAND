@@ -95,7 +95,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public const int MOVE_INTERVAL = 30;
         public const float TALISMAN_DISTANCE = 80;
-        public static readonly VanillaEntityPropertyMeta PROP_WARPPED = new VanillaEntityPropertyMeta("warpped");
-        public static readonly VanillaEntityPropertyMeta PROP_TALISMAN_ZOMBIE = new VanillaEntityPropertyMeta("MoveTimer");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_WARPPED = new VanillaEntityPropertyMeta<bool>("warpped");
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_TALISMAN_ZOMBIE = new VanillaEntityPropertyMeta<EntityID>("MoveTimer");
     }
 }

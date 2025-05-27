@@ -78,6 +78,6 @@ namespace MVZ2.GameContent.Projectiles
         public const int STATE_FLY = VanillaEntityStates.WALK;
 
         private static readonly NamespaceID ID = VanillaProjectileID.compellingOrb;
-        private static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
     }
 }

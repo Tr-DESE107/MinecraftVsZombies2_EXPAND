@@ -8,15 +8,8 @@ namespace PVZEngine.Modifiers
     public abstract class ModifierCalculator
     {
         public abstract object Calculate(object value, IEnumerable<ModifierContainerItem> modifiers);
-        public T Calculate<T>(T value, IEnumerable<ModifierContainerItem> modifiers)
-        {
-            var result = Calculate(value, modifiers);
-            if (result.TryToGeneric<T>(out var tValue))
-                return tValue;
-            return value;
-        }
     }
-    public abstract class ModifierCalculator<TValue, TModifier> : ModifierCalculator where TModifier : PropertyModifier<TValue>
+    public abstract class ModifierCalculator<TValue> : ModifierCalculator
     {
         public override sealed object Calculate(object value, IEnumerable<ModifierContainerItem> modifiers)
         {
@@ -25,6 +18,9 @@ namespace PVZEngine.Modifiers
             return CalculateGeneric(tValue, modifiers.OfType<ModifierContainerItem>());
         }
         public abstract TValue CalculateGeneric(TValue value, IEnumerable<ModifierContainerItem> modifiers);
+    }
+    public abstract class ModifierCalculator<TValue, TModifier> : ModifierCalculator<TValue> where TModifier : PropertyModifier<TValue>
+    {
     }
     public struct ModifierContainerItem
     {

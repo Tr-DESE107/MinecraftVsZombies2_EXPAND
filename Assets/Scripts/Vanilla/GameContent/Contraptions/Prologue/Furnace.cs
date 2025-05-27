@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Buffs.Contraptions;
+﻿using System.Collections.Generic;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -183,8 +184,8 @@ namespace MVZ2.GameContent.Contraptions
         public const int EVOCATION_INTERVAL = 5;
         public const int EVOCATION_REDSTONES = 6;
         public const int EVOCATION_DURATION = EVOCATION_INTERVAL * EVOCATION_REDSTONES;
-        private static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
-        private static readonly VanillaEntityPropertyMeta PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta("ProductionTimer");
-        private static readonly VanillaEntityPropertyMeta PROP_DROPPED_REDSTONES = new VanillaEntityPropertyMeta("LastRemaionRedstones");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ProductionTimer");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_DROPPED_REDSTONES = new VanillaEntityPropertyMeta<int>("LastRemaionRedstones");
     }
 }

@@ -197,15 +197,19 @@ namespace PVZEngine.Entities
         #endregion 魅惑
 
         #region 增益属性
-        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             return properties.GetProperty<T>(name, ignoreBuffs);
         }
-        public void SetProperty(PropertyKey name, object value)
+        public void SetProperty<T>(PropertyKey<T> name, T value)
         {
             properties.SetProperty(name, value);
         }
-        private void GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
+        public void SetPropertyObject(IPropertyKey name, object value)
+        {
+            properties.SetPropertyObject(name, value);
+        }
+        private void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
         {
             if (!modifierCaches.TryGetValue(name, out var list))
                 return;
@@ -215,15 +219,15 @@ namespace PVZEngine.Entities
         {
             properties.UpdateAllModifiedProperties();
         }
-        private void UpdateModifiedProperty(PropertyKey name)
+        private void UpdateModifiedProperty(IPropertyKey name)
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty(PropertyKey name, out object value)
+        bool IPropertyModifyTarget.GetFallbackProperty<T>(PropertyKey<T> name, out T value)
         {
             if (Definition == null)
             {
-                value = null;
+                value = default;
                 return false;
             }
             if (Definition.TryGetProperty(name, out var defProp))
@@ -242,27 +246,27 @@ namespace PVZEngine.Entities
                     return true;
                 }
             }
-            value = null;
+            value = default;
             return false;
         }
-        IEnumerable<PropertyKey> IPropertyModifyTarget.GetModifiedProperties()
+        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
         {
             var entityPropertyNames = modifierCaches.Keys;
             var buffPropertyNames = buffs.GetModifierPropertyNames();
             return entityPropertyNames.Union(buffPropertyNames);
         }
-        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(PropertyKey name)
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
         {
-            return Definition.GetModifiers().Where(m => m.UsingContainerPropertyName == name).ToArray();
+            return Definition.GetModifiers().Where(m => name.Equals(m.UsingContainerPropertyName)).ToArray();
         }
-        void IPropertyModifyTarget.GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
+        void IPropertyModifyTarget.GetModifierItems<T>(PropertyKey<T> name, List<ModifierContainerItem> results)
         {
             GetModifierItems(name, results);
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object beforeValue, object afterValue)
+        void IPropertyModifyTarget.UpdateModifiedProperty<T>(PropertyKey<T> name, T beforeValue, T afterValue)
         {
-            if (name == EngineEntityProps.MAX_HEALTH)
+            if (name is PropertyKey<float> floatName && floatName == EngineEntityProps.MAX_HEALTH)
             {
                 var before = beforeValue.ToGeneric<float>();
                 var after = afterValue.ToGeneric<float>();
@@ -998,12 +1002,12 @@ namespace PVZEngine.Entities
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IAuraSource.GetEntity() => this;
         LevelEngine IAuraSource.GetLevel() => Level;
-        object IModifierContainer.GetProperty(PropertyKey name) => GetProperty<object>(name);
+        T IModifierContainer.GetProperty<T>(PropertyKey<T> name) => GetProperty<T>(name);
         #endregion
 
         #region 事件
         public event Action PostInit;
-        public event Action<PropertyKey, object, object> PostPropertyChanged;
+        public event Action<IPropertyKey, object, object> PostPropertyChanged;
         public event Action<NamespaceID> OnChangeModel;
         public event Action<NamespaceID, Armor> OnEquipArmor;
         public event Action<NamespaceID, Armor> OnRemoveArmor;
@@ -1062,7 +1066,7 @@ namespace PVZEngine.Entities
         private Dictionary<LawnGrid, HashSet<NamespaceID>> takenGrids = new Dictionary<LawnGrid, HashSet<NamespaceID>>();
         private List<Entity> children = new List<Entity>();
         private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
-        private Dictionary<PropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<PropertyKey, List<ModifierContainerItem>>();
+        private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>();
         #endregion
     }
 }

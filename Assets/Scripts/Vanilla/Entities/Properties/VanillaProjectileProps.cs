@@ -7,25 +7,22 @@ namespace MVZ2.Vanilla.Entities
     [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class VanillaProjectileProps
     {
-        public static readonly PropertyMeta ROLLS = new PropertyMeta("rolls");
+        public static readonly PropertyMeta<bool> ROLLS = new PropertyMeta<bool>("rolls");
         public static bool Rolls(this Entity entity) => entity.GetProperty<bool>(ROLLS);
-        public static readonly PropertyMeta KILL_ON_GROUND = new PropertyMeta("killOnGround");
+        public static readonly PropertyMeta<bool> KILL_ON_GROUND = new PropertyMeta<bool>("killOnGround");
         public static bool KillOnGround(this Entity entity) => entity.GetProperty<bool>(KILL_ON_GROUND);
-        public static readonly PropertyMeta PIERCING = new PropertyMeta("piercing");
-        public static readonly PropertyMeta POINT_TO_DIRECTION = new PropertyMeta("pointToDirection");
-        public static readonly PropertyMeta DAMAGE_EFFECTS = new PropertyMeta("damageEffects");
-        public static readonly PropertyMeta NO_DESTROY_OUTSIDE_LAWN = new PropertyMeta("noDestroyOutsideLawn");
-        public static readonly PropertyMeta NO_HIT_ENTITIES = new PropertyMeta("noHitEntities");
-        public static readonly PropertyMeta IGNORED_COLLIDERS = new PropertyMeta("ignoredColliders");
 
+        public static readonly PropertyMeta<bool> POINT_TO_DIRECTION = new PropertyMeta<bool>("pointToDirection");
         public static bool PointsTowardDirection(this Entity entity)
         {
             return entity.GetProperty<bool>(POINT_TO_DIRECTION);
         }
+        public static readonly PropertyMeta<bool> NO_DESTROY_OUTSIDE_LAWN = new PropertyMeta<bool>("noDestroyOutsideLawn");
         public static bool WillDestroyOutsideLawn(this Entity projectile)
         {
             return !projectile.GetProperty<bool>(NO_DESTROY_OUTSIDE_LAWN);
         }
+        public static readonly PropertyMeta<bool> PIERCING = new PropertyMeta<bool>("piercing");
         public static bool IsPiercing(this Entity projectile)
         {
             return projectile.GetProperty<bool>(PIERCING);
@@ -34,10 +31,17 @@ namespace MVZ2.Vanilla.Entities
         {
             projectile.SetProperty(PIERCING, value);
         }
+        public static readonly PropertyMeta<NamespaceID[]> DAMAGE_EFFECTS = new PropertyMeta<NamespaceID[]>("damageEffects");
         public static NamespaceID[] GetDamageEffects(this Entity projectile)
         {
             return projectile.GetProperty<NamespaceID[]>(DAMAGE_EFFECTS);
         }
+        public static readonly PropertyMeta<bool> NO_HIT_ENTITIES = new PropertyMeta<bool>("noHitEntities");
+        public static bool DontHitEntities(this Entity projectile)
+        {
+            return projectile.GetProperty<bool>(NO_HIT_ENTITIES);
+        }
+        public static readonly PropertyMeta<List<EntityColliderReference>> IGNORED_COLLIDERS = new PropertyMeta<List<EntityColliderReference>>("ignoredColliders");
         public static void AddIgnoredProjectileCollider(this Entity projectile, IEntityCollider other)
         {
             var colliders = projectile.GetBehaviourField<List<EntityColliderReference>>(IGNORED_COLLIDERS);

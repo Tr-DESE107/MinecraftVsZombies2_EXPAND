@@ -61,7 +61,7 @@ namespace MVZ2.GameContent.Projectiles
         public static void SetSnowballScale(Entity entity, float scale) => entity.SetBehaviourField(ID, PROP_SNOWBALL_SCALE, scale);
 
         private static readonly NamespaceID ID = VanillaAreaID.halloween;
-        public static readonly VanillaEntityPropertyMeta PROP_SNOWBALL_SCALE = new VanillaEntityPropertyMeta("SnowballScale");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_SNOWBALL_SCALE = new VanillaEntityPropertyMeta<float>("SnowballScale");
         public const float MIN_SCALE = 1;
         public const float SCALE_SPEED = 0.1f;
         public const float MAX_SCALE = 10;

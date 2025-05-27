@@ -2,11 +2,11 @@
 {
     public class PlaceParams
     {
-        public void SetProperty(PropertyKey key, object value)
+        public void SetProperty<T>(PropertyKey<T> key, T value)
         {
             properties.SetProperty(key, value);
         }
-        public T GetProperty<T>(PropertyKey key)
+        public T GetProperty<T>(PropertyKey<T> key)
         {
             return properties.GetProperty<T>(key);
         }

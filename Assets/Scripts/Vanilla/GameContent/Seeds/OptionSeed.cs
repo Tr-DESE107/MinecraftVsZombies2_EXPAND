@@ -14,7 +14,7 @@ namespace MVZ2.GameContent.Seeds
         {
             SetProperty(VanillaSeedProps.SEED_TYPE, SeedTypes.OPTION);
             SetProperty(VanillaSeedProps.SEED_OPTION_ID, new NamespaceID(nsp, name));
-            SetProperty(EngineSeedProps.COST, cost);
+            SetProperty(EngineSeedProps.COST, (float)cost);
         }
         public override void Update(SeedPack seedPack, float rechargeSpeed)
         {

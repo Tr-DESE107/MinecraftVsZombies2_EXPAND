@@ -36,8 +36,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 buff.Remove();
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
-        public static readonly VanillaBuffPropertyMeta PROP_TINT = new VanillaBuffPropertyMeta("Tint");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_TINT = new VanillaBuffPropertyMeta<Color>("Tint");
         public const int MAX_TIMEOUT = 150;
     }
 }

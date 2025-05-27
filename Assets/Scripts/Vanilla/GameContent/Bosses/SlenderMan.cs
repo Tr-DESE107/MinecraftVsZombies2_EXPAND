@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Bosses
             var flyBuff = entity.AddBuff<FlyBuff>();
             flyBuff.SetProperty(FlyBuff.PROP_FLY_SPEED, 0.2f);
             flyBuff.SetProperty(FlyBuff.PROP_FLY_SPEED_FACTOR, 0.5f);
-            flyBuff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80);
+            flyBuff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -503,22 +503,22 @@ namespace MVZ2.GameContent.Bosses
 
         public const int MAX_MOVE_TIMEOUT = 30;
 
-        public static readonly VanillaEntityPropertyMeta PROP_SELECTED_FATE_TIMES = new VanillaEntityPropertyMeta("SelectedFateTimes");
-        public static readonly VanillaEntityPropertyMeta PROP_READY_FATE_TIMES = new VanillaEntityPropertyMeta("ReadyFateTimes");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_SELECTED_FATE_TIMES = new VanillaEntityPropertyMeta<int>("SelectedFateTimes");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_READY_FATE_TIMES = new VanillaEntityPropertyMeta<int>("ReadyFateTimes");
 
-        public static readonly VanillaEntityPropertyMeta PROP_MOVE_TIMER = new VanillaEntityPropertyMeta("MoveTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_MOVE_TIMEOUT = new VanillaEntityPropertyMeta("MoveTimeout");
-        public static readonly VanillaEntityPropertyMeta PROP_MOVE_DISPLACEMENT = new VanillaEntityPropertyMeta("MoveDisplacement");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_MOVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("MoveTimer");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_MOVE_TIMEOUT = new VanillaEntityPropertyMeta<int>("MoveTimeout");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_MOVE_DISPLACEMENT = new VanillaEntityPropertyMeta<Vector3>("MoveDisplacement");
 
-        public static readonly VanillaEntityPropertyMeta PROP_PORTAL_TIMER = new VanillaEntityPropertyMeta("PortalTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PORTAL_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("PortalTimer");
 
-        public static readonly VanillaEntityPropertyMeta PROP_MIND_SWAP_TIMER = new VanillaEntityPropertyMeta("MindSwapTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_MIND_SWAP_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("MindSwapTimer");
 
-        public static readonly VanillaEntityPropertyMeta PROP_MOVE_RNG = new VanillaEntityPropertyMeta("MoveRNG");
-        public static readonly VanillaEntityPropertyMeta PROP_PORTAL_RNG = new VanillaEntityPropertyMeta("PortalRNG");
-        public static readonly VanillaEntityPropertyMeta PROP_MIND_SWAP_RNG = new VanillaEntityPropertyMeta("MindSwapRNG");
-        public static readonly VanillaEntityPropertyMeta PROP_FATE_OPTION_RNG = new VanillaEntityPropertyMeta("FateOptionRNG");
-        public static readonly VanillaEntityPropertyMeta PROP_EVENT_RNG = new VanillaEntityPropertyMeta("EventRNG");
+        public static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_MOVE_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("MoveRNG");
+        public static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_PORTAL_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("PortalRNG");
+        public static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_MIND_SWAP_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("MindSwapRNG");
+        public static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_FATE_OPTION_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("FateOptionRNG");
+        public static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_EVENT_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("EventRNG");
 
         public const int FATE_PANDORAS_BOX = 0;
         public const int FATE_BIOHAZARD = 1;

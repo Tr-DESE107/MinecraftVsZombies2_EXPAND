@@ -78,6 +78,6 @@ namespace MVZ2.GameContent.Stages
         protected static int GetBossState(LevelEngine level) => level.GetBehaviourField<int>(FIELD_BOSS_PHASE);
         private const string PROP_REGION = "boss_stage";
         [LevelPropertyRegistry(PROP_REGION)]
-        private static readonly VanillaLevelPropertyMeta FIELD_BOSS_PHASE = new VanillaLevelPropertyMeta("BossPhase");
+        private static readonly VanillaLevelPropertyMeta<int> FIELD_BOSS_PHASE = new VanillaLevelPropertyMeta<int>("BossPhase");
     }
 }

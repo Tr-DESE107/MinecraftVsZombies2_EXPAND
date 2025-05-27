@@ -80,7 +80,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         public const float HEALTH_SPEED = 1 / 6f;
         public const float MAX_PARASITE_HEALTH = 50;
-        public static readonly VanillaBuffPropertyMeta PROP_PARASITE_HEALTH = new VanillaBuffPropertyMeta("ParasiteHealth");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_PARASITE_HEALTH = new VanillaBuffPropertyMeta<float>("ParasiteHealth");
         public const float DAMAGE = 100;
     }
 }

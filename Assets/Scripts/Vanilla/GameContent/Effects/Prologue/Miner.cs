@@ -53,8 +53,8 @@ namespace MVZ2.GameContent.Effects
         #region ÊôÐÔ×Ö¶Î
 
         private static readonly NamespaceID ID = VanillaEffectID.miner;
-        public static readonly VanillaEntityPropertyMeta PROP_IS_OPEN = new VanillaEntityPropertyMeta("isOpen");
-        public static readonly VanillaEntityPropertyMeta PROP_PRODUCE_TIMER = new VanillaEntityPropertyMeta("produceTimer");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_IS_OPEN = new VanillaEntityPropertyMeta<bool>("isOpen");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("produceTimer");
         public const int START_TIME = 120;
         public const int PRODUCE_TIME = 300;
         #endregion

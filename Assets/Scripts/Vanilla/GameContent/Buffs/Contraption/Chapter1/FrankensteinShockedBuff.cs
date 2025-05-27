@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         }
         private void UpdateShocked(Buff buff)
         {
-            var timeout = buff.GetProperty<float>(PROP_TIMEOUT);
+            var timeout = buff.GetProperty<int>(PROP_TIMEOUT);
             timeout--;
             buff.SetProperty(PROP_TIMEOUT, timeout);
             if (timeout <= 0)
@@ -40,6 +40,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 return;
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
     }
 }

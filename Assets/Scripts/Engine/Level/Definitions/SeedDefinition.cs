@@ -10,7 +10,7 @@ namespace PVZEngine.Definitions
     {
         public SeedDefinition(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(EngineSeedProps.RECHARGE_SPEED, 1);
+            SetProperty(EngineSeedProps.RECHARGE_SPEED, 1f);
         }
         public virtual void Update(SeedPack seedPack, float rechargeSpeed) { }
         public sealed override string GetDefinitionType() => EngineDefinitionTypes.SEED;

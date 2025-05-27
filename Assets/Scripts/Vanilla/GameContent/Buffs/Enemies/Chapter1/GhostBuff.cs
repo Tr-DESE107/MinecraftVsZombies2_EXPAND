@@ -132,10 +132,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
             }
             return false;
         }
-        public static readonly VanillaBuffPropertyMeta PROP_EVER_ILLUMINATED = new VanillaBuffPropertyMeta("EverIlluminated");
-        public static readonly VanillaBuffPropertyMeta PROP_TINT_MULTIPLIER = new VanillaBuffPropertyMeta("TintMultiplier");
-        public static readonly VanillaBuffPropertyMeta PROP_SHADOW_ALPHA = new VanillaBuffPropertyMeta("ShadowAlpha");
-        public static readonly VanillaBuffPropertyMeta PROP_ETHEREAL = new VanillaBuffPropertyMeta("Ethereal");
+        public static readonly VanillaBuffPropertyMeta<bool> PROP_EVER_ILLUMINATED = new VanillaBuffPropertyMeta<bool>("EverIlluminated");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_TINT_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("TintMultiplier");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_SHADOW_ALPHA = new VanillaBuffPropertyMeta<float>("ShadowAlpha");
+        public static readonly VanillaBuffPropertyMeta<bool> PROP_ETHEREAL = new VanillaBuffPropertyMeta<bool>("Ethereal");
         public const float TINT_ALPHA_MIN = 0.5f;
         public const float TINT_ALPHA_MAX = 1;
         public const float TINT_SPEED = 0.02f;

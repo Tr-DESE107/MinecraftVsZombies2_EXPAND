@@ -335,12 +335,12 @@ namespace MVZ2.GameContent.Bosses
         }
 
         #region 常量
-        private static readonly VanillaEntityPropertyMeta PROP_HEAD_ANGLES = new VanillaEntityPropertyMeta("HeadAngles");
-        private static readonly VanillaEntityPropertyMeta PROP_HEAD_OPEN = new VanillaEntityPropertyMeta("HeadOpen");
-        private static readonly VanillaEntityPropertyMeta PROP_HEAD_TARGETS = new VanillaEntityPropertyMeta("HeadTargets");
-        private static readonly VanillaEntityPropertyMeta PROP_SKULL_CHARGES = new VanillaEntityPropertyMeta("SkullCharges");
-        private static readonly VanillaEntityPropertyMeta PROP_PHASE = new VanillaEntityPropertyMeta("Phase");
-        private static readonly VanillaEntityPropertyMeta PROP_TARGET_LANE = new VanillaEntityPropertyMeta("TargetLane");
+        private static readonly VanillaEntityPropertyMeta<float[]> PROP_HEAD_ANGLES = new VanillaEntityPropertyMeta<float[]>("HeadAngles");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_HEAD_OPEN = new VanillaEntityPropertyMeta<float>("HeadOpen");
+        private static readonly VanillaEntityPropertyMeta<EntityID[]> PROP_HEAD_TARGETS = new VanillaEntityPropertyMeta<EntityID[]>("HeadTargets");
+        private static readonly VanillaEntityPropertyMeta<float[]> PROP_SKULL_CHARGES = new VanillaEntityPropertyMeta<float[]>("SkullCharges");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("Phase");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_LANE = new VanillaEntityPropertyMeta<int>("TargetLane");
 
         private static readonly Vector3[] headPositionOffsets = new Vector3[]
         {

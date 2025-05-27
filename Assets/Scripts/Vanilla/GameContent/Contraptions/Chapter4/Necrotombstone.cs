@@ -67,6 +67,6 @@ namespace MVZ2.GameContent.Contraptions
         }
         public const int SPAWN_INTERVAL = 450;
         public const int MAGE_COUNT = 3;
-        private static readonly VanillaEntityPropertyMeta PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta("ProductionTimer");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ProductionTimer");
     }
 }

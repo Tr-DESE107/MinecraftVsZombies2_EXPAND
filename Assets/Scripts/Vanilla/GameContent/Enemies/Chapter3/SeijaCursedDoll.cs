@@ -67,7 +67,7 @@ namespace MVZ2.GameContent.Enemies
         public static float GetOrbitAngle(Entity entity) => entity.GetBehaviourField<float>(PROP_ORBIT_ANGLE);
         public static void SetOrbitAngle(Entity entity, float value) => entity.SetBehaviourField(PROP_ORBIT_ANGLE, value);
 
-        private static readonly VanillaEntityPropertyMeta PROP_ORBIT_ANGLE = new VanillaEntityPropertyMeta("OrbitAngle");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_ORBIT_ANGLE = new VanillaEntityPropertyMeta<float>("OrbitAngle");
         private List<Entity> detectBuffer = new List<Entity>();
         private Detector absorbDetector;
         public const float ORBIT_DISTANCE = 120;

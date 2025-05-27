@@ -7,19 +7,19 @@ namespace MVZ2.Vanilla.SeedPacks
     [PropertyRegistryRegion(PropertyRegions.seed)]
     public static class VanillaSeedProps
     {
-        private static PropertyMeta Get(string name)
+        private static PropertyMeta<T> Get<T>(string name)
         {
-            return new PropertyMeta(name);
+            return new PropertyMeta<T>(name);
         }
-        public static readonly PropertyMeta SEED_ENTITY_ID = Get("seedEntityId");
-        public static readonly PropertyMeta SEED_OPTION_ID = Get("seedOptionId");
-        public static readonly PropertyMeta SEED_TYPE = Get("seedType");
-        public static readonly PropertyMeta TWINKLING = Get("twinkling");
-        public static readonly PropertyMeta TRIGGER_ACTIVE = Get("triggerActive");
-        public static readonly PropertyMeta CAN_INSTANT_EVOKE = Get("canInstantEvoke");
-        public static readonly PropertyMeta CAN_INSTANT_TRIGGER = Get("canInstantTrigger");
-        public static readonly PropertyMeta DRAWN_CONVEYOR_SEED = Get("drawnConveyorSeed");
-        public static readonly PropertyMeta UPGRADE_BLUEPRINT = Get("upgradeBlueprint");
+        public static readonly PropertyMeta<NamespaceID> SEED_ENTITY_ID = Get<NamespaceID>("seedEntityId");
+        public static readonly PropertyMeta<NamespaceID> SEED_OPTION_ID = Get<NamespaceID>("seedOptionId");
+        public static readonly PropertyMeta<int> SEED_TYPE = Get<int>("seedType");
+        public static readonly PropertyMeta<bool> TWINKLING = Get<bool>("twinkling");
+        public static readonly PropertyMeta<bool> TRIGGER_ACTIVE = Get<bool>("triggerActive");
+        public static readonly PropertyMeta<bool> CAN_INSTANT_EVOKE = Get<bool>("canInstantEvoke");
+        public static readonly PropertyMeta<bool> CAN_INSTANT_TRIGGER = Get<bool>("canInstantTrigger");
+        public static readonly PropertyMeta<NamespaceID> DRAWN_CONVEYOR_SEED = Get<NamespaceID>("drawnConveyorSeed");
+        public static readonly PropertyMeta<bool> UPGRADE_BLUEPRINT = Get<bool>("upgradeBlueprint");
         public static bool IsUpgradeBlueprint(this SeedPack seed)
         {
             return seed.GetProperty<bool>(UPGRADE_BLUEPRINT);
@@ -72,7 +72,7 @@ namespace MVZ2.Vanilla.SeedPacks
         {
             seed.SetProperty(DRAWN_CONVEYOR_SEED, value);
         }
-        public static readonly PropertyMeta COMMAND_BLOCK = Get("command_block");
+        public static readonly PropertyMeta<bool> COMMAND_BLOCK = Get<bool>("command_block");
         public static bool IsCommandBlock(this SeedPack seed)
         {
             return seed.GetProperty<bool>(COMMAND_BLOCK);

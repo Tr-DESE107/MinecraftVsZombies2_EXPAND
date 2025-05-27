@@ -69,6 +69,6 @@ namespace MVZ2.GameContent.Enemies
             return entity.GetBehaviourField<FrameTimer>(PROP_MOVE_TIMER);
         }
         public const int MOVE_INTERVAL = 30;
-        public static readonly VanillaEntityPropertyMeta PROP_MOVE_TIMER = new VanillaEntityPropertyMeta("MoveTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_MOVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("MoveTimer");
     }
 }

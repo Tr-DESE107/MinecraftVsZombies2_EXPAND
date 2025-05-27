@@ -126,9 +126,9 @@ namespace MVZ2.GameContent.Contraptions
         public const int MAX_UPGRADE_LEVEL = 4;
         public const int I_ZOMBIE_LEVEL = 2;
         private static readonly NamespaceID ID = VanillaContraptionID.drivenser;
-        public static readonly VanillaEntityPropertyMeta PROP_REPEAT_TIMER = new VanillaEntityPropertyMeta("RepeatTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_REPEAT_COUNT = new VanillaEntityPropertyMeta("RepeatCount");
-        public static readonly VanillaEntityPropertyMeta PROP_UPGRADE_LEVEL = new VanillaEntityPropertyMeta("UpgradeLevel");
-        public static readonly VanillaEntityPropertyMeta PROP_BLOCKER_BLEND = new VanillaEntityPropertyMeta("BlockerBlend");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_REPEAT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("RepeatTimer");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_REPEAT_COUNT = new VanillaEntityPropertyMeta<int>("RepeatCount");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_UPGRADE_LEVEL = new VanillaEntityPropertyMeta<int>("UpgradeLevel");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_BLOCKER_BLEND = new VanillaEntityPropertyMeta<float>("BlockerBlend");
     }
 }

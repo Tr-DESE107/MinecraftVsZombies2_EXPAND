@@ -10,7 +10,7 @@ namespace PVZEngine.Modifiers
         {
         }
 
-        public MaxHealthModifier(NumberOperator op, PropertyKey buffPropertyName, int priority = 0) : base(EngineEntityProps.MAX_HEALTH, op, buffPropertyName, priority)
+        public MaxHealthModifier(NumberOperator op, PropertyKey<float> buffPropertyName, int priority = 0) : base(EngineEntityProps.MAX_HEALTH, op, buffPropertyName, priority)
         {
         }
     }
@@ -20,7 +20,7 @@ namespace PVZEngine.Modifiers
         {
         }
 
-        public ArmorMaxHealthModifier(NumberOperator op, PropertyKey buffPropertyName, int priority = 0) : base(EngineArmorProps.MAX_HEALTH, op, buffPropertyName, priority)
+        public ArmorMaxHealthModifier(NumberOperator op, PropertyKey<float> buffPropertyName, int priority = 0) : base(EngineArmorProps.MAX_HEALTH, op, buffPropertyName, priority)
         {
         }
     }

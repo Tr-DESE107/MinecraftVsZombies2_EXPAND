@@ -82,7 +82,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         public static EntityID GetStunStars(Buff buff) => buff.GetProperty<EntityID>(PROP_STUN_STARS);
         public static void SetStunStars(Buff buff, EntityID value) => buff.SetProperty(PROP_STUN_STARS, value);
-        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");
-        public static readonly VanillaBuffPropertyMeta PROP_STUN_STARS = new VanillaBuffPropertyMeta("StunStars");
+        public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("Timer");
+        public static readonly VanillaBuffPropertyMeta<EntityID> PROP_STUN_STARS = new VanillaBuffPropertyMeta<EntityID>("StunStars");
     }
 }

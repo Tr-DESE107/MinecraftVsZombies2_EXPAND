@@ -146,6 +146,6 @@ namespace MVZ2.GameContent.Contraptions
             return seed;
         }
         private static readonly NamespaceID ID = VanillaContraptionID.mineTNT;
-        private static readonly VanillaEntityPropertyMeta PROP_RISE_TIMER = new VanillaEntityPropertyMeta("RiseTimer");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_RISE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("RiseTimer");
     }
 }

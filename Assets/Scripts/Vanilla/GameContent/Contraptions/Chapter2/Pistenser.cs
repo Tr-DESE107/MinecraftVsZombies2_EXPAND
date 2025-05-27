@@ -206,28 +206,27 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static Entity GetExtendTarget(Entity entity)
         {
-            var id = entity.GetBehaviourField<EntityID>(ID, PROP_EXTEND_TARGET);
+            var id = entity.GetBehaviourField<EntityID>(PROP_EXTEND_TARGET);
             if (id == null)
                 return null;
             return id.GetEntity(entity.Level);
         }
         public static void SetExtendTarget(Entity entity, Entity value)
         {
-            entity.SetBehaviourField(ID, PROP_EXTEND_TARGET, new EntityID(value));
+            entity.SetBehaviourField(PROP_EXTEND_TARGET, new EntityID(value));
         }
-        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_EVOCATION_TIMER);
-        public static void SetEvocationTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, PROP_EVOCATION_TIMER, value);
-        public static float GetExtend(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_EXTEND);
-        public static void SetExtend(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_EXTEND, value);
-        public static int GetExtendDirection(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_EXTEND_DIRECTION);
-        public static void SetExtendDirection(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_EXTEND_DIRECTION, value);
-        private static readonly NamespaceID ID = VanillaContraptionID.pistenser;
-        public static readonly VanillaEntityPropertyMeta PROP_EXTEND = new VanillaEntityPropertyMeta("Extend");
-        public static readonly VanillaEntityPropertyMeta PROP_EXTEND_SHOOT_OFFSET = new VanillaEntityPropertyMeta("ExtendShootOffset");
-        public static readonly VanillaEntityPropertyMeta PROP_BLOCKS_JUMP = new VanillaEntityPropertyMeta("BlocksJump");
-        public static readonly VanillaEntityPropertyMeta PROP_EXTEND_DIRECTION = new VanillaEntityPropertyMeta("ExtendDirection");
-        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_EXTEND_TARGET = new VanillaEntityPropertyMeta("ExtendTarget");
+        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOCATION_TIMER);
+        public static void SetEvocationTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_EVOCATION_TIMER, value);
+        public static float GetExtend(Entity entity) => entity.GetBehaviourField<float>(PROP_EXTEND);
+        public static void SetExtend(Entity entity, float value) => entity.SetBehaviourField(PROP_EXTEND, value);
+        public static int GetExtendDirection(Entity entity) => entity.GetBehaviourField<int>(PROP_EXTEND_DIRECTION);
+        public static void SetExtendDirection(Entity entity, int value) => entity.SetBehaviourField(PROP_EXTEND_DIRECTION, value);
+        public static readonly VanillaEntityPropertyMeta<float> PROP_EXTEND = new VanillaEntityPropertyMeta<float>("Extend");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_EXTEND_SHOOT_OFFSET = new VanillaEntityPropertyMeta<Vector3>("ExtendShootOffset");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_BLOCKS_JUMP = new VanillaEntityPropertyMeta<bool>("BlocksJump");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_EXTEND_DIRECTION = new VanillaEntityPropertyMeta<int>("ExtendDirection");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_EXTEND_TARGET = new VanillaEntityPropertyMeta<EntityID>("ExtendTarget");
         public const float BASE_SHOT_HEIGHT = 30;
         public const float EXTEND_SPEED = 10;
         public const int DETECT_INTERVAL = 8;

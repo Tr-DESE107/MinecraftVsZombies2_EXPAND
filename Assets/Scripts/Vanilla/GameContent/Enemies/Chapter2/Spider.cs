@@ -165,6 +165,6 @@ namespace MVZ2.GameContent.Enemies
             spider.SetBehaviourField(ID, PROP_CLIMB_TARGET_ID, new EntityID(value));
         }
         public static readonly NamespaceID ID = VanillaEnemyID.spider;
-        public static readonly VanillaEntityPropertyMeta PROP_CLIMB_TARGET_ID = new VanillaEntityPropertyMeta("ClimbTargetID");
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_CLIMB_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("ClimbTargetID");
     }
 }

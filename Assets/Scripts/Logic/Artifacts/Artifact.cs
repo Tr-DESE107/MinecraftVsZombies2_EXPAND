@@ -48,7 +48,8 @@ namespace MVZ2Logic.Artifacts
             auras.PostRemove();
             Definition.PostRemove(this);
         }
-        public T GetProperty<T>(PropertyKey name)
+        public void SetProperty<T>(PropertyKey<T> name, T value) => propertyDict.SetProperty(name, value);
+        public T GetProperty<T>(PropertyKey<T> name)
         {
             if (propertyDict.TryGetProperty<T>(name, out var thisProp))
                 return thisProp;
@@ -57,10 +58,6 @@ namespace MVZ2Logic.Artifacts
         public AuraEffect GetAuraEffect<T>() where T : AuraEffectDefinition
         {
             return auras.Get<T>();
-        }
-        public void SetProperty(PropertyKey name, object value)
-        {
-            propertyDict.SetProperty(name, value);
         }
         public SerializableArtifact Serialize()
         {

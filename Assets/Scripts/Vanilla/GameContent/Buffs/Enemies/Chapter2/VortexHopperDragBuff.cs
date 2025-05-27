@@ -44,8 +44,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
             radius = Mathf.Max(20, radius - 3);
             buff.SetProperty(PROP_RADIUS, radius);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_CENTER = new VanillaBuffPropertyMeta("Center");
-        public static readonly VanillaBuffPropertyMeta PROP_RADIUS = new VanillaBuffPropertyMeta("Radius");
-        public static readonly VanillaBuffPropertyMeta PROP_ANGLE = new VanillaBuffPropertyMeta("Angle");
+        public static readonly VanillaBuffPropertyMeta<Vector3> PROP_CENTER = new VanillaBuffPropertyMeta<Vector3>("Center");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_RADIUS = new VanillaBuffPropertyMeta<float>("Radius");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_ANGLE = new VanillaBuffPropertyMeta<float>("Angle");
     }
 }

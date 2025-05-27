@@ -41,6 +41,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             buff.SetProperty(PROP_TARGET, new EntityID(value));
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TARGET = new VanillaBuffPropertyMeta("Target");
+        public static readonly VanillaBuffPropertyMeta<EntityID> PROP_TARGET = new VanillaBuffPropertyMeta<EntityID>("Target");
     }
 }

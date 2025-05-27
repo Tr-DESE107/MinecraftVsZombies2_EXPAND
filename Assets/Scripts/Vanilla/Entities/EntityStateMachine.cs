@@ -130,13 +130,13 @@ namespace MVZ2.Vanilla.Entities
         private List<EntityStateMachineState> states = new List<EntityStateMachineState>();
 
         [EntityPropertyRegistry(PROP_REGION)]
-        private static readonly VanillaEntityPropertyMeta PROP_SUBSTATE = new VanillaEntityPropertyMeta("SubState");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_SUBSTATE = new VanillaEntityPropertyMeta<int>("SubState");
         [EntityPropertyRegistry(PROP_REGION)]
-        private static readonly VanillaEntityPropertyMeta PROP_PREVIOUS_STATE = new VanillaEntityPropertyMeta("PreviousState");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_PREVIOUS_STATE = new VanillaEntityPropertyMeta<int>("PreviousState");
         [EntityPropertyRegistry(PROP_REGION)]
-        private static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         [EntityPropertyRegistry(PROP_REGION)]
-        private static readonly VanillaEntityPropertyMeta PROP_SUBSTATE_TIMER = new VanillaEntityPropertyMeta("SubStateTimer");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_SUBSTATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("SubStateTimer");
         public const string PROP_REGION = "state_machine";
     }
 }

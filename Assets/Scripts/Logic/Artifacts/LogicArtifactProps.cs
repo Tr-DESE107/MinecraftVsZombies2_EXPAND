@@ -5,10 +5,10 @@ namespace MVZ2Logic.Artifacts
     [PropertyRegistryRegion(PropertyRegions.artifact)]
     public static class LogicArtifactProps
     {
-        public static readonly PropertyMeta SPRITE_REFERENCE = new PropertyMeta("spriteReference");
-        public static readonly PropertyMeta NUMBER = new PropertyMeta("number");
-        public static readonly PropertyMeta INACTIVE = new PropertyMeta("inactive");
-        public static readonly PropertyMeta GLOWING = new PropertyMeta("glowing");
+        public static readonly PropertyMeta<SpriteReference> SPRITE_REFERENCE = new PropertyMeta<SpriteReference>("spriteReference");
+        public static readonly PropertyMeta<int> NUMBER = new PropertyMeta<int>("number");
+        public static readonly PropertyMeta<bool> INACTIVE = new PropertyMeta<bool>("inactive");
+        public static readonly PropertyMeta<bool> GLOWING = new PropertyMeta<bool>("glowing");
         public static SpriteReference GetSpriteReference(this ArtifactDefinition definition)
         {
             return definition.GetProperty<SpriteReference>(SPRITE_REFERENCE);
@@ -41,7 +41,7 @@ namespace MVZ2Logic.Artifacts
         {
             return artifact.GetProperty<bool>(GLOWING);
         }
-        public static readonly PropertyMeta TRANSFORM_SOURCE = new PropertyMeta("transformSource");
+        public static readonly PropertyMeta<NamespaceID> TRANSFORM_SOURCE = new PropertyMeta<NamespaceID>("transformSource");
         public static void SetTransformSource(this Artifact artifact, NamespaceID id)
         {
             artifact.SetProperty(TRANSFORM_SOURCE, id);
@@ -50,7 +50,7 @@ namespace MVZ2Logic.Artifacts
         {
             return artifact.GetProperty<NamespaceID>(TRANSFORM_SOURCE);
         }
-        public static readonly PropertyMeta UNLOCK_ID = new PropertyMeta("unlockID");
+        public static readonly PropertyMeta<NamespaceID> UNLOCK_ID = new PropertyMeta<NamespaceID>("unlockID");
         public static void SetUnlockID(this ArtifactDefinition artifact, NamespaceID id)
         {
             artifact.SetProperty(UNLOCK_ID, id);
@@ -61,3 +61,4 @@ namespace MVZ2Logic.Artifacts
         }
     }
 }
+

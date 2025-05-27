@@ -10,39 +10,38 @@ namespace MVZ2.Vanilla.Level
     [PropertyRegistryRegion(PropertyRegions.level)]
     public static class VanillaStageProps
     {
-        private static PropertyMeta Get(string name)
+        private static PropertyMeta<T> Get<T>(string name)
         {
-            return new PropertyMeta(name);
+            return new PropertyMeta<T>(name);
         }
-        public static readonly PropertyMeta LEVEL_NAME = Get("levelName");
-        public static readonly PropertyMeta DAY_NUMBER = Get("dayNumber");
+        public static readonly PropertyMeta<string> LEVEL_NAME = Get<string>("levelName");
+        public static readonly PropertyMeta<int> DAY_NUMBER = Get<int>("dayNumber");
 
-        public static readonly PropertyMeta WAVE_MAX_TIME = Get("waveMaxTime");
-        public static readonly PropertyMeta WAVE_ADVANCE_TIME = Get("waveAdvanceTime");
-        public static readonly PropertyMeta WAVE_ADVANCE_HEALTH_PERCENT = Get("waveAdvanceHealthPercent");
+        public static readonly PropertyMeta<int> WAVE_MAX_TIME = Get<int>("waveMaxTime");
+        public static readonly PropertyMeta<int> WAVE_ADVANCE_TIME = Get<int>("waveAdvanceTime");
+        public static readonly PropertyMeta<float> WAVE_ADVANCE_HEALTH_PERCENT = Get<float>("waveAdvanceHealthPercent");
 
-        public static readonly PropertyMeta NO_ENERGY = Get("noEnergy");
-        public static readonly PropertyMeta AUTO_COLLECT_ALL = Get("autoCollectAll");
-        public static readonly PropertyMeta AUTO_COLLECT_ENERGY = Get("autoCollectEnergy");
-        public static readonly PropertyMeta AUTO_COLLECT_MONEY = Get("autoCollectMoney");
-        public static readonly PropertyMeta AUTO_COLLECT_STARSHARD = Get("autoCollectStarshard");
+        public static readonly PropertyMeta<bool> NO_ENERGY = Get<bool>("noEnergy");
+        public static readonly PropertyMeta<bool> AUTO_COLLECT_ALL = Get<bool>("autoCollectAll");
+        public static readonly PropertyMeta<bool> AUTO_COLLECT_ENERGY = Get<bool>("autoCollectEnergy");
+        public static readonly PropertyMeta<bool> AUTO_COLLECT_MONEY = Get<bool>("autoCollectMoney");
+        public static readonly PropertyMeta<bool> AUTO_COLLECT_STARSHARD = Get<bool>("autoCollectStarshard");
 
-        public static readonly PropertyMeta NO_START_TALK_MUSIC = Get("noStartTalkMusic");
-        public static readonly PropertyMeta TALKS = Get("talks");
+        public static readonly PropertyMeta<bool> NO_START_TALK_MUSIC = Get<bool>("noStartTalkMusic");
+        public static readonly PropertyMeta<IStageTalkMeta[]> TALKS = Get<IStageTalkMeta[]>("talks");
 
-        public static readonly PropertyMeta CLEAR_PICKUP_MODEL = Get("clearPickupModel");
-        public static readonly PropertyMeta CLEAR_PICKUP_BLUEPRINT = Get("clearPickupBlueprint");
-        public static readonly PropertyMeta DROPS_TROPHY = Get("dropsTrophy");
-        public static readonly PropertyMeta END_NOTE_ID = Get("endNoteId");
+        public static readonly PropertyMeta<NamespaceID> CLEAR_PICKUP_MODEL = Get<NamespaceID>("clearPickupModel");
+        public static readonly PropertyMeta<NamespaceID> CLEAR_PICKUP_BLUEPRINT = Get<NamespaceID>("clearPickupBlueprint");
+        public static readonly PropertyMeta<bool> DROPS_TROPHY = Get<bool>("dropsTrophy");
+        public static readonly PropertyMeta<NamespaceID> END_NOTE_ID = Get<NamespaceID>("endNoteId");
 
-        public static readonly PropertyMeta START_TRANSITION = Get("startTransition");
-        public static readonly PropertyMeta START_CAMERA_POSITION = Get("startCameraPosition");
+        public static readonly PropertyMeta<string> START_TRANSITION = Get<string>("startTransition");
+        public static readonly PropertyMeta<int> START_CAMERA_POSITION = Get<int>("startCameraPosition");
 
-        public static readonly PropertyMeta NEED_BLUEPRINTS = Get("needBlueprints");
-        public static readonly PropertyMeta CLEAR_SOUND = Get("clearSound");
+        public static readonly PropertyMeta<bool> NEED_BLUEPRINTS = Get<bool>("needBlueprints");
+        public static readonly PropertyMeta<NamespaceID> CLEAR_SOUND = Get<NamespaceID>("clearSound");
 
-        public static readonly PropertyMeta ENDLESS = Get("endless");
-
+        public static readonly PropertyMeta<bool> ENDLESS = Get<bool>("endless");
 
         public static int GetWaveMaxTime(this LevelEngine level) => level.GetProperty<int>(VanillaStageProps.WAVE_MAX_TIME);
         public static int GetWaveAdvanceTime(this LevelEngine level) => level.GetProperty<int>(VanillaStageProps.WAVE_ADVANCE_TIME);
@@ -159,7 +158,7 @@ namespace MVZ2.Vanilla.Level
             return level.GetProperty<bool>(ENDLESS);
         }
 
-        public static readonly PropertyMeta I_ZOMBIE = Get("iZombie");
+        public static readonly PropertyMeta<bool> I_ZOMBIE = Get<bool>("iZombie");
         public static bool IsIZombie(this StageDefinition stage) => stage.GetProperty<bool>(I_ZOMBIE);
         public static bool IsIZombie(this LevelEngine level) => level.GetProperty<bool>(I_ZOMBIE);
         public static void SetIZombie(this StageDefinition stage, bool value) => stage.SetProperty(I_ZOMBIE, value);

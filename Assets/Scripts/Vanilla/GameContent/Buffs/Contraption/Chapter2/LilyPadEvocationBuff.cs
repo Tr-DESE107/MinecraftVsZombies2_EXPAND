@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var percentage = timer.Frame / (float)timer.MaxFrame;
             buff.SetProperty(PROP_SIZE_MULTIPLIER, Vector3.one * (1 - percentage));
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");
-        public static readonly VanillaBuffPropertyMeta PROP_SIZE_MULTIPLIER = new VanillaBuffPropertyMeta("SizeMultiplier");
+        public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("Timer");
+        public static readonly VanillaBuffPropertyMeta<Vector3> PROP_SIZE_MULTIPLIER = new VanillaBuffPropertyMeta<Vector3>("SizeMultiplier");
     }
 }

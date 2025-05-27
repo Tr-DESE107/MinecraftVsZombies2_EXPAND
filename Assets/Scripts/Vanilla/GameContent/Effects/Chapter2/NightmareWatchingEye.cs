@@ -48,31 +48,30 @@ namespace MVZ2.GameContent.Effects
 
         public static int GetEyeMoveCooldown(Entity entity)
         {
-            return entity.GetBehaviourField<int>(ID, PROP_EYE_MOVE_COOLDOWN);
+            return entity.GetBehaviourField<int>(PROP_EYE_MOVE_COOLDOWN);
         }
         public static void SetEyeMoveCooldown(Entity entity, int value)
         {
-            entity.SetBehaviourField(ID, PROP_EYE_MOVE_COOLDOWN, value);
+            entity.SetBehaviourField(PROP_EYE_MOVE_COOLDOWN, value);
         }
         public static Vector2 GetEyeDirection(Entity entity)
         {
-            return entity.GetBehaviourField<Vector2>(ID, PROP_EYE_DIRECTION);
+            return entity.GetBehaviourField<Vector2>(PROP_EYE_DIRECTION);
         }
         public static void SetEyeDirection(Entity entity, Vector2 value)
         {
-            entity.SetBehaviourField(ID, PROP_EYE_DIRECTION, value);
+            entity.SetBehaviourField(PROP_EYE_DIRECTION, value);
         }
         public static Vector2 GetEyeTarget(Entity entity)
         {
-            return entity.GetBehaviourField<Vector2>(ID, PROP_EYE_TARGET);
+            return entity.GetBehaviourField<Vector2>(PROP_EYE_TARGET);
         }
         public static void SetEyeTarget(Entity entity, Vector2 value)
         {
-            entity.SetBehaviourField(ID, PROP_EYE_TARGET, value);
+            entity.SetBehaviourField(PROP_EYE_TARGET, value);
         }
-        public static readonly NamespaceID ID = VanillaEffectID.nightmareWatchingEye;
-        public static readonly VanillaEntityPropertyMeta PROP_EYE_DIRECTION = new VanillaEntityPropertyMeta("EyeDirection");
-        public static readonly VanillaEntityPropertyMeta PROP_EYE_TARGET = new VanillaEntityPropertyMeta("EyeTarget");
-        public static readonly VanillaEntityPropertyMeta PROP_EYE_MOVE_COOLDOWN = new VanillaEntityPropertyMeta("EyeMoveCooldown");
+        public static readonly VanillaEntityPropertyMeta<Vector2> PROP_EYE_DIRECTION = new VanillaEntityPropertyMeta<Vector2>("EyeDirection");
+        public static readonly VanillaEntityPropertyMeta<Vector2> PROP_EYE_TARGET = new VanillaEntityPropertyMeta<Vector2>("EyeTarget");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_EYE_MOVE_COOLDOWN = new VanillaEntityPropertyMeta<int>("EyeMoveCooldown");
     }
 }

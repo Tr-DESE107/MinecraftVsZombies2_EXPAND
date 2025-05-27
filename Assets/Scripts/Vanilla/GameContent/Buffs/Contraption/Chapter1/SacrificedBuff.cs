@@ -38,8 +38,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 entity.Remove();
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
-        public static readonly VanillaBuffPropertyMeta PROP_LIGHT_RANGE = new VanillaBuffPropertyMeta("LightRange");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
+        public static readonly VanillaBuffPropertyMeta<Vector3> PROP_LIGHT_RANGE = new VanillaBuffPropertyMeta<Vector3>("LightRange");
         public const int MAX_TIME = 30;
     }
 }

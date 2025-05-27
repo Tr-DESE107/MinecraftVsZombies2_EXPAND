@@ -68,9 +68,9 @@ namespace MVZ2.GameContent.Buffs
             targetBuff.SetProperty(PROP_SOURCE, newSource);
         }
 
-        public static readonly VanillaBuffPropertyMeta PROP_MODE = new VanillaBuffPropertyMeta("Mode");
-        public static readonly VanillaBuffPropertyMeta PROP_FACTION = new VanillaBuffPropertyMeta("Faction");
-        public static readonly VanillaBuffPropertyMeta PROP_SOURCE = new VanillaBuffPropertyMeta("Source");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_MODE = new VanillaBuffPropertyMeta<int>("Mode");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_FACTION = new VanillaBuffPropertyMeta<int>("Faction");
+        public static readonly VanillaBuffPropertyMeta<EntityID> PROP_SOURCE = new VanillaBuffPropertyMeta<EntityID>("Source");
     }
 
     public static class CharmModes

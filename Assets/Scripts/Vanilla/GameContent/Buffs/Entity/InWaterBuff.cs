@@ -56,6 +56,6 @@ namespace MVZ2.GameContent.Buffs
             }
             buff.SetProperty(PROP_GRAVITY_ADDITION, gravityAddition);
         }
-        public static readonly VanillaBuffPropertyMeta PROP_GRAVITY_ADDITION = new VanillaBuffPropertyMeta("GravityAddition");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_GRAVITY_ADDITION = new VanillaBuffPropertyMeta<float>("GravityAddition");
     }
 }

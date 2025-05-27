@@ -34,8 +34,8 @@ namespace MVZ2.GameContent.Buffs
                 buff.Remove();
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_COLOR = new VanillaBuffPropertyMeta("Color");
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
-        public static readonly VanillaBuffPropertyMeta PROP_MAX_TIMEOUT = new VanillaBuffPropertyMeta("MaxTimeout");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR = new VanillaBuffPropertyMeta<Color>("Color");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_MAX_TIMEOUT = new VanillaBuffPropertyMeta<int>("MaxTimeout");
     }
 }

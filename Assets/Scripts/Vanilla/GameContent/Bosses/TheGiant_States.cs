@@ -1461,7 +1461,7 @@ namespace MVZ2.GameContent.Bosses
                         var zombieParam = entity.GetSpawnParams();
                         zombieParam.SetProperty(VanillaEnemyProps.HARMLESS, true);
                         zombieParam.SetProperty(VanillaEnemyProps.NO_REWARD, true);
-                        zombieParam.SetProperty(VanillaEntityProps.FALL_RESISTANCE, -10000);
+                        zombieParam.SetProperty(VanillaEntityProps.FALL_RESISTANCE, -10000f);
                         var zombie = entity.Spawn(VanillaEnemyID.zombie, entity.GetCenter(), zombieParam);
                         var xSpeed = zombie.RNG.NextFloat() * 20 - 10;
                         var ySpeed = zombie.RNG.NextFloat() * 10 + 3;

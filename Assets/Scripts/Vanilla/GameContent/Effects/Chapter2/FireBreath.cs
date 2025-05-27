@@ -53,14 +53,13 @@ namespace MVZ2.GameContent.Effects
             var lightPercentage = Mathf.Max(0, (entity.Timeout / (float)MAX_TIMEOUT) * 3 - 2);
             entity.SetProperty(PROP_LIGHT_RANGE_MULTIPLIER, Vector3.one * lightPercentage);
         }
-        public static int GetDamageCooldown(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_DAMAGE_COOLDOWN);
-        public static void SetDamageCooldown(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_DAMAGE_COOLDOWN, value);
+        public static int GetDamageCooldown(Entity entity) => entity.GetBehaviourField<int>(PROP_DAMAGE_COOLDOWN);
+        public static void SetDamageCooldown(Entity entity, int value) => entity.SetBehaviourField(PROP_DAMAGE_COOLDOWN, value);
         #endregion
-        private static readonly NamespaceID ID = VanillaEffectID.fireBreath;
         public const int DAMAGE_COOLDOWN = 15;
         public const int MAX_TIMEOUT = 30;
-        public static readonly VanillaEntityPropertyMeta PROP_LIGHT_RANGE_MULTIPLIER = new VanillaEntityPropertyMeta("LightRangeMultiplier");
-        private static readonly VanillaEntityPropertyMeta PROP_DAMAGE_COOLDOWN = new VanillaEntityPropertyMeta("DamageCooldown");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_LIGHT_RANGE_MULTIPLIER = new VanillaEntityPropertyMeta<Vector3>("LightRangeMultiplier");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_DAMAGE_COOLDOWN = new VanillaEntityPropertyMeta<int>("DamageCooldown");
         private List<EntityCollision> collisionBuffer = new List<EntityCollision>();
     }
 }

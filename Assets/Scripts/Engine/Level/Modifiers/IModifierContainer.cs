@@ -4,6 +4,6 @@ namespace PVZEngine.Modifiers
 {
     public interface IModifierContainer
     {
-        public object GetProperty(PropertyKey name);
+        public T GetProperty<T>(PropertyKey<T> name);
     }
 }

@@ -25,6 +25,6 @@ namespace MVZ2.GameContent.Buffs
             buff.SetProperty(PROP_FLIP_X, entity.FaceLeftAtDefault() == faceRight);
         }
 
-        public static readonly VanillaBuffPropertyMeta PROP_FLIP_X = new VanillaBuffPropertyMeta("FlipX");
+        public static readonly VanillaBuffPropertyMeta<bool> PROP_FLIP_X = new VanillaBuffPropertyMeta<bool>("FlipX");
     }
 }

@@ -88,9 +88,9 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         public static Color GetLightColor(Buff buff) => buff.GetProperty<Color>(PROP_LIGHT_COLOR);
         public static void SetCursed(Buff buff, bool value) => buff.SetProperty(PROP_CURSED, value);
         public static bool GetCursed(Buff buff) => buff.GetProperty<bool>(PROP_CURSED);
-        public static readonly VanillaBuffPropertyMeta PROP_DAMAGE = new VanillaBuffPropertyMeta("damage");
-        public static readonly VanillaBuffPropertyMeta PROP_LIGHT_COLOR = new VanillaBuffPropertyMeta("lightColor");
-        public static readonly VanillaBuffPropertyMeta PROP_CURSED = new VanillaBuffPropertyMeta("cursed");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_DAMAGE = new VanillaBuffPropertyMeta<float>("damage");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_LIGHT_COLOR = new VanillaBuffPropertyMeta<Color>("lightColor");
+        public static readonly VanillaBuffPropertyMeta<bool> PROP_CURSED = new VanillaBuffPropertyMeta<bool>("cursed");
         public const float DAMAGE_ADDITION = 20;
         public const float DAMAGE_ADDITION_CURSED = 40;
         public static readonly Color LIGHT_COLOR = new Color(1, 0.5f, 0);

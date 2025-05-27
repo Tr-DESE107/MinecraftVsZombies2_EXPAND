@@ -120,11 +120,11 @@ namespace MVZ2.GameContent.Contraptions
         public const float PULL_SPEED = 10;
         private const string PROP_REGION = "spikes_behaviour";
         [EntityPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_ATTACK_TIMER = new VanillaEntityPropertyMeta("AttackTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_ATTACK_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("AttackTimer");
         [EntityPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
         [EntityPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_ATTACK_TIMER = new VanillaEntityPropertyMeta("EvocationAttackTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_ATTACK_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationAttackTimer");
         public virtual int AttackCooldown => 30;
         public virtual int EvocationDuration => 120;
         public virtual int EvocationAttackCooldown => 4;

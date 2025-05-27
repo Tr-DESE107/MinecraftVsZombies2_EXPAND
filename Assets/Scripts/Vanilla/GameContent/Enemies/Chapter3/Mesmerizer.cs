@@ -128,9 +128,9 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_CAST = VanillaEntityStates.MESMERIZER_CAST;
         private Detector detector;
         public static readonly NamespaceID ID = VanillaEnemyID.mesmerizer;
-        public static readonly VanillaEntityPropertyMeta PROP_CASTING = new VanillaEntityPropertyMeta("Casting");
-        public static readonly VanillaEntityPropertyMeta PROP_ORB = new VanillaEntityPropertyMeta("Orb");
-        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_CASTING = new VanillaEntityPropertyMeta<bool>("Casting");
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_ORB = new VanillaEntityPropertyMeta<EntityID>("Orb");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         #endregion 常量
     }
 }

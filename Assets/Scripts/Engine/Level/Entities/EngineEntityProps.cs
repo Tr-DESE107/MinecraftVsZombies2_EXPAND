@@ -5,42 +5,30 @@ namespace PVZEngine.Entities
     [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class EngineEntityProps
     {
-        private static PropertyMeta Get(string name)
+        private static PropertyMeta<T> Get<T>(string name)
         {
-            return new PropertyMeta(name);
+            return new PropertyMeta<T>(name);
         }
-        public static readonly PropertyMeta MAX_HEALTH = Get("maxHealth");
 
-        public static readonly PropertyMeta SHELL = Get("shell");
-        public static readonly PropertyMeta PLACEMENT = Get("placement");
-
-        public static readonly PropertyMeta SCALE = Get("scale");
-        public static readonly PropertyMeta DISPLAY_SCALE = Get("displayScale");
-        public static readonly PropertyMeta FRICTION = Get("friction");
-        public static readonly PropertyMeta GRAVITY = Get("gravity");
-        public static readonly PropertyMeta VELOCITY_DAMPEN = Get("velocityDampen");
-        public static readonly PropertyMeta SIZE = Get("size");
-        public static readonly PropertyMeta BOUNDS_PIVOT = Get("boundsPivot");
-        public static readonly PropertyMeta GROUND_LIMIT_OFFSET = Get("groundLimitOffset");
-
-        public static readonly PropertyMeta HEALTH = Get("health");
-        public static readonly PropertyMeta TINT = Get("tint");
-        public static readonly PropertyMeta COLOR_OFFSET = Get("colorOffset");
-        public static readonly PropertyMeta FACE_LEFT_AT_DEFAULT = Get("faceLeftAtDefault");
+        #region 默认朝左
+        public static readonly PropertyMeta<bool> FACE_LEFT_AT_DEFAULT = Get<bool>("faceLeftAtDefault");
         public static bool FaceLeftAtDefault(this Entity entity)
         {
             return entity.GetProperty<bool>(FACE_LEFT_AT_DEFAULT);
         }
+        #endregion
 
-        public static readonly PropertyMeta FACTION = Get("faction");
-        public static readonly PropertyMeta INVINCIBLE = Get("invincible");
+        #region 无敌
 
-        public static readonly PropertyMeta MODEL_ID = Get("modelId");
-
+        public static readonly PropertyMeta<bool> INVINCIBLE = Get<bool>("invincible");
         public static bool IsInvincible(this Entity entity)
         {
             return entity.GetProperty<bool>(INVINCIBLE);
         }
+        #endregion
+
+        #region 重力
+        public static readonly PropertyMeta<float> GRAVITY = Get<float>("gravity");
         public static float GetGravity(this EntityDefinition entity)
         {
             return entity.GetProperty<float>(GRAVITY);
@@ -53,18 +41,36 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(GRAVITY, value);
         }
-        public static readonly PropertyMeta FLIP_X = Get("flipX");
+        #endregion
+
+        #region 水平翻转
+
+        public static readonly PropertyMeta<bool> FLIP_X = Get<bool>("flipX");
         public static bool IsFlipX(this Entity entity)
         {
             return entity.GetProperty<bool>(FLIP_X);
         }
-        public static Vector3 GetFinalScale(this Entity entity)
+        #endregion
+
+
+        #region 体积
+        public static readonly PropertyMeta<Vector3> SIZE = Get<Vector3>("size");
+        public static Vector3 GetSize(this EntityDefinition entity)
         {
-            var scale = entity.GetScale();
-            var flipX = entity.IsFlipX() ? -1 : 1;
-            scale.x *= flipX;
-            return scale;
+            return entity.GetProperty<Vector3>(SIZE);
         }
+        public static Vector3 GetSize(this Entity entity, bool ignoreBuffs = false)
+        {
+            return entity.GetProperty<Vector3>(SIZE, ignoreBuffs: ignoreBuffs);
+        }
+        public static void SetSize(this Entity entity, Vector3 value)
+        {
+            entity.SetProperty(SIZE, value);
+        }
+        #endregion
+
+        #region 缩放
+        public static readonly PropertyMeta<Vector3> SCALE = Get<Vector3>("scale");
         public static Vector3 GetScale(this Entity entity)
         {
             return entity.GetProperty<Vector3>(SCALE);
@@ -73,6 +79,17 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(SCALE, value);
         }
+        public static Vector3 GetFinalScale(this Entity entity)
+        {
+            var scale = entity.GetScale();
+            var flipX = entity.IsFlipX() ? -1 : 1;
+            scale.x *= flipX;
+            return scale;
+        }
+        #endregion
+
+        #region 显示缩放
+        public static readonly PropertyMeta<Vector3> DISPLAY_SCALE = Get<Vector3>("displayScale");
         public static Vector3 GetFinalDisplayScale(this Entity entity)
         {
             var scale = entity.GetDisplayScale();
@@ -88,6 +105,10 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(DISPLAY_SCALE, value);
         }
+        #endregion
+
+        #region 移速阻尼
+        public static readonly PropertyMeta<Vector3> VELOCITY_DAMPEN = Get<Vector3>("velocityDampen");
         public static Vector3 GetVelocityDampen(this Entity entity)
         {
             return entity.GetProperty<Vector3>(VELOCITY_DAMPEN);
@@ -96,6 +117,10 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(VELOCITY_DAMPEN, value);
         }
+        #endregion
+
+        #region 摩擦力
+        public static readonly PropertyMeta<float> FRICTION = Get<float>("friction");
         public static float GetFriction(this Entity entity)
         {
             return entity.GetProperty<float>(FRICTION);
@@ -104,6 +129,10 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(FRICTION, value);
         }
+        #endregion
+
+        #region 染色
+        public static readonly PropertyMeta<Color> TINT = Get<Color>("tint");
         public static Color GetTint(this Entity entity, bool ignoreBuffs = false)
         {
             return entity.GetProperty<Color>(TINT, ignoreBuffs: ignoreBuffs);
@@ -112,6 +141,10 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(TINT, value);
         }
+        #endregion
+
+        #region 颜色偏移
+        public static readonly PropertyMeta<Color> COLOR_OFFSET = Get<Color>("colorOffset");
         public static Color GetColorOffset(this Entity entity, bool ignoreBuffs = false)
         {
             return entity.GetProperty<Color>(COLOR_OFFSET, ignoreBuffs: ignoreBuffs);
@@ -120,26 +153,26 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(COLOR_OFFSET, value);
         }
+        #endregion
+
+        #region 阵营
+        public static readonly PropertyMeta<int> FACTION = Get<int>("faction");
         public static void SetFaction(this Entity entity, int value)
         {
             entity.SetProperty(FACTION, value);
         }
+        #endregion
+
+        #region 地面高度偏移
+        public static readonly PropertyMeta<float> GROUND_LIMIT_OFFSET = Get<float>("groundLimitOffset");
         public static float GetGroundLimitOffset(this Entity entity)
         {
             return entity.GetProperty<float>(EngineEntityProps.GROUND_LIMIT_OFFSET);
         }
-        public static Vector3 GetSize(this EntityDefinition entity)
-        {
-            return entity.GetProperty<Vector3>(SIZE);
-        }
-        public static Vector3 GetSize(this Entity entity, bool ignoreBuffs = false)
-        {
-            return entity.GetProperty<Vector3>(SIZE, ignoreBuffs: ignoreBuffs);
-        }
-        public static void SetSize(this Entity entity, Vector3 value)
-        {
-            entity.SetProperty(SIZE, value);
-        }
+        #endregion
+
+        #region 碰撞盒中心点
+        public static readonly PropertyMeta<Vector3> BOUNDS_PIVOT = Get<Vector3>("boundsPivot");
         public static Vector3 GetBoundsPivot(this EntityDefinition entity)
         {
             return entity.GetProperty<Vector3>(BOUNDS_PIVOT);
@@ -152,31 +185,55 @@ namespace PVZEngine.Entities
         {
             entity.SetProperty(BOUNDS_PIVOT, value);
         }
+        #endregion
+
+        #region 最大血量
+        public static readonly PropertyMeta<float> MAX_HEALTH = Get<float>("maxHealth");
         public static float GetMaxHealth(this Entity entity, bool ignoreBuffs = false)
         {
             return entity.GetProperty<float>(MAX_HEALTH, ignoreBuffs: ignoreBuffs);
         }
+        #endregion
+
+        #region 外壳ID
+        public static readonly PropertyMeta<NamespaceID> SHELL = Get<NamespaceID>("shell");
         public static NamespaceID GetShellID(this Entity entity, bool ignoreBuffs = false)
         {
             return entity.GetProperty<NamespaceID>(SHELL, ignoreBuffs: ignoreBuffs);
-        }
-        public static NamespaceID GetPlacementID(this EntityDefinition entity)
-        {
-            return entity.GetProperty<NamespaceID>(PLACEMENT);
         }
         public static void SetShellID(this Entity entity, NamespaceID value)
         {
             entity.SetProperty(SHELL, value);
         }
-        public static readonly PropertyMeta COLLISION_DETECTION = Get("collisionDetection");
+        #endregion
+
+        #region 放置ID
+        public static readonly PropertyMeta<NamespaceID> PLACEMENT = Get<NamespaceID>("placement");
+        public static NamespaceID GetPlacementID(this EntityDefinition entity)
+        {
+            return entity.GetProperty<NamespaceID>(PLACEMENT);
+        }
+        #endregion
+
+        #region 模型ID
+        public static readonly PropertyMeta<NamespaceID> MODEL_ID = Get<NamespaceID>("modelId");
+        #endregion
+
+        #region 碰撞检测
+
+        public static readonly PropertyMeta<int> COLLISION_DETECTION = Get<int>("collisionDetection");
         public static int GetCollisionDetection(this Entity entity)
         {
             return entity.GetProperty<int>(COLLISION_DETECTION);
         }
-        public static readonly PropertyMeta COLLISION_SAMPLE_LENGTH = Get("collisionSampleLength");
+        #endregion
+
+        #region 碰撞检测样本长度
+        public static readonly PropertyMeta<float> COLLISION_SAMPLE_LENGTH = Get<float>("collisionSampleLength");
         public static float GetCollisionSampleLength(this Entity entity)
         {
             return entity.GetProperty<float>(COLLISION_SAMPLE_LENGTH);
         }
+        #endregion
     }
 }

@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var alpha = (Mathf.Sin(time * 24 * Mathf.Deg2Rad) + 1) * 0.5f;
             buff.SetProperty(PROP_COLOR, new Color(1, 1, 1, alpha));
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
-        public static readonly VanillaBuffPropertyMeta PROP_COLOR = new VanillaBuffPropertyMeta("Color");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR = new VanillaBuffPropertyMeta<Color>("Color");
     }
 }

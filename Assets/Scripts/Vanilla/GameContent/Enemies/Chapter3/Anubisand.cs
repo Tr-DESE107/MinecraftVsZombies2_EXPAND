@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             SetSummonTimer(entity, new FrameTimer(SUMMON_INTERVAL));
             var buff = entity.AddBuff<FlyBuff>();
-            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80);
+            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
         }
         protected override void UpdateAI(Entity enemy)
         {
@@ -64,8 +64,8 @@ namespace MVZ2.GameContent.Enemies
         public static float GetBlackholeBlend(Entity enemy) => enemy.GetBehaviourField<float>(ID, FIELD_BLACKHOLE_BLEND);
         public static void SetBlackholeBlend(Entity enemy, float value) => enemy.SetBehaviourField(ID, FIELD_BLACKHOLE_BLEND, value);
 
-        public static readonly VanillaEntityPropertyMeta FIELD_SUMMON_TIMER = new VanillaEntityPropertyMeta("SummonTimer");
-        public static readonly VanillaEntityPropertyMeta FIELD_BLACKHOLE_BLEND = new VanillaEntityPropertyMeta("BlackholeBlend");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_SUMMON_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("SummonTimer");
+        public static readonly VanillaEntityPropertyMeta<float> FIELD_BLACKHOLE_BLEND = new VanillaEntityPropertyMeta<float>("BlackholeBlend");
         public const int SUMMON_INTERVAL = 180;
         public static readonly Vector3 SUMMON_OFFSET = new Vector3(30, 80, 0);
         public static readonly NamespaceID ID = VanillaEnemyID.anubisand;

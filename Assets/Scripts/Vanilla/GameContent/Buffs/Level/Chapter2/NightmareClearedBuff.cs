@@ -73,8 +73,8 @@ namespace MVZ2.GameContent.Buffs.Level
                 }
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
-        public static readonly VanillaBuffPropertyMeta PROP_SCREEN_COVER = new VanillaBuffPropertyMeta("ScreenCover");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_SCREEN_COVER = new VanillaBuffPropertyMeta<Color>("ScreenCover");
         public const float BLACK_SCREEN_SPEED = 1 / 180f;
         public const int MAX_TIMEOUT = LIGHT_TIMEOUT + 120;
         public const int LIGHT_TIMEOUT = LIGHT_FADE_TIMEOUT + 30;

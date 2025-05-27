@@ -109,6 +109,6 @@ namespace MVZ2.GameContent.Stages
         }
         private const string PROP_REGION = "frankenstein_stage";
         [LevelPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_FRANKENSTEIN_TIMER = new VanillaLevelPropertyMeta("FrankensteinTimer");
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_FRANKENSTEIN_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("FrankensteinTimer");
     }
 }

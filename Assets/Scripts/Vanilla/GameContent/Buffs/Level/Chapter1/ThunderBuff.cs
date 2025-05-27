@@ -34,8 +34,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.Remove();
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_LIGHT_BLEND = new VanillaBuffPropertyMeta("LightBlend");
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_LIGHT_BLEND = new VanillaBuffPropertyMeta<Color>("LightBlend");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
         public const int MAX_TIMEOUT = 30;
     }
 }

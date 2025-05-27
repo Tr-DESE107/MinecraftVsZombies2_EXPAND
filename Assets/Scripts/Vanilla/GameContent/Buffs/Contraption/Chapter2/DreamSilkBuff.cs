@@ -93,8 +93,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var info = param.deathInfo;
             entity.RemoveBuffs<DreamSilkBuff>();
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");
-        public static readonly VanillaBuffPropertyMeta PROP_DISPLAY_SCALE = new VanillaBuffPropertyMeta("DisplayScale");
+        public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("Timer");
+        public static readonly VanillaBuffPropertyMeta<Vector3> PROP_DISPLAY_SCALE = new VanillaBuffPropertyMeta<Vector3>("DisplayScale");
         public const int MAX_TIMEOUT = 900;
         private const int RING_DURATION = 36;
     }

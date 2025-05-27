@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public override void PostAdd(Buff buff)
         {
             base.PostAdd(buff);
-            buff.SetProperty(PROP_GROUND_LIMIT_OFFSET, -100);
+            buff.SetProperty(PROP_GROUND_LIMIT_OFFSET, -100f);
             buff.SetProperty(PROP_TIMER, new FrameTimer(MAX_TIME));
             var entity = buff.GetEntity();
             if (entity != null)
@@ -60,7 +60,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             }
         }
         public const int MAX_TIME = 30;
-        public static readonly VanillaBuffPropertyMeta PROP_GROUND_LIMIT_OFFSET = new VanillaBuffPropertyMeta("groundLimitOffset");
-        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("timer");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_GROUND_LIMIT_OFFSET = new VanillaBuffPropertyMeta<float>("groundLimitOffset");
+        public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timer");
     }
 }

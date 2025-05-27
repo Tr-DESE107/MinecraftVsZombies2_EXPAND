@@ -205,8 +205,8 @@ namespace MVZ2.GameContent.Contraptions
             return entity.State == VanillaEntityStates.MAGICHEST_OPEN || entity.State == VanillaEntityStates.MAGICHEST_EAT;
         }
         public static readonly NamespaceID ID = VanillaContraptionID.magichest;
-        public static readonly VanillaEntityPropertyMeta PROP_FLASH_VISIBLE = new VanillaEntityPropertyMeta("FlashVisible");
-        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_FLASH_VISIBLE = new VanillaEntityPropertyMeta<bool>("FlashVisible");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         private Detector openDetector;
         private Detector eatDetector;
     }
