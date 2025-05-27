@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-24 06:02+0800\n"
+"POT-Creation-Date: 2025-05-27 07:25+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,17 +12,17 @@ msgstr ""
 "X-Poedit-KeywordsList: GetString;GetPluralString:1,2;GetParticularString:1c,2;GetParticularPluralString:1c,2,3;_;_n:1,2;_p:1c,2;_pn:1c,2,3\n"
 
 #. 初始界面的作者标识
-#: /MainGame/MainScene/Landing/Canvas/Creator
+#: /MainGame/MainScene/Init/Splash/Canvas/Creator
 msgid "Cuerzor制作"
 msgstr ""
 
 #. 菜单对话框的标题
-#: /MainGame/MainScene/Titlescreen/Canvas/LanguageDialog/Dialog/TitleArea/Title
+#: /MainGame/MainScene/Init/Titlescreen/Canvas/LanguageDialog/Dialog/TitleArea/Title
 msgid "语言"
 msgstr ""
 
 #. 语言对话框界面按钮
-#: /MainGame/MainScene/Titlescreen/Canvas/LanguageDialog/Dialog/MainElements/Buttons/ConfirmButton/Text
+#: /MainGame/MainScene/Init/Titlescreen/Canvas/LanguageDialog/Dialog/MainElements/Buttons/ConfirmButton/Text
 msgid "确定"
 msgstr ""
 
@@ -374,13 +374,19 @@ msgid "错误"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\AceOfDiamondsEvent.cs:37
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AceOfDiamondsEvent.cs:35
 msgctxt "random_china.event_name"
 msgid "方片A"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\AnvilShowerEvent.cs:38
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:33
+msgctxt "random_china.event_name"
+msgid "神秘埃及"
+msgstr ""
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AnvilShowerEvent.cs:32
 msgctxt "random_china.event_name"
 msgid "铁砧雨"
 msgstr ""
@@ -392,7 +398,7 @@ msgid "陶瓷镇"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\HellMetalEvent.cs:30
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\HellMetalEvent.cs:26
 msgctxt "random_china.event_name"
 msgid "地狱金属"
 msgstr ""
@@ -410,13 +416,13 @@ msgid "赛车"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\RedstoneReadyEvent.cs:39
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\RedstoneReadyEvent.cs:34
 msgctxt "random_china.event_name"
 msgid "红石俱备"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\SuperRechargeEvent.cs:26
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\SuperRechargeEvent.cs:23
 msgctxt "random_china.event_name"
 msgid "超级充能"
 msgstr ""
@@ -428,13 +434,13 @@ msgid "倒吊人-XII"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheTowerEvent.cs:32
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheTowerEvent.cs:30
 msgctxt "random_china.event_name"
 msgid "塔-XVI"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\WorldwideCelebrationEvent.cs:31
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\WorldwideCelebrationEvent.cs:27
 msgctxt "random_china.event_name"
 msgid "普天同庆"
 msgstr ""
@@ -676,13 +682,13 @@ msgid "你确定这关不使用任何水生器械吗？"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:86
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:90
 msgctxt "advice.collect_money"
 msgid "点击收集宝石！"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:88
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:92
 msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
@@ -1096,12 +1102,12 @@ msgid "无"
 msgstr ""
 
 # 标题页面的版本号文本，{0}为版本号
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:82
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:78
 msgid "版本{0}"
 msgstr ""
 
 # 标题界面按钮文本
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:84
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:80
 msgid "点击以开始！"
 msgstr ""
 
@@ -1140,39 +1146,39 @@ msgid "{0}/{1}"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的描述，{0}为错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:141
+#: Scripts\MVZ2\Scene\GameEntrance.cs:167
 msgid ""
 "游戏加载失败：\n"
 "{0}"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:143
+#: Scripts\MVZ2\Scene\GameEntrance.cs:169
 msgid "文件目录丢失"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:145
+#: Scripts\MVZ2\Scene\GameEntrance.cs:171
 msgid "文件丢失"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:147
+#: Scripts\MVZ2\Scene\GameEntrance.cs:173
 msgid "文件被占用"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:149
+#: Scripts\MVZ2\Scene\GameEntrance.cs:175
 msgid "文件读取失败"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:151
+#: Scripts\MVZ2\Scene\GameEntrance.cs:177
 msgid "文件格式错误"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息，{0}为新使用的存档，{1}为存档列表
-#: Scripts\MVZ2\Scene\GameEntrance.cs:153
+#: Scripts\MVZ2\Scene\GameEntrance.cs:179
 msgid ""
 "部分存档无法读取，将使用存档{0}开始游戏。\n"
 "无法读取的存档：\n"
@@ -1180,14 +1186,14 @@ msgid ""
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:155
+#: Scripts\MVZ2\Scene\GameEntrance.cs:181
 msgid ""
 "所有存档均无法读取，文件可能已损坏。\n"
 "必须新建存档以继续游戏。"
 msgstr ""
 
 # 开始游戏时读取出错，对话框的错误信息
-#: Scripts\MVZ2\Scene\GameEntrance.cs:157
+#: Scripts\MVZ2\Scene\GameEntrance.cs:183
 msgid ""
 "所有存档均无法读取，文件可能已损坏。\n"
 "必须删除一个存档，并新建存档以继续游戏。"
@@ -1266,91 +1272,91 @@ msgid ""
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:89
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:85
 msgctxt "hotkey.name"
 msgid "？？？"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:91
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:87
 msgctxt "hotkey.name"
 msgid "铁镐"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:93
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:89
 msgctxt "hotkey.name"
 msgid "星之碎片"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:95
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:91
 msgctxt "hotkey.name"
 msgid "触发器"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:97
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:93
 msgctxt "hotkey.name"
 msgid "快进"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:99
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:95
 msgctxt "hotkey.name"
 msgid "蓝图1"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:101
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:97
 msgctxt "hotkey.name"
 msgid "蓝图2"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:103
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:99
 msgctxt "hotkey.name"
 msgid "蓝图3"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:105
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:101
 msgctxt "hotkey.name"
 msgid "蓝图4"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:107
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:103
 msgctxt "hotkey.name"
 msgid "蓝图5"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:109
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:105
 msgctxt "hotkey.name"
 msgid "蓝图6"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:111
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:107
 msgctxt "hotkey.name"
 msgid "蓝图7"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:113
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:109
 msgctxt "hotkey.name"
 msgid "蓝图8"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:115
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:111
 msgctxt "hotkey.name"
 msgid "蓝图9"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:117
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:113
 msgctxt "hotkey.name"
 msgid "蓝图10"
 msgstr ""
@@ -2207,12 +2213,12 @@ msgid "Menu"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:393
+#: Scripts\MVZ2\Managers\MainManager.cs:267
 msgid "获取赞助者列表……"
 msgstr ""
 
 # 值，{0}为百分数
-#: Scripts\MVZ2\Managers\MainManager.cs:395
+#: Scripts\MVZ2\Managers\MainManager.cs:269
 msgid "{0}%"
 msgstr ""
 
@@ -2308,25 +2314,25 @@ msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
 # 实体提示
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:249
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:246
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:879
+#: Scripts\MVZ2\Level\LevelController_UI.cs:888
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:881
+#: Scripts\MVZ2\Level\LevelController_UI.cs:890
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:883
+#: Scripts\MVZ2\Level\LevelController_UI.cs:892
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 

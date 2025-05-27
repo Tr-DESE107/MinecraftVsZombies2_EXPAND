@@ -394,6 +394,9 @@
     <sound name="lose_music" priority="0">
         <sample path="mvz2:lose_music" weight="1" />
     </sound>
+    <sound name="low_quality_egypt">
+        <sample path="mvz2:low_quality_egypt" weight="1"/>
+    </sound>
     <sound name="lurker">
         <sample path="mvz2:lurker" weight="1" />
     </sound>

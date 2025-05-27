@@ -27,6 +27,10 @@ namespace MVZ2.Level.Components
         {
 
         }
+        public virtual void PostDispose()
+        {
+
+        }
         public virtual void UpdateFrame(float deltaTime, float simulationSpeed)
         {
 

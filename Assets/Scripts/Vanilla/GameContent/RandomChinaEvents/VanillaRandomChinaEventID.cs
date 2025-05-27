@@ -18,6 +18,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
         public const string raceCars = "race_cars";
         public const string anvilShower = "anvil_shower";
         public const string theHangedMan = "the_hanged_man";
+        public const string ancientEgypt = "ancientEgypt";
     }
     public static class VanillaRandomChinaEventID
     {
@@ -27,6 +28,8 @@ namespace MVZ2.GameContent.RandomChinaEvents
         public static readonly NamespaceID redstoneReady = Get(VanillaRandomChinaEventNames.redstoneReady);
         public static readonly NamespaceID aceOfDiamonds = Get(VanillaRandomChinaEventNames.aceOfDiamonds);
         public static readonly NamespaceID hellMetal = Get(VanillaRandomChinaEventNames.hellMetal);
+
+        public static readonly NamespaceID ancientEgypt = Get(VanillaRandomChinaEventNames.ancientEgypt);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

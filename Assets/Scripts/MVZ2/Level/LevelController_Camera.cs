@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using MVZ2.Cameras;
 using MVZ2.Level.UI;
+using MVZ2.Rendering;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
@@ -220,6 +221,8 @@ namespace MVZ2.Level
             var width = (cameraLimitX - cameraMin.x) / cameraLimitX;
             var preset = ui.GetUIPreset();
             preset.SetCameraLimitWidth(width);
+
+            downgradeScript.enabled = level.AreGraphicsDowngrade();
         }
 
         #endregion
@@ -229,6 +232,8 @@ namespace MVZ2.Level
         [Header("Cameras")]
         [SerializeField]
         private LevelCamera levelCamera;
+        [SerializeField]
+        private RenderDowngrade downgradeScript;
         [SerializeField]
         private AnimationCurve cameraMoveCurve;
         [SerializeField]

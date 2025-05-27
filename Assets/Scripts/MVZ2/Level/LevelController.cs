@@ -222,8 +222,18 @@ namespace MVZ2.Level
             }
             Music.SetVolume(1);
             Music.SetTrackWeight(0);
-            level?.StopAllLoopSounds();
-            level?.Dispose();
+            if (level != null)
+            {
+                foreach (var component in level.GetComponents())
+                {
+                    if (component is IMVZ2LevelComponent comp)
+                    {
+                        comp.PostDispose();
+                    }
+                }
+                level.StopAllLoopSounds();
+                level.Dispose();
+            }
             Game.SetLevel(null);
         }
         public async Task ExitLevelToNote(NamespaceID id)

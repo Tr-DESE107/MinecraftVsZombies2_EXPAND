@@ -132,6 +132,7 @@ MonoBehaviour:
   blueprintController: {fileID: 672198186561203434}
   blueprintChooseController: {fileID: 2261920224514993212}
   levelCamera: {fileID: 7788294606768908441}
+  downgradeScript: {fileID: 5504078125883472109}
   cameraMoveCurve:
     serializedVersion: 2
     m_Curve:
@@ -795,6 +796,7 @@ GameObject:
   - component: {fileID: 3990864811830621097}
   - component: {fileID: 8565073089687882276}
   - component: {fileID: 7788294606768908441}
+  - component: {fileID: 5504078125883472109}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -941,6 +943,19 @@ MonoBehaviour:
   _camera: {fileID: 5688558009243481780}
   cameraAnchor: {x: 0, y: 0.5}
   cameraPosition: {x: 0, y: 3, z: -10}
+--- !u!114 &5504078125883472109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580299581115580701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cadf0bb1feb0f949b3357b525869c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowResRT: {fileID: 8600000, guid: 8150dd4d397c96940930e0fd044ad520, type: 2}
 --- !u!1 &3711035435634197026
 GameObject:
   m_ObjectHideFlags: 0

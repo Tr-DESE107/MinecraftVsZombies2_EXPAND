@@ -147,6 +147,7 @@ namespace MVZ2.GameContent.Buffs
             public const string littleZombieLevel = "little_zombie_level";
             public const string delayedSpawnerTrigger = "delayed_spawner_trigger";
             public const string superRecharge = "super_recharge";
+            public const string ancientEgypt = "ancient_egypt";
 
             // 难度
             public const string levelEasy = "level_easy";

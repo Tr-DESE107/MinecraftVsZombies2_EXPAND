@@ -1,4 +1,5 @@
 using MVZ2.Vanilla;
+using MVZ2Logic.Level;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -9,6 +10,16 @@ namespace MVZ2.Level.Components
     {
         public MusicComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
+        }
+        public override void PostDispose()
+        {
+            base.PostDispose();
+            Main.MusicManager.SetLowQuality(false);
+        }
+        public override void Update()
+        {
+            base.Update();
+            Main.MusicManager.SetLowQuality(Level.IsMusicLowQuality());
         }
         public void Play(NamespaceID id)
         {

@@ -1546,6 +1546,8 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: 582a25cb5ce4236499edbe72e8eda564, type: 2}
   mainTrackSource: {fileID: 1839098901357615822}
   subTrackSource: {fileID: 1699334810984262609}
+  defaultSnapshot: {fileID: 24500006, guid: 582a25cb5ce4236499edbe72e8eda564, type: 2}
+  lowQualitySnapshot: {fileID: -5211144399024826461, guid: 582a25cb5ce4236499edbe72e8eda564, type: 2}
   volumeFader: {fileID: 3787112603237110232}
 --- !u!114 &3787112603237110232
 MonoBehaviour:

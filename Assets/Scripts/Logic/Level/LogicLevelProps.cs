@@ -36,6 +36,18 @@ namespace MVZ2Logic.Level
             level.SetProperty(CAMERA_ROTATION, value);
         }
 
+        public static readonly PropertyMeta<bool> MUSIC_LOW_QUALITY = new PropertyMeta<bool>("musicLowQuality");
+        public static bool IsMusicLowQuality(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(MUSIC_LOW_QUALITY);
+        }
+
+        public static readonly PropertyMeta<bool> GRAPHICS_DOWNGRADE = new PropertyMeta<bool>("graphicsDowngrade");
+        public static bool AreGraphicsDowngrade(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(GRAPHICS_DOWNGRADE);
+        }
+
         #region RNG
         public static readonly PropertyMeta<RandomGenerator> ARTIFACT_RNG = new PropertyMeta<RandomGenerator>("artifactRNG");
         public static RandomGenerator GetArtifactRNG(this LevelEngine level)

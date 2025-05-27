@@ -990,6 +990,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1db907c0dfce1124da1e280880b01651
+    m_Address: mvz2:low_quality_egypt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e040a7ca0ea87148a69fcf7c9a900a3
     m_Address: mvz2:mechanism
     m_ReadOnly: 0
