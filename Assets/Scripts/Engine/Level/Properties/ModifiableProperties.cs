@@ -47,41 +47,60 @@ namespace PVZEngine.Level
                 }
             }
         }
-        public bool TryGetProperty<T>(PropertyKey<T> name, out T result, bool ignoreBuffs = false)
+        public bool TryGetPropertyObject(IPropertyKey name, out object result, bool ignoreBuffs = false)
         {
             if (!ignoreBuffs)
             {
-                if (buffedProperties.TryGetProperty<T>(name, out var value))
+                if (buffedProperties.TryGetPropertyObject(name, out var value))
                 {
                     result = value;
                     return true;
                 }
             }
-            if (properties.TryGetProperty<T>(name, out var prop))
+            if (properties.TryGetPropertyObject(name, out var prop))
             {
                 result = prop;
                 return true;
             }
-
-            if (Container.GetFallbackProperty<T>(name, out var fallback))
+            if (fallbackCaches.TryGetValue(name, out var fallbackCache))
             {
+                result = fallbackCache;
+                return true;
+            }
+            if (Container.GetFallbackProperty(name, out var fallback))
+            {
+                fallbackCaches.Add(name, fallback);
                 result = fallback;
                 return true;
             }
             result = default;
             return false;
         }
-        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
+        public bool TryGetProperty<T>(PropertyKey<T> name, out T result, bool ignoreBuffs = false)
         {
-            if (TryGetProperty<T>(name, out var result, ignoreBuffs))
+            if (TryGetPropertyObject(name, out var obj, ignoreBuffs))
             {
-                return result;
+                if (obj.TryToGeneric<T>(out result))
+                {
+                    return true;
+                }
             }
-            return result;
+            result = default;
+            return false;
         }
-        public bool RemoveProperty<T>(PropertyKey<T> name)
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false) => TryGetProperty<T>(name, out var result, ignoreBuffs) ? result : default;
+        public object GetPropertyObject(IPropertyKey name, bool ignoreBuffs = false) => TryGetPropertyObject(name, out var result, ignoreBuffs) ? result : null;
+        public bool RemoveProperty(IPropertyKey name)
         {
-            return properties.RemoveProperty<T>(name);
+            return properties.RemovePropertyObject(name);
+        }
+        public bool RemoveFallbackCache(IPropertyKey key)
+        {
+            return fallbackCaches.Remove(key);
+        }
+        public void ClearFallbackCaches()
+        {
+            fallbackCaches.Clear();
         }
         public IPropertyKey[] GetPropertyNames()
         {
@@ -153,6 +172,7 @@ namespace PVZEngine.Level
         public IPropertyModifyTarget Container { get; }
         private PropertyDictionary properties = new PropertyDictionary();
         private PropertyDictionary buffedProperties = new PropertyDictionary();
+        private Dictionary<IPropertyKey, object> fallbackCaches = new Dictionary<IPropertyKey, object>();
         private readonly Dictionary<Type, Action<object, object, object>> setPropertyDelegates = new();
         private readonly Dictionary<Type, Action<object, object>> updateModifiedPropertyDelegates = new();
         private List<ModifierContainerItem> modifierContainerBuffer = new List<ModifierContainerItem>();

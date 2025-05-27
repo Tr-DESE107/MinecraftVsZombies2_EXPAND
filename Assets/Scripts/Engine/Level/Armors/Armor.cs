@@ -86,11 +86,11 @@ namespace PVZEngine.Armors
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty<T>(PropertyKey<T> name, out T value)
+        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object value)
         {
             if (Definition != null)
             {
-                if (Definition.TryGetProperty(name, out var prop))
+                if (Definition.TryGetPropertyObject(name, out var prop))
                 {
                     value = prop;
                     return true;
@@ -104,9 +104,9 @@ namespace PVZEngine.Armors
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty<T>(PropertyKey<T> name, T beforeValue, T afterValue)
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
         {
-            if (name.Equals(EngineArmorProps.MAX_HEALTH))
+            if (EngineArmorProps.MAX_HEALTH.Equals(name))
             {
                 var before = beforeValue.ToGeneric<float>();
                 var after = afterValue.ToGeneric<float>();

@@ -116,12 +116,13 @@ namespace PVZEngine.Level
         {
             StageID = stageId;
             StageDefinition = Content.GetStageDefinition(stageId);
-
+            properties.ClearFallbackCaches();
         }
         public void ChangeArea(NamespaceID areaId)
         {
             AreaID = areaId;
             AreaDefinition = Content.GetAreaDefinition(areaId);
+            properties.ClearFallbackCaches();
         }
         public void Update()
         {
@@ -171,14 +172,14 @@ namespace PVZEngine.Level
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty<T>(PropertyKey<T> name, out T value)
+        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object value)
         {
-            if (StageDefinition != null && StageDefinition.TryGetProperty(name, out var stageProp))
+            if (StageDefinition != null && StageDefinition.TryGetPropertyObject(name, out var stageProp))
             {
                 value = stageProp;
                 return true;
             }
-            if (AreaDefinition != null && AreaDefinition.TryGetProperty(name, out var areaProp))
+            if (AreaDefinition != null && AreaDefinition.TryGetPropertyObject(name, out var areaProp))
             {
                 value = areaProp;
                 return true;
@@ -191,7 +192,7 @@ namespace PVZEngine.Level
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty<T>(PropertyKey<T> name, T beforeValue, T afterValue)
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
         {
         }
         PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)

@@ -20,6 +20,7 @@ namespace PVZEngine.SeedPacks
             ID = id;
             Level = level;
             Definition = definition;
+
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
             buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
@@ -39,6 +40,7 @@ namespace PVZEngine.SeedPacks
         public void ChangeDefinition(SeedDefinition definition)
         {
             Definition = definition;
+            properties.ClearFallbackCaches();
             UpdateAllBuffedProperties();
             OnDefinitionChanged?.Invoke(definition);
         }
@@ -69,9 +71,9 @@ namespace PVZEngine.SeedPacks
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty<T>(PropertyKey<T> name, out T value)
+        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object value)
         {
-            if (Definition != null && Definition.TryGetProperty(name, out var prop))
+            if (Definition != null && Definition.TryGetPropertyObject(name, out var prop))
             {
                 value = prop;
                 return true;
@@ -84,7 +86,7 @@ namespace PVZEngine.SeedPacks
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty<T>(PropertyKey<T> name, T beforeValue, T afterValue)
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
         {
         }
         PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
@@ -232,6 +234,10 @@ namespace PVZEngine.SeedPacks
         }
         #endregion
 
+        private void OnPropertyChangedCallback(IPropertyKey key, object before, object after)
+        {
+            properties.RemoveFallbackCache(key);
+        }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);

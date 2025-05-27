@@ -5,9 +5,9 @@ namespace PVZEngine.Level
 {
     public interface IPropertyModifyTarget
     {
-        bool GetFallbackProperty<T>(PropertyKey<T> name, out T value);
+        bool GetFallbackProperty(IPropertyKey name, out object value);
         void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results);
-        void UpdateModifiedProperty<T>(PropertyKey<T> name, T beforeValue, T afterValue);
+        void UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue);
         PropertyModifier[] GetModifiersUsingProperty(IPropertyKey name);
         IEnumerable<IPropertyKey> GetModifiedProperties();
     }

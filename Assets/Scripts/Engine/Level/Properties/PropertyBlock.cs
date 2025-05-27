@@ -29,9 +29,9 @@ namespace PVZEngine.Level
         {
             return modifiableProperties.TryGetProperty<T>(name, out value, ignoreBuffs);
         }
-        public bool RemoveProperty<T>(PropertyKey<T> name)
+        public bool RemoveProperty(IPropertyKey name)
         {
-            return modifiableProperties.RemoveProperty<T>(name);
+            return modifiableProperties.RemoveProperty(name);
         }
         public IPropertyKey[] GetPropertyNames()
         {
@@ -51,6 +51,8 @@ namespace PVZEngine.Level
         }
         #endregion
 
+        public bool RemoveFallbackCache(IPropertyKey key) => modifiableProperties.RemoveFallbackCache(key);
+        public void ClearFallbackCaches() => modifiableProperties.ClearFallbackCaches();
         public SerializablePropertyBlock ToSerializable()
         {
             return new SerializablePropertyBlock()

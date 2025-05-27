@@ -45,14 +45,14 @@ namespace MVZ2.Tests
             {
                 this.definition = definition;
             }
-            public bool GetFallbackProperty<T>(PropertyKey<T> name, out T value)
+            public bool GetFallbackProperty(IPropertyKey name, out object value)
             {
                 if (definition == null)
                 {
                     value = default;
                     return false;
                 }
-                if (definition.TryGetProperty(name, out var defProp))
+                if (definition.TryGetPropertyObject(name, out var defProp))
                 {
                     value = defProp;
                     return true;
@@ -62,7 +62,7 @@ namespace MVZ2.Tests
                 for (int i = 0; i < behaviourCount; i++)
                 {
                     var behaviour = definition.GetBehaviourAt(i);
-                    if (behaviour.TryGetProperty(name, out var behProp))
+                    if (behaviour.TryGetPropertyObject(name, out var behProp))
                     {
                         value = behProp;
                         return true;
@@ -76,7 +76,7 @@ namespace MVZ2.Tests
             {
             }
 
-            public void UpdateModifiedProperty<T>(PropertyKey<T> name, T beforeValue, T afterValue)
+            public void UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
             {
             }
 

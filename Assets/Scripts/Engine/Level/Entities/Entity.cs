@@ -223,14 +223,14 @@ namespace PVZEngine.Entities
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty<T>(PropertyKey<T> name, out T value)
+        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object value)
         {
             if (Definition == null)
             {
                 value = default;
                 return false;
             }
-            if (Definition.TryGetProperty(name, out var defProp))
+            if (Definition.TryGetPropertyObject(name, out var defProp))
             {
                 value = defProp;
                 return true;
@@ -240,7 +240,7 @@ namespace PVZEngine.Entities
             for (int i = 0; i < behaviourCount; i++)
             {
                 var behaviour = Definition.GetBehaviourAt(i);
-                if (behaviour.TryGetProperty(name, out var behProp))
+                if (behaviour.TryGetPropertyObject(name, out var behProp))
                 {
                     value = behProp;
                     return true;
@@ -264,9 +264,9 @@ namespace PVZEngine.Entities
             GetModifierItems(name, results);
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty<T>(PropertyKey<T> name, T beforeValue, T afterValue)
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
         {
-            if (name is PropertyKey<float> floatName && floatName == EngineEntityProps.MAX_HEALTH)
+            if (name == ((PropertyKey<float>)EngineEntityProps.MAX_HEALTH))
             {
                 var before = beforeValue.ToGeneric<float>();
                 var after = afterValue.ToGeneric<float>();
