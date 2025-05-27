@@ -17,15 +17,15 @@ namespace MVZ2.GameContent.IZombie
             {
                 VanillaEnemyID.imp,
                 VanillaEnemyID.necromancer,
-                VanillaEnemyID.anubisand
+                VanillaEnemyID.emperorZombie
             };
         }
         public override void Fill(IIZombieMap map, RandomGenerator rng)
         {
             RandomFill(map, VanillaContraptionID.mineTNT, 9, rng);
             RandomFill(map, VanillaContraptionID.spikeBlock, 3, rng);
-            RandomFill(map, VanillaContraptionID.punchton, 7, rng);
-            RandomFill(map, VanillaContraptionID.furnace, 6, rng);
+            RandomFill(map, VanillaContraptionID.punchton, 5, rng);
+            RandomFill(map, VanillaContraptionID.furnace, 8, rng);
         }
     }
 }

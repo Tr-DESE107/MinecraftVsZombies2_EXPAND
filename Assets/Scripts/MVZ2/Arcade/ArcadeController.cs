@@ -180,7 +180,7 @@ namespace MVZ2.Arcade
                 var stage = Main.ResourceManager.GetStageMeta(meta.StageID);
                 if (stage == null)
                     return false;
-                return Main.SaveManager.IsInvalidOrUnlocked(meta.HiddenUntil);
+                return Main.SaveManager.IsAllInvalidOrUnlocked(meta.HiddenUntil);
             });
             GetOrderedArcade(arcades, minigameItems);
             GetOrderedPuzzles(arcades, puzzleItems);

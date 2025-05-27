@@ -959,7 +959,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_absolute_defense" name="绝对防御" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_can_you_pass_it" >
+    <stage id="puzzle_absolute_defense" name="绝对防御" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_can_you_pass_it;mvz2:level.mausoleum_11" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -1007,7 +1007,7 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_i_zombie_endless" name="我是僵尸无尽" needBlueprints="false" type="puzzle_endless" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_all_your_observes_are_belong_to_us;mvz2:level.mausoleum_11" >
+    <stage id="puzzle_i_zombie_endless" name="我是僵尸无尽" needBlueprints="false" type="puzzle_endless" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_all_your_observes_are_belong_to_us" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
