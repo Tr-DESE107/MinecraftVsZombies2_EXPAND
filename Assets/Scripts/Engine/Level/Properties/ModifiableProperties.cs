@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reflection;
@@ -161,5 +162,71 @@ namespace PVZEngine.Level
     public class SerializableModifiableProperties
     {
         public SerializablePropertyDictionary properties;
+    }
+    public static class DelegateCaches
+    {
+        public static bool TryGetDelegate<T>(Type genericType, out T del) where T : Delegate
+        {
+            var dict = GetDelegateDictionary<T>();
+            return dict.TryGetValue(genericType, out del);
+        }
+        public static T AddDelegate<T>(Type genericType, object obj, string methodName, Type[] argumentTypes, Type delegateType, Func<Delegate, T> delegateGetter) where T : Delegate
+        {
+            var dict = GetDelegateDictionary<T>();
+            var objType = obj.GetType();
+            MethodInfo method = GetGenericMethod(objType, methodName, argumentTypes);
+
+            // 创建委托
+            var methodGeneric = method.MakeGenericMethod(genericType);
+            var d = Delegate.CreateDelegate(delegateType, null, methodGeneric);
+
+            // 包装成统一的Action<object, object, object>
+            T wrapped = delegateGetter.Invoke(d);
+
+            dict[genericType] = wrapped;
+            return wrapped;
+        }
+        private static MethodInfo GetGenericMethod(Type objType, string methodName, Type[] argumentTypes)
+        {
+            foreach (var m in objType.GetMethods())
+            {
+                if (m.Name != methodName || !m.IsGenericMethod)
+                    continue;
+                var parameters = m.GetParameters();
+                if (parameters.Length != argumentTypes.Length)
+                    continue;
+                bool match = true;
+                for (int i = 0; i < parameters.Length; i++)
+                {
+                    if (parameters[i].ParameterType.IsGenericParameter)
+                        continue; // 泛型参数跳过
+                    if (parameters[i].ParameterType.IsGenericType &&
+                        argumentTypes[i].IsGenericType &&
+                        parameters[i].ParameterType.GetGenericTypeDefinition() == argumentTypes[i].GetGenericTypeDefinition())
+                        continue;
+                    if (parameters[i].ParameterType != argumentTypes[i])
+                    {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match)
+                {
+                    return m;
+                }
+            }
+            return null;
+        }
+        private static Dictionary<Type, T> GetDelegateDictionary<T>() where T : Delegate
+        {
+            var t = typeof(T);
+            if (!typedDicts.TryGetValue(t, out var dict))
+            {
+                dict = new Dictionary<Type, T>();
+                typedDicts.Add(t, dict);
+            }
+            return (Dictionary<Type, T>)dict;
+        }
+        private static readonly Dictionary<Type, IDictionary> typedDicts = new();
     }
 }

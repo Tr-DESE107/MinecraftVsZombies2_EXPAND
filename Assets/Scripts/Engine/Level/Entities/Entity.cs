@@ -259,7 +259,7 @@ namespace PVZEngine.Entities
         {
             return Definition.GetModifiers().Where(m => name.Equals(m.UsingContainerPropertyName)).ToArray();
         }
-        void IPropertyModifyTarget.GetModifierItems<T>(PropertyKey<T> name, List<ModifierContainerItem> results)
+        void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
         {
             GetModifierItems(name, results);
             buffs.GetModifierItems(name, results);

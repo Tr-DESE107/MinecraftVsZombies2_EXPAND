@@ -187,7 +187,7 @@ namespace PVZEngine.Level
             return false;
         }
 
-        void IPropertyModifyTarget.GetModifierItems<T>(PropertyKey<T> name, List<ModifierContainerItem> results)
+        void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
         {
             buffs.GetModifierItems(name, results);
         }

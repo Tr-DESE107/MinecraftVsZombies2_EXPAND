@@ -72,7 +72,7 @@ namespace MVZ2.Tests
                 return false;
             }
 
-            public void GetModifierItems<T>(PropertyKey<T> name, List<ModifierContainerItem> results)
+            public void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
             {
             }
 
