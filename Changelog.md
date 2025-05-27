@@ -189,7 +189,7 @@
 - Fixed Spiked Blocks not attacking bosses.
 - Fixed corrupted stage save files when exiting and saving the game without background music playing.
 - Fixed layer display issues for Gargoyles protected by Stone Shields.
-- Fixed the "Archive" button on the mainmenu being prioritized over the "Addons" button.
+- Fixed the "Archive" button on the main menu being prioritized over the "Addons" button.
 - Fixed rare spawns of certain contraptions in conveyor belt stages due to inaccurate weight randomization.
 
 ---
@@ -377,9 +377,9 @@
 ## Added
 
 - You can intialize your prefered language after entering the game!
-- Game version now will be shown in the mainmenu.
+- Game version now will be shown in the main menu.
 - Changelog in Readme, and the upcoming features! Yeah you are reading one of them!
-- The game version will now be displayed at the right-top of mainmenu.
+- The game version will now be displayed at the right-top of main menu.
 
 ## Modified
 
