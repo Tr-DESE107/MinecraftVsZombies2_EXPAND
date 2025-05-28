@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1382891726520767934}
   - component: {fileID: 7089763818122963762}
   - component: {fileID: 2130547170959505401}
+  - component: {fileID: 4611016590395072618}
   m_Layer: 0
   m_Name: Miner
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1309202034, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
+  m_Sprite: {fileID: 191063626, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,6 +99,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &4611016590395072618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852477238681369293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1309202034, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
+  - {fileID: -864480218, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
+  - {fileID: 191063626, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
+  index: 0
 --- !u!1001 &1411313375228467585
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3034615701977725972, guid: 3ec30034191dadc48bab455467ba55ce, type: 3}
       propertyPath: m_Name
-      value: short_circuit 1
+      value: static_particles
       objectReference: {fileID: 0}
     - target: {fileID: 6702236362217210405, guid: 3ec30034191dadc48bab455467ba55ce, type: 3}
       propertyPath: particles.Array.size

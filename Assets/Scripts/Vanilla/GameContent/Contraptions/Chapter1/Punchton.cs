@@ -117,7 +117,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private void Punch(Entity entity)
         {
-            entity.PlaySound(VanillaSoundID.punch);
+            entity.PlaySound(VanillaSoundID.impact);
             detectBuffer.Clear();
             detector.DetectMultiple(entity, detectBuffer);
             foreach (var collider in detectBuffer)
@@ -125,9 +125,9 @@ namespace MVZ2.GameContent.Contraptions
                 collider.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
 
                 var ent = collider.Entity;
-                if (ent.Type == EntityTypes.ENEMY)
+                if (collider.IsForMain() && ent.Type == EntityTypes.ENEMY)
                 {
-                    ent.Velocity += entity.GetFacingDirection() * 30;
+                    ent.Velocity += entity.GetFacingDirection() * 30 * ent.GetStrongKnockbackMultiplier();
                     CheckAchievement(ent);
                 }
             }
@@ -167,7 +167,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private void LongPunch(Entity entity)
         {
-            entity.PlaySound(VanillaSoundID.punch);
+            entity.PlaySound(VanillaSoundID.impact);
             detectBuffer.Clear();
             evokedDetector.DetectMultiple(entity, detectBuffer);
             foreach (var collider in detectBuffer)
@@ -198,7 +198,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             if (entity.Type != EntityTypes.ENEMY)
                 return;
-            if (entity.HasBuff<PunchtonAchievementBuff>())
+            if (entity.HasBuff<PunchtonAchievementBuff>() && !entity.Level.IsIZombie())
             {
                 Global.Game.Unlock(VanillaUnlockID.doubleTrouble);
             }
@@ -210,10 +210,10 @@ namespace MVZ2.GameContent.Contraptions
         public const int RESTORE_TIME = 600;
         public const float EVOKED_DAMAGE_MULTIPLIER = 5;
         private static readonly NamespaceID ID = VanillaContraptionID.punchton;
-        public static readonly VanillaEntityPropertyMeta PROP_ARM_EXTENSION = new VanillaEntityPropertyMeta("ArmExtension");
-        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_ARM_EXTENSION = new VanillaEntityPropertyMeta<float>("ArmExtension");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         private Detector detector;
         private Detector evokedDetector;
-        private List<EntityCollider> detectBuffer = new List<EntityCollider>();
+        private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
     }
 }

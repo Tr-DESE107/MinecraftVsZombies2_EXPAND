@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using MVZ2.Level;
 using MVZ2.Metas;
-using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
 
@@ -46,12 +45,12 @@ namespace MVZ2.Managers
 
 
         #region 私有方法
-        private async Task LoadModAreaModels(string nsp)
+        private async Task LoadModAreaModels(string nsp, TaskProgress progress)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return;
-            var resources = await LoadLabeledResources<GameObject>(nsp, "AreaModel");
+            var resources = await LoadLabeledResources<GameObject>(nsp, "AreaModel", progress);
             foreach (var (id, res) in resources)
             {
                 var model = res.GetComponent<AreaModel>();

@@ -1,8 +1,9 @@
 ﻿using System;
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -29,18 +30,18 @@ namespace MVZ2.Vanilla.Entities
         }
         public static Entity ShootProjectile(this Entity entity, ShootParams parameters)
         {
-            var game = entity.Level;
             entity.PlaySound(parameters.soundID);
 
             var velocity = entity.ModifyProjectileVelocity(parameters.velocity);
 
-            var projectile = game.Spawn(parameters.projectileID, parameters.position, entity);
-            projectile.SetDamage(parameters.damage);
-            projectile.SetFaction(parameters.faction);
+            var param = parameters.spawnParam ?? entity.GetSpawnParams();
+            param.SetProperty(VanillaEntityProps.DAMAGE, parameters.damage);
+            param.SetProperty(EngineEntityProps.FACTION, parameters.faction);
+            var projectile = entity.Spawn(parameters.projectileID, parameters.position, param);
             projectile.Velocity = velocity;
             projectile.UpdatePointTowardsDirection();
 
-            game.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_SHOT, projectile.Definition.GetID(), c => c(projectile));
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_SHOT, new EntityCallbackParams(projectile), projectile.Definition.GetID());
             return projectile;
         }
         public static ShootParams GetShootParams(this Entity entity)
@@ -60,13 +61,18 @@ namespace MVZ2.Vanilla.Entities
                 velocity = velocity
             };
         }
-        public static Vector3 GetShootPoint(this Entity entity)
+        public static Vector3 ModifyShotOffset(this Entity entity, Vector3 offset)
         {
-            Vector3 offset = entity.GetShotOffset();
             if (entity.IsFacingLeft())
             {
                 offset.x *= -1;
             }
+            return offset;
+        }
+        public static Vector3 GetShootPoint(this Entity entity)
+        {
+            Vector3 offset = entity.GetShotOffset();
+            offset = ModifyShotOffset(entity, offset);
             return entity.Position + offset;
         }
         public static void UpdatePointTowardsDirection(this Entity entity)
@@ -190,5 +196,6 @@ namespace MVZ2.Vanilla.Entities
         public NamespaceID soundID;
         public float damage;
         public int faction;
+        public SpawnParams spawnParam;
     }
 }

@@ -1,42 +1,28 @@
 ﻿using MVZ2.GameContent.HeldItems;
 using MVZ2.HeldItems;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
 using MVZ2Logic.HeldItems;
-using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
-using PVZEngine.Entities;
-using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.Vanilla.HeldItems
 {
-    public abstract class BlueprintHeldItemDefinition : HeldItemDefinition
+    public abstract class BlueprintHeldItemDefinition : HeldItemDefinition, IBlueprintHeldItemDefinition
     {
         public BlueprintHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
             AddBehaviour(new PickupHeldItemBehaviour(this));
             AddBehaviour(new TriggerCartHeldItemBehaviour(this));
         }
-        public override void Update(LevelEngine level, IHeldItemData data)
-        {
-            base.Update(level, data);
-            if (!IsValid(level, data))
-            {
-                level.ResetHeldItem();
-            }
-        }
         public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
             var seed = GetSeedPack(level, data);
-            if (seed == null)
+            var seedDef = seed?.Definition;
+            if (seedDef == null)
                 return null;
-            var seedDef = seed.Definition;
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
                 var entityID = seedDef.GetSeedEntityID();
@@ -45,12 +31,17 @@ namespace MVZ2.Vanilla.HeldItems
             }
             return null;
         }
-        public bool IsValid(LevelEngine level, IHeldItemData data)
+        public override void PostSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
         {
+            base.PostSetModel(level, data, model);
             var seedPack = GetSeedPack(level, data);
             if (seedPack == null)
-                return false;
-            return seedPack.CanPick();
+                return;
+            if (seedPack.IsCommandBlock())
+            {
+                model.SetShaderInt("_Grayscale", 1);
+            }
         }
+        public abstract SeedPack GetSeedPack(LevelEngine level, IHeldItemData data);
     }
 }

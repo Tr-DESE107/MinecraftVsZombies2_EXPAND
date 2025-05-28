@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
+using MVZ2.Metas;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
@@ -36,6 +37,10 @@ namespace MVZ2.IO
             var document = new XmlDocument();
             document.Load(xmlReader);
             return document;
+        }
+        public static bool HasAttribute(this XmlNode node, string name)
+        {
+            return node.Attributes[name] != null;
         }
         public static string GetAttribute(this XmlNode node, string name)
         {
@@ -175,6 +180,28 @@ namespace MVZ2.IO
             var time = node.GetAttributeFloat("time") ?? 0;
             return new GradientAlphaKey(alpha, time);
         }
+        public static void ModifyEntityBehaviours(this XmlNode node, List<NamespaceID> behaviours, string defaultNsp)
+        {
+            if (node == null)
+                return;
+            for (int i = 0; i < node.ChildNodes.Count; i++)
+            {
+                var behaviourNode = node.ChildNodes[i];
+                if (behaviourNode.Name == "behaviour")
+                {
+                    var item = EntityBehaviourItem.FromXmlNode(behaviourNode, defaultNsp);
+                    switch (item.Operator)
+                    {
+                        case BehaviourOperator.Add:
+                            behaviours.Add(item.ID);
+                            break;
+                        case BehaviourOperator.Remove:
+                            behaviours.Remove(item.ID);
+                            break;
+                    }
+                }
+            }
+        }
         public static Dictionary<string, object> ToPropertyDictionary(this XmlNode node, string defaultNsp)
         {
             var properties = new Dictionary<string, object>();
@@ -226,6 +253,16 @@ namespace MVZ2.IO
                         if (valid)
                             propValue = value.Value;
                         return valid;
+                    }
+                case "string":
+                    {
+                        if (!node.HasAttribute("value"))
+                        {
+                            propValue = null;
+                            return false;
+                        }
+                        propValue = node.GetAttribute("value");
+                        return true;
                     }
                 case "vector2":
                     {

@@ -10,7 +10,7 @@ namespace PVZEngine.SeedPacks
         public ClassicSeedPack(LevelEngine level, SeedDefinition definition, long id) : base(level, definition, id)
         {
         }
-        public override int GetIndex()
+        public int GetIndex()
         {
             return Level.GetSeedPackIndex(this);
         }

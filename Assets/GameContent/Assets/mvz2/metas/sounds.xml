@@ -3,11 +3,17 @@
     <sound name="achievement">
         <sample path="mvz2:achievement" weight="1" />
     </sound>
+    <sound name="annihilation_field">
+        <sample path="mvz2:annihilation_field" weight="1" />
+    </sound>
     <sound name="agnoy">
         <sample path="mvz2:agnoy" weight="1" />
     </sound>
     <sound name="anvil">
         <sample path="mvz2:anvil" weight="1" />
+    </sound>
+    <sound name="arcane_intellect">
+        <sample path="mvz2:arcane_intellect" weight="1" />
     </sound>
     <sound name="armor_up">
         <sample path="mvz2:armor_up" weight="1" />
@@ -23,6 +29,9 @@
     </sound>
     <sound name="biohazard">
         <sample path="mvz2:biohazard" weight="1" />
+    </sound>
+    <sound name="bomb_falling">
+        <sample path="mvz2:bomb_falling" weight="1" />
     </sound>
     <sound name="bone_hit">
         <sample path="mvz2:damage/bone/bone_hit1" weight="1" />
@@ -60,6 +69,11 @@
     </sound>
     <sound name="chapter_transition" maxCount="1" priority="0">
         <sample path="mvz2:chapter_transition" weight="1" />
+    </sound>
+    <sound name="charged_bolt">
+        <sample path="mvz2:charged_bolt1" weight="1" />
+        <sample path="mvz2:charged_bolt2" weight="1" />
+        <sample path="mvz2:charged_bolt3" weight="1" />
     </sound>
     <sound name="charmed">
         <sample path="mvz2:charmed" weight="1" />
@@ -109,8 +123,14 @@
     <sound name="dark_skies_impact" maxCount="10">
         <sample path="mvz2:dark_skies_impact" weight="1" />
     </sound>
+    <sound name="data_stream">
+        <sample path="mvz2:data_stream" weight="1" />
+    </sound>
     <sound name="decrepify">
         <sample path="mvz2:decrepify" weight="1" />
+    </sound>
+    <sound name="desire_pot_evocation">
+        <sample path="mvz2:desire_pot_evocation" weight="1" />
     </sound>
     <sound name="dialog_bang">
         <sample path="mvz2:talk/dialog_bang" weight="1" />
@@ -154,6 +174,12 @@
     <sound name="dirt_rise">
         <sample path="mvz2:dirt_rise" weight="1" />
     </sound>
+    <sound name="divine_shield_cast">
+        <sample path="mvz2:divine_shield_cast" weight="1" />
+    </sound>
+    <sound name="divine_shield">
+        <sample path="mvz2:divine_shield" weight="1" />
+    </sound>
     <sound name="dream_alarm">
         <sample path="mvz2:entity/dream_alarm" weight="1" />
     </sound>
@@ -162,6 +188,18 @@
     </sound>
     <sound name="electric_spark">
         <sample path="mvz2:electric_spark" weight="1" />
+    </sound>
+    <sound name="energy_shield">
+        <sample path="mvz2:energy_shield" weight="1" />
+    </sound>
+    <sound name="energy_shield_hit">
+        <sample path="mvz2:energy_shield_hit1" weight="1" />
+        <sample path="mvz2:energy_shield_hit2" weight="1" />
+        <sample path="mvz2:energy_shield_hit3" weight="1" />
+        <sample path="mvz2:energy_shield_hit4" weight="1" />
+    </sound>
+    <sound name="error_xp">
+        <sample path="mvz2:error_xp" weight="1" />
     </sound>
     <sound name="evocation" priority="64">
         <sample path="mvz2:evocation" weight="1" />
@@ -180,6 +218,9 @@
     </sound>
     <sound name="fast_forward" priority="64">
         <sample path="mvz2:fast_forward" weight="1" />
+    </sound>
+    <sound name="fatigue" >
+        <sample path="mvz2:fatigue" weight="1" />
     </sound>
     <sound name="final_item" priority="0">
         <sample path="mvz2:final_item" weight="1" />
@@ -210,6 +251,9 @@
     </sound>
     <sound name="frankenstein_steel_laugh">
         <sample path="mvz2:frankenstein_steel_laugh" weight="1" />
+    </sound>
+    <sound name="freeze">
+        <sample path="mvz2:freeze" weight="1" />
     </sound>
     <sound name="fuse">
         <sample path="mvz2:fuse" weight="1" />
@@ -252,6 +296,9 @@
     <sound name="ghost_death">
         <sample path="mvz2:entity/ghost/ghost_death" weight="1" />
     </sound>
+    <sound name="giant_roar">
+        <sample path="mvz2:giant_roar" weight="1" />
+    </sound>
     <sound name="giant_spike">
         <sample path="mvz2:giant_spike" weight="1" />
     </sound>
@@ -279,6 +326,12 @@
         <sample path="mvz2:random/grass2" weight="1" />
         <sample path="mvz2:random/grass3" weight="1" />
     </sound>
+    <sound name="gravitation">
+        <sample path="mvz2:gravitation" weight="1" />
+    </sound>
+    <sound name="gravitation_surge">
+        <sample path="mvz2:gravitation_surge" weight="1" />
+    </sound>
     <sound name="grind">
         <sample path="mvz2:grind1" weight="1" />
         <sample path="mvz2:grind2" weight="1" />
@@ -291,6 +344,12 @@
     </sound>
     <sound name="gun_shot" maxCount="3">
         <sample path="mvz2:gun_shot" weight="1" />
+    </sound>
+    <sound name="gulp">
+        <sample path="mvz2:gulp" weight="1" />
+    </sound>
+    <sound name="harp">
+        <sample path="mvz2:harp" weight="1" />
     </sound>
     <sound name="hit">
         <sample path="mvz2:damage/hit1" weight="1" />
@@ -313,6 +372,9 @@
         <sample path="mvz2:entity/imp/imp_laugh1" weight="1" />
         <sample path="mvz2:entity/imp/imp_laugh2" weight="1" />
     </sound>
+    <sound name="impact">
+        <sample path="mvz2:impact" weight="1" />
+    </sound>
     <sound name="iron_curtain">
         <sample path="mvz2:iron_curtain" weight="1" />
     </sound>
@@ -332,6 +394,9 @@
     <sound name="lose_music" priority="0">
         <sample path="mvz2:lose_music" weight="1" />
     </sound>
+    <sound name="low_quality_egypt">
+        <sample path="mvz2:low_quality_egypt" weight="1"/>
+    </sound>
     <sound name="lurker">
         <sample path="mvz2:lurker" weight="1" />
     </sound>
@@ -344,8 +409,14 @@
     <sound name="mechanism">
         <sample path="mvz2:mechanism" weight="1" />
     </sound>
+    <sound name="metal_saw" loopPitchStart="0" loopPitchEnd="1" loopFadeInSpeed="2" loopFadeOutSpeed="1">
+        <sample path="mvz2:metal_saw" weight="1" />
+    </sound>
     <sound name="meow">
         <sample path="mvz2:meow" weight="1" />
+    </sound>
+    <sound name="meteor_land">
+        <sample path="mvz2:meteor_land" weight="1" />
     </sound>
     <sound name="mind_control">
         <sample path="mvz2:mind_control" weight="1" />
@@ -400,6 +471,21 @@
     </sound>
     <sound name="odd">
         <sample path="mvz2:odd" weight="1" />
+    </sound>
+    <sound name="pacman_start" maxCount="1" priority="64">
+        <sample path="mvz2:pacman_start" weight="1" />
+    </sound>
+    <sound name="pacman_ghost">
+        <sample path="mvz2:pacman_ghost" weight="1" />
+    </sound>
+    <sound name="pacman_attack">
+        <sample path="mvz2:pacman_attack" weight="1" />
+    </sound>
+    <sound name="pacman_kill">
+        <sample path="mvz2:pacman_kill" weight="1" />
+    </sound>
+    <sound name="pacman_fail">
+        <sample path="mvz2:pacman_fail" weight="1" />
     </sound>
     <sound name="paper" priority="64">
         <sample path="mvz2:paper" weight="1" />
@@ -460,7 +546,8 @@
         <sample path="mvz2:prize" weight="1" />
     </sound>
     <sound name="punch">
-        <sample path="mvz2:punch" weight="1" />
+        <sample path="mvz2:punch1" weight="1" />
+        <sample path="mvz2:punch2" weight="1" />
     </sound>
     <sound name="rain">
         <sample path="mvz2:rain" weight="1" />
@@ -483,6 +570,9 @@
     <sound name="revived">
         <sample path="mvz2:revived" weight="1" />
     </sound>
+    <sound name="ring_off">
+        <sample path="mvz2:ring_off" weight="1" />
+    </sound>
     <sound name="scream">
         <sample path="mvz2:scream" weight="1" />
     </sound>
@@ -504,6 +594,9 @@
     </sound>
     <sound name="shock">
         <sample path="mvz2:shock" weight="1" />
+    </sound>
+    <sound name="shadow_cast">
+        <sample path="mvz2:shadow_cast" weight="1" />
     </sound>
     <sound name="siren" maxCount="1" priority="64">
         <sample path="mvz2:siren" weight="1" />
@@ -555,6 +648,9 @@
     </sound>
     <sound name="smash">
         <sample path="mvz2:smash" weight="1" />
+    </sound>
+    <sound name="snow">
+        <sample path="mvz2:snow" weight="1" />
     </sound>
     <sound name="soul_sand">
         <sample path="mvz2:soul_sand1" weight="1" />
@@ -673,6 +769,13 @@
     <sound name="travel" priority="64">
         <sample path="mvz2:travel" weight="1" />
     </sound>
+    <sound name="trident_thunder">
+        <sample path="mvz2:trident_thunder1" weight="1" />
+        <sample path="mvz2:trident_thunder2" weight="1" />
+    </sound>
+    <sound name="ufo">
+        <sample path="mvz2:ufo" weight="1" />
+    </sound>
     <sound name="villager_crazy" priority="64">
         <sample path="mvz2:talk/villager/villager_crazy" weight="1" />
     </sound>
@@ -767,10 +870,20 @@
         <sample path="mvz2:random/wood3" weight="1" />
         <sample path="mvz2:random/wood4" weight="1" />
     </sound>
+    <sound name="zap">
+        <sample path="mvz2:zap1" weight="1" />
+        <sample path="mvz2:zap2" weight="1" />
+        <sample path="mvz2:zap3" weight="1" />
+        <sample path="mvz2:zap4" weight="1" />
+    </sound>
     <sound name="zombie_cry">
         <sample path="mvz2:entity/zombie/zombie_cry1" weight="1" />
         <sample path="mvz2:entity/zombie/zombie_cry2" weight="1" />
         <sample path="mvz2:entity/zombie/zombie_cry3" weight="1" />
+    </sound>
+    <sound name="zombie_hurt">
+        <sample path="mvz2:entity/zombie/hurt1" weight="1" />
+        <sample path="mvz2:entity/zombie/hurt2" weight="1" />
     </sound>
     <sound name="zombie_death">
         <sample path="mvz2:entity/zombie/zombie_death" weight="1" />

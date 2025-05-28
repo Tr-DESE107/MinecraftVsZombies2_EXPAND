@@ -1,9 +1,5 @@
-﻿using System;
-using MVZ2Logic.Level.Components;
-using PVZEngine;
-using PVZEngine.Entities;
+﻿using MVZ2Logic.Level.Components;
 using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2Logic.Level
 {

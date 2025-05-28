@@ -67,15 +67,25 @@ namespace MVZ2.Level
             // 设置图标。
             var modelID = definition?.GetModelID(level, data);
             SetHeldItemModel(modelID);
+            var model = GetHeldItemModel();
+            if (model != null)
+            {
+                definition?.PostSetModel(level, data, heldItemModelInterface);
+            }
 
             // 显示触发器图标。
             bool triggerVisible = false;
-            var blueprint = definition.GetSeedPack(level, data);
+            SeedPack blueprint = null;
+            if (definition is IBlueprintHeldItemDefinition blueprintHeld)
+            {
+                blueprint = blueprintHeld.GetSeedPack(level, data);
+            }
             if (blueprint != null && blueprint.IsTriggerActive() && blueprint.CanInstantTrigger())
             {
                 triggerVisible = true;
             }
             ui.SetHeldItemTrigger(triggerVisible, instantTrigger);
+            ui.SetHeldItemImbued(data.InstantEvoke);
 
             // 设置射线检测图层。
             List<int> layers = new List<int>();
@@ -568,18 +578,29 @@ namespace MVZ2.Level
         }
         private void UpdateHeldSlotUI()
         {
-            bool pickaxeDisabled = level.IsPickaxeDisabled();
+            bool pickaxeDisabled = !level.CanUsePickaxe();
             bool starshardDisabled = level.IsStarshardDisabled();
             var uiPreset = GetUIPreset();
             uiPreset.SetStarshardSelected(level.IsHoldingStarshard());
             uiPreset.SetStarshardDisabled(starshardDisabled && level.ShouldShowStarshardDisableIcon());
+
+            var limit = level.GetPickaxeCountLimit();
+            var remainCount = level.GetPickaxeRemainCount();
+            var pickaxeNumberText = new PickaxeNumberText()
+            {
+                show = level.IsPickaxeCountLimited(),
+                text = $"{remainCount}/{limit}",
+                color = remainCount <= 0 ? Color.red : Color.white
+            };
             uiPreset.SetPickaxeSelected(level.IsHoldingPickaxe());
             uiPreset.SetPickaxeDisabled(pickaxeDisabled && level.ShouldShowPickaxeDisableIcon());
+            uiPreset.SetPickaxeNumberText(pickaxeNumberText);
+
             uiPreset.SetTriggerSelected(level.IsHoldingTrigger());
         }
         private void ValidateHeldItem()
         {
-            bool pickaxeDisabled = level.IsPickaxeDisabled();
+            bool pickaxeDisabled = !level.CanUsePickaxe();
             bool starshardDisabled = level.IsStarshardDisabled();
             if (pickaxeDisabled && level.IsHoldingPickaxe())
             {
@@ -643,7 +664,7 @@ namespace MVZ2.Level
                 }
                 return;
             }
-            if (level.IsPickaxeDisabled())
+            if (!level.CanUsePickaxe())
                 return;
             level.PlaySound(VanillaSoundID.pickaxe);
             level.SetHeldItem(VanillaHeldTypes.pickaxe, 0, 0);
@@ -652,7 +673,7 @@ namespace MVZ2.Level
         {
             if (!StarshardActive)
                 return;
-            if (level.IsHoldingItem())
+            if (level.IsHoldingItem() && !level.IsHoldingSword())
             {
                 if (level.CancelHeldItem())
                 {
@@ -660,13 +681,11 @@ namespace MVZ2.Level
                 }
                 return;
             }
-            if (level.GetStarshardCount() <= 0)
+            if (!level.CanUseStarshard())
             {
                 level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
-            if (level.IsStarshardDisabled())
-                return;
             level.SetHeldItem(VanillaHeldTypes.starshard, 0, 0);
         }
         private void ClickTrigger()
@@ -681,7 +700,7 @@ namespace MVZ2.Level
                 }
                 return;
             }
-            if (level.IsTriggerDisabled())
+            if (!level.CanUseTrigger())
                 return;
             level.SetHeldItem(VanillaHeldTypes.trigger, 0, 0);
         }
@@ -802,7 +821,7 @@ namespace MVZ2.Level
         #endregion
 
         #region 关卡名
-        private void UpdateLevelName()
+        public void UpdateLevelName()
         {
             var levelUI = GetUIPreset();
             levelUI.SetLevelName(LevelManager.GetStageName(level));
@@ -916,7 +935,7 @@ namespace MVZ2.Level
             public TooltipViewData GetViewData(LevelController level)
             {
                 string error = null;
-                if (level.level.IsPickaxeDisabled())
+                if (!level.level.CanUsePickaxe())
                 {
                     var message = level.level.GetPickaxeDisableMessage();
                     if (!string.IsNullOrEmpty(message))

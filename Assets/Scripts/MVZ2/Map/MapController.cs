@@ -19,12 +19,9 @@ using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Level;
-using MVZ2Logic.Map;
 using MVZ2Logic.Maps;
-using MVZ2Logic.Scenes;
 using MVZ2Logic.Talk;
 using PVZEngine;
-using PVZEngine.Triggers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -166,7 +163,13 @@ namespace MVZ2.Map
             {
                 UpdateMouse();
             }
-            var maxCameraSize = mapMeta.size.y / 100 * 0.5f;
+            var aspect = mapCamera.aspect;
+
+            var maxWidth = mapMeta.size.x * 0.01f;
+            var maxHeight = mapMeta.size.y * 0.01f;
+            var maxScaleX = maxWidth / aspect * 0.5f;
+            var maxScaleY = maxHeight * 0.5f;
+            var maxCameraSize = Mathf.Min(maxScaleX, maxScaleY);
             mapCamera.orthographicSize = Mathf.Clamp(mapCamera.orthographicSize + cameraScaleSpeed, minCameraSize, maxCameraSize);
             LimitCameraPosition();
             cameraScaleSpeed *= 0.8f;
@@ -203,7 +206,7 @@ namespace MVZ2.Map
         }
         private void OnTalkActionCallback(string cmd, string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, c => c(talkSystem, cmd, parameters));
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
         private void OnOptionsDialogCloseCallback()
         {
@@ -214,13 +217,14 @@ namespace MVZ2.Map
         }
         private void OnMapButtonClickCallback(int index)
         {
-            var stageID = mapMeta.stages[index];
-            StartCoroutine(EnterLevel(stageID));
+            var stageID = GetStageID(index);
+            var area = GetStageArea(index) ?? mapMeta.area;
+            StartCoroutine(EnterLevel(area, stageID));
         }
         private void OnEndlessButtonClickCallback()
         {
             var stageID = mapMeta.endlessStage;
-            StartCoroutine(EnterLevel(stageID));
+            StartCoroutine(EnterLevel(mapMeta.area, stageID));
         }
         private async void OnMapKeyClickCallback()
         {
@@ -268,6 +272,10 @@ namespace MVZ2.Map
             {
                 Main.Scene.DisplayMap(VanillaMapID.castle);
             }
+            else if (id == MapPinID.mausoleum)
+            {
+                Main.Scene.DisplayMap(VanillaMapID.mausoleum);
+            }
             else if (id == MapPinID.kourindou)
             {
                 Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID), true);
@@ -295,7 +303,7 @@ namespace MVZ2.Map
             var position = mapCamera.transform.position;
             var aspect = mapCamera.aspect;
             var fullHeight = mapCamera.orthographicSize * 2;
-            var cameraHeight = mapCamera.rect.height * fullHeight;
+            var cameraHeight = fullHeight;
             var cameraWidth = cameraHeight * aspect;
 
             var mapSize = mapMeta.size * 0.01f;
@@ -312,7 +320,17 @@ namespace MVZ2.Map
         #region 关卡
         private NamespaceID GetStageID(int index)
         {
-            return mapMeta.stages[index];
+            var meta = mapMeta.stages[index];
+            if (meta == null)
+                return null;
+            return meta.stage;
+        }
+        private NamespaceID GetStageArea(int index)
+        {
+            var meta = mapMeta.stages[index];
+            if (meta == null)
+                return null;
+            return meta.area;
         }
         private StageMeta GetStageMeta(NamespaceID stageID)
         {
@@ -337,26 +355,32 @@ namespace MVZ2.Map
             var stageMeta = GetStageMeta(stageID);
             if (stageMeta == null)
                 return false;
-            return Main.SaveManager.IsUnlocked(stageMeta.Unlock);
+            if (!Main.SaveManager.IsAllInvalidOrUnlocked(stageMeta.Unlocks))
+                return false;
+            return true;
         }
         private bool IsLevelUnlocked(int index)
         {
             var stageID = GetStageID(index);
             return IsLevelUnlocked(stageID);
         }
-        private NamespaceID GetLevelDifficulty(int index)
+        private void SetMapButtonDifficulty(int index)
         {
             var stageID = GetStageID(index);
-            if (!NamespaceID.IsValid(stageID))
-                return null;
-            var records = Main.SaveManager.GetLevelDifficultyRecords(stageID);
-            return records.OrderByDescending(r =>
+            var difficulty = Main.SaveManager.GetLevelDifficulty(stageID);
+            if (NamespaceID.IsValid(difficulty))
             {
-                var meta = Main.ResourceManager.GetDifficultyMeta(r);
-                if (meta == null)
-                    return int.MinValue;
-                return meta.value;
-            }).FirstOrDefault();
+                var difficultyMeta = Main.ResourceManager.GetDifficultyMeta(difficulty);
+                if (difficultyMeta != null)
+                {
+                    var back = Main.GetFinalSprite(difficultyMeta.MapButtonBorderBack);
+                    var bottom = Main.GetFinalSprite(difficultyMeta.MapButtonBorderBottom);
+                    var overlay = Main.GetFinalSprite(difficultyMeta.MapButtonBorderOverlay);
+                    model.SetMapButtonBorder(index, back, bottom, overlay);
+                    return;
+                }
+            }
+            model.SetMapButtonBorderToDefault(index);
         }
         private bool IsEndlessUnlocked()
         {
@@ -365,7 +389,7 @@ namespace MVZ2.Map
         }
         private bool IsLevelCleared(int index)
         {
-            return Main.SaveManager.IsLevelCleared(mapMeta.stages[index]);
+            return Main.SaveManager.IsLevelCleared(GetStageID(index));
         }
         #endregion
 
@@ -516,24 +540,24 @@ namespace MVZ2.Map
         }
         #endregion
 
-        private IEnumerator EnterLevel(NamespaceID stageID)
+        private IEnumerator EnterLevel(NamespaceID areaID, NamespaceID stageID)
         {
             ui.SetHintText(Main.LanguageManager._(HINT_TEXT_ENTERING_LEVEL));
             ui.SetRaycastBlockerActive(true);
             Main.MusicManager.Stop();
             Main.SoundManager.Play2D(VanillaSoundID.spring);
             yield return new WaitForSeconds(1);
-            var task = GotoLevelAsync(stageID);
+            var task = GotoLevelAsync(areaID, stageID);
             while (!task.IsCompleted)
             {
                 yield return null;
             }
         }
-        private async Task GotoLevelAsync(NamespaceID stageID)
+        private async Task GotoLevelAsync(NamespaceID areaID, NamespaceID stageID)
         {
             Main.SaveManager.SaveModDatas();
             await Main.LevelManager.GotoLevelSceneAsync();
-            Main.LevelManager.InitLevel(mapMeta.area, stageID);
+            Main.LevelManager.InitLevel(areaID, stageID);
             Hide();
         }
 
@@ -549,7 +573,7 @@ namespace MVZ2.Map
                 var color = buttonColorCleared;
                 if (!unlocked)
                     color = buttonColorLocked;
-                else if (stageType == StageTypes.TYPE_MINIGAME)
+                else if (stageType == StageTypes.TYPE_MINIGAME || stageType == StageTypes.TYPE_PUZZLE)
                     color = buttonColorMinigame;
                 else if (stageType == StageTypes.TYPE_BOSS)
                     color = buttonColorBoss;
@@ -564,7 +588,7 @@ namespace MVZ2.Map
                 model.SetMapButtonInteractable(i, unlocked);
                 model.SetMapButtonColor(i, color);
                 model.SetMapButtonText(i, (i + 1).ToString());
-                model.SetMapButtonDifficulty(i, GetLevelDifficulty(i));
+                SetMapButtonDifficulty(i);
             }
             var endlessColor = buttonColorEndless;
             var endlessUnlocked = IsEndlessUnlocked();

@@ -5,7 +5,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic.Level;
-using MVZ2Logic.Models;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
@@ -20,11 +19,6 @@ namespace MVZ2.GameContent.Contraptions
         {
             AddAura(new LilyPadPassengerAura());
             AddAura(new LilyPadCarrierAura());
-        }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.SetSortingLayer(SortingLayers.carriers);
         }
         protected override void OnEvoke(Entity entity)
         {

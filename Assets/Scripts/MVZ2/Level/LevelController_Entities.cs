@@ -2,27 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
+using MVZ2.Collisions;
 using MVZ2.Entities;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.Level.UI;
-using MVZ2.Metas;
 using MVZ2.Supporters;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
-using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.Level
 {
@@ -46,8 +45,12 @@ namespace MVZ2.Level
         {
             RemoveControllerFromEntity(entity);
         }
-        private void Engine_PostUseEntityBlueprintCallback(SeedPack blueprint, Entity entity)
+        private void Engine_PostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
         {
+            var entity = param.entity;
+            var seed = param.blueprint;
+            var definition = param.definition;
+            var heldData = param.heldData;
             if (!Main.OptionsManager.ShowSponsorNames())
                 return;
             if (entity.IsEntityOf(VanillaContraptionID.furnace))
@@ -109,11 +112,8 @@ namespace MVZ2.Level
         #region 叫声
         private void UpdateEnemyCry()
         {
-            cryTimeCheckTimer.Run();
-            if (cryTimeCheckTimer.Expired)
+            if (level.IsTimeInterval(7))
             {
-                cryTimeCheckTimer.Reset();
-
                 var crySoundEnemies = GetCrySoundEnemies();
                 var enemyCount = crySoundEnemies.Count();
                 float t = Mathf.Clamp01((float)(enemyCount - MinEnemyCryCount) / (MaxEnemyCryCount - MinEnemyCryCount));
@@ -129,7 +129,7 @@ namespace MVZ2.Level
                 if (enemyCount <= 0)
                     return;
                 var crySoundEnemy = crySoundEnemies.Random(rng);
-                crySoundEnemy.PlaySound(crySoundEnemy.GetCrySound(), crySoundEnemy.GetCryPitch());
+                crySoundEnemy.PlayCrySound(crySoundEnemy.GetCrySound());
             }
         }
         private IEnumerable<Entity> GetCrySoundEnemies()
@@ -205,17 +205,13 @@ namespace MVZ2.Level
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(pointerPosition);
             var target = hoveredEntity.GetHeldItemTarget(worldPosition);
             var highlight = level.GetHeldHighlight(target);
-            if (highlight == HeldHighlight.Entity)
+            if (highlight.mode == HeldHighlightMode.Entity)
             {
-                SetHighlightedEntity(hoveredEntity);
-            }
-            else if (highlight == HeldHighlight.ProtectedEntity)
-            {
-                var protectTarget = hoveredEntity.Entity.GetProtectingTarget();
-                if (protectTarget != null)
+                var targetEntity = highlight.entity;
+                if (targetEntity != null)
                 {
-                    var protectCtrl = GetEntityController(protectTarget);
-                    SetHighlightedEntity(protectCtrl);
+                    var ctrl = GetEntityController(targetEntity);
+                    SetHighlightedEntity(ctrl);
                 }
             }
         }
@@ -232,14 +228,9 @@ namespace MVZ2.Level
             }
         }
 
-        private QuadTreeParams GetQuadTreeParams()
+        private ICollisionSystem GetCollisionSystem()
         {
-            return new QuadTreeParams()
-            {
-                size = new Rect(0, -500, 1600, 1600),
-                maxDepth = 6,
-                maxObjects = 1
-            };
+            return unityCollisionSystem;
         }
 
         #endregion
@@ -261,7 +252,6 @@ namespace MVZ2.Level
 
         #region 保存属性
         private FrameTimer cryTimer = new FrameTimer(MaxCryInterval);
-        private FrameTimer cryTimeCheckTimer = new FrameTimer(7);
         private int maxCryTime = MaxCryInterval;
         #endregion
 
@@ -270,6 +260,8 @@ namespace MVZ2.Level
         private EntityController entityTemplate;
         [SerializeField]
         private Transform entitiesRoot;
+        [SerializeField]
+        private UnityCollisionSystem unityCollisionSystem;
         #endregion
 
         private class EntityTooltipSource : ITooltipSource

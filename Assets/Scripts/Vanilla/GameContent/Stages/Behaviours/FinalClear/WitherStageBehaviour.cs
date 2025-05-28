@@ -1,19 +1,12 @@
 ﻿using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Level;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.ProgressBars;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-using MVZ2Logic;
 using MVZ2Logic.Level;
-using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
@@ -66,8 +59,8 @@ namespace MVZ2.GameContent.Stages
                     }
                     else
                     {
-                        var x = (level.GetGridLeftX() + level.GetGridRightX()) * 0.5f;
-                        var z = (level.GetGridTopZ() + level.GetGridBottomZ()) * 0.5f;
+                        var x = level.GetLawnCenterX();
+                        var z = level.GetLawnCenterZ();
                         var y = level.GetGroundY(x, z);
                         position = new Vector3(x, y, z);
                     }

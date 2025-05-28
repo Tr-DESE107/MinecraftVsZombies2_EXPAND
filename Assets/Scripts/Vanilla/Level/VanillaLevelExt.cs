@@ -9,7 +9,6 @@ using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.HeldItems;
@@ -27,9 +26,10 @@ using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
+using static System.Collections.Specialized.BitVector32;
+using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
 namespace MVZ2.Vanilla.Level
@@ -66,8 +66,27 @@ namespace MVZ2.Vanilla.Level
         public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
-            foreach (EntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
+            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
             {
+                var damageOutput = entityCollider.TakeDamage(amount, effects, source);
+                if (damageOutput != null)
+                {
+                    damageOutputs.Add(damageOutput);
+                }
+            }
+            return damageOutputs.ToArray();
+        }
+        public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
+        {
+            return level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, new EntityReferenceChain(source));
+        }
+        public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
+        {
+            List<DamageOutput> damageOutputs = new List<DamageOutput>();
+            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
+            {
+                if (entityCollider == excludeCollider)
+                    continue;
                 var damageOutput = entityCollider.TakeDamage(amount, effects, source);
                 if (damageOutput != null)
                 {
@@ -80,9 +99,9 @@ namespace MVZ2.Vanilla.Level
         {
             var heldType = level.GetHeldItemType();
             var heldDefinition = level.Content.GetHeldItemDefinition(heldType);
-            if (heldDefinition == null)
+            if (heldDefinition is not IBlueprintHeldItemDefinition blueprintheldDef)
                 return null;
-            var seed = heldDefinition.GetSeedPack(level, level.GetHeldItemData());
+            var seed = blueprintheldDef.GetSeedPack(level, level.GetHeldItemData());
             var seedDef = seed?.Definition;
             if (seedDef == null)
                 return null;
@@ -102,6 +121,10 @@ namespace MVZ2.Vanilla.Level
         public static bool IsHoldingStarshard(this LevelEngine level)
         {
             return level.GetHeldItemType() == VanillaHeldTypes.starshard;
+        }
+        public static bool IsHoldingSword(this LevelEngine level)
+        {
+            return level.GetHeldItemType() == VanillaHeldTypes.sword;
         }
         public static bool IsHoldingBlueprint(this LevelEngine level, SeedPack seedPack)
         {
@@ -185,7 +208,7 @@ namespace MVZ2.Vanilla.Level
             {
                 level.CurrentFlag++;
             }
-            level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_WAVE_FINISHED, wave, c => c(level, wave));
+            level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_WAVE_FINISHED, new LevelCallbacks.PostWaveParams(level, wave), wave);
         }
         public static void NextWave(this LevelEngine level)
         {
@@ -199,7 +222,7 @@ namespace MVZ2.Vanilla.Level
 
             var wave = level.CurrentWave;
             level.StageDefinition.PostWave(level, wave);
-            level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, c => c(level, wave));
+            level.Triggers.RunCallback(LevelCallbacks.POST_WAVE, new LevelCallbacks.PostWaveParams(level, wave));
         }
         public static int GetLevelTotalWaves(this LevelEngine level, int wave, int flags)
         {
@@ -232,6 +255,10 @@ namespace MVZ2.Vanilla.Level
             {
                 multiplier *= 2.5f;
             }
+            if (level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT || level.WaveState == VanillaLevelStates.STATE_BOSS_FIGHT_2)
+            {
+                multiplier = 1;
+            }
             return Mathf.Ceil(Mathf.Min(Mathf.Pow(basePoints, power) * multiplier + addition, 500));
         }
         public static float CalculateSpawnPoints(this LevelEngine level)
@@ -239,29 +266,25 @@ namespace MVZ2.Vanilla.Level
             return level.CalculateSpawnPoints(level.CurrentWave, level.CurrentFlag);
         }
         /// <summary>
-        /// 本波最高生成的敌人等级，防止前期生成无法处理的怪物。
+        /// 本波用于限制生成怪物的数值，防止前期生成无法处理的怪物。
         /// </summary>
         /// <param name="level"></param>
         /// <param name="wave"></param>
         /// <param name="flags"></param>
         /// <returns></returns>
-        public static float GetWaveSpawnLevelLimit(this LevelEngine level, int wave, int flags)
+        public static float GetCurrentSpawnLimitWave(this LevelEngine level, int wave, int flags)
         {
-            var totalWave = level.GetLevelTotalWaves(wave, flags);
-            var limit = totalWave * 0.4f + 1;
-            if (level.IsHugeWave(wave))
-            {
-                limit *= 2.5f;
-            }
-            return Mathf.Floor(limit);
+            var rounds = flags / level.GetWavesPerFlag();
+            // 每经过一轮，当前波数视为+1。
+            return wave + rounds;
         }
         public static void SpawnWaveEnemies(this LevelEngine level, int wave)
         {
             // 获取本波的生成点数。
             var totalPoints = level.CalculateSpawnPoints();
 
-            // 本波最高生成的敌人等级，防止前期生成无法处理的怪物。
-            var currentWaveLevelLimit = level.GetWaveSpawnLevelLimit(wave, level.CurrentFlag);
+            // 波数限制，防止前期生成无法处理的怪物。
+            var currentWaveLevelLimit = level.GetCurrentSpawnLimitWave(wave, level.CurrentFlag);
 
             // 当前的有效敌人池。
             var pool = level.GetEnemyPool();
@@ -282,8 +305,8 @@ namespace MVZ2.Vanilla.Level
                     break;
 
                 IEnumerable<SpawnDefinition> finalSpawnPool = possibleSpawnDefs;
-                // 根据当前波次的等级限制获取有效的敌人。
-                var limitedSpawnDefs = possibleSpawnDefs.Where(def => def.SpawnLevel <= currentWaveLevelLimit);
+                // 根据当前波次限制获取有效的敌人。
+                var limitedSpawnDefs = possibleSpawnDefs.Where(def => def.GetMinSpawnWave() <= currentWaveLevelLimit);
 
                 // 如果根据当前波次限制之后，没有可以生成的敌人，则不进行限制。
                 if (limitedSpawnDefs.Count() > 0)
@@ -334,7 +357,7 @@ namespace MVZ2.Vanilla.Level
             var enemy = level.Spawn(spawnDef.EntityID, pos, null);
             level.AddSpawnedEnemyID(spawnDef.GetID());
             level.StageDefinition.PostEnemySpawned(enemy);
-            level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, c => c(enemy));
+            level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, new EntityCallbackParams(enemy));
             return enemy;
         }
         public static Entity SpawnFlagZombie(this LevelEngine level)
@@ -505,6 +528,64 @@ namespace MVZ2.Vanilla.Level
             return level.StageDefinition.GetBehaviour<T>();
         }
         #endregion
+
+        #region 蓝图
+        public static void SetupBattleBlueprints(this LevelEngine level, BlueprintChooseItem[] items)
+        {
+            var oldSeedPacks = level.GetAllSeedPacks();
+            for (int i = 0; i < level.GetSeedSlotCount(); i++)
+            {
+                NamespaceID blueprintID = null;
+                bool commandBlock = false;
+                if (i < items.Length)
+                {
+                    var item = items[i];
+                    blueprintID = item.id;
+                    commandBlock = item.isCommandBlock;
+                }
+                if (blueprintID == null)
+                {
+                    level.RemoveSeedPackAt(i);
+                    continue;
+                }
+                var seedPack = level.GetLastBlueprint(blueprintID, commandBlock, oldSeedPacks);
+                if (seedPack == null)
+                {
+                    seedPack = level.CreateSeedPack(blueprintID);
+                    if (level.CurrentFlag <= 0)
+                    {
+                        seedPack.SetStartRecharge(true);
+                    }
+                    else
+                    {
+                        seedPack.FullRecharge();
+                    }
+                    seedPack.SetCommandBlock(commandBlock);
+                }
+                level.ReplaceSeedPackAt(i, seedPack);
+            }
+        }
+        public static void FillSeedPacks(this LevelEngine level, IEnumerable<NamespaceID> seedPacks)
+        {
+            var oldSeedPacks = level.GetAllSeedPacks();
+            int count = seedPacks.Count();
+            for (int i = 0; i < count; i++)
+            {
+                var id = seedPacks.ElementAt(i);
+                var seedPack = level.GetLastBlueprint(id, false, oldSeedPacks);
+                if (seedPack == null)
+                {
+                    seedPack = level.CreateSeedPack(id);
+                    seedPack.SetStartRecharge(true);
+                }
+                level.ReplaceSeedPackAt(i, seedPack);
+            }
+        }
+        public static ClassicSeedPack GetLastBlueprint(this LevelEngine level, NamespaceID blueprintID, bool commandBlock, IEnumerable<ClassicSeedPack> oldSeedPacks)
+        {
+            return oldSeedPacks.FirstOrDefault(s => s != null && s.GetDefinitionID() == blueprintID && s.IsCommandBlock() == commandBlock);
+        }
+        #endregion
         public static SeedPack ConveyRandomSeedPack(this LevelEngine level)
         {
             if (level.CanConveySeedPack())
@@ -610,6 +691,14 @@ namespace MVZ2.Vanilla.Level
             level.SetSeedSlotCount(game.GetBlueprintSlots());
             level.SetStarshardSlotCount(game.GetStarshardSlots());
             level.SetArtifactSlotCount(game.GetArtifactSlots());
+        }
+        public static bool ValidateGridOutOfBounds(this LevelEngine level, Vector2Int position)
+        {
+            if (position.x < 0 || position.y < 0)
+                return false;
+            if (position.x >= level.GetMaxColumnCount() || position.y >= level.GetMaxLaneCount())
+                return false;
+            return true;
         }
     }
 }

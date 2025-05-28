@@ -15,7 +15,7 @@ namespace MVZ2.Tests
         private void Start()
         {
             var def = new MetaEntityDefinition(EntityTypes.PLANT, "mvz2", "dispenser");
-            def.AddBehaviour(new Dispenser("mvz2", "dispenser"));
+            def.AddBehaviourID(new NamespaceID("mvz2", "dispenser"));
             var container = new TestPropertyContainer(def);
             props = new ModifiableProperties(container);
 
@@ -45,14 +45,14 @@ namespace MVZ2.Tests
             {
                 this.definition = definition;
             }
-            public bool GetFallbackProperty(PropertyKey name, out object value)
+            public bool GetFallbackProperty(IPropertyKey name, out object value)
             {
                 if (definition == null)
                 {
-                    value = null;
+                    value = default;
                     return false;
                 }
-                if (definition.TryGetProperty(name, out var defProp))
+                if (definition.TryGetPropertyObject(name, out var defProp))
                 {
                     value = defProp;
                     return true;
@@ -62,30 +62,30 @@ namespace MVZ2.Tests
                 for (int i = 0; i < behaviourCount; i++)
                 {
                     var behaviour = definition.GetBehaviourAt(i);
-                    if (behaviour.TryGetProperty(name, out var behProp))
+                    if (behaviour.TryGetPropertyObject(name, out var behProp))
                     {
                         value = behProp;
                         return true;
                     }
                 }
-                value = null;
+                value = default;
                 return false;
             }
 
-            public void GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
+            public void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
             {
             }
 
-            public void UpdateModifiedProperty(PropertyKey name, object value)
+            public void UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
             {
             }
 
-            public PropertyModifier[] GetModifiersUsingProperty(PropertyKey name)
+            public PropertyModifier[] GetModifiersUsingProperty(IPropertyKey name)
             {
                 return null;
             }
 
-            public IEnumerable<PropertyKey> GetModifiedProperties()
+            public IEnumerable<IPropertyKey> GetModifiedProperties()
             {
                 yield break;
             }

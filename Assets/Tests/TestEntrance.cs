@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Reflection;
+using System.Threading.Tasks;
 using MVZ2.Games;
 using MVZ2.Managers;
 using MVZ2.Modding;
@@ -16,14 +17,22 @@ namespace MVZ2.Tests
         {
             var levelEngineAssembly = typeof(LevelEngine).Assembly;
             var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
-            PropertyMapper.InitPropertyMaps(string.Empty, levelEngineAssembly.GetTypes());
-            PropertyMapper.InitPropertyMaps(string.Empty, logicAssembly.GetTypes());
+            PropertyMapper.InitPropertyMaps("mvz2", levelEngineAssembly.GetTypes());
+            PropertyMapper.InitPropertyMaps("mvz2", logicAssembly.GetTypes());
             ModManager.OnRegisterMod += RegisterMod;
             await main.Initialize();
+            main.InitLoad();
+            var initTask = main.GetInitTask();
+            if (initTask != null)
+            {
+                await initTask;
+            }
         }
         private static void RegisterMod(IModManager manager, Game game)
         {
             var mod = new VanillaMod();
+            var assemblies = new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) };
+            mod.Init(game, assemblies);
             manager.RegisterModLogic(mod.Namespace, mod);
         }
         [SerializeField]

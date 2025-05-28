@@ -1,10 +1,8 @@
-﻿using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Properties;
+﻿using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs
 {
@@ -13,13 +11,7 @@ namespace MVZ2.GameContent.Buffs
     {
         public FactionBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new Vector3Modifier(EngineEntityProps.SCALE, NumberOperator.Multiply, PROP_SIZE_MULTIPLIER));
-            AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, PROP_SIZE_MULTIPLIER));
-        }
-        public override void PostAdd(Buff buff)
-        {
-            base.PostAdd(buff);
-            buff.SetProperty(PROP_SIZE_MULTIPLIER, Vector3.one);
+            AddModifier(new BooleanModifier(EngineEntityProps.FLIP_X, PROP_FLIP_X));
         }
         public override void PostUpdate(Buff buff)
         {
@@ -30,10 +22,9 @@ namespace MVZ2.GameContent.Buffs
 
             int targetFaction = entity.GetFaction();
             var faceRight = targetFaction == buff.Level.Option.LeftFaction;
-            var xScale = entity.FaceLeftAtDefault() == faceRight ? -1 : 1;
-            buff.SetProperty(PROP_SIZE_MULTIPLIER, new Vector3(xScale, 1, 1));
+            buff.SetProperty(PROP_FLIP_X, entity.FaceLeftAtDefault() == faceRight);
         }
 
-        public static readonly VanillaBuffPropertyMeta PROP_SIZE_MULTIPLIER = new VanillaBuffPropertyMeta("SizeMultiplier");
+        public static readonly VanillaBuffPropertyMeta<bool> PROP_FLIP_X = new VanillaBuffPropertyMeta<bool>("FlipX");
     }
 }

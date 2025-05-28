@@ -87,6 +87,9 @@
         <variant id="mvz2:afraid" parent="mvz2:normal">
             <layer sprite="mvz2:characters/tokiko[4]" positionX="0" positionY="0" />
         </variant>
+        <variant id="mvz2:frightened" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/tokiko[5]" positionX="0" positionY="0" />
+        </variant>
     </character>
     <character id="seija" name="正邪">
         <variant id="mvz2:normal" width="560" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">
@@ -174,6 +177,94 @@
         </variant>
         <variant id="mvz2:bottle_worried" parent="mvz2:bottle_normal">
             <layer sprite="mvz2:characters/shinmyoumaru_bottle[2]" positionX="0" positionY="0" />
+        </variant>
+    </character>
+    <character id="futo" name="布都">
+        <variant id="mvz2:normal" width="584" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">
+            <layer sprite="mvz2:characters/futo[0]" />
+        </variant>
+        <variant id="mvz2:daze" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/futo[1]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:question" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/futo[2]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:scared" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/futo[3]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:worried" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/futo[4]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:cringe" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/futo[5]" positionX="0" positionY="0" />
+        </variant>
+    </character>
+    <character id="marisa" name="魔理沙">
+        <variant id="mvz2:normal" width="636" height="1280" extendLeft="100" pivotX="0.5" pivotY="0.65">
+            <layer sprite="mvz2:characters/marisa[0]" />
+        </variant>
+        <variant id="mvz2:happy" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/marisa[3]" positionX="288" positionY="192" />
+        </variant>
+        <variant id="mvz2:angry" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/marisa[4]" positionX="288" positionY="192" />
+        </variant>
+        <variant id="mvz2:scared" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/marisa[5]" positionX="288" positionY="192" />
+        </variant>
+        <variant id="mvz2:sad" width="636" height="1280" extendRight="0" pivotX="0.5" pivotY="0.65">
+            <layer sprite="mvz2:characters/marisa[1]" />
+        </variant>
+        <variant id="mvz2:unwilling" width="636" height="1280" extendRight="0" pivotX="0.5" pivotY="0.65">
+            <layer sprite="mvz2:characters/marisa[2]" />
+        </variant>
+    </character>
+    <character id="seiga" name="青娥">
+        <variant id="mvz2:normal" width="818" height="1280"  extendLeft="100" extendRight="100" pivotX="0.5" pivotY="0.65">
+            <layer sprite="mvz2:characters/seiga[0]" />
+        </variant>
+        <variant id="mvz2:happy" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seiga[1]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:evil" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seiga[2]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:cringe" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seiga[3]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:vigilant" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/seiga[4]" positionX="0" positionY="0" />
+        </variant>
+    </character>
+    <character id="miko" name="神子">
+        <variant id="mvz2:normal" width="817" height="1280" extendLeft="100" extendRight="100" pivotX="0.5" pivotY="0.6">
+            <layer sprite="mvz2:characters/miko[0]" />
+        </variant>
+        <variant id="mvz2:close_eyes" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/miko[1]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:surprised" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/miko[2]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:worried" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/miko[3]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:calm" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/miko[4]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:angry" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/miko[5]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:calm_close_eyes" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/miko[6]" positionX="0" positionY="0" />
+        </variant>
+        <variant id="mvz2:angry_close_eyes" parent="mvz2:normal">
+            <layer sprite="mvz2:characters/miko[7]" positionX="0" positionY="0" />
+        </variant>
+    </character>
+    <character id="hologram" name="影像">
+        <variant id="mvz2:normal" width="600" height="600" extendRight="0" pivotX="0.5" pivotY="0">
+            <layer sprite="mvz2:characters/hologram" />
         </variant>
     </character>
 </characters>

@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;
@@ -33,7 +32,7 @@ namespace MVZ2.MusicRoom
             informationText.text = info;
             descriptionText.text = description;
         }
-        public void SetPlaying(bool playing) 
+        public void SetPlaying(bool playing)
         {
             playButtonObj.SetActive(!playing);
             pauseButtonObj.SetActive(playing);
@@ -41,6 +40,10 @@ namespace MVZ2.MusicRoom
         public void SetMusicTime(float time)
         {
             barSlider.SetValueWithoutNotify(time);
+        }
+        public float GetMusicBarValue()
+        {
+            return barSlider.value;
         }
         public void SetSelectedItem(int index)
         {
@@ -51,12 +54,24 @@ namespace MVZ2.MusicRoom
                 item.SetSelected(index == i);
             }
         }
+        public void SetTrackButtonVisible(bool value)
+        {
+            trackButtonRoot.SetActive(value);
+        }
+        public void SetTrackButtonStyle(bool sub)
+        {
+            mainTrackButton.gameObject.SetActive(!sub);
+            subTrackButton.gameObject.SetActive(sub);
+        }
         private void Awake()
         {
             returnButton.onClick.AddListener(() => OnReturnClick?.Invoke());
             playButton.onClick.AddListener(() => OnPlayButtonClick?.Invoke());
             pauseButton.onClick.AddListener(() => OnPauseButtonClick?.Invoke());
             barSlider.onValueChanged.AddListener(value => OnMusicBarDrag?.Invoke(value));
+            musicBar.OnPointerUp += () => OnMusicBarPointerUp?.Invoke();
+            mainTrackButton.onClick.AddListener(() => OnTrackButtonClick?.Invoke());
+            subTrackButton.onClick.AddListener(() => OnTrackButtonClick?.Invoke());
         }
         private void OnItemClickCallback(MusicRoomListItem item)
         {
@@ -65,8 +80,10 @@ namespace MVZ2.MusicRoom
         public event Action OnReturnClick;
         public event Action OnPlayButtonClick;
         public event Action OnPauseButtonClick;
+        public event Action OnTrackButtonClick;
         public event Action<int> OnMusicItemClick;
         public event Action<float> OnMusicBarDrag;
+        public event Action OnMusicBarPointerUp;
 
         [SerializeField]
         private ElementList itemList;
@@ -83,9 +100,17 @@ namespace MVZ2.MusicRoom
         [SerializeField]
         private Button pauseButton;
         [SerializeField]
+        private GameObject trackButtonRoot;
+        [SerializeField]
+        private Button mainTrackButton;
+        [SerializeField]
+        private Button subTrackButton;
+        [SerializeField]
         private GameObject playButtonObj;
         [SerializeField]
         private GameObject pauseButtonObj;
+        [SerializeField]
+        private MusicBar musicBar;
         [SerializeField]
         private Slider barSlider;
     }

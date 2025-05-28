@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Buffs.Enemies;
@@ -18,11 +19,11 @@ using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEditor;
 using UnityEngine;
@@ -43,6 +44,11 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 伤害和血量
+        public static void DamageBlink(this Entity entity)
+        {
+            if (entity != null && !entity.HasBuff<DamageColorBuff>())
+                entity.AddBuff<DamageColorBuff>();
+        }
         public static int GetHealthState(this Entity entity, int stateCount)
         {
             return GetHealthState(entity.Health, entity.GetMaxHealth(), stateCount);
@@ -52,49 +58,50 @@ namespace MVZ2.Vanilla.Entities
             float stateHP = maxHealth / stateCount;
             return Mathf.CeilToInt(health / stateHP) - 1;
         }
-        public static DamageOutput TakeDamageNoSource(this Entity entity, float amount, DamageEffectList effects, bool toBody = true, bool toShield = false)
+        public static DamageOutput TakeDamageNoSource(this Entity entity, float amount, DamageEffectList effects, NamespaceID armorSlot = null)
         {
-            return entity.TakeDamage(amount, effects, new EntityReferenceChain(null), toBody, toShield);
+            return entity.TakeDamage(amount, effects, new EntityReferenceChain(null), armorSlot);
         }
-        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, Entity source, bool toBody = true, bool toShield = false)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, Entity source, NamespaceID armorSlot = null)
         {
-            return entity.TakeDamage(amount, effects, new EntityReferenceChain(source), toBody, toShield);
+            return entity.TakeDamage(amount, effects, new EntityReferenceChain(source), armorSlot);
         }
-        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source, bool toBody = true, bool toShield = false)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source, NamespaceID armorSlot = null)
         {
-            return TakeDamage(new DamageInput(amount, effects, entity, source, toBody, toShield));
+            return TakeDamage(new DamageInput(amount, effects, entity, source, armorSlot));
         }
         public static DamageOutput TakeDamage(DamageInput input)
         {
-            if (input == null)
-                return null;
-            if (input.Entity.IsInvincible() || input.Entity.IsDead)
-                return null;
-            if (!PreTakeDamage(input))
-                return null;
-            if (input.Amount <= 0)
-                return null;
             var result = new DamageOutput()
             {
                 Entity = input.Entity
             };
-            if (input.ToShield)
+            if (input == null)
+                return result;
+            if (input.Entity.IsInvincible() || input.Entity.IsDead)
+                return result;
+            if (!PreTakeDamage(input))
+                return result;
+            if (input.Amount <= 0)
+                return result;
+            if (!NamespaceID.IsValid(input.ShieldTarget))
             {
-                var shield = input.Entity.GetShield();
-                if (Armor.Exists(shield))
-                {
-                    result.ShieldResult = Armor.TakeDamage(input);
-                }
-            }
-            if (input.ToBody)
-            {
-                if (Armor.Exists(input.Entity.EquipedArmor) && !input.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
+                if (Armor.Exists(input.Entity.GetMainArmor()) && !input.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
                 {
                     ArmoredTakeDamage(input, result);
                 }
                 else
                 {
                     result.BodyResult = BodyTakeDamage(input);
+                }
+            }
+            else
+            {
+                var armor = input.Entity.GetArmorAtSlot(input.ShieldTarget);
+                if (Armor.Exists(armor))
+                {
+                    result.ShieldResult = armor.TakeDamage(input);
+                    result.ShieldTarget = input.ShieldTarget;
                 }
             }
 
@@ -106,30 +113,41 @@ namespace MVZ2.Vanilla.Entities
             Entity entity = damageInfo.Entity;
             if (entity == null)
                 return false;
-            entity.Definition.PreTakeDamage(damageInfo);
-            if (damageInfo.IsInterrupted)
-                return false;
-            damageInfo.Entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, damageInfo, c => c(damageInfo));
-            return !damageInfo.IsInterrupted;
+            var result = new CallbackResult(true);
+            entity.Definition.PreTakeDamage(damageInfo, result);
+            if (!result.IsBreakRequested)
+            {
+                var param = new VanillaLevelCallbacks.PreTakeDamageParams()
+                {
+                    input = damageInfo
+                };
+                damageInfo.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, param, result, entity.Type);
+            }
+            return result.GetValue<bool>();
         }
-        private static void PostTakeDamage(DamageOutput result)
+        private static void PostTakeDamage(DamageOutput output)
         {
-            Entity entity = result.Entity;
+            Entity entity = output.Entity;
             if (entity == null)
                 return;
-            entity.Definition.PostTakeDamage(result);
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, c => c(result));
+            entity.Definition.PostTakeDamage(output);
+            var param = new VanillaLevelCallbacks.PostTakeDamageParams()
+            {
+                output = output
+            };
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, param, entity.Type);
         }
         private static void ArmoredTakeDamage(DamageInput info, DamageOutput result)
         {
             var entity = info.Entity;
-            var armorResult = Armor.TakeDamage(info);
+            var armor = entity.GetMainArmor();
+            var armorResult = armor.TakeDamage(info);
             result.ArmorResult = armorResult;
             if (info.Effects.HasEffect(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY))
             {
                 result.BodyResult = BodyTakeDamage(info);
             }
-            else if (info.Effects.HasEffect(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !Armor.Exists(entity.EquipedArmor))
+            else if (info.Effects.HasEffect(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN) && !Armor.Exists(entity.GetMainArmor()))
             {
                 var armorSpendAmount = armorResult?.SpendAmount ?? 0;
                 float overkillDamage = info.Amount - armorSpendAmount;
@@ -226,8 +244,24 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 爆炸和溅射
+        public static DamageOutput[] Explode(this Entity entity, Vector3 center, float radius, int faction, float amount, DamageEffectList effects)
+        {
+            return entity.Level.Explode(center, radius, faction, amount, effects, entity);
+        }
+        public static DamageOutput[] SplashDamage(this Entity entity, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects)
+        {
+            return entity.Level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, entity);
+        }
+        #endregion
+
         #region 音效
 
+        public static void PlayCrySound(this Entity entity, NamespaceID soundID, float pitchMultiplier = 1, float volume = 1)
+        {
+            var pitch = entity.GetCryPitch() * pitchMultiplier;
+            entity.PlaySound(soundID, pitch, volume);
+        }
         public static void PlaySound(this Entity entity, NamespaceID soundID, float pitch = 1, float volume = 1)
         {
             entity.Level.PlaySound(soundID, entity.Position, pitch, volume);
@@ -238,24 +272,12 @@ namespace MVZ2.Vanilla.Entities
                 return;
             var entity = damage.Entity;
 
+            var shieldResult = damage.ShieldResult;
+            PlayArmorHitSound(entity, shieldResult);
+
             var armorResult = damage.ArmorResult;
-            if (armorResult != null && !armorResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
-            {
-                var shell = armorResult.ShellDefinition;
-                NamespaceID hitSound = null;
-                if (shell != null && shell.GetSpecialShellHitSound(armorResult, true) is NamespaceID specialSound && NamespaceID.IsValid(specialSound))
-                {
-                    hitSound = specialSound;
-                }
-                else if (shell != null && shell.GetHitSound() is NamespaceID shellSound && NamespaceID.IsValid(shellSound))
-                {
-                    hitSound = shellSound;
-                }
-                if (NamespaceID.IsValid(hitSound))
-                {
-                    entity.PlaySound(hitSound);
-                }
-            }
+            PlayArmorHitSound(entity, armorResult);
+
             var bodyResult = damage.BodyResult;
             if (bodyResult != null && !bodyResult.Effects.HasEffect(VanillaDamageEffects.MUTE))
             {
@@ -266,6 +288,31 @@ namespace MVZ2.Vanilla.Entities
                     hitSound = specialSound;
                 }
                 else if (entity.GetHitSound() is NamespaceID specificSound && NamespaceID.IsValid(specificSound))
+                {
+                    hitSound = specificSound;
+                }
+                else if (shell != null && shell.GetHitSound() is NamespaceID shellSound && NamespaceID.IsValid(shellSound))
+                {
+                    hitSound = shellSound;
+                }
+                if (NamespaceID.IsValid(hitSound))
+                {
+                    entity.PlaySound(hitSound);
+                }
+            }
+        }
+        public static void PlayArmorHitSound(this Entity entity, ArmorDamageResult result)
+        {
+            if (result != null && !result.Effects.HasEffect(VanillaDamageEffects.MUTE))
+            {
+                var armor = result.Armor;
+                var shell = result.ShellDefinition;
+                NamespaceID hitSound = null;
+                if (shell != null && shell.GetSpecialShellHitSound(result, true) is NamespaceID specialSound && NamespaceID.IsValid(specialSound))
+                {
+                    hitSound = specialSound;
+                }
+                else if (armor.GetHitSound() is NamespaceID specificSound && NamespaceID.IsValid(specificSound))
                 {
                     hitSound = specificSound;
                 }
@@ -307,6 +354,10 @@ namespace MVZ2.Vanilla.Entities
             else if (damageEffects.HasEffect(VanillaDamageEffects.TINY))
             {
                 return VanillaSoundID.smallHit;
+            }
+            else if (damageEffects.HasEffect(VanillaDamageEffects.LIGHTNING))
+            {
+                return VanillaSoundID.zap;
             }
             return null;
         }
@@ -404,9 +455,34 @@ namespace MVZ2.Vanilla.Entities
         {
             if (entity == null)
                 return;
-            var buff = entity.AddBuff<StunBuff>();
-            buff.SetProperty(StunBuff.PROP_TIMER, new FrameTimer(timeout));
+            var buff = entity.GetFirstBuff<StunBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<StunBuff>();
+            }
+            StunBuff.SetStunTime(buff, timeout);
         }
+
+        #region 阻挡火焰
+        public static bool WillDamageBlockFire(this DamageOutput damage)
+        {
+            if (damage == null)
+                return false;
+            foreach (var result in damage.GetAllResults())
+            {
+                if (result == null)
+                    continue;
+                var shell = result.ShellDefinition;
+                if (shell == null)
+                    continue;
+                if (shell.BlocksFire())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        #endregion
 
 
         #region 网格
@@ -417,7 +493,7 @@ namespace MVZ2.Vanilla.Entities
             foreach (var grid in entityGridBuffer)
             {
                 entityGridLayerBuffer.Clear();
-                entity.GetTakingGridLayers(grid, entityGridLayerBuffer);
+                entity.GetTakingGridLayersNonAlloc(grid, entityGridLayerBuffer);
                 foreach (var layer in entityGridLayerBuffer)
                 {
                     if (CanTakeGrid(entity, grid, layer))
@@ -477,17 +553,6 @@ namespace MVZ2.Vanilla.Entities
         {
             return Heal(new HealInput(amount, entity, source));
         }
-        public static HealOutput HealArmor(this Entity entity, float amount, Entity source)
-        {
-            return entity.HealArmor(amount, new EntityReferenceChain(source));
-        }
-        public static HealOutput HealArmor(this Entity entity, float amount, EntityReferenceChain source)
-        {
-            var armor = entity.EquipedArmor;
-            if (armor == null)
-                return null;
-            return Heal(new HealInput(amount, entity, armor, source));
-        }
         public static HealOutput Heal(HealInput info)
         {
             if (info.Entity.IsDead)
@@ -513,15 +578,24 @@ namespace MVZ2.Vanilla.Entities
             var entity = info.Entity;
             if (entity == null)
                 return false;
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_ENTITY_HEAL, info, c => c(info));
-            return !info.IsInterrupted;
+            var result = new CallbackResult(true);
+            var param = new VanillaLevelCallbacks.PreHealParams()
+            {
+                input = info
+            };
+            entity.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_ENTITY_HEAL, param, result);
+            return result.GetValue<bool>();
         }
-        private static void PostHeal(HealOutput result)
+        private static void PostHeal(HealOutput output)
         {
-            var entity = result.Entity;
+            var entity = output.Entity;
             if (entity == null)
                 return;
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_HEAL, c => c(result));
+            var param = new VanillaLevelCallbacks.PostHealParams()
+            {
+                output = output
+            };
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_HEAL, param);
         }
         private static HealOutput ArmorHeal(HealInput info)
         {
@@ -612,29 +686,6 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 堆叠
-        public static bool CanStackFrom(this Entity target, NamespaceID entityID)
-        {
-            var level = target.Level;
-            var definition = level.Content.GetEntityDefinition(entityID);
-            var result = new TriggerResultBoolean();
-            foreach (var behaviour in definition.GetBehaviours<IStackEntity>())
-            {
-                behaviour.CanStackOnEntity(target, result);
-            }
-            return result.Result;
-        }
-        public static void StackFromEntity(this Entity target, NamespaceID entityID)
-        {
-            var level = target.Level;
-            var definition = level.Content.GetEntityDefinition(entityID);
-            foreach (var behaviour in definition.GetBehaviours<IStackEntity>())
-            {
-                behaviour.StackOnEntity(target);
-            }
-        }
-        #endregion
-
         #region 阵营
         public static void Charm(this Entity entity, int faction)
         {
@@ -645,7 +696,7 @@ namespace MVZ2.Vanilla.Entities
             }
             CharmBuff.SetPermanent(buff, faction);
             buff.Update();
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, c => c(entity, buff));
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, new VanillaLevelCallbacks.PostEntityCharmParams(entity, buff));
         }
         public static void CharmWithSource(this Entity entity, Entity source)
         {
@@ -656,7 +707,7 @@ namespace MVZ2.Vanilla.Entities
             }
             CharmBuff.SetSource(buff, source);
             buff.Update();
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, c => c(entity, buff));
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, new VanillaLevelCallbacks.PostEntityCharmParams(entity, buff));
         }
         public static void RemoveCharm(this Entity entity)
         {
@@ -666,27 +717,127 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.HasBuff<CharmBuff>();
         }
-        public static void SetFactionAndDirection(this Entity entity, int faction)
+        #endregion
+
+        #region 护甲
+        public static Armor GetMainArmor(this Entity entity)
         {
-            entity.SetFaction(faction);
-            var buff = entity.GetFirstBuff<FactionBuff>();
-            if (buff == null)
-            {
-                buff = entity.AddBuff<FactionBuff>();
-            }
-            buff.Update();
+            return entity.GetArmorAtSlot(VanillaArmorSlots.main);
+        }
+        public static Armor EquipMainArmor(this Entity entity, NamespaceID id)
+        {
+            return entity.EquipArmorTo(VanillaArmorSlots.main, id);
         }
         #endregion
 
+        #region 寻路
+        public static bool MoveOrthogonally(this Entity entity, int targetGridIndex, float speed)
+        {
+            var level = entity.Level;
+            var targetGridPosition = level.GetEntityGridPositionByIndex(targetGridIndex);
+            var targetGridDistance = targetGridPosition - entity.Position;
+            if (targetGridDistance.magnitude <= speed)
+            {
+                // 更新目标。
+                entity.Position = targetGridPosition;
+                return true;
+            }
+            else
+            {
+                entity.Position += targetGridDistance.normalized * speed;
+            }
+            return false;
+        }
+        public static LawnGrid GetChaseTargetGrid(this Entity entity, Entity target, Func<Entity, Vector2Int, bool> gridValidator)
+        {
+            var level = entity.Level;
+            var lane = entity.GetLane();
+            var column = entity.GetColumn();
+            var x = entity.Position.x;
+
+            Vector2Int currentGrid = new Vector2Int(column, lane);
+            Vector2Int newTargetGridOffset = Vector2Int.zero;
+            var possibleDirections = adjacentGridOffsets.Where(o => gridValidator(entity, currentGrid + o));
+            if (possibleDirections.Count() <= 0)
+                return entity.GetGrid();
+
+            if (target.ExistsAndAlive() && possibleDirections.Count() > 0)
+            {
+                var targetLane = target.GetLane();
+                float currentDistanceY = currentGrid.y - targetLane;
+                float currentDistanceX = entity.Position.x - target.Position.x;
+                var orderedDirections = possibleDirections
+                    .OrderBy(o => Mathf.Abs(currentDistanceY + o.y) - Mathf.Abs(currentDistanceY))
+                    .ThenBy(o => Mathf.Abs(currentDistanceX + o.x * level.GetGridWidth()) - Mathf.Abs(currentDistanceX));
+                newTargetGridOffset = orderedDirections.FirstOrDefault();
+            }
+            else
+            {
+                var rng = entity.RNG;
+                newTargetGridOffset = possibleDirections.Random(rng);
+            }
+            return level.GetGrid(currentGrid + newTargetGridOffset) ?? entity.GetGrid();
+        }
+        public static LawnGrid GetChaseTargetGrid(this Entity entity, Entity target)
+        {
+            return GetChaseTargetGrid(entity, target, (e, p) => e.Level.ValidateGridOutOfBounds(p));
+        }
+        public static LawnGrid GetEvadeTargetGrid(this Entity entity, Entity target, Func<Entity, Vector2Int, bool> gridValidator)
+        {
+            var level = entity.Level;
+            var lane = entity.GetLane();
+            var column = entity.GetColumn();
+            var x = entity.Position.x;
+
+            Vector2Int currentGrid = new Vector2Int(column, lane);
+            Vector2Int newTargetGridOffset = Vector2Int.zero;
+            var possibleDirections = adjacentGridOffsets.Where(o => gridValidator(entity, currentGrid + o));
+            if (possibleDirections.Count() <= 0)
+                return entity.GetGrid();
+
+            if (target.ExistsAndAlive() && possibleDirections.Count() > 0)
+            {
+                var targetLane = target.GetLane();
+                float currentDistanceY = currentGrid.y - targetLane;
+                float currentDistanceX = entity.Position.x - target.Position.x;
+                var orderedDirections = possibleDirections
+                    .OrderByDescending(o => Mathf.Abs(currentDistanceY + o.y) - Mathf.Abs(currentDistanceY))
+                    .ThenByDescending(o => Mathf.Abs(currentDistanceX + o.x * level.GetGridWidth()) - Mathf.Abs(currentDistanceX));
+                newTargetGridOffset = orderedDirections.FirstOrDefault();
+            }
+            else
+            {
+                var rng = entity.RNG;
+                newTargetGridOffset = possibleDirections.Random(rng);
+            }
+            return level.GetGrid(currentGrid + newTargetGridOffset) ?? entity.GetGrid();
+        }
+        public static LawnGrid GetEvadeTargetGrid(this Entity entity, Entity target)
+        {
+            return GetEvadeTargetGrid(entity, target, (e, p) => e.Level.ValidateGridOutOfBounds(p));
+        }
+        public static readonly Vector2Int[] adjacentGridOffsets = new Vector2Int[]
+        {
+            Vector2Int.down,
+            Vector2Int.up,
+            Vector2Int.right,
+            Vector2Int.left
+        };
+        #endregion
         public static SpawnParams GetSpawnParams(this Entity entity)
         {
             var param = new SpawnParams();
             param.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
             return param;
         }
+        public static Entity SpawnWithParams(this Entity entity, NamespaceID id, Vector3 pos)
+        {
+            var param = entity.GetSpawnParams();
+            return entity.Spawn(id, pos, param);
+        }
 
         private const string PROP_REGION = "entities";
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_SHINE_RING = new VanillaEntityPropertyMeta("LightShineRing");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_SHINE_RING = new VanillaEntityPropertyMeta<EntityID>("LightShineRing");
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace MVZ2.Models
@@ -61,6 +60,9 @@ namespace MVZ2.Models
         }
 
         public override void SetShaderColor(string name, Color color)
+        {
+        }
+        public override void SetShaderVector(string name, Vector4 color)
         {
         }
         protected override SerializableModelGraphicGroup CreateSerializable()

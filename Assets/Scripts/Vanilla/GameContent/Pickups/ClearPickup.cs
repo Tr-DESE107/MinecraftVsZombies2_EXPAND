@@ -1,9 +1,9 @@
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -73,38 +73,33 @@ namespace MVZ2.GameContent.Pickups
             base.PostCollect(pickup);
             pickup.Velocity = Vector3.zero;
             var level = pickup.Level;
+
+            var difficultyMeta = Global.Game.GetDifficultyMeta(level.Difficulty);
+            int money = 0;
             if (level.IsRerun)
             {
-                int money = 250;
-                if (level.Difficulty == VanillaDifficulties.easy)
+                money = 250;
+                if (difficultyMeta != null)
                 {
-                    money = 50;
+                    money = difficultyMeta.RerunClearMoney;
                 }
-                else if (level.Difficulty == VanillaDifficulties.hard)
-                {
-                    money = 1000;
-                }
-                else if (level.Difficulty == VanillaDifficulties.lunatic)
-                {
-                    money = 3000;
-                }
-                GemEffect.SpawnGemEffects(level, money, pickup.Position, pickup, false);
             }
             else
             {
-                if (level.Difficulty == VanillaDifficulties.hard)
+                if (level.DropsTrophy())
                 {
-                    GemEffect.SpawnGemEffects(level, 250, pickup.Position, pickup, false);
+                    money = 1000;
                 }
-                else if (level.Difficulty == VanillaDifficulties.lunatic)
+                else if (difficultyMeta != null)
                 {
-                    GemEffect.SpawnGemEffects(level, 500, pickup.Position, pickup, false);
+                    money = difficultyMeta.ClearMoney;
                 }
-                
             }
+            GemEffect.SpawnGemEffects(level, money, pickup.Position, pickup, false);
+
             foreach (var p in level.GetEntities(EntityTypes.PICKUP))
             {
-                if (p == pickup || p.IsCollected())
+                if (p == pickup || p.IsCollected() || p.NoAutoCollect())
                     continue;
                 p.Collect();
             }
@@ -119,7 +114,7 @@ namespace MVZ2.GameContent.Pickups
         private static Vector3 GetMoveTargetPosition(Entity entity)
         {
             var level = entity.Level;
-            Vector3 slotPosition = level.GetScreenCenterPosition() + Vector2.down * (entity.GetSize().y * entity.GetDisplayScale().y * 0.5f);
+            Vector3 slotPosition = level.GetScreenCenterPosition() + Vector2.down * (entity.GetSize().y * entity.GetFinalDisplayScale().y * 0.5f);
             return new Vector3(slotPosition.x, slotPosition.y - COLLECTED_Z - 15, COLLECTED_Z);
         }
         private NamespaceID GetPickupModelID(Entity entity)

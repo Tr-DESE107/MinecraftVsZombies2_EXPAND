@@ -2,7 +2,6 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
@@ -24,9 +23,8 @@ namespace MVZ2.GameContent.Contraptions
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            SetAttackTimer(entity, new FrameTimer(AttackInterval));
+            SetAttackTimer(entity, new FrameTimer(AttackCooldown));
             SetEvocationTimer(entity, new FrameTimer(EvocationDuration));
-            SetEvocationAttackTimer(entity, new FrameTimer(EvocationAttackInterval));
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -35,11 +33,11 @@ namespace MVZ2.GameContent.Contraptions
             {
                 var timer = GetAttackTimer(entity);
                 timer.Run(entity.GetAttackSpeed());
-                if (timer.Expired)
+                if (timer.Expired && entity.IsTimeInterval(DetectInterval))
                 {
-                    timer.Reset();
                     detectBuffer.Clear();
                     detector.DetectMultiple(entity, detectBuffer);
+                    bool damaged = false;
                     if (detectBuffer.Count > 0)
                     {
                         foreach (var target in detectBuffer)
@@ -47,15 +45,21 @@ namespace MVZ2.GameContent.Contraptions
                             target.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.GROUND_SPIKES), entity);
                         }
                         entity.TriggerAnimation("Attack");
+                        damaged = true;
+                    }
+                    if (damaged)
+                    {
+                        timer.Reset();
                     }
                 }
             }
             else
             {
                 var evocationTimer = GetEvocationTimer(entity);
-                var attackTimer = GetEvocationAttackTimer(entity);
+                var attackTimer = GetAttackTimer(entity);
                 evocationTimer.Run();
                 attackTimer.Run(entity.GetAttackSpeed());
+
                 detectBuffer.Clear();
                 detectorEvoked.DetectMultiple(entity, detectBuffer);
 
@@ -95,6 +99,7 @@ namespace MVZ2.GameContent.Contraptions
                 // 结束
                 if (evocationTimer.Expired)
                 {
+                    attackTimer.ResetTime(AttackCooldown);
                     entity.SetEvoked(false);
                 }
             }
@@ -105,29 +110,28 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetEvoked(true);
             var evocationTimer = GetEvocationTimer(entity);
             evocationTimer.ResetTime(EvocationDuration);
-            var attackTimer = GetEvocationAttackTimer(entity);
-            attackTimer.ResetTime(EvocationAttackInterval);
+            var attackTimer = GetAttackTimer(entity);
+            attackTimer.ResetTime(EvocationAttackCooldown);
         }
         public static FrameTimer GetAttackTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_ATTACK_TIMER);
         public static void SetAttackTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_ATTACK_TIMER, timer);
         public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOCATION_TIMER);
         public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_EVOCATION_TIMER, timer);
-        public static FrameTimer GetEvocationAttackTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOCATION_ATTACK_TIMER);
-        public static void SetEvocationAttackTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_EVOCATION_ATTACK_TIMER, timer);
         public const float PULL_SPEED = 10;
         private const string PROP_REGION = "spikes_behaviour";
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_ATTACK_TIMER = new VanillaEntityPropertyMeta("AttackTimer");
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_ATTACK_TIMER = new VanillaEntityPropertyMeta("EvocationAttackTimer");
-        public virtual int AttackInterval => 30;
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_ATTACK_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("AttackTimer");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_ATTACK_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationAttackTimer");
+        public virtual int AttackCooldown => 30;
         public virtual int EvocationDuration => 120;
-        public virtual int EvocationAttackInterval => 4;
+        public virtual int EvocationAttackCooldown => 4;
+        public virtual int DetectInterval => 4;
         public virtual NamespaceID SpikeParticleID => VanillaEffectID.spikeParticles;
         private Detector detector;
         private Detector detectorEvoked;
-        private List<EntityCollider> detectBuffer = new List<EntityCollider>();
+        private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
     }
 }

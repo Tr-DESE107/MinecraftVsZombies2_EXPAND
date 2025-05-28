@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level.Collisions;
 using PVZEngine.SeedPacks;
 using Tools;
 
@@ -23,6 +24,7 @@ namespace PVZEngine.Level
 
 
         public int seed;
+        public long levelTime;
         public bool isCleared;
         public NamespaceID stageDefinitionID;
         public NamespaceID areaDefinitionID;
@@ -40,10 +42,7 @@ namespace PVZEngine.Level
         public SerializablePropertyBlock properties;
 
         public SerializableGrid[] grids;
-        public float rechargeSpeed;
-        public float rechargeTimeMultiplier;
         public SerializableClassicSeedPack[] seedPacks;
-        public SerializableClassicSeedPack[] seedPackPool;
         public SerializableConveyorSeedPack[] conveyorSeedPacks;
         public bool requireCards;
         public long currentEntityID = 1;
@@ -61,6 +60,7 @@ namespace PVZEngine.Level
         public bool levelProgressVisible;
         public List<int> spawnedLanes;
         public List<NamespaceID> spawnedID;
+        public ISerializableCollisionSystem collisionSystem;
 
         public SerializableBuffList buffs;
 

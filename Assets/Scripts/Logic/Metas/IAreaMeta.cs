@@ -1,4 +1,5 @@
 ﻿using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2Logic.Level
 {
@@ -14,12 +15,14 @@ namespace MVZ2Logic.Level
         public float EnemySpawnX { get; }
         public float DoorZ { get; }
 
-        public float NightValue { get; }
+        public Color BackgroundLight { get; }
+        public Color GlobalLight { get; }
 
         public float GridWidth { get; }
         public float GridHeight { get; }
         public float GridLeftX { get; }
         public float GridBottomZ { get; }
+        public float EntityLaneZOffset { get; }
         public int Lanes { get; }
         public int Columns { get; }
 

@@ -1,4 +1,3 @@
-using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
@@ -98,9 +97,7 @@ namespace MVZ2.Vanilla.Enemies
             deathTimer.Run();
             if (deathTimer.Expired)
             {
-                var smoke = enemy.Level.Spawn(VanillaEffectID.smoke, enemy.Position, enemy);
-                smoke.SetSize(enemy.GetSize());
-                enemy.Remove();
+                enemy.FaintRemove();
             }
         }
         protected virtual void UpdateStateAttack(Entity enemy)
@@ -113,8 +110,8 @@ namespace MVZ2.Vanilla.Enemies
         {
         }
         private const string PROP_REGION = "state_enemy";
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_DEATH_TIMER = new VanillaEntityPropertyMeta("DeathTimer");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DEATH_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("DeathTimer");
     }
 
 }

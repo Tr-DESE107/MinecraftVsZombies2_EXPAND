@@ -1,8 +1,6 @@
 ﻿using MVZ2.Managers;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 
 namespace MVZ2.Models
 {
@@ -20,8 +18,8 @@ namespace MVZ2.Models
 
 
             //创建一个用于渲染图片的RenderTexture
-            var colorFormat = GetSupportedColorFormat();
-            var depthFormat = GetSupportedDepthFormat();
+            var colorFormat = Main.GraphicsManager.GetSupportedColorFormat();
+            var depthFormat = Main.GraphicsManager.GetSupportedDepthFormat();
             RenderTexture renderTexture = new RenderTexture(width, height, colorFormat, depthFormat);
             renderTexture.antiAliasing = 1;
             renderTexture.filterMode = FilterMode.Trilinear;
@@ -71,53 +69,7 @@ namespace MVZ2.Models
 
             return sprite;
         }
-        private GraphicsFormat GetSupportedColorFormat()
-        {
-            if (confirmedColorFormat)
-            {
-                return supportedColorFormat;
-            }
-            Debug.Log("Checking supported color formats...");
-            var format = SystemInfo.GetGraphicsFormat(DefaultFormat.LDR);
-            if (!SystemInfo.IsFormatSupported(format, FormatUsage.Render))
-            {
-                Debug.LogWarning("Cannot find a supported color format for device, using default color format.");
-                return GraphicsFormat.R8G8B8A8_SRGB;
-            }
-            else
-            {
-                Debug.Log($"Found supported color format {format}.");
-                confirmedColorFormat = true;
-                supportedColorFormat = format;
-                return format;
-            }
-        }
-        private GraphicsFormat GetSupportedDepthFormat()
-        {
-            if (confirmedDepthFormat)
-            {
-                return supportedDepthFormat;
-            }
-            Debug.Log("Checking supported depth formats...");
-            var format = SystemInfo.GetGraphicsFormat(DefaultFormat.DepthStencil);
-            if (!SystemInfo.IsFormatSupported(format, FormatUsage.Render))
-            {
-                Debug.LogWarning("Cannot find a supported depth format for device, using default depth format.");
-                return GraphicsFormat.None;
-            }
-            else
-            {
-                Debug.Log($"Found supported depth format {format}.");
-                confirmedDepthFormat = true;
-                supportedDepthFormat = format;
-                return format;
-            }
-        }
         public MainManager Main => main;
-        private bool confirmedColorFormat = false;
-        private GraphicsFormat supportedColorFormat = GraphicsFormat.R8G8B8A8_SRGB;
-        private bool confirmedDepthFormat = false;
-        private GraphicsFormat supportedDepthFormat = GraphicsFormat.D32_SFloat_S8_UInt;
         [SerializeField]
         private MainManager main;
         [SerializeField]

@@ -12,7 +12,11 @@ namespace MVZ2.Level.UI
         {
             viewLawnButton.gameObject.SetActive(viewData.canViewLawn);
             repickButton.gameObject.SetActive(viewData.canRepick);
-            displayer.SetCommandBlockActive(viewData.hasCommandBlock);
+            commandBlockSlot.SetCommandBlockActive(viewData.hasCommandBlock);
+        }
+        public void UpdateCommandBlockItem(ChoosingBlueprintViewData viewData)
+        {
+            commandBlockSlot.UpdateCommandBlockItem(viewData);
         }
         public void UpdateItems(ChoosingBlueprintViewData[] viewDatas)
         {
@@ -22,6 +26,10 @@ namespace MVZ2.Level.UI
         {
             return displayer.GetItem(index);
         }
+        public Blueprint GetCommandBlockBlueprintItem()
+        {
+            return commandBlockSlot.GetCommandBlockBlueprint();
+        }
         private void Awake()
         {
             startButton.onClick.AddListener(() => OnStartButtonClick?.Invoke());
@@ -30,7 +38,9 @@ namespace MVZ2.Level.UI
             displayer.OnBlueprintPointerEnter += (index, data) => OnBlueprintPointerEnter?.Invoke(index, data);
             displayer.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
             displayer.OnBlueprintSelect += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
-            displayer.OnCommandBlockBlueprintClick += () => OnCommandBlockBlueprintClick?.Invoke();
+            commandBlockSlot.OnPointerEnter += () => OnCommandBlockBlueprintPointerEnter?.Invoke();
+            commandBlockSlot.OnPointerExit += () => OnCommandBlockBlueprintPointerExit?.Invoke();
+            commandBlockSlot.OnClick += () => OnCommandBlockBlueprintClick?.Invoke();
         }
         protected void CallBlueprintPointerEnter(int index, PointerEventData eventData)
         {
@@ -47,6 +57,8 @@ namespace MVZ2.Level.UI
         public event Action OnStartButtonClick;
         public event Action OnViewLawnButtonClick;
         public event Action OnRepickButtonClick;
+        public event Action OnCommandBlockBlueprintPointerEnter;
+        public event Action OnCommandBlockBlueprintPointerExit;
         public event Action OnCommandBlockBlueprintClick;
         public event Action<int, PointerEventData> OnBlueprintPointerEnter;
         public event Action<int, PointerEventData> OnBlueprintPointerExit;
@@ -59,6 +71,8 @@ namespace MVZ2.Level.UI
         Button repickButton;
         [SerializeField]
         BlueprintDisplayer displayer;
+        [SerializeField]
+        CommandBlockSlot commandBlockSlot;
     }
     public struct BlueprintChoosePanelViewData
     {

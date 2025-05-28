@@ -109,7 +109,7 @@ namespace MVZ2.GameContent.Buffs
             var level = entity.Level;
             var range = 50;
             Vector3 centerPos = entity.GetCenter();
-            level.Explode(centerPos, range, GetFaction(buff), 500, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE), entity);
+            entity.Explode(centerPos, range, GetFaction(buff), 500, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE));
             var explosion = level.Spawn(VanillaEffectID.explosion, centerPos, entity);
             explosion.SetSize(Vector3.one * (range * 2));
             entity.PlaySound(VanillaSoundID.explosion);
@@ -136,8 +136,10 @@ namespace MVZ2.GameContent.Buffs
         {
             return buff.GetProperty<int>(PROP_EXPLODE_TIME);
         }
-        private void PostEntityDeathCallback(Entity entity, DeathInfo info)
+        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var info = param.deathInfo;
             var buffs = entity.GetBuffs<ParabotBuff>();
             foreach (var buff in buffs)
             {
@@ -155,10 +157,10 @@ namespace MVZ2.GameContent.Buffs
                 priority += 100000000;
             return priority;
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
-        public static readonly VanillaBuffPropertyMeta PROP_COOLDOWN = new VanillaBuffPropertyMeta("Cooldown");
-        public static readonly VanillaBuffPropertyMeta PROP_FACTION = new VanillaBuffPropertyMeta("Faction");
-        public static readonly VanillaBuffPropertyMeta PROP_EXPLODE_TIME = new VanillaBuffPropertyMeta("ExplodeTime");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_COOLDOWN = new VanillaBuffPropertyMeta<int>("Cooldown");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_FACTION = new VanillaBuffPropertyMeta<int>("Faction");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_EXPLODE_TIME = new VanillaBuffPropertyMeta<int>("ExplodeTime");
         public const int MAX_COOLDOWN = 45;
         public const int MAX_EXPLODE_TIME = 24;
         public const float RANGE = 280;

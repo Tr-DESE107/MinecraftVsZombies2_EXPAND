@@ -28,6 +28,10 @@ namespace PVZEngine
         {
             return provider.GetDefinition<EntityDefinition>(EngineDefinitionTypes.ENTITY, defRef);
         }
+        public static EntityBehaviourDefinition GetEntityBehaviourDefinition(this IGameContent provider, NamespaceID defRef)
+        {
+            return provider.GetDefinition<EntityBehaviourDefinition>(EngineDefinitionTypes.ENTITY_BEHAVIOUR, defRef);
+        }
         public static SeedDefinition GetSeedDefinition(this IGameContent provider, NamespaceID defRef)
         {
             return provider.GetDefinition<SeedDefinition>(EngineDefinitionTypes.SEED, defRef);
@@ -63,6 +67,10 @@ namespace PVZEngine
         public static ArmorDefinition GetArmorDefinition(this IGameContent provider, NamespaceID defRef)
         {
             return provider.GetDefinition<ArmorDefinition>(EngineDefinitionTypes.ARMOR, defRef);
+        }
+        public static ArmorBehaviourDefinition GetArmorBehaviourDefinition(this IGameContent provider, NamespaceID defRef)
+        {
+            return provider.GetDefinition<ArmorBehaviourDefinition>(EngineDefinitionTypes.ARMOR_BEHAVIOUR, defRef);
         }
         public static SpawnDefinition GetSpawnDefinition(this IGameContent provider, NamespaceID defRef)
         {

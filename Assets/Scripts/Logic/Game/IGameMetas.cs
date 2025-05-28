@@ -11,10 +11,15 @@ namespace MVZ2Logic.Games
     {
         public IStageMeta GetStageMeta(NamespaceID id);
         public IStageMeta[] GetModStageMetas(string spaceName);
+        public IDifficultyMeta GetDifficultyMeta(NamespaceID id);
         public IAreaMeta GetAreaMeta(NamespaceID id);
         public IAreaMeta[] GetModAreaMetas(string spaceName);
         public IEntityMeta GetEntityMeta(NamespaceID id);
         public IEntityMeta[] GetModEntityMetas(string spaceName);
+        public IEntityCounterMeta GetEntityCounterMeta(NamespaceID id);
+        public IArmorSlotMeta GetArmorSlotMeta(NamespaceID id);
+        public IArmorMeta GetArmorMeta(NamespaceID id);
+        public IArmorMeta[] GetModArmorMetas(string spaceName);
         public IArtifactMeta[] GetModArtifactMetas(string spaceName);
         public IModelMeta GetModelMeta(NamespaceID id);
         public IModelMeta[] GetModModelMetas(string spaceName);

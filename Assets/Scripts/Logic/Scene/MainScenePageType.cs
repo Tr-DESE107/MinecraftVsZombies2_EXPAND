@@ -2,7 +2,7 @@
 {
     public enum MainScenePageType
     {
-        Landing,
+        Splash,
         Titlescreen,
         Mainmenu,
         Note,
@@ -11,6 +11,7 @@
         Store,
         Archive,
         Addons,
-        MusicRoom
+        MusicRoom,
+        Arcade
     }
 }

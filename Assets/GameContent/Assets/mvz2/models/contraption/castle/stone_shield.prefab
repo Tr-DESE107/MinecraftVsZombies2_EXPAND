@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4695112659854181259}
   - component: {fileID: 9194529168051261312}
   - component: {fileID: 5198027081904949379}
+  - component: {fileID: 2902011593029841973}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -111,6 +112,19 @@ SortingGroup:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_SortAtRoot: 1
+--- !u!114 &2902011593029841973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124976009107582461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &2776252855385795526
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +138,7 @@ GameObject:
   - component: {fileID: 5856378202632755124}
   - component: {fileID: 4519263659635322860}
   - component: {fileID: 760192793472474558}
+  - component: {fileID: 8996049184731776934}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -240,6 +255,19 @@ MonoBehaviour:
   - {fileID: 757936343, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
   - {fileID: -273153786, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
   index: 0
+--- !u!114 &8996049184731776934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2776252855385795526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1001 &1586506072868367642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -331,11 +359,11 @@ PrefabInstance:
     - target: {fileID: 6702236362217210405, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
       value: 
-      objectReference: {fileID: 5198027081904949379}
+      objectReference: {fileID: 2902011593029841973}
     - target: {fileID: 6702236362217210405, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: subSortingGroups.Array.data[1]
       value: 
-      objectReference: {fileID: 4519263659635322860}
+      objectReference: {fileID: 8996049184731776934}
     - target: {fileID: 7595930338437114274, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.005

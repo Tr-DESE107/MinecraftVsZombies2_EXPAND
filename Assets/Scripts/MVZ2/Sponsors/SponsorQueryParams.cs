@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Newtonsoft.Json;
 using UnityEngine;
 
 namespace MVZ2.Supporters

@@ -37,6 +37,16 @@ namespace MVZ2.Models
             renderer.SetPropertyBlock(propertyBlock);
             colorProperties[name] = value;
         }
+        public void SetVector(string name, Vector4 value)
+        {
+            var propertyBlock = PropertyBlock;
+            var renderer = Renderer;
+            propertyBlock.Clear();
+            renderer.GetPropertyBlock(propertyBlock);
+            propertyBlock.SetVector(name, value);
+            renderer.SetPropertyBlock(propertyBlock);
+            vectorProperties[name] = value;
+        }
 
         public override SerializableGraphicElement ToSerializable()
         {
@@ -45,6 +55,7 @@ namespace MVZ2.Models
                 colorProperties = colorProperties.ToDictionary(p => p.Key, p => p.Value),
                 intProperties = intProperties.ToDictionary(p => p.Key, p => p.Value),
                 floatProperties = floatProperties.ToDictionary(p => p.Key, p => p.Value),
+                vectorProperties = vectorProperties.ToDictionary(p => p.Key, p => p.Value),
             };
         }
         public override void LoadFromSerializable(SerializableGraphicElement serializable)
@@ -54,6 +65,7 @@ namespace MVZ2.Models
             intProperties.Clear();
             floatProperties.Clear();
             colorProperties.Clear();
+            vectorProperties.Clear();
 
             var propertyBlock = PropertyBlock;
             var renderer = Renderer;
@@ -73,6 +85,11 @@ namespace MVZ2.Models
             {
                 propertyBlock.SetColor(prop.Key, prop.Value);
                 colorProperties[prop.Key] = prop.Value;
+            }
+            foreach (var prop in rendererElement.vectorProperties)
+            {
+                propertyBlock.SetVector(prop.Key, prop.Value);
+                vectorProperties[prop.Key] = prop.Value;
             }
             renderer.SetPropertyBlock(propertyBlock);
         }
@@ -102,6 +119,7 @@ namespace MVZ2.Models
         private Dictionary<string, float> floatProperties = new Dictionary<string, float>();
         private Dictionary<string, int> intProperties = new Dictionary<string, int>();
         private Dictionary<string, Color> colorProperties = new Dictionary<string, Color>();
+        private Dictionary<string, Vector4> vectorProperties = new Dictionary<string, Vector4>();
         private Renderer _renderer;
     }
     public class SerializableRendererElement : SerializableGraphicElement
@@ -109,5 +127,6 @@ namespace MVZ2.Models
         public Dictionary<string, float> floatProperties;
         public Dictionary<string, int> intProperties;
         public Dictionary<string, Color> colorProperties;
+        public Dictionary<string, Vector4> vectorProperties;
     }
 }

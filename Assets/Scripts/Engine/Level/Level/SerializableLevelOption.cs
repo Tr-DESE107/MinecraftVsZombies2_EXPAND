@@ -10,7 +10,6 @@ namespace PVZEngine.Level
         public int tps;
         public int cardSlotCount;
         public int starshardSlotCount;
-        public float startEnergy;
         public float maxEnergy;
     }
 }

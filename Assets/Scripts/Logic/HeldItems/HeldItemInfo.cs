@@ -9,5 +9,6 @@ namespace MVZ2.HeldItems
         int Priority { get; }
         bool NoCancel { get; }
         bool InstantTrigger { get; }
+        bool InstantEvoke { get; }
     }
 }

@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -64,9 +65,9 @@ namespace MVZ2.GameContent.Bosses
             boss.Spawn(VanillaEffectID.seijaFaintEffect, boss.GetCenter());
             stateMachine.StartState(boss, STATE_FAINT);
         }
-        public override void PreTakeDamage(DamageInput damageInfo)
+        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
         {
-            base.PreTakeDamage(damageInfo);
+            base.PreTakeDamage(damageInfo, result);
             var boss = damageInfo.Entity;
             if (damageInfo.Amount > 600)
             {
@@ -77,7 +78,8 @@ namespace MVZ2.GameContent.Bosses
             }
             if (boss.State == STATE_FABRIC)
             {
-                damageInfo.Cancel();
+                result.SetFinalValue(false);
+                return;
             }
             if (damageInfo.Amount > 600)
             {
@@ -93,7 +95,7 @@ namespace MVZ2.GameContent.Bosses
             var takenDamage = GetRecentTakenDamage(boss);
             takenDamage += result.BodyResult.SpendAmount;
             SetRecentTakenDamage(boss, takenDamage);
-            if (takenDamage >= FABRIC_DAMAGE_THRESOLD)
+            if (takenDamage >= FABRIC_DAMAGE_THRESOLD && !boss.IsDead)
             {
                 if (CanUseFabric(boss))
                 {
@@ -210,11 +212,11 @@ namespace MVZ2.GameContent.Bosses
         }
 
         #region 常量
-        private static readonly VanillaEntityPropertyMeta PROP_FABRIC_COUNT = new VanillaEntityPropertyMeta("FabricCount");
-        private static readonly VanillaEntityPropertyMeta PROP_FABRIC_COOLDOWN_TIMER = new VanillaEntityPropertyMeta("FabricCooldownTimer");
-        private static readonly VanillaEntityPropertyMeta PROP_DANMAKU_TIMER = new VanillaEntityPropertyMeta("DanmakuTimer");
-        private static readonly VanillaEntityPropertyMeta PROP_RECENT_TAKEN_DAMAGE = new VanillaEntityPropertyMeta("RecentTakenDamage");
-        private static readonly VanillaEntityPropertyMeta PROP_BULLET_ANGLE = new VanillaEntityPropertyMeta("BulletAngle");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_FABRIC_COUNT = new VanillaEntityPropertyMeta<int>("FabricCount");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_FABRIC_COOLDOWN_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("FabricCooldownTimer");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DANMAKU_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("DanmakuTimer");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_RECENT_TAKEN_DAMAGE = new VanillaEntityPropertyMeta<float>("RecentTakenDamage");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_BULLET_ANGLE = new VanillaEntityPropertyMeta<float>("BulletAngle");
 
         private const int MAX_FABRIC_COUNT = 3;
         private const float FABRIC_DAMAGE_THRESOLD = 300;

@@ -1,6 +1,8 @@
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using MVZ2.GameContent.Armors;
+using MVZ2.Vanilla.Entities;
+using MVZ2.GameContent.Buffs.Enemies;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -15,11 +17,13 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             entity.SetAnimationBool("HasFlag", true);
-            entity.EquipArmor<IronHelmet>();
-        }
-        protected override float GetRandomSpeedMultiplier(Entity entity)
-        {
-            return 2;
+            entity.EquipMainArmor(VanillaArmorID.ironHelmet);
+
+            var speedBuff = entity.GetFirstBuff<RandomEnemySpeedBuff>();
+            if (speedBuff != null)
+            {
+                RandomEnemySpeedBuff.SetSpeed(speedBuff, 2);
+            }
         }
     }
 }

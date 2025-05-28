@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Reflection;
 using PVZEngine.Modifiers;
 using Tools;
+using UnityEngine;
 
 namespace PVZEngine.Level
 {
@@ -11,80 +15,94 @@ namespace PVZEngine.Level
         {
             Container = container;
         }
-        public void SetProperty(PropertyKey name, object value)
+        public void SetProperty<T>(PropertyKey<T> name, T value)
         {
             if (properties.SetProperty(name, value))
             {
-                UpdateModifiedProperty(name);
+                UpdateModifiedProperty<T>(name);
                 // 实体属性更改时，如果有利用该实体属性修改属性的修改器，更新一次该属性。
                 var modifiersUsingThisProperty = Container.GetModifiersUsingProperty(name);
                 if (modifiersUsingThisProperty != null && modifiersUsingThisProperty.Length > 0)
                 {
                     foreach (var modifier in modifiersUsingThisProperty)
                     {
-                        UpdateModifiedProperty(modifier.PropertyName);
+                        UpdateModifiedPropertyObject(modifier.PropertyName);
                     }
                 }
             }
         }
-        public object GetProperty(PropertyKey name, bool ignoreBuffs = false)
+        public void SetPropertyObject(IPropertyKey name, object value)
         {
-            if (TryGetProperty(name, out var result, ignoreBuffs))
+            if (properties.SetPropertyObject(name, value))
             {
-                return result;
+                UpdateModifiedPropertyObject(name);
+                // 实体属性更改时，如果有利用该实体属性修改属性的修改器，更新一次该属性。
+                var modifiersUsingThisProperty = Container.GetModifiersUsingProperty(name);
+                if (modifiersUsingThisProperty != null && modifiersUsingThisProperty.Length > 0)
+                {
+                    foreach (var modifier in modifiersUsingThisProperty)
+                    {
+                        UpdateModifiedPropertyObject(modifier.PropertyName);
+                    }
+                }
             }
-            return null;
         }
-        public bool TryGetProperty(PropertyKey name, out object result, bool ignoreBuffs = false)
+        public bool TryGetPropertyObject(IPropertyKey name, out object result, bool ignoreBuffs = false)
         {
             if (!ignoreBuffs)
             {
-                if (buffedProperties.TryGetProperty(name, out var value))
+                if (buffedProperties.TryGetPropertyObject(name, out var value))
                 {
                     result = value;
                     return true;
                 }
             }
-            if (properties.TryGetProperty(name, out var prop))
+            if (properties.TryGetPropertyObject(name, out var prop))
             {
                 result = prop;
                 return true;
             }
-
+            if (fallbackCaches.TryGetValue(name, out var fallbackCache))
+            {
+                result = fallbackCache;
+                return true;
+            }
             if (Container.GetFallbackProperty(name, out var fallback))
             {
+                fallbackCaches.Add(name, fallback);
                 result = fallback;
                 return true;
             }
-            result = null;
+            result = default;
             return false;
         }
-        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
+        public bool TryGetProperty<T>(PropertyKey<T> name, out T result, bool ignoreBuffs = false)
         {
-            if (TryGetProperty<T>(name, out var result, ignoreBuffs))
+            if (TryGetPropertyObject(name, out var obj, ignoreBuffs))
             {
-                return result;
-            }
-            return result;
-        }
-        public bool TryGetProperty<T>(PropertyKey name, out T value, bool ignoreBuffs = false)
-        {
-            if (TryGetProperty(name, out object prop, ignoreBuffs))
-            {
-                if (prop.TryToGeneric<T>(out var result))
+                if (obj.TryToGeneric<T>(out result))
                 {
-                    value = result;
                     return true;
                 }
             }
-            value = default;
+            result = default;
             return false;
         }
-        public bool RemoveProperty(PropertyKey name)
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false) => TryGetProperty<T>(name, out var result, ignoreBuffs) ? result : default;
+        public object GetPropertyObject(IPropertyKey name, bool ignoreBuffs = false) => TryGetPropertyObject(name, out var result, ignoreBuffs) ? result : null;
+        public bool RemoveProperty(IPropertyKey name)
         {
-            return properties.RemoveProperty(name);
+            return properties.RemovePropertyObject(name);
         }
-        public PropertyKey[] GetPropertyNames()
+        public bool RemoveFallbackCache(IPropertyKey key)
+        {
+            return fallbackCaches.Remove(key);
+        }
+        public void ClearFallbackCaches()
+        {
+            fallbackCaches.Clear();
+        }
+        public IPropertyKey[] GetPropertyNames()
         {
             return properties.GetPropertyNames();
         }
@@ -95,27 +113,48 @@ namespace PVZEngine.Level
             var paths = Container.GetModifiedProperties();
             foreach (var path in paths)
             {
-                UpdateModifiedProperty(path);
+                UpdateModifiedPropertyObject(path);
             }
         }
-        public void UpdateModifiedProperty(PropertyKey name)
+        public void UpdateModifiedPropertyObject(IPropertyKey name)
         {
-            var baseValue = GetProperty(name, ignoreBuffs: true);
+            var baseValue = GetPropertyObject(name, ignoreBuffs: true);
 
             modifierContainerBuffer.Clear();
             Container.GetModifierItems(name, modifierContainerBuffer);
 
+            var beforeValue = GetPropertyObject(name);
             var value = baseValue;
             if (modifierContainerBuffer.Count > 0)
             {
                 value = modifierContainerBuffer.CalculateProperty(baseValue);
+                buffedProperties.SetPropertyObject(name, value);
+            }
+            else
+            {
+                buffedProperties.RemovePropertyObject(name);
+            }
+            Container.UpdateModifiedProperty(name, beforeValue, value);
+        }
+        public void UpdateModifiedProperty<T>(PropertyKey<T> name)
+        {
+            var baseValue = GetProperty<T>(name, ignoreBuffs: true);
+
+            modifierContainerBuffer.Clear();
+            Container.GetModifierItems(name, modifierContainerBuffer);
+
+            var beforeValue = GetProperty<T>(name);
+            var value = baseValue;
+            if (modifierContainerBuffer.Count > 0)
+            {
+                value = modifierContainerBuffer.CalculateProperty<T>(baseValue);
                 buffedProperties.SetProperty(name, value);
             }
             else
             {
                 buffedProperties.RemoveProperty(name);
             }
-            Container.UpdateModifiedProperty(name, value);
+            Container.UpdateModifiedProperty(name, beforeValue, value);
         }
         #endregion
         public SerializableModifiableProperties ToSerializable()
@@ -135,7 +174,11 @@ namespace PVZEngine.Level
         public IPropertyModifyTarget Container { get; }
         private PropertyDictionary properties = new PropertyDictionary();
         private PropertyDictionary buffedProperties = new PropertyDictionary();
+        private Dictionary<IPropertyKey, object> fallbackCaches = new Dictionary<IPropertyKey, object>();
+        private readonly Dictionary<Type, Action<object, object, object>> setPropertyDelegates = new();
+        private readonly Dictionary<Type, Action<object, object>> updateModifiedPropertyDelegates = new();
         private List<ModifierContainerItem> modifierContainerBuffer = new List<ModifierContainerItem>();
+        private delegate object UpdateModifiedPropertyDelegate(ModifiableProperties self, IPropertyKey key);
     }
     [Serializable]
     public class SerializableModifiableProperties

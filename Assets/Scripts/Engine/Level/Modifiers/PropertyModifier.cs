@@ -9,55 +9,58 @@ namespace PVZEngine.Modifiers
     }
     public abstract class PropertyModifier : IPropertyModifier
     {
-        public PropertyModifier(PropertyKey propertyName, object valueConst)
+        public PropertyModifier(int priority)
         {
-            PropertyName = propertyName;
-            ConstValue = valueConst;
+            Priority = priority;
         }
-        public PropertyModifier(PropertyKey propertyName, PropertyKey containerPropertyName)
-        {
-            PropertyName = propertyName;
-            UsingContainerPropertyName = containerPropertyName;
-        }
-        public virtual void PostAdd(IModifierContainer container)
+        public virtual void PostAdd(IModifierContainer container, IBuffTarget target)
         {
 
         }
-        public virtual void PostRemove(IModifierContainer container)
+        public virtual void PostRemove(IModifierContainer container, IBuffTarget target)
         {
 
         }
-        public object GetModifierValue(IModifierContainer container)
-        {
-            if (PropertyKey.IsValid(UsingContainerPropertyName))
-            {
-                return container.GetProperty(UsingContainerPropertyName);
-            }
-            else
-            {
-                return ConstValue;
-            }
-        }
+        public abstract object GetModifierValue(IModifierContainer container);
         public abstract ModifierCalculator GetCalculator();
-        public PropertyKey PropertyName { get; set; }
-        public object ConstValue { get; set; }
-        public PropertyKey UsingContainerPropertyName { get; set; }
+        public abstract IPropertyKey PropertyName { get; }
+        public abstract object ConstValue { get; }
+        public abstract IPropertyKey UsingContainerPropertyName { get; }
+        public int Priority { get; set; }
     }
     public abstract class PropertyModifier<T> : PropertyModifier
     {
-        protected PropertyModifier(PropertyKey propertyName, T valueConst) : base(propertyName, valueConst)
+        protected PropertyModifier(PropertyKey<T> propertyName, T valueConst, int priority) : base(priority)
         {
+            PropertyNameGeneric = propertyName;
+            ConstValueGeneric = valueConst;
         }
 
-        protected PropertyModifier(PropertyKey propertyName, PropertyKey buffPropertyName) : base(propertyName, buffPropertyName)
+        protected PropertyModifier(PropertyKey<T> propertyName, PropertyKey<T> buffPropertyName, int priority) : base(priority)
         {
+            PropertyNameGeneric = propertyName;
+            UsingContainerPropertyNameGeneric = buffPropertyName;
+        }
+        public override object GetModifierValue(IModifierContainer container)
+        {
+            return GetModifierValueGeneric(container);
         }
         public T GetModifierValueGeneric(IModifierContainer container)
         {
-            var value = GetModifierValue(container);
-            if (value.TryToGeneric<T>(out var tValue))
-                return tValue;
-            return default;
+            if (PropertyKeyHelper.IsValid(UsingContainerPropertyName))
+            {
+                return container.GetProperty<T>(UsingContainerPropertyNameGeneric);
+            }
+            else
+            {
+                return ConstValueGeneric;
+            }
         }
+        public PropertyKey<T> PropertyNameGeneric { get; }
+        public T ConstValueGeneric { get; }
+        public PropertyKey<T> UsingContainerPropertyNameGeneric { get; }
+        public override IPropertyKey PropertyName => PropertyNameGeneric;
+        public override object ConstValue => ConstValueGeneric;
+        public override IPropertyKey UsingContainerPropertyName => UsingContainerPropertyNameGeneric;
     }
 }

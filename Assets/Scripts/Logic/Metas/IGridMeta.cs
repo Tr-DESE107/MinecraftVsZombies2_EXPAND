@@ -1,11 +1,8 @@
-﻿using PVZEngine;
-
-namespace MVZ2Logic.Spawns
+﻿namespace MVZ2Logic.Spawns
 {
     public interface IGridLayerMeta
     {
         string ID { get; }
-        int Priority { get; }
     }
     public interface IGridErrorMeta
     {

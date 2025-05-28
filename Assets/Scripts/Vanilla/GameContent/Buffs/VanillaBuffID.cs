@@ -15,6 +15,8 @@ namespace MVZ2.GameContent.Buffs
         public const string faction = "faction";
         public const string withered = "withered";
         public const string changeLane = "change_lane";
+        public const string divineShield = "divine_shield";
+        public const string worldwideCelebration = "worldwide_celebration";
 
         public const string Regeneration = "Regeneration";
         public const string Corropoison = "Corropoison";
@@ -48,12 +50,21 @@ namespace MVZ2.GameContent.Buffs
         public const string miracleMalletReplicaDamage = "miracle_mallet_replica_damage";
         public const string witherSkeletonSkullReduceHealth = "wither_skeleton_skull_reduce_health";
         public const string brokenLantern = "broken_lantern";
+        public const string eyeOfTheGiant = "eye_of_the_giant";
+        public const string bottledBlackholeDamage = "bottled_blackhole_damage";
+        public const string noteBlockLoud = "note_block_loud";
+        public const string lightningOrbEvoked = "lightning_orb_evoked";
+        public const string devourerInvincible = "devourer_invincible";
+        public const string hellfireCursed = "hellfire_cursed";
+        public const string desirePotHighlight = "desire_pot_highlight";
+        public const string imitated = "imitated";
+        public const string noteBlockCharged = "note_block_charged";
+
         // Enemy
         public const string gemCarrier = "gem_carrier";
         public const string punchtonAchievement = "punchton_achievement";
         public const string starshardCarrier = "starshard_carrier";
         public const string randomEnemySpeed = "random_enemy_speed";
-        public const string armorDamageColor = "armor_damage_color";
         public const string damageColor = "damage_color";
         public const string ghost = "ghost";
         public const string stun = "stun";
@@ -74,30 +85,42 @@ namespace MVZ2.GameContent.Buffs
         public const string littleZombie = "little_zombie";
         public const string bigTrouble = "big_trouble";
         public const string seijaMesmerizer = "seija_mesmerizer";
+        public const string wickedHermitWarp = "wicked_hermit_warp";
+        public const string wickedHermitWarpped = "wicked_hermit_warpped";
+        public const string necrotombstoneRising = "necrotombstone_rising";
+        public const string slow = "slow";
+        public const string iZombieAttackBooster = "i_zombie_attack_booster";
+        public const string iZombieImp = "i_zombie_imp";
+        public const string iZombieSkeletonWarrior = "i_zombie_skeleton_warrior";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";
         public const string passengerEnterHouse = "passenger_enter_house";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
-        public const string thunderLightFadeout = "thunder_light_fadeout";
+        public const string lightFadeout = "light_fadeout";
 
         // Projectile
         public const string projectileWait = "projectile_wait";
         public const string projectileKnockback = "projectile_knockback";
         public const string invertedMirror = "inverted_mirror";
+        public const string hellfireIgnited = "hellfire_ignited";
+        public const string ghastFireCharge = "ghast_fire_charge";
 
         // Cart
         public const string cartFadeIn = "cart_fade_in";
 
         // Difficulty
         public const string easyContraption = "easy_contraption";
-        public const string easyArmor = "easy_armor";
         public const string hardEnemy = "hard_enemy";
         public const string lunaticEnemy = "lunaticEnemy";
         
+        // Armor
+        public const string easyArmor = "easy_armor";
+        public const string armorDamageColor = "armor_damage_color";
         public const string littleZombieArmor = "little_zombie_armor";
         public const string bigTroubleArmor = "big_trouble_armor";
+        public const string iZombieSkeletonWarriorArmor = "i_zombie_skeleton_warrior_armor";
 
         public static class Effect
         {
@@ -116,8 +139,6 @@ namespace MVZ2.GameContent.Buffs
         }
         public static class Level
         {
-            public const string levelEasy = "level_easy";
-            public const string levelHard = "level_hard";
             public const string levellunatic = "levellunatic";
             
             public const string taintedSun = "tainted_sun";
@@ -125,20 +146,38 @@ namespace MVZ2.GameContent.Buffs
             public const string tutorialTriggerDisable = "tutorial_trigger_disable";
             public const string thunder = "thunder";
             public const string swordParalyzed = "sword_paralyzed";
-            public const string frankensteinStage = "frankenstein_stage";
             public const string nightmareLevel = "nightmare_level";
-            public const string darkMatterDark = "dark_matter_dark";
-            public const string pagodaBranchLevel = "pagoda_branch_level";
             public const string nightmareDecrepify = "nightmare_decrepify";
             public const string nightmareaperDarkness = "nightmareaper_darkness";
+            public const string reverseSatellite = "reverse_satellite";
+            public const string littleZombieLevel = "little_zombie_level";
+            public const string delayedSpawnerTrigger = "delayed_spawner_trigger";
+            public const string superRecharge = "super_recharge";
+            public const string ancientEgypt = "ancient_egypt";
+
+            // 难度
+            public const string levelEasy = "level_easy";
+            public const string levelHard = "level_hard";
+            public const string iZombieEasy = "i_zombie_easy";
+            public const string iZombieHard = "i_zombie_hard";
+
+            // 制品
+            public const string pagodaBranchLevel = "pagoda_branch_level";
+            public const string darkMatterDark = "dark_matter_dark";
+            public const string greedyVacuum = "greedy_vacuum";
+
+            // 过场
+            public const string frankensteinStage = "frankenstein_stage";
             public const string slendermanTransition = "slenderman_transition";
             public const string nightmareaperTransition = "nightmareaper_transition";
             public const string nightmareCleared = "nightmare_cleared";
-            public const string reverseSatellite = "reverse_satellite";
-            public const string littleZombieLevel = "little_zombie_level";
             public const string seijaAutoCollect = "seija_auto_collect";
             public const string witherTransition = "wither_transition";
             public const string witherCleared = "wither_cleared";
+            public const string flashWhite = "flash_white";
+
+            public const string theGiantTransition = "the_giant_transition";
+            public const string theGiantCleared = "the_giant_cleared";
         }
         public static class Boss
         {
@@ -148,6 +187,11 @@ namespace MVZ2.GameContent.Buffs
             public const string nightmareaperEnraged = "nightmareaper_enraged";
             public const string seijaFabric = "seija_fabric";
             public const string seijaGap = "seija_gap";
+            public const string theGiantInactive = "the_giant_inactive";
+            public const string theGiantPacman = "the_giant_pacman";
+            public const string theGiantPacmanKilled = "the_giant_pacman_killed";
+            public const string theGiantSnake = "the_giant_snake";
+            public const string theGiantPhase3 = "the_giant_phase3";
         }
     }
     public static class VanillaBuffID
@@ -160,7 +204,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID obsidianArmor = Get(VanillaBuffNames.obsidianArmor);
         public static readonly NamespaceID starshardCarrier = Get(VanillaBuffNames.starshardCarrier);
         public static readonly NamespaceID temporaryUpdateBeforeGame = Get(VanillaBuffNames.temporaryUpdateBeforeGame);
-        public static readonly NamespaceID thunderLightFadeout = Get(VanillaBuffNames.thunderLightFadeout);
+        public static readonly NamespaceID thunderLightFadeout = Get(VanillaBuffNames.lightFadeout);
         public static readonly NamespaceID cartFadeIn = Get(VanillaBuffNames.cartFadeIn);
         public static readonly NamespaceID easyContraption = Get(VanillaBuffNames.easyContraption);
         public static readonly NamespaceID easyArmor = Get(VanillaBuffNames.easyArmor);
@@ -177,6 +221,8 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID glowstoneProtected = Get(VanillaBuffNames.glowstoneProtected);
         public static readonly NamespaceID miracleMalletReplicaDamage = Get(VanillaBuffNames.miracleMalletReplicaDamage);
         public static readonly NamespaceID brokenLantern = Get(VanillaBuffNames.brokenLantern);
+        public static readonly NamespaceID eyeOfTheGiant = Get(VanillaBuffNames.eyeOfTheGiant);
+        public static readonly NamespaceID bottledBlackholeDamage = Get(VanillaBuffNames.bottledBlackholeDamage);
 
         public static readonly NamespaceID Regeneration = Get(VanillaBuffNames.Regeneration);
         public static readonly NamespaceID Corropoison = Get(VanillaBuffNames.Corropoison);
@@ -203,6 +249,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID tutorialPickaxeDisable = Get(VanillaBuffNames.Level.tutorialPickaxeDisable);
             public static readonly NamespaceID darkMatterDark = Get(VanillaBuffNames.Level.darkMatterDark);
             public static readonly NamespaceID pagodaBranchLevel = Get(VanillaBuffNames.Level.pagodaBranchLevel);
+            public static readonly NamespaceID greedyVacuum = Get(VanillaBuffNames.Level.greedyVacuum);
         }
     }
 }

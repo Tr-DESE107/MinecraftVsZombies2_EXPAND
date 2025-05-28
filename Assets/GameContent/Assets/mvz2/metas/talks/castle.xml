@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<talks>
+<talks order="3000">
   <!-- Day 1 -->
   <group id="castle_1" tags="mvz2:castle;mvz2:intro">
     <archive name="辉针城第1天入场" music="mvz2:mainmenu" background="mvz2:misc/castle" unlock="mvz2:level.castle_1" />
@@ -123,7 +123,7 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……嗯？这个凋灵骷髅是？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">头上戴着个金质头冠，手里拿着法杖。是干什么的呢？</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">我也不知道啊，不过我有一种预感！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">你会用到萤石的，邻居！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">你会用到荧石的，邻居！</sentence>
       </sentences>
     </section>
   </group>
@@ -219,7 +219,7 @@
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">这个是石制投掷器！他能弹射出微小的石子！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">这个是石制投掷器！它能弹射出微小的石子！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">不过，有时候它也能射出能击退敌人并且分裂的巨石！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end">在洞穴中，你最好当心脚下的踏板！</sentence>
       </sentences>
@@ -856,6 +856,8 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">……听起来确实难搞。</sentence>
         <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">不过，应该有办法能阻止它的。</sentence>
         <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">试试用强大的东西挡住它的去路，或者直接在它冲锋前把它击垮！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">并且，金苹果对凋灵这种亡灵生物来说可能会产生奇效！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">试着骗它吃掉一些金苹果！</sentence>
         <sentence speaker="mvz2:shinmyoumaru" sounds="mvz2:talk">我们小人族就靠你了，史蒂夫……</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">遵命。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（辉针城外乌云密布。这些乌云已经笼罩这里太长时间了。）</color>]]></sentence>
@@ -884,7 +886,7 @@
   </group>
   <group id="castle_11_map" tags="mvz2:castle;mvz2:map">
     <archive name="辉针城第11天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_11" />
-    <section onSkip="action chapter_3_finish;forecolor fade #000F #0000 2;item hide;end">
+    <section onSkip="bubble hide;forecolor fade #0000 #000F 1;delay 1;action chapter_3_finish;item hide;end">
       <characters>
         <character id="mvz2:crazy_villager" side="left" />
         <character id="mvz2:shinmyoumaru" variant="mvz2:weep" side="right" />
@@ -945,7 +947,15 @@
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（周围格外的安静，没有臣民，没有其他的小人族见证这一神圣的时刻。）</color>]]></sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（在那之后，针妙丸公主送我们离开，一直送到了香霖堂。）</color>]]></sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk"><![CDATA[<color=blue>（那时已经是晚上了。她道过别之后，什么都没有说，便走上了回家的路。）</color>]]></sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="action chapter_3_finish;forecolor fade #000F #0000 2;end"><![CDATA[<color=blue>（只是那背影，无比落寞，逐渐消失在了漆黑的夜空中，化作了一颗小小的星星。）</color>]]></sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">
+          <text><![CDATA[<color=blue>（只是那背影，无比落寞，逐渐消失在了漆黑的夜空中，化作了一颗小小的星星。）</color>]]></text>
+          <click>
+            <script>bubble hide</script>
+            <script>delay 2</script>
+
+            <script>action chapter_3_finish</script>
+            <script>end</script>
+          </click></sentence>
       </sentences>
     </section>
   </group>

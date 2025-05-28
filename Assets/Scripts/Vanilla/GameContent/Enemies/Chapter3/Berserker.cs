@@ -5,7 +5,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Properties;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -22,7 +21,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.EquipArmor<BerserkerHelmet>();
+            entity.EquipMainArmor(VanillaArmorID.bersekerHelmet);
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -41,10 +40,10 @@ namespace MVZ2.GameContent.Enemies
         }
         public static void Explode(Entity entity, float damage, int faction)
         {
-            var scale = entity.GetScale();
+            var scale = entity.GetFinalScale();
             var scaleX = Mathf.Abs(scale.x);
             var range = entity.GetRange() * scaleX;
-            entity.Level.Explode(entity.GetCenter(), range, faction, damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE), entity);
+            entity.Explode(entity.GetCenter(), range, faction, damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE));
 
             var explosion = entity.Level.Spawn(VanillaEffectID.explosion, entity.GetCenter(), entity);
             explosion.SetSize(Vector3.one * (range * 2));

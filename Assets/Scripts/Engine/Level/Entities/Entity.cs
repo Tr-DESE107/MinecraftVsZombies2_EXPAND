@@ -1,17 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
+using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Level.Collisions;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -38,7 +38,6 @@ namespace PVZEngine.Entities
             TypeCollisionFlag = EntityCollisionHelper.GetTypeMask(type);
             ID = id;
             SpawnerReference = spawnerReference;
-            MainHitbox = new EntityHitbox(this);
             buffs.OnPropertyChanged += UpdateModifiedProperty;
             buffs.OnModelInsertionAdded += OnBuffModelAddCallback;
             buffs.OnModelInsertionRemoved += OnBuffModelRemoveCallback;
@@ -50,7 +49,12 @@ namespace PVZEngine.Entities
             OnInit(spawner);
             Definition.Init(this);
             auras.PostAdd();
-            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_INIT, Type, c => c(this));
+            Cache.UpdateAll(this);
+            var param = new EntityCallbackParams()
+            {
+                entity = this
+            };
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_INIT, param, Type);
             PostInit?.Invoke();
         }
         public void Update()
@@ -58,30 +62,25 @@ namespace PVZEngine.Entities
             try
             {
                 OnUpdate();
-                // 更新碰撞体位置，用于碰撞检测。
-                UpdateColliders();
                 Definition.Update(this);
-                if (EquipedArmor != null)
-                    EquipedArmor.Update();
+                var armors = armorDict.Values.ToArray();
+                foreach (var armor in armors)
+                {
+                    armor.Update();
+                }
                 auras.Update();
                 buffs.Update();
-                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, Type, c => c(this));
-                // 更新碰撞体位置，用于碰撞检测。
-                UpdateColliders();
+                var param = new EntityCallbackParams()
+                {
+                    entity = this
+                };
+                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, param, Type);
             }
             catch (Exception ex)
             {
                 Debug.LogError($"更新实体时出现错误：{ex}");
             }
-        }
-
-        private void UpdateColliders()
-        {
-            MainHitbox.Update();
-            foreach (var collider in enabledColliders)
-            {
-                collider.Update();
-            }
+            time++;
         }
         public void SetParent(Entity parent)
         {
@@ -117,7 +116,11 @@ namespace PVZEngine.Entities
                 takenConveyorSeeds.Clear();
                 Definition.PostRemove(this);
                 auras.PostRemove();
-                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REMOVE, Type, c => c(this));
+                var param = new EntityCallbackParams()
+                {
+                    entity = this
+                };
+                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REMOVE, param, Type);
             }
         }
         public bool IsEntityOf(NamespaceID id)
@@ -141,10 +144,28 @@ namespace PVZEngine.Entities
         }
         public void Die(DeathInfo info)
         {
+            if (IsDead)
+                return;
             info = info ?? new DeathInfo(this, new DamageEffectList(), new EntityReferenceChain(null), null);
             IsDead = true;
             Definition.PostDeath(this, info);
-            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, Type, c => c(this, info));
+            var param = new LevelCallbacks.PostEntityDeathParams()
+            {
+                entity = this,
+                deathInfo = info
+            };
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_DEATH, param, Type);
+        }
+        public void Revive()
+        {
+            if (!IsDead)
+                return;
+            IsDead = false;
+            var param = new EntityCallbackParams()
+            {
+                entity = this,
+            };
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REVIVE, param, Type);
         }
         #endregion
 
@@ -176,15 +197,19 @@ namespace PVZEngine.Entities
         #endregion 魅惑
 
         #region 增益属性
-        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             return properties.GetProperty<T>(name, ignoreBuffs);
         }
-        public void SetProperty(PropertyKey name, object value)
+        public void SetProperty<T>(PropertyKey<T> name, T value)
         {
             properties.SetProperty(name, value);
         }
-        private void GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
+        public void SetPropertyObject(IPropertyKey name, object value)
+        {
+            properties.SetPropertyObject(name, value);
+        }
+        private void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
         {
             if (!modifierCaches.TryGetValue(name, out var list))
                 return;
@@ -194,18 +219,18 @@ namespace PVZEngine.Entities
         {
             properties.UpdateAllModifiedProperties();
         }
-        private void UpdateModifiedProperty(PropertyKey name)
+        private void UpdateModifiedProperty(IPropertyKey name)
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty(PropertyKey name, out object value)
+        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object value)
         {
             if (Definition == null)
             {
-                value = null;
+                value = default;
                 return false;
             }
-            if (Definition.TryGetProperty(name, out var defProp))
+            if (Definition.TryGetPropertyObject(name, out var defProp))
             {
                 value = defProp;
                 return true;
@@ -215,34 +240,40 @@ namespace PVZEngine.Entities
             for (int i = 0; i < behaviourCount; i++)
             {
                 var behaviour = Definition.GetBehaviourAt(i);
-                if (behaviour.TryGetProperty(name, out var behProp))
+                if (behaviour.TryGetPropertyObject(name, out var behProp))
                 {
                     value = behProp;
                     return true;
                 }
             }
-            value = null;
+            value = default;
             return false;
         }
-        IEnumerable<PropertyKey> IPropertyModifyTarget.GetModifiedProperties()
+        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
         {
             var entityPropertyNames = modifierCaches.Keys;
             var buffPropertyNames = buffs.GetModifierPropertyNames();
             return entityPropertyNames.Union(buffPropertyNames);
         }
-        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(PropertyKey name)
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
         {
-            return Definition.GetModifiers().Where(m => m.UsingContainerPropertyName == name).ToArray();
+            return Definition.GetModifiers().Where(m => name.Equals(m.UsingContainerPropertyName)).ToArray();
         }
-        void IPropertyModifyTarget.GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
+        void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
         {
             GetModifierItems(name, results);
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object value)
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
         {
-            Cache.UpdateProperty(this, name, value);
-            PostPropertyChanged?.Invoke(name);
+            if (name == ((PropertyKey<float>)EngineEntityProps.MAX_HEALTH))
+            {
+                var before = beforeValue.ToGeneric<float>();
+                var after = afterValue.ToGeneric<float>();
+                Health = Mathf.Min(after, Health * (after / before));
+            }
+            Cache.UpdateProperty(this, name, beforeValue, afterValue);
+            PostPropertyChanged?.Invoke(name, beforeValue, afterValue);
         }
         #endregion
 
@@ -278,9 +309,11 @@ namespace PVZEngine.Entities
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
         public int RemoveBuffs<T>() where T : BuffDefinition => buffs.RemoveBuffs<T>();
         public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
+        public bool HasBuff(BuffDefinition buff) => buffs.HasBuff(buff);
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
         public Buff GetFirstBuff<T>() where T : BuffDefinition => buffs.GetFirstBuff<T>();
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
+        public Buff[] GetBuffs(BuffDefinition definition) => buffs.GetBuffs(definition);
         public void GetBuffs<T>(List<Buff> results) where T : BuffDefinition => buffs.GetBuffsNonAlloc<T>(results);
         public void GetAllBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         public BuffReference GetBuffReference(Buff buff) => new BuffReferenceEntity(ID, buff.ID);
@@ -295,7 +328,15 @@ namespace PVZEngine.Entities
         #region 体积
         public Vector3 GetCenter()
         {
-            return MainHitbox.GetBoundsCenter();
+            var center = Position;
+            center.y += GetScaledSize().y * 0.5f;
+            return center;
+        }
+        public Vector3 GetScaledSize()
+        {
+            var size = Cache.Size;
+            size.Scale(Cache.GetFinalScale());
+            return size;
         }
         public void SetCenter(Vector3 center)
         {
@@ -304,11 +345,7 @@ namespace PVZEngine.Entities
         }
         public Bounds GetBounds()
         {
-            return MainHitbox.GetBounds();
-        }
-        public Vector3 GetScaledSize()
-        {
-            return MainHitbox.GetBoundsSize();
+            return new Bounds(GetCenter(), GetScaledSize());
         }
         #endregion
 
@@ -368,10 +405,9 @@ namespace PVZEngine.Entities
                 nextVelocity.y = Mathf.Max(nextVelocity.y, 0);
             }
 
-            PreviousPosition = prevUpdatePosition;
+            PreviousPosition = Position;
             Position = nextPos;
             Velocity = nextVelocity;
-            prevUpdatePosition = Position;
 
             if (contactingGround)
             {
@@ -401,7 +437,14 @@ namespace PVZEngine.Entities
         {
             return Level.GetLane(Position.z);
         }
-        public void GetTakingGridLayers(LawnGrid grid, List<NamespaceID> results)
+        public NamespaceID[] GetTakingGridLayers(LawnGrid grid)
+        {
+            var hashSet = GetTakenGridLayerHashSet(grid);
+            if (hashSet == null)
+                return Array.Empty<NamespaceID>();
+            return hashSet.ToArray();
+        }
+        public void GetTakingGridLayersNonAlloc(LawnGrid grid, List<NamespaceID> results)
         {
             var hashSet = GetTakenGridLayerHashSet(grid);
             if (hashSet == null)
@@ -459,6 +502,10 @@ namespace PVZEngine.Entities
         {
             return Level.GetGrid(GetColumn(), GetLane());
         }
+        public Vector2Int GetGridPosition()
+        {
+            return new Vector2Int(GetColumn(), GetLane());
+        }
         private HashSet<NamespaceID> GetOrCreateTakenGridHashSet(LawnGrid grid)
         {
             var hashSet = GetTakenGridLayerHashSet(grid);
@@ -478,122 +525,187 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 碰撞
-        public void AddCollider(EntityCollider collider)
+        public void UpdateCollision()
         {
-            if (GetCollider(collider.Name) != null)
-                throw new ArgumentException($"Attempting to add a collider with name \"{collider.Name}\" to an entity while it already has a collider with the same name.");
-            colliders.Add(collider);
-            if (collider.Enabled)
-            {
-                enabledColliders.Add(collider);
-            }
-            collider.PreCollision += PreCollisionCallback;
-            collider.PostCollision += PostCollisionCallback;
-            collider.OnEnabled += OnColliderEnabledCallback;
-            collider.OnDisabled += OnColliderDisabledCallback;
+            Level.UpdateEntityCollision(this);
         }
-        public bool RemoveCollider(EntityCollider collider)
+        public IEntityCollider CreateCollider(ColliderConstructor info)
         {
-            if (colliders.Remove(collider))
+            return Level.AddEntityCollider(this, info);
+        }
+        public bool RemoveCollider(string name)
+        {
+            return Level.RemoveEntityCollider(this, name);
+        }
+        public IEntityCollider GetCollider(string name)
+        {
+            return Level.GetEntityCollider(this, name);
+        }
+        public void GetCurrentCollisions(List<EntityCollision> collisions)
+        {
+            Level.GetEntityCurrentCollisions(this, collisions);
+        }
+        public bool PreCollision(EntityCollision collision)
+        {
+            var result = new CallbackResult(true);
+            Definition.PreCollision(collision, result);
+            if (!result.IsBreakRequested)
             {
-                if (collider.Enabled)
+                var param = new LevelCallbacks.PreEntityCollisionParams()
                 {
-                    enabledColliders.Remove(collider);
-                }
-                collider.PreCollision -= PreCollisionCallback;
-                collider.PostCollision -= PostCollisionCallback;
-                collider.OnEnabled -= OnColliderEnabledCallback;
-                collider.OnDisabled -= OnColliderDisabledCallback;
-                return true;
+                    collision = collision,
+                };
+                Level.Triggers.RunCallbackWithResult(LevelCallbacks.PRE_ENTITY_COLLISION, param, result);
             }
-            return false;
+            return result.GetValue<bool>();
         }
-        public EntityCollider GetCollider(string name)
+        public void PostCollision(EntityCollision collision, int state)
         {
-            return colliders.FirstOrDefault(h => h.Name == name);
-        }
-        public EntityCollider[] GetAllColliders()
-        {
-            return colliders.ToArray();
-        }
-        public int GetEnabledColliderCount()
-        {
-            return enabledColliders.Count;
-        }
-        public EntityCollider GetEnabledColliderAt(int i)
-        {
-            return enabledColliders[i];
-        }
-        public IEnumerable<EntityCollision> GetCurrentCollisions()
-        {
-            foreach (var unit in colliders)
+            Definition.PostCollision(collision, state);
+            var param = new LevelCallbacks.PostEntityCollisionParams()
             {
-                foreach (var reference in unit.GetCollisions())
-                {
-                    yield return reference;
-                }
-            }
-        }
-        public void ExitCollision(LevelEngine level)
-        {
-            foreach (var unit in colliders)
-            {
-                unit.ExitCollision(level);
-            }
+                collision = collision,
+                state = state
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, param);
         }
         #endregion
 
         #region 护甲
-        public void EquipArmor<T>() where T : ArmorDefinition
+        public bool IsEquippingArmor(Armor armor)
         {
-            EquipArmor(new Armor(this, Level.Content.GetArmorDefinition<T>()));
+            foreach (var pair in armorDict)
+            {
+                if (pair.Value == armor)
+                    return true;
+            }
+            return false;
         }
-        public void EquipArmor(ArmorDefinition definition)
+        public Armor EquipArmorTo<T>(NamespaceID slot) where T : ArmorDefinition
+        {
+            return EquipArmorTo(slot, Level.Content.GetArmorDefinition<T>());
+        }
+        public Armor EquipArmorTo(NamespaceID slot, NamespaceID id)
+        {
+            return EquipArmorTo(slot, Level.Content.GetArmorDefinition(id));
+        }
+        public Armor EquipArmorTo(NamespaceID slot, ArmorDefinition definition)
         {
             if (definition == null)
-                return;
-            EquipArmor(new Armor(this, definition));
+                return null;
+            var armor = new Armor(this, slot, definition);
+            EquipArmorTo(slot, armor);
+            return armor;
         }
-        public void EquipArmor(Armor armor)
+        public void EquipArmorTo(NamespaceID slot, Armor armor)
         {
             if (armor == null)
                 return;
-            if (EquipedArmor != null)
-                EquipedArmor.Destroy(null);
-            EquipedArmor = armor;
+            if (armorDict.TryGetValue(slot, out var oldShield))
+            {
+                if (oldShield != null)
+                    oldShield.Destroy(null);
+            }
+            armorDict[slot] = armor;
 
-            Definition.PostEquipArmor(this, armor);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, c => c(this, armor));
-            OnEquipArmor?.Invoke(armor);
+            // 创建碰撞体
+            CreateCollidersForArmor(slot, armor);
+
+            Definition.PostEquipArmor(this, slot, armor);
+            var param = new LevelCallbacks.ArmorParams()
+            {
+                entity = this,
+                slot = slot,
+                armor = armor
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, param);
+            OnEquipArmor?.Invoke(slot, armor);
         }
-        public void DestroyArmor(Armor armor, ArmorDamageResult result)
+        public void RemoveArmor(NamespaceID slot)
         {
-            Definition.PostDestroyArmor(this, armor, result);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_DESTROY_ARMOR, c => c(this, armor, result));
-            OnDestroyArmor?.Invoke(armor, result);
-        }
-        public void RemoveArmor()
-        {
-            var armor = EquipedArmor;
+            if (!armorDict.TryGetValue(slot, out var armor))
+                return;
             if (armor == null)
                 return;
-            EquipedArmor = null;
-            Definition.PostRemoveArmor(this, armor);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, c => c(this, armor));
-            OnRemoveArmor?.Invoke(armor);
+            armorDict.Remove(slot);
+
+            // 移除碰撞体
+            RemoveCollidersFromArmor(slot, armor);
+
+            Definition.PostRemoveArmor(this, slot, armor);
+            var param = new LevelCallbacks.ArmorParams()
+            {
+                entity = this,
+                slot = slot,
+                armor = armor
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, param);
+            OnRemoveArmor?.Invoke(slot, armor);
         }
-        public Armor GetShield()
+        public void DestroyArmor(NamespaceID slot, ArmorDestroyInfo info)
         {
-            return null;
+            if (!armorDict.TryGetValue(slot, out var armor))
+                return;
+            if (armor == null)
+                return;
+            Definition.PostDestroyArmor(this, slot, armor, info);
+            var param = new LevelCallbacks.PostArmorDestroyParams()
+            {
+                entity = this,
+                slot = slot,
+                armor = armor,
+                info = info
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_DESTROY_ARMOR, param);
+        }
+        public Armor GetArmorAtSlot(NamespaceID slot)
+        {
+            return armorDict.TryGetValue(slot, out var armor) ? armor : null;
+        }
+        public NamespaceID[] GetActiveArmorSlots()
+        {
+            return armorDict.Keys.ToArray();
+        }
+        private void CreateCollidersForArmor(NamespaceID slot, Armor armor)
+        {
+            foreach (var cons in armor.GetColliderConstructors())
+            {
+                var info = cons;
+                info.name = $"{slot}/{cons.name}";
+                info.armorSlot = slot;
+                CreateCollider(info);
+            }
+        }
+        private void RemoveCollidersFromArmor(NamespaceID slot, Armor armor)
+        {
+            foreach (var cons in armor.GetColliderConstructors())
+            {
+                RemoveCollider($"{slot}/{cons.name}");
+            }
         }
         #endregion
-        public bool IsFacingLeft() => this.FaceLeftAtDefault() != FlipX;
+
+        #region 时间
+        public long GetEntityTime()
+        {
+            return time;
+        
+        }
+        public bool IsTimeInterval(long interval, long offset = 0)
+        {
+            return time % interval == offset;
+        }
+        #endregion
+        public bool IsFacingLeft() => this.FaceLeftAtDefault() != (Cache.GetFinalScale().x < 0);
 
         #region 模型
-        public void SetModelInterface(IModelInterface model, IModelInterface armorModel)
+        public void SetModelInterface(IModelInterface model)
         {
             modelInterface = model;
-            armorModelInterface = armorModel;
+        }
+        public IModelInterface GetModelInterface()
+        {
+            return modelInterface;
         }
         public void ChangeModel(NamespaceID id)
         {
@@ -632,25 +744,25 @@ namespace PVZEngine.Entities
         {
             return modelInterface.GetChildModel(key);
         }
-        public void TriggerAnimation(string name, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        public void UpdateModel()
         {
-            GetModelTarget(target).TriggerAnimation(name);
+            modelInterface.UpdateModel();
         }
-        public void SetAnimationBool(string name, bool value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        public void TriggerAnimation(string name)
         {
-            GetModelTarget(target).SetAnimationBool(name, value);
+            modelInterface.TriggerAnimation(name);
         }
-        public void SetAnimationInt(string name, int value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        public void SetAnimationBool(string name, bool value)
         {
-            GetModelTarget(target).SetAnimationInt(name, value);
+            modelInterface.SetAnimationBool(name, value);
         }
-        public void SetAnimationFloat(string name, float value, EntityAnimationTarget target = EntityAnimationTarget.Entity)
+        public void SetAnimationInt(string name, int value)
         {
-            GetModelTarget(target).SetAnimationFloat(name, value);
+            modelInterface.SetAnimationInt(name, value);
         }
-        private IModelInterface GetModelTarget(EntityAnimationTarget target)
+        public void SetAnimationFloat(string name, float value)
         {
-            return target == EntityAnimationTarget.Armor ? armorModelInterface : modelInterface;
+            modelInterface.SetAnimationFloat(name, value);
         }
         #endregion
 
@@ -686,6 +798,7 @@ namespace PVZEngine.Entities
         {
             var seri = new SerializableEntity();
             seri.id = ID;
+            seri.time = time;
             seri.initSeed = InitSeed;
             seri.spawnerReference = SpawnerReference;
             seri.type = Type;
@@ -697,7 +810,6 @@ namespace PVZEngine.Entities
             seri.definitionID = Definition.GetID();
             seri.modelID = ModelID;
             seri.parent = Parent?.ID ?? 0;
-            seri.EquipedArmor = EquipedArmor?.Serialize();
             seri.previousPosition = PreviousPosition;
             seri.position = Position;
             seri.velocity = Velocity;
@@ -706,7 +818,15 @@ namespace PVZEngine.Entities
             seri.renderRotation = RenderRotation;
             seri.takenConveyorSeeds = takenConveyorSeeds.ToDictionary(p => p.ToString(), p => p.Value);
             seri.timeout = Timeout;
-            seri.colliders = colliders.ConvertAll(g => g.ToSerializable()).ToArray();
+
+            // 护盾
+            seri.armors = new Dictionary<string, SerializableArmor>();
+            foreach (var pair in armorDict)
+            {
+                if (pair.Value == null)
+                    continue;
+                seri.armors.Add(pair.Key.ToString(), pair.Value.Serialize());
+            }
 
             seri.isDead = IsDead;
             seri.health = Health;
@@ -737,18 +857,16 @@ namespace PVZEngine.Entities
         }
         public void ApplyDeserialize(SerializableEntity seri)
         {
+            time = seri.time;
             InitSeed = seri.initSeed;
             RNG = RandomGenerator.FromSerializable(seri.rng);
             DropRNG = RandomGenerator.FromSerializable(seri.dropRng);
             State = seri.state;
             Target = Level.FindEntityByID(seri.target);
 
-            Definition = Level.Content.GetEntityDefinition(seri.definitionID);
             ModelID = seri.modelID;
             Parent = Level.FindEntityByID(seri.parent);
-            EquipedArmor = seri.EquipedArmor != null ? Armor.Deserialize(seri.EquipedArmor, this) : null;
             PreviousPosition = seri.previousPosition;
-            prevUpdatePosition = seri.position;
             Position = seri.position;
             Velocity = seri.velocity;
             CollisionMaskHostile = seri.collisionMaskHostile;
@@ -757,16 +875,22 @@ namespace PVZEngine.Entities
             takenConveyorSeeds = seri.takenConveyorSeeds.ToDictionary(p => NamespaceID.ParseStrict(p.Key), p => p.Value);
             Timeout = seri.timeout;
 
+            // 护甲
+            armorDict.Clear();
+            foreach (var pair in seri.armors)
+            {
+                if (pair.Value == null)
+                    continue;
+                var slot = NamespaceID.ParseStrict(pair.Key);
+                var armor = Armor.Deserialize(pair.Value, this);
+                armorDict.Add(slot, armor);
+            }
+
             IsDead = seri.isDead;
             Health = seri.health;
             IsOnGround = seri.isOnGround;
             currentBuffID = seri.currentBuffID;
             properties = PropertyBlock.FromSerializable(seri.properties, this);
-
-            buffs = BuffList.FromSerializable(seri.buffs, Level, this);
-            buffs.OnPropertyChanged += UpdateModifiedProperty;
-            buffs.OnModelInsertionAdded += OnBuffModelAddCallback;
-            buffs.OnModelInsertionRemoved += OnBuffModelRemoveCallback;
 
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
             if (seri.takenGrids != null)
@@ -781,28 +905,23 @@ namespace PVZEngine.Entities
                     takenGrids.Add(grid, takenGrid.layers.ToHashSet());
                 }
             }
-            for (int i = 0; i < colliders.Count; i++)
-            {
-                var collider = colliders[i];
-                var seriCollider = seri.colliders[i];
-                collider.LoadCollisions(Level, seriCollider);
-            }
             CreateAuraEffects();
             auras.LoadFromSerializable(Level, seri.auras);
 
             UpdateModifierCaches();
             UpdateAllBuffedProperties();
             Cache.UpdateAll(this);
-            UpdateColliders();
         }
         public static Entity CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
         {
             var entity = new Entity(level, seri.type, seri.id, seri.spawnerReference);
+            entity.Definition = level.Content.GetEntityDefinition(seri.definitionID);
 
-            foreach (var collider in seri.colliders.Select(s => EntityCollider.FromSerializable(s, entity)))
-            {
-                entity.AddCollider(collider);
-            }
+            // 先于光环加载，不然找不到Buff
+            entity.buffs = BuffList.FromSerializable(seri.buffs, level, entity);
+            entity.buffs.OnPropertyChanged += entity.UpdateModifiedProperty;
+            entity.buffs.OnModelInsertionAdded += entity.OnBuffModelAddCallback;
+            entity.buffs.OnModelInsertionRemoved += entity.OnBuffModelRemoveCallback;
             return entity;
         }
         #endregion
@@ -817,14 +936,9 @@ namespace PVZEngine.Entities
         private void OnInit(Entity spawner)
         {
             PreviousPosition = Position;
-            prevUpdatePosition = Position;
             Health = this.GetMaxHealth();
-            Cache.UpdateAll(this);
-            var collider = new EntityCollider(this, EntityCollisionHelper.NAME_MAIN, new EntityHitbox(this));
-            AddCollider(collider);
             UpdateAllBuffedProperties();
             Cache.UpdateAll(this);
-            UpdateColliders();
         }
         private void OnUpdate()
         {
@@ -834,35 +948,21 @@ namespace PVZEngine.Entities
         private void OnContactGround(Vector3 velocity)
         {
             Definition.PostContactGround(this, velocity);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, c => c(this, velocity));
+            var param = new LevelCallbacks.PostEntityContactGroundParams()
+            {
+                entity = this,
+                velocity = velocity
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, param);
         }
         private void OnLeaveGround()
         {
             Definition.PostLeaveGround(this);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_LEAVE_GROUND, c => c(this));
-        }
-        private bool PreCollisionCallback(EntityCollision collision)
-        {
-            bool canCollide = Definition.PreCollision(collision);
-            var result = new TriggerResultBoolean();
-            result.Result = canCollide;
-            Level.Triggers.RunCallback(LevelCallbacks.PRE_ENTITY_COLLISION, result, c => c(collision, result));
-            return result.Result;
-        }
-        private void PostCollisionCallback(EntityCollision collision, int state)
-        {
-            Definition.PostCollision(collision, state);
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_COLLISION, c => c(collision, state));
-        }
-        private void OnColliderEnabledCallback(EntityCollider collider)
-        {
-            OnColliderEnabled?.Invoke(collider);
-            enabledColliders.Add(collider);
-        }
-        private void OnColliderDisabledCallback(EntityCollider collider)
-        {
-            OnColliderDisabled?.Invoke(collider);
-            enabledColliders.Remove(collider);
+            var param = new EntityCallbackParams()
+            {
+                entity = this,
+            };
+            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_LEAVE_GROUND, param);
         }
         private void OnBuffModelAddCallback(string anchorName, NamespaceID key, NamespaceID modelID)
         {
@@ -897,23 +997,20 @@ namespace PVZEngine.Entities
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         Entity IBuffTarget.GetEntity() => this;
+        Armor IBuffTarget.GetArmor() => null;
         void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IAuraSource.GetEntity() => this;
         LevelEngine IAuraSource.GetLevel() => Level;
-        object IModifierContainer.GetProperty(PropertyKey name) => GetProperty<object>(name);
+        T IModifierContainer.GetProperty<T>(PropertyKey<T> name) => GetProperty<T>(name);
         #endregion
 
         #region 事件
         public event Action PostInit;
-        public event Action<PropertyKey> PostPropertyChanged;
+        public event Action<IPropertyKey, object, object> PostPropertyChanged;
         public event Action<NamespaceID> OnChangeModel;
-        public event Action<Armor> OnEquipArmor;
-        public event Action<Armor, ArmorDamageResult> OnDestroyArmor;
-        public event Action<Armor> OnRemoveArmor;
-
-        public event Action<EntityCollider> OnColliderEnabled;
-        public event Action<EntityCollider> OnColliderDisabled;
+        public event Action<NamespaceID, Armor> OnEquipArmor;
+        public event Action<NamespaceID, Armor> OnRemoveArmor;
         #endregion
 
         #region 属性字段
@@ -927,22 +1024,24 @@ namespace PVZEngine.Entities
         public EntityReferenceChain SpawnerReference { get; private set; }
         public Entity Parent { get; private set; }
         public LevelEngine Level { get; private set; }
-        public Armor EquipedArmor { get; private set; }
         public Vector3 PreviousPosition { get; private set; }
-        public Vector3 Position { get; set; }
+        public Vector3 Position 
+        {
+            get => _position;
+            set
+            {
+                _position = value;
+                UpdateCollision();
+            }
+        }
         public Vector3 Velocity { get; set; }
         public Vector3 RenderRotation { get; set; } = Vector3.zero;
-        public bool FlipX => this.GetScale().x < 0;
-        private Vector3 prevUpdatePosition;
         #region Collision
         public int CollisionMaskHostile { get; set; }
         public int CollisionMaskFriendly { get; set; }
-        public Hitbox MainHitbox { get; private set; }
-        private List<EntityCollider> colliders = new List<EntityCollider>();
-        private List<EntityCollider> enabledColliders = new List<EntityCollider>();
         private IModelInterface modelInterface;
-        private IModelInterface armorModelInterface;
         #endregion
+
         public int Timeout { get; set; } = -1;
         public bool IsDead { get; set; }
         public float Health { get; set; }
@@ -954,22 +1053,20 @@ namespace PVZEngine.Entities
         internal EntityCache Cache { get; }
 
         private PropertyBlock properties;
+        private Vector3 _position;
+
+        #region 护盾
+        private Dictionary<NamespaceID, Armor> armorDict = new Dictionary<NamespaceID, Armor>();
+        #endregion
+
+        private long time = 0;
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private AuraEffectList auras = new AuraEffectList();
         private Dictionary<LawnGrid, HashSet<NamespaceID>> takenGrids = new Dictionary<LawnGrid, HashSet<NamespaceID>>();
         private List<Entity> children = new List<Entity>();
         private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
-        private Dictionary<PropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<PropertyKey, List<ModifierContainerItem>>();
+        private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>();
         #endregion
-    }
-}
-
-namespace PVZEngine.Level
-{
-    public enum EntityAnimationTarget
-    {
-        Entity,
-        Armor
     }
 }

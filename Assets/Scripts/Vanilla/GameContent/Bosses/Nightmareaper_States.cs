@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
@@ -272,7 +271,7 @@ namespace MVZ2.GameContent.Bosses
                 }
                 // Jab.
                 bool jabbed = false;
-                foreach (EntityCollider collider in entity.Level.OverlapBox(target.GetCenter(), Vector3.one * 40, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0))
+                foreach (IEntityCollider collider in entity.Level.OverlapBox(target.GetCenter(), Vector3.one * 40, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0))
                 {
                     collider.TakeDamage(10000, new DamageEffectList(), entity);
                     jabbed = true;
@@ -398,25 +397,20 @@ namespace MVZ2.GameContent.Bosses
             {
                 SetSpinVelocity(entity);
 
-                var spinDamageTimer = GetSpinDamageTimer(entity);
-                if (spinDamageTimer == null)
-                {
-                    spinDamageTimer = new FrameTimer(SPIN_DAMAGE_INTERVAL);
-                    SetSpinDamageTimer(entity, spinDamageTimer);
-                }
                 var level = entity.Level;
-                spinDamageTimer.Run();
-                if (spinDamageTimer.Expired)
+                if (entity.IsTimeInterval(SPIN_DAMAGE_INTERVAL))
                 {
-                    spinDamageTimer.Reset();
                     var rng = GetStateRNG(entity);
-                    foreach (EntityCollider collider in level.OverlapCylinder(entity.GetCenter(), SPIN_RADIUS, SPIN_HEIGHT, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0))
+                    detectBuffer.Clear();
+
+                    var point0 = entity.GetCenter() + Vector3.up * SPIN_HEIGHT * 0.5f;
+                    var point1 = entity.GetCenter() + Vector3.down * SPIN_HEIGHT * 0.5f;
+                    level.OverlapCapsuleNonAlloc(point0, point1, SPIN_RADIUS, entity.GetFaction(), EntityCollisionHelper.MASK_VULNERABLE, 0, detectBuffer);
+                    foreach (IEntityCollider collider in detectBuffer)
                     {
                         var target = collider.Entity;
                         var colliderReference = collider.ToReference();
-                        var damage = (level.Difficulty == VanillaDifficulties.hard || level.Difficulty == VanillaDifficulties.lunatic)
-                            ? SPIN_DAMAGE_HARD 
-                            : SPIN_DAMAGE;
+                        var damage = SPIN_DAMAGE + level.GetBossAILevel() * SPIN_DAMAGE_PER_AI_LEVEL;
                         var damageOutput = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.SLICE), entity);
                         PostSpinDamage(entity, damageOutput);
                     }
@@ -428,6 +422,8 @@ namespace MVZ2.GameContent.Bosses
             }
             private void PostSpinDamage(Entity entity, DamageOutput damage)
             {
+                if (damage == null)
+                    return;
                 if (damage.ShieldResult != null)
                 {
                     PostSpinDamageByResult(entity, damage.ShieldResult);
@@ -463,6 +459,7 @@ namespace MVZ2.GameContent.Bosses
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_LOOP = 1;
             public const int SUBSTATE_END = 2;
+            private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
         }
         #endregion
 
@@ -528,8 +525,7 @@ namespace MVZ2.GameContent.Bosses
                     {
                         var pos = position;
                         pos.y = entity.Level.GetGroundY(pos.x, pos.z);
-                        var skeleton = entity.Spawn(VanillaEnemyID.skeleton, pos);
-                        skeleton.SetFactionAndDirection(entity.GetFaction());
+                        var skeleton = entity.SpawnWithParams(VanillaEnemyID.skeleton, pos);
                         var boneParticle = entity.Spawn(VanillaEffectID.boneParticles, skeleton.GetCenter());
 
                         entity.PlaySound(VanillaSoundID.boneWallBuild);

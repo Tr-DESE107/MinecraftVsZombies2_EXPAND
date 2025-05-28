@@ -11,12 +11,13 @@ namespace Rendering
         {
             if (sprites != null && sprites.Length > 0)
             {
-                if (index != beforeIndex)
+                if (index != beforeIndex || Application.isEditor)
                 {
                     SetSpriteIndex(index);
                 }
             }
         }
+
 
         public void SetSpritePercent(float percent)
         {

@@ -2629,6 +2629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90205c4e5f722364d8953d7b8af42233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxRotationSpeed: 30
   shards:
   - {fileID: 664371529085657219}
   - {fileID: 5578742799076098847}

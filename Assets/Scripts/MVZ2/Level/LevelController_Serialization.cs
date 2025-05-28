@@ -6,11 +6,9 @@ using MVZ2.Games;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2Logic.Callbacks;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
-using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
@@ -36,11 +34,11 @@ namespace MVZ2.Level
 
                 maxCryTime = maxCryTime,
                 cryTimer = cryTimer,
-                cryTimeCheckTimer = cryTimeCheckTimer,
 
                 musicID = CurrentMusic,
                 musicTime = MusicTime,
                 musicVolume = MusicVolume,
+                musicTrackWeight = MusicTrackWeight,
 
                 energyActive = EnergyActive,
                 blueprintsActive = BlueprintsActive,
@@ -51,7 +49,7 @@ namespace MVZ2.Level
                 entities = entities.Select(e => e.ToSerializable()).ToArray(),
 
                 parts = parts.Select(p => p.ToSerializable()).ToArray(),
-                
+
                 areaModel = model.ToSerializable(),
 
                 level = SerializeLevel(),
@@ -69,7 +67,7 @@ namespace MVZ2.Level
             try
             {
                 rng = RandomGenerator.FromSerializable(seri.rng);
-                level = LevelEngine.Deserialize(seri.level, game, game, game, GetQuadTreeParams());
+                level = LevelEngine.Deserialize(seri.level, game, game, game, GetCollisionSystem());
                 InitLevelEngine(level, game, areaID, stageID);
 
                 level.DeserializeComponents(seri.level);
@@ -81,7 +79,6 @@ namespace MVZ2.Level
 
                 maxCryTime = seri.maxCryTime;
                 cryTimer = seri.cryTimer;
-                cryTimeCheckTimer = seri.cryTimeCheckTimer;
 
                 CurrentMusic = seri.musicID;
                 MusicTime = seri.musicTime;
@@ -149,6 +146,8 @@ namespace MVZ2.Level
             UpdateMoney();
             UpdateCamera();
             ShowMoney();
+            // 光照
+            UpdateLighting();
 
             // 游戏开始状态
             SetGameStarted(true);
@@ -183,7 +182,7 @@ namespace MVZ2.Level
             level.OnEntitySpawn += Engine_OnEntitySpawnCallback;
             level.OnEntityRemove += Engine_OnEntityRemoveCallback;
             level.OnGameOver += Engine_OnGameOverCallback;
-            
+
             foreach (var controller in parts)
             {
                 controller.AddEngineCallbacks(level);
@@ -192,8 +191,8 @@ namespace MVZ2.Level
             level.OnClear += Engine_OnClearCallback;
 
             level.AddTrigger(LevelCallbacks.POST_WAVE_FINISHED, PostWaveFinishedCallback);
-            level.AddTrigger(VanillaCallbacks.POST_HUGE_WAVE_APPROACH, PostHugeWaveApproachCallback);
-            level.AddTrigger(VanillaCallbacks.POST_FINAL_WAVE, PostFinalWaveCallback);
+            level.AddTrigger(VanillaLevelCallbacks.POST_HUGE_WAVE_APPROACH, PostHugeWaveApproachCallback);
+            level.AddTrigger(VanillaLevelCallbacks.POST_FINAL_WAVE, PostFinalWaveCallback);
 
             level.AddTrigger(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, Engine_PostUseEntityBlueprintCallback);
         }
@@ -233,6 +232,7 @@ namespace MVZ2.Level
         public NamespaceID musicID;
         public float musicTime;
         public float musicVolume;
+        public float musicTrackWeight;
 
         public bool energyActive;
         public bool blueprintsActive;
@@ -244,7 +244,6 @@ namespace MVZ2.Level
 
         public int maxCryTime;
         public FrameTimer cryTimer;
-        public FrameTimer cryTimeCheckTimer;
 
         public SerializableEntityController[] entities;
         public SerializableAreaModelData areaModel;

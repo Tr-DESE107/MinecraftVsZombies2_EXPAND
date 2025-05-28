@@ -3,6 +3,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -23,9 +24,9 @@ namespace MVZ2.GameContent.Enemies
                 entity.AddBuff<GhostBuff>();
             }
         }
-        public override void PreTakeDamage(DamageInput input)
+        public override void PreTakeDamage(DamageInput input, CallbackResult result)
         {
-            base.PreTakeDamage(input);
+            base.PreTakeDamage(input, result);
             var entity = input.Entity;
             if (entity == null)
                 return;
@@ -34,7 +35,7 @@ namespace MVZ2.GameContent.Enemies
                 Enrage(entity);
                 SwordHeldItemBehaviour.Paralyze(entity.Level);
             }
-            input.Cancel();
+            result.SetFinalValue(false);
         }
         protected override void UpdateLogic(Entity entity)
         {

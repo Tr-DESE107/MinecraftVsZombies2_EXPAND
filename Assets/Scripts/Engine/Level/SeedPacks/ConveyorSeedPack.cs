@@ -9,7 +9,7 @@ namespace PVZEngine.SeedPacks
         public ConveyorSeedPack(LevelEngine level, SeedDefinition definition, long id) : base(level, definition, id)
         {
         }
-        public override int GetIndex()
+        public int GetIndex()
         {
             return Level.GetConveyorSeedPackIndex(this);
         }

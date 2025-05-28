@@ -12,6 +12,7 @@ namespace MVZ2Logic.Entities
         string Tooltip { get; }
         NamespaceID Unlock { get; }
         int Order { get; }
+        NamespaceID[] Behaviours { get; }
         Dictionary<string, object> Properties { get; }
     }
 }

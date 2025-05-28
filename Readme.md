@@ -191,6 +191,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 **General**
 
 - The recharge time of blueprints have been reduced to 80%.
+- The blueprint convey speed in converyor belt stages have been increased to 200%.
 - Starshard zombies have increased spawn rate. 
 - Clearing a level that has already been cleared only gives 2 rubies, the remaining carts are settled as emeralds.
 
@@ -205,6 +206,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - Enemies drop more redstones in the levels which they will drop restones.
 - -1 spawned Parasite Terrors from enemies.
 - Skeleton Horses won't jump.
+- Wicked Hermit Zombie is stunned for 7.5 seconds after teleporting.
 
 **Bosses**
 
@@ -217,6 +219,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 **Misc**
 
 - Paralysis time for the sword in Whack-A-Ghost level is 0.75 seconds.
+- Every furnace drops 10 redstones as total in I Zombie mode.
 
 
 ## Hard
@@ -233,6 +236,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - Ghast's fire charge deals 300 damage.
 - +1 spawned Parasite Terrors from enemies.
 - Skeleton Horses jump twice.
+- Wicked Hermit Zombie is stunned for 2.5 seconds after teleporting.
 
 **Bosses**
 
@@ -241,8 +245,11 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - Slenderman will turn blueprints into zombies, and zombie blueprints will not be turned into other blueprints.
 - Nightmareaper's Crushing Wall closes faster.
 - Nightmareaper's time limit is 1 minute.
+- Nightmareaper's Wheel of Death attack deals 40% more damage.
 - Contraptions damaged by Wither Skulls will be withering, losing 10 HP per second in 30 seconds.
+- The Giant will take less damage after every damage taken. Reforming from cells will reset this effect.
 
 **Misc**
 
-- Paralysis time for the sword in Whack-A-Ghost level is 2 seconds.
+- Paralysis time for the sword in Whack-A-Ghost level is 3 seconds.
+- Every furnace drops 6 redstones as total in I Zombie mode.

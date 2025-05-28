@@ -1,9 +1,9 @@
 ﻿using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -14,7 +14,6 @@ namespace MVZ2.Vanilla.Entities
         {
             if (!CanCollect(pickup))
                 return;
-            pickup.State = VanillaEntityStates.PICKUP_COLLECTED;
             var collectible = pickup.Definition.GetBehaviour<ICollectiblePickup>();
             if (collectible != null)
                 collectible.PostCollect(pickup);
@@ -26,32 +25,31 @@ namespace MVZ2.Vanilla.Entities
                 return false;
             if (!collectible.CanCollect(entity))
                 return false;
-            var result = new TriggerResultBoolean();
-            result.Result = true;
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.CAN_PICKUP_COLLECT, result, c => c(entity, result));
-            return result.Result;
+            var result = new CallbackResult(true);
+            entity.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.CAN_PICKUP_COLLECT, new EntityCallbackParams(entity), result);
+            return result.GetValue<bool>();
         }
         public static bool IsCollected(this Entity entity)
         {
             return entity.State == VanillaEntityStates.PICKUP_COLLECTED;
         }
-        public static Entity Produce(this Entity entity, NamespaceID pickupID)
+        public static Entity Produce(this Entity entity, NamespaceID pickupID, SpawnParams param = null)
         {
-            return entity.Produce(entity.Level.Content.GetEntityDefinition(pickupID));
+            return entity.Produce(entity.Level.Content.GetEntityDefinition(pickupID), param);
         }
-        public static Entity Produce(this Entity entity, EntityDefinition pickupDef)
+        public static Entity Produce(this Entity entity, EntityDefinition pickupDef, SpawnParams param = null)
         {
-            return entity.Level.Produce(pickupDef, entity.Position, entity);
+            return entity.Level.Produce(pickupDef, entity.Position, entity, param);
         }
-        public static Entity Produce(this LevelEngine level, NamespaceID pickupID, Vector3 position, Entity spawner)
+        public static Entity Produce(this LevelEngine level, NamespaceID pickupID, Vector3 position, Entity spawner, SpawnParams param = null)
         {
-            return level.Produce(level.Content.GetEntityDefinition(pickupID), position, spawner);
+            return level.Produce(level.Content.GetEntityDefinition(pickupID), position, spawner, param);
         }
-        public static Entity Produce(this LevelEngine level, EntityDefinition pickupDef, Vector3 position, Entity spawner)
+        public static Entity Produce(this LevelEngine level, EntityDefinition pickupDef, Vector3 position, Entity spawner, SpawnParams param = null)
         {
             float xSpeed;
             float maxSpeed = 1.6f;
-            var pickup = level.Spawn(pickupDef, position, spawner);
+            var pickup = level.Spawn(pickupDef, position, spawner, param);
 
             var rng = pickup.RNG;
             if (position.x <= VanillaLevelExt.GetBorderX(false) + 150)

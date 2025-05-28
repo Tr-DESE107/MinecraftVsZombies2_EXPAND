@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Stages
         {
             base.OnStart(level);
             level.SetSeedSlotCount(3);
-            level.ReplaceSeedPacks(new NamespaceID[3]
+            level.FillSeedPacks(new NamespaceID[3]
             {
                 VanillaBlueprintID.returnPearl,
                 VanillaBlueprintID.lengthenBoard,

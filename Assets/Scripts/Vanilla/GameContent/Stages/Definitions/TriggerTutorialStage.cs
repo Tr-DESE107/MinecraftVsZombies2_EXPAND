@@ -3,6 +3,7 @@ using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.HeldItems;
+using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
@@ -28,7 +29,7 @@ namespace MVZ2.GameContent.Stages
             base.OnStart(level);
             SetTutorialTimer(level, new FrameTimer(90));
             level.SetSeedSlotCount(1);
-            level.ReplaceSeedPacks(new NamespaceID[] { VanillaContraptionID.tnt });
+            level.FillSeedPacks(new NamespaceID[] { VanillaContraptionID.tnt });
             level.SetStarshardActive(false);
             level.SetTriggerActive(true);
             level.SetBlueprintsActive(true);
@@ -246,7 +247,7 @@ namespace MVZ2.GameContent.Stages
                     level.StopLevel();
                     level.PlayMusic(VanillaMusicID.mainmenu);
                     level.HideAdvice();
-                    level.SetEnergy(level.Option.StartEnergy);
+                    level.SetEnergy(level.GetStartEnergy());
                     level.ClearSeedPacks();
                     level.ChangeStage(VanillaStageID.halloween7);
                     level.SetBlueprintsActive(true);
@@ -254,7 +255,7 @@ namespace MVZ2.GameContent.Stages
                     level.SetStarshardActive(true);
                     level.SetTriggerActive(true);
                     Global.Game.Unlock(VanillaUnlockID.trigger);
-                    level.BeginLevel();
+                    level.SimpleStartTalk(VanillaTalkID.halloween7, 0, 2, onEnd: () => level.BeginLevel());
                     break;
             }
         }
@@ -316,7 +317,7 @@ namespace MVZ2.GameContent.Stages
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "10")]
         public const string STRING_STATE_10 = "祝你好运！";
 
-        public static readonly VanillaLevelPropertyMeta PROP_STATE = new VanillaLevelPropertyMeta("state");
-        public static readonly VanillaLevelPropertyMeta PROP_TUTORIAL_TIMER = new VanillaLevelPropertyMeta("tutorialTimer");
+        public static readonly VanillaLevelPropertyMeta<int> PROP_STATE = new VanillaLevelPropertyMeta<int>("state");
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_TUTORIAL_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("tutorialTimer");
     }
 }

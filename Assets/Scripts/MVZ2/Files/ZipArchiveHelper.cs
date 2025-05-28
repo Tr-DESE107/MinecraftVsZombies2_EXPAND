@@ -3,9 +3,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Text;
 using System.Threading.Tasks;
-using MVZ2.Sprites;
 using NGettext;
-using UnityEngine;
 
 namespace MVZ2.IO
 {
@@ -29,6 +27,27 @@ namespace MVZ2.IO
                 using (var reader = new StreamReader(zipStream, encoding))
                 {
                     return await reader.ReadToEndAsync();
+                }
+            }
+        }
+        public static void WriteString(this ZipArchiveEntry entry, string str, Encoding encoding)
+        {
+            using (var zipStream = entry.Open())
+            {
+                using (var reader = new StreamWriter(zipStream, encoding))
+                {
+                    reader.Write(str);
+                }
+            }
+        }
+
+        public static async Task WriteStringAsync(this ZipArchiveEntry entry, string str, Encoding encoding)
+        {
+            using (var zipStream = entry.Open())
+            {
+                using (var reader = new StreamWriter(zipStream, encoding))
+                {
+                    await reader.WriteAsync(str);
                 }
             }
         }

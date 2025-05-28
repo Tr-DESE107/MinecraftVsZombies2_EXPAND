@@ -18,6 +18,10 @@ namespace MVZ2.Games
         {
             return metaProvider.GetModStageMetas(spaceName);
         }
+        public IDifficultyMeta GetDifficultyMeta(NamespaceID stageID)
+        {
+            return metaProvider.GetDifficultyMeta(stageID);
+        }
         public IAreaMeta GetAreaMeta(NamespaceID stageID)
         {
             return metaProvider.GetAreaMeta(stageID);
@@ -26,6 +30,18 @@ namespace MVZ2.Games
         {
             return metaProvider.GetModAreaMetas(spaceName);
         }
+        public IArmorSlotMeta GetArmorSlotMeta(NamespaceID stageID)
+        {
+            return metaProvider.GetArmorSlotMeta(stageID);
+        }
+        public IArmorMeta GetArmorMeta(NamespaceID stageID)
+        {
+            return metaProvider.GetArmorMeta(stageID);
+        }
+        public IArmorMeta[] GetModArmorMetas(string spaceName)
+        {
+            return metaProvider.GetModArmorMetas(spaceName);
+        }
         public IEntityMeta GetEntityMeta(NamespaceID stageID)
         {
             return metaProvider.GetEntityMeta(stageID);
@@ -33,6 +49,10 @@ namespace MVZ2.Games
         public IEntityMeta[] GetModEntityMetas(string spaceName)
         {
             return metaProvider.GetModEntityMetas(spaceName);
+        }
+        public IEntityCounterMeta GetEntityCounterMeta(NamespaceID stageID)
+        {
+            return metaProvider.GetEntityCounterMeta(stageID);
         }
         public IArtifactMeta[] GetModArtifactMetas(string spaceName)
         {

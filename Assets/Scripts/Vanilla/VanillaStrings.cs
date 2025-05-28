@@ -9,6 +9,10 @@ namespace MVZ2.Vanilla
         public const string TOOLTIP_DISABLE_MESSAGE = "无法使用";
         [TranslateMsg("教程无法使用提示")]
         public const string TOOLTIP_DECREPIFY = "受到衰老诅咒！";
+        [TranslateMsg("无法携带提示")]
+        public const string TOOLTIP_CANNOT_IMITATE_THIS_CONTRAPTION = "无法模仿此器械";
+        [TranslateMsg("命令方块蓝图名，{0}为原名称")]
+        public const string COMMAND_BLOCK_BLUEPRINT_NAME_TEMPLATE = "[命令方块]{0}";
 
         [TranslateMsg("梦魇战斗提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_DRAG_CRUSHING_WALLS = "点击屏幕阻止碾压墙！";
@@ -21,6 +25,14 @@ namespace MVZ2.Vanilla
         public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的敌人要来了！";
         [TranslateMsg("预览战场的提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_CONTINUE = "点击以继续";
+        [TranslateMsg("欲望壶技能的提示，{0}为受到的总伤害", CONTEXT_ADVICE, selfPlural: true)]
+        public const string ADVICE_NO_CARDS_DRAWN = "没有抽到牌！受到{0}点疲劳伤害！";
+        [TranslateMsg("欲望壶技能的提示", CONTEXT_ADVICE)]
+        public const string ADVICE_NO_CARDS_DRAWN_CONVEYOR = "没有抽到牌！但那又怎样呢？";
+        [TranslateMsg("我是僵尸模式的提示，{0}为剩余轮数", CONTEXT_ADVICE, selfPlural: true)]
+        public const string ADVICE_IZ_ROUNDS_LEFT = "干得好！还剩{0}轮！";
+        [TranslateMsg("我是僵尸模式的提示，{0}为目前连胜", CONTEXT_ADVICE, selfPlural: true)]
+        public const string ADVICE_IZ_STREAK = "干得好！目前连胜：{0}！";
 
         [TranslateMsg("固有蓝图的提示")]
         public const string INNATE = "固有";
@@ -121,19 +133,24 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_LEVEL_NAME = "levelname";
         [TranslateMsg("关卡名称", CONTEXT_LEVEL_NAME)]
         public const string LEVEL_NAME_UNKNOWN = "未知关卡";
-        [TranslateMsg("关卡名称，{0}为关卡名，{1}为冒险模式天数", CONTEXT_LEVEL_NAME)]
+        [TranslateMsg("关卡名称，{0}为关卡名，{1}为冒险模式天数", CONTEXT_LEVEL_NAME, selfPlural: true)]
         public const string LEVEL_NAME_DAY_TEMPLATE = "{0} - 第{1}天";
-        [TranslateMsg("关卡名称，{0}为关卡名，{1}为无尽模式轮数", CONTEXT_LEVEL_NAME)]
+        [TranslateMsg("关卡名称，{0}为关卡名，{1}为无尽模式轮数", CONTEXT_LEVEL_NAME, selfPlural: true)]
         public const string LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE = "{0} - 第{1}轮";
 
         public const string CONTEXT_DEATH_MESSAGE = "death_message";
         [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_UNKNOWN = "你死了！";
-        [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
+        [TranslateMsg("死亡信息-梦魇碾压墙", CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_CRUSHING_WALLS = "<color=red>来到我们之中吧</color>";
+        [TranslateMsg("死亡信息-我是僵尸", CONTEXT_DEATH_MESSAGE)]
+        public const string DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES = "你失去了所有能量！";
 
         [TranslateMsg("实体名称-未知", CONTEXT_ENTITY_NAME)]
         public const string UNKNOWN_ENTITY_NAME = "？？？";
+
+        [TranslateMsg("实体对策名称-未知", CONTEXT_ENTITY_COUNTER_NAME)]
+        public const string UNKNOWN_ENTITY_COUNTER_NAME = "？？？";
 
         [TranslateMsg("蓝图选项名称-未知", CONTEXT_OPTION_NAME)]
         public const string UNKNOWN_OPTION_NAME = "？？？";
@@ -172,6 +189,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ADVICE = "advice";
         public const string CONTEXT_ERROR = "error";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
+        public const string CONTEXT_ENTITY_COUNTER_NAME = "entity_counter.name";
         public const string CONTEXT_CHARACTER_NAME = "character.name";
         public const string CONTEXT_MUSIC_NAME = "music.name";
         public const string CONTEXT_MUSIC_ORIGIN = "music.origin";
@@ -188,7 +206,10 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_RECHARGE_TIME = "recharge_time";
         public const string CONTEXT_STAT_CATEGORY = "stat_category";
         public const string CONTEXT_STORE_TALK = "store_talk";
+        public const string CONTEXT_CREDITS_CATEGORY = "credits_category";
+        public const string CONTEXT_STAFF_NAME = "staff_name";
         public const string CONTEXT_TALK = "talk";
         public const string CONTEXT_RANDOM_CHINA_EVENT_NAME = "random_china.event_name";
+        public const string CONTEXT_HOTKEY_NAME = "hotkey.name";
     }
 }

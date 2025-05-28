@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Entities;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Games;
 using MVZ2.Grids;
 using MVZ2.Level.Components;
-using MVZ2.Level.UI;
 using MVZ2.Localization;
+using MVZ2.Logic.Level;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Options;
@@ -20,17 +22,16 @@ using MVZ2.Talks;
 using MVZ2.UI;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
-using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Level.Collisions;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -76,21 +77,21 @@ namespace MVZ2.Level
             SetActive(true);
             rng = new RandomGenerator(Guid.NewGuid().GetHashCode());
 
-            var quadTreeParams = GetQuadTreeParams();
-            level = new LevelEngine(game, game, game, quadTreeParams);
+            var collisionSystem = GetCollisionSystem();
+            level = new LevelEngine(game, game, game, collisionSystem);
             InitLevelEngine(level, game, areaID, stageID);
-            
+
             var option = new LevelOption()
             {
                 CardSlotCount = 10,
                 StarshardSlotCount = 10,
                 LeftFaction = SelfFaction,
                 RightFaction = EnemyFaction,
-                StartEnergy = 50,
                 MaxEnergy = 9990,
                 TPS = 30
             };
             level.Init(areaID, stageID, option, seed);
+            level.SetArtifactRNG(level.CreateRNG());
             InitGrids();
             level.Setup();
 
@@ -98,6 +99,7 @@ namespace MVZ2.Level
             uiPreset.UpdateFrame(0);
             SetStarshardIcon();
             SetUnlockedUIActive();
+            UpdateLighting();
         }
         public void StartLevelIntro(float delay)
         {
@@ -133,6 +135,7 @@ namespace MVZ2.Level
 
             Music.Play(level.GetMusicID());
             MusicTime = 0;
+            MusicTrackWeight = 0;
 
             levelProgress = 0;
             bannerProgresses = new float[level.GetTotalFlags()];
@@ -175,7 +178,7 @@ namespace MVZ2.Level
             Saves.SaveModDatas();
             Dispose();
             await LevelManager.GotoLevelSceneAsync();
-            LevelManager.InitLevel(StartAreaID, StartStageID);
+            LevelManager.InitLevel(StartAreaID, StartStageID, exitTarget: exitTarget);
         }
         public void GameOver(Entity killer)
         {
@@ -194,12 +197,13 @@ namespace MVZ2.Level
         {
             this.deathMessage = deathMessage;
             SetGameOver();
+            Music.Stop();
             ShowGameOverDialog();
         }
         public void StopLevel()
         {
             level.ResetHeldItem();
-            level.Triggers.RunCallback(LogicLevelCallbacks.POST_LEVEL_STOP, c => c(level));
+            level.Triggers.RunCallback(LogicLevelCallbacks.POST_LEVEL_STOP, new LevelCallbackParams(level));
             SetUIVisibleState(VisibleState.Nothing);
             pointingGrid = -1;
             pointingPointerId = -1;
@@ -217,8 +221,19 @@ namespace MVZ2.Level
                 optionsLogic = null;
             }
             Music.SetVolume(1);
-            level?.StopAllLoopSounds();
-            level?.Dispose();
+            Music.SetTrackWeight(0);
+            if (level != null)
+            {
+                foreach (var component in level.GetComponents())
+                {
+                    if (component is IMVZ2LevelComponent comp)
+                    {
+                        comp.PostDispose();
+                    }
+                }
+                level.StopAllLoopSounds();
+                level.Dispose();
+            }
             Game.SetLevel(null);
         }
         public async Task ExitLevelToNote(NamespaceID id)
@@ -229,9 +244,26 @@ namespace MVZ2.Level
             SetActive(false);
             await ExitScene();
         }
+        public void SetExitTarget(LevelExitTarget target)
+        {
+            exitTarget = target;
+        }
         public async Task ExitLevel()
         {
-            Scene.GotoMapOrMainmenu();
+            switch (exitTarget)
+            {
+                case LevelExitTarget.Minigame:
+                    Scene.DisplayArcade(() => Scene.DisplayMainmenu());
+                    Scene.DisplayArcadeMinigames();
+                    break;
+                case LevelExitTarget.Puzzle:
+                    Scene.DisplayArcade(() => Scene.DisplayMainmenu());
+                    Scene.DisplayArcadePuzzles();
+                    break;
+                default:
+                    Scene.GotoMapOrMainmenu();
+                    break;
+            }
             SetActive(false);
             await ExitScene();
         }
@@ -276,7 +308,7 @@ namespace MVZ2.Level
         }
         public float GetGameSpeed()
         {
-            return speedUp ? 2 : 1;
+            return speedUp ? Main.OptionsManager.GetFastForwardMultiplier() : 1;
         }
         public void RemoveLevelState()
         {
@@ -333,7 +365,9 @@ namespace MVZ2.Level
                 {
                     foreach (var entity in entities.ToArray())
                     {
-                        if (CanUpdateBeforeGameStart(entity.Entity))
+                        bool canRunBeforeGameStart = IsGameStarted() || CanUpdateBeforeGameStart(entity.Entity);
+                        bool canRunInPause = !IsGamePaused() || CanUpdateInPause(entity.Entity);
+                        if (canRunBeforeGameStart && canRunInPause)
                         {
                             entity.Entity.Update();
                             entity.UpdateFixed();
@@ -390,7 +424,9 @@ namespace MVZ2.Level
                 else
                 {
                     // 游戏没有结束，则只有在游戏运行中，或者实体可以在游戏开始前行动，或者实体是预览敌人时，才会动起来。
-                    modelActive = gameRunning || CanUpdateBeforeGameStart(ent) || ent.IsPreviewEnemy();
+                    bool canRunBeforeGameStart = IsGameStarted() || CanUpdateBeforeGameStart(ent);
+                    bool canRunInPause = !IsGamePaused() || CanUpdateInPause(ent);
+                    modelActive = (canRunBeforeGameStart && canRunInPause) || ent.IsPreviewEnemy();
                 }
                 float speed = modelActive ? gameSpeed : 0;
                 entity.SetSimulationSpeed(speed);
@@ -452,7 +488,7 @@ namespace MVZ2.Level
                     darknessSpeed = -2;
                 }
                 darknessFactor = Mathf.Clamp01(darknessFactor + darknessSpeed * uiDeltaTime);
-                SetDarknessValue(level.GetNightValue(), level.GetDarknessValue() * darknessFactor);
+                UpdateLighting();
                 ui.SetScreenCover(level.GetScreenCover());
                 UpdateCamera();
                 UpdateMoney();
@@ -488,6 +524,8 @@ namespace MVZ2.Level
         public bool ResumeGame(int level = 0)
         {
             if (!isPaused || level < pauseLevel)
+                return false;
+            if (Main.Scene.HasDialog())
                 return false;
             pauseLevel = 0;
             isPaused = false;
@@ -584,39 +622,6 @@ namespace MVZ2.Level
         {
             UpdateFocusLost(focus);
         }
-        private void OnDrawGizmos()
-        {
-            if (level == null)
-                return;
-            for (int i = 1; i < 8; i++)
-            {
-                var flag = EntityCollisionHelper.GetTypeMask(i);
-                var quadTree = level.GetCollisionQuadTree(flag);
-                if (quadTree == null)
-                    continue;
-                var node = quadTree.GetRootNode();
-                Gizmos.color = Color.HSVToRGB(flag / 7f, 1, 1);
-                DrawQuadTreeNode(node);
-            }
-        }
-        private void DrawQuadTreeNode(QuadTreeNode<EntityCollider> node)
-        {
-            Rect rect = node.GetRect();
-            var min = LawnToTrans(rect.min);
-            min.z = 0;
-            var max = LawnToTrans(rect.max);
-            max.z = 0;
-            var size = max - min;
-            var center = min + size * 0.5f;
-            Gizmos.DrawWireCube(center, size);
-
-            var childCount = node.GetChildCount();
-            for (int i = 0; i < childCount; i++)
-            {
-                var child = node.GetChild(i);
-                DrawQuadTreeNode(child);
-            }
-        }
         #endregion
 
         #region 事件回调
@@ -643,22 +648,37 @@ namespace MVZ2.Level
             Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
             Saves.SaveModDatas();
 
-            var mapTalk = level.GetTalk(StageMetaTalk.TYPE_MAP);
-            if (mapTalk != null)
+            var mapTalks = level.GetTalksOfType(StageMetaTalk.TYPE_MAP);
+            if (mapTalks != null)
             {
-                if (!level.IsRerun || mapTalk.ShouldRepeat(Main.SaveManager))
+                foreach (var mapTalk in mapTalks)
                 {
+                    if (level.IsRerun && !mapTalk.ShouldRepeat(Main.SaveManager))
+                        continue;
+                    if (!Main.ResourceManager.CanStartTalk(mapTalk.Value, mapTalk.StartSection))
+                        continue;
                     Saves.SetMapTalk(mapTalk.Value);
+                    break;
                 }
             }
 
-            var endTalk = level.GetTalk(StageMetaTalk.TYPE_END);
+            var endTalks = level.GetTalksOfType(StageMetaTalk.TYPE_END);
             float transitionDelay = 3;
-            if (endTalk != null)
+            if (endTalks != null)
             {
-                if (!level.IsRerun || endTalk.ShouldRepeat(Main.SaveManager))
+                NamespaceID talkID = null;
+                foreach (var endTalk in endTalks)
                 {
-                    await talkController.SimpleStartTalkAsync(endTalk.Value, 0, 5, () => transitionDelay = 0);
+                    if (level.IsRerun && !endTalk.ShouldRepeat(Main.SaveManager))
+                        continue;
+                    if (!Main.ResourceManager.CanStartTalk(endTalk.Value, endTalk.StartSection))
+                        continue;
+                    talkID = endTalk.Value;
+                    break;
+                }
+                if (NamespaceID.IsValid(talkID))
+                {
+                    await talkController.SimpleStartTalkAsync(talkID, 0, 5, () => transitionDelay = 0);
                 }
             }
             StartExitLevelTransition(transitionDelay);
@@ -667,16 +687,16 @@ namespace MVZ2.Level
         {
             await ExitLevelToNote(exitTargetNoteID);
         }
-        private void PostWaveFinishedCallback(LevelEngine level, int wave)
+        private void PostWaveFinishedCallback(LevelCallbacks.PostWaveParams param, CallbackResult result)
         {
             UpdateLevelName();
         }
-        private void PostHugeWaveApproachCallback(LevelEngine level)
+        private void PostHugeWaveApproachCallback(LevelCallbackParams param, CallbackResult result)
         {
             var ui = GetUIPreset();
             ui.ShowHugeWaveText();
         }
-        private void PostFinalWaveCallback(LevelEngine level)
+        private void PostFinalWaveCallback(LevelCallbackParams param, CallbackResult result)
         {
             var ui = GetUIPreset();
             ui.ShowFinalWaveText();
@@ -826,6 +846,20 @@ namespace MVZ2.Level
                     boss.Die();
                 }
             }
+            if (Input.GetKeyDown(KeyCode.F6))
+            {
+                var contraptions = Main.SaveManager.GetUnlockedContraptions();
+                var grids = level.GetAllGrids();
+                for (int i = 0; i < contraptions.Length; i++)
+                {
+                    var contraption = contraptions[i];
+                    var grid = grids.FirstOrDefault(g => g.CanSpawnEntity(contraption));
+                    if (grid == null)
+                        continue;
+                    var spawnParams = CommandBlock.GetImitateSpawnParams(contraption);
+                    var command = grid.SpawnPlacedEntity(VanillaContraptionID.commandBlock, spawnParams);
+                }
+            }
 #endif
             if (!isGameOver)
             {
@@ -864,7 +898,7 @@ namespace MVZ2.Level
                         }
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.fastForward)))
                 {
                     SwitchSpeedUp();
                 }
@@ -882,23 +916,22 @@ namespace MVZ2.Level
                 }
                 for (int i = 0; i < 10; i++)
                 {
-                    if (Input.GetKeyDown(KeyCode.Alpha0 + i))
+                    if (Input.GetKeyDown(Options.GetBlueprintKeyBinding(i)))
                     {
-                        var index = i == 0 ? 9 : i - 1;
-                        var controller = BlueprintController.GetCurrentBlueprintControllerByIndex(index);
+                        var controller = BlueprintController.GetCurrentBlueprintControllerByIndex(i);
                         if (controller != null)
                             controller.Click();
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.pickaxe)))
                 {
                     ClickPickaxe();
                 }
-                if (Input.GetKeyDown(KeyCode.W))
+                if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.starshard)))
                 {
                     ClickStarshard();
                 }
-                if (Input.GetKeyDown(KeyCode.BackQuote))
+                if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.trigger)))
                 {
                     ClickTrigger();
                 }
@@ -907,6 +940,10 @@ namespace MVZ2.Level
         private bool CanUpdateBeforeGameStart(Entity entity)
         {
             return entity.CanUpdateBeforeGameStart();
+        }
+        private bool CanUpdateInPause(Entity entity)
+        {
+            return entity.CanUpdateInPause();
         }
         private bool CanUpdateAfterGameOver(Entity entity)
         {
@@ -945,12 +982,22 @@ namespace MVZ2.Level
             }
             SetCameraPosition(level.StageDefinition.GetStartCameraPosition());
 
-            var startTalk = level.GetTalk(StageMetaTalk.TYPE_START);
-            if (startTalk != null)
+            var startTalks = level.GetTalksOfType(StageMetaTalk.TYPE_START);
+            if (startTalks != null)
             {
-                if (!level.IsRerun || startTalk.ShouldRepeat(Main.SaveManager))
+                NamespaceID talkID = null;
+                foreach (var startTalk in startTalks)
                 {
-                    await talkController.SimpleStartTalkAsync(startTalk.Value, 0, 2, () => 
+                    if (level.IsRerun && !startTalk.ShouldRepeat(Main.SaveManager))
+                        continue;
+                    if (!Main.ResourceManager.CanStartTalk(startTalk.Value, startTalk.StartSection))
+                        continue;
+                    talkID = startTalk.Value;
+                    break;
+                }
+                if (NamespaceID.IsValid(talkID))
+                {
+                    await talkController.SimpleStartTalkAsync(talkID, 0, 2, () =>
                     {
                         if (!level.NoStartTalkMusic())
                         {
@@ -980,10 +1027,14 @@ namespace MVZ2.Level
         {
             isGameStarted = value;
         }
-        private void SetDarknessValue(float night, float darkness)
+        private void UpdateLighting()
         {
-            ui.SetDarknessValue(night, darkness);
-            model.SetDarknessValue(darkness);
+            SetLighting(level.GetBackgroundLight(), Color.Lerp(Color.white, level.GetGlobalLight(), darknessFactor));
+        }
+        private void SetLighting(Color night, Color darkness)
+        {
+            ui.SetLighting(night, darkness);
+            model.SetLighting(darkness);
         }
         #endregion
 
@@ -1046,6 +1097,11 @@ namespace MVZ2.Level
             get => Music.GetVolume();
             set => Music.SetVolume(value);
         }
+        public float MusicTrackWeight
+        {
+            get => Music.GetTrackWeight();
+            set => Music.SetTrackWeight(value);
+        }
         public bool EnergyActive
         {
             get => energyActive;
@@ -1103,6 +1159,7 @@ namespace MVZ2.Level
         #endregion
 
         private ILevelControllerPart[] parts;
+        private LevelExitTarget exitTarget;
         [Header("Main")]
         [SerializeField]
         private LevelUI ui;

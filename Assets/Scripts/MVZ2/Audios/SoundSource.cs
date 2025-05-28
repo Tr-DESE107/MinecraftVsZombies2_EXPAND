@@ -20,10 +20,16 @@ namespace MVZ2.Audios
         }
         public NamespaceID SoundID { get; set; }
         public AudioSource AudioSource => audioSource;
+        public float Intensity { get; set; }
         public float Volume
         {
             get => volumeFader.Value;
             set => volumeFader.Value = value;
+        }
+        public float Pitch
+        {
+            get => audioSource.pitch;
+            set => audioSource.pitch = value;
         }
         [SerializeField]
         private AudioSource audioSource;

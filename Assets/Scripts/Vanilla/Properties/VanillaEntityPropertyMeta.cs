@@ -2,7 +2,7 @@
 
 namespace MVZ2.Vanilla.Properties
 {
-    public class VanillaEntityPropertyMeta : PropertyMeta
+    public class VanillaEntityPropertyMeta<T> : PropertyMeta<T>
     {
         public VanillaEntityPropertyMeta(string name) : base(name)
         {

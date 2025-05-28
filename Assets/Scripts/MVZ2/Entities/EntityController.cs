@@ -6,7 +6,6 @@ using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
-using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
@@ -14,7 +13,6 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
@@ -39,16 +37,15 @@ namespace MVZ2.Entities
             entity.OnChangeModel += OnChangeModelCallback;
 
             entity.OnEquipArmor += OnArmorEquipCallback;
-            entity.OnDestroyArmor += OnArmorDestroyCallback;
             entity.OnRemoveArmor += OnArmorRemoveCallback;
 
+
             bodyModelInterface = new BodyModelInterface(this);
-            armorModelInterface = new ArmorModelInterface(this);
-            entity.SetModelInterface(bodyModelInterface, armorModelInterface);
+            entity.SetModelInterface(bodyModelInterface);
             SetModel(Entity.ModelID);
             if (Model)
             {
-                Model.ClearArmorModel();
+                ClearAllArmorModels();
             }
 
             transform.position = Level.LawnToTrans(Entity.Position);
@@ -61,15 +58,15 @@ namespace MVZ2.Entities
             if (Model)
             {
                 Destroy(Model.gameObject);
+                Model.OnUpdateFrame -= OnModelUpdateFrameCallback;
                 Model = null;
             }
             var model = Models.Model.Create(modelId, transform, Level.GetCamera(), Entity.InitSeed);
             Model = model;
             if (!Model)
                 return;
-            UpdateEntityModel();
+            Model.OnUpdateFrame += OnModelUpdateFrameCallback;
             modelPropertyCache.UpdateAll(this);
-            UpdateArmorModel();
             Model.UpdateFrame(0);
         }
         public void SetSimulationSpeed(float simulationSpeed)
@@ -78,13 +75,6 @@ namespace MVZ2.Entities
             {
                 Model.SetSimulationSpeed(simulationSpeed);
             }
-        }
-        public void ChangeArmorModel(NamespaceID modelID)
-        {
-            if (!Model)
-                return;
-            Model.RemoveArmor();
-            Model.CreateArmor(modelID);
         }
         #endregion
 
@@ -113,8 +103,6 @@ namespace MVZ2.Entities
             UpdateShadow(finalOffset);
             if (Model)
             {
-                UpdateEntityModel();
-                UpdateArmorModel();
                 Model.UpdateFrame(deltaTime);
             }
         }
@@ -243,88 +231,6 @@ namespace MVZ2.Entities
                 }
             }
         }
-        private void OnDrawGizmos()
-        {
-            float pixelUnit = Level?.LawnToTransScale ?? 0.01f;
-
-            int colliderCount = Entity.GetEnabledColliderCount();
-            for (var c = 0; c < colliderCount; c++)
-            {
-                var collider = Entity.GetEnabledColliderAt(c);
-                for (int h = 0; h < collider.GetHitboxCount(); h++)
-                {
-                    var hitbox = collider.GetHitbox(h);
-
-                    Vector3 size = hitbox.GetBoundsSize() * pixelUnit;
-                    var offset = hitbox.GetOffset();
-                    var position = Entity.Position + offset;
-                    float startX = position.x * pixelUnit;
-                    float startY = position.y * pixelUnit;
-                    float startZ = position.z * pixelUnit;
-                    var collisionMask = Entity.CollisionMaskHostile | Entity.CollisionMaskFriendly;
-                    Gizmos.color = new Color(
-                        (collisionMask >> 0 & 7) / 7f,
-                        (collisionMask >> 3 & 7) / 7f,
-                        (collisionMask >> 6 & 3) / 3f, 1);
-                    for (int i = 0; i < 12; i++)
-                    {
-                        int axe = i >> 2;
-                        bool bit1 = (i & 1) != 0;
-                        bool bit2 = (i & 2) != 0;
-                        float offset1 = bit1 ? 0.5f : -0.5f;
-                        float offset2 = bit2 ? 0.5f : -0.5f;
-                        Vector3 dir = Vector3.right;
-
-                        float x = startX, y = startY, z = startZ;
-
-                        switch (axe)
-                        {
-                            // x-axis.
-                            case 0:
-                                x += -size.x * 0.5f;
-                                y += size.y * (offset1 + 0.5f);
-                                z += size.z * offset2;
-                                dir = new Vector3(size.x, 0, 0);
-                                break;
-                            // y-axis.
-                            case 1:
-                                x += size.x * offset1;
-                                y += 0;
-                                z += size.z * offset2;
-                                dir = new Vector3(0, size.y, 0);
-                                break;
-                            // z-axis.
-                            case 2:
-                                x += size.x * offset1;
-                                y += size.y * (offset2 + 0.5f);
-                                z += -size.z * 0.5f;
-                                dir = new Vector3(0, 0, size.z);
-                                break;
-                        }
-                        Vector3 start = new Vector3(x, z, -y);
-                        Vector3 end = start + new Vector3(dir.x, dir.z, -dir.y);
-                        Gizmos.DrawLine(start, end);
-                    }
-
-                    // Render Pivot.
-                    Vector3 pivot = Entity.Position * pixelUnit;
-                    Vector3 pivotStart;
-                    Vector3 pivotEnd;
-                    float centerLength = 0.05f;
-                    pivotStart = new Vector3(pivot.x - centerLength, pivot.z, pivot.y);
-                    pivotEnd = new Vector3(pivot.x + centerLength, pivot.z, pivot.y);
-                    Gizmos.DrawLine(pivotStart, pivotEnd);
-
-                    pivotStart = new Vector3(pivot.x, pivot.z - centerLength, pivot.y);
-                    pivotEnd = new Vector3(pivot.x, pivot.z + centerLength, pivot.y);
-                    Gizmos.DrawLine(pivotStart, pivotEnd);
-
-                    pivotStart = new Vector3(pivot.x, pivot.z, pivot.y - centerLength);
-                    pivotEnd = new Vector3(pivot.x, pivot.z, pivot.y + centerLength);
-                    Gizmos.DrawLine(pivotStart, pivotEnd);
-                }
-            }
-        }
         #endregion
 
         #region 事件回调
@@ -332,7 +238,7 @@ namespace MVZ2.Entities
         {
             UpdateFrame(0);
         }
-        private void PostPropertyChangedCallback(PropertyKey key)
+        private void PostPropertyChangedCallback(IPropertyKey key, object beforeValue, object afterValue)
         {
             modelPropertyCache.SetDirtyProperty(key);
         }
@@ -340,16 +246,18 @@ namespace MVZ2.Entities
         {
             SetModel(modelID);
         }
-        private void OnArmorEquipCallback(Armor armor)
+        private void OnArmorEquipCallback(NamespaceID slot, Armor armor)
         {
-            CreateArmorModel(armor);
+            CreateArmorModel(slot, armor);
         }
-        private void OnArmorDestroyCallback(Armor armor, ArmorDamageResult result)
+        private void OnArmorRemoveCallback(NamespaceID slot, Armor armor)
         {
+            RemoveArmorModel(slot);
         }
-        private void OnArmorRemoveCallback(Armor armor)
+        private void OnModelUpdateFrameCallback(float deltaTime)
         {
-            RemoveArmorModel();
+            UpdateArmorModels();
+            UpdateEntityModel();
         }
         #endregion
 
@@ -379,7 +287,7 @@ namespace MVZ2.Entities
             if (Entity.IsPreviewEnemy())
             {
                 return true;
-            } 
+            }
             if (definition == null)
                 return false;
             var target = GetHeldItemTarget(d);
@@ -430,39 +338,64 @@ namespace MVZ2.Entities
         #endregion
 
         #region 护甲
-        private void CreateArmorModel(Armor armor)
+        private void CreateArmorModel(NamespaceID slot, Armor armor)
         {
             if (armor?.Definition == null)
                 return;
             var modelID = armor.Definition.GetModelID();
-            CreateArmorModel(modelID);
+            CreateArmorModel(slot, modelID);
         }
-        private void CreateArmorModel(NamespaceID modelID)
+        private void CreateArmorModel(NamespaceID slot, NamespaceID modelID)
         {
             if (!Model)
                 return;
             if (!NamespaceID.IsValid(modelID))
                 return;
-            Model.CreateArmor(modelID);
+            var slotMeta = Main.ResourceManager.GetArmorSlotMeta(slot);
+            if (slotMeta == null)
+                return;
+            var anchor = slotMeta.Anchor;
+            Model.CreateArmor(anchor, slot, modelID);
         }
-        private void RemoveArmorModel()
+        private void RemoveArmorModel(NamespaceID slot)
         {
             if (!Model)
                 return;
-            Model.RemoveArmor();
+            Model.RemoveArmor(slot);
         }
-        private void UpdateArmorModel()
+        private void UpdateArmorModel(NamespaceID slot)
         {
             if (!Model)
                 return;
-            var armor = Entity.EquipedArmor;
+            var armor = Entity.GetArmorAtSlot(slot);
             if (armor == null)
                 return;
-            var armorModel = Model.GetArmorModel();
+            var armorModel = Model.GetArmorModel(slot);
             if (!armorModel)
                 return;
             armorModel.GraphicGroup.SetTint(armor.GetTint());
             armorModel.GraphicGroup.SetColorOffset(armor.GetColorOffset());
+        }
+        private void UpdateArmorModels()
+        {
+            if (!Model)
+                return;
+            foreach (var slotSlot in Entity.GetActiveArmorSlots())
+            {
+                UpdateArmorModel(slotSlot);
+            }
+        }
+        public void ClearAllArmorModels()
+        {
+            var slotsID = Main.ResourceManager.GetAllArmorSlots();
+            foreach (var slotID in slotsID)
+            {
+                var meta = Main.ResourceManager.GetArmorSlotMeta(slotID);
+                if (meta == null)
+                    continue;
+                var anchorName = meta.Anchor;
+                Model.ClearModelAnchor(anchorName);
+            }
         }
         #endregion
 
@@ -479,11 +412,7 @@ namespace MVZ2.Entities
             var groundPos = Entity.Position;
             groundPos.y = Entity.GetGroundY();
             var transGroundPos = Level.LawnToTrans(groundPos);
-            var transPos = Level.LawnToTrans(Entity.Position);
-            var transOffset = transGroundPos - transPos;
-
-            var rendererGroup = Model.GraphicGroup;
-            Model.SetGroundPosition(transform.position + transOffset);
+            Model.SetGroundY(transGroundPos.y);
             Model.GetCenterTransform().localEulerAngles = Entity.RenderRotation;
 
             if (modelPropertyCache.IsDirty)
@@ -558,7 +487,6 @@ namespace MVZ2.Entities
         private EntityCursorSource _cursorSource;
         private Vector3 lastPosition;
         private IModelInterface bodyModelInterface;
-        private IModelInterface armorModelInterface;
         private EntityPropertyCache modelPropertyCache = new EntityPropertyCache();
         [SerializeField]
         private ShadowController shadow;
@@ -582,9 +510,12 @@ namespace MVZ2.Entities
                 var model = entityCtrl.Model;
                 var rendererGroup = model.GraphicGroup;
                 rendererGroup.SetTint(entity.GetTint());
+                rendererGroup.SetHSV(entity.GetHSV());
                 rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
-                model.transform.localScale = entity.GetDisplayScale();
-                rendererGroup.SortingLayerID = entity.GetSortingLayer();
+                rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
+
+                model.transform.localScale = entity.GetFinalDisplayScale();
+                rendererGroup.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
                 rendererGroup.SortingOrder = entity.GetSortingOrder();
                 if (model is SpriteModel sprModel)
                 {
@@ -617,11 +548,18 @@ namespace MVZ2.Entities
                         case PropertyName.ColorOffset:
                             rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
                             break;
+                        case PropertyName.HSV:
+                            rendererGroup.SetHSV(entity.GetHSV());
+                            break;
+                        case PropertyName.Grayscale:
+                            rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
+                            break;
+                        case PropertyName.FlipX:
                         case PropertyName.DisplayScale:
-                            model.transform.localScale = entity.GetDisplayScale();
+                            model.transform.localScale = entity.GetFinalDisplayScale();
                             break;
                         case PropertyName.SortingLayer:
-                            rendererGroup.SortingLayerID = entity.GetSortingLayer();
+                            rendererGroup.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
                             break;
                         case PropertyName.SortingOrder:
                             rendererGroup.SortingOrder = entity.GetSortingOrder();
@@ -674,11 +612,11 @@ namespace MVZ2.Entities
             {
                 dirtyProperties.Add(property);
             }
-            public void SetDirtyProperty(PropertyKey key)
+            public void SetDirtyProperty(IPropertyKey key)
             {
                 foreach (var pair in propertyMap)
                 {
-                    if (pair.Key == key)
+                    if (pair.Key.Equals(key))
                     {
                         dirtyProperties.Add(pair.Value);
                         break;
@@ -695,6 +633,9 @@ namespace MVZ2.Entities
             {
                 { EngineEntityProps.TINT, PropertyName.Tint },
                 { EngineEntityProps.COLOR_OFFSET, PropertyName.ColorOffset },
+                { VanillaEntityProps.HSV, PropertyName.HSV },
+                { VanillaEntityProps.GRAYSCALE, PropertyName.Grayscale },
+                { EngineEntityProps.FLIP_X, PropertyName.FlipX },
                 { EngineEntityProps.DISPLAY_SCALE, PropertyName.DisplayScale },
                 { VanillaEntityProps.SORTING_LAYER, PropertyName.SortingLayer },
                 { VanillaEntityProps.SORTING_ORDER, PropertyName.SortingOrder },
@@ -712,6 +653,9 @@ namespace MVZ2.Entities
             {
                 Tint,
                 ColorOffset,
+                HSV,
+                Grayscale,
+                FlipX,
                 DisplayScale,
                 SortingLayer,
                 SortingOrder,

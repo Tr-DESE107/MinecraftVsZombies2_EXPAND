@@ -1,7 +1,4 @@
-﻿using MVZ2.Cameras;
-using MVZ2.Managers;
-using Tools;
-using Tools.Mathematics;
+﻿using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.Models

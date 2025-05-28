@@ -14,7 +14,6 @@ namespace MVZ2.UI
         {
             SetEmpty(viewData.empty);
             SetCost(viewData.cost);
-            SetIcon(viewData.icon);
             SetTriggerActive(viewData.triggerActive);
             foreach (var preset in normalPresets)
             {
@@ -24,16 +23,20 @@ namespace MVZ2.UI
             {
                 preset.SetActive(viewData.preset == BlueprintPreset.Upgrade);
             }
+            foreach (var preset in commandBlockPresets)
+            {
+                preset.SetActive(viewData.preset == BlueprintPreset.CommandBlock);
+            }
+            var icon = viewData.icon;
+            iconImage.enabled = icon && !viewData.iconGrayscale;
+            iconImage.sprite = icon;
+            iconImageCommandBlock.enabled = icon && viewData.iconGrayscale;
+            iconImageCommandBlock.sprite = icon;
         }
         public void SetEmpty(bool empty)
         {
             emptyObj.SetActive(empty);
             rootObj.SetActive(!empty);
-        }
-        public void SetIcon(Sprite sprite)
-        {
-            iconImage.enabled = sprite;
-            iconImage.sprite = sprite;
         }
         public void SetCost(string cost)
         {
@@ -103,7 +106,11 @@ namespace MVZ2.UI
         [SerializeField]
         private GameObject[] upgradePresets;
         [SerializeField]
+        protected GameObject[] commandBlockPresets;
+        [SerializeField]
         private Image iconImage;
+        [SerializeField]
+        private Image iconImageCommandBlock;
         [SerializeField]
         private TextMeshProUGUI costText;
         [SerializeField]
@@ -127,11 +134,13 @@ namespace MVZ2.UI
         public Sprite icon;
         public bool triggerActive;
         public BlueprintPreset preset;
+        public bool iconGrayscale;
         public static readonly BlueprintViewData Empty = new BlueprintViewData { empty = true };
     }
     public enum BlueprintPreset
     {
         Normal,
-        Upgrade
+        Upgrade,
+        CommandBlock,
     }
 }

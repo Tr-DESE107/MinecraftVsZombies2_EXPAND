@@ -116,9 +116,9 @@ namespace MVZ2.GameContent.Contraptions
                             var posOffset = direction * layerRadius;
                             Vector3 knifePos = target + posOffset;
 
-                            var projectile = entity.Level.Spawn(entity.GetProjectileID(), knifePos, entity);
-                            projectile.SetDamage(entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
-                            projectile.SetFaction(entity.GetFaction());
+                            var param = entity.GetSpawnParams();
+                            param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
+                            var projectile = entity.Spawn(entity.GetProjectileID(), knifePos, param);
                             projectile.Velocity = direction * -10;
 
                             var buff = projectile.AddBuff<ProjectileWaitBuff>();
@@ -138,8 +138,8 @@ namespace MVZ2.GameContent.Contraptions
         public const int EVOCATION_KNIVES_PER_LAYER = 30;
         public const float EVOCATION_RADIUS = 100;
         public const float EVOCATION_DAMAGE_MULTIPLIER = 2;
-        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta("EvocationTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TARGET_POSITIONS = new VanillaEntityPropertyMeta("EvocationTargetPositions");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
+        public static readonly VanillaEntityPropertyMeta<Vector3[]> PROP_EVOCATION_TARGET_POSITIONS = new VanillaEntityPropertyMeta<Vector3[]>("EvocationTargetPositions");
 
         public static readonly NamespaceID ID = VanillaContraptionID.silvenser;
     }

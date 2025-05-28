@@ -1,9 +1,11 @@
-﻿using MVZ2.Vanilla.Callbacks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using MVZ2.GameContent.Contraptions;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using PVZEngine;
-using PVZEngine.Triggers;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.Vanilla.Saves
 {
@@ -81,12 +83,9 @@ namespace MVZ2.Vanilla.Saves
             {
                 count = saveData.GetBlueprintSlots();
             }
-            var result = new TriggerResultInt()
-            {
-                Result = count,
-            };
-            Global.Game.RunCallback(LogicCallbacks.GET_BLUEPRINT_SLOT_COUNT, result, c => c(result));
-            return result.Result;
+            var result = new CallbackResult(count);
+            Global.Game.RunCallbackWithResult(LogicCallbacks.GET_BLUEPRINT_SLOT_COUNT, new EmptyCallbackParams(), result);
+            return result.GetValue<int>();
         }
         public static int GetArtifactSlots(this IGameSaveData save)
         {
@@ -118,6 +117,10 @@ namespace MVZ2.Vanilla.Saves
         {
             return save.IsUnlocked(VanillaUnlockID.musicRoom);
         }
+        public static bool IsArcadeUnlocked(this IGameSaveData save)
+        {
+            return save.IsUnlocked(VanillaUnlockID.arcade);
+        }
         public static bool IsGensokyoUnlocked(this IGameSaveData save)
         {
             return save.IsUnlocked(VanillaUnlockID.gensokyo);
@@ -129,6 +132,24 @@ namespace MVZ2.Vanilla.Saves
         public static bool IsStarshardUnlocked(this IGameSaveData save)
         {
             return save.IsUnlocked(VanillaUnlockID.starshard);
+        }
+        public static bool IsCommandBlockUnlocked(this IGameSaveData save)
+        {
+            return save.IsContraptionUnlocked(VanillaContraptionID.commandBlock);
+        }
+        public static bool IsValidAndLocked(this IGameSaveData save, NamespaceID unlockId)
+        {
+            return NamespaceID.IsValid(unlockId) && !save.IsUnlocked(unlockId);
+        }
+        public static bool IsInvalidOrUnlocked(this IGameSaveData save, NamespaceID unlockId)
+        {
+            return !save.IsValidAndLocked(unlockId);
+        }
+        public static bool IsAllInvalidOrUnlocked(this IGameSaveData save, IEnumerable<NamespaceID> unlocks)
+        {
+            if (unlocks == null || unlocks.Count() <= 0)
+                return true;
+            return unlocks.All(u => save.IsInvalidOrUnlocked(u));
         }
         /// <summary>
         /// 梦境世界是否是梦魇状态。

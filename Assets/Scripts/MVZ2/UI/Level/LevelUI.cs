@@ -3,7 +3,6 @@ using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Models;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 namespace MVZ2.UI
@@ -14,10 +13,10 @@ namespace MVZ2.UI
         {
             GetUIPreset().SetReceiveRaycasts(value);
         }
-        public void SetDarknessValue(float night, float darkness)
+        public void SetLighting(Color background, Color global)
         {
-            backgroundLight.intensity = (1 - night) * (1 - darkness);
-            entityLight.intensity = 1 - darkness;
+            backgroundLightCamera.backgroundColor = background * global;
+            entityLightCamera.backgroundColor = global;
         }
         public void SetScreenCover(Color value)
         {
@@ -76,6 +75,10 @@ namespace MVZ2.UI
         public void SetHeldItemTrigger(bool visible, bool trigger)
         {
             heldItem.SetTrigger(visible, trigger);
+        }
+        public void SetHeldItemImbued(bool value)
+        {
+            heldItem.SetImbued(value);
         }
         public Model GetHeldItemModel()
         {
@@ -201,9 +204,9 @@ namespace MVZ2.UI
         [SerializeField]
         private Image blackscreenImage;
         [SerializeField]
-        private Light2D backgroundLight;
+        private Camera backgroundLightCamera;
         [SerializeField]
-        private Light2D entityLight;
+        private Camera entityLightCamera;
 
         [Header("HeldItem")]
         [SerializeField]

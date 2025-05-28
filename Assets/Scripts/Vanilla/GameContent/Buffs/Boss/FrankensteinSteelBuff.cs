@@ -4,7 +4,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
-using PVZEngine.Damages;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -21,8 +21,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddModifier(new NamespaceIDModifier(EngineEntityProps.SHELL, VanillaShellID.metal));
             AddTrigger(VanillaLevelCallbacks.PRE_PROJECTILE_HIT, PreProjectileHitCallback, filter: VanillaProjectileID.knife);
         }
-        private void PreProjectileHitCallback(ProjectileHitInput hitInput, DamageInput damage)
+        private void PreProjectileHitCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult result)
         {
+            var hitInput = param.hit;
             var other = hitInput.Other;
             if (!other.HasBuff<FrankensteinSteelBuff>())
                 return;
@@ -32,7 +33,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             DeflectKnife(other, knife);
             knife.PlaySound(VanillaSoundID.shieldHit);
 
-            hitInput.Cancel();
+            result.SetFinalValue(false);
         }
         private void DeflectKnife(Entity self, Entity knife)
         {

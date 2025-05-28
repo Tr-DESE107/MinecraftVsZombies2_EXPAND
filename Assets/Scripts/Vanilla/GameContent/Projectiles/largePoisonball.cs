@@ -10,6 +10,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Armors;
 using UnityEngine;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Projectiles
 {
@@ -44,9 +45,10 @@ namespace MVZ2.GameContent.Projectiles
             projectile.SetShadowScale(scaleVector * 0.5f);
             projectile.SetDamage(Mathf.Max(0, (scale - 1) * 300));
         }
-        private void PostEnemyTakeDamageCallback(DamageOutput result)
+        private void PostEnemyTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult result)
         {
-            var bodyResult = result.BodyResult;
+            var output = param.output;
+            var bodyResult = output.BodyResult;
             if (bodyResult == null)
                 return;
             var entity = bodyResult.Entity;
@@ -76,7 +78,7 @@ namespace MVZ2.GameContent.Projectiles
         public static void SetSnowballScale(Entity entity, float scale) => entity.SetBehaviourField(ID, PROP_SNOWBALL_SCALE, scale);
 
         private static readonly NamespaceID ID = VanillaAreaID.halloween;
-        public static readonly VanillaEntityPropertyMeta PROP_SNOWBALL_SCALE = new VanillaEntityPropertyMeta("SnowballScale");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_SNOWBALL_SCALE = new VanillaEntityPropertyMeta<float>("SnowballScale");
         public const float MIN_SCALE = 1;
         public const float SCALE_SPEED = 0.1f;
         public const float MAX_SCALE = 10;

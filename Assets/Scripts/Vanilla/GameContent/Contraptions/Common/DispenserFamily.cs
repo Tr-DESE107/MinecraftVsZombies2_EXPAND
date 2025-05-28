@@ -51,11 +51,11 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetShootTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_SHOOT_TIMER, timer);
         protected virtual int GetTimerTime(Entity entity)
         {
-            return Mathf.FloorToInt(entity.RNG.Next(40, 45) * entity.GetAttackSpeed());
+            return Mathf.FloorToInt(entity.RNG.Next(40, 45));
         }
         protected DispenserDetector detector;
         private const string PROP_REGION = "dispenser_family";
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_SHOOT_TIMER = new VanillaEntityPropertyMeta("ShootTimer");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_SHOOT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ShootTimer");
     }
 }

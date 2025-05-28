@@ -10,10 +10,11 @@ namespace MVZ2.Almanacs
 {
     public class ContraptionAlmanacPage : AlmanacPage
     {
-        public void SetEntries(ChoosingBlueprintViewData[] entries, bool commandBlockVisible)
+        public void SetEntries(ChoosingBlueprintViewData[] entries, bool commandBlockVisible, ChoosingBlueprintViewData commandBlockViewData)
         {
             blueprintDisplayer.UpdateItems(entries);
-            blueprintDisplayer.SetCommandBlockActive(commandBlockVisible);
+            commandBlockSlot.SetCommandBlockActive(commandBlockVisible);
+            commandBlockSlot.UpdateCommandBlockItem(commandBlockViewData);
         }
         public void SetActiveEntry(Model prefab, Camera camera, string name, string description, string cost, string recharge)
         {
@@ -28,14 +29,22 @@ namespace MVZ2.Almanacs
         {
             base.Awake();
             blueprintDisplayer.OnBlueprintSelect += OnEntryClickCallback;
+            commandBlockSlot.OnClick += OnCommandBlockClickCallback;
         }
         private void OnEntryClickCallback(int index, PointerEventData eventData)
         {
             OnEntryClick?.Invoke(index);
         }
+        private void OnCommandBlockClickCallback()
+        {
+            OnCommandBlockClick?.Invoke();
+        }
         public Action<int> OnEntryClick;
+        public Action OnCommandBlockClick;
         [SerializeField]
         private BlueprintDisplayer blueprintDisplayer;
+        [SerializeField]
+        CommandBlockSlot commandBlockSlot;
         [SerializeField]
         private AlmanacModel entryModel;
         [SerializeField]

@@ -25,9 +25,9 @@ namespace MVZ2.GameContent.Enemies
             base.PostDeath(entity, info);
             if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
-            var gas = entity.Level.Spawn(VanillaEffectID.mummyGas, entity.Position, entity);
-            gas.SetFaction(entity.GetFaction());
-            gas.SetScale(entity.GetScale());
+            var param = entity.GetSpawnParams();
+            param.SetProperty(EngineEntityProps.SCALE, entity.GetScale());
+            var gas = entity.Spawn(VanillaEffectID.mummyGas, entity.Position, param);
             entity.PlaySound(VanillaSoundID.poisonCast);
         }
     }

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-02-27 07:48+0800\n"
+"POT-Creation-Date: 2025-05-17 07:22+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -284,7 +284,7 @@ msgstr ""
 #. Text for talk sentence 3 in talk group castle_2's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_2"
-msgid "你会用到萤石的，邻居！"
+msgid "你会用到荧石的，邻居！"
 msgstr ""
 
 #. Archive name for talk group castle_2_over
@@ -494,7 +494,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group castle_3_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_3_over"
-msgid "这个是石制投掷器！他能弹射出微小的石子！"
+msgid "这个是石制投掷器！它能弹射出微小的石子！"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group castle_3_over's section 0
@@ -2102,22 +2102,34 @@ msgstr ""
 #. Text for talk sentence 5 in talk group castle_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_11"
-msgid "我们小人族就靠你了，史蒂夫……"
+msgid "并且，金苹果对凋灵这种亡灵生物来说可能会产生奇效！"
 msgstr ""
 
 #. Text for talk sentence 6 in talk group castle_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_11"
-msgid "遵命。"
+msgid "试着骗它吃掉一些金苹果！"
 msgstr ""
 
 #. Text for talk sentence 7 in talk group castle_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_11"
-msgid "<color=blue>（辉针城外乌云密布。这些乌云已经笼罩这里太长时间了。）</color>"
+msgid "我们小人族就靠你了，史蒂夫……"
 msgstr ""
 
 #. Text for talk sentence 8 in talk group castle_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_11"
+msgid "遵命。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group castle_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:castle_11"
+msgid "<color=blue>（辉针城外乌云密布。这些乌云已经笼罩这里太长时间了。）</color>"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group castle_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:castle_11"
 msgid "<color=blue>（是时候该让它们散去了。）</color>"
@@ -4508,7 +4520,7 @@ msgstr ""
 #. Archive name for talk group kourindou_first_visit
 #: Talk meta file
 msgctxt "archive"
-msgid "首次访问香霖堂"
+msgid "第三章-访问香霖堂"
 msgstr ""
 
 #. Text for talk sentence 0 in talk group kourindou_first_visit's section 0
@@ -4838,7 +4850,7 @@ msgstr ""
 #. Archive name for talk group exited_kourindou
 #: Talk meta file
 msgctxt "archive"
-msgid "离开香霖堂"
+msgid "第三章-离开香霖堂"
 msgstr ""
 
 #. Text for talk sentence 0 in talk group exited_kourindou's section 0
@@ -5741,6 +5753,36 @@ msgctxt "talk-mvz2:trigger_tutorial"
 msgid "那么，现在来开始吧！"
 msgstr ""
 
+#. Archive name for talk group halloween_7
+#: Talk meta file
+msgctxt "archive"
+msgid "万圣夜第7天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "另外，朋友！我们之前拿到了欧兰特的图鉴！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "图鉴的作用不止是记录见到的东西，它同时还是一个制品！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "携带的制品可以为你在一整局对战中提供额外的效果！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group halloween_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:halloween_7"
+msgid "好好利用制品吧！"
+msgstr ""
+
 #. Archive name for talk group halloween_7_over
 #: Talk meta file
 msgctxt "archive"
@@ -6189,6 +6231,3180 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_final"
 msgid "该你出场的时候了，朋友。"
+msgstr ""
+
+#. Archive name for talk group kourindou_visit_mausoleum_1
+#: Talk meta file
+msgctxt "archive"
+msgid "第四章-访问香霖堂"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "昨晚久违地做了一次梦，还梦到了哆来咪小姐。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "哦，怎么样？她跟你说了什么？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "她看到了我在辉针城的的那些功绩，还夸奖了我，昨晚因此还睡得格外舒服。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "哆来咪小姐是梦境世界的管理者吧？好慈祥的人啊，跟妈妈一样。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "说起来，戴夫。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "咋了？"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "我想起来，我们离开梦境世界前，好像捡到过一张纸条。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "之前那上面的字因为梦境的原因完全看不清，所以只能放起来了。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "现在已经离开梦境世界了，我挺好奇上面究竟写了什么。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "那张纸条应该在你身上来着，看看吧。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "哦！说的是！我差点就把它给忘了！"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "好！让我看看！"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "……！"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "怎、怎么了？"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "……啊！没啥！"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "不是什么重要的东西，我来处理就行！"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "……？让我看看？"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "好了，我先收起来吧！"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "<color=blue>（……太可疑了！）</color>"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "打扰了，史蒂夫在这吗？"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "啊，我在，您是？"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "吾乃物部 布都，受神子大人之命，请汝来到命莲寺地下的祀庙遗址帮我们清除异变。"
+msgstr ""
+
+#. Description for talk sentence 24 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（布都出场）"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "不知汝意向如何？"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "命莲寺？那里发生了什么？"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "命莲寺后方即是一片大墓地，久之，其地下埋藏吾们用于复活的梦殿大祀庙，如今已经成了遗址。"
+msgstr ""
+
+#. Text for talk sentence 28 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "之后，那里又曾用于封印一只巨大魔怪。如今封印薄弱，束缚即将打破。"
+msgstr ""
+
+#. Text for talk sentence 29 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "吾们听说了汝于辉针城的事迹，特此托汝前往，铲除此怪。"
+msgstr ""
+
+#. Text for talk sentence 30 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "<color=blue>（……文绉绉的，有点听不懂。）</color>"
+msgstr ""
+
+#. Text for talk sentence 31 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "总之，命莲寺的底下有一只巨型怪物要突破封印了，要我们帮忙，对吗？"
+msgstr ""
+
+#. Text for talk sentence 32 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "是。"
+msgstr ""
+
+#. Text for talk sentence 33 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "好的，我搞清楚了，那稍等我们一会，之后带我们去那里吧。"
+msgstr ""
+
+#. Text for talk sentence 34 in talk group kourindou_visit_mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
+msgid "是，随时恭候阁下大驾光临！"
+msgstr ""
+
+#. Archive name for talk group exited_kourindou_mausoleum
+#: Talk meta file
+msgctxt "archive"
+msgid "第四章-离开香霖堂"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "差不多该走了。布都，带我们去吧。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "遵命。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "到了，此处乃是吾们梦殿大祀庙上方的墓地。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "嗯？那边好像有人？"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "那个人是——魔理沙？她在这里干什么？"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "嗯？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "生面孔呢，你们是？"
+msgstr ""
+
+#. Description for talk sentence 6 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（魔理沙出现）"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "你好，我们是前来帮助你们清除僵尸的人，这位——大鼻子也是。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "原来是你们啊，我听说过你们的事迹。是把针妙丸从亡灵的手中救出来了吧？"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "是的。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "没想到你年纪轻轻，就能做出如此惊人之事啊。真是不可思议daze⭐。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "那么，魔理沙小姐在干什么呢？"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "……扫墓。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "扫墓？"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "霖之助的衣冠冢。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "这个笨蛋，仗着自己的体质就去冒险。结果成了这个样子。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "每年的这一天，我都会来这里一趟，前来纪念这个家伙。今天正好是他失踪的那一天啊。"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "很抱歉提到了你的伤心往事。"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "没事啦，都让它过去吧。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "我也该离开了，再见喽。"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group exited_kourindou_mausoleum's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:exited_kourindou_mausoleum"
+msgid "好了，布都，我们继续吧。"
+msgstr ""
+
+#. Archive name for talk group mausoleum_1
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第1天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1"
+msgid "布都，你们到了？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1"
+msgid "很好，史蒂夫先生，我们现在需要你的帮助。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1"
+msgid "详细内容我从布都那里听说了，要清除这里的敌人，保证封印能够正常巩固不受干扰，是吧。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1"
+msgid "是的。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_1's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1"
+msgid "那么，眼前的这些僵尸，就交给我的邻居了，加油吧！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_1_over
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第1天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_over"
+msgid "这是音符盒！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_over"
+msgid "它能发射音符，音符会在音符盒和敌人之间来回反弹！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_over"
+msgid "也就是说，它与敌人的距离越近，造成的伤害就越高！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_1_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_over"
+msgid "让怪物们听听这美妙的音乐吧！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_1_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第1天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "辛苦你了，果真和传闻中的一样，击杀怪物不费吹灰之力。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "之后还有几天需要您的帮助，届时就拜托您了。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "明白了。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "以及，我想问您一些问题。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "您和这位……白袍先生是什么关系？"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "这位叫戴夫，是我的养父，曾经是一名村庄的图书管理员。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "而我并不是戴夫世界的人，是从外界流落进来的，和其他人都不一样，因此其他人都害怕我。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "只有戴夫接受了我，把我当作他的孩子一样对待。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "我明白了。另外，您的右臂是义肢吗？"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "嗯，是的。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "不知道什么时候，我失去了右手，然后就陷入了昏迷。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "等我醒来之后，我的右手就已经是这个样子了。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "发生了什么吗？"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "我想不太起来了。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "我只记得，我醒来的时候，我的手臂变得非常陌生。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "然后，戴夫，他突然就变得疯疯癫癫的。"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "我才不疯呢！"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "说起来，我来到这里，也是因为你啊。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "你之前天天说什么幻想乡幻想乡，我本来以为这种地方真的不存在。"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "结果居然真的有这种地方。"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "当然，我可是坑爹村民啊，邻居！"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "戴夫，你什么时候才能好起来呢？"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group mausoleum_1_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_1_map"
+msgid "我还是希望你能再叫我一声孩子……"
+msgstr ""
+
+#. Archive name for talk group mausoleum_2
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第2天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2"
+msgid "啊，似乎出现了新的敌人，一种手持魔法障壁的僵尸。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2"
+msgid "此种障壁吾曾见过，乃是回声障壁，可反弹射弹。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2"
+msgid "原来是能够反弹子弹的僵尸啊，多谢你提醒我。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2"
+msgid "不必多礼。不过，其实看着汝战斗，吾有很多地方都看不懂。比如——"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2"
+msgid "“器械”是何物？"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2"
+msgid "要不我们之后再解释吧？"
+msgstr ""
+
+#. Archive name for talk group mausoleum_2_over
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第2天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_over"
+msgid "这是闪电之珠！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_over"
+msgid "它能够阻挡敌人的前进，并且免疫对方的子弹！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_over"
+msgid "并且，当敌人的子弹击中它时，它反而可以利用它恢复自己的耐久！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_2_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_over"
+msgid "这可是高阶的法术器械！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_2_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第2天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_map"
+msgid "巨人是什么来头？当年发生了什么？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_map"
+msgid "巨人是在两年前突然出现在幻想乡的，那时它伴随着另一只可怕的巨兽同时出现，带来了很多混乱。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_map"
+msgid "我们和命莲寺势力达成合作，我们制伏了巨人，把它封印在了这里。而命莲寺方面则负责击退那只巨兽。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_map"
+msgid "那么，巨人到底是什么？"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_map"
+msgid "虽说是巨人，但它其实是一群僵尸的集合体。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_map"
+msgid "它体内的某种魔力把它们的血肉融合在了一起，如同软泥一般变化无常，可以变成很多生物的模样。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_map"
+msgid "因为它的这个特点，我们没有什么办法彻底杀死它，只能把它封印在我们之前复活使用的梦殿大祀庙遗址这里。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_2_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_2_map"
+msgid "是吗，我明白了。"
+msgstr ""
+
+#. Archive name for talk group mausoleum_3
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第3天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3"
+msgid "对了，顺带一提。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3"
+msgid "战场上的那些笼子是由巨人的魔力产生的，它能召唤新的僵尸。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3"
+msgid "我们所使用的封印魔法比较特殊，它对其他魔力或者生物非常敏感。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3"
+msgid "如果周围有什么僵尸存在的话，封印很有可能会失败。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3"
+msgid "这就是我们要去找你的原因。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_3's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3"
+msgid "原来如此，明白了。"
+msgstr ""
+
+#. Archive name for talk group mausoleum_3_over
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第3天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_3_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_over"
+msgid "双头发射器登场！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_3_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_over"
+msgid "它能够像发射器一样向前发射箭矢，并且还可以同时向后方发射双倍的箭矢！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_3_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_over"
+msgid "当心你的背后！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_3_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第3天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "请问，是史蒂夫吗？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "是我，您是？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "啊，我是神子的朋友，青娥。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "史蒂夫小弟弟，我找你有些事情。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "什么事？"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "听说你正在为神子她们清理僵尸，然后还要帮她们巩固封印，对吧？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "是的。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "那——我这里有些灵符，交给你。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "灵符？这是什么？"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "就是能控制僵尸的工具啦，能让僵尸为你们而战哦。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "这么好用的东西？"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "不过，能答应我的一个请求吗？"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "在神子她们巩固封印的时候，就使用这些灵符吧。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "另外，不要告诉她们哦。"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "好的。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "哎呀，真听话啊。"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "那么，再见了，小弟弟。"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "<color=blue>（很可疑啊！）</color>"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group mausoleum_3_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_3_map"
+msgid "<color=blue>（我还是不要照她说的做好了……）</color>"
+msgstr ""
+
+#. Archive name for talk group mausoleum_4
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第4天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4"
+msgid "有新敌人，似乎道士的力量被它们学了去！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4"
+msgid "不，那僵尸看上去似乎更像邪仙？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4"
+msgid "邪仙？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4"
+msgid "就是会用灵符控制僵尸，行穿墙之术的邪恶仙人！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4"
+msgid "这么说，昨天的那位也是邪仙吗？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4"
+msgid "什么？"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_4's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4"
+msgid "啊，没什么，准备战斗吧！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_4_over
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第4天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_over"
+msgid "这是吞噬者！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_over"
+msgid "它的内部存在许多圆锯，可以锯掉场上的刷怪笼！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_over"
+msgid "并且，它还可以将场上的器械回收，变回一张蓝图！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_4_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_over"
+msgid "好好利用吧！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_4_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第4天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "你做的很好，史蒂夫。明天我们应该就能重新封印巨人了。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "那就好。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "对了，关于这场异变的源头，你们知道些什么吗？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "嗯……很抱歉，我们常在仙界，对这些事情不是很了解。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "不过，我可以告诉你们一些我所知的事情。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "是什么呢？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "这场异变开始的时候，大概是三年前。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "而在三年前的那个时候，幻想乡突然出现了两位外界来的旅人。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "据说一位身材娇小，且十分聪慧。另一位好像很擅长和机械打交道。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "他们来到这里，与这里的许多人类和妖怪都交流过，并在这里行商，带来一些从没见过的东西。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "但是，不久之后，异变就发生了。并且他们两个<color=red>再也没有出现在幻想乡过</color>。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "我怀疑他们两个和这场异变有很大的关系。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "我所知道的和异变有关的事情，大概就只有这些了。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group mausoleum_4_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_4_map"
+msgid "好，感谢帮忙。"
+msgstr ""
+
+#. Archive name for talk group mausoleum_5
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第5天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5"
+msgid "差不多了，马上就要到重新封印巨人的时候了。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5"
+msgid "在这场战斗结束后，巨人将再度得到封印。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5"
+msgid "史蒂夫，到时候你的工作就完成了，非常感谢你的帮忙。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_5's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5"
+msgid "嗯，我了解了。"
+msgstr ""
+
+#. Archive name for talk group mausoleum_5_over
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第5天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_over"
+msgid "命令方块回来了！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_over"
+msgid "它能够模仿任意的普通器械，并且允许你在一场战斗中携带两份同样的器械！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_over"
+msgid "这两份器械的充能时间分开计算！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_5_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_over"
+msgid "不过不要在服务器里乱用，小心被封号！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_5_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第5天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "好了，是时候该重新封印巨人了！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "布都，屠自古，听令！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "在！"
+msgstr ""
+
+#. Speaker Name for talk sentence 3 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "character.name"
+msgid "屠自古"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "看起来没有我什么事了呀！"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "<color=blue>（呼，终于能轻松一些了。）</color>"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "<color=blue>（这些灵符，都不知道有啥奇怪的效果。）</color>"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "<color=blue>（鬼才会相信她呢！）</color>"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "！"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "等等，怎么回事！"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "<color=blue>（灵符——自己飞走了！）</color>"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "等等——"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "什么——"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "喔嗷嗷嗷嗷嗷嗷嗷嗷嗷！"
+msgstr ""
+
+#. Speaker Name for talk sentence 15 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "character.name"
+msgid "巨人"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "<color=blue>（灵符自己朝着巨人飞过去了！）</color>"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "等一下，封印！"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "封印破了！"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "到底怎么回事！"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "<color=blue>（灵符，贴到了巨人头上？）</color>"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "<color=blue>（巨人好像被控制住了？）</color>"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "什、什、什、什么！居然脱落了？！"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "史蒂夫，你快跑！我们试着把它重新控制住！"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "该死……怎么会这样！"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group mausoleum_5_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_5_map"
+msgid "快回香霖堂！"
+msgstr ""
+
+#. Archive name for talk group kourindou_visit_mausoleum_2
+#: Talk meta file
+msgctxt "archive"
+msgid "访问香霖堂-梦殿大祀庙"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "啊，你们——"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "发生什么了？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "神子在封印巨人的时候，不知道怎么回事，突然就有符纸飞到它的头上了！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "然后这符纸就干扰了施法，巨人的封印就这样被打破了！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "怎、怎么会发生这种事……"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "都是我的错。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "史蒂夫？"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "之前有一位邪仙，她来找我，让我在神子施法的时候使用她给我的符纸。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "我本来并不想听她的，但是，那符纸自己飞了过去。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "如果不是我的话——"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "没事的，史蒂夫，你没有错。你只是被她利用了而已。"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "我其实也听说过一些那位邪仙的传闻。据说她十分邪恶，别人的想法她都不会去考虑，唯一会想着的只有自己。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "她也常常会去人类村庄找人，被她利用也不是什么稀奇的事情了。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "原来如此。"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "……只是不知道，怎么该向神子她们交代呢？"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "别太难过了，史蒂夫，开心一些吧。"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "对了，我还有一些东西可以卖了！"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group kourindou_visit_mausoleum_2's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:kourindou_visit_mausoleum_2"
+msgid "那么，开始令人兴奋的购物环节吧！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_6
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第6天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6"
+msgid "今天来转换一下心情吧！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6"
+msgid "既然要转换心情，不如把立场也倒过来，扮演一次僵尸！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6"
+msgid "我专门搞了个模拟场地，用来更好的研究僵尸会怎么进攻我们！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_6's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6"
+msgid "好了，作为僵尸，去干掉每一行的侦测器吧！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_6_over
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第6天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_6_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_over"
+msgid "燃烧吧！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_6_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_over"
+msgid "这是地狱火，它能点燃飞过它的箭矢，造成额外的火焰伤害！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_6_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_over"
+msgid "不如一起大喊：“地狱火！！！！！！”"
+msgstr ""
+
+#. Archive name for talk group mausoleum_6_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第6天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "啊，史蒂夫，你回来了。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "怎么回事？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "嗨，你好呀，小弟弟……"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "你把那些灵符给了史蒂夫？"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "是啦……"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "……唉。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "怎么回事，巨人现在怎么样？"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "青娥的灵符扰乱了我们的法阵，我们是重新把它控制住了。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "但是封印……比之前脆弱太多了。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "不出几天就会再次被突破。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "怎么会这样！"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "还是让这位邪仙来解释吧。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "啊，怎么说呢——"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "你知道的，我是邪仙嘛，就是经常控制僵尸的那种仙人。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "巨人这种东西，那可是一块巨大的僵尸啊，用作邪术修炼再合适不过了。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "所以我就想把它抓来嘛……可没想到它居然是很多僵尸的集合体，哎呀真是的。"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "我确实是贪心了啦。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "这大概就是所谓的“人心不足蛇吞象”吧。"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "对你的处分我之后再决定。"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "只不过，史蒂夫，可能你得多留这里几天了。"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "再封印它吗？"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "不，已经没有机会再次封印它了，这里的东西差不多被摧毁了一半。"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "可能，你得把它除掉了。"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "<color=blue>（开玩笑的吧！）</color>"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "不是开玩笑，史蒂夫。"
+msgstr ""
+
+#. Text for talk sentence 28 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "从之前的战斗中，我能看出，你的实力其实非常强。"
+msgstr ""
+
+#. Text for talk sentence 29 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "如果是你的话，说不定真能做到。"
+msgstr ""
+
+#. Text for talk sentence 30 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "发生这种事真的非常抱歉，还是有劳你了。"
+msgstr ""
+
+#. Archive name for talk group mausoleum_7
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第7天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7"
+msgid "我们还要在这里多呆几天吗？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7"
+msgid "唉，是的，多亏了那个该死的邪仙。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7"
+msgid "既然事情已经成了这样，那就接受吧！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7"
+msgid "还有，好像有一种拿着竹竿的僵尸出现了！"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7"
+msgid "那似乎是尸解仙打扮的僵尸，就是那种通过道具复活后成仙的人！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_7's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7"
+msgid "当心他们会复活吧！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_7_over
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第7天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_over"
+msgid "死者开始复活！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_over"
+msgid "这是死灵墓碑，它可以不停召唤骷髅战士，为你而战！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_7_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_over"
+msgid "开始骨海战术吧！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_7_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第7天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "汝还安好吗？史蒂夫。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "布都，你来找我了？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "是。之前封印的失败让吾受了一些伤，今天吾已恢复得差不多了。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "我也没事，只不过还得再留下来把巨人干掉了。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "有劳阁下了。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "之前都是因为青娥那厮，封印突然就被扰乱，把吾惊扰得不轻。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "唉……自从三年前的那场命案后，吾这么提心吊胆还是第一次啊。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "……？等一下。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "三年前有命案？"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "啊，不不不，汝就当吾什么都没有说吧！"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "……？"
+msgstr ""
+
+#. Description for talk sentence 10 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（布都离场）"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group mausoleum_7_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_7_map"
+msgid "这件事情我没听说过啊……"
+msgstr ""
+
+#. Archive name for talk group mausoleum_8
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第8天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8"
+msgid "……戴夫去哪儿了？"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8"
+msgid "戴夫？那白袍村人？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8"
+msgid "是的，不知道为什么，最近他是到处乱跑。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8"
+msgid "然后很长时间之后才回来，也不知道他去干什么了。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8"
+msgid "嗯……吾亦不清楚。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_8's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8"
+msgid "总之，还是准备今天的战斗吧。"
+msgstr ""
+
+#. Archive name for talk group mausoleum_8_over
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第8天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_8_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_over"
+msgid "啊！看来我回来的正是时候！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_8_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_over"
+msgid "这是黑洞炸弹，它在引爆后会炸出一个小型黑洞，吸引周围的敌人！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_8_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_over"
+msgid "并且，能持续对范围内的敌人造成伤害！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_8_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_over"
+msgid "集中火力对付他们吧！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_8_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第8天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "戴夫，你这几天去哪儿了？你有时候总是看不见人影。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "随便逛逛！找找能卖的东西！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "我就靠这招找到过不少绿宝石呢！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "我脸上有萤火虫吗？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "戴夫。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "你是不是，在瞒着我什么呢？"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "嗯？确实！"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "我就故意没告诉你，昨天香霖堂偷偷打折了！"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "<color=blue>（算了，还是别想这么多了。）</color>"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "<color=blue>（毕竟戴夫……疯了。）</color>"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "没事我就先走了！我又看到一颗巨大的绿宝石了！"
+msgstr ""
+
+#. Description for talk sentence 14 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（村民离场）"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "那位先生……实在是个可怜人。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "……？"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "神子大人？"
+msgstr ""
+
+#. Description for talk sentence 17 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（神子出场）"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "不过，他也很幸运——他有你这样的孩子。"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "史蒂夫，这么多天以来，实在是辛苦你了。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "介意和我多说说关于你的事情吗？"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "你的内心，似乎有一种强烈的欲望挥之不去。"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "……嗯。"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "之前说过了，戴夫是我的养父。我本不属于他们的世界。"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "我和你们很像，是一名普通的人类。但是他们那里的居民都是方形的。"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "在那里，我几乎无时无刻不被人视作怪胎……只有戴夫才对我好。"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "因为这些痛苦的回忆，我很长时间里都无比渴望得到一个答案——"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "<color=red>我的亲生父母到底是谁？</color>"
+msgstr ""
+
+#. Text for talk sentence 29 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "神子小姐，您知道我的父母——"
+msgstr ""
+
+#. Text for talk sentence 31 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "很抱歉，我并不清楚。"
+msgstr ""
+
+#. Text for talk sentence 32 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "啊，对、对不起，我、我稍微有些多嘴了……！"
+msgstr ""
+
+#. Text for talk sentence 34 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "史蒂夫，我觉得你可能需要注意一下。"
+msgstr ""
+
+#. Text for talk sentence 35 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "你太过于在意这件事了。"
+msgstr ""
+
+#. Text for talk sentence 36 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "！"
+msgstr ""
+
+#. Text for talk sentence 37 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "对、对不起！我冒犯您了！"
+msgstr ""
+
+#. Text for talk sentence 38 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "我、我、我、我不该问的！抱歉！"
+msgstr ""
+
+#. Text for talk sentence 39 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "等、等等！"
+msgstr ""
+
+#. Description for talk sentence 39 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（史蒂夫离开）"
+msgstr ""
+
+#. Text for talk sentence 41 in talk group mausoleum_8_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_8_map"
+msgid "别走啊……"
+msgstr ""
+
+#. Archive name for talk group mausoleum_9
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第9天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "看，那边有一种新的敌人！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "穿着锦绣华丽，简直如同古代中国的皇帝一般！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "呃……中国是什么地方？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "一个庞大的文明古国，拥有众多的——呃。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "记不清了，距离吾上次知道那里的事情也已经一千多年了。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_9's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9"
+msgid "但要注意，皇帝这种职位，尤其能够强化他的人民！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_9_over
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第9天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_9_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_over"
+msgid "我的回合，抽卡！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_9_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_over"
+msgid "这是欲望壶，它在拥有星之碎片的怪物出现时，会复制怪物身上的星之碎片！"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_9_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_over"
+msgid "不过，他的兄弟差不多都已经进禁卡池了！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_9_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第9天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "<color=blue>（战斗过后，大家又都开始忙其他的事情去了，就剩我一个人留在这儿。）</color>"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "<color=blue>（难得景色不错，继续在这儿呆一会吧。）</color>"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "哎呀，瞧瞧这是谁？"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "！谁在那儿！"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "你、你、你——你不是之前那个——"
+msgstr ""
+
+#. Description for talk sentence 5 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（青娥出场）"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "又见面了呢，小弟弟。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "你一定在想我为什么会在这里，对吧？"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "我也就被关了几天而已，对于不老不死的仙人而言，一眨眼可就过去了哦。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "所以，你来这儿是为了——"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "放松，小弟弟。你的身上有我想要的力量。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "所以，我这次还是来请你帮忙的哦。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "！"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "不行，你的忙我绝对不会再帮了！"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "哈哈，我就知道。"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "不过，我这里恐怕有些你想知道的事情哦。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "……什么？"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "<color=red>史蒂夫·奥格拉斯</color>，是吧？"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "我之前，好像见过有些人，在找有这个名字的人呢，而且和你长得很相似。"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "说不定，他们和你可能会有什么血缘关系呢。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "！你、你怎么会知道……！"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "所以，小弟弟，要不要再帮我一些忙呢？"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "连同上次没有给你的报酬一起，这次，我会告诉你一些很重要的东西呢。"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "不、不行……怎么能听你的！"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "<color=red>就算再也不知道自己父母的身世，被人歧视，孤独地活在这个世界上</color>，也是可以的嘛？"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "！！"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "我……"
+msgstr ""
+
+#. Text for talk sentence 28 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "我不想再那样活着……可是……"
+msgstr ""
+
+#. Text for talk sentence 31 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "我帮你。"
+msgstr ""
+
+#. Text for talk sentence 32 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "但……你必须要告诉我那些事情！！！"
+msgstr ""
+
+#. Text for talk sentence 33 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "放心放心，我可向来都信守承诺的哦。"
+msgstr ""
+
+#. Text for talk sentence 34 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "只不过，现在还不能告诉你，别太贪心哦。"
+msgstr ""
+
+#. Text for talk sentence 35 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "呵呵，那我们说好咯，那我就——"
+msgstr ""
+
+#. Text for talk sentence 36 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "你就滚回之前的牢里去吧。"
+msgstr ""
+
+#. Text for talk sentence 39 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "你果然还是那个青娥。"
+msgstr ""
+
+#. Text for talk sentence 40 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "哎、哎呀……是神子啊……"
+msgstr ""
+
+#. Text for talk sentence 41 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "原谅我吧~看在我们是老友的份上？"
+msgstr ""
+
+#. Text for talk sentence 42 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "我们是老友不错，你为了自己在外面再怎么作恶，我也管不到。"
+msgstr ""
+
+#. Text for talk sentence 43 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "但我实在无法忍受，你如此欺骗和利用史蒂夫！"
+msgstr ""
+
+#. Text for talk sentence 45 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "拜托，我也没做什么伤天害理的事情啊，只是让他帮我做事而已~"
+msgstr ""
+
+#. Text for talk sentence 46 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "我不想听你的任何解释。现在回到之前的监牢里去，再待上几年！"
+msgstr ""
+
+#. Text for talk sentence 47 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "切~算了。"
+msgstr ""
+
+#. Text for talk sentence 48 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "那么，再也不见咯~史蒂夫小弟弟。"
+msgstr ""
+
+#. Description for talk sentence 49 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（青娥离场）"
+msgstr ""
+
+#. Text for talk sentence 50 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "你怎么样，史蒂夫？青娥她没做什么伤害你的事情吧？"
+msgstr ""
+
+#. Text for talk sentence 51 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "没有，但是，她说她知道我父母的事情……"
+msgstr ""
+
+#. Text for talk sentence 52 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "不可能的。这是她向来用于哄骗别人的伎俩。"
+msgstr ""
+
+#. Text for talk sentence 53 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "你和我之前的对话，她当时可能也在偷听，才知道了这些事情。"
+msgstr ""
+
+#. Text for talk sentence 55 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "所以，答案又消失了吗……"
+msgstr ""
+
+#. Text for talk sentence 57 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "我真的——好想、好想知道……"
+msgstr ""
+
+#. Text for talk sentence 58 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "还是说，我其实也跟她说的一样——太贪心了吗？"
+msgstr ""
+
+#. Text for talk sentence 59 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "我本来就不该有这种欲望，对吗？"
+msgstr ""
+
+#. Text for talk sentence 61 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "不是的，孩子。"
+msgstr ""
+
+#. Text for talk sentence 62 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "人有欲望，这件事本身并不是问题。"
+msgstr ""
+
+#. Text for talk sentence 63 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "问题是，<color=red>人失去了控制欲望的能力，而去做坏事。</color>"
+msgstr ""
+
+#. Text for talk sentence 64 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "你对自己父母这件事情的执念实在是有些太深了。"
+msgstr ""
+
+#. Text for talk sentence 65 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "但是，你仍然有知道答案的权利。而这个答案只能由你自己去寻找，并且，绝不要像青娥那样，使用如此邪恶的手段。"
+msgstr ""
+
+#. Text for talk sentence 66 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "嗯……"
+msgstr ""
+
+#. Text for talk sentence 67 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "起来吧，史蒂夫，冷静一下。"
+msgstr ""
+
+#. Text for talk sentence 68 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "之后还要解决巨人的问题，这几天就不要去想这些事情了，你需要休息。"
+msgstr ""
+
+#. Text for talk sentence 69 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "嗯。"
+msgstr ""
+
+#. Text for talk sentence 70 in talk group mausoleum_9_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_9_map"
+msgid "谢谢你，神子大人。"
+msgstr ""
+
+#. Archive name for talk group mausoleum_10
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第10天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10"
+msgid "神子大人，前天那件事，我还是想找你道歉。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10"
+msgid "我那个时候太激动了……"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10"
+msgid "没关系的，我理解你。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10"
+msgid "那种环境下长大的孩子，多多少少会对这些事情有些敏感。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10"
+msgid "谢谢您。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10"
+msgid "比起那些事情——巨人的封印已经快要松动了。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10"
+msgid "希望你能够准备好迎接这场艰难的战斗。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_10's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10"
+msgid "嗯，我会的。"
+msgstr ""
+
+#. Archive name for talk group zombie_scroll
+#: Talk meta file
+msgctxt "archive"
+msgid "僵尸卷轴"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group zombie_scroll's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:zombie_scroll"
+msgid "……"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group zombie_scroll's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:zombie_scroll"
+msgid "看不懂。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group zombie_scroll's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:zombie_scroll"
+msgid "……何物？"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group zombie_scroll's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:zombie_scroll"
+msgid " 似为僵尸之战书，但用者为古中国之文言文所作。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group zombie_scroll's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:zombie_scroll"
+msgid "你看得懂吗，布都？"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group zombie_scroll's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:zombie_scroll"
+msgid "否。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group zombie_scroll's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:zombie_scroll"
+msgid "那算了。"
+msgstr ""
+
+#. Archive name for talk group mausoleum_10_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第10天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10_map"
+msgid "明天巨人差不多就要打破封印了，史蒂夫。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10_map"
+msgid "请你做好准备吧。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10_map"
+msgid "明白。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10_map"
+msgid "还有，关于那件事，希望你能够镇静。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10_map"
+msgid "在巨人的问题解决之后，你也许可以去找找我认识的一位高僧。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10_map"
+msgid "也许，她能够帮你在这些问题上指条明路。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10_map"
+msgid "这、这样吗。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10_map"
+msgid "感谢你，神子大人。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10_map"
+msgid "这是我应做的。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_10_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_10_map"
+msgid "加油吧，孩子，祝你能找到属于自己的光。"
+msgstr ""
+
+#. Archive name for talk group mausoleum_11
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第11天入场"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "巨人马上就要打破封印了。在那之前，僵尸们也开始大量出现了。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "巨人是如何战斗的？"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "它会化作许多尸块，进行撞击，并使用它腐烂的器官进行特别的攻击。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "并且，他还会变化为许多我们从来没见过的奇怪形态。"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "不过，此前之战，吾似乎见过与之相关器械。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "试用此些器械攻之！"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "好，准备战斗！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_11_over
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第11天结束"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_11_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_over"
+msgid "巨人……已经解体了！"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_11_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_over"
+msgid "棒极了！你做到了我们都没有做到的事情。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_11_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_over"
+msgid "如此力量，实在是令人咋舌！"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_11_over's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_over"
+msgid "好了，巨人现在已经不能再造成任何的威胁了！"
+msgstr ""
+
+#. Archive name for talk group mausoleum_11_map
+#: Talk meta file
+msgctxt "archive"
+msgid "梦殿大祀庙第11天地图"
+msgstr ""
+
+#. Text for talk sentence 0 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "正如我之前所说的，史蒂夫，你的力量十分强大。"
+msgstr ""
+
+#. Text for talk sentence 1 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "如今，你的行为确实也印证了这一点。"
+msgstr ""
+
+#. Text for talk sentence 2 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "实际上，哆来咪小姐也说过类似的话。"
+msgstr ""
+
+#. Text for talk sentence 3 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "那位梦境的管理者吗？"
+msgstr ""
+
+#. Text for talk sentence 4 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "可是，这些力量不是我所想要的。"
+msgstr ""
+
+#. Text for talk sentence 5 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "有了这些力量，我必须要利用它清除这些僵尸，反而感觉更累了。"
+msgstr ""
+
+#. Text for talk sentence 6 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "其实我只想做个普通人，过正常的生活。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "很好，史蒂夫，我理解你的想法。"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "不过，幻想乡的大家仍然还需要这份力量。"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "也许，等到这一切——幻想乡的异变结束之后，你的这份力量可能就会消失。"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "到了那时候，你也许就可以回到自己的家里，如愿以偿了。"
+msgstr ""
+
+#. Text for talk sentence 11 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "是这样吗。"
+msgstr ""
+
+#. Text for talk sentence 12 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "在那之前，你还需要不停战斗。"
+msgstr ""
+
+#. Text for talk sentence 13 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "因此，我有一份礼物给你，希望你能收下。"
+msgstr ""
+
+#. Text for talk sentence 14 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "炸弹？"
+msgstr ""
+
+#. Text for talk sentence 15 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "这是我特制的圣光炸弹，它在爆炸时会产生炫目的光芒，刺伤那些邪恶的怪物。"
+msgstr ""
+
+#. Text for talk sentence 16 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "如果你能好好利用，他一定能发挥巨大的作用。"
+msgstr ""
+
+#. Text for talk sentence 17 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "这样啊，谢谢神子大人。"
+msgstr ""
+
+#. Text for talk sentence 18 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "要走了吗，史蒂夫？"
+msgstr ""
+
+#. Text for talk sentence 19 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "此与汝共，我得其所学甚多。"
+msgstr ""
+
+#. Text for talk sentence 20 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "感激不尽！"
+msgstr ""
+
+#. Text for talk sentence 21 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "嗯，布都也是，那么我们下次——"
+msgstr ""
+
+#. Text for talk sentence 22 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "叮铃铃铃……"
+msgstr ""
+
+#. Text for talk sentence 23 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "嗯？电话？"
+msgstr ""
+
+#. Text for talk sentence 24 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "朱鹭子打来的？她有什么事吗？"
+msgstr ""
+
+#. Text for talk sentence 25 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "哔。"
+msgstr ""
+
+#. Text for talk sentence 26 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "朱鹭子？你——"
+msgstr ""
+
+#. Text for talk sentence 27 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "你们快回来！快回香霖堂呀！！！"
+msgstr ""
+
+#. Text for talk sentence 28 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "这里有好多僵尸！！！快、快来救我！！！"
+msgstr ""
+
+#. Text for talk sentence 29 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "什、什么？！"
+msgstr ""
+
+#. Text for talk sentence 30 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "呀啊啊啊啊啊啊！！！"
+msgstr ""
+
+#. Text for talk sentence 31 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "嘟——嘟——嘟——"
+msgstr ""
+
+#. Text for talk sentence 32 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "不好！快回去！"
+msgstr ""
+
+#. Text for talk sentence 33 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "看样子有情况发生了，你们快回吧！"
+msgstr ""
+
+#. Text for talk sentence 34 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "明白了，改日我们再见吧！"
+msgstr ""
+
+#. Text for talk sentence 35 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "该死，怎么会……"
+msgstr ""
+
+#. Description for talk sentence 35 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（来到香霖堂）"
+msgstr ""
+
+#. Text for talk sentence 36 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "喂，你要干什么！跑进去就是送死啊！"
+msgstr ""
+
+#. Text for talk sentence 37 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "可是，朱鹭子还在里面！"
+msgstr ""
+
+#. Text for talk sentence 38 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "先把这些僵尸都给清理干净再说吧！！！"
+msgstr ""
+
+#. Text for talk sentence 39 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "全都干掉了！"
+msgstr ""
+
+#. Description for talk sentence 39 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（僵尸被击杀）"
+msgstr ""
+
+#. Text for talk sentence 40 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "朱鹭子！！！"
+msgstr ""
+
+#. Text for talk sentence 41 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "朱鹭子，你没事吧！"
+msgstr ""
+
+#. Description for talk sentence 41 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（冲进香霖堂）"
+msgstr ""
+
+#. Text for talk sentence 42 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "我、我没事……我没受伤……"
+msgstr ""
+
+#. Text for talk sentence 43 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "呜呜呜……呜呜……好可怕……"
+msgstr ""
+
+#. Text for talk sentence 44 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "我……一直躲在里面……好害怕……"
+msgstr ""
+
+#. Text for talk sentence 45 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "手机……也被我……不小心弄坏了……呜呜呜……"
+msgstr ""
+
+#. Text for talk sentence 46 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "该死，为什么香霖堂也会来僵尸！"
+msgstr ""
+
+#. Text for talk sentence 47 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "请你们听着。"
+msgstr ""
+
+#. Text for talk sentence 48 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "你、你是什么人！"
+msgstr ""
+
+#. Description for talk sentence 48 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（神秘影像出现）"
+msgstr ""
+
+#. Text for talk sentence 49 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "呵，你居然也到了这里，真的是命运的捉弄啊。"
+msgstr ""
+
+#. Text for talk sentence 50 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "史蒂夫。"
+msgstr ""
+
+#. Text for talk sentence 51 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "你——为什么知道我的名字？"
+msgstr ""
+
+#. Text for talk sentence 52 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "我警告你们。"
+msgstr ""
+
+#. Text for talk sentence 53 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "不要让我再看到你。"
+msgstr ""
+
+#. Text for talk sentence 54 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "不然我会让你们付出惨痛的代价的。"
+msgstr ""
+
+#. Text for talk sentence 55 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "……"
+msgstr ""
+
+#. Description for talk sentence 55 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "archive"
+msgid "（神秘影像离开）"
+msgstr ""
+
+#. Text for talk sentence 56 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "该死，这家伙，到底是谁？"
+msgstr ""
+
+#. Text for talk sentence 57 in talk group mausoleum_11_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11_map"
+msgid "呜呜呜……呜呜呜……"
 msgstr ""
 
 #. Archive name for talk group tutorial

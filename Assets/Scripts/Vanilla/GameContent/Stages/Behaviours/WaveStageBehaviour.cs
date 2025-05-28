@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -8,11 +7,12 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 using Tools;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -51,9 +51,9 @@ namespace MVZ2.GameContent.Stages
         public override void PrepareForBattle(LevelEngine level)
         {
             level.AreaDefinition.PrepareForBattle(level);
-            if (level.Difficulty != VanillaDifficulties.hard && level.Difficulty != VanillaDifficulties.lunatic && level.CurrentFlag <= 0)
+            if (!level.HasNoCarts() && level.CurrentFlag <= 0)
             {
-                var cartRef = level.GetProperty<NamespaceID>(EngineAreaProps.CART_REFERENCE);
+                var cartRef = level.GetCartReference();
                 level.SpawnCarts(cartRef, VanillaLevelExt.CART_START_X, 20);
             }
         }
@@ -81,6 +81,7 @@ namespace MVZ2.GameContent.Stages
                     FinalWaveUpdate(level);
                     break;
             }
+            UpdateHighWaveWeight(level);
             level.CheckGameOver();
         }
         public override void PostHugeWaveEvent(LevelEngine level)
@@ -97,7 +98,7 @@ namespace MVZ2.GameContent.Stages
         }
         public override void PostEnemySpawned(Entity entity)
         {
-            AddWaveMaxHealth(entity.Level, entity.GetMaxHealth() + (entity.EquipedArmor?.GetMaxHealth() ?? 0));
+            AddWaveMaxHealth(entity.Level, entity.GetMaxHealth() + (entity.GetMainArmor()?.GetMaxHealth() ?? 0));
         }
         #endregion
 
@@ -145,7 +146,8 @@ namespace MVZ2.GameContent.Stages
             level.WaveState = STATE_HUGE_WAVE_APPROACHING;
             var waveTimer = GetWaveTimer(level);
             waveTimer.ResetTime(180);
-            level.Triggers.RunCallback(VanillaCallbacks.POST_HUGE_WAVE_APPROACH, c => c(level));
+            level.Triggers.RunCallback(VanillaLevelCallbacks.POST_HUGE_WAVE_APPROACH, new LevelCallbackParams(level));
+            UpdateHighWaveState(level);
         }
         private void NextWave(LevelEngine level)
         {
@@ -159,9 +161,10 @@ namespace MVZ2.GameContent.Stages
                 if (HasFinalWave)
                 {
                     SetFinalWaveEventTimer(level, new FrameTimer(60));
-                    level.Triggers.RunCallback(VanillaCallbacks.POST_FINAL_WAVE, c => c(level));
+                    level.Triggers.RunCallback(VanillaLevelCallbacks.POST_FINAL_WAVE, new LevelCallbackParams(level));
                 }
             }
+            UpdateHighWaveState(level);
         }
         #endregion
 
@@ -211,6 +214,13 @@ namespace MVZ2.GameContent.Stages
                         level.RunFinalWaveEvent();
                     }
                 }
+                if (IsHighWave(level))
+                {
+                    if (level.GetEntityCount(e => e.IsAliveEnemy()) <= 0)
+                    {
+                        SetHighWave(level, false);
+                    }
+                }
             }
         }
         #endregion
@@ -223,33 +233,52 @@ namespace MVZ2.GameContent.Stages
         public bool CheckEnemiesRemainedHealth(LevelEngine level)
         {
             var enemies = level.FindEntities(e => e.IsAliveEnemy());
-            var health = enemies.Sum(e => e.Health + (e.EquipedArmor?.Health ?? 0));
+            var health = enemies.Sum(e => e.Health + (e.GetMainArmor()?.Health ?? 0));
             return health <= level.GetWaveAdvanceHealthPercent() * GetWaveMaxHealth(level);
         }
         #endregion
 
+        private static void UpdateHighWaveState(LevelEngine level)
+        {
+            bool highWave = level.WaveState == VanillaLevelStates.STATE_HUGE_WAVE_APPROACHING || level.IsHugeWave(level.CurrentWave) || level.GetEntityCount(e => e.IsAliveEnemy()) >= 10;
+            SetHighWave(level, highWave);
+        }
+        private static void UpdateHighWaveWeight(LevelEngine level)
+        {
+            float weightSpeed = IsHighWave(level) ? 1 : -1;
+            var weight = level.GetSubtrackWeight();
+            weight = Mathf.Clamp01(weight + weightSpeed * SUBTRACK_WEIGHT_SPEED);
+            level.SetSubtrackWeight(weight);
+        }
+
         #region 关卡属性
-        public FrameTimer GetWaveTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_WAVE_TIMER);
-        public void SetWaveTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_WAVE_TIMER, value);
+        public static FrameTimer GetWaveTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_WAVE_TIMER);
+        public static void SetWaveTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_WAVE_TIMER, value);
 
-        public FrameTimer GetFinalWaveEventTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_FINAL_WAVE_EVENT_TIMER);
-        public void SetFinalWaveEventTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_FINAL_WAVE_EVENT_TIMER, value);
+        public static FrameTimer GetFinalWaveEventTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_FINAL_WAVE_EVENT_TIMER);
+        public static void SetFinalWaveEventTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_FINAL_WAVE_EVENT_TIMER, value);
 
-        public float GetWaveMaxHealth(LevelEngine level) => level.GetBehaviourField<float>(PROP_WAVE_MAX_HEALTH);
-        public void SetWaveMaxHealth(LevelEngine level, float value) => level.SetBehaviourField(PROP_WAVE_MAX_HEALTH, value);
-        public void AddWaveMaxHealth(LevelEngine level, float value) => SetWaveMaxHealth(level, GetWaveMaxHealth(level) + value);
+        public static float GetWaveMaxHealth(LevelEngine level) => level.GetBehaviourField<float>(PROP_WAVE_MAX_HEALTH);
+        public static void SetWaveMaxHealth(LevelEngine level, float value) => level.SetBehaviourField(PROP_WAVE_MAX_HEALTH, value);
+        public static void AddWaveMaxHealth(LevelEngine level, float value) => SetWaveMaxHealth(level, GetWaveMaxHealth(level) + value);
+
+        public static void SetHighWave(LevelEngine level, bool value) => level.SetBehaviourField(PROP_HIGH_WAVE, value);
+        public static bool IsHighWave(LevelEngine level) => level.GetBehaviourField<bool>(PROP_HIGH_WAVE);
         #endregion
 
         #region 属性字段
         private const string PROP_REGION = "wave_stage";
         public bool SpawnFlagZombie { get; set; } = true;
         public bool HasFinalWave { get; set; } = true;
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_WAVE_TIMER = new VanillaLevelPropertyMeta("WaveTimer");
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_WAVE_MAX_HEALTH = new VanillaLevelPropertyMeta("WaveMaxHealth");
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_FINAL_WAVE_EVENT_TIMER = new VanillaLevelPropertyMeta("FinalWaveEventTimer");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_WAVE_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("WaveTimer");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<float> PROP_WAVE_MAX_HEALTH = new VanillaLevelPropertyMeta<float>("WaveMaxHealth");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_FINAL_WAVE_EVENT_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("FinalWaveEventTimer");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<bool> PROP_HIGH_WAVE = new VanillaLevelPropertyMeta<bool>("HighWave");
+        public const float SUBTRACK_WEIGHT_SPEED = 1 / 90f;
         public const int STATE_NOT_STARTED = VanillaLevelStates.STATE_NOT_STARTED;
         public const int STATE_STARTED = VanillaLevelStates.STATE_STARTED;
         public const int STATE_HUGE_WAVE_APPROACHING = VanillaLevelStates.STATE_HUGE_WAVE_APPROACHING;

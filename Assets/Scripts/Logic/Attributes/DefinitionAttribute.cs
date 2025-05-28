@@ -26,4 +26,10 @@ namespace MVZ2Logic
         {
         }
     }
+    public class IZombieLayoutDefinitionAttribute : DefinitionAttribute
+    {
+        public IZombieLayoutDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.I_ZOMBIE_LAYOUT)
+        {
+        }
+    }
 }

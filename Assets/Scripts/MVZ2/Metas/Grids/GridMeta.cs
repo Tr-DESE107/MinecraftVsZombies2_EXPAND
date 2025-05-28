@@ -1,22 +1,18 @@
 ﻿using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic.Spawns;
-using PVZEngine;
 
 namespace MVZ2.Metas
 {
     public class GridLayerMeta : IGridLayerMeta
     {
         public string ID { get; private set; }
-        public int Priority { get; private set; }
         public static GridLayerMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var priority = node.GetAttributeInt("priority") ?? 0;
             return new GridLayerMeta()
             {
                 ID = id,
-                Priority = priority,
             };
         }
     }

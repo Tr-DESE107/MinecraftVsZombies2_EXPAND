@@ -13,7 +13,7 @@ namespace PVZEngine.Modifiers
             var validModifiers = modifiers.Where(m => m.modifier is PropertyModifier<T>);
             if (validModifiers.Count() == 0)
                 return value;
-            var last = validModifiers.LastOrDefault();
+            var last = validModifiers.OrderBy(m => m.modifier.Priority).LastOrDefault();
             var buff = last.container;
             var modifier = last.modifier as PropertyModifier<T>;
             return modifier.GetModifierValueGeneric(buff);
@@ -23,6 +23,9 @@ namespace PVZEngine.Modifiers
     {
     }
     public class NamespaceIDCalculator : SetModifierCalculator<NamespaceID>
+    {
+    }
+    public class NamespaceIDArrayCalculator : SetModifierCalculator<NamespaceID[]>
     {
     }
     public class StringCalculator : SetModifierCalculator<string>

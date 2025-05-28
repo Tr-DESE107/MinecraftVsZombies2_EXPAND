@@ -38,7 +38,7 @@ namespace MVZ2.GameContent.Stages
             SetTutorialRNG(level, level.CreateRNG());
             level.SetEnergy(150);
             level.SetSeedSlotCount(4);
-            level.ReplaceSeedPacks(new NamespaceID[]
+            level.FillSeedPacks(new NamespaceID[]
             {
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.furnace,
@@ -179,7 +179,7 @@ namespace MVZ2.GameContent.Stages
                             lane = dispensers[0].GetLane();
                         }
                         var enemy = level.SpawnEnemy(spawnDef, lane);
-                        var armor = enemy.EquipedArmor;
+                        var armor = enemy.GetMainArmor();
                         if (armor != null)
                         {
                             armor.Health = armor.GetMaxHealth() * 0.5f;
@@ -355,7 +355,7 @@ namespace MVZ2.GameContent.Stages
                         level.StopLevel();
                         level.PlayMusic(VanillaMusicID.mainmenu);
                         level.HideAdvice();
-                        level.SetEnergy(level.Option.StartEnergy);
+                        level.SetEnergy(level.GetStartEnergy());
                         level.ResetAllRechargeProgress();
                         level.ClearSeedPacks();
                         level.SetNoEnergy(false);
@@ -485,8 +485,8 @@ namespace MVZ2.GameContent.Stages
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "17")]
         public const string STRING_STATE_17 = "试着挖掉所有器械！";
 
-        public static readonly VanillaLevelPropertyMeta PROP_STATE = new VanillaLevelPropertyMeta("state");
-        public static readonly VanillaLevelPropertyMeta PROP_TUTORIAL_RNG = new VanillaLevelPropertyMeta("tutorialRNG");
-        public static readonly VanillaLevelPropertyMeta PROP_TUTORIAL_TIMER = new VanillaLevelPropertyMeta("tutorialTimer");
+        public static readonly VanillaLevelPropertyMeta<int> PROP_STATE = new VanillaLevelPropertyMeta<int>("state");
+        public static readonly VanillaLevelPropertyMeta<RandomGenerator> PROP_TUTORIAL_RNG = new VanillaLevelPropertyMeta<RandomGenerator>("tutorialRNG");
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_TUTORIAL_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("tutorialTimer");
     }
 }

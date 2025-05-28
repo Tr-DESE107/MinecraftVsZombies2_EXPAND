@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using MVZ2Logic.Games;
 using PVZEngine;
-using PVZEngine.Definitions;
-using PVZEngine.Level;
 
 namespace MVZ2Logic.Level
 {
@@ -13,7 +10,8 @@ namespace MVZ2Logic.Level
         string Name { get; }
         int DayNumber { get; }
         string Type { get; }
-        NamespaceID Unlock { get; }
+        float StartEnergy { get; }
+        NamespaceID[] Unlocks { get; }
 
         NamespaceID MusicID { get; }
 
@@ -22,6 +20,7 @@ namespace MVZ2Logic.Level
 
         NamespaceID ClearPickupModel { get; }
         NamespaceID ClearPickupBlueprint { get; }
+        bool DropsTrophy { get; }
         NamespaceID EndNote { get; }
 
         LevelCameraPosition StartCameraPosition { get; }
@@ -42,6 +41,7 @@ namespace MVZ2Logic.Level
     {
         string Type { get; }
         NamespaceID Value { get; }
+        int StartSection { get; }
         bool ShouldRepeat(IGameSaveData save);
     }
     public interface IConveyorPoolEntry

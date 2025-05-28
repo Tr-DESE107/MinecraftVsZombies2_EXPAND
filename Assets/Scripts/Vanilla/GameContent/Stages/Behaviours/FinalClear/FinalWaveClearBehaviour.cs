@@ -1,10 +1,6 @@
 ﻿using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
-using Tools;
 
 namespace MVZ2.GameContent.Stages
 {

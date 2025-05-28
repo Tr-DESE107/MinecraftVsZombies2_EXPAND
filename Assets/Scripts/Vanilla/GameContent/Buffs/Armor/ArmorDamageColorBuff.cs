@@ -29,6 +29,6 @@ namespace MVZ2.GameContent.Buffs.Armors
                 return;
             buff.Remove();
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
     }
 }

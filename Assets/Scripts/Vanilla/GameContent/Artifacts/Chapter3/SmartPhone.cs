@@ -36,8 +36,9 @@ namespace MVZ2.GameContent.Artifacts
                 artifact.SetGlowing(true);
             }
         }
-        private void PostLevelClearCallback(LevelEngine level)
+        private void PostLevelClearCallback(LevelCallbackParams param, CallbackResult result)
         {
+            var level = param.level;
             var artifacts = level.GetArtifacts();
             foreach (var artifact in artifacts)
             {

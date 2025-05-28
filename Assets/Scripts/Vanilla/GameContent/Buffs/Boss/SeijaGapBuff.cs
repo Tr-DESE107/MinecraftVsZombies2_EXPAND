@@ -1,4 +1,5 @@
 ﻿using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Modifiers;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
@@ -13,7 +14,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     {
         public SeijaGapBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, NumberOperator.ForceSet, EntityCollisionHelper.DETECTION_IGNORE));
+            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, NumberOperator.Set, EntityCollisionHelper.DETECTION_IGNORE, VanillaModifierPriorities.FORCE));
             AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));
             AddModifier(new Vector3Modifier(VanillaEntityProps.SHADOW_SCALE, NumberOperator.Multiply, PROP_SHADOW_SCALE));
         }
@@ -29,7 +30,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
         public const int TIME_THRESOLD = 20;
         public const int MAX_TIME = 40;
-        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
-        public static readonly VanillaBuffPropertyMeta PROP_SHADOW_SCALE = new VanillaBuffPropertyMeta("ShadowScale");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
+        public static readonly VanillaBuffPropertyMeta<Vector3> PROP_SHADOW_SCALE = new VanillaBuffPropertyMeta<Vector3>("ShadowScale");
     }
 }

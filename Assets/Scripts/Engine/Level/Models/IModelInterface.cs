@@ -4,6 +4,7 @@ namespace PVZEngine.Models
 {
     public interface IModelInterface
     {
+        void UpdateModel();
         void TriggerAnimation(string name);
         void SetAnimationBool(string name, bool value);
         void SetAnimationInt(string name, int value);

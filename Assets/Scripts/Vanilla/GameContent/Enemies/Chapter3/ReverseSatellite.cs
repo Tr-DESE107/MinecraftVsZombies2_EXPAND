@@ -1,8 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
@@ -28,7 +26,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             var buff = entity.AddBuff<FlyBuff>();
-            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80);
+            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
 
             entity.Level.AddLoopSoundEntity(VanillaSoundID.morseCodeReverse, entity.ID);
 
@@ -70,28 +68,16 @@ namespace MVZ2.GameContent.Enemies
             base.PostContactGround(entity, velocity);
             if ((entity.IsDead || entity.IsAIFrozen()) && !entity.IsOnWater())
             {
-                float damageMutliplier = 1;
+                float damageMutliplier = 1 + entity.Level.GetEnemyAILevel();
                 float radius = entity.GetRange();
-                var difficulty = entity.Level.Difficulty;
-                if (difficulty == VanillaDifficulties.normal)
-                {
-                    damageMutliplier = 0;
-                }
-                else if (difficulty == VanillaDifficulties.hard)
-                {
-                    damageMutliplier = 2;
-                }
-                else if (difficulty == VanillaDifficulties.lunatic)
-                {
-                    damageMutliplier = 3;
-                }
                 var damage = entity.GetDamage() * damageMutliplier;
                 if (damage >= 0)
                 {
-                    entity.Level.Explode(entity.GetCenter(), radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION), entity);
+                    entity.Explode(entity.GetCenter(), radius, entity.GetFaction(), damage, new DamageEffectList(VanillaDamageEffects.EXPLOSION));
                 }
-                var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter());
-                explosion.SetSize(entity.GetScaledSize());
+                var param = entity.GetSpawnParams();
+                param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
+                var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
                 entity.PlaySound(VanillaSoundID.explosion);
 
                 entity.Remove();
@@ -119,7 +105,7 @@ namespace MVZ2.GameContent.Enemies
             var pos = enemy.Position;
             var velocity = enemy.Velocity;
             var centerX = VanillaLevelExt.LAWN_CENTER_X;
-            var centerZ = (enemy.Level.GetGridTopZ() + enemy.Level.GetGridBottomZ()) * 0.5f;
+            var centerZ = enemy.Level.GetLawnCenterZ();
             var backDistanceX = 200;
             var backDistanceZ = 80;
             if (pos.x > centerX + backDistanceX)
@@ -162,7 +148,7 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_STAY = VanillaEntityStates.WALK;
         public const int STATE_LEAVING = VanillaEntityStates.ENEMY_SPECIAL;
         public const int LEAVE_TIME = 900;
-        public static readonly VanillaEntityPropertyMeta FIELD_LEAVE_TIMER = new VanillaEntityPropertyMeta("LeaveTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_LEAVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("LeaveTimer");
         private static readonly NamespaceID ID = VanillaEnemyID.reverseSatellite;
     }
 }

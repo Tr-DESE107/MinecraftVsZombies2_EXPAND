@@ -20,4 +20,9 @@
             <condition required="mvz2:entered_castle" />
         </conditions>
     </view>
+    <view id="mausoleum" priority="400" spritesheet="mvz2:mainmenu/view/mausoleum">
+        <conditions>
+            <condition required="mvz2:entered_mausoleum" />
+        </conditions>
+    </view>
 </views>

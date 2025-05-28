@@ -5,7 +5,6 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
 
 namespace MVZ2.Vanilla.Enemies
 {
@@ -23,9 +22,9 @@ namespace MVZ2.Vanilla.Enemies
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
-            if (!collision.Collider.IsMain())
+            if (!collision.Collider.IsForMain())
                 return;
-            if (!collision.OtherCollider.IsMain())
+            if (!collision.OtherCollider.IsForMain())
                 return;
             if (state != EntityCollisionHelper.STATE_EXIT)
             {
@@ -88,8 +87,15 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (target == null)
                 return;
-            target.TakeDamage(enemy.GetDamage() * enemy.GetAttackSpeed() / 30f, new DamageEffectList(VanillaDamageEffects.MUTE), enemy);
-            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_MELEE_ATTACK, c => c(enemy, target));
+            var vel = enemy.Velocity;
+            if (enemy.IsFacingLeft() == vel.x < 0)
+            {
+                vel.x *= 0.8f;
+            }
+            enemy.Velocity = vel;
+            var damage = enemy.GetDamage() * enemy.GetAttackSpeed() / 30f;
+            target.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.ENEMY_MELEE), enemy);
+            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_MELEE_ATTACK, new VanillaLevelCallbacks.EnemyMeleeAttackParams(enemy, target, damage));
         }
     }
 

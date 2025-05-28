@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;

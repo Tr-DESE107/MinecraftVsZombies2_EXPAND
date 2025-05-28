@@ -1,6 +1,4 @@
-﻿using PVZEngine;
-
-namespace MVZ2Logic.SeedPacks
+﻿namespace MVZ2Logic.SeedPacks
 {
     public interface ISeedOptionMeta
     {

@@ -3,41 +3,13 @@ using UnityEngine;
 
 namespace PVZEngine
 {
-    public struct PropertyKey : IEquatable<PropertyKey>
+    public interface IPropertyKey
     {
-        public static readonly PropertyKey Invalid = new PropertyKey(0, 0);
-        private int key;
-        private const int PROPERTY_BITS = 20;
-        private const int NAMESPACE_BITS = 12;
-
-        private const int PROPERTY_KEY_SHIFT = 0;
-        private const int PROPERTY_KEY_MASK = (1 << PROPERTY_BITS) - 1;
-        private const int NAMESPACE_KEY_SHIFT = PROPERTY_KEY_SHIFT + PROPERTY_BITS;
-        private const int NAMESPACE_KEY_MASK = ((1 << NAMESPACE_BITS) - 1) << NAMESPACE_KEY_SHIFT;
-        public PropertyKey(int namespaceKey, int propertyKey)
-        {
-            key = ((propertyKey << PROPERTY_KEY_SHIFT) & PROPERTY_KEY_MASK) | 
-                ((namespaceKey << NAMESPACE_KEY_SHIFT) & NAMESPACE_KEY_MASK);
-        }
-
-        public static bool IsValid(PropertyKey key)
-        {
-            return key.key > 0;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is PropertyKey key && Equals(key);
-        }
-
-        public override string ToString()
-        {
-            return key.ToString();
-        }
-        public override int GetHashCode()
-        {
-            return key;
-        }
+        int Key { get; }
+        Type Type { get; }
+    }
+    public static class PropertyKeyHelper
+    {
         public static void ParsePropertyName(string text, out string nsp, out string region, out string property)
         {
             var colon = text.IndexOf(':');
@@ -90,18 +62,76 @@ namespace PVZEngine
                 return propertyName;
             }
         }
-        public static bool operator ==(PropertyKey lhs, PropertyKey rhs)
+        public static IPropertyKey FromType(int namespaceKey, int propertyKey, Type propertyType)
         {
-            return lhs.key == rhs.key;
+            var type = typeof(PropertyKey<>).MakeGenericType(propertyType);
+            return (IPropertyKey)Activator.CreateInstance(type, namespaceKey, propertyKey);
         }
-        public static bool operator !=(PropertyKey lhs, PropertyKey rhs)
+        public static bool IsValid(this IPropertyKey key)
+        {
+            return key.Key > 0;
+        }
+        public static readonly IPropertyKey Invalid = new InvalidPropertyKey();
+    }
+    public struct InvalidPropertyKey : IPropertyKey
+    {
+        int IPropertyKey.Key => 0;
+        Type IPropertyKey.Type => typeof(object);
+    }
+    public struct PropertyKey<T> : IPropertyKey, IEquatable<PropertyKey<T>>, IEquatable<IPropertyKey>
+    {
+        int IPropertyKey.Key => key;
+        Type IPropertyKey.Type => typeof(T); 
+        private int key;
+        private const int PROPERTY_BITS = 20;
+        private const int NAMESPACE_BITS = 12;
+
+        private const int PROPERTY_KEY_SHIFT = 0;
+        private const int PROPERTY_KEY_MASK = (1 << PROPERTY_BITS) - 1;
+        private const int NAMESPACE_KEY_SHIFT = PROPERTY_KEY_SHIFT + PROPERTY_BITS;
+        private const int NAMESPACE_KEY_MASK = ((1 << NAMESPACE_BITS) - 1) << NAMESPACE_KEY_SHIFT;
+        public PropertyKey(int namespaceKey, int propertyKey)
+        {
+            key = ((propertyKey << PROPERTY_KEY_SHIFT) & PROPERTY_KEY_MASK) |
+                ((namespaceKey << NAMESPACE_KEY_SHIFT) & NAMESPACE_KEY_MASK);
+        }
+        public override bool Equals(object obj)
+        {
+            return obj is PropertyKey<T> key && Equals(key);
+        }
+
+        public override string ToString()
+        {
+            return key.ToString();
+        }
+        public override int GetHashCode()
+        {
+            return key;
+        }
+        public static bool operator ==(PropertyKey<T> lhs, IPropertyKey rhs)
+        {
+            return lhs.key == rhs.Key;
+        }
+        public static bool operator !=(PropertyKey<T> lhs, IPropertyKey rhs)
+        {
+            return !(lhs == rhs);
+        }
+        public static bool operator ==(IPropertyKey lhs, PropertyKey<T> rhs)
+        {
+            return lhs.Key == rhs.key;
+        }
+        public static bool operator !=(IPropertyKey lhs, PropertyKey<T> rhs)
         {
             return !(lhs == rhs);
         }
 
-        public bool Equals(PropertyKey other)
+        public bool Equals(PropertyKey<T> other)
         {
             return key == other.key;
+        }
+        public bool Equals(IPropertyKey other)
+        {
+            return key == other.Key;
         }
     }
 }

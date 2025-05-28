@@ -33,6 +33,8 @@ namespace MVZ2.Mainmenu.UI
             buttonDict.Add(ButtonType.Delete, deleteButton);
             buttonDict.Add(ButtonType.Switch, switchButton);
             buttonDict.Add(ButtonType.Back, backButton);
+            buttonDict.Add(ButtonType.Import, importButton);
+            buttonDict.Add(ButtonType.Export, exportButton);
 
             foreach (var pair in buttonDict)
             {
@@ -59,12 +61,18 @@ namespace MVZ2.Mainmenu.UI
         private Button switchButton;
         [SerializeField]
         private Button backButton;
+        [SerializeField]
+        private Button importButton;
+        [SerializeField]
+        private Button exportButton;
         public enum ButtonType
         {
             Rename,
             Delete,
             Switch,
-            Back
+            Back,
+            Import,
+            Export
         }
     }
 }

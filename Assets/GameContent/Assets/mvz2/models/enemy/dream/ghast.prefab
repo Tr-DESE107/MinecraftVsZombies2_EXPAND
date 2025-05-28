@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3649221331476825783}
   - component: {fileID: 5477845038708769862}
   - component: {fileID: 2699879878779821462}
+  - component: {fileID: 5891248196243158854}
   m_Layer: 0
   m_Name: Armor
   m_TagString: Untagged
@@ -58,6 +59,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: armor
+--- !u!114 &5891248196243158854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177043829741608578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &5320779003638347269
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +129,7 @@ GameObject:
   - component: {fileID: 8963181579900382115}
   - component: {fileID: 1575992648714937236}
   - component: {fileID: 7959215771896876960}
+  - component: {fileID: 220386264875497866}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -203,6 +218,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &220386264875497866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6627740300775878739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 1603489236, guid: 5ced55b015735534ea11b4302ca7f87b, type: 3}
+  - {fileID: -786789113, guid: 5ced55b015735534ea11b4302ca7f87b, type: 3}
+  - {fileID: -471910337, guid: 5ced55b015735534ea11b4302ca7f87b, type: 3}
+  index: 0
 --- !u!1001 &2934760682282928127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -327,6 +359,14 @@ PrefabInstance:
       propertyPath: transforms.Array.data[1]
       value: 
       objectReference: {fileID: 6372136424640982279}
+    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: subSortingGroups.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: subSortingGroups.Array.data[0]
+      value: 
+      objectReference: {fileID: 5891248196243158854}
     - target: {fileID: 7717581738674343506, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: m_Controller
       value: 

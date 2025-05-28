@@ -4,8 +4,6 @@ using MVZ2.Models;
 using MVZ2.SeedPacks;
 using MVZ2.UI;
 using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic.SeedPacks;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.Models;
@@ -49,14 +47,14 @@ namespace MVZ2.Level
         {
             RemoveCallbacks();
         }
-        public void Destroy() 
+        public void Destroy()
         {
             Remove();
             OnDestroy();
         }
         public virtual BlueprintViewData GetBlueprintViewData()
         {
-            return Main.ResourceManager.GetBlueprintViewData(GetSeedDefinition(), Level.IsEndless());
+            return Main.ResourceManager.GetBlueprintViewData(GetSeedDefinition(), Level.IsEndless(), IsCommandBlock());
         }
         public virtual TooltipViewData GetTooltipViewData()
         {
@@ -68,6 +66,7 @@ namespace MVZ2.Level
             };
         }
         public abstract SeedDefinition GetSeedDefinition();
+        public abstract bool IsCommandBlock();
         #endregion
 
         #region 私有方法
@@ -104,21 +103,7 @@ namespace MVZ2.Level
         protected abstract void OnDestroy();
         private string GetName()
         {
-            var definition = GetSeedDefinition();
-            if (definition == null)
-                return string.Empty;
-            var seedType = definition.GetSeedType();
-            if (seedType == SeedTypes.ENTITY)
-            {
-                var entityID = definition.GetSeedEntityID();
-                return Main.ResourceManager.GetEntityName(entityID);
-            }
-            else if (seedType == SeedTypes.OPTION)
-            {
-                var optionID = definition.GetSeedOptionID();
-                return Main.ResourceManager.GetSeedOptionName(optionID);
-            }
-            return string.Empty;
+            return Controller.BlueprintChoosePart.GetBlueprintName(GetSeedDefinition()?.GetID(), IsCommandBlock());
         }
         #endregion
 

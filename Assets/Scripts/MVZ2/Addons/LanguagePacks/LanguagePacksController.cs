@@ -2,18 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using MukioI18n;
-using MVZ2.Games;
 using MVZ2.IO;
 using MVZ2.Localization;
 using MVZ2.Managers;
-using MVZ2.Scenes;
 using MVZ2.Vanilla;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace MVZ2.Addons
 {
@@ -74,7 +69,7 @@ namespace MVZ2.Addons
                 case LanguagePacksUI.Buttons.Import:
                     {
                         await FileHelper.OpenExternalFile(new string[] { "zip" }, importAction);
-                        async void importAction(string path) 
+                        async void importAction(string path)
                         {
                             addons.SetLoadingVisible(true);
                             try
@@ -338,6 +333,6 @@ namespace MVZ2.Addons
         private List<LanguagePackReference> enabledReferences = new List<LanguagePackReference>();
         private List<LanguagePackReference> references = new List<LanguagePackReference>();
         private float refreshInterval;
-        
+
     }
 }

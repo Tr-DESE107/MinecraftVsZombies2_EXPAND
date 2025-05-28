@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -23,7 +24,7 @@ namespace MVZ2.GameContent.Contraptions
     {
         public TNT(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_SACRIFICE, PostSacrificeCallback, filter: VanillaContraptionID.tnt);
+            AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEntityDeathCallback, filter: EntityTypes.PLANT);
         }
         public override void Init(Entity entity)
         {
@@ -37,6 +38,16 @@ namespace MVZ2.GameContent.Contraptions
             if (IsIgnited(entity))
             {
                 IgnitedUpdate(entity);
+            }
+        }
+        public override void PostTakeDamage(DamageOutput result)
+        {
+            base.PostTakeDamage(result);
+            if (result.BodyResult == null)
+                return;
+            if (result.BodyResult.Effects.HasEffect(VanillaDamageEffects.LIGHTNING))
+            {
+                Charge(result.Entity);
             }
         }
         public override bool CanTrigger(Entity entity)
@@ -54,6 +65,21 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetEvoked(true);
             Ignite(entity);
         }
+        private void PostEntityDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
+        {
+            var entity = param.entity;
+            var info = param.deathInfo;
+            if (!entity.IsEntityOf(VanillaContraptionID.tnt))
+                return;
+            if (!info.HasEffect(VanillaDamageEffects.SACRIFICE) &&
+                !info.HasEffect(VanillaDamageEffects.FIRE) &&
+                !info.HasEffect(VanillaDamageEffects.EXPLOSION))
+                return;
+            var range = entity.GetRange();
+            var damage = entity.GetDamage();
+            Explode(entity, range, damage);
+            entity.Remove();
+        }
         public static void Ignite(Entity entity)
         {
             entity.PlaySound(VanillaSoundID.fuse);
@@ -63,6 +89,16 @@ namespace MVZ2.GameContent.Contraptions
         public static bool IsIgnited(Entity entity)
         {
             return entity.GetBehaviourField<bool>(ID, PROP_IGNITED);
+        }
+        public static void Charge(Entity tnt)
+        {
+            if (tnt.HasBuff<TNTChargedBuff>())
+                return;
+            tnt.AddBuff<TNTChargedBuff>();
+        }
+        public static bool IsCharged(Entity tnt)
+        {
+            return tnt.HasBuff<TNTChargedBuff>();
         }
         public static FrameTimer GetExplosionTimer(Entity entity)
         {
@@ -75,7 +111,7 @@ namespace MVZ2.GameContent.Contraptions
         public static DamageOutput[] Explode(Entity entity, float range, float damage)
         {
             var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
-            var damageOutputs = entity.Level.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects, entity);
+            var damageOutputs = entity.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects);
             foreach (var output in damageOutputs)
             {
                 var result = output?.BodyResult;
@@ -87,15 +123,18 @@ namespace MVZ2.GameContent.Contraptions
                     target.Velocity = target.Velocity + Vector3.up * speed;
                 }
             }
-            var explosion = entity.Level.Spawn(VanillaEffectID.explosion, entity.GetCenter(), entity);
-            explosion.SetSize(Vector3.one * (range * 2));
+            var explosionParam = entity.GetSpawnParams();
+            explosionParam.SetProperty(EngineEntityProps.SIZE, Vector3.one * (range * 2));
+            var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), explosionParam);
             entity.PlaySound(VanillaSoundID.explosion);
             entity.Level.ShakeScreen(10, 0, 15);
 
-            if (entity.HasBuff<TNTChargedBuff>())
+            if (IsCharged(entity))
             {
                 ChargedExplode(entity);
             }
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(entity), entity.GetDefinitionID());
+
             return damageOutputs;
         }
         private void IgnitedUpdate(Entity entity)
@@ -122,36 +161,33 @@ namespace MVZ2.GameContent.Contraptions
                         var projectile = entity.ShootProjectile(VanillaProjectileID.flyingTNT, velocity);
                         projectile.SetDamage(damage);
                         projectile.SetRange(range);
-                        if (entity.HasBuff<TNTChargedBuff>())
+                        if (IsCharged(entity))
                         {
-                            projectile.AddBuff<TNTChargedBuff>();
+                            Charge(projectile);
                         }
                     }
                 }
                 entity.Remove();
             }
         }
-        private void PostSacrificeCallback(Entity entity, Entity soulFurnace, int fuel)
+        public static void ExplodeArcs(Entity entity, Vector3 position, float arcLength = 1000)
         {
-            var range = entity.GetRange();
-            var damage = entity.GetDamage();
-            Explode(entity, range, damage);
-            entity.Remove();
-        }
-        private static void ChargedExplode(Entity entity)
-        {
-            const float arcLength = 1000;
             var level = entity.Level;
             for (int i = 0; i < 18; i++)
             {
-                var arc = level.Spawn(VanillaEffectID.electricArc, entity.Position, entity);
+                var arc = level.Spawn(VanillaEffectID.electricArc, position, entity);
 
                 float degree = i * 20;
                 float rad = degree * Mathf.Deg2Rad;
-                Vector3 pos = entity.Position + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * arcLength;
+                Vector3 pos = position + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * arcLength;
                 ElectricArc.Connect(arc, pos);
                 ElectricArc.UpdateArc(arc);
             }
+        }
+        private static void ChargedExplode(Entity entity)
+        {
+            ExplodeArcs(entity, entity.Position);
+            var level = entity.Level;
             foreach (Entity unit in level.FindEntities(e => entity.IsHostile(e)))
             {
                 unit.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.IGNORE_ARMOR), entity);
@@ -163,7 +199,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.thunder);
         }
         private static readonly NamespaceID ID = VanillaContraptionID.tnt;
-        public static readonly VanillaEntityPropertyMeta PROP_IGNITED = new VanillaEntityPropertyMeta("Ignited");
-        public static readonly VanillaEntityPropertyMeta PROP_EXPLOSION_TIMER = new VanillaEntityPropertyMeta("ExplosionTimer");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_IGNITED = new VanillaEntityPropertyMeta<bool>("Ignited");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EXPLOSION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ExplosionTimer");
     }
 }

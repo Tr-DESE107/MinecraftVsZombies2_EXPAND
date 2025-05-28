@@ -2,7 +2,6 @@
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
@@ -13,6 +12,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Bosses
             stateMachine.Init(boss);
             stateMachine.StartState(boss, STATE_WAKING);
 
-            if (boss.Level.Difficulty == VanillaDifficulties.hard || boss.Level.Difficulty == VanillaDifficulties.lunatic)
+            if (boss.Level.GetBossAILevel() > 0)
             {
                 EnterSteelPhase(boss);
             }
@@ -73,9 +73,9 @@ namespace MVZ2.GameContent.Bosses
             base.PostDeath(boss, damageInfo);
             stateMachine.StartState(boss, STATE_DEAD);
         }
-        public override void PreTakeDamage(DamageInput damageInfo)
+        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
         {
-            base.PreTakeDamage(damageInfo);
+            base.PreTakeDamage(damageInfo, result);
             if (damageInfo.Amount > 600)
             {
                 damageInfo.SetAmount(600);
@@ -125,8 +125,7 @@ namespace MVZ2.GameContent.Bosses
         }
         private static Entity FindMissileTarget(Entity boss)
         {
-            var collider = missileDetector.DetectWithTheMost(boss, t => Mathf.Abs(boss.Position.x - t.GetCenter().x));
-            return collider?.Entity;
+            return missileDetector.DetectEntityWithTheMost(boss, t => Mathf.Abs(boss.Position.x - t.GetCenter().x));
         }
         private static Entity FindPunchTarget(Entity boss)
         {
@@ -138,8 +137,7 @@ namespace MVZ2.GameContent.Bosses
         /// </summary>
         private static Entity FindGunTarget(Entity boss)
         {
-            var collider = gunDetector.DetectWithTheLeast(boss, t => Mathf.Abs(boss.Position.x - t.GetCenter().x));
-            return collider?.Entity;
+            return gunDetector.DetectEntityWithTheLeast(boss, t => Mathf.Abs(boss.Position.x - t.GetCenter().x));
         }
         private static Entity FindShockingTarget(Entity boss)
         {
@@ -189,7 +187,7 @@ namespace MVZ2.GameContent.Bosses
         }
         public static void Paralyze(Entity boss, Entity source)
         {
-            boss.TakeDamage(1200, new DamageEffectList(VanillaDamageEffects.LIGHTNING), source);
+            boss.TakeDamage(1200, new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.MUTE), source);
             if (!boss.IsDead)
             {
                 SetParalyzed(boss, true);
@@ -201,16 +199,14 @@ namespace MVZ2.GameContent.Bosses
         }
         private static bool CanTransformPhase(Entity boss)
         {
-            if (boss.Level.Difficulty == VanillaDifficulties.easy)
+            if (boss.Level.GetBossAILevel() < 0)
                 return false;
             return boss.Health <= boss.GetMaxHealth() * 0.5f && !IsSteelPhase(boss);
         }
 
         public static float GetFrankensteinActionSpeed(Entity boss)
         {
-            return (boss.Level.Difficulty == VanillaDifficulties.hard || boss.Level.Difficulty == VanillaDifficulties.lunatic)
-                ? 2 
-                : 1;
+            return boss.Level.GetBossAILevel() > 0 ? 2 : 1;
         }
 
         #region 属性
@@ -326,19 +322,19 @@ namespace MVZ2.GameContent.Bosses
         private static Detector gunDetector = new FrankensteinGunDetector(VanillaProjectileID.bullet);
         private static Detector missileDetector = new FrankensteinGunDetector(VanillaProjectileID.missile);
 
-        private static readonly VanillaEntityPropertyMeta PROP_PARALYZED = new VanillaEntityPropertyMeta("Paralyzed");
+        private static readonly VanillaEntityPropertyMeta<bool> PROP_PARALYZED = new VanillaEntityPropertyMeta<bool>("Paralyzed");
 
-        private static readonly VanillaEntityPropertyMeta PROP_JUMP_TARGET = new VanillaEntityPropertyMeta("JumpTarget");
-        private static readonly VanillaEntityPropertyMeta PROP_STEEL_PHASE = new VanillaEntityPropertyMeta("SteelPhase");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_JUMP_TARGET = new VanillaEntityPropertyMeta<Vector3>("JumpTarget");
+        private static readonly VanillaEntityPropertyMeta<bool> PROP_STEEL_PHASE = new VanillaEntityPropertyMeta<bool>("SteelPhase");
 
-        private static readonly VanillaEntityPropertyMeta PROP_GUN_DIRECTION = new VanillaEntityPropertyMeta("GunDirection");
-        private static readonly VanillaEntityPropertyMeta PROP_MISSILE_DIRECTION = new VanillaEntityPropertyMeta("MissileDirection");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_GUN_DIRECTION = new VanillaEntityPropertyMeta<Vector3>("GunDirection");
+        private static readonly VanillaEntityPropertyMeta<Vector3> PROP_MISSILE_DIRECTION = new VanillaEntityPropertyMeta<Vector3>("MissileDirection");
 
-        private static readonly VanillaEntityPropertyMeta PROP_DETECT_TIMER = new VanillaEntityPropertyMeta("DetectTimer");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DETECT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("DetectTimer");
 
-        private static readonly VanillaEntityPropertyMeta PROP_SHOCK_RNG = new VanillaEntityPropertyMeta("ShockRNG");
-        private static readonly VanillaEntityPropertyMeta PROP_JUMP_RNG = new VanillaEntityPropertyMeta("JumpRNG");
-        private static readonly VanillaEntityPropertyMeta PROP_BULLET_RNG = new VanillaEntityPropertyMeta("BulletRNG");
+        private static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_SHOCK_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("ShockRNG");
+        private static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_JUMP_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("JumpRNG");
+        private static readonly VanillaEntityPropertyMeta<RandomGenerator> PROP_BULLET_RNG = new VanillaEntityPropertyMeta<RandomGenerator>("BulletRNG");
 
         private const int STATE_IDLE = VanillaEntityStates.FRANKENSTEIN_IDLE;
         private const int STATE_JUMP = VanillaEntityStates.FRANKENSTEIN_JUMP;

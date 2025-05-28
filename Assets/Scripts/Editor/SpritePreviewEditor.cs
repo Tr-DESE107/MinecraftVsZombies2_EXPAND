@@ -1,6 +1,8 @@
+using System.IO;
 using MVZ2.Sprites;
 using UnityEditor;
 using UnityEngine;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MVZ2.Editor
 {
@@ -12,6 +14,9 @@ namespace MVZ2.Editor
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             var height = base.GetPropertyHeight(property, label);
+
+            height += 18; // Save as Button;
+
             var spriteProperty = property.FindPropertyRelative("sprite");
             var sprite = spriteProperty.objectReferenceValue as Sprite;
             if (sprite != null)
@@ -32,10 +37,45 @@ namespace MVZ2.Editor
             namePos.height = 18;
             GUI.Label(namePos, label);
 
+            var saveAsPos = position;
+            saveAsPos.y += 18;
+            saveAsPos.height = 18;
+            bool saveAs = GUI.Button(saveAsPos, "Save As");
+
+
+            var previewPos = position;
+            previewPos.y += 36;
             var preview = AssetPreview.GetAssetPreview(sprite);
             var size = CalculateSize(preview);
-            var previewPos = new Rect(position.x, position.y + 18f, size.x, size.y);
+            previewPos.size = size;
+
+            var backgroundProperty = property.FindPropertyRelative("background");
+            var background = backgroundProperty.objectReferenceValue as Sprite;
+            var backgroundPreview = AssetPreview.GetAssetPreview(background);
+            GUI.Label(previewPos, backgroundPreview);
             GUI.Label(previewPos, preview);
+
+            if (saveAs)
+            {
+                var nameProperty = property.FindPropertyRelative("name");
+                var name = nameProperty.stringValue;
+                foreach (var chr in Path.GetInvalidFileNameChars())
+                {
+                    name = name.Replace(chr, '_');
+                }
+                var path = EditorUtility.SaveFilePanel("Save Sprite", Application.dataPath, name, "png");
+                if (!string.IsNullOrEmpty(path))
+                {
+                    var bytes = sprite.texture.EncodeToPNG();
+                    using (var stream = File.Open(path, FileMode.Create))
+                    {
+                        using (var writer = new BinaryWriter(stream))
+                        {
+                            writer.Write(bytes);
+                        }
+                    }
+                }
+            }
         }
         private Vector2 CalculateSize(Texture2D texture)
         {

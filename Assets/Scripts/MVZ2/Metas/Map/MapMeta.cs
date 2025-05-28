@@ -12,7 +12,7 @@ namespace MVZ2.Metas
         public NamespaceID area;
         public LoreTalkMetaList loreTalks;
         public MapPreset[] presets;
-        public NamespaceID[] stages;
+        public MapStageMeta[] stages;
         public NamespaceID endlessStage;
         public static MapMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -32,14 +32,14 @@ namespace MVZ2.Metas
             var loreTalks = LoreTalkMetaList.FromXmlNode(node["talks"], defaultNsp);
 
             var stagesNode = node["stages"];
-            var stages = new NamespaceID[stagesNode?.ChildNodes?.Count ?? 0];
+            var stages = new MapStageMeta[stagesNode?.ChildNodes?.Count ?? 0];
             NamespaceID endlessStage = null;
             if (stagesNode != null)
             {
                 endlessStage = stagesNode.GetAttributeNamespaceID("endless", defaultNsp);
                 for (int i = 0; i < stages.Length; i++)
                 {
-                    stages[i] = stagesNode.ChildNodes[i].GetAttributeNamespaceID("id", defaultNsp);
+                    stages[i] = MapStageMeta.FromXmlNode(stagesNode.ChildNodes[i], defaultNsp);
                 }
             }
             return new MapMeta()
@@ -51,6 +51,21 @@ namespace MVZ2.Metas
                 presets = presets,
                 stages = stages,
                 endlessStage = endlessStage,
+            };
+        }
+    }
+    public class MapStageMeta
+    {
+        public NamespaceID stage;
+        public NamespaceID area;
+        public static MapStageMeta FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            var stage = node.GetAttributeNamespaceID("id", defaultNsp);
+            var area = node.GetAttributeNamespaceID("area", defaultNsp);
+            return new MapStageMeta()
+            {
+                stage = stage,
+                area = area
             };
         }
     }

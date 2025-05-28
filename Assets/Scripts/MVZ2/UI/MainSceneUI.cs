@@ -6,13 +6,13 @@ namespace MVZ2.UI
 {
     public class MainSceneUI : MonoBehaviour
     {
-        public void SetBlackScreen(float value)
+        public void SetScreenCoverColor(Color value)
         {
-            blackscreenFader.Value = value;
+            screenCoverFader.Value = value;
         }
-        public void FadeBlackScreen(float target, float duration)
+        public void FadeScreenCoverColor(Color target, float duration)
         {
-            blackscreenFader.StartFade(target, duration);
+            screenCoverFader.StartFade(target, duration);
         }
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
         {
@@ -24,22 +24,24 @@ namespace MVZ2.UI
             });
             dialog.ResetPosition();
         }
+        public bool HasDialog()
+        {
+            return dialog.gameObject.activeSelf;
+        }
         private void Awake()
         {
-            blackscreenFader.OnValueChanged += OnBlackscreenFaderValueChangedCallback;
+            screenCoverFader.OnValueChanged += OnBlackscreenFaderValueChangedCallback;
         }
-        private void OnBlackscreenFaderValueChangedCallback(float value)
+        private void OnBlackscreenFaderValueChangedCallback(Color value)
         {
-            var color = blackscreenImage.color;
-            color.a = value;
-            blackscreenImage.color = color;
-            blackscreenImage.raycastTarget = blackscreenFader.Value > 0;
+            blackscreenImage.color = value;
+            blackscreenImage.raycastTarget = value.a > 0;
         }
         [SerializeField]
         private CustomDialog dialog;
         [SerializeField]
         private Image blackscreenImage;
         [SerializeField]
-        private FloatFader blackscreenFader;
+        private ColorFader screenCoverFader;
     }
 }

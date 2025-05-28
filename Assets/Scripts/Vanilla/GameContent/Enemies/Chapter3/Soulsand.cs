@@ -15,13 +15,11 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.InitFragment();
             entity.Timeout = entity.GetMaxTimeout();
         }
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.UpdateFragment();
 
             if (entity.Velocity.y != 0)
             {
@@ -37,20 +35,9 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
         }
-        public override void PostTakeDamage(DamageOutput result)
-        {
-            base.PostTakeDamage(result);
-            var entity = result.Entity;
-            var bodyResult = result.BodyResult;
-            if (bodyResult != null)
-            {
-                entity.AddFragmentTickDamage(bodyResult.Amount);
-            }
-        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            entity.PostFragmentDeath(info);
             entity.Remove();
         }
     }

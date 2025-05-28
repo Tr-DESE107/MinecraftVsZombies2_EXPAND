@@ -1,5 +1,4 @@
-﻿using MVZ2.Managers;
-using PVZEngine;
+﻿using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -25,6 +24,10 @@ namespace MVZ2.Level.Components
 
         }
         public virtual void PostLevelLoad()
+        {
+
+        }
+        public virtual void PostDispose()
         {
 
         }

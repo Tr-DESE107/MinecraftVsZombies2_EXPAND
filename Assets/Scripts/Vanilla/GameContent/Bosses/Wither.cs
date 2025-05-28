@@ -3,13 +3,14 @@ using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -33,8 +34,8 @@ namespace MVZ2.GameContent.Bosses
             stateMachine.Init(boss);
             stateMachine.StartState(boss, STATE_IDLE);
 
-            boss.CollisionMaskHostile |= 
-                EntityCollisionHelper.MASK_PLANT | 
+            boss.CollisionMaskHostile |=
+                EntityCollisionHelper.MASK_PLANT |
                 EntityCollisionHelper.MASK_ENEMY |
                 EntityCollisionHelper.MASK_OBSTACLE |
                 EntityCollisionHelper.MASK_BOSS;
@@ -47,16 +48,8 @@ namespace MVZ2.GameContent.Bosses
                 return;
             stateMachine.UpdateAI(entity);
 
-            var cryTimer = GetCryTimer(entity);
-            if (cryTimer == null)
+            if (entity.IsTimeInterval(CRY_INTERVAL))
             {
-                cryTimer = new FrameTimer(CRY_INTERVAL);
-                SetCryTimer(entity, cryTimer);
-            }
-            cryTimer.Run();
-            if (cryTimer.Expired)
-            {
-                cryTimer.ResetTime(CRY_INTERVAL);
                 entity.PlaySound(VanillaSoundID.witherCry);
             }
         }
@@ -69,7 +62,7 @@ namespace MVZ2.GameContent.Bosses
 
             RotateHeadsUpdate(entity);
 
-            if (!entity.IsDead && entity.Level.Difficulty != VanillaDifficulties.easy)
+            if (!entity.IsDead && entity.Level.GetBossAILevel() >= 0)
             {
                 entity.Heal(REGENERATION_SPEED, entity);
             }
@@ -122,9 +115,9 @@ namespace MVZ2.GameContent.Bosses
                 FinishEat(self);
             }
         }
-        public override void PreTakeDamage(DamageInput damageInfo)
+        public override void PreTakeDamage(DamageInput damageInfo, CallbackResult result)
         {
-            base.PreTakeDamage(damageInfo);
+            base.PreTakeDamage(damageInfo, result);
             if (damageInfo.Amount > 600)
             {
                 damageInfo.SetAmount(600);
@@ -157,22 +150,21 @@ namespace MVZ2.GameContent.Bosses
                 }
             }
         }
-        private void PreProjectileHitCallback(ProjectileHitInput hitInput, DamageInput damageInput)
+        private void PreProjectileHitCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult result)
         {
-            var self = hitInput.Other;
+            var hit = param.hit;
+            var self = hit.Other;
             if (!self.IsEntityOf(VanillaBossID.wither))
                 return;
             if (!HasArmor(self))
                 return;
-            hitInput.Cancel();
-            var projectile = hitInput.Projectile;
+            result.SetFinalValue(false);
+            var projectile = hit.Projectile;
             projectile.Remove();
         }
         #endregion 事件
 
         #region 字段
-        public static FrameTimer GetCryTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_CRY_TIMER);
-        public static void SetCryTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_CRY_TIMER, value);
         public static int GetPhase(Entity entity) => entity.GetBehaviourField<int>(PROP_PHASE);
         public static void SetPhase(Entity entity, int value) => entity.SetBehaviourField(PROP_PHASE, value);
         public static float[] GetHeadAngles(Entity entity) => entity.GetBehaviourField<float[]>(PROP_HEAD_ANGLES);
@@ -343,13 +335,12 @@ namespace MVZ2.GameContent.Bosses
         }
 
         #region 常量
-        private static readonly VanillaEntityPropertyMeta PROP_CRY_TIMER = new VanillaEntityPropertyMeta("CryTimer");
-        private static readonly VanillaEntityPropertyMeta PROP_HEAD_ANGLES = new VanillaEntityPropertyMeta("HeadAngles");
-        private static readonly VanillaEntityPropertyMeta PROP_HEAD_OPEN = new VanillaEntityPropertyMeta("HeadOpen");
-        private static readonly VanillaEntityPropertyMeta PROP_HEAD_TARGETS = new VanillaEntityPropertyMeta("HeadTargets");
-        private static readonly VanillaEntityPropertyMeta PROP_SKULL_CHARGES = new VanillaEntityPropertyMeta("SkullCharges");
-        private static readonly VanillaEntityPropertyMeta PROP_PHASE = new VanillaEntityPropertyMeta("Phase");
-        private static readonly VanillaEntityPropertyMeta PROP_TARGET_LANE = new VanillaEntityPropertyMeta("TargetLane");
+        private static readonly VanillaEntityPropertyMeta<float[]> PROP_HEAD_ANGLES = new VanillaEntityPropertyMeta<float[]>("HeadAngles");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_HEAD_OPEN = new VanillaEntityPropertyMeta<float>("HeadOpen");
+        private static readonly VanillaEntityPropertyMeta<EntityID[]> PROP_HEAD_TARGETS = new VanillaEntityPropertyMeta<EntityID[]>("HeadTargets");
+        private static readonly VanillaEntityPropertyMeta<float[]> PROP_SKULL_CHARGES = new VanillaEntityPropertyMeta<float[]>("SkullCharges");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_PHASE = new VanillaEntityPropertyMeta<int>("Phase");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_LANE = new VanillaEntityPropertyMeta<int>("TargetLane");
 
         private static readonly Vector3[] headPositionOffsets = new Vector3[]
         {

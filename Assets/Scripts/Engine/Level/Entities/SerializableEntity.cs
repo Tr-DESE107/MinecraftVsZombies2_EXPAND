@@ -13,6 +13,7 @@ namespace PVZEngine.Entities
     public class SerializableEntity
     {
         public long id;
+        public long time;
         public int type;
         public int state;
         public long target;
@@ -23,14 +24,12 @@ namespace PVZEngine.Entities
         public NamespaceID definitionID;
         public NamespaceID modelID;
         public EntityReferenceChain spawnerReference;
-        public SerializableArmor EquipedArmor;
         public Vector3 previousPosition;
         public Vector3 position;
         public Vector3 velocity;
         public Vector3 scale;
         public int collisionMaskHostile;
         public int collisionMaskFriendly;
-        public SerializableEntityCollider[] colliders;
         public Vector3 renderRotation;
         public Vector3 renderScale;
         public Dictionary<string, int> takenConveyorSeeds;
@@ -42,6 +41,8 @@ namespace PVZEngine.Entities
         public Vector3 shadowScale;
         public Vector3 shadowOffset;
         #endregion
+
+        public Dictionary<string, SerializableArmor> armors;
 
         public bool isDead;
         public float health;

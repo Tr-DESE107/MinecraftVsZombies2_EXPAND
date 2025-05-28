@@ -1,6 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.Vanilla.Entities;
-using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -17,7 +16,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             AddModifier(new Vector3Modifier(EngineEntityProps.SCALE, NumberOperator.Multiply, new Vector3(0.5f, 0.5f, 0.5f)));
             AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, new Vector3(0.5f, 0.5f, 0.5f)));
             AddModifier(new Vector3Modifier(VanillaEntityProps.SHADOW_SCALE, NumberOperator.Multiply, new Vector3(0.5f, 0.5f, 0.5f)));
-            AddModifier(new FloatModifier(EngineEntityProps.MAX_HEALTH, NumberOperator.Multiply, 0.25f));
+            AddModifier(new MaxHealthModifier(NumberOperator.Multiply, 0.25f));
             AddModifier(new FloatModifier(VanillaEntityProps.CRY_PITCH, NumberOperator.Multiply, 2));
         }
         public override void PostUpdate(Buff buff)
@@ -26,12 +25,12 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var entity = buff.GetEntity();
             if (entity == null)
                 return;
-            if (entity.EquipedArmor == null)
+            var armor = entity.GetMainArmor();
+            if (armor == null)
                 return;
-            if (entity.EquipedArmor.HasBuff<LittleZombieArmorBuff>())
+            if (armor.HasBuff<LittleZombieArmorBuff>())
                 return;
-            entity.EquipedArmor.AddBuff<LittleZombieArmorBuff>();
-            entity.EquipedArmor.Health = entity.EquipedArmor.GetMaxHealth();
+            armor.AddBuff<LittleZombieArmorBuff>();
         }
     }
 }

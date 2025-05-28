@@ -1,6 +1,5 @@
 ﻿using MVZ2.HeldItems;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.HeldItems;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using PVZEngine.Entities;
@@ -34,7 +33,7 @@ namespace MVZ2.GameContent.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.CART:
-                    return HeldHighlight.Entity;
+                    return HeldHighlight.Entity(entity);
             }
             return HeldHighlight.None;
         }

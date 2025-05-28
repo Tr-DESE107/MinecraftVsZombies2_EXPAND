@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
+using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Detections
@@ -19,7 +19,7 @@ namespace MVZ2.Vanilla.Detections
                 return false;
             return true;
         }
-        public EntityCollider Detect(DetectionParams self)
+        public IEntityCollider Detect(DetectionParams self)
         {
             foreach (var collider in DetectColliders(self))
             {
@@ -29,9 +29,9 @@ namespace MVZ2.Vanilla.Detections
             }
             return null;
         }
-        public EntityCollider DetectWithTheLeast<T>(DetectionParams self, Func<EntityCollider, T> keySelector)
+        public IEntityCollider DetectWithTheLeast<T>(DetectionParams self, Func<IEntityCollider, T> keySelector)
         {
-            EntityCollider least = null;
+            IEntityCollider least = null;
             T leastKey = default;
             var comparer = Comparer<T>.Default;
             foreach (var collider in DetectColliders(self))
@@ -46,9 +46,9 @@ namespace MVZ2.Vanilla.Detections
             }
             return least;
         }
-        public EntityCollider DetectWithTheMost<T>(DetectionParams self, Func<EntityCollider, T> keySelector)
+        public IEntityCollider DetectWithTheMost<T>(DetectionParams self, Func<IEntityCollider, T> keySelector)
         {
-            EntityCollider most = null;
+            IEntityCollider most = null;
             T mostKey = default;
             var comparer = Comparer<T>.Default;
             foreach (var collider in DetectColliders(self))
@@ -63,7 +63,16 @@ namespace MVZ2.Vanilla.Detections
             }
             return most;
         }
-        public void DetectMultiple(DetectionParams self, List<EntityCollider> results)
+        public void DetectMultiple(DetectionParams self, List<IEntityCollider> results)
+        {
+            foreach (var collider in DetectColliders(self))
+            {
+                if (!ValidateCollider(self, collider))
+                    continue;
+                results.Add(collider);
+            }
+        }
+        public void DetectMultiple(DetectionParams self, ArrayBuffer<IEntityCollider> results)
         {
             foreach (var collider in DetectColliders(self))
             {
@@ -150,12 +159,10 @@ namespace MVZ2.Vanilla.Detections
                 return false;
             if (!canDetectInvisible && target.IsInvisible())
                 return false;
-            if (!target.IsVulnerableEntity() && (invulnerableFilter == null || !invulnerableFilter(self, target)))
-                return false;
             return true;
         }
         protected abstract Bounds GetDetectionBounds(Entity self);
-        protected virtual bool ValidateCollider(DetectionParams param, EntityCollider collider)
+        protected virtual bool ValidateCollider(DetectionParams param, IEntityCollider collider)
         {
             if (!ValidateTarget(param, collider.Entity))
                 return false;
@@ -178,22 +185,14 @@ namespace MVZ2.Vanilla.Detections
             }
             return cache;
         }
-        private List<EntityCollider> DetectColliders(DetectionParams param)
+        private List<IEntityCollider> DetectColliders(DetectionParams param)
         {
             var bounds = GetDetectionBounds(param.entity);
-            var filterRect = bounds.GetBottomRect();
 
+            var hostileMask = factionTarget == FactionTarget.Friendly ? 0 : mask;
+            var friendlyMask = factionTarget == FactionTarget.Hostile ? 0 : mask;
             resultsBuffer.Clear();
-            param.entity.Level.FindCollidersRange(mask, filterRect, resultsBuffer);
-            for (int i = resultsBuffer.Count - 1; i >= 0; i--)
-            {
-                var collider = resultsBuffer[i];
-
-                if (!bounds.Intersects(collider.GetBoundingBox()))
-                {
-                    resultsBuffer.RemoveAt(i);
-                }
-            }
+            param.entity.Level.OverlapBoxNonAlloc(bounds.center, bounds.size, param.faction, hostileMask, friendlyMask, resultsBuffer);
             return resultsBuffer;
         }
         public int mask = EntityCollisionHelper.MASK_VULNERABLE;
@@ -201,8 +200,7 @@ namespace MVZ2.Vanilla.Detections
         public bool canDetectInvisible;
         public bool ignoreBoss;
         public bool includeSelf;
-        public Func<DetectionParams, Entity, bool> invulnerableFilter;
-        private List<EntityCollider> resultsBuffer = new List<EntityCollider>();
+        private List<IEntityCollider> resultsBuffer = new List<IEntityCollider>();
         private List<Entity> entityBuffer = new List<Entity>();
         private Dictionary<NamespaceID, EntityDefinition> definitionCaches = new Dictionary<NamespaceID, EntityDefinition>();
     }

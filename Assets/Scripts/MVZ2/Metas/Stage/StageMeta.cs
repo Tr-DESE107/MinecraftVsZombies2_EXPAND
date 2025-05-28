@@ -12,7 +12,8 @@ namespace MVZ2.Metas
         public string Name { get; private set; }
         public int DayNumber { get; private set; }
         public string Type { get; private set; }
-        public NamespaceID Unlock { get; private set; }
+        public NamespaceID[] Unlocks { get; private set; }
+        public float StartEnergy { get; private set; }
 
         public NamespaceID MusicID { get; private set; }
 
@@ -23,6 +24,7 @@ namespace MVZ2.Metas
 
         public NamespaceID ClearPickupModel { get; private set; }
         public NamespaceID ClearPickupBlueprint { get; private set; }
+        public bool DropsTrophy { get; private set; }
         public NamespaceID EndNote { get; private set; }
 
         public LevelCameraPosition StartCameraPosition { get; private set; }
@@ -48,7 +50,8 @@ namespace MVZ2.Metas
             var name = node.GetAttribute("name");
             var type = node.GetAttribute("type") ?? StageTypes.TYPE_NORMAL;
             var dayNumber = node.GetAttributeInt("dayNumber") ?? 0;
-            var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+            var startEnergy = node.GetAttributeFloat("startEnergy") ?? 50;
+            var unlocks = node.GetAttributeNamespaceIDArray("unlock", defaultNsp);
             var musicID = node.GetAttributeNamespaceID("music", defaultNsp);
             var needBlueprints = node.GetAttributeBool("needBlueprints") ?? true;
 
@@ -74,6 +77,7 @@ namespace MVZ2.Metas
             var clearNode = node["clear"];
             var clearPickupModel = clearNode?.GetAttributeNamespaceID("pickupModel", defaultNsp);
             var clearPickupBlueprint = clearNode?.GetAttributeNamespaceID("blueprint", defaultNsp);
+            var dropsTrophy = clearNode?.GetAttributeBool("trophy") ?? false;
             var endNote = clearNode?.GetAttributeNamespaceID("note", defaultNsp);
 
             var cameraNode = node["camera"];
@@ -109,7 +113,8 @@ namespace MVZ2.Metas
                 Name = name,
                 DayNumber = dayNumber,
                 Type = type,
-                Unlock = unlock,
+                StartEnergy = startEnergy,
+                Unlocks = unlocks,
                 MusicID = musicID,
 
                 ModelPreset = preset,
@@ -119,6 +124,7 @@ namespace MVZ2.Metas
 
                 ClearPickupModel = clearPickupModel,
                 ClearPickupBlueprint = clearPickupBlueprint,
+                DropsTrophy = dropsTrophy,
                 EndNote = endNote,
 
                 StartCameraPosition = startCameraPosition,

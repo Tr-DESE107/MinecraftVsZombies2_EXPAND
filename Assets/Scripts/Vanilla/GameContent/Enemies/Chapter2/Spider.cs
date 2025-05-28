@@ -78,7 +78,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
-            if (collision.Collider.IsMain() && collision.OtherCollider.IsMain())
+            if (collision.Collider.IsForMain() && collision.OtherCollider.IsForMain())
             {
                 var enemy = collision.Entity;
                 var other = collision.Other;
@@ -144,7 +144,7 @@ namespace MVZ2.GameContent.Enemies
                 return false;
             if (target.Type != EntityTypes.PLANT)
                 return false;
-            if (target.IsFloor() || !target.IsDefensive())
+            if (target.IsFloor() || !target.IsDefensive() || target.NoClimb())
                 return false;
             return true;
         }
@@ -165,6 +165,6 @@ namespace MVZ2.GameContent.Enemies
             spider.SetBehaviourField(ID, PROP_CLIMB_TARGET_ID, new EntityID(value));
         }
         public static readonly NamespaceID ID = VanillaEnemyID.spider;
-        public static readonly VanillaEntityPropertyMeta PROP_CLIMB_TARGET_ID = new VanillaEntityPropertyMeta("ClimbTargetID");
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_CLIMB_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("ClimbTargetID");
     }
 }

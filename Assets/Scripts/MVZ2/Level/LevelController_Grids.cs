@@ -1,11 +1,9 @@
 ﻿using System;
 using MVZ2.Grids;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
-using PVZEngine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -110,25 +108,12 @@ namespace MVZ2.Level
         private void HighlightGrid(int lane, int column, HeldHighlight highlight)
         {
             Color color = Color.clear;
-            float rangeStart = 0;
-            float rangeEnd = 1;
-            switch (highlight)
+            if (highlight.mode == HeldHighlightMode.Grid)
             {
-                case HeldHighlight.Green:
-                    color = Color.green;
-                    break;
-                case HeldHighlight.UpperGreen:
-                    color = Color.green;
-                    rangeStart = 0.5f;
-                    break;
-                case HeldHighlight.LowerGreen:
-                    color = Color.green;
-                    rangeEnd = 0.5f;
-                    break;
-                case HeldHighlight.Red:
-                    color = Color.red;
-                    break;
+                color = highlight.gridValid ? Color.green : Color.red;
             }
+            float rangeStart = highlight.gridRangeStart;
+            float rangeEnd = highlight.gridRangeEnd;
             var gridUI = gridLayout.GetGrid(lane, column);
             gridUI.SetColor(color);
             gridUI.SetDisplaySection(rangeStart, rangeEnd);

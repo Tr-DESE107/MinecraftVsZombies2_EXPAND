@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Text;
-using MVZ2.Level.UI;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.Metas;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -58,11 +58,11 @@ namespace MVZ2.Managers
         {
             if (seed == null)
                 return BlueprintViewData.Empty;
-            var viewData = GetBlueprintViewData(seed.Definition, seed.Level.IsEndless());
+            var viewData = GetBlueprintViewData(seed.Definition, seed.Level.IsEndless(), seed.IsCommandBlock());
             viewData.cost = seed.GetCost().ToString();
             return viewData;
         }
-        public BlueprintViewData GetBlueprintViewData(SeedDefinition seedDef, bool isEndless)
+        public BlueprintViewData GetBlueprintViewData(SeedDefinition seedDef, bool isEndless, bool isCommandBlock = false)
         {
             if (seedDef == null)
             {
@@ -71,24 +71,43 @@ namespace MVZ2.Managers
                     icon = GetDefaultSprite(),
                     cost = "0",
                     triggerActive = false,
+                    preset = isCommandBlock ? BlueprintPreset.CommandBlock : BlueprintPreset.Normal,
+                    iconGrayscale = isCommandBlock,
                 };
             }
             var sprite = GetBlueprintIcon(seedDef);
-            var costSB = new StringBuilder();
-            costSB.Append(seedDef.GetCost());
-            if (seedDef.IsUpgradeBlueprint() && isEndless)
+            string costStr = string.Empty;
+
+            bool commandBlock = seedDef.GetID() == VanillaContraptionID.commandBlock;
+            if (!commandBlock)
             {
-                costSB.Append("+");
+                var costSB = new StringBuilder();
+                costSB.Append(seedDef.GetCost());
+                if (seedDef.IsUpgradeBlueprint() && isEndless)
+                {
+                    costSB.Append("+");
+                }
+                costStr = costSB.ToString();
+            }
+            BlueprintPreset preset = BlueprintPreset.Normal;
+            if (isCommandBlock || commandBlock)
+            {
+                preset = BlueprintPreset.CommandBlock;
+            }
+            else if (seedDef.IsUpgradeBlueprint())
+            {
+                preset = BlueprintPreset.Upgrade;
             }
             return new BlueprintViewData()
             {
                 icon = sprite,
-                cost = costSB.ToString(),
+                cost = costStr,
                 triggerActive = seedDef.IsTriggerActive(),
-                preset = seedDef.IsUpgradeBlueprint() ? BlueprintPreset.Upgrade : BlueprintPreset.Normal
+                preset = preset,
+                iconGrayscale = isCommandBlock
             };
         }
-        public BlueprintViewData GetBlueprintViewData(NamespaceID seedID, bool isEndless)
+        public BlueprintViewData GetBlueprintViewData(NamespaceID seedID, bool isEndless, bool isCommandBlock = false)
         {
             if (!NamespaceID.IsValid(seedID))
             {
@@ -100,7 +119,7 @@ namespace MVZ2.Managers
                 };
             }
             var definition = main.Game.GetSeedDefinition(seedID);
-            return GetBlueprintViewData(definition, isEndless);
+            return GetBlueprintViewData(definition, isEndless, isCommandBlock);
         }
         public Sprite GetBlueprintIconMobile(SeedDefinition seedDef)
         {

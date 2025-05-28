@@ -60,7 +60,7 @@ namespace MVZ2.GameContent.Stages
                 var behaviour = level.GetStageBehaviour<WaveStageBehaviour>();
                 if (behaviour != null)
                 {
-                    var timer = behaviour.GetWaveTimer(level);
+                    var timer = WaveStageBehaviour.GetWaveTimer(level);
                     timer.ResetTime(200);
                 }
                 frankensteinTimer.ResetTime(300);
@@ -108,7 +108,7 @@ namespace MVZ2.GameContent.Stages
             return roundTimer;
         }
         private const string PROP_REGION = "frankenstein_stage";
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_FRANKENSTEIN_TIMER = new VanillaLevelPropertyMeta("FrankensteinTimer");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_FRANKENSTEIN_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("FrankensteinTimer");
     }
 }

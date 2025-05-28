@@ -28,10 +28,14 @@ namespace MVZ2.Level
             var maxCharge = SeedPack.GetMaxRecharge();
             ui.SetRecharge(maxCharge == 0 ? 0 : 1 - SeedPack.GetRecharge() / maxCharge);
             ui.SetDisabled(!CanPick());
-            ui.SetTwinkling(SeedPack.IsTwinkling() || (Level.IsHoldingTrigger() && SeedPack.CanInstantTrigger()));
+            ui.SetTwinkling(ShouldBlueprintTwinkle(SeedPack));
             ui.SetSelected(Level.IsHoldingClassicBlueprint(Index));
         }
-        protected override void OnPickup(bool instantTrigger)
+        public override bool IsCommandBlock()
+        {
+            return SeedPack.IsCommandBlock();
+        }
+        protected override void OnPickup(BlueprintPickupInfo info)
         {
             var blueprint = SeedPack;
             var blueprintDef = blueprint.Definition;
@@ -43,7 +47,8 @@ namespace MVZ2.Level
                 {
                     Type = BuiltinHeldTypes.blueprint,
                     ID = Index,
-                    InstantTrigger = instantTrigger,
+                    InstantTrigger = info.instantTrigger,
+                    InstantEvoke = info.instantEvoke,
                     Priority = 0,
                 });
                 Level.PlaySound(VanillaSoundID.pick);

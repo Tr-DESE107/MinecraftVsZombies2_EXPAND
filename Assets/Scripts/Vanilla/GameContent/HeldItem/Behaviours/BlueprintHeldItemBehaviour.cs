@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MVZ2.HeldItems;
+﻿using MVZ2.HeldItems;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2Logic.HeldItems;
-using MVZ2Logic.SeedPacks;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.HeldItems;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.HeldItems;
+using MVZ2Logic.Level;
+using MVZ2Logic.SeedPacks;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
-using MVZ2.Vanilla.Grids;
-using MVZ2Logic.Level;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.SeedPacks;
-using PVZEngine.Base;
 
 namespace MVZ2.GameContent.HeldItems
 {
@@ -29,6 +25,21 @@ namespace MVZ2.GameContent.HeldItems
         {
             return target is HeldItemTargetGrid;
         }
+        public override void Update(LevelEngine level, IHeldItemData data)
+        {
+            base.Update(level, data);
+            if (!IsValid(level, data))
+            {
+                level.ResetHeldItem();
+            }
+        }
+        public bool IsValid(LevelEngine level, IHeldItemData data)
+        {
+            var seedPack = GetSeedPack(level, data);
+            if (seedPack == null)
+                return false;
+            return seedPack.CanPick();
+        }
         public override HeldHighlight GetHighlight(HeldItemTarget target, IHeldItemData data)
         {
             if (target is not HeldItemTargetGrid gridTarget)
@@ -37,20 +48,9 @@ namespace MVZ2.GameContent.HeldItems
             var grid = gridTarget.Target;
 
             var level = grid.Level;
-            var seed = Definition.GetSeedPack(level, data);
-            if (seed != null)
-            {
-                var seedDef = seed.GetDefinitionID();
-                if (grid.CanPlaceBlueprint(seedDef, out _))
-                {
-                    return HeldHighlight.Green;
-                }
-                else
-                {
-                    return HeldHighlight.Red;
-                }
-            }
-            return HeldHighlight.None;
+            var seed = GetSeedPack(level, data);
+            var seedDef = seed?.Definition;
+            return grid.GetSeedHeldHighlight(seedDef);
         }
         public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
         {
@@ -62,13 +62,13 @@ namespace MVZ2.GameContent.HeldItems
                         if (interaction != targetPhase)
                             return;
 
-                        var grid = gridTarget.Target;
 
-                        var level = grid.Level;
-                        var seed = Definition.GetSeedPack(level, data);
-                        if (seed == null)
+                        var level = target.GetLevel();
+                        var seed = GetSeedPack(level, data);
+                        var seedDef = seed?.Definition;
+                        if (seedDef == null)
                             return;
-                        var seedDef = seed.Definition;
+                        var grid = gridTarget.Target;
                         if (!grid.CanPlaceBlueprint(seedDef.GetID(), out var error))
                         {
                             var message = Global.Game.GetGridErrorMessage(error);
@@ -81,8 +81,8 @@ namespace MVZ2.GameContent.HeldItems
 
                         if (seedDef.GetSeedType() == SeedTypes.ENTITY)
                         {
-                            OnUseBlueprint(grid, data, seed);
-                            seed.UseOnGrid(grid, data);
+                            CostBlueprint(grid, data);
+                            grid.UseEntityBlueprint(seed, data);
                             level.ResetHeldItem();
                         }
                     }
@@ -103,7 +103,18 @@ namespace MVZ2.GameContent.HeldItems
                     break;
             }
         }
-        protected abstract void OnUseBlueprint(LawnGrid grid, IHeldItemData data, SeedPack seed);
+
+
+        protected virtual void CostBlueprint(LawnGrid grid, IHeldItemData data)
+        {
+
+        }
+        protected SeedPack GetSeedPack(LevelEngine level, IHeldItemData data)
+        {
+            if (Definition is not IBlueprintHeldItemDefinition blueprintHeld)
+                return null;
+            return blueprintHeld.GetSeedPack(level, data);
+        }
     }
 
     public class ClassicBlueprintHeldItemBehaviour : BlueprintHeldItemBehaviour
@@ -112,11 +123,12 @@ namespace MVZ2.GameContent.HeldItems
         {
         }
 
-        protected override void OnUseBlueprint(LawnGrid grid, IHeldItemData data, SeedPack seed)
+        protected override void CostBlueprint(LawnGrid grid, IHeldItemData data)
         {
             var level = grid.Level;
+            var seed = GetSeedPack(level, data);
             level.AddEnergy(-seed.GetCost());
-            level.SetRechargeTimeToUsed(seed);
+            seed.SetStartRecharge(false);
             seed.ResetRecharge();
         }
     }
@@ -126,9 +138,9 @@ namespace MVZ2.GameContent.HeldItems
         {
         }
 
-        protected override void OnUseBlueprint(LawnGrid grid, IHeldItemData data, SeedPack seed)
+        protected override void CostBlueprint(LawnGrid grid, IHeldItemData data)
         {
-            seed.Level.RemoveConveyorSeedPackAt((int)data.ID);
+            grid.Level.RemoveConveyorSeedPackAt((int)data.ID);
         }
     }
 }

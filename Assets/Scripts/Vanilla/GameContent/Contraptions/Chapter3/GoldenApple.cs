@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using MVZ2.GameContent.Buffs.Enemies;
@@ -30,8 +31,10 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.sparkle);
         }
 
-        private void PostEnemyMeleeAttackCallback(Entity enemy, Entity target)
+        private void PostEnemyMeleeAttackCallback(VanillaLevelCallbacks.EnemyMeleeAttackParams param, CallbackResult result)
         {
+            var enemy = param.enemy;
+            var target = param.target;
             if (!target.IsEntityOf(VanillaContraptionID.goldenApple))
                 return;
             if (!target.IsHostile(enemy))

@@ -1,19 +1,18 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
+using System.IO.Compression;
+using System.Linq;
+using System.Text;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Maps;
 using MVZ2.GameContent.Stages;
 using MVZ2.IO;
 using MVZ2.Modding;
 using MVZ2.OldSaves;
-using MVZ2.Save;
-using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
-using MVZ2Logic.Modding;
 using MVZ2Logic.Saves;
 using PVZEngine;
 using UnityEngine;
@@ -40,13 +39,17 @@ namespace MVZ2.Saves
         public int CreateNewUser(string name)
         {
             var index = FindFreeUserIndex();
+            CreateNewUser(name, index);
+            return index;
+        }
+        public void CreateNewUser(string name, int index)
+        {
             SetUserName(index, name);
             var directory = GetUserSaveDataDirectory(index);
             if (Directory.Exists(directory))
             {
                 Directory.Delete(directory, true);
             }
-            return index;
         }
         public void DeleteUser(int index)
         {
@@ -103,6 +106,14 @@ namespace MVZ2.Saves
             }
             return -1;
         }
+        public bool CanRenameUser(string userName)
+        {
+            return !Main.Game.IsSpecialUserName(userName);
+        }
+        public bool CanRenameUserTo(string userName)
+        {
+            return !Main.Game.IsSpecialUserName(userName);
+        }
         #endregion
 
         #region 保存
@@ -148,6 +159,95 @@ namespace MVZ2.Saves
         }
         #endregion
 
+        #region 导出
+        public bool ExportUserDataPack(int userIndex, string destPath)
+        {
+            var userDir = GetUserSaveDataDirectory(userIndex);
+            if (!Directory.Exists(userDir))
+                return false;
+
+            FileHelper.ValidateDirectory(destPath);
+            var sourceDirInfo = new DirectoryInfo(userDir);
+            var files = Directory.GetFiles(userDir, "*", SearchOption.AllDirectories);
+            using var stream = File.Open(destPath, FileMode.Create);
+            using var archive = new ZipArchive(stream, ZipArchiveMode.Create);
+
+            foreach (var filePath in files)
+            {
+                var entryName = Path.Combine("userdata", Path.GetRelativePath(userDir, filePath));
+                entryName = entryName.Replace("\\", "/");
+                archive.CreateEntryFromFile(filePath, entryName);
+            }
+            var userName = GetUserName(userIndex);
+            var metadata = new UserDataPackMetadata(userName);
+            var seri = new SerializableUserDataPackMetadata(metadata);
+            var json = SerializeHelper.ToBson(seri);
+
+            var metadataEntry = archive.CreateEntry(USER_DATA_PACK_METADATA_ENTRY_NAME);
+            metadataEntry.WriteString(json, Encoding.UTF8);
+            return true;
+        }
+        #endregion
+
+        #region 导入
+        public void ImportUserDataPack(string userName, int userIndex, string sourcePath)
+        {
+            if (!File.Exists(sourcePath))
+                return;
+            if (userIndex < 0)
+                return;
+            var userDir = GetUserSaveDataDirectory(userIndex);
+            if (Directory.Exists(userDir))
+            {
+                Directory.Delete(userDir, true);
+            }
+
+            using var stream = File.Open(sourcePath, FileMode.Open);
+            using var archive = new ZipArchive(stream);
+
+            var entries = archive.Entries.ToArray();
+            foreach (var entry in entries)
+            {
+                if (string.IsNullOrEmpty(entry.Name))
+                    continue;
+
+                if (string.IsNullOrEmpty(Path.GetExtension(entry.FullName)))
+                    continue;
+
+                var fullPath = entry.FullName.Replace("\\", "/");
+                var splitedPaths = fullPath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+                if (splitedPaths.Length > 1 && splitedPaths[0] == "userdata")
+                {
+                    var relativePath = Path.Combine(splitedPaths.Skip(1).ToArray());
+                    var destPath = Path.Combine(userDir, relativePath);
+                    FileHelper.ValidateDirectory(destPath);
+
+                    var bytes = entry.ReadBytes();
+                    using (var entryStream = File.Open(destPath, FileMode.CreateNew))
+                    {
+                        entryStream.Write(bytes, 0, bytes.Length);
+                    }
+                }
+            }
+            SetUserName(userIndex, userName);
+            SaveUserList();
+            LoadUserList();
+        }
+        public UserDataPackMetadata ImportUserDataPackMetadata(string sourcePath)
+        {
+            if (!File.Exists(sourcePath))
+                return null;
+            using var stream = File.Open(sourcePath, FileMode.Open);
+            using var archive = new ZipArchive(stream);
+
+            var entry = archive.GetEntry(USER_DATA_PACK_METADATA_ENTRY_NAME);
+            if (entry == null)
+                return null;
+            var json = entry.ReadString(Encoding.UTF8);
+            var seri = SerializeHelper.FromBson<SerializableUserDataPackMetadata>(json);
+            return UserDataPackMetadata.FromSerializable(seri);
+        }
+        #endregion
 
         #region 导入旧存档
         private UserDataList ImportOldUserList(OldUserList userList)
@@ -386,6 +486,7 @@ namespace MVZ2.Saves
         #endregion
 
         #region 属性字段
+        public const string USER_DATA_PACK_METADATA_ENTRY_NAME = "metadata.json";
         public const int MAX_USER_COUNT = 8;
         private static readonly string[] oldLevelIDList = new string[]
         {

@@ -20,11 +20,19 @@ namespace MVZ2.Games
             saveDataProvider.Relock(unlockID);
         }
 
+        public bool IsContraptionUnlocked(NamespaceID id)
+        {
+            return saveDataProvider.IsContraptionUnlocked(id);
+        }
         public NamespaceID[] GetUnlockedContraptions()
         {
             return saveDataProvider.GetUnlockedContraptions();
         }
 
+        public bool IsEnemyUnlocked(NamespaceID id)
+        {
+            return saveDataProvider.IsEnemyUnlocked(id);
+        }
         public NamespaceID[] GetUnlockedEnemies()
         {
             return saveDataProvider.GetUnlockedEnemies();

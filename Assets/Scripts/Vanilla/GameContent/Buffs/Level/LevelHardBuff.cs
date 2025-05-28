@@ -13,7 +13,11 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public LevelHardBuff(string nsp, string name) : base(nsp, name)
         {
+            AddModifier(new BooleanModifier(VanillaLevelProps.NO_CARTS, true));
+            AddModifier(new IntModifier(VanillaLevelProps.ENEMY_AI_LEVEL, NumberOperator.Add, 1));
+            AddModifier(new IntModifier(VanillaLevelProps.BOSS_AI_LEVEL, NumberOperator.Add, 1));
             AddModifier(new FloatModifier(VanillaLevelProps.SPAWN_POINTS_POWER, NumberOperator.AddMultiplie, 0.2f));
+            AddModifier(new FloatModifier(VanillaLevelProps.NAPSTABLOOK_PARALYSIS_TIME, NumberOperator.Multiply, 2));
             AddAura(new EnemyAura());
         }
 

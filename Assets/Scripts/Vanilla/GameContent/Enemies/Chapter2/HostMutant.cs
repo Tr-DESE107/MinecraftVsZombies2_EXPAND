@@ -11,10 +11,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using MVZ2Logic.Level;
-using PVZEngine;
 using Tools;
 using UnityEngine;
 
@@ -65,8 +61,9 @@ namespace MVZ2.Vanilla.Enemies
                 for (int i = 0; i < triggerCount; i++)
                 {
                     var randomID = GetRandomSkeletonID(entity.RNG);
-                    var enemy = entity.Level.Spawn(randomID, entity.Position, entity);
-                    enemy.SetFactionAndDirection(entity.GetFaction());
+                    var spawnParam = entity.GetSpawnParams();
+                    spawnParam.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
+                    entity.Spawn(randomID, entity.Position, spawnParam);
                 }
 
                 // 更新记录的血量
@@ -93,8 +90,7 @@ namespace MVZ2.Vanilla.Enemies
         };
 
         // 存储“上次触发时的血量”的字段名
-        private static readonly VanillaEntityPropertyMeta PROP_LAST_TRIGGER_HEALTH =
-            new VanillaEntityPropertyMeta("LastTriggerHealth");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_LAST_TRIGGER_HEALTH = new VanillaEntityPropertyMeta<float>("LastTriggerHealth");
 
         private static float GetLastTriggerHealth(Entity entity) =>
             entity.GetBehaviourField<float>(ID, PROP_LAST_TRIGGER_HEALTH);

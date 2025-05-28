@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.IO;
+using MVZ2.Logic.Level;
 using MVZ2.Managers;
 using MVZ2.Scenes;
 using MVZ2.Vanilla;
@@ -22,7 +23,7 @@ namespace MVZ2.Level
         {
             return controller;
         }
-        public void InitLevel(NamespaceID areaID, NamespaceID stageID, float beginningDelay = 0)
+        public void InitLevel(NamespaceID areaID, NamespaceID stageID, float beginningDelay = 0, LevelExitTarget exitTarget = LevelExitTarget.MapOrMainmenu)
         {
             if (!controller)
                 return;
@@ -38,6 +39,7 @@ namespace MVZ2.Level
                 controller.InitLevel(Main.Game, areaID, stageID);
                 controller.StartLevelIntro(beginningDelay);
             }
+            controller.SetExitTarget(exitTarget);
         }
         #region 关卡存读
         public void SaveLevel()
@@ -111,7 +113,7 @@ namespace MVZ2.Level
             var dayNumber = meta.GetDayNumber();
             if (dayNumber > 0)
             {
-                levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, levelName, dayNumber);
+                levelName = Main.LanguageManager._pn(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, dayNumber, levelName, dayNumber);
             }
             return levelName;
         }
@@ -124,11 +126,11 @@ namespace MVZ2.Level
             int dayNumber = level.GetDayNumber();
             if (dayNumber > 0)
             {
-                levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, levelName, dayNumber);
+                levelName = Main.LanguageManager._pn(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_DAY_TEMPLATE, dayNumber, levelName, dayNumber);
             }
             if (level.IsEndless() && level.CurrentFlag > 0)
             {
-                levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE, levelName, level.CurrentFlag);
+                levelName = Main.LanguageManager._pn(VanillaStrings.CONTEXT_LEVEL_NAME, VanillaStrings.LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE, level.CurrentFlag, levelName, level.CurrentFlag);
             }
             return levelName;
         }
@@ -198,7 +200,7 @@ namespace MVZ2.Level
                 Main.SaveManager.SetCurrentEndlessFlag(stageID, flags);
             }
         }
-        public const int CURRENT_DATA_VERSION = 1;
+        public const int CURRENT_DATA_VERSION = 2;
         public float LawnToTransScale => 1 / transToLawnScale;
         public float TransToLawnScale => transToLawnScale;
         public MainManager Main => main;

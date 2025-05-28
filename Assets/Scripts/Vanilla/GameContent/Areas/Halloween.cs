@@ -120,7 +120,7 @@ namespace MVZ2.GameContent.Areas
         public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetBehaviourField(ID, PROP_RNG, rng);
 
         private static readonly NamespaceID ID = VanillaAreaID.halloween;
-        public static readonly VanillaLevelPropertyMeta PROP_RNG = new VanillaLevelPropertyMeta("HalloweenRNG");
+        public static readonly VanillaLevelPropertyMeta<RandomGenerator> PROP_RNG = new VanillaLevelPropertyMeta<RandomGenerator>("HalloweenRNG");
         public const int STATUE_MIN_COLUMN = 5;
     }
 }

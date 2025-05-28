@@ -8,10 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: wither
-  m_Shader: {fileID: 4800000, guid: a22028be625a139468d39e6b0d46b096, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0339b51ffd2f27f4dad70093ee4efe0a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - LIT
   m_InvalidKeywords:
   - _ALPHAPREMULTIPLY_ON
   - _SURFACE_TYPE_TRANSPARENT
@@ -61,6 +62,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap:
+        m_Texture: {fileID: 8600000, guid: 520d28ea1cee7004bbda9e94e545703c, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMapGlobal:
+        m_Texture: {fileID: 8600000, guid: 1625456059e0b82448c58404c9208d31, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMapSpot:
+        m_Texture: {fileID: 8600000, guid: 520d28ea1cee7004bbda9e94e545703c, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -136,6 +149,7 @@ Material:
     - _GlossinessSource: 0
     - _GlossyReflections: 1
     - _HSVTint: 0
+    - _LIT: 1
     - _Metallic: 0.05
     - _Mode: 0
     - _NormalScale: 1.05
@@ -166,6 +180,7 @@ Material:
     - _ColorOffset: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _LightMapST: {r: 14, g: 10.2, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999993, g: 0.19999993, b: 0.19999993, a: 0.5}
   m_BuildTextureStacks: []

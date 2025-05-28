@@ -1,11 +1,9 @@
 ﻿using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
-using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -119,11 +117,11 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetPointsRadial(Entity entity, float value) => entity.SetBehaviourField(ID, FIELD_POINTS_RADIAL, value);
 
 
-        private static readonly VanillaEntityPropertyMeta FIELD_PRODUCTION_TIMER = new VanillaEntityPropertyMeta("ProductionTimer");
-        private static readonly VanillaEntityPropertyMeta FIELD_POINT_COUNT = new VanillaEntityPropertyMeta("PointCount");
-        private static readonly VanillaEntityPropertyMeta FIELD_POINTS_ANGLE = new VanillaEntityPropertyMeta("PointsAngle");
-        private static readonly VanillaEntityPropertyMeta FIELD_POINTS_RADIAL = new VanillaEntityPropertyMeta("PointsRadial");
-        private static readonly VanillaEntityPropertyMeta PROP_PRODUCE_COLOR = new VanillaEntityPropertyMeta("ProduceColor");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ProductionTimer");
+        private static readonly VanillaEntityPropertyMeta<int> FIELD_POINT_COUNT = new VanillaEntityPropertyMeta<int>("PointCount");
+        private static readonly VanillaEntityPropertyMeta<float> FIELD_POINTS_ANGLE = new VanillaEntityPropertyMeta<float>("PointsAngle");
+        private static readonly VanillaEntityPropertyMeta<float> FIELD_POINTS_RADIAL = new VanillaEntityPropertyMeta<float>("PointsRadial");
+        private static readonly VanillaEntityPropertyMeta<Color> PROP_PRODUCE_COLOR = new VanillaEntityPropertyMeta<Color>("ProduceColor");
 
         public const int MAX_STARSHARD_COUNT = 5;
         public const int PRODUCT_TIME = 1800;

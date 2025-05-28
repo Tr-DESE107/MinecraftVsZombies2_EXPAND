@@ -32,7 +32,7 @@ namespace Tools
             var count = list.Count();
             if (count <= 0)
                 throw new ArgumentException("The list to get weighted random element is empty.");
-            var weights = list.Select(i => weightGetter(i));
+            var weights = list.Select(weightGetter);
             int totalWeight = weights.Sum();
             int value = rng.Next(0, totalWeight);
             for (int i = 0; i < count; i++)
@@ -44,6 +44,14 @@ namespace Tools
                 }
             }
             return default;
+        }
+        public static T WeightedRandom<T>(this IEnumerable<T> list, Func<T, float> weightGetter, RandomGenerator rng)
+        {
+            var count = list.Count();
+            if (count <= 0)
+                throw new ArgumentException("The list to get weighted random element is empty.");
+            var index = rng.WeightedRandom(list.Select(weightGetter));
+            return list.ElementAt(index);
         }
         public static IEnumerable<T> WeightedRandomTake<T>(this IEnumerable<T> list, IList<int> weights, int count, RandomGenerator rng)
         {

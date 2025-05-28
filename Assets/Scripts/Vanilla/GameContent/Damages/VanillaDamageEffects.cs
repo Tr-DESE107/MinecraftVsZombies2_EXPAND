@@ -20,10 +20,15 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID SELF_DAMAGE = Get("self_damage");
         public static readonly NamespaceID WHACK = Get("whack");
         public static readonly NamespaceID LIGHTNING = Get("lightning");
+        public static readonly NamespaceID ICE = Get("ice");
+        public static readonly NamespaceID SLOW = Get("slow");
         public static readonly NamespaceID TINY = Get("tiny");
         public static readonly NamespaceID GROUND_SPIKES = Get("ground_spikes");
         public static readonly NamespaceID GOLD = Get("gold");
         public static readonly NamespaceID NO_NEUTRALIZE = Get("no_neutralize");
+        public static readonly NamespaceID ENEMY_MELEE = Get("enemy_melee");
+        public static readonly NamespaceID TRANSFERRED = Get("transferred");
+        public static readonly NamespaceID NO_DAMAGE_BLINK = Get("no_damage_blink");
 
         public static NamespaceID Get(string name)
         {

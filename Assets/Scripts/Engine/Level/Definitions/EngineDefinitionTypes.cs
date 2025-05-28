@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PVZEngine.Definitions
+﻿namespace PVZEngine.Definitions
 {
     public static class EngineDefinitionTypes
     {
         public const string BUFF = "buff";
         public const string ARMOR = "armor";
+        public const string ARMOR_BEHAVIOUR = "armor_behaviour";
         public const string ENTITY = "entity";
         public const string ENTITY_BEHAVIOUR = "entity_behaviour";
         public const string SEED = "seed";

@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8510043238210403082, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
       propertyPath: m_Name
-      value: berseker_helmet
+      value: berserker_helmet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -15,31 +15,24 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
-using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.SeedPacks;
-using PVZEngine.Triggers;
+using PVZEngine.Models;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
     [EntityBehaviourDefinition(VanillaContraptionNames.forcePad)]
-    public class ForcePad : ContraptionBehaviour, IStackEntity, IHeldEntityBehaviour
+    public class ForcePad : ContraptionBehaviour, IHeldEntityBehaviour
     {
         public ForcePad(string nsp, string name) : base(nsp, name)
         {
             AddAura(new DragAura());
             enemyDetector = new ForcePadDetector(EntityCollisionHelper.MASK_ENEMY, AFFECT_HEIGHT, 1);
             projectileDetector = new ForcePadDetector(EntityCollisionHelper.MASK_PROJECTILE, AFFECT_HEIGHT, 0.5f);
-        }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.SetSortingLayer(SortingLayers.carriers);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -301,27 +294,13 @@ namespace MVZ2.GameContent.Contraptions
                 return 4;
             return GetPadDirection(pad);
         }
-
-        void IStackEntity.CanStackOnEntity(Entity target, TriggerResultBoolean result)
-        {
-            if (!target.IsEntityOf(VanillaContraptionID.gravityPad))
-                return;
-            result.Result = true;
-        }
-
-        void IStackEntity.StackOnEntity(Entity target)
-        {
-            if (!target.IsEntityOf(VanillaContraptionID.gravityPad))
-                return;
-            target.UpgradeToContraption(VanillaContraptionID.forcePad);
-        }
-        public static readonly VanillaEntityPropertyMeta PROP_PAD_DIRECTION = new VanillaEntityPropertyMeta("PadDirection");
-        public static readonly VanillaEntityPropertyMeta PROP_AFFECTED_ENTITIES = new VanillaEntityPropertyMeta("AffectedEntities");
-        public static readonly VanillaEntityPropertyMeta PROP_DRAG_TARGET = new VanillaEntityPropertyMeta("DragTarget");
-        public static readonly VanillaEntityPropertyMeta PROP_DRAG_TARGET_LOCKED = new VanillaEntityPropertyMeta("DragTargetLocked");
-        public static readonly VanillaEntityPropertyMeta PROP_DRAGGING_LINES = new VanillaEntityPropertyMeta("DraggingLines");
-        public static readonly VanillaEntityPropertyMeta PROP_DRAGGING_ENTITIES = new VanillaEntityPropertyMeta("DraggingEntities");
-        public static readonly VanillaEntityPropertyMeta PROP_DRAG_TIMEOUT = new VanillaEntityPropertyMeta("DragTimeout");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_PAD_DIRECTION = new VanillaEntityPropertyMeta<int>("PadDirection");
+        public static readonly VanillaEntityPropertyMeta<List<EntityID>> PROP_AFFECTED_ENTITIES = new VanillaEntityPropertyMeta<List<EntityID>>("AffectedEntities");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_DRAG_TARGET = new VanillaEntityPropertyMeta<Vector3>("DragTarget");
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_DRAG_TARGET_LOCKED = new VanillaEntityPropertyMeta<bool>("DragTargetLocked");
+        public static readonly VanillaEntityPropertyMeta<EntityID[]> PROP_DRAGGING_LINES = new VanillaEntityPropertyMeta<EntityID[]>("DraggingLines");
+        public static readonly VanillaEntityPropertyMeta<EntityID[]> PROP_DRAGGING_ENTITIES = new VanillaEntityPropertyMeta<EntityID[]>("DraggingEntities");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_DRAG_TIMEOUT = new VanillaEntityPropertyMeta<int>("DragTimeout");
         public const float DRAG_RADIUS = 150;
         public const int MAX_DRAG_TIMEOUT = 150;
 
@@ -338,14 +317,14 @@ namespace MVZ2.GameContent.Contraptions
         private Detector projectileDetector;
         private List<Entity> detectBuffer = new List<Entity>();
 
-        bool IHeldEntityBehaviour.CheckRaycast(Entity entity, HeldItemTarget target, IHeldItemData data)
+        bool IHeldEntityBehaviour.IsValidFor(Entity entity, HeldItemTarget target, IHeldItemData data)
         {
             return target is HeldItemTargetGrid targetGrid;
         }
 
         HeldHighlight IHeldEntityBehaviour.GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data)
         {
-            return HeldHighlight.Green;
+            return HeldHighlight.Green();
         }
 
         void IHeldEntityBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
@@ -364,17 +343,13 @@ namespace MVZ2.GameContent.Contraptions
             level.ResetHeldItem();
             entity.PlaySound(VanillaSoundID.magnetic);
         }
-
-        SeedPack IHeldEntityBehaviour.GetSeedPack(Entity entity, LevelEngine level, IHeldItemData data)
-        {
-            return null;
-        }
-
         NamespaceID IHeldEntityBehaviour.GetModelID(Entity entity, LevelEngine level, IHeldItemData data)
         {
             return VanillaModelID.targetHeldItem;
         }
-
+        void IHeldEntityBehaviour.PostSetModel(Entity entity, LevelEngine level, IHeldItemData data, IModelInterface model)
+        {
+        }
         float IHeldEntityBehaviour.GetRadius(Entity entity, LevelEngine level, IHeldItemData data)
         {
             return 0;

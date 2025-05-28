@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1111605321840620705}
   - component: {fileID: 6767094227643148126}
   - component: {fileID: 7796581448128216300}
+  - component: {fileID: 5667270276357882908}
+  - component: {fileID: 5635958701240968067}
   m_Layer: 0
   m_Name: Cap
   m_TagString: Untagged
@@ -98,6 +100,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!95 &5667270276357882908
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272649149860423883}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb21078ed338c3245b2a55bf1506e4b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5635958701240968067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272649149860423883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 5196036857812072691, guid: 03832b8b573fa884993ba7232246622f, type: 3}
+  - {fileID: 658849057890657363, guid: 03832b8b573fa884993ba7232246622f, type: 3}
+  - {fileID: -528585260921630623, guid: 03832b8b573fa884993ba7232246622f, type: 3}
+  index: 0
 --- !u!1001 &2635492152321180291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +151,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
+      propertyPath: animators.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 74170501792220475, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
       propertyPath: renderers.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -119,13 +163,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7796581448128216300}
     - target: {fileID: 74170501792220475, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
+      propertyPath: animators.Array.data[1]
+      value: 
+      objectReference: {fileID: 5667270276357882908}
+    - target: {fileID: 74170501792220475, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
       propertyPath: renderers.Array.data[0]
       value: 
       objectReference: {fileID: 7796581448128216300}
-    - target: {fileID: 3946098556087542135, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: fdaf08b8c2514244cb0e97eb6aa061ee, type: 2}
     - target: {fileID: 5800025478509911982, guid: 472858aad77242147ae5c15f47b7aab0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

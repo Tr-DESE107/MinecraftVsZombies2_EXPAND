@@ -9,7 +9,6 @@ namespace PVZEngine.Entities
         public const int DETECTION_IGNORE = 2;
 
         public const string NAME_MAIN = "main";
-        public const string NAME_SHIELD = "shield";
 
         public const int MASK_PLANT = 1 << 0;
         public const int MASK_ENEMY = 1 << 1;
@@ -20,6 +19,7 @@ namespace PVZEngine.Entities
         public const int MASK_PROJECTILE = 1 << 6;
         public const int MASK_EFFECT = 1 << 7;
         public const int MASK_VULNERABLE = MASK_PLANT | MASK_ENEMY | MASK_OBSTACLE | MASK_BOSS;
+        public const int MASK_ALL = MASK_VULNERABLE | MASK_CART | MASK_PICKUP | MASK_PROJECTILE | MASK_EFFECT;
 
         public const int STATE_ENTER = 0;
         public const int STATE_STAY = 1;

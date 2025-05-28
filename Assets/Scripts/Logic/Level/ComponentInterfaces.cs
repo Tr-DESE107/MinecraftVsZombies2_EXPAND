@@ -12,7 +12,9 @@ namespace MVZ2Logic.Level.Components
 {
     public interface IAdviceComponent : ILevelComponent
     {
-        void ShowAdvice(string context, string textKey, int priority, int timeout);
+        void ShowAdvice(string context, string textKey, int priority, int timeout, params string[] args);
+        void ShowAdvicePlural(string context, string textKey, string textPlural, long n, int priority, int timeout, params string[] args);
+        void ShowAdvicePlural(string context, string textKey, long n, int priority, int timeout, params string[] args) => ShowAdvicePlural(context, textKey, textKey, n, priority, timeout, args);
         void HideAdvice();
     }
     public interface IHeldItemComponent : ILevelComponent
@@ -40,8 +42,10 @@ namespace MVZ2Logic.Level.Components
         void Stop();
         bool IsPlayingMusic(NamespaceID id);
         void SetPlayingMusic(NamespaceID id);
-        void SetMusicVolume(float volume);
         float GetMusicVolume();
+        void SetMusicVolume(float volume);
+        float GetSubtrackWeight();
+        void SetSubtrackWeight(float volume);
     }
     public interface ISoundComponent : ILevelComponent
     {
@@ -95,30 +99,44 @@ namespace MVZ2Logic.Level.Components
         Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float y);
         Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY);
         void ShakeScreen(float startAmplitude, float endAmplitude, int time);
+
         void ShowMoney();
         void SetMoneyFade(bool fade);
+
         void SetEnergyActive(bool visible);
+        bool IsEnergyActive();
         void SetBlueprintsActive(bool visible);
+        bool AreBlueprintsActive();
         void SetPickaxeActive(bool visible);
+        bool IsPickaxeActive();
         void SetStarshardActive(bool visible);
+        bool IsStarshardActive();
         void SetTriggerActive(bool visible);
+        bool IsTriggerActive();
+
         void SetHintArrowPointToBlueprint(int index);
         void SetHintArrowPointToPickaxe();
         void SetHintArrowPointToTrigger();
         void SetHintArrowPointToStarshard();
         void SetHintArrowPointToEntity(Entity entity);
         void HideHintArrow();
+
         void SetProgressBarToBoss(NamespaceID barStyle);
         void SetProgressBarToStage();
+
         void PauseGame(int level = 0);
         void ResumeGame(int level = 0);
+
         void SetUIAndInputDisabled(bool value);
         void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
         void SetAreaModelPreset(string name);
+
         void TriggerModelAnimator(string name);
         void SetModelAnimatorBool(string name, bool value);
         void SetModelAnimatorInt(string name, int value);
         void SetModelAnimatorFloat(string name, float value);
+
+        void UpdateLevelName();
     }
     public interface IMoneyComponent : ILevelComponent
     {

@@ -8,11 +8,11 @@ using MVZ2.Talk;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Archives;
 using MVZ2Logic.Talk;
 using PVZEngine;
-using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2.Archives
@@ -43,10 +43,6 @@ namespace MVZ2.Archives
 
             talkSystem = new ArchiveTalkSystem(this, simulationTalk);
             simulationTalk.OnTalkAction += OnTalkActionCallback;
-        }
-        private void Update()
-        {
-            simulationTalk.transform.localPosition = ((Vector3)Main.ShakeManager.GetShake2D()) * 100;
         }
         #endregion
 
@@ -90,7 +86,7 @@ namespace MVZ2.Archives
         }
         private void OnTalkActionCallback(string cmd, params string[] parameters)
         {
-            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, cmd, c => c(talkSystem, cmd, parameters));
+            Global.Game.RunCallbackFiltered(VanillaCallbacks.TALK_ACTION, new VanillaCallbacks.TalkActionParams(talkSystem, cmd, parameters), cmd);
         }
         #endregion
 
@@ -122,17 +118,20 @@ namespace MVZ2.Archives
 
             talksList.Clear();
             var talks = Main.ResourceManager.GetAllTalkGroupsID();
-            var filteredTalks = talks.Where(t =>
-            {
-                var group = Main.ResourceManager.GetTalkGroup(t);
-                var unlockID = group.archive?.unlock;
-                return !NamespaceID.IsValid(unlockID) || Main.SaveManager.IsUnlocked(unlockID);
-            });
-            talksList.AddRange(filteredTalks);
+            var talkGroups = talks
+                .Select(id => (id, Main.ResourceManager.GetTalkGroup(id)))
+                .OrderBy(g => g.Item2.documentOrder)
+                .ThenBy(g => g.Item2.groupOrder);
 
-            var talkGroups = talksList.Select(t => Main.ResourceManager.GetTalkGroup(t));
+            var filteredTalks = talkGroups.Where(tuple =>
+            {
+                var unlockID = tuple.Item2?.archive?.unlock;
+                return Main.SaveManager.IsInvalidOrUnlocked(unlockID);
+            });
+            talksList.AddRange(filteredTalks.Select(g => g.Item1));
+
             tagsList.Clear();
-            var tags = talkGroups.SelectMany(g => g.tags).Distinct();
+            var tags = talkGroups.SelectMany(g => g.Item2.tags).Distinct();
             var orderedTags = tags.OrderBy((t) => Main.ResourceManager.GetArchiveTagMeta(t)?.Priority ?? 0);
             tagsList.AddRange(orderedTags);
 

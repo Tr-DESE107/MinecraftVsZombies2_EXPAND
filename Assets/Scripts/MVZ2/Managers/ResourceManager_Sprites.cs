@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using MVZ2.Modding;
 using MVZ2.Sprites;
 using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace MVZ2.Managers
 {
@@ -67,10 +69,9 @@ namespace MVZ2.Managers
             sprite.name = name;
             if (generatedSpriteManifest && Application.isEditor)
             {
-                var textureClone = GetGeneratedSpriteTexture(texture);
-                var spriteClone = Sprite.Create(textureClone, rect, pivot);
-                spriteClone.name = name;
-                generatedSpriteManifest.AddSprite(category, spriteClone);
+                var background = Sprite.Create(backgroundTex, rect, pivot);
+                background.name = name;
+                generatedSpriteManifest.AddSprite(category, sprite, background);
             }
             return sprite;
         }
@@ -82,30 +83,49 @@ namespace MVZ2.Managers
             }
             Destroy(sprite);
         }
-        private async Task LoadSpriteManifests(string modNamespace)
+        private void Init_Sprites()
+        {
+            backgroundTex = GenerateSpriteBackgroundTexture(MAX_BACKGROUND_TEX_WIDTH, MAX_BACKGROUND_TEX_HEIGHT);
+        }
+        private async Task LoadInitSpriteManifests(string modNamespace)
         {
             var modResource = GetModResource(modNamespace);
             if (modResource == null)
                 return;
-            var resources = await LoadLabeledResources<SpriteManifest>(modNamespace, "SpriteManifest");
+            var resources = await LoadLabeledResources<SpriteManifest>(modNamespace, Addressables.MergeMode.Intersection, "Init", "SpriteManifest");
             foreach (var (path, manifest) in resources)
             {
-                foreach (var entry in manifest.spriteEntries)
+                LoadSpriteManifest(modNamespace, modResource, manifest);
+            }
+        }
+        private async Task LoadMainSpriteManifests(string modNamespace, TaskProgress progress)
+        {
+            var modResource = GetModResource(modNamespace);
+            if (modResource == null)
+                return;
+            var resources = await LoadLabeledResources<SpriteManifest>(modNamespace, Addressables.MergeMode.Intersection, progress, "Main", "SpriteManifest");
+            foreach (var (id, res) in resources)
+            {
+                LoadSpriteManifest(modNamespace, modResource, res);
+            }
+        }
+        private void LoadSpriteManifest(string modNamespace, ModResource modResource, SpriteManifest manifest)
+        {
+            foreach (var entry in manifest.spriteEntries)
+            {
+                var sprite = entry.sprite;
+                var id = new NamespaceID(modNamespace, entry.name);
+                modResource.Sprites.Add(entry.name, sprite);
+                AddSpriteReferenceCache(new SpriteReference(id), sprite);
+            }
+            foreach (var entry in manifest.spritesheetEntries)
+            {
+                var sheet = entry.spritesheet;
+                var id = new NamespaceID(modNamespace, entry.name);
+                modResource.SpriteSheets.Add(entry.name, sheet);
+                for (int i = 0; i < sheet.Length; i++)
                 {
-                    var sprite = entry.sprite;
-                    var id = new NamespaceID(modNamespace, entry.name);
-                    modResource.Sprites.Add(entry.name, sprite);
-                    AddSpriteReferenceCache(new SpriteReference(id), sprite);
-                }
-                foreach (var entry in manifest.spritesheetEntries)
-                {
-                    var sheet = entry.spritesheet;
-                    var id = new NamespaceID(modNamespace, entry.name);
-                    modResource.SpriteSheets.Add(entry.name, sheet);
-                    for (int i = 0; i < sheet.Length; i++)
-                    {
-                        AddSpriteReferenceCache(new SpriteReference(id, i), sheet[i]);
-                    }
+                    AddSpriteReferenceCache(new SpriteReference(id, i), sheet[i]);
                 }
             }
         }
@@ -142,37 +162,47 @@ namespace MVZ2.Managers
         {
             spriteReferenceCacheDict.Add(sprite, sprRef);
         }
-        private Texture2D GetGeneratedSpriteTexture(Texture2D texture)
+        private Texture2D GenerateSpriteBackgroundTexture(int width, int height)
         {
-            if (!generatedSpriteTextureDict.TryGetValue(texture, out var tex))
+            var tex = new Texture2D(width, height);
+            var gray = new Color32(127, 127, 127, 255);
+            var darkGray = new Color32(63, 63, 63, 255);
+            var colorBuffer = spriteColorBuffer;
+            for (int x = 0; x < width; x += COLOR_BUFFER_WIDTH)
             {
-                tex = Instantiate(texture);
-                var width = tex.width;
-                var pixels = tex.GetPixels();
-                for (int i = 0; i < pixels.Length; i++)
+                var w = Mathf.Min(COLOR_BUFFER_WIDTH, width - x);
+                for (int y = 0; y < height; y += COLOR_BUFFER_HEIGHT)
                 {
-                    var x = i % width;
-                    var y = i / width;
-                    var col = ((x / 16) + (y / 16)) % 2 == 0 ? Color.gray : new Color(0.25f, 0.25f, 0.25f, 1);
-                    var pixel = pixels[i];
-                    pixel.r = pixel.r * pixel.a + col.r * (1 - pixel.a);
-                    pixel.g = pixel.g * pixel.a + col.g * (1 - pixel.a);
-                    pixel.b = pixel.b * pixel.a + col.b * (1 - pixel.a);
-                    pixel.a = pixel.a * pixel.a + col.a * (1 - pixel.a);
-                    pixels[i] = pixel;
+                    var h = Mathf.Min(COLOR_BUFFER_HEIGHT, height - y);
+                    for (int ix = 0; ix < w; ix++)
+                    {
+                        for (int iy = 0; iy < h; iy++)
+                        {
+                            var dstX = x + ix;
+                            var dstY = x + iy;
+                            var dstIndex = iy * w + ix;
+                            colorBuffer[dstIndex] = ((dstX / 16) + (dstY / 16)) % 2 == 0 ? gray : darkGray;
+                        }
+                    }
+                    tex.SetPixels32(x, y, w, h, colorBuffer);
                 }
-                tex.SetPixels(pixels);
-                tex.Apply();
-                generatedSpriteTextureDict.Add(texture, tex);
             }
+            tex.Apply();
             return tex;
         }
         private Dictionary<Sprite, SpriteReference> spriteReferenceCacheDict = new Dictionary<Sprite, SpriteReference>();
         private Dictionary<Texture2D, Texture2D> generatedSpriteTextureDict = new Dictionary<Texture2D, Texture2D>();
+        private const int COLOR_BUFFER_WIDTH = 128;
+        private const int COLOR_BUFFER_HEIGHT = 128;
+        private const int MAX_BACKGROUND_TEX_WIDTH = 2560;
+        private const int MAX_BACKGROUND_TEX_HEIGHT = 2560;
+
         [Header("Sprites")]
         [SerializeField]
         private Sprite defaultSprite;
         [SerializeField]
         private GeneratedSpriteManifest generatedSpriteManifest;
+        private Texture2D backgroundTex;
+        private Color32[] spriteColorBuffer = new Color32[COLOR_BUFFER_WIDTH * COLOR_BUFFER_HEIGHT];
     }
 }

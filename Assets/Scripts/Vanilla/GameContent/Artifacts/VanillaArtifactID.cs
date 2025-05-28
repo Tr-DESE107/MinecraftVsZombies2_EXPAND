@@ -14,6 +14,7 @@ namespace MVZ2.GameContent.Artifacts
         public const string sweetSleepPillow = "sweet_sleep_pillow";
         public const string pagodaBranch = "pagoda_branch";
         public const string darkMatter = "dark_matter";
+        public const string bottledBlackhole = "bottled_blackhole";
 
         public const string smartPhone = "smart_phone";
         public const string invertedMirror = "inverted_mirror";
@@ -21,6 +22,11 @@ namespace MVZ2.GameContent.Artifacts
         public const string netherStar = "nether_star";
         public const string witherSkeletonSkull = "wither_skeleton_skull";
         public const string brokenLantern = "broken_lantern";
+
+        public const string manipulativeTalismans = "manipulative_talismans";
+        public const string greedyVacuum = "greedy_vacuum";
+        public const string lightbomb = "lightbomb";
+        public const string eyeOfTheGiant = "eye_of_the_giant";
     }
     public static class VanillaArtifactID
     {
@@ -33,6 +39,7 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID darkMatter = Get(VanillaArtifactNames.darkMatter);
         public static readonly NamespaceID hoe = Get(VanillaArtifactNames.hoe);
         public static readonly NamespaceID pagodaBranch = Get(VanillaArtifactNames.pagodaBranch);
+        public static readonly NamespaceID bottledBlackhole = Get(VanillaArtifactNames.bottledBlackhole);
 
         public static readonly NamespaceID smartPhone = Get(VanillaArtifactNames.smartPhone);
         public static readonly NamespaceID invertedMirror = Get(VanillaArtifactNames.invertedMirror);
@@ -40,6 +47,11 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID witherSkeletonSkull = Get(VanillaArtifactNames.witherSkeletonSkull);
         public static readonly NamespaceID netherStar = Get(VanillaArtifactNames.netherStar);
         public static readonly NamespaceID brokenLantern = Get(VanillaArtifactNames.brokenLantern);
+
+        public static readonly NamespaceID manipulativeTalismans = Get(VanillaArtifactNames.manipulativeTalismans);
+        public static readonly NamespaceID greedyVacuum = Get(VanillaArtifactNames.greedyVacuum);
+        public static readonly NamespaceID lightbomb = Get(VanillaArtifactNames.lightbomb);
+        public static readonly NamespaceID eyeOfTheGiant = Get(VanillaArtifactNames.eyeOfTheGiant);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -154,16 +154,13 @@ namespace MVZ2.GameContent.Contraptions
         }
 
         //新增字段记录生命值（用于判断是否触发攻击）
-        private static readonly VanillaEntityPropertyMeta PROP_LAST_SHOOT_HEALTH =
-            new VanillaEntityPropertyMeta("LastShootHealth");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_LAST_SHOOT_HEALTH =
+            new VanillaEntityPropertyMeta<float>("LastShootHealth");
 
         private static float GetLastShootHealth(Entity e) =>
-            e.GetBehaviourField<float>(ID, PROP_LAST_SHOOT_HEALTH);
+            e.GetBehaviourField<float>(PROP_LAST_SHOOT_HEALTH);
 
         private static void SetLastShootHealth(Entity e, float hp) =>
-            e.SetBehaviourField(ID, PROP_LAST_SHOOT_HEALTH, hp);
-
-        // 实体ID，用于存取字段
-        private static readonly NamespaceID ID = VanillaContraptionID.GlowingObsidian;
+            e.SetBehaviourField(PROP_LAST_SHOOT_HEALTH, hp);
     }
 }

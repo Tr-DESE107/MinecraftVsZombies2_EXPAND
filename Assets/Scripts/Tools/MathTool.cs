@@ -8,7 +8,7 @@ namespace Tools.Mathematics
         public static Rect GetBottomRect(this Bounds bounds)
         {
             var boundsMin = bounds.min;
-            var boundsSize = bounds.size; 
+            var boundsSize = bounds.size;
             return new Rect(boundsMin.x, bounds.min.z, boundsSize.x, boundsSize.z);
         }
         public static bool DoRectAndRayIntersect(Rect rect, Vector2 point, Vector2 dir, out Vector2 intersection)
@@ -533,10 +533,10 @@ namespace Tools.Mathematics
             Vector3 relativeDisplacement = displacementB - displacementA;
             //relative velocity (in normalized time)
 
-            Vector3 firstTimeAxises = new Vector3(0,0,0);
+            Vector3 firstTimeAxises = new Vector3(0, 0, 0);
             //first times of overlap along each axis
 
-            Vector3 lastTimeAxises = new Vector3(1,1,1);
+            Vector3 lastTimeAxises = new Vector3(1, 1, 1);
             //last times of overlap along each axis
 
             //check if they were overlapping
@@ -608,6 +608,55 @@ namespace Tools.Mathematics
             }
             return true;
         }
+        public static bool CollideBetweenCubeAndCapsule(Capsule capsule, Vector3 cubeCenter, Vector3 cubeSize)
+        {
+            // 扩展立方体
+            var expandedSize = cubeSize + Vector3.one * capsule.radius * 2;
+            var capsuleStart = capsule.point0;
+            var capsuleEnd = capsule.point1;
+
+            // 检测线段与扩展后的AABB是否相交
+            return CollideBetweenCubeAndLine(capsuleStart, capsuleEnd, cubeCenter, expandedSize);
+        }
+        public static bool CollideBetweenCubeAndLine(Vector3 lineStart, Vector3 lineEnd, Vector3 cubeCenter, Vector3 cubeSize)
+        {
+            var t_min = 0f;
+            var t_max = 1f;
+            var cubeMin = cubeCenter - cubeSize * 0.5f;
+            var cubeMax = cubeCenter + cubeSize * 0.5f;
+
+            for (int axis = 0; axis < 3; axis++)
+            {
+                var a = lineStart[axis];
+                var b = lineEnd[axis];
+                var minAxis = cubeMin[axis];
+                var maxAxis = cubeMax[axis];
+        
+                if (Mathf.Abs(b - a) < 1e-6)  // 线段平行于当前轴
+                {
+                    if (a < minAxis || a > maxAxis)
+                        return false;
+                }
+                else
+                {
+                    var inverseDistance = 1f / (b - a);
+                    var t1 = (minAxis - a) * inverseDistance;
+                    var t2 = (maxAxis - a) * inverseDistance;
+                    if (t1 > t2)
+                    {
+                        var swap = t1;
+                        t1 = t2;
+                        t2 = swap;
+                    }
+                    t_min = Mathf.Max(t_min, t1);
+                    t_max = Mathf.Min(t_max, t2);
+                    if (t_min > t_max)
+                        return false;
+                }
+            }
+
+            return (t_min <= 1) && (t_max >= 0);
+        }
     }
     public enum Axis
     {
@@ -627,6 +676,18 @@ namespace Tools.Mathematics
         public Axis axis;
         public Vector3 center;
         public float length;
+        public float radius;
+    }
+    public struct Capsule
+    {
+        public Capsule(Vector3 point0, Vector3 point1, float radius)
+        {
+            this.point0 = point0;
+            this.point1 = point1;
+            this.radius = radius;
+        }
+        public Vector3 point0;
+        public Vector3 point1;
         public float radius;
     }
     public struct RoundRect

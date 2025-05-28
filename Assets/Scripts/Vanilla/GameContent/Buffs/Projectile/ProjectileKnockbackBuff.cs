@@ -4,7 +4,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
-using PVZEngine.Damages;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -17,20 +17,22 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         public ProjectileKnockbackBuff(string nsp, string name) : base(nsp, name)
         {
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, VanillaModelKeys.knockbackWave, VanillaModelID.knockbackWave);
-            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostProjectileHitCallback);
+            AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostProjectileHitCallback, priority: -1000); // 先于音符触发，否则击退方向会相反。
         }
-        private void PostProjectileHitCallback(ProjectileHitOutput hitOutput, DamageOutput damage)
+        private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
-            var projectile = hitOutput.Projectile;
+            var hit = param.hit;
+            var damage = param.damage;
+            var projectile = hit.Projectile;
             if (projectile == null)
                 return;
             if (!projectile.HasBuff<ProjectileKnockbackBuff>())
                 return;
-            var other = hitOutput.Other;
+            var other = hit.Other;
             if (other.Type == EntityTypes.ENEMY)
             {
                 var sign = Mathf.Sign(projectile.Velocity.x);
-                other.Velocity += new Vector3(0.5f * sign, 1);
+                other.Velocity += new Vector3(0.5f * sign, 1) * other.GetWeakKnockbackMultiplier();
             }
         }
     }

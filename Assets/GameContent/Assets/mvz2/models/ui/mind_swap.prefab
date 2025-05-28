@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5500888813539389152}
   - component: {fileID: 9174442833625808644}
   - component: {fileID: 7705323877908493549}
+  - component: {fileID: 2799213304569973319}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2799213304569973319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648870541421296852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7e81f177bf9334b8aa48d9fa27f4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1001 &1826299077728092197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,6 +101,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 864c6ccabfa6b644e9716f4f39df4c13, type: 2}
+    - target: {fileID: 2231111696375014510, guid: fef8aafc4f2060545af17031375e5ab4, type: 3}
+      propertyPath: images.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231111696375014510, guid: fef8aafc4f2060545af17031375e5ab4, type: 3}
+      propertyPath: images.Array.data[0]
+      value: 
+      objectReference: {fileID: 2799213304569973319}
     - target: {fileID: 5134337979047610562, guid: fef8aafc4f2060545af17031375e5ab4, type: 3}
       propertyPath: m_Name
       value: mind_swap

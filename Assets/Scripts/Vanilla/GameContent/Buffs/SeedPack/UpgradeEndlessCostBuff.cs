@@ -12,6 +12,6 @@ namespace MVZ2.GameContent.Buffs.SeedPacks
         {
             AddModifier(new FloatModifier(EngineSeedProps.COST, NumberOperator.Add, PROP_ADDITION));
         }
-        public static readonly VanillaBuffPropertyMeta PROP_ADDITION = new VanillaBuffPropertyMeta("Reduction");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_ADDITION = new VanillaBuffPropertyMeta<float>("Reduction");
     }
 }

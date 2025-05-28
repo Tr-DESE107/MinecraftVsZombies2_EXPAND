@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
@@ -10,7 +11,6 @@ using PVZEngine.Level.Collisions;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using PVZEngine.SeedPacks;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
@@ -19,14 +19,14 @@ namespace PVZEngine.Level
     public partial class LevelEngine : IBuffTarget, IDisposable, IPropertyModifyTarget
     {
         #region 公有方法
-        public LevelEngine(IGameContent contentProvider, IGameLocalization translator, IGameTriggerSystem triggers, QuadTreeParams quadTreeParams)
+        public LevelEngine(IGameContent contentProvider, IGameLocalization translator, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
         {
             Content = contentProvider;
             Localization = translator;
             Triggers = triggers;
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             properties = new PropertyBlock(this);
-            this.quadTreeParams = quadTreeParams;
+            this.collisionSystem = collisionSystem;
         }
 
 
@@ -71,11 +71,10 @@ namespace PVZEngine.Level
 
             miscRandom = CreateRNG();
 
-            Energy = option.StartEnergy;
-
-
             ChangeArea(areaId);
             ChangeStage(stageId);
+
+            Energy = this.GetStartEnergy();
 
             InitAreaProperties();
 
@@ -98,7 +97,7 @@ namespace PVZEngine.Level
         {
             AreaDefinition.Setup(this);
             StageDefinition.Setup(this);
-            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_SETUP, c => c(this));
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_SETUP, new LevelCallbackParams(this));
         }
         public void Start()
         {
@@ -107,7 +106,7 @@ namespace PVZEngine.Level
                 component.OnStart();
             }
             StageDefinition.Start(this);
-            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_START, c => c(this));
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_START, new LevelCallbackParams(this));
         }
         public void SetDifficulty(NamespaceID difficulty)
         {
@@ -117,12 +116,13 @@ namespace PVZEngine.Level
         {
             StageID = stageId;
             StageDefinition = Content.GetStageDefinition(stageId);
-
+            properties.ClearFallbackCaches();
         }
         public void ChangeArea(NamespaceID areaId)
         {
             AreaID = areaId;
             AreaDefinition = Content.GetAreaDefinition(areaId);
+            properties.ClearFallbackCaches();
         }
         public void Update()
         {
@@ -140,22 +140,27 @@ namespace PVZEngine.Level
             }
             AreaDefinition.Update(this);
             StageDefinition.Update(this);
-            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_UPDATE, c => c(this));
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_UPDATE, new LevelCallbackParams(this));
+            levelTime++;
         }
         public void Clear()
         {
             IsCleared = true;
             OnClear?.Invoke();
-            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_CLEAR, c => c(this));
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_CLEAR, new LevelCallbackParams(this));
         }
         #endregion
 
         #region 属性
-        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             return properties.GetProperty<T>(name, ignoreBuffs);
         }
-        public void SetProperty(PropertyKey name, object value)
+        public bool TryGetProperty<T>(PropertyKey<T> name, out T value, bool ignoreBuffs = false)
+        {
+            return properties.TryGetProperty<T>(name, out value, ignoreBuffs);
+        }
+        public void SetProperty<T>(PropertyKey<T> name, T value)
         {
             properties.SetProperty(name, value);
         }
@@ -163,38 +168,38 @@ namespace PVZEngine.Level
         {
             properties.UpdateAllModifiedProperties();
         }
-        private void UpdateBuffedProperty(PropertyKey name)
+        private void UpdateBuffedProperty(IPropertyKey name)
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty(PropertyKey name, out object value)
+        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object value)
         {
-            if (StageDefinition != null && StageDefinition.TryGetProperty(name, out var stageProp))
+            if (StageDefinition != null && StageDefinition.TryGetPropertyObject(name, out var stageProp))
             {
                 value = stageProp;
                 return true;
             }
-            if (AreaDefinition != null && AreaDefinition.TryGetProperty(name, out var areaProp))
+            if (AreaDefinition != null && AreaDefinition.TryGetPropertyObject(name, out var areaProp))
             {
                 value = areaProp;
                 return true;
             }
-            value = null;
+            value = default;
             return false;
         }
 
-        void IPropertyModifyTarget.GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
+        void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object value)
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
         {
         }
-        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(PropertyKey name)
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
         {
             return null;
         }
-        IEnumerable<PropertyKey> IPropertyModifyTarget.GetModifiedProperties()
+        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
         {
             return buffs.GetModifierPropertyNames();
         }
@@ -237,6 +242,14 @@ namespace PVZEngine.Level
         {
             return gridBottomZ;
         }
+        public float GetLawnCenterX()
+        {
+            return (GetGridLeftX() + GetGridRightX()) * 0.5f;
+        }
+        public float GetLawnCenterZ()
+        {
+            return (GetGridBottomZ() + GetGridTopZ()) * 0.5f;
+        }
         public int GetMaxLaneCount()
         {
             return maxLaneCount;
@@ -253,9 +266,13 @@ namespace PVZEngine.Level
         {
             return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridWidth());
         }
+        public int GetNearestEntityLane(float z)
+        {
+            return GetLane(z - entityLaneZOffset + GetGridHeight() * 0.5f);
+        }
         public float GetEntityLaneZ(int row)
         {
-            return GetLaneZ(row) + 16;
+            return GetLaneZ(row) + entityLaneZOffset;
         }
         public float GetEntityColumnX(int column)
         {
@@ -264,6 +281,19 @@ namespace PVZEngine.Level
         public float GetColumnX(int column)
         {
             return GetGridLeftX() + column * GetGridWidth();
+        }
+        public Vector3 GetEntityGridPosition(int column, int lane)
+        {
+            var x = GetEntityColumnX(column);
+            var z = GetEntityLaneZ(lane);
+            var y = GetGroundY(x, z);
+            return new Vector3(x, y, z);
+        }
+        public Vector3 GetEntityGridPositionByIndex(int index)
+        {
+            var column = GetGridColumnByIndex(index);
+            var lane = GetGridLaneByIndex(index);
+            return GetEntityGridPosition(column, lane);
         }
         public float GetLaneZ(int lane)
         {
@@ -380,6 +410,7 @@ namespace PVZEngine.Level
             return new SerializableLevel()
             {
                 seed = Seed,
+                levelTime = levelTime,
                 isCleared = IsCleared,
                 stageDefinitionID = StageDefinition.GetID(),
                 areaDefinitionID = AreaDefinition.GetID(),
@@ -396,19 +427,17 @@ namespace PVZEngine.Level
 
                 properties = properties.ToSerializable(),
                 grids = grids.Select(g => g.Serialize()).ToArray(),
-                rechargeSpeed = RechargeSpeed,
-                rechargeTimeMultiplier = RechargeTimeMultiplier,
                 seedPacks = seedPacks.Select(g => g != null ? g.Serialize() : null).ToArray(),
-                seedPackPool = seedPackPool.Select(g => g != null ? g.Serialize() : null).ToArray(),
                 conveyorSeedPacks = conveyorSeedPacks.Select(s => s != null ? s.Serialize() : null).ToArray(),
                 conveyorSlotCount = conveyorSlotCount,
                 conveyorSeedSpendRecord = conveyorSeedSpendRecord.ToSerializable(),
+                collisionSystem = collisionSystem.ToSerializable(),
 
                 currentEntityID = currentEntityID,
                 currentBuffID = currentBuffID,
                 currentSeedPackID = currentSeedPackID,
-                entities = entities.ConvertAll(e => e.Serialize()),
-                entityTrash = entityTrash.ConvertAll(e => e.Serialize()),
+                entities = entities.Values.Select(e => e.Serialize()).ToList(),
+                entityTrash = entityTrash.Values.Select(e => e.Serialize()).ToList(),
 
                 energy = Energy,
                 delayedEnergyEntities = delayedEnergyEntities.Select(d => new SerializableDelayedEnergy() { entityId = d.Key.ID, energy = d.Value }).ToArray(),
@@ -425,10 +454,11 @@ namespace PVZEngine.Level
                 components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
             };
         }
-        public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameLocalization translator, IGameTriggerSystem triggers, QuadTreeParams quadTreeParams)
+        public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameLocalization translator, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
         {
-            var level = new LevelEngine(provider, translator, triggers, quadTreeParams);
+            var level = new LevelEngine(provider, translator, triggers, collisionSystem);
             level.Seed = seri.seed;
+            level.levelTime = seri.levelTime;
             level.levelRandom = RandomGenerator.FromSerializable(seri.levelRandom);
             level.entityRandom = RandomGenerator.FromSerializable(seri.entityRandom);
             level.effectRandom = RandomGenerator.FromSerializable(seri.effectRandom);
@@ -447,10 +477,7 @@ namespace PVZEngine.Level
             level.grids = seri.grids.Select(g => LawnGrid.Deserialize(g, level)).ToArray();
             level.properties = PropertyBlock.FromSerializable(seri.properties, level);
 
-            level.RechargeSpeed = seri.rechargeSpeed;
-            level.RechargeTimeMultiplier = seri.rechargeTimeMultiplier;
             level.seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.Deserialize(g, level) : null).ToArray();
-            level.seedPackPool = seri.seedPackPool.Select(g => g != null ? ClassicSeedPack.Deserialize(g, level) : null).ToList();
             level.conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => s != null ? ConveyorSeedPack.Deserialize(s, level) : null).ToList();
             level.conveyorSlotCount = seri.conveyorSlotCount;
             level.conveyorSeedSpendRecord = ConveyorSeedSpendRecords.ToDeserialized(seri.conveyorSeedSpendRecord);
@@ -469,22 +496,30 @@ namespace PVZEngine.Level
 
             // 在网格加载后面
             // 加载所有实体。
-            level.entities = seri.entities.ConvertAll(e => 
+            foreach (var ent in seri.entities)
             {
-                var entity = Entity.CreateDeserializingEntity(e, level);
-                level.AddEntityToQuadTree(entity);
-                return entity;
-            });
-            level.entityTrash = seri.entityTrash.ConvertAll(e => Entity.CreateDeserializingEntity(e, level));
+                var entity = Entity.CreateDeserializingEntity(ent, level);
+                level.entities.Add(ent.id, entity);
+            }
+            foreach (var ent in seri.entityTrash)
+            {
+                var entity = Entity.CreateDeserializingEntity(ent, level);
+                level.entityTrash.Add(ent.id, entity);
+            }
             for (int i = 0; i < level.entities.Count; i++)
             {
-                level.entities[i].ApplyDeserialize(seri.entities[i]);
+                var seriEnt = seri.entities[i];
+                var id = seriEnt.id;
+                level.entities[id].ApplyDeserialize(seriEnt);
             }
             for (int i = 0; i < level.entityTrash.Count; i++)
             {
-                level.entityTrash[i].ApplyDeserialize(seri.entityTrash[i]);
+                var seriEnt = seri.entityTrash[i];
+                var id = seriEnt.id;
+                level.entityTrash[id].ApplyDeserialize(seriEnt);
             }
             // 在实体加载后面
+            level.collisionSystem.LoadFromSerializable(level, seri.collisionSystem);
             // 加载所有网格的属性。
             for (int i = 0; i < level.grids.Length; i++)
             {
@@ -533,6 +568,17 @@ namespace PVZEngine.Level
         }
         #endregion
 
+        #region 关卡时间
+        public long GetLevelTime()
+        {
+            return levelTime;
+        }
+        public bool IsTimeInterval(long interval, long offset = 0)
+        {
+            return levelTime % interval == offset;
+        }
+        #endregion
+
         #endregion
 
         #region 私有方法
@@ -543,10 +589,12 @@ namespace PVZEngine.Level
             gridLeftX = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_LEFT_X);
             gridBottomZ = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_BOTTOM_Z);
             maxLaneCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_LANE_COUNT);
+            entityLaneZOffset = AreaDefinition.GetProperty<float>(EngineAreaProps.ENTITY_LANE_Z_OFFSET);
             maxColumnCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_COLUMN_COUNT);
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         Entity IBuffTarget.GetEntity() => null;
+        Armor IBuffTarget.GetArmor() => null;
         void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Buff IBuffTarget.CreateBuff(NamespaceID id) => CreateBuff(id, AllocBuffID());
@@ -594,8 +642,10 @@ namespace PVZEngine.Level
         private float gridHeight;
         private float gridLeftX;
         private float gridBottomZ;
+        private float entityLaneZOffset;
         private int maxLaneCount;
         private int maxColumnCount;
+        private long levelTime = 0;
 
         private List<ILevelComponent> levelComponents = new List<ILevelComponent>();
         #endregion 保存属性

@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Stages
             base.OnStart(level);
             SetTutorialTimer(level, new FrameTimer(90));
             level.SetSeedSlotCount(0);
-            level.ReplaceSeedPacks(new NamespaceID[0]);
+            level.FillSeedPacks(new NamespaceID[0]);
             level.SetStarshardCount(1);
             level.SetStarshardActive(true);
             level.SetBlueprintsActive(false);
@@ -149,7 +149,7 @@ namespace MVZ2.GameContent.Stages
                         level.StopLevel();
                         level.PlayMusic(VanillaMusicID.mainmenu);
                         level.HideAdvice();
-                        level.SetEnergy(level.Option.StartEnergy);
+                        level.SetEnergy(level.GetStartEnergy());
                         level.ClearSeedPacks();
                         level.ChangeStage(VanillaStageID.halloween2);
                         level.SetBlueprintsActive(true);
@@ -209,7 +209,7 @@ namespace MVZ2.GameContent.Stages
         [TranslateMsg("教程关指引", CONTEXT_STATE_PREFIX + "5")]
         public const string STRING_STATE_5 = "现在干掉铁盔僵尸！";
 
-        public static readonly VanillaLevelPropertyMeta PROP_STATE = new VanillaLevelPropertyMeta("state");
-        public static readonly VanillaLevelPropertyMeta PROP_TUTORIAL_TIMER = new VanillaLevelPropertyMeta("tutorialTimer");
+        public static readonly VanillaLevelPropertyMeta<int> PROP_STATE = new VanillaLevelPropertyMeta<int>("state");
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_TUTORIAL_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("tutorialTimer");
     }
 }

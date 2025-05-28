@@ -1,8 +1,10 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -15,19 +17,18 @@ namespace MVZ2.Vanilla.Entities
             if (enemy.IsNeutralized())
                 return;
 
-            var result = new TriggerResultBoolean();
-            result.Result = true;
-            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.PRE_ENEMY_NEUTRALIZE, result, c => c(enemy, result));
-            if (result.Result == false)
+            var result = new CallbackResult(true);
+            enemy.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.PRE_ENEMY_NEUTRALIZE, new EntityCallbackParams(enemy), result);
+            if (!result.GetValue<bool>())
                 return;
             enemy.SetNeutralized(true);
-            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, c => c(enemy));
+            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_NEUTRALIZE, new EntityCallbackParams(enemy));
         }
         public static void DropRewards(this Entity enemy)
         {
             if (enemy.HasNoReward())
                 return;
-            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, c => c(enemy));
+            enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, new EntityCallbackParams(enemy));
         }
         public static void InflictWeakness(this Entity enemy, int time)
         {
@@ -64,7 +65,7 @@ namespace MVZ2.Vanilla.Entities
         public static void UpdateWalkVelocity(this Entity enemy)
         {
             var velocity = enemy.Velocity;
-            var speed = enemy.GetSpeed() * 0.4f;
+            var speed = enemy.GetSpeed() * WALK_SPEED_FACTOR;
             if (Mathf.Abs(velocity.x) < speed)
             {
                 float min = Mathf.Min(speed, -speed);
@@ -74,6 +75,20 @@ namespace MVZ2.Vanilla.Entities
                 velocity.x = Mathf.Clamp(velocity.x, min, max);
             }
             enemy.Velocity = velocity;
+        }
+        public const float WALK_SPEED_FACTOR = 0.4f; // 怪物的移速乘算倍率，默认0.4倍
+        public static void FaintRemove(this Entity enemy)
+        {
+            var callbackResult = new CallbackResult(true);
+            enemy.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ENEMY_FAINT, new EntityCallbackParams(enemy), callbackResult, enemy.GetDefinitionID());
+            if (callbackResult.GetValue<bool>())
+            {
+                var param = enemy.GetSpawnParams();
+                param.SetProperty(EngineEntityProps.SIZE, enemy.GetSize());
+                enemy.Level.Spawn(VanillaEffectID.smoke, enemy.Position, enemy, param);
+                enemy.Remove();
+                enemy.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_ENEMY_FAINT, new EntityCallbackParams(enemy), enemy.GetDefinitionID());
+            }
         }
 
         #region 骑乘
@@ -132,5 +147,21 @@ namespace MVZ2.Vanilla.Entities
             passenger.Position = horse.Position + horse.GetPassengerOffset();
         }
         #endregion
+
+
+        public static void Unfreeze(this Entity entity)
+        {
+            entity.RemoveBuffs<SlowBuff>();
+        }
+        public static void Slow(this Entity entity, int time)
+        {
+            var buff = entity.GetFirstBuff<SlowBuff>();
+            if (buff == null)
+            {
+                entity.PlaySound(VanillaSoundID.freeze);
+                buff = entity.AddBuff<SlowBuff>();
+            }
+            SlowBuff.SetTimeout(buff, time);
+        }
     }
 }

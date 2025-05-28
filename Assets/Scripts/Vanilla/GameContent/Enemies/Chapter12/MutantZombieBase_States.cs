@@ -25,7 +25,7 @@ namespace MVZ2.Vanilla.Enemies
 {
     public abstract partial class MutantZombieBase : EnemyBehaviour
     {
-        #region ×´Ì¬»ú
+        #region ×´Ì¬ï¿½ï¿½
         private class MutantZombieStateMachine : EntityStateMachine
         {
             public MutantZombieStateMachine()
@@ -64,7 +64,7 @@ namespace MVZ2.Vanilla.Enemies
             }
         }
 
-        #region ¿ÕÏÐ
+        #region ï¿½ï¿½ï¿½ï¿½
         public class IdleState : EntityStateMachineState
         {
             public IdleState() : base(STATE_IDLE) { }
@@ -76,7 +76,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        #region ÐÐ×ß
+        #region ï¿½ï¿½ï¿½ï¿½
         public class WalkState : EntityStateMachineState
         {
             public WalkState() : base(STATE_WALK) { }
@@ -89,7 +89,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        #region ¹¥»÷
+        #region ï¿½ï¿½ï¿½ï¿½
         private static bool CheckAttackTarget(Entity zombie)
         {
             return attackDetector.DetectExists(zombie);
@@ -168,11 +168,11 @@ namespace MVZ2.Vanilla.Enemies
             }
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_ATTACKED = 1;
-            private List<EntityCollider> detectBuffer = new List<EntityCollider>();
+            private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
         }
         #endregion
 
-        #region Í¶ÖÀ
+        #region Í¶ï¿½ï¿½
         private static bool CheckThrow(Entity zombie)
         {
             if (!HasImp(zombie))
@@ -218,9 +218,8 @@ namespace MVZ2.Vanilla.Enemies
 
                             var impPos = entity.Position + new Vector3(entity.GetFacingX() * 24, 155, 0);
                             var impVel = new Vector3(entity.GetFacingX() * 20, 0, 0);
-                            var imp = entity.Spawn(impID, impPos);
+                            var imp = entity.SpawnWithParams(impID, impPos);
                             imp.PlaySound(VanillaSoundID.impLaugh);
-                            imp.SetFactionAndDirection(entity.GetFaction());
                             imp.Velocity = impVel;
 
                             subStateTimer.ResetTime(10);
@@ -239,7 +238,7 @@ namespace MVZ2.Vanilla.Enemies
             public const int SUBSTATE_THROWN = 1;
         }
         #endregion
-        #region ËÀÍö
+        #region ï¿½ï¿½ï¿½ï¿½
         public class DeathState : EntityStateMachineState
         {
             public DeathState() : base(STATE_DEATH) { }
@@ -272,11 +271,13 @@ namespace MVZ2.Vanilla.Enemies
                     case SUBSTATE_DROP:
                         if (subStateTimer.Expired)
                         {
-                            var smoke = entity.Spawn(VanillaEffectID.smoke, entity.Position);
-                            smoke.SetSize(entity.GetSize());
-                            entity.Remove();
+                            entity.FaintRemove();
                         }
                         break;
+                }
+                if (!entity.IsDead)
+                {
+                    stateMachine.StartState(entity, STATE_IDLE);
                 }
             }
             public const int SUBSTATE_START = 0;

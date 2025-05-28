@@ -59,6 +59,11 @@
                     <condition required="mvz2:kourindou_visited" requiredNot="mvz2:entered_castle"/>
                 </conditions>
             </talk>
+            <talk id="mvz2:exited_kourindou_mausoleum">
+                <conditions>
+                    <condition required="mvz2:kourindou_visited_mausoleum_1" requiredNot="mvz2:entered_mausoleum"/>
+                </conditions>
+            </talk>
         </talks>
     </map>
     <map id="castle" area="mvz2:castle" >
@@ -77,6 +82,24 @@
             <stage id="mvz2:castle_9"/>
             <stage id="mvz2:castle_10"/>
             <stage id="mvz2:castle_11"/>
+        </stages>
+    </map>
+    <map id="mausoleum" area="mvz2:mausoleum" width="3200" height="2400">
+        <presets>
+            <preset id="mvz2:mausoleum" model="mvz2:mausoleum" backgroundColor="#18255E" music="mvz2:mausoleum_map"/>
+        </presets>
+        <stages endless="mvz2:mausoleum_endless">
+            <stage id="mvz2:mausoleum_1"/>
+            <stage id="mvz2:mausoleum_2"/>
+            <stage id="mvz2:mausoleum_3"/>
+            <stage id="mvz2:mausoleum_4"/>
+            <stage id="mvz2:mausoleum_5"/>
+            <stage id="mvz2:mausoleum_6" area="mvz2:mausoleum_minigame"/>
+            <stage id="mvz2:mausoleum_7"/>
+            <stage id="mvz2:mausoleum_8"/>
+            <stage id="mvz2:mausoleum_9"/>
+            <stage id="mvz2:mausoleum_10"/>
+            <stage id="mvz2:mausoleum_11"/>
         </stages>
     </map>
 </maps>

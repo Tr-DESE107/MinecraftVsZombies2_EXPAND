@@ -2,10 +2,8 @@
 using MVZ2.HeldItems;
 using PVZEngine;
 using PVZEngine.Base;
-using PVZEngine.Entities;
-using PVZEngine.Grids;
 using PVZEngine.Level;
-using PVZEngine.SeedPacks;
+using PVZEngine.Models;
 
 namespace MVZ2Logic.HeldItems
 {
@@ -18,7 +16,13 @@ namespace MVZ2Logic.HeldItems
         {
             behaviours.Add(behaviour);
         }
-        public virtual void Update(LevelEngine level, IHeldItemData data) { }
+        public void Update(LevelEngine level, IHeldItemData data)
+        {
+            foreach (var behaviour in behaviours)
+            {
+                behaviour.Update(level, data);
+            }
+        }
         public bool IsValidFor(HeldItemTarget target, IHeldItemData data)
         {
             foreach (var behaviour in behaviours)
@@ -35,7 +39,7 @@ namespace MVZ2Logic.HeldItems
                 if (behaviour.IsValidFor(target, data))
                 {
                     var highlight = behaviour.GetHighlight(target, data);
-                    if (highlight != HeldHighlight.None)
+                    if (highlight.mode != HeldHighlightMode.None)
                         return highlight;
                 }
             }
@@ -53,8 +57,8 @@ namespace MVZ2Logic.HeldItems
         }
 
         public virtual NamespaceID GetModelID(LevelEngine level, IHeldItemData data) => null;
+        public virtual void PostSetModel(LevelEngine level, IHeldItemData data, IModelInterface model) { }
         public virtual float GetRadius(LevelEngine level, IHeldItemData data) => 0;
-        public virtual SeedPack GetSeedPack(LevelEngine level, IHeldItemData data) => null;
         public sealed override string GetDefinitionType() => LogicDefinitionTypes.HELD_ITEM;
 
         private List<HeldItemBehaviour> behaviours = new List<HeldItemBehaviour>();

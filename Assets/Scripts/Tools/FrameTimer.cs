@@ -54,18 +54,18 @@ namespace Tools
         {
             return Mathf.CeilToInt(LastFrame / interval) - Mathf.CeilToInt(Frame / interval);
         }
-        public float GetPercentage()
+        public override float GetTimeoutPercentage()
         {
-            return 1 - (Frame + FrameFraction / (float)Precision) / MaxFrame;
+            return (Frame + FrameFraction / (float)Precision) / MaxFrame;
         }
-        public void Stop()
+        public override void Stop()
         {
             Frame = 0;
             FrameFraction = 0;
             LastFrame = 0;
             LastFrameFraction = 0;
         }
-        public void Reset()
+        public override void Reset()
         {
             Frame = MaxFrame;
             FrameFraction = 0;

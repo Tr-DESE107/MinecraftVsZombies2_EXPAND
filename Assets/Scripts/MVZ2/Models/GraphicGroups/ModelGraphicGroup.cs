@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace MVZ2.Models
 {
@@ -13,26 +12,36 @@ namespace MVZ2.Models
         {
             foreach (var animator in animators)
             {
-                animator.enabled = false;
-                animator.Update(deltaTime);
+                if (testMode && Application.isEditor)
+                {
+                    animator.enabled = true;
+                }
+                else
+                {
+                    animator.enabled = false;
+                    animator.Update(deltaTime);
+                }
             }
         }
         public virtual void SetSimulationSpeed(float speed)
         {
         }
-        public void SetGroundPosition(Vector3 position)
+        public void SetGroundY(float y)
         {
             foreach (var trans in transforms)
             {
                 if (!trans.LockToGround)
                     continue;
-                trans.transform.position = position;
+                var pos = trans.transform.position;
+                pos.y = y;
+                trans.transform.position = pos;
             }
         }
         public abstract void UpdateElements();
         public abstract void SetShaderInt(string name, int value);
         public abstract void SetShaderFloat(string name, float alpha);
         public abstract void SetShaderColor(string name, Color color);
+        public abstract void SetShaderVector(string name, Vector4 vector);
         public void SetTint(Color color)
         {
             SetShaderColor("_Color", color);
@@ -40,6 +49,10 @@ namespace MVZ2.Models
         public void SetColorOffset(Color color)
         {
             SetShaderColor("_ColorOffset", color);
+        }
+        public void SetHSV(Vector3 hsv)
+        {
+            SetShaderVector("_HSVOffset", hsv);
         }
         public void TriggerAnimator(string name)
         {
@@ -90,6 +103,7 @@ namespace MVZ2.Models
                 var data = serializable.animators[i];
                 data.Deserialize(animator);
             }
+            LoadSerializable(serializable);
         }
         #endregion
 
@@ -114,6 +128,9 @@ namespace MVZ2.Models
         public abstract string SortingLayerName { get; set; }
         public abstract int SortingOrder { get; set; }
 
+
+        [SerializeField]
+        private bool testMode = false;
         [SerializeField]
         protected List<Animator> animators = new List<Animator>();
         [SerializeField]

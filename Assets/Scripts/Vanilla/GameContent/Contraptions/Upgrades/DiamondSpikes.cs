@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         public const int MAX_CALTROPS = 100;
         public override NamespaceID SpikeParticleID => VanillaEffectID.diamondSpikeParticles;
-        public override int AttackInterval => 15;
-        public override int EvocationAttackInterval => 2;
+        public override int AttackCooldown => 15;
+        public override int EvocationAttackCooldown => 2;
     }
 }

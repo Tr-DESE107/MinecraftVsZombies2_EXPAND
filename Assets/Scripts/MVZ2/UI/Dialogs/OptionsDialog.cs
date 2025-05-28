@@ -21,6 +21,15 @@ namespace MVZ2.UI
                 slider.Slider.SetValueWithoutNotify(value);
             }
         }
+        public void SetSliderRange(SliderType type, float min, float max, bool integer)
+        {
+            if (sliderDict.TryGetValue(type, out var slider))
+            {
+                slider.Slider.minValue = min;
+                slider.Slider.maxValue = max;
+                slider.Slider.wholeNumbers = integer;
+            }
+        }
         public void SetSliderText(SliderType type, string text)
         {
             if (sliderDict.TryGetValue(type, out var slider))
@@ -70,6 +79,7 @@ namespace MVZ2.UI
             sliderDict.Add(SliderType.Music, musicSlider);
             sliderDict.Add(SliderType.Sound, soundSlider);
             sliderDict.Add(SliderType.Particles, particlesSlider);
+            sliderDict.Add(SliderType.FastForward, fastForwardSlider);
             sliderDict.Add(SliderType.Shake, shakeSlider);
 
             dropdownDict.Add(DropdownType.Language, languageDropdown);
@@ -87,6 +97,8 @@ namespace MVZ2.UI
             textButtonDict.Add(TextButtonType.BloodAndGore, bloodAndGoreButton);
             textButtonDict.Add(TextButtonType.SkipAllTalks, skipAllTalksButton);
             textButtonDict.Add(TextButtonType.ShowSponsorNames, showSponsorNamesButton);
+            textButtonDict.Add(TextButtonType.Credits, creditsButton);
+            textButtonDict.Add(TextButtonType.Keybinding, keybindingButton);
 
             buttonDict.Add(ButtonType.SwapTrigger, swapTriggerButton.Button);
             buttonDict.Add(ButtonType.PauseOnFocusLost, pauseOnFocusLostButton.Button);
@@ -109,6 +121,8 @@ namespace MVZ2.UI
             buttonDict.Add(ButtonType.BloodAndGore, bloodAndGoreButton.Button);
             buttonDict.Add(ButtonType.SkipAllTalks, skipAllTalksButton.Button);
             buttonDict.Add(ButtonType.ShowSponsorNames, showSponsorNamesButton.Button);
+            buttonDict.Add(ButtonType.Credits, creditsButton.Button);
+            buttonDict.Add(ButtonType.Keybinding, keybindingButton.Button);
             buttonDict.Add(ButtonType.MoreBack, moreBackButton);
 
 
@@ -149,6 +163,8 @@ namespace MVZ2.UI
         private TextSlider musicSlider;
         [SerializeField]
         private TextSlider soundSlider;
+        [SerializeField]
+        private TextSlider fastForwardSlider;
 
         [SerializeField]
         private TextButton swapTriggerButton;
@@ -193,6 +209,10 @@ namespace MVZ2.UI
         [SerializeField]
         private TextButton showSponsorNamesButton;
         [SerializeField]
+        private TextButton creditsButton;
+        [SerializeField]
+        private TextButton keybindingButton;
+        [SerializeField]
         private Button moreBackButton;
         public enum Page
         {
@@ -203,6 +223,7 @@ namespace MVZ2.UI
         {
             Music,
             Sound,
+            FastForward,
             Particles,
             Shake
         }
@@ -222,6 +243,8 @@ namespace MVZ2.UI
             BloodAndGore,
             SkipAllTalks,
             ShowSponsorNames,
+            Credits,
+            Keybinding,
         }
         public enum ButtonType
         {
@@ -243,6 +266,8 @@ namespace MVZ2.UI
             BloodAndGore,
             SkipAllTalks,
             ShowSponsorNames,
+            Credits,
+            Keybinding,
         }
     }
 

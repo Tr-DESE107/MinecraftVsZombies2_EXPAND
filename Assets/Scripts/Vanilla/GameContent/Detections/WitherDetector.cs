@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Detections
                             centerX = x + sizeX * 0.5f;
                         }
                         centerY = 80;
-                        centerZ = (self.Level.GetGridTopZ() + self.Level.GetGridBottomZ()) * 0.5f;
+                        centerZ = self.Level.GetLawnCenterZ();
                     }
                     break;
                 default:
@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Detections
                         sizeZ = self.Level.GetGridTopZ() - self.Level.GetGridBottomZ();
                         centerX = (VanillaLevelExt.LEFT_BORDER + VanillaLevelExt.RIGHT_BORDER) * 0.5f;
                         centerY = 400;
-                        centerZ = (self.Level.GetGridTopZ() + self.Level.GetGridBottomZ()) * 0.5f;
+                        centerZ = self.Level.GetLawnCenterZ(); ;
                     }
                     break;
             }

@@ -29,6 +29,11 @@ namespace PVZEngine.Entities
             }
             return entityCache;
         }
+        public bool Exists(LevelEngine game)
+        {
+            var entity = GetEntity(game);
+            return entity != null && entity.Exists();
+        }
         public override bool Equals(object obj)
         {
             if (obj is EntityID entityRef)

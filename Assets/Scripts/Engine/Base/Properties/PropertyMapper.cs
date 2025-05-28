@@ -21,7 +21,14 @@ namespace PVZEngine
                     string regionName;
                     if (fieldAttribute != null)
                     {
-                        regionName = fieldAttribute.RegionName;
+                        if (!string.IsNullOrEmpty(fieldAttribute.TypeName))
+                        {
+                            regionName = $"{fieldAttribute.TypeName}/{fieldAttribute.RegionName}";
+                        }
+                        else
+                        {
+                            regionName = $"{fieldAttribute.RegionName}";
+                        }
                     }
                     else if (regionAttribute != null)
                     {
@@ -39,12 +46,12 @@ namespace PVZEngine
                         continue;
                     meta.RegisterNames(namespaceName, regionName);
                     var propertyName = meta.propertyName;
+                    var propertyType = meta.propertyType;
 
-                    var fullName = PropertyKey.CombineName(namespaceName, regionName, propertyName);
-                    if (registries.TryGetKeyOfFullName(fullName, out PropertyKey key))
+                    var fullName = PropertyKeyHelper.CombineName(namespaceName, regionName, propertyName);
+                    if (registries.TryGetKeyOfFullName(fullName, out IPropertyKey key))
                     {
                         Debug.LogWarning($"Duplicate property meta {meta}");
-                       
                     }
                     else
                     {
@@ -58,7 +65,7 @@ namespace PVZEngine
                             propName = propertyName;
                         }
                         registries.GetOrRegisterPropertyKey(namespaceName, propName, out var namespaceKey, out var propertyKey);
-                        key = new PropertyKey(namespaceKey, propertyKey);
+                        key = PropertyKeyHelper.FromType(namespaceKey, propertyKey, propertyType);
                         registries.RegisterFullName(fullName, key);
                     }
                     meta.SetRegisteredKey(key);
@@ -66,16 +73,27 @@ namespace PVZEngine
             }
         }
 
-        public static PropertyKey ConvertFromName(string propertyName)
+        public static IPropertyKey ConvertFromName(string propertyName)
         {
             if (registries.TryGetKeyOfFullName(propertyName, out var key))
             {
                 return key;
             }
             Debug.LogWarning($"Property with name {propertyName} is not registered.");
-            return PropertyKey.Invalid;
+            return PropertyKeyHelper.Invalid;
         }
-        public static string ConvertToFullName(PropertyKey key)
+        public static IPropertyKey ConvertFromName(string propertyName, string regionName, string defaultNsp)
+        {
+            var id = NamespaceID.Parse(propertyName, defaultNsp);
+            var newName = PropertyKeyHelper.CombineName(id.SpaceName, regionName, id.Path);
+            if (registries.TryGetKeyOfFullName(newName, out var key))
+            {
+                return key;
+            }
+            Debug.LogWarning($"Property with name {newName} is not registered.");
+            return PropertyKeyHelper.Invalid;
+        }
+        public static string ConvertToFullName(IPropertyKey key)
         {
             if (registries.TryGetFullNameOfKey(key, out var name))
             {
@@ -110,24 +128,24 @@ namespace PVZEngine
                 namespaceKey = namespaceRegistry.number;
                 propertyKey = namespaceRegistry.GetOrRegisterPropertyKey(propertyName);
             }
-            public void RegisterFullName(string fullName, PropertyKey key)
+            public void RegisterFullName(string fullName, IPropertyKey key)
             {
                 fullNameMap.Add(fullName, key);
                 reversedFullNameMap.Add(key, fullName);
             }
-            public bool TryGetFullNameOfKey(PropertyKey key, out string name)
+            public bool TryGetFullNameOfKey(IPropertyKey key, out string name)
             {
                 return reversedFullNameMap.TryGetValue(key, out name);
             }
-            public bool TryGetKeyOfFullName(string name, out PropertyKey key)
+            public bool TryGetKeyOfFullName(string name, out IPropertyKey key)
             {
                 return fullNameMap.TryGetValue(name, out key);
             }
             private int currentNamespaceNumber = 0;
             private NamespaceRegistry emptyNamespace = new NamespaceRegistry(0);
             private Dictionary<string, NamespaceRegistry> registeredNamespaces = new Dictionary<string, NamespaceRegistry>();
-            private Dictionary<string, PropertyKey> fullNameMap = new Dictionary<string, PropertyKey>();
-            private Dictionary<PropertyKey, string> reversedFullNameMap = new Dictionary<PropertyKey, string>();
+            private Dictionary<string, IPropertyKey> fullNameMap = new Dictionary<string, IPropertyKey>();
+            private Dictionary<IPropertyKey, string> reversedFullNameMap = new Dictionary<IPropertyKey, string>();
         }
         private class NamespaceRegistry
         {

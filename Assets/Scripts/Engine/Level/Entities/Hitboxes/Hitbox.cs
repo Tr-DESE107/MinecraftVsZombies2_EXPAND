@@ -9,45 +9,62 @@ namespace PVZEngine.Entities
         {
             Entity = entity;
         }
-        public void Update()
+        public void ReevaluateBounds()
         {
-            var scale = Entity.Cache.Scale;
+            var scale = Entity.GetScale();
 
-            Vector3 offset = GetOffset();
-            offset.Scale(scale);
-
+            Vector3 pivot = GetPivot();
             Vector3 size = GetSize();
+            Vector3 offset = GetOffset();
             size.Scale(scale);
 
-            var center = Entity.Position + Vector3.up * (0.5f * size.y) + offset;
+            var center = Vector3.Scale(offset, size);
+            center += Vector3.Scale(Vector3.one * 0.5f - pivot, size);
 
             size.x = Mathf.Abs(size.x);
             size.y = Mathf.Abs(size.y);
             size.z = Mathf.Abs(size.z);
             cache = new Bounds(center, size);
         }
+        public bool IsInSphere(Vector3 center, float radius)
+        {
+            var bounds = GetBounds();
+            return MathTool.CollideBetweenCubeAndSphere(center, radius, bounds.center, bounds.size);
+        }
         public Vector3 GetBoundsCenter()
         {
-            return cache.center;
+            return GetLocalCenter() + Entity.Position;
         }
         public Bounds GetBounds()
         {
-            return cache;
+            var bounds = GetLocalBounds();
+            bounds.center += Entity.Position;
+            return bounds;
         }
         public Vector3 GetBoundsSize()
         {
             return cache.size;
         }
+        public Bounds GetLocalBounds()
+        {
+            return cache;
+        }
+        public Vector3 GetLocalCenter()
+        {
+            return cache.center;
+        }
         public bool Intersects(Hitbox other)
         {
-            return cache.Intersects(cache);
+            var bounds = GetBounds();
+            var otherBounds = other.GetBounds();
+            return bounds.Intersects(otherBounds);
         }
         public bool DoCollision(Hitbox other, Vector3 offset, out Vector3 seperation)
         {
-            var selfBounds = cache;
+            var selfBounds = GetBounds();
             selfBounds.center += offset;
-            var otherBounds = other.cache;
-                
+            var otherBounds = other.GetBounds();
+
             if (selfBounds.Intersects(otherBounds))
             {
                 seperation = otherBounds.center - selfBounds.center;
@@ -57,6 +74,7 @@ namespace PVZEngine.Entities
             return false;
         }
         public abstract Vector3 GetSize();
+        public abstract Vector3 GetPivot();
         public abstract Vector3 GetOffset();
         public abstract SerializableHitbox ToSerializable();
         public Entity Entity { get; }

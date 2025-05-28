@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-03-03 11:37+0800\n"
-"PO-Revision-Date: 2025-03-03 11:37+0800\n"
+"POT-Creation-Date: 2025-05-27 07:25+0800\n"
+"PO-Revision-Date: 2025-05-27 19:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -18,9 +18,19 @@ msgstr ""
 "X-Generator: Poedit 3.5\n"
 
 #. 初始界面的作者标识
-#: /MainGame/MainScene/Landing/Canvas/Creator
+#: /MainGame/MainScene/Init/Splash/Canvas/Creator
 msgid "Cuerzor制作"
 msgstr "Made by Cuerzor"
+
+#. 菜单对话框的标题
+#: /MainGame/MainScene/Init/Titlescreen/Canvas/LanguageDialog/Dialog/TitleArea/Title
+msgid "语言"
+msgstr "Language"
+
+#. 语言对话框界面按钮
+#: /MainGame/MainScene/Init/Titlescreen/Canvas/LanguageDialog/Dialog/MainElements/Buttons/ConfirmButton/Text
+msgid "确定"
+msgstr "Accept"
 
 #. 主界面文字
 #: /MainGame/MainScene/Mainmenu/Elements/Labels/YourName/Label
@@ -72,6 +82,16 @@ msgid "（新建用户）"
 msgstr "(New User)"
 
 #. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Top/ImportButton/Text
+msgid "导入"
+msgstr "Import"
+
+#. 用户管理界面按钮
+#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Top/ExportButton/Text
+msgid "导出"
+msgstr "Export"
+
+#. 用户管理界面按钮
 #: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Middle/RenameButton/Text
 msgid "重命名"
 msgstr "Rename"
@@ -80,11 +100,6 @@ msgstr "Rename"
 #: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Middle/DeleteButton/Text
 msgid "删除"
 msgstr "Delete"
-
-#. 用户管理界面按钮
-#: /MainGame/MainScene/Mainmenu/Canvas/UserManageDialog/Dialog/MainElements/Buttons/Bottom/SwitchButton/Text
-msgid "确定"
-msgstr "Accept"
 
 #. 菜单对话框的标题
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/TitleArea/Title
@@ -101,14 +116,36 @@ msgid "更多选项"
 msgstr "More Options"
 
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
-#: View/Viewport/Content/Dropdowns/Dropdown1/LanguageDropdown/Label
-msgid "语言"
-msgstr "Language"
-
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
 #: View/Viewport/Content/Dropdowns/Dropdown2/ResolutionDropdown/Label
 msgid "分辨率"
 msgstr "Resolution"
+
+#. 按钮文本
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
+#: View/Viewport/Content/Buttons/Line2/Credits/Text
+msgid "制作人员名单"
+msgstr "Credits"
+
+#. 按钮文本
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
+#: View/Viewport/Content/Buttons/Line3/Keybindings/Text
+msgid "快捷键设置"
+msgstr "Hotkeys"
+
+#. 标题
+#: /MainGame/MainScene/Mainmenu/Canvas/KeyBinding/Layout/Title
+msgid "按键绑定"
+msgstr "Key Binding"
+
+#. 按键绑定界面的确认按钮文本
+#: /MainGame/MainScene/Mainmenu/Canvas/KeyBinding/Layout/Buttons/ConfirmButton/Text
+msgid "确认"
+msgstr "Confirm"
+
+#. 按键绑定界面的重置按钮文本
+#: /MainGame/MainScene/Mainmenu/Canvas/KeyBinding/Layout/Buttons/ResetButton/Text
+msgid "重置"
+msgstr "Reset"
 
 #. 对话跳过按钮
 #: /MainGame/MainScene/Note/Talk/SkipButton/Text
@@ -154,6 +191,26 @@ msgstr "Artifacts"
 #: /MainGame/MainScene/Almanac/Canvas/Almanac/Miscs/Center/Entries/Title
 msgid "杂项图鉴"
 msgstr "Misc"
+
+#. 图鉴中的放大镜界面标题
+#: /MainGame/MainScene/Almanac/Canvas/Almanac/ZoomPage/Region/Top/Title/Text
+#: (TMP)
+msgid "放大镜"
+msgstr "Zoom"
+
+#: /MainGame/MainScene/Arcade/Canvas/Arcade/Index/Top/Title/Text (TMP)
+msgid "游戏盒"
+msgstr "Arcade"
+
+#. 小游戏界面的分类按钮文本
+#: /MainGame/MainScene/Arcade/Canvas/Arcade/Index/Center/Root/Arcade/Root/Bottom/Text
+msgid "小游戏"
+msgstr "Minigames"
+
+#. 小游戏界面的分类按钮文本
+#: /MainGame/MainScene/Arcade/Canvas/Arcade/Index/Center/Root/Puzzle/Root/Bottom/Text
+msgid "解谜模式"
+msgstr "Puzzles"
 
 #: /MainGame/MainScene/Store/Canvas/StoreUI/Items/Title
 msgctxt "商店界面"
@@ -246,16 +303,6 @@ msgstr ""
 "The content of language packs positioned higher up will be loaded with "
 "priority."
 
-#. 语言包按钮
-#: /MainGame/MainScene/Addons/Canvas/LanguagePack/Bottom/Row1/ImportButton/Text
-msgid "导入"
-msgstr "Import"
-
-#. 语言包按钮
-#: /MainGame/MainScene/Addons/Canvas/LanguagePack/Bottom/Row1/ExportButton/Text
-msgid "导出"
-msgstr "Export"
-
 #: /MainGame/MainScene/Addons/Canvas/Loading/Text
 msgid "加载中……"
 msgstr "Loading..."
@@ -287,6 +334,10 @@ msgstr "Choose your blueprints"
 #: /Level/UI/Presets/UIPresetMobile/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/Root/BlueprintChoosingPanel/BlueprintListMobile/Bottom/StartButton/Text
 msgid "一起摇滚吧！"
 msgstr "Let's rock!"
+
+#: /Level/UI/Presets/UIPresetMobile/Canvas/Limitation/CameraLimit/Front/BlueprintChoose/CommandBlock/BlueprintChoosingPanel/BlueprintListMobile/TitleRegion/Title
+msgid "选择蓝图复制"
+msgstr "Imitate a blueprint"
 
 #. 暂停游戏对话框的标题
 #: /Level/UI/Presets/UIPresetMobile/SharedCanvas/SelectArtifactDialog/Dialog/Content/Top/Title
@@ -338,6 +389,84 @@ msgstr "Do you want to continue with the latest progress?"
 msgid "错误"
 msgstr "Error"
 
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AceOfDiamondsEvent.cs:35
+msgctxt "random_china.event_name"
+msgid "方片A"
+msgstr "Ace of Diamonds"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:33
+msgctxt "random_china.event_name"
+msgid "神秘埃及"
+msgstr "Ancient Egypt"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AnvilShowerEvent.cs:32
+msgctxt "random_china.event_name"
+msgid "铁砧雨"
+msgstr "Anvil Shower"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\ChinaTownEvent.cs:33
+msgctxt "random_china.event_name"
+msgid "陶瓷镇"
+msgstr "China Town"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\HellMetalEvent.cs:26
+msgctxt "random_china.event_name"
+msgid "地狱金属"
+msgstr "Hell Metal"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\ObsidianPrisonEvent.cs:54
+msgctxt "random_china.event_name"
+msgid "黑曜石囚牢"
+msgstr "Obsidian Prisons"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\RaceCarsEvent.cs:28
+msgctxt "random_china.event_name"
+msgid "赛车"
+msgstr "Race Cars"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\RedstoneReadyEvent.cs:34
+msgctxt "random_china.event_name"
+msgid "红石俱备"
+msgstr "Redstone Ready"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\SuperRechargeEvent.cs:23
+msgctxt "random_china.event_name"
+msgid "超级充能"
+msgstr "Super Recharge"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheHangedManEvent.cs:28
+msgctxt "random_china.event_name"
+msgid "倒吊人-XII"
+msgstr "The Hanged Man - XII"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheTowerEvent.cs:30
+msgctxt "random_china.event_name"
+msgid "塔-XVI"
+msgstr "The Tower - XVI"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\WorldwideCelebrationEvent.cs:27
+msgctxt "random_china.event_name"
+msgid "普天同庆"
+msgstr "Worldwide Celebration"
+
+# 随机瓷器事件名称
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\WrathOfTheSmallEvent.cs:31
+msgctxt "random_china.event_name"
+msgid "小型之怒"
+msgstr "Wrath of the Small"
+
 #: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:199
 msgctxt "advice.starshard_tutorial.0"
 msgid "点击星之碎片槽选中星之碎片！"
@@ -368,57 +497,57 @@ msgctxt "advice.starshard_tutorial.5"
 msgid "现在干掉铁盔僵尸！"
 msgstr "Now defeat the Iron Helmet Zombie!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:296
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:297
 msgctxt "advice.trigger_tutorial.0"
 msgid "放置TNT！"
 msgstr "Click and place TNT!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:298
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:299
 msgctxt "advice.trigger_tutorial.1"
 msgid "点击选中触发器！"
 msgstr "Select the Trigger!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:300
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:301
 msgctxt "advice.trigger_tutorial.2"
 msgid "点击以触发TNT！"
 msgstr "Click to trigger the TNT!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:302
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:303
 msgctxt "advice.trigger_tutorial.3"
 msgid "干得漂亮！"
 msgstr "Excellent job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:304
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:305
 msgctxt "advice.trigger_tutorial.4"
 msgid "选中触发器！"
 msgstr "Select the Trigger!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:306
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:307
 msgctxt "advice.trigger_tutorial.5"
 msgid "点击TNT蓝图！"
 msgstr "Click the TNT blueprint!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:308
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:309
 msgctxt "advice.trigger_tutorial.6"
 msgid "放置TNT，它会立即被触发！"
 msgstr "Place TNT, then it will be instantly triggered!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:310
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:311
 msgctxt "advice.trigger_tutorial.7"
 msgid "干得好！"
 msgstr "Good job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:312
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:313
 msgctxt "advice.trigger_tutorial.8"
 msgid "立即触发只限于一次性消耗类型的器械。"
 msgstr "Instant triggering can only be used on single-use contraptions."
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:314
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:315
 msgctxt "advice.trigger_tutorial.9"
 msgid "如果你想交换这两个动作的效果，你可以在设置中更改。"
 msgstr "You can swap these two actions in Settings."
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:316
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:317
 msgctxt "advice.trigger_tutorial.10"
 msgid "祝你好运！"
 msgstr "Good luck!"
@@ -513,105 +642,69 @@ msgctxt "advice.tutorial.17"
 msgid "试着挖掉所有器械！"
 msgstr "Try to dig out all contraptions!"
 
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:152
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:159
 msgid "你确定想要在没有{0}的情况下使用{1}？"
 msgstr "Are you sure you want to use the {1} without the {0}?"
 
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:154
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:161
 msgid "你没有选能干掉{0}的器械，确定要继续吗？"
 msgstr ""
 "You haven't chosen any contraptions that fight off {0}, are you sure you "
 "want to continue?"
 
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:156
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:163
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
-"You haven't chosen any energy producing contraptions, are you sure you want "
+"You haven't chosen any energy-producing contraptions, are you sure you want "
 "to continue?"
 
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:158
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:165
 msgid "你确定这关不使用任何水生器械吗？"
 msgstr "Are you sure want to play this level without any aquatic contraptions?"
 
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:88
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:90
 msgctxt "advice.collect_money"
 msgid "点击收集宝石！"
 msgstr "Click to collect the gem!"
 
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:90
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:92
 msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
 
-# 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:220
-msgctxt "random_china.event_name"
-msgid "黑曜石囚牢"
-msgstr "Obsidian Prisons"
-
-# 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:222
-msgctxt "random_china.event_name"
-msgid "陶瓷镇"
-msgstr "China Town"
-
-# 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:224
-msgctxt "random_china.event_name"
-msgid "塔-XVI"
-msgstr "The Tower - XVI"
-
-# 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:226
-msgctxt "random_china.event_name"
-msgid "红石俱备"
-msgstr "Redstone Ready"
-
-# 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:228
-msgctxt "random_china.event_name"
-msgid "方片A"
-msgstr "Ace of Diamonds"
-
-# 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\Contraptions\Prologue\RandomChina.cs:230
-msgctxt "random_china.event_name"
-msgid "地狱金属"
-msgstr "Hell Metal"
-
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:504
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:485
 msgid "选择你的命运"
 msgstr "Choose your fate"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:506
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:487
 msgid "选吧。"
 msgstr "Choose."
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:508
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
 msgid "潘多拉的魔盒"
 msgstr "Pandora's Box"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:510
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
 msgid "尸潮"
 msgstr "Biohazard"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:512
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
 msgid "衰老"
 msgstr "Decrepify"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:514
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
 msgid "疯狂"
 msgstr "Insanity"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:516
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
 msgid "成真"
 msgstr "Come True"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:518
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
 msgid "深潜者"
 msgstr "The Lurker"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:520
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
 msgid "黑太阳"
 msgstr "The Black Sun"
 
@@ -623,98 +716,102 @@ msgstr "Cannot be used"
 msgid "受到衰老诅咒！"
 msgstr "Decrepified!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:13
-msgctxt "advice"
-msgid "你不能在雕像上放置器械"
-msgstr "You cannot place contraptions on statues"
+# 无法携带提示
+#: Scripts\Vanilla\VanillaStrings.cs:12
+msgid "无法模仿此器械"
+msgstr "Cannot imitate this contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:15
-msgctxt "advice"
-msgid "请先放睡莲"
-msgstr "Place Lily Pad first"
+# 命令方块蓝图名，{0}为原名称
+#: Scripts\Vanilla\VanillaStrings.cs:14
+msgid "[命令方块]{0}"
+msgstr "[Command Block] {0}"
 
 #: Scripts\Vanilla\VanillaStrings.cs:17
-msgctxt "advice"
-msgid "你不能在水上放置该器械"
-msgstr "You cannot place this contraption on water"
-
-#: Scripts\Vanilla\VanillaStrings.cs:19
-msgctxt "advice"
-msgid "你不能在薄面上放置该器械"
-msgstr "You cannot place this contraption on planes"
-
-#: Scripts\Vanilla\VanillaStrings.cs:21
-msgctxt "advice"
-msgid "你不能在陆地上放置该器械"
-msgstr "You cannot place this contraption on land"
-
-#: Scripts\Vanilla\VanillaStrings.cs:23
-msgctxt "advice"
-msgid "只能放置在可以睡觉的器械上"
-msgstr "Can only be placed on contraptions that can sleep"
-
-#: Scripts\Vanilla\VanillaStrings.cs:25
-msgctxt "advice"
-msgid "只能放置在目标器械上"
-msgstr "Can only be placed on the specific contraption"
-
-#: Scripts\Vanilla\VanillaStrings.cs:27
 msgctxt "advice"
 msgid "点击屏幕阻止碾压墙！"
 msgstr "Click to stop the crushing walls!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:29
+#: Scripts\Vanilla\VanillaStrings.cs:19
 msgctxt "advice"
 msgid "你找到了新制品！"
 msgstr "You found a new artifact!"
 
 # 获得新制品提示
-#: Scripts\Vanilla\VanillaStrings.cs:31
+#: Scripts\Vanilla\VanillaStrings.cs:21
 msgctxt "advice"
 msgid "剩余内容正在开发中，敬请期待！"
 msgstr "The following content is under development!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:34
+#: Scripts\Vanilla\VanillaStrings.cs:24
 msgctxt "advice"
 msgid "更多的敌人要来了！"
 msgstr "More enemies approaching!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:36
+#: Scripts\Vanilla\VanillaStrings.cs:26
 msgctxt "advice"
 msgid "点击以继续"
 msgstr "Click to continue"
 
+# 欲望壶技能的提示
+#: Scripts\Vanilla\VanillaStrings.cs:28
+msgctxt "advice"
+msgid "没有抽到牌！受到{0}点疲劳伤害！"
+msgid_plural "没有抽到牌！受到{0}点疲劳伤害！"
+msgstr[0] "No cards are drawn! Take {0} fatigue damage!"
+msgstr[1] "No cards are drawn! Take {0} fatigue damage!"
+
+# 欲望壶技能的提示
+#: Scripts\Vanilla\VanillaStrings.cs:30
+msgctxt "advice"
+msgid "没有抽到牌！但那又怎样呢？"
+msgstr "No cards are drawn! But so what?"
+
+#: Scripts\Vanilla\VanillaStrings.cs:32
+msgctxt "advice"
+msgid "干得好！还剩{0}轮！"
+msgid_plural "干得好！还剩{0}轮！"
+msgstr[0] "Good job! {0} round left!"
+msgstr[1] "Good job! {0} rounds left!"
+
+# 我是僵尸模式的提示，{0}为目前连胜
+#: Scripts\Vanilla\VanillaStrings.cs:34
+msgctxt "advice"
+msgid "干得好！目前连胜：{0}！"
+msgid_plural "干得好！目前连胜：{0}！"
+msgstr[0] "Good job! Current streak: {0}!"
+msgstr[1] "Good job! Current streak: {0}!"
+
 # 固有蓝图的提示
-#: Scripts\Vanilla\VanillaStrings.cs:39
+#: Scripts\Vanilla\VanillaStrings.cs:37
 msgid "固有"
 msgstr "Innate"
 
-#: Scripts\Vanilla\VanillaStrings.cs:41
+#: Scripts\Vanilla\VanillaStrings.cs:39
 msgid "不推荐在这关使用"
-msgstr "Not recommended for level"
+msgstr "Not recommended for this level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:44
+#: Scripts\Vanilla\VanillaStrings.cs:42
 msgid "购买"
 msgstr "Purchase"
 
-#: Scripts\Vanilla\VanillaStrings.cs:46
+#: Scripts\Vanilla\VanillaStrings.cs:44
 msgid "购买第七个器械槽位？"
 msgstr "Buy the 7th contraption slot?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:48
+#: Scripts\Vanilla\VanillaStrings.cs:46
 msgid "是否进行新手教程？"
 msgstr "Do you want to have a tutorial?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:50
+#: Scripts\Vanilla\VanillaStrings.cs:48
 msgid "新手教程"
 msgstr "Tutorial"
 
-#: Scripts\Vanilla\VanillaStrings.cs:52
+#: Scripts\Vanilla\VanillaStrings.cs:50
 msgid "通关"
 msgstr "Game Completed"
 
 # 获得新制品提示
-#: Scripts\Vanilla\VanillaStrings.cs:54
+#: Scripts\Vanilla\VanillaStrings.cs:52
 msgid ""
 "恭喜通关！\n"
 "接下来的内容还在开发中，敬请期待！"
@@ -722,24 +819,24 @@ msgstr ""
 "Congratulations! You have completed the game...for now!\n"
 "The following content is under development and coming soon!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\VanillaStrings.cs:55
 msgid "用户名不能为空"
 msgstr "Username cannot be empty"
 
-#: Scripts\Vanilla\VanillaStrings.cs:59
+#: Scripts\Vanilla\VanillaStrings.cs:57
 msgid "已经存在该用户名"
 msgstr "This username already exists"
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:61
+#: Scripts\Vanilla\VanillaStrings.cs:59
 msgid "无法重命名为该用户名"
 msgstr "Cannot rename to this name"
 
-#: Scripts\Vanilla\VanillaStrings.cs:63
+#: Scripts\Vanilla\VanillaStrings.cs:61
 msgid "第一次游戏必须输入用户名"
 msgstr "Username must be set when starting the game for the first time"
 
-#: Scripts\Vanilla\VanillaStrings.cs:65
+#: Scripts\Vanilla\VanillaStrings.cs:63
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
@@ -748,143 +845,149 @@ msgstr ""
 "This user's data will be all deleted!"
 
 # 重命名特殊用户时的警告
-#: Scripts\Vanilla\VanillaStrings.cs:67
+#: Scripts\Vanilla\VanillaStrings.cs:65
 msgid "你无法重命名该用户"
 msgstr "Cannot rename this user"
 
-#: Scripts\Vanilla\VanillaStrings.cs:71
+#: Scripts\Vanilla\VanillaStrings.cs:69
 msgctxt "recharge_time"
 msgid "无"
 msgstr "None"
 
-#: Scripts\Vanilla\VanillaStrings.cs:73
+#: Scripts\Vanilla\VanillaStrings.cs:71
 msgctxt "recharge_time"
 msgid "短"
 msgstr "Short"
 
-#: Scripts\Vanilla\VanillaStrings.cs:75
+#: Scripts\Vanilla\VanillaStrings.cs:73
 msgctxt "recharge_time"
 msgid "长"
 msgstr "Long"
 
-#: Scripts\Vanilla\VanillaStrings.cs:77
+#: Scripts\Vanilla\VanillaStrings.cs:75
 msgctxt "recharge_time"
 msgid "很长"
 msgstr "Very Long"
 
-#: Scripts\Vanilla\VanillaStrings.cs:81
+#: Scripts\Vanilla\VanillaStrings.cs:79
 msgctxt "archive"
 msgid "剧情分支"
 msgstr "Plot Branch"
 
-#: Scripts\Vanilla\VanillaStrings.cs:83
+#: Scripts\Vanilla\VanillaStrings.cs:81
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr "Do you have enough money to buy this?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:85
+#: Scripts\Vanilla\VanillaStrings.cs:83
 msgctxt "archive"
 msgid "对话结束"
 msgstr "Replay Ended"
 
-#: Scripts\Vanilla\VanillaStrings.cs:87
+#: Scripts\Vanilla\VanillaStrings.cs:85
 msgctxt "archive"
 msgid "是否重新播放？"
 msgstr "Play again?"
 
-#: Scripts\Vanilla\VanillaStrings.cs:91
+#: Scripts\Vanilla\VanillaStrings.cs:89
 msgid "是"
 msgstr "Yes"
 
-#: Scripts\Vanilla\VanillaStrings.cs:93
+#: Scripts\Vanilla\VanillaStrings.cs:91
 msgid "否"
 msgstr "No"
 
-#: Scripts\Vanilla\VanillaStrings.cs:99
+#: Scripts\Vanilla\VanillaStrings.cs:97
 msgid "返回地图"
 msgstr "Back to map"
 
-#: Scripts\Vanilla\VanillaStrings.cs:101
+#: Scripts\Vanilla\VanillaStrings.cs:99
 msgid "返回主菜单"
 msgstr "Back to main menu"
 
-#: Scripts\Vanilla\VanillaStrings.cs:105
+#: Scripts\Vanilla\VanillaStrings.cs:103
 msgid "警告"
 msgstr "Warning"
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:107
+#: Scripts\Vanilla\VanillaStrings.cs:105
 msgid "提示"
 msgstr "Hint"
 
-#: Scripts\Vanilla\VanillaStrings.cs:109
+#: Scripts\Vanilla\VanillaStrings.cs:107
 msgid "退出"
 msgstr "Quit"
 
-#: Scripts\Vanilla\VanillaStrings.cs:113
-msgid "确认"
-msgstr "Accept"
-
-#: Scripts\Vanilla\VanillaStrings.cs:116
+#: Scripts\Vanilla\VanillaStrings.cs:114
 msgid "能量不足"
 msgstr "Not enough energy"
 
-#: Scripts\Vanilla\VanillaStrings.cs:118
+#: Scripts\Vanilla\VanillaStrings.cs:116
 msgid "重新充能中…"
 msgstr "Recharging…"
 
-#: Scripts\Vanilla\VanillaStrings.cs:120
+#: Scripts\Vanilla\VanillaStrings.cs:118
 msgid "挖掉器械"
 msgstr "Dig a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:122
+#: Scripts\Vanilla\VanillaStrings.cs:120
 msgid "触发器械"
 msgstr "Trigger a contraption"
 
-#: Scripts\Vanilla\VanillaStrings.cs:126
+#: Scripts\Vanilla\VanillaStrings.cs:124
 msgctxt "difficulty"
 msgid "简单"
 msgstr "EASY"
 
-#: Scripts\Vanilla\VanillaStrings.cs:128
+#: Scripts\Vanilla\VanillaStrings.cs:126
 msgctxt "difficulty"
 msgid "普通"
 msgstr "NORMAL"
 
-#: Scripts\Vanilla\VanillaStrings.cs:130
+#: Scripts\Vanilla\VanillaStrings.cs:128
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
 
-#: Scripts\Vanilla\VanillaStrings.cs:132
+#: Scripts\Vanilla\VanillaStrings.cs:130
 msgctxt "difficulty"
 msgid "未知难度"
 msgstr "Unknown"
 
-#: Scripts\Vanilla\VanillaStrings.cs:136
+#: Scripts\Vanilla\VanillaStrings.cs:134
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr "Unknown Level"
 
-#: Scripts\Vanilla\VanillaStrings.cs:138
+#: Scripts\Vanilla\VanillaStrings.cs:136
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
-msgstr "{0} - Day {1}"
+msgid_plural "{0} - 第{1}天"
+msgstr[0] "{0} - Day {1}"
+msgstr[1] "{0} - Day {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:140
+#: Scripts\Vanilla\VanillaStrings.cs:138
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
-msgstr "{0} - Flag {1}"
+msgid_plural "{0} - 第{1}轮"
+msgstr[0] "{0} - Flag {1}"
+msgstr[1] "{0} - Flag {1}"
 
-#: Scripts\Vanilla\VanillaStrings.cs:144
+#: Scripts\Vanilla\VanillaStrings.cs:142
 msgctxt "death_message"
 msgid "你死了！"
 msgstr "You died!"
 
-#: Scripts\Vanilla\VanillaStrings.cs:146
+#: Scripts\Vanilla\VanillaStrings.cs:144
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr "<color=red>COME TO US</color>"
+
+# 死亡信息-我是僵尸
+#: Scripts\Vanilla\VanillaStrings.cs:146
+msgctxt "death_message"
+msgid "你失去了所有能量！"
+msgstr "You have lost all your energy!"
 
 #: Scripts\Vanilla\VanillaStrings.cs:149
 msgctxt "entity.name"
@@ -892,44 +995,49 @@ msgid "？？？"
 msgstr "???"
 
 #: Scripts\Vanilla\VanillaStrings.cs:152
-msgctxt "option.name"
+msgctxt "entity_counter.name"
 msgid "？？？"
 msgstr "???"
 
 #: Scripts\Vanilla\VanillaStrings.cs:155
-msgctxt "entity.tooltip"
+msgctxt "option.name"
 msgid "？？？"
 msgstr "???"
 
 #: Scripts\Vanilla\VanillaStrings.cs:158
-msgctxt "artifact.name"
+msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr "???"
 
 #: Scripts\Vanilla\VanillaStrings.cs:161
-msgctxt "artifact.tooltip"
+msgctxt "artifact.name"
 msgid "？？？"
 msgstr "???"
 
 #: Scripts\Vanilla\VanillaStrings.cs:164
+msgctxt "artifact.tooltip"
+msgid "？？？"
+msgstr "???"
+
+#: Scripts\Vanilla\VanillaStrings.cs:167
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr "(Not encountered yet)"
 
-#: Scripts\Vanilla\VanillaStrings.cs:168
+#: Scripts\Vanilla\VanillaStrings.cs:171
 msgctxt "music.name"
 msgid "无"
 msgstr "None"
 
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:68
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:78
 msgid "版本{0}"
 msgstr "Version {0}"
 
-#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:70
+#: Scripts\MVZ2\Titlescreen\TitlescreenController.cs:80
 msgid "点击以开始！"
 msgstr "Click to start!"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:818
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:844
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -937,28 +1045,30 @@ msgstr ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 
-#: Scripts\MVZ2\Store\StoreController.cs:234
+#: Scripts\MVZ2\Store\StoreController.cs:232
 msgid "购买物品"
 msgstr "Purchase"
 
-#: Scripts\MVZ2\Store\StoreController.cs:236
+#: Scripts\MVZ2\Store\StoreController.cs:234
 msgid "确定以{0:N0}的价格买下这个物品？"
-msgstr "Are you sure you want to purchase this for {0:N0}?"
+msgid_plural "确定以{0:N0}的价格买下这个物品？"
+msgstr[0] "Are you sure you want to purchase this for {0:N0}?"
+msgstr[1] "Are you sure you want to purchase this for {0:N0}?"
+
+#: Scripts\MVZ2\Store\StoreController.cs:236
+msgid "金钱不足"
+msgstr "Not Enough Money"
 
 #: Scripts\MVZ2\Store\StoreController.cs:238
-msgid "金钱不足"
-msgstr "Insufficient Money"
-
-#: Scripts\MVZ2\Store\StoreController.cs:240
 msgid "你没有足够的金钱！"
 msgstr ""
 "You don't have enough money! Come back when you're a little mmmm... richer!"
 
-#: Scripts\MVZ2\Store\StoreController.cs:242
+#: Scripts\MVZ2\Store\StoreController.cs:240
 msgid "{0}/{1}"
 msgstr "{0}/{1}"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:142
+#: Scripts\MVZ2\Scene\GameEntrance.cs:167
 msgid ""
 "游戏加载失败：\n"
 "{0}"
@@ -966,27 +1076,27 @@ msgstr ""
 "Failed to initialize:\n"
 "{0}"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:144
+#: Scripts\MVZ2\Scene\GameEntrance.cs:169
 msgid "文件目录丢失"
 msgstr "Directory not found"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:146
+#: Scripts\MVZ2\Scene\GameEntrance.cs:171
 msgid "文件丢失"
 msgstr "File not found"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:148
+#: Scripts\MVZ2\Scene\GameEntrance.cs:173
 msgid "文件被占用"
 msgstr "A file is occupied by other program"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:150
+#: Scripts\MVZ2\Scene\GameEntrance.cs:175
 msgid "文件读取失败"
 msgstr "Failed to load a file"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:152
+#: Scripts\MVZ2\Scene\GameEntrance.cs:177
 msgid "文件格式错误"
 msgstr "Wrong file format"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:154
+#: Scripts\MVZ2\Scene\GameEntrance.cs:179
 msgid ""
 "部分存档无法读取，将使用存档{0}开始游戏。\n"
 "无法读取的存档：\n"
@@ -996,7 +1106,7 @@ msgstr ""
 "Users that cannot be loaded:\n"
 "{1}"
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:156
+#: Scripts\MVZ2\Scene\GameEntrance.cs:181
 msgid ""
 "所有存档均无法读取，文件可能已损坏。\n"
 "必须新建存档以继续游戏。"
@@ -1004,7 +1114,7 @@ msgstr ""
 "All users cannot be loaded, the files may be corrupted.\n"
 "You have to create a new user to continue."
 
-#: Scripts\MVZ2\Scene\GameEntrance.cs:158
+#: Scripts\MVZ2\Scene\GameEntrance.cs:183
 msgid ""
 "所有存档均无法读取，文件可能已损坏。\n"
 "必须删除一个存档，并新建存档以继续游戏。"
@@ -1012,55 +1122,55 @@ msgstr ""
 "All users cannot be loaded, the files may be corrupted.\n"
 "You have to delete a user and create a new one to continue."
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:178
+#: Scripts\MVZ2\Options\OptionsLogic.cs:211
 msgid "交换触发：{0}"
 msgstr "Swap Trigger: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:180
+#: Scripts\MVZ2\Options\OptionsLogic.cs:213
 msgid "全屏：{0}"
 msgstr "Full Screen: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:182
+#: Scripts\MVZ2\Options\OptionsLogic.cs:215
 msgid "设备震动：{0}"
 msgstr "Vibration: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:184
+#: Scripts\MVZ2\Options\OptionsLogic.cs:217
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:186
+#: Scripts\MVZ2\Options\OptionsLogic.cs:219
 msgid "后台暂停：{0}"
 msgstr "Pause on Focus Lost: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:190
+#: Scripts\MVZ2\Options\OptionsLogic.cs:223
 msgid "音乐音量：{0}"
 msgstr "Music Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:192
+#: Scripts\MVZ2\Options\OptionsLogic.cs:225
 msgid "音效音量：{0}"
 msgstr "Sound Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:194
-msgid "{0}%"
-msgstr "{0}%"
+#: Scripts\MVZ2\Options\OptionsLogic.cs:227
+msgid "加速倍率：{0}"
+msgstr "Fast-forward: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:197
+#: Scripts\MVZ2\Options\OptionsLogic.cs:230
 msgid "血与碎块：{0}"
 msgstr "Blood and Gore: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:200
+#: Scripts\MVZ2\Options\OptionsLogic.cs:233
 msgid "跳过对话：{0}"
-msgstr "Skip talks: {0}"
+msgstr "Skip dialogs: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:202
+#: Scripts\MVZ2\Options\OptionsLogic.cs:235
 msgid "赞助者名称：{0}"
 msgstr "Sponsor Names: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:205
+#: Scripts\MVZ2\Options\OptionsLogic.cs:238
 msgid "粒子数量：{0}"
 msgstr "Particle Count: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:207
+#: Scripts\MVZ2\Options\OptionsLogic.cs:240
 msgid "屏幕震动：{0}"
 msgstr "Screen Shake: {0}"
 
@@ -1072,19 +1182,106 @@ msgstr ""
 "Are you sure to quit?\n"
 "Your progress will be saved."
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:161
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:85
+msgctxt "hotkey.name"
+msgid "？？？"
+msgstr "???"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:87
+msgctxt "hotkey.name"
+msgid "铁镐"
+msgstr "Pickaxe"
+
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:89
+msgctxt "hotkey.name"
+msgid "星之碎片"
+msgstr "Starshard"
+
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:91
+msgctxt "hotkey.name"
+msgid "触发器"
+msgstr "Trigger"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:93
+msgctxt "hotkey.name"
+msgid "快进"
+msgstr "Fast-forward"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:95
+msgctxt "hotkey.name"
+msgid "蓝图1"
+msgstr "Blueprint 1"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:97
+msgctxt "hotkey.name"
+msgid "蓝图2"
+msgstr "Blueprint 2"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:99
+msgctxt "hotkey.name"
+msgid "蓝图3"
+msgstr "Blueprint 3"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:101
+msgctxt "hotkey.name"
+msgid "蓝图4"
+msgstr "Blueprint 4"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:103
+msgctxt "hotkey.name"
+msgid "蓝图5"
+msgstr "Blueprint 5"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:105
+msgctxt "hotkey.name"
+msgid "蓝图6"
+msgstr "Blueprint 6"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:107
+msgctxt "hotkey.name"
+msgid "蓝图7"
+msgstr "Blueprint 7"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:109
+msgctxt "hotkey.name"
+msgid "蓝图8"
+msgstr "Blueprint 8"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:111
+msgctxt "hotkey.name"
+msgid "蓝图9"
+msgstr "Blueprint 9"
+
+# 按键名
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:113
+msgctxt "hotkey.name"
+msgid "蓝图10"
+msgstr "Blueprint 10"
+
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:191
 msgid "来源：{0}"
 msgstr "Source: {0}"
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:163
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:193
 msgid "原曲：{0}"
 msgstr "Origin: {0}"
 
-#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:165
+#: Scripts\MVZ2\MusicRoom\MusicRoomController.cs:195
 msgid "作者：{0}"
-msgstr "Author: {0}"
+msgstr "Composer: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:637
+#: Scripts\MVZ2\Map\MapController.cs:661
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1092,7 +1289,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:639
+#: Scripts\MVZ2\Map\MapController.cs:663
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1100,11 +1297,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:641
+#: Scripts\MVZ2\Map\MapController.cs:665
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:643
+#: Scripts\MVZ2\Map\MapController.cs:667
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -1112,28 +1309,877 @@ msgstr ""
 "Flags\n"
 "{0}/{1}"
 
-#: Scripts\MVZ2\Managers\MainManager.cs:235
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:187
+msgctxt "key.name"
+msgid "未知"
+msgstr "Unknown"
+
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:188
+msgctxt "key.name"
+msgid "无"
+msgstr "None"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:189
+msgctxt "key.name"
+msgid "Backspace"
+msgstr "Backspace"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:190
+msgctxt "key.name"
+msgid "Delete"
+msgstr "Delete"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:191
+msgctxt "key.name"
+msgid "Tab"
+msgstr "Tab"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:192
+msgctxt "key.name"
+msgid "Clear"
+msgstr "Clear"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:193
+msgctxt "key.name"
+msgid "Enter"
+msgstr "Enter"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:194
+msgctxt "key.name"
+msgid "Pause"
+msgstr "Pause"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:195
+msgctxt "key.name"
+msgid "Escape"
+msgstr "Escape"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:196
+msgctxt "key.name"
+msgid "Space"
+msgstr "Space"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:198
+msgctxt "key.name"
+msgid "小键盘 0"
+msgstr "Keypad 0"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:199
+msgctxt "key.name"
+msgid "小键盘 1"
+msgstr "Keypad 1"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:200
+msgctxt "key.name"
+msgid "小键盘 2"
+msgstr "Keypad 2"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:201
+msgctxt "key.name"
+msgid "小键盘 3"
+msgstr "Keypad 3"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:202
+msgctxt "key.name"
+msgid "小键盘 4"
+msgstr "Keypad 4"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:203
+msgctxt "key.name"
+msgid "小键盘 5"
+msgstr "Keypad 5"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:204
+msgctxt "key.name"
+msgid "小键盘 6"
+msgstr "Keypad 6"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:205
+msgctxt "key.name"
+msgid "小键盘 7"
+msgstr "Keypad 7"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:206
+msgctxt "key.name"
+msgid "小键盘 8"
+msgstr "Keypad 8"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:207
+msgctxt "key.name"
+msgid "小键盘 9"
+msgstr "Keypad 9"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:208
+msgctxt "key.name"
+msgid "小键盘 ."
+msgstr "Keypad ."
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:209
+msgctxt "key.name"
+msgid "小键盘 /"
+msgstr "Keypad /"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:210
+msgctxt "key.name"
+msgid "小键盘 *"
+msgstr "Keypad *"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:211
+msgctxt "key.name"
+msgid "小键盘 -"
+msgstr "Keypad -"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:212
+msgctxt "key.name"
+msgid "小键盘 +"
+msgstr "Keypad +"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:213
+msgctxt "key.name"
+msgid "小键盘 Enter"
+msgstr "Keypad Enter"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:214
+msgctxt "key.name"
+msgid "小键盘 ="
+msgstr "Keypad ="
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:216
+msgctxt "key.name"
+msgid "↑"
+msgstr "↑"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:217
+msgctxt "key.name"
+msgid "↓"
+msgstr "↓"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:218
+msgctxt "key.name"
+msgid "→"
+msgstr "→"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:219
+msgctxt "key.name"
+msgid "←"
+msgstr "←"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:221
+msgctxt "key.name"
+msgid "Insert"
+msgstr "Insert"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:222
+msgctxt "key.name"
+msgid "Home"
+msgstr "Home"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:223
+msgctxt "key.name"
+msgid "End"
+msgstr "End"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:224
+msgctxt "key.name"
+msgid "PageUp"
+msgstr "PageUp"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:225
+msgctxt "key.name"
+msgid "PageDown"
+msgstr "PageDown"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:227
+msgctxt "key.name"
+msgid "F1"
+msgstr "F1"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:228
+msgctxt "key.name"
+msgid "F2"
+msgstr "F2"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:229
+msgctxt "key.name"
+msgid "F3"
+msgstr "F3"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:230
+msgctxt "key.name"
+msgid "F4"
+msgstr "F4"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:231
+msgctxt "key.name"
+msgid "F5"
+msgstr "F5"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:232
+msgctxt "key.name"
+msgid "F6"
+msgstr "F6"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:233
+msgctxt "key.name"
+msgid "F7"
+msgstr "F7"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:234
+msgctxt "key.name"
+msgid "F8"
+msgstr "F8"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:235
+msgctxt "key.name"
+msgid "F9"
+msgstr "F9"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:236
+msgctxt "key.name"
+msgid "F10"
+msgstr "F10"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:237
+msgctxt "key.name"
+msgid "F11"
+msgstr "F11"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:238
+msgctxt "key.name"
+msgid "F12"
+msgstr "F12"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:239
+msgctxt "key.name"
+msgid "F13"
+msgstr "F13"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:240
+msgctxt "key.name"
+msgid "F14"
+msgstr "F14"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:241
+msgctxt "key.name"
+msgid "F15"
+msgstr "F15"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:243
+msgctxt "key.name"
+msgid "0"
+msgstr "0"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:244
+msgctxt "key.name"
+msgid "1"
+msgstr "1"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:245
+msgctxt "key.name"
+msgid "2"
+msgstr "2"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:246
+msgctxt "key.name"
+msgid "3"
+msgstr "3"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:247
+msgctxt "key.name"
+msgid "4"
+msgstr "4"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:248
+msgctxt "key.name"
+msgid "5"
+msgstr "5"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:249
+msgctxt "key.name"
+msgid "6"
+msgstr "6"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:250
+msgctxt "key.name"
+msgid "7"
+msgstr "7"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:251
+msgctxt "key.name"
+msgid "8"
+msgstr "8"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:252
+msgctxt "key.name"
+msgid "9"
+msgstr "9"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:254
+msgctxt "key.name"
+msgid "!"
+msgstr "!"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:255
+msgctxt "key.name"
+msgid "\""
+msgstr "\""
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:256
+msgctxt "key.name"
+msgid "#"
+msgstr "#"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:257
+msgctxt "key.name"
+msgid "$"
+msgstr "$"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:258
+msgctxt "key.name"
+msgid "%"
+msgstr "%"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:259
+msgctxt "key.name"
+msgid "&"
+msgstr "&"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:260
+msgctxt "key.name"
+msgid "'"
+msgstr "'"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:261
+msgctxt "key.name"
+msgid "("
+msgstr "("
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:262
+msgctxt "key.name"
+msgid ")"
+msgstr ")"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:263
+msgctxt "key.name"
+msgid "*"
+msgstr "*"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:264
+msgctxt "key.name"
+msgid "+"
+msgstr "+"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:265
+msgctxt "key.name"
+msgid ","
+msgstr ","
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:266
+msgctxt "key.name"
+msgid "-"
+msgstr "-"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:267
+msgctxt "key.name"
+msgid "."
+msgstr "."
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:268
+msgctxt "key.name"
+msgid "/"
+msgstr "/"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:269
+msgctxt "key.name"
+msgid ":"
+msgstr ":"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:270
+msgctxt "key.name"
+msgid ";"
+msgstr ";"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:271
+msgctxt "key.name"
+msgid "<"
+msgstr "<"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:272
+msgctxt "key.name"
+msgid "="
+msgstr "="
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:273
+msgctxt "key.name"
+msgid ">"
+msgstr ">"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:274
+msgctxt "key.name"
+msgid "?"
+msgstr "?"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:275
+msgctxt "key.name"
+msgid "@"
+msgstr "@"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:277
+msgctxt "key.name"
+msgid "["
+msgstr "["
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:278
+msgctxt "key.name"
+msgid "\\"
+msgstr "\\"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:279
+msgctxt "key.name"
+msgid "]"
+msgstr "]"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:280
+msgctxt "key.name"
+msgid "^"
+msgstr "^"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:281
+msgctxt "key.name"
+msgid "_"
+msgstr "_"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:282
+msgctxt "key.name"
+msgid "`"
+msgstr "`"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:284
+msgctxt "key.name"
+msgid "A"
+msgstr "A"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:285
+msgctxt "key.name"
+msgid "B"
+msgstr "B"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:286
+msgctxt "key.name"
+msgid "C"
+msgstr "C"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:287
+msgctxt "key.name"
+msgid "D"
+msgstr "D"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:288
+msgctxt "key.name"
+msgid "E"
+msgstr "E"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:289
+msgctxt "key.name"
+msgid "F"
+msgstr "F"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:290
+msgctxt "key.name"
+msgid "G"
+msgstr "G"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:291
+msgctxt "key.name"
+msgid "H"
+msgstr "H"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:292
+msgctxt "key.name"
+msgid "I"
+msgstr "I"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:293
+msgctxt "key.name"
+msgid "J"
+msgstr "J"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:294
+msgctxt "key.name"
+msgid "K"
+msgstr "K"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:295
+msgctxt "key.name"
+msgid "L"
+msgstr "L"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:296
+msgctxt "key.name"
+msgid "M"
+msgstr "M"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:297
+msgctxt "key.name"
+msgid "N"
+msgstr "N"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:298
+msgctxt "key.name"
+msgid "O"
+msgstr "O"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:299
+msgctxt "key.name"
+msgid "P"
+msgstr "P"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:300
+msgctxt "key.name"
+msgid "Q"
+msgstr "Q"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:301
+msgctxt "key.name"
+msgid "R"
+msgstr "R"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:302
+msgctxt "key.name"
+msgid "S"
+msgstr "S"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:303
+msgctxt "key.name"
+msgid "T"
+msgstr "T"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:304
+msgctxt "key.name"
+msgid "U"
+msgstr "U"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:305
+msgctxt "key.name"
+msgid "V"
+msgstr "V"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:306
+msgctxt "key.name"
+msgid "W"
+msgstr "W"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:307
+msgctxt "key.name"
+msgid "X"
+msgstr "X"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:308
+msgctxt "key.name"
+msgid "Y"
+msgstr "Y"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:309
+msgctxt "key.name"
+msgid "Z"
+msgstr "Z"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:311
+msgctxt "key.name"
+msgid "{"
+msgstr "{"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:312
+msgctxt "key.name"
+msgid "|"
+msgstr "|"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:313
+msgctxt "key.name"
+msgid "}"
+msgstr "}"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:314
+msgctxt "key.name"
+msgid "~"
+msgstr "~"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:316
+msgctxt "key.name"
+msgid "Numlock"
+msgstr "Numlock"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:317
+msgctxt "key.name"
+msgid "CapsLock"
+msgstr "CapsLock"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:318
+msgctxt "key.name"
+msgid "ScrollLock"
+msgstr "ScrollLock"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:319
+msgctxt "key.name"
+msgid "右Shift"
+msgstr "Right Shift"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:320
+msgctxt "key.name"
+msgid "左Shift"
+msgstr "Left Shift"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:321
+msgctxt "key.name"
+msgid "右Ctrl"
+msgstr "Right Ctrl"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:322
+msgctxt "key.name"
+msgid "左Ctrl"
+msgstr "Left Ctrl"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:323
+msgctxt "key.name"
+msgid "右Alt"
+msgstr "Right Alt"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:324
+msgctxt "key.name"
+msgid "左Alt"
+msgstr "Left Alt"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:325
+msgctxt "key.name"
+msgid "左Command"
+msgstr "Left Command"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:326
+msgctxt "key.name"
+msgid "左Windows"
+msgstr "Left Windows"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:327
+msgctxt "key.name"
+msgid "右Command"
+msgstr "Right Command"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:328
+msgctxt "key.name"
+msgid "右Windows"
+msgstr "Right Windows"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:329
+msgctxt "key.name"
+msgid "AltGr"
+msgstr "AltGr"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:330
+msgctxt "key.name"
+msgid "Print"
+msgstr "Print"
+
+# 按键名
+#: Scripts\MVZ2\Managers\InputManager_Keys.cs:331
+msgctxt "key.name"
+msgid "Menu"
+msgstr "Menu"
+
+#: Scripts\MVZ2\Managers\MainManager.cs:267
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:608
+#: Scripts\MVZ2\Managers\MainManager.cs:269
+msgid "{0}%"
+msgstr "{0}%"
+
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:890
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:610
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:892
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:612
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:894
 msgid "没有其他有效的用户可供切换。"
 msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:614
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:896
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
+# 重置所有按键绑定的警告
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:898
+msgid "确认要重置所有按键绑定吗？"
+msgstr "Are you sure to reset all key bindings?"
+
+# 设置按键提醒
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:900
+msgid "请按键"
+msgstr "Press a key"
+
+# 语言包导出失败的警告
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:902
+msgid "导出存档失败。"
+msgstr "Failed to export the user."
+
+# 语言包导入失败的警告
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:904
+msgid "导入存档失败。"
+msgstr "Failed to import the user."
+
+# 语言包导入失败的警告
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:906
+msgid "导入存档失败，文件可能已损坏。"
+msgstr "Failed to import the user. The file may corrupt."
+
+# 语言包导入失败的警告
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:908
+msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
+msgstr ""
+"Failed to import the user. A user with identical name exists, but the user "
+"to be imported cannot be renamed."
+
+# 语言包导出成功的提示，{0}为路径
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:910
+msgid "存档已导出至{0}。"
+msgstr "The user has been successfully exported to {0}."
+
 # 当前语言名称
-#: Scripts\MVZ2\Localization\LanguageManager.cs:164
+#: Scripts\MVZ2\Localization\LanguageManager.cs:245
 msgctxt "language_name"
 msgid "中文"
 msgstr "English (United States)"
@@ -1142,36 +2188,38 @@ msgstr "English (United States)"
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:920
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1101
 msgid "你没有携带满蓝图，确认要继续吗？"
-msgstr "Are you sure to continue while the chosen blueprints are not full?"
+msgstr "Are you sure to continue without filling up the contraption slots?"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:924
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1105
 msgid "上一次选择的蓝图中包含多个相同的器械。"
-msgstr "The blueprint selected last time contained multiple same contraptions."
+msgstr ""
+"The blueprints selected last time contained multiple identical contraptions."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:926
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1107
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
-"The blueprint selected last time contained contraptions that are not "
+"The blueprints selected last time contained contraptions that are not "
 "unlocked yet."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:928
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1109
 msgid "上一次选择的制品中包含多个相同的制品。"
-msgstr "The blueprint selected last time contained multiple same artifacts."
+msgstr ""
+"The artifacts selected last time contained multiple identical artifacts."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:930
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1111
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
-"The blueprint selected last time contained artifacts that are not unlocked "
+"The artifacts selected last time contained artifacts that are not unlocked "
 "yet."
 
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:255
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:246
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:866
+#: Scripts\MVZ2\Level\LevelController_UI.cs:888
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -1179,21 +2227,21 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:868
+#: Scripts\MVZ2\Level\LevelController_UI.cs:890
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:870
+#: Scripts\MVZ2\Level\LevelController_UI.cs:892
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "
 "game state."
 
-#: Scripts\MVZ2\Archive\ArchiveController.cs:249
+#: Scripts\MVZ2\Archive\ArchiveController.cs:248
 msgid "<b>[{0}]</b> {1}"
 msgstr "<b>[{0}]</b> {1}"
 
-#: Scripts\MVZ2\Archive\ArchiveController.cs:251
+#: Scripts\MVZ2\Archive\ArchiveController.cs:250
 msgid ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
@@ -1201,52 +2249,72 @@ msgstr ""
 "<color=blue>{0}</color>\n"
 "<b>[{1}]</b> {2}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:315
+# 未解锁的小游戏关卡名
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:204
+msgid "未解锁"
+msgstr "Locked"
+
+# 无尽模式的小游戏的连胜显示，{0}为最高连胜
+#: Scripts\MVZ2\Arcade\ArcadeController.cs:206
+msgid ""
+"最高连胜：\n"
+"{0}"
+msgstr ""
+"Best Streak:\n"
+"{0}"
+
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:385
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:317
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:387
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:319
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:389
 msgctxt "almanac"
 msgid "<color=blue>白天失效</color>"
 msgstr "<color=blue>Can only be used at night</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:321
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:391
 msgctxt "almanac"
 msgid "<color=blue>只能放在水上</color>"
 msgstr "<color=blue>Must be placed in water</color>"
+
+# 图鉴放大选项，{0}为缩放等级
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:393
+msgctxt "almanac"
+msgid "缩放：{0}"
+msgstr "Scale: {0}"
 
 #: Scripts\MVZ2\Store\StoreManager.cs:114
 msgid "<color=red>售罄</color>"
 msgstr "<color=red>Sold Out</color>"
 
 # 覆盖语言包的警告，{0}为语言包名称
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:318
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:313
 msgid "已经存在同名语言包“{0}”，是否覆盖？"
 msgstr "Language pack \"{0}\" already exists, override it?"
 
 # 删除语言包的警告，{0}为语言包名称
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:320
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:315
 msgid "是否删除语言包“{0}”？"
 msgstr "Are you sure to delete language pack \"{0}\"?"
 
 # 语言包导出失败的警告
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:322
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:317
 msgid "导出语言包失败。"
 msgstr "Failed to export the language pack."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:324
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:319
 msgid "导入语言包失败。"
 msgstr "Failed to import the language pack."
 
 # 语言包导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:326
+#: Scripts\MVZ2\Addons\LanguagePacks\LanguagePacksController.cs:321
 msgid "语言包已导出至{0}。"
 msgstr "The language pack has been successfully exported to {0}."
 
@@ -1304,6 +2372,96 @@ msgctxt "levelname"
 msgid "辉针城无尽"
 msgstr "Castle Endless"
 
+#. Name for stage mvz2:mausoleum_1
+#: Stage meta file
+msgctxt "levelname"
+msgid "梦殿大祀庙"
+msgstr "Mausoleum"
+
+#. Name for stage mvz2:mausoleum_endless
+#: Stage meta file
+msgctxt "levelname"
+msgid "梦殿大祀庙无尽"
+msgstr "Mausoleum Endless"
+
+#. Name for stage mvz2:whack_a_ghost
+#: Stage meta file
+msgctxt "levelname"
+msgid "锤幽灵"
+msgstr "Whack a Ghost"
+
+#. Name for stage mvz2:breakout
+#: Stage meta file
+msgctxt "levelname"
+msgid "打砖块"
+msgstr "Breakout"
+
+#. Name for stage mvz2:big_trouble_and_little_zombie
+#: Stage meta file
+msgctxt "levelname"
+msgid "小僵尸和大麻烦"
+msgstr "Big Trouble AND Little Zombie"
+
+#. Name for stage mvz2:puzzle_i_zombie
+#: Stage meta file
+msgctxt "levelname"
+msgid "我是僵尸"
+msgstr "I, Zombie"
+
+#. Name for stage mvz2:puzzle_i_skeleton
+#: Stage meta file
+msgctxt "levelname"
+msgid "我是骷髅"
+msgstr "I, Skeleton"
+
+#. Name for stage mvz2:puzzle_can_you_pass_it
+#: Stage meta file
+msgctxt "levelname"
+msgid "你能穿过它吗？"
+msgstr "Can you pass it?"
+
+#. Name for stage mvz2:puzzle_absolute_defense
+#: Stage meta file
+msgctxt "levelname"
+msgid "绝对防御"
+msgstr "Absolute Defense"
+
+#. Name for stage mvz2:puzzle_dead_balloon
+#: Stage meta file
+msgctxt "levelname"
+msgid "死亡热气球"
+msgstr "Dead Balloon"
+
+#. Name for stage mvz2:puzzle_unbreakable
+#: Stage meta file
+msgctxt "levelname"
+msgid "牢不可破"
+msgstr "Unbreakable"
+
+#. Name for stage mvz2:puzzle_mineclear
+#: Stage meta file
+msgctxt "levelname"
+msgid "扫雷"
+msgstr "Mineclear"
+
+#. Name for stage mvz2:puzzle_fire_in_the_hole
+#: Stage meta file
+msgctxt "levelname"
+msgid "火在洞里"
+msgstr "Fire in the Hole"
+
+#. Name for stage mvz2:puzzle_all_your_observes_are_belong_to_us
+#: Stage meta file
+msgctxt "levelname"
+msgid "你们的侦测所有是被属于我们"
+msgstr "All ur Observes r belong to us"
+
+#. Name for stage mvz2:puzzle_i_zombie_endless
+#: Stage meta file
+msgctxt "levelname"
+msgid "我是僵尸无尽"
+msgstr "I, Zombie Endless"
+
 #. Name for stat category mvz2:contraption_place
 #: Stats meta file
 msgctxt "stat_category"
@@ -1319,7 +2477,7 @@ msgstr "Destroyed contraptions"
 #. Name for stat category mvz2:contraption_evoke
 #: Stats meta file
 msgctxt "stat_category"
-msgid "使用星之碎片"
+msgid "激发器械"
 msgstr "Evoked contraptions"
 
 #. Name for stat category mvz2:enemy_spawn
@@ -1345,6 +2503,36 @@ msgstr "Killed by enemies"
 msgctxt "stat_category"
 msgid "无尽模式最高轮数"
 msgstr "Max endless flags"
+
+#. Name for stat category mvz2:iz_contraption_destroy
+#: Stats meta file
+msgctxt "stat_category"
+msgid "我是僵尸-摧毁器械"
+msgstr "I, Zombie - Destroyed contraptions"
+
+#. Name for stat category mvz2:iz_enemy_place
+#: Stats meta file
+msgctxt "stat_category"
+msgid "我是僵尸-放置怪物"
+msgstr "I, Zombie - Placed enemies"
+
+#. Name for stat category mvz2:iz_enemy_death
+#: Stats meta file
+msgctxt "stat_category"
+msgid "我是僵尸-怪物死亡"
+msgstr "I, Zombie - Died enemies"
+
+#. Name for stat category mvz2:iz_observer_trigger
+#: Stats meta file
+msgctxt "stat_category"
+msgid "我是僵尸-触发侦测器"
+msgstr "I, Zombie - Triggered Observers"
+
+#. Name for stat category mvz2:iz_game_over
+#: Stats meta file
+msgctxt "stat_category"
+msgid "我是僵尸-游戏结束"
+msgstr "I, Zombie - Game Over"
 
 #. Name for achievement mvz2:ghost_buster
 #: Achievements meta file
@@ -1420,6 +2608,30 @@ msgctxt "achievement"
 msgid "摔死一只骷髅。（射箭的那个！）"
 msgstr "Make a Skeleton (which shoots arrows!) fall to its death."
 
+#. Name for achievement mvz2:reforged
+#: Achievements meta file
+msgctxt "achievement"
+msgid "重铸版"
+msgstr "Reforged"
+
+#. Description for achievement mvz2:reforged
+#: Achievements meta file
+msgctxt "achievement"
+msgid "使用黑曜石修复术修复一个铁砧。"
+msgstr "Fix an Anvil by using Obsidian First Aid."
+
+#. Name for achievement mvz2:overdraw
+#: Achievements meta file
+msgctxt "achievement"
+msgid "往死里抽"
+msgstr "Overdraw"
+
+#. Description for achievement mvz2:overdraw
+#: Achievements meta file
+msgctxt "achievement"
+msgid "使用欲望壶的技能抽到两张欲望壶。"
+msgstr "Evoke a Desire Pot to draw 2 Desire Pot blueprints."
+
 #. Name for music mvz2:mainmenu
 #: Music meta file
 msgctxt "music.name"
@@ -1440,9 +2652,9 @@ msgid ""
 "很经典的音乐，我就不多作评价了。\n"
 "请好好享受这音乐，并怀念2009年的快乐吧。"
 msgstr ""
-"The music for the main menu and the pre-level dialogue.\n"
+"The theme for the main menu and the pre-level dialogue.\n"
 "It’s a classic piece, so I won’t elaborate much on it.\n"
-"Please enjoy the music and take a moment to reminisce about the joy of 2009."
+"Please enjoy the song and take a moment to reminisce about the joy of 2009."
 
 #. Name for music mvz2:choosing
 #: Music meta file
@@ -1457,7 +2669,7 @@ msgid ""
 "选择蓝图时，以及一些界面中的音乐。\n"
 "这关要选什么呢？"
 msgstr ""
-"The music that plays when selecting blueprints and in some interface "
+"The theme that plays when selecting blueprints and in some interface "
 "screens.\n"
 "What should I choose for this level?"
 
@@ -1474,7 +2686,7 @@ msgid ""
 "序章的音乐。\n"
 "一切开始的地方。"
 msgstr ""
-"The music of prologue.\n"
+"The theme of prologue.\n"
 "Where everything starts."
 
 #. Name for music mvz2:halloween
@@ -1498,7 +2710,7 @@ msgid ""
 "由于强绑定英文而无法走向世界。\n"
 "实在是太可惜了。"
 msgstr ""
-"The music for the levels in Halloween.\n"
+"The theme for the levels in Halloween.\n"
 "It originates from another excellent game by PopCap, <i>Bookworm Adventures</"
 "i>. The production quality is superb, but unfortunately, its popularity was "
 "far too low, and its strong reliance on English prevented it from reaching a "
@@ -1522,20 +2734,20 @@ msgid ""
 "而这首音乐则来自于第三本书——欧洲鬼怪故事中。其游戏内的名称即为《莱克死灵之"
 "书》，是Lex的名字和《死灵之书》的组合词。"
 msgstr ""
-"The music for the map of Halloween.\n"
-"So, where was this series of music originally used?\n"
+"The theme for the map of Halloween.\n"
+"So, where was this series of this theme originally used?\n"
 "The protagonist of <i>Bookworm Adventures</i>, Lex, is a bookworm tasked "
 "with managing the books in the Great Library. Lex travels through three "
 "books: Greek Mythology, Egyptian Mythology, and European Monster Stories.\n"
-"This particular music comes from the third book—European Monster Stories. "
-"Its in-game title is <i>Lexonomicon</i>, a portmanteau of Lex's name and "
-"<i>The Necronomicon</i>."
+"This theme comes from the third book—European Monster Stories. Its in-game "
+"title is <i>Lexonomicon</i>, a portmanteau of Lex's name and <i>The "
+"Necronomicon</i>."
 
 #. Name for music mvz2:minigame
 #: Music meta file
 msgctxt "music.name"
 msgid "狂人的愉悦"
-msgstr "Loon Boon"
+msgstr "Loonboon"
 
 #. Description for music mvz2:minigame
 #: Music meta file
@@ -1544,7 +2756,7 @@ msgid ""
 "小游戏的音乐。\n"
 "紧张又刺激的小游戏来了。"
 msgstr ""
-"The music for the mini-games.\n"
+"The theme for the mini-games.\n"
 "Get ready—Here comes the tense and thrilling mini-games!"
 
 #. Name for music mvz2:ultimate_battle
@@ -1560,7 +2772,7 @@ msgid ""
 "万圣夜最终关的音乐。\n"
 "原来是大部分传送带关卡都会播放的音乐，在这里只用于万圣夜。"
 msgstr ""
-"The music for the final level of Halloween.\n"
+"The theme for the final level of Halloween.\n"
 "Originally, this track played in most conveyor belt levels, but here it is "
 "exclusively used for Halloween."
 
@@ -1583,7 +2795,7 @@ msgid ""
 "的创造者弗兰肯斯坦同归于尽。\n"
 "呵呵，你可否想到自己？史蒂夫？"
 msgstr ""
-"This is the music for Frankenstein's Monster.\n"
+"The theme for Frankenstein's Monster.\n"
 "The <i>Lexonomicon</i> features a plethora of European monsters, including, "
 "of course, Frankenstein and his creature.\n"
 "<i>Frankenstein</i> is a renowned science fiction horror novel. In the "
@@ -1618,14 +2830,14 @@ msgid ""
 "事、中国神话，以及科幻故事。\n"
 "而这首音乐则来源于第四本书——童话故事，游戏内也称《破碎的童话》。"
 msgstr ""
-"The music for the levels of Dream World.\n"
+"The theme for the levels of Dream World.\n"
 "Welcome to the Dream World, and welcome to <i>Bookworm Adventures Vol. 2</"
 "i>.\n"
 "After traveling through three books, Lex encounters yet another challenge. "
 "This time, the three books Lex journeys through are Fairy Tales, Chinese "
 "Mythology, and Science Fiction.\n"
-"This particular music comes from the fourth book—Fairy Tales, referred to in-"
-"game as <i>Fractured Fairy Tales</i>."
+"This theme comes from the fourth book—Fairy Tales, referred to in-game as "
+"<i>Fractured Fairy Tales</i>."
 
 #. Name for music mvz2:dream_map
 #: Music meta file
@@ -1643,7 +2855,7 @@ msgid ""
 "如此多的童话角色，Lex都与他们进行了梦幻般的战斗。\n"
 "如同这美丽的梦境世界一样。"
 msgstr ""
-"The music for the map of Dream World.\n"
+"The theme for the map of Dream World.\n"
 "<i>Fractured Fairy Tales</i> features a wealth of classic tales and nursery "
 "rhymes—<i>The Three Little Pigs</i>, <i>Goldilocks and the Three Bears</i>, "
 "and the most iconic of all, <i>Alice’s Adventures in Wonderland</i>.\n"
@@ -1670,8 +2882,8 @@ msgid ""
 "剧情音乐。\n"
 "常用在紧张时刻的音乐。"
 msgstr ""
-"Lore music.\n"
-"Music commonly used in tense moments."
+"Lore theme.\n"
+"Theme commonly used in tense moments."
 
 #. Name for music mvz2:nightmare_map
 #: Music meta file
@@ -1695,9 +2907,9 @@ msgid ""
 "——以撒的童年变成了一场噩梦。\n"
 "来吧，如同这噩梦世界一样，窒息而死吧。"
 msgstr ""
-"The music for the map of Nightmare World.\n"
+"The theme for the map of Nightmare World.\n"
 "It originates from the Flash version of the roguelike game <i>The Binding of "
-"Isaac</i>, serving as its main menu music.\n"
+"Isaac</i>, serving as its main menu theme.\n"
 "This is a richly detailed game with a deeply layered narrative: themes of "
 "domestic violence, parental divorce, and other factors turn the childhood of "
 "Isaac, a five-year-old boy, into a living nightmare.\n"
@@ -1719,9 +2931,9 @@ msgid ""
 "成为他的大世界。\n"
 "只是，那箱子里在逐渐消散的，不止有他的想象，还有他的生命。"
 msgstr ""
-"The music for the levels of Nightmare World.\n"
+"The theme for the levels of Nightmare World.\n"
 "It originates from the Flash version of the roguelike game <i>The Binding of "
-"Isaac</i>, specifically the music for the Caves level.\n"
+"Isaac</i>, specifically the theme for the Caves level.\n"
 "That five-year-old child from back then locked himself inside a chest, "
 "turning the tiny space within into his vast world through the power of his "
 "imagination.\n"
@@ -1750,12 +2962,12 @@ msgid ""
 "个梦魇。和这首曲子一样，充满了悲壮。\n"
 "等着吧，哆来咪，我们绝对会把你救出来的。"
 msgstr ""
-"The music for the final level of Nightmare World.\n"
+"The theme for the final level of Nightmare World.\n"
 "It is the Stage 3 theme from <i>Legacy of Lunatic Kingdom</i>, also serving "
-"as the pre-battle music for Doremy.\n"
+"as the pre-battle theme for Doremy.\n"
 "Doremy, cursed by Nightmare, is on the brink of death. Steve could have "
 "escaped, but for her sake, he is determined to destroy the nightmare at any "
-"cost. Like this piece of music, the moment is filled with tragic heroism.\n"
+"cost. Like this piece of theme, the moment is filled with tragic heroism.\n"
 "Just wait, Doremy. We will absolutely save you."
 
 #. Name for music mvz2:nightmare_boss
@@ -1774,7 +2986,7 @@ msgid ""
 "首音乐，觉得这首音乐更加符合这场战斗的情景，于是便换了。\n"
 "至今还有很多人对我的这个改动不满意。不过既然都改了，就让它去吧。"
 msgstr ""
-"The music for the phase 1 of Nightmare.\n"
+"The theme for the phase 1 of Nightmare.\n"
 "It is the theme of Hecatia, the Extra Stage Boss from <i>Legacy of Lunatic "
 "Kingdom</i>.\n"
 "In earlier versions, I used a track from <i>The Binding of Isaac</i>. Later, "
@@ -1798,10 +3010,10 @@ msgid ""
 "虽然这首音乐已经不再是《以撒的结合》的音乐了，不过其实有个冷知识：\n"
 "梦魇收割者的一部分设计来源于《以撒的结合：忏悔》中的教条。"
 msgstr ""
-"The music for the phase 2 of Nightmare.\n"
+"The theme for the phase 2 of Nightmare.\n"
 "It is the latter half of Hecatia's theme, the Extra Stage Boss from "
 "<i>Legacy of Lunatic Kingdom</i>.\n"
-"Although this music is no longer from <i>The Binding of Isaac</i>, here’s a "
+"Although this theme is no longer from <i>The Binding of Isaac</i>, here’s a "
 "little-known fact:\n"
 "Part of the Nightmare Reaper’s design is inspired by Dogma from <i>The "
 "Binding of Isaac: Repentance</i>."
@@ -1828,8 +3040,8 @@ msgid ""
 "这幻想乡真如戴夫所说，是一片美好的世外桃源。\n"
 "……也是我们这些被现实的压力压垮的人的暂歇之所。"
 msgstr ""
-"The music for Gensokyo and Kourindou.\n"
-"This is the main menu music in <i>Undefined Fantastic Object</i>.\n"
+"The theme for Gensokyo and Kourindou.\n"
+"This is the main menu theme in <i>Undefined Fantastic Object</i>.\n"
 "The Nightmare is defeated, Steve and Dave finally arrived at Gensokyo.\n"
 "Gensokyo, as Dave said, is a beautiful paradise.\n"
 "...It is also a resting place for those of us, who are crushed by the "
@@ -1864,7 +3076,7 @@ msgid ""
 "我想回到过去，找回那些逝去的记忆。\n"
 "可是真的有人能这么做吗？"
 msgstr ""
-"Lore Music.\n"
+"Lore theme.\n"
 "It’s been over a decade now, and those beautiful childhood memories feel "
 "increasingly distant.\n"
 "I want to return to the days when I played Plants vs. Zombies.\n"
@@ -1900,8 +3112,8 @@ msgid ""
 "这辉针城不知为何没有多少人存在，是那些凋灵骷髅干的吗？\n"
 "不过，似乎还有一种东西在这辉针城中消失了。"
 msgstr ""
-"The music for the map of Shining Needle Castle.\n"
-"The original music is the 5th stage music <i>The Shining Needle Castle "
+"The theme for the map of Shining Needle Castle.\n"
+"The original theme is the 5th stage theme <i>The Shining Needle Castle "
 "Sinking to the Sky</i> in <i>Double Dealing Character</i>, thanks 幻梦忧 for "
 "making this remix.\n"
 "We don't know why there aren't many people in this castle. Did those wither "
@@ -1937,12 +3149,12 @@ msgid ""
 "呵呵，这凋灵骷髅还挺狡猾，偷来了猪灵们的唱片，然后制作了这首……“山寨音乐”。\n"
 "也就欺负欺负猪灵们没有能力反抗了。"
 msgstr ""
-"The music for the levels of Shining Needle Castle.\n"
-"The original music is the disc <i>Pigstep</i> in <i>Minecraft</i>.\n"
+"The theme for the levels of Shining Needle Castle.\n"
+"The original theme is the disc <i>Pigstep</i> in <i>Minecraft</i>.\n"
 "Nowadays, the inchlings have disappeared from their home, instead the mobs "
 "from the Nether are everywhere in the castle.\n"
 "Hehe, wither skeletons are quite cunning. They stole piglin's discs, and "
-"made this... \"Counterfeit music\".\n"
+"made this... \"Counterfeit theme\".\n"
 "Just taking advantage of the fact that the piglins can’t fight back anymore."
 
 #. Name for music mvz2:phone_ring
@@ -1965,8 +3177,8 @@ msgid ""
 "原曲是《植物大战僵尸》的结尾曲《有只僵尸在你的草坪上》。\n"
 "你电话响了。"
 msgstr ""
-"Lore Music.\n"
-"The original music is the ending music <i>Zombies on Your Lawn</i> of "
+"Lore theme.\n"
+"The original theme is the ending theme <i>Zombies on Your Lawn</i> of "
 "<i>Plants Vs. Zombies</i>.\n"
 "Your phone calls."
 
@@ -1984,7 +3196,7 @@ msgid ""
 "是《东方辉针城》中第五关Boss——鬼人正邪的音乐。\n"
 "一切都倒过来了！"
 msgstr ""
-"The music for Seija Kijin battle.\n"
+"The theme for Seija Kijin battle.\n"
 "This is the theme for Seija Kijin in <i>Double Dealing Character</i>.\n"
 "Everything is reversed!"
 
@@ -2008,7 +3220,7 @@ msgid ""
 "原曲是《东方辉针城》中第六关关卡，以及Boss——少名针妙丸的音乐。\n"
 "言语如同锋芒，扎向城主的心。"
 msgstr ""
-"Lore music.\n"
+"Lore theme.\n"
 "The melody is from the stage 6 theme <i>The Exaggerated Castle Keep</i>, and "
 "the theme of Sukuna Shinmyoumaru in <i>Double Dealing character</i>.\n"
 "Words pierce like needles, stinging the heart of the lady."
@@ -2028,8 +3240,8 @@ msgid ""
 "“消灭那些夺走我族人生命的敌人，报这不共戴天之仇吧”\n"
 "“这是我唯一剩下的愿望了”"
 msgstr ""
-"The music for the final level of Shining Needle Castle.\n"
-"It is the theme music of Sukuna Shinmyoumaru, the Stage 6 Boss in <i>Double "
+"The theme for the final level of Shining Needle Castle.\n"
+"It is the theme of Sukuna Shinmyoumaru, the Stage 6 Boss in <i>Double "
 "Dealing Character</i>.\n"
 "\"Perish the enemies who have taken the lives of my people, avenge this "
 "irreconcilable hatred.\"\n"
@@ -2052,8 +3264,8 @@ msgid ""
 "容。飞船、机器人、变异、时空穿梭……不过，我已经不能再说了。\n"
 "因为老大哥在看着我。"
 msgstr ""
-"The music for Wither.\n"
-"The music of the Wither.\n"
+"The theme for Wither.\n"
+"The theme of the Wither.\n"
 "As previously mentioned regarding the story of Lex in <I>Bookworm Adventures "
 "Vol. 2</i>, let’s skip the fifth book and focus on the sixth.\n"
 "The sixth book that Lex travels through, which is also the final one, is "
@@ -2061,6 +3273,204 @@ msgstr ""
 "elements—spaceships, robots, mutations, time travel... But I can’t say any "
 "more.\n"
 "Because <I>Big Brother</i> is watching me."
+
+#. Name for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.name"
+msgid "游魂的夜樱"
+msgstr "Night Sakura of the Hollowed"
+
+#. Source for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.source"
+msgid "东方神灵庙"
+msgstr "Ten Desires"
+
+#. Origin for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.origin"
+msgid "死灵的夜樱"
+msgstr "Night Sakura of Dead Spirits"
+
+#. Description for music mvz2:mausoleum_map
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"梦殿大祀庙地图的音乐。\n"
+"原曲是《东方神灵庙》第一关的音乐《死灵的夜樱》。\n"
+"人死，人埋，人有欲望尚存。\n"
+"人遂化为僵尸，如游魂般在这世上游荡，心中只剩下一个巨大的空洞。\n"
+"唯一能证明自己还存在的，便是那无限的，对于进食的渴求。\n"
+"可是，人明明已经死去，这般欲望又有什么意义呢？"
+msgstr ""
+"The theme for the map of Hall of Dreams' Great Mausoleum.\n"
+"The original theme is the 1th stage theme <i>Night Sakura of Dead Spirits</"
+"i> in <i>Ten Desires</i>.\n"
+"Men die. Men are buried. Yet their desires linger.\n"
+"Transformed into zombies, they wander the mortal plane like spectral "
+"drifters,\n"
+"their hollowed chests cradling cavernous voids.\n"
+"\n"
+"The only proof of their lingering existence?\n"
+"A ceaseless hunger for sustenance—\n"
+"though their rotting jaws taste neither blood nor rice.\n"
+"\n"
+"But when the flesh has long decayed,\n"
+"what meaning remains in these earthly hungers?"
+
+#. Name for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.name"
+msgid "欲望缓步"
+msgstr "Desire Stroll"
+
+#. Origin for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.origin"
+msgid "欲望加速"
+msgstr "Desire Drive"
+
+#. Author for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.author"
+msgid "Dr.糕萌酸钾-Studio"
+msgstr "Dr.糕萌酸钾-Studio"
+
+#. Description for music mvz2:mausoleum_level
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"梦殿大祀庙关卡的音乐。\n"
+"原曲是《东方神灵庙》第四关的音乐《欲望加速》，感谢Dr.糕萌酸钾-Studio帮我制作"
+"这个版本。\n"
+"这里虽然充满了欲望，不过似乎也没有什么适合疾驰的地方。\n"
+"那就在这里，慢慢地散个步吧。"
+msgstr ""
+"The theme for the levels of Hall of Dreams' Great Mausoleum.\n"
+"The original theme is the 4th stage theme <i>Desire Drive</i> in <i>Ten "
+"Desires</i>, thanks Dr.糕萌酸钾-Studio for making this remix.\n"
+"Though this place is filled with desires, there seems to be no suitable path "
+"for driving.\n"
+"Let's just take a leisurely stroll here instead."
+
+#. Name for music mvz2:puzzle
+#: Music meta file
+msgctxt "music.name"
+msgid "脑力激战"
+msgstr "Cerebrawl"
+
+#. Description for music mvz2:puzzle
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"解谜模式的音乐。\n"
+"该敲哪个罐子？\n"
+"该放什么僵尸？"
+msgstr ""
+"The theme for puzzle games.\n"
+"Which vase should I break?\n"
+"Which zombie should I place?"
+
+#. Name for music mvz2:mausoleum_final
+#: Music meta file
+msgctxt "music.name"
+msgid "圣德传说 ~ True Administrator"
+msgstr "Shoutoku Legend ~ True Administrator"
+
+#. Description for music mvz2:mausoleum_final
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"梦殿大祀庙最终关的音乐。\n"
+"是《东方神灵庙》中第六关Boss——丰聪耳神子的音乐。\n"
+"作为一名真正的领导者，她指引人民，走向了辉煌的未来。\n"
+"然而，再光明的时代，其最后也难逃衰落的命运。\n"
+"古代王朝因傲慢而衰败的事迹数不胜数，而在如今的现代，这种缩影慢慢投射到了各种"
+"作品的创作中。\n"
+"就如同领导者和他的人民一样，如果我不再听取那些支持我的人的，有相当价值的意"
+"见，甚至不把这些人放在眼里，就算我做的再好，那又有什么用呢？"
+msgstr ""
+"The theme for the final level of Hall of Dreams' Great Mausoleum.\n"
+"It is the theme of Toyosatomimi no Miko, the Stage 6 Boss in <i>Ten Desires</"
+"i>.\n"
+"As a true visionary leader, she guided her people towards a glorious "
+"future.\n"
+"Yet even the brightest era ultimately succumbs to decline.\n"
+"History abounds with countless examples of ancient dynasties crumbling due "
+"to arrogance, and in modern times, this archetype has gradually been "
+"reflected in contemporary artistic creations.\n"
+"Just as with leaders and their people: If I cease to listen to the valuable "
+"perspectives of those who support me, or worse, dismiss them entirely, what "
+"meaning remains in my achievements—no matter how remarkable—without their "
+"voices?"
+
+#. Name for music mvz2:mausoleum_boss
+#: Music meta file
+msgctxt "music.name"
+msgid "进化恶魔"
+msgstr "Evolution Devil"
+
+#. Source for music mvz2:mausoleum_boss
+#: Music meta file
+msgctxt "music.source"
+msgid "洛克人X5/洛克人"
+msgstr "Mega Man X5 / Mega Man"
+
+#. Origin for music mvz2:mausoleum_boss
+#: Music meta file
+msgctxt "music.origin"
+msgid "暗影恶魔/威利博士关卡头目"
+msgstr "Shadow Devil / Dr. Willy Stage Boss"
+
+#. Description for music mvz2:mausoleum_boss
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"巨人的音乐。\n"
+"是《洛克人X5》的头目音乐《Shadow Devil》，以及《洛克人》初代的音乐《Dr. "
+"Willy Stage Boss》。\n"
+"分别作为头目“暗影恶魔”，以及“黄色恶魔”的主题曲。\n"
+"<b>这两名头目也是巨人的主要设计来源。</b>\n"
+"你走进头目的房间，却发现房间内空无一人。\n"
+"令人恐惧，而又怀念的回忆。"
+msgstr ""
+"The theme of The Giant.\n"
+"The 2 versions are \"Shadow Devil\" (from Mega Man X5) and \"Dr. Willy Stage "
+"Boss\" (from Mega Man).\n"
+"These serve as the themes for the bosses \"Shadow Devil\" and \"Yellow "
+"Devil\", respectively.\n"
+"<b>These two bosses are also the primary design inspirations for The Giant.</"
+"b>\n"
+"You enter the boss room, only to find it empty.\n"
+"A terrifying, yet nostalgic memory."
+
+#. Name for music mvz2:mausoleum_boss_2
+#: Music meta file
+msgctxt "music.name"
+msgid "Lamdabamda"
+msgstr "Lamdabamda"
+
+#. Source for music mvz2:mausoleum_boss_2
+#: Music meta file
+msgctxt "music.source"
+msgid "洛克人X5"
+msgstr "Mega Man X5"
+
+#. Description for music mvz2:mausoleum_boss_2
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"巨人第三阶段的音乐。\n"
+"是《洛克人X5》的头目音乐《Lamdabamda》，作为头目“Rangda Bangda”的主题曲。\n"
+"房间里是一副奇怪的壁画，整个房间内充斥着神秘的压迫感。\n"
+"而最后，这压迫感会将你推向深渊。"
+msgstr ""
+"The theme for The Giant’s third phase.\n"
+"It is \"Lamdabamda\" (from Mega Man X5), serving as the theme for the boss "
+"\"Rangda Bangda.\"\n"
+"The room features a strange mural, filled with an eerie, oppressive "
+"atmosphere.\n"
+"In the end, this oppressive force pushes you toward the abyss."
 
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
@@ -2091,6 +3501,12 @@ msgstr "Gensokyo"
 msgctxt "archive.tagname"
 msgid "辉针城"
 msgstr "Castle"
+
+#. Name for archive tag mvz2:mausoleum
+#: Archive meta file
+msgctxt "archive.tagname"
+msgid "梦殿大祀庙"
+msgstr "Mausoleum"
 
 #. Name for archive tag mvz2:tutorial
 #: Archive meta file
@@ -2133,6 +3549,66 @@ msgstr "Map"
 msgctxt "archive.tagname"
 msgid "商店对话"
 msgstr "Store"
+
+#. Message for grid error mvz2:right_of_line
+#: Grid meta file
+msgctxt "advice"
+msgid "必须放置在红线右侧"
+msgstr "Must be placed at the right of the line"
+
+#. Message for grid error mvz2:not_on_statues
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在雕像上放置器械"
+msgstr "You cannot place contraptions on statues"
+
+#. Message for grid error mvz2:not_on_spawners
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在刷怪笼上放置器械"
+msgstr "You cannot place contraptions on spawners"
+
+#. Message for grid error mvz2:need_lilypad
+#: Grid meta file
+msgctxt "advice"
+msgid "请先放睡莲"
+msgstr "Place Lily Pad first"
+
+#. Message for grid error mvz2:not_on_water
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在水上放置该器械"
+msgstr "You cannot place this contraption on water"
+
+#. Message for grid error mvz2:not_on_plane
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在薄面上放置该器械"
+msgstr "You cannot place this contraption on planks"
+
+#. Message for grid error mvz2:not_on_land
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在陆地上放置该器械"
+msgstr "You cannot place this contraption on land"
+
+#. Message for grid error mvz2:only_can_sleep
+#: Grid meta file
+msgctxt "advice"
+msgid "只能放置在可以睡觉的器械上"
+msgstr "Can only be placed on contraptions that can sleep"
+
+#. Message for grid error mvz2:only_can_mill
+#: Grid meta file
+msgctxt "advice"
+msgid "只能放置在刷怪笼或者器械上"
+msgstr "Can only be placed on spawners or contraptions"
+
+#. Message for grid error mvz2:only_upgrade
+#: Grid meta file
+msgctxt "advice"
+msgid "只能放置在目标器械上"
+msgstr "Can only be placed on the specific contraption"
 
 #. Store chat from character mvz2:crazy_villager
 #: Store meta file
@@ -2192,7 +3668,7 @@ msgstr "Could you teach me how to use these machines sometime?"
 #: Store meta file
 msgctxt "store_talk"
 msgid "要读读看这本书吗？很有趣的！"
-msgstr "Try to read this book? It’s really interesting!"
+msgstr "Wanna give this book a try? It’s really interesting!"
 
 #. Store chat from character mvz2:tokiko
 #: Store meta file
@@ -2239,7 +3715,7 @@ msgstr "Why do dispensers have such a cute face?"
 msgctxt "store_talk"
 msgid "额外的蓝图槽！让你能在战斗中多携带一个器械！"
 msgstr ""
-"Extra blueprint slot! Allowing you to carry one more contraption to battle!"
+"Extra blueprint slot! Allows you to carry one more contraption to battle!"
 
 #. Store item description of mvz2:blueprint_slot by character mvz2:tokiko
 #: Store meta file
@@ -2317,6 +3793,23 @@ msgstr "2 Slots"
 msgid "3 槽"
 msgstr "3 Slots"
 
+#. Store item description of mvz2:obsidian_first_aid by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "黑曜石修复术！可以在防御性器械上再放一个同样的器械，以此来完全修复它！"
+msgstr ""
+"Obsidian First Aid! You can place another identical defensive contraption on "
+"the existing one to fully repair it!"
+
+#. Store item description of mvz2:obsidian_first_aid by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid ""
+"修复器械们的神奇技术！可以在防御性器械上再放一个同样的器械，来把它完全修好！"
+msgstr ""
+"A magical technique to repair contraptions! You can place another identical "
+"defensive contraption on the existing one to fully repair it!"
+
 #. Store item description of mvz2:infectenser by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
@@ -2330,7 +3823,7 @@ msgstr ""
 msgctxt "store_talk"
 msgid "传染发射器能升级小型发射器，这样它就能在怪物之间散播互相攻击的种子了！"
 msgstr ""
-"Infectenser is upgraded from a Small Dispenser, it fires parasitic micro-"
+"Infectenser is upgraded from a Small Dispenser. It fires parasitic micro-"
 "bots that can spread to nearby foes!"
 
 #. Store item description of mvz2:force_pad by character mvz2:crazy_villager
@@ -2346,8 +3839,8 @@ msgstr ""
 msgctxt "store_talk"
 msgid "传动力板能升级重力板，能改变很多很多东西的位置，很方便！"
 msgstr ""
-"Force Pad is upgraded from Gravity Pad, it can change the position of many "
-"things, conveniently!"
+"Force Pad is upgraded from Gravity Pad. It can change the position of many "
+"things, very handy!"
 
 #. Store item description of mvz2:golden_dropper by character mvz2:crazy_villager
 #: Store meta file
@@ -2437,7 +3930,7 @@ msgstr ""
 msgctxt "store_talk"
 msgid "一种很黑的东西，它能让器械生产效率翻倍，但是场景会变得很暗！"
 msgstr ""
-"Some dark thing, it makes contraptions produce at twice the speed, but the "
+"Some dark thing that makes contraptions produce at twice the speed, but the "
 "stage will become dark!"
 
 #. Store item description of mvz2:inverted_mirror by character mvz2:crazy_villager
@@ -2470,6 +3963,174 @@ msgid "闪亮亮的星星！每当你使用4次神奇的碎片，会再次生成
 msgstr ""
 "A shiny star! It spawns a magical shard for every 4 magical shards you have "
 "used!"
+
+#. Store item description of mvz2:greedy_vacuum by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "贪婪的吸尘器！可以自动帮你收集能量掉落物和星之碎片！"
+msgstr ""
+"Greedy Vacuum! It can automatically help you collect dropped energy pickups "
+"and starshards!"
+
+#. Store item description of mvz2:greedy_vacuum by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "看起来很饿的吸尘器……可以自动帮你吸取粉尘和神奇的碎片！"
+msgstr ""
+"It looks like a very hungry vacuum... it can automatically suck up dust and "
+"magical shards for you!"
+
+#. Store item description of mvz2:eye_of_the_giant by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "巨人的眼睛！你的器械造成的伤害变为两倍半，但是攻击速度也会减半！"
+msgstr ""
+"Eye of the Giant! Your contraptions' damage is a half more than doubled, but "
+"their attack speed is halved!"
+
+#. Store item description of mvz2:eye_of_the_giant by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "有点吓人的大眼睛……它能让你的器械造成巨额伤害，但是攻击速度会变慢许多！"
+msgstr ""
+"A big scary eye...It can make your contraptions deal massive damage, but "
+"attack much more slowly!"
+
+#. Name for credits category 内容设计
+#: Credits meta file
+msgctxt "credits_category"
+msgid "内容设计"
+msgstr "Content Designer"
+
+#. Name for credit staff 内容设计
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Cuerzor58"
+msgstr "Cuerzor58"
+
+#. Name for credits category 程序
+#: Credits meta file
+msgctxt "credits_category"
+msgid "程序"
+msgstr "Programmer"
+
+#. Name for credits category 编剧
+#: Credits meta file
+msgctxt "credits_category"
+msgid "编剧"
+msgstr "Scriptwriter"
+
+#. Name for credits category 关卡背景
+#: Credits meta file
+msgctxt "credits_category"
+msgid "关卡背景"
+msgstr "Stage Backgrounds"
+
+#. Name for credits category 角色立绘
+#: Credits meta file
+msgctxt "credits_category"
+msgid "角色立绘"
+msgstr "Character Arts"
+
+#. Name for credit staff 角色立绘
+#: Credits meta file
+msgctxt "staff_name"
+msgid "三花花"
+msgstr "三花花"
+
+#. Name for credit staff 角色立绘
+#: Credits meta file
+msgctxt "staff_name"
+msgid "小幽喜欢口乙烯"
+msgstr "小幽喜欢口乙烯"
+
+#. Name for credits category 背景插图
+#: Credits meta file
+msgctxt "credits_category"
+msgid "背景插图"
+msgstr "Background Pictures"
+
+#. Name for credit staff 背景插图
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Minecraft幻想乡地图-TouhouCraft团队"
+msgstr "Minecraft Gensokyo Map-TouhouCraft Team"
+
+#. Name for credits category 音乐
+#: Credits meta file
+msgctxt "credits_category"
+msgid "音乐"
+msgstr "Music"
+
+#. Name for credit staff 音乐
+#: Credits meta file
+msgctxt "staff_name"
+msgid "幻梦忧"
+msgstr "幻梦忧"
+
+#. Name for credit staff 音乐
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Dr.糕萌酸钾-Studio"
+msgstr "Dr.糕萌酸钾-Studio"
+
+#. Name for credits category 本地化（英文）
+#: Credits meta file
+msgctxt "credits_category"
+msgid "本地化（英文）"
+msgstr "Localization (English)"
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Reale"
+msgstr "Reale"
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
+msgid "Charlie Calvin"
+msgstr "Charlie Calvin"
+
+#. Name for credits category 特别感谢
+#: Credits meta file
+msgctxt "credits_category"
+msgid "特别感谢"
+msgstr "Special Thanks"
+
+#. Name for credit staff 特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "A Random Chinese"
+msgstr "A Random Chinese"
+
+#. Name for credit staff 特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "新概念论士"
+msgstr "新概念论士"
+
+#. Name for credit staff 特别感谢
+#: Credits meta file
+msgctxt "staff_name"
+msgid "正邪の老鼠"
+msgstr "正邪の老鼠"
+
+#~ msgctxt "music.name"
+#~ msgid "双生恶魔"
+#~ msgstr "Evolution Devil"
+
+#~ msgctxt "achievement"
+#~ msgid "精心铸造"
+#~ msgstr "Forged"
+
+#~ msgctxt "achievement"
+#~ msgid "激发同一个欲望壶10次。"
+#~ msgstr "Evoke a single Desire Pot for 10 times."
+
+#~ msgctxt "music.name"
+#~ msgid "梦殿大祀庙"
+#~ msgstr "The Hall of Dreams' Great Mausoleum"
 
 #~ msgctxt "store_talk"
 #~ msgid "凋灵骷髅的头颅！蓝图消耗变为80%，但是放下的器械的最大耐久会变为60%！"

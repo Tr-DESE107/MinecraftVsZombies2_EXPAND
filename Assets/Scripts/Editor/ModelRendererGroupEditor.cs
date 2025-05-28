@@ -10,12 +10,14 @@ namespace MVZ2.Editor
         public override void OnInspectorGUI()
         {
             var group = target as ModelRendererGroup;
+            var testModeProperty = serializedObject.FindProperty("testMode");
             var sortingGroupProperty = serializedObject.FindProperty("sortingGroup");
             var subSortingGroupsProperty = serializedObject.FindProperty("subSortingGroups");
             var renderersProperty = serializedObject.FindProperty("renderers");
             var transformsProperty = serializedObject.FindProperty("transforms");
             var  particlesProperty = serializedObject.FindProperty("particles");
             var animatorsProperty = serializedObject.FindProperty("animators");
+            EditorGUILayout.PropertyField(testModeProperty);
             EditorGUILayout.PropertyField(sortingGroupProperty);
             EditorGUILayout.PropertyField(subSortingGroupsProperty);
             EditorGUILayout.PropertyField(renderersProperty);
@@ -27,6 +29,7 @@ namespace MVZ2.Editor
                 group.UpdateElements();
                 EditorUtility.SetDirty(group);
             }
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }

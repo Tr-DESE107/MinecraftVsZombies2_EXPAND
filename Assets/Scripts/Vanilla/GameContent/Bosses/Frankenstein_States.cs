@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
@@ -451,7 +450,11 @@ namespace MVZ2.GameContent.Bosses
                             pos.z = pos.z * 0.8f + target.z * 0.2f;
                             entity.Position = pos;
 
-                            entity.Level.Spawn(VanillaEffectID.frankensteinJumpTrail, entity.GetCenter(), entity);
+                            var spawnParam = entity.GetSpawnParams();
+                            spawnParam.SetProperty(EngineEntityProps.FLIP_X, entity.IsFlipX());
+                            spawnParam.SetProperty(EngineEntityProps.SCALE, entity.GetScale());
+                            spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, entity.GetDisplayScale());
+                            entity.Level.Spawn(VanillaEffectID.frankensteinJumpTrail, entity.GetCenter(), entity, spawnParam);
                             if (entity.GetRelativeY() <= 0)
                             {
                                 Land(stateMachine, entity);
@@ -650,7 +653,7 @@ namespace MVZ2.GameContent.Bosses
                 {
                     if (contraption.IsEntityOf(VanillaContraptionID.tnt))
                     {
-                        contraption.AddBuff<TNTChargedBuff>();
+                        TNT.Charge(contraption);
                         var arc = level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss);
                         ElectricArc.Connect(arc, contraption.Position);
                         ElectricArc.UpdateArc(arc);

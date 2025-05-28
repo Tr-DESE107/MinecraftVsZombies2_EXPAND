@@ -9,7 +9,7 @@ namespace MVZ2.GameContent.Spawns
 {
     public class VanillaSpawnDefinition : SpawnDefinition
     {
-        public VanillaSpawnDefinition(string nsp, string name, int cost, NamespaceID entityID, NamespaceID[] excludedAreaTags) : base(nsp, name, cost, entityID, excludedAreaTags)
+        public VanillaSpawnDefinition(string nsp, string name, int cost, bool noEndless, NamespaceID entityID, NamespaceID[] excludedAreaTags) : base(nsp, name, cost, noEndless, entityID, excludedAreaTags)
         {
         }
 

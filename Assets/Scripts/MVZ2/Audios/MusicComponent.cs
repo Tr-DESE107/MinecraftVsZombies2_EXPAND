@@ -1,4 +1,5 @@
 using MVZ2.Vanilla;
+using MVZ2Logic.Level;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -9,6 +10,16 @@ namespace MVZ2.Level.Components
     {
         public MusicComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
+        }
+        public override void PostDispose()
+        {
+            base.PostDispose();
+            Main.MusicManager.SetLowQuality(false);
+        }
+        public override void Update()
+        {
+            base.Update();
+            Main.MusicManager.SetLowQuality(Level.IsMusicLowQuality());
         }
         public void Play(NamespaceID id)
         {
@@ -26,13 +37,21 @@ namespace MVZ2.Level.Components
         {
             Main.MusicManager.SetPlayingMusic(id);
         }
-        public void SetMusicVolume(float volume)
-        {
-            Main.MusicManager.SetVolume(volume);
-        }
         public float GetMusicVolume()
         {
-            return Main.MusicManager.GetVolume();
+            return Controller.MusicVolume;
+        }
+        public void SetMusicVolume(float volume)
+        {
+            Controller.MusicVolume = volume;
+        }
+        public float GetSubtrackWeight()
+        {
+            return Controller.MusicTrackWeight;
+        }
+        public void SetSubtrackWeight(float weight)
+        {
+            Controller.MusicTrackWeight = weight;
         }
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "music");
     }

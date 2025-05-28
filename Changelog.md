@@ -1,3 +1,95 @@
+# 0.4.0
+
+## Added
+- Added Chapter 4: The Hall of Dreams' Great Mausoleum.
+- Added mass mechanic for monsters, which determines how far the monster will be knocked back.
+- Added credits section, accessed through the options menu from the main menu.
+- Added fast-forward multiplier option.
+- Added current version number text to the main menu.
+- Picking a blueprint while holding a Starshard now immediately evokes the placed contraption.
+- Added dialogs to introduce artifacts in level 1-7.
+- Added the zoom feature to the Misc Almanac.
+- Added import and export features for user save data.
+- Added 7 new Random China events.
+
+## Modified
+
+### Contraptions
+- Gravity Pads can now pull down certain low-altitude floating enemies.
+- TNT now detonates immediately upon being destroyed by fire or explosive damage.
+- TNT struck by lightning damage now transforms into Charged TNT.
+- Increased the energy cost of Tesla Coil from 175 to 250.
+- Reduced the energy cost of Spiked Block from 100 to 75.
+- Updated the texture of the stone shield to make the internal contraption easier to identify.
+
+### Enemies
+- Electric damage now deals 100% damage to ghosts.
+- When melee monsters attack, their forward movement speed will rapidly decrease.
+- Fire projectiles that hit Gargoyle or Hell Chariots no longer deal splash damage.
+
+### Boss
+- Increased damage of Nightmareaper's Death Wheels by 40% in Hard Mode.
+
+### Lighting
+- Adjusted lighting rendering effects.
+- Spark particles from Nightmareaper's Death Wheels now glow.
+- Mind Control Orbs now glow.
+- Dropped pickups are no longer affected by darkness.
+
+### Music
+- Added missing bass instruments to the stage music of Shining Needle Castle.
+- Reduced volume of the Seija boss battle music.
+
+### Levels
+- Added usable blueprints to level 1-6: Glowstone, Obsidian, and Punchton.
+- Adjusted interaction logic of the Breakout Board in level 2-6.
+- Tripled enemy spawn rate on Day 11 of each chapter.
+
+### Almanac
+- Added health entries to three contraptions from the prologue in the Almanac.
+- Added artist credits to character entries in the Almanac.
+
+### Misc
+- Added grid patterns to Shining Needle Castle's stage background.
+- Changed post-blueprint-selection warnings to display enemy types instead of specific enemy names.
+- Rain effects no longer update while the game is paused.
+- Renamed the "Evoke" action in Simplified Chinese.
+- Adjusted in-game text.
+
+## Fixed
+- Fixed an issue where Mine TNT's evocation would incorrectly spawn new Mine TNTs in the row above when launching them from the bottom row.
+- Fixed crash caused by Nightmareaper attacking invincible contraptions.
+- Fixed an issue where Anvils fail to deal damage during the instant they hit the ground.
+- Fixed the frame drops caused by prolonged light source existence.
+- Fixed an issue of being unable to save and exit when there are stunned enemies.
+- Fixed untranslated Blueprint names in level 2-6.
+- Dream Silk can no longer be applied to spinning Vortex Hopper.
+- Fixed an issue where Breakout minigame pearls could be launched off-screen.
+- Fixed an edge case where defeating Seija might trigger her Nimble Fabric effect.
+- Fixed an issue where the javelin throw animation of Totenser still plays while it's sleeping due to Dream Silk.
+- Fixed the issue where players can close the menu dialog and continue the game using hotkeys, bypassing restart/exit confirmation pop-ups.
+
+---
+
+# 0.3.11
+
+## Changes
+* Reduced Ghast's attack interval from 6s to 5s.
+* Increased Ghast fire charge damage from 100 to 150 (300 in Hard Mode).
+* Gravity Pads are now immune to mind control.
+* Seija's magic bomb visual effect now displays half particles (instead of complete disappearance) with particle effects disabled.
+
+## Fixes
+* Fixed the issue where skipping 2-6 dialogue by force-quitting causing subsequent levels to remain in normal world instead of Nightmare World.
+* Fixed the issue where Dullahans have not damage-state sprites.
+* Fixed the issue where the creator credit during startup overlaps with the error dialog when encountering savefile issues.
+* Fixed the issue where game is softlocked when destroying specific contraptions by gargoyle statues in Halloween Endless mode.
+* Fixed the issue where Gravity Pads slow enemies during sleep status.
+* Fixed the issue where sometimes game is softlocked after entering the username.
+* Fixed the issue where mouse cursor states are missing on PC version.
+
+---
+
 # 0.3.10
 
 ## Modified
@@ -98,7 +190,7 @@
 - Fixed Spiked Blocks not attacking bosses.
 - Fixed corrupted stage save files when exiting and saving the game without background music playing.
 - Fixed layer display issues for Gargoyles protected by Stone Shields.
-- Fixed the "Archive" button on the mainmenu being prioritized over the "Addons" button.
+- Fixed the "Archive" button on the main menu being prioritized over the "Addons" button.
 - Fixed rare spawns of certain contraptions in conveyor belt stages due to inaccurate weight randomization.
 
 ---
@@ -286,9 +378,9 @@
 ## Added
 
 - You can intialize your prefered language after entering the game!
-- Game version now will be shown in the mainmenu.
+- Game version now will be shown in the main menu.
 - Changelog in Readme, and the upcoming features! Yeah you are reading one of them!
-- The game version will now be displayed at the right-top of mainmenu.
+- The game version will now be displayed at the right-top of main menu.
 
 ## Modified
 

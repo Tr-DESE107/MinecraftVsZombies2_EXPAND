@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.Buffs.Carts
         public static void SetTarget(Buff entity, int value) => entity.SetProperty(PROP_TARGET, value);
         public static int GetSource(Buff entity) => entity.GetProperty<int>(PROP_SOURCE);
         public static void SetSource(Buff entity, int value) => entity.SetProperty(PROP_SOURCE, value);
-        public static readonly VanillaBuffPropertyMeta PROP_TARGET = new VanillaBuffPropertyMeta("target");
-        public static readonly VanillaBuffPropertyMeta PROP_SOURCE = new VanillaBuffPropertyMeta("source");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TARGET = new VanillaBuffPropertyMeta<int>("target");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_SOURCE = new VanillaBuffPropertyMeta<int>("source");
     }
 }

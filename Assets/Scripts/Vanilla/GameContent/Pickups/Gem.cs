@@ -1,15 +1,14 @@
-using MVZ2.GameContent.Detections;
 using System.Collections.Generic;
+using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Entities;
-using UnityEngine;
-using MVZ2.Vanilla.Properties;
 using Tools;
-using static UnityEngine.EventSystems.EventTrigger;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Pickups
 {
@@ -157,8 +156,8 @@ namespace MVZ2.GameContent.Pickups
         private List<Entity> mergeBuffer = new List<Entity>();
         private GemMergeDetector mergeDetector;
         public const string PROP_REGION = "gem";
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_MERGE_TIMER = new VanillaEntityPropertyMeta("mergeTimer");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_MERGE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("mergeTimer");
         protected virtual bool CanMerge => false;
         protected virtual int MergeCount => 1;
         protected virtual float MergeSize => 80;

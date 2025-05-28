@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Maps;
 using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla;
@@ -15,6 +14,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Modding;
 using MVZ2Logic.Talk;
+using PVZEngine.Callbacks;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -26,8 +26,11 @@ namespace MVZ2.GameContent.Implements
         {
             mod.AddTrigger(VanillaCallbacks.TALK_ACTION, TalkAction);
         }
-        private void TalkAction(ITalkSystem system, string cmd, string[] parameters)
+        private void TalkAction(VanillaCallbacks.TalkActionParams param, CallbackResult result)
         {
+            var system = param.system;
+            var cmd = param.action;
+            var parameters = param.parameters;
             TalkPreset preset = null;
             if (system.IsInArchive())
             {
@@ -80,7 +83,7 @@ namespace MVZ2.GameContent.Implements
                             var grid = level.GetGrid(4, 2);
                             if (grid == null)
                                 break;
-                            if (!grid.CanPlaceOrStackEntity(VanillaContraptionID.dispenser))
+                            if (!grid.CanSpawnEntity(VanillaContraptionID.dispenser))
                                 break;
                             var x = level.GetEntityColumnX(4);
                             var z = level.GetEntityLaneZ(2);
@@ -180,7 +183,7 @@ namespace MVZ2.GameContent.Implements
                     case "goto_dream":
                         Global.Game.Unlock(VanillaUnlockID.enteredDream);
                         Global.Game.SetLastMapID(VanillaMapID.dream);
-                        Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
                         break;
                     case "show_nightmare":
                         map.SetPreset(VanillaMapPresetID.nightmare);
@@ -188,12 +191,19 @@ namespace MVZ2.GameContent.Implements
                         break;
                     case "goto_castle":
                         Global.Game.SetLastMapID(VanillaMapID.castle);
-                        Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
                         break;
                     case "chapter_3_finish":
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo));
+                        break;
+                    case "goto_mausoleum":
+                        Global.Game.SetLastMapID(VanillaMapID.mausoleum);
+                        Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.mausoleum, VanillaAreaID.mausoleum, VanillaStageID.mausoleum1));
+                        break;
+                    case "chapter_4_finish":
                         IEnumerator coroutineFunc()
                         {
-                            yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo);
+                            yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo);
                             var title = Global.Game.GetText(VanillaStrings.UI_GAME_CLEARED);
                             var desc = Global.Game.GetText(VanillaStrings.UI_COMING_SOON);
                             var options = new string[] { Global.Game.GetText(VanillaStrings.CONFIRM) };

@@ -9,47 +9,83 @@ namespace MVZ2.Audios
 {
     public class MusicManager : MonoBehaviour, IMusicManager
     {
+        #region 播放
         public void Play(NamespaceID id)
         {
             var meta = main.ResourceManager.GetMusicMeta(id);
             if (meta == null)
                 return;
-            var clip = main.ResourceManager.GetMusicClip(meta.Path);
-            Play(clip);
+            var mainTrack = main.ResourceManager.GetMusicClip(meta.MainTrack);
+            var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack);
             musicID = id;
+            SetSourceClip(mainTrackSource, mainTrack);
+            SetSourceClip(subTrackSource, subTrack);
+            IsPaused = false;
+
+            PlaySource(mainTrackSource);
+            PlaySource(subTrackSource);
         }
         public void SetPlayingMusic(NamespaceID id)
         {
             var meta = main.ResourceManager.GetMusicMeta(id);
             if (meta == null)
                 return;
-            var clip = main.ResourceManager.GetMusicClip(meta.Path);
-            SetPlayingMusic(clip);
+            var mainTrack = main.ResourceManager.GetMusicClip(meta.MainTrack);
+            var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack);
             musicID = id;
+            SetSourceClip(mainTrackSource, mainTrack);
+            SetSourceClip(subTrackSource, subTrack);
+            IsPaused = false;
+            Time = 0;
         }
+        private void SetSourceClip(AudioSource source, AudioClip clip)
+        {
+            source.clip = clip;
+            source.gameObject.SetActive(clip);
+            UpdateTrackWeight();
+        }
+        private void PlaySource(AudioSource source)
+        {
+            if (!source.isActiveAndEnabled)
+                return;
+            source.Play();
+        }
+        #endregion
+
+        #region 暂停、还原
         public void Pause()
         {
             if (IsPaused)
                 return;
             IsPaused = true;
-            musicSource.Pause();
+            mainTrackSource.Pause();
+            subTrackSource.Pause();
         }
         public void Resume()
         {
             if (!IsPaused)
             {
-                musicSource.Play();
+                mainTrackSource.Play();
+                subTrackSource.Play();
                 return;
             }
             IsPaused = false;
-            musicSource.UnPause();
+            mainTrackSource.UnPause();
+            subTrackSource.UnPause();
         }
+        #endregion
+
+        #region 停止
         public void Stop()
         {
             IsPaused = false;
-            musicSource.Stop();
+            mainTrackSource.Stop();
+            subTrackSource.Stop();
             musicID = null;
         }
+        #endregion
+
+        #region 当前音乐
         public NamespaceID GetCurrentMusicID()
         {
             return musicID;
@@ -58,6 +94,9 @@ namespace MVZ2.Audios
         {
             return musicID == id;
         }
+        #endregion
+
+        #region 渐变
         public void StartFade(float target, float duration)
         {
             volumeFader.StartFade(target, duration);
@@ -66,6 +105,9 @@ namespace MVZ2.Audios
         {
             volumeFader.StopFade();
         }
+        #endregion
+
+        #region 音量
         public void SetVolume(float volume)
         {
             volumeFader.Value = volume;
@@ -78,53 +120,100 @@ namespace MVZ2.Audios
         {
             mixer.SetFloat("MusicVolume", AudioHelper.PercentageToDbA(volume));
         }
+        #endregion
+
+        #region 副轨权重
+        public float GetTrackWeight()
+        {
+            return trackWeight;
+        }
+        public void SetTrackWeight(float weight)
+        {
+            trackWeight = weight;
+            UpdateTrackWeight();
+        }
+        private void UpdateTrackWeight()
+        {
+            float w = subTrackSource.isActiveAndEnabled ? trackWeight : 0;
+            mixer.SetFloat("MainWeight", AudioHelper.PercentageToDbA(1 - w));
+            mixer.SetFloat("SubWeight", AudioHelper.PercentageToDbA(w));
+        }
+        #endregion
+
+        #region 时间
         public void SetNormalizedMusicTime(float time)
         {
-            if (!musicSource || !musicSource.clip)
+            if (!mainTrackSource || !mainTrackSource.clip)
                 return;
-            musicSource.time = time * musicSource.clip.length;
+            Time = time * mainTrackSource.clip.length;
         }
         public float GetNormalizedMusicTime()
         {
-            if (!musicSource || !musicSource.clip)
+            if (!mainTrackSource || !mainTrackSource.clip)
                 return 0;
-            return musicSource.time / musicSource.clip.length;
+            return Time / mainTrackSource.clip.length;
+        }
+        #endregion
+
+        public void SetLowQuality(bool value)
+        {
+            if (lowQuality == value)
+                return;
+            lowQuality = value;
+            if (value)
+            {
+                lowQualitySnapshot.TransitionTo(0.1f);
+            }
+            else
+            {
+                defaultSnapshot.TransitionTo(0.1f);
+            }
         }
         private void Awake()
         {
-            volumeFader.OnValueChanged += value => musicSource.volume = value;
-            volumeFader.SetValueWithoutNotify(musicSource.volume);
+            volumeFader.OnValueChanged += value =>
+            {
+                mixer.SetFloat("FadeVolume", AudioHelper.PercentageToDbA(value));
+            };
+            volumeFader.SetValueWithoutNotify(1);
+            SetTrackWeight(0);
         }
-        private void Play(AudioClip clip)
+        private void Update()
         {
-            if (!clip)
-                return;
-            musicSource.clip = clip;
-            IsPaused = false;
-            musicSource.Play();
-        }
-        private void SetPlayingMusic(AudioClip clip)
-        {
-            if (!clip)
-                return;
-            musicSource.clip = clip;
-            IsPaused = false;
-            musicSource.time = 0;
+            if (subTrackSource.isActiveAndEnabled && Mathf.Abs(subTrackSource.timeSamples - mainTrackSource.timeSamples) >= 1000)
+            {
+                subTrackSource.timeSamples = mainTrackSource.timeSamples;
+            }
         }
         public MainManager Main => main;
         public float Time
         {
-            get => musicSource.time;
-            set => musicSource.time = value;
+            get => mainTrackSource.time;
+            set
+            {
+                if (!mainTrackSource.clip)
+                    return;
+                var v = Mathf.Min(mainTrackSource.clip.length - 0.001f, value);
+                mainTrackSource.time = v;
+                subTrackSource.time = v;
+            }
         }
         public bool IsPaused { get; private set; }
         private NamespaceID musicID;
+        private float trackWeight;
+        private bool lowQuality;
         [SerializeField]
         private MainManager main;
         [SerializeField]
         private AudioMixer mixer;
         [SerializeField]
-        private AudioSource musicSource;
+        private AudioSource mainTrackSource;
+        [SerializeField]
+        private AudioSource subTrackSource;
+        [SerializeField]
+        private AudioMixerSnapshot defaultSnapshot;
+        [SerializeField]
+        private AudioMixerSnapshot lowQualitySnapshot;
         [SerializeField]
         private FloatFader volumeFader;
     }

@@ -13,6 +13,7 @@ namespace MVZ2.TalkData
         public static bool TryParse(string str, out TalkScript script)
         {
             script = null;
+            str = str.Trim(' ', ';');
             var strings = str.Split(' ');
             if (strings.Length <= 0)
                 return false;
@@ -49,7 +50,7 @@ namespace MVZ2.TalkData
         {
             List<TalkScript> scripts = new List<TalkScript>();
             var childNodes = node.ChildNodes;
-            for (int i = 0; i < childNodes.Count;i++)
+            for (int i = 0; i < childNodes.Count; i++)
             {
                 var child = childNodes[i];
                 if (child.Name == "script")

@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Enemies
             }
             else
             {
-                if (info.Effects.HasEffect(VanillaDamageEffects.DROWN))
+                if (info.Effects.HasEffect(VanillaDamageEffects.DROWN) && !entity.Level.IsIZombie())
                 {
                     Global.Game.Unlock(VanillaUnlockID.rickrollDrown);
                 }

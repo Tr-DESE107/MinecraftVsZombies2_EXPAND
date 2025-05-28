@@ -1,5 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Difficulties;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -20,15 +20,12 @@ namespace MVZ2.GameContent.Stages
             base.Start(level);
             SetRestoneRNG(level, level.CreateRNG());
             SetRedstoneChance(level, MIN_CHANCE);
+            level.SetRedstoneCarrierChanceIncreament(CHANCE_INCREAMENT);
         }
         public override void PostWave(LevelEngine level, int wave)
         {
             base.PostWave(level, wave);
-            var increament = CHANCE_INCREAMENT;
-            if (level.Difficulty == VanillaDifficulties.easy)
-            {
-                increament *= 2;
-            }
+            var increament = level.GetRedstoneCarrierChanceIncreament();
             AddRedstoneChance(level, increament);
         }
         public override void PostEnemySpawned(Entity entity)
@@ -63,23 +60,23 @@ namespace MVZ2.GameContent.Stages
         {
             level.SetProperty(PROP_REDSTONE_RNG, value);
         }
-        public static int GetRedstoneChance(LevelEngine level)
+        public static float GetRedstoneChance(LevelEngine level)
         {
-            return level.GetProperty<int>(PROP_REDSTONE_CHANCE);
+            return level.GetProperty<float>(PROP_REDSTONE_CHANCE);
         }
-        public static void SetRedstoneChance(LevelEngine level, int value)
+        public static void SetRedstoneChance(LevelEngine level, float value)
         {
             level.SetProperty(PROP_REDSTONE_CHANCE, value);
         }
-        public static void AddRedstoneChance(LevelEngine level, int value)
+        public static void AddRedstoneChance(LevelEngine level, float value)
         {
             SetRedstoneChance(level, GetRedstoneChance(level) + value);
         }
         private const string PROP_REGION = "redstone_drop_stage";
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_REDSTONE_RNG = new VanillaLevelPropertyMeta("RedstoneRNG");
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_REDSTONE_CHANCE = new VanillaLevelPropertyMeta("RedstoneChance");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<RandomGenerator> PROP_REDSTONE_RNG = new VanillaLevelPropertyMeta<RandomGenerator>("RedstoneRNG");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<float> PROP_REDSTONE_CHANCE = new VanillaLevelPropertyMeta<float>("RedstoneChance");
         public const int MIN_CHANCE = -15;
         public const int CHANCE_INCREAMENT = 10;
         public const int CHANCE_REDUCTION = -125;

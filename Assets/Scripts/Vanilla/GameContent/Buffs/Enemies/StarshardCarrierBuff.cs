@@ -2,6 +2,7 @@
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -38,8 +39,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
             buff.SetProperty(PROP_COLOR_OFFSET, new Color(0, 1, 0, alpha));
             buff.SetProperty(PROP_TIME, time);
         }
-        private void PostEnemyDropRewardsCallback(Entity enemy)
+        private void PostEnemyDropRewardsCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var enemy = param.entity;
             var buffs = enemy.GetBuffs<StarshardCarrierBuff>();
             foreach (var buff in buffs)
             {
@@ -48,7 +50,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             }
         }
         public const int MAX_TIME = 60;
-        public static readonly VanillaBuffPropertyMeta PROP_TIME = new VanillaBuffPropertyMeta("Time");
-        public static readonly VanillaBuffPropertyMeta PROP_COLOR_OFFSET = new VanillaBuffPropertyMeta("ColorOffset");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR_OFFSET = new VanillaBuffPropertyMeta<Color>("ColorOffset");
     }
 }

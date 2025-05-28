@@ -1,7 +1,4 @@
-﻿using System;
-using PVZEngine;
-using PVZEngine.Definitions;
-using PVZEngine.Entities;
+﻿using PVZEngine.Definitions;
 
 namespace PVZEngine.Level
 {
@@ -56,6 +53,12 @@ namespace PVZEngine.Level
     public class ArmorDefinitionAttribute : DefinitionAttribute
     {
         public ArmorDefinitionAttribute(string name) : base(name, EngineDefinitionTypes.ARMOR)
+        {
+        }
+    }
+    public class ArmorBehaviourDefinitionAttribute : DefinitionAttribute
+    {
+        public ArmorBehaviourDefinitionAttribute(string name) : base(name, EngineDefinitionTypes.ARMOR_BEHAVIOUR)
         {
         }
     }

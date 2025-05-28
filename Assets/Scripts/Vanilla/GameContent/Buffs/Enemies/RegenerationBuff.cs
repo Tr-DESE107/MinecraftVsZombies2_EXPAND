@@ -48,7 +48,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
 
         // PropertyKey注册
-        public static readonly VanillaBuffPropertyMeta REGEN_HEAL_AMOUNT = new VanillaBuffPropertyMeta("RegenHealAmount"); // 每次回血量
-        public static readonly VanillaBuffPropertyMeta REGEN_TIMEOUT = new VanillaBuffPropertyMeta("RegenTimeout");       // 持续时间
+        public static readonly VanillaBuffPropertyMeta<float> REGEN_HEAL_AMOUNT = new VanillaBuffPropertyMeta<float>("RegenHealAmount"); // 每次回血量
+        public static readonly VanillaBuffPropertyMeta<int> REGEN_TIMEOUT = new VanillaBuffPropertyMeta<int>("RegenTimeout");       // 持续时间
     }
 }

@@ -1,11 +1,6 @@
-using System.Collections.Generic;
-using MVZ2.GameContent.Detections;
-using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace MVZ2.GameContent.Pickups
 {
@@ -14,7 +9,6 @@ namespace MVZ2.GameContent.Pickups
     {
         public Emerald(string nsp, string name) : base(nsp, name)
         {
-            SetProperty(VanillaEntityProps.SHADOW_SCALE, Vector3.one * 0.5f);
         }
         protected override bool CanMerge => true;
         protected override int MergeCount => 5;

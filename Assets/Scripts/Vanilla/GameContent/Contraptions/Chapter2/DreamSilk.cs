@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using MVZ2.GameContent.Buffs.Contraptions;
+﻿using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
-using MVZ2Logic;
+using MVZ2.Vanilla.Grids;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -24,7 +23,9 @@ namespace MVZ2.GameContent.Contraptions
             var grid = silk.GetGrid();
             if (grid != null)
             {
-                foreach (var layer in grid.GetLayers().OrderByDescending(l => Global.Game.GetGridLayerPriority(l)))
+                var layers = grid.GetLayers();
+                var orderedLayers = VanillaGridLayers.dreamSilkLayers;
+                foreach (var layer in orderedLayers)
                 {
                     var entity = grid.GetLayerEntity(layer);
                     if (!CanSleep(entity))
@@ -48,9 +49,9 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static bool CanSleep(Entity entity)
         {
-            if (entity.Type != EntityTypes.PLANT)
-                return false;
             if (!entity.ExistsAndAlive())
+                return false;
+            if (entity.Type != EntityTypes.PLANT)
                 return false;
             if (entity.IsAIFrozen())
                 return false;

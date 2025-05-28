@@ -18,6 +18,16 @@
                 <condition required="mvz2:level.castle_6" requiredNot="mvz2:kourindou_visited_castle"/>
             </conditions>
         </talk>
+        <talk id="mvz2:kourindou_visit_mausoleum_1">
+            <conditions>
+                <condition required="mvz2:level.castle_11" requiredNot="mvz2:kourindou_visited_mausoleum_1"/>
+            </conditions>
+        </talk>
+        <talk id="mvz2:kourindou_visit_mausoleum_2">
+            <conditions>
+                <condition required="mvz2:level.mausoleum_5" requiredNot="mvz2:kourindou_visited_mausoleum_2"/>
+            </conditions>
+        </talk>
     </talks>
     <chats>
         <group character="mvz2:crazy_villager">
@@ -94,7 +104,15 @@
                 </stage>
             </stages>
         </product>
-        <product />
+        <product id="obsidian_first_aid" sprite="mvz2:products/obsidian_first_aid" required="mvz2:level.mausoleum_5">
+            <talks>
+                <talk character="mvz2:crazy_villager">黑曜石修复术！可以在防御性器械上再放一个同样的器械，以此来完全修复它！</talk>
+                <talk character="mvz2:tokiko">修复器械们的神奇技术！可以在防御性器械上再放一个同样的器械，来把它完全修好！</talk>
+            </talks>
+            <stages>
+                <stage price="2000" unlocks="mvz2:obsidian_first_aid"/>
+            </stages>
+        </product>
 
         <product id="infectenser" blueprintId="mvz2:infectenser">
             <talks>
@@ -192,5 +210,23 @@
                 <stage price="15000" unlocks="mvz2:artifact.wither_skeleton_skull"/>
             </stages>
         </product> -->
+        <product id="greedy_vacuum" sprite="mvz2:artifacts/greedy_vacuum" required="mvz2:level.mausoleum_5">
+            <talks>
+                <talk character="mvz2:crazy_villager">贪婪的吸尘器！可以自动帮你收集能量掉落物和星之碎片！</talk>
+                <talk character="mvz2:tokiko">看起来很饿的吸尘器……可以自动帮你吸取粉尘和神奇的碎片！</talk>
+            </talks>
+            <stages>
+                <stage price="5550" unlocks="mvz2:artifact.greedy_vacuum"/>
+            </stages>
+        </product>
+        <product id="eye_of_the_giant" sprite="mvz2:artifacts/eye_of_the_giant" required="mvz2:level.mausoleum_11">
+            <talks>
+                <talk character="mvz2:crazy_villager">巨人的眼睛！你的器械造成的伤害变为两倍半，但是攻击速度也会减半！</talk>
+                <talk character="mvz2:tokiko">有点吓人的大眼睛……它能让你的器械造成巨额伤害，但是攻击速度会变慢许多！</talk>
+            </talks>
+            <stages>
+                <stage price="15000" unlocks="mvz2:artifact.eye_of_the_giant"/>
+            </stages>
+        </product>
     </products>
 </store>

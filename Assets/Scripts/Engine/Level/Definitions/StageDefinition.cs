@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -13,6 +12,7 @@ namespace PVZEngine.Definitions
         public StageDefinition(string nsp, string name) : base(nsp, name)
         {
             SetProperty(EngineStageProps.WAVES_PER_FLAG, 10);
+            SetProperty(EngineLevelProps.RECHARGE_SPEED, 1f);
         }
         public void Setup(LevelEngine level)
         {

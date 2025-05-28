@@ -1,10 +1,8 @@
 ﻿using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -26,8 +24,10 @@ namespace MVZ2.GameContent.Stages
             ClassicStart(level);
             //ConveyorStart(level);
             level.LevelProgressVisible = true;
-            level.SetProgressBarToBoss(VanillaProgressBarID.wither);
+            level.SetProgressBarToBoss(VanillaProgressBarID.theGiant);
             level.SetTriggerActive(true);
+            var cartRef = level.GetCartReference();
+            level.SpawnCarts(cartRef, VanillaLevelExt.CART_START_X, 20);
         }
         public override void OnUpdate(LevelEngine level)
         {
@@ -36,31 +36,31 @@ namespace MVZ2.GameContent.Stages
             level.SetStarshardCount(5);
             level.CheckGameOver();
         }
-        private void ClassicStart(LevelEngine level) 
+        private void ClassicStart(LevelEngine level)
         {
             level.SetEnergy(9990);
             level.SetSeedSlotCount(10);
-            level.ReplaceSeedPacks(new NamespaceID[]
+            level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.thunderDrum,
-                VanillaContraptionID.goldenDropper,
-                VanillaContraptionID.gravityPad,
-                VanillaContraptionID.stoneShield,
-                VanillaContraptionID.forcePad,
-                VanillaContraptionID.glowstone,
                 VanillaContraptionID.soulFurnace,
-                VanillaContraptionID.dreamSilk,
-                VanillaBossID.seija,
-                VanillaEnemyID.mutantZombie,
+                VanillaContraptionID.dispenser,
+                VanillaContraptionID.thunderDrum,
+                VanillaContraptionID.hellfire,
+                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.necrotombstone,
+                VanillaEnemyID.caveSpider,
+                VanillaEnemyID.zombie,
+                VanillaEnemyID.shikaisenStaff,
+                VanillaEnemyID.ghost,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {
                 VanillaArtifactID.netherStar,
-                VanillaArtifactID.dreamKey,
+                VanillaArtifactID.greedyVacuum,
                 VanillaArtifactID.theCreaturesHeart,
             });
-            level.RechargeSpeed = 9999999;
+            level.SetRechargeSpeed(9999999);
         }
         private void ConveyorStart(LevelEngine level)
         {

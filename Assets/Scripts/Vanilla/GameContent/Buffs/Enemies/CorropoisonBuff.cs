@@ -48,7 +48,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
 
         // PropertyKey注册
-        public static readonly VanillaBuffPropertyMeta Corropoison_HEAL_AMOUNT = new VanillaBuffPropertyMeta("CorropoisonHealAmount"); // 每次回血量
-        public static readonly VanillaBuffPropertyMeta Corropoison_TIMEOUT = new VanillaBuffPropertyMeta("CorropoisonTimeout");       // 持续时间
+        public static readonly VanillaBuffPropertyMeta<float> Corropoison_HEAL_AMOUNT = new VanillaBuffPropertyMeta<float>("CorropoisonHealAmount"); // 每次回血量
+        public static readonly VanillaBuffPropertyMeta<int> Corropoison_TIMEOUT = new VanillaBuffPropertyMeta<int>("CorropoisonTimeout");       // 持续时间
     }
 }

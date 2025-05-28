@@ -75,3 +75,9 @@ InitTestScene*.unity
 .vscode
 /ProjectSettings/ProjectVersion.txt
 /[Rr]eleases/
+/TestBuild
+
+# Unity Addressables 生成的状态文件
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*
+!/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.asset*
+/ProfileAnalyzer

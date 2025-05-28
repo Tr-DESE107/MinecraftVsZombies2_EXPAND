@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Effects;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MVZ2.Models
 {

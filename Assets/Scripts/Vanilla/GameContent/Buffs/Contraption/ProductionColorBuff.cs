@@ -3,6 +3,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
@@ -13,6 +14,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR));
         }
-        public static readonly VanillaBuffPropertyMeta PROP_COLOR = new VanillaBuffPropertyMeta("color");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR = new VanillaBuffPropertyMeta<Color>("color");
     }
 }

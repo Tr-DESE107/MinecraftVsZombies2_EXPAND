@@ -31,6 +31,8 @@ namespace MVZ2.Options
 
             dialog.SetPage(Page.Main);
             dialog.SetButtonActive(ButtonType.BloodAndGore, false);
+            dialog.SetButtonActive(ButtonType.Credits, false);
+            dialog.SetButtonActive(ButtonType.Keybinding, false);
             dialog.SetDropdownActive(DropdownType.Language, false);
             dialog.SetDropdownActive(DropdownType.Resolution, !Global.IsMobile());
         }

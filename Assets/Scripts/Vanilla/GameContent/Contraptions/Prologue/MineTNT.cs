@@ -5,12 +5,14 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -31,11 +33,16 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
 
+            entity.CollisionMaskHostile |= EntityCollisionHelper.MASK_ENEMY;
+
             var riseTimer = new FrameTimer(450);
             SetRiseTimer(entity, riseTimer);
+            if (entity.Level.IsIZombie())
+            {
+                riseTimer.Frame = 0;
+            }
             entity.SetAnimationBool("Ready", riseTimer.Frame < 30);
 
-            entity.CollisionMaskHostile |= EntityCollisionHelper.MASK_ENEMY;
         }
 
         protected override void UpdateAI(Entity entity)
@@ -58,7 +65,7 @@ namespace MVZ2.GameContent.Contraptions
                 for (int y = 0; y < entity.Level.GetMaxLaneCount(); y++)
                 {
                     var grid = entity.Level.GetGrid(x, y);
-                    if (grid.CanPlaceOrStackEntity(VanillaContraptionID.mineTNT))
+                    if (grid.CanSpawnEntity(VanillaContraptionID.mineTNT))
                     {
                         grids.Add(grid);
                     }
@@ -116,7 +123,7 @@ namespace MVZ2.GameContent.Contraptions
             if (!self.IsHostile(other))
                 return;
             var otherCollider = collision.OtherCollider;
-            if (!otherCollider.IsMain())
+            if (!otherCollider.IsForMain())
                 return;
             var riseTimer = GetRiseTimer(self);
             if (riseTimer == null || !riseTimer.Expired)
@@ -132,13 +139,12 @@ namespace MVZ2.GameContent.Contraptions
 
             // 获取爆炸范围并执行爆炸
             float range = self.GetRange();
-            var damageOutputs = self.Level.Explode(
+            var damageOutputs = self.Explode(
                 self.Position,
                 range,
                 self.GetFaction(),
                 self.GetDamage(),
-                damageEffects,
-                self
+                damageEffects
             );
 
             // 移植TNT的击飞逻辑
@@ -162,6 +168,7 @@ namespace MVZ2.GameContent.Contraptions
             self.Level.Spawn(VanillaEffectID.mineDebris, self.Position, self);
             self.Remove();
             self.Level.ShakeScreen(10, 0, 15);
+            self.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(self), self.GetDefinitionID());
         }
 
         private static Entity FireSeed(Entity contraption, LawnGrid grid)
@@ -180,6 +187,6 @@ namespace MVZ2.GameContent.Contraptions
         }
 
         private static readonly NamespaceID ID = VanillaContraptionID.mineTNT;
-        private static readonly VanillaEntityPropertyMeta PROP_RISE_TIMER = new VanillaEntityPropertyMeta("RiseTimer");
+        private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_RISE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("RiseTimer");
     }
 }

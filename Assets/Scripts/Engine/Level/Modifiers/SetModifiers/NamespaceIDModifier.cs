@@ -2,11 +2,11 @@
 {
     public class NamespaceIDModifier : PropertyModifier<NamespaceID>
     {
-        public NamespaceIDModifier(PropertyKey propertyName, NamespaceID valueConst) : base(propertyName, valueConst)
+        public NamespaceIDModifier(PropertyKey<NamespaceID> propertyName, NamespaceID valueConst, int priority = 0) : base(propertyName, valueConst, priority)
         {
         }
 
-        public NamespaceIDModifier(PropertyKey propertyName, PropertyKey buffPropertyName) : base(propertyName, buffPropertyName)
+        public NamespaceIDModifier(PropertyKey<NamespaceID> propertyName, PropertyKey<NamespaceID> buffPropertyName, int priority = 0) : base(propertyName, buffPropertyName, priority)
         {
         }
         public override ModifierCalculator GetCalculator()

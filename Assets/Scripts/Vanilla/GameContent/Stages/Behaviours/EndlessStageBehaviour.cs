@@ -4,7 +4,6 @@ using System.Linq;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -48,8 +47,9 @@ namespace MVZ2.GameContent.Stages
                 roundTimer.ResetTime(1800);
             }
         }
-        private void PostWaveFinishedCallback(LevelEngine level, int wave)
+        private void PostWaveFinishedCallback(LevelCallbacks.PostWaveParams param, CallbackResult result)
         {
+            var level = param.level;
             if (!level.IsEndless())
                 return;
             if (Global.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
@@ -85,7 +85,6 @@ namespace MVZ2.GameContent.Stages
             {
                 level.StopLevel();
                 level.SetEnemyPool(GenerateEnemyPool(level, level.CurrentFlag));
-                level.ClearSeedPacks();
                 level.CurrentWave = 0;
                 level.HideAdvice();
                 level.BeginLevel();
@@ -137,6 +136,8 @@ namespace MVZ2.GameContent.Stages
                         var spawnDef = game.GetSpawnDefinition(spawnID);
                         if (spawnDef == null || spawnDef.SpawnLevel <= 0)
                             return false;
+                        if (spawnDef.NoEndless)
+                            return false;
                         if (entries.Any(id => id == spawnID))
                             return false;
                         var excludedAreaTags = spawnDef.ExcludedAreaTags;
@@ -162,7 +163,7 @@ namespace MVZ2.GameContent.Stages
             return roundTimer;
         }
         private const string PROP_REGION = "endless_stage";
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta PROP_ROUND_TIMER = new VanillaLevelPropertyMeta("RoundTimer");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<FrameTimer> PROP_ROUND_TIMER = new VanillaLevelPropertyMeta<FrameTimer>("RoundTimer");
     }
 }

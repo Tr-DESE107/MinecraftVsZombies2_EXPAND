@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using MVZ2.GameContent.Bosses;
+﻿using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Contraptions;
@@ -13,6 +12,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -88,7 +88,7 @@ namespace MVZ2.GameContent.Stages
             var behaviour = level.GetStageBehaviour<WaveStageBehaviour>();
             if (behaviour != null)
             {
-                var timer = behaviour.GetWaveTimer(level);
+                var timer = WaveStageBehaviour.GetWaveTimer(level);
                 timer.ResetTime(200);
             }
         }
@@ -101,8 +101,9 @@ namespace MVZ2.GameContent.Stages
             entity.AddBuff<SeijaMesmerizerBuff>();
             return entity;
         }
-        private void PostGravityPadEvokeCallback(Entity contraption)
+        private void PostGravityPadEvokeCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var contraption = param.entity;
             var level = contraption.Level;
             if (!level.HasBehaviour<SeijaStageBehaviour>())
                 return;
@@ -114,7 +115,7 @@ namespace MVZ2.GameContent.Stages
             SpawnMesmerizer(level, new Vector3(x, y, z));
         }
         public const string PROP_REGION = "seija_stage_behaviour";
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaLevelPropertyMeta FIELD_MESMERIZER_SPAWNED = new VanillaLevelPropertyMeta("MesmerizerSpawned");
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<bool> FIELD_MESMERIZER_SPAWNED = new VanillaLevelPropertyMeta<bool>("MesmerizerSpawned");
     }
 }

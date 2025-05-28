@@ -7,19 +7,19 @@ namespace PVZEngine.Entities
 {
     public static class EngineEntityExt
     {
-        public static void SetBehaviourField(this Entity entity, NamespaceID id, PropertyKey name, object value)
+        public static void SetBehaviourField<T>(this Entity entity, NamespaceID id, PropertyKey<T> name, T value)
         {
             entity.SetProperty(name, value);
         }
-        public static T GetBehaviourField<T>(this Entity entity, NamespaceID id, PropertyKey name)
+        public static T GetBehaviourField<T>(this Entity entity, NamespaceID id, PropertyKey<T> name)
         {
             return entity.GetProperty<T>(name);
         }
-        public static void SetBehaviourField(this Entity entity, PropertyKey name, object value)
+        public static void SetBehaviourField<T>(this Entity entity, PropertyKey<T> name, T value)
         {
             entity.SetProperty(name, value);
         }
-        public static T GetBehaviourField<T>(this Entity entity, PropertyKey name)
+        public static T GetBehaviourField<T>(this Entity entity, PropertyKey<T> name)
         {
             return entity.GetProperty<T>(name);
         }
@@ -32,9 +32,13 @@ namespace PVZEngine.Entities
         {
             return entity?.Definition?.GetID();
         }
-        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position, SpawnParams param = null)
+        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position, SpawnParams param)
         {
             return entity.Level.Spawn(id, position, entity, param);
+        }
+        public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position)
+        {
+            return entity.Level.Spawn(id, position, entity);
         }
         public static Entity Spawn(this Entity entity, NamespaceID id, Vector3 position, int seed, SpawnParams param = null)
         {

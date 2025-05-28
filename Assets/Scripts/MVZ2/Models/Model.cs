@@ -74,6 +74,7 @@ namespace MVZ2.Models
             {
                 child.UpdateFrame(deltaTime);
             }
+            OnUpdateFrame?.Invoke(deltaTime);
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {
@@ -84,13 +85,13 @@ namespace MVZ2.Models
                 child.SetSimulationSpeed(simulationSpeed);
             }
         }
-        public void SetGroundPosition(Vector3 position)
+        public void SetGroundY(float y)
         {
-            GraphicGroup.SetGroundPosition(position);
+            GraphicGroup.SetGroundY(y);
             childModels.RemoveAll(m => !m);
             foreach (var child in childModels)
             {
-                child.SetGroundPosition(position);
+                child.SetGroundY(y);
             }
         }
         #endregion
@@ -318,11 +319,17 @@ namespace MVZ2.Models
             }
             return null;
         }
+        public ModelAnchor[] GetAllAnchors()
+        {
+            return modelAnchors;
+        }
         public RandomGenerator GetRNG()
         {
             return rng;
         }
         #endregion
+
+        public event Action<float> OnUpdateFrame;
 
         #region 属性字段
         public abstract ModelGraphicGroup GraphicGroup { get; }

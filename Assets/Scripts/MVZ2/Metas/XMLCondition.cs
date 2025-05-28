@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Xml;
+﻿using System.Xml;
 using MVZ2.IO;
 using PVZEngine;
 

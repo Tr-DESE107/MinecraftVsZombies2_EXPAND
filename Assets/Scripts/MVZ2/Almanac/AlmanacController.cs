@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Placements;
 using MVZ2.Managers;
 using MVZ2.Metas;
@@ -12,9 +13,9 @@ using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic.Artifacts;
-using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -52,9 +53,16 @@ namespace MVZ2.Almanacs
 
             ui.OnIndexButtonClick += OnIndexButtonClickCallback;
             ui.OnContraptionEntryClick += OnContraptionEntryClickCallback;
+            ui.OnCommandBlockClick += OnCommandBlockClickCallback;
             ui.OnEnemyEntryClick += OnEnemyEntryClickCallback;
             ui.OnArtifactEntryClick += OnArtifactEntryClickCallback;
             ui.OnMiscGroupEntryClick += OnMiscGroupEntryClickCallback;
+            ui.OnEnemyZoomClick += OnEnemyZoomClickCallback;
+            ui.OnArtifactZoomClick += OnArtifactZoomClickCallback;
+            ui.OnMiscZoomClick += OnMiscZoomClickCallback;
+
+            ui.OnZoomReturnClick += OnZoomReturnClickCallback;
+            ui.OnZoomScaleValueChanged += OnZoomScaleValueChangedCallback;
         }
         private void OnIndexReturnClickCallback()
         {
@@ -88,6 +96,11 @@ namespace MVZ2.Almanacs
             SetActiveContraptionEntry(contraptionEntries[index]);
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
+        private void OnCommandBlockClickCallback()
+        {
+            SetActiveContraptionEntry(VanillaContraptionID.commandBlock);
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
+        }
         private void OnEnemyEntryClickCallback(int index)
         {
             SetActiveEnemyEntry(enemyEntries[index]);
@@ -103,6 +116,32 @@ namespace MVZ2.Almanacs
             SetActiveMiscEntry(miscGroups[groupIndex].entries[entryIndex]);
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
+        #region 缩放
+        private void OnEnemyZoomClickCallback()
+        {
+        }
+        private void OnArtifactZoomClickCallback()
+        {
+        }
+        private void OnMiscZoomClickCallback()
+        {
+            var sprite = GetMiscEntryIconSprite(activeMiscEntryID);
+            if (sprite)
+            {
+                ui.StartZoom(sprite);
+                SetZoomScale(1);
+            }
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
+        }
+        private void OnZoomReturnClickCallback()
+        {
+            ui.StopZoom();
+        }
+        private void OnZoomScaleValueChangedCallback(float value)
+        {
+            SetZoomScale(value);
+        }
+        #endregion
         private void ViewContraptions()
         {
             var page = Main.IsMobile() ? AlmanacUI.AlmanacPage.ContraptionsMobile : AlmanacUI.AlmanacPage.ContraptionsStandalone;
@@ -151,6 +190,7 @@ namespace MVZ2.Almanacs
         {
             if (!NamespaceID.IsValid(enemyID))
                 return;
+            activeEnemyEntryID = enemyID;
             GetEntityAlmanacInfos(enemyID, VanillaAlmanacCategories.ENEMIES, out var model, out var name, out var description);
             if (Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) <= 0)
             {
@@ -163,13 +203,18 @@ namespace MVZ2.Almanacs
         {
             if (!NamespaceID.IsValid(artifactID))
                 return;
+            activeArtifactEntryID = artifactID;
             GetArtifactAlmanacInfos(artifactID, VanillaAlmanacCategories.ARTIFACTS, out var sprite, out var name, out var description);
             ui.SetActiveArtifactEntry(sprite, name, description);
         }
-        private void SetActiveMiscEntry(AlmanacMetaEntry entry)
+        private void SetActiveMiscEntry(NamespaceID miscID)
         {
+            if (!NamespaceID.IsValid(miscID))
+                return;
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.MISC, miscID);
             if (entry == null)
                 return;
+            activeMiscEntryID = miscID;
             var name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(VanillaAlmanacCategories.MISC), entry.name);
 
             var descContext = VanillaStrings.GetAlmanacDescriptionContext(VanillaAlmanacCategories.MISC);
@@ -196,8 +241,24 @@ namespace MVZ2.Almanacs
                     return;
                 }
             }
+            var spriteSized = entry.iconFixedSize;
+            var zoom = entry.iconZoom;
             Sprite sprite = Main.GetFinalSprite(spriteID);
-            ui.SetActiveMiscEntry(sprite, name, description);
+            ui.SetActiveMiscEntry(sprite, name, description, spriteSized, zoom);
+        }
+        private Sprite GetMiscEntryIconSprite(NamespaceID miscID)
+        {
+            if (!NamespaceID.IsValid(miscID))
+                return null;
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.MISC, miscID);
+            return GetMiscEntryIconSprite(entry);
+        }
+        private Sprite GetMiscEntryIconSprite(AlmanacMetaEntry entry)
+        {
+            if (entry == null)
+                return null;
+            var spriteID = entry.sprite;
+            return Main.GetFinalSprite(spriteID);
         }
         private void GetEntityAlmanacInfos(NamespaceID entityID, string almanacCategory, out Model model, out string name, out string description)
         {
@@ -293,7 +354,8 @@ namespace MVZ2.Almanacs
 
 
             var contraptionViewDatas = contraptionEntries.Select(c => Main.AlmanacManager.GetChoosingBlueprintViewData(c, false)).ToArray();
-            ui.SetContraptionEntries(contraptionViewDatas, false);
+            var commandBlockViewData = Main.AlmanacManager.GetChoosingBlueprintViewData(VanillaContraptionID.commandBlock, false);
+            ui.SetContraptionEntries(contraptionViewDatas, Main.SaveManager.IsCommandBlockUnlocked(), commandBlockViewData);
 
             var enemyViewDatas = enemyEntries.Select(c => Main.AlmanacManager.GetEnemyEntryViewData(c)).ToArray();
             ui.SetEnemyEntries(enemyViewDatas);
@@ -304,6 +366,14 @@ namespace MVZ2.Almanacs
 
             var miscViewDatas = miscGroups.Select(c => Main.AlmanacManager.GetMiscGroupViewData(c)).ToArray();
             ui.SetMiscGroups(miscViewDatas);
+        }
+        private void SetZoomScale(float value)
+        {
+            ui.SetZoomScale(value);
+            var percentage = Main.GetFloatPercentageText(value);
+            var text = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, OPTION_ZOOM_SCALE, percentage);
+            ui.SetZoomScaleSliderText(text);
+            ui.SetZoomScaleSliderValue(value);
         }
         private string GetTranslatedString(string context, string text, params object[] args)
         {
@@ -320,6 +390,8 @@ namespace MVZ2.Almanacs
         public const string EXTRA_PROPERTY_NOCTURNAL = "<color=blue>白天失效</color>";
         [TranslateMsg("图鉴描述", VanillaStrings.CONTEXT_ALMANAC)]
         public const string EXTRA_PROPERTY_AQUATIC = "<color=blue>只能放在水上</color>";
+        [TranslateMsg("图鉴放大选项，{0}为缩放等级", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string OPTION_ZOOM_SCALE = "缩放：{0}";
 
 
         private MainManager Main => MainManager.Instance;
@@ -327,6 +399,10 @@ namespace MVZ2.Almanacs
         private List<NamespaceID> enemyEntries = new List<NamespaceID>();
         private List<NamespaceID> artifactEntries = new List<NamespaceID>();
         private List<AlmanacEntryGroup> miscGroups = new List<AlmanacEntryGroup>();
+        private NamespaceID activeEnemyEntryID;
+        private NamespaceID activeArtifactEntryID;
+        private NamespaceID activeMiscEntryID;
+
         [SerializeField]
         private Camera almanacCamera;
         [SerializeField]

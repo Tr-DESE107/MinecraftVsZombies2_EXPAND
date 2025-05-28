@@ -13,7 +13,7 @@ namespace MVZ2.Modding
 {
     public class ModManager : MonoBehaviour, IModManager
     {
-        public async Task LoadMods(Game game)
+        public async Task LoadModInfos(Game game)
         {
             var locator = await Addressables.InitializeAsync().Task;
             modInfos.Add(new ModInfo()
@@ -26,14 +26,28 @@ namespace MVZ2.Modding
                 ResourceLocator = locator,
             });
         }
-        public void LoadModLogics(Game game)
+        public void InitModLogics(Game game)
         {
             OnRegisterMod?.Invoke(this, game);
 
             foreach (var modInfo in modInfos)
             {
+                modInfo.Logic.LateInit(game);
+            }
+        }
+        public void LoadModLogics(Game game)
+        {
+            foreach (var modInfo in modInfos)
+            {
                 modInfo.Logic.Load();
                 game.AddMod(modInfo.Logic);
+            }
+        }
+        public void PostReloadMods(Game game)
+        {
+            foreach (var modInfo in GetAllModInfos())
+            {
+                modInfo.Logic.PostReloadMods(game);
             }
         }
         public void PostGameInit()

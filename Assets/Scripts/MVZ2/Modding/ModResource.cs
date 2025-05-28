@@ -16,6 +16,7 @@ namespace MVZ2.Modding
         public FragmentMetaList FragmentMetaList { get; set; }
         public TalkCharacterMetaList TalkCharacterMetaList { get; set; }
         public DifficultyMetaList DifficultyMetaList { get; set; }
+        public ArmorMetaList ArmorMetaList { get; set; }
         public EntityMetaList EntityMetaList { get; set; }
         public ArtifactMetaList ArtifactMetaList { get; set; }
         public AlmanacMetaList AlmanacMetaList { get; set; }
@@ -33,7 +34,9 @@ namespace MVZ2.Modding
         public BlueprintMetaList BlueprintMetaList { get; set; }
         public SpawnMetaList SpawnMetaList { get; set; }
         public GridMetaList GridMetaList { get; set; }
+        public CreditMetaList CreditsMetaList { get; set; }
         public ChapterTransitionMetaList ChapterTransitionMetaList { get; set; }
+        public ArcadeMetaList ArcadeMetaList { get; set; }
         public Dictionary<string, AudioClip> Sounds = new();
         public Dictionary<string, AudioClip> Musics = new();
         public Dictionary<string, Sprite[]> SpriteSheets = new();

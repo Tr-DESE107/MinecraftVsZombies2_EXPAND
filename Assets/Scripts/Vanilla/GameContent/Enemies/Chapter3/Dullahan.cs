@@ -6,7 +6,7 @@ using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
-using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -34,16 +34,18 @@ namespace MVZ2.GameContent.Enemies
             entity.SetAnimationBool("Sitting", true);
             entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
         }
-        public override void PreTakeDamage(DamageInput input)
+        public override void PreTakeDamage(DamageInput input, CallbackResult result)
         {
-            base.PreTakeDamage(input);
+            base.PreTakeDamage(input, result);
             if (input.Effects.HasEffect(VanillaDamageEffects.GOLD))
             {
                 input.Multiply(3);
             }
         }
-        private void PostEntityCharmCallback(Entity entity, Buff buff)
+        private void PostEntityCharmCallback(VanillaLevelCallbacks.PostEntityCharmParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var buff = param.buff;
             if (!entity.IsEntityOf(VanillaEnemyID.dullahan))
                 return;
             var head = GetHead(entity);
@@ -104,8 +106,7 @@ namespace MVZ2.GameContent.Enemies
         {
             if (IsHeadDropped(entity))
                 return null;
-            var head = entity.Spawn(VanillaEnemyID.dullahanHead, entity.GetCenter());
-            head.SetFactionAndDirection(entity.GetFaction());
+            var head = entity.SpawnWithParams(VanillaEnemyID.dullahanHead, entity.GetCenter());
             SetHead(entity, head);
             DullahanHead.SetBody(head, entity);
             SetHeadDropped(entity, true);
@@ -124,8 +125,8 @@ namespace MVZ2.GameContent.Enemies
             entity.SetBehaviourField(ID, FIELD_HEAD, new EntityID(value));
         }
 
-        public static readonly VanillaEntityPropertyMeta FIELD_HEAD = new VanillaEntityPropertyMeta("Head");
-        public static readonly VanillaEntityPropertyMeta FIELD_HEAD_DROPPED = new VanillaEntityPropertyMeta("HeadDropped");
+        public static readonly VanillaEntityPropertyMeta<EntityID> FIELD_HEAD = new VanillaEntityPropertyMeta<EntityID>("Head");
+        public static readonly VanillaEntityPropertyMeta<bool> FIELD_HEAD_DROPPED = new VanillaEntityPropertyMeta<bool>("HeadDropped");
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         private static readonly NamespaceID ID = VanillaEnemyID.dullahan;
     }

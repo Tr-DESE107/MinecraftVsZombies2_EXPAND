@@ -5,7 +5,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
-using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -23,18 +23,20 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             var buff = entity.AddBuff<FlyBuff>();
-            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 20);
+            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 20f);
         }
-        public override void PreTakeDamage(DamageInput input)
+        public override void PreTakeDamage(DamageInput input, CallbackResult result)
         {
-            base.PreTakeDamage(input);
+            base.PreTakeDamage(input, result);
             if (input.Effects.HasEffect(VanillaDamageEffects.GOLD))
             {
                 input.Multiply(3);
             }
         }
-        private void PostEntityCharmCallback(Entity entity, Buff buff)
+        private void PostEntityCharmCallback(VanillaLevelCallbacks.PostEntityCharmParams param, CallbackResult result)
         {
+            var entity = param.entity;
+            var buff = param.buff;
             if (!entity.IsEntityOf(VanillaEnemyID.dullahanHead))
                 return;
             var body = GetBody(entity);
@@ -44,14 +46,13 @@ namespace MVZ2.GameContent.Enemies
         }
         public static Entity GetBody(Entity entity)
         {
-            var entityID = entity.GetBehaviourField<EntityID>(ID, FIELD_BODY);
+            var entityID = entity.GetBehaviourField<EntityID>(FIELD_BODY);
             return entityID?.GetEntity(entity.Level);
         }
         public static void SetBody(Entity entity, Entity value)
         {
-            entity.SetBehaviourField(ID, FIELD_BODY, new EntityID(value));
+            entity.SetBehaviourField(FIELD_BODY, new EntityID(value));
         }
-        public static readonly VanillaEntityPropertyMeta FIELD_BODY = new VanillaEntityPropertyMeta("Body");
-        private static readonly NamespaceID ID = VanillaEnemyID.dullahanHead;
+        public static readonly VanillaEntityPropertyMeta<EntityID> FIELD_BODY = new VanillaEntityPropertyMeta<EntityID>("Body");
     }
 }

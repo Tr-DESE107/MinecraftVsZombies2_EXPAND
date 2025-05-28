@@ -7,7 +7,6 @@
         public int TPS { get; set; } = 30;
         public int CardSlotCount { get; set; }
         public int StarshardSlotCount { get; set; }
-        public float StartEnergy { get; set; }
         public float MaxEnergy { get; set; }
         public SerializableLevelOption Serialize()
         {
@@ -18,7 +17,6 @@
                 tps = TPS,
                 cardSlotCount = CardSlotCount,
                 starshardSlotCount = StarshardSlotCount,
-                startEnergy = StartEnergy,
                 maxEnergy = MaxEnergy,
             };
         }
@@ -31,7 +29,6 @@
                 TPS = seri.tps,
                 CardSlotCount = seri.cardSlotCount,
                 StarshardSlotCount = seri.starshardSlotCount,
-                StartEnergy = seri.startEnergy,
                 MaxEnergy = seri.maxEnergy
             };
         }

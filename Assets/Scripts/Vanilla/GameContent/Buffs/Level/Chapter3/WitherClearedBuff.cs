@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Buffs.Level
         {
             AddModifier(new ColorModifier(LogicLevelProps.SCREEN_COVER, PROP_SCREEN_COVER));
             AddModifier(new BooleanModifier(LogicLevelProps.PAUSE_DISABLED, true));
-            AddModifier(new BooleanModifier(VanillaStageProps.AUTO_COLLECT, true));
+            AddModifier(new BooleanModifier(VanillaStageProps.AUTO_COLLECT_ALL, true));
         }
         public override void PostAdd(Buff buff)
         {
@@ -54,8 +54,8 @@ namespace MVZ2.GameContent.Buffs.Level
                 buff.Remove();
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMEOUT = new VanillaBuffPropertyMeta("Timeout");
-        public static readonly VanillaBuffPropertyMeta PROP_SCREEN_COVER = new VanillaBuffPropertyMeta("ScreenCover");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_SCREEN_COVER = new VanillaBuffPropertyMeta<Color>("ScreenCover");
         public const float BLACK_SCREEN_SPEED = 1 / 180f;
         public const int MAX_TIMEOUT = FADEOUT_TIMEOUT + 30;
         public const int FADEOUT_TIMEOUT = 60;

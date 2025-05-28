@@ -65,6 +65,21 @@ namespace MVZ2.Managers
         }
         #endregion
 
+        #region 元数据
+        public EntityCounterMeta GetEntityCounterMeta(NamespaceID counterID)
+        {
+            if (!NamespaceID.IsValid(counterID))
+                return null;
+            var modResource = GetModResource(counterID.SpaceName);
+            if (modResource == null)
+                return null;
+            var list = modResource.EntityMetaList;
+            if (list == null)
+                return null;
+            return list.counters.FirstOrDefault(m => m.ID == counterID.Path);
+        }
+        #endregion
+
         private Dictionary<NamespaceID, EntityMeta> entitiesCacheDict = new Dictionary<NamespaceID, EntityMeta>();
     }
 }

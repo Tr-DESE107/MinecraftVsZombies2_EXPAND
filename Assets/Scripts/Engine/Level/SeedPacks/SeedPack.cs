@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
@@ -8,7 +9,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
-using Tools;
 using UnityEngine;
 
 namespace PVZEngine.SeedPacks
@@ -20,6 +20,7 @@ namespace PVZEngine.SeedPacks
             ID = id;
             Level = level;
             Definition = definition;
+
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
             buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
@@ -32,7 +33,6 @@ namespace PVZEngine.SeedPacks
                 auras.Add(level, new AuraEffect(auraDef, i, this));
             }
         }
-        public abstract int GetIndex();
         public NamespaceID GetDefinitionID()
         {
             return Definition?.GetID();
@@ -40,6 +40,7 @@ namespace PVZEngine.SeedPacks
         public void ChangeDefinition(SeedDefinition definition)
         {
             Definition = definition;
+            properties.ClearFallbackCaches();
             UpdateAllBuffedProperties();
             OnDefinitionChanged?.Invoke(definition);
         }
@@ -54,11 +55,11 @@ namespace PVZEngine.SeedPacks
         }
 
         #region 属性
-        public T GetProperty<T>(PropertyKey name, bool ignoreBuffs = false)
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             return properties.GetProperty<T>(name, ignoreBuffs);
         }
-        public void SetProperty(PropertyKey name, object value)
+        public void SetProperty<T>(PropertyKey<T> name, T value)
         {
             properties.SetProperty(name, value);
         }
@@ -66,33 +67,33 @@ namespace PVZEngine.SeedPacks
         {
             properties.UpdateAllModifiedProperties();
         }
-        private void UpdateBuffedProperty(PropertyKey name)
+        private void UpdateBuffedProperty(IPropertyKey name)
         {
             properties.UpdateModifiedProperty(name);
         }
-        bool IPropertyModifyTarget.GetFallbackProperty(PropertyKey name, out object value)
+        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object value)
         {
-            if (Definition != null && Definition.TryGetProperty(name, out var prop))
+            if (Definition != null && Definition.TryGetPropertyObject(name, out var prop))
             {
                 value = prop;
                 return true;
             }
-            value = null;
+            value = default;
             return false;
         }
 
-        void IPropertyModifyTarget.GetModifierItems(PropertyKey name, List<ModifierContainerItem> results)
+        void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(PropertyKey name, object value)
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
         {
         }
-        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(PropertyKey name)
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
         {
             return null;
         }
-        IEnumerable<PropertyKey> IPropertyModifyTarget.GetModifiedProperties()
+        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
         {
             return buffs.GetModifierPropertyNames();
         }
@@ -142,7 +143,7 @@ namespace PVZEngine.SeedPacks
         #region 消耗
         public int GetCost()
         {
-            var cost = GetProperty<float>(EngineSeedProps.COST);
+            float cost = GetProperty<float>(EngineSeedProps.COST);
             cost = Mathf.Max(cost, 0);
             return Mathf.FloorToInt(cost);
         }
@@ -233,10 +234,15 @@ namespace PVZEngine.SeedPacks
         }
         #endregion
 
+        private void OnPropertyChangedCallback(IPropertyKey key, object before, object after)
+        {
+            properties.RemoveFallbackCache(key);
+        }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IBuffTarget.GetEntity() => null;
+        Armor IBuffTarget.GetArmor() => null;
         Entity IAuraSource.GetEntity() => null;
         LevelEngine IAuraSource.GetLevel() => Level;
         bool IBuffTarget.Exists() => true;

@@ -1,15 +1,8 @@
-﻿using System.Collections.Generic;
-using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Buffs.Armors;
-using MVZ2.GameContent.Pickups;
+﻿using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
-using PVZEngine;
-using PVZEngine.Auras;
-using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
@@ -33,8 +26,9 @@ namespace MVZ2.GameContent.Artifacts
             }
             artifact.SetGlowing(number == MAX_NUMBER - 1);
         }
-        private void PostUseStarshardCallback(Entity contraption)
+        private void PostUseStarshardCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var contraption = param.entity;
             var level = contraption.Level;
             var artifacts = level.GetArtifacts();
             foreach (var artifact in artifacts)

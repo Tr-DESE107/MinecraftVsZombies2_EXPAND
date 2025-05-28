@@ -7,25 +7,35 @@ namespace MVZ2.Models
 {
     public class BlueprintPickupSetter : ModelComponent
     {
+        public override void Init()
+        {
+            base.Init();
+            UpdateBlueprint();
+        }
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
+            UpdateBlueprint();
+        }
+        private void UpdateBlueprint()
+        {
+            var main = MainManager.Instance;
+            var resourceManager = main.ResourceManager;
+            bool isMobile = main.IsMobile();
             var blueprintID = Model.GetProperty<NamespaceID>("BlueprintID");
-            if (lastID != blueprintID)
+            var commandBlock = Model.GetProperty<bool>("CommandBlock");
+            if (lastID != blueprintID || lastCommandBlock != commandBlock)
             {
-                var main = MainManager.Instance;
                 lastID = blueprintID;
-                var resourceManager = main.ResourceManager;
-                BlueprintViewData viewData = resourceManager.GetBlueprintViewData(blueprintID, false);
-                bool isMobile = main.IsMobile();
+                lastCommandBlock = commandBlock;
+                BlueprintViewData viewData = resourceManager.GetBlueprintViewData(blueprintID, false, commandBlock);
                 var blueprintSprite = isMobile ? blueprintSpriteMobile : blueprintSpriteStandalone;
-                blueprintSpriteStandalone.gameObject.SetActive(!isMobile);
-                blueprintSpriteMobile.gameObject.SetActive(isMobile);
                 blueprintSprite.UpdateView(viewData);
-
-                colliderStandalone.SetActive(!isMobile);
-                colliderMobile.SetActive(isMobile);
             }
+            blueprintSpriteStandalone.gameObject.SetActive(!isMobile);
+            blueprintSpriteMobile.gameObject.SetActive(isMobile);
+            colliderStandalone.SetActive(!isMobile);
+            colliderMobile.SetActive(isMobile);
         }
         [SerializeField]
         private GameObject colliderStandalone;
@@ -36,5 +46,6 @@ namespace MVZ2.Models
         [SerializeField]
         private BlueprintSprite blueprintSpriteMobile;
         private NamespaceID lastID;
+        private bool lastCommandBlock;
     }
 }

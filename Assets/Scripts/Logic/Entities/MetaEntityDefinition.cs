@@ -10,6 +10,5 @@ namespace MVZ2Logic.Entities
         }
         public override int Type => type;
         private int type;
-        private EntityBehaviourDefinition behaviour;
     }
 }

@@ -13,6 +13,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, PROP_SPEED));
         }
-        public static readonly VanillaBuffPropertyMeta PROP_SPEED = new VanillaBuffPropertyMeta("Speed");
+        public static void SetSpeed(Buff buff, float value)
+        {
+            buff.SetProperty(PROP_SPEED, value);
+        }
+        public static readonly VanillaBuffPropertyMeta<float> PROP_SPEED = new VanillaBuffPropertyMeta<float>("Speed");
     }
 }

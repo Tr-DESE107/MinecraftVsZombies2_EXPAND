@@ -1,5 +1,4 @@
 using System;
-using MVZ2.Entities;
 using MVZ2.Models;
 using MVZ2.UI;
 using TMPro;
@@ -67,6 +66,10 @@ namespace MVZ2.Level.UI
         public void SetPickaxeDisabled(bool selected)
         {
             pickaxeSlot.SetDisabled(selected);
+        }
+        public void SetPickaxeNumberText(PickaxeNumberText info)
+        {
+            pickaxeSlot.SetNumberText(info);
         }
         public PickaxeSlot GetPickaxeSlot()
         {

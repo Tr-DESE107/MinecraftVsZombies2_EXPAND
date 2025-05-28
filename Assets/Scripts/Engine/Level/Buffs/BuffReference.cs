@@ -36,15 +36,17 @@ namespace PVZEngine.Buffs
     [Serializable]
     public class BuffReferenceArmor : BuffReference
     {
-        public BuffReferenceArmor(long id, long buffId) : base(buffId)
+        public BuffReferenceArmor(long id, NamespaceID armorSlot, long buffId) : base(buffId)
         {
             entityID = id;
+            this.armorSlot = armorSlot;
         }
         public override IBuffTarget GetTarget(LevelEngine level)
         {
-            return level.FindEntityByID(entityID)?.EquipedArmor;
+            return level.FindEntityByID(entityID)?.GetArmorAtSlot(armorSlot);
         }
         public long entityID;
+        public NamespaceID armorSlot;
     }
     [Serializable]
     public class BuffReferenceLevel : BuffReference

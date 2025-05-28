@@ -1,12 +1,13 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Detections;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using PVZEngine;
@@ -32,7 +33,7 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             SetStateTimer(entity, new FrameTimer(SHOOT_COOLDOWN));
             var buff = entity.AddBuff<FlyBuff>();
-            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80);
+            buff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
         }
         protected override void UpdateAI(Entity enemy)
         {
@@ -50,7 +51,7 @@ namespace MVZ2.GameContent.Enemies
                             {
                                 enemy.Target = target;
                                 shootTimer.ResetTime(SHOOT_DURATION);
-                                enemy.PlaySound(VanillaSoundID.ghastFire);
+                                enemy.PlayCrySound(VanillaSoundID.ghastFire);
                             }
                             else
                             {
@@ -77,7 +78,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.Source.DefinitionID == VanillaProjectileID.fireCharge)
+            if (info.Source.DefinitionID == VanillaProjectileID.fireCharge && !entity.Level.IsIZombie())
             {
                 Global.Game.Unlock(VanillaUnlockID.returnToSender);
             }
@@ -101,8 +102,7 @@ namespace MVZ2.GameContent.Enemies
         }
         protected virtual Entity FindTarget(Entity entity)
         {
-            var collider = detector.DetectWithTheLeast(entity, e => (e.GetCenter() - entity.Position).sqrMagnitude);
-            return collider?.Entity;
+            return detector.DetectEntityWithTheLeast(entity, e => (e.GetCenter() - entity.Position).sqrMagnitude);
         }
         protected virtual bool ValidateTarget(Entity entity, Entity target)
         {
@@ -110,6 +110,8 @@ namespace MVZ2.GameContent.Enemies
         }
         private void Fire(Entity self, Entity target)
         {
+            var scale = self.GetScale();
+
             var param = self.GetShootParams();
             var shootPoint = self.GetShootPoint();
             var velocity = self.GetShotVelocity();
@@ -117,20 +119,21 @@ namespace MVZ2.GameContent.Enemies
             var direciton = (target.GetCenter() - shootPoint).normalized;
             param.velocity = speed * direciton;
             var damageMultiplier = 1.5f;
-            if (self.Level.Difficulty == VanillaDifficulties.hard)
-            {
-                damageMultiplier = 3;
-            }
-            if (self.Level.Difficulty == VanillaDifficulties.lunatic)
+            if (self.Level.GetEnemyAILevel() > 0)
             {
                 damageMultiplier = 3;
             }
             param.damage = self.GetDamage() * damageMultiplier;
+
             var bullet = self.ShootProjectile(param);
-            self.PlaySound(VanillaSoundID.fireCharge);
+            var buff = bullet.AddBuff<GhastFireChargeBuff>();
+            GhastFireChargeBuff.SetScaleMultiplier(buff, scale);
+            GhastFireChargeBuff.SetRangeMultiplier(buff, scale.x);
+            GhastFireChargeBuff.SetDamageMultiplier(buff, scale.x);
+            self.PlaySound(VanillaSoundID.fireCharge, scale.x);
         }
         private Detector detector;
-        public static readonly VanillaEntityPropertyMeta PROP_STATE_TIMER = new VanillaEntityPropertyMeta("StateTimer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         public const int SHOOT_COOLDOWN = 135;
         public const int SHOOT_DURATION = 15;
         public static readonly NamespaceID ID = VanillaEnemyID.ghast;

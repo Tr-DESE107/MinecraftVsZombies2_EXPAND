@@ -64,6 +64,24 @@ namespace MVZ2.GameContent.Effects
         public const string seijaFaintEffect = "seija_faint_effect";
         public const string witherSummoners = "wither_summoners";
         public const string castleTwilight = "castle_twilight";
+
+        public const string thunderBoltHorizontal = "thunder_bolt_horizontal";
+        public const string emberParticles = "ember_particles";
+        public const string spawnerAppearEmbers = "spawner_appear_embers";
+        public const string fireburn = "fireburn";
+        public const string cursedFireburn = "cursed_fireburn";
+        public const string cursedMeteor = "cursed_meteor";
+        public const string cursedFireParticles = "cursed_fire_particles";
+        public const string blackhole = "blackhole";
+        public const string annihilationField = "annihilation_field";
+        public const string desireLump = "desire_lump";
+        public const string binaryParticles = "binary_particles";
+        public const string redline = "redline";
+        public const string izObserver = "iz_observer";
+        public const string spiritUniverse = "spirit_universe";
+        public const string zombieBlock = "zombie_block";
+        public const string darkHole = "dark_hole";
+        public const string amplifiedRoar = "amplified_roar";
     }
     public static class VanillaEffectID
     {
@@ -126,6 +144,24 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID seijaFaintEffect = Get(VanillaEffectNames.seijaFaintEffect);
         public static readonly NamespaceID witherSummoners = Get(VanillaEffectNames.witherSummoners);
         public static readonly NamespaceID castleTwilight = Get(VanillaEffectNames.castleTwilight);
+
+        public static readonly NamespaceID thunderBoltHorizontal = Get(VanillaEffectNames.thunderBoltHorizontal);
+        public static readonly NamespaceID emberParticles = Get(VanillaEffectNames.emberParticles);
+        public static readonly NamespaceID spawnerAppearEmbers = Get(VanillaEffectNames.spawnerAppearEmbers);
+        public static readonly NamespaceID fireburn = Get(VanillaEffectNames.fireburn);
+        public static readonly NamespaceID cursedFireburn = Get(VanillaEffectNames.cursedFireburn);
+        public static readonly NamespaceID cursedMeteor = Get(VanillaEffectNames.cursedMeteor);
+        public static readonly NamespaceID cursedFireParticles = Get(VanillaEffectNames.cursedFireParticles);
+        public static readonly NamespaceID blackhole = Get(VanillaEffectNames.blackhole);
+        public static readonly NamespaceID annihilationField = Get(VanillaEffectNames.annihilationField);
+        public static readonly NamespaceID desireLump = Get(VanillaEffectNames.desireLump);
+        public static readonly NamespaceID binaryParticles = Get(VanillaEffectNames.binaryParticles);
+        public static readonly NamespaceID redline = Get(VanillaEffectNames.redline);
+        public static readonly NamespaceID izObserver = Get(VanillaEffectNames.izObserver);
+        public static readonly NamespaceID spiritUniverse = Get(VanillaEffectNames.spiritUniverse);
+        public static readonly NamespaceID zombieBlock = Get(VanillaEffectNames.zombieBlock);
+        public static readonly NamespaceID darkHole = Get(VanillaEffectNames.darkHole);
+        public static readonly NamespaceID amplifiedRoar = Get(VanillaEffectNames.amplifiedRoar);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -8,6 +8,7 @@ namespace MVZ2.Level.Components
     {
         void PostLevelLoad();
         void UpdateFrame(float deltaTime, float simulationSpeed);
+        void PostDispose();
     }
     public abstract class MVZ2Component : LevelComponent, IMVZ2LevelComponent
     {
@@ -23,6 +24,10 @@ namespace MVZ2.Level.Components
         {
         }
         public virtual void PostLevelLoad()
+        {
+
+        }
+        public virtual void PostDispose()
         {
 
         }

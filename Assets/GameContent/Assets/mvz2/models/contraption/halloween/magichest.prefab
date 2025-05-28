@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 7464559492728949164}
   - component: {fileID: 6571869352694105773}
   - component: {fileID: 4132860081793797302}
+  - component: {fileID: 1932731725692881679}
   m_Layer: 0
   m_Name: Loms
   m_TagString: Untagged
@@ -248,7 +249,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -650657220, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  m_Sprite: {fileID: -2067495764, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -272,6 +273,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &1932731725692881679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5335403619595004835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -650657220, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  - {fileID: -77625010, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  - {fileID: -396166754, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  - {fileID: 1300739260, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  - {fileID: -1751115822, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  - {fileID: 1282678130, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  - {fileID: -2067495764, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  - {fileID: -581039977, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  - {fileID: 814418609, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  - {fileID: 86792107, guid: 5005bdd978e5a304a871e9d6929ee180, type: 3}
+  index: 0
 --- !u!1 &5995915173859897414
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +308,7 @@ GameObject:
   - component: {fileID: 4158449313543596566}
   - component: {fileID: 4277243895952317572}
   - component: {fileID: 5542991416795120066}
+  - component: {fileID: 6660878910213141913}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -370,6 +396,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &6660878910213141913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5995915173859897414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -565360636, guid: 2a8e7dd36e83bd041a7b0fd5acce604b, type: 3}
+  - {fileID: 495214160, guid: 2a8e7dd36e83bd041a7b0fd5acce604b, type: 3}
+  - {fileID: -1318444802, guid: 2a8e7dd36e83bd041a7b0fd5acce604b, type: 3}
+  - {fileID: -1721772389, guid: 2a8e7dd36e83bd041a7b0fd5acce604b, type: 3}
+  - {fileID: 1953301278, guid: 2a8e7dd36e83bd041a7b0fd5acce604b, type: 3}
+  - {fileID: -1735747841, guid: 2a8e7dd36e83bd041a7b0fd5acce604b, type: 3}
+  index: 0
 --- !u!1 &7499271925409906211
 GameObject:
   m_ObjectHideFlags: 0

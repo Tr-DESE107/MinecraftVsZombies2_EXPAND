@@ -1,5 +1,4 @@
-﻿using System.Text;
-using System.Xml;
+﻿using System.Xml;
 using MVZ2.IO;
 using PVZEngine;
 
@@ -9,7 +8,8 @@ namespace MVZ2.Metas
     {
         public string ID { get; private set; }
         public string Name { get; private set; }
-        public NamespaceID Path { get; private set; }
+        public NamespaceID MainTrack { get; private set; }
+        public NamespaceID SubTrack { get; private set; }
         public NamespaceID Unlock { get; private set; }
         public string Source { get; private set; }
         public string Origin { get; private set; }
@@ -19,8 +19,15 @@ namespace MVZ2.Metas
         {
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
-            var path = node.GetAttributeNamespaceID("path", defaultNsp);
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+            NamespaceID mainTrack = null;
+            NamespaceID subTrack = null;
+            var trackNode = node["track"];
+            if (trackNode != null)
+            {
+                mainTrack = trackNode.GetAttributeNamespaceID("main", defaultNsp);
+                subTrack = trackNode.GetAttributeNamespaceID("sub", defaultNsp);
+            }
             var source = node["source"]?.InnerText;
             var origin = node["origin"]?.InnerText;
             var author = node["author"]?.InnerText;
@@ -34,7 +41,8 @@ namespace MVZ2.Metas
             {
                 ID = id,
                 Name = name,
-                Path = path,
+                MainTrack = mainTrack,
+                SubTrack = subTrack,
                 Unlock = unlock,
                 Source = source,
                 Origin = origin,

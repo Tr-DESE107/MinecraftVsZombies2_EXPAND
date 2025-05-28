@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using Newtonsoft.Json;
 using NGettext;
 using PVZEngine;
@@ -59,21 +60,59 @@ namespace MVZ2.Localization
             }
             return false;
         }
-        public bool TryGetSprite(string language, NamespaceID id, out Sprite spr)
+        public bool TryGetStringPlural(string language, string text, string textPlural, long n, out string result, params object[] args)
         {
-            spr = null;
+            result = null;
             var asset = assets.FirstOrDefault(a => a.language == language);
             if (asset == null)
                 return false;
-            return asset.Sprites.TryGetValue(id, out spr);
+            foreach (var catalog in asset.catalogs.Values)
+            {
+                if (catalog.IsTranslationExist(text))
+                {
+                    result = catalog.GetPluralString(text, textPlural, n, args);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool TryGetStringParticularPlural(string language, string context, string text, string textPlural, long n, out string result, params object[] args)
+        {
+            result = null;
+            var asset = assets.FirstOrDefault(a => a.language == language);
+            if (asset == null)
+                return false;
+            foreach (var catalog in asset.catalogs.Values)
+            {
+                if (catalog.IsTranslationExist(context + "\u0004" + text))
+                {
+                    result = catalog.GetParticularPluralString(context, text, textPlural, n, args);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool TryGetSprite(string language, NamespaceID id, out Sprite spr)
+        {
+            spr = null;
+            foreach (var asset in assets)
+            {
+                if (asset.language != language)
+                    continue;
+                return asset.Sprites.TryGetValue(id, out spr);
+            }
+            return false;
         }
         public bool TryGetSpriteSheet(string language, NamespaceID id, out Sprite[] res)
         {
             res = null;
-            var asset = assets.FirstOrDefault(a => a.language == language);
-            if (asset == null)
-                return false;
-            return asset.SpriteSheets.TryGetValue(id, out res);
+            foreach (var asset in assets)
+            {
+                if (asset.language != language)
+                    continue;
+                return asset.SpriteSheets.TryGetValue(id, out res);
+            }
+            return false;
         }
         public string[] GetLanguages()
         {

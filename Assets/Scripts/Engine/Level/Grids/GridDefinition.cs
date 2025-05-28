@@ -1,7 +1,6 @@
 ﻿using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Triggers;
 
 namespace PVZEngine.Grids
 {

@@ -17,9 +17,9 @@ namespace MVZ2.MusicRoom
         }
         private void Awake()
         {
-            toggle.onValueChanged.AddListener((value) => 
-            { 
-                if (value) 
+            toggle.onValueChanged.AddListener((value) =>
+            {
+                if (value)
                 {
                     OnClick?.Invoke(this);
                 }

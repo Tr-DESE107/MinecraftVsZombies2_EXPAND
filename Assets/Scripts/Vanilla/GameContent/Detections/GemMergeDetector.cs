@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Detections
         public GemMergeDetector(float size, NamespaceID gemID)
         {
             mask = EntityCollisionHelper.MASK_PICKUP;
+            factionTarget = FactionTarget.Any;
             this.size = size;
             this.gemID = gemID;
         }
@@ -23,7 +24,7 @@ namespace MVZ2.GameContent.Detections
             var centerZ = self.Position.z;
             return new Bounds(new Vector3(centerX, centerY, centerZ), new Vector3(sizeX, sizeY, sizeZ));
         }
-        protected override bool ValidateCollider(DetectionParams param, EntityCollider collider)
+        protected override bool ValidateCollider(DetectionParams param, IEntityCollider collider)
         {
             return collider.Entity.IsEntityOf(gemID);
         }

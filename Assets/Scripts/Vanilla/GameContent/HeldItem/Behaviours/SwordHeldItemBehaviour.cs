@@ -1,17 +1,18 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Enemies;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.HeldItems;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.HeldItems
 {
@@ -32,13 +33,18 @@ namespace MVZ2.GameContent.HeldItems
                         switch (entity.Type)
                         {
                             case EntityTypes.ENEMY:
-                                return entity.IsHostileEntity();
+                                return entity.IsHostileEntity() || entity.IsEntityOf(VanillaEnemyID.napstablook);
                         }
                         return false;
                     }
             }
 
             return false;
+        }
+        public override void Update(LevelEngine level, IHeldItemData data)
+        {
+            base.Update(level, data);
+            level.GetHeldItemModelInterface()?.SetAnimationBool("Paralyzed", level.HasBuff<SwordParalyzedBuff>());
         }
         public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction phase)
         {
@@ -78,19 +84,7 @@ namespace MVZ2.GameContent.HeldItems
         public static void Paralyze(LevelEngine level)
         {
             var buff = level.AddBuff<SwordParalyzedBuff>();
-            var timeout = 45;
-            if (level.Difficulty == VanillaDifficulties.easy)
-            {
-                timeout = 22;
-            }
-            else if (level.Difficulty == VanillaDifficulties.hard)
-            {
-                timeout = 90;
-            }
-            else if (level.Difficulty == VanillaDifficulties.lunatic)
-            {
-                timeout = 120;
-            }
+            var timeout = Mathf.FloorToInt(level.GetNapstablookParalysisTime());
             buff.SetProperty(SwordParalyzedBuff.PROP_TIMEOUT, timeout);
             level.PlaySound(VanillaSoundID.shock);
         }

@@ -28,6 +28,7 @@ namespace MVZ2.Vanilla
         public const string enteredGensokyo = "entered_gensokyo";
 
         public const string dreamIsNightmare = "dream_is_nightmare";
+        public const string obsidianFirstAid = "obsidian_first_aid";
 
         public const string ghostBuster = "achievement.ghost_buster";
         public const string doubleTrouble = "achievement.double_trouble";
@@ -35,8 +36,11 @@ namespace MVZ2.Vanilla
         public const string returnToSender = "achievement.return_to_sender";
         public const string mesmerisedMatchup = "achievement.mesmerised_matchup";
         public const string bonebreaker = "achievement.bonebreaker";
+        public const string reforged = "achievement.reforged";
+        public const string overdraw = "achievement.overdraw";
 
         public const string brokenLantern = "artifact.broken_lantern";
+        public const string bottledBlackhole = "artifact.bottled_blackhole";
     }
     public static class VanillaUnlockID
     {
@@ -46,16 +50,19 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID dream7 = GetStage(VanillaStageNames.dream7);
         public static readonly NamespaceID dream11 = GetStage(VanillaStageNames.dream11);
         public static readonly NamespaceID castle5 = GetStage(VanillaStageNames.castle5);
+        public static readonly NamespaceID mausoleum6 = GetStage(VanillaStageNames.mausoleum6);
         public static readonly NamespaceID almanac = halloween5;
         public static readonly NamespaceID store = dream5;
         public static readonly NamespaceID gensokyo = dream11;
         public static readonly NamespaceID musicRoom = castle5;
+        public static readonly NamespaceID arcade = mausoleum6;
         public static readonly NamespaceID trigger = Get(VanillaUnlockNames.trigger);
         public static readonly NamespaceID starshard = Get(VanillaUnlockNames.starshard);
         public static readonly NamespaceID money = Get(VanillaUnlockNames.money);
         public static readonly NamespaceID enteredDream = Get(VanillaUnlockNames.enteredDream);
-        public static readonly NamespaceID enteredGensokyo = Get(VanillaUnlockNames.enteredGensokyo); 
+        public static readonly NamespaceID enteredGensokyo = Get(VanillaUnlockNames.enteredGensokyo);
         public static readonly NamespaceID dreamIsNightmare = Get(VanillaUnlockNames.dreamIsNightmare);
+        public static readonly NamespaceID obsidianFirstAid = Get(VanillaUnlockNames.obsidianFirstAid);
         public static readonly NamespaceID blueprintSlot1 = Get(VanillaUnlockNames.blueprintSlot1);
 
         public static readonly NamespaceID ghostBuster = Get(VanillaUnlockNames.ghostBuster);
@@ -64,8 +71,11 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID returnToSender = Get(VanillaUnlockNames.returnToSender);
         public static readonly NamespaceID mesmerisedMatchup = Get(VanillaUnlockNames.mesmerisedMatchup);
         public static readonly NamespaceID bonebreaker = Get(VanillaUnlockNames.bonebreaker);
+        public static readonly NamespaceID reforged = Get(VanillaUnlockNames.reforged);
+        public static readonly NamespaceID overdraw = Get(VanillaUnlockNames.overdraw);
 
         public static readonly NamespaceID brokenLantern = Get(VanillaUnlockNames.brokenLantern);
+        public static readonly NamespaceID bottledBlackhole = Get(VanillaUnlockNames.bottledBlackhole);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

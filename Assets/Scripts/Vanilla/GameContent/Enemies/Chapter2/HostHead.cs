@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Enemies
             var fly = entity.AddBuff<FlyBuff>();
             if (fly != null)
             {
-                fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 1);
+                fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 1f);
             }
 
             

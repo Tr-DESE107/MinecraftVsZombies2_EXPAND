@@ -13,10 +13,9 @@ using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Level;
-using PVZEngine.Triggers;
 
 namespace MVZ2.GameContent.Implements
 {
@@ -28,8 +27,10 @@ namespace MVZ2.GameContent.Implements
             mod.AddTrigger(LogicLevelCallbacks.GET_BLUEPRINT_WARNINGS, GetBlueprintWarningsCallback);
         }
 
-        private void GetBlueprintNotRecommondedCallback(LevelEngine level, NamespaceID blueprint, TriggerResultBoolean result)
+        private void GetBlueprintNotRecommondedCallback(LogicLevelCallbacks.GetBlueprintNotRecommondedParams param, CallbackResult callbackResult)
         {
+            var level = param.level;
+            var blueprint = param.blueprintID;
             var content = level.Content;
             var blueprintDef = content.GetSeedDefinition(blueprint);
             if (blueprintDef == null)
@@ -46,7 +47,7 @@ namespace MVZ2.GameContent.Implements
                     // 白天的夜间器械
                     if (entityDef.IsNocturnal())
                     {
-                        result.Result = true;
+                        callbackResult.SetFinalValue(true);
                         return;
                     }
                 }
@@ -55,7 +56,7 @@ namespace MVZ2.GameContent.Implements
                 {
                     if (level.IsDay() && level.AreaID != VanillaAreaID.dream)
                     {
-                        result.Result = true;
+                        callbackResult.SetFinalValue(true);
                         return;
                     }
                 }
@@ -67,15 +68,21 @@ namespace MVZ2.GameContent.Implements
                         // 无水地形的水生器械
                         if (entityDef.GetPlacementID() == VanillaPlacementID.aquatic)
                         {
-                            result.Result = true;
+                            callbackResult.SetFinalValue(true);
                             return;
                         }
                     }
                 }
             }
         }
-        private void GetBlueprintWarningsCallback(LevelEngine level, NamespaceID[] blueprintsForChoose, BlueprintChooseItem[] chosenBlueprints, List<string> results)
+        private void GetBlueprintWarningsCallback(LogicLevelCallbacks.GetBlueprintWarningsParams param, CallbackResult callbackResult)
         {
+            var level = param.level;
+            var chosenBlueprints = param.chosenBlueprints;
+            var blueprintsForChoose = param.blueprintsForChoose;
+            var results = param.warnings;
+
+            var content = level.Content;
             var chosenBlueprintDefs = chosenBlueprints.Select(item => level.Content.GetSeedDefinition(item.id));
             var chosenBlueprintEntityDefs = chosenBlueprintDefs.Where(def => def.GetSeedType() == SeedTypes.ENTITY)
                 .Select(def => level.Content.GetEntityDefinition(def.GetSeedEntityID()))
@@ -129,8 +136,8 @@ namespace MVZ2.GameContent.Implements
                     if (missingTagsList.Contains(tag))
                         continue;
                     missingTagsList.Add(tag);
-                    var enemyName = Global.Game.GetEntityName(entityID);
-                    results.Add(Global.Game.GetText(WARNING_MISSING_ATTACKER, enemyName));
+                    var counterName = Global.Game.GetEntityCounterName(tag);
+                    results.Add(Global.Game.GetText(WARNING_MISSING_ATTACKER, counterName));
                 }
             }
             // 生产者

@@ -3,7 +3,7 @@ guid: b2bf598c00945bb44bb3ca45c9a2a9f6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -106,6 +106,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -114,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 194
         width: 738
         height: 1280
       alignment: 0
@@ -134,8 +147,8 @@ TextureImporter:
       name: tokiko_1
       rect:
         serializedVersion: 2
-        x: 739
-        y: 544
+        x: 741
+        y: 738
         width: 528
         height: 736
       alignment: 0
@@ -155,8 +168,8 @@ TextureImporter:
       name: tokiko_2
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 544
+        x: 1272
+        y: 738
         width: 528
         height: 736
       alignment: 0
@@ -176,8 +189,8 @@ TextureImporter:
       name: tokiko_3
       rect:
         serializedVersion: 2
-        x: 1797
-        y: 544
+        x: 1803
+        y: 738
         width: 528
         height: 736
       alignment: 0
@@ -197,8 +210,8 @@ TextureImporter:
       name: tokiko_4
       rect:
         serializedVersion: 2
-        x: 739
-        y: 271
+        x: 741
+        y: 463
         width: 352
         height: 272
       alignment: 0
@@ -210,6 +223,27 @@ TextureImporter:
       bones: []
       spriteID: eca5eb095654e1b48965fed8e883cb79
       internalID: -79018707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tokiko_5
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 0
+        width: 704
+        height: 735
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 308f29dbf9c6f754d886c9d817d6c5ae
+      internalID: -2106919776
       vertices: []
       indices: 
       edges: []
@@ -230,6 +264,7 @@ TextureImporter:
       tokiko_2: 5995139
       tokiko_3: -377323089
       tokiko_4: -79018707
+      tokiko_5: -2106919776
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

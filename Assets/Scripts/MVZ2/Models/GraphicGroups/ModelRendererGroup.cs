@@ -26,73 +26,73 @@ namespace MVZ2.Models
         }
         public void CancelSortAtRoot()
         {
-            foreach (var group in subSortingGroups)
+            foreach (var element in subSortingGroups)
             {
+                if (element.ExcludedInGroup)
+                    continue;
+                var group = element.Group;
                 group.sortAtRoot = false;
             }
         }
+        private void ReplaceComponents<T>(List<T> list, IEnumerable<T> targets)
+        {
+            list.RemoveAll(e => !targets.Contains(e));
+            list.AddRange(targets.Except(list));
+        }
         public override void UpdateElements()
         {
-            subSortingGroups.Clear();
-            foreach (var sortingGroup in GetComponentsInChildren<SortingGroup>(true))
-            {
-                if (!IsChildOfGroup(sortingGroup.transform, this))
-                    continue;
-                if (sortingGroup.gameObject == gameObject)
-                    continue;
-                subSortingGroups.Add(sortingGroup);
-            }
-
-            renderers.Clear();
-            foreach (var renderer in GetComponentsInChildren<Renderer>(true))
-            {
-                if (!IsChildOfGroup(renderer.transform, this))
-                    continue;
-                if (renderer is SpriteMask)
-                    continue;
-                if (renderer.gameObject.layer == Layers.LIGHT)
-                    continue;
-                var element = renderer.GetComponent<RendererElement>();
-                if (!element)
+            var groups = GetComponentsInChildren<SortingGroup>(true)
+                .Where(g => IsChildOfGroup(g.transform, this) && g.gameObject != gameObject)
+                .Select(r =>
                 {
-                    element = renderer.gameObject.AddComponent<RendererElement>();
-                }
-                renderers.Add(element);
-            }
-            transforms.Clear();
-            foreach (var trans in GetComponentsInChildren<TransformElement>(true))
-            {
-                if (!IsChildOfGroup(trans.transform, this))
-                    continue;
-                transforms.Add(trans);
-            }
+                    var element = r.GetComponent<SortingGroupElement>();
+                    if (!element)
+                    {
+                        element = r.gameObject.AddComponent<SortingGroupElement>();
+                    }
+                    return element;
+                });
+            ReplaceComponents(subSortingGroups, groups);
 
-            particles.Clear();
-            foreach (var ps in GetComponentsInChildren<ParticleSystem>(true))
-            {
-                if (!IsParticleChildOfGroup(ps.transform, this))
-                    continue;
-                var player = ps.GetComponent<ParticlePlayer>();
-                if (!player)
+            var renderer = GetComponentsInChildren<Renderer>(true)
+                .Where(g => IsChildOfGroup(g.transform, this) && g is not SpriteMask && g.gameObject.layer != Layers.LIGHT)
+                .Select(r =>
                 {
-                    player = ps.gameObject.AddComponent<ParticlePlayer>();
-                }
-                particles.Add(player);
-            }
+                    var element = r.GetComponent<RendererElement>();
+                    if (!element)
+                    {
+                        element = r.gameObject.AddComponent<RendererElement>();
+                    }
+                    return element;
+                });
+            ReplaceComponents(renderers, renderer);
 
-            animators.Clear();
-            foreach (var animator in GetComponentsInChildren<Animator>(true))
-            {
-                if (!IsChildOfGroup(animator.transform, this))
-                    continue;
-                animators.Add(animator);
-            }
+            var trans = GetComponentsInChildren<TransformElement>(true)
+                .Where(g => IsChildOfGroup(g.transform, this));
+            ReplaceComponents(transforms, trans);
+
+            var parts = GetComponentsInChildren<ParticleSystem>(true)
+                .Where(p => IsParticleChildOfGroup(p.transform, this))
+                .Select(r =>
+                {
+                    var element = r.GetComponent<ParticlePlayer>();
+                    if (!element)
+                    {
+                        element = r.gameObject.AddComponent<ParticlePlayer>();
+                    }
+                    return element;
+                });
+            ReplaceComponents(particles, parts);
+
+            var anims = GetComponentsInChildren<Animator>(true)
+                .Where(g => IsChildOfGroup(g.transform, this));
+            ReplaceComponents(animators, anims);
         }
         public override void SetShaderInt(string name, int value)
         {
             foreach (var element in renderers)
             {
-                if (element.ExcludedInGroup)
+                if (!element || element.ExcludedInGroup)
                     continue;
                 element.SetInt(name, value);
             }
@@ -102,7 +102,7 @@ namespace MVZ2.Models
         {
             foreach (var element in renderers)
             {
-                if (element.ExcludedInGroup)
+                if (!element || element.ExcludedInGroup)
                     continue;
                 element.SetFloat(name, alpha);
             }
@@ -112,9 +112,18 @@ namespace MVZ2.Models
         {
             foreach (var element in renderers)
             {
-                if (element.ExcludedInGroup)
+                if (!element || element.ExcludedInGroup)
                     continue;
                 element.SetColor(name, color);
+            }
+        }
+        public override void SetShaderVector(string name, Vector4 vector)
+        {
+            foreach (var element in renderers)
+            {
+                if (!element || element.ExcludedInGroup)
+                    continue;
+                element.SetVector(name, vector);
             }
         }
         #endregion
@@ -156,42 +165,51 @@ namespace MVZ2.Models
         #endregion
 
         #region 属性字段
-        public override int SortingLayerID 
-        { 
-            get => sortingGroup.sortingLayerID; 
+        public override int SortingLayerID
+        {
+            get => sortingGroup.sortingLayerID;
             set
             {
                 sortingGroup.sortingLayerID = value;
-                foreach (var group in subSortingGroups)
+                foreach (var element in subSortingGroups)
                 {
+                    if (element.ExcludedInGroup)
+                        continue;
+                    var group = element.Group;
                     if (!group.sortAtRoot)
                         continue;
                     group.sortingLayerID = value;
                 }
             }
         }
-        public override string SortingLayerName 
-        { 
+        public override string SortingLayerName
+        {
             get => sortingGroup.sortingLayerName;
             set
             {
                 sortingGroup.sortingLayerName = value;
-                foreach (var group in subSortingGroups)
+                foreach (var element in subSortingGroups)
                 {
+                    if (element.ExcludedInGroup)
+                        continue;
+                    var group = element.Group;
                     if (!group.sortAtRoot)
                         continue;
                     group.sortingLayerName = value;
                 }
             }
         }
-        public override int SortingOrder 
-        { 
+        public override int SortingOrder
+        {
             get => sortingGroup.sortingOrder;
             set
             {
                 sortingGroup.sortingOrder = value;
-                foreach (var group in subSortingGroups)
+                foreach (var element in subSortingGroups)
                 {
+                    if (element.ExcludedInGroup)
+                        continue;
+                    var group = element.Group;
                     if (!group.sortAtRoot)
                         continue;
                     group.sortingOrder = value;
@@ -202,7 +220,7 @@ namespace MVZ2.Models
         [SerializeField]
         private SortingGroup sortingGroup;
         [SerializeField]
-        private List<SortingGroup> subSortingGroups = new List<SortingGroup>();
+        private List<SortingGroupElement> subSortingGroups = new List<SortingGroupElement>();
         [SerializeField]
         private List<RendererElement> renderers = new List<RendererElement>();
         [SerializeField]

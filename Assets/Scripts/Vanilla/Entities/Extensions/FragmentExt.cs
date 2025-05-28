@@ -1,9 +1,8 @@
-﻿using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Effects;
+﻿using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
+using Tools;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -11,24 +10,24 @@ namespace MVZ2.Vanilla.Entities
     {
         private const string PROP_REGION = "fragments";
         #region 碎片
-        public static void InitFragment(this Entity entity)
+        public static Entity CreateFragment(this Entity entity)
         {
-            var fragment = entity.CreateFragment();
-            var fragmentRef = new EntityID(fragment);
-            entity.SetFragment(fragmentRef);
+            var fragment = entity.Level.Spawn(VanillaEffectID.fragment, entity.Position, entity);
+            fragment.SetParent(entity);
+            Fragment.UpdateFragmentID(fragment);
+            return fragment;
         }
-        public static void UpdateFragment(this Entity entity)
+        public static Entity GetOrCreateFragment(this Entity entity)
         {
-            var fragment = entity.GetOrCreateFragment();
-            Fragment.AddEmitSpeed(fragment, entity.GetFragmentTickDamage());
-            entity.SetFragmentTickDamage(0);
-        }
-        public static void PostFragmentDeath(this Entity entity, DeathInfo damageInfo)
-        {
-            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
-                return;
-            var fragment = entity.GetOrCreateFragment();
-            Fragment.AddEmitSpeed(fragment, 500);
+            var fragmentRef = entity.GetFragment();
+            var fragment = fragmentRef?.GetEntity(entity.Level);
+            if (fragment == null || !fragment.Exists())
+            {
+                fragment = entity.CreateFragment();
+                fragmentRef = new EntityID(fragment);
+                entity.SetFragment(fragmentRef);
+            }
+            return fragment;
         }
         public static EntityID GetFragment(this Entity entity)
         {
@@ -50,29 +49,16 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.SetFragmentTickDamage(entity.GetFragmentTickDamage() + value);
         }
-        public static Entity CreateFragment(this Entity entity)
+        public static bool NoDamageFragments(this Entity entity)
         {
-            var fragment = entity.Level.Spawn(VanillaEffectID.fragment, entity.Position, entity);
-            fragment.SetParent(entity);
-            Fragment.UpdateFragmentID(fragment);
-            return fragment;
+            return entity.GetProperty<bool>(PROP_NO_DAMAGE_FRAGMENTS);
         }
-        public static Entity GetOrCreateFragment(this Entity entity)
-        {
-            var fragmentRef = entity.GetFragment();
-            var fragment = fragmentRef?.GetEntity(entity.Level);
-            if (fragment == null || !fragment.Exists())
-            {
-                fragment = entity.CreateFragment();
-                fragmentRef = new EntityID(fragment);
-                entity.SetFragment(fragmentRef);
-            }
-            return fragment;
-        }
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_FRAGMENT = new VanillaEntityPropertyMeta("Fragment");
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_TICK_DAMAGE = new VanillaEntityPropertyMeta("TickDamage");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_FRAGMENT = new VanillaEntityPropertyMeta<EntityID>("Fragment");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<float> PROP_TICK_DAMAGE = new VanillaEntityPropertyMeta<float>("TickDamage");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_NO_DAMAGE_FRAGMENTS = new VanillaEntityPropertyMeta<bool>("noDamageFragments");
         #endregion
 
         #region 治疗粒子
@@ -124,10 +110,10 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.SetProperty(PROP_HEALING_PARTICLES, value);
         }
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_HEALING_PARTICLES = new VanillaEntityPropertyMeta("HealingParticles");
-        [PropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta PROP_TICK_HEALING = new VanillaEntityPropertyMeta("TickHealing");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_HEALING_PARTICLES = new VanillaEntityPropertyMeta<EntityID>("HealingParticles");
+        [EntityPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaEntityPropertyMeta<float> PROP_TICK_HEALING = new VanillaEntityPropertyMeta<float>("TickHealing");
         #endregion
     }
 }

@@ -45,6 +45,12 @@ namespace MVZ2.Talk
             ui.SetSpeechBubbleShowing(false);
             ui.SetBlockerActive(true);
             ui.SetRaycastReceiverActive(true);
+            ui.SetForecolor(Color.clear);
+            ui.SetBackcolor(Color.clear);
+            ui.SetForegroundAlpha(0);
+            ui.SetBackgroundAlpha(0);
+            ui.SetForegroundSprite(null);
+            ui.SetBackgroundSprite(null);
             ClearCharacters();
 
             // 执行开始指令。
@@ -92,28 +98,11 @@ namespace MVZ2.Talk
         }
         public bool CanStartTalk(NamespaceID groupId, int sectionIndex)
         {
-            var group = Main.ResourceManager.GetTalkGroup(groupId);
-            if (group == null)
-                return false;
-            if (NamespaceID.IsValid(group.requires) && !Main.SaveManager.IsUnlocked(group.requires))
-                return false;
-            if (NamespaceID.IsValid(group.requiresNot) && Main.SaveManager.IsUnlocked(group.requiresNot))
-                return false;
-            var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
-            if (section == null)
-                return false;
-            return true;
+            return Main.ResourceManager.CanStartTalk(groupId, sectionIndex);
         }
         public bool WillSkipTalk(NamespaceID groupId, int sectionIndex)
         {
-            if (!Main.OptionsManager.SkipAllTalks())
-                return false;
-            var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
-            if (section == null)
-                return false;
-            if (!section.canAutoSkip)
-                return false;
-            return true;
+            return Main.ResourceManager.WillSkipTalk(groupId, sectionIndex);
         }
         #endregion
 
@@ -124,6 +113,10 @@ namespace MVZ2.Talk
         {
             ui.OnSkipClick += OnSkipClickedCallback;
             ui.OnClick += OnClickCallback;
+        }
+        private void Update()
+        {
+            ui.SetShake(((Vector3)Main.ShakeManager.GetShake2D()) * 100);
         }
         private void OnDisable()
         {
@@ -330,6 +323,34 @@ namespace MVZ2.Talk
                         }
                     }
                     break;
+                case "background":
+                    {
+                        switch (args[0])
+                        {
+                            case "change":
+                                ui.SetBackgroundSprite(Main.GetFinalSprite(ParseArgumentSpriteReference(args[1])));
+                                break;
+                            case "alpha":
+                                ui.SetBackgroundAlpha(ParseArgumentFloat(args[1]));
+                                break;
+                            case "fade":
+                                if (args.Length >= 4)
+                                {
+                                    ui.SetBackgroundAlpha(ParseArgumentFloat(args[1]));
+                                    ui.StartBackgroundFade(ParseArgumentFloat(args[2]), ParseArgumentFloat(args[3]));
+                                }
+                                else if (args.Length == 3)
+                                {
+                                    ui.StartBackgroundFade(ParseArgumentFloat(args[1]), ParseArgumentFloat(args[2]));
+                                }
+                                else if (args.Length == 2)
+                                {
+                                    ui.StartBackgroundFade(ParseArgumentFloat(args[1]), 1);
+                                }
+                                break;
+                        }
+                    }
+                    break;
                 case "portal":
                     {
                         switch (args[0])
@@ -466,7 +487,7 @@ namespace MVZ2.Talk
                             {
                                 NamespaceID soundId = ParseArgumentNamespaceID(args[1]);
                                 float volume = ParseArgumentFloat(args[2]);
-                                Main.SoundManager.SetLoopSoundVolume(soundId, volume);
+                                Main.SoundManager.SetLoopSoundIntensity(soundId, volume);
                                 Main.SoundManager.StopFadeLoopSound(soundId);
                             }
                             break;
@@ -475,7 +496,7 @@ namespace MVZ2.Talk
                                 NamespaceID soundId = ParseArgumentNamespaceID(args[1]);
                                 if (args.Length >= 5)
                                 {
-                                    Main.SoundManager.SetLoopSoundVolume(soundId, ParseArgumentFloat(args[2]));
+                                    Main.SoundManager.SetLoopSoundIntensity(soundId, ParseArgumentFloat(args[2]));
                                     Main.SoundManager.StartFadeLoopSound(soundId, ParseArgumentFloat(args[3]), ParseArgumentFloat(args[4]));
                                 }
                                 else if (args.Length == 4)
@@ -698,7 +719,7 @@ namespace MVZ2.Talk
                 showSpeakerName = true;
             }
 
-            if (ui.GetForegroundAlpha() > 0.1f)
+            if (ui.GetForegroundAlpha() > 0.1f && bubbleDirection != SpeechBubbleDirection.Up)
             {
                 bubbleDirection = SpeechBubbleDirection.Down;
                 showSpeakerName = true;
@@ -731,6 +752,11 @@ namespace MVZ2.Talk
             ui.SetSkipButtonActive(false);
             ui.SetBlockerActive(false);
             ui.SetRaycastReceiverActive(false);
+
+            ui.StartBackcolorFade(Color.clear, 1);
+            ui.StartForecolorFade(Color.clear, 1);
+            ui.StartBackgroundFade(0, 1);
+            ui.StartForegroundFade(0, 1);
             if (tcs != null)
             {
                 var source = tcs;

@@ -15,7 +15,7 @@ TagManager:
   - Shadow
   - ModelShot
   - RaycastReceiver
-  - Pickup
+  - 
   - Light
   - Background
   - LevelShading
@@ -29,14 +29,14 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Contraption
+  - Enemy
+  - Obstacle
+  - Boss
+  - Cart
+  - Pickup
+  - Projectile
+  - Effect
   m_SortingLayers:
   - name: Background
     uniqueID: 2237204161

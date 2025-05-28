@@ -256,6 +256,20 @@ namespace MVZ2.Editor
                     AddTranslation(potGenerator, stage.Text, storeReference, $"Store item text of {id}");
                 }
             }
+            // 制作人员名单
+            {
+                var creditsDocument = LoadMetaXmlDocument(spaceName, "credits.xml");
+                var creditsList = CreditMetaList.FromXmlNode(creditsDocument["credits"], spaceName);
+                var creditsReference = "Credits meta file";
+                foreach (var category in creditsList.categories)
+                {
+                    AddTranslation(potGenerator, category.Name, creditsReference, $"Name for credits category {category.Name}", VanillaStrings.CONTEXT_CREDITS_CATEGORY);
+                    foreach (var entry in category.Entries)
+                    {
+                        AddTranslation(potGenerator, entry, creditsReference, $"Name for credit staff {category.Name}", VanillaStrings.CONTEXT_STAFF_NAME);
+                    }
+                }
+            }
 
             potGenerator.WriteOut(GetPoTemplatePath("general.pot"));
             Debug.Log("Script Translations Updated.");
@@ -272,15 +286,18 @@ namespace MVZ2.Editor
             var entitiesDocument = LoadMetaXmlDocument(spaceName, "entities.xml");
             var talkcharacterDocument = LoadMetaXmlDocument(spaceName, "talkcharacters.xml");
             var artifactsDocument = LoadMetaXmlDocument(spaceName, "artifacts.xml");
+            var blueprintsDocument = LoadMetaXmlDocument(spaceName, "blueprints.xml");
 
             var almanacEntryList = AlmanacMetaList.FromXmlNode(almanacDocument["almanac"], spaceName);
             var entitiesList = EntityMetaList.FromXmlNode(entitiesDocument["entities"], spaceName);
             var characterList = TalkCharacterMetaList.FromXmlNode(talkcharacterDocument["characters"], spaceName);
             var artifactsList = ArtifactMetaList.FromXmlNode(artifactsDocument["artifacts"], spaceName);
+            var blueprintsList = BlueprintMetaList.FromXmlNode(blueprintsDocument["blueprints"], spaceName);
 
             var entitiesReference = "Entity meta file";
             var characterReference = "Character meta file";
             var artifactsReference = "Artifact meta file";
+            var blueprintsReference = "Blueprints meta file";
             foreach (var category in almanacEntryList.categories)
             {
                 var categoryName = category.name;
@@ -297,11 +314,16 @@ namespace MVZ2.Editor
                     AddAlmanacEntryTranslation(potGenerator, entry, categoryName);
                 }
             }
+            foreach (var meta in entitiesList.counters)
+            {
+                var id = new NamespaceID(spaceName, meta.ID);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity counter {id}", VanillaStrings.CONTEXT_ENTITY_COUNTER_NAME);
+            }
             foreach (var meta in entitiesList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Header for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
-                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Properties for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
+                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Tooltip for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
                 AddTranslation(potGenerator, meta.DeathMessage, entitiesReference, $"Death message for entity {id}", VanillaStrings.CONTEXT_DEATH_MESSAGE);
             }
             foreach (var meta in characterList.metas)
@@ -314,6 +336,10 @@ namespace MVZ2.Editor
                 var id = new NamespaceID(spaceName, meta.ID);
                 AddTranslation(potGenerator, meta.Name, artifactsReference, $"Name for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_NAME);
                 AddTranslation(potGenerator, meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
+            }
+            foreach (var option in blueprintsList.Options)
+            {
+                AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", VanillaStrings.CONTEXT_OPTION_NAME);
             }
             potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
             Debug.Log("Almanac Translations Updated.");

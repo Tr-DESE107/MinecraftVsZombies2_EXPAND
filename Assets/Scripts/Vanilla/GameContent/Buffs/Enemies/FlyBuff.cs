@@ -18,11 +18,11 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public override void PostAdd(Buff buff)
         {
             base.PostAdd(buff);
-            buff.SetProperty(PROP_GRAVITY_MULTIPLIER, 0);
-            buff.SetProperty(PROP_TARGET_HEIGHT, 0);
+            buff.SetProperty(PROP_GRAVITY_MULTIPLIER, 0f);
+            buff.SetProperty(PROP_TARGET_HEIGHT, 0f);
             buff.SetProperty(PROP_FLY_SPEED, 0.1f);
             buff.SetProperty(PROP_FLY_SPEED_FACTOR, 0.2f);
-            buff.SetProperty(PROP_MAX_FLY_SPEED, 10);
+            buff.SetProperty(PROP_MAX_FLY_SPEED, 10f);
         }
         public override void PostUpdate(Buff buff)
         {
@@ -32,10 +32,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 return;
             if (entity.IsAIFrozen())
             {
-                buff.SetProperty(PROP_GRAVITY_MULTIPLIER, 1);
+                buff.SetProperty(PROP_GRAVITY_MULTIPLIER, 1f);
                 return;
             }
-            buff.SetProperty(PROP_GRAVITY_MULTIPLIER, 0);
+            buff.SetProperty(PROP_GRAVITY_MULTIPLIER, 0f);
             var targetHeight = entity.Level.KillerEnemy == entity ? 0 : buff.GetProperty<float>(PROP_TARGET_HEIGHT);
             var flySpeed = buff.GetProperty<float>(PROP_FLY_SPEED);
             var flySpeedFactor = buff.GetProperty<float>(PROP_FLY_SPEED_FACTOR);
@@ -47,10 +47,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
             velocity.y = velocity.y * (1 - flySpeedFactor) + targetSpeed * flySpeedFactor;
             entity.Velocity = velocity;
         }
-        public static readonly VanillaBuffPropertyMeta PROP_GRAVITY_MULTIPLIER = new VanillaBuffPropertyMeta("GravityMultiplier");
-        public static readonly VanillaBuffPropertyMeta PROP_TARGET_HEIGHT = new VanillaBuffPropertyMeta("TargetHeight");
-        public static readonly VanillaBuffPropertyMeta PROP_MAX_FLY_SPEED = new VanillaBuffPropertyMeta("MaxFlySpeed");
-        public static readonly VanillaBuffPropertyMeta PROP_FLY_SPEED = new VanillaBuffPropertyMeta("FlySpeed");
-        public static readonly VanillaBuffPropertyMeta PROP_FLY_SPEED_FACTOR = new VanillaBuffPropertyMeta("FlySpeedFactor");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaBuffPropertyMeta<float>("GravityMultiplier");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_TARGET_HEIGHT = new VanillaBuffPropertyMeta<float>("TargetHeight");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_MAX_FLY_SPEED = new VanillaBuffPropertyMeta<float>("MaxFlySpeed");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_FLY_SPEED = new VanillaBuffPropertyMeta<float>("FlySpeed");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_FLY_SPEED_FACTOR = new VanillaBuffPropertyMeta<float>("FlySpeedFactor");
     }
 }

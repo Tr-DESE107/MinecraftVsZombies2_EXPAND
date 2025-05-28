@@ -20,13 +20,14 @@ namespace MVZ2.GameContent.Carts
         public override void PostTrigger(Entity entity)
         {
             base.PostTrigger(entity);
-            var boulder = entity.Spawn(VanillaProjectileID.boulder, entity.Position + new Vector3(0, 16, 0));
-            boulder.Velocity = Vector3.right * 10;
-            boulder.SetPiercing(true);
             var scale = new Vector3(0.6666f, 0.6666f, 0.6666f);
-            boulder.SetDisplayScale(scale);
-            boulder.SetScale(scale);
-            boulder.SetDamage(100);
+            var param = entity.GetSpawnParams();
+            param.SetProperty(VanillaProjectileProps.PIERCING, true);
+            param.SetProperty(EngineEntityProps.DISPLAY_SCALE, scale);
+            param.SetProperty(EngineEntityProps.SCALE, scale);
+            param.SetProperty(VanillaEntityProps.DAMAGE, 100f);
+            var boulder = entity.Spawn(VanillaProjectileID.boulder, entity.Position + new Vector3(0, 16, 0), param);
+            boulder.Velocity = Vector3.right * 10;
         }
     }
 }

@@ -14,61 +14,79 @@ namespace PVZEngine.Entities
             VelocityDampen = entity.GetVelocityDampen();
             Size = entity.GetSize();
             Scale = entity.GetScale();
-            BoundsOffset = entity.GetBoundsOffset();
+            FlipX = entity.IsFlipX();
+            BoundsPivot = entity.GetBoundsPivot();
             CollisionDetection = entity.GetCollisionDetection();
             CollisionSampleLength = entity.GetCollisionSampleLength();
+            entity.UpdateCollision();
         }
-        public void UpdateProperty(Entity entity, PropertyKey name, object value)
+        public void UpdateProperty(Entity entity, IPropertyKey name, object beforeValue, object afterValue)
         {
-            if (name == EngineEntityProps.FACTION)
+            if (EngineEntityProps.FACTION.Equals(name))
             {
-                Faction = value.ToGeneric<int>();
+                Faction = afterValue.ToGeneric<int>();
             }
-            else if (name == EngineEntityProps.GRAVITY)
+            else if (EngineEntityProps.GRAVITY.Equals(name))
             {
-                Gravity = value.ToGeneric<float>();
+                Gravity = afterValue.ToGeneric<float>();
             }
-            else if (name == EngineEntityProps.FRICTION)
+            else if (EngineEntityProps.FRICTION.Equals(name))
             {
-                Friction = value.ToGeneric<float>();
+                Friction = afterValue.ToGeneric<float>();
             }
-            else if (name == EngineEntityProps.GROUND_LIMIT_OFFSET)
+            else if (EngineEntityProps.GROUND_LIMIT_OFFSET.Equals(name))
             {
-                GroundLimitOffset = value.ToGeneric<float>();
+                GroundLimitOffset = afterValue.ToGeneric<float>();
             }
-            else if (name == EngineEntityProps.VELOCITY_DAMPEN)
+            else if (EngineEntityProps.VELOCITY_DAMPEN.Equals(name))
             {
-                VelocityDampen = value.ToGeneric<Vector3>();
+                VelocityDampen = afterValue.ToGeneric<Vector3>();
             }
-            else if (name == EngineEntityProps.SIZE)
+            else if (EngineEntityProps.SIZE.Equals(name))
             {
-                Size = value.ToGeneric<Vector3>();
+                Size = afterValue.ToGeneric<Vector3>();
+                entity.UpdateCollision();
             }
-            else if (name == EngineEntityProps.SCALE)
+            else if (EngineEntityProps.SCALE.Equals(name))
             {
-                Scale = value.ToGeneric<Vector3>();
+                Scale = afterValue.ToGeneric<Vector3>();
+                entity.UpdateCollision();
             }
-            else if (name == EngineEntityProps.BOUNDS_OFFSET)
+            else if (EngineEntityProps.FLIP_X.Equals(name))
             {
-                BoundsOffset = value.ToGeneric<Vector3>();
+                FlipX = afterValue.ToGeneric<bool>();
+                entity.UpdateCollision();
             }
-            else if (name == EngineEntityProps.COLLISION_DETECTION)
+            else if (EngineEntityProps.BOUNDS_PIVOT.Equals(name))
             {
-                CollisionDetection = value.ToGeneric<int>();
+                BoundsPivot = afterValue.ToGeneric<Vector3>();
+                entity.UpdateCollision();
             }
-            else if (name == EngineEntityProps.COLLISION_SAMPLE_LENGTH)
+            else if (EngineEntityProps.COLLISION_DETECTION.Equals(name))
             {
-                CollisionSampleLength = value.ToGeneric<float>();
+                CollisionDetection = afterValue.ToGeneric<int>();
+                entity.UpdateCollision();
             }
+            else if (EngineEntityProps.COLLISION_SAMPLE_LENGTH.Equals(name))
+            {
+                CollisionSampleLength = afterValue.ToGeneric<float>();
+            }
+        }
+        public Vector3 GetFinalScale()
+        {
+            var scale = Scale;
+            scale.x *= FlipX ? -1 : 1;
+            return scale;
         }
         public int Faction { get; private set; }
+        public bool FlipX { get; private set; }
         public float Gravity { get; private set; }
         public float Friction { get; private set; }
         public float GroundLimitOffset { get; private set; }
         public Vector3 VelocityDampen { get; private set; }
         public Vector3 Size { get; private set; }
         public Vector3 Scale { get; private set; }
-        public Vector3 BoundsOffset { get; private set; }
+        public Vector3 BoundsPivot { get; private set; }
         public int CollisionDetection { get; private set; }
         public float CollisionSampleLength { get; private set; }
     }

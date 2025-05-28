@@ -43,8 +43,14 @@
       "pivotY": 0.5
     },
     {
-      "name": "mainmenu/logo",
-      "texture": "mainmenu/logo.png",
+      "name": "chapter_transition/title_mausoleum",
+      "texture": "chapter_transition/title_mausoleum.png",
+      "pivotX": 0.5,
+      "pivotY": 0.5
+    },
+    {
+      "name": "init/logo",
+      "texture": "init/logo.png",
       "pivotX": 0.5,
       "pivotY": 0.5
     },
@@ -177,6 +183,36 @@
           "y": 0.0,
           "width": 358.0,
           "height": 318.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5
+        }
+      ]
+    },
+    {
+      "name": "mainmenu/arcade",
+      "texture": "mainmenu/arcade.png",
+      "slices": [
+        {
+          "x": 0.0,
+          "y": 0.0,
+          "width": 281.0,
+          "height": 164.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5
+        },
+        {
+          "x": 282.0,
+          "y": 0.0,
+          "width": 281.0,
+          "height": 164.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5
+        },
+        {
+          "x": 564.0,
+          "y": 0.0,
+          "width": 281.0,
+          "height": 164.0,
           "pivotX": 0.5,
           "pivotY": 0.5
         }
@@ -354,7 +390,7 @@
           "x": 0.0,
           "y": 0.0,
           "width": 358.0,
-          "height": 278.0,
+          "height": 277.0,
           "pivotX": 0.5,
           "pivotY": 0.5
         },
@@ -362,7 +398,7 @@
           "x": 359.0,
           "y": 0.0,
           "width": 358.0,
-          "height": 278.0,
+          "height": 277.0,
           "pivotX": 0.5,
           "pivotY": 0.5
         },
@@ -370,7 +406,7 @@
           "x": 718.0,
           "y": 0.0,
           "width": 358.0,
-          "height": 278.0,
+          "height": 277.0,
           "pivotX": 0.5,
           "pivotY": 0.5
         }

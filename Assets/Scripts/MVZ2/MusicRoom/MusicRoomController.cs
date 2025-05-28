@@ -1,20 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Scenes;
-using MVZ2.Talk;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2Logic;
-using MVZ2Logic.Archives;
-using MVZ2Logic.Talk;
+using MVZ2.Vanilla.Saves;
 using PVZEngine;
-using PVZEngine.Triggers;
 using UnityEngine;
 
 namespace MVZ2.MusicRoom
@@ -38,6 +31,8 @@ namespace MVZ2.MusicRoom
             ui.OnPlayButtonClick += OnPlayButtonClickCallback;
             ui.OnPauseButtonClick += OnPauseButtonClickCallback;
             ui.OnMusicBarDrag += OnMusicBarDragCallback;
+            ui.OnMusicBarPointerUp += OnMusicBarPointerUpCallback;
+            ui.OnTrackButtonClick += OnTrackButtonClickCallback;
         }
         private void Update()
         {
@@ -50,6 +45,8 @@ namespace MVZ2.MusicRoom
         {
             Hide();
             Main.MusicManager.Stop();
+            Main.MusicManager.SetTrackWeight(0);
+            playingSubTrack = false;
             OnReturnClick?.Invoke();
         }
         private void OnMusicItemClickCallback(int index)
@@ -65,11 +62,24 @@ namespace MVZ2.MusicRoom
             else
             {
                 Main.MusicManager.Play(currentMusicId);
+                playingSubTrack = false;
             }
         }
         private void OnPauseButtonClickCallback()
         {
             Main.MusicManager.Pause();
+        }
+        private void OnTrackButtonClickCallback()
+        {
+            if (currentMusicId == Main.MusicManager.GetCurrentMusicID())
+            {
+                playingSubTrack = !playingSubTrack;
+                ui.SetTrackButtonStyle(playingSubTrack);
+            }
+            else
+            {
+                ui.SetTrackButtonStyle(false);
+            }
         }
         private void OnMusicBarDragCallback(float value)
         {
@@ -77,9 +87,23 @@ namespace MVZ2.MusicRoom
             if (currentMusicId != music)
             {
                 Main.MusicManager.Play(currentMusicId);
+                playingSubTrack = false;
             }
             Main.MusicManager.Pause();
             Main.MusicManager.SetNormalizedMusicTime(value);
+        }
+        private void OnMusicBarPointerUpCallback()
+        {
+            if (Main.MusicManager.IsPaused && currentMusicId == Main.MusicManager.GetCurrentMusicID())
+            {
+                Main.MusicManager.Resume();
+            }
+            else
+            {
+                Main.MusicManager.Play(currentMusicId);
+                playingSubTrack = false;
+            }
+            Main.MusicManager.SetNormalizedMusicTime(ui.GetMusicBarValue());
         }
         #endregion
 
@@ -91,7 +115,7 @@ namespace MVZ2.MusicRoom
             {
                 var meta = Main.ResourceManager.GetMusicMeta(t);
                 var unlockID = meta?.Unlock;
-                return !NamespaceID.IsValid(unlockID) || Main.SaveManager.IsUnlocked(unlockID);
+                return Main.SaveManager.IsInvalidOrUnlocked(unlockID);
             });
             musicList.AddRange(unlockedMusic);
 
@@ -114,6 +138,9 @@ namespace MVZ2.MusicRoom
             {
                 ui.SetMusicTime(Main.MusicManager.GetNormalizedMusicTime());
             }
+            float weightSpeed = playingSubTrack ? 1 : -1;
+            subTrackWeight = Mathf.Clamp01(subTrackWeight + weightSpeed * 0.03f);
+            Main.MusicManager.SetTrackWeight(subTrackWeight);
         }
         private void DisplayMusic(int index)
         {
@@ -144,6 +171,8 @@ namespace MVZ2.MusicRoom
 
             ui.UpdateInformation(name, infoBuilder.ToString(), description);
             ui.SetSelectedItem(index);
+            ui.SetTrackButtonVisible(NamespaceID.IsValid(meta.SubTrack));
+            ui.SetTrackButtonStyle(currentMusicId == Main.MusicManager.GetCurrentMusicID() && playingSubTrack);
         }
         private string GetTranslatedString(string text, params object[] args)
         {
@@ -168,6 +197,8 @@ namespace MVZ2.MusicRoom
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> musicList = new List<NamespaceID>();
         private NamespaceID currentMusicId;
+        private bool playingSubTrack;
+        private float subTrackWeight;
 
         [SerializeField]
         private MusicRoomUI ui;

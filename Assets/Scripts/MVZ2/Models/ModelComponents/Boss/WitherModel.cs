@@ -1,6 +1,4 @@
-﻿using MVZ2.Audios;
-using PVZEngine.Level;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MVZ2.Models
 {
@@ -23,7 +21,7 @@ namespace MVZ2.Models
             foreach (var renderer in armorRenderers)
             {
                 renderer.GetPropertyBlock(block);
-                block.SetVector("_BaseMap_ST", new Vector4(1, 1, offset.x, offset.y));
+                block.SetVector("_MainTex_ST", new Vector4(1, 1, offset.x, offset.y));
                 renderer.SetPropertyBlock(block);
             }
         }

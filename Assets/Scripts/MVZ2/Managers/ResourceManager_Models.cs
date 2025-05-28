@@ -62,28 +62,38 @@ namespace MVZ2.Managers
         #endregion
 
         #region 私有方法
-        private async Task LoadModModels(string nsp)
+        private async Task LoadModModels(string nsp, TaskProgress progress)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return;
-            var resources = await LoadLabeledResources<GameObject>(nsp, "Model");
+            var resources = await LoadLabeledResources<GameObject>(nsp, "Model", progress);
+
             foreach (var (id, res) in resources)
             {
                 var model = res.GetComponent<Model>();
                 modResource.Models.Add(id.Path, model);
             }
         }
-        private void ShotModelIcons(string modNamespace, string metaNamespace, ModelMetaList metaList)
+        private async Task ShotModelIcons(string modNamespace, TaskProgress progress, int maxYieldCount = 4)
         {
             var modResource = GetModResource(modNamespace);
             if (modResource == null)
                 return;
-            foreach (var meta in metaList.metas)
+            var metaList = modResource.ModelMetaList;
+            if (metaList == null)
+                return;
+
+            var metas = metaList.metas;
+            var count = metas.Length;
+            int yieldCounter = 0;
+            for (int i = 0; i < count; i++)
             {
+                var meta = metas[i];
+
                 var model = GetModel(meta.Path);
                 var metaPath = EngineModelID.ConcatName(meta.Type, meta.Name);
-                var metaID = new NamespaceID(metaNamespace, metaPath);
+                var metaID = new NamespaceID(modNamespace, metaPath);
                 if (model != null)
                 {
                     Sprite sprite;
@@ -102,7 +112,15 @@ namespace MVZ2.Managers
                     modResource.ModelIcons.Add(metaPath, GetDefaultSpriteClone());
                     Debug.LogWarning($"Model prefab {metaID} is missing.");
                 }
+                progress.SetProgress(1 / (float)count, metaID.ToString());
+                yieldCounter++;
+                if (yieldCounter >= maxYieldCount)
+                {
+                    yieldCounter = 0;
+                    await Task.Yield();
+                }
             }
+            progress.SetProgress(1, "Finished");
         }
         #endregion
     }

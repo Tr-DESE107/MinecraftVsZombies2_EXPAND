@@ -2,18 +2,18 @@
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Triggers;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
     [EntityBehaviourDefinition(VanillaContraptionNames.drivenser)]
-    public class Drivenser : DispenserFamily, IStackEntity
+    public class Drivenser : DispenserFamily
     {
         public Drivenser(string nsp, string name) : base(nsp, name)
         {
@@ -24,6 +24,10 @@ namespace MVZ2.GameContent.Contraptions
             base.Init(entity);
             InitShootTimer(entity);
             SetRepeatTimer(entity, new FrameTimer(15));
+            if (entity.Level.IsIZombie())
+            {
+                SetUpgradeLevel(entity, I_ZOMBIE_LEVEL);
+            }
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -107,28 +111,24 @@ namespace MVZ2.GameContent.Contraptions
         public static float GetBlockerBlend(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_BLOCKER_BLEND);
         public static void SetBlockerBlend(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_BLOCKER_BLEND, value);
 
-
-        void IStackEntity.CanStackOnEntity(Entity target, TriggerResultBoolean result)
+        public static bool CanUpgrade(Entity drivenser)
         {
-            if (target.IsEntityOf(VanillaContraptionID.drivenser) && GetUpgradeLevel(target) < MAX_UPGRADE_LEVEL)
-            {
-                result.Result = true;
-            }
+            return drivenser.IsEntityOf(VanillaContraptionID.drivenser) && drivenser.IsFriendlyEntity() && GetUpgradeLevel(drivenser) < MAX_UPGRADE_LEVEL;
         }
-        void IStackEntity.StackOnEntity(Entity target)
+        public static void Upgrade(Entity drivenser)
         {
-            if (!target.IsEntityOf(VanillaContraptionID.drivenser))
+            if (!drivenser.IsEntityOf(VanillaContraptionID.drivenser))
                 return;
-            SetUpgradeLevel(target, GetUpgradeLevel(target) + 1);
-            target.PlaySound(VanillaSoundID.mechanism);
-            target.Level.Spawn(VanillaEffectID.gearParticles, target.Position, target);
-
+            SetUpgradeLevel(drivenser, GetUpgradeLevel(drivenser) + 1);
+            drivenser.PlaySound(VanillaSoundID.mechanism);
+            drivenser.Level.Spawn(VanillaEffectID.gearParticles, drivenser.Position, drivenser);
         }
         public const int MAX_UPGRADE_LEVEL = 4;
+        public const int I_ZOMBIE_LEVEL = 2;
         private static readonly NamespaceID ID = VanillaContraptionID.drivenser;
-        public static readonly VanillaEntityPropertyMeta PROP_REPEAT_TIMER = new VanillaEntityPropertyMeta("RepeatTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_REPEAT_COUNT = new VanillaEntityPropertyMeta("RepeatCount");
-        public static readonly VanillaEntityPropertyMeta PROP_UPGRADE_LEVEL = new VanillaEntityPropertyMeta("UpgradeLevel");
-        public static readonly VanillaEntityPropertyMeta PROP_BLOCKER_BLEND = new VanillaEntityPropertyMeta("BlockerBlend");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_REPEAT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("RepeatTimer");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_REPEAT_COUNT = new VanillaEntityPropertyMeta<int>("RepeatCount");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_UPGRADE_LEVEL = new VanillaEntityPropertyMeta<int>("UpgradeLevel");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_BLOCKER_BLEND = new VanillaEntityPropertyMeta<float>("BlockerBlend");
     }
 }

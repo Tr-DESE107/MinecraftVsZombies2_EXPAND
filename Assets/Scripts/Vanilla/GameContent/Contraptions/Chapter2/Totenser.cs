@@ -28,7 +28,6 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
             InitShootTimer(entity);
-            SetFireDetectTimer(entity, new FrameTimer(FIRE_DETECT_INTERVAL));
         }
 
         // 核心修改：添加随机发射逻辑
@@ -62,19 +61,18 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.UpdateLogic(entity);
             UpdateFireBreath(entity);
+            entity.SetAnimationFloat("SpearSpeed", entity.IsAIFrozen() ? 0 : 1);
         }
-        public override void Evoke(Entity entity)
+        protected override void OnEvoke(Entity entity)
         {
-            base.Evoke(entity);
+            base.OnEvoke(entity);
             entity.SetEvoked(true);
             entity.TriggerAnimation("Throw");
             SetEvocationTime(entity, 0);
         }
         private void UpdateFireBreath(Entity entity)
         {
-            var timer = GetFireDetectTimer(entity);
-            timer.Run();
-            if (timer.Expired)
+            if (entity.IsTimeInterval(FIRE_DETECT_INTERVAL))
             {
                 var target = fireBreathDetector.Detect(entity);
                 if (target != null && !entity.IsAIFrozen())
@@ -85,7 +83,6 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     entity.State = VanillaEntityStates.IDLE;
                 }
-                timer.Reset();
             }
             if (entity.State == VanillaEntityStates.TOTENSER_FIRE_BREATH)
             {
@@ -99,7 +96,7 @@ namespace MVZ2.GameContent.Contraptions
                 }
                 fireBreath.SetDamage(entity.GetDamage() * 2 / 3);
                 fireBreath.Position = position;
-                fireBreath.SetFactionAndDirection(entity.GetFaction());
+                fireBreath.SetFaction(entity.GetFaction());
             }
             else
             {
@@ -137,8 +134,6 @@ namespace MVZ2.GameContent.Contraptions
             }
             SetEvocationTime(entity, evocationTime);
         }
-        public static FrameTimer GetFireDetectTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_FIRE_DETECT_TIMER);
-        public static void SetFireDetectTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, PROP_FIRE_DETECT_TIMER, value);
         public static int GetEvocationTime(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_EVOCATION_TIME);
         public static void SetEvocationTime(Entity entity, int value) => entity.SetBehaviourField(ID, PROP_EVOCATION_TIME, value);
         public static Entity GetFireBreath(Entity entity)
@@ -153,9 +148,8 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetBehaviourField(ID, PROP_FIRE_BREATH, new EntityID(value));
         }
         private static readonly NamespaceID ID = VanillaContraptionID.totenser;
-        public static readonly VanillaEntityPropertyMeta PROP_FIRE_DETECT_TIMER = new VanillaEntityPropertyMeta("FireDetectTimer");
-        public static readonly VanillaEntityPropertyMeta PROP_EVOCATION_TIME = new VanillaEntityPropertyMeta("EvocationTime");
-        public static readonly VanillaEntityPropertyMeta PROP_FIRE_BREATH = new VanillaEntityPropertyMeta("FireBreath");
+        public static readonly VanillaEntityPropertyMeta<int> PROP_EVOCATION_TIME = new VanillaEntityPropertyMeta<int>("EvocationTime");
+        public static readonly VanillaEntityPropertyMeta<EntityID> PROP_FIRE_BREATH = new VanillaEntityPropertyMeta<EntityID>("FireBreath");
         private Detector fireBreathDetector;
         public const int FIRE_DETECT_INTERVAL = 7;
         public const int THROW_JAVELIN_TIME = 30;

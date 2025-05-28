@@ -596,7 +596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3034615701977725972, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: m_Name
-      value: spike_block
+      value: diamond_spikes
       objectReference: {fileID: 0}
     - target: {fileID: 5358871617538941006, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: m_LocalPosition.y

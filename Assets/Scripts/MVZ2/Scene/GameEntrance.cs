@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
-using MVZ2.GameContent.Effects;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Saves;
@@ -18,22 +17,60 @@ namespace MVZ2.Scenes
     {
         private async void Start()
         {
+            if (!await Initialize())
+                return;
+
+            await CheckSaveDataStatus();
+            await StartGame();
+        }
+        private async Task<bool> Initialize()
+        {
             try
             {
                 loadingText.SetActive(true);
                 await main.Initialize();
+                return true;
             }
             catch (Exception e)
             {
                 ShowErrorDialog(e);
-                return;
+                return false;
             }
             finally
             {
                 loadingText.SetActive(false);
             }
-            await CheckSaveDataStatus();
-            StartGame();
+        }
+        private async Task StartGame()
+        {
+            try
+            {
+                loadingText.SetActive(true);
+                main.InitLoad();
+
+                if (!main.IsFastMode())
+                {
+                    main.Scene.DisplayPage(MainScenePageType.Splash);
+                }
+                else
+                {
+                    var initTask = main.GetInitTask();
+                    if (initTask != null)
+                    {
+                        await initTask;
+                    }
+                    main.Scene.DisplayMainmenu();
+                }
+                main.MusicManager.Play(VanillaMusicID.mainmenu);
+            }
+            catch (Exception e)
+            {
+                ShowErrorDialog(e);
+            }
+            finally
+            {
+                loadingText.SetActive(false);
+            }
         }
         private string GetErrorMessage(Exception e)
         {
@@ -118,18 +155,6 @@ namespace MVZ2.Scenes
                         main.SaveManager.SaveUserList();
                     }
                     break;
-            }
-        }
-        private void StartGame()
-        {
-            main.MusicManager.Play(VanillaMusicID.mainmenu);
-            if (main.IsFastMode())
-            {
-                main.Scene.DisplayMainmenu();
-            }
-            else
-            {
-                main.Scene.DisplayPage(MainScenePageType.Landing);
             }
         }
         private void Quit()

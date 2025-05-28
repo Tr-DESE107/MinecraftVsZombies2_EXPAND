@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Tools;
+using UnityEngine;
 
 namespace PVZEngine
 {
     public class PropertyDictionary
     {
-        public bool SetProperty(PropertyKey key, object value)
+        public bool SetPropertyObject(IPropertyKey key, object value)
         {
             if (value == null)
             {
@@ -22,25 +23,29 @@ namespace PVZEngine
             propertyDict[key] = value;
             return true;
         }
-        public object GetProperty(PropertyKey name)
+        public bool SetProperty<T>(PropertyKey<T> key, T value)
         {
-            if (TryGetProperty(name, out var prop))
+            return SetPropertyObject(key, value);
+        }
+        public object GetPropertyObject(IPropertyKey name)
+        {
+            if (TryGetPropertyObject(name, out var prop))
                 return prop;
             return null;
         }
-        public bool TryGetProperty(PropertyKey name, out object value)
+        public bool TryGetPropertyObject(IPropertyKey name, out object value)
         {
             return propertyDict.TryGetValue(name, out value);
         }
-        public T GetProperty<T>(PropertyKey name)
+        public T GetProperty<T>(PropertyKey<T> name)
         {
             if (TryGetProperty<T>(name, out var value))
                 return value;
             return default;
         }
-        public bool TryGetProperty<T>(PropertyKey name, out T value)
+        public bool TryGetProperty<T>(PropertyKey<T> name, out T value)
         {
-            if (TryGetProperty(name, out object prop))
+            if (TryGetPropertyObject(name, out object prop))
             {
                 if (prop.TryToGeneric<T>(out var result))
                 {
@@ -51,19 +56,34 @@ namespace PVZEngine
             value = default;
             return false;
         }
-        public bool RemoveProperty(PropertyKey name)
+        public bool RemovePropertyObject(IPropertyKey name)
         {
             return propertyDict.Remove(name);
         }
-        public PropertyKey[] GetPropertyNames()
+        public bool RemoveProperty<T>(PropertyKey<T> name)
+        {
+            return RemovePropertyObject(name);
+        }
+        public IPropertyKey[] GetPropertyNames()
         {
             return propertyDict.Keys.ToArray();
         }
         public SerializablePropertyDictionary ToSerializable()
         {
+            var properties = new Dictionary<string, object>();
+            foreach (var pair in propertyDict)
+            {
+                var key = PropertyMapper.ConvertToFullName(pair.Key);
+                if (string.IsNullOrEmpty(key))
+                {
+                    Debug.LogWarning($"Trying to serialize a property with key {pair.Key}, which is not registered.");
+                    continue;
+                }
+                properties.Add(key, pair.Value);
+            }
             return new SerializablePropertyDictionary()
             {
-                properties = propertyDict.ToDictionary(pair => PropertyMapper.ConvertToFullName(pair.Key), pair => pair.Value)
+                properties = properties
             };
         }
         public static PropertyDictionary FromSerializable(SerializablePropertyDictionary seri)
@@ -75,14 +95,13 @@ namespace PVZEngine
                 foreach (var pair in seri.properties)
                 {
                     var key = PropertyMapper.ConvertFromName(pair.Key);
-                    var value = pair.Value;
-                    dict.propertyDict.Add(key, value);
+                    dict.propertyDict.Add(key, pair.Value);
                 }
             }
             return dict;
         }
         public int Count => propertyDict.Count;
-        private Dictionary<PropertyKey, object> propertyDict = new Dictionary<PropertyKey, object>(32);
+        private Dictionary<IPropertyKey, object> propertyDict = new Dictionary<IPropertyKey, object>(32);
     }
     [Serializable]
     public class SerializablePropertyDictionary

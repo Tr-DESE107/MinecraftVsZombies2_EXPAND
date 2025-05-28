@@ -24,9 +24,12 @@ namespace MVZ2.Metas
                 {
                     case "entry":
                         var entry = AlmanacMetaEntry.FromXmlNode(childNode, defaultNsp);
-                        entry.index = entryIndex;
+                        if (!entry.hidden)
+                        {
+                            entry.index = entryIndex;
+                            entryIndex++;
+                        }
                         entries[j] = entry;
-                        entryIndex++;
                         break;
                 }
             }

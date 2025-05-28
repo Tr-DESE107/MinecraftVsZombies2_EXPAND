@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: map_shadow
-  m_Shader: {fileID: 4800000, guid: 6396f532ed4214c45ace73225f940b6c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 620c8de68354d75438a76a44ba800101, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -25,6 +25,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _LightMapGlobal:
+        m_Texture: {fileID: 8600000, guid: 1625456059e0b82448c58404c9208d31, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMapSpot:
+        m_Texture: {fileID: 8600000, guid: 520d28ea1cee7004bbda9e94e545703c, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _LightTex:
         m_Texture: {fileID: 8600000, guid: 7cd6125a6ed6e684f9828314315b1d8e, type: 2}
         m_Scale: {x: 1, y: 1}
@@ -48,7 +56,9 @@ Material:
     - _LightBorderStrength: 1
     - _LightBorderThresold: 1
     - _LightBorderWidth: 0.2
+    - _LightFactor: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _LightMapST: {r: 14, g: 10.2, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

@@ -8,6 +8,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
@@ -20,8 +21,9 @@ namespace MVZ2.GameContent.Artifacts
             AddTrigger(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, PostContraptionEvokeCallback);
             AddAura(new EvokedContraptionInvincibleAura());
         }
-        private void PostContraptionEvokeCallback(Entity contraption)
+        private void PostContraptionEvokeCallback(EntityCallbackParams param, CallbackResult result)
         {
+            var contraption = param.entity;
             var level = contraption.Level;
             if (!level.HasArtifact(ID))
                 return;

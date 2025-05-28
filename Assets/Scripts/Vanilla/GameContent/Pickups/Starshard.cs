@@ -29,7 +29,6 @@ namespace MVZ2.GameContent.Pickups
 
             pickup.SetModelProperty("Ring1Rotation", new Vector3(rng.Next(0, 360f), rng.Next(0, 360f), rng.Next(0, 360f)));
             pickup.SetModelProperty("Ring2Rotation", new Vector3(rng.Next(0, 360f), rng.Next(0, 360f), rng.Next(0, 360f)));
-            pickup.SetSortingOrder(9999);
         }
         public override void Update(Entity pickup)
         {
@@ -86,6 +85,10 @@ namespace MVZ2.GameContent.Pickups
                 return false;
             }
             return base.CanCollect(pickup);
+        }
+        public override bool CanAutoCollect(Entity pickup)
+        {
+            return true;
         }
         public override void PostCollect(Entity pickup)
         {

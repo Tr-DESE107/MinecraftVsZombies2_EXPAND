@@ -16,23 +16,41 @@ namespace MVZ2.Metas
         public NamespaceID id;
         public string name;
         public NamespaceID unlock;
+
         public SpriteReference sprite;
         public NamespaceID model;
+        public bool iconFixedSize;
+        public bool iconZoom;
+
         public string header;
         public string properties;
         public AlmanacMetaFlavor[] flavors;
         public int index = -1;
+        public bool hidden = false;
         public static AlmanacMetaEntry FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
             var name = node.GetAttribute("name");
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-            var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
-            var model = node.GetAttributeNamespaceID("model", defaultNsp);
+
+            SpriteReference sprite = null;
+            NamespaceID model = null;
+            bool iconFixedSize = false;
+            bool iconZoom = true;
+            var iconNode = node["icon"];
+            if (iconNode != null)
+            {
+                sprite = iconNode.GetAttributeSpriteReference("sprite", defaultNsp);
+                model = iconNode.GetAttributeNamespaceID("model", defaultNsp);
+                iconFixedSize = iconNode.GetAttributeBool("fixedSize") ?? iconFixedSize;
+                iconZoom = iconNode.GetAttributeBool("zoom") ?? iconZoom;
+            }
             var headerNode = node["header"];
             var propertiesNode = node["properties"];
             var header = headerNode != null ? ConcatNodeParagraphs(headerNode) : string.Empty;
             var properties = propertiesNode != null ? ConcatNodeParagraphs(propertiesNode) : string.Empty;
+
+            var hidden = node.GetAttributeBool("hidden") ?? false;
 
             AlmanacMetaFlavor[] flavors;
             var flavorsNode = node["flavors"];
@@ -68,6 +86,9 @@ namespace MVZ2.Metas
                 unlock = unlock,
                 sprite = sprite,
                 model = model,
+                iconFixedSize = iconFixedSize,
+                iconZoom = iconZoom,
+                hidden = hidden,
                 header = header,
                 properties = properties,
                 flavors = flavors,

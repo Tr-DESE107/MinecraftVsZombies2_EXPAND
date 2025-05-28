@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: builtin
   m_Data:
     m_SerializedData: []
-  m_GUID: 2d940a640ecc2d045b562e0eac1a0a57
+  m_GUID: 2f0beaa9696c89449ba799abdbea8180
   m_SerializeEntries:
   - m_GUID: 0363334296b8c65499d3a83ae62e33ff
     m_Address: Assets/Shaders
@@ -36,5 +36,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 90eca7e720f4b4e46b1a09dc808ef914, type: 2}
-    - {fileID: 11400000, guid: 84a5b8e37384ffd4098e7980c20ab598, type: 2}
+    - {fileID: 11400000, guid: 1d62ef580bf92004cb85c9e0b1ca7bc5, type: 2}
+    - {fileID: 11400000, guid: 2e7a2e13316948f4c8106b7478ca3162, type: 2}

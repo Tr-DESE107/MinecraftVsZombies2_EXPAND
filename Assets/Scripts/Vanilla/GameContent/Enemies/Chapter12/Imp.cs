@@ -1,8 +1,10 @@
-﻿using MVZ2.GameContent.Buffs.Enemies;
+﻿using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -15,6 +17,14 @@ namespace MVZ2.GameContent.Enemies
     {
         public Imp(string nsp, string name) : base(nsp, name)
         {
+        }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            if (entity.Level.IsIZombie())
+            {
+                entity.AddBuff<IZombieImpBuff>();
+            }
         }
         protected override void UpdateLogic(Entity entity)
         {

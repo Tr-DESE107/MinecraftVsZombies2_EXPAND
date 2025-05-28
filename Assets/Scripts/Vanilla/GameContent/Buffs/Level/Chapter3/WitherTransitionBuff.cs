@@ -83,9 +83,9 @@ namespace MVZ2.GameContent.Buffs.Level
                     break;
             }
         }
-        public static readonly VanillaBuffPropertyMeta PROP_TIMER = new VanillaBuffPropertyMeta("Timer");
-        public static readonly VanillaBuffPropertyMeta PROP_STATE = new VanillaBuffPropertyMeta("State");
-        public static readonly VanillaBuffPropertyMeta PROP_SCREEN_COVER = new VanillaBuffPropertyMeta("ScreenCover");
+        public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("Timer");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_STATE = new VanillaBuffPropertyMeta<int>("State");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_SCREEN_COVER = new VanillaBuffPropertyMeta<Color>("ScreenCover");
         public const int STATE_START = 0;
         public const int STATE_SUMMONING = 1;
         public const int STATE_SUMMONED = 2;

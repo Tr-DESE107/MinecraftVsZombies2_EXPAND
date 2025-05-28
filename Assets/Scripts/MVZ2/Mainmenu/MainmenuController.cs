@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Notes;
 using MVZ2.GameContent.Stages;
+using MVZ2.IO;
 using MVZ2.Mainmenu.UI;
 using MVZ2.Managers;
 using MVZ2.Metas;
@@ -14,12 +16,12 @@ using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
+using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Saves;
-using MVZ2Logic.Scenes;
 using PVZEngine;
 using Tools.Mathematics;
 using UnityEngine;
@@ -38,6 +40,7 @@ namespace MVZ2.Mainmenu
             ui.SetButtonActive(MainmenuButtonType.Almanac, main.SaveManager.IsAlmanacUnlocked());
             ui.SetButtonActive(MainmenuButtonType.Store, main.SaveManager.IsStoreUnlocked());
             ui.SetButtonActive(MainmenuButtonType.MusicRoom, main.SaveManager.IsMusicRoomUnlocked());
+            ui.SetButtonActive(MainmenuButtonType.Arcade, main.SaveManager.IsArcadeUnlocked());
 
             isDark = false;
             ui.SetBackgroundDark(false);
@@ -51,6 +54,7 @@ namespace MVZ2.Mainmenu
             {
                 main.MusicManager.Play(VanillaMusicID.mainmenu);
             }
+            ui.SetVersion(Application.version);
             var name = main.SaveManager.GetCurrentUserName();
             bool isSpecialName = main.Game.IsSpecialUserName(name);
             ui.SetUserName(name);
@@ -87,6 +91,28 @@ namespace MVZ2.Mainmenu
             }
             ui.SetRayblockerActive(false);
         }
+        public void ShowCredits()
+        {
+            var viewDatas = new List<CreditsCategoryViewData>();
+            var categories = main.ResourceManager.GetAllCreditsCategories();
+            foreach (var category in categories)
+            {
+                var viewData = new CreditsCategoryViewData()
+                {
+                    name = main.LanguageManager._p(VanillaStrings.CONTEXT_CREDITS_CATEGORY, category.Name),
+                    entries = category.Entries.Select(e => main.LanguageManager._p(VanillaStrings.CONTEXT_STAFF_NAME, e)).ToArray(),
+                };
+                viewDatas.Add(viewData);
+            }
+            ui.ShowCredits(viewDatas.ToArray());
+        }
+        public void ShowKeybinding()
+        {
+            bindingKeys = main.OptionsManager.GetAllKeyBindings();
+            bindingKeyIndex = -1;
+            UpdateKeybindingItems();
+            ui.SetKeybindingActive(true);
+        }
         #region 生命周期
         private void Awake()
         {
@@ -104,6 +130,7 @@ namespace MVZ2.Mainmenu
             mainmenuActionDict.Add(MainmenuButtonType.Stats, OnStatsButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.Achievement, OnAchievementButtonClickCallback);
             mainmenuActionDict.Add(MainmenuButtonType.MusicRoom, OnMusicRoomButtonClickCallback);
+            mainmenuActionDict.Add(MainmenuButtonType.Arcade, OnArcadeButtonClickCallback);
             ui.OnMainmenuButtonClick += OnMainmenuButtonClickCallback;
 
             ui.OnUserManageDialogButtonClick += OnUserManageButtonClickCallback;
@@ -112,6 +139,11 @@ namespace MVZ2.Mainmenu
 
             ui.OnStatsReturnButtonClick += OnStatsReturnClickCallback;
             ui.OnAchievementsReturnButtonClick += OnAchievementsReturnClickCallback;
+            ui.OnCreditsReturnButtonClick += OnCreditsReturnClickCallback;
+
+            ui.OnKeybindingReturnButtonClick += OnKeybindingReturnButtonClickCallback;
+            ui.OnKeybindingResetButtonClick += OnKeybindingResetButtonClickCallback;
+            ui.OnKeybindingItemButtonClick += OnKeybindingItemButtonClickCallback;
         }
         private void Update()
         {
@@ -134,6 +166,7 @@ namespace MVZ2.Mainmenu
                 animator.SetFloat("BlendX", blend.x);
                 animator.SetFloat("BlendY", blend.y);
             }
+            UpdateKeybindingCheck();
         }
         #endregion
 
@@ -152,7 +185,7 @@ namespace MVZ2.Mainmenu
         private void OnOptionsButtonClickCallback()
         {
             ui.SetOptionsDialogVisible(true);
-            optionsLogic = new OptionsLogicMainmenu(ui.OptionsDialog);
+            optionsLogic = new OptionsLogicMainmenu(ui.OptionsDialog, this);
             optionsLogic.InitDialog();
             optionsLogic.OnClose += OnOptionsCloseClickCallback;
         }
@@ -218,6 +251,10 @@ namespace MVZ2.Mainmenu
         {
             main.Scene.DisplayMusicRoom(() => main.Scene.DisplayMainmenu());
         }
+        private void OnArcadeButtonClickCallback()
+        {
+            main.Scene.DisplayArcade(() => main.Scene.DisplayMainmenu());
+        }
 
         private void OnOptionsCloseClickCallback()
         {
@@ -258,7 +295,7 @@ namespace MVZ2.Mainmenu
                     {
                         var userIndex = GetSelectedUserIndex();
                         var currentName = main.SaveManager.GetUserName(userIndex);
-                        if (main.Game.IsSpecialUserName(currentName))
+                        if (!main.SaveManager.CanRenameUser(currentName))
                         {
                             var title = main.LanguageManager._(VanillaStrings.HINT);
                             var desc = main.LanguageManager._(VanillaStrings.ERROR_MESSAGE_CANNOT_RENAME_THIS_USER);
@@ -297,6 +334,116 @@ namespace MVZ2.Mainmenu
                         HideUserManageDialog();
                     }
                     break;
+                case UserManageDialog.ButtonType.Import:
+                    {
+                        if (IsUserFull())
+                        {
+                            break;
+                        }
+                        await FileHelper.OpenExternalFile(new string[] { "zip" }, OnImportPathSelected);
+                    }
+                    break;
+                case UserManageDialog.ButtonType.Export:
+                    {
+                        var userIndex = GetSelectedUserIndex();
+                        if (userIndex < 0)
+                            break;
+                        var userName = main.SaveManager.GetUserName(userIndex);
+                        bool success = false;
+                        var fileName = userName;
+                        foreach (var chr in Path.GetInvalidFileNameChars())
+                        {
+                            fileName = fileName.Replace(chr, '_');
+                        }
+
+                        var path = await FileHelper.SaveExternalFile(fileName, new string[] { "zip" }, dest =>
+                        {
+                            if (string.IsNullOrEmpty(dest))
+                                return;
+                            try
+                            {
+                                success = main.SaveManager.ExportUserDataPack(userIndex, dest);
+                            }
+                            catch (Exception)
+                            {
+                                success = false;
+                            }
+                        });
+                        if (string.IsNullOrEmpty(path))
+                            break;
+                        string title, desc;
+                        if (!success)
+                        {
+                            title = main.LanguageManager._(VanillaStrings.ERROR);
+                            desc = main.LanguageManager._(ERROR_NOT_EXPORTED);
+                        }
+                        else
+                        {
+                            title = main.LanguageManager._(VanillaStrings.HINT);
+                            desc = main.LanguageManager._(HINT_EXPORTED, path);
+                        }
+                        await main.Scene.ShowDialogMessageAsync(title, desc);
+                    }
+                    break;
+            }
+        }
+        private async void OnImportPathSelected(string path)
+        {
+            try
+            {
+                var userIndex = main.SaveManager.FindFreeUserIndex();
+                if (userIndex < 0)
+                    return;
+                if (string.IsNullOrEmpty(path))
+                    return;
+                if (!File.Exists(path))
+                    return;
+
+                UserDataPackMetadata metadata;
+                try
+                {
+                    metadata = main.SaveManager.ImportUserDataPackMetadata(path);
+                    if (metadata == null)
+                    {
+                        throw new IOException($"Cannot import user data pack metadata from path {path}");
+                    }
+                }
+                catch (Exception)
+                {
+                    // 加载失败，用户文件可能损坏。
+                    var title = main.LanguageManager._(VanillaStrings.ERROR);
+                    var desc = main.LanguageManager._(ERROR_CORRUPT_USER_DATA_PACK);
+                    main.Scene.ShowDialogMessage(title, desc);
+                    return;
+                }
+
+                // 如果有重复的名称，则提示用户重新命名。
+                var userName = metadata.username;
+                if (main.SaveManager.HasDuplicateUserName(userName, -1))
+                {
+                    // 如果不能重命名，直接提示错误。
+                    if (!main.SaveManager.CanRenameUser(userName))
+                    {
+                        var title = main.LanguageManager._(VanillaStrings.ERROR);
+                        var desc = main.LanguageManager._(ERROR_DUPLICATE_IMPORTING_USER_NAME_AND_CANNOT_RENAME);
+                        main.Scene.ShowDialogMessage(title, desc);
+                        return;
+                    }
+                    else
+                    {
+                        var newName = await main.Scene.ShowInputNameDialogAsync(InputNameType.Rename);
+                        if (string.IsNullOrEmpty(newName))
+                            return;
+                        userName = newName;
+                    }
+                }
+
+                main.SaveManager.ImportUserDataPack(userName, userIndex, path);
+                RefreshUserManageDialog();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"导入用户存档时出现错误：{e}");
             }
         }
         #endregion
@@ -309,6 +456,40 @@ namespace MVZ2.Mainmenu
         private void OnAchievementsReturnClickCallback()
         {
             StartAnimatorTransition(basementBlend);
+        }
+        #endregion
+
+        #region 制作人员名单
+        private void OnCreditsReturnClickCallback()
+        {
+            ui.HideCredits();
+        }
+        #endregion
+
+        #region 按键绑定
+        private void OnKeybindingReturnButtonClickCallback()
+        {
+            bindingKeys = null;
+            bindingKeyIndex = -1;
+            ui.SetKeybindingActive(false);
+        }
+        private void OnKeybindingResetButtonClickCallback()
+        {
+            var title = main.LanguageManager._(VanillaStrings.WARNING);
+            var desc = main.LanguageManager._(RESET_KEY_BINDINGS_WARNING);
+            main.Scene.ShowDialogSelect(title, desc, (confirm) =>
+            {
+                if (confirm)
+                {
+                    main.OptionsManager.ResetKeyBindings();
+                    UpdateKeybindingItems();
+                }
+            });
+        }
+        private void OnKeybindingItemButtonClickCallback(int index)
+        {
+            bindingKeyIndex = index;
+            UpdateKeybindingItem(index);
         }
         #endregion
 
@@ -359,7 +540,7 @@ namespace MVZ2.Mainmenu
             var task = main.LevelManager.GotoLevelSceneAsync();
             while (!task.IsCompleted)
                 yield return null;
-            main.LevelManager.InitLevel(VanillaAreaID.castle, VanillaStageID.debug);
+            main.LevelManager.InitLevel(VanillaAreaID.mausoleum, VanillaStageID.debug);
             Hide();
         }
 
@@ -491,10 +672,17 @@ namespace MVZ2.Mainmenu
         private void UpdateUserManageButtons()
         {
             bool selected = selectedUserArrayIndex >= 0;
-            ui.SetUserManageCreateNewUserActive(managingUserIndexes.Length < SaveManager.MAX_USER_COUNT);
+            bool hasEmptySlot = !IsUserFull();
+            ui.SetUserManageCreateNewUserActive(hasEmptySlot);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Rename, selected);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Delete, selected && managingUserIndexes.Length >= 2);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Switch, selected && GetSelectedUserIndex() != main.SaveManager.GetCurrentUserIndex());
+            ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Import, hasEmptySlot);
+            ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Export, selected);
+        }
+        private bool IsUserFull()
+        {
+            return managingUserIndexes.Length >= SaveManager.MAX_USER_COUNT;
         }
         #endregion
 
@@ -550,7 +738,7 @@ namespace MVZ2.Mainmenu
 
                 var title = main.LanguageManager._p(VanillaStrings.CONTEXT_STAT_CATEGORY, metaName);
                 long categoryNumber = 0;
-                switch (metaOperation) 
+                switch (metaOperation)
                 {
                     case StatOperation.Sum:
                         categoryNumber = category.GetSum();
@@ -614,6 +802,90 @@ namespace MVZ2.Mainmenu
         }
         #endregion
 
+        #region 按键绑定
+        private void UpdateKeybindingItems()
+        {
+            var viewDatas = new List<KeybindingItemViewData>();
+            var conflictKeys = bindingKeys
+                .Select(k => main.OptionsManager.GetKeyBinding(k))
+                .GroupBy(k => k)
+                .Where(g => g.Count() > 1)
+                .Select(g => g.Key);
+            for (int i = 0; i < bindingKeys.Length; i++)
+            {
+                var id = bindingKeys[i];
+                var keyCode = main.OptionsManager.GetKeyBinding(id);
+                var conflict = conflictKeys.Contains(keyCode);
+                var viewData = GetKeybindingItemViewData(i, conflict);
+                viewDatas.Add(viewData);
+            }
+            ui.UpdateKeyBindingItems(viewDatas.ToArray());
+        }
+        private void UpdateKeybindingItem(int index)
+        {
+            var conflictKeys = bindingKeys
+                .Select(k => main.OptionsManager.GetKeyBinding(k))
+                .GroupBy(k => k)
+                .Where(g => g.Count() > 1)
+                .Select(g => g.Key);
+            var id = bindingKeys[index];
+            var keyCode = main.OptionsManager.GetKeyBinding(id);
+            var conflict = conflictKeys.Contains(keyCode);
+            var viewData = GetKeybindingItemViewData(index, conflict);
+            ui.UpdateKeyBindingItem(index, viewData);
+        }
+        private KeybindingItemViewData GetKeybindingItemViewData(int index, bool conflict)
+        {
+            var id = bindingKeys[index];
+            var nameKey = main.OptionsManager.GetHotkeyNameKey(id);
+            var name = main.LanguageManager._p(VanillaStrings.CONTEXT_HOTKEY_NAME, nameKey);
+
+            var keyCode = main.OptionsManager.GetKeyBinding(id);
+            var keyColor = Color.white;
+            string keyName;
+            if (bindingKeyIndex != index)
+            {
+                var key = main.InputManager.GetKeyCodeNameKey(keyCode);
+                keyName = main.LanguageManager._p(InputManager.CONTEXT_KEY_NAME, key);
+                keyColor = conflict ? Color.red : Color.white;
+            }
+            else
+            {
+                keyName = main.LanguageManager._(PRESS_KEY_HINT);
+            }
+            return new KeybindingItemViewData()
+            {
+                name = name,
+                key = keyName,
+                keyColor = keyColor
+            };
+        }
+        private void UpdateKeybindingCheck()
+        {
+            if (bindingKeys == null)
+                return;
+            if (bindingKeyIndex < 0 || bindingKeyIndex >= bindingKeys.Length)
+                return;
+            if (!Input.anyKeyDown)
+                return;
+            KeyCode code = main.InputManager.GetCurrentPressedKey();
+            if (code == KeyCode.None)
+            {
+                bindingKeyIndex = -1;
+                UpdateKeybindingItems();
+                return;
+            }
+            if (code == KeyCode.Escape)
+            {
+                code = KeyCode.None;
+            }
+            var id = bindingKeys[bindingKeyIndex];
+            bindingKeyIndex = -1;
+            main.OptionsManager.SetKeyBinding(id, code);
+            UpdateKeybindingItems();
+        }
+        #endregion
+
         #region 属性字段
         [TranslateMsg("删除用户时的错误信息，{0}为错误信息")]
         public const string ERROR_MESSAGE_UNABLE_TO_DELETE_USER = "无法删除用户：{0}";
@@ -623,6 +895,20 @@ namespace MVZ2.Mainmenu
         public const string ERROR_MESSAGE_NO_SPARE_USERS_TO_SWITCH = "没有其他有效的用户可供切换。";
         [TranslateMsg("退出对话框的描述")]
         public const string QUIT_DESC = "确认要退出吗？";
+        [TranslateMsg("重置所有按键绑定的警告")]
+        public const string RESET_KEY_BINDINGS_WARNING = "确认要重置所有按键绑定吗？";
+        [TranslateMsg("设置按键提醒")]
+        public const string PRESS_KEY_HINT = "请按键";
+        [TranslateMsg("语言包导出失败的警告")]
+        public const string ERROR_NOT_EXPORTED = "导出存档失败。";
+        [TranslateMsg("语言包导入失败的警告")]
+        public const string ERROR_FAILED_TO_IMPORT = "导入存档失败。";
+        [TranslateMsg("语言包导入失败的警告")]
+        public const string ERROR_CORRUPT_USER_DATA_PACK = "导入存档失败，文件可能已损坏。";
+        [TranslateMsg("语言包导入失败的警告")]
+        public const string ERROR_DUPLICATE_IMPORTING_USER_NAME_AND_CANNOT_RENAME = "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。";
+        [TranslateMsg("语言包导出成功的提示，{0}为路径")]
+        public const string HINT_EXPORTED = "存档已导出至{0}。";
 
         private Dictionary<MainmenuButtonType, Action> mainmenuActionDict = new Dictionary<MainmenuButtonType, Action>();
         private MainManager main => MainManager.Instance;
@@ -649,6 +935,9 @@ namespace MVZ2.Mainmenu
         private Vector2 animatorBlendStart;
         private Vector2 animatorBlendEnd;
         private float animatorBlendTimeout;
+
+        private NamespaceID[] bindingKeys;
+        public int bindingKeyIndex;
         #endregion
     }
 }
