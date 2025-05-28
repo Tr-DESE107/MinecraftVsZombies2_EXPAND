@@ -35,9 +35,7 @@ namespace MVZ2.GameContent.Enemies
                     entity.Die(entity);
                     var randomID = GetRandomSkeletonID(entity.RNG);
 
-                    var spawnParam = entity.GetSpawnParams();
-                    spawnParam.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
-                    entity.Spawn(randomID, entity.Position, spawnParam);
+                    entity.SpawnWithParams(randomID, entity.Position);
                 }
             }
         }

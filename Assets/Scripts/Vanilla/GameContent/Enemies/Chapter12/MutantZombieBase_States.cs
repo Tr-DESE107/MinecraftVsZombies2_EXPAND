@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace MVZ2.Vanilla.Enemies
 {
     public abstract partial class MutantZombieBase : EnemyBehaviour
     {
-        #region ״̬��
+        #region 状态机
         private class MutantZombieStateMachine : EntityStateMachine
         {
             public MutantZombieStateMachine()
@@ -53,7 +54,7 @@ namespace MVZ2.Vanilla.Enemies
             }
         }
 
-        #region ����
+        #region 空闲
         public class IdleState : EntityStateMachineState
         {
             public IdleState() : base(STATE_IDLE) { }
@@ -65,7 +66,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        #region ����
+        #region 行走
         public class WalkState : EntityStateMachineState
         {
             public WalkState() : base(STATE_WALK) { }
@@ -78,7 +79,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        #region ����
+        #region 攻击
         private static bool CheckAttackTarget(Entity zombie)
         {
             return attackDetector.DetectExists(zombie);
@@ -161,7 +162,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        #region Ͷ��
+        #region 投掷
         private static bool CheckThrow(Entity zombie)
         {
             if (!HasImp(zombie))
@@ -199,15 +200,9 @@ namespace MVZ2.Vanilla.Enemies
                             entity.PlaySound(VanillaSoundID.swing);
                             SetHasImp(entity, false);
 
-                            var impID = VanillaEnemyID.imp;
-                            if (entity.GetDefinitionID() == VanillaEnemyID.HostMutant)
-                            {
-                                impID = VanillaEnemyID.HostIMP;
-                            }
-
                             var impPos = entity.Position + new Vector3(entity.GetFacingX() * 24, 155, 0);
                             var impVel = new Vector3(entity.GetFacingX() * 20, 0, 0);
-                            var imp = entity.SpawnWithParams(impID, impPos);
+                            var imp = entity.SpawnWithParams(GetImpID(entity), impPos);
                             imp.PlaySound(VanillaSoundID.impLaugh);
                             imp.Velocity = impVel;
 
@@ -227,7 +222,7 @@ namespace MVZ2.Vanilla.Enemies
             public const int SUBSTATE_THROWN = 1;
         }
         #endregion
-        #region ����
+        #region 死亡
         public class DeathState : EntityStateMachineState
         {
             public DeathState() : base(STATE_DEATH) { }

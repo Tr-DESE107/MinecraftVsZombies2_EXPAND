@@ -14,7 +14,10 @@ namespace MVZ2.Vanilla.Enemies
     [EntityBehaviourDefinition(VanillaEnemyNames.HostMutant)]
     public class HostMutant : MutantZombieBase
     {
-        public HostMutant(string nsp, string name) : base(nsp, name) { }
+        public HostMutant(string nsp, string name) : base(nsp, name) 
+        {
+            SetImpID(VanillaEnemyID.HostIMP);
+        }
 
         public override void Init(Entity entity)
         {
@@ -90,7 +93,5 @@ namespace MVZ2.Vanilla.Enemies
 
         // 当前实体的ID（用于字段访问）
         private static readonly NamespaceID ID = VanillaEnemyID.HostMutant;
-
-
     }
 }

@@ -10,7 +10,6 @@ using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
-
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.necromancer)]

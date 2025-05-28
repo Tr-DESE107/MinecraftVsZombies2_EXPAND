@@ -29,7 +29,6 @@ namespace MVZ2.GameContent.Enemies
                 entity.AddBuff<BoatBuff>();
                 entity.SetAnimationBool("HasBoat", true);
             }
-
         }
         protected override void UpdateLogic(Entity entity)
         {
