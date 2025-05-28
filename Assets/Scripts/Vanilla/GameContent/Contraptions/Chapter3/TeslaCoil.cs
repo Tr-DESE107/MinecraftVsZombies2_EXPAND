@@ -67,7 +67,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (timer.Expired)
                 {
                     var target = detector.DetectEntityWithTheMost(entity, t => GetTargetPriority(entity, t));
-                    if (target != null && target.Position.y <= entity.Position.y + 40)
+                    if (target != null)
                     {
                         var faction = entity.GetFaction();
                         var damage = entity.GetDamage();
@@ -100,11 +100,6 @@ namespace MVZ2.GameContent.Contraptions
             target2Self.y = 0;
             var distance = target2Self.magnitude;
             var priority = -distance;
-            if (target.Position.y > self.Position.y + 40)
-            {
-                //priority += 300;
-                return float.NegativeInfinity; // 永远不选它
-            }
             return priority;
         }
         public static void Shock(Entity source, float damage, int faction, float shockRadius, Vector3 targetPosition, DamageEffectList damageEffects = null)

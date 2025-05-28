@@ -40,6 +40,8 @@ namespace MVZ2.GameContent.Contraptions
                 fuel = I_ZOMBIE_FUEL;
             }
             SetFuel(entity, fuel);
+
+            SetEvokeTimer(entity, new FrameTimer(MAX_EVOKE_TIME));
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -50,27 +52,15 @@ namespace MVZ2.GameContent.Contraptions
                 if (!entity.IsEvoked())
                 {
                     ShootTick(entity);
-                    // 大招退出 → 清除计时器
-                    if (evokeTimerDict.ContainsKey(entity))
-                    {
-                        evokeTimerDict.Remove(entity);
-                    }
                 }
                 else
                 {
                     EvokedUpdate(entity);
 
-                    // 正在大招 → 更新计时器
-                    if (!evokeTimerDict.ContainsKey(entity))
-                        evokeTimerDict[entity] = 0;
-
-                    evokeTimerDict[entity] += Time.deltaTime;
-
-                    // 超时处理
-                    if (evokeTimerDict[entity] >= MAX_EVOKE_DURATION)
+                    var timer = GetEvokeTimer(entity);
+                    timer.Run();
+                    if (timer.Expired)
                     {
-
-                        evokeTimerDict.Remove(entity);
                         Explode(entity, 120, 600);
                         entity.Level.ShakeScreen(10, 0, 15);
                         entity.Remove();
@@ -111,7 +101,8 @@ namespace MVZ2.GameContent.Contraptions
             SetFuel(entity, fuel);
             entity.SetEvoked(true);
 
-
+            var timer = GetEvokeTimer(entity);
+            timer.Reset();
         }
 
         public int GetFuel(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_FUEL);
@@ -132,6 +123,8 @@ namespace MVZ2.GameContent.Contraptions
         }
         public float GetDisplayFuel(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_DISPLAY_FUEL);
         public void SetDisplayFuel(Entity entity, float value) => entity.SetBehaviourField(ID, PROP_DISPLAY_FUEL, value);
+        public FrameTimer GetEvokeTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOKE_TIMER);
+        public void SetEvokeTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_EVOKE_TIMER, value);
         public bool CanSacrifice(Entity entity, Entity soulFurnace)
         {
             bool canSacrifice = entity.Type == EntityTypes.PLANT && !entity.IsDead;
@@ -180,7 +173,6 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             var column = furnace.GetColumn();
             var lane = furnace.GetLane();
-            //var targetGrid = furnace.Level.GetGrid(column + 1 * furnace.GetFacingX(), lane);
             var targetGrid = furnace.Level.GetGrid(column, lane);
             if (targetGrid == null)
                 return;
@@ -255,14 +247,13 @@ namespace MVZ2.GameContent.Contraptions
         private static readonly NamespaceID ID = VanillaContraptionID.soulFurnace;
         public static readonly VanillaEntityPropertyMeta<int> PROP_FUEL = new VanillaEntityPropertyMeta<int>("Fuel");
         public static readonly VanillaEntityPropertyMeta<float> PROP_DISPLAY_FUEL = new VanillaEntityPropertyMeta<float>("DisplayFuel");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOKE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvokeTimer");
         public const int MAX_FUEL = 60;
         public const int REFUEL_THRESOLD = 10;
         public const int I_ZOMBIE_FUEL = REFUEL_THRESOLD + 5;
+        public const int MAX_EVOKE_TIME = 53;
         private Detector evocationDetector;
         private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
-
-        private static readonly float MAX_EVOKE_DURATION = 1.75f;
-        private Dictionary<Entity, float> evokeTimerDict = new();
 
     }
 }

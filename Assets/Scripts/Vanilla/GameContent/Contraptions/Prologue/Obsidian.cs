@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
@@ -69,7 +70,7 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     // 构造紫色箭的参数
                     var param = entity.GetShootParams();
-                    param.projectileID = new NamespaceID("mvz2", "purpleArrow");
+                    param.projectileID = VanillaProjectileID.purpleArrow;
 
 
                     // 发射紫箭

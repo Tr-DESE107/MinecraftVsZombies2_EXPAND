@@ -27,26 +27,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.glowstone);
             entity.UpdateShineRing();
 
-            entity.AddBuff<GlowstoneEvokeBuff>();
-            entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetCenter(), entity);
-            bool stunned = false;
-            foreach (var target in entity.Level.GetEntities())
-            {
-                if (target.Type == EntityTypes.ENEMY && target.IsHostile(entity) && target.CanDeactive())
-                {
-                    target.Stun(100);
-                    stunned = true;
-                }
-                else if (target.IsEntityOf(VanillaProjectileID.compellingOrb) && target.IsHostile(entity))
-                {
-                    target.Die();
-                }
-            }
-            if (stunned)
-            {
-                entity.PlaySound(VanillaSoundID.stunned);
-            }
-
+            Flash(entity, 100, false);
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -56,6 +37,10 @@ namespace MVZ2.GameContent.Contraptions
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
+            Flash(entity, 210, true);
+        }
+        private void Flash(Entity entity, int stunDuration, bool clearMindcontrol)
+        {
             entity.AddBuff<GlowstoneEvokeBuff>();
             entity.Level.Spawn(VanillaEffectID.stunningFlash, entity.GetCenter(), entity);
             bool stunned = false;
@@ -63,10 +48,10 @@ namespace MVZ2.GameContent.Contraptions
             {
                 if (target.Type == EntityTypes.ENEMY && target.IsHostile(entity) && target.CanDeactive())
                 {
-                    target.Stun(210);
+                    target.Stun(stunDuration);
                     stunned = true;
                 }
-                else if (target.Type == EntityTypes.PLANT && target.IsCharmed())
+                else if (target.Type == EntityTypes.PLANT && target.IsCharmed() && clearMindcontrol)
                 {
                     target.RemoveCharm();
                     target.PlaySound(VanillaSoundID.mindClear);

@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Entities;
+﻿using MVZ2.GameContent.Projectiles;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -10,7 +11,9 @@ namespace MVZ2.GameContent.Contraptions
     [EntityBehaviourDefinition(VanillaContraptionNames.dispenser)]
     public class Dispenser : DispenserFamily
     {
-        public Dispenser(string nsp, string name) : base(nsp, name) { }
+        public Dispenser(string nsp, string name) : base(nsp, name)
+        {
+        }
 
         public override void Init(Entity entity)
         {
@@ -19,7 +22,6 @@ namespace MVZ2.GameContent.Contraptions
             var evocationTimer = new FrameTimer(120);
             SetEvocationTimer(entity, evocationTimer);
         }
-
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
@@ -28,6 +30,7 @@ namespace MVZ2.GameContent.Contraptions
                 ShootTick(entity);
                 return;
             }
+
             EvokedUpdate(entity);
         }
 
@@ -37,8 +40,7 @@ namespace MVZ2.GameContent.Contraptions
             if (entity.RNG.Next(6) == 0)
             {
                 var param = entity.GetShootParams();
-                // 将 "mvz2:purpleArrow" 拆分为命名空间和名称
-                param.projectileID = new NamespaceID("mvz2", "purpleArrow");
+                param.projectileID = VanillaProjectileID.purpleArrow;
                 param.damage *= 4;
                 entity.TriggerAnimation("Shoot");
                 return entity.ShootProjectile(param);

@@ -5,7 +5,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
-
 namespace MVZ2.GameContent.Contraptions
 {
     [EntityBehaviourDefinition(VanillaContraptionNames.woodenDropper)]
@@ -34,7 +33,6 @@ namespace MVZ2.GameContent.Contraptions
             if (entity.RNG.Next(6) == 0)
             {
                 var param = entity.GetShootParams();
-                // 将 "mvz2:purpleArrow" 拆分为命名空间和名称
                 param.projectileID = VanillaProjectileID.goldenBall;
                 param.damage *= 2;
                 entity.TriggerAnimation("Shoot");

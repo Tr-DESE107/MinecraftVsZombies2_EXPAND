@@ -27,11 +27,11 @@ namespace MVZ2.GameContent.Detections
             if (!base.ValidateCollider(param, collider))
                 return false;
             var self = param.entity;
-
             var range = self.GetRange();
             var center = self.GetCenter();
+            var target = collider.Entity;
 
-            return collider.CheckSphere(center, range);
+            return target.Position.y <= self.Position.y + 40 && collider.CheckSphere(center, range);
         }
         private float attackHeight;
     }

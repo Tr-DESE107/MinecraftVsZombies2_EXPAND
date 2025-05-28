@@ -35,8 +35,7 @@ namespace MVZ2.GameContent.Contraptions
             if (entity.RNG.Next(4) == 0)
             {
                 var param = entity.GetShootParams();
-                // 将 "mvz2:purpleArrow" 拆分为命名空间和名称
-                param.projectileID = new NamespaceID("mvz2", "Poisonball");
+                param.projectileID = VanillaProjectileID.Poisonball;
                 param.damage *= 3;
                 entity.TriggerAnimation("Shoot");
                 return entity.ShootProjectile(param);
