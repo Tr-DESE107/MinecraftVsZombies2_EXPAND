@@ -2,6 +2,7 @@
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -14,6 +15,18 @@ namespace MVZ2.Vanilla.Entities
             var fragment = entity.Level.Spawn(VanillaEffectID.fragment, entity.Position, entity);
             fragment.SetParent(entity);
             Fragment.UpdateFragmentID(fragment);
+            return fragment;
+        }
+        public static Entity CreateFragmentAndPlay(this Entity entity, NamespaceID id = null, float emitSpeed = 500)
+        {
+            return entity.CreateFragmentAndPlay(entity.Position, id, emitSpeed);
+        }
+        public static Entity CreateFragmentAndPlay(this Entity entity, Vector3 position, NamespaceID id = null, float emitSpeed = 500)
+        {
+            var fragment = entity.Level.Spawn(VanillaEffectID.fragment, position, entity);
+            fragment.SetParent(entity);
+            Fragment.SetFragmentID(fragment, id ?? entity?.GetDefinitionID());
+            Fragment.AddEmitSpeed(fragment, emitSpeed);
             return fragment;
         }
         public static Entity GetOrCreateFragment(this Entity entity)

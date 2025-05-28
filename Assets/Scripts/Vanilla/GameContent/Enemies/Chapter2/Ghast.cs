@@ -1,6 +1,7 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
@@ -118,11 +119,7 @@ namespace MVZ2.GameContent.Enemies
             var speed = velocity.magnitude;
             var direciton = (target.GetCenter() - shootPoint).normalized;
             param.velocity = speed * direciton;
-            var damageMultiplier = 1.5f;
-            if (self.Level.GetEnemyAILevel() > 0)
-            {
-                damageMultiplier = 3;
-            }
+            var damageMultiplier = self.Level.GetGhastDamageMultiplier();
             param.damage = self.GetDamage() * damageMultiplier;
 
             var bullet = self.ShootProjectile(param);

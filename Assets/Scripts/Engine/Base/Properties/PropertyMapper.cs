@@ -47,6 +47,7 @@ namespace PVZEngine
                     meta.RegisterNames(namespaceName, regionName);
                     var propertyName = meta.propertyName;
                     var propertyType = meta.propertyType;
+                    var defaultValue = meta.defaultValue;
 
                     var fullName = PropertyKeyHelper.CombineName(namespaceName, regionName, propertyName);
                     if (registries.TryGetKeyOfFullName(fullName, out IPropertyKey key))
@@ -65,7 +66,7 @@ namespace PVZEngine
                             propName = propertyName;
                         }
                         registries.GetOrRegisterPropertyKey(namespaceName, propName, out var namespaceKey, out var propertyKey);
-                        key = PropertyKeyHelper.FromType(namespaceKey, propertyKey, propertyType);
+                        key = PropertyKeyHelper.FromType(namespaceKey, propertyKey, propertyType, defaultValue);
                         registries.RegisterFullName(fullName, key);
                     }
                     meta.SetRegisteredKey(key);

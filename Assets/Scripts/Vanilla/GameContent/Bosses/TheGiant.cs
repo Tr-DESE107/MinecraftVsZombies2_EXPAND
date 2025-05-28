@@ -4,6 +4,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
@@ -147,7 +148,7 @@ namespace MVZ2.GameContent.Bosses
         {
             base.PostTakeDamage(result);
             var entity = result.Entity;
-            if (entity.Level.GetBossAILevel() <= 0)
+            if (!entity.Level.TheGiantIsMalleable())
                 return;
             var bodyResult = result.BodyResult;
             if (bodyResult != null)

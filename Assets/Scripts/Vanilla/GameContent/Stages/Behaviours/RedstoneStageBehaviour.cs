@@ -1,5 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.Vanilla.Level;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -20,7 +20,6 @@ namespace MVZ2.GameContent.Stages
             base.Start(level);
             SetRestoneRNG(level, level.CreateRNG());
             SetRedstoneChance(level, MIN_CHANCE);
-            level.SetRedstoneCarrierChanceIncreament(CHANCE_INCREAMENT);
         }
         public override void PostWave(LevelEngine level, int wave)
         {
@@ -78,7 +77,6 @@ namespace MVZ2.GameContent.Stages
         [LevelPropertyRegistry(PROP_REGION)]
         public static readonly VanillaLevelPropertyMeta<float> PROP_REDSTONE_CHANCE = new VanillaLevelPropertyMeta<float>("RedstoneChance");
         public const int MIN_CHANCE = -15;
-        public const int CHANCE_INCREAMENT = 10;
         public const int CHANCE_REDUCTION = -125;
     }
 }

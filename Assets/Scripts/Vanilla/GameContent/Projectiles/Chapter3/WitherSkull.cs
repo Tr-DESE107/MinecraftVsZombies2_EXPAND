@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -61,7 +62,7 @@ namespace MVZ2.GameContent.Projectiles
             var entity = output.Entity;
             if (entity == null)
                 return;
-            if (entity.Level.GetBossAILevel() <= 0)
+            if (entity.Level.WitherSkullWithersTarget())
                 return;
 
             if (entity.IsUndead())

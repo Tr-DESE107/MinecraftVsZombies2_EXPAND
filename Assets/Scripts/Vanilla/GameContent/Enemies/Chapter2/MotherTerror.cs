@@ -1,11 +1,11 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
@@ -66,7 +66,7 @@ namespace MVZ2.GameContent.Enemies
             if (!HasEggs(entity))
                 return;
             var level = entity.Level;
-            int count = 1 + level.GetEnemyAILevel();
+            int count = level.GetMotherTerrorEggCount();
             for (int i = 0; i < count; i++)
             {
                 entity.SpawnWithParams(VanillaEnemyID.parasiteTerror, entity.GetCenter());

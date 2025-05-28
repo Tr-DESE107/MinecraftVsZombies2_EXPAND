@@ -29,8 +29,6 @@ namespace MVZ2.GameContent.Stages
     {
         public IZombieBehaviour(StageDefinition stageDef) : base(stageDef)
         {
-            stageDef.SetProperty(VanillaLevelProps.FURNACE_DROP_REDSTONE_COUNT, 8);
-
             stageDef.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEnemyInitCallback, 0, EntityTypes.ENEMY);
         }
         public override void Setup(LevelEngine level)

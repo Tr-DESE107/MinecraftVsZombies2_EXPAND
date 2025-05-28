@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
@@ -410,7 +411,7 @@ namespace MVZ2.GameContent.Bosses
                     {
                         var target = collider.Entity;
                         var colliderReference = collider.ToReference();
-                        var damage = SPIN_DAMAGE + level.GetBossAILevel() * SPIN_DAMAGE_PER_AI_LEVEL;
+                        var damage = level.GetNightmareaperSpinDamage();
                         var damageOutput = collider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.SLICE), entity);
                         PostSpinDamage(entity, damageOutput);
                     }

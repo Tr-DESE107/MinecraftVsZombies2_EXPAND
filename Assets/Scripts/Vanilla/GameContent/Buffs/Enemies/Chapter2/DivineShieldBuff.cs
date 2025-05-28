@@ -1,5 +1,4 @@
 ﻿using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Fragments;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Audios;
@@ -74,10 +73,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public static void PlayBreakEffect(Entity entity)
         {
             entity.PlaySound(VanillaSoundID.crystalBreak, volume: 0.5f);
-            var pos = entity.GetCenter();
-            var fragment = entity.Level.Spawn(VanillaEffectID.fragment, pos, entity);
-            Fragment.SetFragmentID(fragment, VanillaFragmentID.divineShield);
-            Fragment.AddEmitSpeed(fragment, 50);
+            entity.CreateFragmentAndPlay(entity.GetCenter(), VanillaFragmentID.divineShield, 50);
         }
         public const float HEALTH_SPEED = 1 / 6f;
         public const float MAX_PARASITE_HEALTH = 50;

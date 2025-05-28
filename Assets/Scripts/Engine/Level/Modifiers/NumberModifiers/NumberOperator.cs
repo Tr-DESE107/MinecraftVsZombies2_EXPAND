@@ -4,7 +4,7 @@
     {
         Set,
         Add,
-        AddMultiplie,
+        AddMultiple,
         Multiply,
     }
 }
