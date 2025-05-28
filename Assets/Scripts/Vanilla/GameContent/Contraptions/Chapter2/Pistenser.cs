@@ -11,7 +11,6 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Contraptions
 {

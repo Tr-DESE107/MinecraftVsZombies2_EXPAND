@@ -1,5 +1,4 @@
 ﻿using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Fragments;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Audios;
