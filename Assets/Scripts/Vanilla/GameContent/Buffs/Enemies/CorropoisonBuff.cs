@@ -1,8 +1,11 @@
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Models;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -26,16 +29,14 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (entity != null && !entity.IsDead)
             {
                 // 扣除一定量生命
-                float heal = -1f;
-                try { heal = buff.GetProperty<float>(Corropoison_HEAL_AMOUNT); } catch { }
-
-                entity.Health = Mathf.Min(entity.Health + heal, entity.GetMaxHealth());
+                float damage = buff.GetProperty<float>(PROP_DAMAGE_AMOUNT);
+                entity.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DAMAGE_BLINK, VanillaDamageEffects.IGNORE_ARMOR), entity);
             }
 
             // Buff倒计时逻辑
-            var timeout = buff.GetProperty<int>(Corropoison_TIMEOUT);
+            var timeout = buff.GetProperty<int>(PROP_TIMEOUT);
             timeout--;
-            buff.SetProperty(Corropoison_TIMEOUT, timeout);
+            buff.SetProperty(PROP_TIMEOUT, timeout);
 
             if (timeout <= 0)
             {
@@ -44,7 +45,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
 
         // PropertyKey注册
-        public static readonly VanillaBuffPropertyMeta<float> Corropoison_HEAL_AMOUNT = new VanillaBuffPropertyMeta<float>("CorropoisonHealAmount"); // 每次回血量
-        public static readonly VanillaBuffPropertyMeta<int> Corropoison_TIMEOUT = new VanillaBuffPropertyMeta<int>("CorropoisonTimeout");       // 持续时间
+        public static readonly VanillaBuffPropertyMeta<float> PROP_DAMAGE_AMOUNT = new VanillaBuffPropertyMeta<float>("DamageAmount", 1f); // 每次回血量
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");       // 持续时间
     }
 }

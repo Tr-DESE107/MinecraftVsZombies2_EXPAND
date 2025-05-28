@@ -47,19 +47,19 @@ namespace MVZ2.Vanilla.Entities
             {
                 buff = enemy.AddBuff<RegenerationBuff>();
             }
-            buff.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, Heal);
-            buff.SetProperty(RegenerationBuff.REGEN_TIMEOUT, time);
+            buff.SetProperty(RegenerationBuff.PROP_HEAL_AMOUNT, Heal);
+            buff.SetProperty(RegenerationBuff.PROP_TIMEOUT, time);
         }
 
-        public static void InflictCorropoisonBuff(this Entity enemy, float Heal, int time)
+        public static void InflictCorropoisonBuff(this Entity enemy, float damage, int time)
         {
             Buff buff = enemy.GetFirstBuff<CorropoisonBuff>();
             if (buff == null)
             {
                 buff = enemy.AddBuff<CorropoisonBuff>();
             }
-            buff.SetProperty(CorropoisonBuff.Corropoison_HEAL_AMOUNT, Heal);
-            buff.SetProperty(CorropoisonBuff.Corropoison_TIMEOUT, time);
+            buff.SetProperty(CorropoisonBuff.PROP_DAMAGE_AMOUNT, damage);
+            buff.SetProperty(CorropoisonBuff.PROP_TIMEOUT, time);
         }
 
         public static void UpdateWalkVelocity(this Entity enemy)

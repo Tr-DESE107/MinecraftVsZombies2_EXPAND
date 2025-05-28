@@ -50,9 +50,7 @@ namespace MVZ2.GameContent.Contraptions
                 enemy.Remove();
                 enemy.PlaySound(VanillaSoundID.charmed);
                 enemy.PlaySound(VanillaSoundID.odd);
-                var regen = enemy.AddBuff<RegenerationBuff>();
-                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 2f);
-                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);
+                mutant.InflictRegenerationBuff(2f, 60000);
             }
             else
             {
@@ -61,9 +59,7 @@ namespace MVZ2.GameContent.Contraptions
                 enemy.Neutralize();
                 enemy.PlaySound(VanillaSoundID.charmed);
                 enemy.PlaySound(VanillaSoundID.floop);
-                var regen = enemy.AddBuff<RegenerationBuff>();
-                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 2f);
-                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);
+                enemy.InflictRegenerationBuff(2f, 60000);
             }
             target.Remove();
         }

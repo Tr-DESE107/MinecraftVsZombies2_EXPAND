@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Projectiles
             if (enemy.GetShellID() != VanillaShellID.flesh)
                 return;
             */
-            enemy.InflictCorropoisonBuff(-1f, 150);
+            enemy.InflictCorropoisonBuff(1f, 150);
         }
     }
 }

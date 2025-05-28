@@ -1,4 +1,5 @@
 using MVZ2.GameContent.Models;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
@@ -26,16 +27,15 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (entity != null && !entity.IsDead)
             {
                 // 恢复一定量生命
-                float heal = 1f;
-                try { heal = buff.GetProperty<float>(REGEN_HEAL_AMOUNT); } catch { }
+                float heal = buff.GetProperty<float>(PROP_HEAL_AMOUNT);
 
-                entity.Health = Mathf.Min(entity.Health + heal, entity.GetMaxHealth());
+                entity.Heal(heal, entity);
             }
 
             // Buff倒计时逻辑
-            var timeout = buff.GetProperty<int>(REGEN_TIMEOUT);
+            var timeout = buff.GetProperty<int>(PROP_TIMEOUT);
             timeout--;
-            buff.SetProperty(REGEN_TIMEOUT, timeout);
+            buff.SetProperty(PROP_TIMEOUT, timeout);
 
             if (timeout <= 0)
             {
@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         }
 
         // PropertyKey注册
-        public static readonly VanillaBuffPropertyMeta<float> REGEN_HEAL_AMOUNT = new VanillaBuffPropertyMeta<float>("RegenHealAmount"); // 每次回血量
-        public static readonly VanillaBuffPropertyMeta<int> REGEN_TIMEOUT = new VanillaBuffPropertyMeta<int>("RegenTimeout");       // 持续时间
+        public static readonly VanillaBuffPropertyMeta<float> PROP_HEAL_AMOUNT = new VanillaBuffPropertyMeta<float>("HealAmount", 1f); // 每次回血量
+        public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");       // 持续时间
     }
 }

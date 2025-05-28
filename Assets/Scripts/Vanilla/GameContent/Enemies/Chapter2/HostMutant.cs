@@ -21,12 +21,7 @@ namespace MVZ2.Vanilla.Enemies
             base.Init(entity);
 
             // 添加持续回血 Buff
-            var regen = entity.AddBuff<RegenerationBuff>();
-            if (regen != null)
-            {
-                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 1f);
-                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);
-            }
+            entity.InflictRegenerationBuff(1f, 60000);
 
             // 初始化记录血量（用于掉血检测）
             SetLastTriggerHealth(entity, entity.Health);

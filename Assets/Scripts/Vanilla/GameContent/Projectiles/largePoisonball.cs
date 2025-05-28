@@ -71,7 +71,7 @@ namespace MVZ2.GameContent.Projectiles
                 return;
             if (enemy.GetShellID() != VanillaShellID.flesh)
                 return;
-            enemy.InflictCorropoisonBuff(-2f, 300);
+            enemy.InflictCorropoisonBuff(2f, 300);
         }
 
         public static float GetSnowballScale(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_SNOWBALL_SCALE);

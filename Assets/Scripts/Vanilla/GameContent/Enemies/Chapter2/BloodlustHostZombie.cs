@@ -1,4 +1,5 @@
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
@@ -14,12 +15,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            var regen = entity.AddBuff<RegenerationBuff>();
-            if (regen != null)
-            {
-                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 3f);
-                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);
-            }
+            entity.InflictRegenerationBuff(3f, 60000);
         }
 
     }
