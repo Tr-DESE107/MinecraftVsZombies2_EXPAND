@@ -53,6 +53,11 @@ namespace MVZ2.GameContent.Implements
                 }
                 level.RemoveBuff(buff);
             }
+            if (buffDef != null)
+            {
+                var buff = level.AddBuff(buffDef);
+                SetDifficultyBuff(level, level.GetBuffReference(buff));
+            }
         }
         public static BuffReference GetDifficultyBuff(LevelEngine level)
         {

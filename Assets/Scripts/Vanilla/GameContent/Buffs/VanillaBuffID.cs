@@ -139,7 +139,7 @@ namespace MVZ2.GameContent.Buffs
         }
         public static class Level
         {
-            public const string levellunatic = "levellunatic";
+            public const string levellunatic = "level_lunatic";
 
             public const string taintedSun = "tainted_sun";
             public const string tutorialPickaxeDisable = "tutorial_pickaxe_disable";
