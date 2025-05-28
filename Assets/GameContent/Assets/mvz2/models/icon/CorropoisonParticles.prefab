@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6083812788368115328, guid: 20cf19417faa6684f9f87424ffd8eecf, type: 3}
       propertyPath: m_Name
-      value: PoisonParticles
+      value: CorropoisonParticles
       objectReference: {fileID: 0}
     - target: {fileID: 8217486240385835556, guid: 20cf19417faa6684f9f87424ffd8eecf, type: 3}
       propertyPath: m_LocalPosition.x

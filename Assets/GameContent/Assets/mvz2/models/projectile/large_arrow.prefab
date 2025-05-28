@@ -182,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 5868534811764178599}
   velocity: {x: 0, y: 0, z: 0}
+  scaleWithHierarchy: 0
 --- !u!1 &1265906358575972500
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 6532497380378356960}
   velocity: {x: 0, y: 0, z: 0}
+  scaleWithHierarchy: 0
 --- !u!1 &1942503486354722919
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 8430656574651367196}
   velocity: {x: 0, y: 0, z: 0}
+  scaleWithHierarchy: 0
 --- !u!1 &8080197916029061785
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 2526848047954349974}
   velocity: {x: 0, y: 0, z: 0}
+  scaleWithHierarchy: 0
 --- !u!1001 &8950828362329595017
 PrefabInstance:
   m_ObjectHideFlags: 0

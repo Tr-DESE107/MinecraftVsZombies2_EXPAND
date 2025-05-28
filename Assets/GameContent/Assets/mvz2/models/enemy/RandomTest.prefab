@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6804004426800984004}
   - component: {fileID: 412641811873653641}
+  - component: {fileID: 7636314588602954139}
   m_Layer: 0
   m_Name: bedserker_head
   m_TagString: Untagged
@@ -84,6 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7636314588602954139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5519885240605819791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1001 &1967717756978515671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,6 +190,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 815634889, guid: eb1d4fd287008034c97609f5686628e6, type: 3}
+    - target: {fileID: 7111982973714620366, guid: 8deb6d021f7311043b1c2b7acc630099, type: 3}
+      propertyPath: renderers.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111982973714620366, guid: 8deb6d021f7311043b1c2b7acc630099, type: 3}
+      propertyPath: renderers.Array.data[11]
+      value: 
+      objectReference: {fileID: 7636314588602954139}
     - target: {fileID: 7158777608646404998, guid: 8deb6d021f7311043b1c2b7acc630099, type: 3}
       propertyPath: m_Sprite
       value: 

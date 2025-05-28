@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7365871413810434896, guid: bed75b6a48257354daa2be871bc3b50c, type: 3}
       propertyPath: m_Name
-      value: Regeneration_particles
+      value: RegenerationParticles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

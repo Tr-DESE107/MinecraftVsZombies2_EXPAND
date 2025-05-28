@@ -114,6 +114,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeatherWitherSkeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 6609843328981258535, guid: 564b8ca059de5014f9cbd052fee77b9e, type: 3}
+      propertyPath: subSortingGroups.Array.data[0]
+      value: 
+      objectReference: {fileID: 2824436346785708225}
+    - target: {fileID: 6609843328981258535, guid: 564b8ca059de5014f9cbd052fee77b9e, type: 3}
+      propertyPath: subSortingGroups.Array.data[1]
+      value: 
+      objectReference: {fileID: 2082727427331873984}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -127,3 +135,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6288892127359762890, guid: 564b8ca059de5014f9cbd052fee77b9e, type: 3}
   m_PrefabInstance: {fileID: 6165817965707063184}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2082727427331873984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5293479206974698320, guid: 564b8ca059de5014f9cbd052fee77b9e, type: 3}
+  m_PrefabInstance: {fileID: 6165817965707063184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2824436346785708225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8260458378148304721, guid: 564b8ca059de5014f9cbd052fee77b9e, type: 3}
+  m_PrefabInstance: {fileID: 6165817965707063184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
