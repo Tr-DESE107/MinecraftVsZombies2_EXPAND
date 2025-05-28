@@ -1,7 +1,5 @@
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Properties;
 using PVZEngine;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Difficulties
 {

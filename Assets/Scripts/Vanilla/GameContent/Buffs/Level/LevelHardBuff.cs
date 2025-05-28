@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Properties;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
