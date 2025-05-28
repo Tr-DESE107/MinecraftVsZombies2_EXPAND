@@ -10,7 +10,7 @@
 - Added dialogs to introduce artifacts in level 1-7.
 - Added the zoom feature to the Misc Almanac.
 - Added import and export features for user save data.
-- Added 6 new Random China events.
+- Added 7 new Random China events.
 
 ## Modified
 
@@ -25,6 +25,7 @@
 ### Enemies
 - Electric damage now deals 100% damage to ghosts.
 - When melee monsters attack, their forward movement speed will rapidly decrease.
+- Fire projectiles that hit Gargoyle or Hell Chariots no longer deal splash damage.
 
 ### Boss
 - Increased damage of Nightmareaper's Death Wheels by 40% in Hard Mode.
