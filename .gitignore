@@ -78,6 +78,6 @@ InitTestScene*.unity
 /TestBuild
 
 # Unity Addressables 生成的状态文件
-/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*
-!/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.asset*
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/Android
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/Windows
 /ProfileAnalyzer
