@@ -129,7 +129,7 @@ namespace MVZ2.GameContent.Contraptions
             if (riseTimer == null || !riseTimer.Expired)
                 return;
 
-            
+
             var damageEffects = new DamageEffectList(
                 VanillaDamageEffects.MUTE,
                 VanillaDamageEffects.IGNORE_ARMOR,
@@ -164,7 +164,7 @@ namespace MVZ2.GameContent.Contraptions
             var explosion = self.Level.Spawn(VanillaEffectID.explosion, self.GetCenter(), self);
             explosion.SetSize(Vector3.one * (range * 2));
             self.PlaySound(VanillaSoundID.explosion); // 使用TNT爆炸音效
-            
+
             self.Level.Spawn(VanillaEffectID.mineDebris, self.Position, self);
             self.Remove();
             self.Level.ShakeScreen(10, 0, 15);

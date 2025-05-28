@@ -9,17 +9,6 @@ using MVZ2Logic.Level;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;
-using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
-using MVZ2.Vanilla.Entities;
-using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using MVZ2Logic.Level;
-using PVZEngine;
-using Tools;
 
 namespace MVZ2.Vanilla.Enemies
 {

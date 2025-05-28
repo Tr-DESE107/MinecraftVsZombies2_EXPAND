@@ -1,12 +1,5 @@
-using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
-using MVZ2.Vanilla.Properties;
-using PVZEngine;
-using PVZEngine.Buffs;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
@@ -23,7 +16,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             var fly = entity.AddBuff<FlyBuff>();
-            fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 20f); 
+            fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 20f);
         }
 
     }

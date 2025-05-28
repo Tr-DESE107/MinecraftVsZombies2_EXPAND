@@ -1,15 +1,15 @@
-using MVZ2.Vanilla.Entities;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using PVZEngine.Damages;
-using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
-using MVZ2.GameContent.Effects;
 
 
 namespace MVZ2.GameContent.Contraptions
@@ -27,15 +27,15 @@ namespace MVZ2.GameContent.Contraptions
             var Orecount = 12;
             if (entity.Level.Difficulty == VanillaDifficulties.normal)
             {
-                 Orecount = 10;
+                Orecount = 10;
             }
             else if (entity.Level.Difficulty == VanillaDifficulties.hard)
             {
-                 Orecount = 8;
+                Orecount = 8;
             }
             else if (entity.Level.Difficulty == VanillaDifficulties.lunatic)
             {
-                 Orecount = 6;
+                Orecount = 6;
             }
             for (var i = 0; i < Orecount; i++)
             {
@@ -62,7 +62,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 entity.Produce(VanillaPickupID.redstone);
             }
-            
+
 
         }
 

@@ -1,8 +1,8 @@
+using MVZ2.GameContent.Armors;
+using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using MVZ2.GameContent.Armors;
-using MVZ2.Vanilla.Entities;
-using MVZ2.GameContent.Buffs.Enemies;
 
 namespace MVZ2.GameContent.Enemies
 {

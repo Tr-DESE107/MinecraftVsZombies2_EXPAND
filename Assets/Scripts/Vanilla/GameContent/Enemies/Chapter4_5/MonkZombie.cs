@@ -1,6 +1,5 @@
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using MVZ2.GameContent.Armors;
 
 namespace MVZ2.GameContent.Enemies
 {

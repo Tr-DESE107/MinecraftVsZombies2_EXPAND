@@ -28,8 +28,6 @@ using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
-using static System.Collections.Specialized.BitVector32;
-using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
 namespace MVZ2.Vanilla.Level

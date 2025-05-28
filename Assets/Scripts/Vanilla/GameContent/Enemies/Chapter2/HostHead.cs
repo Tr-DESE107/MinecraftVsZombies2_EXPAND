@@ -1,12 +1,5 @@
-using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
-using MVZ2.Vanilla.Properties;
-using PVZEngine;
-using PVZEngine.Buffs;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
@@ -29,12 +22,12 @@ namespace MVZ2.GameContent.Enemies
                 fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 1f);
             }
 
-            
-            var regen = entity.AddBuff<RegenerationBuff>(); 
+
+            var regen = entity.AddBuff<RegenerationBuff>();
             if (regen != null)
             {
-                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 1.5f); 
-                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);  
+                regen.SetProperty(RegenerationBuff.REGEN_HEAL_AMOUNT, 1.5f);
+                regen.SetProperty(RegenerationBuff.REGEN_TIMEOUT, 60000);
             }
         }
     }

@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Buffs
 
         public const string Regeneration = "Regeneration";
         public const string Corropoison = "Corropoison";
-        
+
         // Contraption
         public const string productionColor = "production_color";
         public const string mineTNTInvincible = "mine_tnt_invincible";
@@ -114,7 +114,7 @@ namespace MVZ2.GameContent.Buffs
         public const string easyContraption = "easy_contraption";
         public const string hardEnemy = "hard_enemy";
         public const string lunaticEnemy = "lunaticEnemy";
-        
+
         // Armor
         public const string easyArmor = "easy_armor";
         public const string armorDamageColor = "armor_damage_color";
@@ -140,7 +140,7 @@ namespace MVZ2.GameContent.Buffs
         public static class Level
         {
             public const string levellunatic = "levellunatic";
-            
+
             public const string taintedSun = "tainted_sun";
             public const string tutorialPickaxeDisable = "tutorial_pickaxe_disable";
             public const string tutorialTriggerDisable = "tutorial_trigger_disable";

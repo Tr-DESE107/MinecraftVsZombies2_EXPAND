@@ -11,6 +11,7 @@ using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -18,8 +19,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
-using MVZ2Logic.Level;
-using MVZ2.Vanilla.Level;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -70,7 +69,7 @@ namespace MVZ2.GameContent.Contraptions
                     // 超时处理
                     if (evokeTimerDict[entity] >= MAX_EVOKE_DURATION)
                     {
-                        
+
                         evokeTimerDict.Remove(entity);
                         Explode(entity, 120, 600);
                         entity.Level.ShakeScreen(10, 0, 15);
@@ -112,7 +111,7 @@ namespace MVZ2.GameContent.Contraptions
             SetFuel(entity, fuel);
             entity.SetEvoked(true);
 
-            
+
         }
 
         public int GetFuel(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_FUEL);
@@ -249,7 +248,7 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.explosion);
             entity.Level.ShakeScreen(10, 0, 15);
 
-           
+
             return damageOutputs;
         }
 
@@ -262,7 +261,7 @@ namespace MVZ2.GameContent.Contraptions
         private Detector evocationDetector;
         private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
 
-        private static readonly float MAX_EVOKE_DURATION = 1.75f; 
+        private static readonly float MAX_EVOKE_DURATION = 1.75f;
         private Dictionary<Entity, float> evokeTimerDict = new();
 
     }

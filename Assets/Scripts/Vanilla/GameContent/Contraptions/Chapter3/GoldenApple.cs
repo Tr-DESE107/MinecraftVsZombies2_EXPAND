@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Effects;
+﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -7,7 +8,6 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using MVZ2.GameContent.Buffs.Enemies;
 
 
 namespace MVZ2.GameContent.Contraptions

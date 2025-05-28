@@ -63,7 +63,7 @@ namespace MVZ2.GameContent.Projectiles
                 return;
             if (entity.Level.GetBossAILevel() <= 0)
                 return;
-            
+
             if (entity.IsUndead())
                 return;
             if (output.BodyResult == null)

@@ -547,7 +547,7 @@ namespace MVZ2.GameContent.Bosses
             VanillaEnemyID.HostZombie,
             VanillaEnemyID.ironHelmettedZombie,
             VanillaEnemyID.flagZombie,
-            
+
         };
 
         private static int[] portalPoolWeights = new int[]

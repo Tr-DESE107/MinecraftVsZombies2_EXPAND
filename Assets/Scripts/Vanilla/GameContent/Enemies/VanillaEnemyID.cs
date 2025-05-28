@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Enemies
         public const string wickedHermitZombie = "wicked_hermit_zombie";
         public const string shikaisenZombie = "shikaisen_zombie";
         public const string emperorZombie = "emperor_zombie";
-        
+
         public const string MonkZombie = "MonkZombie";
         public const string HeavyGutant = "HeavyGutant";
 

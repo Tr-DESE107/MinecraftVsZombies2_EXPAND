@@ -1,10 +1,9 @@
 ﻿using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Shells;
 using PVZEngine.Damages;
-using PVZEngine.Level;
 using PVZEngine.Entities;        // 包含 NamespaceID
-using MVZ2.Vanilla.Properties;
-using PVZEngine;   // 包含 VanillaEntityPropertyMeta
+using PVZEngine.Level;
 
 
 

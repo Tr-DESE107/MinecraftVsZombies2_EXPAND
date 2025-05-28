@@ -86,7 +86,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         public override void OnShootTick(Entity entity)
         {
-            int count = GetUpgradeLevel(entity)*2 + 2;
+            int count = GetUpgradeLevel(entity) * 2 + 2;
             SetRepeatCount(entity, count);
             var repeatTimer = GetRepeatTimer(entity);
             repeatTimer.ResetTime(Mathf.FloorToInt(15f / count));

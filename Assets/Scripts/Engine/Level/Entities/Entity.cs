@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
-using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -689,7 +688,7 @@ namespace PVZEngine.Entities
         public long GetEntityTime()
         {
             return time;
-        
+
         }
         public bool IsTimeInterval(long interval, long offset = 0)
         {
@@ -1025,7 +1024,7 @@ namespace PVZEngine.Entities
         public Entity Parent { get; private set; }
         public LevelEngine Level { get; private set; }
         public Vector3 PreviousPosition { get; private set; }
-        public Vector3 Position 
+        public Vector3 Position
         {
             get => _position;
             set

@@ -16,7 +16,7 @@ namespace MVZ2.Vanilla.Models
         public static readonly NamespaceID mindSwap = Get("mind_swap");
         public static readonly NamespaceID witherParticles = Get("wither_particles");
         public static readonly NamespaceID divineShield = Get("divine_shield");
-        
+
         public static readonly NamespaceID RegenerationParticles = Get("RegenerationParticles");
         public static readonly NamespaceID CorropoisonParticles = Get("CorropoisonParticles");
 

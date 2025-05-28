@@ -1,8 +1,4 @@
 using MVZ2.Vanilla.Entities;
-using PVZEngine.Level;
-using MVZ2.GameContent.Shells;
-using MVZ2.Vanilla.Entities;
-using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -27,7 +23,7 @@ namespace MVZ2.GameContent.Projectiles
             if (enemy.GetShellID() != VanillaShellID.flesh)
                 return;
             */
-            enemy.InflictCorropoisonBuff(-1f,150);
+            enemy.InflictCorropoisonBuff(-1f, 150);
         }
     }
 }
