@@ -355,10 +355,6 @@ namespace MVZ2.Saves
                     case 1:
                         diff = VanillaDifficulties.normal;
                         break;
-                    case 2:
-                        diff = VanillaDifficulties.lunatic;
-                        break;
-
                 }
                 saveData.AddLevelDifficultyRecord(stageID, diff);
             }
