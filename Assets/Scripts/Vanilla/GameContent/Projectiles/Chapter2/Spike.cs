@@ -2,10 +2,8 @@
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Shells;
 using PVZEngine.Damages;
-using PVZEngine.Entities;        // 包含 NamespaceID
+using PVZEngine.Entities;
 using PVZEngine.Level;
-
-
 
 namespace MVZ2.GameContent.Projectiles
 {

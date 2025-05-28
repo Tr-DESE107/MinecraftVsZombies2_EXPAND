@@ -17,12 +17,6 @@ namespace MVZ2.GameContent.Projectiles
             var enemy = hitResult.Other;
             if (enemy.Type != EntityTypes.ENEMY)
                 return;
-            /*
-            if (damage.BodyResult == null)
-                return;
-            if (enemy.GetShellID() != VanillaShellID.flesh)
-                return;
-            */
             enemy.InflictCorropoisonBuff(1f, 150);
         }
     }
