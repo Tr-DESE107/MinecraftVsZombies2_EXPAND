@@ -59,7 +59,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             var anvil = entity.SpawnWithParams(VanillaContraptionID.anvil, pos);
 
-            foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction()))
+            foreach (var e in level.FindEntities(e => e.ExistsAndAlive() && e.GetFaction() != entity.GetFaction() && e.Type != EntityTypes.BOSS))
             {
                 if (e.HasBuff<FlyBuff>())
                 {

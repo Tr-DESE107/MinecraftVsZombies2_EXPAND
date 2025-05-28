@@ -29,7 +29,6 @@ using Tools;
 using Tools.Mathematics;
 using UnityEngine;
 
-
 namespace MVZ2.GameContent.Bosses
 {
     [EntityBehaviourDefinition(VanillaBossNames.slenderman)]
@@ -70,15 +69,6 @@ namespace MVZ2.GameContent.Bosses
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-
-            if (!entity.HasBuff<FlyBuff>())
-            {
-                var flyBuff = entity.AddBuff<FlyBuff>();
-                flyBuff.SetProperty(FlyBuff.PROP_FLY_SPEED, 0.2f);
-                flyBuff.SetProperty(FlyBuff.PROP_FLY_SPEED_FACTOR, 0.5f);
-                flyBuff.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 80f);
-            }
-
             if (entity.IsDead)
             {
                 entity.Timeout--;
@@ -292,7 +282,7 @@ namespace MVZ2.GameContent.Bosses
             int count = Mathf.Max(1, level.GetSlendermanFateChoiceCount() + entity.RNG.Next(-1, 2));
             var rng = GetFateOptionRNG(entity);
             var selected = fateOptions.RandomTake(count, rng).ToArray();
-            var options = selected.Select(i => GetFateOptionText(i)).ToArray();
+            var options = selected.Select(i => GetFateOptionText(entity.RNG, i)).ToArray();
             level.ShowDialog(title, desc, options, (i) =>
             {
                 var option = selected[i];
@@ -436,10 +426,10 @@ namespace MVZ2.GameContent.Bosses
                 contraption.ShortCircuit(300);
             }
         }
-        private static string GetFateOptionText(int option)
+        private static string GetFateOptionText(RandomGenerator rng, int option)
         {
             var index = Array.IndexOf(fateOptions, option);
-            int randomInt = UnityEngine.Random.Range(0, 7);
+            int randomInt = rng.Next(0, 7);
             string text = randomInt < 6 ? fateTexts[index] : "???";
             return Global.Game.GetText(text);
         }
