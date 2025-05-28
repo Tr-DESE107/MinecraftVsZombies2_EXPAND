@@ -62,15 +62,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             {
                 if (buff.GetProperty<bool>(PROP_ETHEREAL))
                 {
-                    damageInfo.Multiply(0.1f);
-                    if (entity.Level.Difficulty == VanillaDifficulties.hard)
-                    {
-                        damageInfo.Multiply(0f);
-                    }
-                    if (entity.Level.Difficulty == VanillaDifficulties.lunatic)
-                    {
-                        damageInfo.Multiply(0f);
-                    }
+                    damageInfo.Multiply(buff.Level.GetGhostTakenDamageMultiplier());
                     break;
                 }
             }
