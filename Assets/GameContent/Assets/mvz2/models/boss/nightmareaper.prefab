@@ -1123,6 +1123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 2343584082378804533}
   velocity: {x: 0, y: 0, z: 0}
+  scaleWithHierarchy: 0
 --- !u!114 &7916809363697943535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1961,6 +1962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: 4217574144208595496}
   velocity: {x: 0, y: 0, z: 0}
+  scaleWithHierarchy: 0
 --- !u!114 &4510566152612866966
 MonoBehaviour:
   m_ObjectHideFlags: 0
