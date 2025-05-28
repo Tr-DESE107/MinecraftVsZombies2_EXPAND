@@ -42,9 +42,7 @@ namespace MVZ2.GameContent.Armors
             if (!armor.Definition.HasBehaviour(this))
                 return;
             var pos = entity.Position + new Vector3(entity.GetFacingX() * 20, 40, 0);
-            var fragment = entity.Level.Spawn(VanillaEffectID.fragment, pos, entity);
-            Fragment.SetFragmentID(fragment, VanillaFragmentID.reflectiveBarrier);
-            Fragment.AddEmitSpeed(fragment, 500);
+            entity.CreateFragmentAndPlay(pos, emitSpeed: 500);
         }
         private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {

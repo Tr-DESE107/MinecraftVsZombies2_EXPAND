@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Fragments;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -126,8 +127,7 @@ namespace MVZ2.Vanilla.Entities
             base.PostDeath(entity, deathInfo);
             if (!deathInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
             {
-                var fragment = entity.GetOrCreateFragment();
-                Fragment.AddEmitSpeed(fragment, 500);
+                entity.CreateFragmentAndPlay(500);
             }
             entity.Remove();
         }
