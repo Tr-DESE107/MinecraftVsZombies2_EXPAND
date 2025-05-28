@@ -117,12 +117,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Init
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cd706561546c5454c978c77fd4f32daa
-    m_Address: Assets/Textures/GeneratedSprites.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Init
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ecdea1f2d39df2049be852b3107d40a4
     m_Address: mvz2:init/form
     m_ReadOnly: 0
