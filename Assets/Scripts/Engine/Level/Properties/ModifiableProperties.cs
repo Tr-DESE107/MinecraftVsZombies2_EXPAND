@@ -88,8 +88,8 @@ namespace PVZEngine.Level
             result = default;
             return false;
         }
-        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false) => TryGetProperty<T>(name, out var result, ignoreBuffs) ? result : default;
-        public object GetPropertyObject(IPropertyKey name, bool ignoreBuffs = false) => TryGetPropertyObject(name, out var result, ignoreBuffs) ? result : null;
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false) => TryGetProperty<T>(name, out var result, ignoreBuffs) ? result : name.DefaultValue;
+        public object GetPropertyObject(IPropertyKey name, bool ignoreBuffs = false) => TryGetPropertyObject(name, out var result, ignoreBuffs) ? result : name.DefaultValue;
         public bool RemoveProperty(IPropertyKey name)
         {
             return properties.RemovePropertyObject(name);

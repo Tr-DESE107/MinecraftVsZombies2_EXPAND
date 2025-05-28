@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Buffs
     {
         public InWaterBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.AddMultiplie, PROP_GRAVITY_ADDITION, VanillaModifierPriorities.WATER_GRAVITY));
+            AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.AddMultiple, PROP_GRAVITY_ADDITION, VanillaModifierPriorities.WATER_GRAVITY));
             AddModifier(new FloatModifier(EngineEntityProps.FRICTION, NumberOperator.Add, 0.15f));
             AddModifier(new FloatModifier(EngineEntityProps.GROUND_LIMIT_OFFSET, NumberOperator.Add, -100f));
         }

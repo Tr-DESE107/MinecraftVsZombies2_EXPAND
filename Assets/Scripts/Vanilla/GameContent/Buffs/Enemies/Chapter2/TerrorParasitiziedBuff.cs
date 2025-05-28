@@ -1,4 +1,6 @@
-﻿using MVZ2.GameContent.Damages;
+﻿using System.Text.RegularExpressions;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Audios;
@@ -12,6 +14,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -53,7 +56,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             var level = host.Level;
             host.TakeDamage(DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.MUTE), host);
-            int count = 3 + level.GetEnemyAILevel();
+            int count = level.GetParasitizedTerrorCount();
             for (int i = 0; i < count; i++)
             {
                 var parasite = host.SpawnWithParams(VanillaEnemyID.parasiteTerror, host.GetCenter());

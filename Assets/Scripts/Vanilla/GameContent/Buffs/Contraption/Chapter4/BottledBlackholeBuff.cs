@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
     {
         public BottledBlackholeDamageBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(VanillaEntityProps.DAMAGE, NumberOperator.AddMultiplie, PROP_DAMAGE_MULTIPLIER));
+            AddModifier(new FloatModifier(VanillaEntityProps.DAMAGE, NumberOperator.AddMultiple, PROP_DAMAGE_MULTIPLIER));
         }
         public static void SetDamageMultiplier(Buff buff, float value)
         {

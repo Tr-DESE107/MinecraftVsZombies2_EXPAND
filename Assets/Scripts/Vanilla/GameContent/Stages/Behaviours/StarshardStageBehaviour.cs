@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Saves;
@@ -22,7 +23,6 @@ namespace MVZ2.GameContent.Stages
             base.Start(level);
             SetStarshardRNG(level, level.CreateRNG());
             SetStarshardChance(level, MIN_STARSHARD_CHANCE);
-            level.SetStarshardCarrierChanceIncreament(STARSHARD_INCREAMENT);
         }
         public override void PostWave(LevelEngine level, int wave)
         {

@@ -8,10 +8,12 @@ namespace PVZEngine
         public string regionName;
         public string propertyName;
         public Type propertyType;
-        public PropertyMeta(string name, Type propertyType)
+        public object defaultValue;
+        public PropertyMeta(string name, Type propertyType, object defaultValue)
         {
             propertyName = name;
             this.propertyType = propertyType;
+            this.defaultValue = defaultValue;
         }
         public override string ToString()
         {
@@ -28,7 +30,7 @@ namespace PVZEngine
     public class PropertyMeta<T> : PropertyMeta
     {
         private PropertyKey<T> key;
-        public PropertyMeta(string name) : base(name, typeof(T))
+        public PropertyMeta(string name, T defaultValue = default) : base(name, typeof(T), defaultValue)
         {
         }
 

@@ -32,7 +32,7 @@ namespace PVZEngine.Modifiers
                         case NumberOperator.Add:
                             addValue = AddValue(addValue, modifierValue);
                             break;
-                        case NumberOperator.AddMultiplie:
+                        case NumberOperator.AddMultiple:
                             multiple = AddValue(multiple, modifierValue);
                             break;
                         case NumberOperator.Multiply:

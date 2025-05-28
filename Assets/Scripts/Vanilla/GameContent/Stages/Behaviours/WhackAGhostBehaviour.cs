@@ -22,7 +22,6 @@ namespace MVZ2.GameContent.Stages
         }
         public override void Start(LevelEngine level)
         {
-            level.SetNapstablookParalysisTime(45);
             SetThunderTimer(level, new FrameTimer(150));
         }
         public override void Update(LevelEngine level)

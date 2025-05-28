@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Entities;
+﻿using MVZ2.GameContent.Difficulties;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
@@ -76,12 +77,10 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public static int GetStunDuration(Entity entity)
         {
             var level = entity.Level;
-            return STUN_TIME - level.GetEnemyAILevel() * STUN_TIME_PER_LEVEL;
+            return level.GetWickedHermitZombieStunTime();
         }
         public const int MAX_TIME = 20;
         public const int WARP_TIME = 10;
-        public const int STUN_TIME = 150;
-        public const int STUN_TIME_PER_LEVEL = 75;
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timer");
     }
 }

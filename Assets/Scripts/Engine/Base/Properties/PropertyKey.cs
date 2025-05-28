@@ -7,6 +7,7 @@ namespace PVZEngine
     {
         int Key { get; }
         Type Type { get; }
+        object DefaultValue { get; }
     }
     public static class PropertyKeyHelper
     {
@@ -62,10 +63,10 @@ namespace PVZEngine
                 return propertyName;
             }
         }
-        public static IPropertyKey FromType(int namespaceKey, int propertyKey, Type propertyType)
+        public static IPropertyKey FromType(int namespaceKey, int propertyKey, Type propertyType, object defaultValue)
         {
             var type = typeof(PropertyKey<>).MakeGenericType(propertyType);
-            return (IPropertyKey)Activator.CreateInstance(type, namespaceKey, propertyKey);
+            return (IPropertyKey)Activator.CreateInstance(type, namespaceKey, propertyKey, defaultValue);
         }
         public static bool IsValid(this IPropertyKey key)
         {
@@ -77,11 +78,14 @@ namespace PVZEngine
     {
         int IPropertyKey.Key => 0;
         Type IPropertyKey.Type => typeof(object);
+        object IPropertyKey.DefaultValue => null;
     }
     public struct PropertyKey<T> : IPropertyKey, IEquatable<PropertyKey<T>>, IEquatable<IPropertyKey>
     {
         int IPropertyKey.Key => key;
-        Type IPropertyKey.Type => typeof(T); 
+        Type IPropertyKey.Type => typeof(T);
+        object IPropertyKey.DefaultValue => DefaultValue;
+        public T DefaultValue { get; }
         private int key;
         private const int PROPERTY_BITS = 20;
         private const int NAMESPACE_BITS = 12;
@@ -90,10 +94,11 @@ namespace PVZEngine
         private const int PROPERTY_KEY_MASK = (1 << PROPERTY_BITS) - 1;
         private const int NAMESPACE_KEY_SHIFT = PROPERTY_KEY_SHIFT + PROPERTY_BITS;
         private const int NAMESPACE_KEY_MASK = ((1 << NAMESPACE_BITS) - 1) << NAMESPACE_KEY_SHIFT;
-        public PropertyKey(int namespaceKey, int propertyKey)
+        public PropertyKey(int namespaceKey, int propertyKey, T defaultValue)
         {
             key = ((propertyKey << PROPERTY_KEY_SHIFT) & PROPERTY_KEY_MASK) |
                 ((namespaceKey << NAMESPACE_KEY_SHIFT) & NAMESPACE_KEY_MASK);
+            DefaultValue = defaultValue;
         }
         public override bool Equals(object obj)
         {

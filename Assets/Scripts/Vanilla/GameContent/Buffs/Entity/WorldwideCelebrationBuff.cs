@@ -12,9 +12,9 @@ namespace MVZ2.GameContent.Buffs
     {
         public WorldwideCelebrationBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.AddMultiplie, 0.5f));
-            AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.AddMultiplie, 0.5f));
-            AddModifier(new FloatModifier(VanillaEntityProps.PRODUCE_SPEED, NumberOperator.AddMultiplie, 0.5f));
+            AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.AddMultiple, 0.5f));
+            AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.AddMultiple, 0.5f));
+            AddModifier(new FloatModifier(VanillaEntityProps.PRODUCE_SPEED, NumberOperator.AddMultiple, 0.5f));
         }
         public override void PostAdd(Buff buff)
         {

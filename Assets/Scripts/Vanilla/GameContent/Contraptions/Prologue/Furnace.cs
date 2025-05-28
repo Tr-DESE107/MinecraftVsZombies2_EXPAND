@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -162,7 +163,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private int GetRedstonesToDrop(Entity entity, float hp)
         {
-            var totalCount = entity.Level.GetFurnaceDropRedstoneCount();
+            var totalCount = entity.Level.GetIZFurnaceRedstoneCount();
             var hpPerRedstone = entity.GetMaxHealth() / totalCount;
             return Mathf.FloorToInt(totalCount - hp / hpPerRedstone);
         }

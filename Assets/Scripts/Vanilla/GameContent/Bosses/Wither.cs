@@ -3,6 +3,7 @@ using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -62,9 +63,10 @@ namespace MVZ2.GameContent.Bosses
 
             RotateHeadsUpdate(entity);
 
-            if (!entity.IsDead && entity.Level.GetBossAILevel() >= 0)
+            if (!entity.IsDead)
             {
-                entity.Heal(REGENERATION_SPEED, entity);
+                var regen = entity.Level.GetWitherRegeneration();
+                entity.Heal(regen, entity);
             }
         }
         public override void PostDeath(Entity boss, DeathInfo damageInfo)
@@ -369,7 +371,6 @@ namespace MVZ2.GameContent.Bosses
         public const int HEAD_COUNT = 3;
         public const float HEAD_ROTATE_SPEED = 10;
         public const float FLY_HEIGHT = 80;
-        public const float REGENERATION_SPEED = 1;
         public const float EAT_HEALING = 300;
         public const float GOLDEN_APPLE_DAMAGE = 600;
         #endregion 常量

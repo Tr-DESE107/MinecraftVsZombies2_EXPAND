@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.HeldItems;
@@ -84,7 +85,7 @@ namespace MVZ2.GameContent.HeldItems
         public static void Paralyze(LevelEngine level)
         {
             var buff = level.AddBuff<SwordParalyzedBuff>();
-            var timeout = Mathf.FloorToInt(level.GetNapstablookParalysisTime());
+            var timeout = level.GetNapstablookParalysisTime();
             buff.SetProperty(SwordParalyzedBuff.PROP_TIMEOUT, timeout);
             level.PlaySound(VanillaSoundID.shock);
         }

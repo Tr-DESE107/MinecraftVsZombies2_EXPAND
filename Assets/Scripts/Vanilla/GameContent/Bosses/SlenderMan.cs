@@ -6,6 +6,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.GameContent.Contraptions;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Seeds;
@@ -249,7 +250,7 @@ namespace MVZ2.GameContent.Bosses
                 return;
 
             var rng = GetMindSwapRNG(entity);
-            NamespaceID[] pool = level.GetBossAILevel() > 0 ? hardMindSwapPool : mindSwapPool;
+            NamespaceID[] pool = level.SlendermanMindSwapZombies() ? hardMindSwapPool : mindSwapPool;
             for (int i = 0; i < level.GetConveyorSeedPackCount(); i++)
             {
                 var blueprint = level.GetConveyorSeedPackAt(i);
@@ -279,7 +280,7 @@ namespace MVZ2.GameContent.Bosses
             var title = Global.Game.GetText(CHOOSE_FATE_TITLE);
             var desc = Global.Game.GetText(CHOOSE_FATE_DESCRIPTION);
 
-            int count = 3 - level.GetBossAILevel();
+            int count = level.GetSlendermanFateChoiceCount();
             var rng = GetFateOptionRNG(entity);
             var selected = fateOptions.RandomTake(count, rng).ToArray();
             var options = selected.Select(i => GetFateOptionText(i)).ToArray();
@@ -436,7 +437,7 @@ namespace MVZ2.GameContent.Bosses
 
         private int GetMaxFateTimes(LevelEngine level)
         {
-            return 4 + level.GetBossAILevel();
+            return level.GetSlendermanMaxFateTimes();
         }
 
         #region 属性

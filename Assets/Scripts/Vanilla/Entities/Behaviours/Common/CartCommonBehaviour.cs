@@ -127,7 +127,7 @@ namespace MVZ2.Vanilla.Entities
             base.PostDeath(entity, deathInfo);
             if (!deathInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
             {
-                entity.CreateFragmentAndPlay(500);
+                entity.CreateFragmentAndPlay(emitSpeed: 500);
             }
             entity.Remove();
         }

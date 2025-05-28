@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
@@ -68,7 +69,7 @@ namespace MVZ2.GameContent.Enemies
             base.PostContactGround(entity, velocity);
             if ((entity.IsDead || entity.IsAIFrozen()) && !entity.IsOnWater())
             {
-                float damageMutliplier = 1 + entity.Level.GetEnemyAILevel();
+                float damageMutliplier = entity.Level.GetReverseSatelliteDamageMultiplier();
                 float radius = entity.GetRange();
                 var damage = entity.GetDamage() * damageMutliplier;
                 if (damage >= 0)
