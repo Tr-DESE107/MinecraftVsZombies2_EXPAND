@@ -2,8 +2,10 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Level;
@@ -59,12 +61,22 @@ namespace MVZ2.GameContent.Contraptions
         }
         public override bool CanEvoke(Entity entity)
         {
-            return false;
+            var targetDef = GetEntityDefinitionToTransform(entity);
+            if (targetDef == null)
+                return false;
+            if (!targetDef.CanInstantEvoke())
+                return false;
+            return base.CanEvoke(entity);
+        }
+        protected override void OnEvoke(Entity entity)
+        {
+            base.OnEvoke(entity);
+            entity.SetEvoked(true);
         }
         public static void TransformBlock(Entity entity)
         {
             var targetID = GetEntityDefinitionToTransform(entity);
-            if (!NamespaceID.IsValid(targetID))
+            if (targetID == null)
             {
                 entity.Spawn(VanillaContraptionID.errorBlock, entity.Position);
                 entity.PlaySound(VanillaSoundID.errorXP);
@@ -72,13 +84,17 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             }
             var grid = entity.GetGrid();
-            var spawned = grid.SpawnPlacedEntity(targetID);
+            var spawned = grid.SpawnPlacedEntity(targetID.GetID());
             spawned.AddBuff<ImitatedBuff>();
+            if (entity.IsEvoked() && spawned.CanEvoke())
+            {
+                spawned.Evoke();
+            }
             entity.Spawn(VanillaEffectID.binaryParticles, entity.GetCenter());
 
             entity.Remove();
         }
-        private static NamespaceID GetEntityDefinitionToTransform(Entity entity)
+        private static EntityDefinition GetEntityDefinitionToTransform(Entity entity)
         {
             var targetEntity = GetTargetEntity(entity);
             if (targetEntity == null)
@@ -86,7 +102,7 @@ namespace MVZ2.GameContent.Contraptions
             var targetDef = entity.Level.Content.GetEntityDefinition(targetEntity);
             if (targetDef == null)
                 return null;
-            return targetEntity;
+            return targetDef;
         }
         public static SpawnParams GetImitateSpawnParams(NamespaceID target)
         {
