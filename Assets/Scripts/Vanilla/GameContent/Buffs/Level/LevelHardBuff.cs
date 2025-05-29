@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new BooleanModifier(VanillaLevelProps.NO_CARTS, true));
             AddModifier(new FloatModifier(VanillaLevelProps.SPAWN_POINTS_POWER, NumberOperator.AddMultiple, 0.2f));
             AddModifier(new IntModifier(VanillaDifficultyProps.NAPSTABLOOK_PARALYSIS_TIME, NumberOperator.Multiply, 2));
-            AddModifier(new FloatModifier(VanillaDifficultyProps.GHAST_DAMAGE_MULTIPLIER, NumberOperator.AddMultiple, 0.5f));
+            AddModifier(new FloatModifier(VanillaDifficultyProps.GHAST_DAMAGE_MULTIPLIER, NumberOperator.Add, 1f));
             AddModifier(new IntModifier(VanillaDifficultyProps.MOTHER_TERROR_EGG_COUNT, NumberOperator.Add, 1));
             AddModifier(new IntModifier(VanillaDifficultyProps.PARASITIZED_TERROR_COUNT, NumberOperator.Add, 1));
             AddModifier(new FloatModifier(VanillaDifficultyProps.REVERSE_SATELLITE_DAMAGE_MULTIPLIER, NumberOperator.AddMultiple, 1f));
