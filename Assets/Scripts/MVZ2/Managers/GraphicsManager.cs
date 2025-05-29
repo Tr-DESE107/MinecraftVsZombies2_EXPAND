@@ -4,6 +4,7 @@ using System.Text;
 using MVZ2.Managers;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
+using UnityEngine.UIElements;
 
 namespace MVZ2.Models
 {
@@ -14,6 +15,13 @@ namespace MVZ2.Models
             LogGraphics();
             CheckSupportedColorFormat();
             CheckSupportedDepthFormat();
+            Shader.SetGlobalInt("_LightStarted", 1);
+            SetLighting(Color.white, Color.white);
+        }
+        public void SetLighting(Color background, Color global)
+        {
+            Shader.SetGlobalColor("_LightBackground", background);
+            Shader.SetGlobalColor("_LightGlobal", global);
         }
         public GraphicsFormat GetSupportedColorFormat()
         {

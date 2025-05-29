@@ -70,6 +70,7 @@ namespace MVZ2.Level
             var model = GetHeldItemModel();
             if (model != null)
             {
+                model.SetShaderInt("_LightDisabled", 1);
                 definition?.PostSetModel(level, data, heldItemModelInterface);
             }
 

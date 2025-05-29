@@ -61,10 +61,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _LightMapGlobal:
-        m_Texture: {fileID: 8600000, guid: 1625456059e0b82448c58404c9208d31, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _LightMapSpot:
         m_Texture: {fileID: 8600000, guid: 520d28ea1cee7004bbda9e94e545703c, type: 2}
         m_Scale: {x: 1, y: 1}

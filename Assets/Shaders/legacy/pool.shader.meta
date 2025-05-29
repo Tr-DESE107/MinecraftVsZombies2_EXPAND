@@ -7,7 +7,6 @@ ShaderImporter:
   - _ShadeTex: {instanceID: 0}
   - _CausticTex: {instanceID: 0}
   - _LightMapSpot: {fileID: 8600000, guid: 520d28ea1cee7004bbda9e94e545703c, type: 2}
-  - _LightMapGlobal: {fileID: 8600000, guid: 1625456059e0b82448c58404c9208d31, type: 2}
   - _AlphaTex: {instanceID: 0}
   nonModifiableTextures: []
   userData: 

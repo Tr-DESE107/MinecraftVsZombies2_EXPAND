@@ -13,11 +13,6 @@ namespace MVZ2.UI
         {
             GetUIPreset().SetReceiveRaycasts(value);
         }
-        public void SetLighting(Color background, Color global)
-        {
-            backgroundLightCamera.backgroundColor = background * global;
-            entityLightCamera.backgroundColor = global;
-        }
         public void SetScreenCover(Color value)
         {
             blackscreenImage.color = value;
@@ -203,10 +198,6 @@ namespace MVZ2.UI
         [Header("Shading")]
         [SerializeField]
         private Image blackscreenImage;
-        [SerializeField]
-        private Camera backgroundLightCamera;
-        [SerializeField]
-        private Camera entityLightCamera;
 
         [Header("HeldItem")]
         [SerializeField]
