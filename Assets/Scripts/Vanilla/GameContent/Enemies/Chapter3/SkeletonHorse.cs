@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
@@ -101,6 +102,13 @@ namespace MVZ2.GameContent.Enemies
             base.UpdateLogic(entity);
             // 设置血量状态。
             entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
+        }
+        public override void PostDeath(Entity entity, DeathInfo info)
+        {
+            base.PostDeath(entity, info);
+            var stateTimer = GetLandTimer(entity);
+            stateTimer.Reset();
+            SetJumpState(entity, JUMP_STATE_NONE);
         }
         #endregion
 
