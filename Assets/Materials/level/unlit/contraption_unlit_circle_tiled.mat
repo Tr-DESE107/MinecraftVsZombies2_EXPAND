@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: entity_unlit_circle_tiled
+  m_Name: contraption_unlit_circle_tiled
   m_Shader: {fileID: 4800000, guid: 9099df78e0d8b2e4982a82b17a39e28b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
