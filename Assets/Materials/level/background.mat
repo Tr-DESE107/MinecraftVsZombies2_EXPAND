@@ -13,7 +13,8 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - LIT
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _BACKGROUNDLIT_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -58,10 +59,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _LightMap:
         m_Texture: {fileID: 8600000, guid: 520d28ea1cee7004bbda9e94e545703c, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _LightMapGlobal:
-        m_Texture: {fileID: 8600000, guid: 9970d50c859831544b8a0c5ac4c20bbc, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightMapSpot:
@@ -112,6 +109,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _BackgroundLit: 1
     - _BlackAlpha: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1

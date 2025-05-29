@@ -17,8 +17,9 @@
         _CausticAlpha("Caustic Alpha", Float) = 0
 
 		[Header(Lighting)]
+		[HideInInspector] _LightDisabled("Light Disabled", Int) = 0
+		[Toggle] _BackgroundLit("Lit by Background", Int) = 0
         _LightMapSpot("Light Map Spot", 2D) = "black" {}
-        _LightMapGlobal("Light Map Global", 2D) = "black" {}
         _LightMapST ("Light Map ST", Vector) = (14, 10.2, 0, 0)
 
         [MaterialToggle] PixelSnap("Pixel snap", Float) = 0
@@ -202,6 +203,7 @@
                 half3 causticColor = SampleCaustic(poolUv, _CausticTime, i.uv);
                     
                 half4 result = PoolBlend(poolColor, shadeColor, causticColor) * i.color;
+                result = saturate(result);
 
                 return ApplyLight(result, i.lightUV);
             }

@@ -37,8 +37,9 @@
 		[Header(Lighting)]
 		[Toggle(LIT)]
 		_LIT("Lit", Int) = 1
+		[HideInInspector] _LightDisabled("Light Disabled", Int) = 0
+		[Toggle] _BackgroundLit("Lit by Background", Int) = 0
         _LightMapSpot("Light Map Spot", 2D) = "black" {}
-        _LightMapGlobal("Light Map Global", 2D) = "black" {}
         _LightMapST ("Light Map ST", Vector) = (14, 10.2, 0, 0)
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.

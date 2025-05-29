@@ -234,6 +234,7 @@ namespace MVZ2.Level
                 level.StopAllLoopSounds();
                 level.Dispose();
             }
+            SetLighting(Color.white, Color.white);
             Game.SetLevel(null);
         }
         public async Task ExitLevelToNote(NamespaceID id)
@@ -1033,8 +1034,8 @@ namespace MVZ2.Level
         }
         private void SetLighting(Color night, Color darkness)
         {
-            ui.SetLighting(night, darkness);
-            model.SetLighting(darkness);
+            Main.GraphicsManager.SetLighting(night, darkness);
+            model?.SetLighting(darkness);
         }
         #endregion
 

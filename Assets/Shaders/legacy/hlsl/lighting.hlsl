@@ -1,7 +1,11 @@
 #include "UnityCG.cginc"
 
 sampler2D _LightMapSpot;
-sampler2D _LightMapGlobal;
+half4 _LightGlobal;
+half4 _LightBackground;
+int _LightStarted;
+int _LightDisabled;
+int _BackgroundLit;
 float4 _LightMapST;
 
 float2 GetLightUV(float4 vertex)
@@ -20,27 +24,42 @@ half4 ToGamma(half4 col)
     return pow(col, 1.0 / 2.2);
 }
 
-half4 GetGlobalLight(float2 lightUV)
+half4 GetGlobalLight()
 {
-    return tex2D(_LightMapGlobal, lightUV);
+    return _LightGlobal;
+}
+half4 GetBackgroundLight()
+{
+    return _LightBackground;
 }
 half4 GetSpotLight(float2 lightUV)
 {
-    half4 light = tex2D(_LightMapSpot, lightUV);
-    light.rgb *= light.rgb;
-    return light;
+    return tex2D(_LightMapSpot, lightUV);
 }
 half4 GetLight(float2 lightUV)
 {
-    half4 global = GetGlobalLight(lightUV);
+    half4 global = GetGlobalLight();
     half4 spot = GetSpotLight(lightUV);
-    
-    half4 finalColor = ToGamma(global) + ToGamma(spot);
-    return finalColor;
+    if (_BackgroundLit)
+    {
+        half4 background = GetBackgroundLight();
+        return spot + global * background;
+    }
+    else
+    {
+        return spot + global;
+    }
 }
 half4 ApplyLight(half4 col, float2 lightUV)
 {
-    half4 light = GetLight(lightUV);
-    col.rgb *= light.rgb * saturate(light.a);
+    if (!_LightDisabled && _LightStarted)
+    {
+        half4 light = GetLight(lightUV);
+        half4 colLin = ToLinear(col);
+        half4 lightLin = ToLinear(light);
+        colLin.rgb *= lightLin.rgb * saturate(lightLin.a);
+        colLin.rgb = saturate(colLin.rgb);
+        col = ToGamma(colLin);
+    }
     return col;
 }
