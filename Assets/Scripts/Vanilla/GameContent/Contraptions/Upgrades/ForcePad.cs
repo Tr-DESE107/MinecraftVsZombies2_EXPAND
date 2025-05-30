@@ -5,20 +5,14 @@ using MVZ2.GameContent.Buffs.Projectiles;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.HeldItems;
-using MVZ2.GameContent.Models;
-using MVZ2.HeldItems;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic;
-using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -26,7 +20,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Contraptions
 {
     [EntityBehaviourDefinition(VanillaContraptionNames.forcePad)]
-    public class ForcePad : ContraptionBehaviour, IHeldEntityPointerEventHandler, IHeldEntityUpdateHandler, IHeldEntityGetModelIDHandler
+    public class ForcePad : ContraptionBehaviour
     {
         public ForcePad(string nsp, string name) : base(nsp, name)
         {
@@ -72,7 +66,7 @@ namespace MVZ2.GameContent.Contraptions
                 SetDraggingEntities(entity, targets.Select(e => new EntityID(e)).ToArray());
                 SetDragTimeout(entity, MAX_DRAG_TIMEOUT);
                 entity.SetEvoked(true);
-                entity.Level.SetHeldItem(VanillaHeldTypes.entity, entity.ID, 100, true);
+                entity.Level.SetHeldItem(VanillaHeldTypes.forcePad, entity.ID, 100, true);
             }
             else
             {
@@ -235,7 +229,8 @@ namespace MVZ2.GameContent.Contraptions
 
             // 倒计时结束，或者没有在手持该器械，或者已经没有有效的实体了
             // 结束大招。
-            bool holdingThis = pad.Level.IsHoldingEntity(pad);
+            var level = pad.Level;
+            bool holdingThis = level.GetHeldItemType() == VanillaHeldTypes.forcePad && level.GetHeldItemID() == pad.ID;
             if (dragTimeout <= 0 || (!holdingThis && !locked) || !hasValidEntity)
             {
                 if (holdingThis)
@@ -316,42 +311,6 @@ namespace MVZ2.GameContent.Contraptions
         private Detector enemyDetector;
         private Detector projectileDetector;
         private List<Entity> detectBuffer = new List<Entity>();
-
-        bool IHeldEntityBehaviour.IsHeldItemValidFor(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
-        {
-            return target is HeldItemTargetGrid targetGrid;
-        }
-        HeldHighlight IHeldEntityBehaviour.GetHeldItemHighlight(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
-        {
-            return HeldHighlight.Green();
-        }
-        void IHeldEntityGetModelIDHandler.GetHeldItemModelID(Entity entity, LevelEngine level, IHeldItemData data, CallbackResult result)
-        {
-            result.SetFinalValue(VanillaModelID.targetHeldItem);
-        }
-        void IHeldEntityUpdateHandler.OnHeldItemUpdate(Entity entity, LevelEngine level, IHeldItemData data)
-        {
-            if (entity == null || !entity.Exists() || entity.IsAIFrozen())
-            {
-                level.ResetHeldItem();
-                return;
-            }
-        }
-        void IHeldEntityPointerEventHandler.OnHeldItemPointerEvent(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
-        {
-            if (pointerParams.IsInvalidClickButton() || pointerParams.IsInvalidReleaseAction())
-                return;
-            if (target is not HeldItemTargetGrid targetGrid)
-                return;
-            if (targetGrid.Target == null)
-                return;
-            var level = target.GetLevel();
-            SetDragTargetLocked(entity, true);
-            SetDragTarget(entity, targetGrid.Target.GetEntityPosition());
-            SetDragTimeout(entity, 30);
-            level.ResetHeldItem();
-            entity.PlaySound(VanillaSoundID.magnetic);
-        }
 
         public class DragAura : AuraEffectDefinition
         {

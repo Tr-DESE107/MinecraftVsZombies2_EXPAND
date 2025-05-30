@@ -48,18 +48,21 @@ namespace MVZ2Logic.Level
             var component = level.GetHeldItemComponent();
             return component.Data;
         }
-        public static HeldHighlight GetHeldHighlight(this LevelEngine level, IHeldItemTarget target, PointerData pointer)
+        public static HeldItemDefinition GetHeldItemDefinition(this LevelEngine level)
         {
             var heldType = level.GetHeldItemType();
+            return level.Content.GetHeldItemDefinition(heldType);
+        }
+        public static HeldHighlight GetHeldHighlight(this LevelEngine level, IHeldItemTarget target, PointerData pointer)
+        {
             var data = level.GetHeldItemData();
-            var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
+            var heldItemDef = level.GetHeldItemDefinition();
             return heldItemDef.GetHighlight(target, data, pointer);
         }
         public static void DoHeldItemPointerEvent(this LevelEngine level, IHeldItemTarget target, PointerInteractionData pointerParams)
         {
-            var heldType = level.GetHeldItemType();
             var data = level.GetHeldItemData();
-            var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
+            var heldItemDef = level.GetHeldItemDefinition();
             heldItemDef.DoPointerEvent(target, data, pointerParams);
         }
         public static IModelInterface GetHeldItemModelInterface(this LevelEngine level)

@@ -23,12 +23,15 @@ namespace MVZ2.Vanilla.Entities
                 LimitPosition(pickup);
 
                 var level = pickup.Level;
-                if (!pickup.IsImportantPickup() && !level.IsHoldingEntity(pickup) && pickup.Timeout >= 0)
+                if (!pickup.IsImportantPickup() && pickup.Timeout >= 0)
                 {
-                    pickup.Timeout--;
-                    if (pickup.Timeout <= 0)
+                    if (!level.IsHoldingEntity(pickup))
                     {
-                        pickup.Remove();
+                        pickup.Timeout--;
+                        if (pickup.Timeout <= 0)
+                        {
+                            pickup.Remove();
+                        }
                     }
                 }
             }

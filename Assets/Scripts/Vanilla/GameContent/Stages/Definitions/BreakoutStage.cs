@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Stages
             }
             if (level.GetHeldItemType() == BuiltinHeldTypes.none)
             {
-                level.SetHeldItem(VanillaHeldTypes.entity, board.ID, 100, true);
+                level.SetHeldItem(VanillaHeldTypes.breakoutBoard, board.ID, 100, true);
             }
         }
         public override void OnPostEnemySpawned(Entity entity)

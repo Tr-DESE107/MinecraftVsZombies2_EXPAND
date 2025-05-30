@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
-using MVZ2.GameContent.RandomChinaEvents;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;

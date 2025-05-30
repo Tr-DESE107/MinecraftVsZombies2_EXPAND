@@ -4508,6 +4508,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 754033137360837410, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -160
+      objectReference: {fileID: 0}
+    - target: {fileID: 754033137360837410, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 901218314835338990, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_Name
       value: UIPresetMobile
@@ -4652,6 +4660,14 @@ PrefabInstance:
       propertyPath: blueprintConveyorModeObjects.Array.data[0]
       value: 
       objectReference: {fileID: 396891686493350873}
+    - target: {fileID: 2697551020992563134, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -160
+      objectReference: {fileID: 0}
+    - target: {fileID: 2697551020992563134, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 2868456173559278277, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_Pivot.y
       value: 1
@@ -4661,8 +4677,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2868456173559278277, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -160
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868456173559278277, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_SizeDelta.y
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868456173559278277, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2868456173559278277, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4731,22 +4755,6 @@ PrefabInstance:
     - target: {fileID: 5383486067520234474, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5436316544451709231, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -160
-      objectReference: {fileID: 0}
-    - target: {fileID: 5436316544451709231, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 5844900178772137977, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -160
-      objectReference: {fileID: 0}
-    - target: {fileID: 5844900178772137977, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7286562722276563581, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: m_AnchoredPosition.x

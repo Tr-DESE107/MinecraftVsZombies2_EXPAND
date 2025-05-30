@@ -6,9 +6,10 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    public class TriggerCartHeldItemBehaviour : HeldItemBehaviour
+    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.triggerCart)]
+    public class TriggerCartHeldItemBehaviour : HeldItemBehaviourDefinition
     {
-        public TriggerCartHeldItemBehaviour(HeldItemDefinition definition) : base(definition)
+        public TriggerCartHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)

@@ -25,14 +25,14 @@ namespace MVZ2.Vanilla.Callbacks
         public struct PostPointerActionParams
         {
             public int type;
-            public int index;
+            public int button;
             public Vector2 screenPos;
             public PointerPhase phase;
 
-            public PostPointerActionParams(int type, int index, Vector2 screenPos, PointerPhase phase)
+            public PostPointerActionParams(int type, int button, Vector2 screenPos, PointerPhase phase)
             {
                 this.type = type;
-                this.index = index;
+                this.button = button;
                 this.screenPos = screenPos;
                 this.phase = phase;
             }

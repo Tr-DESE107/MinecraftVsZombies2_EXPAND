@@ -10,9 +10,9 @@ using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    public abstract class ToEntityHeldItemBehaviour : HeldItemBehaviour
+    public abstract class ToEntityHeldItemBehaviour : HeldItemBehaviourDefinition
     {
-        public ToEntityHeldItemBehaviour(HeldItemDefinition definition) : base(definition)
+        public ToEntityHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
 
@@ -122,23 +122,9 @@ namespace MVZ2.GameContent.HeldItems
         }
         public override void OnPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
-            var pointer = pointerParams.pointer;
-            if (pointer.type == PointerTypes.MOUSE && pointer.button == MouseButtons.RIGHT)
-            {
-                OnRightMouseEvent(target, data, pointerParams);
-                return;
-            }
             if (pointerParams.IsInvalidClickButton())
                 return;
             OnMainPointerEvent(target, data, pointerParams);
-        }
-        private void OnRightMouseEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
-        {
-            var level = target.GetLevel();
-            if (level.CancelHeldItem())
-            {
-                level.PlaySound(VanillaSoundID.tap);
-            }
         }
         private void OnMainPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {

@@ -37,6 +37,10 @@ namespace MVZ2.Managers
             Scene.Init();
             ModManager.PostGameInit();
         }
+        public void UpdateManagerFixed()
+        {
+            InputManager.UpdateManager();
+        }
         public bool IsMobile()
         {
 #if UNITY_EDITOR
@@ -297,6 +301,7 @@ namespace MVZ2.Managers
         ILevelManager IMainManager.Level => level;
         IOptionsManager IMainManager.Options => options;
         IGlobalSave IMainManager.Saves => save;
+        IInputManager IMainManager.Input => inputManager;
 
         private Task initTask;
         private TaskPipeline loadPipeline;
