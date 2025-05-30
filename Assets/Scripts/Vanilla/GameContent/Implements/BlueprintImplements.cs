@@ -5,6 +5,7 @@ using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Modding;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Implements
 {
@@ -30,6 +31,7 @@ namespace MVZ2.GameContent.Implements
             {
                 entity.Level.AddStarshardCount(-1);
                 entity.Evoke();
+                entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_USE_STARSHARD, new EntityCallbackParams(entity), entity.GetDefinitionID());
             }
             if (seed != null)
             {
