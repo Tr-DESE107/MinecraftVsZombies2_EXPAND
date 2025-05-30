@@ -175,11 +175,11 @@ PrefabInstance:
     - target: {fileID: 873304994867757235, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300002, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+      objectReference: {fileID: -760182462, guid: 40bc86920be37bc4cb2b15d875a1b62c, type: 3}
     - target: {fileID: 873304994867757235, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300004, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+      objectReference: {fileID: 174426161, guid: 40bc86920be37bc4cb2b15d875a1b62c, type: 3}
     - target: {fileID: 1002251205305341444, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -223,7 +223,7 @@ PrefabInstance:
     - target: {fileID: 1795583326936852019, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300002, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+      objectReference: {fileID: -760182462, guid: 40bc86920be37bc4cb2b15d875a1b62c, type: 3}
     - target: {fileID: 2748955311970698656, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
