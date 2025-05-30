@@ -81,3 +81,4 @@ InitTestScene*.unity
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/Android/
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/Windows/
 /ProfileAnalyzer
+/push.sh
