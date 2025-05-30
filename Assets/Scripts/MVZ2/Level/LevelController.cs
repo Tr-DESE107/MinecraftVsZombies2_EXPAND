@@ -32,6 +32,7 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -903,12 +904,17 @@ namespace MVZ2.Level
 
             if (IsGameRunning())
             {
-                for (int i = 0; i < 10; i++)
+                bool conveyor = level.IsConveyorMode();
+                int seedCount = conveyor ? level.GetConveyorSeedPackCount() : level.GetSeedSlotCount();
+                for (int i = 0; i < seedCount; i++)
                 {
                     var key = Options.GetBlueprintKeyBinding(i);
                     if (Input.GetKeyDown(key))
                     {
-                        var target = new HeldItemTargetBlueprint(level, i, level.IsConveyorMode());
+                        SeedPack seedPack = conveyor ? level.GetConveyorSeedPackAt(i) : level.GetSeedPackAt(i);
+                        if (seedPack == null)
+                            break;
+                        var target = new HeldItemTargetBlueprint(level, i, conveyor);
                         var pointerParams = new PointerInteractionData()
                         {
                             pointer = new PointerData()

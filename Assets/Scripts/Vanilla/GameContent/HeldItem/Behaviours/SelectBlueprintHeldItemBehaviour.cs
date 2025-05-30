@@ -67,6 +67,8 @@ namespace MVZ2.GameContent.HeldItems
             }
             var level = target.Level;
             var seedPack = target.GetSeedPack();
+            if (seedPack == null)
+                return;
             bool holdingStarshard = level.IsHoldingStarshard();
             bool canInstantEvoke = seedPack?.CanInstantEvoke() ?? false;
             bool instantEvoke = canInstantEvoke && holdingStarshard;
