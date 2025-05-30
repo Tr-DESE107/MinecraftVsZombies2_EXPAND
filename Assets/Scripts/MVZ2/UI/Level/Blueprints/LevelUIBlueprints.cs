@@ -1,6 +1,9 @@
-﻿using MVZ2.Level;
+﻿using System;
+using MVZ2.Level;
 using MVZ2.Level.UI;
+using MVZ2Logic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MVZ2.UI
 {
@@ -33,6 +36,19 @@ namespace MVZ2.UI
             {
                 canvas.sortingLayerID = layer.id;
             }
+        }
+        private void Awake()
+        {
+            blueprints.OnBlueprintPointerInteraction += OnBlueprintPointerInteractionCallback;
+            conveyor.OnBlueprintPointerInteraction += OnConveyorPointerInteractionCallback;
+        }
+        private void OnBlueprintPointerInteractionCallback(int index, PointerEventData eventData, PointerInteraction interaction)
+        {
+            OnBlueprintPointerInteraction?.Invoke(index, eventData, interaction, false);
+        }
+        private void OnConveyorPointerInteractionCallback(int index, PointerEventData eventData, PointerInteraction interaction)
+        {
+            OnBlueprintPointerInteraction?.Invoke(index, eventData, interaction, true);
         }
 
         #region 经典模式蓝图
@@ -122,6 +138,7 @@ namespace MVZ2.UI
         }
         #endregion
 
+        public event Action<int, PointerEventData, PointerInteraction, bool> OnBlueprintPointerInteraction;
 
         private bool isConveyor;
         [SerializeField]

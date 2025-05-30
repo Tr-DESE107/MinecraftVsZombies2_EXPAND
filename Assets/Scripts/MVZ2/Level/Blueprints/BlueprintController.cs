@@ -4,6 +4,7 @@ using MVZ2.Models;
 using MVZ2.SeedPacks;
 using MVZ2.UI;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.Models;
@@ -42,7 +43,6 @@ namespace MVZ2.Level
             BlueprintViewData viewData = GetBlueprintViewData();
             ui.UpdateView(viewData);
         }
-        public virtual void Click() { }
         public virtual void Remove()
         {
             RemoveCallbacks();
@@ -72,33 +72,27 @@ namespace MVZ2.Level
         #region 私有方法
 
         #region 事件回调
-        private void OnPointerEnterCallback(Blueprint blueprint, PointerEventData eventData)
+        private void OnPointerInteractionCallback(Blueprint blueprint, PointerEventData eventData, PointerInteraction interaction)
         {
-            Controller.ShowTooltip(tooltipSource);
-        }
-        private void OnPointerExitCallback(Blueprint blueprint, PointerEventData eventData)
-        {
-            Controller.HideTooltip();
-        }
-        private void OnPointerDownCallback(Blueprint blueprint, PointerEventData eventData)
-        {
-            if (eventData.button != PointerEventData.InputButton.Left)
-                return;
-            Click();
+            switch (interaction)
+            {
+                case PointerInteraction.Enter:
+                    Controller.ShowTooltip(tooltipSource);
+                    break;
+                case PointerInteraction.Exit:
+                    Controller.HideTooltip();
+                    break;
+            }
         }
         #endregion
 
         protected virtual void AddCallbacks()
         {
-            ui.OnPointerDown += OnPointerDownCallback;
-            ui.OnPointerEnter += OnPointerEnterCallback;
-            ui.OnPointerExit += OnPointerExitCallback;
+            ui.OnPointerInteraction += OnPointerInteractionCallback;
         }
         protected virtual void RemoveCallbacks()
         {
-            ui.OnPointerDown -= OnPointerDownCallback;
-            ui.OnPointerEnter -= OnPointerEnterCallback;
-            ui.OnPointerExit -= OnPointerExitCallback;
+            ui.OnPointerInteraction -= OnPointerInteractionCallback;
         }
         protected abstract void OnDestroy();
         private string GetName()

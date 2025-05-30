@@ -15,13 +15,12 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Models;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
     [EntityBehaviourDefinition(VanillaEffectNames.breakoutBoard)]
-    public class BreakoutBoard : EffectBehaviour, IHeldEntityBehaviour
+    public class BreakoutBoard : EffectBehaviour, IHeldEntityPointerEventHandler
     {
 
         #region 公有方法
@@ -299,40 +298,21 @@ namespace MVZ2.GameContent.Effects
             return entryTime;
         }
 
-        bool IHeldEntityBehaviour.IsValidFor(Entity entity, HeldItemTarget target, IHeldItemData data)
+        bool IHeldEntityBehaviour.IsHeldItemValidFor(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             return target is HeldItemTargetLawn targetLawn && targetLawn.Area == LawnArea.Main;
         }
 
-        HeldHighlight IHeldEntityBehaviour.GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data)
+        HeldHighlight IHeldEntityBehaviour.GetHeldItemHighlight(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             return HeldHighlight.None;
         }
 
-        void IHeldEntityBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
+        void IHeldEntityPointerEventHandler.OnHeldItemPointerEvent(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
-            var targetPhase = Global.IsMobile() ? PointerInteraction.Release : PointerInteraction.Press;
-            if (interaction != targetPhase)
+            if (pointerParams.IsInvalidClickButton() || pointerParams.IsInvalidReleaseAction())
                 return;
             FirePearl(entity);
-        }
-
-        NamespaceID IHeldEntityBehaviour.GetModelID(Entity entity, LevelEngine level, IHeldItemData data)
-        {
-            return null;
-        }
-        void IHeldEntityBehaviour.PostSetModel(Entity entity, LevelEngine level, IHeldItemData data, IModelInterface model)
-        {
-
-        }
-
-        float IHeldEntityBehaviour.GetRadius(Entity entity, LevelEngine level, IHeldItemData data)
-        {
-            return 0;
-        }
-
-        void IHeldEntityBehaviour.Update(Entity entity, LevelEngine level, IHeldItemData data)
-        {
         }
         public static readonly NamespaceID ID = VanillaEffectID.breakoutBoard;
         public static readonly VanillaEntityPropertyMeta<int> PROP_RESPAWN_COUNTDOWN = new VanillaEntityPropertyMeta<int>("RespawnCountdown");

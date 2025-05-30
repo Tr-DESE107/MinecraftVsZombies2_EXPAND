@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.UI;
+using MVZ2Logic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,37 +20,30 @@ namespace MVZ2.Level.UI
             rect =>
             {
                 var blueprint = rect.GetComponent<Blueprint>();
-                blueprint.OnPointerEnter += OnBlueprintPointerEnterCallback;
-                blueprint.OnPointerExit += OnBlueprintPointerExitCallback;
-                blueprint.OnPointerDown += OnBlueprintPointerDownCallback;
+                blueprint.OnPointerInteraction += OnBlueprintPointerInteractionCallback;
+                blueprint.OnSelect += OnBlueprintSelectCallback;
             },
             rect =>
             {
                 var blueprint = rect.GetComponent<Blueprint>();
-                blueprint.OnPointerEnter -= OnBlueprintPointerEnterCallback;
-                blueprint.OnPointerExit -= OnBlueprintPointerExitCallback;
-                blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
+                blueprint.OnPointerInteraction -= OnBlueprintPointerInteractionCallback;
+                blueprint.OnSelect -= OnBlueprintSelectCallback;
             });
         }
         public Blueprint GetItem(int index)
         {
             return blueprintList.getElement<Blueprint>(index);
         }
-        private void OnBlueprintPointerEnterCallback(Blueprint blueprint, PointerEventData eventData)
+        private void OnBlueprintPointerInteractionCallback(Blueprint blueprint, PointerEventData eventData, PointerInteraction interaction)
         {
-            OnBlueprintPointerEnter?.Invoke(this, blueprintList.indexOf(blueprint), eventData);
+            OnBlueprintPointerInteraction?.Invoke(this, blueprintList.indexOf(blueprint), eventData, interaction);
         }
-        private void OnBlueprintPointerExitCallback(Blueprint blueprint, PointerEventData eventData)
+        private void OnBlueprintSelectCallback(Blueprint blueprint)
         {
-            OnBlueprintPointerExit?.Invoke(this, blueprintList.indexOf(blueprint), eventData);
+            OnBlueprintSelect?.Invoke(this, blueprintList.indexOf(blueprint));
         }
-        private void OnBlueprintPointerDownCallback(Blueprint blueprint, PointerEventData eventData)
-        {
-            OnBlueprintPointerDown?.Invoke(this, blueprintList.indexOf(blueprint), eventData);
-        }
-        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData> OnBlueprintPointerEnter;
-        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData> OnBlueprintPointerExit;
-        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData> OnBlueprintPointerDown;
+        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
+        public event Action<BlueprintDisplayerStandalonePage, int> OnBlueprintSelect;
         [SerializeField]
         ElementListUI blueprintList;
     }

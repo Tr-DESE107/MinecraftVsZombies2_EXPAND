@@ -636,6 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102ccbd0b23b2e84fa5116035281de49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollRect: {fileID: 3662998441786172535}
   blueprintList: {fileID: 5405997398155841453}
 --- !u!1001 &5442368760901791054
 PrefabInstance:

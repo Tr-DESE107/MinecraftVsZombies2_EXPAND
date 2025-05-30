@@ -18,15 +18,15 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Models;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
     [EntityBehaviourDefinition(VanillaContraptionNames.forcePad)]
-    public class ForcePad : ContraptionBehaviour, IHeldEntityBehaviour
+    public class ForcePad : ContraptionBehaviour, IHeldEntityPointerEventHandler, IHeldEntityUpdateHandler, IHeldEntityGetModelIDHandler
     {
         public ForcePad(string nsp, string name) : base(nsp, name)
         {
@@ -317,20 +317,29 @@ namespace MVZ2.GameContent.Contraptions
         private Detector projectileDetector;
         private List<Entity> detectBuffer = new List<Entity>();
 
-        bool IHeldEntityBehaviour.IsValidFor(Entity entity, HeldItemTarget target, IHeldItemData data)
+        bool IHeldEntityBehaviour.IsHeldItemValidFor(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             return target is HeldItemTargetGrid targetGrid;
         }
-
-        HeldHighlight IHeldEntityBehaviour.GetHighlight(Entity entity, HeldItemTarget target, IHeldItemData data)
+        HeldHighlight IHeldEntityBehaviour.GetHeldItemHighlight(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             return HeldHighlight.Green();
         }
-
-        void IHeldEntityBehaviour.Use(Entity entity, HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
+        void IHeldEntityGetModelIDHandler.GetHeldItemModelID(Entity entity, LevelEngine level, IHeldItemData data, CallbackResult result)
         {
-            var targetPhase = Global.IsMobile() ? PointerInteraction.Release : PointerInteraction.Press;
-            if (interaction != targetPhase)
+            result.SetFinalValue(VanillaModelID.targetHeldItem);
+        }
+        void IHeldEntityUpdateHandler.OnHeldItemUpdate(Entity entity, LevelEngine level, IHeldItemData data)
+        {
+            if (entity == null || !entity.Exists() || entity.IsAIFrozen())
+            {
+                level.ResetHeldItem();
+                return;
+            }
+        }
+        void IHeldEntityPointerEventHandler.OnHeldItemPointerEvent(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            if (pointerParams.IsInvalidClickButton() || pointerParams.IsInvalidReleaseAction())
                 return;
             if (target is not HeldItemTargetGrid targetGrid)
                 return;
@@ -342,26 +351,6 @@ namespace MVZ2.GameContent.Contraptions
             SetDragTimeout(entity, 30);
             level.ResetHeldItem();
             entity.PlaySound(VanillaSoundID.magnetic);
-        }
-        NamespaceID IHeldEntityBehaviour.GetModelID(Entity entity, LevelEngine level, IHeldItemData data)
-        {
-            return VanillaModelID.targetHeldItem;
-        }
-        void IHeldEntityBehaviour.PostSetModel(Entity entity, LevelEngine level, IHeldItemData data, IModelInterface model)
-        {
-        }
-        float IHeldEntityBehaviour.GetRadius(Entity entity, LevelEngine level, IHeldItemData data)
-        {
-            return 0;
-        }
-
-        void IHeldEntityBehaviour.Update(Entity entity, LevelEngine level, IHeldItemData data)
-        {
-            if (entity == null || !entity.Exists() || entity.IsAIFrozen())
-            {
-                level.ResetHeldItem();
-                return;
-            }
         }
 
         public class DragAura : AuraEffectDefinition

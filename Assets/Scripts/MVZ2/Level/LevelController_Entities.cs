@@ -7,6 +7,7 @@ using MVZ2.Entities;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.Level.UI;
+using MVZ2.Managers;
 using MVZ2.Supporters;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
@@ -62,47 +63,56 @@ namespace MVZ2.Level
                 ShowMoonlightSensorSponsorName(entity);
             }
         }
-        private void UI_OnEntityPointerEnterCallback(EntityController entityCtrl, PointerEventData eventData)
+        private void UI_OnEntityPointerInteractionCallback(EntityController entityCtrl, PointerEventData eventData, PointerInteraction interaction)
         {
-            SetHoveredEntity(entityCtrl);
             if (IsGameRunning())
-                return;
-            // 显示查看图鉴提示
-            if (!entityCtrl.Entity.IsPreviewEnemy() || !CanChooseBlueprints())
-                return;
-            ShowTooltip(new EntityTooltipSource(this, entityCtrl));
-        }
-        private void UI_OnEntityPointerExitCallback(EntityController entity, PointerEventData eventData)
-        {
-            SetHoveredEntity(null);
-            // 隐藏查看图鉴提示
-            if (entity.Entity.IsPreviewEnemy())
             {
-                HideTooltip();
+                // 触发手持物品指针事件。
+                var target = entityCtrl.GetHeldItemTarget();
+                var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(eventData, interaction);
+                level.DoHeldItemPointerEvent(target, pointerParams);
             }
-        }
-        private void UI_OnEntityPointerDownCallback(EntityController entityCtrl, PointerEventData eventData)
-        {
-            if (eventData.button != PointerEventData.InputButton.Left)
-                return;
 
-            var entity = entityCtrl.Entity;
-            if (IsGameRunning())
+            if (interaction == PointerInteraction.Enter) // 指针进入
             {
-                var target = entityCtrl.GetHeldItemTarget(eventData);
-                level.UseHeldItem(target, PointerInteraction.Press);
-            }
-            else
-            {
-                // 打开图鉴
-                if (entity.IsPreviewEnemy() && Main.SaveManager.IsAlmanacUnlocked() && CanChooseBlueprints())
+                SetHoveredEntity(entityCtrl);
+                if (!IsGameRunning())
                 {
-                    var entityID = entityCtrl.Entity.GetDefinitionID();
-                    if (Main.ResourceManager.IsEnemyInAlmanac(entityID) && Main.SaveManager.IsEnemyUnlocked(entityID))
+                    // 显示查看图鉴提示
+                    if (entityCtrl.Entity.IsPreviewEnemy() && CanChooseBlueprints())
                     {
-                        HideTooltip();
-                        OpenEnemyAlmanac(entity.GetDefinitionID());
-                        Main.SoundManager.Play2D(VanillaSoundID.tap);
+                        ShowTooltip(new EntityTooltipSource(this, entityCtrl));
+                    }
+                }
+            }
+            else if (interaction == PointerInteraction.Exit) // 指针退出
+            {
+                SetHoveredEntity(null);
+                // 隐藏查看图鉴提示
+                if (entityCtrl.Entity.IsPreviewEnemy())
+                {
+                    HideTooltip();
+                }
+            }
+            else if (interaction == PointerInteraction.Down) // 指针按下
+            {
+                if (!IsGameRunning())
+                {
+                    var pointer = InputManager.GetPointerDataFromEventData(eventData);
+                    var entity = entityCtrl.Entity;
+                    if (pointer.type != PointerTypes.MOUSE || pointer.button == MouseButtons.LEFT)
+                    {
+                        // 打开图鉴
+                        if (entity.IsPreviewEnemy() && Main.SaveManager.IsAlmanacUnlocked() && CanChooseBlueprints())
+                        {
+                            var entityID = entityCtrl.Entity.GetDefinitionID();
+                            if (Main.ResourceManager.IsEnemyInAlmanac(entityID) && Main.SaveManager.IsEnemyUnlocked(entityID))
+                            {
+                                HideTooltip();
+                                OpenEnemyAlmanac(entity.GetDefinitionID());
+                                Main.SoundManager.Play2D(VanillaSoundID.tap);
+                            }
+                        }
                     }
                 }
             }
@@ -146,9 +156,7 @@ namespace MVZ2.Level
         {
             var entityController = Instantiate(entityTemplate.gameObject, LawnToTrans(entity.Position), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
             entityController.Init(this, entity);
-            entityController.OnPointerEnter += UI_OnEntityPointerEnterCallback;
-            entityController.OnPointerExit += UI_OnEntityPointerExitCallback;
-            entityController.OnPointerDown += UI_OnEntityPointerDownCallback;
+            entityController.OnPointerInteraction += UI_OnEntityPointerInteractionCallback;
             entities.Add(entityController);
             return entityController;
         }
@@ -157,9 +165,7 @@ namespace MVZ2.Level
             var entityController = GetEntityController(entity);
             if (entityController)
             {
-                entityController.OnPointerEnter -= UI_OnEntityPointerEnterCallback;
-                entityController.OnPointerExit -= UI_OnEntityPointerExitCallback;
-                entityController.OnPointerDown -= UI_OnEntityPointerDownCallback;
+                entityController.OnPointerInteraction -= UI_OnEntityPointerInteractionCallback;
                 Destroy(entityController.gameObject);
                 return entities.Remove(entityController);
             }
@@ -200,11 +206,13 @@ namespace MVZ2.Level
                 SetHighlightedEntity(null);
                 return;
             }
-            var pointerId = hoveredEntity.GetHoveredPointerId(0);
+            var eventData = hoveredEntity.GetHoveredPointerEventData(0);
+            var pointerId = eventData.pointerId;
             var pointerPosition = Main.InputManager.GetPointerPosition(pointerId);
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(pointerPosition);
             var target = hoveredEntity.GetHeldItemTarget(worldPosition);
-            var highlight = level.GetHeldHighlight(target);
+            var pointerParams = InputManager.GetPointerDataFromEventData(eventData);
+            var highlight = level.GetHeldHighlight(target, pointerParams);
             if (highlight.mode == HeldHighlightMode.Entity)
             {
                 var targetEntity = highlight.entity;

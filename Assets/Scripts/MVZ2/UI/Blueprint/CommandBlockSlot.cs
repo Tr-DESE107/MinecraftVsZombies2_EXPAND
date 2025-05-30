@@ -1,5 +1,7 @@
 ﻿using System;
+using MVZ2Logic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MVZ2.UI
 {
@@ -22,15 +24,11 @@ namespace MVZ2.UI
         }
         private void Awake()
         {
-            commandBlockBlueprint.OnPointerEnter += (blueprint, eventData) => OnPointerEnter?.Invoke();
-            commandBlockBlueprint.OnPointerExit += (blueprint, eventData) => OnPointerExit?.Invoke();
-            commandBlockBlueprint.OnPointerDown += (blueprint, eventData) => OnPointerDown?.Invoke();
-            commandBlockBlueprint.OnPointerClick += (blueprint, eventData) => OnClick?.Invoke();
+            commandBlockBlueprint.OnPointerInteraction += (blueprint, eventData, i) => OnPointerInteraction?.Invoke(eventData, i);
+            commandBlockBlueprint.OnSelect += (blueprint) => OnSelect?.Invoke();
         }
-        public event Action OnPointerEnter;
-        public event Action OnPointerExit;
-        public event Action OnPointerDown;
-        public event Action OnClick;
+        public event Action<PointerEventData, PointerInteraction> OnPointerInteraction;
+        public event Action OnSelect;
         [SerializeField]
         GameObject commandBlockRoot;
         [SerializeField]

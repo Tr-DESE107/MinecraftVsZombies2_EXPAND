@@ -595,6 +595,7 @@ GameObject:
   - component: {fileID: 3934885239199676105}
   - component: {fileID: 7767492375142191475}
   - component: {fileID: 2097371793516426692}
+  - component: {fileID: 2468045017513299495}
   m_Layer: 0
   m_Name: BlueprintStandalone
   m_TagString: Untagged
@@ -635,6 +636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e672bc4b8901cf48bf235f8a9f5ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectInteraction: 4
+  holdStreakHandler: {fileID: 2468045017513299495}
   animator: {fileID: 7767492375142191475}
   emptyObj: {fileID: 2565190144619565841}
   rootObj: {fileID: 3939650045100691160}
@@ -720,6 +723,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2468045017513299495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838990478890576226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c46f785c236ca5408a98fccc55501be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5050866385834415006
 GameObject:
   m_ObjectHideFlags: 0

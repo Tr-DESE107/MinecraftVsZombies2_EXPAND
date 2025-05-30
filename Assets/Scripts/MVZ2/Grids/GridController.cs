@@ -1,6 +1,8 @@
 using System;
 using MVZ2.HeldItems;
 using MVZ2.Level;
+using MVZ2.Managers;
+using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using PVZEngine.Level;
 using UnityEngine;
@@ -8,9 +10,13 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.Grids
 {
-    public class GridController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, ILevelRaycastReceiver
+    public class GridController : MonoBehaviour, ILevelRaycastReceiver
     {
-        public void UpdateGrid(GridViewData viewData)
+        public void UpdateFixed()
+        {
+            holdStreakHandler.UpdateHoldAndStreak();
+        }
+        public void UpdateGridView(GridViewData viewData)
         {
             transform.localPosition = viewData.position;
             spriteRenderer.sprite = viewData.sprite;
@@ -61,28 +67,17 @@ namespace MVZ2.Grids
 
             return new Vector2(colliderX, colliderY);
         }
-        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+        private void Awake()
         {
-            OnPointerEnter?.Invoke(this, eventData);
-        }
-        void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
-        {
-            OnPointerExit?.Invoke(this, eventData);
-        }
-        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
-        {
-            OnPointerDown?.Invoke(this, eventData);
-        }
-        void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
-        {
-            OnPointerUp?.Invoke(this, eventData);
+            holdStreakHandler.OnPointerInteraction += (_, d, i) => OnPointerInteraction?.Invoke(this, d, i);
         }
         bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data, PointerEventData eventData)
         {
             if (definition == null)
                 return false;
             var target = new HeldItemTargetGrid(level.GetGrid(Column, Lane), TransformWorld2ColliderPosition(eventData.pointerCurrentRaycast.worldPosition));
-            return definition.IsValidFor(target, data);
+            var pointer = InputManager.GetPointerDataFromEventData(eventData);
+            return definition.IsValidFor(target, data, pointer);
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {
@@ -92,10 +87,7 @@ namespace MVZ2.Grids
         {
             return spriteRenderer.sortingOrder;
         }
-        public event Action<GridController, PointerEventData> OnPointerEnter;
-        public event Action<GridController, PointerEventData> OnPointerExit;
-        public event Action<GridController, PointerEventData> OnPointerDown;
-        public event Action<GridController, PointerEventData> OnPointerUp;
+        public event Action<GridController, PointerEventData, PointerInteraction> OnPointerInteraction;
         public int Lane { get; set; }
         public int Column { get; set; }
         public float BevelHeight { get; private set; }
@@ -105,6 +97,8 @@ namespace MVZ2.Grids
         private Transform rendererTransform;
         [SerializeField]
         private SpriteRenderer spriteRenderer;
+        [SerializeField]
+        private LevelPointerInteractionHandler holdStreakHandler;
         [SerializeField]
         private PolygonCollider2D polygonCollider;
     }

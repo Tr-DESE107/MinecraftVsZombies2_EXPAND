@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using MVZ2.UI;
+using MVZ2Logic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -15,23 +16,17 @@ namespace MVZ2.Grids
                 var grid = obj.GetComponent<GridController>();
                 grid.Lane = Lane;
                 grid.Column = i;
-                grid.UpdateGrid(viewDatas[i]);
+                grid.UpdateGridView(viewDatas[i]);
             },
             obj =>
             {
                 var grid = obj.GetComponent<GridController>();
-                grid.OnPointerEnter += OnGridPointerEnterCallback;
-                grid.OnPointerExit += OnGridPointerExitCallback;
-                grid.OnPointerDown += OnGridPointerDownCallback;
-                grid.OnPointerUp += OnGridPointerUpCallback;
+                grid.OnPointerInteraction += OnGridPointerInteractionCallback;
             },
             obj =>
             {
                 var grid = obj.GetComponent<GridController>();
-                grid.OnPointerEnter -= OnGridPointerEnterCallback;
-                grid.OnPointerExit -= OnGridPointerExitCallback;
-                grid.OnPointerDown -= OnGridPointerDownCallback;
-                grid.OnPointerUp -= OnGridPointerUpCallback;
+                grid.OnPointerInteraction -= OnGridPointerInteractionCallback;
             });
         }
         public void SetLane(int lane)
@@ -50,30 +45,12 @@ namespace MVZ2.Grids
         {
             return grids.getElements<GridController>().ToArray();
         }
-        private void OnGridPointerEnterCallback(GridController grid, PointerEventData data)
+        private void OnGridPointerInteractionCallback(GridController grid, PointerEventData data, PointerInteraction interaction)
         {
             var index = grids.indexOf(grid);
-            OnPointerEnter?.Invoke(this, index, data);
+            OnPointerInteraction?.Invoke(this, index, data, interaction);
         }
-        private void OnGridPointerExitCallback(GridController grid, PointerEventData data)
-        {
-            var index = grids.indexOf(grid);
-            OnPointerExit?.Invoke(this, index, data);
-        }
-        private void OnGridPointerDownCallback(GridController grid, PointerEventData data)
-        {
-            var index = grids.indexOf(grid);
-            OnPointerDown?.Invoke(this, index, data);
-        }
-        private void OnGridPointerUpCallback(GridController grid, PointerEventData data)
-        {
-            var index = grids.indexOf(grid);
-            OnPointerUp?.Invoke(this, index, data);
-        }
-        public event Action<LaneController, int, PointerEventData> OnPointerEnter;
-        public event Action<LaneController, int, PointerEventData> OnPointerExit;
-        public event Action<LaneController, int, PointerEventData> OnPointerDown;
-        public event Action<LaneController, int, PointerEventData> OnPointerUp;
+        public event Action<LaneController, int, PointerEventData, PointerInteraction> OnPointerInteraction;
         public int Lane { get; private set; }
         [SerializeField]
         private ElementList grids;

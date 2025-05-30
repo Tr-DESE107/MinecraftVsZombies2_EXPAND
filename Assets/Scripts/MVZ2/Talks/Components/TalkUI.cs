@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using MVZ2.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MVZ2.Talk
@@ -207,7 +208,7 @@ namespace MVZ2.Talk
             SetSkipButtonActive(false);
 
             skipButton.onClick.AddListener(() => OnSkipClick?.Invoke());
-            raycastReceiver.OnPointerDown += (eventData) => OnClick?.Invoke();
+            raycastReceiver.OnPointerDown += OnRaycastReceiverPointerDownCallback;
             foregroundFader.OnValueChanged += OnForegroundAlphaChangedCallback;
             forecolorFader.OnValueChanged += OnForegroundColorChangedCallback;
             backgroundFader.OnValueChanged += OnBackgroundAlphaChangedCallback;
@@ -216,6 +217,10 @@ namespace MVZ2.Talk
         #endregion
 
         #region 事件回调
+        private void OnRaycastReceiverPointerDownCallback(PointerEventData eventData)
+        {
+            OnClick?.Invoke();
+        }
         private void OnForegroundAlphaChangedCallback(float value)
         {
             foregroundCanvasGroup.alpha = value;

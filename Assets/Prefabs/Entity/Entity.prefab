@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 5684475719304285933}
   - component: {fileID: -1708814885022385043}
   - component: {fileID: 332291674241791040}
+  - component: {fileID: 6150637782359593488}
   m_Layer: 0
   m_Name: Entity
   m_TagString: Untagged
@@ -80,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadow: {fileID: 3305333340143397579}
   tooltipAnchor: {fileID: 332291674241791040}
+  holdStreakHandler: {fileID: 6150637782359593488}
 --- !u!114 &332291674241791040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +96,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disabled: 0
   pivot: {x: 0.5, y: 1}
+--- !u!114 &6150637782359593488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056227968591300965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c46f785c236ca5408a98fccc55501be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1397422908736211731
 PrefabInstance:
   m_ObjectHideFlags: 0

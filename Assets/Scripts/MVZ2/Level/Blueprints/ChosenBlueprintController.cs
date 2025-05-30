@@ -1,6 +1,8 @@
 ﻿using MVZ2.Level.UI;
 using MVZ2.UI;
+using MVZ2Logic;
 using PVZEngine.Definitions;
+using UnityEngine.EventSystems;
 
 namespace MVZ2.Level
 {
@@ -31,9 +33,20 @@ namespace MVZ2.Level
         {
             return Controller.BlueprintChoosePart.IsChosenBlueprintCommandBlock(Index);
         }
-        public override void Click()
+        protected override void AddCallbacks()
         {
-            base.Click();
+            base.AddCallbacks();
+            ui.OnPointerInteraction += OnPointerInteractionCallback;
+        }
+        protected override void RemoveCallbacks()
+        {
+            base.RemoveCallbacks();
+            ui.OnPointerInteraction -= OnPointerInteractionCallback;
+        }
+        private void OnPointerInteractionCallback(Blueprint blueprint, PointerEventData eventData, PointerInteraction interaction)
+        {
+            if (interaction != PointerInteraction.Down)
+                return;
             if (!Controller.CanChooseBlueprints())
                 return;
             Controller.BlueprintChoosePart.UnchooseBlueprint(Index);
@@ -42,8 +55,6 @@ namespace MVZ2.Level
         {
             return Definition;
         }
-        #region 事件回调
-        #endregion
         public SeedDefinition Definition { get; private set; }
     }
 }

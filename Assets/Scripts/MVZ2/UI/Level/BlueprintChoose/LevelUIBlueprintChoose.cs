@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.Level.UI;
+using MVZ2Logic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -206,18 +207,14 @@ namespace MVZ2.UI
             blueprintChoosePanel.OnStartButtonClick += () => OnStartClick?.Invoke();
             blueprintChoosePanel.OnViewLawnButtonClick += () => OnViewLawnClick?.Invoke();
             blueprintChoosePanel.OnRepickButtonClick += () => OnRepickClick?.Invoke();
-            blueprintChoosePanel.OnCommandBlockBlueprintPointerEnter += () => OnCommandBlockPointerEnter?.Invoke();
-            blueprintChoosePanel.OnCommandBlockBlueprintPointerExit += () => OnCommandBlockPointerExit?.Invoke();
-            blueprintChoosePanel.OnCommandBlockBlueprintClick += () => OnCommandBlockClick?.Invoke();
-
-            blueprintChoosePanel.OnBlueprintPointerEnter += (index, data) => OnBlueprintItemPointerEnter?.Invoke(index, data, false);
-            blueprintChoosePanel.OnBlueprintPointerExit += (index, data) => OnBlueprintItemPointerExit?.Invoke(index, data, false);
-            blueprintChoosePanel.OnBlueprintPointerDown += (index, data) => OnBlueprintItemPointerDown?.Invoke(index, data, false);
+            blueprintChoosePanel.OnCommandBlockBlueprintPointerInteraction += (e, i) => OnCommandBlockPointerInteraction?.Invoke(e, i);
+            blueprintChoosePanel.OnCommandBlockBlueprintSelect += () => OnCommandBlockSlotSelect?.Invoke();
+            blueprintChoosePanel.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintItemPointerInteraction?.Invoke(index, data, i, false);
+            blueprintChoosePanel.OnBlueprintSelect += (index) => OnBlueprintItemSelect?.Invoke(index, false);
 
             commandBlockChoosePanel.OnCancelButtonClick += () => OnCommandBlockPanelCancelClick?.Invoke();
-            commandBlockChoosePanel.OnBlueprintPointerEnter += (index, data) => OnBlueprintItemPointerEnter?.Invoke(index, data, true);
-            commandBlockChoosePanel.OnBlueprintPointerExit += (index, data) => OnBlueprintItemPointerExit?.Invoke(index, data, true);
-            commandBlockChoosePanel.OnBlueprintPointerDown += (index, data) => OnBlueprintItemPointerDown?.Invoke(index, data, true);
+            commandBlockChoosePanel.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintItemPointerInteraction?.Invoke(index, data, i, true);
+            commandBlockChoosePanel.OnBlueprintSelect += (index) => OnBlueprintItemSelect?.Invoke(index, true);
 
             choosingViewAlmanacButton.onClick.AddListener(() => OnViewAlmanacClick?.Invoke());
             choosingViewStoreButton.onClick.AddListener(() => OnViewStoreClick?.Invoke());
@@ -252,16 +249,14 @@ namespace MVZ2.UI
         public event Action OnStartClick;
         public event Action OnViewLawnClick;
         public event Action OnRepickClick;
-        public event Action OnCommandBlockPointerEnter;
-        public event Action OnCommandBlockPointerExit;
-        public event Action OnCommandBlockClick;
+        public event Action<PointerEventData, PointerInteraction> OnCommandBlockPointerInteraction;
+        public event Action OnCommandBlockSlotSelect;
         public event Action OnCommandBlockPanelCancelClick;
         public event Action<int> OnArtifactSlotClick;
         public event Action<int> OnArtifactSlotPointerEnter;
         public event Action<int> OnArtifactSlotPointerExit;
-        public event Action<int, PointerEventData, bool> OnBlueprintItemPointerEnter;
-        public event Action<int, PointerEventData, bool> OnBlueprintItemPointerExit;
-        public event Action<int, PointerEventData, bool> OnBlueprintItemPointerDown;
+        public event Action<int, PointerEventData, PointerInteraction, bool> OnBlueprintItemPointerInteraction;
+        public event Action<int, bool> OnBlueprintItemSelect;
 
         public event Action OnViewAlmanacClick;
         public event Action OnViewStoreClick;

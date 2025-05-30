@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.UI;
+using MVZ2Logic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,21 +22,11 @@ namespace MVZ2.Level.UI
         }
         public abstract Blueprint GetBlueprintAt(int index);
         public abstract int GetBlueprintIndex(Blueprint value);
-        protected void OnBlueprintPointerEnterCallback(Blueprint blueprint, PointerEventData data)
+        protected void OnBlueprintPointerInteractionCallback(Blueprint blueprint, PointerEventData data, PointerInteraction interaction)
         {
-            OnBlueprintPointerEnter?.Invoke(GetBlueprintIndex(blueprint), data);
+            OnBlueprintPointerInteraction?.Invoke(GetBlueprintIndex(blueprint), data, interaction);
         }
-        protected void OnBlueprintPointerExitCallback(Blueprint blueprint, PointerEventData data)
-        {
-            OnBlueprintPointerExit?.Invoke(GetBlueprintIndex(blueprint), data);
-        }
-        protected void OnBlueprintPointerDownCallback(Blueprint blueprint, PointerEventData data)
-        {
-            OnBlueprintPointerDown?.Invoke(GetBlueprintIndex(blueprint), data);
-        }
-        public event Action<int, PointerEventData> OnBlueprintPointerEnter;
-        public event Action<int, PointerEventData> OnBlueprintPointerExit;
-        public event Action<int, PointerEventData> OnBlueprintPointerDown;
+        public event Action<int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
         [SerializeField]
         protected bool horizontal;
     }

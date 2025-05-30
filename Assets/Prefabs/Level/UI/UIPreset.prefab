@@ -295,9 +295,10 @@ MonoBehaviour:
   triggerSlot: {fileID: 0}
   triggerSlotConveyor: {fileID: 0}
   pickaxeSlot: {fileID: 0}
-  sideReceiver: {fileID: 5846065568353853490}
-  lawnReceiver: {fileID: 2878620013278649614}
-  bottomReceiver: {fileID: 4439991780578345944}
+  receivers:
+  - {fileID: 5846065568353853490}
+  - {fileID: 2878620013278649614}
+  - {fileID: 4439991780578345944}
   limitRegionLayoutElement: {fileID: 7450390636950723967}
   cameraLimitWidth: 220
   artifactList: {fileID: 6782718998564816977}
@@ -407,6 +408,7 @@ MonoBehaviour:
   artifactChoosingDialog: {fileID: 7148903014044279346}
   movingBlueprints: {fileID: 8414944601167507796}
   blueprintChoosePanel: {fileID: 0}
+  commandBlockChoosePanel: {fileID: 0}
   choosingViewAlmanacButton: {fileID: 0}
   choosingViewStoreButton: {fileID: 0}
   sideUIDisplaying: 1
@@ -1801,6 +1803,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6739660147613025992, guid: ff44e922c0b7fc14495a9f2164d4b6e8, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 8383986499081487136}
     - target: {fileID: 7636116833788136396, guid: ff44e922c0b7fc14495a9f2164d4b6e8, type: 3}
       propertyPath: m_Name
       value: SideReceiver
@@ -2955,6 +2961,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6739660147613025992, guid: ff44e922c0b7fc14495a9f2164d4b6e8, type: 3}
+      propertyPath: area
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739660147613025992, guid: ff44e922c0b7fc14495a9f2164d4b6e8, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 8383986499081487136}
     - target: {fileID: 7636116833788136396, guid: ff44e922c0b7fc14495a9f2164d4b6e8, type: 3}
       propertyPath: m_Name
       value: BottomReceiver
@@ -3571,6 +3585,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6739660147613025992, guid: ff44e922c0b7fc14495a9f2164d4b6e8, type: 3}
+      propertyPath: area
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739660147613025992, guid: ff44e922c0b7fc14495a9f2164d4b6e8, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 8383986499081487136}
     - target: {fileID: 7636116833788136396, guid: ff44e922c0b7fc14495a9f2164d4b6e8, type: 3}
       propertyPath: m_Name
       value: LawnReceiver

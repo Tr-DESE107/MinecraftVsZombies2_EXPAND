@@ -21,9 +21,9 @@ namespace MVZ2.Level.UI
             if (index < 0 || index >= blueprints.Count)
                 return;
             blueprints.Insert(index, blueprint.gameObject);
-            blueprint.OnPointerEnter += OnBlueprintPointerEnterCallback;
-            blueprint.OnPointerExit += OnBlueprintPointerExitCallback;
-            blueprint.OnPointerDown += OnBlueprintPointerDownCallback;
+            blueprint.Index = index;
+            blueprint.IsInConveyor = false;
+            blueprint.OnPointerInteraction += OnBlueprintPointerInteractionCallback;
         }
         public override bool RemoveBlueprint(Blueprint blueprint)
         {
@@ -31,9 +31,9 @@ namespace MVZ2.Level.UI
                 return false;
             if (!blueprints.Remove(blueprint.gameObject))
                 return false;
-            blueprint.OnPointerEnter -= OnBlueprintPointerEnterCallback;
-            blueprint.OnPointerExit -= OnBlueprintPointerExitCallback;
-            blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
+            blueprint.Index = -1;
+            blueprint.IsInConveyor = false;
+            blueprint.OnPointerInteraction -= OnBlueprintPointerInteractionCallback;
             return true;
         }
         public override bool DestroyBlueprint(Blueprint blueprint)
@@ -42,9 +42,9 @@ namespace MVZ2.Level.UI
                 return false;
             if (!blueprints.DestroyItem(blueprint.gameObject))
                 return false;
-            blueprint.OnPointerEnter -= OnBlueprintPointerEnterCallback;
-            blueprint.OnPointerExit -= OnBlueprintPointerExitCallback;
-            blueprint.OnPointerDown -= OnBlueprintPointerDownCallback;
+            blueprint.Index = -1;
+            blueprint.IsInConveyor = false;
+            blueprint.OnPointerInteraction -= OnBlueprintPointerInteractionCallback;
             return true;
         }
         public override Blueprint GetBlueprintAt(int index)

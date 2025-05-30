@@ -111,6 +111,10 @@ namespace MVZ2Logic
         {
             return Options.HasBloodAndGore();
         }
+        public static bool IsTriggerSwapped()
+        {
+            return Options.IsTriggerSwapped();
+        }
         #endregion
 
         #region 统计
@@ -173,6 +177,7 @@ namespace MVZ2Logic
     public interface IOptionsManager
     {
         bool HasBloodAndGore();
+        bool IsTriggerSwapped();
     }
     public interface IGlobalSave
     {
