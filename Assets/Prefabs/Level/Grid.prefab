@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3232015012220588732}
   - component: {fileID: 2887194972650009827}
+  - component: {fileID: 6577921544806083142}
   - component: {fileID: 1469516605759971153}
   m_Layer: 6
   m_Name: Grid
@@ -49,7 +50,20 @@ MonoBehaviour:
   size: {x: 0.8, y: 0.8}
   rendererTransform: {fileID: 231144033771535923}
   spriteRenderer: {fileID: 8345045272177654768}
+  holdStreakHandler: {fileID: 6577921544806083142}
   polygonCollider: {fileID: 1469516605759971153}
+--- !u!114 &6577921544806083142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2303182786100757701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c46f785c236ca5408a98fccc55501be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &1469516605759971153
 PolygonCollider2D:
   m_ObjectHideFlags: 0

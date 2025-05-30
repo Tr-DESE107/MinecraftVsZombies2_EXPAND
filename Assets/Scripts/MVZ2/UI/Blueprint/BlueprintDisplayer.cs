@@ -1,4 +1,5 @@
 ﻿using System;
+using MVZ2Logic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,21 +9,16 @@ namespace MVZ2.UI
     {
         public abstract void UpdateItems(ChoosingBlueprintViewData[] viewDatas);
         public abstract Blueprint GetItem(int index);
-        protected void CallBlueprintPointerEnter(int index, PointerEventData eventData)
+        protected void CallBlueprintPointerInteraction(int index, PointerEventData eventData, PointerInteraction interaction)
         {
-            OnBlueprintPointerEnter?.Invoke(index, eventData);
+            OnBlueprintPointerInteraction?.Invoke(index, eventData, interaction);
         }
-        protected void CallBlueprintPointerExit(int index, PointerEventData eventData)
+        protected void CallBlueprintSelect(int index)
         {
-            OnBlueprintPointerExit?.Invoke(index, eventData);
+            OnBlueprintSelect?.Invoke(index);
         }
-        protected void CallBlueprintPointerDown(int index, PointerEventData eventData)
-        {
-            OnBlueprintSelect?.Invoke(index, eventData);
-        }
-        public event Action<int, PointerEventData> OnBlueprintPointerEnter;
-        public event Action<int, PointerEventData> OnBlueprintPointerExit;
-        public event Action<int, PointerEventData> OnBlueprintSelect;
+        public event Action<int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
+        public event Action<int> OnBlueprintSelect;
     }
     public struct ChoosingBlueprintViewData
     {

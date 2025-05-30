@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.UI;
+using MVZ2Logic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -35,34 +36,22 @@ namespace MVZ2.Level.UI
             startButton.onClick.AddListener(() => OnStartButtonClick?.Invoke());
             viewLawnButton.onClick.AddListener(() => OnViewLawnButtonClick?.Invoke());
             repickButton.onClick.AddListener(() => OnRepickButtonClick?.Invoke());
-            displayer.OnBlueprintPointerEnter += (index, data) => OnBlueprintPointerEnter?.Invoke(index, data);
-            displayer.OnBlueprintPointerExit += (index, data) => OnBlueprintPointerExit?.Invoke(index, data);
-            displayer.OnBlueprintSelect += (index, data) => OnBlueprintPointerDown?.Invoke(index, data);
-            commandBlockSlot.OnPointerEnter += () => OnCommandBlockBlueprintPointerEnter?.Invoke();
-            commandBlockSlot.OnPointerExit += () => OnCommandBlockBlueprintPointerExit?.Invoke();
-            commandBlockSlot.OnClick += () => OnCommandBlockBlueprintClick?.Invoke();
+            displayer.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintPointerInteraction?.Invoke(index, data, i);
+            displayer.OnBlueprintSelect += (index) => OnBlueprintSelect?.Invoke(index);
+            commandBlockSlot.OnPointerInteraction += (e, i) => OnCommandBlockBlueprintPointerInteraction?.Invoke(e, i);
+            commandBlockSlot.OnSelect += () => OnCommandBlockBlueprintSelect?.Invoke();
         }
-        protected void CallBlueprintPointerEnter(int index, PointerEventData eventData)
+        protected void CallBlueprintPointerInteraction(int index, PointerEventData eventData, PointerInteraction interaction)
         {
-            OnBlueprintPointerEnter?.Invoke(index, eventData);
-        }
-        protected void CallBlueprintPointerExit(int index, PointerEventData eventData)
-        {
-            OnBlueprintPointerExit?.Invoke(index, eventData);
-        }
-        protected void CallBlueprintPointerDown(int index, PointerEventData eventData)
-        {
-            OnBlueprintPointerDown?.Invoke(index, eventData);
+            OnBlueprintPointerInteraction?.Invoke(index, eventData, interaction);
         }
         public event Action OnStartButtonClick;
         public event Action OnViewLawnButtonClick;
         public event Action OnRepickButtonClick;
-        public event Action OnCommandBlockBlueprintPointerEnter;
-        public event Action OnCommandBlockBlueprintPointerExit;
-        public event Action OnCommandBlockBlueprintClick;
-        public event Action<int, PointerEventData> OnBlueprintPointerEnter;
-        public event Action<int, PointerEventData> OnBlueprintPointerExit;
-        public event Action<int, PointerEventData> OnBlueprintPointerDown;
+        public event Action<PointerEventData, PointerInteraction> OnCommandBlockBlueprintPointerInteraction;
+        public event Action OnCommandBlockBlueprintSelect;
+        public event Action<int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
+        public event Action<int> OnBlueprintSelect;
         [SerializeField]
         Button startButton;
         [SerializeField]

@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 6492800867396408241}
   - component: {fileID: 559571422404713151}
   - component: {fileID: 8107068639390817539}
-  - component: {fileID: 7834968819404388587}
+  - component: {fileID: 5333661403492931636}
   m_Layer: 0
   m_Name: RaycastReceiver
   m_TagString: Untagged
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7834968819404388587
+--- !u!114 &5333661403492931636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2288200955233584974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 202f2bf5e244db84da0dfdbaeb21dee0, type: 3}
+  m_Script: {fileID: 11500000, guid: 62a73a82ea82e3749965fe3032d150f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2379081211412670028
@@ -901,7 +901,7 @@ MonoBehaviour:
   characterRoot: {fileID: 5127972757061456310}
   speechBubble: {fileID: 301830664417264965}
   skipButton: {fileID: 9140636767159794115}
-  raycastReceiver: {fileID: 7834968819404388587}
+  raycastReceiver: {fileID: 5333661403492931636}
   blockerObject: {fileID: 8562295504330421035}
   foregroundCanvasGroup: {fileID: 4372977444566867777}
   foregroundImage: {fileID: 4078748948085694105}

@@ -10,7 +10,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
-using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Entities;
@@ -23,7 +22,7 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.Entities
 {
-    public class EntityController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, ILevelRaycastReceiver, ITooltipTarget
+    public class EntityController : MonoBehaviour, ILevelRaycastReceiver, ITooltipTarget
     {
         #region 公有方法
         public void Init(LevelController level, Entity entity)
@@ -85,10 +84,7 @@ namespace MVZ2.Entities
             {
                 Model.UpdateFixed();
             }
-            if (Level.IsGameRunning())
-            {
-                UpdateHoldAndStreak();
-            }
+            holdStreakHandler.UpdateHoldAndStreak();
         }
         public void UpdateFrame(float deltaTime)
         {
@@ -106,34 +102,6 @@ namespace MVZ2.Entities
                 Model.UpdateFrame(deltaTime);
             }
         }
-        private void UpdateHoldAndStreak()
-        {
-            bool pressed = false;
-            bool holding = false;
-            foreach (var id in hoveredPointerId)
-            {
-                if (!pressed && pressedPointerId.Contains(id))
-                {
-                    pressed = true;
-                }
-                if (!holding && Main.InputManager.IsPointerHolding(id))
-                {
-                    holding = true;
-                }
-            }
-            if (pressed)
-            {
-                // 按住
-                var target = GetHeldItemTarget();
-                Entity.Level.UseHeldItem(target, PointerInteraction.Hold);
-            }
-            else if (holding)
-            {
-                // 划过
-                var target = GetHeldItemTarget();
-                Entity.Level.UseHeldItem(target, PointerInteraction.Streak);
-            }
-        }
         #endregion
 
         public void SetHighlight(bool highlight)
@@ -141,22 +109,10 @@ namespace MVZ2.Entities
             isHighlight = highlight;
             modelPropertyCache.SetDirtyProperty(EntityPropertyCache.PropertyName.ColorOffset);
         }
-        public bool IsHovered()
-        {
-            return hoveredPointerId.Count > 0;
-        }
-        public bool IsPressed()
-        {
-            return pressedPointerId.Count > 0;
-        }
-        public int GetHoveredPointerCount()
-        {
-            return hoveredPointerId.Count;
-        }
-        public int GetHoveredPointerId(int index)
-        {
-            return hoveredPointerId[index];
-        }
+        public bool IsHovered() => holdStreakHandler.IsHovered();
+        public bool IsPressed() => holdStreakHandler.IsPressed();
+        public int GetHoveredPointerCount() => holdStreakHandler.GetHoveredPointerCount();
+        public PointerEventData GetHoveredPointerEventData(int index) => holdStreakHandler.GetHoveredPointerEventData(index);
         public Vector2 TransformWorld2ColliderPosition(Vector3 worldPosition)
         {
             if (Model is not SpriteModel spriteModel)
@@ -210,6 +166,10 @@ namespace MVZ2.Entities
         #region 私有方法
 
         #region 生命周期
+        private void Awake()
+        {
+            holdStreakHandler.OnPointerInteraction += (_, d, i) => OnPointerInteraction?.Invoke(this, d, i);
+        }
         private void Update()
         {
             var engine = Entity.Level;
@@ -262,26 +222,6 @@ namespace MVZ2.Entities
         #endregion
 
         #region 接口实现
-        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
-        {
-            hoveredPointerId.Add(eventData.pointerId);
-            OnPointerEnter?.Invoke(this, eventData);
-        }
-        void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
-        {
-            hoveredPointerId.Remove(eventData.pointerId);
-            OnPointerExit?.Invoke(this, eventData);
-        }
-        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
-        {
-            pressedPointerId.Add(eventData.pointerId);
-            OnPointerDown?.Invoke(this, eventData);
-        }
-        void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
-        {
-            pressedPointerId.Remove(eventData.pointerId);
-            OnPointerUp?.Invoke(this, eventData);
-        }
         bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data, PointerEventData d)
         {
             if (Entity.IsPreviewEnemy())
@@ -291,7 +231,8 @@ namespace MVZ2.Entities
             if (definition == null)
                 return false;
             var target = GetHeldItemTarget(d);
-            return definition.IsValidFor(target, data);
+            var pointer = InputManager.GetPointerDataFromEventData(d);
+            return definition.IsValidFor(target, data, pointer);
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {
@@ -457,10 +398,7 @@ namespace MVZ2.Entities
         #endregion
 
         #region 事件
-        public event Action<EntityController, PointerEventData> OnPointerEnter;
-        public event Action<EntityController, PointerEventData> OnPointerExit;
-        public event Action<EntityController, PointerEventData> OnPointerDown;
-        public event Action<EntityController, PointerEventData> OnPointerUp;
+        public event Action<EntityController, PointerEventData, PointerInteraction> OnPointerInteraction;
         #endregion
 
         #region 属性字段
@@ -481,8 +419,6 @@ namespace MVZ2.Entities
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
         private RandomGenerator rng;
-        private List<int> hoveredPointerId = new List<int>();
-        private List<int> pressedPointerId = new List<int>();
         private bool isHighlight;
         private EntityCursorSource _cursorSource;
         private Vector3 lastPosition;
@@ -492,6 +428,8 @@ namespace MVZ2.Entities
         private ShadowController shadow;
         [SerializeField]
         private TooltipAnchor tooltipAnchor;
+        [SerializeField]
+        private LevelPointerInteractionHandler holdStreakHandler;
         #region shader相关属性
         protected MaterialPropertyBlock propertyBlock;
         #endregion shader相关属性

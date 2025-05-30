@@ -14,7 +14,7 @@ namespace MVZ2.GameContent.HeldItems
         {
         }
 
-        public override bool IsValidFor(HeldItemTarget target, IHeldItemData data)
+        public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             if (target is not HeldItemTargetEntity entityTarget)
                 return false;
@@ -26,20 +26,27 @@ namespace MVZ2.GameContent.HeldItems
             }
             return false;
         }
-        public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
+        public override void OnPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
             if (target is not HeldItemTargetEntity entityTarget)
                 return;
+            if (pointerParams.IsInvalidClickButton())
+                return;
+            OnMainPointerEvent(entityTarget, data, pointerParams);
+        }
+        private void OnMainPointerEvent(HeldItemTargetEntity entityTarget, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            var interaction = pointerParams.interaction;
             var entity = entityTarget.Target;
             switch (entity.Type)
             {
                 case EntityTypes.PICKUP:
                     if (!entity.IsCollected())
                     {
-                        bool interacted = interaction != PointerInteraction.Release;
+                        bool interacted = interaction == PointerInteraction.Down || interaction == PointerInteraction.Hold || interaction == PointerInteraction.Streak;
                         if (entity.IsStrictCollect())
                         {
-                            interacted = interaction == PointerInteraction.Press;
+                            interacted = interaction == PointerInteraction.Down;
                         }
                         if (interacted)
                         {

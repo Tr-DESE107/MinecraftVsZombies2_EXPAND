@@ -8,7 +8,7 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 
-namespace MVZ2.GameContent.HeldItem
+namespace MVZ2.GameContent.HeldItems
 {
     public abstract class ToEntityHeldItemBehaviour : HeldItemBehaviour
     {
@@ -17,18 +17,21 @@ namespace MVZ2.GameContent.HeldItem
         }
 
         #region 实体
-        public override bool IsValidFor(HeldItemTarget target, IHeldItemData data)
+        public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerInteraction)
         {
+            var pointer = pointerInteraction.pointer;
             switch (target)
             {
                 case HeldItemTargetEntity entityTarget:
-                    return !Global.IsMobile() && CanUseOnEntity(entityTarget.Target);
+                    return pointer.type == PointerTypes.MOUSE && CanUseOnEntity(entityTarget.Target);
                 case HeldItemTargetGrid entityGrid:
-                    return Global.IsMobile();
+                    return pointer.type == PointerTypes.TOUCH;
+                case HeldItemTargetLawn:
+                    return true;
             }
             return false;
         }
-        public override HeldHighlight GetHighlight(HeldItemTarget target, IHeldItemData data)
+        public override HeldHighlight GetHighlight(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             switch (target)
             {
@@ -117,103 +120,132 @@ namespace MVZ2.GameContent.HeldItem
             }
             return HeldHighlight.None;
         }
-        public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
+        public override void OnPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            var pointer = pointerParams.pointer;
+            if (pointer.type == PointerTypes.MOUSE && pointer.button == MouseButtons.RIGHT)
+            {
+                OnRightMouseEvent(target, data, pointerParams);
+                return;
+            }
+            if (pointerParams.IsInvalidClickButton())
+                return;
+            OnMainPointerEvent(target, data, pointerParams);
+        }
+        private void OnRightMouseEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            var level = target.GetLevel();
+            if (level.CancelHeldItem())
+            {
+                level.PlaySound(VanillaSoundID.tap);
+            }
+        }
+        private void OnMainPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
             switch (target)
             {
                 case HeldItemTargetLawn lawnTarget:
-                    {
-                        var targetPhase = Global.IsMobile() ? PointerInteraction.Release : PointerInteraction.Press;
-                        if (interaction != targetPhase)
-                            return;
-
-                        var level = lawnTarget.Level;
-                        var area = lawnTarget.Area;
-                        if (level.CancelHeldItem() && area == LawnArea.Side)
-                        {
-                            level.PlaySound(VanillaSoundID.tap);
-                        }
-                        return;
-                    }
+                    OnPointerEventLawn(lawnTarget, data, pointerParams);
+                    break;
                 case HeldItemTargetEntity entityTarget:
-                    {
-                        if (interaction != PointerInteraction.Press)
-                            return;
-
-                        var entity = entityTarget.Target;
-                        var targetEntity = entity;
-                        var protector = entity;
-                        var protectTargets = entity.GetProtectingTargets();
-                        if (protectTargets != null && protectTargets.Length > 0)
-                        {
-                            var canUseOnProtector = CanUseOnEntity(protector);
-                            var firstValidMainTarget = protectTargets.FirstOrDefault(t => CanUseOnEntity(t));
-                            var canUseOnMain = firstValidMainTarget != null;
-                            if (canUseOnProtector && canUseOnMain)
-                            {
-                                // 保护层和主要层器械都可以用，根据光标位置决定。
-                                if (entityTarget.PointerPosition.y >= 0.5f)
-                                {
-                                    targetEntity = firstValidMainTarget;
-                                }
-                            }
-                            else if (!canUseOnProtector)
-                            {
-                                // 只有主要层器械可以用。
-                                targetEntity = firstValidMainTarget;
-                            }
-                        }
-                        targetEntity.Level.ResetHeldItem();
-                        UseOnEntity(targetEntity);
-                    }
+                    OnPointerEventEntity(entityTarget, data, pointerParams);
                     break;
                 case HeldItemTargetGrid gridTarget:
-                    {
-                        if (interaction != PointerInteraction.Release)
-                            return;
-
-                        var grid = gridTarget.Target;
-                        var game = Global.Game;
-                        var protector = grid.GetProtectorEntity();
-                        var protectedLayers = VanillaGridLayers.protectedLayers;
-
-                        var main = protectedLayers
-                            .Select(t => grid.GetLayerEntity(t))
-                            .FirstOrDefault(t => CanUseOnEntity(t));
-
-                        var canUseOnProtector = CanUseOnEntity(protector);
-                        var canUseOnMain = CanUseOnEntity(main);
-
-                        Entity entity = null;
-                        if (canUseOnProtector && canUseOnMain)
-                        {
-                            // 保护层和主要层器械都可以用，根据光标位置决定。
-                            if (gridTarget.PointerPosition.y < 0.5f)
-                            {
-                                entity = protector;
-                            }
-                            else
-                            {
-                                entity = main;
-                            }
-                        }
-                        else if (canUseOnProtector)
-                        {
-                            // 只有保护层可以用。
-                            entity = protector;
-                        }
-                        else if (canUseOnMain)
-                        {
-                            // 只有主要层器械可以用。
-                            entity = main;
-                        }
-                        grid.Level.ResetHeldItem();
-                        if (CanUseOnEntity(entity))
-                        {
-                            UseOnEntity(entity);
-                        }
-                    }
+                    OnPointerEventGrid(gridTarget, data, pointerParams);
                     break;
+            }
+        }
+        private void OnPointerEventLawn(HeldItemTargetLawn target, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            if (pointerParams.IsInvalidReleaseAction())
+                return;
+            var level = target.Level;
+            var area = target.Area;
+            if (area == LawnArea.Side)
+            {
+                if (level.CancelHeldItem())
+                {
+                    level.PlaySound(VanillaSoundID.tap);
+                }
+            }
+        }
+        private void OnPointerEventEntity(HeldItemTargetEntity target, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            var interaction = pointerParams.interaction;
+            if (interaction != PointerInteraction.Down)
+                return;
+
+            var entity = target.Target;
+            var targetEntity = entity;
+            var protector = entity;
+            var protectTargets = entity.GetProtectingTargets();
+            if (protectTargets != null && protectTargets.Length > 0)
+            {
+                var canUseOnProtector = CanUseOnEntity(protector);
+                var firstValidMainTarget = protectTargets.FirstOrDefault(t => CanUseOnEntity(t));
+                var canUseOnMain = firstValidMainTarget != null;
+                if (canUseOnProtector && canUseOnMain)
+                {
+                    // 保护层和主要层器械都可以用，根据光标位置决定。
+                    if (target.PointerPosition.y >= 0.5f)
+                    {
+                        targetEntity = firstValidMainTarget;
+                    }
+                }
+                else if (!canUseOnProtector)
+                {
+                    // 只有主要层器械可以用。
+                    targetEntity = firstValidMainTarget;
+                }
+            }
+            targetEntity.Level.ResetHeldItem();
+            UseOnEntity(targetEntity);
+        }
+        private void OnPointerEventGrid(HeldItemTargetGrid target, IHeldItemData data, PointerInteractionData pointerData)
+        {
+            var interaction = pointerData.interaction;
+            if (interaction != PointerInteraction.Release)
+                return;
+
+            var grid = target.Target;
+            var game = Global.Game;
+            var protector = grid.GetProtectorEntity();
+            var protectedLayers = VanillaGridLayers.protectedLayers;
+
+            var main = protectedLayers
+                .Select(t => grid.GetLayerEntity(t))
+                .FirstOrDefault(t => CanUseOnEntity(t));
+
+            var canUseOnProtector = CanUseOnEntity(protector);
+            var canUseOnMain = CanUseOnEntity(main);
+
+            Entity entity = null;
+            if (canUseOnProtector && canUseOnMain)
+            {
+                // 保护层和主要层器械都可以用，根据光标位置决定。
+                if (target.PointerPosition.y < 0.5f)
+                {
+                    entity = protector;
+                }
+                else
+                {
+                    entity = main;
+                }
+            }
+            else if (canUseOnProtector)
+            {
+                // 只有保护层可以用。
+                entity = protector;
+            }
+            else if (canUseOnMain)
+            {
+                // 只有主要层器械可以用。
+                entity = main;
+            }
+            grid.Level.ResetHeldItem();
+            if (CanUseOnEntity(entity))
+            {
+                UseOnEntity(entity);
             }
         }
         #endregion

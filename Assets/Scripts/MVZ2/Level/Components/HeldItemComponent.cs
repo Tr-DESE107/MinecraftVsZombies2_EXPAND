@@ -3,6 +3,7 @@ using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2Logic.Games;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -30,7 +31,7 @@ namespace MVZ2.Level.Components
         }
         public void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false)
         {
-            SetHeldItem(new HeldItemStruct()
+            SetHeldItem(new HeldItemData()
             {
                 Type = type,
                 ID = id,
@@ -42,6 +43,10 @@ namespace MVZ2.Level.Components
         {
             if (IsHoldingItem() && info.Priority > value.Priority)
                 return;
+
+            var before = Level.Content.GetHeldItemDefinition(Data.Type);
+            before?.End(Level, Data);
+
             info.Type = value.Type;
             info.ID = value.ID;
             info.Priority = value.Priority;
@@ -49,6 +54,9 @@ namespace MVZ2.Level.Components
             info.InstantTrigger = value.InstantTrigger;
             info.InstantEvoke = value.InstantEvoke;
             Controller.SetHeldItemUI(info);
+
+            var definition = Level.Content.GetHeldItemDefinition(Data.Type);
+            definition?.Begin(Level, Data);
         }
         public IModelInterface GetHeldItemModelInterface()
         {
@@ -56,6 +64,9 @@ namespace MVZ2.Level.Components
         }
         public void ResetHeldItem()
         {
+            var before = Level.Content.GetHeldItemDefinition(Data.Type);
+            before?.End(Level, Data);
+
             info.Type = BuiltinHeldTypes.none;
             info.ID = 0;
             info.Priority = 0;
@@ -72,7 +83,7 @@ namespace MVZ2.Level.Components
             return true;
         }
         public IHeldItemData Data => info;
-        private HeldItemStruct info = new HeldItemStruct()
+        private HeldItemData info = new HeldItemData()
         {
             Type = BuiltinHeldTypes.none
         };
@@ -81,14 +92,5 @@ namespace MVZ2.Level.Components
     [Serializable]
     public class EmptySerializableLevelComponent : ISerializableLevelComponent
     {
-    }
-    public struct HeldItemStruct : IHeldItemData
-    {
-        public NamespaceID Type { get; set; }
-        public long ID { get; set; }
-        public int Priority { get; set; }
-        public bool NoCancel { get; set; }
-        public bool InstantTrigger { get; set; }
-        public bool InstantEvoke { get; set; }
     }
 }

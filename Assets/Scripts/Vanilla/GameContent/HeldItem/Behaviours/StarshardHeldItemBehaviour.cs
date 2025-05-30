@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.HeldItem;
-using MVZ2.Vanilla.Callbacks;
+﻿using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.HeldItems;

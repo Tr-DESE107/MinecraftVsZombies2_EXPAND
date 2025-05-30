@@ -1,6 +1,8 @@
 using System;
 using MVZ2.Models;
 using MVZ2.UI;
+using MVZ2Logic;
+using MVZ2Logic.HeldItems;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -342,15 +344,6 @@ namespace MVZ2.Level.UI
         {
             animator.SetBool("DisableUI", disabled);
         }
-        public Receiver GetReceiverType(RaycastReceiver receiver)
-        {
-            if (receiver == sideReceiver)
-                return Receiver.Side;
-            else if (receiver == bottomReceiver)
-                return Receiver.Bottom;
-            else
-                return Receiver.Lawn;
-        }
         public void SetBlueprintsSortingToChoosing(bool choosing)
         {
             blueprints.SetSortingToChoosing(choosing);
@@ -397,9 +390,10 @@ namespace MVZ2.Level.UI
         private void Awake()
         {
             animator.enabled = false;
-            sideReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Side, data);
-            lawnReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Lawn, data);
-            bottomReceiver.OnPointerDown += (data) => OnRaycastReceiverPointerDown?.Invoke(Receiver.Bottom, data);
+            foreach (var receiver in receivers)
+            {
+                receiver.OnPointerInteraction += (r, data, interaction) => OnRaycastReceiverPointerInteraction?.Invoke(r.GetArea(), data, interaction);
+            }
 
             starshardPanel.OnPointerDown += (data) => OnStarshardPointerDown?.Invoke(data);
 
@@ -420,6 +414,8 @@ namespace MVZ2.Level.UI
 
             menuButton.onClick.AddListener(() => OnMenuButtonClick?.Invoke());
             speedUpButton.onClick.AddListener(() => OnSpeedUpButtonClick?.Invoke());
+
+            blueprints.OnBlueprintPointerInteraction += (index, e, i, c) => OnBlueprintPointerInteraction?.Invoke(index, e, i, c);
         }
 
         private void OnArtifactPointerEnterCallback(ArtifactItemUI item)
@@ -433,7 +429,7 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region ÊÂ¼þ
-        public event Action<Receiver, PointerEventData> OnRaycastReceiverPointerDown;
+        public event Action<LawnArea, PointerEventData, PointerInteraction> OnRaycastReceiverPointerInteraction;
 
         public event Action<PointerEventData> OnPickaxePointerEnter;
         public event Action<PointerEventData> OnPickaxePointerExit;
@@ -447,6 +443,9 @@ namespace MVZ2.Level.UI
         public event Action<PointerEventData> OnTriggerPointerEnter;
         public event Action<PointerEventData> OnTriggerPointerExit;
         public event Action<PointerEventData> OnTriggerPointerDown;
+
+        public event Action<int, PointerEventData, PointerInteraction, bool> OnBlueprintPointerInteraction;
+
         public event Action OnStartGameCalled;
         public event Action OnMenuButtonClick;
         public event Action OnSpeedUpButtonClick;
@@ -493,11 +492,7 @@ namespace MVZ2.Level.UI
 
         [Header("Raycast Receivers")]
         [SerializeField]
-        RaycastReceiver sideReceiver;
-        [SerializeField]
-        RaycastReceiver lawnReceiver;
-        [SerializeField]
-        RaycastReceiver bottomReceiver;
+        LawnRaycastReceiver[] receivers;
 
         [Header("CameraLimit")]
         [SerializeField]

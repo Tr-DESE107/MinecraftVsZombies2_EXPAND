@@ -11,6 +11,7 @@ namespace MVZ2.Vanilla.HeldItems
         {
             AddBehaviour(new PickupHeldItemBehaviour(this));
             AddBehaviour(new TriggerCartHeldItemBehaviour(this));
+            AddBehaviour(new SelectBlueprintHeldItemBehaviour(this));
         }
     }
 }

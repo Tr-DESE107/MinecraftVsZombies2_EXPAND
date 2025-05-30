@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using MVZ2Logic;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace MVZ2.UI
 {
@@ -17,35 +19,45 @@ namespace MVZ2.UI
             rect =>
             {
                 var page = rect.GetComponent<Blueprint>();
-                page.OnPointerEnter += OnBlueprintPointerEnterCallback;
-                page.OnPointerExit += OnBlueprintPointerExitCallback;
-                page.OnPointerClick += OnBlueprintPointerClickCallback;
+                page.OnPointerInteraction += OnPointerInteractionCallback;
+                page.OnSelect += OnSelectCallback;
             },
             rect =>
             {
                 var page = rect.GetComponent<Blueprint>();
-                page.OnPointerEnter -= OnBlueprintPointerEnterCallback;
-                page.OnPointerExit -= OnBlueprintPointerExitCallback;
-                page.OnPointerClick -= OnBlueprintPointerClickCallback;
+                page.OnPointerInteraction -= OnPointerInteractionCallback;
+                page.OnSelect -= OnSelectCallback;
             });
         }
         public override Blueprint GetItem(int index)
         {
             return blueprintList.getElement<Blueprint>(index);
         }
-        private void OnBlueprintPointerEnterCallback(Blueprint blueprint, PointerEventData eventData)
+        private void OnPointerInteractionCallback(Blueprint blueprint, PointerEventData eventData, PointerInteraction interaction)
         {
-            CallBlueprintPointerEnter(blueprintList.indexOf(blueprint), eventData);
+            switch (interaction)
+            {
+                case PointerInteraction.BeginDrag:
+                    scrollRect.OnBeginDrag(eventData);
+                    return;
+                case PointerInteraction.Drag:
+                    scrollRect.OnDrag(eventData);
+                    return;
+                case PointerInteraction.EndDrag:
+                    scrollRect.OnEndDrag(eventData);
+                    return;
+            }
+            var index = blueprintList.indexOf(blueprint);
+            CallBlueprintPointerInteraction(index, eventData, interaction);
         }
-        private void OnBlueprintPointerExitCallback(Blueprint blueprint, PointerEventData eventData)
+        private void OnSelectCallback(Blueprint blueprint)
         {
-            CallBlueprintPointerExit(blueprintList.indexOf(blueprint), eventData);
-        }
-        private void OnBlueprintPointerClickCallback(Blueprint blueprint, PointerEventData eventData)
-        {
-            CallBlueprintPointerDown(blueprintList.indexOf(blueprint), eventData);
+            var index = blueprintList.indexOf(blueprint);
+            CallBlueprintSelect(index);
         }
         [Header("Mobile")]
+        [SerializeField]
+        ScrollRect scrollRect;
         [SerializeField]
         ElementListUI blueprintList;
     }

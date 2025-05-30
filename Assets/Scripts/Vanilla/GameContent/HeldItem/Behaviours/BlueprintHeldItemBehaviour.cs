@@ -11,6 +11,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine.Grids;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.HeldItems
@@ -21,13 +22,13 @@ namespace MVZ2.GameContent.HeldItems
         {
         }
 
-        public override bool IsValidFor(HeldItemTarget target, IHeldItemData data)
+        public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             return target is HeldItemTargetGrid;
         }
-        public override void Update(LevelEngine level, IHeldItemData data)
+        public override void OnUpdate(LevelEngine level, IHeldItemData data)
         {
-            base.Update(level, data);
+            base.OnUpdate(level, data);
             if (!IsValid(level, data))
             {
                 level.ResetHeldItem();
@@ -40,7 +41,7 @@ namespace MVZ2.GameContent.HeldItems
                 return false;
             return seedPack.CanPick();
         }
-        public override HeldHighlight GetHighlight(HeldItemTarget target, IHeldItemData data)
+        public override HeldHighlight GetHighlight(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             if (target is not HeldItemTargetGrid gridTarget)
                 return HeldHighlight.None;
@@ -52,55 +53,84 @@ namespace MVZ2.GameContent.HeldItems
             var seedDef = seed?.Definition;
             return grid.GetSeedHeldHighlight(seedDef);
         }
-        public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction interaction)
+        public override void OnPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            var pointer = pointerParams.pointer;
+            if (pointer.type == PointerTypes.MOUSE && pointer.button == MouseButtons.RIGHT)
+            {
+                OnRightMouseEvent(target, data, pointerParams);
+                return;
+            }
+            if (pointerParams.IsInvalidClickButton())
+                return;
+            OnMainPointerEvent(target, data, pointerParams);
+        }
+        private void OnRightMouseEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            var level = target.GetLevel();
+            if (level.CancelHeldItem())
+            {
+                level.PlaySound(VanillaSoundID.tap);
+            }
+        }
+        private void OnMainPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
             switch (target)
             {
                 case HeldItemTargetGrid gridTarget:
-                    {
-                        var targetPhase = Global.IsMobile() ? PointerInteraction.Release : PointerInteraction.Press;
-                        if (interaction != targetPhase)
-                            return;
-
-
-                        var level = target.GetLevel();
-                        var seed = GetSeedPack(level, data);
-                        var seedDef = seed?.Definition;
-                        if (seedDef == null)
-                            return;
-                        var grid = gridTarget.Target;
-                        if (!grid.CanPlaceBlueprint(seedDef.GetID(), out var error))
-                        {
-                            var message = Global.Game.GetGridErrorMessage(error);
-                            if (!string.IsNullOrEmpty(message))
-                            {
-                                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, message, 0, 150);
-                            }
-                            return;
-                        }
-
-                        if (seedDef.GetSeedType() == SeedTypes.ENTITY)
-                        {
-                            CostBlueprint(grid, data);
-                            grid.UseEntityBlueprint(seed, data);
-                            level.ResetHeldItem();
-                        }
-                    }
+                    OnPointerEventGrid(gridTarget, data, pointerParams);
                     break;
-                case HeldItemTargetLawn lawnTarget:
-                    {
-                        var level = lawnTarget.Level;
-                        var area = lawnTarget.Area;
+            }
+        }
+        private void OnPointerEventGrid(HeldItemTargetGrid gridTarget, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            if (pointerParams.IsInvalidReleaseAction())
+                return;
+            var level = gridTarget.GetLevel();
+            var seed = GetSeedPack(level, data);
+            var seedDef = seed?.Definition;
+            if (seedDef == null)
+                return;
+            var grid = gridTarget.Target;
+            if (!grid.CanPlaceBlueprint(seedDef.GetID(), out var error))
+            {
+                var message = Global.Game.GetGridErrorMessage(error);
+                if (!string.IsNullOrEmpty(message))
+                {
+                    level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, message, 0, 150);
+                }
+                return;
+            }
 
-                        if (area == LawnArea.Side)
-                        {
-                            if (level.CancelHeldItem())
-                            {
-                                level.PlaySound(VanillaSoundID.tap);
-                            }
-                        }
-                    }
-                    break;
+            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
+            {
+                CostBlueprint(grid, data);
+                grid.UseEntityBlueprint(seed, data);
+                level.ResetHeldItem();
+            }
+        }
+        private void OnPointerEventLawn(HeldItemTargetLawn lawnTarget, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            var level = lawnTarget.Level;
+            var area = lawnTarget.Area;
+
+            if (area == LawnArea.Side)
+            {
+                if (level.CancelHeldItem())
+                {
+                    level.PlaySound(VanillaSoundID.tap);
+                }
+            }
+        }
+        public override void OnSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
+        {
+            base.OnSetModel(level, data, model);
+            var seedPack = GetSeedPack(level, data);
+            if (seedPack == null)
+                return;
+            if (seedPack.IsCommandBlock())
+            {
+                model.SetShaderInt("_Grayscale", 1);
             }
         }
 

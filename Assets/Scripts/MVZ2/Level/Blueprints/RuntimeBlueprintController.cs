@@ -1,10 +1,7 @@
 ﻿using MVZ2.Level.UI;
 using MVZ2.UI;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic;
-using MVZ2Logic.Level;
 using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 
@@ -27,13 +24,11 @@ namespace MVZ2.Level
         protected override void AddCallbacks()
         {
             base.AddCallbacks();
-            ui.OnPointerRelease += OnPointerReleaseCallback;
             SeedPack.OnDefinitionChanged += OnDefinitionChangedCallback;
         }
         protected override void RemoveCallbacks()
         {
             base.RemoveCallbacks();
-            ui.OnPointerRelease -= OnPointerReleaseCallback;
             SeedPack.OnDefinitionChanged -= OnDefinitionChangedCallback;
         }
         public virtual void UpdateFixed()
@@ -61,28 +56,6 @@ namespace MVZ2.Level
         {
             return CanPick(out _);
         }
-        public override void Click()
-        {
-            bool holdingStarshard = Level.IsHoldingStarshard();
-            bool canInstantEvoke = SeedPack?.CanInstantEvoke() ?? false;
-            bool instantEvoke = canInstantEvoke && holdingStarshard;
-
-            // 进行立即触发检测。
-            bool holdingTrigger = Level.IsHoldingTrigger();
-            bool canInstantTrigger = SeedPack?.CanInstantTrigger() ?? false;
-            bool usingTrigger = holdingTrigger && canInstantTrigger;
-
-            bool swapped = Controller.IsTriggerSwapped();
-            bool instantTrigger = canInstantTrigger && (holdingTrigger != swapped);
-
-            bool skipCancelHeld = usingTrigger || instantEvoke;
-            BlueprintPickupInfo info = new BlueprintPickupInfo()
-            {
-                instantTrigger = instantTrigger,
-                instantEvoke = instantEvoke,
-            };
-            Pickup(info, skipCancelHeld);
-        }
         public bool CanPick(out string errorMessage)
         {
             return SeedPack.CanPick(out errorMessage);
@@ -106,34 +79,8 @@ namespace MVZ2.Level
         {
             ui.UpdateView(Main.ResourceManager.GetBlueprintViewData(SeedPack));
         }
-        private void OnPointerReleaseCallback(Blueprint blueprint)
-        {
-            // 移动端会额外在手指放开在蓝图上时进行一次立即触发检测。
-            if (!Global.IsMobile())
-                return;
-
-            bool holdingStarshard = Level.IsHoldingStarshard();
-            bool canInstantEvoke = SeedPack?.CanInstantEvoke() ?? false;
-            bool instantEvoke = canInstantEvoke && holdingStarshard;
-
-            bool holdingTrigger = Level.IsHoldingTrigger();
-            bool canInstantTrigger = SeedPack?.CanInstantTrigger() ?? false;
-            bool usingTrigger = holdingTrigger && canInstantTrigger;
-            if (instantEvoke || usingTrigger)
-            {
-                bool swapped = Controller.IsTriggerSwapped();
-                bool instantTrigger = canInstantTrigger && (holdingTrigger != swapped);
-                BlueprintPickupInfo info = new BlueprintPickupInfo()
-                {
-                    instantTrigger = instantTrigger,
-                    instantEvoke = instantEvoke,
-                };
-                Pickup(info, true);
-            }
-        }
         #endregion
 
-        protected abstract void OnPickup(BlueprintPickupInfo info);
         protected virtual bool ShouldBlueprintTwinkle(SeedPack seedPack)
         {
             if (SeedPack.IsTwinkling())
@@ -149,28 +96,6 @@ namespace MVZ2.Level
                 return true;
             }
             return false;
-        }
-        private void Pickup(BlueprintPickupInfo info, bool skipCancelHeld = false)
-        {
-            // 先取消已经手持的物品。
-            if (!skipCancelHeld)
-            {
-                if (Level.IsHoldingItem())
-                {
-                    if (Level.CancelHeldItem())
-                    {
-                        Level.PlaySound(VanillaSoundID.tap);
-                        return;
-                    }
-                }
-            }
-            // 无法拾取蓝图。
-            if (!CanPick())
-            {
-                Level.PlaySound(VanillaSoundID.buzzer);
-                return;
-            }
-            OnPickup(info);
         }
         private string GetTooltipErrorMessage()
         {

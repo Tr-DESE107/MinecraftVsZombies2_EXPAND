@@ -37,36 +37,30 @@ namespace MVZ2Logic.Level
         }
         public static NamespaceID GetHeldItemType(this LevelEngine level)
         {
-            var component = level.GetHeldItemComponent();
-            return component.Data.Type;
+            return level.GetHeldItemData().Type;
         }
         public static long GetHeldItemID(this LevelEngine level)
         {
-            var component = level.GetHeldItemComponent();
-            return component.Data.ID;
+            return level.GetHeldItemData().ID;
         }
         public static IHeldItemData GetHeldItemData(this LevelEngine level)
         {
             var component = level.GetHeldItemComponent();
             return component.Data;
         }
-        public static HeldHighlight GetHeldHighlight(this LevelEngine level, HeldItemTarget target, NamespaceID heldType, IHeldItemData data)
+        public static HeldHighlight GetHeldHighlight(this LevelEngine level, IHeldItemTarget target, PointerData pointer)
         {
+            var heldType = level.GetHeldItemType();
+            var data = level.GetHeldItemData();
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
-            return heldItemDef.GetHighlight(target, data);
+            return heldItemDef.GetHighlight(target, data, pointer);
         }
-        public static void UseHeldItem(this LevelEngine level, HeldItemTarget target, NamespaceID heldType, IHeldItemData data, PointerInteraction interaction)
+        public static void DoHeldItemPointerEvent(this LevelEngine level, IHeldItemTarget target, PointerInteractionData pointerParams)
         {
+            var heldType = level.GetHeldItemType();
+            var data = level.GetHeldItemData();
             var heldItemDef = level.Content.GetHeldItemDefinition(heldType);
-            heldItemDef.Use(target, data, interaction);
-        }
-        public static HeldHighlight GetHeldHighlight(this LevelEngine level, HeldItemTarget target)
-        {
-            return level.GetHeldHighlight(target, level.GetHeldItemType(), level.GetHeldItemData());
-        }
-        public static void UseHeldItem(this LevelEngine level, HeldItemTarget target, PointerInteraction interaction)
-        {
-            level.UseHeldItem(target, level.GetHeldItemType(), level.GetHeldItemData(), interaction);
+            heldItemDef.DoPointerEvent(target, data, pointerParams);
         }
         public static IModelInterface GetHeldItemModelInterface(this LevelEngine level)
         {

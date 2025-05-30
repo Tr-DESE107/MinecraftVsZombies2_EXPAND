@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.HeldItems
         public SwordHeldItemBehaviour(HeldItemDefinition definition) : base(definition)
         {
         }
-        public override bool IsValidFor(HeldItemTarget target, IHeldItemData data)
+        public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             switch (target)
             {
@@ -40,42 +40,54 @@ namespace MVZ2.GameContent.HeldItems
 
             return false;
         }
-        public override void Update(LevelEngine level, IHeldItemData data)
+        public override void OnUpdate(LevelEngine level, IHeldItemData data)
         {
-            base.Update(level, data);
+            base.OnUpdate(level, data);
             level.GetHeldItemModelInterface()?.SetAnimationBool("Paralyzed", level.HasBuff<SwordParalyzedBuff>());
         }
-        public override void Use(HeldItemTarget target, IHeldItemData data, PointerInteraction phase)
+        public override void OnPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
-            base.Use(target, data, phase);
+            base.OnPointerEvent(target, data, pointerParams);
+            if (pointerParams.IsInvalidClickButton())
+                return;
+            OnMainPointerEvent(target, data, pointerParams);
+            PointerDown(target, data, pointerParams);
+        }
+        private void OnMainPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
+        {
             switch (target)
             {
                 case HeldItemTargetEntity entityTarget:
-                    {
-                        var entity = entityTarget.Target;
+                    OnPointerEventEntity(entityTarget, data, pointerParams);
+                    break;
+            }
+        }
+        private void OnPointerEventEntity(HeldItemTargetEntity target, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            var entity = target.Target;
 
-                        switch (entity.Type)
+            switch (entity.Type)
+            {
+                case EntityTypes.ENEMY:
+                    if (pointerParams.interaction == PointerInteraction.Down)
+                    {
+                        if (IsParalyzed(entity.Level))
+                            break;
+                        var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
+                        entity.TakeDamageNoSource(750, effects);
+                        if (entity.IsDead)
                         {
-                            case EntityTypes.ENEMY:
-                                if (phase == PointerInteraction.Press)
-                                {
-                                    if (IsParalyzed(entity.Level))
-                                        break;
-                                    var effects = new DamageEffectList(VanillaDamageEffects.WHACK, VanillaDamageEffects.REMOVE_ON_DEATH);
-                                    entity.TakeDamageNoSource(750, effects);
-                                    if (entity.IsDead)
-                                    {
-                                        var screenPos = Global.GetPointerScreenPosition();
-                                        var pos = entity.Level.ScreenToLawnPositionByZ(screenPos, entity.Position.z);
-                                        entity.Level.Spawn(VanillaEffectID.pow, pos, null);
-                                    }
-                                }
-                                break;
+                            var screenPos = Global.GetPointerScreenPosition();
+                            var pos = entity.Level.ScreenToLawnPositionByZ(screenPos, entity.Position.z);
+                            entity.Level.Spawn(VanillaEffectID.pow, pos, null);
                         }
                     }
                     break;
             }
-            if (phase == PointerInteraction.Press)
+        }
+        private void PointerDown(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
+        {
+            if (pointerParams.interaction == PointerInteraction.Down)
             {
                 Swing(target.GetLevel());
             }

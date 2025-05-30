@@ -5,7 +5,6 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Level;
-using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.Vanilla.HeldItems
@@ -16,6 +15,7 @@ namespace MVZ2.Vanilla.HeldItems
         {
             AddBehaviour(new PickupHeldItemBehaviour(this));
             AddBehaviour(new TriggerCartHeldItemBehaviour(this));
+            AddBehaviour(new SelectBlueprintHeldItemBehaviour(this));
         }
         public override NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
         {
@@ -30,17 +30,6 @@ namespace MVZ2.Vanilla.HeldItems
                 return entityDef.GetModelID();
             }
             return null;
-        }
-        public override void PostSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
-        {
-            base.PostSetModel(level, data, model);
-            var seedPack = GetSeedPack(level, data);
-            if (seedPack == null)
-                return;
-            if (seedPack.IsCommandBlock())
-            {
-                model.SetShaderInt("_Grayscale", 1);
-            }
         }
         public abstract SeedPack GetSeedPack(LevelEngine level, IHeldItemData data);
     }

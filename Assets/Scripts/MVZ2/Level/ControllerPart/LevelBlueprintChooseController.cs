@@ -43,17 +43,15 @@ namespace MVZ2.Level
         public override void Init(LevelController controller)
         {
             base.Init(controller);
-            chooseUI.OnBlueprintItemPointerEnter += UI_OnBlueprintPointerEnterCallback;
-            chooseUI.OnBlueprintItemPointerExit += UI_OnBlueprintPointerExitCallback;
-            chooseUI.OnBlueprintItemPointerDown += UI_OnBlueprintPointerDownCallback;
+            chooseUI.OnBlueprintItemPointerInteraction += UI_OnBlueprintPointerInteractionCallback;
+            chooseUI.OnBlueprintItemSelect += UI_OnBlueprintSelectCallback;
 
             chooseUI.OnArtifactSlotClick += UI_OnArtifactSlotClickCallback;
             chooseUI.OnArtifactSlotPointerEnter += UI_OnArtifactSlotPointerEnterCallback;
             chooseUI.OnArtifactSlotPointerExit += UI_OnArtifactSlotPointerExitCallback;
 
-            chooseUI.OnCommandBlockPointerEnter += UI_OnCommandBlockPointerEnterCallback;
-            chooseUI.OnCommandBlockPointerExit += UI_OnCommandBlockPointerExitCallback;
-            chooseUI.OnCommandBlockClick += UI_OnCommandBlockClickCallback;
+            chooseUI.OnCommandBlockPointerInteraction += UI_OnCommandBlockPointerInteractionCallback;
+            chooseUI.OnCommandBlockSlotSelect += UI_OnCommandBlockSelectCallback;
             chooseUI.OnCommandBlockPanelCancelClick += UI_OnCommandBlockPanelCancelClickCallback;
             chooseUI.OnStartClick += UI_OnStartClickCallback;
             chooseUI.OnViewLawnClick += UI_OnViewLawnClickCallback;
@@ -898,17 +896,21 @@ namespace MVZ2.Level
         #region 事件回调
 
         #region 可选蓝图
-        private void UI_OnBlueprintPointerEnterCallback(int index, PointerEventData eventData, bool commandBlock)
+        private void UI_OnBlueprintPointerInteractionCallback(int index, PointerEventData eventData, PointerInteraction interaction, bool commandBlock)
         {
-            var id = choosingBlueprints[index];
-            var ui = commandBlock ? chooseUI.GetCommandBlockChooseItem(index) : chooseUI.GetBlueprintChooseItem(index);
-            Controller.ShowTooltip(new BlueprintTooltipSource(this, id, ui, commandBlock));
+            switch (interaction)
+            {
+                case PointerInteraction.Enter:
+                    var id = choosingBlueprints[index];
+                    var ui = commandBlock ? chooseUI.GetCommandBlockChooseItem(index) : chooseUI.GetBlueprintChooseItem(index);
+                    Controller.ShowTooltip(new BlueprintTooltipSource(this, id, ui, commandBlock));
+                    break;
+                case PointerInteraction.Exit:
+                    Controller.HideTooltip();
+                    break;
+            }
         }
-        private void UI_OnBlueprintPointerExitCallback(int index, PointerEventData eventData, bool commandBlock)
-        {
-            Controller.HideTooltip();
-        }
-        private void UI_OnBlueprintPointerDownCallback(int index, PointerEventData eventData, bool commandBlock)
+        private void UI_OnBlueprintSelectCallback(int index, bool commandBlock)
         {
             if (commandBlock)
             {
@@ -993,16 +995,20 @@ namespace MVZ2.Level
         {
             viewLawnFinished = true;
         }
-        private void UI_OnCommandBlockPointerEnterCallback()
+        private void UI_OnCommandBlockPointerInteractionCallback(PointerEventData eventData, PointerInteraction interaction)
         {
-            var ui = chooseUI.GetCommandBlockSlotBlueprint();
-            Controller.ShowTooltip(new BlueprintTooltipSource(this, VanillaContraptionID.commandBlock, ui, false));
+            switch (interaction)
+            {
+                case PointerInteraction.Enter:
+                    var ui = chooseUI.GetCommandBlockSlotBlueprint();
+                    Controller.ShowTooltip(new BlueprintTooltipSource(this, VanillaContraptionID.commandBlock, ui, false));
+                    break;
+                case PointerInteraction.Exit:
+                    Controller.HideTooltip();
+                    break;
+            }
         }
-        private void UI_OnCommandBlockPointerExitCallback()
-        {
-            Controller.HideTooltip();
-        }
-        private void UI_OnCommandBlockClickCallback()
+        private void UI_OnCommandBlockSelectCallback()
         {
             if (!CanChooseCommandBlock())
                 return;

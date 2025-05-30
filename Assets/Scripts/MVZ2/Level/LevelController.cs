@@ -9,7 +9,6 @@ using MVZ2.Entities;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Games;
-using MVZ2.Grids;
 using MVZ2.Level.Components;
 using MVZ2.Localization;
 using MVZ2.Logic.Level;
@@ -27,6 +26,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
@@ -206,7 +206,7 @@ namespace MVZ2.Level
             level.Triggers.RunCallback(LogicLevelCallbacks.POST_LEVEL_STOP, new LevelCallbackParams(level));
             SetUIVisibleState(VisibleState.Nothing);
             pointingGrid = -1;
-            pointingPointerId = -1;
+            pointingGridPointerId = -1;
             level.ClearEnergyDelayedEntities();
             level.ClearDelayedMoney();
             UpdateGridHighlight();
@@ -396,6 +396,7 @@ namespace MVZ2.Level
                         {
                             entity.UpdateFixed();
                         }
+                        gridLayout.UpdateGridsFixed();
                         foreach (var part in parts)
                         {
                             part.UpdateLogic();
@@ -758,55 +759,43 @@ namespace MVZ2.Level
         {
             if (IsInputDisabled())
                 return;
-            UpdatePointerUp();
+            UpdatePointerRelease();
             UpdateKeys();
         }
-        private void UpdatePointerUp()
+        private void UpdatePointerRelease()
         {
-            foreach (var position in Main.InputManager.GetLeftPointerUps())
+            if (Input.touchCount > 0)
             {
-                OnLeftPointerUp(position);
+                foreach (var position in Main.InputManager.GetTouchUps())
+                {
+                    OnPointerRelease(position);
+                }
+            }
+            else
+            {
+                foreach (var position in Main.InputManager.GetMouseUps(MouseButtons.LEFT))
+                {
+                    OnPointerRelease(position);
+                }
             }
         }
-        private GameObject GetRaycastGameObject(Vector2 screenPosition)
+        private void OnPointerRelease(PointerPositionParams pointer)
         {
             var eventSystem = EventSystem.current;
-            List<RaycastResult> raycastResults = new List<RaycastResult>();
-            eventSystem.RaycastAll(new PointerEventData(eventSystem) { position = screenPosition }, raycastResults);
-            foreach (var raycastResult in raycastResults)
+            var results = new List<RaycastResult>();
+            var pointerId = InputManager.GetPointerIdByButtonAndType(pointer.button, pointer.type);
+            var eventData = new PointerEventData(eventSystem)
             {
-                if (!raycastResult.isValid)
-                    continue;
-                return raycastResult.gameObject;
-            }
-            return null;
-        }
-        private void OnLeftPointerUp(Vector2 screenPosition)
-        {
-            var gameObject = GetRaycastGameObject(screenPosition);
-            if (!gameObject || !gameObject.activeInHierarchy)
-                return;
-            var blueprint = gameObject.GetComponentInParent<Blueprint>();
-            if (blueprint)
+                position = pointer.position,
+                button = (PointerEventData.InputButton)pointer.button,
+                pointerId = pointerId,
+            };
+            eventSystem.RaycastAll(eventData, results);
+            var first = results.FirstOrDefault(r => r.gameObject);
+            if (first.isValid)
             {
-                blueprint.PointerRelease();
-                return;
-            }
-
-            var grid = gameObject.GetComponentInParent<GridController>();
-            if (grid)
-            {
-                var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
-                var pointerPosition = grid.TransformWorld2ColliderPosition(worldPos);
-                ClickOnGrid(grid.Lane, grid.Column, PointerInteraction.Release, pointerPosition);
-                return;
-            }
-
-            var receiver = gameObject.GetComponentInParent<RaycastReceiver>();
-            if (receiver)
-            {
-                ClickOnReceiver(receiver, PointerInteraction.Release);
-                return;
+                eventData.pointerCurrentRaycast = first;
+                ExecuteEvents.ExecuteHierarchy<IPointerReleaseHandler>(first.gameObject, eventData, (x, y) => x.OnPointerRelease(ExecuteEvents.ValidateEventData<PointerEventData>(y)));
             }
         }
         private void UpdateKeys()
@@ -908,20 +897,22 @@ namespace MVZ2.Level
 
             if (IsGameRunning())
             {
-                if (Input.GetMouseButtonDown(1))
-                {
-                    if (level.CancelHeldItem())
-                    {
-                        level.PlaySound(VanillaSoundID.tap);
-                    }
-                }
                 for (int i = 0; i < 10; i++)
                 {
-                    if (Input.GetKeyDown(Options.GetBlueprintKeyBinding(i)))
+                    var key = Options.GetBlueprintKeyBinding(i);
+                    if (Input.GetKeyDown(key))
                     {
-                        var controller = BlueprintController.GetCurrentBlueprintControllerByIndex(i);
-                        if (controller != null)
-                            controller.Click();
+                        var target = new HeldItemTargetBlueprint(level, i, level.IsConveyorMode());
+                        var pointerParams = new PointerInteractionData()
+                        {
+                            pointer = new PointerData()
+                            {
+                                button = (int)key,
+                                type = PointerTypes.KEY,
+                            },
+                            interaction = PointerInteraction.Key
+                        };
+                        level.DoHeldItemPointerEvent(target, pointerParams);
                     }
                 }
                 if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.pickaxe)))

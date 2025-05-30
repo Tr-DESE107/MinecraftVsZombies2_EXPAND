@@ -6,9 +6,9 @@ using MVZ2.Cursors;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.HeldItems;
 using MVZ2.Level.UI;
+using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2.Options;
-using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
@@ -326,7 +326,9 @@ namespace MVZ2.Level
             uiPreset.OnTriggerPointerExit += UI_OnTriggerPointerExitCallback;
             uiPreset.OnTriggerPointerDown += UI_OnTriggerPointerDownCallback;
 
-            uiPreset.OnRaycastReceiverPointerDown += UI_OnRaycastReceiverPointerDownCallback;
+            uiPreset.OnBlueprintPointerInteraction += UI_OnBlueprintPointerInteractionCallback;
+
+            uiPreset.OnRaycastReceiverPointerInteraction += UI_OnRaycastReceiverPointerInteractionCallback;
             uiPreset.OnMenuButtonClick += UI_OnMenuButtonClickCallback;
             uiPreset.OnSpeedUpButtonClick += UI_OnSpeedUpButtonClickCallback;
 
@@ -343,14 +345,13 @@ namespace MVZ2.Level
         #region 事件回调
 
         #region UI方
-        private void UI_OnRaycastReceiverPointerDownCallback(LevelUIPreset.Receiver receiver, PointerEventData eventData)
+        private void UI_OnRaycastReceiverPointerInteractionCallback(LawnArea area, PointerEventData eventData, PointerInteraction interaction)
         {
-            if (eventData.button != PointerEventData.InputButton.Left)
+            if (!IsGameRunning())
                 return;
-            if (!IsGameStarted())
-                return;
-
-            ClickOnReceiver(receiver, PointerInteraction.Press);
+            var target = new HeldItemTargetLawn(level, area);
+            var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(eventData, interaction);
+            level.DoHeldItemPointerEvent(target, pointerParams);
         }
         private void UI_OnPickaxePointerEnterCallback(PointerEventData eventData)
         {
@@ -431,6 +432,14 @@ namespace MVZ2.Level
             if (!IsGameStarted())
                 return;
             ClickTrigger();
+        }
+        private void UI_OnBlueprintPointerInteractionCallback(int index, PointerEventData eventData, PointerInteraction interaction, bool conveyor)
+        {
+            if (!IsGameRunning())
+                return;
+            var target = new HeldItemTargetBlueprint(level, index, conveyor);
+            var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(eventData, interaction);
+            level.DoHeldItemPointerEvent(target, pointerParams);
         }
         private void UI_OnPauseDialogResumeClickedCallback()
         {
@@ -657,7 +666,7 @@ namespace MVZ2.Level
         {
             if (!PickaxeActive)
                 return;
-            if (level.IsHoldingItem())
+            if (level.IsHoldingItem() && !level.IsHoldingSword())
             {
                 if (level.CancelHeldItem())
                 {
@@ -693,7 +702,7 @@ namespace MVZ2.Level
         {
             if (!TriggerActive)
                 return;
-            if (level.IsHoldingItem())
+            if (level.IsHoldingItem() && !level.IsHoldingSword())
             {
                 if (level.CancelHeldItem())
                 {
@@ -722,32 +731,6 @@ namespace MVZ2.Level
             var levelUI = GetUIPreset();
             StarshardActive = Saves.IsStarshardUnlocked();
             TriggerActive = Saves.IsTriggerUnlocked();
-        }
-        #endregion
-
-        #region 战场射线接收器
-        private void ClickOnReceiver(RaycastReceiver receiver, PointerInteraction interaction)
-        {
-            var levelUI = GetUIPreset();
-            var type = levelUI.GetReceiverType(receiver);
-            ClickOnReceiver(type, interaction);
-        }
-        private void ClickOnReceiver(LevelUIPreset.Receiver receiver, PointerInteraction interaction)
-        {
-            if (!IsGameRunning())
-                return;
-            LawnArea area = LawnArea.Main;
-            switch (receiver)
-            {
-                case LevelUIPreset.Receiver.Side:
-                    area = LawnArea.Side;
-                    break;
-                case LevelUIPreset.Receiver.Bottom:
-                    area = LawnArea.Bottom;
-                    break;
-            }
-            var target = new HeldItemTargetLawn(level, area);
-            level.UseHeldItem(target, interaction);
         }
         #endregion
 

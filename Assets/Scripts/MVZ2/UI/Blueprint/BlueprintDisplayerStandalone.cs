@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using MVZ2.Level.UI;
+using MVZ2Logic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -37,16 +38,12 @@ namespace MVZ2.UI
             rect =>
             {
                 var page = rect.GetComponent<BlueprintDisplayerStandalonePage>();
-                page.OnBlueprintPointerEnter += OnBlueprintPointerEnterCallback;
-                page.OnBlueprintPointerExit += OnBlueprintPointerExitCallback;
-                page.OnBlueprintPointerDown += OnBlueprintPointerDownCallback;
+                page.OnBlueprintPointerInteraction += OnBlueprintPointerInteractionCallback;
             },
             rect =>
             {
                 var page = rect.GetComponent<BlueprintDisplayerStandalonePage>();
-                page.OnBlueprintPointerEnter -= OnBlueprintPointerEnterCallback;
-                page.OnBlueprintPointerExit -= OnBlueprintPointerExitCallback;
-                page.OnBlueprintPointerDown -= OnBlueprintPointerDownCallback;
+                page.OnBlueprintPointerInteraction -= OnBlueprintPointerInteractionCallback;
             });
             maxPages = pageCount;
             SetCurrentPage(0);
@@ -65,17 +62,14 @@ namespace MVZ2.UI
             previousPageButton.onClick.AddListener(() => SetCurrentPage(currentPage - 1));
             nextPageButton.onClick.AddListener(() => SetCurrentPage(currentPage + 1));
         }
-        private void OnBlueprintPointerEnterCallback(BlueprintDisplayerStandalonePage page, int indexInPage, PointerEventData eventData)
+        private void OnBlueprintPointerInteractionCallback(BlueprintDisplayerStandalonePage page, int indexInPage, PointerEventData eventData, PointerInteraction interaction)
         {
-            CallBlueprintPointerEnter(pageList.indexOf(page) * maxCountPerPage + indexInPage, eventData);
-        }
-        private void OnBlueprintPointerExitCallback(BlueprintDisplayerStandalonePage page, int indexInPage, PointerEventData eventData)
-        {
-            CallBlueprintPointerExit(pageList.indexOf(page) * maxCountPerPage + indexInPage, eventData);
-        }
-        private void OnBlueprintPointerDownCallback(BlueprintDisplayerStandalonePage page, int indexInPage, PointerEventData eventData)
-        {
-            CallBlueprintPointerDown(pageList.indexOf(page) * maxCountPerPage + indexInPage, eventData);
+            var index = pageList.indexOf(page) * maxCountPerPage + indexInPage;
+            CallBlueprintPointerInteraction(index, eventData, interaction);
+            if (interaction == PointerInteraction.Down)
+            {
+                CallBlueprintSelect(index);
+            }
         }
         [Header("Standalone")]
         [SerializeField]
