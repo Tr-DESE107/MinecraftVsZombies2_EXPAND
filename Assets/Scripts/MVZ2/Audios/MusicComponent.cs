@@ -11,15 +11,10 @@ namespace MVZ2.Level.Components
         public MusicComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
         }
-        public override void PostDispose()
-        {
-            base.PostDispose();
-            Main.MusicManager.SetLowQuality(false);
-        }
         public override void Update()
         {
             base.Update();
-            Main.MusicManager.SetLowQuality(Level.IsMusicLowQuality());
+            Controller.SetMusicLowQuality(Level.IsMusicLowQuality());
         }
         public void Play(NamespaceID id)
         {

@@ -155,20 +155,6 @@ namespace MVZ2.Audios
         }
         #endregion
 
-        public void SetLowQuality(bool value)
-        {
-            if (lowQuality == value)
-                return;
-            lowQuality = value;
-            if (value)
-            {
-                lowQualitySnapshot.TransitionTo(0.1f);
-            }
-            else
-            {
-                defaultSnapshot.TransitionTo(0.1f);
-            }
-        }
         private void Awake()
         {
             volumeFader.OnValueChanged += value =>
@@ -207,13 +193,11 @@ namespace MVZ2.Audios
         [SerializeField]
         private AudioMixer mixer;
         [SerializeField]
+        private AudioMixerGroup mixerMainGroup;
+        [SerializeField]
         private AudioSource mainTrackSource;
         [SerializeField]
         private AudioSource subTrackSource;
-        [SerializeField]
-        private AudioMixerSnapshot defaultSnapshot;
-        [SerializeField]
-        private AudioMixerSnapshot lowQualitySnapshot;
         [SerializeField]
         private FloatFader volumeFader;
     }

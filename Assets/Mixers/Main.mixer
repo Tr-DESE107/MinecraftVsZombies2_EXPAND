@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!245 &-5211144399024826461
-AudioMixerSnapshotController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: LowQuality
-  m_AudioMixer: {fileID: 24100000}
-  m_SnapshotID: 8e98c01740a18c640832b3816ab18f7b
-  m_FloatValues:
-    44b9aa89256989b4a827caa7e55d2efb: 2000
-    9e9fecdce4ca8d04ea06f59733c8de5e: 0.5
-  m_TransitionOverrides: {}
 --- !u!244 &-3700716942897206017
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -55,24 +42,6 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
---- !u!244 &-852544668144121055
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: 81ea3defff0ff8b468c5a8ca1f6ba6db
-  m_EffectName: Lowpass
-  m_MixLevel: 04f45baaa3422df4a8fea7ecbd9799cb
-  m_Parameters:
-  - m_ParameterName: Cutoff freq
-    m_GUID: 44b9aa89256989b4a827caa7e55d2efb
-  - m_ParameterName: Resonance
-    m_GUID: 5a506a2de8c4588428c9b7fab84071dd
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -84,7 +53,6 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
-  - {fileID: -5211144399024826461}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -94,10 +62,6 @@ AudioMixerController:
     name: FadeVolume
   - guid: 57e111705a6b17c4693531f41611b517
     name: MainWeight
-  - guid: 9e9fecdce4ca8d04ea06f59733c8de5e
-    name: MyExposedParam 1
-  - guid: 44b9aa89256989b4a827caa7e55d2efb
-    name: MyExposedParam
   - guid: 9513360ec80a58d4bac5e0229c734c40
     name: MusicVolume
   - guid: f79e5ff21677fc94db8fa0ea47787266
@@ -132,8 +96,6 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
-  - {fileID: -852544668144121055}
-  - {fileID: 834168368235632449}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -199,22 +161,6 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
---- !u!244 &834168368235632449
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: 95583c315da226345a5de333b55db33e
-  m_EffectName: Distortion
-  m_MixLevel: ba75deb10aadc68409b26efd946fe966
-  m_Parameters:
-  - m_ParameterName: Level
-    m_GUID: 9e9fecdce4ca8d04ea06f59733c8de5e
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
 --- !u!243 &2075817199391640540
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
