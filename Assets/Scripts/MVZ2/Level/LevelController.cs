@@ -548,6 +548,12 @@ namespace MVZ2.Level
         {
             gameObject.SetActive(active);
         }
+        public void SetMusicLowQuality(bool lowQuality)
+        {
+            normalAudioListener.SetActive(!lowQuality);
+            lowQualityAudioListener.SetActive(lowQuality);
+        }
+
         #region 关卡模型
         public void SetModelPreset(string name)
         {
@@ -1157,6 +1163,12 @@ namespace MVZ2.Level
         private LevelUI ui;
         [SerializeField]
         private Transform modelRoot;
+
+        [Header("Audio")]
+        [SerializeField]
+        private GameObject normalAudioListener;
+        [SerializeField]
+        private GameObject lowQualityAudioListener;
         #endregion
     }
 }

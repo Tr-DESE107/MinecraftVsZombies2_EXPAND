@@ -21,10 +21,13 @@ namespace MVZ2.GameContent.RandomChinaEvents
         {
             var level = contraption.Level;
             level.AddBuff<AncientEgyptBuff>();
-            var spawn = level.Content.GetSpawnDefinition(VanillaSpawnID.mummy);
-            for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+            if (!level.IsAllEnemiesCleared() && !level.IsCleared)
             {
-                level.SpawnEnemy(spawn, lane);
+                var spawn = level.Content.GetSpawnDefinition(VanillaSpawnID.mummy);
+                for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+                {
+                    level.SpawnEnemy(spawn, lane);
+                }
             }
             contraption.PlaySound(VanillaSoundID.lowQualityEgypt);
         }
