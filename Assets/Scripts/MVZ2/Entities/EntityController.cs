@@ -137,7 +137,7 @@ namespace MVZ2.Entities
             var pos = TransformWorld2ColliderPosition(worldPosition);
             return new HeldItemTargetEntity(Entity, pos);
         }
-        public HeldItemTargetEntity GetHeldItemTarget(PointerEventData data = null)
+        public HeldItemTargetEntity GetHeldItemTarget(PointerEventData data)
         {
             var pos = Vector2.zero;
             if (data != null)
