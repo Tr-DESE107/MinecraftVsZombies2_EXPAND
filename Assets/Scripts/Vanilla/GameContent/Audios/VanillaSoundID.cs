@@ -102,6 +102,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID magical = Get("magical");
         public readonly static NamespaceID magnetic = Get("magnetic");
         public readonly static NamespaceID mechanism = Get("mechanism");
+        public readonly static NamespaceID meow = Get("meow");
         public readonly static NamespaceID metalSaw = Get("metal_saw");
         public readonly static NamespaceID meteorLand = Get("meteor_land");
         public readonly static NamespaceID mindControl = Get("mind_control");

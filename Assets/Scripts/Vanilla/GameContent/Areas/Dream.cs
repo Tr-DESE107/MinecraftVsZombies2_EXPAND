@@ -79,7 +79,7 @@ namespace MVZ2.GameContent.Areas
         public static void SetToDream(LevelEngine level)
         {
             level.SetAreaModelPreset(VanillaAreaModelPresets.defaultPreset);
-            if (level.HasBuff<NightmareLevelBuff>())
+            if (IsNightmare(level))
             {
                 level.RemoveBuffs<NightmareLevelBuff>();
             }
@@ -95,7 +95,7 @@ namespace MVZ2.GameContent.Areas
         public static void SetToNightmare(LevelEngine level)
         {
             level.SetAreaModelPreset(VanillaAreaModelPresets.Dream.nightmare);
-            if (!level.HasBuff<NightmareLevelBuff>())
+            if (!IsNightmare(level))
             {
                 level.AddBuff<NightmareLevelBuff>();
             }
@@ -107,6 +107,10 @@ namespace MVZ2.GameContent.Areas
             {
                 level.SetPlayingMusic(VanillaMusicID.nightmareLevel);
             }
+        }
+        public static bool IsNightmare(LevelEngine level)
+        {
+            return level.HasBuff<NightmareLevelBuff>();
         }
         public static readonly VanillaLevelPropertyMeta<float> PROP_POOL_WAVE = new VanillaLevelPropertyMeta<float>("PoolWave");
     }
