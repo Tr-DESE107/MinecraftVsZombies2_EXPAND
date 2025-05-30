@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Set, -0.5f, VanillaModifierPriorities.FORCE));
             AddModifier(new Vector3Modifier(VanillaEntityProps.LIGHT_RANGE, NumberOperator.Multiply, PROP_LIGHT_RANGE));
+            AddModifier(new BooleanModifier(VanillaEntityProps.AI_FROZEN, true));
         }
         public override void PostUpdate(Buff buff)
         {
