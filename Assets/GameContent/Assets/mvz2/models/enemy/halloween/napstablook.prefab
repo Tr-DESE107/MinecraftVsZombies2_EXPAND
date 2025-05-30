@@ -286,6 +286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: napstablook
       objectReference: {fileID: 0}
+    - target: {fileID: 4473588116722756895, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: elements.Array.size
       value: 9

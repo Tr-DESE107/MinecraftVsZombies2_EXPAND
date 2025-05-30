@@ -51,7 +51,8 @@ namespace MVZ2.Level
                 }
                 else
                 {
-                    m_Hits = Physics2D.CircleCastAll(ray.origin, castRadius, ray.direction, distanceToClipPlane, finalEventMask);
+                    var hits = Physics2D.CircleCastAll(ray.origin, castRadius, ray.direction, distanceToClipPlane, finalEventMask);
+                    m_Hits = ProcessCircleCasts(hits, ray.origin, distanceToClipPlane);
                 }
                 hitCount = m_Hits.Length;
             }
@@ -70,6 +71,7 @@ namespace MVZ2.Level
                 else
                 {
                     hitCount = Physics2D.CircleCastNonAlloc(ray.origin, castRadius, ray.direction, m_Hits, distanceToClipPlane, finalEventMask);
+                    hitCount = ProcessCircleCastsNonAlloc(m_Hits, hitCount, ray.origin, distanceToClipPlane);
                 }
             }
 
@@ -103,6 +105,55 @@ namespace MVZ2.Level
 
                 resultAppendList.Add(result);
             }
+        }
+        private RaycastHit2D[] ProcessCircleCasts(RaycastHit2D[] hits, Vector3 origin, float maxDistance)
+        {
+            var hitList = new List<RaycastHit2D>();
+            for (int i = 0; i < hits.Length; i++)
+            {
+                var hit = hits[i];
+                // 获取碰撞体上最近点（2D坐标）
+                Vector2 closestPoint = Physics2D.ClosestPoint(origin, hit.collider);
+
+                // 转换为3D点
+                Vector3 hitPoint3D = new Vector3(closestPoint.x, closestPoint.y, hit.collider.transform.position.z);
+
+                // 计算真实3D距离
+                float distance = Vector3.Distance(origin, hitPoint3D);
+                hit.distance = distance;
+                hit.fraction = distance / maxDistance;
+                if (distance > maxDistance)
+                    continue;
+                hitList.Add(hit);
+            }
+            return hitList.ToArray();
+        }
+        private int ProcessCircleCastsNonAlloc(RaycastHit2D[] hits, int count, Vector3 origin, float maxDistance)
+        {
+            int finalCount = count;
+            for (int i = 0; i < count; i++)
+            {
+                var hit = hits[i];
+                // 获取碰撞体上最近点（2D坐标）
+                Vector2 closestPoint = Physics2D.ClosestPoint(origin, hit.collider);
+
+                // 转换为3D点
+                Vector3 hitPoint3D = new Vector3(closestPoint.x, closestPoint.y, hit.collider.transform.position.z);
+
+                // 计算真实3D距离
+                float distance = Vector3.Distance(origin, hitPoint3D);
+                hit.distance = distance;
+                hit.fraction = distance / maxDistance;
+                if (distance > maxDistance)
+                {
+                    for (int j = i; j < count - 1; j++)
+                    {
+                        hits[j] = hits[j + 1];
+                    }
+                    finalCount--;
+                }
+            }
+            return finalCount;
         }
         RaycastHit2D[] m_Hits;
         private HeldItemDefinition heldItemDefinition;
