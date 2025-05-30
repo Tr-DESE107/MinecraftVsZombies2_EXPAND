@@ -46,6 +46,18 @@ namespace MVZ2Logic
         {
             return Input.mousePosition;
         }
+        public static bool IsPointerDown(int type, int button)
+        {
+            return Main.Input.IsPointerDown(type, button);
+        }
+        public static bool IsPointerHolding(int type, int button)
+        {
+            return Main.Input.IsPointerHolding(type, button);
+        }
+        public static bool IsPointerUp(int type, int button)
+        {
+            return Main.Input.IsPointerUp(type, button);
+        }
 
         public static Coroutine StartCoroutine(IEnumerator enumerator)
         {
@@ -150,6 +162,7 @@ namespace MVZ2Logic
         ILevelManager Level { get; }
         IOptionsManager Options { get; }
         IGlobalSave Saves { get; }
+        IInputManager Input { get; }
     }
     public interface ISceneController
     {
@@ -183,5 +196,11 @@ namespace MVZ2Logic
     {
         long GetSaveStat(NamespaceID category, NamespaceID entry);
         void SetSaveStat(NamespaceID category, NamespaceID entry, long value);
+    }
+    public interface IInputManager
+    {
+        bool IsPointerDown(int type, int button);
+        bool IsPointerHolding(int type, int button);
+        bool IsPointerUp(int type, int button);
     }
 }

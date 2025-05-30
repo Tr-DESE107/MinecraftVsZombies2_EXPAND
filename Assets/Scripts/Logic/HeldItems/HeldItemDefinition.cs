@@ -1,64 +1,87 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MVZ2.HeldItems;
+using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Base;
+using PVZEngine.Callbacks;
 using PVZEngine.Level;
 using PVZEngine.Models;
 
 namespace MVZ2Logic.HeldItems
 {
-    public abstract class HeldItemDefinition : Definition
+    public abstract class HeldItemDefinition : Definition, ICachedDefinition
     {
         public HeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        protected void AddBehaviour(HeldItemBehaviour behaviour)
+        protected void AddBehaviour(NamespaceID behaviour)
         {
             behaviours.Add(behaviour);
         }
-        public virtual void Begin(LevelEngine level, IHeldItemData data)
+        public bool HasBehaviour(LevelEngine level, IHeldItemData data, HeldItemBehaviourDefinition behaviour)
         {
-            foreach (var behaviour in behaviours)
+            return GetBehaviours()?.Contains(behaviour) ?? false;
+        }
+        public void Begin(LevelEngine level, IHeldItemData data)
+        {
+            foreach (var behaviour in GetBehaviours())
             {
                 behaviour.OnBegin(level, data);
             }
         }
-        public virtual void End(LevelEngine level, IHeldItemData data)
+        public void End(LevelEngine level, IHeldItemData data)
         {
-            foreach (var behaviour in behaviours)
+            foreach (var behaviour in GetBehaviours())
             {
                 behaviour.OnEnd(level, data);
             }
         }
-        public virtual void Update(LevelEngine level, IHeldItemData data)
+        public void Update(LevelEngine level, IHeldItemData data)
         {
-            foreach (var behaviour in behaviours)
+            foreach (var behaviour in GetBehaviours())
             {
                 behaviour.OnUpdate(level, data);
             }
         }
-        public virtual bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerData pointer)
+
+        public void CacheContents(IGameContent content)
+        {
+            foreach (var id in behaviours)
+            {
+                var behaviour = content.GetHeldItemBehaviourDefinition(id);
+                if (behaviour == null)
+                    continue;
+                behavioursCache.Add(behaviour);
+            }
+        }
+
+        public void ClearCaches()
+        {
+            behavioursCache.Clear();
+        }
+        public bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerData pointer)
         {
             var interactionData = new PointerInteractionData()
             {
                 pointer = pointer,
                 interaction = PointerInteraction.Hover
             };
-            foreach (var behaviour in behaviours)
+            foreach (var behaviour in GetBehaviours())
             {
                 if (behaviour.IsValidFor(target, data, interactionData))
                     return true;
             }
             return false;
         }
-        public virtual HeldHighlight GetHighlight(IHeldItemTarget target, IHeldItemData data, PointerData pointer)
+        public HeldHighlight GetHighlight(IHeldItemTarget target, IHeldItemData data, PointerData pointer)
         {
             var interactionData = new PointerInteractionData()
             {
                 pointer = pointer,
                 interaction = PointerInteraction.Hover
             };
-            foreach (var behaviour in behaviours)
+            foreach (var behaviour in GetBehaviours())
             {
                 if (behaviour.IsValidFor(target, data, interactionData))
                 {
@@ -69,9 +92,9 @@ namespace MVZ2Logic.HeldItems
             }
             return HeldHighlight.None;
         }
-        public virtual void DoPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
+        public void DoPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
-            foreach (var behaviour in behaviours)
+            foreach (var behaviour in GetBehaviours())
             {
                 if (behaviour.IsValidFor(target, data, pointerParams))
                 {
@@ -79,18 +102,47 @@ namespace MVZ2Logic.HeldItems
                 }
             }
         }
-        public virtual void PostSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
+        public void PostSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
         {
-            foreach (var behaviour in behaviours)
+            foreach (var behaviour in GetBehaviours())
             {
                 behaviour.OnSetModel(level, data, model);
             }
         }
-        public virtual NamespaceID GetModelID(LevelEngine level, IHeldItemData data) => null;
-        public virtual float GetRadius(LevelEngine level, IHeldItemData data) => 0;
+        public NamespaceID GetModelID(LevelEngine level, IHeldItemData data)
+        {
+            var callbackResult = new CallbackResult(null);
+            foreach (var behaviour in GetBehaviours())
+            {
+                if (callbackResult.IsBreakRequested)
+                    break;
+                behaviour.GetModelID(level, data, callbackResult);
+            }
+            return callbackResult.GetValue<NamespaceID>();
+        }
+        public float GetRadius(LevelEngine level, IHeldItemData data)
+        {
+            var callbackResult = new CallbackResult(0);
+            foreach (var behaviour in GetBehaviours())
+            {
+                if (callbackResult.IsBreakRequested)
+                    break;
+                behaviour.GetRadius(level, data, callbackResult);
+            }
+            return callbackResult.GetValue<float>();
+        }
+        public T GetBehaviour<T>()
+        {
+            return behavioursCache.OfType<T>().FirstOrDefault();
+        }
+        public IEnumerable<HeldItemBehaviourDefinition> GetBehaviours()
+        {
+            return behavioursCache;
+        }
         public sealed override string GetDefinitionType() => LogicDefinitionTypes.HELD_ITEM;
 
-        private List<HeldItemBehaviour> behaviours = new List<HeldItemBehaviour>();
+        private List<NamespaceID> behaviours = new List<NamespaceID>();
+        private List<HeldItemBehaviourDefinition> behavioursCache = new List<HeldItemBehaviourDefinition>();
     }
     public enum LawnArea
     {

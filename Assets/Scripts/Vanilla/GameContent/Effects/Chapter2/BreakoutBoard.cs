@@ -1,15 +1,12 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs.Effects;
-using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Projectiles;
-using MVZ2.HeldItems;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
-using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
@@ -20,7 +17,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Effects
 {
     [EntityBehaviourDefinition(VanillaEffectNames.breakoutBoard)]
-    public class BreakoutBoard : EffectBehaviour, IHeldEntityPointerEventHandler
+    public class BreakoutBoard : EffectBehaviour
     {
 
         #region 公有方法
@@ -103,7 +100,7 @@ namespace MVZ2.GameContent.Effects
             var type = param.type;
             var phase = param.phase;
             var screenPosition = param.screenPos;
-            var index = param.index;
+            var button = param.button;
             if (!Global.Game.IsInLevel())
                 return;
             var level = Global.Game.GetLevel();
@@ -118,7 +115,7 @@ namespace MVZ2.GameContent.Effects
                 {
                     if (phase == PointerPhase.Press || phase == PointerPhase.Hold)
                     {
-                        var touchDelta = Global.GetTouchDelta(index);
+                        var touchDelta = Global.GetTouchDelta(button);
                         var lastScreenPosition = screenPosition - touchDelta;
                         var pointerPosition = level.ScreenToLawnPositionByY(screenPosition, 32);
                         var lastPointerPosition = level.ScreenToLawnPositionByY(lastScreenPosition, 32);
@@ -298,22 +295,6 @@ namespace MVZ2.GameContent.Effects
             return entryTime;
         }
 
-        bool IHeldEntityBehaviour.IsHeldItemValidFor(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
-        {
-            return target is HeldItemTargetLawn targetLawn && targetLawn.Area == LawnArea.Main;
-        }
-
-        HeldHighlight IHeldEntityBehaviour.GetHeldItemHighlight(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
-        {
-            return HeldHighlight.None;
-        }
-
-        void IHeldEntityPointerEventHandler.OnHeldItemPointerEvent(Entity entity, IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
-        {
-            if (pointerParams.IsInvalidClickButton() || pointerParams.IsInvalidReleaseAction())
-                return;
-            FirePearl(entity);
-        }
         public static readonly NamespaceID ID = VanillaEffectID.breakoutBoard;
         public static readonly VanillaEntityPropertyMeta<int> PROP_RESPAWN_COUNTDOWN = new VanillaEntityPropertyMeta<int>("RespawnCountdown");
         public static readonly VanillaEntityPropertyMeta<Vector3> PROP_NEXT_POSITION = new VanillaEntityPropertyMeta<Vector3>("NextPosition");

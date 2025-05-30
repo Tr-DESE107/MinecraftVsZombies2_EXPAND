@@ -44,11 +44,11 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.soulFurnace,
                 VanillaContraptionID.dispenser,
-                VanillaContraptionID.thunderDrum,
-                VanillaContraptionID.hellfire,
+                VanillaContraptionID.devourer,
+                VanillaContraptionID.desirePot,
                 VanillaContraptionID.gravityPad,
-                VanillaContraptionID.necrotombstone,
-                VanillaEnemyID.caveSpider,
+                VanillaContraptionID.forcePad,
+                VanillaContraptionID.tnt,
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.shikaisenStaff,
                 VanillaEnemyID.ghost,
@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Stages
             level.ReplaceArtifacts(new NamespaceID[]
             {
                 VanillaArtifactID.netherStar,
-                VanillaArtifactID.greedyVacuum,
+                VanillaArtifactID.almanac,
                 VanillaArtifactID.theCreaturesHeart,
             });
             level.SetRechargeSpeed(9999999);

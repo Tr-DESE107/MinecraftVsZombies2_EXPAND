@@ -13,9 +13,10 @@ using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    internal class SelectBlueprintHeldItemBehaviour : HeldItemBehaviour
+    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.selectBlueprint)]
+    public class SelectBlueprintHeldItemBehaviour : HeldItemBehaviourDefinition
     {
-        public SelectBlueprintHeldItemBehaviour(HeldItemDefinition definition) : base(definition)
+        public SelectBlueprintHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerInteraction)
@@ -34,23 +35,9 @@ namespace MVZ2.GameContent.HeldItems
         }
         public override void OnPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
-            var pointer = pointerParams.pointer;
-            if (pointer.type == PointerTypes.MOUSE && pointer.button == MouseButtons.RIGHT)
-            {
-                OnRightMouseEvent(target, data, pointerParams);
-                return;
-            }
             if (pointerParams.IsInvalidClickButton())
                 return;
             OnMainPointerEvent(target, data, pointerParams);
-        }
-        private void OnRightMouseEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
-        {
-            var level = target.GetLevel();
-            if (level.CancelHeldItem())
-            {
-                level.PlaySound(VanillaSoundID.tap);
-            }
         }
         private void OnMainPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {

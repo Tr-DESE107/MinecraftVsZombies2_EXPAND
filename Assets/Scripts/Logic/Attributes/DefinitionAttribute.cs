@@ -26,6 +26,12 @@ namespace MVZ2Logic
         {
         }
     }
+    public class HeldItemBehaviourDefinitionAttribute : DefinitionAttribute
+    {
+        public HeldItemBehaviourDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.HELD_ITEM_BEHAVIOUR)
+        {
+        }
+    }
     public class IZombieLayoutDefinitionAttribute : DefinitionAttribute
     {
         public IZombieLayoutDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.I_ZOMBIE_LAYOUT)

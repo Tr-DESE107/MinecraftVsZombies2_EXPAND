@@ -8,24 +8,28 @@ namespace MVZ2.Scenes
         private void Update()
         {
             var deltaTime = Time.deltaTime;
+            timeModular += deltaTime;
+
+            var fixedInterval = 1 / (float)logicTicksPerSeconds;
+
             var level = main.LevelManager.GetLevel();
-            if (level)
+            if (timeModular > fixedInterval)
             {
-                timeModular += deltaTime;
-
-                var fixedInterval = 1 / (float)logicTicksPerSeconds;
-
-                if (timeModular > fixedInterval)
+                int updateTimes = (int)(timeModular / fixedInterval);
+                updateTimes = Mathf.Min(updateTimes, maxUpdateTimePerFrame);
+                for (int i = 0; i < updateTimes; i++)
                 {
-                    int updateTimes = (int)(timeModular / fixedInterval);
-                    updateTimes = Mathf.Min(updateTimes, maxUpdateTimePerFrame);
-                    for (int i = 0; i < updateTimes; i++)
+                    if (level)
                     {
                         level.UpdateLogic();
                     }
-                    timeModular %= fixedInterval;
+                    main.UpdateManagerFixed();
                 }
-                var updateDeltaTime = Mathf.Min(fixedInterval * maxUpdateTimePerFrame, deltaTime);
+                timeModular %= fixedInterval;
+            }
+            var updateDeltaTime = Mathf.Min(fixedInterval * maxUpdateTimePerFrame, deltaTime);
+            if (level)
+            {
                 level.UpdateFrame(updateDeltaTime);
             }
         }

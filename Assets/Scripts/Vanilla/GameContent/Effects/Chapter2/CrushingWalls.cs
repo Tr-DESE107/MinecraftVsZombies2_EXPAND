@@ -31,7 +31,6 @@ namespace MVZ2.GameContent.Effects
             var type = param.type;
             var phase = param.phase;
             var screenPosition = param.screenPos;
-            var index = param.index;
             if (!Global.Game.IsInLevel())
                 return;
             var level = Global.Game.GetLevel();

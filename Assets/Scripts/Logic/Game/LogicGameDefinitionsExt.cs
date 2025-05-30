@@ -13,6 +13,10 @@ namespace MVZ2Logic.Games
         {
             return provider.GetDefinition<HeldItemDefinition>(LogicDefinitionTypes.HELD_ITEM, heldType);
         }
+        public static HeldItemBehaviourDefinition GetHeldItemBehaviourDefinition(this IGameContent provider, NamespaceID heldType)
+        {
+            return provider.GetDefinition<HeldItemBehaviourDefinition>(LogicDefinitionTypes.HELD_ITEM_BEHAVIOUR, heldType);
+        }
         public static ArtifactDefinition GetArtifactDefinition(this IGameContent provider, NamespaceID defRef)
         {
             return provider.GetDefinition<ArtifactDefinition>(LogicDefinitionTypes.ARTIFACT, defRef);
