@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-05-27 05:24+0800\n"
-"PO-Revision-Date: 2025-05-27 17:26+0800\n"
+"PO-Revision-Date: 2025-05-30 18:57+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -274,7 +274,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "这本来会是一条非常具有冲击性的描述，可惜它目前还在进行修复。"
-msgstr "This would have been a very impactful description, but unfortunately it is still under repair."
+msgstr "This description would have packed a punch, but unfortunately, it is still under repair."
 
 #. Header for contraptions mvz2:tnt
 #: Almanac meta file
@@ -581,7 +581,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid "美梦丝是个睡货，它每天睁开眼睛做的第一件事就是睡觉。瞧瞧它睡的，把自己的冷却时间也给睡长了。"
 msgstr ""
-"Dream Silk is a sleepy guy. The first thing he does after waking up is sleeping. Look at him, even his recharge time is increased "
+"Dream Silk is a sleepy one. The first thing it does after waking up is sleep. Just look at it, even its recharge time has increased "
 "because of this."
 
 #. Header for contraptions mvz2:wooden_dropper
@@ -767,7 +767,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "我在玩什么游戏？"
-msgstr "WHAT GAME AM I AUTALLY PLAYIING?"
+msgstr "WHAT GAME AM I EVEN PLAYING?!"
 
 #. Header for contraptions mvz2:giant_bowl
 #: Almanac meta file
@@ -1472,7 +1472,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。"
-msgstr "It has won the \"Spidernet Surfing Competition\" many times, just because the other spiders can't swim."
+msgstr "It has won the \"Spider Web Surfing Competition\" many times, just because the other spiders can't swim."
 
 #. Header for enemies mvz2:ghast
 #: Almanac meta file
