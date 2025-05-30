@@ -64,9 +64,9 @@ namespace MVZ2.GameContent.Effects
                                 TheGiantSnakeTail.GetFullSnake(target, snakeBuffer);
                                 foreach (var segment in snakeBuffer)
                                 {
-                                    target.Velocity = Vector3.zero;
-                                    var newCenter = target.GetCenter() * 0.7f + entity.GetCenter() * 0.3f;
-                                    target.SetCenter(newCenter);
+                                    segment.Velocity = Vector3.zero;
+                                    var newCenter = segment.GetCenter() * 0.9f + entity.GetCenter() * 0.1f;
+                                    segment.SetCenter(newCenter);
                                 }
                             }
                         }
