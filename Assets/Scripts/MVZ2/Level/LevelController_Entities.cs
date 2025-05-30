@@ -68,7 +68,7 @@ namespace MVZ2.Level
             if (IsGameRunning())
             {
                 // 触发手持物品指针事件。
-                var target = entityCtrl.GetHeldItemTarget();
+                var target = entityCtrl.GetHeldItemTarget(eventData);
                 var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(eventData, interaction);
                 level.DoHeldItemPointerEvent(target, pointerParams);
             }
