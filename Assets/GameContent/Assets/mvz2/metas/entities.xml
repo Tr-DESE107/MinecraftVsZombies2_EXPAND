@@ -1528,13 +1528,6 @@
                 <int name="mvz2:waterInteraction" value="0" />
             </properties>
         </cart>
-        <cart id="nyaightmare" name="噩梦猫">
-            <properties>
-                <id name="mvz2:cartTriggerSound" value="mvz2:nyaightmare_scream" />
-                <float name="mvz2:gravity" value="0" />
-                <int name="mvz2:waterInteraction" value="0" />
-            </properties>
-        </cart>
         <cart id="bowl_chariot" name="碗车" >
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:giant_bowl" />
