@@ -238,7 +238,8 @@ namespace MVZ2.Managers
                     }
                     break;
                 case PointerTypes.TOUCH:
-                    for (int i = 0; i < Input.touchCount; i++)
+                    int touchCount = Input.touchCount;
+                    for (int i = 0; i < touchCount; i++)
                     {
                         var touch = Input.GetTouch(i);
                         PointerPhase phase = PointerPhase.Hold;
@@ -252,13 +253,21 @@ namespace MVZ2.Managers
                                 phase = PointerPhase.Release;
                                 break;
                         }
-                        PollPointerEvent(currentPointerType, touch.fingerId, touch.position, touch.deltaPosition, phase);
+                        var delta = Vector2.zero;
+                        if (lastTouchPositions.Count > i)
+                        {
+                            delta = touch.position - lastTouchPositions[i];
+                            lastTouchPositions[i] = touch.position;
+                        }
+                        else
+                        {
+                            lastTouchPositions.Add(touch.position);
+                        }
+                        PollPointerEvent(currentPointerType, touch.fingerId, touch.position, delta, phase);
                     }
+                    lastTouchPositions.RemoveRange(touchCount, lastTouchPositions.Count - touchCount);
                     break;
             }
-        }
-        public void UpdateManager()
-        {
             FlushPointerCaches();
         }
         private void FlushPointerCaches()
@@ -279,14 +288,15 @@ namespace MVZ2.Managers
         }
         private void PollPointerEvent(int type, int button, Vector2 screenPosition, Vector2 delta, PointerPhase phase)
         {
-            pointerEventCacheList.Add(new PointerEventCacheData()
+            var cache = new PointerEventCacheData()
             {
                 type = type,
                 button = button,
                 position = screenPosition,
                 phase = phase,
                 delta = delta,
-            });
+            };
+            pointerEventCacheList.Add(cache);
         }
         bool IInputManager.IsPointerDown(int type, int button)
         {
@@ -303,6 +313,7 @@ namespace MVZ2.Managers
         public MainManager Main => MainManager.Instance;
         private int currentPointerType = PointerTypes.MOUSE;
         private Vector2 lastMousePosition;
+        private List<Vector2> lastTouchPositions = new List<Vector2>();
         private List<PointerEventCacheData> pointerEventCacheList = new List<PointerEventCacheData>();
     }
     public struct PointerPositionParams
@@ -318,5 +329,10 @@ namespace MVZ2.Managers
         public Vector2 position;
         public Vector2 delta;
         public PointerPhase phase;
+
+        public override string ToString()
+        {
+            return $"type: {type}, button: {button}, position: {position}, delta: {delta}, phase: {phase}";
+        }
     }
 }

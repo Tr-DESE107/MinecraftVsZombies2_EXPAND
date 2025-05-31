@@ -35,10 +35,11 @@ namespace MVZ2.GameContent.Effects
             base.Update(entity);
             var level = entity.Level;
 
-            var nextPosition = GetBoardNextPosition(entity);
-            if (nextPosition.sqrMagnitude > 0)
+            var nextDisplacement = GetBoardNextDisplacement(entity);
+            if (nextDisplacement.sqrMagnitude > 0)
             {
-                entity.Position = nextPosition;
+                entity.Position += nextDisplacement;
+                SetBoardNextDisplacement(entity, Vector3.zero);
             }
 
             bool pearlExists = true;
@@ -111,7 +112,7 @@ namespace MVZ2.GameContent.Effects
             level.FindEntitiesNonAlloc(e => e.IsEntityOf(VanillaEffectID.breakoutBoard), boardsBuffer);
             foreach (var board in boardsBuffer)
             {
-                Vector3 position = board.Position;
+                Vector3 position = board.Position + GetBoardNextDisplacement(board);
                 if (type == PointerTypes.TOUCH)
                 {
                     if (phase == PointerPhase.Press || phase == PointerPhase.Hold)
@@ -119,7 +120,7 @@ namespace MVZ2.GameContent.Effects
                         var lastScreenPosition = screenPosition - delta;
                         var pointerPosition = level.ScreenToLawnPositionByY(screenPosition, 32);
                         var lastPointerPosition = level.ScreenToLawnPositionByY(lastScreenPosition, 32);
-                        position = board.Position + pointerPosition - lastPointerPosition;
+                        position += pointerPosition - lastPointerPosition;
                     }
                 }
                 else if (type == PointerTypes.MOUSE)
@@ -129,7 +130,7 @@ namespace MVZ2.GameContent.Effects
                 }
                 position.x = Mathf.Clamp(position.x, MIN_X, MAX_X);
                 position.z = Mathf.Clamp(position.z, level.GetGridBottomZ(), level.GetGridTopZ());
-                SetBoardNextPosition(board, position);
+                SetBoardNextDisplacement(board, position - board.Position);
             }
         }
         #endregion
@@ -177,13 +178,13 @@ namespace MVZ2.GameContent.Effects
         {
             board.SetBehaviourField(ID, PROP_RESPAWN_COUNTDOWN, value);
         }
-        public static Vector3 GetBoardNextPosition(Entity board)
+        public static Vector3 GetBoardNextDisplacement(Entity board)
         {
-            return board.GetBehaviourField<Vector3>(ID, PROP_NEXT_POSITION);
+            return board.GetBehaviourField<Vector3>(ID, PROP_NEXT_DISPLACEMENT);
         }
-        public static void SetBoardNextPosition(Entity board, Vector3 value)
+        public static void SetBoardNextDisplacement(Entity board, Vector3 value)
         {
-            board.SetBehaviourField(ID, PROP_NEXT_POSITION, value);
+            board.SetBehaviourField(ID, PROP_NEXT_DISPLACEMENT, value);
         }
         /// <summary>
         /// 计算碰撞后移动矩形B的位置，防止穿过静止矩形A
@@ -297,7 +298,7 @@ namespace MVZ2.GameContent.Effects
 
         public static readonly NamespaceID ID = VanillaEffectID.breakoutBoard;
         public static readonly VanillaEntityPropertyMeta<int> PROP_RESPAWN_COUNTDOWN = new VanillaEntityPropertyMeta<int>("RespawnCountdown");
-        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_NEXT_POSITION = new VanillaEntityPropertyMeta<Vector3>("NextPosition");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_NEXT_DISPLACEMENT = new VanillaEntityPropertyMeta<Vector3>("NextDisplacement");
         public const int MAX_RESPAWN_COUNTDOWN = 90;
         public const float PEARL_SPEED = 15;
         public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;
