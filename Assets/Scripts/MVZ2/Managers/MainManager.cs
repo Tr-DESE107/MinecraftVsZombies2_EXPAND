@@ -39,7 +39,6 @@ namespace MVZ2.Managers
         }
         public void UpdateManagerFixed()
         {
-            InputManager.UpdateManager();
         }
         public bool IsMobile()
         {
