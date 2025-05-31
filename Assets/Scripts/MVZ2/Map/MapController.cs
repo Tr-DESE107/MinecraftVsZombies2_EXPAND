@@ -524,7 +524,9 @@ namespace MVZ2.Map
             raycastResultCache.Clear();
             eventSystem.RaycastAll(pointerEventData, raycastResultCache);
             var first = raycastResultCache.FirstOrDefault(r => r.gameObject).gameObject;
-            return !first || first == raycastHitbox;
+            if (!first)
+                return false;
+            return first == raycastHitbox || first.GetComponentInParent<MapElement>();
         }
         private bool IsPositionOnReceiverOrButton(Vector2 position)
         {
@@ -536,7 +538,9 @@ namespace MVZ2.Map
             };
             eventSystem.RaycastAll(pointerEventData, raycastResultCache);
             var first = raycastResultCache.FirstOrDefault(r => r.gameObject).gameObject;
-            return !first || first == raycastHitbox || first.GetComponentInParent<MapButton>();
+            if (!first)
+                return false;
+            return first == raycastHitbox || first.GetComponentInParent<MapElement>() || first.GetComponentInParent<MapButton>();
         }
         #endregion
 
