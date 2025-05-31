@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcad957dfdfbd1949b88a88da3641b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logger: {fileID: 1937476691}
 --- !u!1 &992788513
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,12 +270,12 @@ GameObject:
   - component: {fileID: 1937476692}
   - component: {fileID: 1937476691}
   m_Layer: 0
-  m_Name: AndroidLogger
+  m_Name: Logger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1937476691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,10 +285,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1937476690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac31e30d10ff4f4b8d7dc5a15671cbe, type: 3}
+  m_Script: {fileID: 11500000, guid: 264388a656e48a745af628b51c11fdef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: mvz2_log
+  cloneSuffix: -current
   prevSuffix: -prev
   extension: .log
 --- !u!4 &1937476692

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-31 09:01+0800\n"
+"POT-Creation-Date: 2025-05-31 04:53+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,6 +120,11 @@ msgstr ""
 #. 按钮文本
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Buttons/Line3/Keybindings/Text
 msgid "快捷键设置"
+msgstr ""
+
+#. 按钮文本
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Buttons/Line3/ExportLogFiles/Text
+msgid "导出游戏日志"
 msgstr ""
 
 #. 标题
@@ -1200,67 +1205,67 @@ msgid ""
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:211
+#: Scripts\MVZ2\Options\OptionsLogic.cs:216
 msgid "交换触发：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:213
+#: Scripts\MVZ2\Options\OptionsLogic.cs:218
 msgid "全屏：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:215
+#: Scripts\MVZ2\Options\OptionsLogic.cs:220
 msgid "设备震动：{0}"
 msgstr ""
 
 # 选项，{0}为难度
-#: Scripts\MVZ2\Options\OptionsLogic.cs:217
+#: Scripts\MVZ2\Options\OptionsLogic.cs:222
 msgid "难度：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:219
+#: Scripts\MVZ2\Options\OptionsLogic.cs:224
 msgid "后台暂停：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:223
+#: Scripts\MVZ2\Options\OptionsLogic.cs:228
 msgid "音乐音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:225
+#: Scripts\MVZ2\Options\OptionsLogic.cs:230
 msgid "音效音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:227
+#: Scripts\MVZ2\Options\OptionsLogic.cs:232
 msgid "加速倍率：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:230
+#: Scripts\MVZ2\Options\OptionsLogic.cs:235
 msgid "血与碎块：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:233
+#: Scripts\MVZ2\Options\OptionsLogic.cs:238
 msgid "跳过对话：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:235
+#: Scripts\MVZ2\Options\OptionsLogic.cs:240
 msgid "赞助者名称：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:238
+#: Scripts\MVZ2\Options\OptionsLogic.cs:243
 msgid "粒子数量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:240
+#: Scripts\MVZ2\Options\OptionsLogic.cs:245
 msgid "屏幕震动：{0}"
 msgstr ""
 
@@ -1377,29 +1382,39 @@ msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:661
+#: Scripts\MVZ2\Map\MapController.cs:665
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:663
+#: Scripts\MVZ2\Map\MapController.cs:667
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:665
+#: Scripts\MVZ2\Map\MapController.cs:669
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:667
+#: Scripts\MVZ2\Map\MapController.cs:671
 msgid ""
 "轮数\n"
 "{0}/{1}"
+msgstr ""
+
+# 日志导出失败的警告
+#: Scripts\MVZ2\Managers\DebugManager.cs:43
+msgid "导出日志失败。"
+msgstr ""
+
+# 日志导出成功的提示，{0}为路径
+#: Scripts\MVZ2\Managers\DebugManager.cs:45
+msgid "日志已导出至{0}。"
 msgstr ""
 
 # 按键名
@@ -2252,27 +2267,27 @@ msgstr ""
 msgid "请按键"
 msgstr ""
 
-# 语言包导出失败的警告
+# 存档导出失败的警告
 #: Scripts\MVZ2\Mainmenu\MainmenuController.cs:902
 msgid "导出存档失败。"
 msgstr ""
 
-# 语言包导入失败的警告
+# 存档导入失败的警告
 #: Scripts\MVZ2\Mainmenu\MainmenuController.cs:904
 msgid "导入存档失败。"
 msgstr ""
 
-# 语言包导入失败的警告
+# 存档导入失败的警告
 #: Scripts\MVZ2\Mainmenu\MainmenuController.cs:906
 msgid "导入存档失败，文件可能已损坏。"
 msgstr ""
 
-# 语言包导入失败的警告
+# 存档导入失败的警告
 #: Scripts\MVZ2\Mainmenu\MainmenuController.cs:908
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 
-# 语言包导出成功的提示，{0}为路径
+# 存档导出成功的提示，{0}为路径
 #: Scripts\MVZ2\Mainmenu\MainmenuController.cs:910
 msgid "存档已导出至{0}。"
 msgstr ""
