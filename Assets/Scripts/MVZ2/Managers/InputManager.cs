@@ -209,27 +209,30 @@ namespace MVZ2.Managers
             {
                 case PointerTypes.MOUSE:
                     {
+                        var position = (Vector2)Input.mousePosition;
+                        var delta = position - lastMousePosition;
+                        lastMousePosition = position;
                         for (int mouse = 0; mouse <= 2; mouse++)
                         {
                             bool hasState = false;
                             if (Input.GetMouseButtonDown(mouse))
                             {
                                 hasState = true;
-                                PollPointerEvent(currentPointerType, mouse, Input.mousePosition, PointerPhase.Press);
+                                PollPointerEvent(currentPointerType, mouse, position, delta, PointerPhase.Press);
                             }
                             if (Input.GetMouseButton(mouse))
                             {
                                 hasState = true;
-                                PollPointerEvent(currentPointerType, mouse, Input.mousePosition, PointerPhase.Hold);
+                                PollPointerEvent(currentPointerType, mouse, position, delta, PointerPhase.Hold);
                             }
                             if (Input.GetMouseButtonUp(mouse))
                             {
                                 hasState = true;
-                                PollPointerEvent(currentPointerType, mouse, Input.mousePosition, PointerPhase.Release);
+                                PollPointerEvent(currentPointerType, mouse, position, delta, PointerPhase.Release);
                             }
                             if (!hasState)
                             {
-                                PollPointerEvent(currentPointerType, mouse, Input.mousePosition, PointerPhase.None);
+                                PollPointerEvent(currentPointerType, mouse, position, delta, PointerPhase.None);
                             }
                         }
                     }
@@ -249,7 +252,7 @@ namespace MVZ2.Managers
                                 phase = PointerPhase.Release;
                                 break;
                         }
-                        PollPointerEvent(currentPointerType, touch.fingerId, touch.position, phase);
+                        PollPointerEvent(currentPointerType, touch.fingerId, touch.position, touch.deltaPosition, phase);
                     }
                     break;
             }
@@ -267,20 +270,22 @@ namespace MVZ2.Managers
                     type = poll.type,
                     button = poll.button,
                     screenPos = poll.position,
-                    phase = poll.phase
+                    phase = poll.phase,
+                    delta = poll.delta,
                 };
                 Main.Game.RunCallbackFiltered(VanillaCallbacks.POST_POINTER_ACTION, param, param.phase);
             }
             pointerEventCacheList.Clear();
         }
-        private void PollPointerEvent(int type, int button, Vector2 screenPosition, PointerPhase phase)
+        private void PollPointerEvent(int type, int button, Vector2 screenPosition, Vector2 delta, PointerPhase phase)
         {
             pointerEventCacheList.Add(new PointerEventCacheData()
             {
                 type = type,
                 button = button,
                 position = screenPosition,
-                phase = phase
+                phase = phase,
+                delta = delta,
             });
         }
         bool IInputManager.IsPointerDown(int type, int button)
@@ -297,6 +302,7 @@ namespace MVZ2.Managers
         }
         public MainManager Main => MainManager.Instance;
         private int currentPointerType = PointerTypes.MOUSE;
+        private Vector2 lastMousePosition;
         private List<PointerEventCacheData> pointerEventCacheList = new List<PointerEventCacheData>();
     }
     public struct PointerPositionParams
@@ -310,6 +316,7 @@ namespace MVZ2.Managers
         public int type;
         public int button;
         public Vector2 position;
+        public Vector2 delta;
         public PointerPhase phase;
     }
 }

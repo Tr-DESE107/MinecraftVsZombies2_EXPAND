@@ -101,6 +101,7 @@ namespace MVZ2.GameContent.Effects
             var phase = param.phase;
             var screenPosition = param.screenPos;
             var button = param.button;
+            var delta = param.delta;
             if (!Global.Game.IsInLevel())
                 return;
             var level = Global.Game.GetLevel();
@@ -115,8 +116,7 @@ namespace MVZ2.GameContent.Effects
                 {
                     if (phase == PointerPhase.Press || phase == PointerPhase.Hold)
                     {
-                        var touchDelta = Global.GetTouchDelta(button);
-                        var lastScreenPosition = screenPosition - touchDelta;
+                        var lastScreenPosition = screenPosition - delta;
                         var pointerPosition = level.ScreenToLawnPositionByY(screenPosition, 32);
                         var lastPointerPosition = level.ScreenToLawnPositionByY(lastScreenPosition, 32);
                         position = board.Position + pointerPosition - lastPointerPosition;
