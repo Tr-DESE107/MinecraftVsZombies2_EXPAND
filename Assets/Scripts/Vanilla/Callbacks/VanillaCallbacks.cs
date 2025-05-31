@@ -27,13 +27,15 @@ namespace MVZ2.Vanilla.Callbacks
             public int type;
             public int button;
             public Vector2 screenPos;
+            public Vector2 delta;
             public PointerPhase phase;
 
-            public PostPointerActionParams(int type, int button, Vector2 screenPos, PointerPhase phase)
+            public PostPointerActionParams(int type, int button, Vector2 screenPos, Vector2 delta, PointerPhase phase)
             {
                 this.type = type;
                 this.button = button;
                 this.screenPos = screenPos;
+                this.delta = delta;
                 this.phase = phase;
             }
         }

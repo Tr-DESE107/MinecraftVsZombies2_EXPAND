@@ -26,26 +26,6 @@ namespace MVZ2Logic
             }
             return Input.mousePosition;
         }
-        public static int GetTouchCount()
-        {
-            return Input.touchCount;
-        }
-        public static Vector2 GetTouchDelta(int index)
-        {
-            return Input.GetTouch(index).deltaPosition;
-        }
-        public static Vector2 GetTouchPosition(int index)
-        {
-            return Input.GetTouch(index).position;
-        }
-        public static bool IsMousePresent()
-        {
-            return Input.mousePresent;
-        }
-        public static Vector2 GetMousePosition()
-        {
-            return Input.mousePosition;
-        }
         public static bool IsPointerDown(int type, int button)
         {
             return Main.Input.IsPointerDown(type, button);
