@@ -4124,6 +4124,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b7890603e8ff0b449785725ca9663e1
+    m_Address: mvz2:cart/nyaightmare
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b99780004967464787b9b86745a18c2
     m_Address: mvz2:enemy/castle/mesmerizer
     m_ReadOnly: 0

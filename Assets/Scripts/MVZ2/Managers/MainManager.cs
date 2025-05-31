@@ -295,6 +295,7 @@ namespace MVZ2.Managers
         public InputManager InputManager => inputManager;
         public SponsorManager SponsorManager => sponsorManager;
         public GraphicsManager GraphicsManager => graphicsManager;
+        public DebugManager DebugManager => debugManager;
         public MainSceneController Scene => scene;
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
@@ -351,6 +352,8 @@ namespace MVZ2.Managers
         private SponsorManager sponsorManager;
         [SerializeField]
         private GraphicsManager graphicsManager;
+        [SerializeField]
+        private DebugManager debugManager;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode

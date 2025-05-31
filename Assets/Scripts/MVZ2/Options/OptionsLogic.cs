@@ -78,6 +78,11 @@ namespace MVZ2.Options
                         UpdatePauseOnFocusLostButton();
                     }
                     break;
+                case ButtonType.ExportLogFiles:
+                    {
+                        Main.DebugManager.ExportLogFiles();
+                    }
+                    break;
             }
         }
         protected virtual void OnSliderValueChangedCallback(SliderType type, float value)
