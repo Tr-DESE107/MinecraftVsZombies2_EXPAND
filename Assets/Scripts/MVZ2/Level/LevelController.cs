@@ -235,8 +235,8 @@ namespace MVZ2.Level
                 level.StopAllLoopSounds();
                 level.Dispose();
             }
-            SetLighting(Color.white, Color.white);
             Game.SetLevel(null);
+            isDisposed = true;
         }
         public async Task ExitLevelToNote(NamespaceID id)
         {
@@ -245,6 +245,7 @@ namespace MVZ2.Level
             Scene.DisplayNote(id, buttonText);
             SetActive(false);
             await ExitScene();
+            Main.GraphicsManager.ResetLighting();
         }
         public void SetExitTarget(LevelExitTarget target)
         {
@@ -268,6 +269,7 @@ namespace MVZ2.Level
             }
             SetActive(false);
             await ExitScene();
+            Main.GraphicsManager.ResetLighting();
         }
         public bool IsGameRunning()
         {
@@ -1033,7 +1035,14 @@ namespace MVZ2.Level
         }
         private void UpdateLighting()
         {
-            SetLighting(level.GetBackgroundLight(), Color.Lerp(Color.white, level.GetGlobalLight(), darknessFactor));
+            var background = Color.white;
+            var global = Color.white;
+            if (level != null)
+            {
+                background = level.GetBackgroundLight();
+                global = Color.Lerp(Color.white, level.GetGlobalLight(), darknessFactor);
+            }
+            SetLighting(background, global);
         }
         private void SetLighting(Color night, Color darkness)
         {
@@ -1072,6 +1081,7 @@ namespace MVZ2.Level
         private float darknessFactor = 1;
         private NamespaceID exitTargetNoteID;
         private AreaModel model;
+        private bool isDisposed;
         public NamespaceID StartAreaID { get; set; }
         public NamespaceID StartStageID { get; set; }
 
