@@ -1,0 +1,47 @@
+﻿using System.Collections.Generic;
+using System.Xml;
+using MVZ2.IO;
+using PVZEngine.Buffs;
+
+namespace MVZ2.Metas
+{
+    public class BuffMeta
+    {
+        public string ID { get; private set; }
+        public int Polarity { get; private set; }
+        public int Level { get; private set; }
+        public static BuffMeta FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            var id = node.GetAttribute("id");
+            var polarity = GetPolarity(node.GetAttribute("polarity"));
+            var level = node.GetAttributeInt("level") ?? 9;
+            return new BuffMeta()
+            {
+                ID = id,
+                Polarity = polarity,
+                Level = level,
+            };
+        }
+        private static int GetPolarity(string str)
+        {
+            if (!string.IsNullOrEmpty(str))
+            {
+                if (polarityDict.TryGetValue(str, out var value))
+                {
+                    return value;
+                }
+            }
+            return BuffPolarity.UTILITY;
+        }
+        public override string ToString()
+        {
+            return ID;
+        }
+        private static Dictionary<string, int> polarityDict = new Dictionary<string, int>()
+        {
+            { "positive", BuffPolarity.POSITIVE },
+            { "negative", BuffPolarity.NEGATIVE },
+            { "mixed", BuffPolarity.MIXED },
+        };
+    }
+}

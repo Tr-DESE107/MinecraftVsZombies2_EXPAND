@@ -1,0 +1,13 @@
+﻿using PVZEngine;
+
+namespace MVZ2.GameContent.Buffs
+{
+    [PropertyRegistryRegion(PropertyRegions.buff)]
+    public static class VanillaBuffProps
+    {
+        private static PropertyMeta<T> Get<T>(string name)
+        {
+            return new PropertyMeta<T>(name);
+        }
+    }
+}

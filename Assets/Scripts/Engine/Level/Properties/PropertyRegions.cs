@@ -5,6 +5,7 @@
         public const string entity = "entity";
         public const string armor = "armor";
         public const string artifact = "artifact";
+        public const string buff = "buff";
         public const string level = "level";
         public const string grid = "grid";
         public const string cart = "cart";

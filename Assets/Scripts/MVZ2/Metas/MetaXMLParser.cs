@@ -96,6 +96,9 @@ namespace MVZ2.Metas
                 case "arcade":
                     resource.ArcadeMetaList = ArcadeMetaList.FromXmlNode(document["arcade"], defaultNsp);
                     break;
+                case "buffs":
+                    resource.BuffMetaList = BuffMetaList.FromXmlNode(document["buffs"], defaultNsp);
+                    break;
             }
         }
         public static ColliderConstructor LoadColliderConstructor(this XmlNode node)

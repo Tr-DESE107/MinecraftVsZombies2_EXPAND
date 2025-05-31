@@ -77,7 +77,7 @@ namespace MVZ2.GameContent.Buffs
         public const string gravityPadGravity = "gravity_pad_gravity";
         public const string vortexHopperDrag = "vortex_hopper_drag";
         public const string enemyWeakness = "enemy_weakness";
-        public const string forcePadDrag = "force_pad_frag";
+        public const string forcePadDrag = "force_pad_drag";
         public const string redstoneCarrier = "redstone_carrier";
         public const string nightmareComeTrue = "nightmare_come_true";
         public const string soulsandSummoned = "soulsand_summoned";
@@ -218,7 +218,7 @@ namespace MVZ2.GameContent.Buffs
         }
         public static class Pickup
         {
-            public const string absorbedByUFO = "absorbedByUFO";
+            public const string absorbedByUFO = "absorbed_by_ufo";
         }
     }
     public static class VanillaBuffID

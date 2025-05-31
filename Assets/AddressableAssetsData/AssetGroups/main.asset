@@ -8351,6 +8351,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca16cff8842786b4aaeaa7bc6d92b003
+    m_Address: mvz2:buffs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca265e909bf4be248a09b0469868acf7
     m_Address: mvz2:progressbars
     m_ReadOnly: 0
@@ -10445,6 +10452,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc3e815806f7eaf4694e0d4333cc9185
     m_Address: mvz2:icons/disabled
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc48781f16aacf545871a4e206555d4b
+    m_Address: mvz2:entity/effects/water_stain_frozen
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

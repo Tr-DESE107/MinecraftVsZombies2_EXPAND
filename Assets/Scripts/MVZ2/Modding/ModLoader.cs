@@ -26,6 +26,7 @@ using MVZ2Logic.Modding;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Base;
+using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
@@ -116,6 +117,8 @@ namespace MVZ2.Modding
             LoadCustomEntityBlueprints(mod);
             // 加载所有蓝图错误信息。
             LoadBlueprintErrorMetas(mod);
+            // 加载所有增益信息。
+            LoadBuffMetas(mod);
         }
         private void LoadEntityMetas(Mod mod)
         {
@@ -421,6 +424,25 @@ namespace MVZ2.Modding
                 };
                 var seedDef = new EntitySeed(nsp, meta.ID, info);
                 mod.AddDefinition(seedDef);
+            }
+        }
+        private void LoadBuffMetas(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (var buffDefinition in mod.GetAllBuffDefinitions())
+            {
+                var id = buffDefinition.GetID();
+                var meta = res.GetBuffMeta(id);
+                if (meta == null)
+                {
+                    Debug.LogWarning($"Could not find the buff meta for buff definition {id}!");
+                    continue;
+                }
+                var polarity = meta.Polarity;
+                var level = meta.Level;
+
+                buffDefinition.SetProperty<int>(EngineBuffProps.POLARITY, polarity);
+                buffDefinition.SetProperty<int>(EngineBuffProps.BUFF_LEVEL, level);
             }
         }
         #endregion

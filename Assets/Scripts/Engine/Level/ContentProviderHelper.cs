@@ -68,6 +68,10 @@ namespace PVZEngine
         {
             return provider.GetDefinition<BuffDefinition>(EngineDefinitionTypes.BUFF, defRef);
         }
+        public static BuffDefinition[] GetAllBuffDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<BuffDefinition>(EngineDefinitionTypes.BUFF);
+        }
         public static ArmorDefinition GetArmorDefinition(this IGameContent provider, NamespaceID defRef)
         {
             return provider.GetDefinition<ArmorDefinition>(EngineDefinitionTypes.ARMOR, defRef);

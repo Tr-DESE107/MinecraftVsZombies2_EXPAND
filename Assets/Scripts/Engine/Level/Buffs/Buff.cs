@@ -137,6 +137,7 @@ namespace PVZEngine.Buffs
         public long ID { get; }
         public LevelEngine Level { get; }
         public BuffDefinition Definition { get; }
+        public bool IsFromAura { get; set; }
         public IBuffTarget Target { get; private set; }
         private PropertyDictionary propertyDict = new PropertyDictionary();
         private AuraEffectList auras = new AuraEffectList();
