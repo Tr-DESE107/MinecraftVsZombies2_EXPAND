@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-27 07:25+0800\n"
-"PO-Revision-Date: 2025-05-27 19:25+0800\n"
+"POT-Creation-Date: 2025-05-31 09:01+0800\n"
+"PO-Revision-Date: 2025-05-31 09:02+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -396,7 +396,7 @@ msgid "方片A"
 msgstr "Ace of Diamonds"
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:33
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:34
 msgctxt "random_china.event_name"
 msgid "神秘埃及"
 msgstr "Ancient Egypt"
@@ -2117,11 +2117,11 @@ msgctxt "key.name"
 msgid "Menu"
 msgstr "Menu"
 
-#: Scripts\MVZ2\Managers\MainManager.cs:267
+#: Scripts\MVZ2\Managers\MainManager.cs:271
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
-#: Scripts\MVZ2\Managers\MainManager.cs:269
+#: Scripts\MVZ2\Managers\MainManager.cs:273
 msgid "{0}%"
 msgstr "{0}%"
 
@@ -2188,38 +2188,38 @@ msgstr "English (United States)"
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1101
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1107
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue without filling up the contraption slots?"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1105
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1111
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 "The blueprints selected last time contained multiple identical contraptions."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1107
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1113
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 "The blueprints selected last time contained contraptions that are not "
 "unlocked yet."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1109
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1115
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 "The artifacts selected last time contained multiple identical artifacts."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1111
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1117
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 "The artifacts selected last time contained artifacts that are not unlocked "
 "yet."
 
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:246
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:254
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:888
+#: Scripts\MVZ2\Level\LevelController_UI.cs:868
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -2227,11 +2227,11 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:890
+#: Scripts\MVZ2\Level\LevelController_UI.cs:870
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:892
+#: Scripts\MVZ2\Level\LevelController_UI.cs:872
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "
@@ -2561,7 +2561,7 @@ msgstr "Push an enemy using a Punchton to the front of another Punchton."
 #. Name for achievement mvz2:rickroll_drown
 #: Achievements meta file
 msgctxt "achievement"
-msgid "永远不会让你Swim"
+msgid "永远不会让你湿亡"
 msgstr "Never gonna let you drown"
 
 #. Description for achievement mvz2:rickroll_drown
@@ -4083,6 +4083,18 @@ msgstr "Localization (English)"
 #. Name for credit staff 本地化（英文）
 #: Credits meta file
 msgctxt "staff_name"
+msgid "A Random Chinese"
+msgstr "A Random Chinese"
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
+msgid "PoRa"
+msgstr "PoRa"
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
 msgid "Reale"
 msgstr "Reale"
 
@@ -4097,12 +4109,6 @@ msgstr "Charlie Calvin"
 msgctxt "credits_category"
 msgid "特别感谢"
 msgstr "Special Thanks"
-
-#. Name for credit staff 特别感谢
-#: Credits meta file
-msgctxt "staff_name"
-msgid "A Random Chinese"
-msgstr "A Random Chinese"
 
 #. Name for credit staff 特别感谢
 #: Credits meta file

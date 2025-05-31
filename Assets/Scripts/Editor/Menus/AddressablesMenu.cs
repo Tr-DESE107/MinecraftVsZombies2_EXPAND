@@ -40,12 +40,6 @@ namespace MVZ2.Editor
 
             EditorUtility.ClearProgressBar();
         }
-        [MenuItem("Custom/Assets/Addressables/Update Addressables")]
-        public static void UpdateAddressablesMenu()
-        {
-            UpdateAddressables();
-            EditorUtility.RequestScriptReload();
-        }
         private static void UpdateAddressableGroup(AddressableAssetGroup group, string directory, AssetMarker marker, HashSet<string> dependencies)
         {
             var filePaths = new List<string>();

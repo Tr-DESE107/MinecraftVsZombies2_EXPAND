@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-27 07:25+0800\n"
+"POT-Creation-Date: 2025-05-31 09:01+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -380,7 +380,7 @@ msgid "方片A"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:33
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\AncientEgyptEvent.cs:34
 msgctxt "random_china.event_name"
 msgid "神秘埃及"
 msgstr ""
@@ -2213,12 +2213,12 @@ msgid "Menu"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:267
+#: Scripts\MVZ2\Managers\MainManager.cs:271
 msgid "获取赞助者列表……"
 msgstr ""
 
 # 值，{0}为百分数
-#: Scripts\MVZ2\Managers\MainManager.cs:269
+#: Scripts\MVZ2\Managers\MainManager.cs:273
 msgid "{0}%"
 msgstr ""
 
@@ -2289,50 +2289,50 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1101
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1107
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1105
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1111
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1107
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1113
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1109
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1115
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1111
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1117
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
 # 实体提示
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:246
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:254
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:888
+#: Scripts\MVZ2\Level\LevelController_UI.cs:868
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:890
+#: Scripts\MVZ2\Level\LevelController_UI.cs:870
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:892
+#: Scripts\MVZ2\Level\LevelController_UI.cs:872
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
@@ -2663,7 +2663,7 @@ msgstr ""
 #. Name for achievement mvz2:rickroll_drown
 #: Achievements meta file
 msgctxt "achievement"
-msgid "永远不会让你Swim"
+msgid "永远不会让你湿亡"
 msgstr ""
 
 #. Description for achievement mvz2:rickroll_drown
@@ -3896,6 +3896,18 @@ msgstr ""
 #. Name for credit staff 本地化（英文）
 #: Credits meta file
 msgctxt "staff_name"
+msgid "A Random Chinese"
+msgstr ""
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
+msgid "PoRa"
+msgstr ""
+
+#. Name for credit staff 本地化（英文）
+#: Credits meta file
+msgctxt "staff_name"
 msgid "Reale"
 msgstr ""
 
@@ -3909,12 +3921,6 @@ msgstr ""
 #: Credits meta file
 msgctxt "credits_category"
 msgid "特别感谢"
-msgstr ""
-
-#. Name for credit staff 特别感谢
-#: Credits meta file
-msgctxt "staff_name"
-msgid "A Random Chinese"
 msgstr ""
 
 #. Name for credit staff 特别感谢

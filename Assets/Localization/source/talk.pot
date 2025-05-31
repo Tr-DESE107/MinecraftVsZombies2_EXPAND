@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-17 07:22+0800\n"
+"POT-Creation-Date: 2025-05-31 09:02+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6404,7 +6404,7 @@ msgstr ""
 #. Text for talk sentence 28 in talk group kourindou_visit_mausoleum_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
-msgid "之后，那里又曾用于封印一只巨大魔怪。如今封印薄弱，束缚即将打破。"
+msgid "之后，那里又曾用于封印一只巨型僵尸，吾们称其为“巨人”。如今封印薄弱，束缚即将打破。"
 msgstr ""
 
 #. Text for talk sentence 29 in talk group kourindou_visit_mausoleum_1's section 0
@@ -6422,7 +6422,7 @@ msgstr ""
 #. Text for talk sentence 31 in talk group kourindou_visit_mausoleum_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
-msgid "总之，命莲寺的底下有一只巨型怪物要突破封印了，要我们帮忙，对吗？"
+msgid "总之，命莲寺的底下有一只巨型僵尸要突破封印了，要我们帮忙，对吗？"
 msgstr ""
 
 #. Text for talk sentence 32 in talk group kourindou_visit_mausoleum_1's section 0
@@ -8831,51 +8831,51 @@ msgctxt "talk-mvz2:mausoleum_10"
 msgid "嗯，我会的。"
 msgstr ""
 
-#. Archive name for talk group zombie_scroll
+#. Archive name for talk group mausoleum_note
 #: Talk meta file
 msgctxt "archive"
 msgid "僵尸卷轴"
 msgstr ""
 
-#. Text for talk sentence 0 in talk group zombie_scroll's section 0
+#. Text for talk sentence 0 in talk group mausoleum_note's section 0
 #: Talk meta file
-msgctxt "talk-mvz2:zombie_scroll"
+msgctxt "talk-mvz2:mausoleum_note"
 msgid "……"
 msgstr ""
 
-#. Text for talk sentence 1 in talk group zombie_scroll's section 0
+#. Text for talk sentence 1 in talk group mausoleum_note's section 0
 #: Talk meta file
-msgctxt "talk-mvz2:zombie_scroll"
+msgctxt "talk-mvz2:mausoleum_note"
 msgid "看不懂。"
 msgstr ""
 
-#. Text for talk sentence 2 in talk group zombie_scroll's section 0
+#. Text for talk sentence 2 in talk group mausoleum_note's section 0
 #: Talk meta file
-msgctxt "talk-mvz2:zombie_scroll"
+msgctxt "talk-mvz2:mausoleum_note"
 msgid "……何物？"
 msgstr ""
 
-#. Text for talk sentence 3 in talk group zombie_scroll's section 0
+#. Text for talk sentence 3 in talk group mausoleum_note's section 0
 #: Talk meta file
-msgctxt "talk-mvz2:zombie_scroll"
-msgid " 似为僵尸之战书，但用者为古中国之文言文所作。"
+msgctxt "talk-mvz2:mausoleum_note"
+msgid "似为僵尸之战书，但用者为古中国之文言文所作。"
 msgstr ""
 
-#. Text for talk sentence 4 in talk group zombie_scroll's section 0
+#. Text for talk sentence 4 in talk group mausoleum_note's section 0
 #: Talk meta file
-msgctxt "talk-mvz2:zombie_scroll"
+msgctxt "talk-mvz2:mausoleum_note"
 msgid "你看得懂吗，布都？"
 msgstr ""
 
-#. Text for talk sentence 6 in talk group zombie_scroll's section 0
+#. Text for talk sentence 6 in talk group mausoleum_note's section 0
 #: Talk meta file
-msgctxt "talk-mvz2:zombie_scroll"
+msgctxt "talk-mvz2:mausoleum_note"
 msgid "否。"
 msgstr ""
 
-#. Text for talk sentence 7 in talk group zombie_scroll's section 0
+#. Text for talk sentence 7 in talk group mausoleum_note's section 0
 #: Talk meta file
-msgctxt "talk-mvz2:zombie_scroll"
+msgctxt "talk-mvz2:mausoleum_note"
 msgid "那算了。"
 msgstr ""
 
@@ -8978,7 +8978,7 @@ msgstr ""
 #. Text for talk sentence 4 in talk group mausoleum_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_11"
-msgid "不过，此前之战，吾似乎见过与之相关器械。"
+msgid "不过，此前之战，吾似乎见过汝使用与之相关器械。"
 msgstr ""
 
 #. Text for talk sentence 5 in talk group mausoleum_11's section 0
@@ -8990,7 +8990,31 @@ msgstr ""
 #. Text for talk sentence 6 in talk group mausoleum_11's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_11"
-msgid "好，准备战斗！"
+msgid "另外，它的吼叫十分吵闹。不过，如果有办法能利用它的声音，也许连他自己也会承受不住。"
+msgstr ""
+
+#. Text for talk sentence 7 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "好，明白了！"
+msgstr ""
+
+#. Text for talk sentence 8 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "<color=blue>（那些欲望的化身——小神灵，在此也开始大量聚集。）</color>"
+msgstr ""
+
+#. Text for talk sentence 9 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "<color=blue>（它们点缀着这地下的黑暗，把这里变成了一片星空。）</color>"
+msgstr ""
+
+#. Text for talk sentence 10 in talk group mausoleum_11's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_11"
+msgid "<color=blue>（而我，也该在这欲望的宇宙里——开启新的道路了。）</color>"
 msgstr ""
 
 #. Archive name for talk group mausoleum_11_over

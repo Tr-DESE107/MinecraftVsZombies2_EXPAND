@@ -75,7 +75,6 @@ namespace MVZ2.Editor
 
             EditorUtility.ClearProgressBar();
         }
-        [MenuItem("Custom/Assets/Sprites/Update Sprite Manifest")]
         public static void UpdateSpriteManifestAtGameContent()
         {
             var manifestPath = Path.Combine(Application.dataPath, "GameContent", "Assets", "mvz2", "spritemanifests", "manifest.asset");
@@ -83,7 +82,6 @@ namespace MVZ2.Editor
             var initPath = Path.Combine(Application.dataPath, "GameContent", "Assets", "mvz2", "spritemanifests", "init", "init_manifest.asset");
             UpdateSpriteManifest(initPath, true);
         }
-        [MenuItem("Custom/Assets/Sprites/Rename Sprites")]
         public static void RenameSprites()
         {
             Debug.Log("Renaming Sprites...");
