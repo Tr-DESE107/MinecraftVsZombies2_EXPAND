@@ -899,15 +899,15 @@ namespace MVZ2.Mainmenu
         public const string RESET_KEY_BINDINGS_WARNING = "确认要重置所有按键绑定吗？";
         [TranslateMsg("设置按键提醒")]
         public const string PRESS_KEY_HINT = "请按键";
-        [TranslateMsg("语言包导出失败的警告")]
+        [TranslateMsg("存档导出失败的警告")]
         public const string ERROR_NOT_EXPORTED = "导出存档失败。";
-        [TranslateMsg("语言包导入失败的警告")]
+        [TranslateMsg("存档导入失败的警告")]
         public const string ERROR_FAILED_TO_IMPORT = "导入存档失败。";
-        [TranslateMsg("语言包导入失败的警告")]
+        [TranslateMsg("存档导入失败的警告")]
         public const string ERROR_CORRUPT_USER_DATA_PACK = "导入存档失败，文件可能已损坏。";
-        [TranslateMsg("语言包导入失败的警告")]
+        [TranslateMsg("存档导入失败的警告")]
         public const string ERROR_DUPLICATE_IMPORTING_USER_NAME_AND_CANNOT_RENAME = "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。";
-        [TranslateMsg("语言包导出成功的提示，{0}为路径")]
+        [TranslateMsg("存档导出成功的提示，{0}为路径")]
         public const string HINT_EXPORTED = "存档已导出至{0}。";
 
         private Dictionary<MainmenuButtonType, Action> mainmenuActionDict = new Dictionary<MainmenuButtonType, Action>();

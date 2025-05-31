@@ -124,6 +124,7 @@ namespace MVZ2.UI
             buttonDict.Add(ButtonType.Credits, creditsButton.Button);
             buttonDict.Add(ButtonType.Keybinding, keybindingButton.Button);
             buttonDict.Add(ButtonType.MoreBack, moreBackButton);
+            buttonDict.Add(ButtonType.ExportLogFiles, exportLogFilesButton);
 
 
             foreach (var pair in sliderDict)
@@ -213,6 +214,8 @@ namespace MVZ2.UI
         [SerializeField]
         private TextButton keybindingButton;
         [SerializeField]
+        private Button exportLogFilesButton;
+        [SerializeField]
         private Button moreBackButton;
         public enum Page
         {
@@ -268,6 +271,7 @@ namespace MVZ2.UI
             ShowSponsorNames,
             Credits,
             Keybinding,
+            ExportLogFiles,
         }
     }
 
