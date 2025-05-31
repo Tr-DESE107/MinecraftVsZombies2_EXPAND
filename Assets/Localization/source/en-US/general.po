@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-31 09:01+0800\n"
-"PO-Revision-Date: 2025-05-31 09:02+0800\n"
+"POT-Creation-Date: 2025-05-31 04:53+0800\n"
+"PO-Revision-Date: 2025-05-31 16:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -131,6 +131,12 @@ msgstr "Credits"
 #: View/Viewport/Content/Buttons/Line3/Keybindings/Text
 msgid "快捷键设置"
 msgstr "Hotkeys"
+
+#. 按钮文本
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
+#: View/Viewport/Content/Buttons/Line3/ExportLogFiles/Text
+msgid "导出游戏日志"
+msgstr "Export Log Files"
 
 #. 标题
 #: /MainGame/MainScene/Mainmenu/Canvas/KeyBinding/Layout/Title
@@ -1122,55 +1128,55 @@ msgstr ""
 "All users cannot be loaded, the files may be corrupted.\n"
 "You have to delete a user and create a new one to continue."
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:211
+#: Scripts\MVZ2\Options\OptionsLogic.cs:216
 msgid "交换触发：{0}"
 msgstr "Swap Trigger: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:213
+#: Scripts\MVZ2\Options\OptionsLogic.cs:218
 msgid "全屏：{0}"
 msgstr "Full Screen: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:215
+#: Scripts\MVZ2\Options\OptionsLogic.cs:220
 msgid "设备震动：{0}"
 msgstr "Vibration: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:217
+#: Scripts\MVZ2\Options\OptionsLogic.cs:222
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:219
+#: Scripts\MVZ2\Options\OptionsLogic.cs:224
 msgid "后台暂停：{0}"
 msgstr "Pause on Focus Lost: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:223
+#: Scripts\MVZ2\Options\OptionsLogic.cs:228
 msgid "音乐音量：{0}"
 msgstr "Music Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:225
+#: Scripts\MVZ2\Options\OptionsLogic.cs:230
 msgid "音效音量：{0}"
 msgstr "Sound Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:227
+#: Scripts\MVZ2\Options\OptionsLogic.cs:232
 msgid "加速倍率：{0}"
 msgstr "Fast-forward: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:230
+#: Scripts\MVZ2\Options\OptionsLogic.cs:235
 msgid "血与碎块：{0}"
 msgstr "Blood and Gore: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:233
+#: Scripts\MVZ2\Options\OptionsLogic.cs:238
 msgid "跳过对话：{0}"
 msgstr "Skip dialogs: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:235
+#: Scripts\MVZ2\Options\OptionsLogic.cs:240
 msgid "赞助者名称：{0}"
 msgstr "Sponsor Names: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:238
+#: Scripts\MVZ2\Options\OptionsLogic.cs:243
 msgid "粒子数量：{0}"
 msgstr "Particle Count: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:240
+#: Scripts\MVZ2\Options\OptionsLogic.cs:245
 msgid "屏幕震动：{0}"
 msgstr "Screen Shake: {0}"
 
@@ -1281,7 +1287,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Composer: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:661
+#: Scripts\MVZ2\Map\MapController.cs:665
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1289,7 +1295,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:663
+#: Scripts\MVZ2\Map\MapController.cs:667
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1297,17 +1303,27 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:665
+#: Scripts\MVZ2\Map\MapController.cs:669
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:667
+#: Scripts\MVZ2\Map\MapController.cs:671
 msgid ""
 "轮数\n"
 "{0}/{1}"
 msgstr ""
 "Flags\n"
 "{0}/{1}"
+
+# 日志导出失败的警告
+#: Scripts\MVZ2\Managers\DebugManager.cs:43
+msgid "导出日志失败。"
+msgstr "Failed to export logs."
+
+# 语言包导出成功的提示，{0}为路径
+#: Scripts\MVZ2\Managers\DebugManager.cs:45
+msgid "日志已导出至{0}。"
+msgstr "The log files have been successfully exported to {0}."
 
 #: Scripts\MVZ2\Managers\InputManager_Keys.cs:187
 msgctxt "key.name"

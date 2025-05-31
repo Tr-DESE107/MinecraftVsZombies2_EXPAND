@@ -16,11 +16,6 @@ namespace MVZ2
     {
         void Start()
         {
-            if (Application.platform == RuntimePlatform.Android)
-            {
-                logger.gameObject.SetActive(true);
-                DontDestroyOnLoad(logger.gameObject);
-            }
             var levelEngineAssembly = typeof(LevelEngine).Assembly;
             var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
             PropertyMapper.InitPropertyMaps("mvz2", levelEngineAssembly.GetTypes());
@@ -35,7 +30,5 @@ namespace MVZ2
             mod.Init(game, assemblies);
             manager.RegisterModLogic(mod.Namespace, mod);
         }
-        [SerializeField]
-        private AndroidLogger logger;
     }
 }

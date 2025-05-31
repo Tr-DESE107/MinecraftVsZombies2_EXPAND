@@ -1,7 +1,6 @@
 ﻿using System;
-using System.IO;
-using System.IO.Compression;
 using MukioI18n;
+using MVZ2.Debugs;
 using MVZ2.IO;
 using MVZ2.Vanilla;
 using UnityEngine;
@@ -19,7 +18,7 @@ namespace MVZ2.Managers
                     return;
                 try
                 {
-                    success = ExportLogFilePack(dest);
+                    success = Logger.ExportLogFilePack(dest);
                 }
                 catch (Exception)
                 {
@@ -39,27 +38,8 @@ namespace MVZ2.Managers
             }
             await Main.Scene.ShowDialogMessageAsync(title, desc);
         }
-        public bool ExportLogFilePack(string destPath)
-        {
-            var dir = Application.persistentDataPath;
-            if (!Directory.Exists(dir))
-                return false;
-
-            FileHelper.ValidateDirectory(destPath);
-            var sourceDirInfo = new DirectoryInfo(dir);
-            var files = Directory.GetFiles(dir, "*.log", SearchOption.AllDirectories);
-            using var stream = File.Open(destPath, FileMode.Create);
-            using var archive = new ZipArchive(stream, ZipArchiveMode.Create);
-
-            foreach (var filePath in files)
-            {
-                var entryName = Path.GetRelativePath(dir, filePath);
-                entryName = entryName.Replace("\\", "/");
-                archive.CreateEntryFromFile(filePath, entryName);
-            }
-            return true;
-        }
         public MainManager Main => MainManager.Instance;
+        public MVZ2Logger Logger => MVZ2Logger.Instance;
         [TranslateMsg("日志导出失败的警告")]
         public const string ERROR_NOT_EXPORTED = "导出日志失败。";
         [TranslateMsg("日志导出成功的提示，{0}为路径")]
