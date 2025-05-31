@@ -40,6 +40,6 @@ namespace MVZ2.GameContent.Artifacts
                 }
             }
         }
-        public const int REVIVE_CHANCE = 100;
+        public const int REVIVE_CHANCE = 10;
     }
 }
