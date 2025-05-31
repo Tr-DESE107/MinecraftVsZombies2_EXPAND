@@ -606,7 +606,7 @@
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">从之前的战斗中，我能看出，你的实力其实非常强。</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">如果是你的话，说不定真能做到。</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk" variant="mvz2:calm_close_eyes">发生这种事真的非常抱歉，还是有劳你了。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="music fade 1;end">……唉。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk" onClick="music fade 1;end">…唉。</sentence>
       </sentences>
     </section>
   </group>
@@ -853,7 +853,7 @@
         <sentence speaker="mvz2:seiga" sounds="mvz2:talk" onStart="music play mvz2:suspension;music volume 1">所以，小弟弟，要不要再帮我一些忙呢？</sentence>
         <sentence speaker="mvz2:seiga" sounds="mvz2:talk">连同上次没有给你的报酬一起，这次，我会告诉你一些很重要的东西呢。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">不、不行……怎么能听你的！</sentence>
-        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:happy" onStart="music volume 0"><![CDATA[<color=red>就算再也不知道自己父母的身世，被人歧视，孤独地活在这个世界上</color>]]>，也是可以的嘛？</sentence>
+        <sentence speaker="mvz2:seiga" sounds="mvz2:talk" variant="mvz2:happy" onStart="music volume 0"><![CDATA[<color=red>就算再也不知道自己的身世，被人歧视，孤独地活在这个世界上</color>]]>，也是可以的嘛？</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_judge" onStart="shake">！！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk" onStart="shake;character variant mvz2:seiga mvz2:normal;forecolor fade #000F #0000 1">……</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">我……</sentence>

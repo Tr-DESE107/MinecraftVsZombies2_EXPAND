@@ -761,6 +761,7 @@
             <properties>
                 <p>耐久：<![CDATA[<color=red>300</color>]]></p>
                 <p>变形时间：<![CDATA[<color=red>3.2秒</color>]]></p>
+                <p>技能：<![CDATA[<color=red>变形为器械后立即将其激发</color>]]></p>
             </properties>
             <flavor>
                 <p>你这样搞是要被踢出服务器的。</p>
