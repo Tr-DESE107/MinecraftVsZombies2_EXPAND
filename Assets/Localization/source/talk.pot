@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-31 09:02+0800\n"
+"POT-Creation-Date: 2025-05-31 09:54+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7871,6 +7871,12 @@ msgctxt "talk-mvz2:mausoleum_6_map"
 msgid "发生这种事真的非常抱歉，还是有劳你了。"
 msgstr ""
 
+#. Text for talk sentence 31 in talk group mausoleum_6_map's section 0
+#: Talk meta file
+msgctxt "talk-mvz2:mausoleum_6_map"
+msgid "…唉。"
+msgstr ""
+
 #. Archive name for talk group mausoleum_7
 #: Talk meta file
 msgctxt "archive"
@@ -8552,7 +8558,7 @@ msgstr ""
 #. Text for talk sentence 24 in talk group mausoleum_9_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_9_map"
-msgid "<color=red>就算再也不知道自己父母的身世，被人歧视，孤独地活在这个世界上</color>，也是可以的嘛？"
+msgid "<color=red>就算再也不知道自己的身世，被人歧视，孤独地活在这个世界上</color>，也是可以的嘛？"
 msgstr ""
 
 #. Text for talk sentence 25 in talk group mausoleum_9_map's section 0

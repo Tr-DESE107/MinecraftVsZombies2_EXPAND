@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-27 05:24+0800\n"
-"PO-Revision-Date: 2025-05-30 18:57+0800\n"
+"POT-Creation-Date: 2025-05-31 09:54+0800\n"
+"PO-Revision-Date: 2025-05-31 21:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1183,10 +1183,12 @@ msgstr "Command Blocks let you use two of the same blueprints during a level. Th
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>300</color>\n"
-"变形时间：<color=red>3.2秒</color>"
+"变形时间：<color=red>3.2秒</color>\n"
+"技能：<color=red>变形为器械后立即将其激发</color>"
 msgstr ""
 "Toughness: <color=red>300</color>\n"
-"Transformation Time: <color=red>3.2s</color>"
+"Transformation Time: <color=red>3.2s</color>\n"
+"Evocation: <color=red>Instantly evoke the contraption it transforms into</color>"
 
 #. Flavor for contraptions mvz2:command_block
 #: Almanac meta file
@@ -4657,12 +4659,6 @@ msgctxt "entity.name"
 msgid "彩虹猫"
 msgstr "Nyan Cat"
 
-#. Name for entity mvz2:nyaightmare
-#: Entity meta file
-msgctxt "entity.name"
-msgid "噩梦猫"
-msgstr "Nyaightmare"
-
 #. Name for entity mvz2:bowl_chariot
 #: Entity meta file
 msgctxt "entity.name"
@@ -5052,6 +5048,18 @@ msgstr "Lengthen the board"
 msgctxt "option.name"
 msgid "增加弹珠"
 msgstr "Add a pearl"
+
+#~ msgctxt "contraptions.description"
+#~ msgid ""
+#~ "耐久：<color=red>300</color>\n"
+#~ "变形时间：<color=red>3.2秒</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>300</color>\n"
+#~ "Transformation Time: <color=red>3.2s</color>"
+
+#~ msgctxt "entity.name"
+#~ msgid "噩梦猫"
+#~ msgstr "Nyaightmare"
 
 #~ msgctxt "contraptions.description"
 #~ msgid "技能：<color=red>按顺序将两张当前携带的蓝图复制为掉落物（若超出目前蓝图数量，则循环接续）</color>"

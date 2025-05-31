@@ -11,6 +11,7 @@
 - Added the zoom feature to the Misc Almanac.
 - Added import and export features for user save data.
 - Added 7 new Random China events.
+- Added export feature for game log files.
 
 ## Modified
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-31 04:53+0800\n"
-"PO-Revision-Date: 2025-05-31 16:54+0800\n"
+"POT-Creation-Date: 2025-05-31 09:54+0800\n"
+"PO-Revision-Date: 2025-05-31 21:55+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2133,11 +2133,11 @@ msgctxt "key.name"
 msgid "Menu"
 msgstr "Menu"
 
-#: Scripts\MVZ2\Managers\MainManager.cs:271
+#: Scripts\MVZ2\Managers\MainManager.cs:270
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
-#: Scripts\MVZ2\Managers\MainManager.cs:273
+#: Scripts\MVZ2\Managers\MainManager.cs:272
 msgid "{0}%"
 msgstr "{0}%"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-31 09:02+0800\n"
+"POT-Creation-Date: 2025-05-31 09:54+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -935,7 +935,8 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>300</color>\n"
-"变形时间：<color=red>3.2秒</color>"
+"变形时间：<color=red>3.2秒</color>\n"
+"技能：<color=red>变形为器械后立即将其激发</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:command_block
