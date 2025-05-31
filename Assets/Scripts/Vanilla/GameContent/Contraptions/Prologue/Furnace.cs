@@ -72,15 +72,6 @@ namespace MVZ2.GameContent.Contraptions
                 DropRedstones(entity, redstonesToDrop);
             }
         }
-        public override void PostRemove(Entity entity)
-        {
-            base.PostRemove(entity);
-            if (entity.Level.IsIZombie())
-            {
-                var redstonesToDrop = GetRedstonesToDrop(entity, 0);
-                DropRedstones(entity, redstonesToDrop);
-            }
-        }
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
