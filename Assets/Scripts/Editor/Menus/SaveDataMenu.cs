@@ -7,7 +7,6 @@ namespace MVZ2.Editor
 {
     public class SaveDataMenu
     {
-        [MenuItem("Custom/Save Data/Decompress")]
         public static void DecompressSaveData()
         {
             var directory = Path.Combine(Application.persistentDataPath, "userdata");
@@ -19,7 +18,6 @@ namespace MVZ2.Editor
             SerializeHelper.WriteJson(destPath, json);
             Debug.Log($"Save data decompressed to {destPath}.");
         }
-        [MenuItem("Custom/Save Data/Compress")]
         public static void CompressSaveData()
         {
             var directory = Path.Combine(Application.persistentDataPath, "userdata");

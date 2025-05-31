@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-05-27 05:24+0800\n"
+"POT-Creation-Date: 2025-05-31 09:02+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3958,12 +3958,6 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.name"
 msgid "彩虹猫"
-msgstr ""
-
-#. Name for entity mvz2:nyaightmare
-#: Entity meta file
-msgctxt "entity.name"
-msgid "噩梦猫"
 msgstr ""
 
 #. Name for entity mvz2:bowl_chariot

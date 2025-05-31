@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using UnityEditor;
 using UnityEngine;
 
 namespace MVZ2.Editor
@@ -9,15 +8,11 @@ namespace MVZ2.Editor
         public static void UpdateAllAssets()
         {
             LocalizationMenu.CompressLanguagePack();
+            LocalizationMenu.UpdateLanguagePackDemo();
             SpriteMenu.RenameSprites();
             SpriteMenu.UpdateSpriteManifestAtGameContent();
+            ModelMenu.UpdateModelElements();
             AddressablesMenu.UpdateAddressables();
-        }
-        [MenuItem("Custom/Assets/Update All Assets")]
-        public static void UpdateAllAssetsMenu()
-        {
-            UpdateAllAssets();
-            EditorUtility.RequestScriptReload();
         }
         public static string FileToAssetPath(string filePath)
         {

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
-using System.Linq;
 using System.Xml;
 using MukioI18n;
 using MVZ2.IO;
@@ -23,124 +20,92 @@ namespace MVZ2.Editor
 {
     public class LocalizationMenu
     {
-        [MenuItem("Custom/Assets/Langauge Pack Demo/Update Language Pack Demo")]
-        public static void UpdateLanguagePackDemo()
+        public static void CompressLanguagePack()
         {
-            // 根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
             UpdateLocalizedSpriteManifest();
+            MoveMOFiles();
 
-            // 将spriteManifest.json复制到LanguagePack\templates中。
-            Debug.Log("更新语言包贴图清单……");
-            var templatesDir = Path.Combine(Application.dataPath, "LanguagePack", "templates");
-            var sourceManifestPath = Path.Combine(Application.dataPath, "Localization", "pack", "assets", "mvz2", "en-US", LanguageManager.SPRITE_MANIFEST_FILENAME);
-            if (File.Exists(sourceManifestPath))
-            {
-                var destPath = Path.Combine(templatesDir, LanguageManager.SPRITE_MANIFEST_FILENAME);
-                FileHelper.ValidateDirectory(destPath);
-                File.Copy(sourceManifestPath, destPath, true);
-            }
-
-            // 将*.pot文件复制到LanguagePack\templates\text_templates中。
-            Debug.Log("更新语言包文本模板……");
-            CopyDirectory(GetPoTemplateDirectory(), Path.Combine(templatesDir, "text_templates"), "*.pot");
-
-            // 将英文的*.po文件复制到LanguagePack\templates\text_en中。
-            Debug.Log("更新语言包英文文本翻译……");
-            CopyDirectory(GetPoDirectory("en-US"), Path.Combine(templatesDir, "text_en"), "*.po");
-
-            Debug.Log("语言包示例更新完成。");
-        }
-        [MenuItem("Custom/Assets/Localization/Update Localized Sprite Manifest")]
-        public static void UpdateLocalizedSpriteManifest()
-        {
-            // 根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
             var path = GetLanguagePackDirectory();
-            var assetsDir = Path.Combine(Application.dataPath, "Localization", "pack", "assets");
-            var databaseDir = Path.Combine("Assets", "GameContent", "Assets");
-            var factories = new SpriteDataProviderFactories();
-            factories.Init();
-            foreach (var nspDir in Directory.EnumerateDirectories(assetsDir))
+            var dirPath = Path.Combine(Application.dataPath, "Localization", "pack");
+            var destPath = Path.Combine(path, "builtin.bytes");
+            LanguageManager.CompressLanguagePack(dirPath, destPath);
+            AssetDatabase.Refresh();
+            Debug.Log("Langauge Pack Compressed.");
+        }
+        public static void UpdateAlmanacTranslations()
+        {
+            var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
+
+            var spaceName = "mvz2";
+
+            var almanacDocument = LoadMetaXmlDocument(spaceName, "almanac.xml");
+            var entitiesDocument = LoadMetaXmlDocument(spaceName, "entities.xml");
+            var talkcharacterDocument = LoadMetaXmlDocument(spaceName, "talkcharacters.xml");
+            var artifactsDocument = LoadMetaXmlDocument(spaceName, "artifacts.xml");
+            var blueprintsDocument = LoadMetaXmlDocument(spaceName, "blueprints.xml");
+
+            var almanacEntryList = AlmanacMetaList.FromXmlNode(almanacDocument["almanac"], spaceName);
+            var entitiesList = EntityMetaList.FromXmlNode(entitiesDocument["entities"], spaceName);
+            var characterList = TalkCharacterMetaList.FromXmlNode(talkcharacterDocument["characters"], spaceName);
+            var artifactsList = ArtifactMetaList.FromXmlNode(artifactsDocument["artifacts"], spaceName);
+            var blueprintsList = BlueprintMetaList.FromXmlNode(blueprintsDocument["blueprints"], spaceName);
+
+            var entitiesReference = "Entity meta file";
+            var characterReference = "Character meta file";
+            var artifactsReference = "Artifact meta file";
+            var blueprintsReference = "Blueprints meta file";
+            foreach (var category in almanacEntryList.categories)
             {
-                var nsp = Path.GetRelativePath(assetsDir, nspDir);
-                foreach (var langDir in Directory.EnumerateDirectories(nspDir))
+                var categoryName = category.name;
+                foreach (var group in category.groups)
                 {
-                    List<LocalizedSprite> localizedSprites = new List<LocalizedSprite>();
-                    List<LocalizedSpriteSheet> localizedSpritesheets = new List<LocalizedSpriteSheet>();
-
-                    // 单片贴图。
-                    var spritesDir = Path.Combine(langDir, "sprites");
-                    foreach (var spritePath in Directory.EnumerateFiles(spritesDir, "*.png", SearchOption.AllDirectories))
+                    AddTranslation(potGenerator, group.name, almanacReference, $"Name for almanac group {group.id}", VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME);
+                    foreach (var entry in group.entries)
                     {
-                        var spriteRelativePath = Path.GetRelativePath(spritesDir, spritePath).Replace("\\", "/");
-                        var originSpritePath = Path.Combine(databaseDir, nsp, "sprites", spriteRelativePath).Replace("\\", "/");
-
-                        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(originSpritePath);
-                        if (!sprite)
-                            continue;
-                        var localizedSprite = new LocalizedSprite()
-                        {
-                            name = Path.ChangeExtension(spriteRelativePath, string.Empty).TrimEnd('.'),
-                            texture = spriteRelativePath,
-                            pivotX = sprite.pivot.x / sprite.rect.width,
-                            pivotY = sprite.pivot.y / sprite.rect.height,
-                        };
-                        localizedSprites.Add(localizedSprite);
+                        AddAlmanacEntryTranslation(potGenerator, entry, categoryName);
                     }
-
-                    // 多片贴图。
-                    var spritesheetsDir = Path.Combine(langDir, "spritesheets");
-                    foreach (var spritePath in Directory.EnumerateFiles(spritesheetsDir, "*.png", SearchOption.AllDirectories))
-                    {
-                        var spriteRelativePath = Path.GetRelativePath(spritesheetsDir, spritePath).Replace("\\", "/");
-                        var originSpritePath = Path.Combine(databaseDir, nsp, "spritesheets", spriteRelativePath).Replace("\\", "/");
-                        var sprites = SpriteMenu.GetOrderedSpriteSheet(originSpritePath, factories);
-                        var slices = new List<LocalizedSpriteSheetSlice>();
-                        foreach (var sprite in sprites)
-                        {
-                            slices.Add(new LocalizedSpriteSheetSlice()
-                            {
-                                x = sprite.rect.x,
-                                y = sprite.rect.y,
-                                width = sprite.rect.width,
-                                height = sprite.rect.height,
-                                pivotX = sprite.pivot.x / sprite.rect.width,
-                                pivotY = sprite.pivot.y / sprite.rect.height,
-                            });
-                        }
-                        var localizedSpritesheet = new LocalizedSpriteSheet()
-                        {
-                            name = Path.ChangeExtension(spriteRelativePath, string.Empty).TrimEnd('.'),
-                            texture = spriteRelativePath,
-                            slices = slices.ToArray()
-                        };
-                        localizedSpritesheets.Add(localizedSpritesheet);
-                    }
-                    LocalizedSpriteManifest manifest = new LocalizedSpriteManifest()
-                    {
-                        sprites = localizedSprites.ToArray(),
-                        spritesheets = localizedSpritesheets.ToArray()
-                    };
-                    var manifestJson = JsonConvert.SerializeObject(manifest, Newtonsoft.Json.Formatting.Indented);
-
-                    var destPath = Path.Combine(langDir, LanguageManager.SPRITE_MANIFEST_FILENAME);
-                    FileHelper.ValidateDirectory(destPath);
-                    using var stream = File.Open(destPath, FileMode.Create);
-                    using var writer = new StreamWriter(stream);
-                    writer.Write(manifestJson);
-
-                    Debug.Log($"语言包贴图清单已更新：{destPath}");
+                }
+                foreach (var entry in category.entries)
+                {
+                    AddAlmanacEntryTranslation(potGenerator, entry, categoryName);
                 }
             }
-
+            foreach (var meta in entitiesList.counters)
+            {
+                var id = new NamespaceID(spaceName, meta.ID);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity counter {id}", VanillaStrings.CONTEXT_ENTITY_COUNTER_NAME);
+            }
+            foreach (var meta in entitiesList.metas)
+            {
+                var id = new NamespaceID(spaceName, meta.ID);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
+                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Tooltip for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
+                AddTranslation(potGenerator, meta.DeathMessage, entitiesReference, $"Death message for entity {id}", VanillaStrings.CONTEXT_DEATH_MESSAGE);
+            }
+            foreach (var meta in characterList.metas)
+            {
+                var id = new NamespaceID(spaceName, meta.id);
+                AddTranslation(potGenerator, meta.name, characterReference, $"Name for character {id}", VanillaStrings.CONTEXT_CHARACTER_NAME);
+            }
+            foreach (var meta in artifactsList.metas)
+            {
+                var id = new NamespaceID(spaceName, meta.ID);
+                AddTranslation(potGenerator, meta.Name, artifactsReference, $"Name for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_NAME);
+                AddTranslation(potGenerator, meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
+            }
+            foreach (var option in blueprintsList.Options)
+            {
+                AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", VanillaStrings.CONTEXT_OPTION_NAME);
+            }
+            potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
+            Debug.Log("Almanac Translations Updated.");
         }
-        [MenuItem("Custom/Assets/Localization/Update All Translations")]
         public static void UpdateAllTranslations()
         {
             UpdateGeneralTranslations();
             UpdateAlmanacTranslations();
             UpdateTalkTranslations();
         }
-        [MenuItem("Custom/Assets/Localization/Update General Translations")]
         public static void UpdateGeneralTranslations()
         {
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
@@ -275,76 +240,6 @@ namespace MVZ2.Editor
             Debug.Log("Script Translations Updated.");
             EditorSceneManager.OpenScene(active);
         }
-        [MenuItem("Custom/Assets/Localization/Update Almanac Translations")]
-        public static void UpdateAlmanacTranslations()
-        {
-            var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
-
-            var spaceName = "mvz2";
-
-            var almanacDocument = LoadMetaXmlDocument(spaceName, "almanac.xml");
-            var entitiesDocument = LoadMetaXmlDocument(spaceName, "entities.xml");
-            var talkcharacterDocument = LoadMetaXmlDocument(spaceName, "talkcharacters.xml");
-            var artifactsDocument = LoadMetaXmlDocument(spaceName, "artifacts.xml");
-            var blueprintsDocument = LoadMetaXmlDocument(spaceName, "blueprints.xml");
-
-            var almanacEntryList = AlmanacMetaList.FromXmlNode(almanacDocument["almanac"], spaceName);
-            var entitiesList = EntityMetaList.FromXmlNode(entitiesDocument["entities"], spaceName);
-            var characterList = TalkCharacterMetaList.FromXmlNode(talkcharacterDocument["characters"], spaceName);
-            var artifactsList = ArtifactMetaList.FromXmlNode(artifactsDocument["artifacts"], spaceName);
-            var blueprintsList = BlueprintMetaList.FromXmlNode(blueprintsDocument["blueprints"], spaceName);
-
-            var entitiesReference = "Entity meta file";
-            var characterReference = "Character meta file";
-            var artifactsReference = "Artifact meta file";
-            var blueprintsReference = "Blueprints meta file";
-            foreach (var category in almanacEntryList.categories)
-            {
-                var categoryName = category.name;
-                foreach (var group in category.groups)
-                {
-                    AddTranslation(potGenerator, group.name, almanacReference, $"Name for almanac group {group.id}", VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME);
-                    foreach (var entry in group.entries)
-                    {
-                        AddAlmanacEntryTranslation(potGenerator, entry, categoryName);
-                    }
-                }
-                foreach (var entry in category.entries)
-                {
-                    AddAlmanacEntryTranslation(potGenerator, entry, categoryName);
-                }
-            }
-            foreach (var meta in entitiesList.counters)
-            {
-                var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity counter {id}", VanillaStrings.CONTEXT_ENTITY_COUNTER_NAME);
-            }
-            foreach (var meta in entitiesList.metas)
-            {
-                var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
-                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Tooltip for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
-                AddTranslation(potGenerator, meta.DeathMessage, entitiesReference, $"Death message for entity {id}", VanillaStrings.CONTEXT_DEATH_MESSAGE);
-            }
-            foreach (var meta in characterList.metas)
-            {
-                var id = new NamespaceID(spaceName, meta.id);
-                AddTranslation(potGenerator, meta.name, characterReference, $"Name for character {id}", VanillaStrings.CONTEXT_CHARACTER_NAME);
-            }
-            foreach (var meta in artifactsList.metas)
-            {
-                var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, artifactsReference, $"Name for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_NAME);
-                AddTranslation(potGenerator, meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
-            }
-            foreach (var option in blueprintsList.Options)
-            {
-                AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", VanillaStrings.CONTEXT_OPTION_NAME);
-            }
-            potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
-            Debug.Log("Almanac Translations Updated.");
-        }
-        [MenuItem("Custom/Assets/Localization/Update Talk Translations")]
         public static void UpdateTalkTranslations()
         {
             var potGenerator = new MukioPotGenerator("MinecraftVSZombies2", "Cuerzor");
@@ -381,18 +276,113 @@ namespace MVZ2.Editor
             potGenerator.WriteOut(GetPoTemplatePath("talk.pot"));
             Debug.Log("Talk Translations Updated.");
         }
-        [MenuItem("Custom/Assets/Localization/Compress Langauge Pack")]
-        public static void CompressLanguagePack()
+        public static void UpdateLocalizedSpriteManifest()
         {
-            UpdateLocalizedSpriteManifest();
-            MoveMOFiles();
-
+            // 根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
             var path = GetLanguagePackDirectory();
-            var dirPath = Path.Combine(Application.dataPath, "Localization", "pack");
-            var destPath = Path.Combine(path, "builtin.bytes");
-            LanguageManager.CompressLanguagePack(dirPath, destPath);
-            AssetDatabase.Refresh();
-            Debug.Log("Langauge Pack Compressed.");
+            var assetsDir = Path.Combine(Application.dataPath, "Localization", "pack", "assets");
+            var databaseDir = Path.Combine("Assets", "GameContent", "Assets");
+            var factories = new SpriteDataProviderFactories();
+            factories.Init();
+            foreach (var nspDir in Directory.EnumerateDirectories(assetsDir))
+            {
+                var nsp = Path.GetRelativePath(assetsDir, nspDir);
+                foreach (var langDir in Directory.EnumerateDirectories(nspDir))
+                {
+                    List<LocalizedSprite> localizedSprites = new List<LocalizedSprite>();
+                    List<LocalizedSpriteSheet> localizedSpritesheets = new List<LocalizedSpriteSheet>();
+
+                    // 单片贴图。
+                    var spritesDir = Path.Combine(langDir, "sprites");
+                    foreach (var spritePath in Directory.EnumerateFiles(spritesDir, "*.png", SearchOption.AllDirectories))
+                    {
+                        var spriteRelativePath = Path.GetRelativePath(spritesDir, spritePath).Replace("\\", "/");
+                        var originSpritePath = Path.Combine(databaseDir, nsp, "sprites", spriteRelativePath).Replace("\\", "/");
+
+                        var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(originSpritePath);
+                        if (!sprite)
+                            continue;
+                        var localizedSprite = new LocalizedSprite()
+                        {
+                            name = Path.ChangeExtension(spriteRelativePath, string.Empty).TrimEnd('.'),
+                            texture = spriteRelativePath,
+                            pivotX = sprite.pivot.x / sprite.rect.width,
+                            pivotY = sprite.pivot.y / sprite.rect.height,
+                        };
+                        localizedSprites.Add(localizedSprite);
+                    }
+
+                    // 多片贴图。
+                    var spritesheetsDir = Path.Combine(langDir, "spritesheets");
+                    foreach (var spritePath in Directory.EnumerateFiles(spritesheetsDir, "*.png", SearchOption.AllDirectories))
+                    {
+                        var spriteRelativePath = Path.GetRelativePath(spritesheetsDir, spritePath).Replace("\\", "/");
+                        var originSpritePath = Path.Combine(databaseDir, nsp, "spritesheets", spriteRelativePath).Replace("\\", "/");
+                        var sprites = SpriteMenu.GetOrderedSpriteSheet(originSpritePath, factories);
+                        var slices = new List<LocalizedSpriteSheetSlice>();
+                        foreach (var sprite in sprites)
+                        {
+                            slices.Add(new LocalizedSpriteSheetSlice()
+                            {
+                                x = sprite.rect.x,
+                                y = sprite.rect.y,
+                                width = sprite.rect.width,
+                                height = sprite.rect.height,
+                                pivotX = sprite.pivot.x / sprite.rect.width,
+                                pivotY = sprite.pivot.y / sprite.rect.height,
+                            });
+                        }
+                        var localizedSpritesheet = new LocalizedSpriteSheet()
+                        {
+                            name = Path.ChangeExtension(spriteRelativePath, string.Empty).TrimEnd('.'),
+                            texture = spriteRelativePath,
+                            slices = slices.ToArray()
+                        };
+                        localizedSpritesheets.Add(localizedSpritesheet);
+                    }
+                    LocalizedSpriteManifest manifest = new LocalizedSpriteManifest()
+                    {
+                        sprites = localizedSprites.ToArray(),
+                        spritesheets = localizedSpritesheets.ToArray()
+                    };
+                    var manifestJson = JsonConvert.SerializeObject(manifest, Newtonsoft.Json.Formatting.Indented);
+
+                    var destPath = Path.Combine(langDir, LanguageManager.SPRITE_MANIFEST_FILENAME);
+                    FileHelper.ValidateDirectory(destPath);
+                    using var stream = File.Open(destPath, FileMode.Create);
+                    using var writer = new StreamWriter(stream);
+                    writer.Write(manifestJson);
+
+                    Debug.Log($"语言包贴图清单已更新：{destPath}");
+                }
+            }
+
+        }
+        public static void UpdateLanguagePackDemo()
+        {
+            // 根据语言包内的已有贴图和项目内的已有贴图生成spriteManifest.json，并将其保存到Localization\pack\assets\mvz2\en-US中。
+            UpdateLocalizedSpriteManifest();
+
+            // 将spriteManifest.json复制到LanguagePack\templates中。
+            Debug.Log("更新语言包贴图清单……");
+            var templatesDir = Path.Combine(Application.dataPath, "LanguagePack", "templates");
+            var sourceManifestPath = Path.Combine(Application.dataPath, "Localization", "pack", "assets", "mvz2", "en-US", LanguageManager.SPRITE_MANIFEST_FILENAME);
+            if (File.Exists(sourceManifestPath))
+            {
+                var destPath = Path.Combine(templatesDir, LanguageManager.SPRITE_MANIFEST_FILENAME);
+                FileHelper.ValidateDirectory(destPath);
+                File.Copy(sourceManifestPath, destPath, true);
+            }
+
+            // 将*.pot文件复制到LanguagePack\templates\text_templates中。
+            Debug.Log("更新语言包文本模板……");
+            CopyDirectory(GetPoTemplateDirectory(), Path.Combine(templatesDir, "text_templates"), "*.pot");
+
+            // 将英文的*.po文件复制到LanguagePack\templates\text_en中。
+            Debug.Log("更新语言包英文文本翻译……");
+            CopyDirectory(GetPoDirectory("en-US"), Path.Combine(templatesDir, "text_en"), "*.po");
+
+            Debug.Log("语言包示例更新完成。");
         }
         private static void MoveMOFiles()
         {

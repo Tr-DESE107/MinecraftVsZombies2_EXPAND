@@ -2,7 +2,6 @@ using System.IO;
 using MVZ2.Sprites;
 using UnityEditor;
 using UnityEngine;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MVZ2.Editor
 {

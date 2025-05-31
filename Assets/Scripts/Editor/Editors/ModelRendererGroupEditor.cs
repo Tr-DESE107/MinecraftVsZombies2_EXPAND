@@ -15,7 +15,7 @@ namespace MVZ2.Editor
             var subSortingGroupsProperty = serializedObject.FindProperty("subSortingGroups");
             var renderersProperty = serializedObject.FindProperty("renderers");
             var transformsProperty = serializedObject.FindProperty("transforms");
-            var  particlesProperty = serializedObject.FindProperty("particles");
+            var particlesProperty = serializedObject.FindProperty("particles");
             var animatorsProperty = serializedObject.FindProperty("animators");
             EditorGUILayout.PropertyField(testModeProperty);
             EditorGUILayout.PropertyField(sortingGroupProperty);
