@@ -405,8 +405,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7750059308283596647}
   - {fileID: 2266757239095637790}
-  - {fileID: 8049814922060908362}
   m_Father: {fileID: 8945121680203201514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -802,6 +802,10 @@ MonoBehaviour:
   languageDropdown: {fileID: 4132688427591157807}
   resolutionDropdownPair: {fileID: 4422878530726014133}
   resolutionDropdown: {fileID: 7072999497873332074}
+  moreElementLines:
+  - {fileID: 8691581968114956770}
+  - {fileID: 5298679733049215504}
+  - {fileID: 4021642125897774583}
   bloodAndGoreButton: {fileID: 8028287649355846167}
   skipAllTalksButton: {fileID: 5086638321320185813}
   showSponsorNamesButton: {fileID: 3634335396064589740}
@@ -1482,8 +1486,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8049814922060908362}
   - {fileID: 4787562179074921125}
-  - {fileID: 7750059308283596647}
   m_Father: {fileID: 8945121680203201514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -5067,7 +5071,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5298679733049215504}
+    m_TransformParent: {fileID: 8691581968114956770}
     m_Modifications:
     - target: {fileID: 3434363501804205344, guid: ddcdd2fcc671d3646a8c49fe2ebca01c, type: 3}
       propertyPath: m_Pivot.x
@@ -5147,7 +5151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3434363501804205344, guid: ddcdd2fcc671d3646a8c49fe2ebca01c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 3434363501804205344, guid: ddcdd2fcc671d3646a8c49fe2ebca01c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5375,7 +5379,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8691581968114956770}
+    m_TransformParent: {fileID: 5298679733049215504}
     m_Modifications:
     - target: {fileID: 3434363501804205344, guid: ddcdd2fcc671d3646a8c49fe2ebca01c, type: 3}
       propertyPath: m_Pivot.x
@@ -5455,7 +5459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3434363501804205344, guid: ddcdd2fcc671d3646a8c49fe2ebca01c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3434363501804205344, guid: ddcdd2fcc671d3646a8c49fe2ebca01c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
