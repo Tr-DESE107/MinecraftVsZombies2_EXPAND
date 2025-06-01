@@ -1,5 +1,4 @@
 using MVZ2.GameContent.Areas;
-using MVZ2.GameContent.Buffs.Level;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;

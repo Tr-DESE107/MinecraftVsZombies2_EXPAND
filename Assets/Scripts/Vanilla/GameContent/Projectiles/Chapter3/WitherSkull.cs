@@ -62,7 +62,7 @@ namespace MVZ2.GameContent.Projectiles
             var entity = output.Entity;
             if (entity == null)
                 return;
-            if (entity.Level.WitherSkullWithersTarget())
+            if (!entity.Level.WitherSkullWithersTarget())
                 return;
             if (entity.IsUndead())
                 return;
