@@ -60,10 +60,11 @@ namespace MVZ2.GameContent.Stages
                 entity.AddBuff<LittleZombieBuff>();
             }
         }
-        public static int GetBigCounter(LevelEngine level) => level.GetBehaviourField<int>(ID, FIELD_BIG_COUNTER);
-        public static void SetBigCounter(LevelEngine level, int value) => level.SetBehaviourField(ID, FIELD_BIG_COUNTER, value);
+        public static int GetBigCounter(LevelEngine level) => level.GetBehaviourField<int>(FIELD_BIG_COUNTER);
+        public static void SetBigCounter(LevelEngine level, int value) => level.SetBehaviourField(FIELD_BIG_COUNTER, value);
 
-        public static readonly NamespaceID ID = new NamespaceID(VanillaMod.spaceName, "little_zombie_stage");
+        public const string REGION_NAME = "little_zombie_stage";
+        [LevelPropertyRegistry(REGION_NAME)]
         public static readonly VanillaLevelPropertyMeta<int> FIELD_BIG_COUNTER = new VanillaLevelPropertyMeta<int>("BigCounter");
         public const int MAX_BIG_COUNTER = 6;
     }
