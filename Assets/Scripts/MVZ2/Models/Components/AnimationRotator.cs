@@ -3,9 +3,9 @@
 namespace MVZ2.Models
 {
     [ExecuteAlways]
-    public class AnimationRotator : MonoBehaviour
+    public class AnimationRotator : ModelComponent
     {
-        private void Update()
+        public override void UpdateFrame(float deltaTime)
         {
             transform.localEulerAngles = rotation;
         }

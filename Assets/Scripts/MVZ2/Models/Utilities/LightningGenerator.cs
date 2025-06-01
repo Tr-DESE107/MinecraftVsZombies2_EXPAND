@@ -4,7 +4,6 @@ using UnityEngine;
 namespace MVZ2.Models
 {
     [RequireComponent(typeof(LineRenderer))]
-    [ExecuteAlways]
     public class LightningGenerator : MonoBehaviour
     {
         public void GenerateLightning(int pointCount, Vector3 sourcePosition, Vector3 targetPosition, RandomGenerator rng)

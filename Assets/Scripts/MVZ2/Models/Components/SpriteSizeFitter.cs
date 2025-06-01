@@ -4,11 +4,12 @@ namespace MVZ2.Models
 {
     [ExecuteAlways]
     [RequireComponent(typeof(SpriteRenderer))]
-    public class SpriteSizeFitter : MonoBehaviour
+    public class SpriteSizeFitter : ModelComponent
     {
-        private void Update()
+        public override void UpdateFrame(float deltaTime)
         {
-            var renderer = sprRenderer;
+            base.UpdateFrame(deltaTime);
+            var renderer = Renderer;
             var spr = renderer.sprite;
             if (!spr)
                 return;
@@ -24,7 +25,7 @@ namespace MVZ2.Models
             }
             renderer.transform.localScale = Vector3.one * scale;
         }
-        private SpriteRenderer sprRenderer
+        public SpriteRenderer Renderer
         {
             get
             {

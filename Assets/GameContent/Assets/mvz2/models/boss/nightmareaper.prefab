@@ -2620,5 +2620,3 @@ MonoBehaviour:
   rageLeftArmDir: {x: -1, y: 0}
   mobileRageRightArmDir: {x: 0, y: -1}
   mobileRageLeftArmDir: {x: 0, y: 1}
-  leftEyeTrail: {fileID: 7060444354972721332}
-  rightEyeTrail: {fileID: 2459582538196613976}

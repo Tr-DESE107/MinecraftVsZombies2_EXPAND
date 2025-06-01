@@ -5,25 +5,11 @@ namespace MVZ2.Models
 {
     public class NightmareaperModel : ModelComponent
     {
-        public override void Init()
-        {
-            base.Init();
-            leftEyeTrail.Init();
-            rightEyeTrail.Init();
-        }
-        public override void UpdateLogic()
-        {
-            base.UpdateLogic();
-            leftEyeTrail.UpdateLogic();
-            rightEyeTrail.UpdateLogic();
-        }
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
             var camera = Model.GetCamera();
             UpdateRage(camera);
-            leftEyeTrail.UpdateFrame();
-            rightEyeTrail.UpdateFrame();
         }
         private void UpdateRage(Camera camera)
         {
@@ -97,10 +83,5 @@ namespace MVZ2.Models
         private Vector2 mobileRageRightArmDir;
         [SerializeField]
         private Vector2 mobileRageLeftArmDir;
-
-        [SerializeField]
-        private TrailController leftEyeTrail;
-        [SerializeField]
-        private TrailController rightEyeTrail;
     }
 }

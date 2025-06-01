@@ -1,9 +1,10 @@
-﻿using MVZ2.Managers;
+﻿using System.Reflection;
+using MVZ2.Managers;
 using UnityEngine;
 
 namespace MVZ2.Models
 {
-    public class ModelComponent : MonoBehaviour
+    public abstract class ModelComponent : MonoBehaviour
     {
         public virtual void Init() { }
         public virtual void UpdateLogic() { }
@@ -27,6 +28,21 @@ namespace MVZ2.Models
             return Main.LevelManager.TransToLawnScale * scale;
         }
         public MainManager Main => MainManager.Instance;
+#if UNITY_EDITOR
+        private void OnEnable()
+        {
+            if (Application.isPlaying)
+                return;
+            Model = GetComponentInParent<Model>();
+            Init();
+        }
+        private void Update()
+        {
+            if (Application.isPlaying)
+                return;
+            UpdateFrame(Time.deltaTime);
+        }
+#endif
         public Model Model { get; set; }
     }
 }

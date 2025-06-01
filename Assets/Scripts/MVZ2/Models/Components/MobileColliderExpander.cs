@@ -3,10 +3,11 @@ using UnityEngine;
 
 namespace MVZ2.Models
 {
-    public class MobileColliderExpander : MonoBehaviour
+    public class MobileColliderExpander : ModelComponent
     {
-        private void Update()
+        public override void UpdateFrame(float deltaTime)
         {
+            base.UpdateFrame(deltaTime);
             var shouldActive = MainManager.Instance.IsMobile();
             if (active != shouldActive)
             {

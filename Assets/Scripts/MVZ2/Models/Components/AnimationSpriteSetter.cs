@@ -1,17 +1,13 @@
 ﻿using MVZ2.Managers;
 using UnityEngine;
 
-namespace Rendering
+namespace MVZ2.Models
 {
-    [RequireComponent(typeof(SpriteRenderer))]
     [ExecuteAlways]
-    public class AnimationSpriteSetter : MonoBehaviour
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class AnimationSpriteSetter : ModelComponent
     {
-        private void OnEnable()
-        {
-            SetSpriteIndex(index);
-        }
-        private void LateUpdate()
+        public override void UpdateFrame(float deltaTime)
         {
             if (sprites != null && sprites.Length > 0)
             {
@@ -50,7 +46,6 @@ namespace Rendering
                 return sprRenderer;
             }
         }
-        private MainManager Main => MainManager.Instance;
         private SpriteRenderer sprRenderer;
         public Sprite[] sprites;
         private int beforeIndex = -1;

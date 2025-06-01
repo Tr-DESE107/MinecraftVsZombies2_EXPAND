@@ -4,10 +4,6 @@ namespace MVZ2.Models
 {
     public class ElectricArcModel : ModelComponent
     {
-        public override void Init()
-        {
-            base.Init();
-        }
         public override void UpdateLogic()
         {
             base.UpdateLogic();

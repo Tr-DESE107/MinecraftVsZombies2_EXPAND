@@ -111,7 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84978e6290c55104bb6f620510275684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propertyName: _ColorOffset
   color: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &6918996579605802393
 PrefabInstance:

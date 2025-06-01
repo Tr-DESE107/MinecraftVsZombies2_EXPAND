@@ -4,10 +4,11 @@ namespace MVZ2.Models
 {
     [ExecuteAlways]
     [RequireComponent(typeof(LineRenderer))]
-    public class LineRendererPointLocker : MonoBehaviour
+    public class LineRendererPointLocker : ModelComponent
     {
-        private void Update()
+        public override void UpdateFrame(float deltaTime)
         {
+            base.UpdateFrame(deltaTime);
             var renderer = line;
             if (index < 0 || index >= renderer.positionCount)
                 return;

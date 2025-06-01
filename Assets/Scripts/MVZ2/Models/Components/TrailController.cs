@@ -2,9 +2,9 @@
 
 namespace MVZ2.Models
 {
-    public class TrailController : MonoBehaviour
-    {
-        public void Init()
+    public class TrailController : ModelComponent
+    { 
+        public override void Init()
         {
             trailPoints = new Vector3[trail.positionCount];
             worldPositions = new Vector3[trail.positionCount];
@@ -17,7 +17,7 @@ namespace MVZ2.Models
             }
             trail.SetPositions(trailPoints);
         }
-        public void UpdateLogic()
+        public override void UpdateLogic()
         {
             trail.GetPositions(trailPoints);
             for (int i = worldPositions.Length - 1; i >= 0; i--)
@@ -36,7 +36,7 @@ namespace MVZ2.Models
             }
             trail.SetPositions(trailPoints);
         }
-        public void UpdateFrame()
+        public override void UpdateFrame(float deltaTime)
         {
             var worldPos = GetCurrentWorldPosition();
             var position = ToTrailPosition(worldPos);
