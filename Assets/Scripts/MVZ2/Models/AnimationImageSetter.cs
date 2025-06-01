@@ -8,7 +8,11 @@ namespace Rendering
     [ExecuteAlways]
     public class AnimationImageSetter : MonoBehaviour
     {
-        private void Update()
+        private void OnEnable()
+        {
+            SetSpriteIndex(index);
+        }
+        private void LateUpdate()
         {
             if (sprites != null && sprites.Length > 0)
             {
