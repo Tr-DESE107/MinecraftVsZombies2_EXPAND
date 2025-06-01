@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-05-31 09:54+0800\n"
-"PO-Revision-Date: 2025-05-31 22:00+0800\n"
+"PO-Revision-Date: 2025-06-01 09:09+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -6910,14 +6910,14 @@ msgstr "Indeed."
 msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
 msgid "好的，我搞清楚了，那稍等我们一会，之后带我们去那里吧。"
 msgstr ""
-"Okay, I understand the situation. Wait for us for a moment, then take us "
-"there."
+"Okay, I understand the situation. Just give us a few moments and we'll be "
+"with you."
 
 #. Text for talk sentence 34 in talk group kourindou_visit_mausoleum_1's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:kourindou_visit_mausoleum_1"
 msgid "是，随时恭候阁下大驾光临！"
-msgstr "Verily, we eagerly await thy coming!"
+msgstr "Certainly, we shall eagerly await thine arrival!"
 
 #. Archive name for talk group exited_kourindou_mausoleum
 #: Talk meta file
@@ -6929,13 +6929,13 @@ msgstr "Chapter 4-Leave Kourindou"
 #: Talk meta file
 msgctxt "talk-mvz2:exited_kourindou_mausoleum"
 msgid "差不多该走了。布都，带我们去吧。"
-msgstr "Time to go. Futo, lead the way."
+msgstr "Time to go. Lead the way, Futo."
 
 #. Text for talk sentence 1 in talk group exited_kourindou_mausoleum's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:exited_kourindou_mausoleum"
 msgid "遵命。"
-msgstr "Understood."
+msgstr "Of course."
 
 #. Text for talk sentence 2 in talk group exited_kourindou_mausoleum's section 0
 #: Talk meta file
@@ -7528,7 +7528,7 @@ msgstr "Mausoleum Day 3 Outro"
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_3_over"
 msgid "双头发射器登场！"
-msgstr "In comes the Doublenser!"
+msgstr "In comes the Splitenser!"
 
 #. Text for talk sentence 1 in talk group mausoleum_3_over's section 0
 #: Talk meta file
