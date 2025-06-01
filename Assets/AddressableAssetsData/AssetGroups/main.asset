@@ -654,6 +654,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13fdf8cd7b2072849ae490ee21624f1f
+    m_Address: mvz2:entity/armor/mesmerizer_crown_pro
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14473ad9e6bfcf84f95366b4dc6e0f3c
     m_Address: mvz2:mausoleum_boss_2
     m_ReadOnly: 0
@@ -2080,6 +2087,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 374395b45140e824b8e4b9e06c1b75dd
+    m_Address: mvz2:entity/enemy/Reverser_pro
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37615d759a134794786c955d0039509e
     m_Address: mvz2:options/lengthen_board
     m_ReadOnly: 0
@@ -3020,6 +3034,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c5926539a5244c4aaba729490fbbed6
     m_Address: mvz2:enemy/castle/skeleton_horse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ccd40ff1c236984ab60d046dac251b7
+    m_Address: mvz2:enemy/castle/NetherVanguard
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4292,6 +4313,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70bddf2f49c9f784ab16859628feafb6
+    m_Address: mvz2:entity/enemy/nether_warrior
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 70de6ddff3a791547a9503617054e1c9
     m_Address: mvz2:arcade/arcade_category_minigame
     m_ReadOnly: 0
@@ -4403,6 +4431,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74f73ee28b9e031419a2c87361fbf927
+    m_Address: mvz2:enemy/castle/NetherWarrior
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75127238d9b7c934395ce66830a82cf1
     m_Address: mvz2:entity/contraptions/giant_bowl_point
@@ -5187,6 +5222,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89ed6dd940f633f4ca5f3dd74d2b4748
+    m_Address: mvz2:enemy/castle/NetherArcher
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a0fa8e6a83d14c4581f8cee8ce07eed
     m_Address: mvz2:mobile_blueprint/necromancer
     m_ReadOnly: 0
@@ -5620,6 +5662,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92a790a86f5d19946a5dc8efe8b47c38
+    m_Address: mvz2:entity/enemy/nether_archer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92c4dbf29f435db47a77583bbca3cfd6
     m_Address: mvz2:impact
@@ -7791,6 +7840,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9f12aabd02fce54b9b5287418b50d8b
+    m_Address: mvz2:entity/enemy/nether_vanguard
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca265e909bf4be248a09b0469868acf7
     m_Address: mvz2:progressbars
     m_ReadOnly: 0
@@ -7944,6 +8000,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce61d5f5e6687a643968d800f45003ef
+    m_Address: mvz2:entity/enemies/mesmerizer_rod_pro
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cecfb1a9efb49964e86f4d6237e7efde
     m_Address: mvz2:random/crystal/crystal_break1
@@ -9839,6 +9902,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: feb98a7ab06f627488f445b15e5937e0
+    m_Address: mvz2:enemy/castle/AngryReverser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff1139cf5b4ce3e408ba7ca6e7fd9ab0
     m_Address: mvz2:castle_level

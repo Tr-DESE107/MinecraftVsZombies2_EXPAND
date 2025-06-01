@@ -26,7 +26,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             base.PostUpdate(buff);
 
             var entity = buff.GetEntity();
-            if (entity != null && !entity.IsDead)
+            if (entity != null && !entity.IsDead && entity.Health > 1)
             {
                 // 扣除一定量生命
                 float damage = buff.GetProperty<float>(PROP_DAMAGE_AMOUNT);
