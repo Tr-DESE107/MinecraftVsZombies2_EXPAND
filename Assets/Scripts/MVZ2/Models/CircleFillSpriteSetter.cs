@@ -10,17 +10,28 @@ namespace MVZ2.Models
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             propertyBlock = new MaterialPropertyBlock();
+            UpdateCircleFill();
         }
         private void OnDisable()
         {
-            spriteRenderer.GetPropertyBlock(propertyBlock);
-            propertyBlock.SetFloat("_CircleFill", 0);
-            spriteRenderer.SetPropertyBlock(propertyBlock);
+            ResetCircleFill();
 
             spriteRenderer = null;
             propertyBlock = null;
         }
-        private void Update()
+        private void LateUpdate()
+        {
+            UpdateCircleFill();
+        }
+        private void ResetCircleFill()
+        {
+            SetCircleFill(0);
+        }
+        private void UpdateCircleFill()
+        {
+            SetCircleFill(fill);
+        }
+        private void SetCircleFill(float fill)
         {
             spriteRenderer.GetPropertyBlock(propertyBlock);
             propertyBlock.SetFloat("_CircleFill", fill);

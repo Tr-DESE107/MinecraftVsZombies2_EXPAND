@@ -1,0 +1,9 @@
+# 所有文件默认使用 LF（仓库内统一）
+* text=auto eol=lf
+
+# 为 C# 文件单独设置 CRLF 行尾（Windows 开发友好）
+*.cs text eol=crlf
+
+# 排除二进制文件（避免损坏）
+*.png binary
+*.jpg binary

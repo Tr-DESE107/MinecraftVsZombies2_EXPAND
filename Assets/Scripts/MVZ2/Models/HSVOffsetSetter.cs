@@ -9,8 +9,13 @@ namespace MVZ2.Models
         private void OnEnable()
         {
             element = GetComponent<RendererElement>();
+            UpdateElement();
         }
-        private void Update()
+        private void LateUpdate()
+        {
+            UpdateElement();
+        }
+        private void UpdateElement()
         {
             if (string.IsNullOrEmpty(propertyName))
                 return;
