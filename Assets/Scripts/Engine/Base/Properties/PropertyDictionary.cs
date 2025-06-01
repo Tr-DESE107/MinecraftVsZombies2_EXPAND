@@ -10,6 +10,10 @@ namespace PVZEngine
     {
         public bool SetPropertyObject(IPropertyKey key, object value)
         {
+            if (key.Key == 0)
+            {
+                Debug.LogWarning("Trying to set a property with an invalid key!");
+            }
             if (value == null)
             {
                 if (!propertyDict.TryGetValue(key, out var valueBefore) || valueBefore == null)

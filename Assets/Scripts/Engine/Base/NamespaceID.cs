@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Text;
 using UnityEngine;
 
@@ -155,10 +154,10 @@ namespace PVZEngine
         {
             return !(lhs == rhs);
         }
-        public string SpaceName 
+        public string SpaceName
         {
             get => spacename;
-            set 
+            set
             {
                 spacename = value;
                 concatCache = null;
