@@ -65,6 +65,7 @@ namespace MVZ2.UI
             if (buttonDict.TryGetValue(type, out var button))
             {
                 button.gameObject.SetActive(value);
+                UpdateMoreElementsLines();
             }
         }
         public void SetDropdownActive(DropdownType type, bool value)
@@ -72,6 +73,7 @@ namespace MVZ2.UI
             if (dropdownPairDict.TryGetValue(type, out var dropdownPair))
             {
                 dropdownPair.SetActive(value);
+                UpdateMoreElementsLines();
             }
         }
         private void Awake()
@@ -143,6 +145,23 @@ namespace MVZ2.UI
                 pair.Value.onClick.AddListener(() => OnButtonClick?.Invoke(type));
             }
         }
+        private void UpdateMoreElementsLines()
+        {
+            foreach (var line in moreElementLines)
+            {
+                bool hasActiveChild = false;
+                for (int i = 0; i < line.childCount; i++)
+                {
+                    var child = line.GetChild(i);
+                    if (child && child.gameObject.activeSelf)
+                    {
+                        hasActiveChild = true;
+                        break;
+                    }
+                }
+                line.gameObject.SetActive(hasActiveChild);
+            }
+        }
         public event Action<SliderType, float> OnSliderValueChanged;
         public event Action<DropdownType, int> OnDropdownValueChanged;
         public event Action<ButtonType> OnButtonClick;
@@ -203,6 +222,8 @@ namespace MVZ2.UI
         private GameObject resolutionDropdownPair;
         [SerializeField]
         private TMP_Dropdown resolutionDropdown;
+        [SerializeField]
+        private Transform[] moreElementLines;
         [SerializeField]
         private TextButton bloodAndGoreButton;
         [SerializeField]
