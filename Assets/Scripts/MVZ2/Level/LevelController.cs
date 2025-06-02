@@ -52,6 +52,8 @@ namespace MVZ2.Level
         bool CanChooseBlueprints();
         void OpenAlmanac();
         void OpenStore();
+
+        float GetTwinkleAlpha();
     }
     public interface ILevelHeldItemController
     {
@@ -451,6 +453,7 @@ namespace MVZ2.Level
                 var speed = gameRunning ? gameSpeed : 0;
                 ui.UpdateHeldItemModelFrame(deltaTime * speed);
                 ui.SetHeldItemModelSimulationSpeed(speed);
+                UpdateTwinkle(gameRunning ? deltaTime : 0);
             }
             // 更新光标。
             UpdateHeldItemCursor();

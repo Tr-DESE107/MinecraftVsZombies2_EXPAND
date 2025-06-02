@@ -1560,7 +1560,6 @@ GameObject:
   - component: {fileID: 3651694785271475521}
   - component: {fileID: 4169481690948507537}
   - component: {fileID: 5733812740472352846}
-  - component: {fileID: 9155712003951310702}
   - component: {fileID: 4237250339317847230}
   - component: {fileID: 6586045415676248483}
   m_Layer: 0
@@ -1605,7 +1604,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectInteraction: 7
   holdStreakHandler: {fileID: 6586045415676248483}
-  animator: {fileID: 9155712003951310702}
   emptyObj: {fileID: 9142627405455200878}
   rootObj: {fileID: 2933394577429391020}
   normalPresets:
@@ -1619,6 +1617,7 @@ MonoBehaviour:
   - {fileID: 8510263111843052978}
   iconImage: {fileID: 8665424365956294277}
   iconImageCommandBlock: {fileID: 7934336457777177328}
+  twinkleImage: {fileID: 6370480837259850883}
   costText: {fileID: 4084567098346113203}
   rechargeImage: {fileID: 6855817217076735219}
   selectedObject: {fileID: 4127836307253982412}
@@ -1660,27 +1659,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorType: 1
   trackSelectable: {fileID: 0}
---- !u!95 &9155712003951310702
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7766828071715088786}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 4d4717daf2a6fe248a73785abf79fa14, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!225 &4237250339317847230
 CanvasGroup:
   m_ObjectHideFlags: 0

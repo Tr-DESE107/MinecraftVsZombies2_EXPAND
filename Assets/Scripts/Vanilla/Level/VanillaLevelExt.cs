@@ -100,8 +100,20 @@ namespace MVZ2.Vanilla.Level
             var heldDefinition = level.Content.GetHeldItemDefinition(heldType);
             if (heldDefinition == null)
                 return null;
-            var seed = heldDefinition.GetSeedPack(level, level.GetHeldItemData());
-            var seedDef = seed?.Definition;
+            SeedDefinition seedDef = null;
+            if (heldType == VanillaHeldTypes.blueprintPickup)
+            {
+                var entity = GetHoldingEntity(level);
+                if (entity != null && entity.IsEntityOf(VanillaPickupID.blueprintPickup))
+                {
+                    seedDef = BlueprintPickup.GetSeedDefinition(entity);
+                }
+            }
+            else
+            {
+                var seed = heldDefinition.GetSeedPack(level, level.GetHeldItemData());
+                seedDef = seed?.Definition;
+            }
             if (seedDef == null)
                 return null;
             if (seedDef.GetSeedType() != SeedTypes.ENTITY)

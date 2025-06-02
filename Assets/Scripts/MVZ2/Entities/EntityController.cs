@@ -1,15 +1,18 @@
 using System;
 using System.Collections.Generic;
 using MVZ2.Cursors;
+using MVZ2.GameContent.HeldItems;
 using MVZ2.HeldItems;
 using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Entities;
@@ -97,6 +100,7 @@ namespace MVZ2.Entities
             lastPosition = transform.position;
 
             UpdateShadow(finalOffset);
+            modelPropertyCache.SetDirtyProperty(EntityPropertyCache.PropertyName.Tint);
             if (Model)
             {
                 Model.UpdateFrame(deltaTime);
@@ -363,6 +367,37 @@ namespace MVZ2.Entities
         }
         #endregion
 
+        private bool ShouldTwinkle()
+        {
+            var engine = Entity.Level;
+            var heldData = engine.GetHeldItemData();
+            if (heldData.Type == VanillaHeldTypes.trigger && Entity.CanTrigger())
+                return true;
+
+            var seedEntityID = engine.GetHeldSeedEntityID();
+            if (NamespaceID.IsValid(seedEntityID))
+            {
+                var entityDef = engine.Content.GetEntityDefinition(seedEntityID);
+                if (entityDef != null)
+                {
+                    if (entityDef.IsUpgradeBlueprint() && Entity.IsEntityOf(entityDef.GetUpgradeFromEntity()))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        private Color GetTint()
+        {
+            var tint = Entity.GetTint();
+            Color twinkleTint = Color.white;
+            if (ShouldTwinkle())
+            {
+                twinkleTint = Level.GetTwinkleColor();
+            }
+            return tint * twinkleTint;
+        }
         private Color GetColorOffset()
         {
             var color = Entity.GetColorOffset();
@@ -430,9 +465,6 @@ namespace MVZ2.Entities
         private TooltipAnchor tooltipAnchor;
         [SerializeField]
         private LevelPointerInteractionHandler holdStreakHandler;
-        #region shader相关属性
-        protected MaterialPropertyBlock propertyBlock;
-        #endregion shader相关属性
 
         TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
 
@@ -447,7 +479,7 @@ namespace MVZ2.Entities
                 var entity = entityCtrl.Entity;
                 var model = entityCtrl.Model;
                 var rendererGroup = model.GraphicGroup;
-                rendererGroup.SetTint(entity.GetTint());
+                rendererGroup.SetTint(entityCtrl.GetTint());
                 rendererGroup.SetHSV(entity.GetHSV());
                 rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
                 rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
@@ -481,7 +513,7 @@ namespace MVZ2.Entities
                     switch (dirtyProperty)
                     {
                         case PropertyName.Tint:
-                            rendererGroup.SetTint(entity.GetTint());
+                            rendererGroup.SetTint(entityCtrl.GetTint());
                             break;
                         case PropertyName.ColorOffset:
                             rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());

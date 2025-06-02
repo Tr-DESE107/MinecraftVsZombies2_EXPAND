@@ -22,7 +22,7 @@ namespace MVZ2.Level
             var maxCharge = SeedPack.GetMaxRecharge();
             ui.SetRecharge(maxCharge == 0 ? 0 : 1 - SeedPack.GetRecharge() / maxCharge);
             ui.SetDisabled(!CanPick());
-            ui.SetTwinkling(ShouldBlueprintTwinkle(SeedPack));
+            ui.SetTwinkleAlpha(ShouldBlueprintTwinkle(SeedPack) ? Controller.GetTwinkleAlpha() : 0);
             ui.SetSelected(Level.IsHoldingClassicBlueprint(Index));
         }
         public override bool IsCommandBlock()
