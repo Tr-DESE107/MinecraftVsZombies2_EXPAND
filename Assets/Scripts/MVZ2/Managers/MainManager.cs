@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using MukioI18n;
 using MVZ2.Almanacs;
@@ -33,6 +34,7 @@ namespace MVZ2.Managers
         {
             InitGameSettings();
             InitSerializable();
+            LogInformations();
             await LoadManagersInit();
             Scene.Init();
             ModManager.PostGameInit();
@@ -218,6 +220,17 @@ namespace MVZ2.Managers
             SerializeHelper.RegisterClass<SerializableUnityCollisionSystem>();
             SerializeHelper.RegisterClass<SerializableUnityCollisionEntity>();
             SerializeHelper.RegisterClass<SerializableUnityEntityCollider>();
+        }
+        private void LogInformations()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine($"游戏已启动。");
+            sb.AppendLine($"应用程序信息：");
+            sb.AppendLine($"platform: {Application.platform}");
+            sb.AppendLine($"version: {Application.version}");
+            sb.AppendLine($"systemLanguage: {Application.systemLanguage}");
+
+            Debug.Log(sb.ToString());
         }
         private async Task LoadManagersInit()
         {
