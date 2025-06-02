@@ -119,7 +119,7 @@ namespace MVZ2.Level
         }
         private void HighlightAxisGrids(int lane, int column)
         {
-            if (!Main.IsMobile())
+            if (Main.InputManager.GetActivePointerType() != PointerTypes.TOUCH)
                 return;
             for (int l = 0; l < level.GetMaxLaneCount(); l++)
             {
