@@ -109,7 +109,7 @@ namespace MVZ2.Vanilla.Level
             else
             {
                 var seed = heldDefinition.GetSeedPack(level, level.GetHeldItemData());
-                return seed.GetSeedEntityID();
+                return seed?.GetSeedEntityID();
             }
         }
         public static bool IsHoldingExclusiveItem(this LevelEngine level)
