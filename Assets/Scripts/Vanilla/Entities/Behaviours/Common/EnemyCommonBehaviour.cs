@@ -47,9 +47,18 @@ namespace MVZ2.Vanilla.Entities
                 return;
             }
 
-            Vector3 pos = entity.Position;
-            pos.x = Mathf.Min(pos.x, VanillaLevelExt.GetEnemyRightBorderX());
-            entity.Position = pos;
+            if (entity.IsFacingLeft())
+            {
+                Vector3 pos = entity.Position;
+                if (pos.x > VanillaLevelExt.GetEnemyRightBorderX())
+                {
+                    pos.x = Mathf.Min(pos.x, VanillaLevelExt.GetEnemyRightBorderX());
+                    var vel = entity.Velocity;
+                    vel.x = Mathf.Min(vel.x, 0);
+                    entity.Velocity = vel;
+                }
+                entity.Position = pos;
+            }
 
             ChangeLaneUpdate(entity);
             var scale = entity.GetFinalDisplayScale();
