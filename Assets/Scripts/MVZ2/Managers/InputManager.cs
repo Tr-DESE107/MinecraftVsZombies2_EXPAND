@@ -12,6 +12,10 @@ namespace MVZ2.Managers
         public static bool IsPointerDown(int type, int button) => IsPointerDown(GetPointerIdByButtonAndType(button, type));
         public static bool IsPointerHolding(int type, int button) => IsPointerHolding(GetPointerIdByButtonAndType(button, type));
         public static bool IsPointerUp(int type, int button) => IsPointerUp(GetPointerIdByButtonAndType(button, type));
+        public int GetActivePointerType()
+        {
+            return currentPointerType;
+        }
         public static bool IsPointerDown(int pointerId)
         {
             return IsPointerOfPhase(pointerId, PointerPhase.Press);
