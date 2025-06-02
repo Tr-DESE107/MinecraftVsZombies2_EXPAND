@@ -64,15 +64,14 @@ namespace MVZ2.UI
         {
             selectedObject.SetActive(selected);
         }
-        public void SetTwinkling(bool twinkling)
+        public void SetTwinkleAlpha(float alpha)
         {
-            if (!animator.gameObject.activeInHierarchy)
-                return;
-            animator.SetBool("Twinkling", twinkling);
+            var color = twinkleImage.color;
+            color.a = alpha;
+            twinkleImage.color = color;
         }
         private void Awake()
         {
-            animator.logWarnings = false;
             holdStreakHandler.OnPointerInteraction += (_, d, i) => CallPointerInteraction(d, i);
         }
         bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data, PointerEventData eventData)
@@ -114,8 +113,6 @@ namespace MVZ2.UI
         [SerializeField]
         private LevelPointerInteractionHandler holdStreakHandler;
         [SerializeField]
-        private Animator animator;
-        [SerializeField]
         private GameObject emptyObj;
         [SerializeField]
         private GameObject rootObj;
@@ -129,6 +126,8 @@ namespace MVZ2.UI
         private Image iconImage;
         [SerializeField]
         private Image iconImageCommandBlock;
+        [SerializeField]
+        private Image twinkleImage;
         [SerializeField]
         private TextMeshProUGUI costText;
         [SerializeField]

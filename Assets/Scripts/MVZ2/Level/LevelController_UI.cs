@@ -286,7 +286,22 @@ namespace MVZ2.Level
 
             return lawnPosition;
         }
-
+        public float GetTwinkleAlpha()
+        {
+            var clamped = (Mathf.Cos(twinkleTime * Mathf.PI * 2) + 1) * 0.5f;
+            return clamped * 0.75f;
+        }
+        public Color GetTwinkleColor()
+        {
+            var c = 1 - GetTwinkleAlpha();
+            return new Color(c, c, c, 1);
+        }
+        private void UpdateTwinkle(float deltaTime)
+        {
+            var speed = 2;
+            twinkleTime += deltaTime * speed;
+            twinkleTime %= 1;
+        }
         #endregion
 
         #region 私有方法
@@ -889,6 +904,7 @@ namespace MVZ2.Level
         private ITooltipSource tooltipSource;
         private ITooltipSource pickaxeTooltipSource;
         private ITooltipSource triggerTooltipSource;
+        private float twinkleTime;
 
         [Header("UI")]
         [SerializeField]

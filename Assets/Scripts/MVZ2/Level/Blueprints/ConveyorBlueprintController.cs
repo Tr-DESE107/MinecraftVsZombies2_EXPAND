@@ -41,7 +41,7 @@ namespace MVZ2.Level
 
             ui.SetRecharge(0);
             ui.SetDisabled(false);
-            ui.SetTwinkling(ShouldBlueprintTwinkle(SeedPack));
+            ui.SetTwinkleAlpha(ShouldBlueprintTwinkle(SeedPack) ? Controller.GetTwinkleAlpha() : 0);
             ui.SetSelected(Level.IsHoldingConveyorBlueprint(Index));
 
             Controller.BlueprintController.SetConveyorBlueprintUIPosition(Index, Position);

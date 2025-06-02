@@ -34,6 +34,7 @@ namespace MVZ2.Level
 
                 maxCryTime = maxCryTime,
                 cryTimer = cryTimer,
+                twinkleTime = twinkleTime,
 
                 musicID = CurrentMusic,
                 musicTime = MusicTime,
@@ -53,7 +54,7 @@ namespace MVZ2.Level
                 areaModel = model.ToSerializable(),
 
                 level = SerializeLevel(),
-                uiPreset = GetUIPreset().ToSerializable()
+                uiPreset = GetUIPreset().ToSerializable(),
             };
         }
         public void LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
@@ -79,6 +80,7 @@ namespace MVZ2.Level
 
                 maxCryTime = seri.maxCryTime;
                 cryTimer = seri.cryTimer;
+                twinkleTime = seri.twinkleTime;
 
                 CurrentMusic = seri.musicID;
                 MusicTime = seri.musicTime;
@@ -244,6 +246,7 @@ namespace MVZ2.Level
 
         public int maxCryTime;
         public FrameTimer cryTimer;
+        public float twinkleTime;
 
         public SerializableEntityController[] entities;
         public SerializableAreaModelData areaModel;
