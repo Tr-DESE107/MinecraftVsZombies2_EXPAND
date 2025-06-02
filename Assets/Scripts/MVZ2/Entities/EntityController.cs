@@ -366,7 +366,7 @@ namespace MVZ2.Entities
         private Color GetColorOffset()
         {
             var color = Entity.GetColorOffset();
-            if (isHighlight && Entity.Level.IsHoldingItem())
+            if (isHighlight)
             {
                 color = ColorCalculator.Blend(new Color(1, 1, 1, 0.5f), color, BlendOperator.SrcAlpha, BlendOperator.OneMinusSrcAlpha);
             }
