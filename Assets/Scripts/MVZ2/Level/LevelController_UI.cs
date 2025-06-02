@@ -662,7 +662,7 @@ namespace MVZ2.Level
         {
             if (!PickaxeActive)
                 return;
-            if (level.IsHoldingItem() && !level.IsHoldingSword())
+            if (level.IsHoldingExclusiveItem())
             {
                 if (level.CancelHeldItem())
                 {
@@ -679,7 +679,7 @@ namespace MVZ2.Level
         {
             if (!StarshardActive)
                 return;
-            if (level.IsHoldingItem() && !level.IsHoldingSword())
+            if (level.IsHoldingExclusiveItem())
             {
                 if (level.CancelHeldItem())
                 {
@@ -698,7 +698,7 @@ namespace MVZ2.Level
         {
             if (!TriggerActive)
                 return;
-            if (level.IsHoldingItem() && !level.IsHoldingSword())
+            if (level.IsHoldingExclusiveItem())
             {
                 if (level.CancelHeldItem())
                 {
