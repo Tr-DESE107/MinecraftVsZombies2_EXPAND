@@ -23,10 +23,15 @@ namespace MVZ2.GameContent.HeldItems
             if (pointerParams.IsInvalidClickButton())
                 return false;
             var entity = entityTarget.Target;
+            var level = entity.Level;
             switch (entity.Type)
             {
                 case EntityTypes.PICKUP:
-                    return !entity.IsCollected() && !entity.Level.IsHoldingEntity(entity);
+                    if (level.IsHoldingExclusiveItem() && entity.IsStrictCollect())
+                    {
+                        return false;
+                    }
+                    return !entity.IsCollected() && !level.IsHoldingEntity(entity);
             }
             return false;
         }

@@ -108,6 +108,10 @@ namespace MVZ2.Vanilla.Level
                 return null;
             return seedDef.GetSeedEntityID();
         }
+        public static bool IsHoldingExclusiveItem(this LevelEngine level)
+        {
+            return level.IsHoldingItem() && !level.IsHoldingSword();
+        }
         public static bool IsHoldingItem(this LevelEngine level)
         {
             var type = level.GetHeldItemType();

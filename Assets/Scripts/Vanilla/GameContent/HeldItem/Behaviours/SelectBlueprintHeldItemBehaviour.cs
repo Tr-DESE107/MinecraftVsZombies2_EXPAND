@@ -93,13 +93,13 @@ namespace MVZ2.GameContent.HeldItems
             // 先取消已经手持的物品。
             if (!skipCancelHeld)
             {
-                if (level.IsHoldingItem())
+                if (level.IsHoldingExclusiveItem())
                 {
                     if (level.CancelHeldItem())
                     {
                         level.PlaySound(VanillaSoundID.tap);
-                        return;
                     }
+                    return;
                 }
             }
             // 无法拾取蓝图。
