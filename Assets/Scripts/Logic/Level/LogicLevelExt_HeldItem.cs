@@ -3,6 +3,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
 
@@ -69,6 +70,18 @@ namespace MVZ2Logic.Level
         {
             var component = level.GetHeldItemComponent();
             return component.GetHeldItemModelInterface();
+        }
+        public static bool ShouldHeldItemMakeEntityTwinkle(this LevelEngine level, Entity entity)
+        {
+            var heldDef = level.GetHeldItemDefinition();
+            var heldItemData = level.GetHeldItemData();
+            var behaviours = heldDef.GetBehaviours();
+            foreach (var behaviour in behaviours)
+            {
+                if (behaviour is IHeldTwinkleEntityBehaviour twinkle && twinkle.ShouldMakeEntityTwinkle(entity, heldItemData))
+                    return true;
+            }
+            return false;
         }
         #endregion
     }

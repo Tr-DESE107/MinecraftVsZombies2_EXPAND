@@ -62,10 +62,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<bool>(REMOVE_ON_COLLECT);
         }
-        public static readonly PropertyMeta<bool> STRICT_COLLECT = Get<bool>("strictCollect");
-        public static bool IsStrictCollect(this Entity pickup)
+        public static readonly PropertyMeta<bool> NO_COLLECT = Get<bool>("noCollect");
+        public static bool NoCollect(this Entity pickup)
         {
-            return pickup.GetProperty<bool>(STRICT_COLLECT);
+            return pickup.GetProperty<bool>(NO_COLLECT);
         }
     }
 }

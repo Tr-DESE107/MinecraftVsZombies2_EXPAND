@@ -14,7 +14,7 @@ namespace MVZ2.GameContent.Placements
         public override NamespaceID GetPlaceError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
         {
             var entities = grid.GetEntities();
-            if (entities.Count() <= 0 || !entities.Any(e => e.IsEntityOf(entity.GetUpgradeFromEntity()) && e.IsFriendlyEntity()))
+            if (entities.Count() <= 0 || !entities.Any(e => e.CanUpgradeToContraption(entity) && e.IsFriendlyEntity()))
             {
                 return VanillaGridStatus.onlyUpgrade;
             }
@@ -22,19 +22,15 @@ namespace MVZ2.GameContent.Placements
         }
         public override Entity PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
         {
-            var upgradeFromEntity = entityDef.GetUpgradeFromEntity();
-            if (NamespaceID.IsValid(upgradeFromEntity))
+            var entity = grid.GetEntities().FirstOrDefault(e => e.CanUpgradeToContraption(entityDef));
+            if (entity != null && entity.Exists())
             {
-                var entity = grid.GetEntities().FirstOrDefault(e => e.IsEntityOf(upgradeFromEntity));
-                if (entity != null && entity.Exists())
+                var ent = entity.UpgradeToContraption(entityDef.GetID());
+                if (ent != null && param.IsCommandBlock())
                 {
-                    var ent = entity.UpgradeToContraption(entityDef.GetID());
-                    if (ent != null && param.IsCommandBlock())
-                    {
-                        ent.AddBuff<ImitatedBuff>();
-                    }
-                    return ent;
+                    ent.AddBuff<ImitatedBuff>();
                 }
+                return ent;
             }
             return null;
         }

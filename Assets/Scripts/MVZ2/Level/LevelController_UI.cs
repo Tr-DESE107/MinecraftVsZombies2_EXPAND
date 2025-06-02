@@ -4,6 +4,7 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.Cursors;
 using MVZ2.GameContent.HeldItems;
+using MVZ2.GameContent.Pickups;
 using MVZ2.HeldItems;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
@@ -76,10 +77,22 @@ namespace MVZ2.Level
 
             // 显示触发器图标。
             bool triggerVisible = false;
-            SeedPack blueprint = definition?.GetSeedPack(level, data);
-            if (blueprint != null && blueprint.IsTriggerActive() && blueprint.CanInstantTrigger())
+            if (data.Type == VanillaHeldTypes.blueprintPickup)
             {
-                triggerVisible = true;
+                var blueprintPickup = level.GetHoldingEntity(data);
+                var seedDef = BlueprintPickup.GetSeedDefinition(blueprintPickup);
+                if (seedDef.IsTriggerActive() && seedDef.CanInstantTrigger())
+                {
+                    triggerVisible = true;
+                }
+            }
+            else
+            {
+                SeedPack blueprint = definition?.GetSeedPack(level, data);
+                if (blueprint != null && blueprint.IsTriggerActive() && blueprint.CanInstantTrigger())
+                {
+                    triggerVisible = true;
+                }
             }
             ui.SetHeldItemTrigger(triggerVisible, instantTrigger);
             ui.SetHeldItemImbued(data.InstantEvoke);

@@ -11,7 +11,6 @@ namespace MVZ2.GameContent.HeldItems
             AddBehaviour(VanillaHeldItemBehaviourID.rightMouseCancel);
             AddBehaviour(VanillaHeldItemBehaviourID.pickup);
             AddBehaviour(VanillaHeldItemBehaviourID.triggerCart);
-            AddBehaviour(VanillaHeldItemBehaviourID.selectBlueprint);
             AddBehaviour(VanillaHeldItemBehaviourID.blueprintPickup);
         }
     }
