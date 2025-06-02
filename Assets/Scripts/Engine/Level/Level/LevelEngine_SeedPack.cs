@@ -86,6 +86,8 @@ namespace PVZEngine.Level
         }
         public ClassicSeedPack GetSeedPackAt(int index)
         {
+            if (index < 0 || index >= seedPacks.Length)
+                return null;
             return seedPacks[index];
         }
         public ClassicSeedPack GetSeedPack(NamespaceID seedRef)
@@ -176,10 +178,12 @@ namespace PVZEngine.Level
         }
         public NamespaceID GetConveyorSeedPackIDAt(int index)
         {
-            return conveyorSeedPacks[index]?.GetDefinitionID();
+            return GetConveyorSeedPackAt(index)?.GetDefinitionID();
         }
         public ConveyorSeedPack GetConveyorSeedPackAt(int index)
         {
+            if (index < 0 || index >= conveyorSeedPacks.Count)
+                return null;
             return conveyorSeedPacks[index];
         }
         public ConveyorSeedPack GetConveyorSeedPack(NamespaceID seedRef)
