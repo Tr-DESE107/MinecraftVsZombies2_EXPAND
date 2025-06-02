@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using MVZ2.Cursors;
-using MVZ2.GameContent.HeldItems;
 using MVZ2.HeldItems;
 using MVZ2.Level;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
@@ -370,23 +368,7 @@ namespace MVZ2.Entities
         private bool ShouldTwinkle()
         {
             var engine = Entity.Level;
-            var heldData = engine.GetHeldItemData();
-            if (heldData.Type == VanillaHeldTypes.trigger && Entity.CanTrigger())
-                return true;
-
-            var seedEntityID = engine.GetHeldSeedEntityID();
-            if (NamespaceID.IsValid(seedEntityID))
-            {
-                var entityDef = engine.Content.GetEntityDefinition(seedEntityID);
-                if (entityDef != null)
-                {
-                    if (entityDef.IsUpgradeBlueprint() && Entity.IsEntityOf(entityDef.GetUpgradeFromEntity()))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
+            return engine.ShouldHeldItemMakeEntityTwinkle(Entity);
         }
         private Color GetTint()
         {

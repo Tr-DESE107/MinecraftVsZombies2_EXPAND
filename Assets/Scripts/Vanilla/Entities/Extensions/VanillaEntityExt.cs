@@ -7,6 +7,7 @@ using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -823,6 +824,13 @@ namespace MVZ2.Vanilla.Entities
             Vector2Int.right,
             Vector2Int.left
         };
+        #endregion
+
+        #region 蓝图掉落物
+        public static bool IsBlueprintPickup(this Entity entity)
+        {
+            return entity != null && entity.IsEntityOf(VanillaPickupID.blueprintPickup);
+        }
         #endregion
         public static SpawnParams GetSpawnParams(this Entity entity)
         {

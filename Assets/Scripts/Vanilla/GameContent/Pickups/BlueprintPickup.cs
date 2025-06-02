@@ -1,7 +1,9 @@
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Level;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -39,11 +41,22 @@ namespace MVZ2.GameContent.Pickups
         }
         public static SeedDefinition GetSeedDefinition(Entity pickup)
         {
+            if (!pickup.IsBlueprintPickup())
+                return null;
             var seedID = GetBlueprintID(pickup);
             var seedDef = pickup.Level.Content.GetSeedDefinition(seedID);
             if (seedDef == null)
                 return null;
             return seedDef;
+        }
+        public static NamespaceID GetSeedEntityID(Entity pickup)
+        {
+            var seedDef = GetSeedDefinition(pickup);
+            if (seedDef == null)
+                return null;
+            if (seedDef.GetSeedType() != SeedTypes.ENTITY)
+                return null;
+            return seedDef.GetSeedEntityID();
         }
         private static void UpdateModel(Entity pickup)
         {

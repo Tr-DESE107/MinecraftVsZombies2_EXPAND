@@ -108,6 +108,10 @@ namespace MVZ2.Vanilla.Entities
             triggerable.Trigger(contraption);
             contraption.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_CONTRAPTION_TRIGGER, new EntityCallbackParams(contraption));
         }
+        public static bool CanUpgradeToContraption(this Entity contraption, EntityDefinition target)
+        {
+            return contraption.IsEntityOf(target.GetUpgradeFromEntity());
+        }
         public static Entity UpgradeToContraption(this Entity contraption, NamespaceID target)
         {
             var grid = contraption.GetGrid();

@@ -1,6 +1,7 @@
 ﻿using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.HeldItems;
@@ -11,6 +12,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
+using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using PVZEngine.Models;
@@ -18,7 +20,7 @@ using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    public abstract class BlueprintHeldItemBehaviour : HeldItemBehaviourDefinition, IBlueprintHeldItemBehaviour
+    public abstract class BlueprintHeldItemBehaviour : HeldItemBehaviourDefinition, IBlueprintHeldItemBehaviour, IHeldTwinkleEntityBehaviour
     {
         protected BlueprintHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
@@ -122,6 +124,14 @@ namespace MVZ2.GameContent.HeldItems
             }
         }
 
+        public bool ShouldMakeEntityTwinkle(Entity entity, IHeldItemData data)
+        {
+            var level = entity.Level;
+            var seedPack = GetSeedPack(level, data);
+            var seedEntityID = seedPack.GetSeedEntityID();
+            var entityDef = level.Content.GetEntityDefinition(seedEntityID);
+            return entityDef != null && entityDef.IsUpgradeBlueprint() && entity.CanUpgradeToContraption(entityDef);
+        }
 
         protected virtual void CostBlueprint(LawnGrid grid, IHeldItemData data)
         {

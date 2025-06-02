@@ -17,7 +17,7 @@ namespace MVZ2.Vanilla.Entities
         public override void Update(Entity pickup)
         {
             base.Update(pickup);
-            if (!pickup.IsCollected())
+            if (!pickup.IsCollected() && !pickup.NoCollect())
             {
                 var level = pickup.Level;
                 var willAutoCollect = false;

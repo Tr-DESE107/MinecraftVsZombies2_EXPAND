@@ -1,9 +1,12 @@
 ﻿using MVZ2.GameContent.Models;
+using MVZ2.GameContent.Pickups;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.HeldItems;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -11,7 +14,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.HeldItems
 {
     [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.starshard)]
-    public class StarshardHeldItemBehaviour : ToEntityHeldItemBehaviour
+    public class StarshardHeldItemBehaviour : ToEntityHeldItemBehaviour, IHeldTwinkleEntityBehaviour
     {
         public StarshardHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
@@ -41,6 +44,11 @@ namespace MVZ2.GameContent.HeldItems
             entity.Level.AddStarshardCount(-1);
             entity.Evoke();
             entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_USE_STARSHARD, new EntityCallbackParams(entity), entity.GetDefinitionID());
+        }
+        public bool ShouldMakeEntityTwinkle(Entity entity, IHeldItemData data)
+        {
+            var seedDefinition = BlueprintPickup.GetSeedDefinition(entity);
+            return seedDefinition != null && seedDefinition.CanInstantEvoke();
         }
     }
 }

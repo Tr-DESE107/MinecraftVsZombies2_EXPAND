@@ -1,4 +1,6 @@
 ﻿using PVZEngine.Base;
+using PVZEngine.Definitions;
+using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2Logic.SeedPacks
@@ -9,6 +11,10 @@ namespace MVZ2Logic.SeedPacks
         {
         }
         public virtual void Use(SeedPack seedPack)
+        {
+
+        }
+        public virtual void Use(LevelEngine level, SeedDefinition seedPack)
         {
 
         }

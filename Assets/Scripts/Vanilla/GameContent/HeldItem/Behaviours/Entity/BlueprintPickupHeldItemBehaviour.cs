@@ -2,6 +2,8 @@
 using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
@@ -18,7 +20,7 @@ using PVZEngine.Models;
 namespace MVZ2.GameContent.HeldItems
 {
     [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.blueprintPickup)]
-    public class BlueprintPickupHeldItemBehaviour : EntityHeldItemBehaviour
+    public class BlueprintPickupHeldItemBehaviour : EntityHeldItemBehaviour, IHeldTwinkleEntityBehaviour
     {
         public BlueprintPickupHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
@@ -197,5 +199,15 @@ namespace MVZ2.GameContent.HeldItems
         public static SeedDefinition GetSeedDefinition(Entity entity) => BlueprintPickup.GetSeedDefinition(entity);
         public static bool IgnoresTouchRaycast(Entity entity) => BlueprintPickup.IgnoresTouchRaycast(entity);
         public static void SetIgnoreTouchRaycast(Entity entity, bool value) => BlueprintPickup.SetIgnoreTouchRaycast(entity, value);
+
+        public bool ShouldMakeEntityTwinkle(Entity entity, IHeldItemData data)
+        {
+            var level = entity.Level;
+            var blueprintPickup = GetEntity(level, data);
+            var seedEntityID = BlueprintPickup.GetSeedEntityID(blueprintPickup);
+            var entityDef = level.Content.GetEntityDefinition(seedEntityID);
+
+            return entityDef != null && entityDef.IsUpgradeBlueprint() && entity.CanUpgradeToContraption(entityDef);
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using MVZ2Logic;
+using MVZ2Logic.SeedPacks;
+using PVZEngine;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
@@ -37,6 +39,15 @@ namespace MVZ2.Vanilla.SeedPacks
             }
             errorMessage = null;
             return true;
+        }
+        public static NamespaceID GetSeedEntityID(this SeedPack seed)
+        {
+            var seedDef = seed?.Definition;
+            if (seedDef == null)
+                return null;
+            if (seedDef.GetSeedType() != SeedTypes.ENTITY)
+                return null;
+            return seedDef.GetSeedEntityID();
         }
         public static bool CanInstantTrigger(this SeedPack seedPack)
         {

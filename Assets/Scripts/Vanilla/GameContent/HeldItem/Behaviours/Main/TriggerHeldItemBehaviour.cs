@@ -1,7 +1,11 @@
 ﻿using MVZ2.GameContent.Models;
+using MVZ2.GameContent.Pickups;
 using MVZ2.HeldItems;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.HeldItems;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -9,7 +13,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.HeldItems
 {
     [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.trigger)]
-    public class TriggerHeldItemBehaviour : ToEntityHeldItemBehaviour
+    public class TriggerHeldItemBehaviour : ToEntityHeldItemBehaviour, IHeldTwinkleEntityBehaviour
     {
         public TriggerHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
@@ -33,6 +37,14 @@ namespace MVZ2.GameContent.HeldItems
         public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)
         {
             result.SetFinalValue(VanillaModelID.triggerHeldItem);
+        }
+
+        public bool ShouldMakeEntityTwinkle(Entity entity, IHeldItemData data)
+        {
+            if (entity.CanTrigger())
+                return true;
+            var seedDefinition = BlueprintPickup.GetSeedDefinition(entity);
+            return seedDefinition != null && seedDefinition.IsTriggerActive() && seedDefinition.CanInstantTrigger();
         }
     }
 }

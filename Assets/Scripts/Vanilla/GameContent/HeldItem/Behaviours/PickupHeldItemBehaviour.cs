@@ -27,11 +27,7 @@ namespace MVZ2.GameContent.HeldItems
             switch (entity.Type)
             {
                 case EntityTypes.PICKUP:
-                    if (level.IsHoldingExclusiveItem() && entity.IsStrictCollect())
-                    {
-                        return false;
-                    }
-                    return !entity.IsCollected() && !level.IsHoldingEntity(entity);
+                    return !entity.IsCollected() && !level.IsHoldingEntity(entity) && !entity.NoCollect();
             }
             return false;
         }
@@ -49,10 +45,6 @@ namespace MVZ2.GameContent.HeldItems
             {
                 case EntityTypes.PICKUP:
                     bool interacted = interaction == PointerInteraction.Down || interaction == PointerInteraction.Hold || interaction == PointerInteraction.Streak;
-                    if (entity.IsStrictCollect())
-                    {
-                        interacted = interaction == PointerInteraction.Down;
-                    }
                     if (interacted)
                     {
                         if (entity.CanCollect())
