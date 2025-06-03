@@ -13,6 +13,10 @@ namespace MVZ2.UI
             UpdateMain(viewData.main);
             UpdateMark(viewData.mark);
         }
+        public void SetScale(Vector3 scale)
+        {
+            transform.localScale = scale;
+        }
         public void UpdateBackground(AlmanacTagIconLayerViewData viewData)
         {
             backgroundLayer.UpdateView(viewData);

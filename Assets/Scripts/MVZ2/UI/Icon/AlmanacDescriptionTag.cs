@@ -10,6 +10,10 @@ namespace MVZ2.UI
             linkID = viewData.linkID;
             icon.UpdateContainer(viewData.icon);
         }
+        public void SetScale(Vector3 size)
+        {
+            icon.SetScale(size);
+        }
         private void Awake()
         {
             icon.OnPointerEnter += _ => OnPointerEnter?.Invoke(linkID);
@@ -24,5 +28,6 @@ namespace MVZ2.UI
     {
         public string linkID;
         public AlmanacTagIconViewData icon;
+        public Vector2 size;
     }
 }

@@ -23,10 +23,13 @@ namespace MVZ2.UI
 
                 TMP_LinkInfo linkInfo = tmpText.textInfo.linkInfo[linkIndex];
                 Vector3 centerPos = CalculateLinkCenter(linkInfo);
+                Vector2 linkSize = CalculateLinkSize(linkInfo);
                 Vector3 worldPos = tmpText.transform.TransformPoint(centerPos);
                 obj.name = linkID;
                 obj.transform.position = worldPos;
+                var scale = Mathf.Min(linkSize.x / viewData.size.x, linkSize.y / viewData.size.y);
                 container.UpdateTag(viewData);
+                container.SetScale(Vector3.one * scale);
             },
             obj =>
             {
@@ -68,6 +71,13 @@ namespace MVZ2.UI
             Vector3 topRight = tmpText.textInfo.characterInfo[linkInfo.linkTextfirstCharacterIndex + linkInfo.linkTextLength - 1].topRight;
 
             return new Vector3((bottomLeft.x + topRight.x) / 2, (bottomLeft.y + topRight.y) / 2, 0);
+        }
+        private Vector2 CalculateLinkSize(TMP_LinkInfo linkInfo)
+        {
+            Vector3 bottomLeft = tmpText.textInfo.characterInfo[linkInfo.linkTextfirstCharacterIndex].bottomLeft;
+            Vector3 topRight = tmpText.textInfo.characterInfo[linkInfo.linkTextfirstCharacterIndex + linkInfo.linkTextLength - 1].topRight;
+
+            return new Vector2(Mathf.Abs(topRight.x - bottomLeft.x), Mathf.Abs(topRight.y - bottomLeft.y));
         }
         private void OnIconPointerEnterCallback(string linkID)
         {

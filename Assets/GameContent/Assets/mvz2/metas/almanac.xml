@@ -73,7 +73,7 @@
             <icon sprite="mvz2:ui/almanac/attribute_tags[9]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
         </tag>
-        <tag id="paddle" name="水中前进" description="可在水中前进" >
+        <tag id="paddle" name="不会溺水" description="不会溺水而死" >
             <icon sprite="mvz2:ui/almanac/attribute_tags[10]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#347871" />
         </tag>
@@ -254,7 +254,7 @@
         </entry>
         <entry id="mvz2:punchton">
             <header>
-                <p>冲击活塞能够击退前方的敌人并击碎石制品，但之后需要一定时间来修复自身。</p>
+                <p>冲击活塞能够击退前方的敌人并击碎<![CDATA[<tag id="mvz2:shell" enum="mvz2:stone"/>]]>石制品，但之后需要一定时间来修复自身。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>100（无视护甲）</color>]]></p>
@@ -295,7 +295,7 @@
         </entry>
         <entry id="mvz2:silvenser">
             <header>
-                <p>银质发射器能发射穿透血肉之躯的飞刀。</p>
+                <p>银质发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh"/>]]>血肉之躯的飞刀。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>15，30（对肉体）</color>]]></p>
@@ -348,7 +348,6 @@
                 <p>重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。</p>
             </header>
             <properties>
-                <p>特点：<![CDATA[<color=red>敌人无法发现</color>]]></p>
                 <p>技能：<![CDATA[<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进</color>]]></p>
             </properties>
             <flavor>
@@ -752,7 +751,7 @@
                 <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
                 <p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
-                <p><![CDATA[<color=red>只能放置在小型发射器上</color>]]></p>
+                <p><![CDATA[<color=red>必须放置在小型发射器上</color>]]></p>
             </properties>
             <flavor>
                 <p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
@@ -902,7 +901,6 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>900</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>冲击活塞</color>]]></p>
-                <p>质量：<![CDATA[<color=red>重</color>]]></p>
             </properties>
             <flavor>
                 <p>石像鬼和他的妈妈住在山上的一间小屋中。石像鬼画画，玩玩具，妈妈就在电视上看广播。生活很简单，他们也很幸福。直到有一天石像鬼的妈妈从天上听到了雷声……</p>
@@ -915,8 +913,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
                 <p>抗性：<![CDATA[<color=red>虚无状态下减少90%受到的伤害</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>被光照到时会失去虚无效果</color>]]></p>
-                <p>质量：<![CDATA[<color=red>很轻</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>被<tag id="mvz2:light_source"/>光照到时会失去虚无效果</color>]]></p>
             </properties>
             <flavor>
                 <p>当你走夜路时听到有人喊你的名字，千万别回头，不然就会有幽灵——被你吓死了。</p>
@@ -928,7 +925,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>火，毒雾可以被火烧掉</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>毒雾可以被<tag id="mvz2:fire"/>火烧掉</color>]]></p>
             </properties>
             <flavor>
                 <p>就跟奶奶们一样，木乃伊特别喜欢香水。它们甚至狂热到把香味刻进自己的骨子里，恨不得把周围的人都熏死。天哪，估计只有“木爷伊”能忍受这种气味了。</p>
@@ -954,7 +951,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>160</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>特点：<![CDATA[<color=red>可以爬上并越过防御性器械</color>]]></p>
+                <p>特点：<![CDATA[<color=red>可以爬上并越过<tag id="mvz2:defensive"/>防御性器械</color>]]></p>
             </properties>
             <flavor>
                 <p>蜘蛛开的网吧相当赚钱，因为大家都被黏住了。</p>
@@ -967,8 +964,6 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>120</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
-                <p>质量：<![CDATA[<color=red>轻</color>]]></p>
             </properties>
             <flavor>
                 <p>曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。</p>
@@ -981,8 +976,6 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>100</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
-                <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
-                <p>质量：<![CDATA[<color=red>很轻</color>]]></p>
             </properties>
             <flavor>
                 <p>########公告########</p>
@@ -1012,7 +1005,6 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>0-50</color>（变化）]]></p>
                 <p>速度：<![CDATA[<color=red>4</color>]]></p>
-                <p>质量：<![CDATA[<color=red>轻</color>]]></p>
             </properties>
             <flavor>
                 <p>它还没想好自己的网络冷笑话该怎么写。</p>
@@ -1060,8 +1052,7 @@
                 <p>马速度：<![CDATA[<color=red>2（跳跃前），1（跳跃后）</color>]]></p>
                 <p>身体速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>头颅速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过高器械</color>]]></p>
-                <p>质量：<![CDATA[<color=red>轻（头），中（身体，马）</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过<tag id="mvz2:high"/>高器械</color>]]></p>
             </properties>
             <flavor>
                 <p>因为无头骑士总是喜欢在写文章的时候把开头擦掉。</p>
@@ -1076,7 +1067,6 @@
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>碾压伤害：<![CDATA[<color=red>10000000</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>尖刺方块</color>]]></p>
-                <p>质量：<![CDATA[<color=red>很重</color>]]></p>
             </properties>
             <flavor>
                 <p>地狱战车的司机怎么一脸不情愿的样子？</p>
@@ -1091,7 +1081,6 @@
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>灵魂沙生命：<![CDATA[<color=red>300</color>]]></p>
-                <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
             </properties>
             <flavor>
                 <p>其实他用来审判罪行的天平已经坏了很久了，它常放羽毛的那一端比较重一些。</p>

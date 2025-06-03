@@ -5,7 +5,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using MukioI18n;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Placements;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Metas;
@@ -254,7 +253,7 @@ namespace MVZ2.Almanacs
             var iconStacks = iconInfos.Select(i => i.viewData).ToArray();
             var finalDesc = ReplaceText(description, replacements);
 
-            ui.SetActiveEnemyEntry(model, almanacCamera, name, description);
+            ui.SetActiveEnemyEntry(model, almanacCamera, name, finalDesc);
             ui.UpdateEnemyDescriptionIcons(iconStacks);
         }
         private void SetActiveArtifactEntry(NamespaceID artifactID)
@@ -272,7 +271,7 @@ namespace MVZ2.Almanacs
             var iconStacks = iconInfos.Select(i => i.viewData).ToArray();
             var finalDesc = ReplaceText(description, replacements);
 
-            ui.SetActiveArtifactEntry(sprite, name, description);
+            ui.SetActiveArtifactEntry(sprite, name, finalDesc);
             ui.UpdateEnemyDescriptionIcons(iconStacks);
         }
         private void SetActiveMiscEntry(NamespaceID miscID)
@@ -348,17 +347,8 @@ namespace MVZ2.Almanacs
             bool nocturnal = definition.IsNocturnal();
             var placement = definition.GetPlacementID();
 
-            string extraPropertyText = string.Empty;
-            if (definition.IsNocturnal())
-            {
-                extraPropertyText += "\n" + Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, EXTRA_PROPERTY_NOCTURNAL);
-            }
-            if (placement == VanillaPlacementID.aquatic)
-            {
-                extraPropertyText += "\n" + Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, EXTRA_PROPERTY_AQUATIC);
-            }
             name = Main.ResourceManager.GetEntityName(entityID);
-            description = GetAlmanacDescription(entityID, almanacCategory, extraPropertyText);
+            description = GetAlmanacDescription(entityID, almanacCategory);
 
             if (definition == null)
                 return;
@@ -386,7 +376,7 @@ namespace MVZ2.Almanacs
             var spriteReference = definition.GetSpriteReference();
             sprite = Main.GetFinalSprite(spriteReference);
         }
-        private string GetAlmanacDescription(NamespaceID almanacID, string almanacCategory, string extraPropertyText = null)
+        private string GetAlmanacDescription(NamespaceID almanacID, string almanacCategory)
         {
             if (!NamespaceID.IsValid(almanacID))
                 return string.Empty;
@@ -401,10 +391,6 @@ namespace MVZ2.Almanacs
                 var header = GetTranslatedString(context, almanacMeta.header);
                 header = $"<color=#00007F>{header}</color>";
                 var properties = GetTranslatedString(context, almanacMeta.properties);
-                if (!string.IsNullOrEmpty(extraPropertyText))
-                {
-                    properties += extraPropertyText;
-                }
                 var flavorKeys = almanacMeta.GetValidFlavors(Main.SaveManager);
                 var flavors = flavorKeys.Select(f => GetTranslatedString(context, f));
                 var flavor = string.Join("\n\n", flavors);
@@ -528,7 +514,7 @@ namespace MVZ2.Almanacs
                 // 存储替换信息
                 string rep = string.Empty;
                 rep += $"<link=\"{linkID}\">";
-                rep += $"<size={size.x}>";
+                rep += $"<size=18>";
                 rep += $"<sprite=\"tag_icon_placeholder\" index=0>";
                 rep += $"</size>";
                 rep += $"</link>";
@@ -540,14 +526,15 @@ namespace MVZ2.Almanacs
                 };
                 var iconViewdata = new AlmanacTagIconViewData()
                 {
-                    background = new AlmanacTagIconLayerViewData() { sprite = backgroundSprite, tint = backgroundColor, scale = Vector3.one },
-                    main = new AlmanacTagIconLayerViewData() { sprite = iconSprite, tint = Color.white, scale = Vector3.one },
-                    mark = new AlmanacTagIconLayerViewData() { sprite = markSprite, tint = Color.white, scale = Vector3.one },
+                    background = new AlmanacTagIconLayerViewData() { sprite = backgroundSprite, tint = backgroundColor },
+                    main = new AlmanacTagIconLayerViewData() { sprite = iconSprite, tint = Color.white },
+                    mark = new AlmanacTagIconLayerViewData() { sprite = markSprite, tint = Color.white }
                 };
                 var viewData = new AlmanacDescriptionTagViewData()
                 {
                     linkID = linkID,
                     icon = iconViewdata,
+                    size = size,
                 };
                 infos.Add(new DescriptionTagIconInfo()
                 {
@@ -627,9 +614,9 @@ namespace MVZ2.Almanacs
 
             return new AlmanacTagIconViewData()
             {
-                background = new AlmanacTagIconLayerViewData() { sprite = backgroundSprite, tint = backgroundColor, scale = Vector3.one },
-                main = new AlmanacTagIconLayerViewData() { sprite = iconSprite, tint = Color.white, scale = Vector3.one },
-                mark = new AlmanacTagIconLayerViewData() { sprite = markSprite, tint = Color.white, scale = Vector3.one },
+                background = new AlmanacTagIconLayerViewData() { sprite = backgroundSprite, tint = backgroundColor },
+                main = new AlmanacTagIconLayerViewData() { sprite = iconSprite, tint = Color.white },
+                mark = new AlmanacTagIconLayerViewData() { sprite = markSprite, tint = Color.white },
             };
         }
         #endregion
@@ -685,10 +672,6 @@ namespace MVZ2.Almanacs
         public const string COST_LABEL = "花费：<color=red>{0}</color>";
         [TranslateMsg("图鉴描述模板，{0}为冷却时间", VanillaStrings.CONTEXT_ALMANAC)]
         public const string RECHARGE_LABEL = "冷却时间：<color=red>{0}</color>";
-        [TranslateMsg("图鉴描述", VanillaStrings.CONTEXT_ALMANAC)]
-        public const string EXTRA_PROPERTY_NOCTURNAL = "<color=blue>白天失效</color>";
-        [TranslateMsg("图鉴描述", VanillaStrings.CONTEXT_ALMANAC)]
-        public const string EXTRA_PROPERTY_AQUATIC = "<color=blue>只能放在水上</color>";
         [TranslateMsg("图鉴放大选项，{0}为缩放等级", VanillaStrings.CONTEXT_ALMANAC)]
         public const string OPTION_ZOOM_SCALE = "缩放：{0}";
         [TranslateMsg("图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名", VanillaStrings.CONTEXT_ALMANAC)]
