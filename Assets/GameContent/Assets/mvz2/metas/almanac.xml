@@ -87,12 +87,15 @@
         </tag>
         <tag id="armor_shell" name="盔甲材质" enum="mvz2:shell" >
             <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+            <mark sprite="mvz2:ui/almanac/special_marks[0]" />
         </tag>
         <tag id="shield_shell" name="护盾材质" enum="mvz2:shell" >
             <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+            <mark sprite="mvz2:ui/almanac/special_marks[1]" />
         </tag>
         <tag id="staff_shell" name="手杖材质" enum="mvz2:shell" >
             <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+            <mark sprite="mvz2:ui/almanac/special_marks[2]" />
         </tag>
 
         <tag id="mass" name="质量" enum="mvz2:mass" >
@@ -100,9 +103,11 @@
         </tag>
         <tag id="mass_head" name="头质量" enum="mvz2:mass" >
             <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+            <mark sprite="mvz2:ui/almanac/special_marks[3]" />
         </tag>
         <tag id="mass_horse" name="马质量" enum="mvz2:mass" >
             <background sprite="mvz2:ui/almanac/tag_backgrounds[4]"/>
+            <mark sprite="mvz2:ui/almanac/special_marks[4]" />
         </tag>
         <enum id="mass" type="int">
             <value value="-2" name="很轻" description="受到的击退极大" sprite="mvz2:ui/almanac/mass_tags[0]" backgroundColor="#696a7f"/>
@@ -1043,6 +1048,10 @@
             </flavor>
         </entry>
         <entry id="mvz2:dullahan">
+            <tags>
+                <tag id="mvz2:mass_head" value="-1" />
+                <tag id="mvz2:mass_horse" value="0" />
+            </tags>
             <header>
                 <p>无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的怪物。</p>
             </header>
@@ -1139,6 +1148,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:shikaisen_zombie">
+            <tags>
+                <tag id="mvz2:staff_shell" value="mvz2:wood" />
+            </tags>
             <header>
                 <p>尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有怪物的图腾。</p>
             </header>

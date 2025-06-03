@@ -5215,6 +5215,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f5188cc46ef9a44696613996b27b1ec
+    m_Address: mvz2:ui/almanac/special_marks
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f7e35986ffa8894c8241697cb5846ec
     m_Address: mvz2:suspension
     m_ReadOnly: 0

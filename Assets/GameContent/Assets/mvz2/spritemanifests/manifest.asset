@@ -2138,6 +2138,13 @@ MonoBehaviour:
     - {fileID: -632628095, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
     - {fileID: -1708348277, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
     - {fileID: -65933743, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+  - name: ui/almanac/special_marks
+    spritesheet:
+    - {fileID: 91842071, guid: 8f5188cc46ef9a44696613996b27b1ec, type: 3}
+    - {fileID: -483986524, guid: 8f5188cc46ef9a44696613996b27b1ec, type: 3}
+    - {fileID: 1805722563, guid: 8f5188cc46ef9a44696613996b27b1ec, type: 3}
+    - {fileID: -689233457, guid: 8f5188cc46ef9a44696613996b27b1ec, type: 3}
+    - {fileID: 2023385290, guid: 8f5188cc46ef9a44696613996b27b1ec, type: 3}
   - name: ui/almanac/tag_backgrounds
     spritesheet:
     - {fileID: 533723679, guid: fd045d9b19051854898d84facdd55d17, type: 3}

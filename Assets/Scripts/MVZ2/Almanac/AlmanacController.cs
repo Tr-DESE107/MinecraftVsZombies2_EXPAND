@@ -493,6 +493,7 @@ namespace MVZ2.Almanacs
                     continue;
                 SpriteReference iconSpriteRef = tagMeta.iconSprite;
                 SpriteReference backgroundSpriteRef = tagMeta.backgroundSprite;
+                SpriteReference markSpriteRef = tagMeta.markSprite;
                 Color backgroundColor = tagMeta.backgroundColor;
                 if (match.Groups.Count > 3 && match.Groups[3].Success)
                 {
@@ -516,6 +517,7 @@ namespace MVZ2.Almanacs
 
                 var iconSprite = Main.GetFinalSprite(iconSpriteRef);
                 var backgroundSprite = Main.GetFinalSprite(backgroundSpriteRef);
+                var markSprite = Main.GetFinalSprite(markSpriteRef);
                 var size = new Vector2(32, 32);
                 if (backgroundSprite)
                 {
@@ -540,6 +542,7 @@ namespace MVZ2.Almanacs
                 {
                     background = new AlmanacTagIconLayerViewData() { sprite = backgroundSprite, tint = backgroundColor, scale = Vector3.one },
                     main = new AlmanacTagIconLayerViewData() { sprite = iconSprite, tint = Color.white, scale = Vector3.one },
+                    mark = new AlmanacTagIconLayerViewData() { sprite = markSprite, tint = Color.white, scale = Vector3.one },
                 };
                 var viewData = new AlmanacDescriptionTagViewData()
                 {
@@ -573,7 +576,13 @@ namespace MVZ2.Almanacs
             List<AlmanacEntryTagInfo> list = new List<AlmanacEntryTagInfo>();
             var param = new LogicCallbacks.GetAlmanacEntryTagsParams(category, id, list);
             Global.Game.RunCallbackFiltered(LogicCallbacks.GET_ALMANAC_ENTRY_TAGS, param, category);
-            return list.ToArray();
+
+            var almanacEntry = Main.ResourceManager.GetAlmanacMetaEntry(category, id);
+            if (almanacEntry != null)
+            {
+                list.AddRange(almanacEntry.tags);
+            }
+            return list.Distinct().ToArray();
         }
         private void UpdateEntryTags(AlmanacUIPage page, string category, NamespaceID id)
         {
@@ -599,6 +608,7 @@ namespace MVZ2.Almanacs
             var defaultNsp = Main.BuiltinNamespace;
             SpriteReference iconSpriteRef = tagMeta.iconSprite;
             SpriteReference backgroundSpriteRef = tagMeta.backgroundSprite;
+            SpriteReference markSpriteRef = tagMeta.markSprite;
             Color backgroundColor = tagMeta.backgroundColor;
             if (NamespaceID.IsValid(tagMeta.enumType))
             {
@@ -613,11 +623,13 @@ namespace MVZ2.Almanacs
 
             var iconSprite = Main.GetFinalSprite(iconSpriteRef);
             var backgroundSprite = Main.GetFinalSprite(backgroundSpriteRef);
+            var markSprite = Main.GetFinalSprite(markSpriteRef);
 
             return new AlmanacTagIconViewData()
             {
                 background = new AlmanacTagIconLayerViewData() { sprite = backgroundSprite, tint = backgroundColor, scale = Vector3.one },
                 main = new AlmanacTagIconLayerViewData() { sprite = iconSprite, tint = Color.white, scale = Vector3.one },
+                mark = new AlmanacTagIconLayerViewData() { sprite = markSprite, tint = Color.white, scale = Vector3.one },
             };
         }
         #endregion

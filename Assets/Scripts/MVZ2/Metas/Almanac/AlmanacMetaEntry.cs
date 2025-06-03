@@ -6,6 +6,7 @@ using System.Xml;
 using MVZ2.IO;
 using MVZ2.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Almanacs;
 using MVZ2Logic.Games;
 using PVZEngine;
 
@@ -22,6 +23,7 @@ namespace MVZ2.Metas
         public bool iconFixedSize;
         public bool iconZoom;
 
+        public AlmanacEntryTagInfo[] tags;
         public string header;
         public string properties;
         public AlmanacMetaFlavor[] flavors;
@@ -44,6 +46,21 @@ namespace MVZ2.Metas
                 model = iconNode.GetAttributeNamespaceID("model", defaultNsp);
                 iconFixedSize = iconNode.GetAttributeBool("fixedSize") ?? iconFixedSize;
                 iconZoom = iconNode.GetAttributeBool("zoom") ?? iconZoom;
+            }
+            var tags = new List<AlmanacEntryTagInfo>();
+            var tagsNode = node["tags"];
+            if (tagsNode != null)
+            {
+                for (int i = 0; i < tagsNode.ChildNodes.Count; i++)
+                {
+                    var child = tagsNode.ChildNodes[i];
+                    if (child.Name == "tag")
+                    {
+                        var tagID = child.GetAttributeNamespaceID("id", defaultNsp);
+                        var tagValue = child.GetAttribute("value");
+                        tags.Add(new AlmanacEntryTagInfo(tagID, tagValue));
+                    }
+                }
             }
             var headerNode = node["header"];
             var propertiesNode = node["properties"];
@@ -89,6 +106,7 @@ namespace MVZ2.Metas
                 iconFixedSize = iconFixedSize,
                 iconZoom = iconZoom,
                 hidden = hidden,
+                tags = tags.ToArray(),
                 header = header,
                 properties = properties,
                 flavors = flavors,

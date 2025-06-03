@@ -17,6 +17,8 @@ namespace MVZ2.Metas
 
         public SpriteReference backgroundSprite;
         public Color backgroundColor;
+
+        public SpriteReference markSprite;
         public static AlmanacTagMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -40,6 +42,13 @@ namespace MVZ2.Metas
                 backgroundColor = backgroundNode.GetAttributeColor("color") ?? backgroundColor;
             }
 
+            var markNode = node["mark"];
+            SpriteReference markSprite = null;
+            if (markNode != null)
+            {
+                markSprite = markNode.GetAttributeSpriteReference("sprite", defaultNsp);
+            }
+
             return new AlmanacTagMeta()
             {
                 id = id,
@@ -51,6 +60,8 @@ namespace MVZ2.Metas
 
                 backgroundSprite = backgroundSprite,
                 backgroundColor = backgroundColor,
+
+                markSprite = markSprite,
             };
         }
     }
