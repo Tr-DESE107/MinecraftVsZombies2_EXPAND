@@ -12,6 +12,7 @@ namespace MVZ2.GameContent.HeldItems
             AddBehaviour(VanillaHeldItemBehaviourID.triggerCart);
             AddBehaviour(VanillaHeldItemBehaviourID.selectBlueprint);
             AddBehaviour(VanillaHeldItemBehaviourID.breakoutBoard);
+            Exclusive = false;
         }
     }
 }
