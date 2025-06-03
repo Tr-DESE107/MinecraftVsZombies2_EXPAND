@@ -210,6 +210,10 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_STAFF_NAME = "staff_name";
         public const string CONTEXT_TALK = "talk";
         public const string CONTEXT_RANDOM_CHINA_EVENT_NAME = "random_china.event_name";
+        public const string CONTEXT_ALMANAC_TAG_NAME = "almanac_tag.name";
+        public const string CONTEXT_ALMANAC_TAG_DESCRIPTION = "almanac_tag.description";
+        public const string CONTEXT_ALMANAC_TAG_ENUM_NAME = "almanac_tag_enum.name";
+        public const string CONTEXT_ALMANAC_TAG_ENUM_DESCRIPTION = "almanac_tag_enum.description";
         public const string CONTEXT_HOTKEY_NAME = "hotkey.name";
     }
 }

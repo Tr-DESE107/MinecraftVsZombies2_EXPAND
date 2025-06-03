@@ -223,15 +223,14 @@ namespace MVZ2.IO
             }
             return properties;
         }
-        public static bool TryToProperty(this XmlNode node, string defaultNsp, out object propValue)
+        public static bool TryGetAttributeStruct(this XmlNode node, string name, string type, out object propValue)
         {
             propValue = null;
-            var propName = node.Name;
-            switch (propName)
+            switch (type)
             {
                 case "bool":
                     {
-                        var value = node.GetAttributeBool("value");
+                        var value = node.GetAttributeBool(name);
                         bool valid = value.HasValue;
                         if (valid)
                             propValue = value.Value;
@@ -240,7 +239,7 @@ namespace MVZ2.IO
                 case "int":
                 case "integer":
                     {
-                        var value = node.GetAttributeInt("value");
+                        var value = node.GetAttributeInt(name);
                         bool valid = value.HasValue;
                         if (valid)
                             propValue = value.Value;
@@ -248,7 +247,7 @@ namespace MVZ2.IO
                     }
                 case "float":
                     {
-                        var value = node.GetAttributeFloat("value");
+                        var value = node.GetAttributeFloat(name);
                         bool valid = value.HasValue;
                         if (valid)
                             propValue = value.Value;
@@ -256,14 +255,30 @@ namespace MVZ2.IO
                     }
                 case "string":
                     {
-                        if (!node.HasAttribute("value"))
+                        if (!node.HasAttribute(name))
                         {
                             propValue = null;
                             return false;
                         }
-                        propValue = node.GetAttribute("value");
+                        propValue = node.GetAttribute(name);
                         return true;
                     }
+                case "color":
+                    {
+                        var value = node.GetAttributeColor(name);
+                        bool valid = value.HasValue;
+                        if (valid)
+                            propValue = value.Value;
+                        return valid;
+                    }
+            }
+            return false;
+        }
+        public static bool TryGetAttributeVector(this XmlNode node, string type, out object propValue)
+        {
+            propValue = null;
+            switch (type)
+            {
                 case "vector2":
                     {
                         var x = node.GetAttributeFloat("x");
@@ -283,22 +298,22 @@ namespace MVZ2.IO
                             propValue = new Vector3(x.Value, y.Value, z.Value);
                         return valid;
                     }
-                case "color":
-                    {
-                        var value = node.GetAttributeColor("value");
-                        bool valid = value.HasValue;
-                        if (valid)
-                            propValue = value.Value;
-                        return valid;
-                    }
+            }
+            return false;
+        }
+        public static bool TryGetAttributeNullable(this XmlNode node, string name, string nullAttributeName, string type, string defaultNsp, out object propValue)
+        {
+            if (node.GetAttributeBool(nullAttributeName) ?? false)
+            {
+                propValue = null;
+                return true;
+            }
+            propValue = null;
+            switch (type)
+            {
                 case "id":
                     {
-                        if (node.GetAttributeBool("null") ?? false)
-                        {
-                            propValue = null;
-                            return true;
-                        }
-                        var value = node.GetAttributeNamespaceID("value", defaultNsp);
+                        var value = node.GetAttributeNamespaceID(name, defaultNsp);
                         bool valid = value != null;
                         if (valid)
                             propValue = value;
@@ -306,12 +321,7 @@ namespace MVZ2.IO
                     }
                 case "idArray":
                     {
-                        if (node.GetAttributeBool("null") ?? false)
-                        {
-                            propValue = null;
-                            return true;
-                        }
-                        var valueStr = node.GetAttribute("value");
+                        var valueStr = node.GetAttribute(name);
                         if (string.IsNullOrEmpty(valueStr))
                         {
                             propValue = Array.Empty<NamespaceID>();
@@ -324,18 +334,31 @@ namespace MVZ2.IO
                     }
                 case "sprite":
                     {
-                        if (node.GetAttributeBool("null") ?? false)
-                        {
-                            propValue = null;
-                            return true;
-                        }
-                        var value = node.GetAttributeSpriteReference("value", defaultNsp);
+                        var value = node.GetAttributeSpriteReference(name, defaultNsp);
                         bool valid = value != null;
                         if (valid)
                             propValue = value;
                         return valid;
                     }
             }
+            return false;
+        }
+        public static bool TryToProperty(this XmlNode node, string defaultNsp, out object propValue)
+        {
+            var type = node.Name;
+            if (node.TryGetAttributeStruct("value", type, out propValue))
+            {
+                return true;
+            }
+            if (node.TryGetAttributeVector(type, out propValue))
+            {
+                return true;
+            }
+            if (node.TryGetAttributeNullable("value", "null", type, defaultNsp, out propValue))
+            {
+                return true;
+            }
+            propValue = null;
             return false;
         }
     }

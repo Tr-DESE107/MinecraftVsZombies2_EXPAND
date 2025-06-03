@@ -81,10 +81,45 @@ namespace MVZ2.Almanacs
             descriptionText.text = description;
             descriptionScrollRect.verticalNormalizedPosition = 1;
         }
+        public AlmanacTagIcon GetTagIcon(int index)
+        {
+            return entryTags.getElement<AlmanacTagIcon>(index);
+        }
+        public AlmanacTagIcon GetDescriptionIcon(string linkID)
+        {
+            return descriptionIconUpdater.GetIconContainer(linkID);
+        }
+        public void UpdateTagIcons(AlmanacTagIconViewData[] viewDatas)
+        {
+            entryTags.updateList(viewDatas.Length, (i, obj) =>
+            {
+                var tag = obj.GetComponent<AlmanacTagIcon>();
+                tag.UpdateContainer(viewDatas[i]);
+            },
+            obj =>
+            {
+                var tag = obj.GetComponent<AlmanacTagIcon>();
+                tag.OnPointerEnter += OnTagPointerEnterCallback;
+                tag.OnPointerExit += OnTagPointerExitCallback;
+            },
+            obj =>
+            {
+                var tag = obj.GetComponent<AlmanacTagIcon>();
+                tag.OnPointerEnter -= OnTagPointerEnterCallback;
+                tag.OnPointerExit -= OnTagPointerExitCallback;
+            });
+        }
+        public void UpdateDescriptionIcons(AlmanacDescriptionTagViewData[] viewDatas)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(descriptionScrollRect.content);
+            descriptionIconUpdater.UpdateIconStacks(viewDatas);
+        }
         protected override void Awake()
         {
             base.Awake();
             iconZoomButton.onClick.AddListener(() => OnZoomClick?.Invoke());
+            descriptionIconUpdater.OnIconEnter += id => OnDescriptionIconEnter?.Invoke(id);
+            descriptionIconUpdater.OnIconExit += id => OnDescriptionIconExit?.Invoke(id);
         }
         private void OnGroupEntryClickCallback(AlmanacEntryGroupUI group, int entryIndex)
         {
@@ -94,9 +129,21 @@ namespace MVZ2.Almanacs
         {
             OnEntryClick?.Invoke(entryList.indexOf(entry));
         }
-        public Action<int, int> OnGroupEntryClick;
-        public Action<int> OnEntryClick;
-        public Action OnZoomClick;
+        private void OnTagPointerEnterCallback(AlmanacTagIcon icon)
+        {
+            OnTagIconEnter?.Invoke(entryTags.indexOf(icon));
+        }
+        private void OnTagPointerExitCallback(AlmanacTagIcon icon)
+        {
+            OnTagIconExit?.Invoke(entryTags.indexOf(icon));
+        }
+        public event Action<string> OnDescriptionIconEnter;
+        public event Action<string> OnDescriptionIconExit;
+        public event Action<int> OnTagIconEnter;
+        public event Action<int> OnTagIconExit;
+        public event Action<int, int> OnGroupEntryClick;
+        public event Action<int> OnEntryClick;
+        public event Action OnZoomClick;
         [SerializeField]
         private ElementList entryList;
         [SerializeField]
@@ -119,5 +166,9 @@ namespace MVZ2.Almanacs
         private TextMeshProUGUI nameText;
         [SerializeField]
         private TextMeshProUGUI descriptionText;
+        [SerializeField]
+        private ElementList entryTags;
+        [SerializeField]
+        private AlmanacTaggedDescription descriptionIconUpdater;
     }
 }

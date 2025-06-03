@@ -1,4 +1,5 @@
-﻿using PVZEngine.Level;
+﻿using MVZ2.Vanilla.Almanacs;
+using PVZEngine.Level;
 using PVZEngine.Placements;
 
 namespace MVZ2.GameContent.Placements
@@ -10,6 +11,7 @@ namespace MVZ2.GameContent.Placements
         {
             AddMethod(VanillaPlaceMethods.entity);
             AddMethod(VanillaPlaceMethods.firstAid);
+            this.SetAlmanacTag(VanillaAlmanacTagID.placementLand);
         }
     }
 }

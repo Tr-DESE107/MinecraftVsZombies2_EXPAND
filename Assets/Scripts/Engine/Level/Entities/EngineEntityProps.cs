@@ -197,6 +197,10 @@ namespace PVZEngine.Entities
 
         #region 外壳ID
         public static readonly PropertyMeta<NamespaceID> SHELL = Get<NamespaceID>("shell");
+        public static NamespaceID GetShellID(this EntityDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(SHELL);
+        }
         public static NamespaceID GetShellID(this Entity entity, bool ignoreBuffs = false)
         {
             return entity.GetProperty<NamespaceID>(SHELL, ignoreBuffs: ignoreBuffs);

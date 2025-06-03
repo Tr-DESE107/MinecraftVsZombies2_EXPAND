@@ -2093,6 +2093,58 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -6034685484396218449, guid: 8a2e7dea253a9e84c910acffe8c3e79e, type: 3}
     - {fileID: 7749991839993489328, guid: 8a2e7dea253a9e84c910acffe8c3e79e, type: 3}
+  - name: ui/almanac/attribute_tags
+    spritesheet:
+    - {fileID: -1117650150, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: -1073976712, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: 382992552, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: -789353618, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: -1195597693, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: 607392286, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: -1152003384, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: -1245226337, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: -1895114724, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: 433541186, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: 870324681, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: -653343630, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+    - {fileID: -884453189, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}
+  - name: ui/almanac/grid_layer_tags
+    spritesheet:
+    - {fileID: 1321867714, guid: f4743b7a556142b4db02b61d15e9da06, type: 3}
+    - {fileID: 908739535, guid: f4743b7a556142b4db02b61d15e9da06, type: 3}
+    - {fileID: -1009975531, guid: f4743b7a556142b4db02b61d15e9da06, type: 3}
+    - {fileID: 1224179579, guid: f4743b7a556142b4db02b61d15e9da06, type: 3}
+  - name: ui/almanac/mass_tags
+    spritesheet:
+    - {fileID: 955209260, guid: b54c9c31fd15a2049873ac7dd3397b9b, type: 3}
+    - {fileID: -737194522, guid: b54c9c31fd15a2049873ac7dd3397b9b, type: 3}
+    - {fileID: -1448757111, guid: b54c9c31fd15a2049873ac7dd3397b9b, type: 3}
+    - {fileID: 1167890180, guid: b54c9c31fd15a2049873ac7dd3397b9b, type: 3}
+    - {fileID: 211183206, guid: b54c9c31fd15a2049873ac7dd3397b9b, type: 3}
+  - name: ui/almanac/placement_tags
+    spritesheet:
+    - {fileID: 1648357590, guid: 5d2c28a61405a06409579f821db2bf10, type: 3}
+    - {fileID: 321962143, guid: 5d2c28a61405a06409579f821db2bf10, type: 3}
+    - {fileID: 875420487, guid: 5d2c28a61405a06409579f821db2bf10, type: 3}
+  - name: ui/almanac/shell_tags
+    spritesheet:
+    - {fileID: 1352929353, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: -1287639383, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: -1342442618, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: 183696311, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: 1869959390, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: 41601460, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: 1643577372, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: -632628095, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: -1708348277, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: -65933743, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+  - name: ui/almanac/tag_backgrounds
+    spritesheet:
+    - {fileID: 533723679, guid: fd045d9b19051854898d84facdd55d17, type: 3}
+    - {fileID: -1935521136, guid: fd045d9b19051854898d84facdd55d17, type: 3}
+    - {fileID: 1941320443, guid: fd045d9b19051854898d84facdd55d17, type: 3}
+    - {fileID: -157417127, guid: fd045d9b19051854898d84facdd55d17, type: 3}
+    - {fileID: 1456763691, guid: fd045d9b19051854898d84facdd55d17, type: 3}
   - name: ui/arcade/clear_trophy
     spritesheet:
     - {fileID: 1593830320, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}

@@ -76,6 +76,7 @@ Transform:
   - {fileID: 6878640534977450155}
   - {fileID: 6161739593682475168}
   - {fileID: 1139450314570536509}
+  - {fileID: 5437129201575114917}
   - {fileID: 6972063559945550555}
   - {fileID: 5670838566282794717}
   - {fileID: 4968239053036153507}
@@ -114,6 +115,7 @@ MonoBehaviour:
   cursor: {fileID: 5196858001076658471}
   shake: {fileID: 3324346263734824329}
   file: {fileID: 4760906047459718774}
+  fontManager: {fileID: 6995217091833710109}
   options: {fileID: 8378092703705870598}
   resolution: {fileID: 2131498663029793932}
   sceneLoadingManager: {fileID: 5597602447825532329}
@@ -1385,6 +1387,53 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &6815021339159476065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5437129201575114917}
+  - component: {fileID: 6995217091833710109}
+  m_Layer: 0
+  m_Name: FontManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5437129201575114917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6815021339159476065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8505975781217917064}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6995217091833710109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6815021339159476065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c0484de27e90f4f8836744286da2e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteAssets: []
+  fontMaterial: {fileID: 2100000, guid: d2cbe913c30a99b41b601759af7537d9, type: 2}
+  backgroundIconMaterial: {fileID: 2100000, guid: 18c4043dd60832748a437c632361f8a1, type: 2}
 --- !u!1 &6896808250176925834
 GameObject:
   m_ObjectHideFlags: 0

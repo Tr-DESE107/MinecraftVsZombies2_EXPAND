@@ -63,6 +63,10 @@ namespace MVZ2.Vanilla.Contraptions
         {
             return contraption.GetProperty<bool>(BLOCKS_JUMP);
         }
+        public static bool BlocksJump(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(BLOCKS_JUMP);
+        }
 
         public static readonly PropertyMeta<bool> CANNOT_DIG = Get<bool>("cannotDig");
         public static bool CannotDig(this Entity contraption)
@@ -80,13 +84,16 @@ namespace MVZ2.Vanilla.Contraptions
         }
 
         public static readonly PropertyMeta<bool> IS_FLOOR = Get<bool>("isFloor");
-        public static readonly PropertyMeta<bool> CAN_DEACTIVE = Get<bool>("canDeactive");
         public static readonly PropertyMeta<NamespaceID> FRAGMENT_ID = Get<NamespaceID>("fragmentId");
         public static readonly PropertyMeta<bool> TRIGGER_ACTIVE = Get<bool>("triggerActive");
         public static readonly PropertyMeta<bool> INSTANT_TRIGGER = Get<bool>("instantTrigger");
         public static bool IsFloor(this Entity contraption)
         {
             return contraption.GetProperty<bool>(IS_FLOOR);
+        }
+        public static bool IsFloor(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(IS_FLOOR);
         }
         public static void SetTriggerActive(this Entity entity, bool value)
         {
@@ -103,10 +110,6 @@ namespace MVZ2.Vanilla.Contraptions
         public static bool CanInstantTrigger(this EntityDefinition definition)
         {
             return definition.GetProperty<bool>(INSTANT_TRIGGER);
-        }
-        public static bool CanDeactive(this Entity entity)
-        {
-            return entity.GetProperty<bool>(CAN_DEACTIVE);
         }
 
 

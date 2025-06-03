@@ -79,7 +79,11 @@ namespace MVZ2.Managers
         public void InitLoad()
         {
             loadPipeline = new TaskPipeline();
-            loadPipeline.AddTask(new PipelineTask(TASK_LOAD_RESOURCES, (p) => ResourceManager.LoadAllModResourcesMain(p)));
+            loadPipeline.AddTask(new PipelineTask(TASK_LOAD_RESOURCES, async (p) =>
+            {
+                await ResourceManager.LoadAllModResourcesMain(p);
+                FontManager.InitFontSprites();
+            }));
             loadPipeline.AddTask(new PipelineTask(TASK_LOAD_SPONSORS, (p) => SponsorManager.PullSponsors(p)));
 
             var task = loadPipeline.Run();
@@ -235,6 +239,7 @@ namespace MVZ2.Managers
         private async Task LoadManagersInit()
         {
             GraphicsManager.Init();
+            FontManager.Init();
             InputManager.InitKeys();
             OptionsManager.InitOptions();
             OptionsManager.LoadOptions();
@@ -299,6 +304,7 @@ namespace MVZ2.Managers
         public CursorManager CursorManager => cursor;
         public ShakeManager ShakeManager => shake;
         public FileManager FileManager => file;
+        public FontManager FontManager => fontManager;
         public OptionsManager OptionsManager => options;
         public ResolutionManager ResolutionManager => resolution;
         public SceneLoadingManager SceneManager => sceneLoadingManager;
@@ -348,6 +354,8 @@ namespace MVZ2.Managers
         private ShakeManager shake;
         [SerializeField]
         private FileManager file;
+        [SerializeField]
+        private FontManager fontManager;
         [SerializeField]
         private OptionsManager options;
         [SerializeField]

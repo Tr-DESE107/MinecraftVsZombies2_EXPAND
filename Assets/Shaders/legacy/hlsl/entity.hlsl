@@ -12,7 +12,7 @@
 #endif
         
 #if HSV_TINT
-#include "hsv.hlsl"
+#include "../../hlsl/hsv.hlsl"
 #endif
         
 half4 Tint(half4 color, half4 tint)

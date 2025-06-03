@@ -1,4 +1,129 @@
 <almanac>
+    <tags>
+        <tag id="placement_land" name="陆地器械" description="只能放置在地面上" >
+            <icon sprite="mvz2:ui/almanac/placement_tags[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#57433c" />
+        </tag>
+        <tag id="placement_aquatic" name="水生器械" description="只能放置在水中" >
+            <icon sprite="mvz2:ui/almanac/placement_tags[1]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#347871" />
+        </tag>
+        <tag id="placement_suspension" name="悬浮器械" description="不依赖于承载者便可放置在特殊格子上" >
+            <icon sprite="mvz2:ui/almanac/placement_tags[2]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#4587a6" />
+        </tag>
+
+        <tag id="grid_layer_main" name="主要位" description="占据格子的主要位" >
+            <icon sprite="mvz2:ui/almanac/grid_layer_tags[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#7a7a7a" />
+        </tag>
+        <tag id="grid_layer_carrier" name="承载位" description="占据格子的承载位" >
+            <icon sprite="mvz2:ui/almanac/grid_layer_tags[1]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#627e63" />
+        </tag>
+        <tag id="grid_layer_protector" name="保护位" description="占据格子的保护位" >
+            <icon sprite="mvz2:ui/almanac/grid_layer_tags[2]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#80703f" />
+        </tag>
+        <tag id="grid_layer_tool" name="工具位" description="占据格子的工具位" >
+            <icon sprite="mvz2:ui/almanac/grid_layer_tags[3]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#515151" />
+        </tag>
+
+        <tag id="light_source" name="发光" description="会发出光芒" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#753b00" />
+        </tag>
+        <tag id="nocturnal" name="夜用" description="白天失效" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[1]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#283593" />
+        </tag>
+        <tag id="defensive" name="防御性" description="可以使用黑曜石修复术修复" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[2]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#78909c" />
+        </tag>
+        <tag id="floor_contraption" name="地面器械" description="不会被一般敌人发现" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[3]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
+        </tag>
+        <tag id="low" name="低矮" description="不会被一般高度的子弹击中" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[4]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
+        </tag>
+        <tag id="high" name="高" description="阻挡跳跃" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[5]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
+        </tag>
+        <tag id="flying" name="飞行" description="不会被一般高度的子弹击中" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[6]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
+        </tag>
+        <tag id="can_trigger" name="可触发" description="可通过触发器产生某些效果" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[7]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#727272" />
+        </tag>
+        <tag id="fire" name="火焰" description="可点燃物体" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[8]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#96503a" />
+        </tag>
+        <tag id="loyal" name="忠诚" description="免疫精神控制" >
+            <conditions>
+                <condition required="mvz2:level.castle_1"/>
+            </conditions>
+            <icon sprite="mvz2:ui/almanac/attribute_tags[9]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
+        </tag>
+        <tag id="paddle" name="水中前进" description="可在水中前进" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[10]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#347871" />
+        </tag>
+        <tag id="control_immunity" name="控制免疫" description="不会被定身" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[11]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#778a78" />
+        </tag>
+
+        <tag id="shell" name="材质" enum="mvz2:shell" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+        </tag>
+        <tag id="armor_shell" name="盔甲材质" enum="mvz2:shell" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+        </tag>
+        <tag id="shield_shell" name="护盾材质" enum="mvz2:shell" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+        </tag>
+        <tag id="staff_shell" name="手杖材质" enum="mvz2:shell" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+        </tag>
+
+        <tag id="mass" name="质量" enum="mvz2:mass" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+        </tag>
+        <tag id="mass_head" name="头质量" enum="mvz2:mass" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+        </tag>
+        <tag id="mass_horse" name="马质量" enum="mvz2:mass" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]"/>
+        </tag>
+        <enum id="mass" type="int">
+            <value value="-2" name="很轻" description="受到的击退极大" sprite="mvz2:ui/almanac/mass_tags[0]" backgroundColor="#696a7f"/>
+            <value value="-1" name="轻" description="受到的击退较大" sprite="mvz2:ui/almanac/mass_tags[1]" backgroundColor="#696a7f"/>
+            <value value="0" name="中" description="受到的击退一般" sprite="mvz2:ui/almanac/mass_tags[2]" backgroundColor="#696a7f"/>
+            <value value="1" name="重" description="受到的击退较小" sprite="mvz2:ui/almanac/mass_tags[3]" backgroundColor="#696a7f"/>
+            <value value="2" name="很重" description="不受到击退" sprite="mvz2:ui/almanac/mass_tags[4]" backgroundColor="#696a7f"/>
+        </enum>
+        <enum id="shell" type="id">
+            <value value="mvz2:stone" name="石头" description="阻挡锐利物体和火焰溅射，但受到20x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[0]" backgroundColor="#6b6b6b"/>
+            <value value="mvz2:grass" name="草" description="会被锐利物体穿透，受到2x火焰伤害" sprite="mvz2:ui/almanac/shell_tags[1]" backgroundColor="#a48f34"/>
+            <value value="mvz2:flesh" name="血肉" description="会被锐利物体穿透" sprite="mvz2:ui/almanac/shell_tags[2]" backgroundColor="#934329"/>
+            <value value="mvz2:leather" name="皮革" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[3]" backgroundColor="#893b25"/>
+            <value value="mvz2:metal" name="金属" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[4]" backgroundColor="#aaaaaa"/>
+            <value value="mvz2:bone" name="骨" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[5]" backgroundColor="#494b3e"/>
+            <value value="mvz2:wood" name="木头" description="受到2x火焰伤害" sprite="mvz2:ui/almanac/shell_tags[6]" backgroundColor="#b28553"/>
+            <value value="mvz2:nether" name="下界" description="免疫火焰伤害" sprite="mvz2:ui/almanac/shell_tags[7]" backgroundColor="#36131d"/>
+            <value value="mvz2:diamond" name="钻石" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[8]" backgroundColor="#417368"/>
+            <value value="mvz2:sand" name="沙子" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[9]" backgroundColor="#b4b590"/>
+        </enum>
+    </tags>
     <contraptions>
         <entry id="mvz2:dispenser">
             <header>

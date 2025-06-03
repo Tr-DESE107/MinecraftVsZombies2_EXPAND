@@ -49,6 +49,7 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID dream5 = GetStage(VanillaStageNames.dream5);
         public static readonly NamespaceID dream7 = GetStage(VanillaStageNames.dream7);
         public static readonly NamespaceID dream11 = GetStage(VanillaStageNames.dream11);
+        public static readonly NamespaceID castle1 = GetStage(VanillaStageNames.castle1);
         public static readonly NamespaceID castle5 = GetStage(VanillaStageNames.castle5);
         public static readonly NamespaceID mausoleum6 = GetStage(VanillaStageNames.mausoleum6);
         public static readonly NamespaceID almanac = halloween5;

@@ -17,6 +17,10 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.SetProperty(MASS, value);
         }
+        public static float GetMass(this EntityDefinition definition)
+        {
+            return definition.GetProperty<float>(MASS);
+        }
         public static float GetMass(this Entity entity)
         {
             return entity.GetProperty<float>(MASS);
@@ -262,6 +266,10 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.SetProperty(IS_FIRE, value);
         }
+        public static bool IsFire(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(IS_FIRE);
+        }
         public static bool IsFire(this Entity entity)
         {
             return entity.GetProperty<bool>(IS_FIRE);
@@ -276,6 +284,10 @@ namespace MVZ2.Vanilla.Entities
         public static void SetLightSource(this Entity entity, bool value)
         {
             entity.SetProperty(IS_LIGHT_SOURCE, value);
+        }
+        public static bool IsLightSource(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(IS_LIGHT_SOURCE);
         }
         public static bool IsLightSource(this Entity entity)
         {
@@ -405,11 +417,26 @@ namespace MVZ2.Vanilla.Entities
 
         #region 忠诚
         public static readonly PropertyMeta<bool> LOYAL = Get<bool>("loyal");
+        public static bool IsLoyal(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(LOYAL);
+        }
         public static bool IsLoyal(this Entity entity)
         {
             return entity.GetProperty<bool>(LOYAL);
         }
         #endregion
+
+        public static readonly PropertyMeta<bool> CAN_DEACTIVE = Get<bool>("canDeactive");
+        public static bool CanDeactive(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(CAN_DEACTIVE);
+        }
+        public static bool CanDeactive(this Entity entity)
+        {
+            return entity.GetProperty<bool>(CAN_DEACTIVE);
+        }
+
         public static readonly PropertyMeta<bool> NO_HELD_TARGET = Get<bool>("noHeldTarget");
         public static bool NoHeldTarget(this Entity entity)
         {
