@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &321565724728461762
+--- !u!1001 &5722695250266271370
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -48,10 +48,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3011966677430462526, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4330624703864885518, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
       propertyPath: m_Name
       value: GlowingObsidian
@@ -59,15 +55,31 @@ PrefabInstance:
     - target: {fileID: 6095126361630674286, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 35db3ac19691f3f46841da983adaaa56, type: 3}
-    - target: {fileID: 8706503471715863083, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 8990201626012453747, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
-      propertyPath: m_Controller
+      objectReference: {fileID: 1326628483, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - target: {fileID: 6956457915022090501, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
+      propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 9100000, guid: a5e5d77b8e4c5714daf6c0285e1821c2, type: 2}
+      objectReference: {fileID: 1326628483, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - target: {fileID: 6956457915022090501, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1319287620, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - target: {fileID: 6956457915022090501, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -2034357137, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - target: {fileID: 6956457915022090501, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: -436359408, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - target: {fileID: 6956457915022090501, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 788287417, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - target: {fileID: 6956457915022090501, guid: 3048f7f20bb9bd54fb32018bcd4af2b0, type: 3}
+      propertyPath: sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 417242517, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

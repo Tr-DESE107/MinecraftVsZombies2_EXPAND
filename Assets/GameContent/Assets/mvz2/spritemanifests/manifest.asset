@@ -465,6 +465,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 58755531f1cc59b4ab7563c5bedf58b2, type: 3}
   - name: entity/armor/mesmerizer_crown
     sprite: {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
+  - name: entity/armor/mesmerizer_crown_pro
+    sprite: {fileID: 21300000, guid: 13fdf8cd7b2072849ae490ee21624f1f, type: 3}
   - name: entity/armor/wicked_hermit_hat
     sprite: {fileID: 21300000, guid: 97bbf718dcb8d714cbce072750f648a2, type: 3}
   - name: entity/boss/gun_fire
@@ -691,6 +693,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 580a757d547930b41a026df31631b7c9, type: 3}
   - name: entity/enemies/mesmerizer_rod
     sprite: {fileID: 21300000, guid: c722a1dec874bb34e9a87bb1dd009e63, type: 3}
+  - name: entity/enemies/mesmerizer_rod_pro
+    sprite: {fileID: 21300000, guid: ce61d5f5e6687a643968d800f45003ef, type: 3}
   - name: entity/enemies/RedEyeZombieHead
     sprite: {fileID: 21300000, guid: 645fcd6dca551b74081afa84999b7736, type: 3}
   - name: entity/enemies/SkeletonHead
@@ -1538,7 +1542,12 @@ MonoBehaviour:
     - {fileID: 552944845, guid: 516d74eccaaf1e24fb1a0ab53d0f2657, type: 3}
   - name: entity/contraption/GlowingObsidian
     spritesheet:
-    - {fileID: 21300000, guid: 35db3ac19691f3f46841da983adaaa56, type: 3}
+    - {fileID: 1326628483, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - {fileID: 1319287620, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - {fileID: -2034357137, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - {fileID: -436359408, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - {fileID: 788287417, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
+    - {fileID: 417242517, guid: 362ec34db25b2fb459a027fb1cad54b1, type: 3}
   - name: entity/contraption/hellfire_base
     spritesheet:
     - {fileID: 412644075, guid: 2562dbc08cdc1bd459d0a70219d7d4e4, type: 3}
@@ -1994,6 +2003,26 @@ MonoBehaviour:
     - {fileID: -340073999, guid: 6255f755251c3b04ea24eab5a0800695, type: 3}
     - {fileID: -406973120, guid: 6255f755251c3b04ea24eab5a0800695, type: 3}
     - {fileID: -1982377404, guid: 6255f755251c3b04ea24eab5a0800695, type: 3}
+  - name: entity/enemy/nether_archer
+    spritesheet:
+    - {fileID: -1127412069, guid: 92a790a86f5d19946a5dc8efe8b47c38, type: 3}
+    - {fileID: 2434349, guid: 92a790a86f5d19946a5dc8efe8b47c38, type: 3}
+    - {fileID: -1269400402, guid: 92a790a86f5d19946a5dc8efe8b47c38, type: 3}
+    - {fileID: -832162633, guid: 92a790a86f5d19946a5dc8efe8b47c38, type: 3}
+    - {fileID: -1087018440, guid: 92a790a86f5d19946a5dc8efe8b47c38, type: 3}
+  - name: entity/enemy/nether_vanguard
+    spritesheet:
+    - {fileID: 2070811768, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
+    - {fileID: 2054211541, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
+    - {fileID: 56546038, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
+    - {fileID: 175646590, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
+  - name: entity/enemy/nether_warrior
+    spritesheet:
+    - {fileID: -1568959676, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
+    - {fileID: -124353358, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
+    - {fileID: 581941778, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
+    - {fileID: 1667340038, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
+    - {fileID: -1788139634, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
   - name: entity/enemy/parasite_terror
     spritesheet:
     - {fileID: 395815112, guid: 8b6fcf46139505d41b1ef83b75aedd0d, type: 3}
@@ -2015,6 +2044,14 @@ MonoBehaviour:
   - name: entity/enemy/ReverserBody1
     spritesheet:
     - {fileID: 21300000, guid: f93254b2bdb08be49a7e75dd050b27ed, type: 3}
+  - name: entity/enemy/Reverser_pro
+    spritesheet:
+    - {fileID: 1845857506, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
+    - {fileID: 1461832065, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
+    - {fileID: 1205679468, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
+    - {fileID: 195996433, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
+    - {fileID: -804860303, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
+    - {fileID: 862771601, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
   - name: entity/enemy/reverse_satellite
     spritesheet:
     - {fileID: 1053308388, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}

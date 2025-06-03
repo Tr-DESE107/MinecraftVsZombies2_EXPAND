@@ -115,6 +115,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0539c45ca84daf445a286fa5d79ac032
+    m_Address: mvz2:contraption/EXPAND/GlowingObsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0560677ce3ebb444a8893193b27d43fc
     m_Address: mvz2:mainmenu/stats
     m_ReadOnly: 0
@@ -849,13 +856,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 192fd705260459944b02604fe6907cf5
-    m_Address: mvz2:cart/nyaightmare
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 19367036b5ca6424f82e919a1c6d205d
     m_Address: mvz2:entity/enemy/ReverserArm
@@ -1661,13 +1661,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2e21d868152b2694ba986dbeccca603f
-    m_Address: mvz2:contraption/EXPAND/GlowingObsidian
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e2acf8f4e91cab468eae2cf860e025a
     m_Address: mvz2:artifacts/broken_lantern
     m_ReadOnly: 0
@@ -1989,13 +1982,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 35db3ac19691f3f46841da983adaaa56
-    m_Address: mvz2:entity/contraption/GlowingObsidian
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 35f80fb8af94a064f86a987dc6dae8e0
     m_Address: mvz2:mobile_blueprint/reverse_satellite
     m_ReadOnly: 0
@@ -2023,6 +2009,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 362ec34db25b2fb459a027fb1cad54b1
+    m_Address: mvz2:entity/contraption/GlowingObsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 364cbf731035032499adb5896b6b058e
     m_Address: mvz2:grind2

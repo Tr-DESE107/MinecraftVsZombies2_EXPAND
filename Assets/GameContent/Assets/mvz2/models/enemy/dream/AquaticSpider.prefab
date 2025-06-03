@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1685359250869111370, guid: b9f53695c65314942a98f06a42c2aa47, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1601187460, guid: 40917e5514d4e964aa4edfccefa8c53f, type: 3}
+    - target: {fileID: 1685359250869111370, guid: b9f53695c65314942a98f06a42c2aa47, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1550055559, guid: 40917e5514d4e964aa4edfccefa8c53f, type: 3}
     - target: {fileID: 2176983479151879764, guid: b9f53695c65314942a98f06a42c2aa47, type: 3}
       propertyPath: m_Sprite
       value: 

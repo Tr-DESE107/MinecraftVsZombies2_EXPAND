@@ -255,7 +255,7 @@
             </properties>
         </contraption>
 
-        <contraption id="GlowingObsidian" name="发光的黑曜石" tooltip="阻碍敌人的前进，在被摧毁时爆炸" unlock="mvz2:level.halloween_114" >
+        <contraption id="GlowingObsidian" name="发光的黑曜石" tooltip="阻碍敌人的前进，在被摧毁时爆炸" unlock="mvz2:level.halloween_11" >
             <properties>
                 <bool name="mvz2:canDeactive" value="false"/>
                 <bool name="mvz2:defensive" value="true"/>

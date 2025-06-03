@@ -662,7 +662,7 @@
                 
             </flavor>
         </entry>
-        <!-- Upgrades 1 
+
         <entry id="mvz2:GlowingObsidian">
             <header>
                 <p>发光黑曜石的强力装甲能够抵御敌人的攻击，受损时发射弹幕</p>
@@ -678,7 +678,7 @@
                 <p>恭喜你被耍了</p>
             </flavor>
         </entry>
-        -->
+
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">
             <header>

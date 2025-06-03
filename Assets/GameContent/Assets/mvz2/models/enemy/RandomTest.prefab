@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 815634889, guid: eb1d4fd287008034c97609f5686628e6, type: 3}
     - target: {fileID: 7111982973714620366, guid: 8deb6d021f7311043b1c2b7acc630099, type: 3}
       propertyPath: renderers.Array.size
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7158777608646404998, guid: 8deb6d021f7311043b1c2b7acc630099, type: 3}
       propertyPath: m_Sprite
