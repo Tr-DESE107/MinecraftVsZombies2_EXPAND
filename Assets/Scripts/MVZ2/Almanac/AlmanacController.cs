@@ -304,7 +304,7 @@ namespace MVZ2.Almanacs
             var finalDesc = ReplaceText(description, replacements);
 
             ui.SetActiveArtifactEntry(sprite, name, finalDesc);
-            ui.UpdateEnemyDescriptionIcons(iconStacks);
+            ui.UpdateArtifactDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
         }
         private void SetActiveMiscEntry(NamespaceID miscID)
@@ -331,19 +331,6 @@ namespace MVZ2.Almanacs
 
             var spriteID = entry.sprite;
             var modelID = entry.model;
-            if (NamespaceID.IsValid(modelID))
-            {
-                var modelMeta = Main.ResourceManager.GetModelMeta(modelID);
-                if (modelMeta != null)
-                {
-                    var model = Main.ResourceManager.GetModel(modelMeta.Path);
-                    ui.SetActiveMiscEntry(model, almanacCamera, name, description);
-                    return;
-                }
-            }
-            var spriteSized = entry.iconFixedSize;
-            var zoom = entry.iconZoom;
-            Sprite sprite = Main.GetFinalSprite(spriteID);
 
             UpdateEntryTags(AlmanacPageType.Miscs, VanillaAlmanacCategories.MISC, miscID);
 
@@ -352,7 +339,19 @@ namespace MVZ2.Almanacs
             var iconStacks = iconInfos.Select(i => i.viewData).ToArray();
             var finalDesc = ReplaceText(description, replacements);
 
-            ui.SetActiveMiscEntry(sprite, name, finalDesc, spriteSized, zoom);
+            if (NamespaceID.IsValid(modelID) && Main.ResourceManager.GetModelMeta(modelID) is ModelMeta modelMeta)
+            {
+                var model = Main.ResourceManager.GetModel(modelMeta.Path);
+                ui.SetActiveMiscEntry(model, almanacCamera, name, finalDesc);
+            }
+            else
+            {
+                var spriteSized = entry.iconFixedSize;
+                var zoom = entry.iconZoom;
+                Sprite sprite = Main.GetFinalSprite(spriteID);
+
+                ui.SetActiveMiscEntry(sprite, name, finalDesc, spriteSized, zoom);
+            }
             ui.UpdateMiscDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
         }

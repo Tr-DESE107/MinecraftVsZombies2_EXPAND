@@ -1366,7 +1366,7 @@
                 <p>辉针城内装饰用的灯笼，被扯坏了。会减少发光器械的光照范围，但提升它们的生产速度和攻击速度。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>]]></p>
+                <p>效果：<![CDATA[<color=red><tag id="mvz2:light_source"/>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>]]></p>
             </properties>
             <flavor>
                 <p>呃，还是别告诉针妙丸了吧，她可能会生气的。</p>
@@ -1547,9 +1547,16 @@
             </entry>
             <entry id="mvz2:gargoyle_statue" name="石像鬼雕像" >
                 <icon model="mvz2:entity.gargoyle_statue"/>
+                <tags>
+                    <tag id="mvz2:shell" value="mvz2:stone"/>
+                    <tag id="mvz2:grid_layer_main"/>
+                </tags>
                 <header>
                     <p>石像鬼雕像会在最后一波时变成石像鬼。</p>
                 </header>
+                <properties>
+                    <p>耐久：<![CDATA[<color=red>1800</color>]]></p>
+                </properties>
                 <flavor>
                     <p>永夜沼泽的诅咒不止将天空定格在了午夜，它也把地下的石块塑造成雕像的形状，将它们移出地面。这些雕像一旦受到魔电的冲击，便会被赋予生命而变成活物。</p>
                 </flavor>
@@ -1601,13 +1608,16 @@
             </entry>
             <entry id="mvz2:reverse_satellite" name="反则卫星" unlock="mvz2:level.castle_1">
                 <icon model="mvz2:entity.reverse_satellite"/>
+                <tags>
+                    <tag id="mvz2:shell" value="mvz2:metal"/>
+                    <tag id="mvz2:flying"/>
+                </tags>
                 <header>
                     <p>反则卫星是在一大波僵尸出现后，在辉针城中出现的可疑飞行物，会将你的视野180度旋转。</p>
                 </header>
                 <properties>
                     <p>生命：<![CDATA[<color=red>200</color>]]></p>
                     <p>停留时间：<![CDATA[<color=red>30秒</color>]]></p>
-                    <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
                 </properties>
                 <flavor>
                     <p>这些卫星似乎是城内的凋灵骷髅根据辉针城的魔力制成的武器，用于干扰敌人的判断。</p>
@@ -1629,6 +1639,9 @@
             </entry>
             <entry id="mvz2:monster_spawner" name="刷怪笼" unlock="mvz2:level.mausoleum_2">
                 <icon model="mvz2:entity.monster_spawner"/>
+                <tags>
+                    <tag id="mvz2:grid_layer_main"/>
+                </tags>
                 <header>
                     <p>刷怪笼会在一大波僵尸来临时召唤一只其内部的敌人。</p>
                 </header>
@@ -1973,10 +1986,10 @@
             <entry id="mvz2:obsidian_first_aid" name="黑曜石修复术" unlock="mvz2:obsidian_first_aid">
                 <icon sprite="mvz2:products/obsidian_first_aid" fixedSize="true" zoom="false"/>
                 <header>
-                    <p>用于修复防御型器械的技术。</p>
+                    <p>用于修复防御性器械的技术。</p>
                 </header>
                 <properties>
-                    <p>效果：<![CDATA[<color=red>可以直接在防御器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>]]></p>
+                    <p>效果：<![CDATA[<color=red>可以直接在<tag id="mvz2:defensive"/>防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>]]></p>
                 </properties>
                 <flavor>
                     <p>“你的修复术好像和我的不太一样，你这是怎么修的？”</p>
