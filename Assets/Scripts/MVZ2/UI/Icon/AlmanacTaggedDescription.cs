@@ -27,7 +27,9 @@ namespace MVZ2.UI
                 Vector3 worldPos = tmpText.transform.TransformPoint(centerPos);
                 obj.name = linkID;
                 obj.transform.position = worldPos;
-                var scale = Mathf.Min(linkSize.x / viewData.size.x, linkSize.y / viewData.size.y);
+                var xScale = linkSize.x / viewData.size.x;
+                var yScale = linkSize.y / viewData.size.y;
+                var scale = Mathf.Min(xScale, yScale);
                 container.UpdateTag(viewData);
                 container.SetScale(Vector3.one * scale);
             },
@@ -36,12 +38,14 @@ namespace MVZ2.UI
                 var container = obj.GetComponent<AlmanacDescriptionTag>();
                 container.OnPointerEnter += OnIconPointerEnterCallback;
                 container.OnPointerExit += OnIconPointerExitCallback;
+                container.OnPointerDown += OnIconPointerDownCallback;
             },
             obj =>
             {
                 var container = obj.GetComponent<AlmanacDescriptionTag>();
                 container.OnPointerEnter -= OnIconPointerEnterCallback;
                 container.OnPointerExit -= OnIconPointerExitCallback;
+                container.OnPointerDown -= OnIconPointerDownCallback;
             });
         }
         public AlmanacTagIcon GetIconContainer(string linkID)
@@ -87,10 +91,15 @@ namespace MVZ2.UI
         {
             OnIconExit?.Invoke(linkID);
         }
+        private void OnIconPointerDownCallback(string linkID)
+        {
+            OnIconDown?.Invoke(linkID);
+        }
 
         #region 事件
         public event Action<string> OnIconEnter;
         public event Action<string> OnIconExit;
+        public event Action<string> OnIconDown;
         #endregion
 
         #region 属性字段

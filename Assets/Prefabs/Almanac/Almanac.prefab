@@ -1640,6 +1640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   almanacCamera: {fileID: 6359250135119659902}
   ui: {fileID: 4923967737258786582}
+  descriptionTagSize: 28
 --- !u!114 &4923967737258786582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2218,16 +2219,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 6441709479790256291}
-  blueprintDisplayer: {fileID: 477654986869251246}
-  commandBlockSlot: {fileID: 7792373978310102293}
-  entryModel: {fileID: 628364709151192735}
   descriptionScrollRect: {fileID: 8476874762424583447}
   nameText: {fileID: 4099093185193864682}
   descriptionText: {fileID: 2236168900961877921}
-  costText: {fileID: 6017273544858637491}
-  rechargeText: {fileID: 1456030480175251431}
   entryTags: {fileID: 4223520293264730990}
   descriptionIconUpdater: {fileID: 1129617878611565060}
+  blueprintDisplayer: {fileID: 477654986869251246}
+  commandBlockSlot: {fileID: 7792373978310102293}
+  entryModel: {fileID: 628364709151192735}
+  costText: {fileID: 6017273544858637491}
+  rechargeText: {fileID: 1456030480175251431}
 --- !u!1 &6149552205057426176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,16 +2707,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 5105905490296856661}
-  blueprintDisplayer: {fileID: 2997567530948923424}
-  commandBlockSlot: {fileID: 3071544119039526274}
-  entryModel: {fileID: 6419166940833070424}
   descriptionScrollRect: {fileID: 2598287410711924432}
   nameText: {fileID: 7588556050239088173}
   descriptionText: {fileID: 5667049821912675430}
-  costText: {fileID: 156700633531391860}
-  rechargeText: {fileID: 5015264015202169888}
   entryTags: {fileID: 7724207008439771305}
   descriptionIconUpdater: {fileID: 6773455023511867843}
+  blueprintDisplayer: {fileID: 2997567530948923424}
+  commandBlockSlot: {fileID: 3071544119039526274}
+  entryModel: {fileID: 6419166940833070424}
+  costText: {fileID: 156700633531391860}
+  rechargeText: {fileID: 5015264015202169888}
 --- !u!1 &7847669766014155480
 GameObject:
   m_ObjectHideFlags: 0

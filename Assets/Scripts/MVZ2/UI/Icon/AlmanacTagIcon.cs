@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.UI
 {
-    public class AlmanacTagIcon : MonoBehaviour, ITooltipTarget, IPointerEnterHandler, IPointerExitHandler
+    public class AlmanacTagIcon : MonoBehaviour, ITooltipTarget, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
         public void UpdateContainer(AlmanacTagIconViewData viewData)
         {
@@ -37,9 +37,14 @@ namespace MVZ2.UI
         {
             OnPointerExit?.Invoke(this);
         }
+        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+        {
+            OnPointerDown?.Invoke(this);
+        }
         TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
         public event Action<AlmanacTagIcon> OnPointerEnter;
         public event Action<AlmanacTagIcon> OnPointerExit;
+        public event Action<AlmanacTagIcon> OnPointerDown;
         [SerializeField]
         private TooltipAnchor tooltipAnchor;
         [SerializeField]

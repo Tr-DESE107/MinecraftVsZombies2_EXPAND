@@ -2221,6 +2221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linkID: 
   icon: {fileID: 4555932547726978048}
+  margin: {x: 4, y: 4}
 --- !u!114 &4555932547726978048 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6138250219752195124, guid: 678a4df89ea231e4b8f9896b24333bfa, type: 3}

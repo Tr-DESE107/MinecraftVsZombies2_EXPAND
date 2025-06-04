@@ -1,13 +1,12 @@
 using System;
 using MVZ2.Models;
 using MVZ2.UI;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace MVZ2.Almanacs
 {
-    public class MiscAlmanacPage : AlmanacPage
+    public class MiscAlmanacPage : BookAlmanacPage
     {
         public void SetGroups(AlmanacEntryGroupViewData[] groups)
         {
@@ -69,57 +68,19 @@ namespace MVZ2.Almanacs
                 entryImageSized.rectTransform.sizeDelta = Vector2.zero;
             }
             iconZoomButtonRoot.SetActive(zoom);
-            nameText.text = name;
-            descriptionText.text = description;
+            SetDescription(name, description);
         }
         public void SetActiveEntry(Model prefab, Camera camera, string name, string description)
         {
             entryImageRegion.gameObject.SetActive(false);
             entryModel.gameObject.SetActive(true);
             entryModel.ChangeModel(prefab, camera);
-            nameText.text = name;
-            descriptionText.text = description;
-            descriptionScrollRect.verticalNormalizedPosition = 1;
-        }
-        public AlmanacTagIcon GetTagIcon(int index)
-        {
-            return entryTags.getElement<AlmanacTagIcon>(index);
-        }
-        public AlmanacTagIcon GetDescriptionIcon(string linkID)
-        {
-            return descriptionIconUpdater.GetIconContainer(linkID);
-        }
-        public void UpdateTagIcons(AlmanacTagIconViewData[] viewDatas)
-        {
-            entryTags.updateList(viewDatas.Length, (i, obj) =>
-            {
-                var tag = obj.GetComponent<AlmanacTagIcon>();
-                tag.UpdateContainer(viewDatas[i]);
-            },
-            obj =>
-            {
-                var tag = obj.GetComponent<AlmanacTagIcon>();
-                tag.OnPointerEnter += OnTagPointerEnterCallback;
-                tag.OnPointerExit += OnTagPointerExitCallback;
-            },
-            obj =>
-            {
-                var tag = obj.GetComponent<AlmanacTagIcon>();
-                tag.OnPointerEnter -= OnTagPointerEnterCallback;
-                tag.OnPointerExit -= OnTagPointerExitCallback;
-            });
-        }
-        public void UpdateDescriptionIcons(AlmanacDescriptionTagViewData[] viewDatas)
-        {
-            LayoutRebuilder.ForceRebuildLayoutImmediate(descriptionScrollRect.content);
-            descriptionIconUpdater.UpdateIconStacks(viewDatas);
+            SetDescription(name, description);
         }
         protected override void Awake()
         {
             base.Awake();
             iconZoomButton.onClick.AddListener(() => OnZoomClick?.Invoke());
-            descriptionIconUpdater.OnIconEnter += id => OnDescriptionIconEnter?.Invoke(id);
-            descriptionIconUpdater.OnIconExit += id => OnDescriptionIconExit?.Invoke(id);
         }
         private void OnGroupEntryClickCallback(AlmanacEntryGroupUI group, int entryIndex)
         {
@@ -129,18 +90,6 @@ namespace MVZ2.Almanacs
         {
             OnEntryClick?.Invoke(entryList.indexOf(entry));
         }
-        private void OnTagPointerEnterCallback(AlmanacTagIcon icon)
-        {
-            OnTagIconEnter?.Invoke(entryTags.indexOf(icon));
-        }
-        private void OnTagPointerExitCallback(AlmanacTagIcon icon)
-        {
-            OnTagIconExit?.Invoke(entryTags.indexOf(icon));
-        }
-        public event Action<string> OnDescriptionIconEnter;
-        public event Action<string> OnDescriptionIconExit;
-        public event Action<int> OnTagIconEnter;
-        public event Action<int> OnTagIconExit;
         public event Action<int, int> OnGroupEntryClick;
         public event Action<int> OnEntryClick;
         public event Action OnZoomClick;
@@ -151,8 +100,6 @@ namespace MVZ2.Almanacs
         [SerializeField]
         private AlmanacModel entryModel;
         [SerializeField]
-        private ScrollRect descriptionScrollRect;
-        [SerializeField]
         private GameObject entryImageRegion;
         [SerializeField]
         private Image entryImageFull;
@@ -162,13 +109,5 @@ namespace MVZ2.Almanacs
         private GameObject iconZoomButtonRoot;
         [SerializeField]
         private Button iconZoomButton;
-        [SerializeField]
-        private TextMeshProUGUI nameText;
-        [SerializeField]
-        private TextMeshProUGUI descriptionText;
-        [SerializeField]
-        private ElementList entryTags;
-        [SerializeField]
-        private AlmanacTaggedDescription descriptionIconUpdater;
     }
 }

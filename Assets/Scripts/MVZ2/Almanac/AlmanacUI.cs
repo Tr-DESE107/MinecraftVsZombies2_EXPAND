@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using MVZ2.Level.UI;
 using MVZ2.Models;
 using MVZ2.UI;
@@ -8,14 +9,14 @@ namespace MVZ2.Almanacs
 {
     public class AlmanacUI : MonoBehaviour
     {
-        public void DisplayPage(AlmanacUIPage page)
+        public void DisplayPage(AlmanacPageType page)
         {
-            indexUI.SetActive(page == AlmanacUIPage.Index);
-            standaloneContraptions.SetActive(page == AlmanacUIPage.ContraptionsStandalone);
-            mobileContraptions.SetActive(page == AlmanacUIPage.ContraptionsMobile);
-            enemies.SetActive(page == AlmanacUIPage.Enemies);
-            artifacts.SetActive(page == AlmanacUIPage.Artifacts);
-            miscs.SetActive(page == AlmanacUIPage.Miscs);
+            indexUI.SetActive(page == AlmanacPageType.Index);
+            standaloneContraptions.SetActive(page == AlmanacPageType.ContraptionsStandalone);
+            mobileContraptions.SetActive(page == AlmanacPageType.ContraptionsMobile);
+            enemies.SetActive(page == AlmanacPageType.Enemies);
+            artifacts.SetActive(page == AlmanacPageType.Artifacts);
+            miscs.SetActive(page == AlmanacPageType.Miscs);
         }
         public void SetIndexArtifactVisible(bool visible)
         {
@@ -33,36 +34,36 @@ namespace MVZ2.Almanacs
         {
             tooltip.gameObject.SetActive(false);
         }
-        public AlmanacTagIcon GetTagIcon(AlmanacUIPage page, int index)
+        public AlmanacTagIcon GetTagIcon(AlmanacPageType page, int index)
         {
             switch (page)
             {
-                case AlmanacUIPage.ContraptionsStandalone:
+                case AlmanacPageType.ContraptionsStandalone:
                     return standaloneContraptions.GetTagIcon(index);
-                case AlmanacUIPage.ContraptionsMobile:
+                case AlmanacPageType.ContraptionsMobile:
                     return mobileContraptions.GetTagIcon(index);
-                case AlmanacUIPage.Enemies:
+                case AlmanacPageType.Enemies:
                     return enemies.GetTagIcon(index);
-                case AlmanacUIPage.Artifacts:
+                case AlmanacPageType.Artifacts:
                     return artifacts.GetTagIcon(index);
-                case AlmanacUIPage.Miscs:
+                case AlmanacPageType.Miscs:
                     return miscs.GetTagIcon(index);
             }
             return null;
         }
-        public AlmanacTagIcon GetDescriptionIcon(AlmanacUIPage page, string linkID)
+        public AlmanacTagIcon GetDescriptionIcon(AlmanacPageType page, string linkID)
         {
             switch (page)
             {
-                case AlmanacUIPage.ContraptionsStandalone:
+                case AlmanacPageType.ContraptionsStandalone:
                     return standaloneContraptions.GetDescriptionIcon(linkID);
-                case AlmanacUIPage.ContraptionsMobile:
+                case AlmanacPageType.ContraptionsMobile:
                     return mobileContraptions.GetDescriptionIcon(linkID);
-                case AlmanacUIPage.Enemies:
+                case AlmanacPageType.Enemies:
                     return enemies.GetDescriptionIcon(linkID);
-                case AlmanacUIPage.Artifacts:
+                case AlmanacPageType.Artifacts:
                     return artifacts.GetDescriptionIcon(linkID);
-                case AlmanacUIPage.Miscs:
+                case AlmanacPageType.Miscs:
                     return miscs.GetDescriptionIcon(linkID);
             }
             return null;
@@ -105,23 +106,23 @@ namespace MVZ2.Almanacs
         {
             miscs.SetActiveEntry(prefab, camera, name, description);
         }
-        public void UpdateTagIcons(AlmanacUIPage page, AlmanacTagIconViewData[] viewDatas)
+        public void UpdateTagIcons(AlmanacPageType page, AlmanacTagIconViewData[] viewDatas)
         {
             switch (page)
             {
-                case AlmanacUIPage.ContraptionsStandalone:
+                case AlmanacPageType.ContraptionsStandalone:
                     standaloneContraptions.UpdateTagIcons(viewDatas);
                     break;
-                case AlmanacUIPage.ContraptionsMobile:
+                case AlmanacPageType.ContraptionsMobile:
                     mobileContraptions.UpdateTagIcons(viewDatas);
                     break;
-                case AlmanacUIPage.Enemies:
+                case AlmanacPageType.Enemies:
                     enemies.UpdateTagIcons(viewDatas);
                     break;
-                case AlmanacUIPage.Artifacts:
+                case AlmanacPageType.Artifacts:
                     artifacts.UpdateTagIcons(viewDatas);
                     break;
-                case AlmanacUIPage.Miscs:
+                case AlmanacPageType.Miscs:
                     miscs.UpdateTagIcons(viewDatas);
                     break;
             }
@@ -168,72 +169,73 @@ namespace MVZ2.Almanacs
         #endregion
         private void Awake()
         {
-            indexUI.OnButtonClick += type => OnIndexButtonClick?.Invoke(type);
+            almanacPages.Add(AlmanacPageType.Index, indexUI);
+            almanacPages.Add(AlmanacPageType.ContraptionsStandalone, standaloneContraptions);
+            almanacPages.Add(AlmanacPageType.ContraptionsMobile, mobileContraptions);
+            almanacPages.Add(AlmanacPageType.Enemies, enemies);
+            almanacPages.Add(AlmanacPageType.Artifacts, artifacts);
+            almanacPages.Add(AlmanacPageType.Miscs, miscs);
 
-            standaloneContraptions.OnEntryClick += index => OnContraptionEntryClick?.Invoke(index);
-            standaloneContraptions.OnCommandBlockClick += () => OnCommandBlockClick?.Invoke();
-            standaloneContraptions.OnDescriptionIconEnter += id => OnDescriptionIconEnter?.Invoke(AlmanacUIPage.ContraptionsStandalone, id);
-            standaloneContraptions.OnDescriptionIconExit += id => OnDescriptionIconExit?.Invoke(AlmanacUIPage.ContraptionsStandalone, id);
-            standaloneContraptions.OnTagIconEnter += id => OnTagIconEnter?.Invoke(AlmanacUIPage.ContraptionsStandalone, id);
-            standaloneContraptions.OnTagIconExit += id => OnTagIconExit?.Invoke(AlmanacUIPage.ContraptionsStandalone, id);
 
-            mobileContraptions.OnEntryClick += index => OnContraptionEntryClick?.Invoke(index);
-            mobileContraptions.OnCommandBlockClick += () => OnCommandBlockClick?.Invoke();
-            mobileContraptions.OnDescriptionIconEnter += id => OnDescriptionIconEnter?.Invoke(AlmanacUIPage.ContraptionsMobile, id);
-            mobileContraptions.OnDescriptionIconExit += id => OnDescriptionIconExit?.Invoke(AlmanacUIPage.ContraptionsMobile, id);
-            mobileContraptions.OnTagIconEnter += id => OnTagIconEnter?.Invoke(AlmanacUIPage.ContraptionsMobile, id);
-            mobileContraptions.OnTagIconExit += id => OnTagIconExit?.Invoke(AlmanacUIPage.ContraptionsMobile, id);
+            foreach (var pair in almanacPages)
+            {
+                var type = pair.Key;
+                var page = pair.Value;
+                if (page is IndexAlmanacPage index)
+                {
+                    index.OnButtonClick += t => OnIndexButtonClick?.Invoke(t);
+                    page.OnReturnClick += () => OnReturnClick?.Invoke(false);
+                }
+                else
+                {
+                    page.OnReturnClick += () => OnReturnClick?.Invoke(true);
+                }
+                if (page is BookAlmanacPage bookPage)
+                {
+                    bookPage.OnDescriptionIconEnter += id => OnDescriptionIconEnter?.Invoke(type, id);
+                    bookPage.OnDescriptionIconExit += id => OnDescriptionIconExit?.Invoke(type, id);
+                    bookPage.OnDescriptionIconDown += id => OnDescriptionIconDown?.Invoke(type, id);
+                    bookPage.OnTagIconEnter += id => OnTagIconEnter?.Invoke(type, id);
+                    bookPage.OnTagIconExit += id => OnTagIconExit?.Invoke(type, id);
+                    bookPage.OnTagIconDown += id => OnTagIconDown?.Invoke(type, id);
+                }
 
-            enemies.OnEntryClick += index => OnEnemyEntryClick?.Invoke(index);
-            enemies.OnZoomClick += () => OnEnemyZoomClick?.Invoke();
-            enemies.OnDescriptionIconEnter += id => OnDescriptionIconEnter?.Invoke(AlmanacUIPage.Enemies, id);
-            enemies.OnDescriptionIconExit += id => OnDescriptionIconExit?.Invoke(AlmanacUIPage.Enemies, id);
-            enemies.OnTagIconEnter += id => OnTagIconEnter?.Invoke(AlmanacUIPage.Enemies, id);
-            enemies.OnTagIconExit += id => OnTagIconExit?.Invoke(AlmanacUIPage.Enemies, id);
+                if (page is ContraptionAlmanacPage contraptionPage)
+                {
+                    contraptionPage.OnEntryClick += index => OnEntryClick?.Invoke(type, index);
+                    contraptionPage.OnCommandBlockClick += () => OnCommandBlockClick?.Invoke();
+                }
 
-            artifacts.OnEntryClick += index => OnArtifactEntryClick?.Invoke(index);
-            artifacts.OnZoomClick += () => OnArtifactZoomClick?.Invoke();
-            artifacts.OnDescriptionIconEnter += id => OnDescriptionIconEnter?.Invoke(AlmanacUIPage.Artifacts, id);
-            artifacts.OnDescriptionIconExit += id => OnDescriptionIconExit?.Invoke(AlmanacUIPage.Artifacts, id);
-            artifacts.OnTagIconEnter += id => OnTagIconEnter?.Invoke(AlmanacUIPage.Artifacts, id);
-            artifacts.OnTagIconExit += id => OnTagIconExit?.Invoke(AlmanacUIPage.Artifacts, id);
-
-            miscs.OnGroupEntryClick += (groupIndex, entryIndex) => OnMiscGroupEntryClick?.Invoke(groupIndex, entryIndex);
-            miscs.OnZoomClick += () => OnMiscZoomClick?.Invoke();
-            miscs.OnDescriptionIconEnter += id => OnDescriptionIconEnter?.Invoke(AlmanacUIPage.Miscs, id);
-            miscs.OnDescriptionIconExit += id => OnDescriptionIconExit?.Invoke(AlmanacUIPage.Miscs, id);
-            miscs.OnTagIconEnter += id => OnTagIconEnter?.Invoke(AlmanacUIPage.Miscs, id);
-            miscs.OnTagIconExit += id => OnTagIconExit?.Invoke(AlmanacUIPage.Miscs, id);
-
-            indexUI.OnReturnClick += () => OnIndexReturnClick?.Invoke();
-            standaloneContraptions.OnReturnClick += () => OnPageReturnClick?.Invoke();
-            mobileContraptions.OnReturnClick += () => OnPageReturnClick?.Invoke();
-            enemies.OnReturnClick += () => OnPageReturnClick?.Invoke();
-            artifacts.OnReturnClick += () => OnPageReturnClick?.Invoke();
-            miscs.OnReturnClick += () => OnPageReturnClick?.Invoke();
-
+                if (page is MiscAlmanacPage miscPage)
+                {
+                    miscPage.OnGroupEntryClick += (groupIndex, entryIndex) => OnGroupEntryClick?.Invoke(type, groupIndex, entryIndex);
+                    miscPage.OnZoomClick += () => OnZoomClick?.Invoke(type);
+                    miscPage.OnEntryClick += index => OnEntryClick?.Invoke(type, index);
+                }
+            }
             zoomPage.OnReturnClick += () => OnZoomReturnClick?.Invoke();
             zoomPage.OnScaleValueChanged += (v) => OnZoomScaleValueChanged?.Invoke(v);
         }
-        public event Action OnIndexReturnClick;
-        public event Action OnPageReturnClick;
+        public event Action<bool> OnReturnClick;
         public event Action<IndexAlmanacPage.ButtonType> OnIndexButtonClick;
-        public event Action<int> OnContraptionEntryClick;
-        public event Action OnCommandBlockClick;
-        public event Action<int> OnEnemyEntryClick;
-        public event Action OnEnemyZoomClick;
-        public event Action<int> OnArtifactEntryClick;
-        public event Action OnArtifactZoomClick;
-        public event Action<int, int> OnMiscGroupEntryClick;
-        public event Action OnMiscZoomClick;
 
-        public event Action<AlmanacUIPage, string> OnDescriptionIconEnter;
-        public event Action<AlmanacUIPage, string> OnDescriptionIconExit;
-        public event Action<AlmanacUIPage, int> OnTagIconEnter;
-        public event Action<AlmanacUIPage, int> OnTagIconExit;
+        public event Action OnCommandBlockClick;
+        public event Action<AlmanacPageType, int> OnEntryClick;
+        public event Action<AlmanacPageType, int, int> OnGroupEntryClick;
+        public event Action<AlmanacPageType> OnZoomClick;
+
+        public event Action<AlmanacPageType, string> OnDescriptionIconEnter;
+        public event Action<AlmanacPageType, string> OnDescriptionIconExit;
+        public event Action<AlmanacPageType, string> OnDescriptionIconDown;
+        public event Action<AlmanacPageType, int> OnTagIconEnter;
+        public event Action<AlmanacPageType, int> OnTagIconExit;
+        public event Action<AlmanacPageType, int> OnTagIconDown;
 
         public event Action OnZoomReturnClick;
         public event Action<float> OnZoomScaleValueChanged;
+
+        private Dictionary<AlmanacPageType, AlmanacPage> almanacPages = new Dictionary<AlmanacPageType, AlmanacPage>();
+
         [SerializeField]
         private IndexAlmanacPage indexUI;
         [SerializeField]
@@ -251,7 +253,7 @@ namespace MVZ2.Almanacs
         [SerializeField]
         private Tooltip tooltip;
     }
-    public enum AlmanacUIPage
+    public enum AlmanacPageType
     {
         Index,
         ContraptionsStandalone,

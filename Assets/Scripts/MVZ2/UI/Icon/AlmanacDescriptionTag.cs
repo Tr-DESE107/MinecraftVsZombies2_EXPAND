@@ -18,9 +18,11 @@ namespace MVZ2.UI
         {
             icon.OnPointerEnter += _ => OnPointerEnter?.Invoke(linkID);
             icon.OnPointerExit += _ => OnPointerExit?.Invoke(linkID);
+            icon.OnPointerDown += _ => OnPointerDown?.Invoke(linkID);
         }
         public event Action<string> OnPointerEnter;
         public event Action<string> OnPointerExit;
+        public event Action<string> OnPointerDown;
         public string linkID;
         public AlmanacTagIcon icon;
     }
