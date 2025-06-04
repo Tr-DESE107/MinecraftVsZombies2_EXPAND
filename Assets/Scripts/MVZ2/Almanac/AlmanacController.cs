@@ -179,15 +179,9 @@ namespace MVZ2.Almanacs
         }
         private void OnTagIconDownCallback(AlmanacPageType page, int index)
         {
-            descriptionTagTooltipLockedTarget = null;
-            if (tagTooltipLockedTarget == index)
-            {
-                tagTooltipLockedTarget = -1;
-            }
-            else
-            {
-                tagTooltipLockedTarget = index;
-            }
+            if (Main.InputManager.GetActivePointerType() != PointerTypes.TOUCH)
+                return;
+            LockTooltipEntryTag(tagTooltipLockedTarget == index ? -1 : index);
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
         private void OnDescriptionIconEnterCallback(AlmanacPageType page, string linkID)
@@ -209,15 +203,9 @@ namespace MVZ2.Almanacs
         }
         private void OnDescriptionIconDownCallback(AlmanacPageType page, string linkID)
         {
-            tagTooltipLockedTarget = -1;
-            if (descriptionTagTooltipLockedTarget == linkID)
-            {
-                descriptionTagTooltipLockedTarget = null;
-            }
-            else
-            {
-                descriptionTagTooltipLockedTarget = linkID;
-            }
+            if (Main.InputManager.GetActivePointerType() != PointerTypes.TOUCH)
+                return;
+            LockTooltipDescription(descriptionTagTooltipLockedTarget == linkID ? null : linkID);
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
         #endregion
@@ -685,6 +673,16 @@ namespace MVZ2.Almanacs
         }
         #endregion
 
+        private void LockTooltipEntryTag(int entryTagIndex)
+        {
+            tagTooltipLockedTarget = entryTagIndex;
+            descriptionTagTooltipLockedTarget = null;
+        }
+        private void LockTooltipDescription(string descriptionTagLinkID)
+        {
+            tagTooltipLockedTarget = -1;
+            descriptionTagTooltipLockedTarget = descriptionTagLinkID;
+        }
         private void UnlockTooltip()
         {
             tagTooltipLockedTarget = -1;
