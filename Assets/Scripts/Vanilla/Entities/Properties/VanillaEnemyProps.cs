@@ -84,6 +84,22 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 低矮
+        public static readonly PropertyMeta<bool> LOW_ENEMY = new PropertyMeta<bool>("low_enemy");
+        public static bool IsLowEnemy(this EntityDefinition enemy)
+        {
+            return enemy.GetProperty<bool>(LOW_ENEMY);
+        }
+        #endregion
+
+        #region 飞行
+        public static readonly PropertyMeta<bool> FLYING_ENEMY = new PropertyMeta<bool>("flying_enemy");
+        public static bool IsFlyingEnemy(this EntityDefinition enemy)
+        {
+            return enemy.GetProperty<bool>(FLYING_ENEMY);
+        }
+        #endregion
+
         #region 无害
         /// <summary>
         /// 无法进屋

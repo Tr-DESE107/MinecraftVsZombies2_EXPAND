@@ -18,8 +18,9 @@ namespace MVZ2.Vanilla.Almanacs
         public static readonly NamespaceID canTrigger = Get("can_trigger");
         public static readonly NamespaceID fire = Get("fire");
         public static readonly NamespaceID loyal = Get("loyal");
-        public static readonly NamespaceID paddle = Get("paddle");
+        public static readonly NamespaceID buoyant = Get("buoyant");
         public static readonly NamespaceID controlImmunity = Get("control_immunity");
+        public static readonly NamespaceID notUndead = Get("not_undead");
 
         public static readonly NamespaceID shell = Get("shell");
         public static readonly NamespaceID shieldShell = Get("shield_shell");

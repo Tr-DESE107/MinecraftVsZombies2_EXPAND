@@ -253,6 +253,10 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.SetProperty(IS_UNDEAD, value);
         }
+        public static bool IsUndead(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(IS_UNDEAD);
+        }
         public static bool IsUndead(this Entity entity)
         {
             return entity.GetProperty<bool>(IS_UNDEAD);

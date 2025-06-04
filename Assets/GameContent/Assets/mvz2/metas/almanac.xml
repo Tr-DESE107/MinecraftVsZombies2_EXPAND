@@ -73,13 +73,17 @@
             <icon sprite="mvz2:ui/almanac/attribute_tags[9]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
         </tag>
-        <tag id="paddle" name="不会溺水" description="不会溺水而死" >
+        <tag id="buoyant" name="漂浮" description="不会溺水" >
             <icon sprite="mvz2:ui/almanac/attribute_tags[10]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#347871" />
         </tag>
         <tag id="control_immunity" name="控制免疫" description="不会被定身" >
             <icon sprite="mvz2:ui/almanac/attribute_tags[11]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#778a78" />
+        </tag>
+        <tag id="not_undead" name="非亡灵" description="不是亡灵生物" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[13]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#3b5b3b" />
         </tag>
 
         <tag id="shell" name="材质" enum="mvz2:shell" >

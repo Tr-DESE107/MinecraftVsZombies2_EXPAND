@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using MVZ2.GameContent.Placements;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
@@ -66,6 +65,32 @@ namespace MVZ2.GameContent.Implements
             var shell = entityDef.GetShellID();
             tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.shell, shell.ToString()));
         }
+        private void GetEnemyShellAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
+        {
+            var game = Global.Game;
+            // 盔甲材质
+            var startingArmor = entityDef.GetStartingArmor();
+            if (NamespaceID.IsValid(startingArmor))
+            {
+                var armorDef = game.GetArmorDefinition(startingArmor);
+                var shellID = armorDef?.GetShellID();
+                if (NamespaceID.IsValid(shellID))
+                {
+                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.armorShell, shellID.ToString()));
+                }
+            }
+            // 护盾材质
+            var startingShield = entityDef.GetStartingShield();
+            if (NamespaceID.IsValid(startingShield))
+            {
+                var armorDef = game.GetArmorDefinition(startingShield);
+                var shellID = armorDef?.GetShellID();
+                if (NamespaceID.IsValid(shellID))
+                {
+                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.shieldShell, shellID.ToString()));
+                }
+            }
+        }
         private void GetMassAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
             var mass = entityDef.GetMass();
@@ -101,48 +126,26 @@ namespace MVZ2.GameContent.Implements
         }
         private void GetEnemyAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
-            var game = Global.Game;
-            // 盔甲材质
-            var startingArmor = entityDef.GetStartingArmor();
-            if (NamespaceID.IsValid(startingArmor))
+            // 低矮
+            if (entityDef.IsLowEnemy())
             {
-                var armorDef = game.GetArmorDefinition(startingArmor);
-                var shellID = armorDef?.GetShellID();
-                if (NamespaceID.IsValid(shellID))
-                {
-                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.armorShell, shellID.ToString()));
-                }
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.low));
             }
-            // 护盾材质
-            var startingShield = entityDef.GetStartingShield();
-            if (NamespaceID.IsValid(startingShield))
+            // 飞行
+            if (entityDef.IsFlyingEnemy())
             {
-                var armorDef = game.GetArmorDefinition(startingShield);
-                var shellID = armorDef?.GetShellID();
-                if (NamespaceID.IsValid(shellID))
-                {
-                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.shieldShell, shellID.ToString()));
-                }
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.flying));
             }
-            var attackerTags = entityDef.GetAttackerTags();
-            if (attackerTags != null)
+            // 非亡灵
+            if (!entityDef.IsUndead())
             {
-                // 低矮
-                if (attackerTags.Contains(VanillaCounterTagID.lowEnemy))
-                {
-                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.low));
-                }
-                // 飞行
-                if (attackerTags.Contains(VanillaCounterTagID.flyingEnemy))
-                {
-                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.flying));
-                }
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.notUndead));
             }
-            // 水中前进
+            // 漂浮
             var waterInteraction = entityDef.GetWaterInteraction();
             if (waterInteraction == WaterInteraction.NONE || waterInteraction == WaterInteraction.FLOAT)
             {
-                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.paddle));
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.buoyant));
             }
         }
         private void GetContraptionEntryTags(NamespaceID id, List<AlmanacEntryTagInfo> tags)
@@ -199,6 +202,7 @@ namespace MVZ2.GameContent.Implements
 
             // 枚举类。
             GetShellAttributeTags(def, tags);
+            GetEnemyShellAttributeTags(def, tags);
             GetMassAttributeTags(def, tags);
         }
     }
