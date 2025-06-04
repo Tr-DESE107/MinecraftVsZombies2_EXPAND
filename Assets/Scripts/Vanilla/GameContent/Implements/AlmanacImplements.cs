@@ -10,6 +10,7 @@ using MVZ2Logic.Almanacs;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;
 using PVZEngine;
+using PVZEngine.Armors;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
@@ -100,6 +101,29 @@ namespace MVZ2.GameContent.Implements
         }
         private void GetEnemyAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
+            var game = Global.Game;
+            // 盔甲材质
+            var startingArmor = entityDef.GetStartingArmor();
+            if (NamespaceID.IsValid(startingArmor))
+            {
+                var armorDef = game.GetArmorDefinition(startingArmor);
+                var shellID = armorDef?.GetShellID();
+                if (NamespaceID.IsValid(shellID))
+                {
+                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.armorShell, shellID.ToString()));
+                }
+            }
+            // 护盾材质
+            var startingShield = entityDef.GetStartingShield();
+            if (NamespaceID.IsValid(startingShield))
+            {
+                var armorDef = game.GetArmorDefinition(startingShield);
+                var shellID = armorDef?.GetShellID();
+                if (NamespaceID.IsValid(shellID))
+                {
+                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.shieldShell, shellID.ToString()));
+                }
+            }
             var attackerTags = entityDef.GetAttackerTags();
             if (attackerTags != null)
             {

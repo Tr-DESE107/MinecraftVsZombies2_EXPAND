@@ -52,6 +52,30 @@ namespace MVZ2.Vanilla.Entities
         {
             return definition.GetProperty<NamespaceID[]>(EXCLUDED_AREA_TAGS);
         }
+        #region 初始盔甲
+        public static readonly PropertyMeta<NamespaceID> STARTING_ARMOR = new PropertyMeta<NamespaceID>("starting_armor");
+        public static NamespaceID GetStartingArmor(this EntityDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(STARTING_ARMOR);
+        }
+        public static NamespaceID GetStartingArmor(this Entity enemy)
+        {
+            return enemy.GetProperty<NamespaceID>(STARTING_ARMOR);
+        }
+        #endregion
+
+        #region 初始护盾
+        public static readonly PropertyMeta<NamespaceID> STARTING_SHIELD = new PropertyMeta<NamespaceID>("starting_shield");
+        public static NamespaceID GetStartingShield(this EntityDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(STARTING_SHIELD);
+        }
+        public static NamespaceID GetStartingShield(this Entity enemy)
+        {
+            return enemy.GetProperty<NamespaceID>(STARTING_SHIELD);
+        }
+        #endregion
+
         #region 克制
         public static readonly PropertyMeta<NamespaceID[]> ATTACKER_TAGS = new PropertyMeta<NamespaceID[]>("attackerTags");
         public static NamespaceID[] GetAttackerTags(this EntityDefinition enemy)

@@ -865,12 +865,14 @@
         </enemy>
         <enemy id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <properties>
+                <id name="mvz2:starting_armor" value="mvz2:leather_cap" />
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="iron_helmetted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <properties>
+                <id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
@@ -1065,6 +1067,7 @@
         <!-- Castle Enemies -->
         <enemy id="mesmerizer" name="催眠者" deathMessage="服从凋灵吧" unlock="mvz2:level.castle_1">
             <properties>
+                <id name="mvz2:starting_armor" value="mvz2:mesmerizer_crown" />
                 <float name="mvz2:range" value="800" />
                 <vector3 name="mvz2:shotOffset" x="30" y="96" z="0" />
                 <vector3 name="mvz2:shotVelocity" x="0" y="0" z="0" />
@@ -1080,6 +1083,7 @@
         </enemy>
         <enemy id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2:level.castle_3">
             <properties>
+                <id name="mvz2:starting_armor" value="mvz2:berserker_helmet" />
                 <float name="mvz2:range" value="80" />
                 <float name="mvz2:speed" value="2" />
                 <id name="mvz2:shell" value="mvz2:nether" />
@@ -1141,6 +1145,7 @@
         <enemy id="reflective_barrier_zombie" name="反射壁僵尸" deathMessage="我反弹你的反弹"
             unlock="mvz2:level.mausoleum_1">
             <properties>
+                <id name="mvz2:starting_shield" value="mvz2:reflective_barrier" />
                 <int name="mvz2:cost" value="100" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
@@ -1154,6 +1159,7 @@
         <enemy id="wicked_hermit_zombie" name="邪仙僵尸" deathMessage="省得找个铲子来挖坟了。"
             unlock="mvz2:level.mausoleum_3">
             <properties>
+                <id name="mvz2:starting_armor" value="mvz2:wicked_hermit_hat" />
                 <int name="mvz2:cost" value="150" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
@@ -1167,6 +1173,7 @@
         </enemy>
         <enemy id="emperor_zombie" name="皇帝僵尸" deathMessage="中道崩殂" unlock="mvz2:level.mausoleum_8">
             <properties>
+                <id name="mvz2:starting_armor" value="mvz2:emperor_crown" />
                 <int name="mvz2:cost" value="100" />
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
@@ -1344,6 +1351,7 @@
         </enemy>
         <enemy id="bedserker" name="床战士" deathMessage="晚安" unlock="mvz2:level.castle_11">
             <properties>
+                <id name="mvz2:starting_armor" value="mvz2:bedserker_helmet" />
                 <float name="mvz2:range" value="80" />
                 <float name="mvz2:speed" value="2" />
                 <float name="mvz2:maxHealth" value="10000" />
@@ -1358,6 +1366,8 @@
         </enemy>
         <enemy id="skeleton_warrior" name="骷髅战士" deathMessage="骸死我了" unlock="mvz2:level.mausoleum_7">
             <properties>
+                <id name="mvz2:starting_armor" value="mvz2:skeleton_warrior_helmet" />
+                <id name="mvz2:starting_shield" value="mvz2:skeleton_warrior_shield" />
                 <id name="mvz2:shell" value="mvz2:bone" />
                 <id name="mvz2:crySound" value="mvz2:skeleton_cry" />
                 <id name="mvz2:deathSound" value="mvz2:skeleton_death" />

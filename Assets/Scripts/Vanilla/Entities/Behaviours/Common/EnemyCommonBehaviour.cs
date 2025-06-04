@@ -1,7 +1,9 @@
 using System;
+using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -27,6 +29,17 @@ namespace MVZ2.Vanilla.Entities
                 | EntityCollisionHelper.MASK_ENEMY
                 | EntityCollisionHelper.MASK_OBSTACLE
                 | EntityCollisionHelper.MASK_BOSS;
+
+            var startingArmor = entity.GetStartingArmor();
+            var startingShield = entity.GetStartingShield();
+            if (NamespaceID.IsValid(startingArmor))
+            {
+                entity.EquipMainArmor(startingArmor);
+            }
+            if (NamespaceID.IsValid(startingShield))
+            {
+                entity.EquipArmorTo(VanillaArmorSlots.shield, startingShield);
+            }
         }
         public override void Update(Entity entity)
         {

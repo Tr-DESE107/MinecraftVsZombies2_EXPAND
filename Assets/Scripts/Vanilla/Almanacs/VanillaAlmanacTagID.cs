@@ -22,6 +22,8 @@ namespace MVZ2.Vanilla.Almanacs
         public static readonly NamespaceID controlImmunity = Get("control_immunity");
 
         public static readonly NamespaceID shell = Get("shell");
+        public static readonly NamespaceID shieldShell = Get("shield_shell");
+        public static readonly NamespaceID armorShell = Get("armor_shell");
         public static readonly NamespaceID mass = Get("mass");
 
         private static NamespaceID Get(string name)
