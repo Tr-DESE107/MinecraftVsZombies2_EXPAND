@@ -45,22 +45,20 @@ namespace PVZEngine
         }
         public static string CombineName(string namespaceName, string regionName, string propertyName)
         {
+            var laterName = CombineRegionName(regionName, propertyName);
             if (!string.IsNullOrEmpty(namespaceName))
             {
-                if (!string.IsNullOrEmpty(regionName))
-                {
-                    return $"{namespaceName}:{regionName}/{propertyName}";
-                }
-                return $"{namespaceName}:{propertyName}";
+                return $"{namespaceName}:{laterName}";
             }
-            else
+            return laterName;
+        }
+        public static string CombineRegionName(string regionName, string propertyName)
+        {
+            if (!string.IsNullOrEmpty(regionName))
             {
-                if (!string.IsNullOrEmpty(regionName))
-                {
-                    return $"{regionName}/{propertyName}";
-                }
-                return propertyName;
+                return $"{regionName}/{propertyName}";
             }
+            return propertyName;
         }
         public static IPropertyKey FromType(int namespaceKey, int propertyKey, Type propertyType, object defaultValue)
         {

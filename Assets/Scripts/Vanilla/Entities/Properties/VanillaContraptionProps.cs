@@ -1,4 +1,5 @@
-﻿using PVZEngine;
+﻿using MVZ2.Vanilla.Properties;
+using PVZEngine;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Contraptions
@@ -6,9 +7,9 @@ namespace MVZ2.Vanilla.Contraptions
     [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class VanillaContraptionProps
     {
-        private static PropertyMeta<T> Get<T>(string name)
+        private static PropertyMeta<T> Get<T>(string name, T defaultValue = default, params string[] obsoleteNames)
         {
-            return new PropertyMeta<T>(name);
+            return new VanillaEntityPropertyMeta<T>(name, defaultValue, obsoleteNames);
         }
         #region 夜用
         public static readonly PropertyMeta<bool> NOCTURNAL = Get<bool>("nocturnal");
@@ -43,10 +44,10 @@ namespace MVZ2.Vanilla.Contraptions
         #endregion
 
         #region 克制
-        public static readonly PropertyMeta<NamespaceID[]> ATTACKER_TAGS_FOR = Get<NamespaceID[]>("attackerFor");
-        public static NamespaceID[] GetAttackerTagsFor(this EntityDefinition contraption)
+        public static readonly PropertyMeta<NamespaceID[]> COUNTER_TAGS_FOR = Get<NamespaceID[]>("counter_for", obsoleteNames: "attackerFor");
+        public static NamespaceID[] GetCounterTagsFor(this EntityDefinition contraption)
         {
-            return contraption.GetProperty<NamespaceID[]>(ATTACKER_TAGS_FOR);
+            return contraption.GetProperty<NamespaceID[]>(COUNTER_TAGS_FOR);
         }
         #endregion
 
