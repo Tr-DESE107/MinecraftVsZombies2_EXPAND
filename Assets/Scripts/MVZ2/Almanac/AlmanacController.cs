@@ -538,24 +538,15 @@ namespace MVZ2.Almanacs
                 AlmanacTagMeta tagMeta = Main.ResourceManager.GetAlmanacTagMeta(tagID);
                 if (tagMeta == null)
                     continue;
-                SpriteReference iconSpriteRef = tagMeta.iconSprite;
-                SpriteReference backgroundSpriteRef = tagMeta.backgroundSprite;
-                SpriteReference markSpriteRef = tagMeta.markSprite;
-                Color backgroundColor = tagMeta.backgroundColor;
+                string enumValue = null;
                 if (match.Groups.Count > 3 && match.Groups[3].Success)
                 {
-                    var enumValue = match.Groups[3].Value;
+                    enumValue = match.Groups[3].Value;
+                }
+                GetTagMetaViewProperties(tagMeta, enumValue, out var iconSpriteRef, out var backgroundSpriteRef, out var backgroundColor, out var markSpriteRef);
+                if (!string.IsNullOrEmpty(enumValue))
+                {
                     linkID = GetLinkIDByEnumTag(i, tagIDStr, enumValue);
-                    if (NamespaceID.IsValid(tagMeta.enumType))
-                    {
-                        AlmanacTagEnumMeta tagEnumMeta = Main.ResourceManager.GetAlmanacTagEnumMeta(tagMeta.enumType);
-                        AlmanacTagEnumValueMeta valueMeta = tagEnumMeta?.FindValueByString(enumValue, defaultNsp);
-                        if (valueMeta != null)
-                        {
-                            iconSpriteRef = valueMeta.iconSprite;
-                            backgroundColor = valueMeta.backgroundColor;
-                        }
-                    }
                 }
                 else
                 {
@@ -630,7 +621,16 @@ namespace MVZ2.Almanacs
             {
                 list.AddRange(almanacEntry.tags);
             }
+            list.Sort(CompareEntryTagInfo);
             return list.Distinct().ToArray();
+        }
+        private int CompareEntryTagInfo(AlmanacEntryTagInfo a, AlmanacEntryTagInfo b)
+        {
+            var metaA = Main.ResourceManager.GetAlmanacTagMeta(a.tagID);
+            var metaB = Main.ResourceManager.GetAlmanacTagMeta(b.tagID);
+            var priorityA = metaA?.priority ?? 0;
+            var priorityB = metaB?.priority ?? 0;
+            return priorityA.CompareTo(priorityB);
         }
         private void UpdateEntryTags(AlmanacPageType page, string category, NamespaceID id)
         {
@@ -652,22 +652,7 @@ namespace MVZ2.Almanacs
             AlmanacTagMeta tagMeta = Main.ResourceManager.GetAlmanacTagMeta(tagID);
             if (tagMeta == null)
                 return default;
-            var enumValue = info.enumValue;
-            var defaultNsp = Main.BuiltinNamespace;
-            SpriteReference iconSpriteRef = tagMeta.iconSprite;
-            SpriteReference backgroundSpriteRef = tagMeta.backgroundSprite;
-            SpriteReference markSpriteRef = tagMeta.markSprite;
-            Color backgroundColor = tagMeta.backgroundColor;
-            if (NamespaceID.IsValid(tagMeta.enumType))
-            {
-                AlmanacTagEnumMeta tagEnumMeta = Main.ResourceManager.GetAlmanacTagEnumMeta(tagMeta.enumType);
-                AlmanacTagEnumValueMeta valueMeta = tagEnumMeta?.FindValueByString(enumValue, defaultNsp);
-                if (valueMeta != null)
-                {
-                    iconSpriteRef = valueMeta.iconSprite;
-                    backgroundColor = valueMeta.backgroundColor;
-                }
-            }
+            GetTagMetaViewProperties(tagMeta, info.enumValue, out var iconSpriteRef, out var backgroundSpriteRef, out var backgroundColor, out var markSpriteRef);
 
             var iconSprite = Main.GetFinalSprite(iconSpriteRef);
             var backgroundSprite = Main.GetFinalSprite(backgroundSpriteRef);
@@ -679,6 +664,24 @@ namespace MVZ2.Almanacs
                 main = new AlmanacTagIconLayerViewData() { sprite = iconSprite, tint = Color.white },
                 mark = new AlmanacTagIconLayerViewData() { sprite = markSprite, tint = Color.white },
             };
+        }
+        private void GetTagMetaViewProperties(AlmanacTagMeta tagMeta, string enumValue, out SpriteReference iconSpriteRef, out SpriteReference backgroundSpriteRef, out Color backgroundColor, out SpriteReference markSpriteRef)
+        {
+            var defaultNsp = Main.BuiltinNamespace;
+            iconSpriteRef = tagMeta.iconSprite;
+            backgroundSpriteRef = tagMeta.backgroundSprite;
+            backgroundColor = tagMeta.backgroundColor;
+            markSpriteRef = tagMeta.markSprite;
+            if (NamespaceID.IsValid(tagMeta.enumType))
+            {
+                AlmanacTagEnumMeta tagEnumMeta = Main.ResourceManager.GetAlmanacTagEnumMeta(tagMeta.enumType);
+                AlmanacTagEnumValueMeta valueMeta = tagEnumMeta?.FindValueByString(enumValue, defaultNsp);
+                if (valueMeta != null)
+                {
+                    iconSpriteRef = valueMeta.iconSprite;
+                    backgroundColor = valueMeta.backgroundColor;
+                }
+            }
         }
         #endregion
 

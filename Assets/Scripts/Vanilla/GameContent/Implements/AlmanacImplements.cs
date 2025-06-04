@@ -76,7 +76,7 @@ namespace MVZ2.GameContent.Implements
                 var shellID = armorDef?.GetShellID();
                 if (NamespaceID.IsValid(shellID))
                 {
-                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.armorShell, shellID.ToString()));
+                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.shellArmor, shellID.ToString()));
                 }
             }
             // 护盾材质
@@ -87,7 +87,7 @@ namespace MVZ2.GameContent.Implements
                 var shellID = armorDef?.GetShellID();
                 if (NamespaceID.IsValid(shellID))
                 {
-                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.shieldShell, shellID.ToString()));
+                    tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.shellShield, shellID.ToString()));
                 }
             }
         }

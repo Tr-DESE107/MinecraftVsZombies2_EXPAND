@@ -11,6 +11,7 @@ namespace MVZ2.Metas
         public string id;
         public string name;
         public string description;
+        public int priority;
         public NamespaceID enumType;
 
         public SpriteReference iconSprite;
@@ -24,6 +25,7 @@ namespace MVZ2.Metas
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
             var description = node.GetAttribute("description");
+            var priority = node.GetAttributeInt("priority") ?? 0;
             var enumType = node.GetAttributeNamespaceID("enum", defaultNsp);
 
             var iconNode = node["icon"];
@@ -54,6 +56,7 @@ namespace MVZ2.Metas
                 id = id,
                 name = name,
                 description = description,
+                priority = priority,
                 enumType = enumType,
 
                 iconSprite = iconSprite,
