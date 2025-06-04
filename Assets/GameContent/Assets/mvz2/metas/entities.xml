@@ -397,7 +397,7 @@
                 <id name="mvz2:placement" value="mvz2:pad" />
                 <vector3 name="mvz2:size" x="64" y="2" z="64" />
                 <idArray name="mvz2:gridLayers" value="mvz2:carrier" />
-                <idArray name="mvz2:attackerFor" value="mvz2:low_enemy" />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
                 <string name="mvz2:sortingLayer" value="Carriers" />
 
                 <int name="mvz2:cost" value="75" />
@@ -425,7 +425,7 @@
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:dispenser" />
                 <id name="mvz2:projectileId" value="mvz2:spike" />
-                <idArray name="mvz2:attackerFor" value="mvz2:flying_enemy" />
+                <idArray name="mvz2:counter_for" value="mvz2:flying_enemy" />
 
                 <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
@@ -435,7 +435,7 @@
             <properties>
                 <float name="mvz2:damage" value="15" />
                 <id name="mvz2:projectileId" value="mvz2:dart" />
-                <idArray name="mvz2:attackerFor" value="mvz2:low_enemy" />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
 
                 <int name="mvz2:cost" value="175" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
@@ -492,7 +492,7 @@
                 <id name="mvz2:deathSound" value="mvz2:wood" />
                 <vector3 name="mvz2:shotOffset" x="25" y="3" z="0" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
-                <idArray name="mvz2:attackerFor" value="mvz2:low_enemy" />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
 
                 <int name="mvz2:cost" value="100" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
@@ -508,7 +508,7 @@
                 <id name="mvz2:placement" value="mvz2:pad" />
                 <vector3 name="mvz2:size" x="64" y="16" z="64" />
                 <idArray name="mvz2:gridLayers" value="mvz2:carrier mvz2:main" />
-                <idArray name="mvz2:attackerFor" value="mvz2:low_enemy" />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
                 <int name="mvz2:vehicleInteraction" value="1" />
 
                 <int name="mvz2:cost" value="75" />
@@ -523,7 +523,7 @@
                 <float name="mvz2:damage" value="10" />
                 <vector3 name="mvz2:shotOffset" x="25" y="3" z="0" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
-                <idArray name="mvz2:attackerFor" value="mvz2:low_enemy" />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
 
                 <int name="mvz2:cost" value="100" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
@@ -578,7 +578,7 @@
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <id name="mvz2:placeSound" value="mvz2:tesla_construction" />
                 <id name="mvz2:deathSound" value="mvz2:tesla_destroy" />
-                <idArray name="mvz2:attackerFor" value="mvz2:low_enemy mvz2:flying_enemy" />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy mvz2:flying_enemy" />
                 <vector3 name="mvz2:size" x="36" y="100" z="36" />
 
                 <bool name="mvz2:isLightSource" value="true" />
@@ -773,7 +773,7 @@
                 <bool name="mvz2:upgradeBlueprint" value="true" />
                 <id name="mvz2:upgradeFrom" value="mvz2:wooden_dropper" />
                 <id name="mvz2:placement" value="mvz2:upgrade" />
-                <idArray name="mvz2:attackerFor" value="mvz2:low_enemy" />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
 
                 <vector3 name="mvz2:shotOffset" x="25" y="3" z="0" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
@@ -792,7 +792,7 @@
                 <id name="mvz2:shell" value="mvz2:diamond" />
                 <vector3 name="mvz2:size" x="64" y="16" z="64" />
                 <idArray name="mvz2:gridLayers" value="mvz2:carrier mvz2:main" />
-                <idArray name="mvz2:attackerFor" value="mvz2:low_enemy" />
+                <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
                 <bool name="mvz2:upgradeBlueprint" value="true" />
                 <id name="mvz2:upgradeFrom" value="mvz2:spike_block" />
                 <id name="mvz2:placement" value="mvz2:upgrade" />
@@ -989,7 +989,7 @@
                 <vector3 name="mvz2:size" x="52" y="24" z="24" />
                 <id name="mvz2:crySound" value="mvz2:spider_cry" />
                 <id name="mvz2:deathSound" value="mvz2:spider_death" />
-                <idArray name="mvz2:attackerTags" value="mvz2:low_enemy" />
+                <idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
 
                 <vector3 name="mvz2:shadowScale" x="1" y="1" z="1" />
 
@@ -1015,7 +1015,7 @@
                 <id name="mvz2:projectileId" value="mvz2:fire_charge" />
                 <id name="mvz2:crySound" value="mvz2:ghast_cry" />
                 <id name="mvz2:deathSound" value="mvz2:ghast_death" />
-                <idArray name="mvz2:attackerTags" value="mvz2:flying_enemy" />
+                <idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
 
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="3" />
@@ -1031,7 +1031,7 @@
                 <vector3 name="mvz2:size" x="104" y="48" z="48" />
                 <id name="mvz2:crySound" value="mvz2:terror_cry" />
                 <id name="mvz2:deathSound" value="mvz2:terror_death" />
-                <idArray name="mvz2:attackerTags" value="mvz2:low_enemy" />
+                <idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
 
                 <vector3 name="mvz2:shadowScale" x="2" y="1" z="1" />
 
@@ -1055,7 +1055,7 @@
                 <vector3 name="mvz2:size" x="52" y="24" z="24" />
                 <id name="mvz2:crySound" value="mvz2:terror_cry" />
                 <id name="mvz2:deathSound" value="mvz2:terror_death" />
-                <idArray name="mvz2:attackerTags" value="mvz2:low_enemy" />
+                <idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
 
                 <vector3 name="mvz2:shadowScale" x="1" y="1" z="1" />
 
@@ -1127,7 +1127,7 @@
                 <bool name="mvz2:undead" value="false" />
                 <vector3 name="mvz2:size" x="130" y="70" z="40" />
                 <vector3 name="mvz2:shadowScale" x="3" y="1" z="1" />
-                <idArray name="mvz2:attackerTags" value="mvz2:flying_enemy" />
+                <idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
 
                 <int name="mvz2:cost" value="300" />
             </properties>
@@ -1139,7 +1139,7 @@
                 <id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
-                <idArray name="mvz2:attackerTags" value="mvz2:flying_enemy" />
+                <idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
 
                 <int name="mvz2:cost" value="100" />
             </properties>
