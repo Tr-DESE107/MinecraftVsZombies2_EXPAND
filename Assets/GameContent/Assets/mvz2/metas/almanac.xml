@@ -76,7 +76,7 @@
             <icon sprite="mvz2:ui/almanac/attribute_tags[1]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#283593" />
         </tag>
-        <tag id="defensive" name="防御性" description="可以使用黑曜石修复术修复" priority="4000" >
+        <tag id="defensive" name="防御性" description="阻挡敌人用的器械" priority="4000" >
             <icon sprite="mvz2:ui/almanac/attribute_tags[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#78909c" />
         </tag>
@@ -84,7 +84,7 @@
             <icon sprite="mvz2:ui/almanac/attribute_tags[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
-        <tag id="low" name="低矮" description="不会被一般高度的子弹击中" priority="4000" >
+        <tag id="low" name="低矮" description="不会被一般高度或更高的子弹击中" priority="4000" >
             <icon sprite="mvz2:ui/almanac/attribute_tags[4]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
@@ -92,7 +92,7 @@
             <icon sprite="mvz2:ui/almanac/attribute_tags[5]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
-        <tag id="flying" name="飞行" description="不会被一般高度的子弹击中" priority="4000" >
+        <tag id="flying" name="飞行" description="不会被一般高度或更低的子弹击中" priority="4000" >
             <icon sprite="mvz2:ui/almanac/attribute_tags[6]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
@@ -108,7 +108,7 @@
             <icon sprite="mvz2:ui/almanac/attribute_tags[9]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
         </tag>
-        <tag id="buoyant" name="漂浮" description="不会溺水" priority="4000" >
+        <tag id="drownproof" name="不会溺水" description="可在水中存活" priority="4000" >
             <icon sprite="mvz2:ui/almanac/attribute_tags[10]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#347871" />
         </tag>

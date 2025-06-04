@@ -104,7 +104,7 @@ namespace MVZ2.GameContent.Implements
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.nocturnal));
             }
             // 防御性
-            if (entityDef.IsDefensive() && Global.Game.IsUnlocked(VanillaUnlockID.obsidianFirstAid))
+            if (entityDef.IsDefensive())
             {
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.defensive));
             }
@@ -145,7 +145,7 @@ namespace MVZ2.GameContent.Implements
             var waterInteraction = entityDef.GetWaterInteraction();
             if (waterInteraction == WaterInteraction.NONE || waterInteraction == WaterInteraction.FLOAT)
             {
-                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.buoyant));
+                tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.drownproof));
             }
         }
         private void GetContraptionEntryTags(NamespaceID id, List<AlmanacEntryTagInfo> tags)

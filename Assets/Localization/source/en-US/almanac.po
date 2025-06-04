@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-31 09:54+0800\n"
-"PO-Revision-Date: 2025-05-31 21:54+0800\n"
+"POT-Creation-Date: 2025-06-05 03:05+0800\n"
+"PO-Revision-Date: 2025-06-05 15:06+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -16,6 +16,462 @@ msgstr ""
 "X-Crowdin-File: /crowdin/almanac.pot\n"
 "X-Crowdin-File-ID: 18\n"
 "X-Generator: Poedit 3.5\n"
+
+#. Name for almanac tag placement_land
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "陆地器械"
+msgstr "Land Contraption"
+
+#. Description for almanac tag placement_land
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "只能放置在地面上"
+msgstr "Can only be placed on land"
+
+#. Name for almanac tag placement_aquatic
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "水生器械"
+msgstr "Aquatic Contraption"
+
+#. Description for almanac tag placement_aquatic
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "只能放置在水中"
+msgstr "Can only be placed on water"
+
+#. Name for almanac tag placement_suspension
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "悬浮器械"
+msgstr "Suspended Contraption"
+
+#. Description for almanac tag placement_suspension
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "不依赖于承载者便可放置在特殊格子上"
+msgstr "Can be place at special grids without a carrier present"
+
+#. Name for almanac tag grid_layer_main
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "主要位"
+msgstr "Primary Slot"
+
+#. Description for almanac tag grid_layer_main
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "占据格子的主要位"
+msgstr "Takes the primary slot of grids"
+
+#. Name for almanac tag grid_layer_carrier
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "承载位"
+msgstr "Carrier Slot"
+
+#. Description for almanac tag grid_layer_carrier
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "占据格子的承载位"
+msgstr "Takes the carrier slot of grids"
+
+#. Name for almanac tag grid_layer_protector
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "保护位"
+msgstr "Protector Slot"
+
+#. Description for almanac tag grid_layer_protector
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "占据格子的保护位"
+msgstr "Takes the protector slot of grids"
+
+#. Name for almanac tag grid_layer_tool
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "工具位"
+msgstr "Tool Slot"
+
+#. Description for almanac tag grid_layer_tool
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "占据格子的工具位"
+msgstr "Takes the tool slot of grids"
+
+#. Name for almanac tag shell
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "材质"
+msgstr "Material"
+
+#. Name for almanac tag shell_armor
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "盔甲材质"
+msgstr "Armor Material"
+
+#. Name for almanac tag shell_shield
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "护盾材质"
+msgstr "Shell Material"
+
+#. Name for almanac tag shell_head
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "头材质"
+msgstr "Head Material"
+
+#. Name for almanac tag shell_horse
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "马材质"
+msgstr "Horse Material"
+
+#. Name for almanac tag shell_staff
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "手杖材质"
+msgstr "Staff Material"
+
+#. Name for almanac tag mass
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "质量"
+msgstr "Mass"
+
+#. Name for almanac tag mass_head
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "头质量"
+msgstr "Head Mass"
+
+#. Name for almanac tag mass_horse
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "马质量"
+msgstr "Horse Mass"
+
+#. Name for almanac tag light_source
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "发光"
+msgstr "Light Source"
+
+#. Description for almanac tag light_source
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "会发出光芒"
+msgstr "Emits light"
+
+#. Name for almanac tag nocturnal
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "夜用"
+msgstr "Nocturnal"
+
+#. Description for almanac tag nocturnal
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "白天失效"
+msgstr "Can only be used at night"
+
+#. Name for almanac tag defensive
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "防御性"
+msgstr "Defensive"
+
+#. Description for almanac tag defensive
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "阻挡敌人用的器械"
+msgstr "Contraption used for block enemies"
+
+#. Name for almanac tag floor_contraption
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "地面器械"
+msgstr "Floor Contraption"
+
+#. Description for almanac tag floor_contraption
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "不会被一般敌人发现"
+msgstr "Cannot be found by regular enemies"
+
+#. Name for almanac tag low
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "低矮"
+msgstr "Low"
+
+#. Description for almanac tag low
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "不会被一般高度或更高的子弹击中"
+msgstr "Will not be hit by medium height projectiles or higher"
+
+#. Name for almanac tag high
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "高"
+msgstr "High"
+
+#. Description for almanac tag high
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "阻挡跳跃"
+msgstr "Blocks jump"
+
+#. Name for almanac tag flying
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "飞行"
+msgstr "Flying"
+
+#. Description for almanac tag flying
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "不会被一般高度或更低的子弹击中"
+msgstr "Will not be hit by medium height projectiles or lower"
+
+#. Name for almanac tag can_trigger
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "可触发"
+msgstr "Triggerable"
+
+#. Description for almanac tag can_trigger
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "可通过触发器产生某些效果"
+msgstr "Can be triggered to do something"
+
+#. Name for almanac tag fire
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "火焰"
+msgstr "Fire"
+
+#. Description for almanac tag fire
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "可点燃物体"
+msgstr "Can ignite objects"
+
+#. Name for almanac tag loyal
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "忠诚"
+msgstr "Loyal"
+
+#. Description for almanac tag loyal
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "免疫精神控制"
+msgstr "Immune to mind control"
+
+#. Name for almanac tag drownproof
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "不会溺水"
+msgstr "Drownproof"
+
+#. Description for almanac tag drownproof
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "可在水中存活"
+msgstr "Survives in water"
+
+#. Name for almanac tag control_immunity
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "控制免疫"
+msgstr "Immobilization Immune"
+
+#. Description for almanac tag control_immunity
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "不会被定身"
+msgstr "Immune to immobilization"
+
+#. Name for almanac tag not_undead
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "非亡灵"
+msgstr "Not Undead"
+
+#. Description for almanac tag not_undead
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "不是亡灵生物"
+msgstr "Is not an undead"
+
+#. Name for almanac tag enum value -2 of enum mass
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "很轻"
+msgstr "Very Light"
+
+#. Description for almanac tag enum value -2 of enum mass
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "受到的击退极大"
+msgstr "Takes extreme knockback"
+
+#. Name for almanac tag enum value -1 of enum mass
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "轻"
+msgstr "Light"
+
+#. Description for almanac tag enum value -1 of enum mass
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "受到的击退较大"
+msgstr "Takes heavy knockback"
+
+#. Name for almanac tag enum value 0 of enum mass
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "中"
+msgstr "Medium"
+
+#. Description for almanac tag enum value 0 of enum mass
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "受到的击退一般"
+msgstr "Takes average knockback"
+
+#. Name for almanac tag enum value 1 of enum mass
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "重"
+msgstr "Heavy"
+
+#. Description for almanac tag enum value 1 of enum mass
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "受到的击退较小"
+msgstr "Takes minor knockback"
+
+#. Name for almanac tag enum value 2 of enum mass
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "很重"
+msgstr "Very Heavy"
+
+#. Description for almanac tag enum value 2 of enum mass
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "不受到击退"
+msgstr "Immune to knockback"
+
+#. Name for almanac tag enum value mvz2:stone of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "石头"
+msgstr "Stone"
+
+#. Description for almanac tag enum value mvz2:stone of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "阻挡锐利物体和火焰溅射，但受到20x冲击伤害"
+msgstr "Blocks slice attacks and fire splashes, but takes 20x impact damage"
+
+#. Name for almanac tag enum value mvz2:grass of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "草"
+msgstr "Grass"
+
+#. Description for almanac tag enum value mvz2:grass of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "会被锐利物体穿透，受到2x火焰伤害"
+msgstr "Pierced by slice attacks, take 2x fire damage"
+
+#. Name for almanac tag enum value mvz2:flesh of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "血肉"
+msgstr "Flesh"
+
+#. Description for almanac tag enum value mvz2:flesh of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "会被锐利物体穿透"
+msgstr "Pierced by slice attacks"
+
+#. Name for almanac tag enum value mvz2:leather of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "皮革"
+msgstr "Leather"
+
+#. Description for almanac tag enum value mvz2:leather of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "无特殊效果"
+msgstr "No special effects"
+
+#. Name for almanac tag enum value mvz2:metal of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "金属"
+msgstr "Metal"
+
+#. Description for almanac tag enum value mvz2:metal of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "阻挡锐利物体"
+msgstr "Blocks slice attacks"
+
+#. Name for almanac tag enum value mvz2:bone of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "骨"
+msgstr "Bone"
+
+#. Name for almanac tag enum value mvz2:wood of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "木头"
+msgstr "Wood"
+
+#. Description for almanac tag enum value mvz2:wood of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "受到2x火焰伤害"
+msgstr "Takes 2x fire damage"
+
+#. Name for almanac tag enum value mvz2:nether of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "下界"
+msgstr "Nether"
+
+#. Description for almanac tag enum value mvz2:nether of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "免疫火焰伤害"
+msgstr "Immunes to fire damage"
+
+#. Name for almanac tag enum value mvz2:diamond of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "钻石"
+msgstr "Diamond"
+
+#. Name for almanac tag enum value mvz2:sand of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "沙子"
+msgstr "Sand"
 
 #. Header for contraptions mvz2:dispenser
 #: Almanac meta file
@@ -255,8 +711,10 @@ msgstr ""
 #. Header for contraptions mvz2:punchton
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "冲击活塞能够击退前方的敌人并击碎石制品，但之后需要一定时间来修复自身。"
-msgstr "Punchtons can knock back enemies and crush hard objects, but they need time to repair themselves after that."
+msgid "冲击活塞能够击退前方的敌人并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>石制品，但之后需要一定时间来修复自身。"
+msgstr ""
+"Punchtons can knock back enemies and crush <tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>hard objects, but they need time to repair "
+"themselves after that."
 
 #. Properties for contraptions mvz2:punchton
 #: Almanac meta file
@@ -334,8 +792,8 @@ msgstr ""
 #. Header for contraptions mvz2:silvenser
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "银质发射器能发射穿透血肉之躯的飞刀。"
-msgstr "Silvensers shoot piercing knives which can slice the flesh."
+msgid "银质发射器能发射穿透<tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>血肉之躯的飞刀。"
+msgstr "Silvensers shoot piercing knives which can slice <tag id=\"mvz2:shell\" enum=\"mvz2:flesh\"/>the flesh."
 
 #. Properties for contraptions mvz2:silvenser
 #: Almanac meta file
@@ -437,12 +895,8 @@ msgstr "Gravity Pads can lower the height of medium height objects above it, and
 #. Properties for contraptions mvz2:gravity_pad
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid ""
-"特点：<color=red>敌人无法发现</color>\n"
-"技能：<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进</color>"
-msgstr ""
-"Special: <color=red>Cannot be attacked by enemies</color>\n"
-"Evocation: <color=red>Anvil falls from the sky, crushes enemies and stops them</color>"
+msgid "技能：<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进</color>"
+msgstr "Evocation: <color=red>Anvil falls from the sky, crushes enemies and stops them</color>"
 
 #. Flavor for contraptions mvz2:gravity_pad
 #: Almanac meta file
@@ -1065,7 +1519,7 @@ msgid ""
 "射程：<color=red>3.5格</color>\n"
 "伤害：<color=red>20</color>\n"
 "技能：<color=red>使所有寄生中的机器人自爆</color>\n"
-"<color=red>只能放置在小型发射器上</color>"
+"<color=red>必须放置在小型发射器上</color>"
 msgstr ""
 "Range: <color=red>3.5 grids</color>\n"
 "Damage: <color=red>20</color>\n"
@@ -1331,12 +1785,10 @@ msgstr "Gargoyles will be revived from statues when the final wave comes."
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>900</color>\n"
-"弱点：<color=red>冲击活塞</color>\n"
-"质量：<color=red>重</color>"
+"弱点：<color=red>冲击活塞</color>"
 msgstr ""
 "Toughness: <color=red>900</color>\n"
-"Weakness: <color=red>Punchtons</color>\n"
-"Mass: <color=red>Heavy</color>"
+"Weakness: <color=red>Punchtons</color>"
 
 #. Flavor for enemies mvz2:gargoyle
 #: Almanac meta file
@@ -1360,13 +1812,11 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "抗性：<color=red>虚无状态下减少90%受到的伤害</color>\n"
-"弱点：<color=red>被光照到时会失去虚无效果</color>\n"
-"质量：<color=red>很轻</color>"
+"弱点：<color=red>被<tag id=\"mvz2:light_source\"/>光照到时会失去虚无效果</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
 "Resistance: <color=red>Reduces 90% taken damage in ethereal form</color>\n"
-"Weakness: <color=red>Lose ethereality when illuminated</color>\n"
-"Mass: <color=red>Very Light</color>"
+"Weakness: <color=red>Lose ethereality when <tag id=\"mvz2:light_source\"/>illuminated</color>"
 
 #. Flavor for enemies mvz2:ghost
 #: Almanac meta file
@@ -1387,10 +1837,10 @@ msgstr "Mummies will release gas after they die, which can heal the undead and d
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
-"弱点：<color=red>火，毒雾可以被火烧掉</color>"
+"弱点：<color=red>毒雾可以被<tag id=\"mvz2:fire\"/>火烧掉</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
-"Weakness：<color=red>Fire can burn its gas</color>"
+"Weakness：<color=red><tag id=\"mvz2:fire\"/>Fire can burn its gas</color>"
 
 #. Flavor for enemies mvz2:mummy
 #: Almanac meta file
@@ -1438,11 +1888,11 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>160</color>\n"
 "速度：<color=red>2</color>\n"
-"特点：<color=red>可以爬上并越过防御性器械</color>"
+"特点：<color=red>可以爬上并越过<tag id=\"mvz2:defensive\"/>防御性器械</color>"
 msgstr ""
 "Toughness: <color=red>160</color>\n"
 "Speed: <color=red>2</color>\n"
-"Special: <color=red>Can climb over defensive contraptions</color>"
+"Special: <color=red>Can climb over <tag id=\"mvz2:defensive\"/>defensive contraptions</color>"
 
 #. Flavor for enemies mvz2:spider
 #: Almanac meta file
@@ -1461,14 +1911,10 @@ msgstr "Cave Spiders cannot climb over contraptions, but they can swim and canno
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>120</color>\n"
-"速度：<color=red>2</color>\n"
-"特点：<color=red>不会被一般高度的子弹打中</color>\n"
-"质量：<color=red>轻</color>"
+"速度：<color=red>2</color>"
 msgstr ""
 "Toughness: <color=red>120</color>\n"
-"Speed: <color=red>2</color>\n"
-"Special: <color=red>Will not be hit by medium height projectiles or lower</color>\n"
-"Mass: <color=red>Light</color>"
+"Speed: <color=red>2</color>"
 
 #. Flavor for enemies mvz2:cave_spider
 #: Almanac meta file
@@ -1487,14 +1933,10 @@ msgstr "Ghasts can fly in the sky and bombard your contraptions."
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>100</color>\n"
-"速度：<color=red>1</color>\n"
-"特点：<color=red>不会被一般高度的子弹打中</color>\n"
-"质量：<color=red>很轻</color>"
+"速度：<color=red>1</color>"
 msgstr ""
 "Toughness: <color=red>100</color>\n"
-"Speed: <color=red>1</color>\n"
-"Special: <color=red>Will not be hit by medium height projectiles or lower</color>\n"
-"Mass: <color=red>Very Light</color>"
+"Speed: <color=red>1</color>"
 
 #. Flavor for enemies mvz2:ghast
 #: Almanac meta file
@@ -1549,12 +1991,10 @@ msgstr "Parasite Terrors shred the hosts' body and come out after they mature."
 msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>0-50</color>（变化）\n"
-"速度：<color=red>4</color>\n"
-"质量：<color=red>轻</color>"
+"速度：<color=red>4</color>"
 msgstr ""
 "Toughness: <color=red>0-50</color>(Variable)\n"
-"Speed: <color=red>4</color>\n"
-"Mass: <color=red>Light</color>"
+"Speed: <color=red>4</color>"
 
 #. Flavor for enemies mvz2:parasite_terror
 #: Almanac meta file
@@ -1635,15 +2075,13 @@ msgid ""
 "马速度：<color=red>2（跳跃前），1（跳跃后）</color>\n"
 "身体速度：<color=red>1</color>\n"
 "头颅速度：<color=red>2</color>\n"
-"弱点：<color=red>金质物品，无法跳过高器械</color>\n"
-"质量：<color=red>轻（头），中（身体，马）</color>"
+"弱点：<color=red>金质物品，无法跳过<tag id=\"mvz2:high\"/>高器械</color>"
 msgstr ""
 "Toughness: <color=red>400 (Horse), 300 (Body), 200 (Head)</color>\n"
 "Horse Speed: <color=red>2 (Before jump), 1 (After jump)</color>\n"
 "Body Speed: <color=red>1</color>\n"
 "Head Speed: <color=red>2</color>\n"
-"Weakness: <color=red>Golden objects; could not jump over high contraptions</color>\n"
-"Mass: <color=red>Light (Head), Medium (Body and Horse)</color>"
+"Weakness: <color=red>Golden objects; could not jump over <tag id=\"mvz2:high\"/>high contraptions</color>"
 
 #. Flavor for enemies mvz2:dullahan
 #: Almanac meta file
@@ -1664,14 +2102,12 @@ msgid ""
 "生命：<color=red>1350，低于200时每秒失去60生命</color>\n"
 "速度：<color=red>1</color>\n"
 "碾压伤害：<color=red>10000000</color>\n"
-"弱点：<color=red>尖刺方块</color>\n"
-"质量：<color=red>很重</color>"
+"弱点：<color=red>尖刺方块</color>"
 msgstr ""
 "Toughness: <color=red>1350, loses 60/s while under 200</color>\n"
 "Speed: <color=red>1</color>\n"
 "Crush Damage: <color=red>10000000</color>\n"
-"Weakness: <color=red>Spike Block</color>\n"
-"Mass: <color=red>Very Heavy</color>"
+"Weakness: <color=red>Spike Block</color>"
 
 #. Flavor for enemies mvz2:hell_chariot
 #: Almanac meta file
@@ -1695,13 +2131,11 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200</color>\n"
 "速度：<color=red>1</color>\n"
-"灵魂沙生命：<color=red>300</color>\n"
-"特点：<color=red>不会被一般高度的子弹打中</color>"
+"灵魂沙生命：<color=red>300</color>"
 msgstr ""
 "Toughness: <color=red>200</color>\n"
 "Speed: <color=red>1</color>\n"
-"Soulsand Toughness: <color=red>300</color>\n"
-"Special: <color=red>Will not be hit by medium height projectiles or lower</color>"
+"Soulsand Toughness: <color=red>300</color>"
 
 #. Flavor for enemies mvz2:anubisand
 #: Almanac meta file
@@ -2184,8 +2618,10 @@ msgstr ""
 #. Properties for artifacts mvz2:broken_lantern
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
-msgstr "Effect: <color=red>+25% produce speed and attack speed, but x50% light range for glowing contraptions</color>"
+msgid "效果：<color=red><tag id=\"mvz2:light_source\"/>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>"
+msgstr ""
+"Effect: <color=red>+25% produce speed and attack speed, but x50% light range for <tag id=\"mvz2:light_source\"/>glowing contraptions</"
+"color>"
 
 #. Flavor for artifacts mvz2:broken_lantern
 #: Almanac meta file
@@ -2577,6 +3013,12 @@ msgctxt "misc.description"
 msgid "石像鬼雕像会在最后一波时变成石像鬼。"
 msgstr "Gargoyles will be revived from statues when the final wave comes."
 
+#. Properties for misc mvz2:gargoyle_statue
+#: Almanac meta file
+msgctxt "misc.description"
+msgid "耐久：<color=red>1800</color>"
+msgstr "Toughness: <color=red>1800</color>"
+
 #. Flavor for misc mvz2:gargoyle_statue
 #: Almanac meta file
 msgctxt "misc.description"
@@ -2704,12 +3146,10 @@ msgstr ""
 msgctxt "misc.description"
 msgid ""
 "生命：<color=red>200</color>\n"
-"停留时间：<color=red>30秒</color>\n"
-"特点：<color=red>不会被一般高度的子弹打中</color>"
+"停留时间：<color=red>30秒</color>"
 msgstr ""
-"Toughness: <color=red>100</color>\n"
-"Speed: <color=red>1</color>\n"
-"Special: <color=red>Will not be hit by medium height projectiles or lower</color>"
+"Toughness: <color=red>200</color>\n"
+"Stay Time: <color=red>30 seconds</color>"
 
 #. Flavor for misc mvz2:reverse_satellite
 #: Almanac meta file
@@ -3463,16 +3903,16 @@ msgstr "Obsidian First Aid"
 #. Header for misc mvz2:obsidian_first_aid
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "用于修复防御型器械的技术。"
+msgid "用于修复防御性器械的技术。"
 msgstr "A technique used to repair defensive contraptions."
 
 #. Properties for misc mvz2:obsidian_first_aid
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "效果：<color=red>可以直接在防御器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
+msgid "效果：<color=red>可以直接在<tag id=\"mvz2:defensive\"/>防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>"
 msgstr ""
-"Effect: <color=red>Defensive contraptions can be placed directly on the same contraptions to restore all toughness, without the need "
-"to be dug up</color>"
+"Effect: <color=red><tag id=\"mvz2:defensive\"/>Defensive contraptions can be placed directly on the same contraptions to restore all "
+"toughness, without the need to be dug up</color>"
 
 #. Flavor for misc mvz2:obsidian_first_aid
 #: Almanac meta file
@@ -5048,6 +5488,70 @@ msgstr "Lengthen the board"
 msgctxt "option.name"
 msgid "增加弹珠"
 msgstr "Add a pearl"
+
+#~ msgctxt "almanac_tag.name"
+#~ msgid "漂浮"
+#~ msgstr "Buoyant"
+
+#~ msgctxt "misc.description"
+#~ msgid ""
+#~ "生命：<color=red>200</color>\n"
+#~ "停留时间：<color=red>30秒</color>\n"
+#~ "特点：<color=red>不会被一般高度的子弹打中</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>100</color>\n"
+#~ "Speed: <color=red>1</color>\n"
+#~ "Special: <color=red>Will not be hit by medium height projectiles or lower</color>"
+
+#~ msgctxt "almanac_tag.description"
+#~ msgid "可以使用黑曜石修复术修复"
+#~ msgstr "Can be fixed by Obsidian First Aid"
+
+#~ msgctxt "enemies.description"
+#~ msgid ""
+#~ "生命：<color=red>120</color>\n"
+#~ "速度：<color=red>2</color>\n"
+#~ "特点：<color=red>不会被一般高度的子弹打中</color>\n"
+#~ "质量：<color=red>轻</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>120</color>\n"
+#~ "Speed: <color=red>2</color>\n"
+#~ "Special: <color=red>Will not be hit by medium height projectiles or lower</color>\n"
+#~ "Mass: <color=red>Light</color>"
+
+#~ msgctxt "enemies.description"
+#~ msgid ""
+#~ "生命：<color=red>100</color>\n"
+#~ "速度：<color=red>1</color>\n"
+#~ "特点：<color=red>不会被一般高度的子弹打中</color>\n"
+#~ "质量：<color=red>很轻</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>100</color>\n"
+#~ "Speed: <color=red>1</color>\n"
+#~ "Special: <color=red>Will not be hit by medium height projectiles or lower</color>\n"
+#~ "Mass: <color=red>Very Light</color>"
+
+#~ msgctxt "enemies.description"
+#~ msgid ""
+#~ "生命：<color=red>0-50</color>（变化）\n"
+#~ "速度：<color=red>4</color>\n"
+#~ "质量：<color=red>轻</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>0-50</color>(Variable)\n"
+#~ "Speed: <color=red>4</color>\n"
+#~ "Mass: <color=red>Light</color>"
+
+#~ msgctxt "enemies.description"
+#~ msgid ""
+#~ "生命：<color=red>200</color>\n"
+#~ "速度：<color=red>1</color>\n"
+#~ "灵魂沙生命：<color=red>300</color>\n"
+#~ "特点：<color=red>不会被一般高度的子弹打中</color>"
+#~ msgstr ""
+#~ "Toughness: <color=red>200</color>\n"
+#~ "Speed: <color=red>1</color>\n"
+#~ "Soulsand Toughness: <color=red>300</color>\n"
+#~ "Special: <color=red>Will not be hit by medium height projectiles or lower</color>"
 
 #~ msgctxt "contraptions.description"
 #~ msgid ""
