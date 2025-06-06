@@ -47,10 +47,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                     entity.Stun(GetStunDuration(entity));
                     var position = entity.Position;
                     var column = 0;
-                    if (!entity.IsFacingLeft())
-                    {
-                        column = entity.Level.GetMaxColumnCount() - 1;
-                    }
                     position.x = entity.Level.GetEntityColumnX(column);
                     entity.Position = position;
                     entity.Velocity = Vector3.zero;
