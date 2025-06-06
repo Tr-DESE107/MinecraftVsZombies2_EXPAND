@@ -146,13 +146,9 @@ namespace MVZ2.GameContent.HeldItems
             if (pointerParams.IsInvalidReleaseAction())
                 return;
             var level = target.Level;
-            var area = target.Area;
-            if (area == LawnArea.Side)
+            if (level.CancelHeldItem())
             {
-                if (level.CancelHeldItem())
-                {
-                    level.PlaySound(VanillaSoundID.tap);
-                }
+                level.PlaySound(VanillaSoundID.tap);
             }
         }
         private void OnPointerEventEntity(HeldItemTargetEntity target, IHeldItemData data, PointerInteractionData pointerParams)
@@ -185,7 +181,10 @@ namespace MVZ2.GameContent.HeldItems
                 }
             }
             targetEntity.Level.ResetHeldItem();
-            UseOnEntity(targetEntity);
+            if (CanUseOnEntity(entity))
+            {
+                UseOnEntity(targetEntity);
+            }
         }
         private void OnPointerEventGrid(HeldItemTargetGrid target, IHeldItemData data, PointerInteractionData pointerData)
         {
