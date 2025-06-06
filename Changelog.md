@@ -1,3 +1,23 @@
+# 0.4.1
+
+## Added
+- Added tag icons for almanac.
+
+## Modified
+- Large arrows now can be ignited by Hellfire.
+- Large arrows fired by Drivenser and Splitenser's evocation now deal 600 damage instead of 1000.
+  - Nightmare can only take up to 600 damage in one hit, so Drivenser's evocation effect is not affected in boss battles of 2-11.
+- Wicked Hermit Zombie now always teleport to the leftmost column regardless of whether it's charmed.
+- Moved the tooltip of artifacts in blueprint select screen to the top, to prevent being blocked by fingers on touchscreen.
+
+## Fixed
+- Fixed the issue where the held item like blueprint, pickaxe or starshard cannot be canceled by re-clicking it.
+- Fixed the issue where monsters that die within the range of the Shikaisen Staff will be considered completely dead by the level, resulting the level-clear pickup to be spawned.
+- Fixed the issue where instant-evocation feature can be used on Anvil.
+- Fixed the issue where Dream Silk can be used on a Magichest which is devouring an enemy.
+
+---
+
 # 0.4.0
 
 ## Added
