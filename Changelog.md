@@ -20,6 +20,7 @@
 - Fixed the issue where instant-evocation feature can be used on Anvil.
 - Fixed the issue where Dream Silk can be used on a Magichest which is devouring an enemy.
 - Fixed the issue where the light range of Totenser's fire breath is incorrect.
+- Fixed the issue where the dialog "Zombie Scroll" has incorrect tag in Archives.
 
 ---
 
