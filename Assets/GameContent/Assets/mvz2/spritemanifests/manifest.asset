@@ -1617,6 +1617,7 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 473868895, guid: 824ceee383f361649b57e79656c673da, type: 3}
     - {fileID: -502181682, guid: 824ceee383f361649b57e79656c673da, type: 3}
+    - {fileID: 1055655857, guid: 824ceee383f361649b57e79656c673da, type: 3}
   - name: entity/contraption/totenser
     spritesheet:
     - {fileID: 1662629785, guid: ec212abe3448fae468e8a869c194bb7c, type: 3}

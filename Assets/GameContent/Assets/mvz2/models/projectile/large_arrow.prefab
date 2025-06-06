@@ -1170,7 +1170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: renderers.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: elements.Array.data[0]
@@ -1200,6 +1200,10 @@ PrefabInstance:
       propertyPath: renderers.Array.data[5]
       value: 
       objectReference: {fileID: 4368734496296412715}
+    - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
+      propertyPath: renderers.Array.data[6]
+      value: 
+      objectReference: {fileID: 3722444227412438639}
     - target: {fileID: 3946098556087542135, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: m_Controller
       value: 
