@@ -88,7 +88,15 @@ namespace PVZEngine.Level.Collisions
             var mainCollider = new EntityCollider(entity, EntityCollisionHelper.NAME_MAIN, new EntityHitbox(entity));
             AddCollider(entity, mainCollider);
         }
-        public void UpdateEntity(Entity entity)
+        public void UpdateEntityDetection(Entity entity)
+        {
+
+        }
+        public void UpdateEntityPosition(Entity entity)
+        {
+
+        }
+        public void UpdateEntitySize(Entity entity)
         {
 
         }

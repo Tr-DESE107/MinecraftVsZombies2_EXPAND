@@ -527,7 +527,21 @@ namespace PVZEngine.Entities
         #region 碰撞
         public void UpdateCollision()
         {
-            Level.UpdateEntityCollision(this);
+            UpdateCollisionDetection();
+            UpdateCollisionPosition();
+            UpdateCollisionSize();
+        }
+        public void UpdateCollisionDetection()
+        {
+            Level.UpdateEntityCollisionDetection(this);
+        }
+        public void UpdateCollisionPosition()
+        {
+            Level.UpdateEntityCollisionPosition(this);
+        }
+        public void UpdateCollisionSize()
+        {
+            Level.UpdateEntityCollisionSize(this);
         }
         public IEntityCollider CreateCollider(ColliderConstructor info)
         {
@@ -1034,7 +1048,7 @@ namespace PVZEngine.Entities
                 _position = value;
                 if (updates)
                 {
-                    UpdateCollision();
+                    UpdateCollisionPosition();
                 }
             }
         }

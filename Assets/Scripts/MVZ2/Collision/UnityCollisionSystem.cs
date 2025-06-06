@@ -27,13 +27,20 @@ namespace MVZ2.Collisions
             var col = CreateCollisionEntity(entity);
             col.CreateMainCollider(EntityCollisionHelper.NAME_MAIN);
         }
-        public void UpdateEntity(Entity entity)
+        public void UpdateEntityDetection(Entity entity)
         {
             var ent = GetCollisionEntity(entity);
-            if (ent != null)
-            {
-                ent.UpdateEntity();
-            }
+            ent?.UpdateEntityDetection();
+        }
+        public void UpdateEntityPosition(Entity entity)
+        {
+            var ent = GetCollisionEntity(entity);
+            ent?.UpdateEntityPosition();
+        }
+        public void UpdateEntitySize(Entity entity)
+        {
+            var ent = GetCollisionEntity(entity);
+            ent?.UpdateEntitySize();
         }
         public void DestroyEntity(Entity entity)
         {
@@ -49,7 +56,16 @@ namespace MVZ2.Collisions
 
         private UnityCollisionEntity CreateCollisionEntity(Entity entity)
         {
-            var ent = Instantiate(collisionEntityTemplate, entityRoot).GetComponent<UnityCollisionEntity>();
+            UnityCollisionEntity ent;
+            if (disabledEntities.Count > 0)
+            {
+                ent = disabledEntities.Dequeue();
+                ent.ResetEntity();
+            }
+            else
+            {
+                ent = Instantiate(collisionEntityTemplate, entityRoot).GetComponent<UnityCollisionEntity>();
+            }
             ent.gameObject.SetActive(true);
             ent.Init(entity);
             entities.Add(entity.ID, ent);
@@ -58,12 +74,11 @@ namespace MVZ2.Collisions
         private void DestroyCollisionEntity(Entity entity)
         {
             var collisionEnt = GetCollisionEntity(entity);
-            if (collisionEnt)
+            if (collisionEnt && entities.Remove(entity.ID))
             {
                 collisionEnt.gameObject.SetActive(false);
-                Destroy(collisionEnt.gameObject);
+                disabledEntities.Enqueue(collisionEnt);
             }
-            entities.Remove(entity.ID);
         }
         private UnityCollisionEntity GetCollisionEntity(Entity entity)
         {
@@ -248,6 +263,7 @@ namespace MVZ2.Collisions
         private Collider[] overlapBuffer = new Collider[2048];
         private ArrayBuffer<UnityCollisionEntity> simulateBuffer = new ArrayBuffer<UnityCollisionEntity>(2048);
         private Dictionary<long, UnityCollisionEntity> entities = new Dictionary<long, UnityCollisionEntity>();
+        private Queue<UnityCollisionEntity> disabledEntities = new Queue<UnityCollisionEntity>();
     }
     public class SerializableUnityCollisionSystem : ISerializableCollisionSystem
     {

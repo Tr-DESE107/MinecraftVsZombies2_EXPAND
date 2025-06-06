@@ -13,6 +13,14 @@ namespace MVZ2.Collisions
 {
     public class UnityEntityCollider : MonoBehaviour, IEntityCollider
     {
+        public void ResetCollider()
+        {
+            Enabled = true;
+            SetMain();
+            touchingColliders.Clear();
+            collisionList.Clear();
+            exitedCollisionBuffer.Clear();
+        }
         public void Init(Entity entity, string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -20,10 +28,15 @@ namespace MVZ2.Collisions
             Entity = entity;
             Name = name;
             gameObject.name = Name;
+
         }
         public void SetMain()
         {
             updateMode = EntityColliderUpdateMode.Main;
+            ArmorSlot = null;
+            customSize = Vector3.zero;
+            customOffset = Vector3.zero;
+            customPivot = Vector3.one * 0.5f;
         }
         public void SetCustom(ColliderConstructor constructor)
         {
@@ -40,7 +53,7 @@ namespace MVZ2.Collisions
             Enabled = enabled;
             boxCollider.enabled = enabled;
         }
-        public void UpdateFromEntity()
+        public void UpdateEntitySize()
         {
             Vector3 boundsSize;
             Vector3 boundsPivot;

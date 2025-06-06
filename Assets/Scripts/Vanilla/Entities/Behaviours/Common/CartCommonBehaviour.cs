@@ -51,7 +51,7 @@ namespace MVZ2.Vanilla.Entities
                         velocity.x = 0;
                     }
 
-                    if (entity.Level.EntityExists(e => e.Type == EntityTypes.ENEMY && !e.IsDead && !e.IsHarmless() && entity.IsHostile(e) && e.GetLane() == entity.GetLane() && e.Position.x <= entity.Position.x + TRIGGER_DISTANCE))
+                    if (entity.Level.EntityExists(e => e.Position.x <= entity.Position.x + TRIGGER_DISTANCE && e.Type == EntityTypes.ENEMY && e.GetLane() == entity.GetLane() && !e.IsDead && !e.IsHarmless() && entity.IsHostile(e)))
                     {
                         entity.TriggerCart();
                     }
