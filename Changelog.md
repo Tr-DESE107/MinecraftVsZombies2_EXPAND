@@ -12,6 +12,7 @@
 - Wicked Hermit Zombie now always teleport to the leftmost column regardless of whether it's charmed.
 - Moved the tooltip of artifacts in blueprint select screen to the top, to prevent being blocked by fingers on touchscreen.
 - Adjusted the layer of post-huge-wave visual effects in level 4-11.
+- Added Gargoyle to I, Zombie level "Mineclear".
 
 ## Fixed
 - Fixed the issue where the held item like blueprint, pickaxe or starshard cannot be canceled by re-clicking it.
