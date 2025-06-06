@@ -14,6 +14,8 @@
 - Adjusted the layer of post-huge-wave visual effects in level 4-11.
 - Added Gargoyle to I, Zombie level "Mineclear".
 - The evocation of Force Pad now resets the velocity of target monsters.
+- Adjusted the place and hit sound of Hellfire.
+- Hellfire's material has been changed to Nether from Stone.
 
 ## Fixed
 - Fixed the issue where the held item like blueprint, pickaxe or starshard cannot be canceled by re-clicking it.

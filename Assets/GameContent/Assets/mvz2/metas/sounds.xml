@@ -711,6 +711,14 @@
         <sample path="mvz2:random/stone3" weight="1" />
         <sample path="mvz2:random/stone4" weight="1" />
     </sound>
+    <sound name="netherrack_break">
+        <sample path="mvz2:random/netherrack/break1" weight="1" />
+        <sample path="mvz2:random/netherrack/break2" weight="1" />
+        <sample path="mvz2:random/netherrack/break3" weight="1" />
+        <sample path="mvz2:random/netherrack/break4" weight="1" />
+        <sample path="mvz2:random/netherrack/break5" weight="1" />
+        <sample path="mvz2:random/netherrack/break6" weight="1" />
+    </sound>
     <sound name="stone_hatch">
         <sample path="mvz2:entity/totenser/stone_hatch" weight="1" />
     </sound>
