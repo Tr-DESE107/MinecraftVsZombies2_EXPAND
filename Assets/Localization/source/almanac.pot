@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-06-05 03:05+0800\n"
+"POT-Creation-Date: 2025-06-06 10:24+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1195,8 +1195,8 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害增幅：<color=red>+20火焰伤害，+13.33溅射伤害</color>\n"
-"技能：<color=red>变为诅咒火焰，为箭矢+40火焰伤害，+26.66溅射伤害</color>"
+"伤害增幅：<color=red>+100%火焰伤害，+66%溅射伤害</color>\n"
+"技能：<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:hellfire

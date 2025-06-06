@@ -613,8 +613,8 @@
                 <p>地狱火会点燃穿过它的箭矢，使其额外造成火焰伤害。</p>
             </header>
             <properties>
-                <p>伤害增幅：<![CDATA[<color=red>+20火焰伤害，+13.33溅射伤害</color>]]></p>
-                <p>技能：<![CDATA[<color=red>变为诅咒火焰，为箭矢+40火焰伤害，+26.66溅射伤害</color>]]></p>
+                <p>伤害增幅：<![CDATA[<color=red>+100%火焰伤害，+66%溅射伤害</color>]]></p>
+                <p>技能：<![CDATA[<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>烧吧！我内心中的熊熊烈火，点燃我的<![CDATA[<color=red>愤怒</color>]]>！</p>

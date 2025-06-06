@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-06-05 03:05+0800\n"
-"PO-Revision-Date: 2025-06-05 15:06+0800\n"
+"POT-Creation-Date: 2025-06-06 10:24+0800\n"
+"PO-Revision-Date: 2025-06-06 10:25+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1382,11 +1382,11 @@ msgstr "Hellfire ignites arrows which pass through it, making them deal addition
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"伤害增幅：<color=red>+20火焰伤害，+13.33溅射伤害</color>\n"
-"技能：<color=red>变为诅咒火焰，为箭矢+40火焰伤害，+26.66溅射伤害</color>"
+"伤害增幅：<color=red>+100%火焰伤害，+66%溅射伤害</color>\n"
+"技能：<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>"
 msgstr ""
-"Damage Addition: <color=red>+20 fire damage, +13.33 splash damage</color>\n"
-"Evocation: <color=red>Become cursed flame, provides +40 fire damage, +26.66 splash damage for arrows</color>"
+"Damage Addition: <color=red>+100% fire damage, +66% splash damage</color>\n"
+"Evocation: <color=red>Become cursed flame, provides +200% fire damage, +133% splash damage for arrows</color>"
 
 #. Flavor for contraptions mvz2:hellfire
 #: Almanac meta file
