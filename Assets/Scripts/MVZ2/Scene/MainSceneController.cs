@@ -95,6 +95,13 @@ namespace MVZ2.Scenes
         }
         #endregion
 
+        #region 弹出提示
+        public void ShowPopup(string text)
+        {
+            popup.ShowPopup(text);
+        }
+        #endregion
+
         #region 传送门
         public void PortalFadeIn(Action OnFadeIn)
         {
@@ -327,6 +334,8 @@ namespace MVZ2.Scenes
         private ArcadeController arcade;
         [SerializeField]
         private AchievementHintController achievementHint;
+        [SerializeField]
+        private PopupController popup;
         [SerializeField]
         private InputNameDialogController inputNameDialog;
         [SerializeField]

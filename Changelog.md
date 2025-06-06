@@ -2,6 +2,8 @@
 
 ## Added
 - Added tag icons for almanac.
+- Added repair progress animation for Punchton and Thunder Drum.
+- Added a popup to remind the player when a dialog is skipped by Skip Dialogs option.
 
 ## Modified
 - Large arrows now can be ignited by Hellfire.
@@ -9,7 +11,6 @@
   - Nightmare can only take up to 600 damage in one hit, so Drivenser's evocation effect is not affected in boss battles of 2-11.
 - Wicked Hermit Zombie now always teleport to the leftmost column regardless of whether it's charmed.
 - Moved the tooltip of artifacts in blueprint select screen to the top, to prevent being blocked by fingers on touchscreen.
-- Added repair progress animation for Punchton and Thunder Drum.
 - Adjusted the layer of post-huge-wave visual effects in level 4-11.
 
 ## Fixed
