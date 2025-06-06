@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using MVZ2.Vanilla.Entities;
+﻿using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
@@ -36,8 +35,7 @@ namespace MVZ2.GameContent.Stages
         }
         protected virtual void FinalWaveUpdate(LevelEngine level)
         {
-            var lastEnemy = level.FindEntities(e => e.IsAliveEnemy()).FirstOrDefault();
-            if (lastEnemy == null)
+            if (level.HasNoAliveEnemy())
             {
                 StartAfterFinalWave(level);
             }

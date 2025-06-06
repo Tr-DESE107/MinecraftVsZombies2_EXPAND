@@ -513,14 +513,27 @@ namespace MVZ2.Vanilla.Level
         #endregion
 
         #region Wave
+        public static Entity GetFirstAliveEnemy(this LevelEngine level)
+        {
+            return level.FindFirstEntity(e => e.IsAliveEnemy());
+        }
+        public static bool HasNoAliveEnemy(this LevelEngine level)
+        {
+            var first = level.GetFirstAliveEnemy();
+            if (first != null)
+                return false;
+            if (level.AssumeHasEnemies())
+                return false;
+            return true;
+        }
         public static void CheckClearUpdate(this LevelEngine level)
         {
-            var lastEnemy = level.FindFirstEntity(e => e.IsAliveEnemy());
+            var lastEnemy = level.GetFirstAliveEnemy();
             if (lastEnemy != null)
             {
                 level.SetLastEnemyPosition(lastEnemy.Position);
             }
-            else
+            else if (level.HasNoAliveEnemy())
             {
                 level.PostWaveFinished(level.CurrentWave);
                 level.SetNoEnergy(true);

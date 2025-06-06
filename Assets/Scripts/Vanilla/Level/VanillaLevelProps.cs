@@ -14,6 +14,14 @@ namespace MVZ2.Vanilla.Level
             return new PropertyMeta<T>(name);
         }
 
+        #region 假定存在敌人
+        public static readonly PropertyMeta<bool> ASSUME_HAS_ENEMIES = Get<bool>("assume_has_enemies");
+        public static bool AssumeHasEnemies(this LevelEngine game)
+        {
+            return game.GetProperty<bool>(ASSUME_HAS_ENEMIES);
+        }
+        #endregion
+
         #region 出怪池
 
         public static readonly PropertyMeta<NamespaceID[]> ENEMY_POOL = Get<NamespaceID[]>("enemyPool");

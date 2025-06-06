@@ -13,6 +13,7 @@
 ## Fixed
 - Fixed the issue where the held item like blueprint, pickaxe or starshard cannot be canceled by re-clicking it.
 - Fixed the issue where monsters that die within the range of the Shikaisen Staff will be considered completely dead by the level, resulting the level-clear pickup to be spawned.
+- Fixed the issue where killing all enemies before spawners spawn their enemies will instantly spawn the level-clear pickup.
 - Fixed the issue where instant-evocation feature can be used on Anvil.
 - Fixed the issue where Dream Silk can be used on a Magichest which is devouring an enemy.
 
