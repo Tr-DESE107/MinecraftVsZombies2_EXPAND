@@ -9,6 +9,8 @@
   - Nightmare can only take up to 600 damage in one hit, so Drivenser's evocation effect is not affected in boss battles of 2-11.
 - Wicked Hermit Zombie now always teleport to the leftmost column regardless of whether it's charmed.
 - Moved the tooltip of artifacts in blueprint select screen to the top, to prevent being blocked by fingers on touchscreen.
+- Added repair progress animation for Punchton and Thunder Drum.
+- Adjusted the layer of post-huge-wave visual effects in level 4-11.
 
 ## Fixed
 - Fixed the issue where the held item like blueprint, pickaxe or starshard cannot be canceled by re-clicking it.
@@ -16,6 +18,7 @@
 - Fixed the issue where killing all enemies before spawners spawn their enemies will instantly spawn the level-clear pickup.
 - Fixed the issue where instant-evocation feature can be used on Anvil.
 - Fixed the issue where Dream Silk can be used on a Magichest which is devouring an enemy.
+- Fixed the issue where the light range of Totenser's fire breath is incorrect.
 
 ---
 
