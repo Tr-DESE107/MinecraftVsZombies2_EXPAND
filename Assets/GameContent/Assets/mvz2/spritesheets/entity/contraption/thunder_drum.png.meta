@@ -3,7 +3,7 @@ guid: 824ceee383f361649b57e79656c673da
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -106,6 +106,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -134,7 +147,7 @@ TextureImporter:
       name: thunder_drum_1
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 0
         width: 64
         height: 64
@@ -147,6 +160,27 @@ TextureImporter:
       bones: []
       spriteID: cbb25959533e81b468a72e3094657731
       internalID: -502181682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_drum_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4a9efa9afde9e4f97b1d023a239f26
+      internalID: 1055655857
       vertices: []
       indices: 
       edges: []
@@ -164,6 +198,7 @@ TextureImporter:
     nameFileIdTable:
       thunder_drum_0: 473868895
       thunder_drum_1: -502181682
+      thunder_drum_2: 1055655857
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

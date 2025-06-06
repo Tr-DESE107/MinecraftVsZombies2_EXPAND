@@ -63,6 +63,8 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.UpdateLogic(entity);
             entity.SetAnimationBool("Broken", IsBroken(entity));
+            entity.SetAnimationBool("Evoked", entity.IsEvoked());
+            entity.SetAnimationFloat("ChargeBlend", GetChargeBlend(entity));
         }
         public override bool CanTrigger(Entity entity)
         {
@@ -128,6 +130,13 @@ namespace MVZ2.GameContent.Contraptions
             }
             self.Level.ShakeScreen(15, 0, 30);
             self.PlaySound(VanillaSoundID.lightningAttack);
+        }
+        private float GetChargeBlend(Entity self)
+        {
+            if (!IsBroken(self))
+                return 0;
+            var restoreTimer = GetRestoreTimer(self);
+            return restoreTimer?.GetPassedPercentage() ?? 0;
         }
         public static bool IsBroken(Entity entity) => entity.GetBehaviourField<bool>(ID, FIELD_BROKEN);
         public static void SetBroken(Entity entity, bool value) => entity.SetBehaviourField(ID, FIELD_BROKEN, value);
