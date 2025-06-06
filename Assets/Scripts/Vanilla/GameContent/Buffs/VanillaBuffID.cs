@@ -149,6 +149,7 @@ namespace MVZ2.GameContent.Buffs
             public const string delayedSpawnerTrigger = "delayed_spawner_trigger";
             public const string superRecharge = "super_recharge";
             public const string ancientEgypt = "ancient_egypt";
+            public const string spiritUniverseNight = "spirit_universe_night";
 
             // 难度
             public const string levelEasy = "level_easy";
@@ -238,6 +239,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID darkMatterDark = Get(VanillaBuffNames.Level.darkMatterDark);
             public static readonly NamespaceID pagodaBranchLevel = Get(VanillaBuffNames.Level.pagodaBranchLevel);
             public static readonly NamespaceID greedyVacuum = Get(VanillaBuffNames.Level.greedyVacuum);
+            public static readonly NamespaceID spiritUniverseNight = Get(VanillaBuffNames.Level.spiritUniverseNight);
         }
     }
 }

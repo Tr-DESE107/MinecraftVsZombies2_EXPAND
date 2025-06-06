@@ -84,6 +84,8 @@ namespace PVZEngine.Auras
         }
         public void LoadFromSerializable(LevelEngine level, SerializableAuraEffect serializable)
         {
+            if (serializable == null)
+                return;
             updateTimer = serializable.updateTimer;
             buffCaches.Clear();
             foreach (var seriBuff in serializable.buffs)
