@@ -328,7 +328,8 @@ namespace PVZEngine.Entities
         public Vector3 GetCenter()
         {
             var center = Position;
-            center.y += GetScaledSize().y * 0.5f;
+            var pivot = Vector3.one * 0.5f - Cache.BoundsPivot;
+            center += Vector3.Scale(GetScaledSize(), pivot);
             return center;
         }
         public Vector3 GetScaledSize()
