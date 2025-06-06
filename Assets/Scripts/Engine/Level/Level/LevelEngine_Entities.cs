@@ -93,6 +93,13 @@ namespace PVZEngine.Level
         {
             return entities.Values.Where(predicate).ToArray();
         }
+        public IEnumerable<Entity> EnumerateEntities()
+        {
+            foreach (var pair in entities)
+            {
+                yield return pair.Value;
+            }
+        }
         public int GetEntityCount(EntityDefinition def)
         {
             if (def == null)

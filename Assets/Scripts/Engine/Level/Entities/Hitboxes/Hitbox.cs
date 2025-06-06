@@ -57,7 +57,7 @@ namespace PVZEngine.Entities
         {
             var bounds = GetBounds();
             var otherBounds = other.GetBounds();
-            return bounds.Intersects(otherBounds);
+            return bounds.IntersectsOptimized(otherBounds);
         }
         public bool DoCollision(Hitbox other, Vector3 offset, out Vector3 seperation)
         {
@@ -65,7 +65,7 @@ namespace PVZEngine.Entities
             selfBounds.center += offset;
             var otherBounds = other.GetBounds();
 
-            if (selfBounds.Intersects(otherBounds))
+            if (selfBounds.IntersectsOptimized(otherBounds))
             {
                 seperation = otherBounds.center - selfBounds.center;
                 return true;

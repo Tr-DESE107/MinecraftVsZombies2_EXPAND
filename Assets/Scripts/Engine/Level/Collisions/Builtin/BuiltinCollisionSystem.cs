@@ -198,14 +198,14 @@ namespace PVZEngine.Level.Collisions
             var min = center - size * 0.5f;
             var filterRect = new Rect(min.x, min.z, size.x, size.y);
             var bounds = new Bounds(center, size);
-            return Overlap(filterRect, faction, hostileMask, friendlyMask, h => bounds.Intersects(h.GetBounds()));
+            return Overlap(filterRect, faction, hostileMask, friendlyMask, h => bounds.IntersectsOptimized(h.GetBounds()));
         }
         public void OverlapBoxNonAlloc(Vector3 center, Vector3 size, int faction, int hostileMask, int friendlyMask, List<IEntityCollider> results)
         {
             var min = center - size * 0.5f;
             var filterRect = new Rect(min.x, min.z, size.x, size.z);
             var bounds = new Bounds(center, size);
-            OverlapNonAlloc(filterRect, faction, hostileMask, friendlyMask, h => bounds.Intersects(h.GetBounds()), results);
+            OverlapNonAlloc(filterRect, faction, hostileMask, friendlyMask, h => bounds.IntersectsOptimized(h.GetBounds()), results);
         }
         public IEntityCollider[] OverlapSphere(Vector3 center, float radius, int faction, int hostileMask, int friendlyMask)
         {

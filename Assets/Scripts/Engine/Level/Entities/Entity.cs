@@ -1030,8 +1030,12 @@ namespace PVZEngine.Entities
             get => _position;
             set
             {
+                bool updates = _position != value;
                 _position = value;
-                UpdateCollision();
+                if (updates)
+                {
+                    UpdateCollision();
+                }
             }
         }
         public Vector3 Velocity { get; set; }

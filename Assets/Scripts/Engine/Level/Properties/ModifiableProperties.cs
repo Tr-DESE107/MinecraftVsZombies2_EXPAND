@@ -65,7 +65,7 @@ namespace PVZEngine.Level
             }
             if (Container.GetFallbackProperty(name, out var fallback))
             {
-                fallbackCaches.Add(name, fallback);
+                AddFallbackCache(name, fallback);
                 result = fallback;
                 return true;
             }
@@ -84,11 +84,33 @@ namespace PVZEngine.Level
             result = default;
             return false;
         }
-        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false) => TryGetProperty<T>(name, out var result, ignoreBuffs) ? result : name.DefaultValue;
-        public object GetPropertyObject(IPropertyKey name, bool ignoreBuffs = false) => TryGetPropertyObject(name, out var result, ignoreBuffs) ? result : name.DefaultValue;
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
+        {
+            if (TryGetProperty<T>(name, out var result, ignoreBuffs))
+            {
+                return result;
+            }
+            var value = name.DefaultValue;
+            AddFallbackCache(name, value);
+            return value;
+        }
+        public object GetPropertyObject(IPropertyKey name, bool ignoreBuffs = false)
+        {
+            if (TryGetPropertyObject(name, out var result, ignoreBuffs))
+            {
+                return result;
+            }
+            var value = name.DefaultValue;
+            AddFallbackCache(name, value);
+            return value;
+        }
         public bool RemoveProperty(IPropertyKey name)
         {
             return properties.RemovePropertyObject(name);
+        }
+        public void AddFallbackCache(IPropertyKey key, object value)
+        {
+            fallbackCaches.Add(key, value);
         }
         public bool RemoveFallbackCache(IPropertyKey key)
         {

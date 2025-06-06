@@ -157,14 +157,14 @@ namespace PVZEngine.Level.Collisions
         #region 查找目标
         public void FindTargetsInRect(Rect rect, List<T> results, float rewind = 0)
         {
-            if (!rect.Intersects(looseBounds))
+            if (!rect.OverlapOptimized(looseBounds))
                 return;
 
             //查找匹配对象
             foreach (var item in items)
             {
                 var target = item.target;
-                if (rect.Intersects(target.GetCollisionRect(rewind)))
+                if (rect.OverlapOptimized(target.GetCollisionRect(rewind)))
                 {
                     results.Add(target);
                 }

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using MVZ2.GameContent.Buffs.Carts;
+﻿using MVZ2.GameContent.Buffs.Carts;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
@@ -52,9 +51,7 @@ namespace MVZ2.Vanilla.Entities
                         velocity.x = 0;
                     }
 
-                    bool triggered = entity.Level.GetEntities(EntityTypes.ENEMY)
-                        .Any(e => !e.IsDead && !e.IsHarmless() && entity.IsHostile(e) && e.GetLane() == entity.GetLane() && e.Position.x <= entity.Position.x + TRIGGER_DISTANCE);
-                    if (triggered)
+                    if (entity.Level.EntityExists(e => e.Type == EntityTypes.ENEMY && !e.IsDead && !e.IsHarmless() && entity.IsHostile(e) && e.GetLane() == entity.GetLane() && e.Position.x <= entity.Position.x + TRIGGER_DISTANCE))
                     {
                         entity.TriggerCart();
                     }

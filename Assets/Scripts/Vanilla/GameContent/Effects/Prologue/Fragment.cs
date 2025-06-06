@@ -40,17 +40,28 @@ namespace MVZ2.GameContent.Effects
         {
             SetEmitSpeed(entity, GetEmitSpeed(entity) + value);
         }
+        public static NamespaceID GetFragmentID(Entity entity)
+        {
+            return entity.GetProperty<NamespaceID>(PROP_FRAGMENT_ID);
+        }
         public static void SetFragmentID(Entity entity, NamespaceID value)
         {
+            entity.SetProperty(PROP_FRAGMENT_ID, value);
             entity.SetModelProperty("FragmentID", value);
         }
         public static void UpdateFragmentID(Entity entity)
         {
             var parent = entity?.Parent;
-            SetFragmentID(entity, parent?.GetFragmentID() ?? parent?.GetDefinitionID());
+            var fragmentID = parent?.GetFragmentID() ?? parent?.GetDefinitionID();
+            var current = GetFragmentID(entity);
+            if (fragmentID != current)
+            {
+                SetFragmentID(entity, fragmentID);
+            }
         }
         #endregion
         private static readonly NamespaceID ID = VanillaEffectID.fragment;
+        public static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_FRAGMENT_ID = new VanillaEntityPropertyMeta<NamespaceID>("fragment_id");
         public static readonly VanillaEntityPropertyMeta<float> PROP_EMIT_SPEED = new VanillaEntityPropertyMeta<float>("EmitSpeed");
     }
 }
