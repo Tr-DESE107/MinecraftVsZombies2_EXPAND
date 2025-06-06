@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Callbacks;
@@ -17,7 +16,7 @@ namespace MVZ2.GameContent.Enemies
     {
         public ShikaisenStaff(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaLevelCallbacks.PRE_ENEMY_FAINT, PreEnemyFaintCallback);
+            AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
         }
         public override void Init(Entity entity)
         {
@@ -54,23 +53,18 @@ namespace MVZ2.GameContent.Enemies
                 input.SetAmount(entity.GetMaxHealth() * 10);
             }
         }
-        private void PreEnemyFaintCallback(EntityCallbackParams param, CallbackResult result)
+        private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {
             var entity = param.entity;
+            var info = param.deathInfo;
+            if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH) || info.HasEffect(VanillaDamageEffects.DROWN))
+                return;
             var staff = entity.Level.FindFirstEntity(e => e.IsEntityOf(VanillaEnemyID.shikaisenStaff) && (e.Position - entity.Position).magnitude <= e.GetRange() && e.ExistsAndAlive());
             if (staff == null)
                 return;
-            entity.Revive();
-            var costHealth = Mathf.Min(staff.Health, entity.GetMaxHealth());
-            entity.HealEffects(costHealth, staff);
-            staff.TakeDamage(costHealth, new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE), staff);
-            if (staff.Health <= 0)
-            {
-                staff.Die();
-            }
-            result.SetFinalValue(false);
-
-            entity.PlaySound(VanillaSoundID.revived);
+            var buff = entity.CreateBuff<ShikaisenReviveBuff>();
+            ShikaisenReviveBuff.SetSource(buff, new EntityID(staff));
+            entity.AddBuff(buff);
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {

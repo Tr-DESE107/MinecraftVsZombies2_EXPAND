@@ -32,6 +32,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static float GetWeakKnockbackMultiplier(this Entity entity) => entity.GetKnockbackMultiplier(1);
         public static float GetStrongKnockbackMultiplier(this Entity entity) => entity.GetKnockbackMultiplier(0.5f);
+
         #region 射击
         public static readonly PropertyMeta<float> RANGE = Get<float>("range");
         public static readonly PropertyMeta<Vector3> SHOT_VELOCITY = Get<Vector3>("shotVelocity");

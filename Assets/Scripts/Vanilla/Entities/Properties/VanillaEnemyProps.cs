@@ -140,6 +140,15 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 假定存活
+
+        public static readonly PropertyMeta<bool> ASSUME_ALIVE = Get<bool>("assume_alive");
+        public static bool AssumeAlive(this Entity enemy)
+        {
+            return enemy.GetProperty<bool>(ASSUME_ALIVE);
+        }
+        #endregion
+
         public static readonly PropertyMeta<bool> IMMUNE_VORTEX = Get<bool>("immuneVortex");
         public static bool ImmuneVortex(this Entity enemy)
         {

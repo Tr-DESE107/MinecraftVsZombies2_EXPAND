@@ -48,10 +48,10 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.desirePot,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.forcePad,
-                VanillaContraptionID.tnt,
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.shikaisenStaff,
                 VanillaEnemyID.ghost,
+                VanillaEnemyID.gargoyle,
+                VanillaEnemyID.shikaisenStaff,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
