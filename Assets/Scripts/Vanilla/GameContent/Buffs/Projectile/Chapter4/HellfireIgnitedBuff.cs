@@ -39,10 +39,14 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             bool cursed = false;
             foreach (var buff in buffs)
             {
-                additionalDamage += GetDamage(buff);
                 if (GetCursed(buff))
                 {
+                    additionalDamage += projectile.GetDamage() * 2;
                     cursed = true;
+                }
+                else
+                {
+                    additionalDamage += projectile.GetDamage();
                 }
             }
             if (additionalDamage <= 0)
@@ -72,23 +76,18 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         }
         public static void Curse(Buff buff)
         {
-            SetDamage(buff, DAMAGE_ADDITION_CURSED);
             SetLightColor(buff, LIGHT_COLOR_CURSED);
             SetCursed(buff, true);
         }
         public static void Uncurse(Buff buff)
         {
-            SetDamage(buff, DAMAGE_ADDITION);
             SetLightColor(buff, LIGHT_COLOR);
             SetCursed(buff, false);
         }
-        public static void SetDamage(Buff buff, float value) => buff.SetProperty(PROP_DAMAGE, value);
-        public static float GetDamage(Buff buff) => buff.GetProperty<float>(PROP_DAMAGE);
         public static void SetLightColor(Buff buff, Color value) => buff.SetProperty(PROP_LIGHT_COLOR, value);
         public static Color GetLightColor(Buff buff) => buff.GetProperty<Color>(PROP_LIGHT_COLOR);
         public static void SetCursed(Buff buff, bool value) => buff.SetProperty(PROP_CURSED, value);
         public static bool GetCursed(Buff buff) => buff.GetProperty<bool>(PROP_CURSED);
-        public static readonly VanillaBuffPropertyMeta<float> PROP_DAMAGE = new VanillaBuffPropertyMeta<float>("damage");
         public static readonly VanillaBuffPropertyMeta<Color> PROP_LIGHT_COLOR = new VanillaBuffPropertyMeta<Color>("lightColor");
         public static readonly VanillaBuffPropertyMeta<bool> PROP_CURSED = new VanillaBuffPropertyMeta<bool>("cursed");
         public const float DAMAGE_ADDITION = 20;

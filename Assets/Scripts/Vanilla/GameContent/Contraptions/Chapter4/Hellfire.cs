@@ -52,7 +52,8 @@ namespace MVZ2.GameContent.Contraptions
             if (state == EntityCollisionHelper.STATE_EXIT)
                 return;
             var other = collision.Other;
-            if (!other.IsEntityOf(VanillaProjectileID.arrow))
+            var canIgnite = other.Definition?.HasBehaviour<HellfireIgnitedProjectileBehaviour>() ?? false;
+            if (!canIgnite)
                 return;
             var self = collision.Entity;
             if (!self.IsFriendly(other))
