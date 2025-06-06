@@ -15,7 +15,7 @@ namespace MVZ2.Collisions
     {
         public void ResetCollider()
         {
-            Enabled = true;
+            SetEnabled(true);
             SetMain();
             touchingColliders.Clear();
             collisionList.Clear();
