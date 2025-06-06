@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-06-06 10:24+0800\n"
-"PO-Revision-Date: 2025-06-06 10:25+0800\n"
+"PO-Revision-Date: 2025-06-06 13:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -45,61 +45,61 @@ msgstr "Can only be placed on water"
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "悬浮器械"
-msgstr "Suspended Contraption"
+msgstr "Levitating Contraption"
 
 #. Description for almanac tag placement_suspension
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "不依赖于承载者便可放置在特殊格子上"
-msgstr "Can be place at special grids without a carrier present"
+msgstr "Can be placed on special grids without a carrier present"
 
 #. Name for almanac tag grid_layer_main
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "主要位"
-msgstr "Primary Slot"
+msgstr "Primary Layer"
 
 #. Description for almanac tag grid_layer_main
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "占据格子的主要位"
-msgstr "Takes the primary slot of grids"
+msgstr "Occupies the primary layer of grids"
 
 #. Name for almanac tag grid_layer_carrier
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "承载位"
-msgstr "Carrier Slot"
+msgstr "Carrier Layer"
 
 #. Description for almanac tag grid_layer_carrier
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "占据格子的承载位"
-msgstr "Takes the carrier slot of grids"
+msgstr "Occupies the carrier layer of grids"
 
 #. Name for almanac tag grid_layer_protector
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "保护位"
-msgstr "Protector Slot"
+msgstr "Protector Layer"
 
 #. Description for almanac tag grid_layer_protector
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "占据格子的保护位"
-msgstr "Takes the protector slot of grids"
+msgstr "Occupies the protector layer of grids"
 
 #. Name for almanac tag grid_layer_tool
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "工具位"
-msgstr "Tool Slot"
+msgstr "Tool Layer"
 
 #. Description for almanac tag grid_layer_tool
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "占据格子的工具位"
-msgstr "Takes the tool slot of grids"
+msgstr "Occupies the tool layer of grids"
 
 #. Name for almanac tag shell
 #: Almanac meta file
@@ -117,7 +117,7 @@ msgstr "Armor Material"
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "护盾材质"
-msgstr "Shell Material"
+msgstr "Shield Material"
 
 #. Name for almanac tag shell_head
 #: Almanac meta file
@@ -159,7 +159,7 @@ msgstr "Horse Mass"
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "发光"
-msgstr "Light Source"
+msgstr "Illuminative"
 
 #. Description for almanac tag light_source
 #: Almanac meta file
@@ -189,7 +189,7 @@ msgstr "Defensive"
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "阻挡敌人用的器械"
-msgstr "Contraption used for block enemies"
+msgstr "Contraption used for blocking enemies"
 
 #. Name for almanac tag floor_contraption
 #: Almanac meta file
@@ -201,13 +201,13 @@ msgstr "Floor Contraption"
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "不会被一般敌人发现"
-msgstr "Cannot be found by regular enemies"
+msgstr "Undiscovered by regular enemies"
 
 #. Name for almanac tag low
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "低矮"
-msgstr "Low"
+msgstr "Short"
 
 #. Description for almanac tag low
 #: Almanac meta file
@@ -219,7 +219,7 @@ msgstr "Will not be hit by medium height projectiles or higher"
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "高"
-msgstr "High"
+msgstr "Tall"
 
 #. Description for almanac tag high
 #: Almanac meta file
@@ -249,7 +249,7 @@ msgstr "Triggerable"
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "可通过触发器产生某些效果"
-msgstr "Can be triggered to do something"
+msgstr "Can be triggered to perform actions"
 
 #. Name for almanac tag fire
 #: Almanac meta file
@@ -291,7 +291,7 @@ msgstr "Survives in water"
 #: Almanac meta file
 msgctxt "almanac_tag.name"
 msgid "控制免疫"
-msgstr "Immobilization Immune"
+msgstr "Immobilization Immunity"
 
 #. Description for almanac tag control_immunity
 #: Almanac meta file
@@ -309,7 +309,7 @@ msgstr "Not Undead"
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "不是亡灵生物"
-msgstr "Is not an undead"
+msgstr "Not an undead"
 
 #. Name for almanac tag enum value -2 of enum mass
 #: Almanac meta file
@@ -357,7 +357,7 @@ msgstr "Heavy"
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "受到的击退较小"
-msgstr "Takes minor knockback"
+msgstr "Takes light knockback"
 
 #. Name for almanac tag enum value 2 of enum mass
 #: Almanac meta file
@@ -381,7 +381,7 @@ msgstr "Stone"
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "阻挡锐利物体和火焰溅射，但受到20x冲击伤害"
-msgstr "Blocks slice attacks and fire splashes, but takes 20x impact damage"
+msgstr "Stops piercing attacks and fire splashes, but takes 20x impact damage"
 
 #. Name for almanac tag enum value mvz2:grass of enum shell
 #: Almanac meta file
@@ -393,7 +393,7 @@ msgstr "Grass"
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "会被锐利物体穿透，受到2x火焰伤害"
-msgstr "Pierced by slice attacks, take 2x fire damage"
+msgstr "Can be pierced, takes 2x fire damage"
 
 #. Name for almanac tag enum value mvz2:flesh of enum shell
 #: Almanac meta file
@@ -405,7 +405,7 @@ msgstr "Flesh"
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "会被锐利物体穿透"
-msgstr "Pierced by slice attacks"
+msgstr "Can be pierced"
 
 #. Name for almanac tag enum value mvz2:leather of enum shell
 #: Almanac meta file
@@ -429,7 +429,7 @@ msgstr "Metal"
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "阻挡锐利物体"
-msgstr "Blocks slice attacks"
+msgstr "Stops piercing attacks"
 
 #. Name for almanac tag enum value mvz2:bone of enum shell
 #: Almanac meta file
@@ -459,7 +459,7 @@ msgstr "Nether"
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "免疫火焰伤害"
-msgstr "Immunes to fire damage"
+msgstr "Immune to fire damage"
 
 #. Name for almanac tag enum value mvz2:diamond of enum shell
 #: Almanac meta file
