@@ -1023,6 +1023,12 @@ namespace MVZ2.Level
                 {
                     // 命令方块不能模仿升级蓝图。
                     viewData.disabled = true;
+                    viewData.recharge = 1;
+                }
+                bool notRecommended = Level.IsBlueprintNotRecommmended(id);
+                if (notRecommended)
+                {
+                    viewData.recharge = 1;
                 }
                 return viewData;
             }).ToArray();

@@ -15,6 +15,7 @@
 - Added Gargoyle to I, Zombie level "Mineclear".
 - The evocation of Force Pad now resets the velocity of target monsters.
 - Adjusted the place and hit sound of Hellfire.
+- Adjusted the background texture for command block blueprints.
 - Hellfire's material has been changed to Nether from Stone.
 
 ## Fixed

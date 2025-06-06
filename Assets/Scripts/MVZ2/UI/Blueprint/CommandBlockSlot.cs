@@ -11,8 +11,9 @@ namespace MVZ2.UI
         {
             var blueprint = commandBlockBlueprint;
             blueprint.UpdateView(viewData.blueprint);
-            blueprint.SetDisabled(viewData.disabled || viewData.selected);
-            blueprint.SetRecharge(viewData.selected ? 1 : 0);
+            blueprint.SetDisabled(viewData.disabled);
+            blueprint.SetSelected(viewData.selected);
+            blueprint.SetRecharge(viewData.recharge);
         }
         public void SetCommandBlockActive(bool value)
         {
