@@ -20,7 +20,9 @@ namespace MVZ2.Collisions
             {
                 var entity = simulateBuffer[i];
                 entity.Simulate();
+                entity.RecycleColliders();
             }
+            RecycleEntities();
         }
         public void InitEntity(Entity entity)
         {
@@ -53,14 +55,21 @@ namespace MVZ2.Collisions
                 return;
             collisionEnt.GetCollisions(collisions);
         }
-
+        private void RecycleEntities()
+        {
+            foreach (var entity in recyclingEntities)
+            {
+                disabledEntities.Enqueue(entity);
+                entity.ResetEntity();
+            }
+            recyclingEntities.Clear();
+        }
         private UnityCollisionEntity CreateCollisionEntity(Entity entity)
         {
             UnityCollisionEntity ent;
             if (disabledEntities.Count > 0)
             {
                 ent = disabledEntities.Dequeue();
-                ent.ResetEntity();
             }
             else
             {
@@ -77,7 +86,7 @@ namespace MVZ2.Collisions
             if (collisionEnt && entities.Remove(entity.ID))
             {
                 collisionEnt.gameObject.SetActive(false);
-                disabledEntities.Enqueue(collisionEnt);
+                recyclingEntities.Add(collisionEnt);
             }
         }
         private UnityCollisionEntity GetCollisionEntity(Entity entity)
@@ -263,6 +272,7 @@ namespace MVZ2.Collisions
         private Collider[] overlapBuffer = new Collider[2048];
         private ArrayBuffer<UnityCollisionEntity> simulateBuffer = new ArrayBuffer<UnityCollisionEntity>(2048);
         private Dictionary<long, UnityCollisionEntity> entities = new Dictionary<long, UnityCollisionEntity>();
+        private List<UnityCollisionEntity> recyclingEntities = new List<UnityCollisionEntity>();
         private Queue<UnityCollisionEntity> disabledEntities = new Queue<UnityCollisionEntity>();
     }
     public class SerializableUnityCollisionSystem : ISerializableCollisionSystem

@@ -23,11 +23,19 @@ namespace MVZ2.Collisions
             {
                 if (collider)
                 {
-                    disabledColliders.Enqueue(collider);
                     collider.gameObject.SetActive(false);
+                    RecycleCollider(collider);
                 }
             }
             colliders.Clear();
+        }
+        public void RecycleColliders()
+        {
+            foreach (var collider in recyclingColliders)
+            {
+                RecycleCollider(collider);
+            }
+            recyclingColliders.Clear();
         }
         public void Simulate()
         {
@@ -68,7 +76,6 @@ namespace MVZ2.Collisions
             if (disabledColliders.Count > 0)
             {
                 collider = disabledColliders.Dequeue();
-                collider.ResetCollider();
             }
             else
             {
@@ -98,8 +105,8 @@ namespace MVZ2.Collisions
             var collider = colliders.FirstOrDefault(c => c.Name == name);
             if (collider && colliders.Remove(collider))
             {
-                disabledColliders.Enqueue(collider);
                 collider.gameObject.SetActive(false);
+                recyclingColliders.Add(collider);
                 return true;
             }
             return false;
@@ -114,6 +121,11 @@ namespace MVZ2.Collisions
         public UnityEntityCollider GetCollider(string name)
         {
             return colliders.FirstOrDefault(c => c.Name == name);
+        }
+        private void RecycleCollider(UnityEntityCollider collider)
+        {
+            disabledColliders.Enqueue(collider);
+            collider.ResetCollider();
         }
 
         #region 序列化
@@ -150,6 +162,8 @@ namespace MVZ2.Collisions
         private Rigidbody rigid;
         [SerializeField]
         private List<UnityEntityCollider> colliders = new List<UnityEntityCollider>();
+        [SerializeField]
+        private List<UnityEntityCollider> recyclingColliders = new List<UnityEntityCollider>();
         [SerializeField]
         private Queue<UnityEntityCollider> disabledColliders = new Queue<UnityEntityCollider>();
         [SerializeField]

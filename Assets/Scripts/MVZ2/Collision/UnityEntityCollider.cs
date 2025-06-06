@@ -19,7 +19,7 @@ namespace MVZ2.Collisions
             SetMain();
             touchingColliders.Clear();
             collisionList.Clear();
-            exitedCollisionBuffer.Clear();
+            collisionBuffer.Clear();
         }
         public void Init(Entity entity, string name)
         {
@@ -100,33 +100,39 @@ namespace MVZ2.Collisions
                 if (other == null)
                     continue;
 
-                bool enter = false;
                 var collision = collisionList.Find(c => (c.OtherCollider as UnityEntityCollider) == otherCollider);
                 if (collision == null)
                 {
-                    enter = true;
                     collision = new EntityCollision(this, otherCollider);
+                    collision.Enter = true;
+                    collisionList.Add(collision);
                 }
-                if (CallPreCollision(collision))
+                else
                 {
-                    if (enter)
-                    {
-                        CallPostCollision(collision, EntityCollisionHelper.STATE_ENTER);
-                        collisionList.Add(collision);
-                    }
-                    else
-                    {
-                        CallPostCollision(collision, EntityCollisionHelper.STATE_STAY);
-                    }
-                    collision.Checked = true;
+                    collision.Enter = false;
                 }
+                collision.Checked = true;
             }
-            exitedCollisionBuffer.Clear();
-            exitedCollisionBuffer.CopyFrom(collisionList);
-            for (int i = 0; i < exitedCollisionBuffer.Count; i++)
+            collisionBuffer.Clear();
+            collisionBuffer.CopyFrom(collisionList);
+            for (int i = 0; i < collisionBuffer.Count; i++)
             {
-                var collision = exitedCollisionBuffer[i];
-                if (!collision.Checked)
+                var collision = collisionBuffer[i];
+                if (collision.Checked)
+                {
+                    if (CallPreCollision(collision))
+                    {
+                        if (collision.Enter)
+                        {
+                            CallPostCollision(collision, EntityCollisionHelper.STATE_ENTER);
+                        }
+                        else
+                        {
+                            CallPostCollision(collision, EntityCollisionHelper.STATE_STAY);
+                        }
+                    }
+                }
+                else
                 {
                     collisionList.Remove(collision);
                     CallPostCollision(collision, EntityCollisionHelper.STATE_EXIT);
@@ -226,7 +232,7 @@ namespace MVZ2.Collisions
         private BoxCollider boxCollider;
         private HashSet<Collider> touchingColliders = new HashSet<Collider>();
         private List<EntityCollision> collisionList = new List<EntityCollision>();
-        private ArrayBuffer<EntityCollision> exitedCollisionBuffer = new ArrayBuffer<EntityCollision>(1024);
+        private ArrayBuffer<EntityCollision> collisionBuffer = new ArrayBuffer<EntityCollision>(1024);
     }
     public class SerializableUnityEntityCollider
     {
