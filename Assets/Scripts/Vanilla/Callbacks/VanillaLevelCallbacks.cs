@@ -16,6 +16,7 @@ namespace MVZ2.Vanilla.Callbacks
         public struct PreTakeDamageParams
         {
             public DamageInput input;
+            public DamageOutput output;
         }
         public struct PostTakeDamageParams
         {

@@ -81,7 +81,7 @@ namespace MVZ2.Vanilla.Entities
                 return result;
             if (input.Entity.IsInvincible() || input.Entity.IsDead)
                 return result;
-            if (!PreTakeDamage(input))
+            if (!PreTakeDamage(input, result))
                 return result;
             if (input.Amount <= 0)
                 return result;
@@ -109,7 +109,7 @@ namespace MVZ2.Vanilla.Entities
             PostTakeDamage(result);
             return result;
         }
-        private static bool PreTakeDamage(DamageInput damageInfo)
+        private static bool PreTakeDamage(DamageInput damageInfo, DamageOutput output)
         {
             Entity entity = damageInfo.Entity;
             if (entity == null)
@@ -120,7 +120,8 @@ namespace MVZ2.Vanilla.Entities
             {
                 var param = new VanillaLevelCallbacks.PreTakeDamageParams()
                 {
-                    input = damageInfo
+                    input = damageInfo,
+                    output = output
                 };
                 damageInfo.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, param, result, entity.Type);
             }
