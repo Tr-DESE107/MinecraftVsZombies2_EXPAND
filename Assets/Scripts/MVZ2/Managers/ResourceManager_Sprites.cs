@@ -85,7 +85,10 @@ namespace MVZ2.Managers
         }
         private void Init_Sprites()
         {
-            backgroundTex = GenerateSpriteBackgroundTexture(MAX_BACKGROUND_TEX_WIDTH, MAX_BACKGROUND_TEX_HEIGHT);
+            if (Application.isEditor)
+            {
+                backgroundTex = GenerateSpriteBackgroundTexture(MAX_BACKGROUND_TEX_WIDTH, MAX_BACKGROUND_TEX_HEIGHT);
+            }
         }
         private async Task LoadInitSpriteManifests(string modNamespace)
         {
@@ -165,6 +168,7 @@ namespace MVZ2.Managers
         private Texture2D GenerateSpriteBackgroundTexture(int width, int height)
         {
             var tex = new Texture2D(width, height);
+            tex.name = "sprite_background_texture";
             var gray = new Color32(127, 127, 127, 255);
             var darkGray = new Color32(63, 63, 63, 255);
             var colorBuffer = spriteColorBuffer;
