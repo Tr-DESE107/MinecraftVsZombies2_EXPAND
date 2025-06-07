@@ -58,20 +58,17 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (buff == null)
                 return;
 
-            buff.Remove();
-
             var output = param.output;
-            output.BodyResult = new BodyDamageResult()
+            var bodyResult = new BodyDamageResult(input)
             {
-                OriginalAmount = input.OriginalAmount,
-                Amount = 0,
-                SpendAmount = input.OriginalAmount,
-                Entity = entity,
-                Effects = input.Effects,
-                Source = input.Source,
                 ShellDefinition = Global.Game.GetShellDefinition(VanillaShellID.stone),
                 Fatal = false,
+                Amount = 0,
+                SpendAmount = input.OriginalAmount,
             };
+            output.BodyResult = bodyResult;
+            buff.Remove();
+
             result.SetFinalValue(false);
             PlayBreakEffect(entity);
         }

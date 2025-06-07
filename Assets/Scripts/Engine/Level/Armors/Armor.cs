@@ -161,48 +161,6 @@ namespace PVZEngine.Armors
             return currentBuffID++;
         }
         #endregion
-        public ArmorDamageResult TakeDamage(float amount, DamageEffectList effects, EntityReferenceChain source)
-        {
-            return TakeDamage(new DamageInput(amount, effects, Owner, source));
-        }
-        public ArmorDamageResult TakeDamage(DamageInput info)
-        {
-            if (!Exists(this))
-                return null;
-            var entity = info.Entity;
-            var shellRef = GetProperty<NamespaceID>(EngineArmorProps.SHELL);
-            var shell = entity.Level.Content.GetShellDefinition(shellRef);
-            if (shell != null)
-            {
-                shell.EvaluateDamage(info);
-            }
-            // Apply Damage
-            float hpBefore = Health;
-            var amount = info.Amount;
-            if (amount > 0)
-            {
-                Health -= amount;
-            }
-            bool fatal = hpBefore > 0 && Health <= 0;
-            var damageResult = new ArmorDamageResult()
-            {
-                OriginalAmount = info.OriginalAmount,
-                Amount = amount,
-                Armor = this,
-                Effects = info.Effects,
-                Entity = entity,
-                Source = info.Source,
-                SpendAmount = Mathf.Min(hpBefore, amount),
-                ShellDefinition = shell,
-                Fatal = fatal
-            };
-            if (fatal)
-            {
-                var destroyInfo = new ArmorDestroyInfo(entity, this, Slot, info.Effects, info.Source, damageResult);
-                Destroy(destroyInfo);
-            }
-            return damageResult;
-        }
         public static bool Exists(Armor armor)
         {
             return armor != null && armor.Owner != null && armor.Definition != null && armor.Health > 0;

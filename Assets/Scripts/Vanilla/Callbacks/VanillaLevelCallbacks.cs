@@ -17,10 +17,61 @@ namespace MVZ2.Vanilla.Callbacks
         {
             public DamageInput input;
             public DamageOutput output;
+
+            public PreTakeDamageParams(DamageInput input, DamageOutput output)
+            {
+                this.input = input;
+                this.output = output;
+            }
         }
         public struct PostTakeDamageParams
         {
             public DamageOutput output;
+
+            public PostTakeDamageParams(DamageOutput output)
+            {
+                this.output = output;
+            }
+        }
+        public struct PreArmorTakeDamageParams
+        {
+            public DamageInput input;
+            public ArmorDamageResult result;
+
+            public PreArmorTakeDamageParams(DamageInput input, ArmorDamageResult result)
+            {
+                this.input = input;
+                this.result = result;
+            }
+        }
+        public struct PostArmorTakeDamageParams
+        {
+            public ArmorDamageResult result;
+
+            public PostArmorTakeDamageParams(ArmorDamageResult result)
+            {
+                this.result = result;
+            }
+        }
+        public struct PreBodyTakeDamageParams
+        {
+            public DamageInput input;
+            public BodyDamageResult output;
+
+            public PreBodyTakeDamageParams(DamageInput input, BodyDamageResult output)
+            {
+                this.input = input;
+                this.output = output;
+            }
+        }
+        public struct PostBodyTakeDamageParams
+        {
+            public BodyDamageResult output;
+
+            public PostBodyTakeDamageParams(BodyDamageResult output)
+            {
+                this.output = output;
+            }
         }
         public struct PreHealParams
         {
@@ -142,6 +193,10 @@ namespace MVZ2.Vanilla.Callbacks
 
         public readonly static CallbackType<PreTakeDamageParams> PRE_ENTITY_TAKE_DAMAGE = new();
         public readonly static CallbackType<PostTakeDamageParams> POST_ENTITY_TAKE_DAMAGE = new();
+        public readonly static CallbackType<PreBodyTakeDamageParams> PRE_BODY_TAKE_DAMAGE = new();
+        public readonly static CallbackType<PostBodyTakeDamageParams> POST_BODY_TAKE_DAMAGE = new();
+        public readonly static CallbackType<PreArmorTakeDamageParams> PRE_ARMOR_TAKE_DAMAGE = new();
+        public readonly static CallbackType<PostArmorTakeDamageParams> POST_ARMOR_TAKE_DAMAGE = new();
         public readonly static CallbackType<PreHealParams> PRE_ENTITY_HEAL = new();
         public readonly static CallbackType<PostHealParams> POST_ENTITY_HEAL = new();
 
