@@ -1,33 +1,33 @@
 # 0.4.1
 
 ## Added
-- Added tag icons for almanac.
-- Added repair progress animation for Punchton and Thunder Drum.
-- Added a popup to remind the player when a dialog is skipped by Skip Dialogs option.
+- Tag icons for almanac.
+- Repair progress animation for Punchton and Thunder Drum.
+- A pop-up to remind the player when a dialog is skipped by Skip Dialogs option.
 
 ## Modified
 - Large arrows now can be ignited by Hellfire.
 - Large arrows fired by Drivenser and Splitenser's evocation now deal 600 damage instead of 1000.
   - Nightmare can only take up to 600 damage in one hit, so Drivenser's evocation effect is not affected in boss battles of 2-11.
-- Wicked Hermit Zombie now always teleport to the leftmost column regardless of whether it's charmed.
-- Moved the tooltip of artifacts in blueprint select screen to the top, to prevent being blocked by fingers on touchscreen.
+- Wicked Hermit Zombie now always teleports to the leftmost column regardless of whether it's hypnotised.
+- Moved the tooltip of artifacts in the blueprint selection screen to be above the icon, such that it is no longer blocked by your finger on the touchscreen.
 - Adjusted the layer of post-huge-wave visual effects in level 4-11.
 - Added Gargoyle to I, Zombie level "Mineclear".
 - The evocation of Force Pad now resets the velocity of target monsters.
-- Adjusted the place and hit sound of Hellfire.
+- Adjusted the placing and damage sound effects of Hellfire.
 - Adjusted the background texture for command block blueprints.
 - Hellfire's material has been changed to Nether from Stone.
-- Increased the volume height of Mummy Gas by 75%, to prevent that Fire Skeleton Mage's fire balls do not ignite it. Also optimized the display range of gas objects.
+- Increased the volume height of Mummy Gas by 75%, such that Fire Skeleton Mage's fireballs can ignite it. Also optimized the display range of gas objects.
 
 ## Fixed
-- Fixed the issue where the held item like blueprint, pickaxe or starshard cannot be canceled by re-clicking it.
-- Fixed the issue where monsters that die within the range of the Shikaisen Staff will be considered completely dead by the level, resulting the level-clear pickup to be spawned.
-- Fixed the issue where killing all enemies before spawners spawn their enemies will instantly spawn the level-clear pickup.
-- Fixed the issue where instant-evocation feature can be used on Anvil.
-- Fixed the issue where Dream Silk can be used on a Magichest which is devouring an enemy.
-- Fixed the issue where the light range of Totenser's fire breath is incorrect.
-- Fixed the issue where Totenser will firebreath to the reversed direction if charmed.
-- Fixed the issue where the dialog "Zombie Scroll" has incorrect tag in Archives.
+- Items like blueprint, pickaxe or starshard could not be canceled by re-clicking it.
+- Monsters that died within the range of the Shikaisen Staff would be considered completely dead by the level, resulting in the level-clear pickup to be spawned.
+- Killing all enemies before spawners spawned their enemies would instantly generate the level reward.
+- Instant-evocation features could be used on Anvil.
+- Dream Silk could be used on a Magichest which was devouring an enemy.
+- The light range of Totenser's fire breath being incorrect.
+- Totenser’s fire breath being in the wrong direction if mesmerized.
+- The wrong tag of the "Zombie Scroll" dialog.
 
 ---
 
