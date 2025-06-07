@@ -40,7 +40,7 @@ using UnityEngine.EventSystems;
 namespace MVZ2.Level
 {
     using VisibleState = MVZ2.Level.UI.LevelUIPreset.VisibleState;
-    public interface ILevelController : ILevelHeldItemController, ILevelUIController, ILevelTransitionController
+    public interface ILevelController : ILevelUIController, ILevelTransitionController
     {
         Game Game { get; }
         ILevelUI GetUI();
@@ -54,10 +54,6 @@ namespace MVZ2.Level
         void OpenStore();
 
         float GetTwinkleAlpha();
-    }
-    public interface ILevelHeldItemController
-    {
-        bool IsTriggerSwapped();
     }
     public interface ILevelUIController
     {

@@ -248,10 +248,6 @@ namespace MVZ2.Level
             var uiPreset = GetUIPreset();
             uiPreset.HideTooltip();
         }
-        public bool IsTriggerSwapped()
-        {
-            return Main.SaveManager.IsUnlocked(VanillaUnlockID.trigger) && Main.OptionsManager.IsTriggerSwapped();
-        }
         public void SetUIAndInputDisabled(bool disabled)
         {
             inputAndUIDisabled = disabled;
