@@ -31,6 +31,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00ad714282dc4364fa67260f36745fae
+    m_Address: mvz2:random/netherrack/break3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01ea06eaff14a0746a137123701e46b3
     m_Address: mvz2:entity/projectiles/arrow
     m_ReadOnly: 0
@@ -870,6 +877,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1affba9129ab411489955b3026819333
+    m_Address: mvz2:random/netherrack/break5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b77173cc372d294799227cf43061173
     m_Address: mvz2:water
@@ -3137,6 +3151,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 542969b534462a84393dbe4e1b39a87a
+    m_Address: mvz2:random/netherrack/break1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 544a0e954e368bd47922b782463ea965
     m_Address: mvz2:slow_down
     m_ReadOnly: 0
@@ -3913,6 +3934,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b4f42cf51641ec4cb0ec0a85724237d
+    m_Address: mvz2:random/netherrack/break6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b600f1f5110d7644843e4595de25748
     m_Address: mvz2:entity/contraption/moonlight_sensor
@@ -7140,6 +7168,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c12e1db49f78c4141a010f0e2c92453d
+    m_Address: mvz2:random/netherrack/break4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c15c0ad358a95a2418ff64fa1c67a224
     m_Address: mvz2:soul_sand_break5
     m_ReadOnly: 0
@@ -9182,6 +9217,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f60acf63ccf6f504fadfd959dc2d20c6
+    m_Address: mvz2:random/netherrack/break2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f645825912b9d5248a6ed2242f3169da
     m_Address: mvz2:entity/ghost/ghost_death

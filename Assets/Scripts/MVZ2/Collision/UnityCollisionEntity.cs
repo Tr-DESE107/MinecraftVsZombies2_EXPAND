@@ -61,7 +61,9 @@ namespace MVZ2.Collisions
         }
         public void UpdateEntityPosition()
         {
-            transform.position = Entity.Position;
+            var pos = Entity.Position;
+            rigid.position = pos;
+            transform.position = pos;
         }
         public void UpdateEntitySize()
         {

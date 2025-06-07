@@ -862,6 +862,10 @@ namespace MVZ2.Level
                     var command = grid.SpawnPlacedEntity(VanillaContraptionID.commandBlock, spawnParams);
                 }
             }
+            if (Input.GetKeyDown(KeyCode.F7))
+            {
+                level.AddEnergy(9990);
+            }
 #endif
             if (!isGameOver)
             {
