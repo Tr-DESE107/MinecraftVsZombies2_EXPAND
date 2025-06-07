@@ -19,6 +19,7 @@
 - Hellfire's material has been changed to Nether from Stone.
 - Increased the volume height of Mummy Gas by 75%, such that Fire Skeleton Mage's fireballs can ignite it. Also optimized the display range of gas objects.
 - Decreased the attack height of Skeleton Mages and the volume height of ice bolts, such that they can not hit the flying enemies.
+- Improved the color of slow status effect.
 
 ## Fixed
 - Items like blueprint, pickaxe or starshard could not be canceled by re-clicking it.

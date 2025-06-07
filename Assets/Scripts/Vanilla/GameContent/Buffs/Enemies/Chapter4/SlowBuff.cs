@@ -14,7 +14,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     {
         public SlowBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new ColorModifier(EngineEntityProps.TINT, new Color(0, 0, 1, 1f)));
+            AddModifier(new ColorModifier(EngineEntityProps.TINT, new Color(0.5f, 0.5f, 1, 1f)));
             AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 0.5f));
             AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.Multiply, 0.5f));
         }
