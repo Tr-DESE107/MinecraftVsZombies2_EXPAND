@@ -59,7 +59,7 @@ namespace MVZ2.GameContent.Effects
                 if (!entity.ExistsAndAlive())
                     return;
                 var alpha = entity.GetTint().a;
-                var color = Color.Lerp(Color.white, Color.black, alpha * 0.98f);
+                var color = Color.Lerp(Color.white, Color.black, alpha);
                 SpiritUniverseNightBuff.SetBackgroundLightMultiplier(buff, color);
             }
         }

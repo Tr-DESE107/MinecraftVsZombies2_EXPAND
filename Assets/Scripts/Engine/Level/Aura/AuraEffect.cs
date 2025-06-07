@@ -37,6 +37,8 @@ namespace PVZEngine.Auras
         }
         public void UpdateAura()
         {
+            if (!Source.IsValid())
+                return;
             var level = Source.GetLevel();
             targetsBuffer.Clear();
             Definition.GetAuraTargets(this, targetsBuffer);

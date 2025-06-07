@@ -113,8 +113,8 @@ namespace PVZEngine.Entities
                     Level.PutSeedToConveyorPool(pair.Key, pair.Value);
                 }
                 takenConveyorSeeds.Clear();
-                Definition.PostRemove(this);
                 auras.PostRemove();
+                Definition.PostRemove(this);
                 var param = new EntityCallbackParams()
                 {
                     entity = this
@@ -1016,6 +1016,7 @@ namespace PVZEngine.Entities
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IAuraSource.GetEntity() => this;
         LevelEngine IAuraSource.GetLevel() => Level;
+        bool IAuraSource.IsValid() => Exists();
         T IModifierContainer.GetProperty<T>(PropertyKey<T> name) => GetProperty<T>(name);
         #endregion
 
