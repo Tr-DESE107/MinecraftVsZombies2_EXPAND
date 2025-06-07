@@ -255,6 +255,7 @@ namespace MVZ2.GameContent.Stages
                     level.SetStarshardActive(true);
                     level.SetTriggerActive(true);
                     Global.Game.Unlock(VanillaUnlockID.trigger);
+                    Global.Game.SaveToFile(); // 解锁触发器后保存游戏。
                     level.SimpleStartTalk(VanillaTalkID.halloween7, 0, 2, onEnd: () => level.BeginLevel());
                     break;
             }

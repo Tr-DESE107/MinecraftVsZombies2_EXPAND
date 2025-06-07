@@ -174,10 +174,6 @@ namespace MVZ2.Managers
                 throw new DuplicateInstanceException(name);
             }
         }
-        private void OnApplicationQuit()
-        {
-            SaveManager.SaveModDatas();
-        }
         private void InitGameSettings()
         {
             Screen.sleepTimeout = SleepTimeout.NeverSleep;

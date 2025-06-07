@@ -19,7 +19,7 @@ namespace MVZ2.Saves
     public partial class SaveManager : MonoBehaviour, IGameSaveData, IGlobalSave
     {
         #region 保存
-        public void SaveModDatas()
+        public void SaveToFile()
         {
             foreach (var mod in Main.ModManager.GetAllModInfos())
             {

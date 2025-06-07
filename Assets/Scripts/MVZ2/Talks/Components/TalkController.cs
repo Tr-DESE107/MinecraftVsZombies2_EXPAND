@@ -553,6 +553,7 @@ namespace MVZ2.Talk
                         if (args.Length <= 0)
                             break;
                         Main.SaveManager.Unlock(ParseArgumentNamespaceID(args[0]));
+                        Main.SaveManager.SaveToFile(); // 在对话中解锁时保存游戏
                     }
                     break;
 
@@ -563,6 +564,7 @@ namespace MVZ2.Talk
                         if (args.Length <= 0)
                             break;
                         Main.SaveManager.Relock(ParseArgumentNamespaceID(args[0]));
+                        Main.SaveManager.SaveToFile(); // 在对话中取消解锁时保存游戏
                     }
                     break;
 

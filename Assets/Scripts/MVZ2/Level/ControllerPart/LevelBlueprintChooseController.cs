@@ -982,6 +982,7 @@ namespace MVZ2.Level
             };
             Main.SaveManager.SetLastSelection(selection);
             Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, new LogicLevelCallbacks.PostBlueprintSelectionParams(Level, chosen));
+            Main.SaveManager.SaveToFile(); // 选卡之后保存游戏。
 
             StartCoroutine(BlueprintChosenTransition());
         }

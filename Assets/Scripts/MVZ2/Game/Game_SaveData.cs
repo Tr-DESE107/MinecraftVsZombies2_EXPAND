@@ -51,6 +51,10 @@ namespace MVZ2.Games
         {
             return saveDataProvider.GetCurrentUserName();
         }
+        public void SaveToFile()
+        {
+            saveDataProvider.SaveToFile();
+        }
 
         private IGameSaveData saveDataProvider;
     }

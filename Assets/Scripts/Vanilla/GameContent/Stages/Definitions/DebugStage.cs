@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.smallDispenser,
                 VanillaContraptionID.smallDispenser,
-                VanillaContraptionID.devourer,
+                VanillaContraptionID.drivenser,
                 VanillaContraptionID.desirePot,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.forcePad,

@@ -178,7 +178,7 @@ namespace MVZ2.Level
         }
         public async Task ReloadLevel()
         {
-            Saves.SaveModDatas();
+            Saves.SaveToFile(); // 关卡重载时保存游戏
             Dispose();
             await LevelManager.GotoLevelSceneAsync();
             LevelManager.InitLevel(StartAreaID, StartStageID, exitTarget: exitTarget);
@@ -214,7 +214,7 @@ namespace MVZ2.Level
             level.ClearDelayedMoney();
             UpdateGridHighlight();
             SetGameStarted(false);
-            Saves.SaveModDatas();
+            Saves.SaveToFile(); // 关卡停止时保存游戏
         }
         public void Dispose()
         {
@@ -660,7 +660,6 @@ namespace MVZ2.Level
             RemoveLevelState();
             Saves.Unlock(VanillaSaveExt.GetLevelClearUnlockID(level.StageID));
             Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
-            Saves.SaveModDatas();
 
             var mapTalks = level.GetTalksOfType(StageMetaTalk.TYPE_MAP);
             if (mapTalks != null)
@@ -675,6 +674,7 @@ namespace MVZ2.Level
                     break;
                 }
             }
+            Saves.SaveToFile(); // 关卡通关后时保存游戏
 
             var endTalks = level.GetTalksOfType(StageMetaTalk.TYPE_END);
             float transitionDelay = 3;
@@ -763,7 +763,7 @@ namespace MVZ2.Level
 
         private async Task ExitScene()
         {
-            Saves.SaveModDatas();
+            Saves.SaveToFile(); // 退出关卡时保存游戏
             Dispose();
             await LevelManager.ExitLevelSceneAsync();
         }
