@@ -20,6 +20,7 @@
 - Increased the volume height of Mummy Gas by 75%, such that Fire Skeleton Mage's fireballs can ignite it. Also optimized the display range of gas objects.
 - Decreased the attack height of Skeleton Mages and the volume height of ice bolts, such that they can not hit the flying enemies.
 - Improved the color of slow status effect.
+- Adjusted the time points to save user data.
 
 ## Fixed
 - Items like blueprint, pickaxe or starshard could not be canceled by re-clicking it.
@@ -29,7 +30,10 @@
 - Dream Silk could be used on a Magichest which was devouring an enemy.
 - The light range of Totenser's fire breath being incorrect.
 - Totenser’s fire breath being in the wrong direction if mesmerized.
+- Divine shields granted by Emperor Zombie could not block knives nor large arrows.
 - The wrong tag of the "Zombie Scroll" dialog.
+- Trigger tutorial can not be finished while another save file has "swap trigger" option enabled.
+- Pistenser's evocation can not damage mesmerized contraptions.
 
 ---
 
