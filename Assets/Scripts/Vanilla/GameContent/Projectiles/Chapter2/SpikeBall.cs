@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using Tools.Mathematics;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
@@ -45,7 +46,7 @@ namespace MVZ2.GameContent.Projectiles
                 return false;
             if (!self.IsHostile(target))
                 return false;
-            if (!self.GetBounds().Intersects(target.GetBounds()))
+            if (!self.GetBounds().IntersectsOptimized(target.GetBounds()))
                 return false;
             return true;
         }

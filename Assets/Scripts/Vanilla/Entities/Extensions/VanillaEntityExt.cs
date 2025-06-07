@@ -422,7 +422,15 @@ namespace MVZ2.Vanilla.Entities
         }
         public static bool IsAliveEnemy(this Entity entity)
         {
-            return entity.Type == EntityTypes.ENEMY && !entity.IsDead && !entity.IsNotActiveEnemy() && entity.IsHostile(entity.Level.Option.LeftFaction);
+            if (entity.Type != EntityTypes.ENEMY)
+                return false;
+            if (entity.IsDead && !entity.AssumeAlive())
+                return false;
+            if (entity.IsNotActiveEnemy())
+                return false;
+            if (!entity.IsHostile(entity.Level.Option.LeftFaction))
+                return false;
+            return true;
         }
         public static bool CanEntityEnterHouse(this Entity entity)
         {

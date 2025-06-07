@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -86,21 +85,12 @@ namespace MVZ2.Level.Components
         #region 更新光照
         private void UpdateLighting()
         {
-            lightSourceBuffer.Clear();
-            Level.FindEntitiesNonAlloc(IsValidLightSource, lightSourceBuffer);
-            lightSources.Update(lightSourceBuffer);
-        }
-        private bool IsValidLightSource(Entity entity)
-        {
-            return entity.IsLightSource();
+            lightSources.Update();
         }
         #endregion
 
         #region 属性字段
         private LightSourceUpdateList lightSources;
-
-        private List<Entity> lightSourceBuffer = new List<Entity>();
-
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "lighting");
         #endregion
     }

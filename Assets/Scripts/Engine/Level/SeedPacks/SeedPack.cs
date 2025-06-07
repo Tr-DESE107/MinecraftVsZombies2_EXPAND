@@ -245,6 +245,7 @@ namespace PVZEngine.SeedPacks
         Armor IBuffTarget.GetArmor() => null;
         Entity IAuraSource.GetEntity() => null;
         LevelEngine IAuraSource.GetLevel() => Level;
+        bool IAuraSource.IsValid() => true;
         bool IBuffTarget.Exists() => true;
         public event Action<SeedDefinition> OnDefinitionChanged;
 

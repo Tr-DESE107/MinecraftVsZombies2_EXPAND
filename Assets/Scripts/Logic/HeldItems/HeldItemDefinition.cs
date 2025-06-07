@@ -141,6 +141,7 @@ namespace MVZ2Logic.HeldItems
         }
         public sealed override string GetDefinitionType() => LogicDefinitionTypes.HELD_ITEM;
 
+        public bool Exclusive { get; protected set; } = true;
         private List<NamespaceID> behaviours = new List<NamespaceID>();
         private List<HeldItemBehaviourDefinition> behavioursCache = new List<HeldItemBehaviourDefinition>();
     }

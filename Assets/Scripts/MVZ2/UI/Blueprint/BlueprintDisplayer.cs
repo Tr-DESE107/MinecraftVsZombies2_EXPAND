@@ -25,6 +25,7 @@ namespace MVZ2.UI
         public BlueprintViewData blueprint;
         public bool disabled;
         public bool selected;
+        public float recharge;
 
         public static readonly ChoosingBlueprintViewData Empty = new ChoosingBlueprintViewData()
         {

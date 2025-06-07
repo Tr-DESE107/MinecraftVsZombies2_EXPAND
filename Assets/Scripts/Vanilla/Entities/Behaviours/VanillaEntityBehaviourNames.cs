@@ -14,6 +14,7 @@
         public const string armorEntity = "armor_entity";
         public const string fragmented = "fragmented";
         public const string takeGrid = "take_grid";
+        public const string hellfireIgnitedProjectile = "hellfire_ignited_projectile";
 
     }
 }

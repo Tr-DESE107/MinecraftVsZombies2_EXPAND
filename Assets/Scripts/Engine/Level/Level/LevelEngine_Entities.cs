@@ -93,6 +93,13 @@ namespace PVZEngine.Level
         {
             return entities.Values.Where(predicate).ToArray();
         }
+        public IEnumerable<Entity> EnumerateEntities()
+        {
+            foreach (var pair in entities)
+            {
+                yield return pair.Value;
+            }
+        }
         public int GetEntityCount(EntityDefinition def)
         {
             if (def == null)
@@ -251,9 +258,17 @@ namespace PVZEngine.Level
         #endregion
 
         #region 碰撞检测
-        public void UpdateEntityCollision(Entity entity)
+        public void UpdateEntityCollisionDetection(Entity entity)
         {
-            collisionSystem.UpdateEntity(entity);
+            collisionSystem.UpdateEntityDetection(entity);
+        }
+        public void UpdateEntityCollisionPosition(Entity entity)
+        {
+            collisionSystem.UpdateEntityPosition(entity);
+        }
+        public void UpdateEntityCollisionSize(Entity entity)
+        {
+            collisionSystem.UpdateEntitySize(entity);
         }
         public IEntityCollider[] OverlapBox(Vector3 center, Vector3 size, int faction, int hostileMask, int friendlyMask)
         {

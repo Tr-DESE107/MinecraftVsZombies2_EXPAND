@@ -1,7 +1,9 @@
 ﻿using MVZ2.GameContent.Obstacles;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
+using PVZEngine.Modifiers;
 using Tools;
 
 namespace MVZ2.GameContent.Buffs.Level
@@ -11,6 +13,7 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public DelayedSpawnerTriggerBuff(string nsp, string name) : base(nsp, name)
         {
+            AddModifier(new BooleanModifier(VanillaLevelProps.ASSUME_HAS_ENEMIES, true));
         }
         public override void PostAdd(Buff buff)
         {

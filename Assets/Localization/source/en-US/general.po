@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-31 09:54+0800\n"
-"PO-Revision-Date: 2025-05-31 21:55+0800\n"
+"POT-Creation-Date: 2025-06-06 02:07+0800\n"
+"PO-Revision-Date: 2025-06-06 14:08+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -122,7 +122,7 @@ msgstr "Resolution"
 
 #. 按钮文本
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll
-#: View/Viewport/Content/Buttons/Line2/Credits/Text
+#: View/Viewport/Content/Buttons/Line1/Credits/Text
 msgid "制作人员名单"
 msgstr "Credits"
 
@@ -678,39 +678,39 @@ msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:485
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:484
 msgid "选择你的命运"
 msgstr "Choose your fate"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:487
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:486
 msgid "选吧。"
 msgstr "Choose."
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:488
 msgid "潘多拉的魔盒"
 msgstr "Pandora's Box"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:490
 msgid "尸潮"
 msgstr "Biohazard"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:492
 msgid "衰老"
 msgstr "Decrepify"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:494
 msgid "疯狂"
 msgstr "Insanity"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:496
 msgid "成真"
 msgstr "Come True"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:498
 msgid "深潜者"
 msgstr "The Lurker"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:500
 msgid "黑太阳"
 msgstr "The Black Sun"
 
@@ -1043,13 +1043,17 @@ msgstr "Version {0}"
 msgid "点击以开始！"
 msgstr "Click to start!"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:844
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:852
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 msgstr ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
+
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:854
+msgid "已跳过对话\"{0}\""
+msgstr "Dialog skipped: {0}"
 
 #: Scripts\MVZ2\Store\StoreController.cs:232
 msgid "购买物品"
@@ -2133,11 +2137,11 @@ msgctxt "key.name"
 msgid "Menu"
 msgstr "Menu"
 
-#: Scripts\MVZ2\Managers\MainManager.cs:270
+#: Scripts\MVZ2\Managers\MainManager.cs:288
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
-#: Scripts\MVZ2\Managers\MainManager.cs:272
+#: Scripts\MVZ2\Managers\MainManager.cs:290
 msgid "{0}%"
 msgstr "{0}%"
 
@@ -2235,7 +2239,7 @@ msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:868
+#: Scripts\MVZ2\Level\LevelController_UI.cs:896
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -2243,11 +2247,11 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:870
+#: Scripts\MVZ2\Level\LevelController_UI.cs:898
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:872
+#: Scripts\MVZ2\Level\LevelController_UI.cs:900
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "
@@ -2279,31 +2283,27 @@ msgstr ""
 "Best Streak:\n"
 "{0}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:385
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:742
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:387
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:744
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:389
-msgctxt "almanac"
-msgid "<color=blue>白天失效</color>"
-msgstr "<color=blue>Can only be used at night</color>"
-
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:391
-msgctxt "almanac"
-msgid "<color=blue>只能放在水上</color>"
-msgstr "<color=blue>Must be placed in water</color>"
-
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:393
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:746
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr "Scale: {0}"
+
+# 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:748
+msgctxt "almanac"
+msgid "{0}：{1}"
+msgstr "{0}: {1}"
 
 #: Scripts\MVZ2\Store\StoreManager.cs:114
 msgid "<color=red>售罄</color>"
@@ -4137,6 +4137,14 @@ msgstr "新概念论士"
 msgctxt "staff_name"
 msgid "正邪の老鼠"
 msgstr "正邪の老鼠"
+
+#~ msgctxt "almanac"
+#~ msgid "<color=blue>白天失效</color>"
+#~ msgstr "<color=blue>Can only be used at night</color>"
+
+#~ msgctxt "almanac"
+#~ msgid "<color=blue>只能放在水上</color>"
+#~ msgstr "<color=blue>Must be placed in water</color>"
 
 #~ msgctxt "music.name"
 #~ msgid "双生恶魔"

@@ -22,12 +22,26 @@ namespace MVZ2.Level.Components
         {
             return new LightSourceInfo();
         }
-
-        public override void Update(IEnumerable<Entity> validSources)
+        public void Update()
         {
+            lightSourceBuffer.Clear();
             lightReceiverBuffer.Clear();
-            level.FindEntitiesNonAlloc(IsValidLightReceiver, lightReceiverBuffer);
-            base.Update(validSources);
+            foreach (var entity in level.EnumerateEntities())
+            {
+                if (entity.IsLightSource())
+                {
+                    lightSourceBuffer.Add(entity);
+                }
+                if (entity.ReceivesLight())
+                {
+                    lightReceiverBuffer.Add(new LightReceiverInfo()
+                    {
+                        id = entity.ID,
+                        bounds = entity.GetBounds()
+                    });
+                }
+            }
+            Update(lightSourceBuffer);
         }
         protected override void UpdateElement(Entity entity, LightSourceInfo info)
         {
@@ -47,21 +61,23 @@ namespace MVZ2.Level.Components
             lightReceiverToAddBuffer.Clear();
             foreach (var target in lightReceiverBuffer)
             {
-                var bounds = target.GetBounds();
-                if (maxBounds.Intersects(bounds) && MathTool.CollideBetweenCubeAndRoundCube(center, size, radius, bounds.center, bounds.size))
+                var bounds = target.bounds;
+                if (maxBounds.IntersectsOptimized(bounds) && MathTool.CollideBetweenCubeAndRoundCube(center, size, radius, bounds.center, bounds.size))
                 {
                     // 符合条件的光照目标。
-                    lightReceiverToAddBuffer.Add(target.ID);
+                    lightReceiverToAddBuffer.Add(target.id);
                 }
             }
             info.illuminatingEntities.Update(lightReceiverToAddBuffer);
         }
-        private bool IsValidLightReceiver(Entity entity)
-        {
-            return entity.ReceivesLight();
-        }
         private LevelEngine level;
-        private List<Entity> lightReceiverBuffer = new List<Entity>();
+        private List<Entity> lightSourceBuffer = new List<Entity>();
+        private List<LightReceiverInfo> lightReceiverBuffer = new List<LightReceiverInfo>();
         private List<long> lightReceiverToAddBuffer = new List<long>();
+    }
+    public struct LightReceiverInfo
+    {
+        public long id;
+        public Bounds bounds;
     }
 }

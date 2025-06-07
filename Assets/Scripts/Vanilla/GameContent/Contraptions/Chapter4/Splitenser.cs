@@ -109,7 +109,7 @@ namespace MVZ2.GameContent.Contraptions
             param.velocity = vel.normalized;
 
             param.projectileID = VanillaProjectileID.largeArrow;
-            param.damage = entity.GetDamage() * 50;
+            param.damage = entity.GetDamage() * 30;
             param.soundID = VanillaSoundID.spellCard;
 
             return entity.ShootProjectile(param);

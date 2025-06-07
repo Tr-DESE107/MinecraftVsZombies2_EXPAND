@@ -652,6 +652,8 @@ MonoBehaviour:
   iconZoomButton: {fileID: 6481150044989586763}
   nameText: {fileID: 6553237679603435346}
   descriptionText: {fileID: 9014894456483616025}
+  entryTags: {fileID: 6381552491518034390}
+  descriptionIconUpdater: {fileID: 7907780001029763260}
 --- !u!1 &8176877298848570672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,6 +1234,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6381552491518034390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5413086582240246324, guid: ef3febcfe8fe0f7428b2cc28c158b849, type: 3}
+  m_PrefabInstance: {fileID: 1409892486086523874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326e7704b1d5f2648a9291bddf3d8c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6481150044989586763 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5359664123207583401, guid: ef3febcfe8fe0f7428b2cc28c158b849, type: 3}
@@ -1263,6 +1276,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 498d44c75f6629a40b134fc25eb88e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7907780001029763260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9092457295605713758, guid: ef3febcfe8fe0f7428b2cc28c158b849, type: 3}
+  m_PrefabInstance: {fileID: 1409892486086523874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5552015372a1551489faf51034cb89c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &9014894456483616025 stripped

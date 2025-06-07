@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         {
             AddModifier(new BooleanModifier(VanillaEntityProps.IS_FIRE, true));
             AddModifier(new BooleanModifier(VanillaEntityProps.IS_LIGHT_SOURCE, true));
-            AddModifier(new Vector3Modifier(VanillaEntityProps.LIGHT_RANGE, NumberOperator.Add, Vector3.one * 20));
+            AddModifier(new Vector3Modifier(VanillaEntityProps.LIGHT_RANGE, NumberOperator.Add, PROP_LIGHT_RANGE_ADDITION));
             AddModifier(ColorModifier.Override(VanillaEntityProps.LIGHT_COLOR, PROP_LIGHT_COLOR));
             AddTrigger(VanillaLevelCallbacks.POST_PROJECTILE_HIT, PostProjectileHitCallback);
         }
@@ -28,6 +28,24 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         {
             base.PostAdd(buff);
             Uncurse(buff);
+            UpdateLightRange(buff);
+        }
+        public override void PostUpdate(Buff buff)
+        {
+            base.PostUpdate(buff);
+            UpdateLightRange(buff);
+        }
+        private void UpdateLightRange(Buff buff)
+        {
+            var entity = buff.GetEntity();
+            float scale = 1;
+            if (entity != null)
+            {
+                var scaledSize = entity.GetScaledSize();
+                var scaleVec = scaledSize / DEFAULT_SCALE;
+                scale = Mathf.Max(scaleVec.x, scaleVec.y, scaleVec.z);
+            }
+            buff.SetProperty(PROP_LIGHT_RANGE_ADDITION, Vector3.one * 20 * scale);
         }
         private void PostProjectileHitCallback(VanillaLevelCallbacks.PostProjectileHitParams param, CallbackResult result)
         {
@@ -39,10 +57,14 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             bool cursed = false;
             foreach (var buff in buffs)
             {
-                additionalDamage += GetDamage(buff);
                 if (GetCursed(buff))
                 {
+                    additionalDamage += projectile.GetDamage() * 2;
                     cursed = true;
+                }
+                else
+                {
+                    additionalDamage += projectile.GetDamage();
                 }
             }
             if (additionalDamage <= 0)
@@ -72,27 +94,22 @@ namespace MVZ2.GameContent.Buffs.Projectiles
         }
         public static void Curse(Buff buff)
         {
-            SetDamage(buff, DAMAGE_ADDITION_CURSED);
             SetLightColor(buff, LIGHT_COLOR_CURSED);
             SetCursed(buff, true);
         }
         public static void Uncurse(Buff buff)
         {
-            SetDamage(buff, DAMAGE_ADDITION);
             SetLightColor(buff, LIGHT_COLOR);
             SetCursed(buff, false);
         }
-        public static void SetDamage(Buff buff, float value) => buff.SetProperty(PROP_DAMAGE, value);
-        public static float GetDamage(Buff buff) => buff.GetProperty<float>(PROP_DAMAGE);
         public static void SetLightColor(Buff buff, Color value) => buff.SetProperty(PROP_LIGHT_COLOR, value);
         public static Color GetLightColor(Buff buff) => buff.GetProperty<Color>(PROP_LIGHT_COLOR);
         public static void SetCursed(Buff buff, bool value) => buff.SetProperty(PROP_CURSED, value);
         public static bool GetCursed(Buff buff) => buff.GetProperty<bool>(PROP_CURSED);
-        public static readonly VanillaBuffPropertyMeta<float> PROP_DAMAGE = new VanillaBuffPropertyMeta<float>("damage");
         public static readonly VanillaBuffPropertyMeta<Color> PROP_LIGHT_COLOR = new VanillaBuffPropertyMeta<Color>("lightColor");
+        public static readonly VanillaBuffPropertyMeta<Vector3> PROP_LIGHT_RANGE_ADDITION = new VanillaBuffPropertyMeta<Vector3>("light_range_addition");
         public static readonly VanillaBuffPropertyMeta<bool> PROP_CURSED = new VanillaBuffPropertyMeta<bool>("cursed");
-        public const float DAMAGE_ADDITION = 20;
-        public const float DAMAGE_ADDITION_CURSED = 40;
+        public const float DEFAULT_SCALE = 32;
         public static readonly Color LIGHT_COLOR = new Color(1, 0.5f, 0);
         public static readonly Color LIGHT_COLOR_CURSED = new Color(0, 1, 0);
     }

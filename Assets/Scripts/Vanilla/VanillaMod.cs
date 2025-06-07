@@ -73,6 +73,7 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new WaterImplements());
             ImplementCallbacks(new AchievementsImplements());
             ImplementCallbacks(new RandomChinaImplements());
+            ImplementCallbacks(new AlmanacImplements());
         }
         public override void LateInit(IGame game)
         {

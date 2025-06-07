@@ -13,6 +13,10 @@ namespace PVZEngine.Armors
         public static readonly PropertyMeta<Color> COLOR_OFFSET = Get<Color>("colorOffset");
         public static readonly PropertyMeta<float> MAX_HEALTH = Get<float>("maxHealth");
         public static readonly PropertyMeta<NamespaceID> SHELL = Get<NamespaceID>("shell");
+        public static NamespaceID GetShellID(this ArmorDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(SHELL);
+        }
         public static NamespaceID GetShellID(this Armor armor, bool ignoreBuffs = false)
         {
             return armor.GetProperty<NamespaceID>(SHELL, ignoreBuffs: ignoreBuffs);

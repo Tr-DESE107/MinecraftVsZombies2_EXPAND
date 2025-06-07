@@ -37,6 +37,8 @@ namespace PVZEngine.Auras
         }
         public void UpdateAura()
         {
+            if (!Source.IsValid())
+                return;
             var level = Source.GetLevel();
             targetsBuffer.Clear();
             Definition.GetAuraTargets(this, targetsBuffer);
@@ -84,6 +86,8 @@ namespace PVZEngine.Auras
         }
         public void LoadFromSerializable(LevelEngine level, SerializableAuraEffect serializable)
         {
+            if (serializable == null)
+                return;
             updateTimer = serializable.updateTimer;
             buffCaches.Clear();
             foreach (var seriBuff in serializable.buffs)

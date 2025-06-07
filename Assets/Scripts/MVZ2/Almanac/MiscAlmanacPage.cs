@@ -1,13 +1,12 @@
 using System;
 using MVZ2.Models;
 using MVZ2.UI;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace MVZ2.Almanacs
 {
-    public class MiscAlmanacPage : AlmanacPage
+    public class MiscAlmanacPage : BookAlmanacPage
     {
         public void SetGroups(AlmanacEntryGroupViewData[] groups)
         {
@@ -69,17 +68,14 @@ namespace MVZ2.Almanacs
                 entryImageSized.rectTransform.sizeDelta = Vector2.zero;
             }
             iconZoomButtonRoot.SetActive(zoom);
-            nameText.text = name;
-            descriptionText.text = description;
+            SetDescription(name, description);
         }
         public void SetActiveEntry(Model prefab, Camera camera, string name, string description)
         {
             entryImageRegion.gameObject.SetActive(false);
             entryModel.gameObject.SetActive(true);
             entryModel.ChangeModel(prefab, camera);
-            nameText.text = name;
-            descriptionText.text = description;
-            descriptionScrollRect.verticalNormalizedPosition = 1;
+            SetDescription(name, description);
         }
         protected override void Awake()
         {
@@ -94,17 +90,15 @@ namespace MVZ2.Almanacs
         {
             OnEntryClick?.Invoke(entryList.indexOf(entry));
         }
-        public Action<int, int> OnGroupEntryClick;
-        public Action<int> OnEntryClick;
-        public Action OnZoomClick;
+        public event Action<int, int> OnGroupEntryClick;
+        public event Action<int> OnEntryClick;
+        public event Action OnZoomClick;
         [SerializeField]
         private ElementList entryList;
         [SerializeField]
         private ElementList groupList;
         [SerializeField]
         private AlmanacModel entryModel;
-        [SerializeField]
-        private ScrollRect descriptionScrollRect;
         [SerializeField]
         private GameObject entryImageRegion;
         [SerializeField]
@@ -115,9 +109,5 @@ namespace MVZ2.Almanacs
         private GameObject iconZoomButtonRoot;
         [SerializeField]
         private Button iconZoomButton;
-        [SerializeField]
-        private TextMeshProUGUI nameText;
-        [SerializeField]
-        private TextMeshProUGUI descriptionText;
     }
 }

@@ -17,11 +17,11 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            var helmet = entity.EquipMainArmor(VanillaArmorID.skeletonWarriorHelmet);
-            var shield = entity.EquipArmorTo(VanillaArmorSlots.shield, VanillaArmorID.skeletonWarriorShield);
             if (entity.Level.IsIZombie())
             {
                 entity.AddBuff<IZombieSkeletonWarriorBuff>();
+                var helmet = entity.GetMainArmor();
+                var shield = entity.GetArmorAtSlot(VanillaArmorSlots.shield);
                 helmet?.AddBuff<IZombieSkeletonWarriorArmorBuff>();
                 shield?.AddBuff<IZombieSkeletonWarriorArmorBuff>();
             }

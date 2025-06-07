@@ -1,4 +1,147 @@
 <almanac>
+    <tags>
+        <tag id="placement_land" name="陆地器械" description="只能放置在地面上" priority="0" >
+            <icon sprite="mvz2:ui/almanac/placement_tags[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#57433c" />
+        </tag>
+        <tag id="placement_aquatic" name="水生器械" description="只能放置在水中" priority="0" >
+            <icon sprite="mvz2:ui/almanac/placement_tags[1]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#347871" />
+        </tag>
+        <tag id="placement_suspension" name="悬浮器械" description="不依赖于承载者便可放置在特殊格子上" priority="0" >
+            <icon sprite="mvz2:ui/almanac/placement_tags[2]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#4587a6" />
+        </tag>
+
+        <tag id="grid_layer_main" name="主要位" description="占据格子的主要位" priority="1000" >
+            <icon sprite="mvz2:ui/almanac/grid_layer_tags[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#7a7a7a" />
+        </tag>
+        <tag id="grid_layer_carrier" name="承载位" description="占据格子的承载位" priority="1000" >
+            <icon sprite="mvz2:ui/almanac/grid_layer_tags[1]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#627e63" />
+        </tag>
+        <tag id="grid_layer_protector" name="保护位" description="占据格子的保护位" priority="1000" >
+            <icon sprite="mvz2:ui/almanac/grid_layer_tags[2]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#80703f" />
+        </tag>
+        <tag id="grid_layer_tool" name="工具位" description="占据格子的工具位" priority="1000" >
+            <icon sprite="mvz2:ui/almanac/grid_layer_tags[3]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#515151" />
+        </tag>
+
+        <tag id="shell" name="材质" enum="mvz2:shell" priority="2000" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+        </tag>
+        <tag id="shell_armor" name="盔甲材质" enum="mvz2:shell" priority="2000" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+            <mark sprite="mvz2:ui/almanac/special_marks[0]" />
+        </tag>
+        <tag id="shell_shield" name="护盾材质" enum="mvz2:shell" priority="2000" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+            <mark sprite="mvz2:ui/almanac/special_marks[1]" />
+        </tag>
+        <tag id="shell_head" name="头材质" enum="mvz2:shell" priority="2000" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+            <mark sprite="mvz2:ui/almanac/special_marks[3]" />
+        </tag>
+        <tag id="shell_horse" name="马材质" enum="mvz2:shell" priority="2000" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+            <mark sprite="mvz2:ui/almanac/special_marks[4]" />
+        </tag>
+        <tag id="shell_staff" name="手杖材质" enum="mvz2:shell" priority="2000" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[3]" />
+            <mark sprite="mvz2:ui/almanac/special_marks[2]" />
+        </tag>
+
+        <tag id="mass" name="质量" enum="mvz2:mass" priority="3000" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+        </tag>
+        <tag id="mass_head" name="头质量" enum="mvz2:mass" priority="3000" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]" />
+            <mark sprite="mvz2:ui/almanac/special_marks[3]" />
+        </tag>
+        <tag id="mass_horse" name="马质量" enum="mvz2:mass" priority="3000" >
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[4]"/>
+            <mark sprite="mvz2:ui/almanac/special_marks[4]" />
+        </tag>
+
+
+
+        <tag id="light_source" name="发光" description="会发出光芒" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#753b00" />
+        </tag>
+        <tag id="nocturnal" name="夜用" description="白天失效" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[1]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#283593" />
+        </tag>
+        <tag id="defensive" name="防御性" description="阻挡敌人用的器械" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[2]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#78909c" />
+        </tag>
+        <tag id="floor_contraption" name="地面器械" description="不会被一般敌人发现" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[3]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
+        </tag>
+        <tag id="low" name="低矮" description="不会被一般高度或更高的子弹击中" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[4]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
+        </tag>
+        <tag id="high" name="高" description="阻挡跳跃" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[5]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
+        </tag>
+        <tag id="flying" name="飞行" description="不会被一般高度或更低的子弹击中" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[6]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
+        </tag>
+        <tag id="can_trigger" name="可触发" description="可通过触发器产生某些效果" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[7]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#727272" />
+        </tag>
+        <tag id="fire" name="火焰" description="可点燃物体" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[8]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#96503a" />
+        </tag>
+        <tag id="loyal" name="忠诚" description="免疫精神控制" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[9]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
+        </tag>
+        <tag id="drownproof" name="不会溺水" description="可在水中存活" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[10]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#347871" />
+        </tag>
+        <tag id="control_immunity" name="控制免疫" description="不会被定身" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[11]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#778a78" />
+        </tag>
+        <tag id="not_undead" name="非亡灵" description="不是亡灵生物" priority="4000" >
+            <icon sprite="mvz2:ui/almanac/attribute_tags[13]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#3b5b3b" />
+        </tag>
+
+
+        <enum id="mass" type="int">
+            <value value="-2" name="很轻" description="受到的击退极大" sprite="mvz2:ui/almanac/mass_tags[0]" backgroundColor="#696a7f"/>
+            <value value="-1" name="轻" description="受到的击退较大" sprite="mvz2:ui/almanac/mass_tags[1]" backgroundColor="#696a7f"/>
+            <value value="0" name="中" description="受到的击退一般" sprite="mvz2:ui/almanac/mass_tags[2]" backgroundColor="#696a7f"/>
+            <value value="1" name="重" description="受到的击退较小" sprite="mvz2:ui/almanac/mass_tags[3]" backgroundColor="#696a7f"/>
+            <value value="2" name="很重" description="不受到击退" sprite="mvz2:ui/almanac/mass_tags[4]" backgroundColor="#696a7f"/>
+        </enum>
+        <enum id="shell" type="id">
+            <value value="mvz2:stone" name="石头" description="阻挡锐利物体和火焰溅射，但受到20x冲击伤害" sprite="mvz2:ui/almanac/shell_tags[0]" backgroundColor="#6b6b6b"/>
+            <value value="mvz2:grass" name="草" description="会被锐利物体穿透，受到2x火焰伤害" sprite="mvz2:ui/almanac/shell_tags[1]" backgroundColor="#a48f34"/>
+            <value value="mvz2:flesh" name="血肉" description="会被锐利物体穿透" sprite="mvz2:ui/almanac/shell_tags[2]" backgroundColor="#934329"/>
+            <value value="mvz2:leather" name="皮革" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[3]" backgroundColor="#893b25"/>
+            <value value="mvz2:metal" name="金属" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[4]" backgroundColor="#aaaaaa"/>
+            <value value="mvz2:bone" name="骨" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[5]" backgroundColor="#494b3e"/>
+            <value value="mvz2:wood" name="木头" description="受到2x火焰伤害" sprite="mvz2:ui/almanac/shell_tags[6]" backgroundColor="#b28553"/>
+            <value value="mvz2:nether" name="下界" description="免疫火焰伤害" sprite="mvz2:ui/almanac/shell_tags[7]" backgroundColor="#36131d"/>
+            <value value="mvz2:diamond" name="钻石" description="阻挡锐利物体" sprite="mvz2:ui/almanac/shell_tags[8]" backgroundColor="#417368"/>
+            <value value="mvz2:sand" name="沙子" description="无特殊效果" sprite="mvz2:ui/almanac/shell_tags[9]" backgroundColor="#b4b590"/>
+        </enum>
+    </tags>
     <contraptions>
         <entry id="mvz2:dispenser">
             <header>
@@ -88,10 +231,12 @@
         <entry />
         <entry />
         <entry />
+
         
         
         <entry id="mvz2:Poisonser">
             <header>
+
                 <p>蚀毒发射器能发射短距离的毒球。</p>
             </header>
             <properties>
@@ -140,7 +285,7 @@
         </entry>
         <entry id="mvz2:punchton">
             <header>
-                <p>冲击活塞能够击退前方的敌人并击碎石制品，但之后需要一定时间来修复自身。</p>
+                <p>冲击活塞能够击退前方的敌人并击碎<![CDATA[<tag id="mvz2:shell" enum="mvz2:stone"/>]]>石制品，但之后需要一定时间来修复自身。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>100（无视护甲）</color>]]></p>
@@ -181,7 +326,7 @@
         </entry>
         <entry id="mvz2:silvenser">
             <header>
-                <p>银质发射器能发射穿透血肉之躯的飞刀。</p>
+                <p>银质发射器能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh"/>]]>血肉之躯的飞刀。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>蓝色飞刀25，红色飞刀50，飞刀对肉体伤害*2</color>]]></p>
@@ -234,8 +379,6 @@
                 <p>重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。</p>
             </header>
             <properties>
-                <p>特点：<![CDATA[<color=red>近战敌人不会主动攻击它</color>]]></p>
-                <p>技能：<![CDATA[<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进；并使全场敌人失去飞行的能力。</color>]]></p>
             </properties>
             <flavor>
                 <p>从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
@@ -328,6 +471,7 @@
                 <p>尖刺方块会对走在上面的敌人造成伤害。</p>
             </header>
             <properties>
+
                 <p>攻击频率：<![CDATA[<color=red>0.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
                 <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身</color>]]></p>
@@ -342,6 +486,7 @@
                 <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。</p>
             </header>
             <properties>
+
                 <p>发射速度：<![CDATA[<color=red>1秒</color>]]></p>
                 <p>巨石概率：<![CDATA[<color=red>25%</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>10（卵石），40（巨石）</color>]]></p>
@@ -492,8 +637,8 @@
                 <p>地狱火会点燃穿过它的箭矢，使其额外造成火焰伤害。</p>
             </header>
             <properties>
-                <p>伤害增幅：<![CDATA[<color=red>+20火焰伤害，+13.33溅射伤害</color>]]></p>
-                <p>技能：<![CDATA[<color=red>变为诅咒火焰，为箭矢+40火焰伤害，+26.66溅射伤害</color>]]></p>
+                <p>伤害增幅：<![CDATA[<color=red>+100%火焰伤害，+66%溅射伤害</color>]]></p>
+                <p>技能：<![CDATA[<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>烧吧！我内心中的熊熊烈火，点燃我的<![CDATA[<color=red>愤怒</color>]]>！</p>
@@ -688,7 +833,7 @@
                 <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
                 <p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
-                <p><![CDATA[<color=red>只能放置在小型发射器上</color>]]></p>
+                <p><![CDATA[<color=red>必须放置在小型发射器上</color>]]></p>
             </properties>
             <flavor>
                 <p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
@@ -810,14 +955,17 @@
                 <p>旗帜僵尸的出现标志着一大波怪物的到来。</p>
             </header>
             <properties>
+
                 <p>生命：<![CDATA[<color=red>200+1100</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>200</color>]]></p>
             </properties>
             <flavor>
+
                 <p>当他被授予旗帜和铁盔时，他感到无比的荣幸和骄傲。他觉得自己作为僵尸的领导拥有至高无上的地位，便无时无刻不飘飘然。然而他不知道他的背后有多少人在嘲笑他是个肉盾。</p>
             </flavor>
         </entry>
+
         <entry id="mvz2:mutant_zombie">
             <header>
                 <p>突变僵尸可以粉碎你的器械，并在血量低至一半时投掷小鬼僵尸</p>
@@ -901,7 +1049,6 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>900</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>冲击活塞</color>]]></p>
-                <p>质量：<![CDATA[<color=red>重</color>]]></p>
             </properties>
             <flavor>
                 <p>石像鬼和他的妈妈住在山上的一间小屋中。石像鬼画画，玩玩具，妈妈就在电视上看广播。生活很简单，他们也很幸福。直到有一天石像鬼的妈妈从天上听到了雷声……</p>
@@ -913,9 +1060,9 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
+
                 <p>抗性：<![CDATA[<color=red>虚无状态下减少90%受到的伤害，高难度下100%</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>被光照到时会失去虚无效果</color>]]></p>
-                <p>质量：<![CDATA[<color=red>很轻</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>被<tag id="mvz2:light_source"/>光照到时会失去虚无效果</color>]]></p>
             </properties>
             <flavor>
                 <p>当你走夜路时听到有人喊你的名字，千万别回头，不然就会有幽灵——被你吓死了。</p>
@@ -945,7 +1092,7 @@
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>火，毒雾可以被火烧掉</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>毒雾可以被<tag id="mvz2:fire"/>火烧掉</color>]]></p>
             </properties>
             <flavor>
                 <p>就跟奶奶们一样，木乃伊特别喜欢香水。它们甚至狂热到把香味刻进自己的骨子里，恨不得把周围的人都熏死。天哪，估计只有“木爷伊”能忍受这种气味了。</p>
@@ -1012,7 +1159,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>160</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>特点：<![CDATA[<color=red>可以爬上并越过防御性器械</color>]]></p>
+                <p>特点：<![CDATA[<color=red>可以爬上并越过<tag id="mvz2:defensive"/>防御性器械</color>]]></p>
             </properties>
             <flavor>
                 <p>As everyone knows,蜘蛛非常like上网。他有一个user名叫“四百大妈”，并且热爱网上的everything.However,当他的帖子被delete的时候，总是会刷屏般的ask：</p>
@@ -1068,8 +1215,6 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>120</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
-                <p>质量：<![CDATA[<color=red>轻</color>]]></p>
             </properties>
             <flavor>
                 <p>曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。</p>
@@ -1082,8 +1227,6 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>100</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
-                <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
-                <p>质量：<![CDATA[<color=red>很轻</color>]]></p>
             </properties>
             <flavor>
                 <p>########公告########</p>
@@ -1128,7 +1271,6 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>0-50</color>（变化）]]></p>
                 <p>速度：<![CDATA[<color=red>4</color>]]></p>
-                <p>质量：<![CDATA[<color=red>轻</color>]]></p>
             </properties>
             <flavor>
                 <p>它还没想好自己的网络冷笑话该怎么写。</p>
@@ -1257,6 +1399,12 @@
             </flavor>
         </entry>
         <entry id="mvz2:dullahan">
+            <tags>
+                <tag id="mvz2:shell_head" value="mvz2:nether" />
+                <tag id="mvz2:shell_horse" value="mvz2:bone" />
+                <tag id="mvz2:mass_head" value="-1" />
+                <tag id="mvz2:mass_horse" value="0" />
+            </tags>
             <header>
                 <p>无头骑士伴随着一匹骷髅马出现，能够跳过器械并留下它的头颅，最终变成三个不同的怪物。</p>
             </header>
@@ -1265,8 +1413,7 @@
                 <p>马速度：<![CDATA[<color=red>2（跳跃前），1（跳跃后）</color>]]></p>
                 <p>身体速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>头颅速度：<![CDATA[<color=red>2</color>]]></p>
-                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过高器械</color>]]></p>
-                <p>质量：<![CDATA[<color=red>轻（头），中（身体，马）</color>]]></p>
+                <p>弱点：<![CDATA[<color=red>金质物品，无法跳过<tag id="mvz2:high"/>高器械</color>]]></p>
             </properties>
             <flavor>
                 <p>因为无头骑士总是喜欢在写文章的时候把开头擦掉。</p>
@@ -1281,7 +1428,6 @@
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>碾压伤害：<![CDATA[<color=red>10000000</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>尖刺方块</color>]]></p>
-                <p>质量：<![CDATA[<color=red>很重</color>]]></p>
             </properties>
             <flavor>
                 <p>地狱战车的司机怎么一脸不情愿的样子？</p>
@@ -1296,7 +1442,6 @@
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>灵魂沙生命：<![CDATA[<color=red>300</color>]]></p>
-                <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
             </properties>
             <flavor>
                 <p>其实他用来审判罪行的天平已经坏了很久了，它常放羽毛的那一端比较重一些。</p>
@@ -1353,6 +1498,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:shikaisen_zombie">
+            <tags>
+                <tag id="mvz2:shell_staff" value="mvz2:wood" />
+            </tags>
             <header>
                 <p>尸解仙僵尸在生命较低时会将竹杖插入地面，形成可以复活周围所有怪物的图腾。</p>
             </header>
@@ -1564,7 +1712,7 @@
                 <p>辉针城内装饰用的灯笼，被扯坏了。会减少发光器械的光照范围，但提升它们的生产速度和攻击速度。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>]]></p>
+                <p>效果：<![CDATA[<color=red><tag id="mvz2:light_source"/>发光的器械+25%生产速度和攻击速度，但×50%光照范围</color>]]></p>
             </properties>
             <flavor>
                 <p>呃，还是别告诉针妙丸了吧，她可能会生气的。</p>
@@ -1745,9 +1893,16 @@
             </entry>
             <entry id="mvz2:gargoyle_statue" name="石像鬼雕像" >
                 <icon model="mvz2:entity.gargoyle_statue"/>
+                <tags>
+                    <tag id="mvz2:shell" value="mvz2:stone"/>
+                    <tag id="mvz2:grid_layer_main"/>
+                </tags>
                 <header>
                     <p>石像鬼雕像会在最后一波时变成石像鬼。</p>
                 </header>
+                <properties>
+                    <p>耐久：<![CDATA[<color=red>1800</color>]]></p>
+                </properties>
                 <flavor>
                     <p>永夜沼泽的诅咒不止将天空定格在了午夜，它也把地下的石块塑造成雕像的形状，将它们移出地面。这些雕像一旦受到魔电的冲击，便会被赋予生命而变成活物。</p>
                 </flavor>
@@ -1799,13 +1954,16 @@
             </entry>
             <entry id="mvz2:reverse_satellite" name="反则卫星" unlock="mvz2:level.castle_1">
                 <icon model="mvz2:entity.reverse_satellite"/>
+                <tags>
+                    <tag id="mvz2:shell" value="mvz2:metal"/>
+                    <tag id="mvz2:flying"/>
+                </tags>
                 <header>
                     <p>反则卫星是在一大波僵尸出现后，在辉针城中出现的可疑飞行物，会将你的视野180度旋转。</p>
                 </header>
                 <properties>
                     <p>生命：<![CDATA[<color=red>200</color>]]></p>
                     <p>停留时间：<![CDATA[<color=red>30秒</color>]]></p>
-                    <p>特点：<![CDATA[<color=red>不会被一般高度的子弹打中</color>]]></p>
                 </properties>
                 <flavor>
                     <p>这些卫星似乎是城内的凋灵骷髅根据辉针城的魔力制成的武器，用于干扰敌人的判断。</p>
@@ -1827,6 +1985,9 @@
             </entry>
             <entry id="mvz2:monster_spawner" name="刷怪笼" unlock="mvz2:level.mausoleum_2">
                 <icon model="mvz2:entity.monster_spawner"/>
+                <tags>
+                    <tag id="mvz2:grid_layer_main"/>
+                </tags>
                 <header>
                     <p>刷怪笼会在一大波僵尸来临时召唤一只其内部的敌人。</p>
                 </header>
@@ -2171,10 +2332,10 @@
             <entry id="mvz2:obsidian_first_aid" name="黑曜石修复术" unlock="mvz2:obsidian_first_aid">
                 <icon sprite="mvz2:products/obsidian_first_aid" fixedSize="true" zoom="false"/>
                 <header>
-                    <p>用于修复防御型器械的技术。</p>
+                    <p>用于修复防御性器械的技术。</p>
                 </header>
                 <properties>
-                    <p>效果：<![CDATA[<color=red>可以直接在防御器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>]]></p>
+                    <p>效果：<![CDATA[<color=red>可以直接在<tag id="mvz2:defensive"/>防御性器械上放置同样的器械以为其恢复所有耐久，而无需挖掉器械</color>]]></p>
                 </properties>
                 <flavor>
                     <p>“你的修复术好像和我的不太一样，你这是怎么修的？”</p>

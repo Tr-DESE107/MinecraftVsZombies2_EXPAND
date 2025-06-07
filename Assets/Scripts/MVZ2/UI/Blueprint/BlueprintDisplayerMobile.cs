@@ -13,8 +13,9 @@ namespace MVZ2.UI
             {
                 var blueprint = rect.GetComponent<Blueprint>();
                 blueprint.UpdateView(viewDatas[i].blueprint);
-                blueprint.SetDisabled(viewDatas[i].disabled || viewDatas[i].selected);
-                blueprint.SetRecharge(viewDatas[i].selected ? 1 : 0);
+                blueprint.SetDisabled(viewDatas[i].disabled);
+                blueprint.SetSelected(viewDatas[i].selected);
+                blueprint.SetRecharge(viewDatas[i].recharge);
             },
             rect =>
             {

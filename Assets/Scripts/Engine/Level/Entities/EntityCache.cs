@@ -45,27 +45,27 @@ namespace PVZEngine.Entities
             else if (EngineEntityProps.SIZE.Equals(name))
             {
                 Size = afterValue.ToGeneric<Vector3>();
-                entity.UpdateCollision();
+                entity.UpdateCollisionSize();
             }
             else if (EngineEntityProps.SCALE.Equals(name))
             {
                 Scale = afterValue.ToGeneric<Vector3>();
-                entity.UpdateCollision();
+                entity.UpdateCollisionSize();
             }
             else if (EngineEntityProps.FLIP_X.Equals(name))
             {
                 FlipX = afterValue.ToGeneric<bool>();
-                entity.UpdateCollision();
+                entity.UpdateCollisionSize();
             }
             else if (EngineEntityProps.BOUNDS_PIVOT.Equals(name))
             {
                 BoundsPivot = afterValue.ToGeneric<Vector3>();
-                entity.UpdateCollision();
+                entity.UpdateCollisionSize();
             }
             else if (EngineEntityProps.COLLISION_DETECTION.Equals(name))
             {
                 CollisionDetection = afterValue.ToGeneric<int>();
-                entity.UpdateCollision();
+                entity.UpdateCollisionDetection();
             }
             else if (EngineEntityProps.COLLISION_SAMPLE_LENGTH.Equals(name))
             {

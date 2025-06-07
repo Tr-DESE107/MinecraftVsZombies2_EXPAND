@@ -13,13 +13,13 @@ namespace MVZ2.Vanilla.Detections
         {
             Bounds selfBounds = self.GetBounds();
             Bounds otherBounds = other.GetBounds();
-            return selfBounds.Intersects(otherBounds);
+            return selfBounds.IntersectsOptimized(otherBounds);
         }
         public static bool Intersects(Vector3 center1, Vector3 size1, Vector3 center2, Vector3 size2)
         {
             var bounds1 = new Bounds(center1, size1);
             var bounds2 = new Bounds(center2, size2);
-            return bounds1.Intersects(bounds2);
+            return bounds1.IntersectsOptimized(bounds2);
         }
         public static bool CanDetect(Entity entity)
         {

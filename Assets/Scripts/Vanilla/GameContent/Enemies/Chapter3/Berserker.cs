@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Armors;
-using MVZ2.GameContent.Damages;
+﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
@@ -17,11 +16,6 @@ namespace MVZ2.GameContent.Enemies
     {
         public Berserker(string nsp, string name) : base(nsp, name)
         {
-        }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.EquipMainArmor(VanillaArmorID.bersekerHelmet);
         }
         protected override void UpdateLogic(Entity entity)
         {

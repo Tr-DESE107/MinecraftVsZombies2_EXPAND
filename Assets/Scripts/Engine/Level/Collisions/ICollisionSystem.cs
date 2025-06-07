@@ -8,7 +8,9 @@ namespace PVZEngine.Level.Collisions
     {
         void Update();
         void InitEntity(Entity entity);
-        void UpdateEntity(Entity entity);
+        void UpdateEntityDetection(Entity entity);
+        void UpdateEntityPosition(Entity entity);
+        void UpdateEntitySize(Entity entity);
         void DestroyEntity(Entity entity);
         IEntityCollider AddCollider(Entity entity, ColliderConstructor info);
         bool RemoveCollider(Entity entity, string name);

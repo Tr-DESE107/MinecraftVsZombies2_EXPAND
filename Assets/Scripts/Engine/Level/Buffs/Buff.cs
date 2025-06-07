@@ -124,6 +124,7 @@ namespace PVZEngine.Buffs
             return buff;
         }
         LevelEngine IAuraSource.GetLevel() { return Level; }
+        bool IAuraSource.IsValid() => Target != null && Target.Exists();
         T IModifierContainer.GetProperty<T>(PropertyKey<T> name) => GetProperty<T>(name);
         private void CallPropertyChanged(IPropertyKey name)
         {

@@ -17,6 +17,26 @@ namespace MVZ2.Collisions
             gameObject.layer = UnityCollisionHelper.ToObjectLayer(Entity.Type);
             UpdateEntity();
         }
+        public void ResetEntity()
+        {
+            foreach (var collider in colliders)
+            {
+                if (collider)
+                {
+                    collider.gameObject.SetActive(false);
+                    RecycleCollider(collider);
+                }
+            }
+            colliders.Clear();
+        }
+        public void RecycleColliders()
+        {
+            foreach (var collider in recyclingColliders)
+            {
+                RecycleCollider(collider);
+            }
+            recyclingColliders.Clear();
+        }
         public void Simulate()
         {
             foreach (var collider in colliders)
@@ -26,23 +46,47 @@ namespace MVZ2.Collisions
         }
         public void UpdateEntity()
         {
+            UpdateEntityDetection();
+            UpdateEntityPosition();
+            UpdateEntitySize();
+        }
+        public void UpdateEntityDetection()
+        {
+            var detection = Entity.GetCollisionDetection();
+            bool active = detection != EntityCollisionHelper.DETECTION_IGNORE;
+            if (gameObject.activeSelf != active)
+            {
+                gameObject.SetActive(active);
+            }
+        }
+        public void UpdateEntityPosition()
+        {
             var pos = Entity.Position;
             rigid.position = pos;
             transform.position = pos;
-            var detection = Entity.GetCollisionDetection();
-            gameObject.SetActive(detection != EntityCollisionHelper.DETECTION_IGNORE);
-
+        }
+        public void UpdateEntitySize()
+        {
             foreach (var collider in colliders)
             {
-                collider.UpdateFromEntity();
+                collider.UpdateEntitySize();
             }
         }
         private UnityEntityCollider CreateCollider(string name)
         {
-            var collider = Instantiate(colliderTemplate, colliderRoot).GetComponent<UnityEntityCollider>();
+            UnityEntityCollider collider;
+            if (disabledColliders.Count > 0)
+            {
+                collider = disabledColliders.Dequeue();
+            }
+            else
+            {
+                collider = Instantiate(colliderTemplate, colliderRoot).GetComponent<UnityEntityCollider>();
+            }
             collider.gameObject.SetActive(true);
             collider.gameObject.layer = gameObject.layer;
             collider.Init(Entity, name);
+            collider.UpdateEntitySize();
             colliders.Add(collider);
             return collider;
         }
@@ -61,11 +105,13 @@ namespace MVZ2.Collisions
         public bool DestroyCollider(string name)
         {
             var collider = colliders.FirstOrDefault(c => c.Name == name);
-            if (collider)
+            if (collider && colliders.Remove(collider))
             {
-                Destroy(collider.gameObject);
+                collider.gameObject.SetActive(false);
+                recyclingColliders.Add(collider);
+                return true;
             }
-            return colliders.Remove(collider);
+            return false;
         }
         public void GetCollisions(List<EntityCollision> collisions)
         {
@@ -74,18 +120,14 @@ namespace MVZ2.Collisions
                 collider.GetCollisions(collisions);
             }
         }
-        public void AddCollider(UnityEntityCollider collider)
-        {
-            colliders.Add(collider);
-        }
-        public bool RemoveCollider(string name)
-        {
-            var collider = colliders.FirstOrDefault(c => c.Name == name);
-            return colliders.Remove(collider);
-        }
         public UnityEntityCollider GetCollider(string name)
         {
             return colliders.FirstOrDefault(c => c.Name == name);
+        }
+        private void RecycleCollider(UnityEntityCollider collider)
+        {
+            disabledColliders.Enqueue(collider);
+            collider.ResetCollider();
         }
 
         #region 序列化
@@ -122,6 +164,10 @@ namespace MVZ2.Collisions
         private Rigidbody rigid;
         [SerializeField]
         private List<UnityEntityCollider> colliders = new List<UnityEntityCollider>();
+        [SerializeField]
+        private List<UnityEntityCollider> recyclingColliders = new List<UnityEntityCollider>();
+        [SerializeField]
+        private Queue<UnityEntityCollider> disabledColliders = new Queue<UnityEntityCollider>();
         [SerializeField]
         private GameObject colliderTemplate;
         [SerializeField]

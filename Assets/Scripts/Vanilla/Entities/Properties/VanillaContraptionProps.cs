@@ -1,4 +1,5 @@
-﻿using PVZEngine;
+﻿using MVZ2.Vanilla.Properties;
+using PVZEngine;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Contraptions
@@ -6,9 +7,9 @@ namespace MVZ2.Vanilla.Contraptions
     [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class VanillaContraptionProps
     {
-        private static PropertyMeta<T> Get<T>(string name)
+        private static PropertyMeta<T> Get<T>(string name, T defaultValue = default, params string[] obsoleteNames)
         {
-            return new PropertyMeta<T>(name);
+            return new VanillaEntityPropertyMeta<T>(name, defaultValue, obsoleteNames);
         }
         #region 夜用
         public static readonly PropertyMeta<bool> NOCTURNAL = Get<bool>("nocturnal");
@@ -43,10 +44,10 @@ namespace MVZ2.Vanilla.Contraptions
         #endregion
 
         #region 克制
-        public static readonly PropertyMeta<NamespaceID[]> ATTACKER_TAGS_FOR = Get<NamespaceID[]>("attackerFor");
-        public static NamespaceID[] GetAttackerTagsFor(this EntityDefinition contraption)
+        public static readonly PropertyMeta<NamespaceID[]> COUNTER_TAGS_FOR = Get<NamespaceID[]>("counter_for", obsoleteNames: "attackerFor");
+        public static NamespaceID[] GetCounterTagsFor(this EntityDefinition contraption)
         {
-            return contraption.GetProperty<NamespaceID[]>(ATTACKER_TAGS_FOR);
+            return contraption.GetProperty<NamespaceID[]>(COUNTER_TAGS_FOR);
         }
         #endregion
 
@@ -62,6 +63,10 @@ namespace MVZ2.Vanilla.Contraptions
         public static bool BlocksJump(this Entity contraption)
         {
             return contraption.GetProperty<bool>(BLOCKS_JUMP);
+        }
+        public static bool BlocksJump(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(BLOCKS_JUMP);
         }
 
         public static readonly PropertyMeta<bool> CANNOT_DIG = Get<bool>("cannotDig");
@@ -80,13 +85,16 @@ namespace MVZ2.Vanilla.Contraptions
         }
 
         public static readonly PropertyMeta<bool> IS_FLOOR = Get<bool>("isFloor");
-        public static readonly PropertyMeta<bool> CAN_DEACTIVE = Get<bool>("canDeactive");
         public static readonly PropertyMeta<NamespaceID> FRAGMENT_ID = Get<NamespaceID>("fragmentId");
         public static readonly PropertyMeta<bool> TRIGGER_ACTIVE = Get<bool>("triggerActive");
         public static readonly PropertyMeta<bool> INSTANT_TRIGGER = Get<bool>("instantTrigger");
         public static bool IsFloor(this Entity contraption)
         {
             return contraption.GetProperty<bool>(IS_FLOOR);
+        }
+        public static bool IsFloor(this EntityDefinition definition)
+        {
+            return definition.GetProperty<bool>(IS_FLOOR);
         }
         public static void SetTriggerActive(this Entity entity, bool value)
         {
@@ -103,10 +111,6 @@ namespace MVZ2.Vanilla.Contraptions
         public static bool CanInstantTrigger(this EntityDefinition definition)
         {
             return definition.GetProperty<bool>(INSTANT_TRIGGER);
-        }
-        public static bool CanDeactive(this Entity entity)
-        {
-            return entity.GetProperty<bool>(CAN_DEACTIVE);
         }
 
 

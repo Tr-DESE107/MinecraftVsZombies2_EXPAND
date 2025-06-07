@@ -961,7 +961,7 @@
       </sentences>
     </section>
   </group>
-  <group id="mausoleum_note" tags="mvz2:mausoleum;mvz2:over">
+  <group id="mausoleum_note" tags="mvz2:mausoleum;mvz2:note">
     <archive name="僵尸卷轴" background="mvz2:archive/mausoleum_note" unlock="mvz2:level.mausoleum_10" />
     <section>
       <characters>

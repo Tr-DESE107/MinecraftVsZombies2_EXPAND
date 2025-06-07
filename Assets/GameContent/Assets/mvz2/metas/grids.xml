@@ -1,9 +1,17 @@
 <grids>
     <layers>
-        <layer id="protector" />
-        <layer id="tool" />
-        <layer id="main" />
-        <layer id="carrier" />
+        <layer id="protector" >
+            <almanac tag="mvz2:grid_layer_protector" />
+        </layer>
+        <layer id="tool" >
+            <almanac tag="mvz2:grid_layer_tool" />
+        </layer>
+        <layer id="main" >
+            <almanac tag="mvz2:grid_layer_main" />
+        </layer>
+        <layer id="carrier" >
+            <almanac tag="mvz2:grid_layer_carrier" />
+        </layer>
     </layers>
     <errors>
         <error id="already_taken"/>

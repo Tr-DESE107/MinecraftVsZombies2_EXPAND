@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Armors;
-using MVZ2.GameContent.Buffs.Contraptions;
+﻿using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
@@ -19,7 +18,6 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.EquipMainArmor(VanillaArmorID.wickedHermitHat);
 
             if (!entity.IsPreviewEnemy() && !entity.Level.IsIZombie())
             {

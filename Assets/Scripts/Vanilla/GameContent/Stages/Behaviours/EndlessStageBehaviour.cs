@@ -60,10 +60,9 @@ namespace MVZ2.GameContent.Stages
         #region 更新关卡
         protected virtual void FinalWaveUpdate(LevelEngine level)
         {
-            var lastEnemy = level.FindEntities(e => e.IsAliveEnemy()).FirstOrDefault();
             var roundTimer = GetOrCreateRoundTimer(level);
             roundTimer.Run();
-            if (roundTimer.Expired || lastEnemy == null)
+            if (roundTimer.Expired || level.HasNoAliveEnemy())
             {
                 level.PostWaveFinished(level.CurrentWave);
                 level.WaveState = VanillaLevelStates.STATE_AFTER_FINAL_WAVE;

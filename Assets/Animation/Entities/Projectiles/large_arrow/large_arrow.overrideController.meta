@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animation/Entities/Enemies/SpiderQueen/SpiderQueen.overrideController.meta
+guid: 01e57ef418a5f194e9551200bbecdcc2
+========
+guid: d40b054937583794caee1b719cdd4162
+>>>>>>>> remotes/58/master:Assets/Animation/Entities/Projectiles/large_arrow/large_arrow.overrideController.meta
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 22100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

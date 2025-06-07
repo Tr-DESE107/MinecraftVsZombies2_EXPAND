@@ -93,6 +93,7 @@ namespace MVZ2.GameContent.Contraptions
                     SetFireBreath(entity, fireBreath);
                 }
                 fireBreath.SetDamage(entity.GetDamage() * 2 / 3);
+                fireBreath.SetFlipX(entity.IsFlipX());
                 fireBreath.Position = position;
                 fireBreath.SetFaction(entity.GetFaction());
             }

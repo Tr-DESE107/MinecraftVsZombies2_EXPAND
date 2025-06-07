@@ -54,6 +54,19 @@ namespace MVZ2.Editor
             var characterReference = "Character meta file";
             var artifactsReference = "Artifact meta file";
             var blueprintsReference = "Blueprints meta file";
+            foreach (var tag in almanacEntryList.tags)
+            {
+                AddTranslation(potGenerator, tag.name, almanacReference, $"Name for almanac tag {tag.id}", VanillaStrings.CONTEXT_ALMANAC_TAG_NAME);
+                AddTranslation(potGenerator, tag.description, almanacReference, $"Description for almanac tag {tag.id}", VanillaStrings.CONTEXT_ALMANAC_TAG_DESCRIPTION);
+            }
+            foreach (var tagEnum in almanacEntryList.enums)
+            {
+                foreach (var value in tagEnum.values)
+                {
+                    AddTranslation(potGenerator, value.name, almanacReference, $"Name for almanac tag enum value {value.value} of enum {tagEnum.id}", VanillaStrings.CONTEXT_ALMANAC_TAG_ENUM_NAME);
+                    AddTranslation(potGenerator, value.description, almanacReference, $"Description for almanac tag enum value {value.value} of enum {tagEnum.id}", VanillaStrings.CONTEXT_ALMANAC_TAG_ENUM_DESCRIPTION);
+                }
+            }
             foreach (var category in almanacEntryList.categories)
             {
                 var categoryName = category.name;

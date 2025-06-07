@@ -111,7 +111,7 @@ namespace MVZ2.GameContent.Stages
                 return;
 
             // 已经不存在存活的敌人了，直接加速。
-            if (CountAliveEnemies(level) <= 0)
+            if (level.HasNoAliveEnemy())
             {
                 waveTimer.Frame = 30;
                 return;
@@ -216,7 +216,7 @@ namespace MVZ2.GameContent.Stages
                 }
                 if (IsHighWave(level))
                 {
-                    if (level.GetEntityCount(e => e.IsAliveEnemy()) <= 0)
+                    if (level.HasNoAliveEnemy())
                     {
                         SetHighWave(level, false);
                     }
@@ -226,10 +226,6 @@ namespace MVZ2.GameContent.Stages
         #endregion
 
         #region 敌人血量
-        public float CountAliveEnemies(LevelEngine level)
-        {
-            return level.FindEntities(e => e.IsAliveEnemy()).Length;
-        }
         public bool CheckEnemiesRemainedHealth(LevelEngine level)
         {
             var enemies = level.FindEntities(e => e.IsAliveEnemy());

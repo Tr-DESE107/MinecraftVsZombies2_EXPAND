@@ -115,7 +115,7 @@ namespace MVZ2.GameContent.Implements
             }
             // 攻击者
             var enemyPool = level.GetEnemyPool();
-            var contraptionAttackers = chosenBlueprintEntityDefs.Select(def => def.GetAttackerTagsFor()).Where(t => t != null).SelectMany(t => t).Distinct();
+            var contraptionAttackers = chosenBlueprintEntityDefs.Select(def => def.GetCounterTagsFor()).Where(t => t != null).SelectMany(t => t).Distinct();
             var missingTagsList = new List<NamespaceID>();
             foreach (var spawnID in enemyPool)
             {
@@ -126,7 +126,7 @@ namespace MVZ2.GameContent.Implements
                 var entityDef = level.Content.GetEntityDefinition(entityID);
                 if (entityDef == null)
                     continue;
-                var tags = entityDef.GetAttackerTags();
+                var tags = entityDef.GetCounterTags();
                 if (tags == null)
                     continue;
                 foreach (var tag in tags)

@@ -9,7 +9,11 @@ namespace MVZ2.Models
             base.UpdateLogic();
             var size = Model.GetProperty<Vector3>("Size");
             size = Lawn2TransScale(size);
-            var volume = size.x * (size.y + size.z);
+            var yHeight = size.y + size.z * 0.5f;
+            var volume = size.x * yHeight;
+
+            var gasPosition = new Vector3(0, size.y * 0.5f, 1);
+            var gasScale = new Vector3(size.x, yHeight, 1);
 
             bool stopped = Model.GetProperty<bool>(PROP_STOPPED);
             if (gas)
@@ -18,7 +22,8 @@ namespace MVZ2.Models
                 var gasEmission = gasPS.emission;
                 var gasShape = gasPS.shape;
                 gas.OverrideRateOverTime(volume * ratePerVolume);
-                gasShape.scale = new Vector3(size.x, size.y + size.z, 1);
+                gasShape.position = gasPosition;
+                gasShape.scale = gasScale;
                 if (stopped)
                 {
                     if (gasPS.isEmitting)
@@ -38,7 +43,8 @@ namespace MVZ2.Models
                 var gasLightShape = gasLightPS.shape;
                 gasLight.OverrideRateOverTime(volume * ratePerVolume);
 
-                gasLightShape.scale = new Vector3(size.x, size.y + size.z, 1);
+                gasLightShape.position = gasPosition;
+                gasLightShape.scale = gasScale;
 
                 if (stopped)
                 {

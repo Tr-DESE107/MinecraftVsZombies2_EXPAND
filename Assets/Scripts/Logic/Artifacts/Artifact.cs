@@ -79,6 +79,7 @@ namespace MVZ2Logic.Artifacts
 
         Entity IAuraSource.GetEntity() => null;
         LevelEngine IAuraSource.GetLevel() => Level;
+        bool IAuraSource.IsValid() => Level.HasArtifact(Definition?.GetID());
         public event Action<Artifact> OnHighlighted;
         public LevelEngine Level { get; }
         public ArtifactDefinition Definition { get; }

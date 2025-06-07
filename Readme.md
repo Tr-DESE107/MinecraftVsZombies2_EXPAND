@@ -153,7 +153,11 @@ Create a new Issue in this repository's Issues page **with the following require
 Alternatively, email `mvz2feedback@qq.com` with all above details.
 
 ## Where Are Game Logs?
-Log locations differ between Windows and Android:
+Version 0.4.0 introduces a new log export feature. To export the file, go to the main menu and open Options → More Options → Export Log Files → Select target location.
+
+**Warning:** Game logs are only retained for the current session and the immediately preceding launch. Logs from launches older than two sessions will be automatically deleted.
+
+The log file locations differ between Windows and Android devices, as follows:
 
 ### Windows
 Path: `%HOMEPATH%\AppData\LocalLow\Cuerzor\MinecraftVSZombies2`  

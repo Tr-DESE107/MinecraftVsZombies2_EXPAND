@@ -113,8 +113,8 @@ namespace PVZEngine.Entities
                     Level.PutSeedToConveyorPool(pair.Key, pair.Value);
                 }
                 takenConveyorSeeds.Clear();
-                Definition.PostRemove(this);
                 auras.PostRemove();
+                Definition.PostRemove(this);
                 var param = new EntityCallbackParams()
                 {
                     entity = this
@@ -328,7 +328,8 @@ namespace PVZEngine.Entities
         public Vector3 GetCenter()
         {
             var center = Position;
-            center.y += GetScaledSize().y * 0.5f;
+            var pivot = Vector3.one * 0.5f - Cache.BoundsPivot;
+            center += Vector3.Scale(GetScaledSize(), pivot);
             return center;
         }
         public Vector3 GetScaledSize()
@@ -526,7 +527,21 @@ namespace PVZEngine.Entities
         #region 碰撞
         public void UpdateCollision()
         {
-            Level.UpdateEntityCollision(this);
+            UpdateCollisionDetection();
+            UpdateCollisionPosition();
+            UpdateCollisionSize();
+        }
+        public void UpdateCollisionDetection()
+        {
+            Level.UpdateEntityCollisionDetection(this);
+        }
+        public void UpdateCollisionPosition()
+        {
+            Level.UpdateEntityCollisionPosition(this);
+        }
+        public void UpdateCollisionSize()
+        {
+            Level.UpdateEntityCollisionSize(this);
         }
         public IEntityCollider CreateCollider(ColliderConstructor info)
         {
@@ -1001,6 +1016,7 @@ namespace PVZEngine.Entities
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IAuraSource.GetEntity() => this;
         LevelEngine IAuraSource.GetLevel() => Level;
+        bool IAuraSource.IsValid() => Exists();
         T IModifierContainer.GetProperty<T>(PropertyKey<T> name) => GetProperty<T>(name);
         #endregion
 
@@ -1029,8 +1045,12 @@ namespace PVZEngine.Entities
             get => _position;
             set
             {
+                bool updates = _position != value;
                 _position = value;
-                UpdateCollision();
+                if (updates)
+                {
+                    UpdateCollisionPosition();
+                }
             }
         }
         public Vector3 Velocity { get; set; }

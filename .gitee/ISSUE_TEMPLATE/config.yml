@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 常见问题解答
+    url: https://gitee.com/cuerzor/mvz2/blob/master/Readme-ZH.md#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98
+    about: 提供MVZ2的常见问题解答，以及反馈问题指南

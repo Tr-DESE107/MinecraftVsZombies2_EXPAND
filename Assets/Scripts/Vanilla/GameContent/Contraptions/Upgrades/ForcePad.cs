@@ -239,6 +239,16 @@ namespace MVZ2.GameContent.Contraptions
                 }
                 pad.SetEvoked(false);
 
+                foreach (var targetID in draggingEntities)
+                {
+                    var target = targetID.GetEntity(pad.Level);
+                    // 不存在或者死亡的目标被排除在外。
+                    if (!target.ExistsAndAlive())
+                        continue;
+                    // 清空移速
+                    target.Velocity = Vector3.zero;
+                }
+
                 // 删除所有连接线。
                 var draggingLines = GetDraggingLines(pad);
                 if (draggingLines != null)

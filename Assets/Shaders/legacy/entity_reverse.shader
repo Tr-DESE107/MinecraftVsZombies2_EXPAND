@@ -68,5 +68,5 @@
 			ENDHLSL
 		}
 	}
-	FallBack "MinecraftVSZombies2/Entity/Entity"
+	FallBack "MinecraftVSZombies2/Legacy/Entity"
 }

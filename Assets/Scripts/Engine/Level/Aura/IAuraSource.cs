@@ -7,5 +7,6 @@ namespace PVZEngine.Auras
     {
         Entity GetEntity();
         LevelEngine GetLevel();
+        bool IsValid();
     }
 }

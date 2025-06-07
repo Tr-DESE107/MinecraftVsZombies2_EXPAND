@@ -32,6 +32,7 @@ namespace PVZEngine.Entities
         public Vector3 Seperation { get; set; }
         public Entity Entity => Collider.Entity;
         public Entity Other => OtherCollider.Entity;
+        public bool Enter { get; set; }
         public bool Checked { get; set; }
     }
     [Serializable]

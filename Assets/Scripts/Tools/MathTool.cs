@@ -1,15 +1,130 @@
 ﻿using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Tools.Mathematics
 {
     public static class MathTool
     {
-        public static Rect GetBottomRect(this Bounds bounds)
+        #region 1D数轴
+        public static bool DoRangesIntersect(float start1, float end1, float start2, float end2)
         {
-            var boundsMin = bounds.min;
-            var boundsSize = bounds.size;
-            return new Rect(boundsMin.x, bounds.min.z, boundsSize.x, boundsSize.z);
+            return Mathf.Max(start1, end1) >= Mathf.Min(start2, end2) && Mathf.Min(start1, end1) <= Mathf.Max(start2, end2);
+        }
+
+        #region 抛物线
+        /// <summary>
+        /// 以抛物线形式进行Lerp。
+        /// </summary>
+        /// <param name="a">起始值。</param>
+        /// <param name="b">结束值。</param>
+        /// <param name="highestHeight">最大值。</param>
+        /// <param name="t">插值。</param>
+        /// <param name="isInner">结束值是否在上升阶段。</param>
+        /// <returns>最终值。</returns>
+        public static float LerpParabolla(float a, float b, float highestHeight, float t, bool isInner = false)
+        {
+            return GetParabollaY(0, 1, a, b, highestHeight, t, isInner);
+        }
+
+        /// <summary>
+        /// 获取经过两个点的抛物线，并返回x值为variable时的y值。
+        /// </summary>
+        /// <param name="startX">点1的x值</param>
+        /// <param name="endX">点2的x值</param>
+        /// <param name="startY">点1的y值</param>
+        /// <param name="endY">点2的y值</param>
+        /// <param name="highestHeight">最大高度。</param>
+        /// <param name="variable">当前x值。</param>
+        /// <param name="isInner">点2是否在点1与对称轴之间。</param>
+        /// <returns>抛物线在x值为variable时的y值。</returns>
+        public static float GetParabollaY(float startX, float endX, float startY, float endY, float highestHeight, float variable, bool isInner = false)
+        {
+            float y = endY - startY;
+            float x = endX - startX;
+
+            // 当x = 0时，有无数个结果，故返回0
+            if (x == 0)
+            {
+                //Debug.LogError("抛物线两点x轴距离为0。");
+                return 0;
+            }
+
+            float k = highestHeight;
+
+            if (k > 0)
+            {
+                if (y > k)
+                {
+                    Debug.LogError("最大高度过小，无法达到y值。");
+                    return 0;
+                }
+            }
+            else if (k < 0)
+            {
+                if (y < k)
+                {
+                    Debug.LogError("最大高度过大，无法达到y值。");
+                    return 0;
+                }
+            }
+            else
+            {
+                Debug.LogError("最大高度为0，无法进行运算。");
+                return 0;
+            }
+
+            float h;
+
+            if (y == 0)
+            {
+                h = x / 2;
+            }
+            else
+            {
+                h = (k * x - Mathf.Sqrt(k * x * x * (k - y)) * (isInner ? -1 : 1)) / y;
+            }
+
+            float a = -k / h / h;
+            return a * Mathf.Pow((variable - startX) - h, 2) + k + startY;
+        }
+        #endregion
+        #endregion
+
+        #region 2D平面
+        public static float Cross(this Vector2 vector1, Vector2 vector2)
+        {
+            return vector1.x * vector2.y - vector1.y * vector2.x;
+        }
+        public static bool OverlapOptimized(this Rect rect, Rect target)
+        {
+            if (rect.yMin > target.yMax)
+            {
+                return false;
+            }
+            if (rect.yMax < target.yMin)
+            {
+                return false;
+            }
+            if (rect.xMax < target.xMin)
+            {
+                return false;
+            }
+            if (rect.xMin > target.xMax)
+            {
+                return false;
+            }
+            return true;
+        }
+        public static bool DoRectsOverlap(Vector2 rectCenter1, Vector2 rectSize1, Vector2 rectCenter2, Vector2 rectSize2)
+        {
+            var rect1ExtentX = rectSize1.x * 0.5f;
+            var rect1ExtentY = rectSize1.y * 0.5f;
+            var rect2ExtentX = rectSize2.x * 0.5f;
+            var rect2ExtentY = rectSize2.y * 0.5f;
+            if (!DoRangesIntersect(rectCenter1.x - rect1ExtentX, rectCenter1.x + rect1ExtentX, rectCenter2.x - rect2ExtentX, rectCenter2.x + rect2ExtentX))
+                return false;
+            if (!DoRangesIntersect(rectCenter1.y - rect1ExtentY, rectCenter1.y + rect1ExtentY, rectCenter2.y - rect2ExtentY, rectCenter2.y + rect2ExtentY))
+                return false;
+            return true;
         }
         public static bool DoRectAndRayIntersect(Rect rect, Vector2 point, Vector2 dir, out Vector2 intersection)
         {
@@ -85,20 +200,6 @@ namespace Tools.Mathematics
             return true;
 
         }
-
-        public static bool DoRectsOverlap(Vector2 rectCenter1, Vector2 rectSize1, Vector2 rectCenter2, Vector2 rectSize2)
-        {
-            var rect1ExtentX = rectSize1.x * 0.5f;
-            var rect1ExtentY = rectSize1.y * 0.5f;
-            var rect2ExtentX = rectSize2.x * 0.5f;
-            var rect2ExtentY = rectSize2.y * 0.5f;
-            if (!DoRangesIntersect(rectCenter1.x - rect1ExtentX, rectCenter1.x + rect1ExtentX, rectCenter2.x - rect2ExtentX, rectCenter2.x + rect2ExtentX))
-                return false;
-            if (!DoRangesIntersect(rectCenter1.y - rect1ExtentY, rectCenter1.y + rect1ExtentY, rectCenter2.y - rect2ExtentY, rectCenter2.y + rect2ExtentY))
-                return false;
-            return true;
-        }
-
         private static bool DoLineAndRayIntersect(Vector2 line1, Vector2 line2, Vector2 point, Vector2 dir, out Vector2 intersection)
         {
             intersection = Vector2.zero;
@@ -225,92 +326,135 @@ namespace Tools.Mathematics
             return true;
 
         }
-
-        public static float Cross(this Vector2 vector1, Vector2 vector2)
+        public static bool CollideBetweenRectangleAndCircle(Vector2 circleCenter, float circleRadius, Vector2 rectCenter, Vector2 rectScale)
         {
-            return vector1.x * vector2.y - vector1.y * vector2.x;
-        }
+            // 将目标圆的坐标(world Potition)转换为矩形的 localPosition
+            Vector2 circlePos = circleCenter - rectCenter;
 
-        public static bool DoRangesIntersect(float start1, float end1, float start2, float end2)
+            // 使用上面方法计算的 circlePos 会受到 矩形 rectScale 影响
+            // 当矩形 rectScale = Vector2.one 时计算结果为 (x, y)
+            // 当矩形 rectScale = new Vector2(a, b) 时, 计算所得 localPos = (x / a, y / b)
+            // 通过下面计算将结果转换
+            // circlePos.x *= rectScale.x;
+            // circlePos.y *= rectScale.y;
+
+            // 将 circlePos x、y 分别于 max、min 的 x、y 做比较
+            //  x 取值范围 (min.x, max.x)
+            //  y 取值范围 (min.y, max.y)
+            float x = circlePos.x;
+            x = Mathf.Clamp(x, -rectScale.x * 0.5f, rectScale.x * 0.5f);
+
+            float y = circlePos.y;
+            y = Mathf.Clamp(y, -rectScale.y * 0.5f, rectScale.y * 0.5f);
+
+            // x、y 重新取值后得到新坐标
+            Vector2 pos = new Vector2(x, y);
+
+            // 求新坐标 pos 与 circlePos 的距离
+            float distance = (circlePos - pos).magnitude;
+            // 距离大于半径则不相交
+            return distance <= circleRadius;
+        }
+        public static bool CollideBetweenRectangleAndRoundRectangle(RoundRect roundRect, Rect rectangle)
         {
-            return Mathf.Max(start1, end1) >= Mathf.Min(start2, end2) && Mathf.Min(start1, end1) <= Mathf.Max(start2, end2);
+            var roundRectCenter = new Rect(roundRect.center - roundRect.size * 0.5f, roundRect.size);
+            if (roundRect.radius <= 0)
+                return roundRectCenter.Overlaps(rectangle);
+
+            // 水平相交
+            var roundSizeHori = roundRect.size + Vector2.right * roundRect.radius;
+            var roundRectHori = new Rect(roundRect.center - roundSizeHori * 0.5f, roundSizeHori);
+            if (rectangle.Overlaps(roundRectHori))
+                return true;
+
+            // 垂直相交
+            var roundSizeVert = roundRect.size + Vector2.up * roundRect.radius;
+            var roundRectVert = new Rect(roundRect.center - roundSizeVert * 0.5f, roundSizeVert);
+            if (rectangle.Overlaps(roundRectVert))
+                return true;
+
+            // 圆角相交
+            for (int i = 0; i < 4; i++)
+            {
+                var x = (i & 1) == 1 ? roundRectCenter.xMax : roundRectCenter.xMin;
+                var y = (i & 2) == 2 ? roundRectCenter.yMax : roundRectCenter.yMin;
+                var corner = new Vector2(x, y);
+                if (CollideBetweenRectangleAndCircle(corner, roundRect.radius, rectangle.center, rectangle.size))
+                    return true;
+            }
+            return false;
         }
-        /// <summary>
-        /// 以抛物线形式进行Lerp。
-        /// </summary>
-        /// <param name="a">起始值。</param>
-        /// <param name="b">结束值。</param>
-        /// <param name="highestHeight">最大值。</param>
-        /// <param name="t">插值。</param>
-        /// <param name="isInner">结束值是否在上升阶段。</param>
-        /// <returns>最终值。</returns>
-        public static float LerpParabolla(float a, float b, float highestHeight, float t, bool isInner = false)
+        public static bool CollideBetweenRectangleAndRoundRectangle(Vector2 roundRectCenter, Vector2 roundRectSize, float roundRectRadius, Vector2 rectangleCenter, Vector2 rectangleSize)
         {
-            return GetParabollaY(0, 1, a, b, highestHeight, t, isInner);
-        }
+            if (roundRectRadius <= 0)
+                return DoRectsOverlap(roundRectCenter, roundRectSize, rectangleCenter, rectangleSize);
 
-        /// <summary>
-        /// 获取经过两个点的抛物线，并返回x值为variable时的y值。
-        /// </summary>
-        /// <param name="startX">点1的x值</param>
-        /// <param name="endX">点2的x值</param>
-        /// <param name="startY">点1的y值</param>
-        /// <param name="endY">点2的y值</param>
-        /// <param name="highestHeight">最大高度。</param>
-        /// <param name="variable">当前x值。</param>
-        /// <param name="isInner">点2是否在点1与对称轴之间。</param>
-        /// <returns>抛物线在x值为variable时的y值。</returns>
-        public static float GetParabollaY(float startX, float endX, float startY, float endY, float highestHeight, float variable, bool isInner = false)
+            // 水平相交
+            var roundSizeHori = roundRectSize + Vector2.right * roundRectRadius * 2;
+            if (DoRectsOverlap(roundRectCenter, roundSizeHori, rectangleCenter, rectangleSize))
+                return true;
+
+            // 垂直相交
+            var roundSizeVert = roundRectSize + Vector2.up * roundRectRadius * 2;
+            if (DoRectsOverlap(roundRectCenter, roundSizeVert, rectangleCenter, rectangleSize))
+                return true;
+
+            // 圆角相交
+            for (int i = 0; i < 4; i++)
+            {
+                var x = roundRectCenter.x + roundRectSize.x * ((i & 1) == 1 ? -0.5f : 0.5f);
+                var y = roundRectCenter.y + roundRectSize.y * ((i & 2) == 2 ? -0.5f : 0.5f);
+                var corner = new Vector2(x, y);
+                if (CollideBetweenRectangleAndCircle(corner, roundRectRadius, rectangleCenter, rectangleSize))
+                    return true;
+            }
+            return false;
+        }
+        #endregion
+
+        #region 3D物体
+        public static Rect GetBottomRect(this Bounds bounds)
         {
-            float y = endY - startY;
-            float x = endX - startX;
-
-            // 当x = 0时，有无数个结果，故返回0
-            if (x == 0)
-            {
-                //Debug.LogError("抛物线两点x轴距离为0。");
-                return 0;
-            }
-
-            float k = highestHeight;
-
-            if (k > 0)
-            {
-                if (y > k)
-                {
-                    Debug.LogError("最大高度过小，无法达到y值。");
-                    return 0;
-                }
-            }
-            else if (k < 0)
-            {
-                if (y < k)
-                {
-                    Debug.LogError("最大高度过大，无法达到y值。");
-                    return 0;
-                }
-            }
-            else
-            {
-                Debug.LogError("最大高度为0，无法进行运算。");
-                return 0;
-            }
-
-            float h;
-
-            if (y == 0)
-            {
-                h = x / 2;
-            }
-            else
-            {
-                h = (k * x - Mathf.Sqrt(k * x * x * (k - y)) * (isInner ? -1 : 1)) / y;
-            }
-
-            float a = -k / h / h;
-            return a * Mathf.Pow((variable - startX) - h, 2) + k + startY;
+            var boundsMin = bounds.min;
+            var boundsSize = bounds.size;
+            return new Rect(boundsMin.x, bounds.min.z, boundsSize.x, boundsSize.z);
         }
+        public static bool IntersectsOptimized(this Bounds a, Bounds b)
+        {
+            Vector3 centerA = a.center;
+            Vector3 extentsA = a.extents;
+            Vector3 centerB = b.center;
+            Vector3 extentsB = b.extents;
 
+            // X 轴检查
+            float minA = centerA.x - extentsA.x;
+            float maxB = centerB.x + extentsB.x;
+            if (minA > maxB) return false;
+
+            float maxA = centerA.x + extentsA.x;
+            float minB = centerB.x - extentsB.x;
+            if (maxA < minB) return false;
+
+            // Y 轴检查
+            minA = centerA.y - extentsA.y;
+            maxB = centerB.y + extentsB.y;
+            if (minA > maxB) return false;
+
+            maxA = centerA.y + extentsA.y;
+            minB = centerB.y - extentsB.y;
+            if (maxA < minB) return false;
+
+            // Z 轴检查
+            minA = centerA.z - extentsA.z;
+            maxB = centerB.z + extentsB.z;
+            if (minA > maxB) return false;
+
+            maxA = centerA.z + extentsA.z;
+            minB = centerB.z - extentsB.z;
+            if (maxA < minB) return false;
+
+            return true;
+        }
         public static bool CollideBetweenCubeAndCylinder(Cylinder cylinder, Bounds cube)
         {
             Rect cylinderRectSide;
@@ -415,90 +559,58 @@ namespace Tools.Mathematics
             // 距离大于半径则不相交
             return distance <= sphereRadius;
         }
-        public static bool CollideBetweenRectangleAndCircle(Vector2 circleCenter, float circleRadius, Vector2 rectCenter, Vector2 rectScale)
+        public static bool CollideBetweenCubeAndCapsule(Capsule capsule, Vector3 cubeCenter, Vector3 cubeSize)
         {
-            // 将目标圆的坐标(world Potition)转换为矩形的 localPosition
-            Vector2 circlePos = circleCenter - rectCenter;
+            // 扩展立方体
+            var expandedSize = cubeSize + Vector3.one * capsule.radius * 2;
+            var capsuleStart = capsule.point0;
+            var capsuleEnd = capsule.point1;
 
-            // 使用上面方法计算的 circlePos 会受到 矩形 rectScale 影响
-            // 当矩形 rectScale = Vector2.one 时计算结果为 (x, y)
-            // 当矩形 rectScale = new Vector2(a, b) 时, 计算所得 localPos = (x / a, y / b)
-            // 通过下面计算将结果转换
-            // circlePos.x *= rectScale.x;
-            // circlePos.y *= rectScale.y;
-
-            // 将 circlePos x、y 分别于 max、min 的 x、y 做比较
-            //  x 取值范围 (min.x, max.x)
-            //  y 取值范围 (min.y, max.y)
-            float x = circlePos.x;
-            x = Mathf.Clamp(x, -rectScale.x * 0.5f, rectScale.x * 0.5f);
-
-            float y = circlePos.y;
-            y = Mathf.Clamp(y, -rectScale.y * 0.5f, rectScale.y * 0.5f);
-
-            // x、y 重新取值后得到新坐标
-            Vector2 pos = new Vector2(x, y);
-
-            // 求新坐标 pos 与 circlePos 的距离
-            float distance = (circlePos - pos).magnitude;
-            // 距离大于半径则不相交
-            return distance <= circleRadius;
+            // 检测线段与扩展后的AABB是否相交
+            return CollideBetweenCubeAndLine(capsuleStart, capsuleEnd, cubeCenter, expandedSize);
         }
-        public static bool CollideBetweenRectangleAndRoundRectangle(RoundRect roundRect, Rect rectangle)
+        public static bool CollideBetweenCubeAndLine(Vector3 lineStart, Vector3 lineEnd, Vector3 cubeCenter, Vector3 cubeSize)
         {
-            var roundRectCenter = new Rect(roundRect.center - roundRect.size * 0.5f, roundRect.size);
-            if (roundRect.radius <= 0)
-                return roundRectCenter.Overlaps(rectangle);
+            var t_min = 0f;
+            var t_max = 1f;
+            var cubeMin = cubeCenter - cubeSize * 0.5f;
+            var cubeMax = cubeCenter + cubeSize * 0.5f;
 
-            // 水平相交
-            var roundSizeHori = roundRect.size + Vector2.right * roundRect.radius;
-            var roundRectHori = new Rect(roundRect.center - roundSizeHori * 0.5f, roundSizeHori);
-            if (rectangle.Overlaps(roundRectHori))
-                return true;
-
-            // 垂直相交
-            var roundSizeVert = roundRect.size + Vector2.up * roundRect.radius;
-            var roundRectVert = new Rect(roundRect.center - roundSizeVert * 0.5f, roundSizeVert);
-            if (rectangle.Overlaps(roundRectVert))
-                return true;
-
-            // 圆角相交
-            for (int i = 0; i < 4; i++)
+            for (int axis = 0; axis < 3; axis++)
             {
-                var x = (i & 1) == 1 ? roundRectCenter.xMax : roundRectCenter.xMin;
-                var y = (i & 2) == 2 ? roundRectCenter.yMax : roundRectCenter.yMin;
-                var corner = new Vector2(x, y);
-                if (CollideBetweenRectangleAndCircle(corner, roundRect.radius, rectangle.center, rectangle.size))
-                    return true;
+                var a = lineStart[axis];
+                var b = lineEnd[axis];
+                var minAxis = cubeMin[axis];
+                var maxAxis = cubeMax[axis];
+
+                if (Mathf.Abs(b - a) < 1e-6)  // 线段平行于当前轴
+                {
+                    if (a < minAxis || a > maxAxis)
+                        return false;
+                }
+                else
+                {
+                    var inverseDistance = 1f / (b - a);
+                    var t1 = (minAxis - a) * inverseDistance;
+                    var t2 = (maxAxis - a) * inverseDistance;
+                    if (t1 > t2)
+                    {
+                        var swap = t1;
+                        t1 = t2;
+                        t2 = swap;
+                    }
+                    t_min = Mathf.Max(t_min, t1);
+                    t_max = Mathf.Min(t_max, t2);
+                    if (t_min > t_max)
+                        return false;
+                }
             }
-            return false;
+
+            return (t_min <= 1) && (t_max >= 0);
         }
-        public static bool CollideBetweenRectangleAndRoundRectangle(Vector2 roundRectCenter, Vector2 roundRectSize, float roundRectRadius, Vector2 rectangleCenter, Vector2 rectangleSize)
-        {
-            if (roundRectRadius <= 0)
-                return DoRectsOverlap(roundRectCenter, roundRectSize, rectangleCenter, rectangleSize);
+        #endregion
 
-            // 水平相交
-            var roundSizeHori = roundRectSize + Vector2.right * roundRectRadius * 2;
-            if (DoRectsOverlap(roundRectCenter, roundSizeHori, rectangleCenter, rectangleSize))
-                return true;
-
-            // 垂直相交
-            var roundSizeVert = roundRectSize + Vector2.up * roundRectRadius * 2;
-            if (DoRectsOverlap(roundRectCenter, roundSizeVert, rectangleCenter, rectangleSize))
-                return true;
-
-            // 圆角相交
-            for (int i = 0; i < 4; i++)
-            {
-                var x = roundRectCenter.x + roundRectSize.x * ((i & 1) == 1 ? -0.5f : 0.5f);
-                var y = roundRectCenter.y + roundRectSize.y * ((i & 2) == 2 ? -0.5f : 0.5f);
-                var corner = new Vector2(x, y);
-                if (CollideBetweenRectangleAndCircle(corner, roundRectRadius, rectangleCenter, rectangleSize))
-                    return true;
-            }
-            return false;
-        }
+        #region 过渡渐变
         public static float EaseIn(float x)
         {
             x = Mathf.Clamp01(x);
@@ -521,7 +633,9 @@ namespace Tools.Mathematics
                 return EaseOut((2 * x - 1)) * 0.5f + 0.5f;
             }
         }
+        #endregion
 
+        #region AABB
         public static bool AABBSweep(Vector3 Ea, Vector3 Eb, Vector3 A1, Vector3 B1, Vector3 prevA, Vector3 prevB, out float firstTime, out float lastTime)
         {
             Bounds prevBoxA = new Bounds(prevA, Ea);//previous state of AABB A
@@ -541,7 +655,7 @@ namespace Tools.Mathematics
 
             //check if they were overlapping
             // on the previous frame
-            if (prevBoxA.Intersects(prevBoxB))
+            if (prevBoxA.IntersectsOptimized(prevBoxB))
             {
                 firstTime = 0;
                 lastTime = 0;
@@ -588,75 +702,7 @@ namespace Tools.Mathematics
             //before the last time of overlap
             return firstTime <= lastTime;
         }
-        public static bool Intersects(this Rect rect, Rect target)
-        {
-            if (rect.yMin > target.yMax)
-            {
-                return false;
-            }
-            if (rect.yMax < target.yMin)
-            {
-                return false;
-            }
-            if (rect.xMax < target.xMin)
-            {
-                return false;
-            }
-            if (rect.xMin > target.xMax)
-            {
-                return false;
-            }
-            return true;
-        }
-        public static bool CollideBetweenCubeAndCapsule(Capsule capsule, Vector3 cubeCenter, Vector3 cubeSize)
-        {
-            // 扩展立方体
-            var expandedSize = cubeSize + Vector3.one * capsule.radius * 2;
-            var capsuleStart = capsule.point0;
-            var capsuleEnd = capsule.point1;
-
-            // 检测线段与扩展后的AABB是否相交
-            return CollideBetweenCubeAndLine(capsuleStart, capsuleEnd, cubeCenter, expandedSize);
-        }
-        public static bool CollideBetweenCubeAndLine(Vector3 lineStart, Vector3 lineEnd, Vector3 cubeCenter, Vector3 cubeSize)
-        {
-            var t_min = 0f;
-            var t_max = 1f;
-            var cubeMin = cubeCenter - cubeSize * 0.5f;
-            var cubeMax = cubeCenter + cubeSize * 0.5f;
-
-            for (int axis = 0; axis < 3; axis++)
-            {
-                var a = lineStart[axis];
-                var b = lineEnd[axis];
-                var minAxis = cubeMin[axis];
-                var maxAxis = cubeMax[axis];
-        
-                if (Mathf.Abs(b - a) < 1e-6)  // 线段平行于当前轴
-                {
-                    if (a < minAxis || a > maxAxis)
-                        return false;
-                }
-                else
-                {
-                    var inverseDistance = 1f / (b - a);
-                    var t1 = (minAxis - a) * inverseDistance;
-                    var t2 = (maxAxis - a) * inverseDistance;
-                    if (t1 > t2)
-                    {
-                        var swap = t1;
-                        t1 = t2;
-                        t2 = swap;
-                    }
-                    t_min = Mathf.Max(t_min, t1);
-                    t_max = Mathf.Min(t_max, t2);
-                    if (t_min > t_max)
-                        return false;
-                }
-            }
-
-            return (t_min <= 1) && (t_max >= 0);
-        }
+        #endregion
     }
     public enum Axis
     {

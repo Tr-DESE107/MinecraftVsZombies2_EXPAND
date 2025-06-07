@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Contraptions
                     entity.TriggerAnimation("Shoot");
                     var shootParams = entity.GetShootParams();
                     shootParams.projectileID = VanillaProjectileID.largeArrow;
-                    shootParams.damage = entity.GetDamage() * 50;
+                    shootParams.damage = entity.GetDamage() * 30;
                     shootParams.soundID = VanillaSoundID.spellCard;
                     shootParams.velocity = shootParams.velocity.normalized;
                     entity.ShootProjectile(shootParams);

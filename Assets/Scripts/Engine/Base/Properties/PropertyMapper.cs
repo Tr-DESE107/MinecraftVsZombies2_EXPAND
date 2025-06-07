@@ -44,30 +44,52 @@ namespace PVZEngine
                     }
                     if (field.GetValue(null) is not PropertyMeta meta)
                         continue;
+
+                    // 为Meta设置命名空间名和区域名。
                     meta.RegisterNames(namespaceName, regionName);
+
+                    // 注册属性键。
                     var propertyName = meta.propertyName;
                     var propertyType = meta.propertyType;
                     var defaultValue = meta.defaultValue;
+                    var obsoleteNames = meta.obsoleteNames;
 
                     var fullName = PropertyKeyHelper.CombineName(namespaceName, regionName, propertyName);
                     if (registries.TryGetKeyOfFullName(fullName, out IPropertyKey key))
                     {
+                        // 有重复名称的属性注册了
                         Debug.LogWarning($"Duplicate property meta {meta}");
                     }
                     else
                     {
-                        string propName;
-                        if (!string.IsNullOrEmpty(regionName))
-                        {
-                            propName = $"{regionName}/{propertyName}";
-                        }
-                        else
-                        {
-                            propName = propertyName;
-                        }
+                        // 注册一个属性键
+                        var propName = PropertyKeyHelper.CombineRegionName(regionName, propertyName);
                         registries.GetOrRegisterPropertyKey(namespaceName, propName, out var namespaceKey, out var propertyKey);
+
                         key = PropertyKeyHelper.FromType(namespaceKey, propertyKey, propertyType, defaultValue);
                         registries.RegisterFullName(fullName, key);
+
+                        // 过时名称替换
+                        if (obsoleteNames != null)
+                        {
+                            foreach (var name in obsoleteNames)
+                            {
+                                var fullObsoleteName = PropertyKeyHelper.CombineName(namespaceName, regionName, name);
+                                if (registries.TryGetKeyOfFullName(fullObsoleteName, out _))
+                                {
+                                    // 有重复名称的属性注册了
+                                    Debug.LogWarning($"An obsolete name \"{fullObsoleteName}\" of property \"{fullName}\" conflicts with another property.");
+                                    continue;
+                                }
+                                if (registries.TryGetFullNameOfObsoleteName(fullObsoleteName, out var conflictFullName))
+                                {
+                                    // 有重复名称的属性注册了
+                                    Debug.LogWarning($"An obsolete name \"{fullObsoleteName}\" of property \"{fullName}\" has already been registed to map \"{conflictFullName}\".");
+                                    continue;
+                                }
+                                registries.RegisterObsoleteName(fullObsoleteName, fullName);
+                            }
+                        }
                     }
                     meta.SetRegisteredKey(key);
                 }
@@ -80,6 +102,14 @@ namespace PVZEngine
             {
                 return key;
             }
+            if (registries.TryGetFullNameOfObsoleteName(propertyName, out var obsNameTarget))
+            {
+                Debug.LogWarning($"Property name \"{propertyName}\" has been obsoleted, please change it to \"{obsNameTarget}\".");
+                if (registries.TryGetKeyOfFullName(obsNameTarget, out var obsNameKey))
+                {
+                    return obsNameKey;
+                }
+            }
             Debug.LogWarning($"Property with name {propertyName} is not registered.");
             return PropertyKeyHelper.Invalid;
         }
@@ -87,12 +117,7 @@ namespace PVZEngine
         {
             var id = NamespaceID.Parse(propertyName, defaultNsp);
             var newName = PropertyKeyHelper.CombineName(id.SpaceName, regionName, id.Path);
-            if (registries.TryGetKeyOfFullName(newName, out var key))
-            {
-                return key;
-            }
-            Debug.LogWarning($"Property with name {newName} is not registered.");
-            return PropertyKeyHelper.Invalid;
+            return ConvertFromName(newName);
         }
         public static string ConvertToFullName(IPropertyKey key)
         {
@@ -134,6 +159,10 @@ namespace PVZEngine
                 fullNameMap.Add(fullName, key);
                 reversedFullNameMap.Add(key, fullName);
             }
+            public void RegisterObsoleteName(string obsoleteName, string fullName)
+            {
+                obsoleteNameMap.Add(obsoleteName, fullName);
+            }
             public bool TryGetFullNameOfKey(IPropertyKey key, out string name)
             {
                 return reversedFullNameMap.TryGetValue(key, out name);
@@ -142,10 +171,15 @@ namespace PVZEngine
             {
                 return fullNameMap.TryGetValue(name, out key);
             }
+            public bool TryGetFullNameOfObsoleteName(string name, out string fullName)
+            {
+                return obsoleteNameMap.TryGetValue(name, out fullName);
+            }
             private int currentNamespaceNumber = 0;
             private NamespaceRegistry emptyNamespace = new NamespaceRegistry(0);
             private Dictionary<string, NamespaceRegistry> registeredNamespaces = new Dictionary<string, NamespaceRegistry>();
             private Dictionary<string, IPropertyKey> fullNameMap = new Dictionary<string, IPropertyKey>();
+            private Dictionary<string, string> obsoleteNameMap = new Dictionary<string, string>();
             private Dictionary<IPropertyKey, string> reversedFullNameMap = new Dictionary<IPropertyKey, string>();
         }
         private class NamespaceRegistry
