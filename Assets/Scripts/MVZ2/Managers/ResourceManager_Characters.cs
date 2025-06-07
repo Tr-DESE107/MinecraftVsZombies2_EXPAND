@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -98,25 +99,27 @@ namespace MVZ2.Managers
             };
         }
         #region 私有方法
-        private async Task LoadCharacterVariantSprites(string nsp, TaskProgress progress, int maxYieldCount = 1)
+        private IEnumerator LoadCharacterVariantSprites(string nsp, TaskProgress progress, int maxYieldCount = 1)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
-                return;
+                yield break;
             var metaList = GetCharacterMetaList(nsp);
             if (metaList == null)
-                return;
+                yield break;
             var metas = metaList.metas;
             int count = metas.Count;
             var childProgresses = progress.AddChildren(count);
 
             characterTextureDict.Clear();
+            var sprites = new List<CharacterVariantSprite>();
             for (int i = 0; i < count; i++)
             {
                 var meta = metas[i];
 
                 progress.SetCurrentTaskName($"Character {meta.id}");
-                var sprites = await GenerateCharacterVariantSprites(nsp, meta, childProgresses[i], maxYieldCount);
+                sprites.Clear();
+                yield return GenerateCharacterVariantSprites(nsp, meta, childProgresses[i], sprites, maxYieldCount);
                 modResource.CharacterVariantSprites.Add(meta.id, sprites.ToArray());
                 progress.SetProgress(i / (float)count);
             }
@@ -124,10 +127,9 @@ namespace MVZ2.Managers
 
             characterTextureDict.Clear();
         }
-        private async Task<CharacterVariantSprite[]> GenerateCharacterVariantSprites(string nsp, TalkCharacterMeta meta, TaskProgress progress, int maxYieldCount = 1)
+        private IEnumerator GenerateCharacterVariantSprites(string nsp, TalkCharacterMeta meta, TaskProgress progress, List<CharacterVariantSprite> list, int maxYieldCount = 1)
         {
             var characterID = new NamespaceID(nsp, meta.id);
-            List<CharacterVariantSprite> sprites = new List<CharacterVariantSprite>();
             var count = meta.variants.Count;
             int yieldCounter = 0;
             for (int i = 0; i < count; i++)
@@ -139,17 +141,16 @@ namespace MVZ2.Managers
                     variant = variant.id,
                     sprite = spr
                 };
-                sprites.Add(cvs);
+                list.Add(cvs);
                 progress.SetProgress(i / (float)count, $"Variant {variant.id}");
                 yieldCounter++;
                 if (yieldCounter >= maxYieldCount)
                 {
                     yieldCounter = 0;
-                    await Task.Yield();
+                    yield return null;
                 }
             }
             progress.SetProgress(1, "Finished");
-            return sprites.ToArray();
         }
         private Sprite GenerateCharacterVariantSprite(NamespaceID character, NamespaceID variantID)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using MVZ2.Metas;
@@ -75,14 +76,14 @@ namespace MVZ2.Managers
                 modResource.Models.Add(id.Path, model);
             }
         }
-        private async Task ShotModelIcons(string modNamespace, TaskProgress progress, int maxYieldCount = 4)
+        private IEnumerator ShotModelIcons(string modNamespace, TaskProgress progress, int maxYieldCount = 4)
         {
             var modResource = GetModResource(modNamespace);
             if (modResource == null)
-                return;
+                yield break;
             var metaList = modResource.ModelMetaList;
             if (metaList == null)
-                return;
+                yield break;
 
             var metas = metaList.metas;
             var count = metas.Length;
@@ -117,7 +118,7 @@ namespace MVZ2.Managers
                 if (yieldCounter >= maxYieldCount)
                 {
                     yieldCounter = 0;
-                    await Task.Yield();
+                    yield return null;
                 }
             }
             progress.SetProgress(1, "Finished");
