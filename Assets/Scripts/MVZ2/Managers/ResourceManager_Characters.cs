@@ -99,7 +99,7 @@ namespace MVZ2.Managers
             };
         }
         #region 私有方法
-        private IEnumerator LoadCharacterVariantSprites(string nsp, TaskProgress progress, int maxYieldCount = 1)
+        private IEnumerator LoadCharacterVariantSprites(string nsp, TaskProgress progress, int maxYieldCount = 1, float scale = 1)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
@@ -119,7 +119,7 @@ namespace MVZ2.Managers
 
                 progress.SetCurrentTaskName($"Character {meta.id}");
                 sprites.Clear();
-                yield return GenerateCharacterVariantSprites(nsp, meta, childProgresses[i], sprites, maxYieldCount);
+                yield return GenerateCharacterVariantSprites(nsp, meta, childProgresses[i], sprites, maxYieldCount, scale);
                 modResource.CharacterVariantSprites.Add(meta.id, sprites.ToArray());
                 progress.SetProgress(i / (float)count);
             }
@@ -127,7 +127,7 @@ namespace MVZ2.Managers
 
             characterTextureDict.Clear();
         }
-        private IEnumerator GenerateCharacterVariantSprites(string nsp, TalkCharacterMeta meta, TaskProgress progress, List<CharacterVariantSprite> list, int maxYieldCount = 1)
+        private IEnumerator GenerateCharacterVariantSprites(string nsp, TalkCharacterMeta meta, TaskProgress progress, List<CharacterVariantSprite> list, int maxYieldCount = 1, float scale = 1)
         {
             var characterID = new NamespaceID(nsp, meta.id);
             var count = meta.variants.Count;
@@ -135,7 +135,7 @@ namespace MVZ2.Managers
             for (int i = 0; i < count; i++)
             {
                 var variant = meta.variants[i];
-                var spr = GenerateCharacterVariantSprite(characterID, variant.id);
+                var spr = GenerateCharacterVariantSprite(characterID, variant.id, scale);
                 var cvs = new CharacterVariantSprite()
                 {
                     variant = variant.id,
@@ -152,7 +152,7 @@ namespace MVZ2.Managers
             }
             progress.SetProgress(1, "Finished");
         }
-        private Sprite GenerateCharacterVariantSprite(NamespaceID character, NamespaceID variantID)
+        private Sprite GenerateCharacterVariantSprite(NamespaceID character, NamespaceID variantID, float scale = 1)
         {
             TalkCharacterMeta info = GetCharacterMeta(character);
             TalkCharacterVariant variantInfo = info.GetVariant(variantID);
@@ -162,6 +162,7 @@ namespace MVZ2.Managers
 
             var width = variantInfo.width;
             var height = variantInfo.height;
+
             var imageTexture = new Texture2D(width, height);
             imageTexture.name = $"{character}({variantID})";
 
@@ -214,10 +215,39 @@ namespace MVZ2.Managers
 
             imageTexture.Apply();
 
+            if (scale != 1)
+            {
+                var scaledWidth = Mathf.CeilToInt(width * scale);
+                var scaledHeight = Mathf.CeilToInt(height * scale);
+                var rt = RenderTexture.GetTemporary(scaledWidth, scaledHeight, 0, RenderTextureFormat.Default, RenderTextureReadWrite.Default);
+
+                // 把人物贴图复制到RenderTexture中。
+                Graphics.Blit(imageTexture, rt);
+
+                // 把RenderTexture打成Texture2D。
+                Texture2D scaledTex = new Texture2D(scaledWidth, scaledHeight, imageTexture.format, false);
+                scaledTex.wrapMode = TextureWrapMode.Clamp;
+                scaledTex.filterMode = FilterMode.Bilinear;
+
+                RenderTexture previous = RenderTexture.active;
+                RenderTexture.active = rt;
+                scaledTex.ReadPixels(new Rect(0, 0, scaledWidth, scaledHeight), 0, 0);
+                scaledTex.Apply();
+                RenderTexture.active = previous;
+                RenderTexture.ReleaseTemporary(rt);
+
+                // 替换原来的Texture。
+                scaledTex.name = imageTexture.name;
+                Destroy(imageTexture);
+                imageTexture = scaledTex;
+            }
+
             Sprite spr = CreateSprite(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), spritePivot, imageTexture.name, "character");
             return spr;
         }
         #endregion
+        [SerializeField]
+        private float characterImageScale = 0.7f;
         private Dictionary<Texture2D, Color32[]> characterTextureDict = new Dictionary<Texture2D, Color32[]>();
     }
 }

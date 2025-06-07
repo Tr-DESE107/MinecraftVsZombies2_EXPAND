@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 8461513829554171411}
+  characterImageScale: 0.8
   defaultSprite: {fileID: 21300000, guid: ada34604e282038429a0cd4310662aa1, type: 3}
   generatedSpriteManifest: {fileID: 11400000, guid: cd706561546c5454c978c77fd4f32daa, type: 2}
 --- !u!1 &1307615763681535639
@@ -1431,7 +1432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c0484de27e90f4f8836744286da2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteAssets: []
   fontMaterial: {fileID: 2100000, guid: d2cbe913c30a99b41b601759af7537d9, type: 2}
   backgroundIconMaterial: {fileID: 2100000, guid: 18c4043dd60832748a437c632361f8a1, type: 2}
 --- !u!1 &6896808250176925834

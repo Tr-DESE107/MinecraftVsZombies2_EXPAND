@@ -203,7 +203,7 @@ namespace MVZ2.Managers
                 await LoadMainSpriteManifests(modNamespace, loadProgress);
                 loadProgress.SetProgress(1, "Finished");
 
-                var enumerator = LoadCharacterVariantSprites(modNamespace, variantProgress);
+                var enumerator = LoadCharacterVariantSprites(modNamespace, variantProgress, scale: characterImageScale);
                 await Main.CoroutineManager.ToTask(enumerator);
                 variantProgress.SetProgress(1, "Finished");
             }
