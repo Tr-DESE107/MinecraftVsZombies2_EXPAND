@@ -1389,7 +1389,7 @@
         <enemy id="skeleton_mage" name="骷髅法师" deathMessage="骸死我了" unlock="mvz2:level.mausoleum_7">
             <properties>
                 <float name="mvz2:range" value="800" />
-                <vector3 name="mvz2:shotOffset" x="10" y="60" z="0" />
+                <vector3 name="mvz2:shotOffset" x="10" y="54" z="0" />
                 <vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
                 <id name="mvz2:projectileId" value="mvz2:arrow" />
                 <id name="mvz2:shell" value="mvz2:bone" />
@@ -1881,7 +1881,7 @@
         <projectile id="ice_bolt">
             <properties>
                 <bool name="mvz2:pointToDirection" value="true" />
-                <vector3 name="mvz2:size" x="52" y="20" z="20" />
+                <vector3 name="mvz2:size" x="52" y="16" z="16" />
                 <idArray name="mvz2:damageEffects" value="mvz2:ice mvz2:slow" />
             </properties>
         </projectile>
