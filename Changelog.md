@@ -17,6 +17,7 @@
 - Adjusted the place and hit sound of Hellfire.
 - Adjusted the background texture for command block blueprints.
 - Hellfire's material has been changed to Nether from Stone.
+- Increased the volume height of Mummy Gas by 75%, to prevent that Fire Skeleton Mage's fire balls do not ignite it. Also optimized the display range of gas objects.
 
 ## Fixed
 - Fixed the issue where the held item like blueprint, pickaxe or starshard cannot be canceled by re-clicking it.

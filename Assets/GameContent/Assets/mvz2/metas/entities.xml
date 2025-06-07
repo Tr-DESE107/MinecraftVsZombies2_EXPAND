@@ -1992,7 +1992,7 @@
                 <int name="mvz2:maxTimeout" value="270" />
                 <float name="mvz2:damage" value="1" />
                 <color name="mvz2:tint" value="#FF60FF" />
-                <vector3 name="mvz2:size" x="240" y="40" z="40" />
+                <vector3 name="mvz2:size" x="240" y="70" z="40" />
                 <id name="mvz2:modelId" value="mvz2:entity.gas" />
             </properties>
         </effect>
@@ -2106,7 +2106,7 @@
                 <float name="mvz2:gravity" value="1" />
                 <int name="mvz2:maxTimeout" value="270" />
                 <color name="mvz2:tint" value="#7F7F7F" />
-                <vector3 name="mvz2:size" x="100" y="40" z="40" />
+                <vector3 name="mvz2:size" x="100" y="70" z="40" />
                 <id name="mvz2:modelId" value="mvz2:entity.gas" />
             </properties>
         </effect>

@@ -9,7 +9,11 @@ namespace MVZ2.Models
             base.UpdateLogic();
             var size = Model.GetProperty<Vector3>("Size");
             size = Lawn2TransScale(size);
-            var volume = size.x * (size.y + size.z);
+            var yHeight = size.y + size.z * 0.5f;
+            var volume = size.x * yHeight;
+
+            var gasPosition = new Vector3(0, size.y * 0.5f, 1);
+            var gasScale = new Vector3(size.x, yHeight, 1);
 
             var timeout = Model.GetProperty<int>("Timeout");
             var percentage = Mathf.Clamp01((maxTime - timeout) / (float)expandTime);
@@ -17,7 +21,8 @@ namespace MVZ2.Models
             var firePS = fires.Particles;
             var fireShape = firePS.shape;
             fires.OverrideRateOverTime(volume * ratePerVolume * percentage);
-            fireShape.scale = new Vector3(size.x, size.y + size.z, 1) * percentage;
+            fireShape.position = gasPosition;
+            fireShape.scale = gasScale * percentage;
         }
         [SerializeField]
         private ParticlePlayer fires;
