@@ -1,4 +1,5 @@
-﻿using Tools.Mathematics;
+﻿using Tools;
+using Tools.Mathematics;
 using UnityEngine;
 
 namespace PVZEngine.Entities
@@ -21,9 +22,7 @@ namespace PVZEngine.Entities
             var center = Vector3.Scale(offset, size);
             center += Vector3.Scale(Vector3.one * 0.5f - pivot, size);
 
-            size.x = Mathf.Abs(size.x);
-            size.y = Mathf.Abs(size.y);
-            size.z = Mathf.Abs(size.z);
+            size = size.Abs();
             cache = new Bounds(center, size);
         }
         public bool IsInSphere(Vector3 center, float radius)

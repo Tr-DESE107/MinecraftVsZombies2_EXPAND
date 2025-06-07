@@ -336,7 +336,7 @@ namespace PVZEngine.Entities
         {
             var size = Cache.Size;
             size.Scale(Cache.GetFinalScale());
-            return size;
+            return size.Abs();
         }
         public void SetCenter(Vector3 center)
         {
