@@ -437,17 +437,20 @@ namespace MVZ2.Level
                 entity.SetSimulationSpeed(speed);
                 entity.UpdateFrame(deltaTime * speed);
 
-                entityAnimatorBuffer.Clear();
-                entity.GetAnimatorsToUpdate(entityAnimatorBuffer);
-                foreach (var animator in entityAnimatorBuffer)
+                if (modelActive)
                 {
-                    animator.enabled = false;
-                    entityAnimatorDataBuffer.Add(new AnimatorUpdateData()
+                    entityAnimatorBuffer.Clear();
+                    entity.GetAnimatorsToUpdate(entityAnimatorBuffer);
+                    foreach (var animator in entityAnimatorBuffer)
                     {
-                        animator = animator,
-                        deltaTime = deltaTime,
-                        speed = speed
-                    });
+                        animator.enabled = false;
+                        entityAnimatorDataBuffer.Add(new AnimatorUpdateData()
+                        {
+                            animator = animator,
+                            deltaTime = deltaTime,
+                            speed = speed
+                        });
+                    }
                 }
             }
             UpdateEntityAnimators(entityAnimatorDataBuffer);
