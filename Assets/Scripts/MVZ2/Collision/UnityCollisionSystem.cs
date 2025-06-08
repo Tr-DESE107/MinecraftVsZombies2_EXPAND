@@ -130,30 +130,31 @@ namespace MVZ2.Collisions
         }
         public void OverlapBoxNonAlloc(Vector3 center, Vector3 size, int faction, int hostileMask, int friendlyMask, List<IEntityCollider> results)
         {
-            var hostileLayerMask = UnityCollisionHelper.ToObjectLayerMask(hostileMask);
-            var hostileColliderCount = Physics.OverlapBoxNonAlloc(center, size * 0.5f, overlapBuffer, Quaternion.identity, hostileLayerMask, QueryTriggerInteraction.Collide);
-            for (int i = 0; i < hostileColliderCount; i++)
-            {
-                var col = overlapBuffer[i];
-                var collider = col.GetComponent<UnityEntityCollider>();
-                if (results.Contains(collider))
-                    continue;
-                if (!collider.Entity.IsHostile(faction))
-                    continue;
-                results.Add(collider);
-            }
+            var combinedMask = hostileMask | friendlyMask;
+            var layerMask = UnityCollisionHelper.ToObjectLayerMask(combinedMask);
 
-            var friendlyLayerMask = UnityCollisionHelper.ToObjectLayerMask(friendlyMask);
-            var friendlyColliderCount = Physics.OverlapBoxNonAlloc(center, size * 0.5f, overlapBuffer, Quaternion.identity, friendlyLayerMask, QueryTriggerInteraction.Collide);
-            for (int i = 0; i < friendlyColliderCount; i++)
+            var colliderCount = Physics.OverlapBoxNonAlloc(center, size * 0.5f, overlapBuffer, Quaternion.identity, layerMask, QueryTriggerInteraction.Collide);
+            for (int i = 0; i < colliderCount; i++)
             {
                 var col = overlapBuffer[i];
                 var collider = col.GetComponent<UnityEntityCollider>();
                 if (results.Contains(collider))
                     continue;
-                if (!collider.Entity.IsFriendly(faction))
-                    continue;
-                results.Add(collider);
+                var ent = collider.Entity;
+                if (EntityCollisionHelper.CanCollide(hostileMask, ent))
+                {
+                    if (ent.IsHostile(faction))
+                    {
+                        results.Add(collider);
+                    }
+                }
+                else
+                {
+                    if (ent.IsFriendly(faction))
+                    {
+                        results.Add(collider);
+                    }
+                }
             }
         }
         public IEntityCollider[] OverlapSphere(Vector3 center, float radius, int faction, int hostileMask, int friendlyMask)
@@ -164,30 +165,31 @@ namespace MVZ2.Collisions
         }
         public void OverlapSphereNonAlloc(Vector3 center, float radius, int faction, int hostileMask, int friendlyMask, List<IEntityCollider> results)
         {
-            var hostileLayerMask = UnityCollisionHelper.ToObjectLayerMask(hostileMask);
-            var hostileColliderCount = Physics.OverlapSphereNonAlloc(center, radius, overlapBuffer, hostileLayerMask, QueryTriggerInteraction.Collide);
-            for (int i = 0; i < hostileColliderCount; i++)
-            {
-                var col = overlapBuffer[i];
-                var collider = col.GetComponent<UnityEntityCollider>();
-                if (results.Contains(collider))
-                    continue;
-                if (!collider.Entity.IsHostile(faction))
-                    continue;
-                results.Add(collider);
-            }
+            var combinedMask = hostileMask | friendlyMask;
+            var layerMask = UnityCollisionHelper.ToObjectLayerMask(combinedMask);
 
-            var friendlyLayerMask = UnityCollisionHelper.ToObjectLayerMask(friendlyMask);
-            var friendlyColliderCount = Physics.OverlapSphereNonAlloc(center, radius, overlapBuffer, friendlyLayerMask, QueryTriggerInteraction.Collide);
-            for (int i = 0; i < friendlyColliderCount; i++)
+            var colliderCount = Physics.OverlapSphereNonAlloc(center, radius, overlapBuffer, layerMask, QueryTriggerInteraction.Collide);
+            for (int i = 0; i < colliderCount; i++)
             {
                 var col = overlapBuffer[i];
                 var collider = col.GetComponent<UnityEntityCollider>();
                 if (results.Contains(collider))
                     continue;
-                if (!collider.Entity.IsFriendly(faction))
-                    continue;
-                results.Add(collider);
+                var ent = collider.Entity;
+                if (EntityCollisionHelper.CanCollide(hostileMask, ent))
+                {
+                    if (ent.IsHostile(faction))
+                    {
+                        results.Add(collider);
+                    }
+                }
+                else
+                {
+                    if (ent.IsFriendly(faction))
+                    {
+                        results.Add(collider);
+                    }
+                }
             }
         }
         public IEntityCollider[] OverlapCapsule(Vector3 point0, Vector3 point1, float radius, int faction, int hostileMask, int friendlyMask)
@@ -198,26 +200,31 @@ namespace MVZ2.Collisions
         }
         public void OverlapCapsuleNonAlloc(Vector3 point0, Vector3 point1, float radius, int faction, int hostileMask, int friendlyMask, List<IEntityCollider> results)
         {
-            var hostileLayerMask = UnityCollisionHelper.ToObjectLayerMask(hostileMask);
-            var hostileColliderCount = Physics.OverlapCapsuleNonAlloc(point0, point1, radius, overlapBuffer, hostileLayerMask, QueryTriggerInteraction.Collide);
-            for (int i = 0; i < hostileColliderCount; i++)
-            {
-                var col = overlapBuffer[i];
-                var collider = col.GetComponent<UnityEntityCollider>();
-                if (!collider.Entity.IsHostile(faction))
-                    continue;
-                results.Add(collider);
-            }
+            var combinedMask = hostileMask | friendlyMask;
+            var layerMask = UnityCollisionHelper.ToObjectLayerMask(combinedMask);
 
-            var friendlyLayerMask = UnityCollisionHelper.ToObjectLayerMask(friendlyMask);
-            var friendlyColliderCount = Physics.OverlapCapsuleNonAlloc(point0, point1, radius, overlapBuffer, friendlyLayerMask, QueryTriggerInteraction.Collide);
-            for (int i = 0; i < friendlyColliderCount; i++)
+            var colliderCount = Physics.OverlapCapsuleNonAlloc(point0, point1, radius, overlapBuffer, layerMask, QueryTriggerInteraction.Collide);
+            for (int i = 0; i < colliderCount; i++)
             {
                 var col = overlapBuffer[i];
                 var collider = col.GetComponent<UnityEntityCollider>();
-                if (!collider.Entity.IsFriendly(faction))
+                if (results.Contains(collider))
                     continue;
-                results.Add(collider);
+                var ent = collider.Entity;
+                if (EntityCollisionHelper.CanCollide(hostileMask, ent))
+                {
+                    if (ent.IsHostile(faction))
+                    {
+                        results.Add(collider);
+                    }
+                }
+                else
+                {
+                    if (ent.IsFriendly(faction))
+                    {
+                        results.Add(collider);
+                    }
+                }
             }
         }
         #endregion

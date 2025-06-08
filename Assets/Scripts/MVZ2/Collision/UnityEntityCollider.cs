@@ -88,8 +88,9 @@ namespace MVZ2.Collisions
         }
         public void Simulate()
         {
-            foreach (var collider in touchingColliders)
+            foreach (var colliderCache in touchingColliders)
             {
+                var collider = colliderCache.collider;
                 if (!collider)
                     continue;
                 var otherCollider = collider.GetComponent<UnityEntityCollider>();
@@ -147,16 +148,24 @@ namespace MVZ2.Collisions
         }
         private void OnTriggerStay(Collider other)
         {
-            if (touchingColliders.Contains(other))
-                return;
+            foreach (var c in touchingColliders)
+            {
+                if (c.collider == other)
+                    return;
+            }
             var otherCollider = other.GetComponent<UnityEntityCollider>();
             if (!otherCollider)
                 return;
             var targetEnt = otherCollider.Entity;
+            var cache = new ColliderCache(other, Entity, targetEnt.ID);
             var mask = Entity.IsHostile(targetEnt) ? Entity.CollisionMaskHostile : Entity.CollisionMaskFriendly;
             if (!EntityCollisionHelper.CanCollide(mask, targetEnt))
                 return;
-            touchingColliders.Add(other);
+            var index = touchingColliders.BinarySearch(cache);
+            if (index < 0)
+            {
+                touchingColliders.Insert(~index, cache);
+            }
         }
 
         #region 检测
@@ -230,9 +239,38 @@ namespace MVZ2.Collisions
 
         [SerializeField]
         private BoxCollider boxCollider;
-        private HashSet<Collider> touchingColliders = new HashSet<Collider>();
+        private List<ColliderCache> touchingColliders = new List<ColliderCache>();
         private List<EntityCollision> collisionList = new List<EntityCollision>();
         private ArrayBuffer<EntityCollision> collisionBuffer = new ArrayBuffer<EntityCollision>(1024);
+
+        private struct ColliderCache : IComparable<ColliderCache>, IEquatable<ColliderCache>
+        {
+            public ColliderCache(Collider collider, Entity self, long colliderEntityID)
+            {
+                var prevPos = self.PreviousPosition;
+                this.collider = collider;
+                sqrDistance = (collider.attachedRigidbody.position - prevPos).sqrMagnitude;
+                colliderID = colliderEntityID;
+            }
+            public int CompareTo(ColliderCache other)
+            {
+                var value = sqrDistance.CompareTo(other.sqrDistance);
+                if (value != 0)
+                    return value;
+                return colliderID.CompareTo(other.colliderID);
+            }
+            public bool Equals(ColliderCache other)
+            {
+                return collider == other.collider;
+            }
+            public override int GetHashCode()
+            {
+                return collider.GetHashCode();
+            }
+            public Collider collider;
+            public float sqrDistance;
+            public long colliderID;
+        }
     }
     public class SerializableUnityEntityCollider
     {
