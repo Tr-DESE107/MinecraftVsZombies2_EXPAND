@@ -89,7 +89,22 @@ namespace MVZ2.Models
         {
             Destroy(gameObject);
         }
-        
+        public void GetAnimatorsToUpdate(IList<Animator> results)
+        {
+            GraphicGroup.GetAnimatorsToUpdate(results);
+            foreach (var child in childModels)
+            {
+                child.GetAnimatorsToUpdate(results);
+            }
+        }
+        public void UpdateAnimators(float deltaTime)
+        {
+            GraphicGroup.UpdateAnimators(deltaTime);
+            foreach (var child in childModels)
+            {
+                child.UpdateAnimators(deltaTime);
+            }
+        }
         public void SetSimulationSpeed(float simulationSpeed)
         {
             GraphicGroup.SetSimulationSpeed(simulationSpeed);

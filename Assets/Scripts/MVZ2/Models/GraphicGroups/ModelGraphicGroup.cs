@@ -16,11 +16,30 @@ namespace MVZ2.Models
                 {
                     animator.enabled = true;
                 }
-                else
+            }
+        }
+        public void UpdateAnimators(float deltaTime)
+        {
+            foreach (var animator in animators)
+            {
+                if (!testMode || !Application.isEditor)
                 {
                     animator.enabled = false;
                     animator.Update(deltaTime);
                 }
+            }
+        }
+        public void GetAnimatorsToUpdate(IList<Animator> results)
+        {
+            foreach (var animator in animators)
+            {
+                if (testMode && Application.isEditor)
+                    continue;
+                if (!animator.runtimeAnimatorController)
+                    continue;
+                if (!animator.gameObject.activeInHierarchy)
+                    continue;
+                results.Add(animator);
             }
         }
         public virtual void SetSimulationSpeed(float speed)

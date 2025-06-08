@@ -68,6 +68,7 @@ namespace MVZ2.Entities
             Model.OnUpdateFrame += OnModelUpdateFrameCallback;
             modelPropertyCache.UpdateAll(this);
             Model.UpdateFrame(0);
+            Model.UpdateAnimators(0);
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {
@@ -102,6 +103,20 @@ namespace MVZ2.Entities
             if (Model)
             {
                 Model.UpdateFrame(deltaTime);
+            }
+        }
+        public void UpdateAnimators(float deltaTime)
+        {
+            if (Model)
+            {
+                Model.UpdateAnimators(deltaTime);
+            }
+        }
+        public void GetAnimatorsToUpdate(IList<Animator> results)
+        {
+            if (Model)
+            {
+                Model.GetAnimatorsToUpdate(results);
             }
         }
         #endregion
@@ -199,6 +214,7 @@ namespace MVZ2.Entities
         private void PostInitCallback()
         {
             UpdateFrame(0);
+            UpdateAnimators(0);
         }
         private void PostPropertyChangedCallback(IPropertyKey key, object beforeValue, object afterValue)
         {

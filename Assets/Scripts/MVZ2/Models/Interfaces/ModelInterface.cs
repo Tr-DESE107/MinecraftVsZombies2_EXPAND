@@ -12,6 +12,7 @@ namespace MVZ2.Models
             if (!targetModel)
                 return;
             targetModel.UpdateFrame(0);
+            targetModel.UpdateAnimators(0);
         }
         public void TriggerAnimation(string name)
         {

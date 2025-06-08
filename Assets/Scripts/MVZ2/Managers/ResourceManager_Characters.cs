@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using MVZ2.Metas;
 using MVZ2.Sprites;
 using MVZ2.Talk;

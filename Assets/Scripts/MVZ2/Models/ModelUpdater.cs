@@ -8,7 +8,9 @@ namespace MVZ2.Models
         {
             if (model)
             {
-                model.UpdateFrame(Time.deltaTime);
+                var deltaTime = Time.deltaTime;
+                model.UpdateFrame(deltaTime);
+                model.UpdateAnimators(deltaTime);
             }
         }
         private void FixedUpdate()

@@ -46,6 +46,7 @@ namespace MVZ2.Level
             if (model)
             {
                 model.UpdateFrame(deltaTime);
+                model.UpdateAnimators(deltaTime);
             }
         }
         public override BlueprintViewData GetBlueprintViewData()

@@ -119,6 +119,7 @@ namespace MVZ2.Level
                         throw new SerializationException($"Could not find entity data with id {entity.ID} in the level state data.");
                     controller.LoadFromSerializable(seriEntity);
                     controller.UpdateFrame(0);
+                    controller.UpdateAnimators(0);
                 }
                 model.LoadFromSerializable(seri.areaModel);
             }

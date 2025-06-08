@@ -241,6 +241,23 @@ namespace MVZ2.Level
             return unityCollisionSystem;
         }
 
+        private void UpdateEntityAnimators(IList<AnimatorUpdateData> toUpdate)
+        {
+            var count = toUpdate.Count;
+            var updateCount = Mathf.Min(count, maxAnimatorUpdateCount);
+            var updateSpeed = Mathf.CeilToInt(count / (float)updateCount);
+            var startIndex = currentEntityAnimatorIndex;
+            for (int i = 0; i < updateCount; i++)
+            {
+                var index = (i + startIndex) % count;
+                var data = toUpdate[index];
+                if (!data.animator)
+                    continue;
+                data.animator.Update(data.deltaTime * data.speed * updateSpeed);
+            }
+            currentEntityAnimatorIndex += updateCount;
+        }
+
         #endregion
 
         #region 属性字段
@@ -257,6 +274,9 @@ namespace MVZ2.Level
         private List<EntityController> entities = new List<EntityController>();
         private EntityController hoveredEntity;
         private EntityController highlightedEntity;
+        private List<Animator> entityAnimatorBuffer = new List<Animator>();
+        private List<AnimatorUpdateData> entityAnimatorDataBuffer = new List<AnimatorUpdateData>();
+        private int currentEntityAnimatorIndex = 0;
 
         #region 保存属性
         private FrameTimer cryTimer = new FrameTimer(MaxCryInterval);
@@ -264,6 +284,8 @@ namespace MVZ2.Level
         #endregion
 
         [Header("Entities")]
+        [SerializeField]
+        private int maxAnimatorUpdateCount = 128;
         [SerializeField]
         private EntityController entityTemplate;
         [SerializeField]
@@ -308,5 +330,11 @@ namespace MVZ2.Level
                 };
             }
         }
+    }
+    public struct AnimatorUpdateData
+    {
+        public Animator animator;
+        public float deltaTime;
+        public float speed;
     }
 }

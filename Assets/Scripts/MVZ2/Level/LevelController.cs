@@ -412,6 +412,8 @@ namespace MVZ2.Level
         {
             float gameSpeed = isGameOver ? 1 : GetGameSpeed();
             bool gameRunning = IsGameRunning();
+
+            entityAnimatorDataBuffer.Clear();
             // 更新实体动画。
             foreach (var entity in entities)
             {
@@ -434,7 +436,22 @@ namespace MVZ2.Level
                 float speed = modelActive ? gameSpeed : 0;
                 entity.SetSimulationSpeed(speed);
                 entity.UpdateFrame(deltaTime * speed);
+
+                entityAnimatorBuffer.Clear();
+                entity.GetAnimatorsToUpdate(entityAnimatorBuffer);
+                foreach (var animator in entityAnimatorBuffer)
+                {
+                    animator.enabled = false;
+                    entityAnimatorDataBuffer.Add(new AnimatorUpdateData()
+                    {
+                        animator = animator,
+                        deltaTime = deltaTime,
+                        speed = speed
+                    });
+                }
             }
+            UpdateEntityAnimators(entityAnimatorDataBuffer);
+
             if (!isGameOver)
             {
                 // 游戏运行时更新UI。
