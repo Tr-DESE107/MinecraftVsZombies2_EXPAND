@@ -696,7 +696,7 @@
                 <idArray name="mvz2:gridLayers" value="mvz2:main mvz2:carrier" />
 
                 <int name="mvz2:cost" value="125" />
-                <id name="mvz2:rechargeId" value="mvz2:short" />
+                <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
         <contraption id="black_hole_bomb" name="黑洞炸弹" tooltip="触发后产生引力黑洞" unlock="mvz2:level.mausoleum_8">
