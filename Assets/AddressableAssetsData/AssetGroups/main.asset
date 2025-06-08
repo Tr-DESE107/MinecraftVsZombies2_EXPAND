@@ -3844,6 +3844,11 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66c80321e0451e64da6a595d08b4e02c
+    m_Address: entities
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 66d6b2cec1b5a03498ee84ec03d69134
     m_Address: mvz2:characters/doremy
     m_ReadOnly: 0
