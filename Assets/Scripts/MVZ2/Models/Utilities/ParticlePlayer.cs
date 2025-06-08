@@ -187,9 +187,13 @@ namespace MVZ2.Models
             {
                 case ParticleState.Playing:
                     particle.Play();
-                    particle.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+                    if (particle.isEmitting)
+                    {
+                        particle.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+                    }
                     break;
                 case ParticleState.Pausing:
+                    particle.Play(false);
                     particle.Pause(false);
                     break;
                 case ParticleState.EmittingAndPlaying:

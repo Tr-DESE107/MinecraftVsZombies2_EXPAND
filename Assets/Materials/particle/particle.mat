@@ -109,6 +109,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _BackgroundLit: 0
     - _BlackAlpha: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
@@ -154,6 +155,7 @@ Material:
     - _HSVTint: 0
     - _HurtAlpha: 0
     - _LIT: 1
+    - _LightDisabled: 0
     - _LightingEnabled: 1
     - _MagentaAlpha: 0
     - _Metallic: 0
