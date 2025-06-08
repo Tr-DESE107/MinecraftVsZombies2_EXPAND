@@ -3,6 +3,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
@@ -11,6 +12,10 @@ namespace MVZ2.GameContent.HeldItems
     {
         public TriggerCartHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
+        }
+        public override HeldTargetFlag GetHeldTargetMask(LevelEngine level)
+        {
+            return HeldTargetFlag.Cart;
         }
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {

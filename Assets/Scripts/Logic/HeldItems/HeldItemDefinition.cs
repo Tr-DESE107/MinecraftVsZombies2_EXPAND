@@ -60,6 +60,15 @@ namespace MVZ2Logic.HeldItems
         {
             behavioursCache.Clear();
         }
+        public HeldTargetFlag GetHeldTargetMask(LevelEngine level)
+        {
+            HeldTargetFlag mask = 0;
+            foreach (var behaviour in GetBehaviours())
+            {
+                mask |= behaviour.GetHeldTargetMask(level);
+            }
+            return mask;
+        }
         public bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerData pointer)
         {
             var interactionData = new PointerInteractionData()

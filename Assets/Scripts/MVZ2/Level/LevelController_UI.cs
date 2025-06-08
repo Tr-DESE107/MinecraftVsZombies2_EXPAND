@@ -135,6 +135,13 @@ namespace MVZ2.Level
             // 更新网格。
             UpdateGridHighlight();
         }
+        public void UpdateEntityHeldTargetColliders(HeldTargetFlag mask)
+        {
+            foreach (var entity in entities)
+            {
+                entity.UpdateModelColliderActive(mask);
+            }
+        }
         public IModelInterface GetHeldItemModelInterface()
         {
             return heldItemModelInterface;

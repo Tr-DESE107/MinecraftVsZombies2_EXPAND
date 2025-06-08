@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 234888048645700515, guid: 8831902be3baaeb42bd2369c1e280b2f, type: 3}
+      propertyPath: heldTargetFlag
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 5134337979047610562, guid: 8831902be3baaeb42bd2369c1e280b2f, type: 3}
       propertyPath: m_Name
       value: PickupModel
@@ -89,3 +93,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2463ff9d0c1d8054a9ed8b9d322f26a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scale: 2.5

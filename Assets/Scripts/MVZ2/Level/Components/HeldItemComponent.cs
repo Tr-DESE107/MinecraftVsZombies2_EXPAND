@@ -56,7 +56,11 @@ namespace MVZ2.Level.Components
             Controller.SetHeldItemUI(info);
 
             var definition = Level.Content.GetHeldItemDefinition(Data.Type);
-            definition?.Begin(Level, Data);
+            if (definition != null)
+            {
+                definition.Begin(Level, Data);
+            }
+            Controller.UpdateEntityHeldTargetColliders(definition?.GetHeldTargetMask(Level) ?? HeldTargetFlag.None);
         }
         public IModelInterface GetHeldItemModelInterface()
         {
@@ -74,6 +78,9 @@ namespace MVZ2.Level.Components
             info.InstantTrigger = false;
             info.InstantEvoke = false;
             Controller.SetHeldItemUI(info);
+
+            var definition = Level.Content.GetHeldItemDefinition(Data.Type);
+            Controller.UpdateEntityHeldTargetColliders(definition?.GetHeldTargetMask(Level) ?? HeldTargetFlag.None);
         }
         public bool CancelHeldItem()
         {

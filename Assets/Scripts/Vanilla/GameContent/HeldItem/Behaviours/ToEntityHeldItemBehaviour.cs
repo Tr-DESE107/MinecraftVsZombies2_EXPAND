@@ -7,6 +7,7 @@ using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
@@ -17,6 +18,11 @@ namespace MVZ2.GameContent.HeldItems
         }
 
         #region 实体
+
+        public override HeldTargetFlag GetHeldTargetMask(LevelEngine level)
+        {
+            return HeldTargetFlag.Plant;
+        }
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerInteraction)
         {
             var pointer = pointerInteraction.pointer;

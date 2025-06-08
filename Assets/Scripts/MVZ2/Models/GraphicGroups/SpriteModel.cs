@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MVZ2Logic.HeldItems;
+using UnityEngine;
 
 namespace MVZ2.Models
 {
@@ -21,6 +22,13 @@ namespace MVZ2.Models
         {
             RendererGroup.CancelSortAtRoot();
         }
+        public void SetColliderActive(bool active)
+        {
+            if (colliderObject)
+            {
+                colliderObject.SetActive(active);
+            }
+        }
         protected override SerializableModelData CreateSerializable()
         {
             var serializable = new SerializableSpriteModelData();
@@ -36,10 +44,15 @@ namespace MVZ2.Models
         }
         public override ModelGraphicGroup GraphicGroup => RendererGroup;
         public Collider2D Collider => modelCollider;
+        public HeldTargetFlag HeldTargetFlag => heldTargetFlag;
         public ModelRendererGroup RendererGroup => rendererGroup;
         [Header("Sprite")]
         [SerializeField]
+        private GameObject colliderObject;
+        [SerializeField]
         private Collider2D modelCollider;
+        [SerializeField]
+        private HeldTargetFlag heldTargetFlag;
         [SerializeField]
         private ModelRendererGroup rendererGroup;
         [SerializeField]

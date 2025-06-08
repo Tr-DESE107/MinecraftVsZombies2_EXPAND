@@ -24,6 +24,10 @@ namespace MVZ2.GameContent.HeldItems
         public SelectBlueprintHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
+        public override HeldTargetFlag GetHeldTargetMask(LevelEngine level)
+        {
+            return HeldTargetFlag.Pickup;
+        }
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerInteraction)
         {
             var pointer = pointerInteraction.pointer;

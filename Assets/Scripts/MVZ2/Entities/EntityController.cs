@@ -46,6 +46,9 @@ namespace MVZ2.Entities
             if (Model)
             {
                 ClearAllArmorModels();
+                var lvl = Entity.Level;
+                var heldItemDef = lvl.GetHeldItemDefinition();
+                UpdateModelColliderActive(heldItemDef?.GetHeldTargetMask(lvl) ?? HeldTargetFlag.None);
             }
 
             transform.position = Level.LawnToTrans(Entity.Position);
@@ -121,6 +124,13 @@ namespace MVZ2.Entities
         }
         #endregion
 
+        public void UpdateModelColliderActive(HeldTargetFlag flag)
+        {
+            if (Model is SpriteModel sprModel)
+            {
+                sprModel.SetColliderActive((flag & sprModel.HeldTargetFlag) != HeldTargetFlag.None);
+            }
+        }
         public void SetHighlight(bool highlight)
         {
             isHighlight = highlight;

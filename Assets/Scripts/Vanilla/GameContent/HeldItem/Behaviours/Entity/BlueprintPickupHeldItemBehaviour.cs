@@ -26,6 +26,10 @@ namespace MVZ2.GameContent.HeldItems
         {
         }
 
+        public override HeldTargetFlag GetHeldTargetMask(LevelEngine level)
+        {
+            return HeldTargetFlag.Pickup;
+        }
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             if (target is HeldItemTargetGrid)

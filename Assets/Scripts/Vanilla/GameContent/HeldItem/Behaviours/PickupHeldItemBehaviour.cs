@@ -6,6 +6,7 @@ using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.HeldItems
 {
@@ -16,6 +17,10 @@ namespace MVZ2.GameContent.HeldItems
         {
         }
 
+        public override HeldTargetFlag GetHeldTargetMask(LevelEngine level)
+        {
+            return HeldTargetFlag.Pickup;
+        }
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
             if (target is not HeldItemTargetEntity entityTarget)
