@@ -477,15 +477,10 @@ namespace PVZEngine.Level
             level.grids = seri.grids.Select(g => LawnGrid.Deserialize(g, level)).ToArray();
             level.properties = PropertyBlock.FromSerializable(seri.properties, level);
 
-            level.seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.Deserialize(g, level) : null).ToArray();
-            level.conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => s != null ? ConveyorSeedPack.Deserialize(s, level) : null).ToList();
-            level.conveyorSlotCount = seri.conveyorSlotCount;
-            level.conveyorSeedSpendRecord = ConveyorSeedSpendRecords.ToDeserialized(seri.conveyorSeedSpendRecord);
-
+            level.Energy = seri.energy;
             level.currentEntityID = seri.currentEntityID;
             level.currentBuffID = seri.currentBuffID;
             level.currentSeedPackID = seri.currentSeedPackID;
-
 
             level.CurrentWave = seri.currentWave;
             level.CurrentFlag = seri.currentFlag;
@@ -494,7 +489,12 @@ namespace PVZEngine.Level
             level.spawnedLanes = seri.spawnedLanes;
             level.spawnedID = seri.spawnedID;
 
-            // 在网格加载后面
+            level.conveyorSlotCount = seri.conveyorSlotCount;
+            level.conveyorSeedSpendRecord = ConveyorSeedSpendRecords.ToDeserialized(seri.conveyorSeedSpendRecord);
+
+            // 加载所有种子包。
+            level.seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.Deserialize(g, level) : null).ToArray();
+            level.conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => s != null ? ConveyorSeedPack.Deserialize(s, level) : null).ToList();
             // 加载所有实体。
             foreach (var ent in seri.entities)
             {
@@ -505,6 +505,33 @@ namespace PVZEngine.Level
             {
                 var entity = Entity.CreateDeserializingEntity(ent, level);
                 level.entityTrash.Add(ent.id, entity);
+            }
+            // 加载所有BUFF。
+            level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
+            level.buffs.OnPropertyChanged += level.UpdateBuffedProperty;
+
+            // 所有实体、种子包和BUFF都已加载完毕。
+
+
+            // 加载所有种子包、实体、BUFF的详细信息。
+            // 因为有光环这种东西的存在，可能会引用buff，所以需要在buff加载完之后加载。
+            foreach (var seed in level.seedPacks)
+            {
+                if (seed == null)
+                    continue;
+                var seriSeed = seri.seedPacks.FirstOrDefault(s => s.id == seed.ID);
+                if (seriSeed == null)
+                    continue;
+                seed.ApplyDeserializedProperties(level, seriSeed);
+            }
+            foreach (var seed in level.conveyorSeedPacks)
+            {
+                if (seed == null)
+                    continue;
+                var seriSeed = seri.conveyorSeedPacks.FirstOrDefault(s => s.id == seed.ID);
+                if (seriSeed == null)
+                    continue;
+                seed.ApplyDeserializedProperties(level, seriSeed);
             }
             for (int i = 0; i < level.entities.Count; i++)
             {
@@ -518,9 +545,11 @@ namespace PVZEngine.Level
                 var id = seriEnt.id;
                 level.entityTrash[id].ApplyDeserialize(seriEnt);
             }
+            level.buffs.LoadAuras(seri.buffs, level);
+
             // 在实体加载后面
             level.collisionSystem.LoadFromSerializable(level, seri.collisionSystem);
-            // 加载所有网格的属性。
+            // 加载所有网格的属性，需要引用实体。
             for (int i = 0; i < level.grids.Length; i++)
             {
                 var grid = level.grids[i];
@@ -528,10 +557,7 @@ namespace PVZEngine.Level
                 grid.LoadFromSerializable(seriGrid, level);
             }
 
-            level.Energy = seri.energy;
             level.delayedEnergyEntities = seri.delayedEnergyEntities.ToDictionary(d => level.FindEntityByID(d.entityId), d => d.energy);
-            level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
-            level.buffs.OnPropertyChanged += level.UpdateBuffedProperty;
             level.UpdateAllBuffedProperties();
 
             return level;

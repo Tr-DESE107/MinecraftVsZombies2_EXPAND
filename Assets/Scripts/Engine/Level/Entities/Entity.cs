@@ -919,8 +919,7 @@ namespace PVZEngine.Entities
                     takenGrids.Add(grid, takenGrid.layers.ToHashSet());
                 }
             }
-            CreateAuraEffects();
-            auras.LoadFromSerializable(Level, seri.auras);
+            LoadAuras(seri);
 
             UpdateModifierCaches();
             UpdateAllBuffedProperties();
@@ -937,6 +936,22 @@ namespace PVZEngine.Entities
             entity.buffs.OnModelInsertionAdded += entity.OnBuffModelAddCallback;
             entity.buffs.OnModelInsertionRemoved += entity.OnBuffModelRemoveCallback;
             return entity;
+        }
+        public void LoadAuras(SerializableEntity seri)
+        {
+            CreateAuraEffects();
+            auras.LoadFromSerializable(Level, seri.auras);
+
+            foreach (var pair in armorDict)
+            {
+                var armor = pair.Value;
+                if (armor == null)
+                    continue;
+                var seriArmor = seri.armors.Values.FirstOrDefault(a => a.slot == pair.Key);
+                if (seriArmor == null)
+                    continue;
+                armor.LoadAuras(seriArmor);
+            }
         }
         #endregion
 

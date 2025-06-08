@@ -196,6 +196,10 @@ namespace PVZEngine.Armors
             armor.UpdateAllBuffedProperties();
             return armor;
         }
+        public void LoadAuras(SerializableArmor seri)
+        {
+            buffs.LoadAuras(seri.buffs, Level);
+        }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         Entity IBuffTarget.GetEntity() => Owner;
         Armor IBuffTarget.GetArmor() => this;

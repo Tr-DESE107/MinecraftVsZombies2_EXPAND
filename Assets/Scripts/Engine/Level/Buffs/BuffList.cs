@@ -338,6 +338,18 @@ namespace PVZEngine.Buffs
             buffList.UpdateModifierCaches();
             return buffList;
         }
+        public void LoadAuras(SerializableBuffList serializable, LevelEngine level)
+        {
+            foreach (var buff in buffs)
+            {
+                if (buff == null)
+                    continue;
+                var seriBuff = serializable.buffs.FirstOrDefault(b => b.id == buff.ID);
+                if (seriBuff == null)
+                    continue;
+                buff.LoadAuras(seriBuff, level);
+            }
+        }
         #endregion
 
         public event Action<string, NamespaceID, NamespaceID> OnModelInsertionAdded;
