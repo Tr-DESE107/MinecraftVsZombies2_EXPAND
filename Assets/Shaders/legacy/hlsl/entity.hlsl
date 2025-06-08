@@ -126,15 +126,15 @@ half4 EntityFrag(v2f_entity i) : SV_Target
 half4 EntityFrag(v2f_entity i) : SV_Target
 {
     half4 col = tex2D(_MainTex, i.uv);
+    if (_Grayscale > 0)
+    {
+        col = Grayscale(col);
+    }
     col = Tint(col, _Color);
     col = Tint(col, i.color);
 #if HSV_TINT
     col = ModifyHSV(col, _HSVOffset);
 #endif
-    if (_Grayscale > 0)
-    {
-        col = Grayscale(col);
-    }
                 
     col.rgb = col.rgb + _ColorOffset.rgb;
                             
