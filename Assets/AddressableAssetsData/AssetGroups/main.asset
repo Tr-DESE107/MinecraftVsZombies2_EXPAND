@@ -1577,6 +1577,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Scene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ce41f329f103924d8955cb653fbf631
+    m_Address: bosses
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cf19462984a14b4cbd808d15638e9bd
     m_Address: mvz2:arcade/arcade_category_puzzle
     m_ReadOnly: 0

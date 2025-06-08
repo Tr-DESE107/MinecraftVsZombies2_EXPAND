@@ -1,12 +1,12 @@
 #include "UnityCG.cginc"
 
 sampler2D _LightMapSpot;
+float4 _LightMapST;
+int _LightStarted;
 half4 _LightGlobal;
 half4 _LightBackground;
-int _LightStarted;
-int _LightDisabled;
 int _BackgroundLit;
-float4 _LightMapST;
+
 
 float2 GetLightUV(float4 vertex)
 {
@@ -50,9 +50,28 @@ half4 GetLight(float2 lightUV)
         return spot + global;
     }
 }
+
+
+#if defined(INSTANCING_ON)
+UNITY_INSTANCING_BUFFER_START(Light_Props)
+UNITY_DEFINE_INSTANCED_PROP(int, _LightDisabled)
+UNITY_INSTANCING_BUFFER_END(Light_Props)
+
+bool LightDisabled()
+{
+    return UNITY_ACCESS_INSTANCED_PROP(Light_Props, _LightDisabled) > 0;
+}
+#else
+int _LightDisabled;
+bool LightDisabled()
+{
+    return _LightDisabled > 0;
+}
+#endif
+
 half4 ApplyLight(half4 col, float2 lightUV)
 {
-    if (!_LightDisabled && _LightStarted)
+    if (!LightDisabled() && _LightStarted)
     {
         half4 light = GetLight(lightUV);
         half4 colLin = ToLinear(col);

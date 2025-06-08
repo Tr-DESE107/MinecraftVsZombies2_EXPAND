@@ -89,6 +89,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BackgroundLit: 0
     - _BlackAlpha: 0
     - _BumpScale: 1
     - _Burn: 0
@@ -114,6 +115,7 @@ Material:
     - _HSVTint: 0
     - _HurtAlpha: 0
     - _LIT: 1
+    - _LightDisabled: 0
     - _MagentaAlpha: 0
     - _Metallic: 0
     - _Mode: 0

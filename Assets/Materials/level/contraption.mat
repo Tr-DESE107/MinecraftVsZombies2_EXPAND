@@ -77,6 +77,7 @@ Material:
     - _GreenAlpha: 0
     - _HSVTint: 0
     - _LIT: 1
+    - _LightDisabled: 0
     - _MagentaAlpha: 0
     - _RedAlpha: 0
     - _WhiteAlpha: 0
