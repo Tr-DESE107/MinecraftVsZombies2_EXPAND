@@ -2535,7 +2535,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 98205920557924259, guid: 3797a666ec2b66844ba158667be7226a, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 14.95
       objectReference: {fileID: 0}
     - target: {fileID: 98205920557924259, guid: 3797a666ec2b66844ba158667be7226a, type: 3}
       propertyPath: m_fontSizeMax
@@ -3715,6 +3715,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6274483220813671470}
     - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: artifactRepickButton
+      value: 
+      objectReference: {fileID: 7571885930013467938}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: blueprintChoosePanel
       value: 
       objectReference: {fileID: 1651196571871797559}
@@ -4277,6 +4281,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4292,6 +4320,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2670349775496327295, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
   m_PrefabInstance: {fileID: 8222884384366124113}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7571885930013467938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1948145373076060531, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+  m_PrefabInstance: {fileID: 8222884384366124113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8696309110706659426 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 770945428376402995, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}

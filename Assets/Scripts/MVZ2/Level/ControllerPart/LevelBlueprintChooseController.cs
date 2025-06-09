@@ -62,6 +62,7 @@ namespace MVZ2.Level
 
             chooseUI.OnViewLawnReturnClick += UI_OnViewLawnReturnClickCallback;
 
+            chooseUI.OnArtifactRepickButtonClick += UI_OnArtifactRepickButtonClickCallback;
             chooseUI.OnArtifactChoosingItemClicked += UI_OnArtifactChooseItemClickCallback;
             chooseUI.OnArtifactChoosingItemEnter += UI_OnArtifactChooseItemPointerEnterCallback;
             chooseUI.OnArtifactChoosingItemExit += UI_OnArtifactChooseItemPointerExitCallback;
@@ -359,7 +360,7 @@ namespace MVZ2.Level
         #endregion
 
         #region 替换
-        public async void ReplaceChoosing(BlueprintSelectionItem[] blueprints, ArtifactSelectionItem[] artifacts)
+        public async void ReplaceChoosingBlueprints(BlueprintSelectionItem[] blueprints)
         {
             if (blueprints != null)
             {
@@ -375,19 +376,21 @@ namespace MVZ2.Level
                     await Main.Scene.ShowDialogMessageAsync(title, desc);
                 }
             }
-            if (artifacts != null)
+        }
+        public async void ReplaceChoosingArtifacts(ArtifactSelectionItem[] artifacts)
+        {
+            if (artifacts == null)
+                return;
+            if (ValidateReplaceArtifacts(artifacts, out var artifactMessage))
             {
-                if (ValidateReplaceArtifacts(artifacts, out var artifactMessage))
-                {
-                    var alignedArtifacts = artifacts.Where(i => NamespaceID.IsValid(i.id)).ToArray();
-                    ReplaceArtifacts(alignedArtifacts);
-                }
-                else
-                {
-                    var title = Main.LanguageManager._(VanillaStrings.ERROR);
-                    var desc = Main.LanguageManager._(artifactMessage);
-                    await Main.Scene.ShowDialogMessageAsync(title, desc);
-                }
+                var alignedArtifacts = artifacts.Where(i => NamespaceID.IsValid(i.id)).ToArray();
+                ReplaceArtifacts(alignedArtifacts);
+            }
+            else
+            {
+                var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                var desc = Main.LanguageManager._(artifactMessage);
+                await Main.Scene.ShowDialogMessageAsync(title, desc);
             }
         }
         private bool ValidateReplaceBlueprints(BlueprintSelectionItem[] blueprints, out string errorMessage)
@@ -762,6 +765,9 @@ namespace MVZ2.Level
             var hasArtifacts = Main.SaveManager.GetUnlockedArtifacts().Length > 0;
             chooseUI.SetArtifactSlotsActive(hasArtifacts);
 
+            var lastSelection = Main.SaveManager.GetLastSelection();
+            chooseUI.SetArtifactRepickButtonActive(lastSelection?.artifacts != null);
+
             int artifactCount = Level.GetArtifactSlotCount();
             chooseUI.ResetArtifactSlotCount(artifactCount);
 
@@ -821,6 +827,8 @@ namespace MVZ2.Level
         }
         private void InheritArtifacts()
         {
+            int artifactCount = Level.GetArtifactSlotCount();
+            chosenArtifacts = new NamespaceID[artifactCount];
             if (Level.CurrentFlag > 0)
             {
                 InheritChosenArtifacts();
@@ -832,8 +840,6 @@ namespace MVZ2.Level
         }
         private void InheritChosenArtifacts()
         {
-            int artifactCount = Level.GetArtifactSlotCount();
-            chosenArtifacts = new NamespaceID[artifactCount];
             for (int i = 0; i < chosenArtifacts.Length; i++)
             {
                 var artifact = Level.GetArtifactAt(i);
@@ -856,8 +862,6 @@ namespace MVZ2.Level
             var lastSelection = Main.SaveManager.GetLastSelection();
             if (lastSelection == null || lastSelection.artifacts == null)
                 return;
-            int artifactCount = Level.GetArtifactSlotCount();
-            chosenArtifacts = new NamespaceID[artifactCount];
             for (int i = 0; i < chosenArtifacts.Length; i++)
             {
                 if (i >= lastSelection.artifacts.Length)
@@ -1087,12 +1091,19 @@ namespace MVZ2.Level
             if (lastSelection == null)
                 return;
             var blueprints = lastSelection.blueprints;
-            var artifacts = lastSelection.artifacts;
-            ReplaceChoosing(blueprints, artifacts);
+            ReplaceChoosingBlueprints(blueprints);
         }
         #endregion
 
         #region 制品槽
+        private void UI_OnArtifactRepickButtonClickCallback()
+        {
+            var lastSelection = Main.SaveManager.GetLastSelection();
+            if (lastSelection == null)
+                return;
+            var artifacts = lastSelection.artifacts;
+            ReplaceChoosingArtifacts(artifacts);
+        }
         private void UI_OnArtifactSlotPointerEnterCallback(int index)
         {
             var id = chosenArtifacts[index];

@@ -142,6 +142,10 @@ namespace MVZ2.UI
         {
             artifactSlotsRoot.SetActive(visible);
         }
+        public void SetArtifactRepickButtonActive(bool visible)
+        {
+            artifactRepickButton.gameObject.SetActive(visible);
+        }
         public ArtifactSlot GetArtifactSlotAt(int index)
         {
             return artifactSlotList.getElement<ArtifactSlot>(index);
@@ -198,6 +202,8 @@ namespace MVZ2.UI
         private void Awake()
         {
             viewLawnReturnButton.onClick.AddListener(() => OnViewLawnReturnClick?.Invoke());
+
+            artifactRepickButton.onClick.AddListener(() => OnArtifactRepickButtonClick?.Invoke());
 
             artifactChoosingDialog.OnItemClicked += (index) => OnArtifactChoosingItemClicked?.Invoke(index);
             artifactChoosingDialog.OnItemPointerEnter += (index) => OnArtifactChoosingItemEnter?.Invoke(index);
@@ -266,6 +272,7 @@ namespace MVZ2.UI
         public event Action<int> OnArtifactChoosingItemEnter;
         public event Action<int> OnArtifactChoosingItemExit;
         public event Action OnArtifactChoosingBackClicked;
+        public event Action OnArtifactRepickButtonClick;
         #endregion
 
         float sideUIBlend = 1;
@@ -305,5 +312,7 @@ namespace MVZ2.UI
         GameObject artifactSlotsRoot;
         [SerializeField]
         ElementListUI artifactSlotList;
+        [SerializeField]
+        Button artifactRepickButton;
     }
 }

@@ -3095,19 +3095,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2833928390424003842, guid: b87d8e4f4f9ad0a48b89e12ab6fc54c0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2833928390424003842, guid: b87d8e4f4f9ad0a48b89e12ab6fc54c0, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2833928390424003842, guid: b87d8e4f4f9ad0a48b89e12ab6fc54c0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 120
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2833928390424003842, guid: b87d8e4f4f9ad0a48b89e12ab6fc54c0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4414654240135926925, guid: b87d8e4f4f9ad0a48b89e12ab6fc54c0, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3671,6 +3671,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464365776219409583, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3690,6 +3714,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18741b4c358492b4d9414fed5cbdde93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5773845970319501790 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1948145373076060531, guid: a8ba0cdb2fd8d98488f7e0ea9f6cfcbe, type: 3}
+  m_PrefabInstance: {fileID: 5416108192343134381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7937345087081717970 stripped
@@ -4460,6 +4495,10 @@ PrefabInstance:
       propertyPath: artifactSlotsRoot
       value: 
       objectReference: {fileID: 7937345087081717970}
+    - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
+      propertyPath: artifactRepickButton
+      value: 
+      objectReference: {fileID: 5773845970319501790}
     - target: {fileID: 427722801915550483, guid: e6b0f07f1ea020343960f99660d3ab09, type: 3}
       propertyPath: blueprintChoosePanel
       value: 
