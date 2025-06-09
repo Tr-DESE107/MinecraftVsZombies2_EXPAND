@@ -365,7 +365,7 @@ namespace PVZEngine.Level
             if (buffDef == null)
                 return null;
             var buff = CreateBuff(buffDef, AllocBuffID());
-            buffs.AddBuff(buff);
+            AddBuff(buff);
             return buff;
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
