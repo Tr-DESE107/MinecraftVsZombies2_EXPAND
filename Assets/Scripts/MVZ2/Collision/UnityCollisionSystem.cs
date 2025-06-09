@@ -150,19 +150,13 @@ namespace MVZ2.Collisions
                 if (results.Contains(collider))
                     continue;
                 var ent = collider.Entity;
-                if (EntityCollisionHelper.CanCollide(hostileMask, ent))
+                if (EntityCollisionHelper.CanCollide(hostileMask, ent) && ent.IsHostile(faction))
                 {
-                    if (ent.IsHostile(faction))
-                    {
-                        results.Add(collider);
-                    }
+                    results.Add(collider);
                 }
-                else
+                else if (EntityCollisionHelper.CanCollide(friendlyMask, ent) && ent.IsFriendly(faction))
                 {
-                    if (ent.IsFriendly(faction))
-                    {
-                        results.Add(collider);
-                    }
+                    results.Add(collider);
                 }
             }
         }
@@ -185,19 +179,13 @@ namespace MVZ2.Collisions
                 if (results.Contains(collider))
                     continue;
                 var ent = collider.Entity;
-                if (EntityCollisionHelper.CanCollide(hostileMask, ent))
+                if (EntityCollisionHelper.CanCollide(hostileMask, ent) && ent.IsHostile(faction))
                 {
-                    if (ent.IsHostile(faction))
-                    {
-                        results.Add(collider);
-                    }
+                    results.Add(collider);
                 }
-                else
+                else if (EntityCollisionHelper.CanCollide(friendlyMask, ent) && ent.IsFriendly(faction))
                 {
-                    if (ent.IsFriendly(faction))
-                    {
-                        results.Add(collider);
-                    }
+                    results.Add(collider);
                 }
             }
         }
@@ -220,19 +208,13 @@ namespace MVZ2.Collisions
                 if (results.Contains(collider))
                     continue;
                 var ent = collider.Entity;
-                if (EntityCollisionHelper.CanCollide(hostileMask, ent))
+                if (EntityCollisionHelper.CanCollide(hostileMask, ent) && ent.IsHostile(faction))
                 {
-                    if (ent.IsHostile(faction))
-                    {
-                        results.Add(collider);
-                    }
+                    results.Add(collider);
                 }
-                else
+                else if (EntityCollisionHelper.CanCollide(friendlyMask, ent) && ent.IsFriendly(faction))
                 {
-                    if (ent.IsFriendly(faction))
-                    {
-                        results.Add(collider);
-                    }
+                    results.Add(collider);
                 }
             }
         }
