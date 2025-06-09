@@ -54,8 +54,6 @@ namespace MVZ2.Managers
 
 
         // 运行时变量
-        private int currentBatchSize;
-        private int updateIndex = 0;
         private float fpsTimer;
         private float frameCount;
         private float currentFPS;

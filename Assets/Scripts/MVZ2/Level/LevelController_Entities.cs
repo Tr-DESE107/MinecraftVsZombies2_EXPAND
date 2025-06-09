@@ -286,8 +286,6 @@ namespace MVZ2.Level
 
         [Header("Entities")]
         [SerializeField]
-        private int maxAnimatorUpdateCount = 128;
-        [SerializeField]
         private EntityController entityTemplate;
         [SerializeField]
         private Transform entitiesRoot;
