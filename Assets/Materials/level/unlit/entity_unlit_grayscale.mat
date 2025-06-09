@@ -16,6 +16,7 @@ Material:
   m_InvalidKeywords:
   - COLORED_ON
   - _CIRCLESTART_RIGHT
+  - _GRAYSCALE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -109,7 +110,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Grayscale: 0
+    - _Grayscale: 1
     - _GreenAlpha: 0
     - _HSVTint: 0
     - _HurtAlpha: 0

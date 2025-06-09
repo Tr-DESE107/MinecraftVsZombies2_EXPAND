@@ -21,6 +21,7 @@
 - Missing damage stage for Bone Wall.
 - Certain difficulty effects failed to take effect.
 - Almanac tags of an enemy will still display even if this enemy is not encountered yet.
+- The contraption icon on command block blueprint pickup is not grayscale.
 
 ---
 
