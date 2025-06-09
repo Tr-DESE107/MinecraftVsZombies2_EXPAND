@@ -241,21 +241,23 @@ namespace MVZ2.Level
             return unityCollisionSystem;
         }
 
-        private void UpdateEntityAnimators(IList<AnimatorUpdateData> toUpdate)
+        private void UpdateEntityAnimators(IList<Animator> toUpdate, float deltaTime, float gameSpeed, float maxBatchPercentage)
         {
             var count = toUpdate.Count;
-            var updateCount = Mathf.Min(count, maxAnimatorUpdateCount);
-            var updateSpeed = Mathf.CeilToInt(count / (float)updateCount);
+            if (count <= 0)
+                return;
+            var maxCount = Mathf.CeilToInt(maxBatchPercentage * count);
+            var updateCount = Mathf.Min(count, maxCount);
+            var updateSpeed = count / (float)updateCount;
+
             var startIndex = currentEntityAnimatorIndex;
             for (int i = 0; i < updateCount; i++)
             {
                 var index = (i + startIndex) % count;
-                var data = toUpdate[index];
-                if (!data.animator)
-                    continue;
-                data.animator.Update(data.deltaTime * data.speed * updateSpeed);
+                var animator = toUpdate[index];
+                animator.Update(deltaTime * gameSpeed * updateSpeed);
             }
-            currentEntityAnimatorIndex += updateCount;
+            currentEntityAnimatorIndex = (updateCount + startIndex) % count;
         }
 
         #endregion
@@ -275,7 +277,6 @@ namespace MVZ2.Level
         private EntityController hoveredEntity;
         private EntityController highlightedEntity;
         private List<Animator> entityAnimatorBuffer = new List<Animator>();
-        private List<AnimatorUpdateData> entityAnimatorDataBuffer = new List<AnimatorUpdateData>();
         private int currentEntityAnimatorIndex = 0;
 
         #region 保存属性
@@ -330,11 +331,5 @@ namespace MVZ2.Level
                 };
             }
         }
-    }
-    public struct AnimatorUpdateData
-    {
-        public Animator animator;
-        public float deltaTime;
-        public float speed;
     }
 }

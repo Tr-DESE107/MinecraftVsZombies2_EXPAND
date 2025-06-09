@@ -310,7 +310,7 @@ namespace MVZ2.Level
         }
         public float GetGameSpeed()
         {
-            return speedUp ? Main.OptionsManager.GetFastForwardMultiplier() : 1;
+            return speedUp && !isGameOver ? Main.OptionsManager.GetFastForwardMultiplier() : 1;
         }
         public void RemoveLevelState()
         {
@@ -410,11 +410,18 @@ namespace MVZ2.Level
         }
         public void UpdateFrame(float deltaTime)
         {
-            float gameSpeed = isGameOver ? 1 : GetGameSpeed();
+            float gameSpeed = GetGameSpeed();
             bool gameRunning = IsGameRunning();
 
-            entityAnimatorDataBuffer.Clear();
+            var perf = Main.PerformanceManager;
+            if (gameRunning)
+            {
+                perf.UpdatePerformanceMonitor();
+            }
+            var maxBatchPercentage = Main.PerformanceManager.GetAnimatorBatchSize() / 100f;
+
             // 更新实体动画。
+            entityAnimatorBuffer.Clear();
             foreach (var entity in entities)
             {
                 bool modelActive = false;
@@ -439,21 +446,10 @@ namespace MVZ2.Level
 
                 if (modelActive)
                 {
-                    entityAnimatorBuffer.Clear();
                     entity.GetAnimatorsToUpdate(entityAnimatorBuffer);
-                    foreach (var animator in entityAnimatorBuffer)
-                    {
-                        animator.enabled = false;
-                        entityAnimatorDataBuffer.Add(new AnimatorUpdateData()
-                        {
-                            animator = animator,
-                            deltaTime = deltaTime,
-                            speed = speed
-                        });
-                    }
                 }
             }
-            UpdateEntityAnimators(entityAnimatorDataBuffer);
+            UpdateEntityAnimators(entityAnimatorBuffer, deltaTime, gameSpeed, maxBatchPercentage);
 
             if (!isGameOver)
             {

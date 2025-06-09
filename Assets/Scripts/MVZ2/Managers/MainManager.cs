@@ -311,6 +311,7 @@ namespace MVZ2.Managers
         public GraphicsManager GraphicsManager => graphicsManager;
         public DebugManager DebugManager => debugManager;
         public MainSceneController Scene => scene;
+        public PerformanceManager PerformanceManager => performanceManager;
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
         ILevelManager IMainManager.Level => level;
@@ -370,6 +371,8 @@ namespace MVZ2.Managers
         private GraphicsManager graphicsManager;
         [SerializeField]
         private DebugManager debugManager;
+        [SerializeField]
+        private PerformanceManager performanceManager;
         [SerializeField]
         private MainSceneController scene;
         public enum PlatformMode
