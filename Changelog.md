@@ -5,6 +5,7 @@
 
 ## Modified
 - Necrotombstone's recharge time extended to Long from Short, and will stop summoning if the count of skeleton warriors reaches its limit of 30.
+- Increased the toughness of Diamond Spikes to 5400 from 2700, and crush damage it takes to 600 from 300.
 - Added "Immobilization Immunity" tag to Diamond Spikes.
 - Red fire arrows passing through Cursed Hellfire now transform into Cursed fire arrows.
 - Slightly reduced the darkness opacity of Dark Matter artifact.
