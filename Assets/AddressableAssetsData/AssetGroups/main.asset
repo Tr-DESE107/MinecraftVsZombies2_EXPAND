@@ -3284,6 +3284,11 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53afeaba33809394f89b7fee6d9913e8
+    m_Address: mvz2:projectile/purpleArrow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53b703f384b93544cbcaaced2018759d
     m_Address: mvz2:trident_thunder1
     m_ReadOnly: 0
@@ -5200,13 +5205,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 879a4d82597ebe741a9b3f2c8efc045f
-    m_Address: mvz2:projectile/purpleArrow
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87b336d7b20b7a145a9300914c7bf0e8
     m_Address: mvz2:characters/marisa
