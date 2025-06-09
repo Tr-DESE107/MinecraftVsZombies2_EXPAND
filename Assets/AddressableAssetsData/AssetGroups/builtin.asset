@@ -27,6 +27,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 752f7839b83b26746973daac800bfac4
+    m_Address: Assets/GameContent/spriteatlases
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c26f44006e15c04eb4b441e217ec5c0
     m_Address: Assets/Materials
     m_ReadOnly: 0

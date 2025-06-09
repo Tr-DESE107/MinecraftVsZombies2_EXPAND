@@ -1577,11 +1577,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Scene
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2ce41f329f103924d8955cb653fbf631
-    m_Address: bosses
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cf19462984a14b4cbd808d15638e9bd
     m_Address: mvz2:arcade/arcade_category_puzzle
     m_ReadOnly: 0
@@ -3849,11 +3844,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 66c80321e0451e64da6a595d08b4e02c
-    m_Address: entities
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 66d6b2cec1b5a03498ee84ec03d69134
     m_Address: mvz2:characters/doremy
     m_ReadOnly: 0
@@ -4224,6 +4214,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73ddfc766e9b88f43bb441a689469065
+    m_Address: mvz2:entity/effects/absorb_line
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74521e763130e2249885ce873fba23f2
     m_Address: mvz2:entity/projectiles/ice_bolt
@@ -7472,6 +7469,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c88dad8213774ad48b823b141be673dc
+    m_Address: mvz2:ui/almanac/placement_tags_upgrade_new
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c893ca796c4f7544192d6b1f24edd0f8
     m_Address: mvz2:reverse_vampire
     m_ReadOnly: 0
@@ -7572,6 +7576,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: caad8c3049dedbb4796afa81b872ead5
     m_Address: mvz2:entity/contraption/mine_dirt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cab57ed8db44e444f856b2a84c122438
+    m_Address: mvz2:ui/almanac/placement_tags_upgrade_origin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
