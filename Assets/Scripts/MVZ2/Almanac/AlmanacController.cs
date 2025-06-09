@@ -278,13 +278,19 @@ namespace MVZ2.Almanacs
                 return;
             activeEnemyEntryID = enemyID;
             GetEntityAlmanacInfos(enemyID, VanillaAlmanacCategories.ENEMIES, out var model, out var name, out var description);
-            if (Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) <= 0)
+
+            bool notEncountered = Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) <= 0;
+            if (notEncountered)
             {
                 name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_NAME, VanillaStrings.UNKNOWN_ENTITY_NAME);
                 description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, VanillaStrings.NOT_ENCOUNTERED_YET);
-            }
 
-            UpdateEntryTags(AlmanacPageType.Enemies, VanillaAlmanacCategories.ENEMIES, enemyID);
+                ClearEntryTags(AlmanacPageType.Enemies);
+            }
+            else
+            {
+                UpdateEntryTags(AlmanacPageType.Enemies, VanillaAlmanacCategories.ENEMIES, enemyID);
+            }
 
             var iconInfos = GetDescriptionTagIconInfos(description);
             var replacements = iconInfos.Select(i => i.replacement).ToArray();
@@ -635,6 +641,11 @@ namespace MVZ2.Almanacs
 
             var viewDatas = currentTags.Select(t => GetTagIconViewData(t)).ToArray();
             ui.UpdateTagIcons(page, viewDatas);
+        }
+        private void ClearEntryTags(AlmanacPageType page)
+        {
+            currentTags.Clear();
+            ui.UpdateTagIcons(page, Array.Empty<AlmanacTagIconViewData>());
         }
         private AlmanacEntryTagInfo GetEntryTagIconInfo(int index)
         {

@@ -20,6 +20,7 @@
 - Entities transformed by Command Block failed to display red visual effects while under the Stone Shield evocation effect.
 - Missing damage stage for Bone Wall.
 - Certain difficulty effects failed to take effect.
+- Almanac tags of an enemy will still display even if this enemy is not encountered yet.
 
 ---
 
