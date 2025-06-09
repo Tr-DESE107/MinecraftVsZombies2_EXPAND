@@ -10,7 +10,6 @@ namespace MVZ2.GameContent.Placements
         public ForcePadPlacement(string nsp, string name) : base(nsp, name, VanillaSpawnConditions.pad)
         {
             AddMethod(VanillaPlaceMethods.upgrade);
-            this.SetAlmanacTag(VanillaAlmanacTagID.placementLand);
         }
     }
 }

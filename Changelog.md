@@ -1,5 +1,8 @@
 # 0.4.2
 
+## Added
+- Unique placement type tags in almanac for 4 upgrade contraptions.
+
 ## Modified
 - Necrotombstone's recharge time extended to Long from Short, and will stop summoning if the count of skeleton warriors reaches its limit of 30.
 - Added "Immobilization Immunity" tag to Diamond Spikes.
