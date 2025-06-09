@@ -21,11 +21,11 @@ namespace MVZ2.Level.UI
         {
             cancelButton.onClick.AddListener(() => OnCancelButtonClick?.Invoke());
             displayer.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintPointerInteraction?.Invoke(index, data, i);
-            displayer.OnBlueprintSelect += (index) => OnBlueprintSelect?.Invoke(index);
+            displayer.OnBlueprintSelect += (index, data) => OnBlueprintSelect?.Invoke(index, data);
         }
         public event Action OnCancelButtonClick;
         public event Action<int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
-        public event Action<int> OnBlueprintSelect;
+        public event Action<int, PointerEventData> OnBlueprintSelect;
         [SerializeField]
         Button cancelButton;
         [SerializeField]

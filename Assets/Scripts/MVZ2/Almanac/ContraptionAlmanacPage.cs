@@ -3,6 +3,7 @@ using MVZ2.Models;
 using MVZ2.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MVZ2.Almanacs
 {
@@ -27,16 +28,16 @@ namespace MVZ2.Almanacs
             blueprintDisplayer.OnBlueprintSelect += OnEntryClickCallback;
             commandBlockSlot.OnSelect += OnCommandBlockClickCallback;
         }
-        private void OnEntryClickCallback(int index)
+        private void OnEntryClickCallback(int index, PointerEventData eventData)
         {
-            OnEntryClick?.Invoke(index);
+            OnEntryClick?.Invoke(index, eventData);
         }
-        private void OnCommandBlockClickCallback()
+        private void OnCommandBlockClickCallback(PointerEventData eventData)
         {
-            OnCommandBlockClick?.Invoke();
+            OnCommandBlockClick?.Invoke(eventData);
         }
-        public event Action<int> OnEntryClick;
-        public event Action OnCommandBlockClick;
+        public event Action<int, PointerEventData> OnEntryClick;
+        public event Action<PointerEventData> OnCommandBlockClick;
         [SerializeField]
         private BlueprintDisplayer blueprintDisplayer;
         [SerializeField]

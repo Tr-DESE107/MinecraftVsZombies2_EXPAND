@@ -68,7 +68,7 @@ namespace MVZ2.UI
             CallBlueprintPointerInteraction(index, eventData, interaction);
             if (interaction == PointerInteraction.Down)
             {
-                CallBlueprintSelect(index);
+                CallBlueprintSelect(index, eventData);
             }
         }
         [Header("Standalone")]

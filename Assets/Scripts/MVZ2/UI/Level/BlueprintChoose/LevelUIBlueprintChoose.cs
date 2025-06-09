@@ -208,13 +208,13 @@ namespace MVZ2.UI
             blueprintChoosePanel.OnViewLawnButtonClick += () => OnViewLawnClick?.Invoke();
             blueprintChoosePanel.OnRepickButtonClick += () => OnRepickClick?.Invoke();
             blueprintChoosePanel.OnCommandBlockBlueprintPointerInteraction += (e, i) => OnCommandBlockPointerInteraction?.Invoke(e, i);
-            blueprintChoosePanel.OnCommandBlockBlueprintSelect += () => OnCommandBlockSlotSelect?.Invoke();
+            blueprintChoosePanel.OnCommandBlockBlueprintSelect += (e) => OnCommandBlockSlotSelect?.Invoke(e);
             blueprintChoosePanel.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintItemPointerInteraction?.Invoke(index, data, i, false);
-            blueprintChoosePanel.OnBlueprintSelect += (index) => OnBlueprintItemSelect?.Invoke(index, false);
+            blueprintChoosePanel.OnBlueprintSelect += (index, data) => OnBlueprintItemSelect?.Invoke(index, data, false);
 
             commandBlockChoosePanel.OnCancelButtonClick += () => OnCommandBlockPanelCancelClick?.Invoke();
             commandBlockChoosePanel.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintItemPointerInteraction?.Invoke(index, data, i, true);
-            commandBlockChoosePanel.OnBlueprintSelect += (index) => OnBlueprintItemSelect?.Invoke(index, true);
+            commandBlockChoosePanel.OnBlueprintSelect += (index, data) => OnBlueprintItemSelect?.Invoke(index, data, true);
 
             choosingViewAlmanacButton.onClick.AddListener(() => OnViewAlmanacClick?.Invoke());
             choosingViewStoreButton.onClick.AddListener(() => OnViewStoreClick?.Invoke());
@@ -250,13 +250,13 @@ namespace MVZ2.UI
         public event Action OnViewLawnClick;
         public event Action OnRepickClick;
         public event Action<PointerEventData, PointerInteraction> OnCommandBlockPointerInteraction;
-        public event Action OnCommandBlockSlotSelect;
+        public event Action<PointerEventData> OnCommandBlockSlotSelect;
         public event Action OnCommandBlockPanelCancelClick;
         public event Action<int> OnArtifactSlotClick;
         public event Action<int> OnArtifactSlotPointerEnter;
         public event Action<int> OnArtifactSlotPointerExit;
         public event Action<int, PointerEventData, PointerInteraction, bool> OnBlueprintItemPointerInteraction;
-        public event Action<int, bool> OnBlueprintItemSelect;
+        public event Action<int, PointerEventData, bool> OnBlueprintItemSelect;
 
         public event Action OnViewAlmanacClick;
         public event Action OnViewStoreClick;

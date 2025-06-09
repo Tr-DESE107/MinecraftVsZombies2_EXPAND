@@ -51,10 +51,10 @@ namespace MVZ2.UI
             var index = blueprintList.indexOf(blueprint);
             CallBlueprintPointerInteraction(index, eventData, interaction);
         }
-        private void OnSelectCallback(Blueprint blueprint)
+        private void OnSelectCallback(Blueprint blueprint, PointerEventData eventData)
         {
             var index = blueprintList.indexOf(blueprint);
-            CallBlueprintSelect(index);
+            CallBlueprintSelect(index, eventData);
         }
         [Header("Mobile")]
         [SerializeField]

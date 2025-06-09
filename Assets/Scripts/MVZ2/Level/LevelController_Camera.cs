@@ -231,6 +231,8 @@ namespace MVZ2.Level
 
         [Header("Cameras")]
         [SerializeField]
+        private GameObject cameraRoot;
+        [SerializeField]
         private LevelCamera levelCamera;
         [SerializeField]
         private RenderDowngrade downgradeScript;

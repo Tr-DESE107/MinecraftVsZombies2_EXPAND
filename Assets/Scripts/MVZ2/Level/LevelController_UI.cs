@@ -233,6 +233,7 @@ namespace MVZ2.Level
         }
         #endregion
 
+
         public void ShowTooltip(ITooltipSource source)
         {
             tooltipSource = source;
@@ -652,14 +653,15 @@ namespace MVZ2.Level
 
 
         #region 图鉴
+        public bool IsOpeningAlmanac() => isOpeningAlmanac;
         public void OpenAlmanac()
         {
             isOpeningAlmanac = true;
-            levelCamera.gameObject.SetActive(false);
+            SetCameraDisabled(true);
             Main.Scene.DisplayAlmanac(() =>
             {
                 isOpeningAlmanac = false;
-                levelCamera.gameObject.SetActive(true);
+                SetCameraDisabled(false);
                 if (!Music.IsPlaying(VanillaMusicID.choosing))
                     Music.Play(VanillaMusicID.choosing);
             });
@@ -672,14 +674,15 @@ namespace MVZ2.Level
         #endregion
 
         #region 商店
+        public bool IsOpeningStore() => isOpeningStore;
         public void OpenStore()
         {
             isOpeningStore = true;
-            levelCamera.gameObject.SetActive(false);
+            SetCameraDisabled(true);
             Main.Scene.DisplayStore(() =>
             {
                 isOpeningStore = false;
-                levelCamera.gameObject.SetActive(true);
+                SetCameraDisabled(false);
                 level.UpdatePersistentLevelUnlocks();
                 BlueprintChoosePart.Refresh(Saves.GetUnlockedContraptions());
                 if (!Music.IsPlaying(VanillaMusicID.choosing))
@@ -687,6 +690,7 @@ namespace MVZ2.Level
             }, false);
         }
         #endregion
+        public bool IsOpeningExtraScene() => IsOpeningAlmanac() || IsOpeningStore();
 
         #region 可操作工具
         private void ClickPickaxe()

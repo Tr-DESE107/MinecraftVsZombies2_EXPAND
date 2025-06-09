@@ -26,10 +26,10 @@ namespace MVZ2.UI
         private void Awake()
         {
             commandBlockBlueprint.OnPointerInteraction += (blueprint, eventData, i) => OnPointerInteraction?.Invoke(eventData, i);
-            commandBlockBlueprint.OnSelect += (blueprint) => OnSelect?.Invoke();
+            commandBlockBlueprint.OnSelect += (blueprint, data) => OnSelect?.Invoke(data);
         }
         public event Action<PointerEventData, PointerInteraction> OnPointerInteraction;
-        public event Action OnSelect;
+        public event Action<PointerEventData> OnSelect;
         [SerializeField]
         GameObject commandBlockRoot;
         [SerializeField]

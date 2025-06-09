@@ -4,6 +4,7 @@ using MVZ2.Level.UI;
 using MVZ2.Models;
 using MVZ2.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MVZ2.Almanacs
 {
@@ -202,15 +203,15 @@ namespace MVZ2.Almanacs
 
                 if (page is ContraptionAlmanacPage contraptionPage)
                 {
-                    contraptionPage.OnEntryClick += index => OnEntryClick?.Invoke(type, index);
-                    contraptionPage.OnCommandBlockClick += () => OnCommandBlockClick?.Invoke();
+                    contraptionPage.OnEntryClick += (index, data) => OnContraptionEntryClick?.Invoke(index, data);
+                    contraptionPage.OnCommandBlockClick += (data) => OnCommandBlockClick?.Invoke(data);
                 }
 
                 if (page is MiscAlmanacPage miscPage)
                 {
                     miscPage.OnGroupEntryClick += (groupIndex, entryIndex) => OnGroupEntryClick?.Invoke(type, groupIndex, entryIndex);
                     miscPage.OnZoomClick += () => OnZoomClick?.Invoke(type);
-                    miscPage.OnEntryClick += index => OnEntryClick?.Invoke(type, index);
+                    miscPage.OnEntryClick += (index) => OnMiscEntryClick?.Invoke(type, index);
                 }
             }
             zoomPage.OnReturnClick += () => OnZoomReturnClick?.Invoke();
@@ -219,8 +220,9 @@ namespace MVZ2.Almanacs
         public event Action<bool> OnReturnClick;
         public event Action<IndexAlmanacPage.ButtonType> OnIndexButtonClick;
 
-        public event Action OnCommandBlockClick;
-        public event Action<AlmanacPageType, int> OnEntryClick;
+        public event Action<PointerEventData> OnCommandBlockClick;
+        public event Action<int, PointerEventData> OnContraptionEntryClick;
+        public event Action<AlmanacPageType, int> OnMiscEntryClick;
         public event Action<AlmanacPageType, int, int> OnGroupEntryClick;
         public event Action<AlmanacPageType> OnZoomClick;
 

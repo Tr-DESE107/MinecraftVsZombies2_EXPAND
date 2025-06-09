@@ -133,6 +133,7 @@ MonoBehaviour:
   lowQualityAudioListener: {fileID: 8450496614040461187}
   blueprintController: {fileID: 672198186561203434}
   blueprintChooseController: {fileID: 2261920224514993212}
+  cameraRoot: {fileID: 3246138205874133111}
   levelCamera: {fileID: 7788294606768908441}
   downgradeScript: {fileID: 5504078125883472109}
   cameraMoveCurve:
@@ -168,6 +169,7 @@ MonoBehaviour:
   cameraLawnAnchor: {x: 1, y: 0.5}
   cameraChoosePosition: {x: 14, y: 3, z: -500}
   cameraChooseAnchor: {x: 1, y: 0.5}
+  maxAnimatorUpdateCount: 128
   entityTemplate: {fileID: -1708814885022385043, guid: 033dd59ce2dc153448fa75a2e0c608b3, type: 3}
   entitiesRoot: {fileID: 1458902122031359015}
   unityCollisionSystem: {fileID: 3082055439283190706}

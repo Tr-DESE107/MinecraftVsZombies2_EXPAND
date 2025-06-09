@@ -27,6 +27,7 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MVZ2.Almanacs
 {
@@ -60,7 +61,8 @@ namespace MVZ2.Almanacs
 
             ui.OnCommandBlockClick += OnCommandBlockClickCallback;
 
-            ui.OnEntryClick += OnEntryClickCallback;
+            ui.OnContraptionEntryClick += OnContraptionEntryClickCallback;
+            ui.OnMiscEntryClick += OnMiscEntryClickCallback;
             ui.OnGroupEntryClick += OnGroupEntryClickCallback;
             ui.OnZoomClick += OnZoomClickCallback;
 
@@ -105,19 +107,24 @@ namespace MVZ2.Almanacs
                     break;
             }
         }
-        private void OnCommandBlockClickCallback()
+        private void OnCommandBlockClickCallback(PointerEventData eventData)
         {
+            if (eventData.IsMouseButNotLeft())
+                return;
             SetActiveContraptionEntry(VanillaContraptionID.commandBlock);
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
-        private void OnEntryClickCallback(AlmanacPageType page, int index)
+        private void OnContraptionEntryClickCallback(int index, PointerEventData data)
+        {
+            if (data.IsMouseButNotLeft())
+                return;
+            SetActiveContraptionEntry(contraptionEntries[index]);
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
+        }
+        private void OnMiscEntryClickCallback(AlmanacPageType page, int index)
         {
             switch (page)
             {
-                case AlmanacPageType.ContraptionsStandalone:
-                case AlmanacPageType.ContraptionsMobile:
-                    SetActiveContraptionEntry(contraptionEntries[index]);
-                    break;
                 case AlmanacPageType.Enemies:
                     SetActiveEnemyEntry(enemyEntries[index]);
                     break;

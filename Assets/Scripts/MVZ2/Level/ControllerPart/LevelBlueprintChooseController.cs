@@ -5,6 +5,7 @@ using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Level.UI;
+using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
@@ -77,6 +78,15 @@ namespace MVZ2.Level
         {
         }
 
+        public override void UpdateFrame(float deltaTime, float simulationSpeed)
+        {
+            base.UpdateFrame(deltaTime, simulationSpeed);
+            if (chosenBlueprints.Count > 0 && isChoosingBlueprints && InputManager.IsPointerDown(PointerTypes.MOUSE, MouseButtons.RIGHT) && !HasPanelFlags() && !Main.Scene.HasDialog() && !Controller.IsOpeningExtraScene())
+            {
+                UnloadAllBlueprints();
+                Level.PlaySound(VanillaSoundID.tap);
+            }
+        }
         public void ApplyChoose()
         {
             ClearChosenBlueprintControllers();
@@ -466,6 +476,20 @@ namespace MVZ2.Level
         }
         #endregion
 
+        private void UnloadAllBlueprints()
+        {
+            // 移除所有正在移动的蓝图。
+            ClearMovingBlueprints();
+
+            // 卸下要移除的蓝图。
+            for (int i = chosenBlueprints.Count - 1; i >= 0; i--)
+            {
+                var item = chosenBlueprints[i];
+                if (item.innate)
+                    continue;
+                UnloadBlueprint(i);
+            }
+        }
         public void ShowBlueprintChoosePanel(IEnumerable<NamespaceID> blueprints)
         {
             chooseUI.SetSideUIBlend(0);
@@ -474,6 +498,7 @@ namespace MVZ2.Level
             isChoosingBlueprints = true;
 
             chooseUI.HideCommandBlockPanel();
+            ClearPanelFlags();
             UI.SetBlueprintsSortingToChoosing(true);
             chooseUI.SetChosenBlueprintsVisible(true);
             // 制品。
@@ -772,6 +797,7 @@ namespace MVZ2.Level
                 };
             }).ToArray();
             chooseUI.ShowArtifactChoosePanel(viewDatas);
+            AddPanelFlag(PanelFlags.Artifact);
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
         private void ChooseArtifact(int index)
@@ -876,6 +902,7 @@ namespace MVZ2.Level
         private void CloseArtifactChoosePanel()
         {
             chooseUI.HideArtifactChoosePanel();
+            RemovePanelFlag(PanelFlags.Artifact);
             choosingArtifactSlotIndex = -1;
             choosingArtifacts = null;
         }
@@ -910,8 +937,10 @@ namespace MVZ2.Level
                     break;
             }
         }
-        private void UI_OnBlueprintSelectCallback(int index, bool commandBlock)
+        private void UI_OnBlueprintSelectCallback(int index, PointerEventData eventData, bool commandBlock)
         {
+            if (eventData.IsMouseButNotLeft())
+                return;
             if (commandBlock)
             {
                 var id = choosingBlueprints[index];
@@ -919,6 +948,7 @@ namespace MVZ2.Level
                     return;
                 ChooseCommandBlockBlueprint(id);
                 chooseUI.HideCommandBlockPanel();
+                RemovePanelFlag(PanelFlags.CommandBlock);
             }
             else
             {
@@ -1009,11 +1039,14 @@ namespace MVZ2.Level
                     break;
             }
         }
-        private void UI_OnCommandBlockSelectCallback()
+        private void UI_OnCommandBlockSelectCallback(PointerEventData eventData)
         {
+            if (eventData.IsMouseButNotLeft())
+                return;
             if (!CanChooseCommandBlock())
                 return;
             chooseUI.ShowCommandBlockPanel();
+            AddPanelFlag(PanelFlags.CommandBlock);
             var commandBlockViewDatas = choosingBlueprints.Select(id =>
             {
                 var viewData = Main.AlmanacManager.GetChoosingBlueprintViewData(id, Level.IsEndless());
@@ -1038,6 +1071,7 @@ namespace MVZ2.Level
         private void UI_OnCommandBlockPanelCancelClickCallback()
         {
             chooseUI.HideCommandBlockPanel();
+            RemovePanelFlag(PanelFlags.CommandBlock);
         }
         private void UI_OnViewAlmanacClickCallback()
         {
@@ -1079,6 +1113,22 @@ namespace MVZ2.Level
 
         #endregion
 
+        private void AddPanelFlag(PanelFlags flag)
+        {
+            panelFlags |= flag;
+        }
+        private void RemovePanelFlag(PanelFlags flag)
+        {
+            panelFlags &= ~flag;
+        }
+        private void ClearPanelFlags()
+        {
+            panelFlags = PanelFlags.None;
+        }
+        private bool HasPanelFlags()
+        {
+            return panelFlags != PanelFlags.None;
+        }
         private IEnumerator BlueprintChosenTransition()
         {
             chooseUI.SetBlueprintChooseDisplaying(false);
@@ -1126,6 +1176,7 @@ namespace MVZ2.Level
         private LevelUIBlueprintChoose chooseUI => UI.BlueprintChoose;
 
         private bool isChoosingBlueprints;
+        private PanelFlags panelFlags = PanelFlags.None;
         private List<BlueprintChooseItem> chosenBlueprints = new List<BlueprintChooseItem>();
         private NamespaceID[] choosingBlueprints;
         private List<ChosenBlueprintController> chosenBlueprintControllers = new List<ChosenBlueprintController>();
@@ -1138,6 +1189,13 @@ namespace MVZ2.Level
         private bool isViewingLawn;
         private bool viewLawnFinished;
 
+        [Flags]
+        private enum PanelFlags
+        {
+            None = 0,
+            Artifact = 1,
+            CommandBlock = 1 << 1,
+        }
         private class BlueprintTooltipSource : ITooltipSource
         {
             public BlueprintTooltipSource(LevelBlueprintChooseController controller, NamespaceID blueprintID, ITooltipTarget target, bool commandBlock)

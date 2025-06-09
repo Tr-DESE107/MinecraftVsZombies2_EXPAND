@@ -52,6 +52,7 @@ namespace MVZ2.Level
         bool CanChooseBlueprints();
         void OpenAlmanac();
         void OpenStore();
+        bool IsOpeningExtraScene();
 
         float GetTwinkleAlpha();
     }
@@ -565,6 +566,10 @@ namespace MVZ2.Level
         public void SetActive(bool active)
         {
             gameObject.SetActive(active);
+        }
+        public void SetCameraDisabled(bool disabled)
+        {
+            cameraRoot.SetActive(!disabled);
         }
         public void SetMusicLowQuality(bool lowQuality)
         {
