@@ -1,3 +1,22 @@
+# 0.4.2
+
+## Modified
+- Necrotombstone's recharge time extended to Long from Short, and will stop summoning if the count of skeleton warriors reaches its limit of 30.
+- Added "Immobilization Immunity" tag to Diamond Spikes.
+- Red fire arrows passing through Cursed Hellfire now transform into Cursed fire arrows.
+- Slightly reduced the darkness opacity of Dark Matter artifact.
+- Compressed game resource sizes.
+- Optimized game performance.
+  - Reduced entity animation update frequency when excessive entities are present.
+
+## Fixes
+- Re-entering an Endless level caused current Upgrade Contraption Blueprints to double their energy cost again.
+- Entities transformed by Command Block failed to display red visual effects while under the Stone Shield evocation effect.
+- Missing damage stage for Bone Wall.
+- Certain difficulty effects failed to take effect.
+
+---
+
 # 0.4.1
 
 ## Added
