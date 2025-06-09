@@ -1063,8 +1063,7 @@ GameObject:
   - component: {fileID: 6114132798279822428}
   - component: {fileID: 4424032078652646507}
   - component: {fileID: 5102171393267091551}
-  - component: {fileID: 363496779674261978}
-  - component: {fileID: 9052934908150365213}
+  - component: {fileID: 1845408884807405337}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -1152,28 +1151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!95 &363496779674261978
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8304686068079835052}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 1147e6bd8832852499a298747b7321ab, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &9052934908150365213
+--- !u!114 &1845408884807405337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1182,13 +1160,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8304686068079835052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 1514677016, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
   - {fileID: -970891008, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
-  index: 0
+  propertyName: HealthState
 --- !u!1001 &21500200205723279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1247,7 +1225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: animators.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: renderers.Array.size
@@ -1277,10 +1255,6 @@ PrefabInstance:
       propertyPath: animators.Array.data[0]
       value: 
       objectReference: {fileID: 7734433056528099549}
-    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
-      propertyPath: animators.Array.data[1]
-      value: 
-      objectReference: {fileID: 363496779674261978}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: renderers.Array.data[0]
       value: 

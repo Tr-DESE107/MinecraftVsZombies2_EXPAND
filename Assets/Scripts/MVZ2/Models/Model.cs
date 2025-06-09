@@ -89,6 +89,7 @@ namespace MVZ2.Models
         {
             Destroy(gameObject);
         }
+
         public void GetAnimatorsToUpdate(IList<Animator> results)
         {
             GraphicGroup.GetAnimatorsToUpdate(results);

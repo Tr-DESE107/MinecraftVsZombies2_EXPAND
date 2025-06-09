@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 1743128450227675963}
   - component: {fileID: 6271617550009236647}
   - component: {fileID: 3033359671799901922}
-  - component: {fileID: 5317597181069948604}
+  - component: {fileID: 8368455952171019005}
   m_Layer: 0
   m_Name: Gear
   m_TagString: Untagged
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &5317597181069948604
+--- !u!114 &8368455952171019005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1101752323428062926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
@@ -216,7 +216,7 @@ MonoBehaviour:
   - {fileID: 320034190, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
   - {fileID: 1628297157, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
   - {fileID: 789365403, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
-  index: 0
+  propertyName: Level
 --- !u!1 &1395365111629600671
 GameObject:
   m_ObjectHideFlags: 0

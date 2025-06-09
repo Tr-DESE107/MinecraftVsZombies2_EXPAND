@@ -92,6 +92,7 @@ namespace MVZ2.Vanilla.Enemies
                 var subStateTimer = stateMachine.GetSubStateTimer(entity);
                 subStateTimer.ResetTime(40);
                 entity.PlaySound(VanillaSoundID.mutantCry);
+                entity.TriggerAnimation("AttackTrigger");
             }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
@@ -232,7 +233,7 @@ namespace MVZ2.Vanilla.Enemies
                 subStateTimer.ResetTime(120);
 
                 var weapon = entity.Spawn(VanillaEffectID.mutantZombieWeapon, entity.Position + new Vector3(0, 71, 0));
-                weapon.SetAnimationInt("Weapon", GetWeapon(entity));
+                weapon.SetModelProperty("Weapon", GetWeapon(entity));
             }
             public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
             {

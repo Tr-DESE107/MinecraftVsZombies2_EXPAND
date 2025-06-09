@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity contraption)
         {
             base.UpdateLogic(contraption);
-            contraption.SetAnimationInt("HealthState", contraption.GetHealthState(3));
+            contraption.SetModelHealthStateByCount(3);
         }
 
         protected override void OnEvoke(Entity contraption)

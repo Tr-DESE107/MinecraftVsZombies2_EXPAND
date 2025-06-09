@@ -33,8 +33,8 @@ namespace MVZ2.Vanilla.Enemies
             base.UpdateLogic(entity);
             stateMachine.UpdateLogic(entity);
             entity.SetAnimationBool("HasImp", HasImp(entity));
-            entity.SetAnimationInt("Weapon", GetWeapon(entity));
-            entity.SetAnimationInt("HealthState", entity.GetHealthState(3));
+            entity.SetModelHealthStateByCount(3);
+            entity.SetModelProperty("Weapon", entity.State == STATE_DEATH ? -1 : GetWeapon(entity));
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {

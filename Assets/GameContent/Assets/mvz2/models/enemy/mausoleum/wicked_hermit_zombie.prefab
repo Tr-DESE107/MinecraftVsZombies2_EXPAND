@@ -239,9 +239,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3048348091426557815}
   - component: {fileID: 8922463640656310069}
-  - component: {fileID: 3162376830239356164}
-  - component: {fileID: 3513478768414847673}
-  - component: {fileID: 3371350188237463146}
+  - component: {fileID: 6164228518032817755}
+  - component: {fileID: 6022838820984267807}
   m_Layer: 0
   m_Name: Front
   m_TagString: Untagged
@@ -316,7 +315,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!114 &3162376830239356164
+--- !u!114 &6164228518032817755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5071361734593811165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1828951996, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+  - {fileID: 1977289048, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+  propertyName: HealthState
+--- !u!114 &6022838820984267807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -329,43 +344,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!95 &3513478768414847673
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5071361734593811165}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 977a3cbe73179c8459adf2c05eaa62eb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3371350188237463146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5071361734593811165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: -1828951996, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
-  - {fileID: 1977289048, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
-  index: 0
 --- !u!1 &6412927722205901812
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +752,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1356556440, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+    - target: {fileID: 2105643147717917870, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1356556440, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
     - target: {fileID: 3138126465319318176, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: m_Name
       value: wicked_hermit_zombie
@@ -788,7 +770,7 @@ PrefabInstance:
       objectReference: {fileID: -1203203049, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
     - target: {fileID: 6670644642867940497, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: animators.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6670644642867940497, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: renderers.Array.size
@@ -803,10 +785,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1290133375493287337}
     - target: {fileID: 6670644642867940497, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
-      propertyPath: animators.Array.data[3]
-      value: 
-      objectReference: {fileID: 3513478768414847673}
-    - target: {fileID: 6670644642867940497, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: renderers.Array.data[11]
       value: 
       objectReference: {fileID: 6217783690054337209}
@@ -817,15 +795,15 @@ PrefabInstance:
     - target: {fileID: 6670644642867940497, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: renderers.Array.data[13]
       value: 
-      objectReference: {fileID: 3162376830239356164}
+      objectReference: {fileID: 1258379554968109524}
     - target: {fileID: 6670644642867940497, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: renderers.Array.data[14]
       value: 
-      objectReference: {fileID: 1258379554968109524}
+      objectReference: {fileID: 4508210090067815210}
     - target: {fileID: 6670644642867940497, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: renderers.Array.data[15]
       value: 
-      objectReference: {fileID: 4508210090067815210}
+      objectReference: {fileID: 6022838820984267807}
     - target: {fileID: 6670644642867940497, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
       value: 
@@ -849,6 +827,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 873304994867757235, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
     - {fileID: 8894967491141974637, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
+    - {fileID: 2105643147717917870, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6114132798279822428, guid: 995a5c513facdb94293c6ce226198cfa, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8706503471715863083}
   - component: {fileID: 6095126361630674286}
   - component: {fileID: 5856378202632755124}
-  - component: {fileID: 6956457915022090501}
+  - component: {fileID: 9061825203291509557}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &6956457915022090501
+--- !u!114 &9061825203291509557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2776252855385795526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
@@ -118,7 +118,7 @@ MonoBehaviour:
   - {fileID: 751217537, guid: 86a0b0aabb4ceca42a409ee8c656695a, type: 3}
   - {fileID: 1641298299, guid: 86a0b0aabb4ceca42a409ee8c656695a, type: 3}
   - {fileID: -790591850, guid: 86a0b0aabb4ceca42a409ee8c656695a, type: 3}
-  index: 0
+  propertyName: HealthState
 --- !u!1001 &1586506072868367642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,10 +195,6 @@ PrefabInstance:
       propertyPath: renderers.Array.data[0]
       value: 
       objectReference: {fileID: 5856378202632755124}
-    - target: {fileID: 7694393783756858985, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7222bd5e75cfb9648bebd40d7a9e1f04, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

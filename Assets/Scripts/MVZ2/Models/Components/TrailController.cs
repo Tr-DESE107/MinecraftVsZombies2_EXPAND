@@ -3,7 +3,7 @@
 namespace MVZ2.Models
 {
     public class TrailController : ModelComponent
-    { 
+    {
         public override void Init()
         {
             trailPoints = new Vector3[trail.positionCount];

@@ -62,7 +62,7 @@ namespace MVZ2.GameContent.Enemies
                     entity.PlaySound(VanillaSoundID.shieldHit);
                 }
             }
-            entity.SetAnimationInt("HealthState", VanillaEntityExt.GetHealthState(hp, entity.GetMaxHealth(), 3));
+            entity.SetModelHealthState(VanillaEntityExt.GetHealthState(hp, entity.GetMaxHealth(), 3));
             entity.SetAnimationBool("Shaking", broken || punctured);
         }
         public override void PostCollision(EntityCollision collision, int state)

@@ -107,13 +107,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7928510048489624699}
+  - component: {fileID: 3199190888897705849}
   m_Layer: 0
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7928510048489624699
 Transform:
   m_ObjectHideFlags: 0
@@ -132,6 +133,19 @@ Transform:
   - {fileID: 4580786729552955126}
   m_Father: {fileID: 8708317998892296488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3199190888897705849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729818716981797038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyName: Mill
 --- !u!1 &6615572152804024851
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,10 +295,6 @@ PrefabInstance:
       propertyPath: transforms.Array.data[0]
       value: 
       objectReference: {fileID: 6205338988935394052}
-    - target: {fileID: 7694393783756858985, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 973e63e9459067a469637e36c95e69ab, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

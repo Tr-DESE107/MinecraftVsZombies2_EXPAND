@@ -52,7 +52,15 @@ namespace MVZ2.Vanilla.Entities
         public static int GetHealthState(float health, float maxHealth, int stateCount)
         {
             float stateHP = maxHealth / stateCount;
-            return Mathf.CeilToInt(health / stateHP) - 1;
+            return stateCount - Mathf.CeilToInt(health / stateHP);
+        }
+        public static void SetModelHealthStateByCount(this Entity entity, int count)
+        {
+            entity.SetModelHealthState(entity.GetHealthState(count));
+        }
+        public static void SetModelHealthState(this Entity entity, int state)
+        {
+            entity.SetModelProperty("HealthState", state);
         }
         #endregion
 

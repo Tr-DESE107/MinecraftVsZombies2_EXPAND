@@ -39,7 +39,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             }
             UpdateDevourerPosition(devourer);
-            devourer.SetAnimationBool("Mill", true);
+            devourer.SetModelProperty("Mill", true);
         }
         protected override void OnEvoke(Entity entity)
         {

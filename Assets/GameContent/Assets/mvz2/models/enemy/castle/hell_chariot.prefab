@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 6752835216941000183}
   - component: {fileID: 4362336503463016060}
   - component: {fileID: 388277557631735463}
-  - component: {fileID: 5011836841293222870}
+  - component: {fileID: 6893025059594497565}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &5011836841293222870
+--- !u!114 &6893025059594497565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,14 +356,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 695563372493367482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: -1207663936, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - {fileID: 1650585276, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - {fileID: -1905601455, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
-  index: 0
+  propertyName: HealthState
 --- !u!1 &707936613189854236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,7 +1310,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6644104082943129601}
-  - component: {fileID: 8857205479463471863}
   m_Layer: 0
   m_Name: Train
   m_TagString: Untagged
@@ -1337,27 +1336,6 @@ Transform:
   - {fileID: 3115289798115382427}
   m_Father: {fileID: 5271399225256325030}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &8857205479463471863
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3044739516530218847}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: a352285778388d5479c0c7522c810337, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3137684902783619151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,7 +1525,7 @@ GameObject:
   - component: {fileID: 4137002385008488537}
   - component: {fileID: 4249555917504042967}
   - component: {fileID: 8560944857969163845}
-  - component: {fileID: 7014916071123508371}
+  - component: {fileID: 6165588654050557839}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -1635,7 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &7014916071123508371
+--- !u!114 &6165588654050557839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1644,14 +1622,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3626025415287250951}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: -1189656442, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - {fileID: 765416115, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - {fileID: -597705717, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
-  index: 0
+  propertyName: HealthState
 --- !u!1 &3851879306464596819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,7 +1919,7 @@ GameObject:
   - component: {fileID: 8954921876037464390}
   - component: {fileID: 4654938125477216329}
   - component: {fileID: 2505740274033849567}
-  - component: {fileID: 6374117551606420779}
+  - component: {fileID: 1171575082970373606}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -2029,7 +2007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &6374117551606420779
+--- !u!114 &1171575082970373606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2038,14 +2016,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4240098919089574463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: -871321623, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - {fileID: -958869249, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - {fileID: -1562427276, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
-  index: 0
+  propertyName: HealthState
 --- !u!1 &4251714023509403337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2334,7 +2312,7 @@ GameObject:
   - component: {fileID: 960494650067022695}
   - component: {fileID: 5802782917344961542}
   - component: {fileID: 1049487045580926742}
-  - component: {fileID: 4130092127708522192}
+  - component: {fileID: 7988335283764069736}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -2422,7 +2400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &4130092127708522192
+--- !u!114 &7988335283764069736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2431,14 +2409,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4994930614086038818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 1152507765, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - {fileID: 687968501, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - {fileID: -288904361, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
-  index: 0
+  propertyName: HealthState
 --- !u!1 &5446802342625537674
 GameObject:
   m_ObjectHideFlags: 0
@@ -3135,7 +3113,7 @@ GameObject:
   - component: {fileID: 1005745761552874665}
   - component: {fileID: 3623428061956233200}
   - component: {fileID: 4811838827878591214}
-  - component: {fileID: 1050764838855474680}
+  - component: {fileID: 661683996269752443}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -3223,7 +3201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &1050764838855474680
+--- !u!114 &661683996269752443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3232,14 +3210,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7663827708845175151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 1615551263, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - {fileID: -914027420, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
   - {fileID: -563538090, guid: db4a7538480f6ac45bd2ed7e224f0bb5, type: 3}
-  index: 0
+  propertyName: HealthState
 --- !u!1 &7668063116912040293
 GameObject:
   m_ObjectHideFlags: 0
@@ -3900,7 +3878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: animators.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: particles.Array.size
@@ -3910,10 +3888,6 @@ PrefabInstance:
       propertyPath: renderers.Array.size
       value: 24
       objectReference: {fileID: 0}
-    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
-      propertyPath: animators.Array.data[1]
-      value: 
-      objectReference: {fileID: 8857205479463471863}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: particles.Array.data[0]
       value: 

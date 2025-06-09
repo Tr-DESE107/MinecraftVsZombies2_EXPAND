@@ -823,7 +823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7a5da3b8b3a0345bebbb77eb769241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propertyName: _HSVOffset
   hue: 0
   saturation: 0
   value: 0

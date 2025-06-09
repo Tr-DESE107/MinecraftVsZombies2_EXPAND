@@ -67,6 +67,10 @@ namespace PVZEngine.Armors
         {
             GetModelInterface().SetAnimationFloat(name, value);
         }
+        public void SetModelProperty(string name, object value)
+        {
+            GetModelInterface().SetModelProperty(name, value);
+        }
         #endregion
 
         #region 属性

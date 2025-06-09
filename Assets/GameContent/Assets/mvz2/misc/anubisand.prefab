@@ -188,7 +188,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4517920973806932590}
-  - component: {fileID: 8025489541898938344}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -215,27 +214,6 @@ Transform:
   - {fileID: 7459888103862583869}
   m_Father: {fileID: 8813997326501095420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &8025489541898938344
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1813553892425501086}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: f7fcb8704720e324188b12dc3961ff59, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2433415537851236941
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +904,7 @@ GameObject:
   - component: {fileID: 2670559636124325198}
   - component: {fileID: 8323803988544817554}
   - component: {fileID: 4489049325402946914}
-  - component: {fileID: 3118564432224696548}
+  - component: {fileID: 3340463544587196369}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -1014,7 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &3118564432224696548
+--- !u!114 &3340463544587196369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1023,13 +1001,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8303151662183348979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 772551344, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
   - {fileID: 165268741, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
-  index: 0
+  propertyName: HealthState
 --- !u!1 &8398220476082296017
 GameObject:
   m_ObjectHideFlags: 0

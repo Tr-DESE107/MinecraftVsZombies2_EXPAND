@@ -881,11 +881,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &4990305190443077872 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8025489541898938344, guid: f57e21459d32585419d277b8883f7426, type: 3}
-  m_PrefabInstance: {fileID: 3035817670153500440}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5061618895689256697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7790980546157148641, guid: f57e21459d32585419d277b8883f7426, type: 3}
@@ -1033,11 +1028,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7790980546157148641, guid: f57e21459d32585419d277b8883f7426, type: 3}
   m_PrefabInstance: {fileID: 7006163633931481807}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1034315552220337447 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8025489541898938344, guid: f57e21459d32585419d277b8883f7426, type: 3}
-  m_PrefabInstance: {fileID: 7006163633931481807}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3842104580346423331 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6082957328075578092, guid: f57e21459d32585419d277b8883f7426, type: 3}
@@ -1147,7 +1137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: animators.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: particles.Array.size
@@ -1157,14 +1147,6 @@ PrefabInstance:
       propertyPath: renderers.Array.size
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
-      propertyPath: animators.Array.data[1]
-      value: 
-      objectReference: {fileID: 1034315552220337447}
-    - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
-      propertyPath: animators.Array.data[2]
-      value: 
-      objectReference: {fileID: 4990305190443077872}
     - target: {fileID: 74170501792220475, guid: 7b69825c292961840a29fdc677b9453a, type: 3}
       propertyPath: renderers.Array.data[0]
       value: 

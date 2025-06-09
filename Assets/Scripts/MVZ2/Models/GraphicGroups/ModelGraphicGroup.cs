@@ -22,6 +22,8 @@ namespace MVZ2.Models
         {
             foreach (var animator in animators)
             {
+                if (!animator)
+                    continue;
                 if (!testMode || !Application.isEditor)
                 {
                     animator.enabled = false;
@@ -34,6 +36,8 @@ namespace MVZ2.Models
             foreach (var animator in animators)
             {
                 if (testMode && Application.isEditor)
+                    continue;
+                if (!animator)
                     continue;
                 if (!animator.runtimeAnimatorController)
                     continue;
@@ -131,6 +135,11 @@ namespace MVZ2.Models
         {
             foreach (var animator in animators)
             {
+                if (!animator)
+                {
+                    Debug.LogWarning($"Model {gameObject.name} has a missing animator!");
+                    return;
+                }
                 animator.logWarnings = false;
             }
         }

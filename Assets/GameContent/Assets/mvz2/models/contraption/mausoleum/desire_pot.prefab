@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6095126361630674286}
   - component: {fileID: 7013773349306411641}
   - component: {fileID: 1678972860978741213}
+  - component: {fileID: 5879857943092779544}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -115,6 +116,22 @@ MonoBehaviour:
   - {fileID: -55935898, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
   - {fileID: 864879685, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
   index: 0
+--- !u!114 &5879857943092779544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2776252855385795526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca377810bae8aa49bb81e20fdb171a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -55935898, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
+  - {fileID: 864879685, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
+  propertyName: Evoked
 --- !u!1001 &1586506072868367642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,10 +216,6 @@ PrefabInstance:
       propertyPath: renderers.Array.data[0]
       value: 
       objectReference: {fileID: 7013773349306411641}
-    - target: {fileID: 7694393783756858985, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: e1806254e1916fb4cbe57cbeace74b23, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

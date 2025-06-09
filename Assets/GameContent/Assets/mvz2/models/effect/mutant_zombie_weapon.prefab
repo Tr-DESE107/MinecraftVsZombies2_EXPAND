@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6502237685859125472}
   - component: {fileID: 5177232695907609355}
   - component: {fileID: 5848945629340151362}
+  - component: {fileID: 7767133873693653135}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -98,6 +99,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &7767133873693653135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110360204428361699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a4407acc345ea468fbde474c86e7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyName: Weapon
+  comparer: 0
+  constValue: 2
 --- !u!1 &3389145829589634986
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +125,7 @@ GameObject:
   - component: {fileID: 4908142629765711205}
   - component: {fileID: 5228822961922557664}
   - component: {fileID: 7760140931030034225}
+  - component: {fileID: 527298275435711905}
   m_Layer: 0
   m_Name: SukimaAhead
   m_TagString: Untagged
@@ -196,6 +213,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &527298275435711905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389145829589634986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a4407acc345ea468fbde474c86e7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyName: Weapon
+  comparer: 0
+  constValue: 1
 --- !u!1 &5292268639796715620
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +237,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7404392246296318642}
-  - component: {fileID: 6071838684995476785}
   m_Layer: 0
   m_Name: Hammers
   m_TagString: Untagged
@@ -231,27 +262,6 @@ Transform:
   - {fileID: 6502237685859125472}
   m_Father: {fileID: 2400154825091619501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6071838684995476785
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5292268639796715620}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7ab082f1706828043ac2a6588357930e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6626881025033519968
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +273,7 @@ GameObject:
   - component: {fileID: 3559372200917591520}
   - component: {fileID: 7766831071924056303}
   - component: {fileID: 4247421003262395581}
+  - component: {fileID: 4170759252479089167}
   m_Layer: 0
   m_Name: Mace
   m_TagString: Untagged
@@ -350,6 +361,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &4170759252479089167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626881025033519968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a4407acc345ea468fbde474c86e7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyName: Weapon
+  comparer: 0
+  constValue: 0
 --- !u!1001 &1411313375228467585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -364,7 +390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: animators.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 74170501792220475, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: particles.Array.size
@@ -382,10 +408,6 @@ PrefabInstance:
       propertyPath: animators.Array.data[0]
       value: 
       objectReference: {fileID: 2690520016440768758}
-    - target: {fileID: 74170501792220475, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
-      propertyPath: animators.Array.data[1]
-      value: 
-      objectReference: {fileID: 6071838684995476785}
     - target: {fileID: 74170501792220475, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: renderers.Array.data[0]
       value: 

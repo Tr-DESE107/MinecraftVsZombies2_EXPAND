@@ -137,8 +137,8 @@ GameObject:
   - component: {fileID: 6095126361630674286}
   - component: {fileID: 5856378202632755124}
   - component: {fileID: 4519263659635322860}
-  - component: {fileID: 760192793472474558}
   - component: {fileID: 8996049184731776934}
+  - component: {fileID: 1898417449132113491}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -238,23 +238,6 @@ SortingGroup:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_SortAtRoot: 1
---- !u!114 &760192793472474558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2776252855385795526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 1259003968, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
-  - {fileID: 757936343, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
-  - {fileID: -273153786, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
-  index: 0
 --- !u!114 &8996049184731776934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +251,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &1898417449132113491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2776252855385795526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 1259003968, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
+  - {fileID: 757936343, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
+  - {fileID: -273153786, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
+  propertyName: HealthState
 --- !u!1001 &1586506072868367642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -368,10 +368,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.005
       objectReference: {fileID: 0}
-    - target: {fileID: 7694393783756858985, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 22100000, guid: 55f5b6eeb26b29f499d4d5ede6e93d11, type: 2}
     - target: {fileID: 7935261973235142517, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: modelCollider
       value: 

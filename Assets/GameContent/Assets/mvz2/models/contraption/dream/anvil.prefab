@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 8706503471715863083}
   - component: {fileID: 6095126361630674286}
   - component: {fileID: 5856378202632755124}
-  - component: {fileID: 1897191298659885020}
-  - component: {fileID: 783519112313429812}
+  - component: {fileID: 7976019959407757651}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -100,28 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!95 &1897191298659885020
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2776252855385795526}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bb21078ed338c3245b2a55bf1506e4b9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &783519112313429812
+--- !u!114 &7976019959407757651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,14 +108,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2776252855385795526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: -1083742067, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
   - {fileID: 413586417, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
   - {fileID: 1656711901, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
-  index: 0
+  propertyName: HealthState
 --- !u!1001 &1586506072868367642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6702236362217210405, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: animators.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6702236362217210405, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: renderers.Array.size
@@ -210,10 +188,6 @@ PrefabInstance:
       propertyPath: animators.Array.data[0]
       value: 
       objectReference: {fileID: 8990201626012453747}
-    - target: {fileID: 6702236362217210405, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
-      propertyPath: animators.Array.data[1]
-      value: 
-      objectReference: {fileID: 1897191298659885020}
     - target: {fileID: 6702236362217210405, guid: b945c9918327bcc4f9bd3fabcb076700, type: 3}
       propertyPath: renderers.Array.data[0]
       value: 

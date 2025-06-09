@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetAnimationInt("HealthState", entity.GetHealthState(3));
+            entity.SetModelHealthStateByCount(3);
         }
         public const int MAX_CALTROPS = 100;
         public override NamespaceID SpikeParticleID => VanillaEffectID.diamondSpikeParticles;

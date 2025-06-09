@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetAnimationBool("IsOn", !entity.IsAIFrozen());
+            entity.SetModelProperty("IsOn", !entity.IsAIFrozen());
         }
         protected override void OnEvoke(Entity entity)
         {

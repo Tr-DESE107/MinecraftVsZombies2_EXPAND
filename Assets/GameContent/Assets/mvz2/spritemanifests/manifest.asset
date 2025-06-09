@@ -507,6 +507,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 45e4ec0a78ad63e4da7576e9c122689c, type: 3}
   - name: entity/contraptions/drivenser_blocker
     sprite: {fileID: 21300000, guid: ab45c539e2bb18040b691583b08639f1, type: 3}
+  - name: entity/contraptions/error_block
+    sprite: {fileID: 21300000, guid: 1106f96e2391f404caf8c7b2974ba5ea, type: 3}
   - name: entity/contraptions/force_wave
     sprite: {fileID: 21300000, guid: c91919e3f10e9004f85638cba2384e3e, type: 3}
   - name: entity/contraptions/giant_bowl
@@ -527,6 +529,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3fd63c7920860ce4f8bc0be1188ae567, type: 3}
   - name: entity/contraptions/halo
     sprite: {fileID: 21300000, guid: efce82eceb86bb44f90591042d0607b3, type: 3}
+  - name: entity/contraptions/infectenser
+    sprite: {fileID: 21300000, guid: d8130bf7140daa14a9605dddcd5bd851, type: 3}
   - name: entity/contraptions/lily_pad
     sprite: {fileID: 21300000, guid: e81ac283d392c4f40badaaf0d30184b2, type: 3}
   - name: entity/contraptions/magichest_flash
@@ -571,16 +575,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a6f5c16aaaa862f4a8000dbbb824d5a0, type: 3}
   - name: entity/effects/camera_frame
     sprite: {fileID: 21300000, guid: 5005e9bfb3edbd84082f1c1dbc01250b, type: 3}
-  - name: entity/effects/castle_twilight
-    sprite: {fileID: 21300000, guid: bb5ecf4eaca68cc49be8e39e2b78bda8, type: 3}
-  - name: entity/effects/crushing_wall_left
-    sprite: {fileID: 21300000, guid: 2574e617cf0030645966d0a257f50050, type: 3}
-  - name: entity/effects/crushing_wall_left_censored
-    sprite: {fileID: 21300000, guid: 42226c15cb218274b8576006d9f58dc6, type: 3}
-  - name: entity/effects/crushing_wall_right
-    sprite: {fileID: 21300000, guid: 6a18698f112f8244db4b1e5de5873248, type: 3}
-  - name: entity/effects/crushing_wall_right_censored
-    sprite: {fileID: 21300000, guid: 26dc0bfdc50bd814f9f2c3f60f62e366, type: 3}
   - name: entity/effects/cursed_fire_particle
     sprite: {fileID: 21300000, guid: e2f7e29ca0c62d5468d4cab32fae9562, type: 3}
   - name: entity/effects/dark_hole_circle
@@ -609,10 +603,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2d8cc2e256684364897cd68a561a74bf, type: 3}
   - name: entity/effects/nightmareaper_shadow
     sprite: {fileID: 21300000, guid: 79171aca3bcf918459cf2160bda1f9f2, type: 3}
-  - name: entity/effects/nightmare_broken_glass
-    sprite: {fileID: 21300000, guid: bbeefbb207c94ad428e3fdbcab7acbbd, type: 3}
-  - name: entity/effects/nightmare_eye_mask
-    sprite: {fileID: 21300000, guid: 0e5714ba6ca6d674889c791b36a58067, type: 3}
   - name: entity/effects/nightmare_portal_background
     sprite: {fileID: 21300000, guid: 22e179046dae5d843b78cf65056dad99, type: 3}
   - name: entity/effects/nightmare_portal_background_censored
@@ -651,6 +641,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 57a43fd6f9e8d124fb3ac37bc690d4aa, type: 3}
   - name: entity/effects/water_splash
     sprite: {fileID: 21300000, guid: 9d730e080bace4646938c15cdabc88d0, type: 3}
+  - name: entity/effects/wither_soulsand
+    sprite: {fileID: 21300000, guid: 0ffb8f5c07b9abc459cc588c2b0efab6, type: 3}
   - name: entity/effects/zombie_block
     sprite: {fileID: 21300000, guid: dd81e2f5e01461d4c9186fe9648f2c1f, type: 3}
   - name: entity/enemies/bedserker_bed
@@ -765,6 +757,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 64ae02f38e804074894acb6967767dff, type: 3}
   - name: level/castle/castle
     sprite: {fileID: 21300000, guid: aba492ffb3d38f745a0619b198a8ff73, type: 3}
+  - name: level/castle/castle_twilight
+    sprite: {fileID: 21300000, guid: bb5ecf4eaca68cc49be8e39e2b78bda8, type: 3}
   - name: level/castle/foreground
     sprite: {fileID: 21300000, guid: 7eb25f3d547617c4bb047d1f95e5f495, type: 3}
   - name: level/day/day
@@ -779,6 +773,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 64951a0026f5ef54bbb28092c064d4ea, type: 3}
   - name: level/dream/dream_sky
     sprite: {fileID: 21300000, guid: ced932759e970e74891ad58675bf4e53, type: 3}
+  - name: level/dream/nightmare_broken_glass
+    sprite: {fileID: 21300000, guid: bbeefbb207c94ad428e3fdbcab7acbbd, type: 3}
+  - name: level/dream/nightmare_eye_mask
+    sprite: {fileID: 21300000, guid: 0e5714ba6ca6d674889c791b36a58067, type: 3}
   - name: level/dream/nightmare_ground
     sprite: {fileID: 21300000, guid: 4a34d2e0337c5e24196eb44240e1b00c, type: 3}
   - name: level/dream/nightmare_ground_censored
@@ -851,6 +849,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a06be91936876c74d8f5b245197688cf, type: 3}
   - name: ui/arcade/background
     sprite: {fileID: 21300000, guid: 327c7ca17fc1da84993f3b15a675a7e7, type: 3}
+  - name: ui/effect/crushing_wall_left
+    sprite: {fileID: 21300000, guid: 2574e617cf0030645966d0a257f50050, type: 3}
+  - name: ui/effect/crushing_wall_left_censored
+    sprite: {fileID: 21300000, guid: 42226c15cb218274b8576006d9f58dc6, type: 3}
+  - name: ui/effect/crushing_wall_right
+    sprite: {fileID: 21300000, guid: 6a18698f112f8244db4b1e5de5873248, type: 3}
+  - name: ui/effect/crushing_wall_right_censored
+    sprite: {fileID: 21300000, guid: 26dc0bfdc50bd814f9f2c3f60f62e366, type: 3}
   - name: ui/level/card
     sprite: {fileID: 21300000, guid: 23576b1f7e3a27e45af33cb0ad4f201b, type: 3}
   - name: ui/level/card_command_block
@@ -1236,6 +1242,11 @@ MonoBehaviour:
     - {fileID: 2038617381, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
     - {fileID: 41696649, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
     - {fileID: -1495750782, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
+  - name: entity/armor/skeleton_warrior_helmet
+    spritesheet:
+    - {fileID: -1055558042, guid: 8f4a25505be15d244b85ae394574d811, type: 3}
+    - {fileID: -113835488, guid: 8f4a25505be15d244b85ae394574d811, type: 3}
+    - {fileID: -1032856091, guid: 8f4a25505be15d244b85ae394574d811, type: 3}
   - name: entity/boss/frankenstein
     spritesheet:
     - {fileID: -8387447821006724102, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
@@ -1419,9 +1430,6 @@ MonoBehaviour:
     - {fileID: 320034190, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
     - {fileID: 1628297157, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
     - {fileID: 789365403, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
-  - name: entity/contraption/error_block
-    spritesheet:
-    - {fileID: 21300000, guid: 1106f96e2391f404caf8c7b2974ba5ea, type: 3}
   - name: entity/contraption/fire_block_0
     spritesheet:
     - {fileID: 1207791398, guid: 1143ec22777085e4da98117d2864f022, type: 3}
@@ -1510,9 +1518,6 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 412644075, guid: 2562dbc08cdc1bd459d0a70219d7d4e4, type: 3}
     - {fileID: -1257440946, guid: 2562dbc08cdc1bd459d0a70219d7d4e4, type: 3}
-  - name: entity/contraption/infectenser
-    spritesheet:
-    - {fileID: 21300000, guid: d8130bf7140daa14a9605dddcd5bd851, type: 3}
   - name: entity/contraption/lightning_orb
     spritesheet:
     - {fileID: 1215340357, guid: 16d57d3a0e4ea894fa24ebb0c305c8e3, type: 3}
@@ -1693,32 +1698,6 @@ MonoBehaviour:
     - {fileID: -1309202034, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
     - {fileID: -864480218, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
     - {fileID: 191063626, guid: 23518f4eda2b37a4d93c7c80da15582c, type: 3}
-  - name: entity/effect/nightmare_broken_glasses
-    spritesheet:
-    - {fileID: -496670632954994581, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 8269609324391817686, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 3401429139997365564, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 3358884720331307487, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 6874442815973686135, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 4679210846951038084, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: -6495485243686058542, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 2461164191611283521, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 5417238220393675570, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: -9112802057215566970, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 463742695704995586, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: -8139932753208879606, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 846718947521563388, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 7416995959784659540, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 8208414520498518862, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 8004326224164664021, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 7724346793561393014, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 3823601113008493474, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: -7756604054095924733, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: -7821657702799450650, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 2380259279533041994, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 4360235884385069951, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: 3439651553194031847, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
-    - {fileID: -2918477655606386715, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
   - name: entity/effect/nightmare_eyes
     spritesheet:
     - {fileID: -1975613896574560083, guid: d69e436bf37b3d34d868afa95187baa1, type: 3}
@@ -1773,9 +1752,6 @@ MonoBehaviour:
     - {fileID: 1815208976, guid: 93e2f9e0bfa5b694baa6f369a01161b8, type: 3}
     - {fileID: 894312570, guid: 93e2f9e0bfa5b694baa6f369a01161b8, type: 3}
     - {fileID: 1446467554, guid: 93e2f9e0bfa5b694baa6f369a01161b8, type: 3}
-  - name: entity/effect/wither_soulsand
-    spritesheet:
-    - {fileID: 21300000, guid: 0ffb8f5c07b9abc459cc588c2b0efab6, type: 3}
   - name: entity/enemy/anubisand
     spritesheet:
     - {fileID: 728664072, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
@@ -2159,6 +2135,32 @@ MonoBehaviour:
     - {fileID: 1593830320, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
     - {fileID: 1307917129, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
     - {fileID: -1275393187, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
+  - name: ui/level/nightmare_broken_glasses
+    spritesheet:
+    - {fileID: -496670632954994581, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 8269609324391817686, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 3401429139997365564, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 3358884720331307487, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 6874442815973686135, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 4679210846951038084, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -6495485243686058542, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 2461164191611283521, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 5417238220393675570, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -9112802057215566970, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 463742695704995586, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -8139932753208879606, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 846718947521563388, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 7416995959784659540, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 8208414520498518862, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 8004326224164664021, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 7724346793561393014, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 3823601113008493474, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -7756604054095924733, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -7821657702799450650, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 2380259279533041994, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 4360235884385069951, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: 3439651553194031847, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
+    - {fileID: -2918477655606386715, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}
   - name: ui/level/starshard_point
     spritesheet:
     - {fileID: 21300000, guid: b3fb8d61fec87704189d63aacaa3814c, type: 3}

@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetAnimationBool("Evoked", entity.IsEvoked());
+            entity.SetModelProperty("Evoked", entity.IsEvoked());
         }
         protected override void OnEvoke(Entity entity)
         {

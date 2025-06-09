@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Carts
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            entity.SetAnimationBool("Running", entity.IsCartTriggered());
+            entity.SetModelProperty("Running", entity.IsCartTriggered());
         }
         public override void PostTrigger(Entity entity)
         {

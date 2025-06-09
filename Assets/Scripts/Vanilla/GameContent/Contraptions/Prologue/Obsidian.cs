@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 state = GetHealthState(contraption, maxHP);
             }
-            contraption.SetAnimationInt("HealthState", state);
+            contraption.SetModelHealthState(state);
         }
 
         public override bool CanEvoke(Entity entity)
@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             else if (contraption.Health <= 0.6f * maxHP)
             {
-                return 3;
+                return 5;
             }
             else if (contraption.Health <= 0.8f * maxHP)
             {
@@ -63,14 +63,14 @@ namespace MVZ2.GameContent.Contraptions
             }
             else
             {
-                return 5;
+                return 3;
             }
         }
         private int GetHealthState(Entity contraption, float maxHP)
         {
             if (contraption.Health <= maxHP / 3)
             {
-                return 0;
+                return 2;
             }
             else if (contraption.Health <= maxHP * 2 / 3)
             {
@@ -78,7 +78,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             else
             {
-                return 2;
+                return 0;
             }
         }
     }
