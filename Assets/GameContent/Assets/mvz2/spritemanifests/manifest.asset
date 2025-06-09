@@ -1218,9 +1218,6 @@ MonoBehaviour:
     - {fileID: 678876980, guid: 7891ad9049ccbeb45810adbce12d4cfa, type: 3}
     - {fileID: 1861134033, guid: 7891ad9049ccbeb45810adbce12d4cfa, type: 3}
     - {fileID: 1080469031, guid: 7891ad9049ccbeb45810adbce12d4cfa, type: 3}
-  - name: obstacles/gargoyle_statue
-    spritesheet:
-    - {fileID: 21300000, guid: af4197b7fa73c8644895197de59ed07d, type: 3}
   - name: ui/zoom
     spritesheet:
     - {fileID: 2118295651, guid: 6d34689b106ed35498dffaa3069fa3f5, type: 3}
@@ -2008,6 +2005,9 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 1118952533, guid: 9d7d8c34fc25cfc48886195628af3adf, type: 3}
     - {fileID: -1411100427, guid: 9d7d8c34fc25cfc48886195628af3adf, type: 3}
+  - name: entity/obstacles/gargoyle_statue
+    spritesheet:
+    - {fileID: 21300000, guid: af4197b7fa73c8644895197de59ed07d, type: 3}
   - name: entity/pickup/emerald
     spritesheet:
     - {fileID: 21300000, guid: 11c66b9ab6ebf1c49b3ad1c98403f288, type: 3}

@@ -1,3 +1,10 @@
+# 0.4.2-AndroidFix1
+
+## Fixed
+- Some textures are full black on some Android devices due to imcompatible texture compression format.
+
+---
+
 # 0.4.2
 
 ## Added

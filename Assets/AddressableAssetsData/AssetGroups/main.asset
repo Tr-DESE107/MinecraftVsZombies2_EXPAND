@@ -6483,7 +6483,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: af4197b7fa73c8644895197de59ed07d
-    m_Address: mvz2:obstacles/gargoyle_statue
+    m_Address: mvz2:entity/obstacles/gargoyle_statue
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
