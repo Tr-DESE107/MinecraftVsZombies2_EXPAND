@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-05-31 09:54+0800\n"
-"PO-Revision-Date: 2025-06-07 16:22+0800\n"
+"POT-Creation-Date: 2025-06-09 11:55+0800\n"
+"PO-Revision-Date: 2025-06-09 11:58+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -7819,10 +7819,9 @@ msgstr "The incident first started around three years ago."
 #. Text for talk sentence 7 in talk group mausoleum_4_map's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_4_map"
-msgid "而在三年前的那个时候，幻想乡突然出现了两位外界来的旅人。"
+msgid "而在更早的四年前，幻想乡突然出现了两位外界来的旅人。"
 msgstr ""
-"And three years ago, around the same time, two outsiders suddenly came to "
-"Gensokyo."
+"Four years ago, earlier than that, two outsiders suddenly came to Gensokyo."
 
 #. Text for talk sentence 8 in talk group mausoleum_4_map's section 0
 #: Talk meta file
