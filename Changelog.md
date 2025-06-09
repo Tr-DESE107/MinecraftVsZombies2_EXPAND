@@ -2,6 +2,7 @@
 
 ## Added
 - Unique placement type tags in almanac for 4 upgrade contraptions.
+- Pressing right mouse button during choosing blueprints now cancels all chosen blueprints.
 
 ## Modified
 - Necrotombstone's recharge time extended to Long from Short, and will stop summoning if the count of skeleton warriors reaches its limit of 30.
@@ -12,6 +13,7 @@
 - Compressed game resource sizes.
 - Optimized game performance.
   - Reduced entity animation update frequency when excessive entities are present.
+- Adjusted the interface of Music Room, Added the texts for current time and total time, and removed the click sound for buttons.
 
 ## Fixes
 - Re-entering an Endless level caused current Upgrade Contraption Blueprints to double their energy cost again.
