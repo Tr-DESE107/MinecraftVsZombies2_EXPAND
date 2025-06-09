@@ -35,6 +35,7 @@ namespace MVZ2.Level.UI
         {
             startButton.onClick.AddListener(() => OnStartButtonClick?.Invoke());
             viewLawnButton.onClick.AddListener(() => OnViewLawnButtonClick?.Invoke());
+            cancelButton.onClick.AddListener(() => OnCancelButtonClick?.Invoke());
             repickButton.onClick.AddListener(() => OnRepickButtonClick?.Invoke());
             displayer.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintPointerInteraction?.Invoke(index, data, i);
             displayer.OnBlueprintSelect += (index, data) => OnBlueprintSelect?.Invoke(index, data);
@@ -47,6 +48,7 @@ namespace MVZ2.Level.UI
         }
         public event Action OnStartButtonClick;
         public event Action OnViewLawnButtonClick;
+        public event Action OnCancelButtonClick;
         public event Action OnRepickButtonClick;
         public event Action<PointerEventData, PointerInteraction> OnCommandBlockBlueprintPointerInteraction;
         public event Action<PointerEventData> OnCommandBlockBlueprintSelect;
@@ -56,6 +58,8 @@ namespace MVZ2.Level.UI
         Button startButton;
         [SerializeField]
         Button viewLawnButton;
+        [SerializeField]
+        Button cancelButton;
         [SerializeField]
         Button repickButton;
         [SerializeField]

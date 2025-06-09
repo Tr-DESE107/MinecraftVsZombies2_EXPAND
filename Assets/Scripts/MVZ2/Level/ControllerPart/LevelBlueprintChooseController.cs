@@ -57,6 +57,7 @@ namespace MVZ2.Level
             chooseUI.OnStartClick += UI_OnStartClickCallback;
             chooseUI.OnViewLawnClick += UI_OnViewLawnClickCallback;
             chooseUI.OnRepickClick += UI_OnRepickClickCallback;
+            chooseUI.OnCancelChooseClick += UI_OnCancelChooseClickCallback;
             chooseUI.OnViewAlmanacClick += UI_OnViewAlmanacClickCallback;
             chooseUI.OnViewStoreClick += UI_OnViewStoreClickCallback;
 
@@ -1092,6 +1093,10 @@ namespace MVZ2.Level
                 return;
             var blueprints = lastSelection.blueprints;
             ReplaceChoosingBlueprints(blueprints);
+        }
+        private void UI_OnCancelChooseClickCallback()
+        {
+            UnloadAllBlueprints();
         }
         #endregion
 

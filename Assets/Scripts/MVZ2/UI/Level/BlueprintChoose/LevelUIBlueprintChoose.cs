@@ -213,6 +213,7 @@ namespace MVZ2.UI
             blueprintChoosePanel.OnStartButtonClick += () => OnStartClick?.Invoke();
             blueprintChoosePanel.OnViewLawnButtonClick += () => OnViewLawnClick?.Invoke();
             blueprintChoosePanel.OnRepickButtonClick += () => OnRepickClick?.Invoke();
+            blueprintChoosePanel.OnCancelButtonClick += () => OnCancelChooseClick?.Invoke();
             blueprintChoosePanel.OnCommandBlockBlueprintPointerInteraction += (e, i) => OnCommandBlockPointerInteraction?.Invoke(e, i);
             blueprintChoosePanel.OnCommandBlockBlueprintSelect += (e) => OnCommandBlockSlotSelect?.Invoke(e);
             blueprintChoosePanel.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintItemPointerInteraction?.Invoke(index, data, i, false);
@@ -255,6 +256,7 @@ namespace MVZ2.UI
         public event Action OnStartClick;
         public event Action OnViewLawnClick;
         public event Action OnRepickClick;
+        public event Action OnCancelChooseClick;
         public event Action<PointerEventData, PointerInteraction> OnCommandBlockPointerInteraction;
         public event Action<PointerEventData> OnCommandBlockSlotSelect;
         public event Action OnCommandBlockPanelCancelClick;
