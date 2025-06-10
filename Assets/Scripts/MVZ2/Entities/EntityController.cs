@@ -111,7 +111,16 @@ namespace MVZ2.Entities
             lastPosition = transform.position;
 
             UpdateShadow(finalOffset);
-            modelPropertyCache.SetDirtyProperty(EntityPropertyCache.PropertyName.Tint);
+            var shouldTwinkle = ShouldTwinkle();
+            if (twinkling != shouldTwinkle)
+            {
+                twinkling = shouldTwinkle;
+                modelPropertyCache.SetDirtyProperty(EntityPropertyCache.PropertyName.Tint);
+            }
+            else if (twinkling)
+            {
+                modelPropertyCache.SetDirtyProperty(EntityPropertyCache.PropertyName.Tint);
+            }
             if (Model)
             {
                 Model.UpdateFrame(deltaTime);
@@ -409,12 +418,11 @@ namespace MVZ2.Entities
         private Color GetTint()
         {
             var tint = Entity.GetTint();
-            Color twinkleTint = Color.white;
-            if (ShouldTwinkle())
+            if (twinkling)
             {
-                twinkleTint = Level.GetTwinkleColor();
+                tint *= Level.GetTwinkleColor();
             }
-            return tint * twinkleTint;
+            return tint;
         }
         private Color GetColorOffset()
         {
@@ -473,6 +481,7 @@ namespace MVZ2.Entities
         public LevelController Level { get; private set; }
         private RandomGenerator rng;
         private bool isHighlight;
+        private bool twinkling;
         private EntityCursorSource _cursorSource;
         private Vector3 lastPosition;
         private IModelInterface bodyModelInterface;

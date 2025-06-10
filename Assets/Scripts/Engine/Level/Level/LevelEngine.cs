@@ -38,6 +38,7 @@ namespace PVZEngine.Level
         #region 组件
         public void AddComponent(ILevelComponent component)
         {
+            component.PostAttach(this);
             levelComponents.Add(component);
         }
         public ILevelComponent[] GetComponents()

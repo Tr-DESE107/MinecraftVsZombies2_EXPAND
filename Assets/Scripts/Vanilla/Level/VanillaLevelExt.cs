@@ -98,7 +98,7 @@ namespace MVZ2.Vanilla.Level
         public static NamespaceID GetHeldSeedEntityID(this LevelEngine level)
         {
             var heldType = level.GetHeldItemType();
-            var heldDefinition = level.Content.GetHeldItemDefinition(heldType);
+            var heldDefinition = level.GetHeldItemDefinition();
             if (heldDefinition == null)
                 return null;
             if (heldType == VanillaHeldTypes.blueprintPickup)

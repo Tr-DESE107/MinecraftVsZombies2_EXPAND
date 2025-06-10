@@ -19,7 +19,6 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
-using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -63,7 +62,7 @@ namespace MVZ2.Level
             NamespaceID heldType = data.Type;
             bool instantTrigger = data.InstantTrigger;
 
-            var definition = Game.GetHeldItemDefinition(heldType);
+            var definition = data.Definition;
 
             // 设置图标。
             var modelID = definition?.GetModelID(level, data);

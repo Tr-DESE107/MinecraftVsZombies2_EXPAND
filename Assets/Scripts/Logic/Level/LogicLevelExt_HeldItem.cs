@@ -1,5 +1,4 @@
 ﻿using MVZ2.HeldItems;
-using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
@@ -51,8 +50,8 @@ namespace MVZ2Logic.Level
         }
         public static HeldItemDefinition GetHeldItemDefinition(this LevelEngine level)
         {
-            var heldType = level.GetHeldItemType();
-            return level.Content.GetHeldItemDefinition(heldType);
+            var data = level.GetHeldItemData();
+            return data.Definition;
         }
         public static HeldHighlight GetHeldHighlight(this LevelEngine level, IHeldItemTarget target, PointerData pointer)
         {

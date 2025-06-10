@@ -16,10 +16,15 @@ namespace MVZ2.Level.Components
         public HeldItemComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
         }
+        public override void PostAttach(LevelEngine level)
+        {
+            base.PostAttach(level);
+            ResetHeldItem();
+        }
         public override void Update()
         {
             base.Update();
-            var definition = Level.Content.GetHeldItemDefinition(Data.Type);
+            var definition = info.Definition;
             if (definition != null)
             {
                 definition.Update(Level, Data);
@@ -31,10 +36,12 @@ namespace MVZ2.Level.Components
         }
         public void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false)
         {
+            var definition = Level.Content.GetHeldItemDefinition(type);
             SetHeldItem(new HeldItemData()
             {
                 Type = type,
                 ID = id,
+                Definition = definition,
                 Priority = priority,
                 NoCancel = noCancel
             });
@@ -44,18 +51,19 @@ namespace MVZ2.Level.Components
             if (IsHoldingItem() && info.Priority > value.Priority)
                 return;
 
-            var before = Level.Content.GetHeldItemDefinition(Data.Type);
+            var before = info.Definition;
             before?.End(Level, Data);
 
+            var definition = Level.Content.GetHeldItemDefinition(value.Type);
             info.Type = value.Type;
             info.ID = value.ID;
+            info.Definition = definition;
             info.Priority = value.Priority;
             info.NoCancel = value.NoCancel;
             info.InstantTrigger = value.InstantTrigger;
             info.InstantEvoke = value.InstantEvoke;
             Controller.SetHeldItemUI(info);
 
-            var definition = Level.Content.GetHeldItemDefinition(Data.Type);
             if (definition != null)
             {
                 definition.Begin(Level, Data);
@@ -68,18 +76,19 @@ namespace MVZ2.Level.Components
         }
         public void ResetHeldItem()
         {
-            var before = Level.Content.GetHeldItemDefinition(Data.Type);
+            var before = info.Definition;
             before?.End(Level, Data);
 
             info.Type = BuiltinHeldTypes.none;
+            var definition = Level.Content.GetHeldItemDefinition(info.Type);
             info.ID = 0;
+            info.Definition = definition;
             info.Priority = 0;
             info.NoCancel = false;
             info.InstantTrigger = false;
             info.InstantEvoke = false;
             Controller.SetHeldItemUI(info);
 
-            var definition = Level.Content.GetHeldItemDefinition(Data.Type);
             Controller.UpdateEntityHeldTargetColliders(definition?.GetHeldTargetMask(Level) ?? HeldTargetFlag.None);
         }
         public bool CancelHeldItem()
@@ -90,10 +99,7 @@ namespace MVZ2.Level.Components
             return true;
         }
         public IHeldItemData Data => info;
-        private HeldItemData info = new HeldItemData()
-        {
-            Type = BuiltinHeldTypes.none
-        };
+        private HeldItemData info;
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "heldItem");
     }
     [Serializable]
