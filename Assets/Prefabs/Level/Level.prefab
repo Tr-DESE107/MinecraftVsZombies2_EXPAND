@@ -169,7 +169,6 @@ MonoBehaviour:
   cameraLawnAnchor: {x: 1, y: 0.5}
   cameraChoosePosition: {x: 14, y: 3, z: -500}
   cameraChooseAnchor: {x: 1, y: 0.5}
-  maxAnimatorUpdateCount: 128
   entityTemplate: {fileID: -1708814885022385043, guid: 033dd59ce2dc153448fa75a2e0c608b3, type: 3}
   entitiesRoot: {fileID: 1458902122031359015}
   unityCollisionSystem: {fileID: 3082055439283190706}
@@ -4491,6 +4490,10 @@ PrefabInstance:
     - target: {fileID: 1581303140253096031, guid: 39bea42059e6f3f499313d468e33c65d, type: 3}
       propertyPath: m_Name
       value: CollisionSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581303140253096031, guid: 39bea42059e6f3f499313d468e33c65d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7841311144786482409, guid: 39bea42059e6f3f499313d468e33c65d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using PVZEngine.Entities;
 using Tools.Mathematics;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace PVZEngine.Level.Collisions
 {
@@ -11,8 +13,14 @@ namespace PVZEngine.Level.Collisions
         public BuiltinCollisionSystem(QuadTreeParams treeParams)
         {
             quadTreeParams = treeParams;
+            entityPool = new ObjectPool<BuiltinCollisionEntity>(CreateEntityFunc);
         }
         public void Update()
+        {
+            UpdateTrash();
+            Simulate();
+        }
+        private void Simulate()
         {
             colliderBuffer.Clear();
             foreach (var quadTree in quadTrees.Values)
@@ -24,180 +32,155 @@ namespace PVZEngine.Level.Collisions
             foreach (var collider1 in colliderBuffer)
             {
                 var ent1 = collider1.Entity;
-                var detection = ent1.Cache.CollisionDetection;
-                if (detection == EntityCollisionHelper.DETECTION_IGNORE)
-                    continue;
                 int maskHostile = ent1.CollisionMaskHostile;
                 int maskFriendly = ent1.CollisionMaskFriendly;
                 var maskTotal = maskHostile | maskFriendly;
                 int ent1Faction = ent1.Cache.Faction;
 
-                var ent1Motion = ent1.Position - ent1.PreviousPosition;
-
 
                 var rect1 = collider1.GetCollisionRect();
-                var collisionPoints = 1;
-                if (detection == EntityCollisionHelper.DETECTION_CONTINUOUS)
+
+                collisionBuffer.Clear();
+                foreach (var pair in quadTrees)
                 {
-                    collisionPoints = Mathf.CeilToInt(ent1Motion.magnitude / ent1.Cache.CollisionSampleLength);
-                    collisionPoints = Mathf.Max(collisionPoints, 1);
+                    var flag = pair.Key;
+                    if ((flag & maskTotal) == 0)
+                        continue;
+                    var tree = pair.Value;
+                    tree.FindTargetsInRect(rect1, collisionBuffer, 0);
                 }
-                for (int p = collisionPoints - 1; p >= 0; p--) // 从上一帧的位置开始向当前位置回溯
+                var prevPosition = collider1.GetPosition() - (ent1.Position - ent1.PreviousPosition);
+                collisionBuffer.Sort((c1, c2) => (c1.GetPosition() - prevPosition).sqrMagnitude.CompareTo((c2.GetPosition() - prevPosition).sqrMagnitude));
+                foreach (var collider2 in collisionBuffer)
                 {
-                    var rewind = p / (float)collisionPoints;
-                    var ent1Offset = -ent1Motion * rewind;
-                    var offsetedRect = rect1;
-                    offsetedRect.x += ent1Offset.x;
-                    offsetedRect.y += ent1Offset.z;
+                    if (collider1 == collider2)
+                        continue;
+                    var ent2 = collider2.Entity;
+                    if (ent1 == ent2)
+                        continue;
+                    if (!EntityCollisionHelper.CanCollideFaction(maskHostile, maskFriendly, ent1Faction, ent2))
+                        continue;
 
-                    collisionBuffer.Clear();
-                    foreach (var pair in quadTrees)
-                    {
-                        var flag = pair.Key;
-                        if ((flag & maskTotal) == 0)
-                            continue;
-                        var tree = pair.Value;
-                        tree.FindTargetsInRect(offsetedRect, collisionBuffer, rewind);
-                    }
-                    foreach (var collider2 in collisionBuffer)
-                    {
-                        if (collider1 == collider2)
-                            continue;
-                        var ent2 = collider2.Entity;
-                        if (ent1 == ent2)
-                            continue;
-                        var detection2 = ent2.Cache.CollisionDetection;
-                        if (detection2 == EntityCollisionHelper.DETECTION_IGNORE)
-                            continue;
-                        var ent2Faction = ent2.Cache.Faction;
-                        var mask = EngineEntityExt.IsHostile(ent1Faction, ent2Faction) ? ent1.CollisionMaskHostile : ent1.CollisionMaskFriendly;
-                        if (!EntityCollisionHelper.CanCollide(mask, ent2))
-                            continue;
-                        var ent2Motion = ent2.Position - ent2.PreviousPosition;
-                        var ent2Offset = -ent2Motion * rewind;
-
-                        collider1.DoCollision(collider2, ent1Offset - ent2Offset);
-                    }
+                    collider1.DoCollision(collider2, Vector3.zero);
                 }
 
-                ExitCollision(ent1);
+                collider1.ExitCollision();
             }
         }
+        private void UpdateTrash()
+        {
+            foreach (var trash in entityTrash)
+            {
+                entityPool.Release(trash.Value);
+            }
+            entityTrash.Clear();
+        }
+
+        #region 实体
         public void InitEntity(Entity entity)
         {
-            var mainCollider = new EntityCollider(entity, EntityCollisionHelper.NAME_MAIN, new EntityHitbox(entity));
-            AddCollider(entity, mainCollider);
+            var collisionEntity = CreateCollisionEntity();
+            collisionEntity.Init(entity);
+            entities.Add(entity.ID, collisionEntity);
         }
         public void UpdateEntityDetection(Entity entity)
         {
-
+            var collisionEntity = GetCollisionEntity(entity);
+            collisionEntity?.UpdateEntityDetection();
         }
         public void UpdateEntityPosition(Entity entity)
         {
-
+            var collisionEntity = GetCollisionEntity(entity);
+            collisionEntity?.UpdateEntityPosition();
         }
         public void UpdateEntitySize(Entity entity)
         {
-
+            var collisionEntity = GetCollisionEntity(entity);
+            collisionEntity?.UpdateEntitySize();
         }
         public void DestroyEntity(Entity entity)
         {
-            if (!entityColliders.TryGetValue(entity.ID, out var colliders))
+            var collisionEntity = GetCollisionEntity(entity);
+            if (collisionEntity == null)
                 return;
-            var flag = entity.TypeCollisionFlag;
-            foreach (var collider in colliders)
-            {
-                collider.OnEnabled -= OnColliderEnabledCallback;
-                collider.OnDisabled -= OnColliderDisabledCallback;
-                if (collider.Enabled)
-                {
-                    RemoveColliderFromTree(flag, collider);
-                }
-            }
-            colliders.Clear();
-            entityColliders.Remove(entity.ID);
+            RemoveCollisionEntity(collisionEntity);
         }
         public void GetCurrentCollisions(Entity entity, List<EntityCollision> collisions)
         {
-            if (!entityColliders.TryGetValue(entity.ID, out var colliders))
+            var collisionEntity = GetCollisionEntity(entity);
+            if (collisionEntity == null)
                 return;
-            foreach (var collider in colliders)
-            {
-                collider.GetCollisions(collisions);
-            }
-        }
-        private void ExitCollision(Entity entity)
-        {
-            if (!entityColliders.TryGetValue(entity.ID, out var colliders))
-                return;
-            foreach (var collider in colliders)
-            {
-                collider.ExitCollision();
-            }
+            collisionEntity.GetCurrentCollisions(collisions);
         }
 
-
-        #region 碰撞体
-        public IEntityCollider AddCollider(Entity entity, ColliderConstructor cons)
+        private BuiltinCollisionEntity CreateEntityFunc()
         {
-            var hitbox = new CustomHitbox(entity);
-            hitbox.SetSize(cons.size);
-            hitbox.SetPivot(cons.pivot);
-            hitbox.SetOffset(cons.offset);
-            var collider = new EntityCollider(entity, cons.name, hitbox);
-            AddCollider(entity, collider);
-            return collider;
+            return new BuiltinCollisionEntity();
         }
-        public void AddCollider(Entity entity, IEntityCollider collider)
+        public BuiltinCollisionEntity CreateCollisionEntity()
         {
-            if (collider is not EntityCollider entCol)
-                return;
-            var flag = entity.TypeCollisionFlag;
-            InsertColliderToTree(flag, entCol);
-            if (!entityColliders.TryGetValue(entity.ID, out var colliders))
-            {
-                colliders = new List<EntityCollider>();
-                entityColliders.Add(entity.ID, colliders);
-            }
-            colliders.Add(entCol);
-            entCol.OnEnabled += OnColliderEnabledCallback;
-            entCol.OnDisabled += OnColliderDisabledCallback;
+            var collisionEnt = entityPool.Get();
+            collisionEnt.OnEntityColliderEnabled += OnEntityColliderEnabledCallback;
+            collisionEnt.OnEntityColliderDisabled += OnEntityColliderDisabledCallback;
+            collisionEnt.OnEntityColliderAdd += OnEntityColliderAddCallback;
+            collisionEnt.OnEntityColliderRemove += OnEntityColliderRemoveCallback;
+            return collisionEnt;
         }
-        public bool RemoveCollider(Entity entity, string name)
+        public BuiltinCollisionEntity GetCollisionEntity(Entity entity)
         {
-            if (entityColliders.TryGetValue(entity.ID, out var colliders))
+            return entities.TryGetValue(entity.ID, out var collisionEntity) ? collisionEntity : null;
+        }
+        public bool RemoveCollisionEntity(BuiltinCollisionEntity entity)
+        {
+            var id = entity.ID;
+            if (entities.Remove(id))
             {
-                foreach (var collider in colliders)
-                {
-                    if (collider.Name == name)
-                    {
-                        colliders.Remove(collider);
-                        collider.OnEnabled -= OnColliderEnabledCallback;
-                        collider.OnDisabled -= OnColliderDisabledCallback;
-                        if (collider.Enabled)
-                        {
-                            var flag = entity.TypeCollisionFlag;
-                            RemoveColliderFromTree(flag, collider);
-                        }
-                        return true;
-                    }
-                }
+                entity.ClearColliders();
+                entity.OnEntityColliderEnabled -= OnEntityColliderEnabledCallback;
+                entity.OnEntityColliderDisabled -= OnEntityColliderDisabledCallback;
+                entity.OnEntityColliderAdd -= OnEntityColliderAddCallback;
+                entity.OnEntityColliderRemove -= OnEntityColliderRemoveCallback;
+                entityTrash.Add(id, entity);
+                return true;
             }
             return false;
         }
-        public EntityCollider GetCollider(Entity entity, string name)
+        #endregion
+
+
+        #region 碰撞体
+        public IEntityCollider CreateCustomCollider(Entity entity, ColliderConstructor cons)
         {
-            if (entityColliders.TryGetValue(entity.ID, out var colliders))
-            {
-                foreach (var collider in colliders)
-                {
-                    if (collider.Name == name)
-                        return collider;
-                }
-            }
-            return null;
+            var collisionEntity = GetCollisionEntity(entity);
+            if (collisionEntity == null)
+                return null;
+            return collisionEntity.CreateCustomCollider(cons);
+        }
+        public void AddCollider(Entity entity, IEntityCollider collider)
+        {
+            if (collider is not BuiltinCollisionCollider entCol)
+                return;
+            var collisionEntity = GetCollisionEntity(entity);
+            if (collisionEntity == null)
+                return;
+            collisionEntity.AddCollider(entCol);
+        }
+        public bool RemoveCollider(Entity entity, string name)
+        {
+            var collisionEntity = GetCollisionEntity(entity);
+            if (collisionEntity == null)
+                return false;
+            return collisionEntity.RemoveCollider(name);
+        }
+        public BuiltinCollisionCollider GetCollider(Entity entity, string name)
+        {
+            var collisionEntity = GetCollisionEntity(entity);
+            if (collisionEntity == null)
+                return null;
+            return collisionEntity.GetCollider(name);
         }
         IEntityCollider ICollisionSystem.GetCollider(Entity entity, string name) => GetCollider(entity, name);
+
         #endregion
 
         #region 检测
@@ -247,32 +230,22 @@ namespace PVZEngine.Level.Collisions
         {
             if (predicate == null)
                 return Array.Empty<IEntityCollider>();
-            var entityColliders = new List<EntityCollider>();
+            var entityColliders = new List<BuiltinCollisionCollider>();
             var totalMask = hostileMask | friendlyMask;
             FindCollidersRange(totalMask, filterRect, entityColliders);
             for (int c = entityColliders.Count - 1; c >= 0; c--)
             {
                 var collider = entityColliders[c];
                 var entity = collider.Entity;
-                var mask = entity.IsHostile(faction) ? hostileMask : friendlyMask;
-                bool valid = false;
-                if (EntityCollisionHelper.CanCollide(mask, entity) && entity.GetCollisionDetection() != EntityCollisionHelper.DETECTION_IGNORE)
+                if (EntityCollisionHelper.CanCollideFaction(hostileMask, friendlyMask, faction, entity))
                 {
-                    for (int i = 0; i < collider.GetHitboxCount(); i++)
+                    var hitbox = collider.GetHitbox();
+                    if (predicate(hitbox))
                     {
-                        var hitbox = collider.GetHitbox(i);
-                        if (predicate(hitbox))
-                        {
-                            valid = true;
-                            break;
-                        }
+                        break;
                     }
                 }
-                if (!valid)
-                {
-                    entityColliders.RemoveAt(c);
-                    continue;
-                }
+                entityColliders.RemoveAt(c);
             }
             return entityColliders.ToArray();
         }
@@ -280,7 +253,7 @@ namespace PVZEngine.Level.Collisions
         {
             if (predicate == null)
                 return;
-            var entityColliders = new List<EntityCollider>();
+            var entityColliders = new List<BuiltinCollisionCollider>();
             var totalMask = hostileMask | friendlyMask;
             FindCollidersRange(totalMask, filterRect, entityColliders);
             foreach (var collider in entityColliders)
@@ -288,18 +261,12 @@ namespace PVZEngine.Level.Collisions
                 if (results.Contains(collider))
                     continue;
                 var entity = collider.Entity;
-                var mask = entity.IsHostile(faction) ? hostileMask : friendlyMask;
-                if (!EntityCollisionHelper.CanCollide(mask, entity))
-                    continue;
-                if (entity.GetCollisionDetection() == EntityCollisionHelper.DETECTION_IGNORE)
-                    continue;
-                for (int i = 0; i < collider.GetHitboxCount(); i++)
+                if (EntityCollisionHelper.CanCollideFaction(hostileMask, friendlyMask, faction, entity))
                 {
-                    var hitbox = collider.GetHitbox(i);
+                    var hitbox = collider.GetHitbox();
                     if (predicate(hitbox))
                     {
                         results.Add(collider);
-                        break;
                     }
                 }
             }
@@ -313,7 +280,7 @@ namespace PVZEngine.Level.Collisions
                 return tree;
             return null;
         }
-        private void FindCollidersRange(int mask, Rect rect, List<EntityCollider> collider)
+        private void FindCollidersRange(int mask, Rect rect, List<BuiltinCollisionCollider> collider)
         {
             foreach (var pair in quadTrees)
             {
@@ -324,7 +291,7 @@ namespace PVZEngine.Level.Collisions
                 quadTree.FindTargetsInRect(rect, collider);
             }
         }
-        private void InsertColliderToTree(int flag, EntityCollider collider)
+        private void InsertColliderToTree(int flag, BuiltinCollisionCollider collider)
         {
             if (!quadTrees.TryGetValue(flag, out var tree))
             {
@@ -333,7 +300,7 @@ namespace PVZEngine.Level.Collisions
             }
             tree.Insert(collider);
         }
-        private void RemoveColliderFromTree(int flag, EntityCollider collider)
+        private void RemoveColliderFromTree(int flag, BuiltinCollisionCollider collider)
         {
             if (!quadTrees.TryGetValue(flag, out var tree))
             {
@@ -348,53 +315,71 @@ namespace PVZEngine.Level.Collisions
         #endregion
 
         #region 回调
-        private void OnColliderEnabledCallback(EntityCollider collider)
+        private void OnEntityColliderEnabledCallback(BuiltinCollisionEntity entity, BuiltinCollisionCollider collider)
         {
-            InsertColliderToTree(collider.Entity.TypeCollisionFlag, collider);
+            InsertColliderToTree(entity.Entity.TypeCollisionFlag, collider);
         }
-        private void OnColliderDisabledCallback(EntityCollider collider)
+        private void OnEntityColliderDisabledCallback(BuiltinCollisionEntity entity, BuiltinCollisionCollider collider)
         {
             RemoveColliderFromTree(collider.Entity.TypeCollisionFlag, collider);
+        }
+        private void OnEntityColliderAddCallback(BuiltinCollisionEntity entity, BuiltinCollisionCollider collider)
+        {
+            if (collider.Enabled)
+            {
+                InsertColliderToTree(entity.Entity.TypeCollisionFlag, collider);
+            }
+        }
+        private void OnEntityColliderRemoveCallback(BuiltinCollisionEntity entity, BuiltinCollisionCollider collider)
+        {
+            if (collider.Enabled)
+            {
+                RemoveColliderFromTree(entity.Entity.TypeCollisionFlag, collider);
+            }
         }
         #endregion
 
         public SerializableBuiltinCollisionSystem ToSerializable()
         {
             var seri = new SerializableBuiltinCollisionSystem();
-            var entities = new List<SerializableBuiltinCollisionSystemEntity>();
-            foreach (var pair in entityColliders)
-            {
-                var entity = new SerializableBuiltinCollisionSystemEntity()
-                {
-                    id = pair.Key,
-                    colliders = pair.Value.ConvertAll(g => g.ToSerializable()).ToArray()
-                };
-                entities.Add(entity);
-            }
-            seri.entities = entities.ToArray();
+            seri.entities = entities.Select(p => p.Value.ToSerializable()).ToArray();
+            seri.entityTrash = entityTrash.Select(p => p.Value.ToSerializable()).ToArray();
             return seri;
         }
-        public void LoadFromSerializable(LevelEngine level, SerializableBuiltinCollisionSystem seri)
+        public void LoadFromSerializable(LevelEngine level, ISerializableCollisionSystem seri)
         {
-            foreach (var seriEnt in seri.entities)
+            if (seri.Entities != null)
             {
-                var colliders = new List<EntityCollider>();
-                entityColliders.Add(seriEnt.id, colliders);
-                var ent = level.FindEntityByID(seriEnt.id);
-                foreach (var seriCollider in seriEnt.colliders)
+                foreach (var seriEnt in seri.Entities)
                 {
-                    var collider = EntityCollider.FromSerializable(seriCollider, ent);
-                    colliders.Add(collider);
+                    var entity = CreateCollisionEntity();
+                    entity.LoadFromSerializable(level, seriEnt);
+                    entities.Add(seriEnt.ID, entity);
                 }
             }
-            foreach (var seriEnt in seri.entities)
+            if (seri.EntityTrash != null)
             {
-                var colliders = entityColliders[seriEnt.id];
-                for (int i = 0; i < colliders.Count; i++)
+                foreach (var seriEnt in seri.EntityTrash)
                 {
-                    var collider = colliders[i];
-                    var seriCollider = seriEnt.colliders[i];
-                    collider.LoadCollisions(level, seriCollider);
+                    var entity = CreateCollisionEntity();
+                    entity.LoadFromSerializable(level, seriEnt);
+                    entityTrash.Add(seriEnt.ID, entity);
+                }
+            }
+            if (seri.Entities != null)
+            {
+                foreach (var seriEnt in seri.Entities)
+                {
+                    var entity = entities[seriEnt.ID];
+                    entity.LoadCollisions(level, seriEnt);
+                }
+            }
+            if (seri.EntityTrash != null)
+            {
+                foreach (var seriEnt in seri.EntityTrash)
+                {
+                    var entity = entities[seriEnt.ID];
+                    entity.LoadCollisions(level, seriEnt);
                 }
             }
         }
@@ -402,28 +387,22 @@ namespace PVZEngine.Level.Collisions
         {
             return ToSerializable();
         }
-        void ICollisionSystem.LoadFromSerializable(LevelEngine level, ISerializableCollisionSystem seri)
-        {
-            if (seri is not SerializableBuiltinCollisionSystem sys)
-                return;
-            LoadFromSerializable(level, sys);
-        }
 
 
-        private List<EntityCollider> colliderBuffer = new List<EntityCollider>();
-        private List<EntityCollider> collisionBuffer = new List<EntityCollider>();
+        private List<BuiltinCollisionCollider> colliderBuffer = new List<BuiltinCollisionCollider>();
+        private List<BuiltinCollisionCollider> collisionBuffer = new List<BuiltinCollisionCollider>();
+        private ObjectPool<BuiltinCollisionEntity> entityPool;
         private Dictionary<int, QuadTreeCollider> quadTrees = new Dictionary<int, QuadTreeCollider>();
         private QuadTreeParams quadTreeParams;
 
-        private Dictionary<long, List<EntityCollider>> entityColliders = new Dictionary<long, List<EntityCollider>>();
+        private SortedDictionary<long, BuiltinCollisionEntity> entities = new SortedDictionary<long, BuiltinCollisionEntity>();
+        private SortedDictionary<long, BuiltinCollisionEntity> entityTrash = new SortedDictionary<long, BuiltinCollisionEntity>();
     }
     public class SerializableBuiltinCollisionSystem : ISerializableCollisionSystem
     {
         public SerializableBuiltinCollisionSystemEntity[] entities;
-    }
-    public class SerializableBuiltinCollisionSystemEntity
-    {
-        public long id;
-        public SerializableEntityCollider[] colliders;
+        public SerializableBuiltinCollisionSystemEntity[] entityTrash;
+        ISerializableCollisionEntity[] ISerializableCollisionSystem.Entities => entities;
+        ISerializableCollisionEntity[] ISerializableCollisionSystem.EntityTrash => entityTrash;
     }
 }

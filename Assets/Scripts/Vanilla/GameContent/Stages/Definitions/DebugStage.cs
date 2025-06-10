@@ -42,12 +42,12 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
+                VanillaContraptionID.dispenser,
                 VanillaContraptionID.drivenser,
-                VanillaEnemyID.hellChariot,
+                VanillaContraptionID.goldenApple,
                 VanillaEnemyID.wickedHermitZombie,
-                VanillaEnemyID.shikaisenZombie,
                 VanillaEnemyID.emperorZombie,
-                VanillaEnemyID.necromancer,
+                VanillaEnemyID.skeleton,
                 VanillaEnemyID.spider,
                 VanillaEnemyID.caveSpider,
                 VanillaEnemyID.motherTerror,

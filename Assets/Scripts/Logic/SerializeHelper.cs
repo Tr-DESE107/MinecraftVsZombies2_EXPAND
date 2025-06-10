@@ -51,9 +51,6 @@ namespace MVZ2Logic
             // PVZEngine.Level
             RegisterClass<EntityReferenceChain>();
             RegisterClass<EntityID>();
-            RegisterClass<SerializableHitbox>();
-            RegisterClass<SerializableCustomHitbox>();
-            RegisterClass<SerializableEntityHitbox>();
             RegisterClass<SerializableEntityCollider>();
             RegisterClass<SerializableBuiltinCollisionSystem>();
             RegisterClass<SerializableBuiltinCollisionSystemEntity>();

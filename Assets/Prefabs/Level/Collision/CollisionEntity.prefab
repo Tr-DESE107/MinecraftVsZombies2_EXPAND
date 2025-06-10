@@ -60,7 +60,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 0
 --- !u!114 &6524813662452865971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigid: {fileID: 8742500281217274428}
   colliders: []
+  recyclingColliders: []
   colliderTemplate: {fileID: 3127084627272758031}
   colliderRoot: {fileID: 4310462209250662581}
 --- !u!1001 &7965390871419793020

@@ -139,21 +139,21 @@ namespace MVZ2.Collisions
                 colliders = colliders.Select(c => c.ToSerializable()).ToArray()
             };
         }
-        public void LoadFromSerializable(SerializableUnityCollisionEntity seri, Entity entity)
+        public void LoadFromSerializable(ISerializableCollisionEntity seri, Entity entity)
         {
             Entity = entity;
-            foreach (var extraCollider in seri.colliders)
+            foreach (var extraCollider in seri.Colliders)
             {
-                var collider = CreateCollider(extraCollider.name);
+                var collider = CreateCollider(extraCollider.Name);
                 collider.LoadFromSerializable(extraCollider, entity);
             }
             UpdateEntity();
         }
-        public void LoadCollisions(LevelEngine level, SerializableUnityCollisionEntity seri)
+        public void LoadCollisions(LevelEngine level, ISerializableCollisionEntity seri)
         {
             for (int i = 0; i < colliders.Count; i++)
             {
-                var colliderSeri = seri.colliders[i];
+                var colliderSeri = seri.Colliders[i];
                 var collider = colliders[i];
                 collider.LoadCollisions(level, colliderSeri);
             }
@@ -173,9 +173,13 @@ namespace MVZ2.Collisions
         [SerializeField]
         private Transform colliderRoot;
     }
-    public class SerializableUnityCollisionEntity
+    public class SerializableUnityCollisionEntity : ISerializableCollisionEntity
     {
         public long id;
         public SerializableUnityEntityCollider[] colliders;
+
+        long ISerializableCollisionEntity.ID => id;
+
+        ISerializableCollisionCollider[] ISerializableCollisionEntity.Colliders => colliders;
     }
 }

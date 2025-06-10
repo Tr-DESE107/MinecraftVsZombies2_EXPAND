@@ -269,7 +269,8 @@ namespace MVZ2.Level
 
         private ICollisionSystem GetCollisionSystem()
         {
-            return unityCollisionSystem;
+            return builtinCollisionSystem;
+            //return unityCollisionSystem;
         }
 
         private void UpdateEntityAnimators(IList<Animator> toUpdate, float deltaTime, float gameSpeed, float maxBatchPercentage)
@@ -323,6 +324,7 @@ namespace MVZ2.Level
         private Transform entitiesRoot;
         [SerializeField]
         private UnityCollisionSystem unityCollisionSystem;
+        private BuiltinCollisionSystem builtinCollisionSystem;
         #endregion
 
         private class EntityTooltipSource : ITooltipSource

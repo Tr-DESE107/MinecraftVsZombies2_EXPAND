@@ -106,7 +106,7 @@ namespace MVZ2.Collisions
         }
 
         #region 碰撞体
-        public IEntityCollider AddCollider(Entity entity, ColliderConstructor cons)
+        public IEntityCollider CreateCustomCollider(Entity entity, ColliderConstructor cons)
         {
             var collisionEnt = GetCollisionEntity(entity);
             if (!collisionEnt)
@@ -227,29 +227,25 @@ namespace MVZ2.Collisions
             seri.entityTrash = entityTrash.Values.Where(e => e && e.Entity != null).Select(e => e.ToSerializable()).ToArray();
             return seri;
         }
-        public void LoadFromSerializable(LevelEngine level, SerializableUnityCollisionSystem seri)
+        public void LoadFromSerializable(LevelEngine level, ISerializableCollisionSystem seri)
         {
             // Load Entities.
-            if (seri.entities != null)
+            if (seri.Entities != null)
             {
-                foreach (var seriEnt in seri.entities)
+                foreach (var seriEnt in seri.Entities)
                 {
-                    var ent = level.FindEntityByID(seriEnt.id);
-                    if (ent == null)
-                        continue;
+                    var ent = level.FindEntityByID(seriEnt.ID);
                     var colEntity = CreateCollisionEntity(ent);
                     colEntity.LoadFromSerializable(seriEnt, ent);
                     entities.Add(ent.ID, colEntity);
                 }
             }
 
-            if (seri.entityTrash != null)
+            if (seri.EntityTrash != null)
             {
-                foreach (var seriEnt in seri.entityTrash)
+                foreach (var seriEnt in seri.EntityTrash)
                 {
-                    var ent = level.FindEntityByID(seriEnt.id);
-                    if (ent == null)
-                        continue;
+                    var ent = level.FindEntityByID(seriEnt.ID);
                     var colEntity = CreateCollisionEntity(ent);
                     colEntity.LoadFromSerializable(seriEnt, ent);
                     colEntity.gameObject.SetActive(false);
@@ -258,24 +254,26 @@ namespace MVZ2.Collisions
             }
 
             // Load Collisions.
-            if (seri.entities != null)
+            if (seri.Entities != null)
             {
-                foreach (var pair in entities)
+                for (int i = 0; i < seri.Entities.Length; i++)
                 {
-                    var seriEnt = seri.entities.FirstOrDefault(e => e.id == pair.Key);
+                    var ent = entities[i];
+                    ISerializableCollisionEntity seriEnt = seri.Entities[i];
                     if (seriEnt == null)
                         continue;
-                    pair.Value.LoadCollisions(level, seriEnt);
+                    ent.LoadCollisions(level, seriEnt);
                 }
             }
-            if (seri.entityTrash != null)
+            if (seri.EntityTrash != null)
             {
-                foreach (var pair in entityTrash)
+                for (int i = 0; i < seri.EntityTrash.Length; i++)
                 {
-                    var seriEnt = seri.entityTrash.FirstOrDefault(e => e.id == pair.Key);
+                    var ent = entityTrash[i];
+                    ISerializableCollisionEntity seriEnt = seri.EntityTrash[i];
                     if (seriEnt == null)
                         continue;
-                    pair.Value.LoadCollisions(level, seriEnt);
+                    ent.LoadCollisions(level, seriEnt);
                 }
             }
         }
@@ -303,5 +301,9 @@ namespace MVZ2.Collisions
     {
         public SerializableUnityCollisionEntity[] entities;
         public SerializableUnityCollisionEntity[] entityTrash;
+
+        ISerializableCollisionEntity[] ISerializableCollisionSystem.Entities => entities;
+
+        ISerializableCollisionEntity[] ISerializableCollisionSystem.EntityTrash => entityTrash;
     }
 }

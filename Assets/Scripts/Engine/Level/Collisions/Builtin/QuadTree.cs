@@ -8,12 +8,12 @@ namespace PVZEngine.Level.Collisions
     {
         public QuadTree(Rect size, int maxObjects = 1, int maxDepth = 5)
         {
+            itemPool = new ObjectPool<QuadTreeItem<T>>(CreateQuadTreeItemFunc, actionOnRelease: a => a.Reset());
+            nodePool = new ObjectPool<QuadTreeNode<T>>(CreateQuadTreeNodeFunc, actionOnRelease: a => a.Reset());
+
             root = CreateNode(this, null, size, 0);
             MaxObjects = maxObjects;
             MaxDepth = maxDepth;
-
-            itemPool = new ObjectPool<QuadTreeItem<T>>(CreateQuadTreeItemFunc, actionOnRelease: a => a.Reset());
-            nodePool = new ObjectPool<QuadTreeNode<T>>(CreateQuadTreeNodeFunc, actionOnRelease: a => a.Reset());
         }
         public void Insert(T target)
         {
