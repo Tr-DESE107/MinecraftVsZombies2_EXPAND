@@ -455,6 +455,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1625580262982318019, guid: 22ecb9cec5ca01e4086b4900473c81f3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625580262982318019, guid: 22ecb9cec5ca01e4086b4900473c81f3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625580262982318019, guid: 22ecb9cec5ca01e4086b4900473c81f3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625580262982318019, guid: 22ecb9cec5ca01e4086b4900473c81f3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625580262982318019, guid: 22ecb9cec5ca01e4086b4900473c81f3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625580262982318019, guid: 22ecb9cec5ca01e4086b4900473c81f3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 8659590377320195274, guid: 22ecb9cec5ca01e4086b4900473c81f3, type: 3}
       propertyPath: m_Name
       value: RefreshButton
