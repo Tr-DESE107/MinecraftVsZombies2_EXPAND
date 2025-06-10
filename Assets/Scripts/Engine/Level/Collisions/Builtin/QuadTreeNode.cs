@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Tools;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace PVZEngine.Level.Collisions
 {
-    public class QuadTreeNode<T> : IPoolable where T : IQuadTreeNodeObject
+    public class QuadTreeNode<T> where T : IQuadTreeNodeObject
     {
         /// <summary>
         /// 构造函数
@@ -238,7 +237,7 @@ namespace PVZEngine.Level.Collisions
         }
         #endregion
 
-        void IPoolable.Reset()
+        public void Reset()
         {
             Tree = null;
             Parent = null;

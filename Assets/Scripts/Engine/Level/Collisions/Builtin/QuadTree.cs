@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Tools;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace PVZEngine.Level.Collisions
 {
@@ -11,6 +11,9 @@ namespace PVZEngine.Level.Collisions
             root = CreateNode(this, null, size, 0);
             MaxObjects = maxObjects;
             MaxDepth = maxDepth;
+
+            itemPool = new ObjectPool<QuadTreeItem<T>>(CreateQuadTreeItemFunc, actionOnRelease: a => a.Reset());
+            nodePool = new ObjectPool<QuadTreeNode<T>>(CreateQuadTreeNodeFunc, actionOnRelease: a => a.Reset());
         }
         public void Insert(T target)
         {
@@ -92,15 +95,23 @@ namespace PVZEngine.Level.Collisions
             }
             return null;
         }
+        private QuadTreeItem<T> CreateQuadTreeItemFunc()
+        {
+            return new QuadTreeItem<T>();
+        }
+        private QuadTreeNode<T> CreateQuadTreeNodeFunc()
+        {
+            return new QuadTreeNode<T>();
+        }
         public int MaxObjects { get; }
         public int MaxDepth { get; }
         private QuadTreeNode<T> root;
         private List<QuadTreeItem<T>> items = new List<QuadTreeItem<T>>();
         private List<QuadTreeItem<T>> refreshTargetBuffer = new List<QuadTreeItem<T>>();
-        private QuadTreeItemPool<T> itemPool = new QuadTreeItemPool<T>();
-        private QuadTreeNodePool<T> nodePool = new QuadTreeNodePool<T>();
+        private ObjectPool<QuadTreeItem<T>> itemPool;
+        private ObjectPool<QuadTreeNode<T>> nodePool;
     }
-    public class QuadTreeItem<T> : IPoolable where T : IQuadTreeNodeObject
+    public class QuadTreeItem<T> where T : IQuadTreeNodeObject
     {
         public void Reset()
         {
@@ -109,19 +120,5 @@ namespace PVZEngine.Level.Collisions
         }
         public T target;
         public QuadTreeNode<T> node;
-    }
-    internal class QuadTreeNodePool<T> : ObjectPool<QuadTreeNode<T>> where T : IQuadTreeNodeObject
-    {
-        protected override QuadTreeNode<T> Create()
-        {
-            return new QuadTreeNode<T>();
-        }
-    }
-    internal class QuadTreeItemPool<T> : ObjectPool<QuadTreeItem<T>> where T : IQuadTreeNodeObject
-    {
-        protected override QuadTreeItem<T> Create()
-        {
-            return new QuadTreeItem<T>();
-        }
     }
 }

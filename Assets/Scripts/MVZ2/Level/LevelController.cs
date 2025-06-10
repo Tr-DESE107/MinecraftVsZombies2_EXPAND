@@ -630,6 +630,7 @@ namespace MVZ2.Level
                 blueprintChooseController,
             };
             Awake_Grids();
+            Awake_Entities();
 
             talkController.OnTalkAction += UI_OnTalkActionCallback;
 

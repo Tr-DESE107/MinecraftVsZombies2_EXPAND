@@ -31,7 +31,11 @@ namespace MVZ2.Entities
             Level = level;
             Entity = entity;
             rng = new RandomGenerator(entity.InitSeed);
+            isHighlight = false;
             gameObject.name = entity.ToString();
+            transform.position = Level.LawnToTrans(Entity.Position);
+            lastPosition = transform.position;
+
             entity.PostInit += PostInitCallback;
             entity.PostPropertyChanged += PostPropertyChangedCallback;
             entity.OnChangeModel += OnChangeModelCallback;
@@ -40,7 +44,6 @@ namespace MVZ2.Entities
             entity.OnRemoveArmor += OnArmorRemoveCallback;
 
 
-            bodyModelInterface = new BodyModelInterface(this);
             entity.SetModelInterface(bodyModelInterface);
             SetModel(Entity.ModelID);
             if (Model)
@@ -50,9 +53,15 @@ namespace MVZ2.Entities
                 var heldItemDef = lvl.GetHeldItemDefinition();
                 UpdateModelColliderActive(heldItemDef?.GetHeldTargetMask(lvl) ?? HeldTargetFlag.None);
             }
+        }
+        public void RemoveEntity()
+        {
+            Entity.PostInit -= PostInitCallback;
+            Entity.PostPropertyChanged -= PostPropertyChangedCallback;
+            Entity.OnChangeModel -= OnChangeModelCallback;
 
-            transform.position = Level.LawnToTrans(Entity.Position);
-            lastPosition = transform.position;
+            Entity.OnEquipArmor -= OnArmorEquipCallback;
+            Entity.OnRemoveArmor -= OnArmorRemoveCallback;
         }
 
         #region 模型
@@ -196,6 +205,7 @@ namespace MVZ2.Entities
         private void Awake()
         {
             holdStreakHandler.OnPointerInteraction += (_, d, i) => OnPointerInteraction?.Invoke(this, d, i);
+            bodyModelInterface = new BodyModelInterface(this);
         }
         private void Update()
         {
