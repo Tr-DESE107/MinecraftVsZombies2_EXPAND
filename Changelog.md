@@ -1,3 +1,17 @@
+# 0.4.3
+
+## Added
+- Added the button to cancel all chosen blueprints.
+
+## Modified
+- Seperated the repick button to "Repick previous blueprints" button and "Repick previous artifacts" button. 
+- Adjusted the control method of zoom in Almanac.
+
+## Fixed
+- Force Pad does not affect friendly entities.
+
+---
+
 # 0.4.2-AndroidFix1
 
 ## Fixed
