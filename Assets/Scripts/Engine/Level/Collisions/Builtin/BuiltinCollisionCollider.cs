@@ -217,6 +217,11 @@ namespace PVZEngine.Entities
             return this == collider;
         }
 
+        public override string ToString()
+        {
+            return $"{Entity}[{Name}]";
+        }
+
         public event Action<BuiltinCollisionCollider> OnEnabled;
         public event Action<BuiltinCollisionCollider> OnDisabled;
         public bool Enabled { get; private set; } = true;

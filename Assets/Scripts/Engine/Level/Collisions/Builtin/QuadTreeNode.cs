@@ -19,7 +19,7 @@ namespace PVZEngine.Level.Collisions
             Parent = parent;
             bounds = size;
             looseBounds = bounds;
-            looseBounds.position -= looseBounds.size;
+            looseBounds.position -= looseBounds.size * 0.5f;
             looseBounds.size *= 2;
             this.depth = depth;
         }
@@ -247,6 +247,10 @@ namespace PVZEngine.Level.Collisions
             totalTargetCount = 0;
             children.Clear();
             depth = 0;
+        }
+        public override string ToString()
+        {
+            return $"[{depth}]{bounds}";
         }
 
         public QuadTree<T> Tree { get; private set; }

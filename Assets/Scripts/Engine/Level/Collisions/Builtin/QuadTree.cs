@@ -118,6 +118,12 @@ namespace PVZEngine.Level.Collisions
             target = default;
             node = null;
         }
+
+        public override string ToString()
+        {
+            return target.ToString();
+        }
+
         public T target;
         public QuadTreeNode<T> node;
     }
