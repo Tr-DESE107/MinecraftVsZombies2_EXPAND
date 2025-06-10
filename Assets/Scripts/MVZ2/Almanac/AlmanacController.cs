@@ -74,7 +74,6 @@ namespace MVZ2.Almanacs
             ui.OnTagIconDown += OnTagIconDownCallback;
 
             ui.OnZoomReturnClick += OnZoomReturnClickCallback;
-            ui.OnZoomScaleValueChanged += OnZoomScaleValueChangedCallback;
         }
         private void OnReturnClickCallback(bool page)
         {
@@ -153,17 +152,15 @@ namespace MVZ2.Almanacs
             if (sprite)
             {
                 ui.StartZoom(sprite);
-                SetZoomScale(1);
+                var textKey = Main.InputManager.GetActivePointerType() == PointerTypes.TOUCH ? ZOOM_HINT_TOUCH : ZOOM_HINT_MOUSE;
+                var hintText = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, textKey);
+                ui.SetZoomHintText(hintText);
             }
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
         private void OnZoomReturnClickCallback()
         {
             ui.StopZoom();
-        }
-        private void OnZoomScaleValueChangedCallback(float value)
-        {
-            SetZoomScale(value);
         }
         #endregion
 
@@ -742,14 +739,6 @@ namespace MVZ2.Almanacs
             var miscViewDatas = miscGroups.Select(c => Main.AlmanacManager.GetMiscGroupViewData(c)).ToArray();
             ui.SetMiscGroups(miscViewDatas);
         }
-        private void SetZoomScale(float value)
-        {
-            ui.SetZoomScale(value);
-            var percentage = Main.GetFloatPercentageText(value);
-            var text = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, OPTION_ZOOM_SCALE, percentage);
-            ui.SetZoomScaleSliderText(text);
-            ui.SetZoomScaleSliderValue(value);
-        }
         private string GetTranslatedString(string context, string text, params object[] args)
         {
             if (string.IsNullOrEmpty(text))
@@ -765,6 +754,10 @@ namespace MVZ2.Almanacs
         public const string OPTION_ZOOM_SCALE = "缩放：{0}";
         [TranslateMsg("图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名", VanillaStrings.CONTEXT_ALMANAC)]
         public const string TAG_ENUM_TEMPLATE = "{0}：{1}";
+        [TranslateMsg("图鉴缩放提示文本", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string ZOOM_HINT_MOUSE = "左键拖拽以移动视图；滚轮以缩放视图";
+        [TranslateMsg("图鉴缩放提示文本", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string ZOOM_HINT_TOUCH = "单指拖拽以移动视图；双指拖拽以缩放视图";
 
 
         private MainManager Main => MainManager.Instance;
