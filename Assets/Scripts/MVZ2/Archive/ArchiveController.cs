@@ -131,7 +131,7 @@ namespace MVZ2.Archives
             talksList.AddRange(filteredTalks.Select(g => g.Item1));
 
             tagsList.Clear();
-            var tags = talkGroups.SelectMany(g => g.Item2.tags).Distinct();
+            var tags = filteredTalks.SelectMany(g => g.Item2.tags).Distinct();
             var orderedTags = tags.OrderBy((t) => Main.ResourceManager.GetArchiveTagMeta(t)?.Priority ?? 0);
             tagsList.AddRange(orderedTags);
 
