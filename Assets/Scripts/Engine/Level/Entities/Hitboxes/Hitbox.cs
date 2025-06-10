@@ -29,7 +29,7 @@ namespace PVZEngine.Entities
         public bool IsInSphere(Vector3 center, float radius)
         {
             var bounds = GetBounds();
-            return MathTool.CollideBetweenCubeAndSphere(center, radius, bounds.center, bounds.size);
+            return MathTool.CollideBetweenCubeAndSphere(bounds, center, radius);
         }
         public Vector3 GetBoundsCenter()
         {
