@@ -1100,7 +1100,7 @@ namespace PVZEngine.Entities
         private Dictionary<LawnGrid, HashSet<NamespaceID>> takenGrids = new Dictionary<LawnGrid, HashSet<NamespaceID>>();
         private List<Entity> children = new List<Entity>();
         private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
-        private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>();
+        private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>(new PropertyKeyComparer());
         #endregion
     }
 }

@@ -359,7 +359,7 @@ namespace PVZEngine.Buffs
         private List<Buff> buffs = new List<Buff>();
         private List<NamespaceID> createdModelInsertions = new List<NamespaceID>();
         private HashSet<IPropertyKey> changedPropertiesBuffer = new HashSet<IPropertyKey>();
-        private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>();
+        private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>(new PropertyKeyComparer());
         private List<ModifierContainerItem> modifierItemBuffer = new List<ModifierContainerItem>();
     }
     public class MultipleValueModifierException : Exception

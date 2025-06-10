@@ -192,7 +192,7 @@ namespace PVZEngine.Level
         public IPropertyModifyTarget Container { get; }
         private PropertyDictionary properties = new PropertyDictionary();
         private PropertyDictionary buffedProperties = new PropertyDictionary();
-        private Dictionary<IPropertyKey, object> fallbackCaches = new Dictionary<IPropertyKey, object>();
+        private Dictionary<IPropertyKey, object> fallbackCaches = new Dictionary<IPropertyKey, object>(new PropertyKeyComparer());
         private readonly Dictionary<Type, Action<object, object, object>> setPropertyDelegates = new();
         private readonly Dictionary<Type, Action<object, object>> updateModifiedPropertyDelegates = new();
         private List<ModifierContainerItem> modifierContainerBuffer = new List<ModifierContainerItem>();

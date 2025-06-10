@@ -105,7 +105,7 @@ namespace PVZEngine
             return dict;
         }
         public int Count => propertyDict.Count;
-        private Dictionary<IPropertyKey, object> propertyDict = new Dictionary<IPropertyKey, object>(32);
+        private Dictionary<IPropertyKey, object> propertyDict = new Dictionary<IPropertyKey, object>(32, new PropertyKeyComparer());
     }
     [Serializable]
     public class SerializablePropertyDictionary
