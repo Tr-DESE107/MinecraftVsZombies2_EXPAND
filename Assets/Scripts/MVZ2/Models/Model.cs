@@ -348,11 +348,12 @@ namespace MVZ2.Models
         }
         public ModelAnchor GetAnchor(string name)
         {
+            var hash = name.GetHashCode();
             foreach (var anchor in modelAnchors)
             {
                 if (anchor == null)
                     continue;
-                if (anchor.key == name)
+                if (anchor.KeyHash == hash)
                     return anchor;
             }
             return null;
