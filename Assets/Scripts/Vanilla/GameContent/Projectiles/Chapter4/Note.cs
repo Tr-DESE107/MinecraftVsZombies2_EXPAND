@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Projectiles
             SetHitProtected(projectile, false);
 
             var growth = GetDamageGrowth(projectile);
-            growth = Mathf.Clamp(growth + GROWTH_SPEED, MIN_GROWTH, MAX_GROWTH);
+            growth = Mathf.Clamp(Mathf.Lerp(growth, MAX_GROWTH, GROWTH_LERP_T), MIN_GROWTH, MAX_GROWTH);
             SetDamageGrowth(projectile, growth);
         }
         protected override void PreHitEntity(ProjectileHitInput hit, DamageInput damage, CallbackResult result)
@@ -108,7 +108,7 @@ namespace MVZ2.GameContent.Projectiles
 
         public const float MIN_GROWTH = 0.1f;
         public const float MAX_GROWTH = 1;
-        public const float GROWTH_SPEED = 0.1f;
+        public const float GROWTH_LERP_T = 0.25f;
 
         private static readonly VanillaEntityPropertyMeta<Vector3> PROP_DISPLAY_SCALE_MULTIPLIER = new VanillaEntityPropertyMeta<Vector3>("DisplayScaleMultiplier");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_HIT_PROTECTED = new VanillaEntityPropertyMeta<bool>("HitProtected");
