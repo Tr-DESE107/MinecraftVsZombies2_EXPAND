@@ -3301,7 +3301,9 @@ MonoBehaviour:
   - m_GUID: 53afeaba33809394f89b7fee6d9913e8
     m_Address: mvz2:projectile/purpleArrow
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53b703f384b93544cbcaaced2018759d
     m_Address: mvz2:trident_thunder1
