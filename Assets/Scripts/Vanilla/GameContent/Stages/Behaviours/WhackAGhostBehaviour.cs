@@ -18,7 +18,6 @@ namespace MVZ2.GameContent.Stages
     {
         public WhackAGhostBehaviour(StageDefinition stageDef) : base(stageDef)
         {
-            stageDef.SetProperty(VanillaLevelProps.CONVEY_SPEED, 1f);
         }
         public override void Start(LevelEngine level)
         {
