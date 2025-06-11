@@ -747,6 +747,8 @@ namespace MVZ2.Level
         {
             if (chosenBlueprints.Any(i => i.isCommandBlock))
                 return false;
+            if (chosenBlueprints.Count >= Level.GetSeedSlotCount())
+                return false;
             return true;
         }
         private bool CanChooseCommandBlockBlueprint(NamespaceID id)
