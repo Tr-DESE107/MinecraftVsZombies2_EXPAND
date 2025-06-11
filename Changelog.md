@@ -1,3 +1,8 @@
+## Modified
+- Buffed Wooden Dropper's evocation.
+
+---
+
 # 0.4.3
 
 ## Added

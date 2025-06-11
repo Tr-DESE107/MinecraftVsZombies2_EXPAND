@@ -459,7 +459,7 @@
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>立即喷射30发木球</color>]]></p>
+                <p>技能：<![CDATA[<color=red>立即喷射30颗大型木球，每颗造成80点伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>使用技能前：木制投掷器</p>
