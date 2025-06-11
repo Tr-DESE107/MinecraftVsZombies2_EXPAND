@@ -8,9 +8,11 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Base;
 using PVZEngine.Callbacks;
 using UnityEngine;
 
@@ -121,6 +123,7 @@ namespace MVZ2.Level
 
             if (willChooseBlueprint && level.NeedBlueprints())
             {
+                UpdateEntityHeldTargetColliders(HeldTargetFlag.Enemy);
                 // 选卡。
                 var uiPreset = GetUIPreset();
                 BlueprintChoosePart.ShowBlueprintChoosePanel(unlockedContraptions);
