@@ -13,7 +13,11 @@ namespace MVZ2.Options
         {
             return new SerializableOptions()
             {
-                keyBindings = keyBindings?.ToSerializable()
+                keyBindings = keyBindings?.ToSerializable(),
+                skipAllTalks = skipAllTalks,
+                showSponsorNames = showSponsorNames,
+                blueprintWarningsDisabled = blueprintWarningsDisabled,
+                commandBlockMode = commandBlockMode,
             };
         }
         public void LoadFromSerializable(SerializableOptions options)
@@ -21,13 +25,16 @@ namespace MVZ2.Options
             if (options == null)
                 return;
             keyBindings.LoadFromSerializable(options.keyBindings);
+            skipAllTalks = options.skipAllTalks;
+            showSponsorNames = options.showSponsorNames;
+            blueprintWarningsDisabled = options.blueprintWarningsDisabled;
+            commandBlockMode = options.commandBlockMode;
         }
         public bool swapTrigger;
         public bool vibration;
         public NamespaceID difficulty;
         public bool bloodAndGore;
         public bool pauseOnFocusLost;
-        public bool skipAllTalks;
 
         public float musicVolume;
         public float soundVolume;
@@ -36,12 +43,20 @@ namespace MVZ2.Options
         public float shakeAmount;
 
         public string language;
-        public bool showSponsorNames;
+
         public KeyBindingOptions keyBindings;
+        public bool skipAllTalks;
+        public bool showSponsorNames;
+        public bool blueprintWarningsDisabled;
+        public int commandBlockMode;
     }
     [Serializable]
     public class SerializableOptions
     {
         public SerializableKeyBindingOptions keyBindings;
+        public bool skipAllTalks;
+        public bool showSponsorNames;
+        public bool blueprintWarningsDisabled;
+        public int commandBlockMode;
     }
 }

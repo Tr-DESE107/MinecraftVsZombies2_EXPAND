@@ -756,6 +756,10 @@ namespace MVZ2.Level
             {
                 return false;
             }
+            if (!choosingBlueprints.Contains(id))
+            {
+                return false;
+            }
             return true;
         }
         #endregion
@@ -989,22 +993,25 @@ namespace MVZ2.Level
         #region 界面元素
         private async void UI_OnStartClickCallback()
         {
-            List<string> warnings = new List<string>();
-
-            if (chosenBlueprints.Count < Level.GetSeedSlotCount())
-            {
-                warnings.Add(Main.LanguageManager._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL));
-            }
-            NamespaceID[] blueprintsForChoose = choosingBlueprints.Where(i => CanChooseBlueprint(i)).ToArray();
             var chosen = chosenBlueprints.ToArray();
-            Game.RunCallback(LogicLevelCallbacks.GET_BLUEPRINT_WARNINGS, new LogicLevelCallbacks.GetBlueprintWarningsParams(Level, blueprintsForChoose, chosen, warnings));
-            foreach (var warning in warnings)
+            if (!Main.OptionsManager.AreBlueprintChooseWarningsDisabled())
             {
-                var title = Main.LanguageManager._(VanillaStrings.WARNING);
-                var desc = warning;
-                var result = await Main.Scene.ShowDialogSelectAsync(title, desc);
-                if (!result)
-                    return;
+                List<string> warnings = new List<string>();
+
+                if (chosenBlueprints.Count < Level.GetSeedSlotCount())
+                {
+                    warnings.Add(Main.LanguageManager._(WARNING_SELECTED_BLUEPRINTS_NOT_FULL));
+                }
+                NamespaceID[] blueprintsForChoose = choosingBlueprints.Where(i => CanChooseBlueprint(i)).ToArray();
+                Game.RunCallback(LogicLevelCallbacks.GET_BLUEPRINT_WARNINGS, new LogicLevelCallbacks.GetBlueprintWarningsParams(Level, blueprintsForChoose, chosen, warnings));
+                foreach (var warning in warnings)
+                {
+                    var title = Main.LanguageManager._(VanillaStrings.WARNING);
+                    var desc = warning;
+                    var result = await Main.Scene.ShowDialogSelectAsync(title, desc);
+                    if (!result)
+                        return;
+                }
             }
             isChoosingBlueprints = false;
 
@@ -1050,6 +1057,19 @@ namespace MVZ2.Level
                 return;
             if (!CanChooseCommandBlock())
                 return;
+            var previous = chosenBlueprints.LastOrDefault();
+            bool previousValid = previous != null && !previous.isCommandBlock && CanChooseCommandBlockBlueprint(previous.id);
+            if (previousValid && Main.OptionsManager.GetCommandBlockMode() == CommandBlockModes.PREVIOUS)
+            {
+                ChooseCommandBlockBlueprint(previous.id);
+            }
+            else
+            {
+                ShowCommandBlockPanel();
+            }
+        }
+        private void ShowCommandBlockPanel()
+        {
             chooseUI.ShowCommandBlockPanel();
             AddPanelFlag(PanelFlags.CommandBlock);
             var commandBlockViewDatas = choosingBlueprints.Select(id =>

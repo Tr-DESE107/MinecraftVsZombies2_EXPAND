@@ -2,6 +2,7 @@
 
 ## Added
 - Added the button to cancel all chosen blueprints.
+- Added "Blueprint Warnings" and "Command Block Mode" option.
 
 ## Modified
 - Seperated the repick button to "Repick previous blueprints" button and "Repick previous artifacts" button. 

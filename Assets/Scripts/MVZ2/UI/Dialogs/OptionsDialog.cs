@@ -99,6 +99,8 @@ namespace MVZ2.UI
             textButtonDict.Add(TextButtonType.BloodAndGore, bloodAndGoreButton);
             textButtonDict.Add(TextButtonType.SkipAllTalks, skipAllTalksButton);
             textButtonDict.Add(TextButtonType.ShowSponsorNames, showSponsorNamesButton);
+            textButtonDict.Add(TextButtonType.ChooseWarnings, chooseWarningsButton);
+            textButtonDict.Add(TextButtonType.CommandBlockMode, commandBlockModeButton);
             textButtonDict.Add(TextButtonType.Credits, creditsButton);
             textButtonDict.Add(TextButtonType.Keybinding, keybindingButton);
 
@@ -123,6 +125,8 @@ namespace MVZ2.UI
             buttonDict.Add(ButtonType.BloodAndGore, bloodAndGoreButton.Button);
             buttonDict.Add(ButtonType.SkipAllTalks, skipAllTalksButton.Button);
             buttonDict.Add(ButtonType.ShowSponsorNames, showSponsorNamesButton.Button);
+            buttonDict.Add(ButtonType.ChooseWarnings, chooseWarningsButton.Button);
+            buttonDict.Add(ButtonType.CommandBlockMode, commandBlockModeButton.Button);
             buttonDict.Add(ButtonType.Credits, creditsButton.Button);
             buttonDict.Add(ButtonType.Keybinding, keybindingButton.Button);
             buttonDict.Add(ButtonType.MoreBack, moreBackButton);
@@ -231,6 +235,10 @@ namespace MVZ2.UI
         [SerializeField]
         private TextButton showSponsorNamesButton;
         [SerializeField]
+        private TextButton chooseWarningsButton;
+        [SerializeField]
+        private TextButton commandBlockModeButton;
+        [SerializeField]
         private TextButton creditsButton;
         [SerializeField]
         private TextButton keybindingButton;
@@ -267,6 +275,8 @@ namespace MVZ2.UI
             BloodAndGore,
             SkipAllTalks,
             ShowSponsorNames,
+            ChooseWarnings,
+            CommandBlockMode,
             Credits,
             Keybinding,
         }
@@ -288,8 +298,12 @@ namespace MVZ2.UI
 
             MoreBack,
             BloodAndGore,
+
             SkipAllTalks,
             ShowSponsorNames,
+            ChooseWarnings,
+            CommandBlockMode,
+
             Credits,
             Keybinding,
             ExportLogFiles,
