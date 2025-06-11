@@ -9,6 +9,7 @@
 
 ## Fixed
 - Force Pad does not affect friendly entities.
+- Dark Matter makes the battlefield fully black on Android due to the lighting shader precision.
 
 ---
 
