@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
             // ÉèÖÃÑªÁ¿×´Ì¬¡£
-            entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
+            entity.SetModelDamagePercent();
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
