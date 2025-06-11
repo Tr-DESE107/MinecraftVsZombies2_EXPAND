@@ -42,6 +42,7 @@ namespace MVZ2.Managers
                     case PointerPhase.Release:
                         return Input.GetMouseButtonUp(mouseButton);
                 }
+                return false;
             }
             var touches = Input.touches;
             for (int i = 0; i < touches.Length; i++)
