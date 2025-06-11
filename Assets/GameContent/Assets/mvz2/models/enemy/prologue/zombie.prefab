@@ -274,13 +274,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2035454105787715213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 149ee9d8821a57d4ea377e28859c5b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300006, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
   - {fileID: 21300008, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
-  propertyName: HealthState
 --- !u!1 &2147868032872076460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,13 +1080,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5823922911136250399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 149ee9d8821a57d4ea377e28859c5b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300002, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
   - {fileID: 21300000, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
-  propertyName: HealthState
 --- !u!1 &6251617685501582029
 GameObject:
   m_ObjectHideFlags: 0

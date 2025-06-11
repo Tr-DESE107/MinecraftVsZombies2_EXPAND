@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetModelHealthStateByCount(2);
+            entity.SetModelDamagePercent();
             entity.SetAnimationBool("HasBoat", entity.HasBuff<BoatBuff>());
         }
         public override void PostDeath(Entity entity, DeathInfo info)

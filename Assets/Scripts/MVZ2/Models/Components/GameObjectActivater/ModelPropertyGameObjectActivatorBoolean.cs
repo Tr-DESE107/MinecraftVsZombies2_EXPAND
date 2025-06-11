@@ -6,8 +6,10 @@ namespace MVZ2.Models
     {
         public override bool GetActive()
         {
-            return Model.GetProperty<bool>(propertyName);
+            return Model.GetProperty<bool>(propertyName) != whenFalse;
         }
+        [SerializeField]
+        private bool whenFalse;
         [SerializeField]
         private string propertyName;
     }

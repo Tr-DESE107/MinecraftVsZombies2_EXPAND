@@ -229,13 +229,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3654582897771761292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50435992d69428c4db295c41af96e2ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 149ee9d8821a57d4ea377e28859c5b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: -1078924827, guid: 7bf48cdb4ddd8074c8c39a084c5e181f, type: 3}
   - {fileID: -431149792, guid: 7bf48cdb4ddd8074c8c39a084c5e181f, type: 3}
-  propertyName: HealthState
 --- !u!1001 &370424150283063926
 PrefabInstance:
   m_ObjectHideFlags: 0

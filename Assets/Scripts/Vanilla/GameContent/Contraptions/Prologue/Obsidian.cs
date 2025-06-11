@@ -16,21 +16,29 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity contraption)
         {
             base.UpdateLogic(contraption);
-            var state = 0;
             var maxHP = contraption.GetMaxHealth();
-            if (contraption.HasBuff<ObsidianArmorBuff>())
+            bool netherite = contraption.HasBuff<ObsidianArmorBuff>();
+            if (netherite)
             {
-                state = GetArmoredHealthState(contraption, maxHP);
                 if (contraption.Health <= maxHP * 0.4f)
                 {
+                    var hp = contraption.Health;
                     contraption.RemoveBuffs<ObsidianArmorBuff>();
+                    netherite = false;
+                    contraption.Health = hp;
                 }
+            }
+
+            if (netherite)
+            {
+                var percent = GetArmoredDamagePercent(contraption, maxHP);
+                contraption.SetModelDamagePercent(percent);
             }
             else
             {
-                state = GetHealthState(contraption, maxHP);
+                contraption.SetModelDamagePercent();
             }
-            contraption.SetModelHealthState(state);
+            contraption.SetModelProperty("Netherite", netherite);
         }
 
         public override bool CanEvoke(Entity entity)
@@ -47,39 +55,11 @@ namespace MVZ2.GameContent.Contraptions
             contraption.Health = contraption.GetMaxHealth();
             contraption.Level.PlaySound(VanillaSoundID.armorUp);
         }
-        private int GetArmoredHealthState(Entity contraption, float maxHP)
+        private float GetArmoredDamagePercent(Entity contraption, float maxHP)
         {
-            if (contraption.Health <= 0.4f * maxHP)
-            {
-                return GetHealthState(contraption, maxHP * 0.4f);
-            }
-            else if (contraption.Health <= 0.6f * maxHP)
-            {
-                return 5;
-            }
-            else if (contraption.Health <= 0.8f * maxHP)
-            {
-                return 4;
-            }
-            else
-            {
-                return 3;
-            }
-        }
-        private int GetHealthState(Entity contraption, float maxHP)
-        {
-            if (contraption.Health <= maxHP / 3)
-            {
-                return 2;
-            }
-            else if (contraption.Health <= maxHP * 2 / 3)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+            var percent = contraption.Health / maxHP;
+            var armorPercent = (percent - 0.4f) / 0.6f;
+            return 1 - armorPercent;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetModelHealthStateByCount(2);
+            entity.SetModelDamagePercent();
             entity.SetAnimationInt("Class", GetClass(entity));
         }
         protected override int GetActionState(Entity enemy)

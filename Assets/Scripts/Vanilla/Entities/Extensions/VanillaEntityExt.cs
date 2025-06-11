@@ -45,22 +45,17 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 血量
-        public static int GetHealthState(this Entity entity, int stateCount)
+        public static void SetModelDamagePercent(this Entity entity)
         {
-            return GetHealthState(entity.Health, entity.GetMaxHealth(), stateCount);
+            entity.SetModelDamagePercent(entity.Health, entity.GetMaxHealth());
         }
-        public static int GetHealthState(float health, float maxHealth, int stateCount)
+        public static void SetModelDamagePercent(this Entity entity, float health, float maxHealth)
         {
-            float stateHP = maxHealth / stateCount;
-            return stateCount - Mathf.CeilToInt(health / stateHP);
+            entity.SetModelDamagePercent(1 - health / maxHealth);
         }
-        public static void SetModelHealthStateByCount(this Entity entity, int count)
+        public static void SetModelDamagePercent(this Entity entity, float percent)
         {
-            entity.SetModelHealthState(entity.GetHealthState(count));
-        }
-        public static void SetModelHealthState(this Entity entity, int state)
-        {
-            entity.SetModelProperty("HealthState", state);
+            entity.SetModelProperty("DamagePercent", percent);
         }
         #endregion
 

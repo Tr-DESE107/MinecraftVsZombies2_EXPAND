@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Enemies
                 }
                 entity.SetProperty(PROP_COLOR_OFFSET, color);
             }
-            entity.SetModelHealthStateByCount(2);
+            entity.SetModelDamagePercent();
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {

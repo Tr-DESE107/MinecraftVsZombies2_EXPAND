@@ -14,7 +14,7 @@ namespace MVZ2.GameContent.Armors
         public override void PostUpdate(Armor armor)
         {
             base.PostUpdate(armor);
-            armor.SetModelHealthStateByCount(3);
+            armor.SetModelDamagePercent();
         }
     }
 }

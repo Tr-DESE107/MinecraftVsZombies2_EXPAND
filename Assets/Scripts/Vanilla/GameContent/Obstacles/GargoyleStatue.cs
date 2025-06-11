@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Obstacles
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            entity.SetModelHealthStateByCount(5);
+            entity.SetModelDamagePercent();
         }
     }
 }

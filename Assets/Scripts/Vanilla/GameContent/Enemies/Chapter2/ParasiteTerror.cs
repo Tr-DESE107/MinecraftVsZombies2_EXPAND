@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateLogic(entity);
             // 设置血量状态。
-            entity.SetModelHealthStateByCount(2);
+            entity.SetModelDamagePercent();
         }
     }
 }

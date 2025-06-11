@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Enemies
             }
             SetBlackholeBlend(entity, blend);
             entity.SetAnimationFloat("BlackholeBlend", blend);
-            entity.SetModelHealthStateByCount(2);
+            entity.SetModelDamagePercent();
         }
         public static FrameTimer GetSummonTimer(Entity enemy) => enemy.GetBehaviourField<FrameTimer>(ID, FIELD_SUMMON_TIMER);
         public static void SetSummonTimer(Entity enemy, FrameTimer value) => enemy.SetBehaviourField(ID, FIELD_SUMMON_TIMER, value);

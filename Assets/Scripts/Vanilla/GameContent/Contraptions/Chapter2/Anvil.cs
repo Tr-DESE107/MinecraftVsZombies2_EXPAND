@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity contraption)
         {
             base.UpdateLogic(contraption);
-            contraption.SetModelHealthStateByCount(3);
+            contraption.SetModelDamagePercent();
         }
         public override void PostCollision(EntityCollision collision, int state)
         {

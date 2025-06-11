@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 entity.AddFragmentTickDamage(Mathf.Abs(entity.Velocity.y));
             }
-            entity.SetModelHealthStateByCount(3);
+            entity.SetModelDamagePercent();
             if (entity.Timeout >= 0)
             {
                 entity.Timeout--;

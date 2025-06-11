@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Contraptions
             base.UpdateLogic(contraption);
             bool evoked = contraption.HasBuff<DreamCrystalEvocationBuff>();
             contraption.SetEvoked(evoked);
-            contraption.SetModelHealthStateByCount(3);
+            contraption.SetModelDamagePercent();
             contraption.SetAnimationBool("Evoked", evoked);
         }
 

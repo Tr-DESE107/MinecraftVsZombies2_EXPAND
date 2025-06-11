@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity contraption)
         {
             base.UpdateLogic(contraption);
-            contraption.SetModelHealthStateByCount(3);
+            contraption.SetModelDamagePercent();
         }
 
         public override void PostDeath(Entity entity, DeathInfo damageInfo)

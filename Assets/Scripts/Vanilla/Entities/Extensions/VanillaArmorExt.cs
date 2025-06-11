@@ -12,22 +12,17 @@ namespace MVZ2.Vanilla.Entities
             if (armor != null && !armor.HasBuff<ArmorDamageColorBuff>())
                 armor.AddBuff<ArmorDamageColorBuff>();
         }
-        public static int GetHealthState(this Armor entity, int stateCount)
+        public static void SetModelDamagePercent(this Armor armor)
         {
-            return GetHealthState(entity.Health, entity.GetMaxHealth(), stateCount);
+            armor.SetModelDamagePercent(armor.Health, armor.GetMaxHealth());
         }
-        public static int GetHealthState(float health, float maxHealth, int stateCount)
+        public static void SetModelDamagePercent(this Armor armor, float health, float maxHealth)
         {
-            float stateHP = maxHealth / stateCount;
-            return stateCount - Mathf.CeilToInt(health / stateHP);
+            armor.SetModelDamagePercent(1 - health / maxHealth);
         }
-        public static void SetModelHealthStateByCount(this Armor armor, int count)
+        public static void SetModelDamagePercent(this Armor armor, float percent)
         {
-            armor.SetModelHealthState(armor.GetHealthState(count));
-        }
-        public static void SetModelHealthState(this Armor armor, int state)
-        {
-            armor.SetModelProperty("HealthState", state);
+            armor.SetModelProperty("DamagePercent", percent);
         }
     }
 }
