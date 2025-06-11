@@ -454,7 +454,7 @@
                 <idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
                 <string name="mvz2:sortingLayer" value="Carriers" />
 
-                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:cost" value="100" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
@@ -529,8 +529,8 @@
                 <id name="mvz2:deathSound" null="true" />
                 <id name="mvz2:hitSound" null="true" />
                 <idArray name="mvz2:gridLayers" value="" />
-                <int name="mvz2:cost" value="150" />
-                <id name="mvz2:rechargeId" value="mvz2:short" />
+                <int name="mvz2:cost" value="100" />
+                <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
 
@@ -651,7 +651,7 @@
                 <vector3 name="mvz2:size" x="60" y="40" z="60" />
                 <id name="mvz2:deathSound" value="mvz2:pot_break" />
 
-                <int name="mvz2:cost" value="100" />
+                <int name="mvz2:cost" value="150" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>

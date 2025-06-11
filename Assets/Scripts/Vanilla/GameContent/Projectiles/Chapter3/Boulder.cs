@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Projectiles
             if (other.Type == EntityTypes.ENEMY)
             {
                 var vel = other.Velocity;
-                vel.x += 6 * Mathf.Sign(projectile.Velocity.x) * other.GetWeakKnockbackMultiplier();
+                vel.x += 5 * Mathf.Sign(projectile.Velocity.x) * other.GetWeakKnockbackMultiplier();
                 other.Velocity = vel;
                 projectile.PlaySound(VanillaSoundID.bash);
             }
