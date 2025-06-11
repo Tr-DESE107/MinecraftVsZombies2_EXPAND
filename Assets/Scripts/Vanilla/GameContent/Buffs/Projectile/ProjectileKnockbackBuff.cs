@@ -32,7 +32,8 @@ namespace MVZ2.GameContent.Buffs.Projectiles
             if (other.Type == EntityTypes.ENEMY)
             {
                 var sign = Mathf.Sign(projectile.Velocity.x);
-                other.Velocity += new Vector3((1 * other.GetWeakKnockbackMultiplier()) * sign, 1);
+                var knockbackMulti = other.GetWeakKnockbackMultiplier();
+                other.Velocity += new Vector3(1 * sign, 1) * knockbackMulti;
             }
         }
     }
