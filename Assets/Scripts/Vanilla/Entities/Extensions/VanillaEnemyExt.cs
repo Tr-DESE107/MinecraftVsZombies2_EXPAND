@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Buffs.Enemies;
+﻿using System;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -125,7 +126,44 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        public static void CheckAlignWithLane(this Entity entity)
+        {
+            if (entity.IsChangingLane())
+                return;
+            var level = entity.Level;
 
+            var minLane = 0;
+            var maxLane = level.GetMaxLaneCount() - 1;
+
+            var lane = Mathf.Clamp(entity.GetLane(), minLane, maxLane);
+            var targetZ = level.GetEntityLaneZ(lane);
+            var targetZDistance = entity.Position.z - targetZ;
+
+            if (Mathf.Abs(targetZDistance) < CHANGE_LANE_THRESOLD)
+                return;
+
+            int targetLane;
+            int adjacentLane = lane - Math.Sign(targetZDistance);
+            if (adjacentLane >= minLane && adjacentLane <= maxLane)
+            {
+                var adjacentZ = level.GetEntityLaneZ(adjacentLane);
+                var adjacentZDistance = entity.Position.z - adjacentZ;
+                if (Mathf.Abs(targetZDistance) < Mathf.Abs(adjacentZDistance))
+                {
+                    targetLane = lane;
+                }
+                else
+                {
+                    targetLane = adjacentLane;
+                }
+            }
+            else
+            {
+                targetLane = lane;
+            }
+            entity.StartChangingLane(targetLane);
+        }
+        public const float CHANGE_LANE_THRESOLD = 1;
         public static void Unfreeze(this Entity entity)
         {
             entity.RemoveBuffs<SlowBuff>();
