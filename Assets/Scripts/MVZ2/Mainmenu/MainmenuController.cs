@@ -590,7 +590,7 @@ namespace MVZ2.Mainmenu
         {
             try
             {
-                main.SaveManager.SaveModDatas();
+                main.SaveManager.SaveToFile(); // 切换用户时保存游戏
                 main.SaveManager.SetCurrentUserIndex(userIndex);
                 main.SaveManager.SaveUserList();
                 HideUserManageDialog();
@@ -606,8 +606,7 @@ namespace MVZ2.Mainmenu
         }
         private void SwitchToOtherUserBeforeDelete(int currentIndex)
         {
-            // 先保存当前存档，以防出现错误。
-            main.SaveManager.SaveModDatas();
+            main.SaveManager.SaveToFile(); // 删除用户前先保存当前存档，以防出现错误。
             // 获取所有后备的可选其他存档。
             var backupUserIndexes = managingUserIndexes.Where(u => u != currentIndex);
             bool success = false;

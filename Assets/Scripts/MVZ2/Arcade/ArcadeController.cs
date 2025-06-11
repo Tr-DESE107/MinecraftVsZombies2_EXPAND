@@ -80,7 +80,7 @@ namespace MVZ2.Arcade
             if (!NamespaceID.IsValid(areaID) || !NamespaceID.IsValid(stageID))
                 return;
             ui.SetAllInteractable(false);
-            Main.SaveManager.SaveModDatas();
+            Main.SaveManager.SaveToFile(); // 关卡开始时保存游戏
             await Main.LevelManager.GotoLevelSceneAsync();
             var exitTarget = page == ArcadeUI.ArcadePage.Puzzle ? LevelExitTarget.Puzzle : LevelExitTarget.Minigame;
             Main.LevelManager.InitLevel(areaID, stageID, exitTarget: exitTarget);

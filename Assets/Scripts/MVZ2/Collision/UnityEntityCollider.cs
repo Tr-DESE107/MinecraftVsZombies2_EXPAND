@@ -32,7 +32,7 @@ namespace MVZ2.Collisions
         }
         public void SetMain()
         {
-            updateMode = EntityColliderUpdateMode.Main;
+            updateMode = ColliderUpdateMode.Main;
             ArmorSlot = null;
             customSize = Vector3.zero;
             customOffset = Vector3.zero;
@@ -40,7 +40,7 @@ namespace MVZ2.Collisions
         }
         public void SetCustom(ColliderConstructor constructor)
         {
-            updateMode = EntityColliderUpdateMode.Custom;
+            updateMode = ColliderUpdateMode.Custom;
             ArmorSlot = constructor.armorSlot;
             customSize = constructor.size;
             customOffset = constructor.offset;
@@ -60,14 +60,14 @@ namespace MVZ2.Collisions
             Vector3 boundsOffset;
             switch (updateMode)
             {
-                case EntityColliderUpdateMode.Main:
+                case ColliderUpdateMode.Main:
                     {
                         boundsSize = Entity.GetSize();
                         boundsPivot = Entity.GetBoundsPivot();
                         boundsOffset = Vector3.zero;
                     }
                     break;
-                case EntityColliderUpdateMode.Custom:
+                case ColliderUpdateMode.Custom:
                     {
                         boundsSize = customSize;
                         boundsPivot = customPivot;
@@ -88,8 +88,9 @@ namespace MVZ2.Collisions
         }
         public void Simulate()
         {
-            foreach (var collider in touchingColliders)
+            foreach (var colliderCache in touchingColliders)
             {
+                var collider = colliderCache.collider;
                 if (!collider)
                     continue;
                 var otherCollider = collider.GetComponent<UnityEntityCollider>();
@@ -147,16 +148,24 @@ namespace MVZ2.Collisions
         }
         private void OnTriggerStay(Collider other)
         {
-            if (touchingColliders.Contains(other))
-                return;
+            foreach (var c in touchingColliders)
+            {
+                if (c.collider == other)
+                    return;
+            }
             var otherCollider = other.GetComponent<UnityEntityCollider>();
             if (!otherCollider)
                 return;
             var targetEnt = otherCollider.Entity;
+            var cache = new ColliderCache(other, Entity, targetEnt.ID);
             var mask = Entity.IsHostile(targetEnt) ? Entity.CollisionMaskHostile : Entity.CollisionMaskFriendly;
             if (!EntityCollisionHelper.CanCollide(mask, targetEnt))
                 return;
-            touchingColliders.Add(other);
+            var index = touchingColliders.BinarySearch(cache);
+            if (index < 0)
+            {
+                touchingColliders.Insert(~index, cache);
+            }
         }
 
         #region 检测
@@ -201,21 +210,21 @@ namespace MVZ2.Collisions
                 customPivot = customPivot,
             };
         }
-        public void LoadFromSerializable(SerializableUnityEntityCollider seri, Entity entity)
+        public void LoadFromSerializable(ISerializableCollisionCollider seri, Entity entity)
         {
             Entity = entity;
-            Name = seri.name;
-            ArmorSlot = seri.armorSlot;
-            updateMode = (EntityColliderUpdateMode)seri.updateMode;
-            customSize = seri.customSize;
-            customOffset = seri.customOffset;
-            customPivot = seri.customPivot;
+            Name = seri.Name;
+            ArmorSlot = seri.ArmorSlot;
+            updateMode = (ColliderUpdateMode)seri.UpdateMode;
+            customSize = seri.CustomSize;
+            customOffset = seri.CustomOffset;
+            customPivot = seri.CustomPivot;
             gameObject.name = Name;
-            SetEnabled(seri.enabled);
+            SetEnabled(seri.Enabled);
         }
-        public void LoadCollisions(LevelEngine level, SerializableUnityEntityCollider seri)
+        public void LoadCollisions(LevelEngine level, ISerializableCollisionCollider seri)
         {
-            collisionList = seri.collisionList.Select(s => EntityCollision.FromSerializable(s, level)).ToList();
+            collisionList = seri.Collisions.Select(s => EntityCollision.FromSerializable(s, level)).ToList();
         }
         #endregion
 
@@ -223,18 +232,47 @@ namespace MVZ2.Collisions
         public string Name { get; private set; }
         public Entity Entity { get; private set; }
         public NamespaceID ArmorSlot { get; private set; }
-        private EntityColliderUpdateMode updateMode;
+        private ColliderUpdateMode updateMode;
         private Vector3 customSize = Vector3.zero;
         private Vector3 customOffset = Vector3.zero;
         private Vector3 customPivot = Vector3.one * 0.5f;
 
         [SerializeField]
         private BoxCollider boxCollider;
-        private HashSet<Collider> touchingColliders = new HashSet<Collider>();
+        private List<ColliderCache> touchingColliders = new List<ColliderCache>();
         private List<EntityCollision> collisionList = new List<EntityCollision>();
         private ArrayBuffer<EntityCollision> collisionBuffer = new ArrayBuffer<EntityCollision>(1024);
+
+        private struct ColliderCache : IComparable<ColliderCache>, IEquatable<ColliderCache>
+        {
+            public ColliderCache(Collider collider, Entity self, long colliderEntityID)
+            {
+                var prevPos = self.PreviousPosition;
+                this.collider = collider;
+                sqrDistance = (collider.attachedRigidbody.position - prevPos).sqrMagnitude;
+                colliderID = colliderEntityID;
+            }
+            public int CompareTo(ColliderCache other)
+            {
+                var value = sqrDistance.CompareTo(other.sqrDistance);
+                if (value != 0)
+                    return value;
+                return colliderID.CompareTo(other.colliderID);
+            }
+            public bool Equals(ColliderCache other)
+            {
+                return collider == other.collider;
+            }
+            public override int GetHashCode()
+            {
+                return collider.GetHashCode();
+            }
+            public Collider collider;
+            public float sqrDistance;
+            public long colliderID;
+        }
     }
-    public class SerializableUnityEntityCollider
+    public class SerializableUnityEntityCollider : ISerializableCollisionCollider
     {
         public string name;
         public bool enabled;
@@ -244,10 +282,14 @@ namespace MVZ2.Collisions
         public Vector3 customSize;
         public Vector3 customOffset;
         public Vector3 customPivot;
-    }
-    public enum EntityColliderUpdateMode
-    {
-        Main = 0,
-        Custom = 1
+
+        string ISerializableCollisionCollider.Name => name;
+        bool ISerializableCollisionCollider.Enabled => enabled;
+        NamespaceID ISerializableCollisionCollider.ArmorSlot => armorSlot;
+        SerializableEntityCollision[] ISerializableCollisionCollider.Collisions => collisionList;
+        int ISerializableCollisionCollider.UpdateMode => updateMode;
+        Vector3 ISerializableCollisionCollider.CustomSize => customSize;
+        Vector3 ISerializableCollisionCollider.CustomOffset => customOffset;
+        Vector3 ISerializableCollisionCollider.CustomPivot => customPivot;
     }
 }

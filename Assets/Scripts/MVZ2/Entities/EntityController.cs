@@ -31,7 +31,11 @@ namespace MVZ2.Entities
             Level = level;
             Entity = entity;
             rng = new RandomGenerator(entity.InitSeed);
+            isHighlight = false;
             gameObject.name = entity.ToString();
+            transform.position = Level.LawnToTrans(Entity.Position);
+            lastPosition = transform.position;
+
             entity.PostInit += PostInitCallback;
             entity.PostPropertyChanged += PostPropertyChangedCallback;
             entity.OnChangeModel += OnChangeModelCallback;
@@ -40,16 +44,24 @@ namespace MVZ2.Entities
             entity.OnRemoveArmor += OnArmorRemoveCallback;
 
 
-            bodyModelInterface = new BodyModelInterface(this);
             entity.SetModelInterface(bodyModelInterface);
             SetModel(Entity.ModelID);
             if (Model)
             {
                 ClearAllArmorModels();
+                var lvl = Entity.Level;
+                var heldItemDef = lvl.GetHeldItemDefinition();
+                UpdateModelColliderActive(heldItemDef?.GetHeldTargetMask(lvl) ?? HeldTargetFlag.None);
             }
+        }
+        public void RemoveEntity()
+        {
+            Entity.PostInit -= PostInitCallback;
+            Entity.PostPropertyChanged -= PostPropertyChangedCallback;
+            Entity.OnChangeModel -= OnChangeModelCallback;
 
-            transform.position = Level.LawnToTrans(Entity.Position);
-            lastPosition = transform.position;
+            Entity.OnEquipArmor -= OnArmorEquipCallback;
+            Entity.OnRemoveArmor -= OnArmorRemoveCallback;
         }
 
         #region 模型
@@ -68,6 +80,7 @@ namespace MVZ2.Entities
             Model.OnUpdateFrame += OnModelUpdateFrameCallback;
             modelPropertyCache.UpdateAll(this);
             Model.UpdateFrame(0);
+            Model.UpdateAnimators(0);
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {
@@ -98,14 +111,44 @@ namespace MVZ2.Entities
             lastPosition = transform.position;
 
             UpdateShadow(finalOffset);
-            modelPropertyCache.SetDirtyProperty(EntityPropertyCache.PropertyName.Tint);
+            var shouldTwinkle = ShouldTwinkle();
+            if (twinkling != shouldTwinkle)
+            {
+                twinkling = shouldTwinkle;
+                modelPropertyCache.SetDirtyProperty(EntityPropertyCache.PropertyName.Tint);
+            }
+            else if (twinkling)
+            {
+                modelPropertyCache.SetDirtyProperty(EntityPropertyCache.PropertyName.Tint);
+            }
             if (Model)
             {
                 Model.UpdateFrame(deltaTime);
             }
         }
+        public void UpdateAnimators(float deltaTime)
+        {
+            if (Model)
+            {
+                Model.UpdateAnimators(deltaTime);
+            }
+        }
+        public void GetAnimatorsToUpdate(IList<Animator> results)
+        {
+            if (Model)
+            {
+                Model.GetAnimatorsToUpdate(results);
+            }
+        }
         #endregion
 
+        public void UpdateModelColliderActive(HeldTargetFlag flag)
+        {
+            if (Model is SpriteModel sprModel)
+            {
+                sprModel.SetColliderActive((flag & sprModel.HeldTargetFlag) != HeldTargetFlag.None);
+            }
+        }
         public void SetHighlight(bool highlight)
         {
             isHighlight = highlight;
@@ -171,6 +214,7 @@ namespace MVZ2.Entities
         private void Awake()
         {
             holdStreakHandler.OnPointerInteraction += (_, d, i) => OnPointerInteraction?.Invoke(this, d, i);
+            bodyModelInterface = new BodyModelInterface(this);
         }
         private void Update()
         {
@@ -199,6 +243,7 @@ namespace MVZ2.Entities
         private void PostInitCallback()
         {
             UpdateFrame(0);
+            UpdateAnimators(0);
         }
         private void PostPropertyChangedCallback(IPropertyKey key, object beforeValue, object afterValue)
         {
@@ -373,12 +418,11 @@ namespace MVZ2.Entities
         private Color GetTint()
         {
             var tint = Entity.GetTint();
-            Color twinkleTint = Color.white;
-            if (ShouldTwinkle())
+            if (twinkling)
             {
-                twinkleTint = Level.GetTwinkleColor();
+                tint *= Level.GetTwinkleColor();
             }
-            return tint * twinkleTint;
+            return tint;
         }
         private Color GetColorOffset()
         {
@@ -437,6 +481,7 @@ namespace MVZ2.Entities
         public LevelController Level { get; private set; }
         private RandomGenerator rng;
         private bool isHighlight;
+        private bool twinkling;
         private EntityCursorSource _cursorSource;
         private Vector3 lastPosition;
         private IModelInterface bodyModelInterface;

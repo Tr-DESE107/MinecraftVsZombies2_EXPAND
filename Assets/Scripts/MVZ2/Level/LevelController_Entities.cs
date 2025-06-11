@@ -23,6 +23,7 @@ using PVZEngine.Level.Collisions;
 using Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Pool;
 
 namespace MVZ2.Level
 {
@@ -36,6 +37,11 @@ namespace MVZ2.Level
         #endregion
 
         #region 私有方法
+
+        private void Awake_Entities()
+        {
+            entityControllerPool = new ObjectPool<EntityController>(CreateEntityControllerFunc, GetEntityControllerFunc, ReleaseEntityControllerFunc, DestroyEntityControllerFunc);
+        }
 
         #region 事件回调
         private void Engine_OnEntitySpawnCallback(Entity entity)
@@ -152,9 +158,33 @@ namespace MVZ2.Level
         #endregion
 
         #region 控制器
+        private EntityController CreateEntityControllerFunc()
+        {
+            return Instantiate(entityTemplate.gameObject, Vector3.zero, Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
+        }
+        private void GetEntityControllerFunc(EntityController controller)
+        {
+            controller.gameObject.SetActive(true);
+        }
+        private void ReleaseEntityControllerFunc(EntityController controller)
+        {
+            controller.gameObject.SetActive(false);
+        }
+        private void DestroyEntityControllerFunc(EntityController controller)
+        {
+            Destroy(controller.gameObject);
+        }
+        private EntityController GetEntityControllerFromPool()
+        {
+            return entityControllerPool.Get();
+        }
+        private void ReleaseEntityControllerFromPool(EntityController entity)
+        {
+            entityControllerPool.Release(entity);
+        }
         private EntityController CreateControllerForEntity(Entity entity)
         {
-            var entityController = Instantiate(entityTemplate.gameObject, LawnToTrans(entity.Position), Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
+            var entityController = GetEntityControllerFromPool();
             entityController.Init(this, entity);
             entityController.OnPointerInteraction += UI_OnEntityPointerInteractionCallback;
             entities.Add(entityController);
@@ -166,7 +196,8 @@ namespace MVZ2.Level
             if (entityController)
             {
                 entityController.OnPointerInteraction -= UI_OnEntityPointerInteractionCallback;
-                Destroy(entityController.gameObject);
+                entityController.RemoveEntity();
+                ReleaseEntityControllerFromPool(entityController);
                 return entities.Remove(entityController);
             }
             return false;
@@ -238,7 +269,27 @@ namespace MVZ2.Level
 
         private ICollisionSystem GetCollisionSystem()
         {
-            return unityCollisionSystem;
+            return builtinCollisionSystem;
+            //return unityCollisionSystem;
+        }
+
+        private void UpdateEntityAnimators(IList<Animator> toUpdate, float deltaTime, float gameSpeed, float maxBatchPercentage)
+        {
+            var count = toUpdate.Count;
+            if (count <= 0)
+                return;
+            var maxCount = Mathf.CeilToInt(maxBatchPercentage * count);
+            var updateCount = Mathf.Min(count, maxCount);
+            var updateSpeed = count / (float)updateCount;
+
+            var startIndex = currentEntityAnimatorIndex;
+            for (int i = 0; i < updateCount; i++)
+            {
+                var index = (i + startIndex) % count;
+                var animator = toUpdate[index];
+                animator.Update(deltaTime * gameSpeed * updateSpeed);
+            }
+            currentEntityAnimatorIndex = (updateCount + startIndex) % count;
         }
 
         #endregion
@@ -254,9 +305,12 @@ namespace MVZ2.Level
         [TranslateMsg("实体提示", VanillaStrings.CONTEXT_ENTITY_TOOLTIP)]
         public const string VIEW_IN_ALMANAC = "在图鉴中查看";
 
+        private ObjectPool<EntityController> entityControllerPool;
         private List<EntityController> entities = new List<EntityController>();
         private EntityController hoveredEntity;
         private EntityController highlightedEntity;
+        private List<Animator> entityAnimatorBuffer = new List<Animator>();
+        private int currentEntityAnimatorIndex = 0;
 
         #region 保存属性
         private FrameTimer cryTimer = new FrameTimer(MaxCryInterval);
@@ -270,6 +324,7 @@ namespace MVZ2.Level
         private Transform entitiesRoot;
         [SerializeField]
         private UnityCollisionSystem unityCollisionSystem;
+        private BuiltinCollisionSystem builtinCollisionSystem;
         #endregion
 
         private class EntityTooltipSource : ITooltipSource

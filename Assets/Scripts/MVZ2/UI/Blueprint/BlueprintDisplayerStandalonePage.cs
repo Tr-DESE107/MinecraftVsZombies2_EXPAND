@@ -39,12 +39,12 @@ namespace MVZ2.Level.UI
         {
             OnBlueprintPointerInteraction?.Invoke(this, blueprintList.indexOf(blueprint), eventData, interaction);
         }
-        private void OnBlueprintSelectCallback(Blueprint blueprint)
+        private void OnBlueprintSelectCallback(Blueprint blueprint, PointerEventData eventData)
         {
-            OnBlueprintSelect?.Invoke(this, blueprintList.indexOf(blueprint));
+            OnBlueprintSelect?.Invoke(this, blueprintList.indexOf(blueprint), eventData);
         }
         public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
-        public event Action<BlueprintDisplayerStandalonePage, int> OnBlueprintSelect;
+        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData> OnBlueprintSelect;
         [SerializeField]
         ElementListUI blueprintList;
     }

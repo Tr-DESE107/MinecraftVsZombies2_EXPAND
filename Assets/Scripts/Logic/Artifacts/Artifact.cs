@@ -12,12 +12,14 @@ namespace MVZ2Logic.Artifacts
 {
     public class Artifact : IAuraSource
     {
-        public Artifact(LevelEngine level, ArtifactDefinition definition)
+        public Artifact(LevelEngine level, ArtifactDefinition definition) : this(level, definition, CreateRNG(level))
+        {
+        }
+        private Artifact(LevelEngine level, ArtifactDefinition definition, RandomGenerator rng)
         {
             Level = level;
             Definition = definition;
-            var artifactRNG = level.GetArtifactRNG();
-            RNG = new RandomGenerator(artifactRNG.Next());
+            RNG = rng;
 
             var auraDefs = definition.GetAuras();
             for (int i = 0; i < auraDefs.Length; i++)
@@ -71,10 +73,24 @@ namespace MVZ2Logic.Artifacts
         public static Artifact Deserialize(SerializableArtifact seri, LevelEngine level)
         {
             var definition = level.Content.GetArtifactDefinition(seri.definitionID);
-            var artifact = new Artifact(level, definition);
+            RandomGenerator rng;
+            if (seri.rng != null)
+            {
+                rng = RandomGenerator.FromSerializable(seri.rng);
+            }
+            else
+            {
+                rng = CreateRNG(level);
+            }
+            var artifact = new Artifact(level, definition, rng);
             artifact.propertyDict = PropertyDictionary.FromSerializable(seri.propertyDict);
             artifact.auras.LoadFromSerializable(level, seri.auras);
             return artifact;
+        }
+        private static RandomGenerator CreateRNG(LevelEngine level)
+        {
+            var artifactRNG = level.GetArtifactRNG();
+            return new RandomGenerator(artifactRNG.Next());
         }
 
         Entity IAuraSource.GetEntity() => null;

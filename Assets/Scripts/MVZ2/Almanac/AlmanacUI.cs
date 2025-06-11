@@ -4,6 +4,7 @@ using MVZ2.Level.UI;
 using MVZ2.Models;
 using MVZ2.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MVZ2.Almanacs
 {
@@ -154,17 +155,9 @@ namespace MVZ2.Almanacs
         {
             zoomPage.Hide();
         }
-        public void SetZoomScale(float scale)
+        public void SetZoomHintText(string text)
         {
-            zoomPage.SetScale(scale);
-        }
-        public void SetZoomScaleSliderText(string text)
-        {
-            zoomPage.SetSliderText(text);
-        }
-        public void SetZoomScaleSliderValue(float value)
-        {
-            zoomPage.SetSliderValue(value);
+            zoomPage.SetZoomHintText(text);
         }
         #endregion
         private void Awake()
@@ -202,25 +195,25 @@ namespace MVZ2.Almanacs
 
                 if (page is ContraptionAlmanacPage contraptionPage)
                 {
-                    contraptionPage.OnEntryClick += index => OnEntryClick?.Invoke(type, index);
-                    contraptionPage.OnCommandBlockClick += () => OnCommandBlockClick?.Invoke();
+                    contraptionPage.OnEntryClick += (index, data) => OnContraptionEntryClick?.Invoke(index, data);
+                    contraptionPage.OnCommandBlockClick += (data) => OnCommandBlockClick?.Invoke(data);
                 }
 
                 if (page is MiscAlmanacPage miscPage)
                 {
                     miscPage.OnGroupEntryClick += (groupIndex, entryIndex) => OnGroupEntryClick?.Invoke(type, groupIndex, entryIndex);
                     miscPage.OnZoomClick += () => OnZoomClick?.Invoke(type);
-                    miscPage.OnEntryClick += index => OnEntryClick?.Invoke(type, index);
+                    miscPage.OnEntryClick += (index) => OnMiscEntryClick?.Invoke(type, index);
                 }
             }
             zoomPage.OnReturnClick += () => OnZoomReturnClick?.Invoke();
-            zoomPage.OnScaleValueChanged += (v) => OnZoomScaleValueChanged?.Invoke(v);
         }
         public event Action<bool> OnReturnClick;
         public event Action<IndexAlmanacPage.ButtonType> OnIndexButtonClick;
 
-        public event Action OnCommandBlockClick;
-        public event Action<AlmanacPageType, int> OnEntryClick;
+        public event Action<PointerEventData> OnCommandBlockClick;
+        public event Action<int, PointerEventData> OnContraptionEntryClick;
+        public event Action<AlmanacPageType, int> OnMiscEntryClick;
         public event Action<AlmanacPageType, int, int> OnGroupEntryClick;
         public event Action<AlmanacPageType> OnZoomClick;
 
@@ -232,7 +225,6 @@ namespace MVZ2.Almanacs
         public event Action<AlmanacPageType, int> OnTagIconDown;
 
         public event Action OnZoomReturnClick;
-        public event Action<float> OnZoomScaleValueChanged;
 
         private Dictionary<AlmanacPageType, AlmanacPage> almanacPages = new Dictionary<AlmanacPageType, AlmanacPage>();
 

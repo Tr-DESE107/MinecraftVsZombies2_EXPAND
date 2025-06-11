@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
             // 设置血量状态。
-            entity.SetAnimationInt("HealthState", entity.GetHealthState(2));
+            entity.SetModelDamagePercent();
         }
         public override void PostCollision(EntityCollision collision, int state)
         {

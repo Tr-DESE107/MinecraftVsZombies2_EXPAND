@@ -31,6 +31,10 @@ namespace MVZ2.GameContent.HeldItems
         {
             result.SetFinalValue(16);
         }
+        public override HeldTargetFlag GetHeldTargetMask(LevelEngine level)
+        {
+            return HeldTargetFlag.Enemy;
+        }
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             switch (target)

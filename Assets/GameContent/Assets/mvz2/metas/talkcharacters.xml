@@ -50,7 +50,7 @@
             <layer sprite="mvz2:characters/doremy[13]" positionX="341" positionY="220" />
             <layer sprite="mvz2:characters/doremy[2]" positionX="117" positionY="234" />
         </variant>
-        <variant id="mvz2:suffering" width="857" height="1365" extendRight="200" pivotX="0.5" pivotY="0.5">
+        <variant id="mvz2:suffering" width="860" height="1367" extendRight="200" pivotX="0.5" pivotY="0.5">
             <layer sprite="mvz2:characters/doremy_suffering[0]" positionX="0" positionY="259" />
             <layer sprite="mvz2:characters/dim_vision[0]" positionX="0" positionY="0" />
         </variant>

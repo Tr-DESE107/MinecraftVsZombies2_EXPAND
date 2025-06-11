@@ -1,12 +1,12 @@
 #include "UnityCG.cginc"
 
 sampler2D _LightMapSpot;
-half4 _LightGlobal;
-half4 _LightBackground;
-int _LightStarted;
-int _LightDisabled;
-int _BackgroundLit;
 float4 _LightMapST;
+int _LightStarted;
+float4 _LightGlobal;
+float4 _LightBackground;
+int _BackgroundLit;
+
 
 float2 GetLightUV(float4 vertex)
 {
@@ -15,34 +15,34 @@ float2 GetLightUV(float4 vertex)
     worldPos.y += 2.1;
     return (worldPos.xy + _LightMapST.zw) / _LightMapST.xy;
 }
-half4 ToLinear(half4 col)
+float4 ToLinear(float4 col)
 {
     return pow(col, 2.2);
 }
-half4 ToGamma(half4 col)
+float4 ToGamma(float4 col)
 {
     return pow(col, 1.0 / 2.2);
 }
 
-half4 GetGlobalLight()
+float4 GetGlobalLight()
 {
     return _LightGlobal;
 }
-half4 GetBackgroundLight()
+float4 GetBackgroundLight()
 {
     return _LightBackground;
 }
-half4 GetSpotLight(float2 lightUV)
+float4 GetSpotLight(float2 lightUV)
 {
     return tex2D(_LightMapSpot, lightUV);
 }
-half4 GetLight(float2 lightUV)
+float4 GetLight(float2 lightUV)
 {
-    half4 global = GetGlobalLight();
-    half4 spot = GetSpotLight(lightUV);
+    float4 global = GetGlobalLight();
+    float4 spot = GetSpotLight(lightUV);
     if (_BackgroundLit)
     {
-        half4 background = GetBackgroundLight();
+        float4 background = GetBackgroundLight();
         return spot + global * background;
     }
     else
@@ -50,13 +50,32 @@ half4 GetLight(float2 lightUV)
         return spot + global;
     }
 }
-half4 ApplyLight(half4 col, float2 lightUV)
+
+
+#if defined(INSTANCING_ON)
+UNITY_INSTANCING_BUFFER_START(Light_Props)
+UNITY_DEFINE_INSTANCED_PROP(int, _LightDisabled)
+UNITY_INSTANCING_BUFFER_END(Light_Props)
+
+bool LightDisabled()
 {
-    if (!_LightDisabled && _LightStarted)
+    return UNITY_ACCESS_INSTANCED_PROP(Light_Props, _LightDisabled) > 0;
+}
+#else
+int _LightDisabled;
+bool LightDisabled()
+{
+    return _LightDisabled > 0;
+}
+#endif
+
+float4 ApplyLight(float4 col, float2 lightUV)
+{
+    if (!LightDisabled() && _LightStarted)
     {
-        half4 light = GetLight(lightUV);
-        half4 colLin = ToLinear(col);
-        half4 lightLin = ToLinear(light);
+        float4 light = GetLight(lightUV);
+        float4 colLin = ToLinear(col);
+        float4 lightLin = ToLinear(light);
         colLin.rgb *= lightLin.rgb * saturate(lightLin.a);
         colLin.rgb = saturate(colLin.rgb);
         col = ToGamma(colLin);

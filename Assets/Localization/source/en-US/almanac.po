@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-06-06 10:24+0800\n"
-"PO-Revision-Date: 2025-06-06 13:45+0800\n"
+"POT-Creation-Date: 2025-06-09 01:06+0800\n"
+"PO-Revision-Date: 2025-06-09 13:06+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -52,6 +52,54 @@ msgstr "Levitating Contraption"
 msgctxt "almanac_tag.description"
 msgid "不依赖于承载者便可放置在特殊格子上"
 msgstr "Can be placed on special grids without a carrier present"
+
+#. Name for almanac tag placement_infectenser
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：小型发射器"
+msgstr "Upgrade Contraption: Small Dispenser"
+
+#. Description for almanac tag placement_infectenser
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在小型发射器上"
+msgstr "Must be placed on Small Dispenser"
+
+#. Name for almanac tag placement_force_pad
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：重力板"
+msgstr "Upgrade Contraption: Gravity Pad"
+
+#. Description for almanac tag placement_force_pad
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在重力板上"
+msgstr "Must be placed on Gravity Pad"
+
+#. Name for almanac tag placement_golden_dropper
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：木制投掷器"
+msgstr "Upgrade Contraption: Wooden Dropper"
+
+#. Description for almanac tag placement_golden_dropper
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在木制投掷器上"
+msgstr "Must be placed on Wooden Dropper"
+
+#. Name for almanac tag placement_diamond_spikes
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：尖刺方块"
+msgstr "Upgrade Contraption: Spike Block"
+
+#. Description for almanac tag placement_diamond_spikes
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在尖刺方块上"
+msgstr "Must be placed on Spike Block"
 
 #. Name for almanac tag grid_layer_main
 #: Almanac meta file
@@ -1518,13 +1566,11 @@ msgctxt "contraptions.description"
 msgid ""
 "射程：<color=red>3.5格</color>\n"
 "伤害：<color=red>20</color>\n"
-"技能：<color=red>使所有寄生中的机器人自爆</color>\n"
-"<color=red>必须放置在小型发射器上</color>"
+"技能：<color=red>使所有寄生中的机器人自爆</color>"
 msgstr ""
 "Range: <color=red>3.5 grids</color>\n"
 "Damage: <color=red>20</color>\n"
-"Evocation: <color=red>Make all parasitizing parabots self-destruct</color>\n"
-"<color=red>Must be placed on Small Dispenser</color>"
+"Evocation: <color=red>Make all parasitizing parabots self-destruct</color>"
 
 #. Flavor for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -1546,13 +1592,11 @@ msgctxt "contraptions.description"
 msgid ""
 "上下方向：<color=red>转移物体</color>\n"
 "前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>\n"
-"技能：<color=red>将周围的敌怪移动到一个指定的位置</color>\n"
-"<color=red>必须放置在重力板上</color>"
+"技能：<color=red>将周围的敌怪移动到一个指定的位置</color>"
 msgstr ""
 "Up/Down: <color=red>Change objects' lanes.</color>\n"
 "Front/Back: <color=red>Make projectiles turn back, or speed-boosted and have knockback effect.</color>\n"
-"Evocation: <color=red>Move nearby enemy monsters to a certain spot</color>\n"
-"<color=red>Must be placed on Gravity Pad</color>"
+"Evocation: <color=red>Move nearby enemy monsters to a certain spot</color>"
 
 #. Flavor for contraptions mvz2:force_pad
 #: Almanac meta file
@@ -1578,14 +1622,12 @@ msgid ""
 "发射速度：<color=red>1.5秒</color>\n"
 "伤害：<color=red>60，每次反弹后减半</color>\n"
 "宝石概率：<color=red>25%</color>\n"
-"技能：<color=red>立即喷射30发金球</color>\n"
-"<color=red>必须放置在木制投掷器上</color>"
+"技能：<color=red>立即喷射30发金球</color>"
 msgstr ""
 "Fire rate: <color=red>1.5 seconds</color>\n"
 "Damage: <color=red>60, halved after each bounce</color>\n"
 "Gem chance: <color=red>25%</color>\n"
-"Evocation: <color=red>Fires 30 golden balls instantly</color>\n"
-"<color=red>Must be placed on Wooden Dropper</color>"
+"Evocation: <color=red>Fires 30 golden balls instantly</color>"
 
 #. Flavor for contraptions mvz2:golden_dropper
 #: Almanac meta file
@@ -1603,18 +1645,16 @@ msgstr "Diamond Spikes deal double damage to enemies stepped on it, and have mor
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"耐久：<color=red>2700</color>\n"
+"耐久：<color=red>5400</color>\n"
 "攻击频率：<color=red>0.5秒</color>\n"
 "伤害：<color=red>20</color>\n"
-"技能：<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>\n"
-"<color=red>必须放置在尖刺方块上</color>"
+"技能：<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>"
 msgstr ""
-"Toughness: <color=red>2700</color>\n"
+"Toughness: <color=red>5400</color>\n"
 "Attack rate: <color=red>0.5 seconds</color>\n"
 "Damage: <color=red>20</color>\n"
 "Evocation: <color=red>Deals damage rapidly to enemies on the ground in the whole lane, and pulls them to the spikes; Throws 30 diamond "
-"caltrops around, which deal 100 damage to enemies</color>\n"
-"<color=red>Must be placed on Spike Block</color>"
+"caltrops around, which deal 100 damage to enemies</color>"
 
 #. Flavor for contraptions mvz2:diamond_spikes
 #: Almanac meta file

@@ -65,9 +65,10 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            half4 frag (v2f i) : SV_Target
             {
-                fixed4 col = tex2D(_MainTex, i.uv) * i.color * _Color;
+                half4 col = tex2D(_MainTex, i.uv) * i.color * _Color;
+                col = saturate(col);
                 #if LIT
                 col = ApplyLight(col, i.lightUV);
                 #endif

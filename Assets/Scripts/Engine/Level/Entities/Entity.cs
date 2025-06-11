@@ -336,7 +336,7 @@ namespace PVZEngine.Entities
         {
             var size = Cache.Size;
             size.Scale(Cache.GetFinalScale());
-            return size;
+            return size.Abs();
         }
         public void SetCenter(Vector3 center)
         {
@@ -919,8 +919,7 @@ namespace PVZEngine.Entities
                     takenGrids.Add(grid, takenGrid.layers.ToHashSet());
                 }
             }
-            CreateAuraEffects();
-            auras.LoadFromSerializable(Level, seri.auras);
+            LoadAuras(seri);
 
             UpdateModifierCaches();
             UpdateAllBuffedProperties();
@@ -937,6 +936,22 @@ namespace PVZEngine.Entities
             entity.buffs.OnModelInsertionAdded += entity.OnBuffModelAddCallback;
             entity.buffs.OnModelInsertionRemoved += entity.OnBuffModelRemoveCallback;
             return entity;
+        }
+        public void LoadAuras(SerializableEntity seri)
+        {
+            CreateAuraEffects();
+            auras.LoadFromSerializable(Level, seri.auras);
+
+            foreach (var pair in armorDict)
+            {
+                var armor = pair.Value;
+                if (armor == null)
+                    continue;
+                var seriArmor = seri.armors.Values.FirstOrDefault(a => a.slot == pair.Key);
+                if (seriArmor == null)
+                    continue;
+                armor.LoadAuras(seriArmor);
+            }
         }
         #endregion
 
@@ -1085,7 +1100,7 @@ namespace PVZEngine.Entities
         private Dictionary<LawnGrid, HashSet<NamespaceID>> takenGrids = new Dictionary<LawnGrid, HashSet<NamespaceID>>();
         private List<Entity> children = new List<Entity>();
         private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
-        private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>();
+        private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>(new PropertyKeyComparer());
         #endregion
     }
 }

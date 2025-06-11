@@ -31,6 +31,7 @@ namespace MVZ2.GameContent.Implements
                 if (killedByFriendlyEnemy)
                 {
                     Global.Game.Unlock(VanillaUnlockID.mesmerisedMatchup);
+                    Global.Game.SaveToFile(); // 完成成就后保存游戏。
                 }
             }
         }
@@ -41,6 +42,7 @@ namespace MVZ2.GameContent.Implements
             if (entity.IsEntityOf(VanillaEnemyID.skeleton) && info.Effects.HasEffect(VanillaDamageEffects.FALL_DAMAGE) && !entity.Level.IsIZombie())
             {
                 Global.Game.Unlock(VanillaUnlockID.bonebreaker);
+                Global.Game.SaveToFile(); // 完成成就后保存游戏。
             }
 
             if (entity.IsFriendlyEntity() && !entity.Level.IsIZombie())
@@ -50,12 +52,14 @@ namespace MVZ2.GameContent.Implements
                 if (killedByHostileContraption)
                 {
                     Global.Game.Unlock(VanillaUnlockID.mesmerisedMatchup);
+                    Global.Game.SaveToFile(); // 完成成就后保存游戏。
                 }
             }
         }
         private void PostAnvilObsidianFirstAidCallback(EntityCallbackParams param, CallbackResult result)
         {
             Global.Game.Unlock(VanillaUnlockID.reforged);
+            Global.Game.SaveToFile(); // 完成成就后保存游戏。
         }
     }
 }

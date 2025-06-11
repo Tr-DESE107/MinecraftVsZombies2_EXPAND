@@ -32,25 +32,31 @@ namespace MVZ2.GameContent.Contraptions
             CheckPurpleArrowShoot(contraption);
 
             // 生命状态动画控制逻辑
-            var state = 0;
             var maxHP = contraption.GetMaxHealth();
-
-            if (contraption.HasBuff<ObsidianArmorBuff>())
+            bool netherite = contraption.HasBuff<ObsidianArmorBuff>();
+            if (netherite)
             {
-                state = GetArmoredHealthState(contraption, maxHP);
 
                 // 如果护甲血量掉到40%，移除Buff
                 if (contraption.Health <= maxHP * 0.4f)
                 {
+                    var hp = contraption.Health;
                     contraption.RemoveBuffs<ObsidianArmorBuff>();
+                    netherite = false;
+                    contraption.Health = hp;
                 }
+            }
+
+            if (netherite)
+            {
+                var percent = GetArmoredDamagePercent(contraption, maxHP);
+                contraption.SetModelDamagePercent(percent);
             }
             else
             {
-                state = GetHealthState(contraption, maxHP);
+                contraption.SetModelDamagePercent();
             }
-
-            contraption.SetAnimationInt("HealthState", state);
+            contraption.SetModelProperty("Netherite", netherite);
         }
 
         /// <summary>
@@ -114,47 +120,14 @@ namespace MVZ2.GameContent.Contraptions
             // 重置血量记录
             SetLastShootHealth(contraption, contraption.Health);
         }
-
         /// <summary>
         /// 获取护甲状态下的动画状态值
         /// </summary>
-        private int GetArmoredHealthState(Entity contraption, float maxHP)
+        private float GetArmoredDamagePercent(Entity contraption, float maxHP)
         {
-            if (contraption.Health <= 0.4f * maxHP)
-            {
-                return GetHealthState(contraption, maxHP * 0.4f);
-            }
-            else if (contraption.Health <= 0.6f * maxHP)
-            {
-                return 3;
-            }
-            else if (contraption.Health <= 0.8f * maxHP)
-            {
-                return 4;
-            }
-            else
-            {
-                return 5;
-            }
-        }
-
-        /// <summary>
-        /// 获取正常状态下的动画状态值
-        /// </summary>
-        private int GetHealthState(Entity contraption, float maxHP)
-        {
-            if (contraption.Health <= maxHP / 3)
-            {
-                return 0;
-            }
-            else if (contraption.Health <= maxHP * 2 / 3)
-            {
-                return 1;
-            }
-            else
-            {
-                return 2;
-            }
+            var percent = contraption.Health / maxHP;
+            var armorPercent = (percent - 0.4f) / 0.6f;
+            return 1 - armorPercent;
         }
 
         // 新增字段记录生命值（用于判断是否触发攻击）

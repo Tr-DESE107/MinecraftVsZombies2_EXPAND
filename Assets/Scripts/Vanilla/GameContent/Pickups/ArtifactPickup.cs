@@ -33,6 +33,7 @@ namespace MVZ2.GameContent.Pickups
             if (Global.Game.IsValidAndLocked(unlockID))
             {
                 Global.Game.Unlock(unlockID);
+                Global.Game.SaveToFile(); // 获得制品后保存游戏。
                 level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_YOU_FOUND_A_NEW_ARTIFACT, 0, 150);
             }
             level.PlaySound(pickup.GetCollectSound());

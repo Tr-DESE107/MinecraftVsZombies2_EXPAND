@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Tools;
 using Tools.Mathematics;
 using UnityEngine;
 
 namespace PVZEngine.Level.Collisions
 {
-    public class QuadTreeNode<T> : IPoolable where T : IQuadTreeNodeObject
+    public class QuadTreeNode<T> where T : IQuadTreeNodeObject
     {
         /// <summary>
         /// 构造函数
@@ -20,7 +19,7 @@ namespace PVZEngine.Level.Collisions
             Parent = parent;
             bounds = size;
             looseBounds = bounds;
-            looseBounds.position -= looseBounds.size;
+            looseBounds.position -= looseBounds.size * 0.5f;
             looseBounds.size *= 2;
             this.depth = depth;
         }
@@ -238,7 +237,7 @@ namespace PVZEngine.Level.Collisions
         }
         #endregion
 
-        void IPoolable.Reset()
+        public void Reset()
         {
             Tree = null;
             Parent = null;
@@ -248,6 +247,10 @@ namespace PVZEngine.Level.Collisions
             totalTargetCount = 0;
             children.Clear();
             depth = 0;
+        }
+        public override string ToString()
+        {
+            return $"[{depth}]{bounds}";
         }
 
         public QuadTree<T> Tree { get; private set; }

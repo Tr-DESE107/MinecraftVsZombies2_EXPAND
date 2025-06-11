@@ -371,6 +371,10 @@ PrefabInstance:
       value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: 8053024829104482126, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: modelCollider
+      value: 
+      objectReference: {fileID: 7647905740843498559}
+    - target: {fileID: 8053024829104482126, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: modelAnchors.Array.size
       value: 4
       objectReference: {fileID: 0}

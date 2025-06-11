@@ -4,7 +4,6 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -43,18 +42,17 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.smallDispenser,
-                VanillaContraptionID.smallDispenser,
-                VanillaContraptionID.devourer,
-                VanillaContraptionID.desirePot,
-                VanillaContraptionID.gravityPad,
-                VanillaContraptionID.forcePad,
-                VanillaEnemyID.zombie,
-                VanillaEnemyID.ghost,
-                VanillaEnemyID.mesmerizer,
-                VanillaEnemyID.shikaisenStaff,
+                VanillaContraptionID.dispenser,
+                VanillaContraptionID.spikeBlock,
+                VanillaContraptionID.diamondSpikes,
+                VanillaEnemyID.gargoyle,
+                VanillaEnemyID.shikaisenZombie,
+                VanillaEnemyID.emperorZombie,
+                VanillaEnemyID.skeletonWarrior,
+                VanillaEnemyID.soulsand,
+                VanillaEnemyID.mutantZombie,
+                VanillaEnemyID.megaMutantZombie,
             });
-            level.GetSeedPackAt(1).SetCommandBlock(true);
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {

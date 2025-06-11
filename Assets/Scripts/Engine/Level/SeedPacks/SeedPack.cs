@@ -221,7 +221,7 @@ namespace PVZEngine.SeedPacks
             seri.currentBuffID = currentBuffID;
             seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
         }
-        protected void ApplyDeserializedProperties(LevelEngine level, SerializableSeedPack seri)
+        public void ApplyDeserializedProperties(LevelEngine level, SerializableSeedPack seri)
         {
             properties = PropertyBlock.FromSerializable(seri.properties, this);
             currentBuffID = seri.currentBuffID;

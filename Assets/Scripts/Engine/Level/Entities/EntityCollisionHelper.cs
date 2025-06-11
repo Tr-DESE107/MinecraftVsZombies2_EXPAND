@@ -28,6 +28,19 @@ namespace PVZEngine.Entities
         {
             return (collisionMask & entity.TypeCollisionFlag) > 0;
         }
+        public static bool CanCollideFaction(int hostileMask, int friendlyMask, int faction, Entity entity)
+        {
+            var faction2 = entity.GetFaction();
+            if ((hostileMask & entity.TypeCollisionFlag) > 0 && EngineEntityExt.IsHostile(faction, faction2))
+            {
+                return true;
+            }
+            if ((friendlyMask & entity.TypeCollisionFlag) > 0 && EngineEntityExt.IsFriendly(faction, faction2))
+            {
+                return true;
+            }
+            return false;
+        }
         public static int GetTypeMask(int type)
         {
             if (typeMaskDict.TryGetValue(type, out var mask))

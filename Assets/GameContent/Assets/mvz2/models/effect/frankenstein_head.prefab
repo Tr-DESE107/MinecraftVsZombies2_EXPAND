@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8050099228387082879}
   - component: {fileID: 4569054690304514145}
   - component: {fileID: 4368355671338533568}
-  - component: {fileID: 3837776454519414750}
+  - component: {fileID: 1321426996549866215}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &3837776454519414750
+--- !u!114 &1321426996549866215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,13 +108,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2835401466863922071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ca377810bae8aa49bb81e20fdb171a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: -8387447821006724102, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
   - {fileID: 1910782003597169381, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
-  index: 0
+  propertyName: Steel
 --- !u!1001 &1411313375228467585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159,10 +159,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 3946098556087542135, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a6cc8ccfe585c9740a85bab922e48cb2, type: 2}
     - target: {fileID: 5800025478509911982, guid: 53551aac6de617747bf4df641b1c506d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

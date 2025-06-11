@@ -142,6 +142,10 @@ namespace MVZ2.UI
         {
             artifactSlotsRoot.SetActive(visible);
         }
+        public void SetArtifactRepickButtonActive(bool visible)
+        {
+            artifactRepickButton.gameObject.SetActive(visible);
+        }
         public ArtifactSlot GetArtifactSlotAt(int index)
         {
             return artifactSlotList.getElement<ArtifactSlot>(index);
@@ -199,6 +203,8 @@ namespace MVZ2.UI
         {
             viewLawnReturnButton.onClick.AddListener(() => OnViewLawnReturnClick?.Invoke());
 
+            artifactRepickButton.onClick.AddListener(() => OnArtifactRepickButtonClick?.Invoke());
+
             artifactChoosingDialog.OnItemClicked += (index) => OnArtifactChoosingItemClicked?.Invoke(index);
             artifactChoosingDialog.OnItemPointerEnter += (index) => OnArtifactChoosingItemEnter?.Invoke(index);
             artifactChoosingDialog.OnItemPointerExit += (index) => OnArtifactChoosingItemExit?.Invoke(index);
@@ -207,14 +213,15 @@ namespace MVZ2.UI
             blueprintChoosePanel.OnStartButtonClick += () => OnStartClick?.Invoke();
             blueprintChoosePanel.OnViewLawnButtonClick += () => OnViewLawnClick?.Invoke();
             blueprintChoosePanel.OnRepickButtonClick += () => OnRepickClick?.Invoke();
+            blueprintChoosePanel.OnCancelButtonClick += () => OnCancelChooseClick?.Invoke();
             blueprintChoosePanel.OnCommandBlockBlueprintPointerInteraction += (e, i) => OnCommandBlockPointerInteraction?.Invoke(e, i);
-            blueprintChoosePanel.OnCommandBlockBlueprintSelect += () => OnCommandBlockSlotSelect?.Invoke();
+            blueprintChoosePanel.OnCommandBlockBlueprintSelect += (e) => OnCommandBlockSlotSelect?.Invoke(e);
             blueprintChoosePanel.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintItemPointerInteraction?.Invoke(index, data, i, false);
-            blueprintChoosePanel.OnBlueprintSelect += (index) => OnBlueprintItemSelect?.Invoke(index, false);
+            blueprintChoosePanel.OnBlueprintSelect += (index, data) => OnBlueprintItemSelect?.Invoke(index, data, false);
 
             commandBlockChoosePanel.OnCancelButtonClick += () => OnCommandBlockPanelCancelClick?.Invoke();
             commandBlockChoosePanel.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintItemPointerInteraction?.Invoke(index, data, i, true);
-            commandBlockChoosePanel.OnBlueprintSelect += (index) => OnBlueprintItemSelect?.Invoke(index, true);
+            commandBlockChoosePanel.OnBlueprintSelect += (index, data) => OnBlueprintItemSelect?.Invoke(index, data, true);
 
             choosingViewAlmanacButton.onClick.AddListener(() => OnViewAlmanacClick?.Invoke());
             choosingViewStoreButton.onClick.AddListener(() => OnViewStoreClick?.Invoke());
@@ -249,14 +256,15 @@ namespace MVZ2.UI
         public event Action OnStartClick;
         public event Action OnViewLawnClick;
         public event Action OnRepickClick;
+        public event Action OnCancelChooseClick;
         public event Action<PointerEventData, PointerInteraction> OnCommandBlockPointerInteraction;
-        public event Action OnCommandBlockSlotSelect;
+        public event Action<PointerEventData> OnCommandBlockSlotSelect;
         public event Action OnCommandBlockPanelCancelClick;
         public event Action<int> OnArtifactSlotClick;
         public event Action<int> OnArtifactSlotPointerEnter;
         public event Action<int> OnArtifactSlotPointerExit;
         public event Action<int, PointerEventData, PointerInteraction, bool> OnBlueprintItemPointerInteraction;
-        public event Action<int, bool> OnBlueprintItemSelect;
+        public event Action<int, PointerEventData, bool> OnBlueprintItemSelect;
 
         public event Action OnViewAlmanacClick;
         public event Action OnViewStoreClick;
@@ -266,6 +274,7 @@ namespace MVZ2.UI
         public event Action<int> OnArtifactChoosingItemEnter;
         public event Action<int> OnArtifactChoosingItemExit;
         public event Action OnArtifactChoosingBackClicked;
+        public event Action OnArtifactRepickButtonClick;
         #endregion
 
         float sideUIBlend = 1;
@@ -305,5 +314,7 @@ namespace MVZ2.UI
         GameObject artifactSlotsRoot;
         [SerializeField]
         ElementListUI artifactSlotList;
+        [SerializeField]
+        Button artifactRepickButton;
     }
 }

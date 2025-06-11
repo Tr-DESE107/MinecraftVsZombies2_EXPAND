@@ -28,7 +28,6 @@ half4 Grayscale(half4 color)
     return half4(_texGray, _texGray, _texGray, color.a);
 }
 
-
 struct appdata_entity
 {
     float4 vertex : POSITION;
@@ -42,6 +41,7 @@ struct v2f_entity
     float4 vertex : SV_POSITION;
     float4 color : COLOR;
     float2 uv : TEXCOORD0;
+    UNITY_VERTEX_INPUT_INSTANCE_ID 
 
     #if BURN_ON
     float2 noiseUV : TEXCOORD1;
@@ -50,21 +50,28 @@ struct v2f_entity
     #if LIT
     float2 lightUV : TEXCOORD2;
     #endif
-
-    UNITY_VERTEX_OUTPUT_STEREO
 };
 sampler2D _MainTex;
 float4 _MainTex_ST;
+#if defined(INSTANCING_ON)
+UNITY_INSTANCING_BUFFER_START(Props)
+UNITY_DEFINE_INSTANCED_PROP(float4, _Color)
+UNITY_DEFINE_INSTANCED_PROP(half4, _ColorOffset)
+UNITY_DEFINE_INSTANCED_PROP(float3, _HSVOffset)
+UNITY_DEFINE_INSTANCED_PROP(int, _Grayscale)
+UNITY_INSTANCING_BUFFER_END(Props)
+#else
 float4 _Color;
 half4 _ColorOffset;
 float3 _HSVOffset;
 int _Grayscale;
+#endif
 
 v2f_entity EntityVert(appdata_entity v)
 {
     v2f_entity o;
     UNITY_SETUP_INSTANCE_ID(v);
-    UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+    UNITY_TRANSFER_INSTANCE_ID(v, o);
     
     o.vertex = UnityObjectToClipPos(v.vertex);
     o.uv = TRANSFORM_TEX(v.uv, _MainTex);
@@ -81,18 +88,53 @@ v2f_entity EntityVert(appdata_entity v)
     return o;
 }
 
+
+#if defined(INSTANCING_ON)
+half4 EntityFrag(v2f_entity i) : SV_Target
+{
+    UNITY_SETUP_INSTANCE_ID(i);
+    
+    half4 col = tex2D(_MainTex, i.uv);
+    col = Tint(col, UNITY_ACCESS_INSTANCED_PROP(Props, _Color));
+    col = Tint(col, i.color);
+#if HSV_TINT
+    col = ModifyHSV(col, UNITY_ACCESS_INSTANCED_PROP(Props, _HSVOffset));
+#endif
+    if (UNITY_ACCESS_INSTANCED_PROP(Props, _Grayscale) > 0)
+    {
+        col = Grayscale(col);
+    }
+                
+    col.rgb = col.rgb + UNITY_ACCESS_INSTANCED_PROP(Props, _ColorOffset).rgb;
+                            
+#if CIRCLE_TILED
+    CircleTile(col, i.uv);
+#endif
+    
+#if LIT
+    col = ApplyLight(col, i.lightUV);
+#endif
+
+#if BURN_ON
+    col = Burn(col, i.noiseUV, i.uv);
+#endif
+    clip(col.a - 0.01);
+    
+    return col;
+}
+#else
 half4 EntityFrag(v2f_entity i) : SV_Target
 {
     half4 col = tex2D(_MainTex, i.uv);
+    if (_Grayscale > 0)
+    {
+        col = Grayscale(col);
+    }
     col = Tint(col, _Color);
     col = Tint(col, i.color);
 #if HSV_TINT
     col = ModifyHSV(col, _HSVOffset);
 #endif
-    if (_Grayscale > 0)
-    {
-        col = Grayscale(col);
-    }
                 
     col.rgb = col.rgb + _ColorOffset.rgb;
                             
@@ -111,3 +153,4 @@ half4 EntityFrag(v2f_entity i) : SV_Target
     
     return col;
 }
+#endif

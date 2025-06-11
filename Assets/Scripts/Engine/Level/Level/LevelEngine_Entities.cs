@@ -296,7 +296,7 @@ namespace PVZEngine.Level
         }
         public IEntityCollider AddEntityCollider(Entity entity, ColliderConstructor info)
         {
-            return collisionSystem.AddCollider(entity, info);
+            return collisionSystem.CreateCustomCollider(entity, info);
         }
         public bool RemoveEntityCollider(Entity entity, string name)
         {

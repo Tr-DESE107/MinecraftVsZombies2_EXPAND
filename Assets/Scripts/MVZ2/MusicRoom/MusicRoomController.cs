@@ -132,11 +132,13 @@ namespace MVZ2.MusicRoom
             var music = Main.MusicManager.GetCurrentMusicID();
             if (music != currentMusicId)
             {
-                ui.SetMusicTime(0);
+                ui.SetMusicTime(0, "00:00");
             }
             else
             {
-                ui.SetMusicTime(Main.MusicManager.GetNormalizedMusicTime());
+                var time = Main.MusicManager.Time;
+                var timeString = string.Format("{0:00}:{1:00}", (int)time / 60, (int)time % 60);
+                ui.SetMusicTime(Main.MusicManager.GetNormalizedMusicTime(), timeString);
             }
             float weightSpeed = playingSubTrack ? 1 : -1;
             subTrackWeight = Mathf.Clamp01(subTrackWeight + weightSpeed * 0.03f);
@@ -169,7 +171,20 @@ namespace MVZ2.MusicRoom
 
             var description = GetTranslatedStringParticular(VanillaStrings.CONTEXT_MUSIC_DESCRIPTION, meta.Description);
 
-            ui.UpdateInformation(name, infoBuilder.ToString(), description);
+            var mainTrack = Main.ResourceManager.GetMusicClip(meta.MainTrack);
+            string totalTime;
+            if (mainTrack != null)
+            {
+                var time = mainTrack.length;
+                totalTime = string.Format("{0:00}:{1:00}", (int)time / 60, (int)time % 60);
+            }
+            else
+            {
+                totalTime = "??:??";
+            }
+
+
+            ui.UpdateInformation(name, infoBuilder.ToString(), description, totalTime);
             ui.SetSelectedItem(index);
             ui.SetTrackButtonVisible(NamespaceID.IsValid(meta.SubTrack));
             ui.SetTrackButtonStyle(currentMusicId == Main.MusicManager.GetCurrentMusicID() && playingSubTrack);

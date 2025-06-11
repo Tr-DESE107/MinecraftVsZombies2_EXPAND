@@ -13,6 +13,23 @@
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#4587a6" />
         </tag>
 
+        <tag id="placement_infectenser" name="升级器械：小型发射器" description="必须放置在小型发射器上" priority="0" >
+            <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
+        <tag id="placement_force_pad" name="升级器械：重力板" description="必须放置在重力板上" priority="0" >
+            <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[1]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
+        <tag id="placement_golden_dropper" name="升级器械：木制投掷器" description="必须放置在木制投掷器上" priority="0" >
+            <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[2]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
+        <tag id="placement_diamond_spikes" name="升级器械：尖刺方块" description="必须放置在尖刺方块上" priority="0" >
+            <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[6]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
+
         <tag id="grid_layer_main" name="主要位" description="占据格子的主要位" priority="1000" >
             <icon sprite="mvz2:ui/almanac/grid_layer_tags[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[1]" color="#7a7a7a" />
@@ -826,6 +843,9 @@
 
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">
+            <tags>
+                <tag id="mvz2:placement_infectenser"/>
+            </tags>
             <header>
                 <p>传染发射器发射既能造成伤害又能寄生敌人的寄生机器人。被寄生的敌人会朝周围敌人发射新的寄生机器人。</p>
             </header>
@@ -833,13 +853,15 @@
                 <p>射程：<![CDATA[<color=red>3.5格</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
                 <p>技能：<![CDATA[<color=red>使所有寄生中的机器人自爆</color>]]></p>
-                <p><![CDATA[<color=red>必须放置在小型发射器上</color>]]></p>
             </properties>
             <flavor>
                 <p>传染发射器曾荣获设备尔病毒学奖，但由于疫情原因，颁奖典礼未能举行。</p>
             </flavor>
         </entry>
         <entry id="mvz2:force_pad">
+            <tags>
+                <tag id="mvz2:placement_force_pad"/>
+            </tags>
             <header>
                 <p>传动力板可以通过触发更改力的方向，以此改变上方怪物的移动轨迹，并加强上方的子弹。</p>
             </header>
@@ -847,13 +869,15 @@
                 <p>上下方向：<![CDATA[<color=red>转移物体</color>]]></p>
                 <p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>]]></p>
                 <p>技能：<![CDATA[<color=red>将周围的敌怪移动到一个指定的位置</color>]]></p>
-                <p><![CDATA[<color=red>必须放置在重力板上</color>]]></p>
             </properties>
             <flavor>
                 <p>和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。</p>
             </flavor>
         </entry>
         <entry id="mvz2:golden_dropper">
+            <tags>
+                <tag id="mvz2:placement_golden_dropper"/>
+            </tags>
             <header>
                 <p>金制投掷器向敌人发射金球，金球在击中敌人后有概率产生绿宝石，并在敌人间反弹。</p>
             </header>
@@ -862,7 +886,6 @@
                 <p>伤害：<![CDATA[<color=red>60，每次反弹后减半</color>]]></p>
                 <p>宝石概率：<![CDATA[<color=red>25%</color>]]></p>
                 <p>技能：<![CDATA[<color=red>立即喷射30发金球</color>]]></p>
-                <p><![CDATA[<color=red>必须放置在木制投掷器上</color>]]></p>
             </properties>
             <flavor>
                 <p>它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
@@ -882,15 +905,17 @@
         <entry/>
         <entry/>
         <entry id="mvz2:diamond_spikes">
+            <tags>
+                <tag id="mvz2:placement_diamond_spikes"/>
+            </tags>
             <header>
                 <p>钻石尖刺会对走在上面的敌人造成双重伤害，并具有更高的耐久。</p>
             </header>
             <properties>
-                <p>耐久：<![CDATA[<color=red>2700</color>]]></p>
+                <p>耐久：<![CDATA[<color=red>5400</color>]]></p>
                 <p>攻击频率：<![CDATA[<color=red>0.25秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20</color>]]></p>
                 <p>技能：<![CDATA[<color=red>对一整行地面上的敌人快速造成伤害，并将它们拉向自身；向周围扔出30个钻石蒺藜，对踩到的敌人造成100伤害</color>]]></p>
-                <p><![CDATA[<color=red>必须放置在尖刺方块上</color>]]></p>
             </properties>
             <flavor>
                 <p>可以用于购买游戏物品，比如一种能毁天灭地的蔬菜。</p>

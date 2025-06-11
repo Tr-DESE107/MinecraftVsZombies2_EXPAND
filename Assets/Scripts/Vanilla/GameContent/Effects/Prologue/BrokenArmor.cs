@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Effects
         {
             base.Update(entity);
             entity.SetTint(new Color(1, 1, 1, Mathf.Clamp01(entity.Timeout / 15f)));
-            entity.SetAnimationInt("HealthState", 0);
+            entity.SetModelDamagePercent(1);
             entity.RenderRotation += new Vector3(0, 0, -entity.Velocity.x);
         }
         public override void PostContactGround(Entity entity, Vector3 velocity)

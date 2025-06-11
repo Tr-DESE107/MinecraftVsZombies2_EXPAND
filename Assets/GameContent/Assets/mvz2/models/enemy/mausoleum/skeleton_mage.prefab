@@ -464,12 +464,16 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 6852cb3c89404f94c9a50c3615f918a3, type: 2}
     - target: {fileID: 8370149636781919086, guid: 8c5cc48f60d7d3e4f81a1b121d8fdde2, type: 3}
       propertyPath: animators.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8370149636781919086, guid: 8c5cc48f60d7d3e4f81a1b121d8fdde2, type: 3}
       propertyPath: renderers.Array.size
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 8370149636781919086, guid: 8c5cc48f60d7d3e4f81a1b121d8fdde2, type: 3}
+      propertyPath: animators.Array.data[2]
+      value: 
+      objectReference: {fileID: 52454309435652477}
     - target: {fileID: 8370149636781919086, guid: 8c5cc48f60d7d3e4f81a1b121d8fdde2, type: 3}
       propertyPath: animators.Array.data[3]
       value: 

@@ -162,7 +162,7 @@ namespace MVZ2.Store
                         Main.SaveManager.AddMoney(-price);
                         Main.SoundManager.Play2D(VanillaSoundID.cashRegister);
                         Main.SaveManager.Unlock(stage.Unlocks);
-                        Main.SaveManager.SaveModDatas();
+                        Main.SaveManager.SaveToFile(); // 购买物品后保存游戏
                         UpdateMoney();
                         UpdatePage();
                     }

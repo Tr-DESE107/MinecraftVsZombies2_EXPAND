@@ -15,5 +15,6 @@ namespace MVZ2Logic.Games
         T GetModSaveData<T>(string spaceName);
         string GetCurrentUserName();
         ModSaveData GetModSaveData(string spaceName);
+        void SaveToFile();
     }
 }

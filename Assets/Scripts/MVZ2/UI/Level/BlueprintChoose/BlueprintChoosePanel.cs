@@ -35,11 +35,12 @@ namespace MVZ2.Level.UI
         {
             startButton.onClick.AddListener(() => OnStartButtonClick?.Invoke());
             viewLawnButton.onClick.AddListener(() => OnViewLawnButtonClick?.Invoke());
+            cancelButton.onClick.AddListener(() => OnCancelButtonClick?.Invoke());
             repickButton.onClick.AddListener(() => OnRepickButtonClick?.Invoke());
             displayer.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintPointerInteraction?.Invoke(index, data, i);
-            displayer.OnBlueprintSelect += (index) => OnBlueprintSelect?.Invoke(index);
+            displayer.OnBlueprintSelect += (index, data) => OnBlueprintSelect?.Invoke(index, data);
             commandBlockSlot.OnPointerInteraction += (e, i) => OnCommandBlockBlueprintPointerInteraction?.Invoke(e, i);
-            commandBlockSlot.OnSelect += () => OnCommandBlockBlueprintSelect?.Invoke();
+            commandBlockSlot.OnSelect += (data) => OnCommandBlockBlueprintSelect?.Invoke(data);
         }
         protected void CallBlueprintPointerInteraction(int index, PointerEventData eventData, PointerInteraction interaction)
         {
@@ -47,15 +48,18 @@ namespace MVZ2.Level.UI
         }
         public event Action OnStartButtonClick;
         public event Action OnViewLawnButtonClick;
+        public event Action OnCancelButtonClick;
         public event Action OnRepickButtonClick;
         public event Action<PointerEventData, PointerInteraction> OnCommandBlockBlueprintPointerInteraction;
-        public event Action OnCommandBlockBlueprintSelect;
+        public event Action<PointerEventData> OnCommandBlockBlueprintSelect;
         public event Action<int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
-        public event Action<int> OnBlueprintSelect;
+        public event Action<int, PointerEventData> OnBlueprintSelect;
         [SerializeField]
         Button startButton;
         [SerializeField]
         Button viewLawnButton;
+        [SerializeField]
+        Button cancelButton;
         [SerializeField]
         Button repickButton;
         [SerializeField]

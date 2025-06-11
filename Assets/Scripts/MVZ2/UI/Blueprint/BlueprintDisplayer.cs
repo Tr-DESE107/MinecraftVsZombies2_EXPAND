@@ -13,12 +13,12 @@ namespace MVZ2.UI
         {
             OnBlueprintPointerInteraction?.Invoke(index, eventData, interaction);
         }
-        protected void CallBlueprintSelect(int index)
+        protected void CallBlueprintSelect(int index, PointerEventData eventData)
         {
-            OnBlueprintSelect?.Invoke(index);
+            OnBlueprintSelect?.Invoke(index, eventData);
         }
         public event Action<int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
-        public event Action<int> OnBlueprintSelect;
+        public event Action<int, PointerEventData> OnBlueprintSelect;
     }
     public struct ChoosingBlueprintViewData
     {

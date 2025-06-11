@@ -180,7 +180,7 @@ namespace PVZEngine
             private Dictionary<string, NamespaceRegistry> registeredNamespaces = new Dictionary<string, NamespaceRegistry>();
             private Dictionary<string, IPropertyKey> fullNameMap = new Dictionary<string, IPropertyKey>();
             private Dictionary<string, string> obsoleteNameMap = new Dictionary<string, string>();
-            private Dictionary<IPropertyKey, string> reversedFullNameMap = new Dictionary<IPropertyKey, string>();
+            private Dictionary<IPropertyKey, string> reversedFullNameMap = new Dictionary<IPropertyKey, string>(new PropertyKeyComparer());
         }
         private class NamespaceRegistry
         {

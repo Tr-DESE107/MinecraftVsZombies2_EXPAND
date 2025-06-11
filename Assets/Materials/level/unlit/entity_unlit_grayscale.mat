@@ -16,6 +16,7 @@ Material:
   m_InvalidKeywords:
   - COLORED_ON
   - _CIRCLESTART_RIGHT
+  - _GRAYSCALE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -88,6 +89,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BackgroundLit: 0
     - _BlackAlpha: 0
     - _BumpScale: 1
     - _Burn: 0
@@ -108,10 +110,12 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Grayscale: 1
     - _GreenAlpha: 0
     - _HSVTint: 0
     - _HurtAlpha: 0
     - _LIT: 0
+    - _LightDisabled: 0
     - _MagentaAlpha: 0
     - _Metallic: 0
     - _Mode: 0
@@ -142,6 +146,7 @@ Material:
     - _ColorOffset: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _HSVOffset: {r: 0, g: 0, b: 0, a: 0}
     - _LightMapST: {r: 14, g: 10.2, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

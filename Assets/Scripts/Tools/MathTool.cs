@@ -525,39 +525,14 @@ namespace Tools.Mathematics
             }
             return false;
         }
-        public static bool CollideBetweenCubeAndSphere(Vector3 sphereCenter, float sphereRadius, Vector3 cubeCenter, Vector3 cubeScale)
+        public static bool CollideBetweenCubeAndSphere(Vector3 sphereCenter, float sphereRadius, Vector3 cubeCenter, Vector3 cubeSize)
         {
-            // 将目标球的坐标(world Potition)转换为立方体的 localPosition
-            Vector3 spherePos = sphereCenter - cubeCenter;
-
-            // 使用上面方法计算的 localPos 会受到 立方体 transform.localScale 影响
-            // 当立方体 transform.localScale = Vector3.one 时计算结果为 (x, y, z)
-            // 当立方体 trnasofrm.localScale = new Vector3(a, b, c) 时, 计算所得 localPos = (x / a, y / b, z / c)
-            // 通过下面计算将结果转换
-            // spherePos.x *= transform.localScale.x;
-            // spherePos.y *= transform.localScale.y;
-            // spherePos.z *= transform.localScale.z;
-
-            // 将 localPos x、y、z 分别于 max、min 的 x、y、z 做比较
-            //  x 取值范围 (min.x, max.x)
-            //  y 取值范围 (min.y, max.y)
-            //  z 取值范围 (min.z, max.z)
-            float x = spherePos.x;
-            x = Mathf.Clamp(x, -cubeScale.x * 0.5f, cubeScale.x * 0.5f);
-
-            float y = spherePos.y;
-            y = Mathf.Clamp(y, -cubeScale.y * 0.5f, cubeScale.y * 0.5f);
-
-            float z = spherePos.z;
-            z = Mathf.Clamp(z, -cubeScale.z * 0.5f, cubeScale.z * 0.5f);
-
-            // x、y、z 重新取值后得到新坐标
-            Vector3 pos = new Vector3(x, y, z);
-
-            // 求新坐标 pos 与 localPos 的距离
-            float distance = (spherePos - pos).magnitude;
-            // 距离大于半径则不相交
-            return distance <= sphereRadius;
+            var cube = new Bounds(cubeCenter, cubeSize);
+            return CollideBetweenCubeAndSphere(cube, sphereCenter, sphereRadius);
+        }
+        public static bool CollideBetweenCubeAndSphere(Bounds cube, Vector3 sphereCenter, float sphereRadius)
+        {
+            return (cube.ClosestPoint(sphereCenter) - sphereCenter).sqrMagnitude <= sphereRadius * sphereRadius;
         }
         public static bool CollideBetweenCubeAndCapsule(Capsule capsule, Vector3 cubeCenter, Vector3 cubeSize)
         {

@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Pickups;
 using MVZ2.HeldItems;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.HeldItems;
@@ -22,6 +23,10 @@ namespace MVZ2.GameContent.HeldItems
     {
         public SelectBlueprintHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
+        }
+        public override HeldTargetFlag GetHeldTargetMask(LevelEngine level)
+        {
+            return HeldTargetFlag.Pickup;
         }
         public override bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerInteraction)
         {
@@ -66,7 +71,7 @@ namespace MVZ2.GameContent.HeldItems
             // 进行立即触发检测。
             bool holdingTrigger = level.IsHoldingTrigger();
             bool willTrigger = holdingTrigger && canInstantTrigger;
-            bool swapped = Global.IsTriggerSwapped();
+            bool swapped = IsTriggerSwapped();
             bool triggerValue = canInstantTrigger && holdingTrigger != swapped;
 
             return new PickData(willEvoke, willTrigger, triggerValue);
@@ -229,6 +234,10 @@ namespace MVZ2.GameContent.HeldItems
         }
         #endregion
 
+        private bool IsTriggerSwapped()
+        {
+            return Global.Game.IsUnlocked(VanillaUnlockID.trigger) && Global.IsTriggerSwapped();
+        }
         private bool IsValidPointer(PointerInteractionData pointerParams)
         {
             if (pointerParams.pointer.type == PointerTypes.TOUCH)

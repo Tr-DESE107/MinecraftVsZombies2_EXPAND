@@ -99,11 +99,11 @@ namespace MVZ2.UI
             OnPointerInteraction?.Invoke(this, eventData, interaction);
             if (interaction == selectInteraction)
             {
-                OnSelect?.Invoke(this);
+                OnSelect?.Invoke(this, eventData);
             }
         }
         public event Action<Blueprint, PointerEventData, PointerInteraction> OnPointerInteraction;
-        public event Action<Blueprint> OnSelect;
+        public event Action<Blueprint, PointerEventData> OnSelect;
         TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
         public UIModel Model => model;
         public int Index { get; set; } = -1;

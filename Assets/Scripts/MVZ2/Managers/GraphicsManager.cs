@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Text;
 using MVZ2.Managers;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 
@@ -17,6 +18,14 @@ namespace MVZ2.Models
             Shader.SetGlobalInt("_LightStarted", 1);
             ResetLighting();
         }
+#if UNITY_EDITOR
+        [InitializeOnLoadMethod]
+        private static void OnInitailize()
+        {
+            Shader.SetGlobalColor("_LightBackground", Color.white);
+            Shader.SetGlobalColor("_LightGlobal", Color.white);
+        }
+#endif
         public void SetLighting(Color background, Color global)
         {
             Shader.SetGlobalColor("_LightBackground", background);

@@ -27,7 +27,7 @@ namespace MVZ2.Level
         {
             if (!controller)
                 return;
-            Main.SaveManager.SaveModDatas();
+            Main.SaveManager.SaveToFile(); // 关卡开始时保存游戏
             controller.StartStageID = stageID;
             controller.StartAreaID = areaID;
             if (HasLevelState(stageID))

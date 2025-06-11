@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Enemies
             entity.StopChangingLane();
 
             entity.SetAnimationFloat("Range", entity.GetRange());
-            entity.SetAnimationInt("HealthState", entity.GetHealthState(5));
+            entity.SetModelDamagePercent();
             if (entity.Timeout >= 0)
             {
                 entity.Timeout--;

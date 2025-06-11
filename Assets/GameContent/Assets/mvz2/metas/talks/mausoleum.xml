@@ -370,7 +370,7 @@
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">不过，我可以告诉你们一些我所知的事情。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">是什么呢？</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk" onStart="music fade 0">这场异变开始的时候，大概是三年前。</sentence>
-        <sentence speaker="mvz2:miko" sounds="mvz2:talk">而在三年前的那个时候，幻想乡突然出现了两位外界来的旅人。</sentence>
+        <sentence speaker="mvz2:miko" sounds="mvz2:talk">而在更早的四年前，幻想乡突然出现了两位外界来的旅人。</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">据说一位身材娇小，且十分聪慧。另一位好像很擅长和机械打交道。</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">他们来到这里，与这里的许多人类和妖怪都交流过，并在这里行商，带来一些从没见过的东西。</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:dialog_weird" variant="close_eyes">但是，不久之后，异变就发生了。并且他们两个<![CDATA[<color=red>再也没有出现在幻想乡过</color>]]>。</sentence>

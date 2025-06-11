@@ -267,8 +267,7 @@ GameObject:
   - component: {fileID: 7196180542263287394}
   - component: {fileID: 394547183486945655}
   - component: {fileID: 2508401497992144554}
-  - component: {fileID: 1829806298563682312}
-  - component: {fileID: 4425927122462150863}
+  - component: {fileID: 8998236148360813578}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -356,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!114 &1829806298563682312
+--- !u!114 &8998236148360813578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,7 +364,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5082412779010370473}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 149ee9d8821a57d4ea377e28859c5b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
@@ -374,28 +373,6 @@ MonoBehaviour:
   - {fileID: 405859414, guid: d486f2b8240e28443aaeb03d25e81b9c, type: 3}
   - {fileID: 1555804945, guid: d486f2b8240e28443aaeb03d25e81b9c, type: 3}
   - {fileID: 1858951590, guid: d486f2b8240e28443aaeb03d25e81b9c, type: 3}
-  index: 0
---- !u!95 &4425927122462150863
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5082412779010370473}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 80ddd609f9f2444469bd4ddab714e45f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5274892837020143526
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: animators.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: renderers.Array.size
@@ -820,10 +797,6 @@ PrefabInstance:
       propertyPath: animators.Array.data[0]
       value: 
       objectReference: {fileID: 4872902463515527597}
-    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
-      propertyPath: animators.Array.data[1]
-      value: 
-      objectReference: {fileID: 4425927122462150863}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: renderers.Array.data[0]
       value: 

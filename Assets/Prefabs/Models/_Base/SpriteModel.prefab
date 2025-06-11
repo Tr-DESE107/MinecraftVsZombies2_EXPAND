@@ -133,14 +133,15 @@ MonoBehaviour:
   - {fileID: 6266323775592047825}
   - {fileID: 905553599597623908}
   - {fileID: 1163798719439639357}
-  modelComponents: []
   parent: {fileID: 0}
   childModels: []
   destroyDelay: 0
   onDelayedDestroy:
     m_PersistentCalls:
       m_Calls: []
+  colliderObject: {fileID: 9154751202496077164}
   modelCollider: {fileID: 0}
+  heldTargetFlag: 0
   rendererGroup: {fileID: 3485482240055686899}
   lightController: {fileID: 2506431363863272896}
 --- !u!114 &3485482240055686899
@@ -155,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0518633751bb81b40aeb929df85a1a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testMode: 0
   animators:
   - {fileID: 547804964397208255}
   transforms: []

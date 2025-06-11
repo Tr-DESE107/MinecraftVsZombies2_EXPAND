@@ -80,7 +80,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.UpdateLogic(entity);
             var blend = GetBlockerBlend(entity);
-            entity.SetAnimationInt("Level", GetUpgradeLevel(entity));
+            entity.SetModelProperty("Level", GetUpgradeLevel(entity));
             entity.SetAnimationFloat("BlockerBlend", blend);
             entity.SetAnimationFloat("RotateSpeed", blend + 1);
         }

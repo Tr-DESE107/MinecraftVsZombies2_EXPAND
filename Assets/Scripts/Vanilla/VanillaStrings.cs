@@ -90,6 +90,10 @@ namespace MVZ2.Vanilla
         public const string YES = "是";
         [TranslateMsg("通用的否")]
         public const string NO = "否";
+        [TranslateMsg("通用的开")]
+        public const string ON = "开";
+        [TranslateMsg("通用的关")]
+        public const string OFF = "关";
         [TranslateMsg("通用的返回")]
         public const string BACK = "返回";
         [TranslateMsg("通用文本")]
@@ -203,6 +207,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ALMANAC_GROUP_NAME = "almanac.group_name";
         public const string CONTEXT_LANGUAGE_NAME = "language_name";
         public const string CONTEXT_OPTION_NAME = "option.name";
+        public const string CONTEXT_COMMAND_BLOCK_MODE = "option.command_block_mode";
         public const string CONTEXT_RECHARGE_TIME = "recharge_time";
         public const string CONTEXT_STAT_CATEGORY = "stat_category";
         public const string CONTEXT_STORE_TALK = "store_talk";

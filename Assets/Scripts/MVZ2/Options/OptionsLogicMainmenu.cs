@@ -32,6 +32,8 @@ namespace MVZ2.Options
             UpdateBloodAndGoreButton();
             UpdateSkipAllTalksButton();
             UpdateShowSponsorNamesButton();
+            UpdateChooseWarningsButton();
+            UpdateCommandBlockModeButton();
 
             base.InitDialog();
 
@@ -58,6 +60,11 @@ namespace MVZ2.Options
                 case ButtonType.MoreBack:
                     dialog.SetPage(Page.Main);
                     break;
+                case ButtonType.Credits:
+                    {
+                        mainmenu.ShowCredits();
+                    }
+                    break;
                 case ButtonType.BloodAndGore:
                     {
                         BloodAndGore = !BloodAndGore;
@@ -77,9 +84,16 @@ namespace MVZ2.Options
                         UpdateShowSponsorNamesButton();
                     }
                     break;
-                case ButtonType.Credits:
+                case ButtonType.ChooseWarnings:
                     {
-                        mainmenu.ShowCredits();
+                        Main.OptionsManager.SwitchBlueprintChooseWarningsDisabled();
+                        UpdateChooseWarningsButton();
+                    }
+                    break;
+                case ButtonType.CommandBlockMode:
+                    {
+                        Main.OptionsManager.CycleCommandBlockMode();
+                        UpdateCommandBlockModeButton();
                     }
                     break;
                 case ButtonType.Keybinding:

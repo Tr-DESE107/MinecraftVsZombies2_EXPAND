@@ -23,7 +23,6 @@ namespace MVZ2.Options
             options.swapTrigger = GetPlayerPrefsBool(PREFS_SWAP_TRIGGER, false);
             options.vibration = GetPlayerPrefsBool(PREFS_VIBRATION, false);
             options.bloodAndGore = GetPlayerPrefsBool(PREFS_BLOOD_AND_GORE, true);
-            options.skipAllTalks = GetPlayerPrefsBool(PREFS_SKIP_ALL_TALKS, false);
             options.pauseOnFocusLost = GetPlayerPrefsBool(PREFS_PAUSE_ON_FOCUS_LOST, true);
 
             options.musicVolume = GetPlayerPrefsFloat(PREFS_MUSIC_VOLUME, 1);
@@ -41,12 +40,13 @@ namespace MVZ2.Options
             {
                 options.language = GetEnvironmentLanguage();
             }
-            options.showSponsorNames = GetPlayerPrefsBool(PREFS_SHOW_SPONSOR_NAMES, false);
 
             UpdateMusicVolume();
             UpdateSoundVolume();
 
             LoadOptionsFromFile();
+
+            LoadObsoletePrefs();
         }
 
         public void LoadOptionsFromFile()
@@ -200,7 +200,7 @@ namespace MVZ2.Options
         public void SetShowSponsorNames(bool value)
         {
             options.showSponsorNames = value;
-            PlayerPrefs.SetInt(PREFS_SHOW_SPONSOR_NAMES, BoolToInt(value));
+            SaveOptionsToFile();
         }
         public void SwitchShowSponsorNames()
         {
@@ -208,7 +208,7 @@ namespace MVZ2.Options
         }
         #endregion
 
-        #region 
+        #region 跳过对话
         public bool SkipAllTalks()
         {
             return options.skipAllTalks;
@@ -216,11 +216,45 @@ namespace MVZ2.Options
         public void SetSkipAllTalks(bool value)
         {
             options.skipAllTalks = value;
-            PlayerPrefs.SetInt(PREFS_SKIP_ALL_TALKS, BoolToInt(value));
+            SaveOptionsToFile();
         }
         public void SwitchSkipAllTalks()
         {
             SetSkipAllTalks(!SkipAllTalks());
+        }
+        #endregion
+
+        #region 蓝图选择警告
+        public bool AreBlueprintChooseWarningsDisabled()
+        {
+            return options.blueprintWarningsDisabled;
+        }
+        public void SetBlueprintChooseWarningsDisabled(bool value)
+        {
+            options.blueprintWarningsDisabled = value;
+            SaveOptionsToFile();
+        }
+        public void SwitchBlueprintChooseWarningsDisabled()
+        {
+            SetBlueprintChooseWarningsDisabled(!AreBlueprintChooseWarningsDisabled());
+        }
+        #endregion
+
+        #region 蓝图选择警告
+        public int GetCommandBlockMode()
+        {
+            return options.commandBlockMode;
+        }
+        public void SetCommandBlockMode(int value)
+        {
+            options.commandBlockMode = value;
+            SaveOptionsToFile();
+        }
+        public void CycleCommandBlockMode()
+        {
+            var mode = GetCommandBlockMode();
+            mode = (mode + 1) % CommandBlockModes.COUNT;
+            SetCommandBlockMode(mode);
         }
         #endregion
 
@@ -294,6 +328,26 @@ namespace MVZ2.Options
         }
         #endregion
 
+        private void LoadObsoletePrefs()
+        {
+            bool loaded = false;
+            if (PlayerPrefs.HasKey(PREFS_SKIP_ALL_TALKS))
+            {
+                options.skipAllTalks = IntToBool(PlayerPrefs.GetInt(PREFS_SKIP_ALL_TALKS));
+                PlayerPrefs.DeleteKey(PREFS_SKIP_ALL_TALKS);
+                loaded = true;
+            }
+            if (PlayerPrefs.HasKey(PREFS_SHOW_SPONSOR_NAMES))
+            {
+                options.showSponsorNames = IntToBool(PlayerPrefs.GetInt(PREFS_SHOW_SPONSOR_NAMES));
+                PlayerPrefs.DeleteKey(PREFS_SHOW_SPONSOR_NAMES);
+                loaded = true;
+            }
+            if (loaded)
+            {
+                SaveOptionsToFile();
+            }
+        }
         private static bool GetPlayerPrefsBool(string key, bool defaultValue)
         {
             if (!PlayerPrefs.HasKey(key))

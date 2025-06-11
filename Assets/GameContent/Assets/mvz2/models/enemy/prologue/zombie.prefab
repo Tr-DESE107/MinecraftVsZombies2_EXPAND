@@ -177,8 +177,7 @@ GameObject:
   - component: {fileID: 5197366429126930018}
   - component: {fileID: 1795583326936852019}
   - component: {fileID: 8126826673394367496}
-  - component: {fileID: 8894967491141974637}
-  - component: {fileID: 873304994867757235}
+  - component: {fileID: 2105643147717917870}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -266,28 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
---- !u!95 &8894967491141974637
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035454105787715213}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: c38c4d46b1dd68e49b205e01d326622f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &873304994867757235
+--- !u!114 &2105643147717917870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,13 +274,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2035454105787715213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 149ee9d8821a57d4ea377e28859c5b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300006, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
   - {fileID: 21300008, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
-  index: 0
 --- !u!1 &2147868032872076460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +983,7 @@ GameObject:
   - component: {fileID: 6961483437050785856}
   - component: {fileID: 3054271922306067312}
   - component: {fileID: 1251762573053061750}
-  - component: {fileID: 882223328646600803}
+  - component: {fileID: 8638834199835698555}
   m_Layer: 0
   m_Name: Flag
   m_TagString: Untagged
@@ -1094,7 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 1
---- !u!114 &882223328646600803
+--- !u!114 &8638834199835698555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1103,13 +1080,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5823922911136250399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
+  m_Script: {fileID: 11500000, guid: 149ee9d8821a57d4ea377e28859c5b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300002, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
   - {fileID: 21300000, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
-  index: 0
 --- !u!1 &6251617685501582029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,7 +1612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: animators.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: particles.Array.size
@@ -1689,7 +1665,7 @@ PrefabInstance:
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: animators.Array.data[1]
       value: 
-      objectReference: {fileID: 8894967491141974637}
+      objectReference: {fileID: 1690347275022268981}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: animators.Array.data[2]
       value: 

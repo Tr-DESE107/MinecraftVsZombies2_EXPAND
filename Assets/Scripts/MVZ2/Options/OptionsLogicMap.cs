@@ -23,6 +23,8 @@ namespace MVZ2.Options
             UpdateResolutionDropdown();
             UpdateSkipAllTalksButton();
             UpdateShowSponsorNamesButton();
+            UpdateChooseWarningsButton();
+            UpdateCommandBlockModeButton();
 
             base.InitDialog();
 
@@ -62,6 +64,18 @@ namespace MVZ2.Options
                     {
                         Main.OptionsManager.SwitchShowSponsorNames();
                         UpdateShowSponsorNamesButton();
+                    }
+                    break;
+                case ButtonType.ChooseWarnings:
+                    {
+                        Main.OptionsManager.SwitchBlueprintChooseWarningsDisabled();
+                        UpdateChooseWarningsButton();
+                    }
+                    break;
+                case ButtonType.CommandBlockMode:
+                    {
+                        Main.OptionsManager.CycleCommandBlockMode();
+                        UpdateCommandBlockModeButton();
                     }
                     break;
             }

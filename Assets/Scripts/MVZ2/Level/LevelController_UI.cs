@@ -19,7 +19,6 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
-using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -63,7 +62,7 @@ namespace MVZ2.Level
             NamespaceID heldType = data.Type;
             bool instantTrigger = data.InstantTrigger;
 
-            var definition = Game.GetHeldItemDefinition(heldType);
+            var definition = data.Definition;
 
             // 设置图标。
             var modelID = definition?.GetModelID(level, data);
@@ -134,6 +133,13 @@ namespace MVZ2.Level
 
             // 更新网格。
             UpdateGridHighlight();
+        }
+        public void UpdateEntityHeldTargetColliders(HeldTargetFlag mask)
+        {
+            foreach (var entity in entities)
+            {
+                entity.UpdateModelColliderActive(mask);
+            }
         }
         public IModelInterface GetHeldItemModelInterface()
         {
@@ -226,6 +232,7 @@ namespace MVZ2.Level
         }
         #endregion
 
+
         public void ShowTooltip(ITooltipSource source)
         {
             tooltipSource = source;
@@ -247,10 +254,6 @@ namespace MVZ2.Level
             tooltipSource = null;
             var uiPreset = GetUIPreset();
             uiPreset.HideTooltip();
-        }
-        public bool IsTriggerSwapped()
-        {
-            return Main.SaveManager.IsUnlocked(VanillaUnlockID.trigger) && Main.OptionsManager.IsTriggerSwapped();
         }
         public void SetUIAndInputDisabled(bool disabled)
         {
@@ -649,14 +652,15 @@ namespace MVZ2.Level
 
 
         #region 图鉴
+        public bool IsOpeningAlmanac() => isOpeningAlmanac;
         public void OpenAlmanac()
         {
             isOpeningAlmanac = true;
-            levelCamera.gameObject.SetActive(false);
+            SetCameraDisabled(true);
             Main.Scene.DisplayAlmanac(() =>
             {
                 isOpeningAlmanac = false;
-                levelCamera.gameObject.SetActive(true);
+                SetCameraDisabled(false);
                 if (!Music.IsPlaying(VanillaMusicID.choosing))
                     Music.Play(VanillaMusicID.choosing);
             });
@@ -669,14 +673,15 @@ namespace MVZ2.Level
         #endregion
 
         #region 商店
+        public bool IsOpeningStore() => isOpeningStore;
         public void OpenStore()
         {
             isOpeningStore = true;
-            levelCamera.gameObject.SetActive(false);
+            SetCameraDisabled(true);
             Main.Scene.DisplayStore(() =>
             {
                 isOpeningStore = false;
-                levelCamera.gameObject.SetActive(true);
+                SetCameraDisabled(false);
                 level.UpdatePersistentLevelUnlocks();
                 BlueprintChoosePart.Refresh(Saves.GetUnlockedContraptions());
                 if (!Music.IsPlaying(VanillaMusicID.choosing))
@@ -684,6 +689,7 @@ namespace MVZ2.Level
             }, false);
         }
         #endregion
+        public bool IsOpeningExtraScene() => IsOpeningAlmanac() || IsOpeningStore();
 
         #region 可操作工具
         private void ClickPickaxe()

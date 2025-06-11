@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Effects
         }
         public static void SetSteelPhase(Entity entity, bool steel)
         {
-            entity.SetAnimationBool("Steel", steel);
+            entity.SetModelProperty("Steel", steel);
         }
         #endregion
     }

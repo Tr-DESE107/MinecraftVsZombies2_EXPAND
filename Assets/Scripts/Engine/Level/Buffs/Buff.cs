@@ -120,8 +120,11 @@ namespace PVZEngine.Buffs
             var buff = new Buff(level, definition, seri.id);
             buff.Target = target;
             buff.propertyDict = PropertyDictionary.FromSerializable(seri.propertyDict);
-            buff.auras.LoadFromSerializable(level, seri.auras);
             return buff;
+        }
+        public void LoadAuras(SerializableBuff seri, LevelEngine level)
+        {
+            auras.LoadFromSerializable(level, seri.auras);
         }
         LevelEngine IAuraSource.GetLevel() { return Level; }
         bool IAuraSource.IsValid() => Target != null && Target.Exists();

@@ -203,7 +203,8 @@ namespace MVZ2.Managers
                 await LoadMainSpriteManifests(modNamespace, loadProgress);
                 loadProgress.SetProgress(1, "Finished");
 
-                await LoadCharacterVariantSprites(modNamespace, variantProgress);
+                var enumerator = LoadCharacterVariantSprites(modNamespace, variantProgress, scale: characterImageScale);
+                await Main.CoroutineManager.ToTask(enumerator);
                 variantProgress.SetProgress(1, "Finished");
             }
             async Task LoadModels(TaskProgress progress)
@@ -216,7 +217,8 @@ namespace MVZ2.Managers
                 await LoadModModels(modNamespace, loadProgress);
                 loadProgress.SetProgress(1, "Finished");
 
-                await ShotModelIcons(modNamespace, shotProgress, 8);
+                var enumerator = ShotModelIcons(modNamespace, shotProgress, 8);
+                await Main.CoroutineManager.ToTask(enumerator);
                 shotProgress.SetProgress(1, "Finished");
             }
             Task LoadMapModels(TaskProgress progress)

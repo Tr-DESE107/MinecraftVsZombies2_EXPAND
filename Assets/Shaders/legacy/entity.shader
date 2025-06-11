@@ -71,6 +71,7 @@
             #include "hlsl/entity.hlsl"
             #pragma vertex EntityVert
             #pragma fragment EntityFrag
+            #pragma multi_compile_instancing
             #pragma multi_compile _ BURN_ON
             #pragma multi_compile _ HSV_TINT
             #pragma multi_compile _ CIRCLE_TILED

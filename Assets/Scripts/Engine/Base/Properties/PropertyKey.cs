@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PVZEngine
 {
@@ -77,7 +78,7 @@ namespace PVZEngine
         Type IPropertyKey.Type => typeof(object);
         object IPropertyKey.DefaultValue => null;
     }
-    public struct PropertyKey<T> : IPropertyKey, IEquatable<PropertyKey<T>>, IEquatable<IPropertyKey>
+    public struct PropertyKey<T> : IPropertyKey
     {
         int IPropertyKey.Key => key;
         Type IPropertyKey.Type => typeof(T);
@@ -101,7 +102,6 @@ namespace PVZEngine
         {
             return obj is PropertyKey<T> key && Equals(key);
         }
-
         public override string ToString()
         {
             return key.ToString();
@@ -134,6 +134,22 @@ namespace PVZEngine
         public bool Equals(IPropertyKey other)
         {
             return key == other.Key;
+        }
+    }
+    public class PropertyKeyComparer : IEqualityComparer<IPropertyKey>
+    {
+        public bool Equals(IPropertyKey x, IPropertyKey y)
+        {
+            if (ReferenceEquals(x, y))
+                return true;
+            if (x is null || y is null)
+                return false;
+            return x.Key == y.Key; // 直接比较 int Key
+        }
+
+        public int GetHashCode(IPropertyKey obj)
+        {
+            return obj.Key; // 直接使用 int 的哈希码
         }
     }
 }

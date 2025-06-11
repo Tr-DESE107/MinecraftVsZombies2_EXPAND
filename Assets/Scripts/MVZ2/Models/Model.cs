@@ -31,10 +31,13 @@ namespace MVZ2.Models
                 seed = Guid.NewGuid().GetHashCode();
             }
             eventCamera = camera;
-            modelComponents = GetComponents<ModelComponent>();
+            modelComponents.Clear();
+            GetComponentsInChildren<ModelComponent>(true, modelComponents);
             rng = new RandomGenerator(seed);
             foreach (var comp in modelComponents)
             {
+                if (!comp)
+                    continue;
                 comp.Model = this;
                 comp.Init();
             }
@@ -42,8 +45,11 @@ namespace MVZ2.Models
         }
         public void UpdateFixed()
         {
+            modelComponents.RemoveAll(e => !e);
             foreach (var comp in modelComponents)
             {
+                if (!comp)
+                    continue;
                 comp.UpdateLogic();
             }
             childModels.RemoveAll(m => !m);
@@ -56,7 +62,7 @@ namespace MVZ2.Models
                 destroyTimeout--;
                 if (destroyTimeout <= 0)
                 {
-                    Destroy(gameObject);
+                    DestroyModel();
                 }
             }
         }
@@ -65,8 +71,11 @@ namespace MVZ2.Models
             if (!gameObject.activeInHierarchy)
                 return;
             GraphicGroup.UpdateFrame(deltaTime);
+            modelComponents.RemoveAll(e => !e);
             foreach (var comp in modelComponents)
             {
+                if (!comp)
+                    continue;
                 comp.UpdateFrame(deltaTime);
             }
             childModels.RemoveAll(m => !m);
@@ -75,6 +84,27 @@ namespace MVZ2.Models
                 child.UpdateFrame(deltaTime);
             }
             OnUpdateFrame?.Invoke(deltaTime);
+        }
+        public void DestroyModel()
+        {
+            Destroy(gameObject);
+        }
+
+        public void GetAnimatorsToUpdate(IList<Animator> results)
+        {
+            GraphicGroup.GetAnimatorsToUpdate(results);
+            foreach (var child in childModels)
+            {
+                child.GetAnimatorsToUpdate(results);
+            }
+        }
+        public void UpdateAnimators(float deltaTime)
+        {
+            GraphicGroup.UpdateAnimators(deltaTime);
+            foreach (var child in childModels)
+            {
+                child.UpdateAnimators(deltaTime);
+            }
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {
@@ -182,7 +212,7 @@ namespace MVZ2.Models
                 return false;
             if (model.destroyDelay <= 0)
             {
-                Destroy(model.gameObject);
+                model.DestroyModel();
                 return childModels.Remove(model);
             }
             else
@@ -216,7 +246,11 @@ namespace MVZ2.Models
             for (int i = childCount - 1; i >= 0; i--)
             {
                 var child = anchor.transform.GetChild(i);
-                Destroy(child.gameObject);
+                var childModel = child.GetComponent<Model>();
+                if (childModel)
+                {
+                    childModel.DestroyModel();
+                }
             }
         }
         public IModelInterface GetParentModelInterface()
@@ -247,6 +281,8 @@ namespace MVZ2.Models
             propertyDict.SetProperty(name, value);
             foreach (var comp in modelComponents)
             {
+                if (!comp)
+                    continue;
                 comp.OnPropertySet(name, value);
             }
         }
@@ -254,6 +290,8 @@ namespace MVZ2.Models
         {
             foreach (var comp in modelComponents)
             {
+                if (!comp)
+                    continue;
                 comp.OnTrigger(name);
             }
         }
@@ -310,11 +348,12 @@ namespace MVZ2.Models
         }
         public ModelAnchor GetAnchor(string name)
         {
+            var hash = name.GetHashCode();
             foreach (var anchor in modelAnchors)
             {
                 if (anchor == null)
                     continue;
-                if (anchor.key == name)
+                if (anchor.KeyHash == hash)
                     return anchor;
             }
             return null;
@@ -348,8 +387,7 @@ namespace MVZ2.Models
         [Header("General")]
         [SerializeField]
         private ModelAnchor[] modelAnchors;
-        [SerializeField]
-        private ModelComponent[] modelComponents;
+        private List<ModelComponent> modelComponents = new List<ModelComponent>();
 
         [Header("Nesting")]
         [SerializeField]

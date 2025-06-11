@@ -157,6 +157,7 @@ namespace MVZ2.GameContent.Implements
                         case 0:
                             game.AddMoney(-750);
                             game.Unlock(VanillaUnlockID.blueprintSlot1);
+                            game.SaveToFile(); // 完成蓝图槽位交易后保存游戏。
                             level.UpdatePersistentLevelUnlocks();
                             system.StartSection(3);
                             level.SetMoneyFade(true);
@@ -183,14 +184,17 @@ namespace MVZ2.GameContent.Implements
                     case "goto_dream":
                         Global.Game.Unlock(VanillaUnlockID.enteredDream);
                         Global.Game.SetLastMapID(VanillaMapID.dream);
+                        Global.Game.SaveToFile(); // 进入梦境过渡时保存游戏
                         Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
                         break;
                     case "show_nightmare":
                         map.SetPreset(VanillaMapPresetID.nightmare);
                         Global.Game.Unlock(VanillaUnlockID.dreamIsNightmare);
+                        Global.Game.SaveToFile(); // 转换到噩梦世界时保存游戏
                         break;
                     case "goto_castle":
                         Global.Game.SetLastMapID(VanillaMapID.castle);
+                        Global.Game.SaveToFile(); // 进入辉针城过渡时保存游戏
                         Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
                         break;
                     case "chapter_3_finish":
@@ -198,6 +202,7 @@ namespace MVZ2.GameContent.Implements
                         break;
                     case "goto_mausoleum":
                         Global.Game.SetLastMapID(VanillaMapID.mausoleum);
+                        Global.Game.SaveToFile(); // 进入大祀庙过渡时保存游戏
                         Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.mausoleum, VanillaAreaID.mausoleum, VanillaStageID.mausoleum1));
                         break;
                     case "chapter_4_finish":

@@ -1,4 +1,5 @@
-﻿using Tools.Mathematics;
+﻿using Tools;
+using Tools.Mathematics;
 using UnityEngine;
 
 namespace PVZEngine.Entities
@@ -11,29 +12,32 @@ namespace PVZEngine.Entities
         }
         public void ReevaluateBounds()
         {
-            var scale = Entity.GetScale();
+            var scale = Entity.GetFinalScale();
 
             Vector3 pivot = GetPivot();
             Vector3 size = GetSize();
             Vector3 offset = GetOffset();
             size.Scale(scale);
+            size = size.Abs();
 
-            var center = Vector3.Scale(offset, size);
-            center += Vector3.Scale(Vector3.one * 0.5f - pivot, size);
+            var position = Vector3.Scale(offset, scale);
+            cacheOffset = position;
+            var center = position + Vector3.Scale(Vector3.one * 0.5f - pivot, size);
 
-            size.x = Mathf.Abs(size.x);
-            size.y = Mathf.Abs(size.y);
-            size.z = Mathf.Abs(size.z);
             cache = new Bounds(center, size);
         }
         public bool IsInSphere(Vector3 center, float radius)
         {
             var bounds = GetBounds();
-            return MathTool.CollideBetweenCubeAndSphere(center, radius, bounds.center, bounds.size);
+            return MathTool.CollideBetweenCubeAndSphere(bounds, center, radius);
         }
         public Vector3 GetBoundsCenter()
         {
             return GetLocalCenter() + Entity.Position;
+        }
+        public Vector3 GetPosition()
+        {
+            return GetLocalOffset() + Entity.Position;
         }
         public Bounds GetBounds()
         {
@@ -52,6 +56,10 @@ namespace PVZEngine.Entities
         public Vector3 GetLocalCenter()
         {
             return cache.center;
+        }
+        public Vector3 GetLocalOffset()
+        {
+            return cacheOffset;
         }
         public bool Intersects(Hitbox other)
         {
@@ -76,8 +84,8 @@ namespace PVZEngine.Entities
         public abstract Vector3 GetSize();
         public abstract Vector3 GetPivot();
         public abstract Vector3 GetOffset();
-        public abstract SerializableHitbox ToSerializable();
         public Entity Entity { get; }
         private Bounds cache;
+        private Vector3 cacheOffset;
     }
 }

@@ -26,20 +26,22 @@ namespace MVZ2.MusicRoom
                 item.OnClick -= OnItemClickCallback;
             });
         }
-        public void UpdateInformation(string name, string info, string description)
+        public void UpdateInformation(string name, string info, string description, string totalTime)
         {
             nameText.text = name;
             informationText.text = info;
             descriptionText.text = description;
+            totalTimeText.text = totalTime;
         }
         public void SetPlaying(bool playing)
         {
             playButtonObj.SetActive(!playing);
             pauseButtonObj.SetActive(playing);
         }
-        public void SetMusicTime(float time)
+        public void SetMusicTime(float time, string currentTime)
         {
             barSlider.SetValueWithoutNotify(time);
+            currentTimeText.text = currentTime;
         }
         public float GetMusicBarValue()
         {
@@ -109,6 +111,10 @@ namespace MVZ2.MusicRoom
         private GameObject playButtonObj;
         [SerializeField]
         private GameObject pauseButtonObj;
+        [SerializeField]
+        private TextMeshProUGUI currentTimeText;
+        [SerializeField]
+        private TextMeshProUGUI totalTimeText;
         [SerializeField]
         private MusicBar musicBar;
         [SerializeField]

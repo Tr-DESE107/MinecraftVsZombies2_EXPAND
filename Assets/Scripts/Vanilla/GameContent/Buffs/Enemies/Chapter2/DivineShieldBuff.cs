@@ -1,15 +1,18 @@
 ﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Fragments;
 using MVZ2.GameContent.Models;
+using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
@@ -48,11 +51,22 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var input = param.input;
             if (NamespaceID.IsValid(input.ShieldTarget))
                 return;
+            if (input.Amount <= 0)
+                return;
             var entity = input.Entity;
             var buff = entity.GetFirstBuff<DivineShieldBuff>();
             if (buff == null)
                 return;
 
+            var output = param.output;
+            var bodyResult = new BodyDamageResult(input)
+            {
+                ShellDefinition = Global.Game.GetShellDefinition(VanillaShellID.stone),
+                Fatal = false,
+                Amount = 0,
+                SpendAmount = input.OriginalAmount,
+            };
+            output.BodyResult = bodyResult;
             buff.Remove();
 
             result.SetFinalValue(false);

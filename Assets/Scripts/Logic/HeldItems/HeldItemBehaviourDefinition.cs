@@ -11,6 +11,10 @@ namespace MVZ2Logic.HeldItems
         public HeldItemBehaviourDefinition(string nsp, string name) : base(nsp, name)
         {
         }
+        public virtual HeldTargetFlag GetHeldTargetMask(LevelEngine level)
+        {
+            return HeldTargetFlag.None;
+        }
         public virtual bool IsValidFor(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointer)
         {
             return false;

@@ -18,7 +18,6 @@ namespace MVZ2.GameContent.HeldItems
         public TriggerHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
-
         protected override bool CanUseOnEntity(Entity entity)
         {
             if (!entity.ExistsAndAlive())

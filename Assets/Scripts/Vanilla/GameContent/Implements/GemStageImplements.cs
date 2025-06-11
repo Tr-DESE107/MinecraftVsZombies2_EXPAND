@@ -51,6 +51,7 @@ namespace MVZ2.GameContent.Implements
             if (!Global.Game.IsUnlocked(VanillaUnlockID.money))
             {
                 Global.Game.Unlock(VanillaUnlockID.money);
+                Global.Game.SaveToFile(); // 解锁宝石后保存游戏。
                 level.SetHintArrowPointToEntity(pickup);
                 level.SetProperty(FIRST_GEM, new EntityID(pickup));
                 var adviceContext = CONTEXT_ADVICE_COLLECT_MONEY;

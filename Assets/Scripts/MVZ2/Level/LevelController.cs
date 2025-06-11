@@ -32,6 +32,7 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Level.Collisions;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
@@ -40,7 +41,7 @@ using UnityEngine.EventSystems;
 namespace MVZ2.Level
 {
     using VisibleState = MVZ2.Level.UI.LevelUIPreset.VisibleState;
-    public interface ILevelController : ILevelHeldItemController, ILevelUIController, ILevelTransitionController
+    public interface ILevelController : ILevelUIController, ILevelTransitionController
     {
         Game Game { get; }
         ILevelUI GetUI();
@@ -52,12 +53,9 @@ namespace MVZ2.Level
         bool CanChooseBlueprints();
         void OpenAlmanac();
         void OpenStore();
+        bool IsOpeningExtraScene();
 
         float GetTwinkleAlpha();
-    }
-    public interface ILevelHeldItemController
-    {
-        bool IsTriggerSwapped();
     }
     public interface ILevelUIController
     {
@@ -178,7 +176,7 @@ namespace MVZ2.Level
         }
         public async Task ReloadLevel()
         {
-            Saves.SaveModDatas();
+            Saves.SaveToFile(); // 关卡重载时保存游戏
             Dispose();
             await LevelManager.GotoLevelSceneAsync();
             LevelManager.InitLevel(StartAreaID, StartStageID, exitTarget: exitTarget);
@@ -214,7 +212,7 @@ namespace MVZ2.Level
             level.ClearDelayedMoney();
             UpdateGridHighlight();
             SetGameStarted(false);
-            Saves.SaveModDatas();
+            Saves.SaveToFile(); // 关卡停止时保存游戏
         }
         public void Dispose()
         {
@@ -314,7 +312,7 @@ namespace MVZ2.Level
         }
         public float GetGameSpeed()
         {
-            return speedUp ? Main.OptionsManager.GetFastForwardMultiplier() : 1;
+            return speedUp && !isGameOver ? Main.OptionsManager.GetFastForwardMultiplier() : 1;
         }
         public void RemoveLevelState()
         {
@@ -414,9 +412,18 @@ namespace MVZ2.Level
         }
         public void UpdateFrame(float deltaTime)
         {
-            float gameSpeed = isGameOver ? 1 : GetGameSpeed();
+            float gameSpeed = GetGameSpeed();
             bool gameRunning = IsGameRunning();
+
+            var perf = Main.PerformanceManager;
+            if (gameRunning)
+            {
+                perf.UpdatePerformanceMonitor();
+            }
+            var maxBatchPercentage = Main.PerformanceManager.GetAnimatorBatchSize() / 100f;
+
             // 更新实体动画。
+            entityAnimatorBuffer.Clear();
             foreach (var entity in entities)
             {
                 bool modelActive = false;
@@ -438,7 +445,14 @@ namespace MVZ2.Level
                 float speed = modelActive ? gameSpeed : 0;
                 entity.SetSimulationSpeed(speed);
                 entity.UpdateFrame(deltaTime * speed);
+
+                if (modelActive)
+                {
+                    entity.GetAnimatorsToUpdate(entityAnimatorBuffer);
+                }
             }
+            UpdateEntityAnimators(entityAnimatorBuffer, deltaTime, gameSpeed, maxBatchPercentage);
+
             if (!isGameOver)
             {
                 // 游戏运行时更新UI。
@@ -554,6 +568,10 @@ namespace MVZ2.Level
         {
             gameObject.SetActive(active);
         }
+        public void SetCameraDisabled(bool disabled)
+        {
+            cameraRoot.SetActive(!disabled);
+        }
         public void SetMusicLowQuality(bool lowQuality)
         {
             normalAudioListener.SetActive(!lowQuality);
@@ -612,7 +630,15 @@ namespace MVZ2.Level
                 blueprintController,
                 blueprintChooseController,
             };
+            var quadTreeParams = new QuadTreeParams()
+            {
+                maxDepth = 6,
+                maxObjects = 3,
+                size = new Rect(0, -500, 1600, 1600),
+            };
+            builtinCollisionSystem = new BuiltinCollisionSystem(quadTreeParams);
             Awake_Grids();
+            Awake_Entities();
 
             talkController.OnTalkAction += UI_OnTalkActionCallback;
 
@@ -631,6 +657,56 @@ namespace MVZ2.Level
             }
 
             Awake_UI();
+        }
+        private void OnDrawGizmos()
+        {
+            if (level == null)
+                return;
+            List<BuiltinCollisionCollider> buffer = new List<BuiltinCollisionCollider>();
+            for (int i = 1; i < 8; i++)
+            {
+                var flag = EntityCollisionHelper.GetTypeMask(i);
+                var quadTree = builtinCollisionSystem.GetCollisionQuadTree(flag);
+                if (quadTree == null)
+                    continue;
+                var node = quadTree.GetRootNode();
+                Gizmos.color = Color.HSVToRGB(flag / 7f, 1, 1);
+                DrawQuadTreeNode(node);
+                buffer.Clear();
+                quadTree.GetAllTargets(buffer);
+                foreach (var collider in buffer)
+                {
+                    if (collider is BuiltinCollisionCollider builtinCollider)
+                    {
+                        DrawHitbox(builtinCollider.GetHitbox());
+                    }
+                }
+            }
+        }
+        private void DrawQuadTreeNode(QuadTreeNode<BuiltinCollisionCollider> node)
+        {
+            Rect rect = node.GetRect();
+            var min = rect.min * 0.01f;
+            var max = rect.max * 0.01f;
+            var size2D = max - min;
+            var center2D = min + size2D * 0.5f;
+            var size = new Vector3(size2D.x, 0, size2D.y);
+            var center = new Vector3(center2D.x, 0, center2D.y);
+            Gizmos.DrawWireCube(center, size);
+
+            var childCount = node.GetChildCount();
+            for (int i = 0; i < childCount; i++)
+            {
+                var child = node.GetChild(i);
+                DrawQuadTreeNode(child);
+            }
+        }
+        private void DrawHitbox(Hitbox hitbox)
+        {
+            Bounds bounds = hitbox.GetBounds();
+            var size = bounds.size * 0.01f;
+            var center = bounds.center * 0.01f;
+            Gizmos.DrawWireCube(center, size);
         }
         private void OnApplicationFocus(bool focus)
         {
@@ -660,7 +736,6 @@ namespace MVZ2.Level
             RemoveLevelState();
             Saves.Unlock(VanillaSaveExt.GetLevelClearUnlockID(level.StageID));
             Saves.AddLevelDifficultyRecord(level.StageID, level.Difficulty);
-            Saves.SaveModDatas();
 
             var mapTalks = level.GetTalksOfType(StageMetaTalk.TYPE_MAP);
             if (mapTalks != null)
@@ -675,6 +750,7 @@ namespace MVZ2.Level
                     break;
                 }
             }
+            Saves.SaveToFile(); // 关卡通关后时保存游戏
 
             var endTalks = level.GetTalksOfType(StageMetaTalk.TYPE_END);
             float transitionDelay = 3;
@@ -763,7 +839,7 @@ namespace MVZ2.Level
 
         private async Task ExitScene()
         {
-            Saves.SaveModDatas();
+            Saves.SaveToFile(); // 退出关卡时保存游戏
             Dispose();
             await LevelManager.ExitLevelSceneAsync();
         }

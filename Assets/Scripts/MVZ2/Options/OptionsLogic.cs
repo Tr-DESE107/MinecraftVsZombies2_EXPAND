@@ -4,6 +4,7 @@ using MVZ2.Managers;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
 using PVZEngine;
 using UnityEngine;
 
@@ -33,6 +34,7 @@ namespace MVZ2.Options
             dialog.SetButtonActive(ButtonType.SwapTrigger, Main.SaveManager.IsTriggerUnlocked());
             dialog.SetButtonActive(ButtonType.Fullscreen, !Main.IsMobile());
             dialog.SetButtonActive(ButtonType.Vibration, Main.IsMobile());
+            dialog.SetButtonActive(ButtonType.CommandBlockMode, Main.SaveManager.IsCommandBlockUnlocked());
         }
         public virtual void Dispose()
         {
@@ -118,6 +120,19 @@ namespace MVZ2.Options
         {
             return Main.LanguageManager._(value ? VanillaStrings.YES : VanillaStrings.NO);
         }
+        protected string GetValueTextOnOff(bool value)
+        {
+            return Main.LanguageManager._(value ? VanillaStrings.ON : VanillaStrings.OFF);
+        }
+        protected string GetValueTextCommandBlockMode(int value)
+        {
+            switch (value)
+            {
+                case CommandBlockModes.PREVIOUS:
+                    return Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE, COMMAND_BLOCK_MODE_PREVIOUS);
+            }
+            return Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE, COMMAND_BLOCK_MODE_MANUAL);
+        }
         protected string GetDifficultyText(NamespaceID id)
         {
             return Main.ResourceManager.GetDifficultyName(id);
@@ -192,6 +207,20 @@ namespace MVZ2.Options
             var value = Main.OptionsManager.ShowSponsorNames();
             UpdateButtonText(value, OPTION_SHOW_SPONSOR_NAMES, TextButtonType.ShowSponsorNames);
         }
+        protected void UpdateChooseWarningsButton()
+        {
+            var value = Main.OptionsManager.AreBlueprintChooseWarningsDisabled();
+            var valueText = GetValueTextOnOff(!value);
+            var text = Main.LanguageManager._(OPTION_CHOOSE_WARNINGS, valueText);
+            dialog.SetButtonText(TextButtonType.ChooseWarnings, text);
+        }
+        protected void UpdateCommandBlockModeButton()
+        {
+            var value = Main.OptionsManager.GetCommandBlockMode();
+            var valueText = GetValueTextCommandBlockMode(value);
+            var text = Main.LanguageManager._(OPTION_COMMAND_BLOCK_MODE, valueText);
+            dialog.SetButtonText(TextButtonType.CommandBlockMode, text);
+        }
         protected float ValueToFastForwardMultiplier(float value)
         {
             return FASTFORWARD_MULTIPLIER_START + FASTFORWARD_STEP * value;
@@ -239,6 +268,16 @@ namespace MVZ2.Options
         public const string OPTION_SKIP_ALL_TALKS = "跳过对话：{0}";
         [TranslateMsg("选项，{0}为是否开启")]
         public const string OPTION_SHOW_SPONSOR_NAMES = "赞助者名称：{0}";
+        [TranslateMsg("选项，{0}为是否开启")]
+        public const string OPTION_CHOOSE_WARNINGS = "选卡警告：{0}";
+        [TranslateMsg("选项，{0}为模式")]
+        public const string OPTION_COMMAND_BLOCK_MODE = "命令方块：{0}";
+
+        [TranslateMsg("命令方块模式", VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE)]
+        public const string COMMAND_BLOCK_MODE_MANUAL = "手选";
+        [TranslateMsg("命令方块模式", VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE)]
+        public const string COMMAND_BLOCK_MODE_PREVIOUS = "前位";
+
 
         [TranslateMsg("选项，{0}为量")]
         public const string OPTION_PARTICLE_AMOUNT = "粒子数量：{0}";

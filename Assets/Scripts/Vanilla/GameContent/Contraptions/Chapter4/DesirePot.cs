@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Contraptions
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetAnimationBool("Evoked", entity.State == STATE_EVOKED);
+            entity.SetModelProperty("Evoked", entity.State == STATE_EVOKED);
         }
 
         private void DuplicateUpdate(Entity entity)
@@ -174,6 +174,7 @@ namespace MVZ2.GameContent.Contraptions
             if (drawnDesirePots >= 2)
             {
                 Global.Game.Unlock(VanillaUnlockID.overdraw);
+                Global.Game.SaveToFile(); // 完成成就后保存游戏。
             }
         }
         private SeedPack[] GetBlueprintsToCopy(Entity entity)

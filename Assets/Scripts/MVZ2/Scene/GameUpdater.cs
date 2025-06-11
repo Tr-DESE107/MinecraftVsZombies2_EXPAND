@@ -30,6 +30,7 @@ namespace MVZ2.Scenes
             var updateDeltaTime = Mathf.Min(fixedInterval * maxUpdateTimePerFrame, deltaTime);
             if (level)
             {
+                Physics2D.SyncTransforms();
                 level.UpdateFrame(updateDeltaTime);
             }
         }

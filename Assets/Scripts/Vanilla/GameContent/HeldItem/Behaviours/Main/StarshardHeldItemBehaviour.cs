@@ -19,7 +19,6 @@ namespace MVZ2.GameContent.HeldItems
         public StarshardHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
-
         public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)
         {
             var modelID = VanillaModelID.GetStarshardHeldItem(level.AreaDefinition.GetID());

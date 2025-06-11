@@ -82,6 +82,7 @@ namespace MVZ2.Map
                 ui.SetButtonActive(MapUI.ButtonType.Map, false);
                 ui.SetHintText(null);
             }
+            Global.Game.SaveToFile(); // 进入地图时保存游戏
 
             // 对话
             HideUIArrows();
@@ -111,6 +112,7 @@ namespace MVZ2.Map
             }
             UpdateUIArrows();
             Main.SaveManager.SetMapTalk(null);
+            Global.Game.SaveToFile(); // 完成进入地图对话时保存游戏
         }
         public void SetMapPreset(MapPreset mapPreset)
         {
@@ -184,7 +186,7 @@ namespace MVZ2.Map
             {
                 case MapUI.ButtonType.Back:
                     Main.Scene.DisplayMainmenu();
-                    Main.SaveManager.SaveModDatas();
+                    Main.SaveManager.SaveToFile(); // 显示主菜单时保存游戏
                     break;
                 case MapUI.ButtonType.Almanac:
                     Main.Scene.DisplayAlmanac(() => Main.Scene.DisplayMap(MapID));
@@ -256,6 +258,7 @@ namespace MVZ2.Map
             {
                 Main.SaveManager.Unlock(VanillaUnlockID.dreamIsNightmare);
             }
+            Main.SaveManager.SaveToFile(); // 切换梦境与梦魇时保存游戏
             Main.Scene.DisplayMap(MapID);
         }
         private void OnMapPinClickCallback(NamespaceID id)
@@ -559,7 +562,7 @@ namespace MVZ2.Map
         }
         private async Task GotoLevelAsync(NamespaceID areaID, NamespaceID stageID)
         {
-            Main.SaveManager.SaveModDatas();
+            Main.SaveManager.SaveToFile(); // 进入关卡时保存游戏
             await Main.LevelManager.GotoLevelSceneAsync();
             Main.LevelManager.InitLevel(areaID, stageID);
             Hide();

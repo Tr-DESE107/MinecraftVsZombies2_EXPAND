@@ -91,6 +91,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BackgroundLit: 0
     - _BlackAlpha: 0
     - _BumpScale: 1
     - _Burn: 0
@@ -112,10 +113,12 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Grayscale: 0
     - _GreenAlpha: 0
     - _HSVTint: 1
     - _HurtAlpha: 0
     - _LIT: 1
+    - _LightDisabled: 0
     - _MagentaAlpha: 0
     - _Metallic: 0
     - _Mode: 0

@@ -286,7 +286,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2541727702646479933, guid: 46ef779604803694287c5d8eb660adf4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2665104845322048027}
   m_SourcePrefab: {fileID: 100100000, guid: 46ef779604803694287c5d8eb660adf4, type: 3}
 --- !u!114 &3100023666509717632 stripped
 MonoBehaviour:
@@ -304,6 +307,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2791861981870099822, guid: 46ef779604803694287c5d8eb660adf4, type: 3}
   m_PrefabInstance: {fileID: 1703051232609888266}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3811298675028898871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2541727702646479933, guid: 46ef779604803694287c5d8eb660adf4, type: 3}
+  m_PrefabInstance: {fileID: 1703051232609888266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2665104845322048027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3811298675028898871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8faa5cb7bea9644baa6c412d599d647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tentacleAnimator: {fileID: 4289055946677263074}
 --- !u!95 &4289055946677263074 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3181720268615283432, guid: 46ef779604803694287c5d8eb660adf4, type: 3}
@@ -607,9 +628,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1563266622361726374}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3152729976638313519, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3529056838321258682}
     - targetCorrespondingSourceObject: {fileID: 1408606006542680449, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4598012661657660308}
@@ -669,30 +687,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.24}
   m_EdgeRadius: 0
---- !u!1 &7392049178646737322 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3152729976638313519, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
-  m_PrefabInstance: {fileID: 5572477373346243973}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3529056838321258682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7392049178646737322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8faa5cb7bea9644baa6c412d599d647, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tentacleAnimators:
-  - {fileID: 4289055946677263074}
-  - {fileID: 7111310200029387762}
-  - {fileID: 1685283680206670093}
-  - {fileID: 4254726146114516966}
-  - {fileID: 5882022698386778211}
-  - {fileID: 1692881537522202930}
 --- !u!1001 &5663222969034631450
 PrefabInstance:
   m_ObjectHideFlags: 0
