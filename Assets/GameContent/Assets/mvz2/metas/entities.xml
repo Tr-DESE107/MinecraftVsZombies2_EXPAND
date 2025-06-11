@@ -617,7 +617,7 @@
                 <id name="mvz2:deathSound" value="mvz2:wood" />
 
                 <int name="mvz2:cost" value="150" />
-                <id name="mvz2:rechargeId" value="mvz2:short" />
+                <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
         <contraption id="lightning_orb" name="闪电之珠" tooltip="阻碍敌人前进，并吸收子弹来治疗自己"

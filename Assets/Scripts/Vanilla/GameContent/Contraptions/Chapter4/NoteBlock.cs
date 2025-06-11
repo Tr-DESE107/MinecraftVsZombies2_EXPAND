@@ -100,6 +100,10 @@ namespace MVZ2.GameContent.Contraptions
             }
             return base.CanEvoke(entity);
         }
+        protected override int GetTimerTime(Entity entity)
+        {
+            return FIRE_INTERVAL;
+        }
         public static void PlayHarpSound(Entity entity)
         {
             var pitch = entity.RNG.NextFloat() + 0.5f;
@@ -120,7 +124,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             children.Add(new EntityID(child));
         }
-
+        public const int FIRE_INTERVAL = 45;
         public const int MAX_NOTE_COUNT = 10;
         private static readonly VanillaEntityPropertyMeta<List<EntityID>> PROP_NOTE_CHILDREN = new VanillaEntityPropertyMeta<List<EntityID>>("NoteChildren");
     }
