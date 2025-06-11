@@ -17,11 +17,13 @@ namespace MVZ2.GameContent.Projectiles
         {
             AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, PROP_DISPLAY_SCALE_MULTIPLIER));
             AddModifier(new Vector3Modifier(VanillaEntityProps.SHADOW_SCALE, NumberOperator.Multiply, PROP_DISPLAY_SCALE_MULTIPLIER));
+            AddModifier(new FloatModifier(VanillaEntityProps.DAMAGE, NumberOperator.Multiply, PROP_DAMAGE_GROWTH));
         }
         public override void Init(Entity entity)
         {
             base.Init(entity);
             entity.CollisionMaskFriendly |= EntityCollisionHelper.MASK_PLANT;
+            SetDamageGrowth(entity, MIN_GROWTH);
         }
         public override void Update(Entity projectile)
         {
@@ -29,6 +31,10 @@ namespace MVZ2.GameContent.Projectiles
             var dmg = projectile.GetDamage();
             projectile.SetProperty(PROP_DISPLAY_SCALE_MULTIPLIER, Vector3.one * Mathf.Min(5, Mathf.Pow(dmg / 10f, 0.5f)));
             SetHitProtected(projectile, false);
+
+            var growth = GetDamageGrowth(projectile);
+            growth = Mathf.Clamp(growth + GROWTH_SPEED, MIN_GROWTH, MAX_GROWTH);
+            SetDamageGrowth(projectile, growth);
         }
         protected override void PreHitEntity(ProjectileHitInput hit, DamageInput damage, CallbackResult result)
         {
@@ -71,6 +77,7 @@ namespace MVZ2.GameContent.Projectiles
             if (note.Parent != noteBlock || !note.IsFriendly(noteBlock))
                 return;
             note.SetDamage(noteBlock.GetDamage());
+            SetDamageGrowth(note, MIN_GROWTH);
             note.Velocity = noteBlock.GetFacingDirection() * noteBlock.GetShotVelocity().magnitude;
             SetNoteCharged(note, true);
             SetHitProtected(note, false);
@@ -96,8 +103,16 @@ namespace MVZ2.GameContent.Projectiles
         public static bool IsHitProtected(Entity note) => note.GetBehaviourField<bool>(PROP_HIT_PROTECTED);
         public static void SetNoteCharged(Entity note, bool value) => note.SetBehaviourField(PROP_NOTE_CHARGED, value);
         public static bool IsNoteCharged(Entity note) => note.GetBehaviourField<bool>(PROP_NOTE_CHARGED);
+        public static void SetDamageGrowth(Entity note, float value) => note.SetBehaviourField(PROP_DAMAGE_GROWTH, value);
+        public static float GetDamageGrowth(Entity note) => note.GetBehaviourField<float>(PROP_DAMAGE_GROWTH);
+
+        public const float MIN_GROWTH = 0.1f;
+        public const float MAX_GROWTH = 1;
+        public const float GROWTH_SPEED = 0.1f;
+
         private static readonly VanillaEntityPropertyMeta<Vector3> PROP_DISPLAY_SCALE_MULTIPLIER = new VanillaEntityPropertyMeta<Vector3>("DisplayScaleMultiplier");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_HIT_PROTECTED = new VanillaEntityPropertyMeta<bool>("HitProtected");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_NOTE_CHARGED = new VanillaEntityPropertyMeta<bool>("NoteCharged");
+        private static readonly VanillaEntityPropertyMeta<float> PROP_DAMAGE_GROWTH = new VanillaEntityPropertyMeta<float>("DamageGrowth");
     }
 }
