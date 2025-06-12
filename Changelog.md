@@ -1,5 +1,42 @@
 ## Modified
-- Buffed Wooden Dropper's evocation.
+
+### Balancing
+- Balanced some contraptions:
+  
+#### Gravity Pad
+- Cost: 75 -> 100
+
+#### Dream Silk
+- Cost: 75 -> 100
+
+#### Wooden Dropper
+- Evocation: Fires 30 wooden balls instantly -> Fires 30 large wooden balls instantly, each deals 80 damage
+
+#### Stone Dropper
+- Knockback: 6 -> 5
+
+#### Giant Bowl
+- Cost: 100 -> 150
+
+#### Note Block
+- Recharge Time: Short -> Long
+- Added damage reduction mechanic for notes. The notes heavily reduce their damage upon colliding with Note Block, and restore their damage over time.
+
+#### Desire Pot
+- Every Desire Pot can only duplicate up to 3 starshards.
+- The starshard carried by an enemy which has already been duplicated by Desire Pots no longer can be duplicated by newly-built Desire Pots.
+
+### Misc
+- Adjusted the compression format for entity textures.
+
+## Fixed
+- Level may failed to be loaded.
+- Some entity animations play incorrectly faster.
+- Mouse cursor on Windows displays incorrect in level.
+- Unable to view an enemy in Almanac by clicking it while choosing blueprints.
+- Flying enemy will not align to a lane if it's between 2 lanes.
+- Projectiles boosted by Force Pad will make very heavy enemies fly.
+- Obsidian will lose some toughness after breaking its netherite armor.
 
 ---
 

@@ -1399,6 +1399,10 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -55935898, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
     - {fileID: 864879685, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
+    - {fileID: -110843220, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
+    - {fileID: 353380385, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
+    - {fileID: 700331148, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
+    - {fileID: -1750273922, guid: 5a0c08fed03edc745bbc7ea6e497cf14, type: 3}
   - name: entity/contraption/diamond_spikes
     spritesheet:
     - {fileID: 1691000209, guid: a3186b48658bcbe458396f03e2f38590, type: 3}
