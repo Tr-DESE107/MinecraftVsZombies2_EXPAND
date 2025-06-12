@@ -44,6 +44,7 @@ namespace MVZ2.Entities
             entity.OnRemoveArmor += OnArmorRemoveCallback;
 
             holdStreakHandler.ResetData();
+            RemoveCursorSource();
 
             entity.SetModelInterface(bodyModelInterface);
             SetModel(Entity.ModelID);
@@ -223,19 +224,11 @@ namespace MVZ2.Entities
             bool cursorValid = IsHovered() && Level.IsGameRunning() && !engine.IsHoldingItem();
             if (cursorValid)
             {
-                if (_cursorSource == null)
-                {
-                    _cursorSource = new EntityCursorSource(this, CursorType.Point);
-                    Main.CursorManager.AddCursorSource(_cursorSource);
-                }
+                AddCursorSource();
             }
             else
             {
-                if (_cursorSource != null)
-                {
-                    Main.CursorManager.RemoveCursorSource(_cursorSource);
-                    _cursorSource = null;
-                }
+                RemoveCursorSource();
             }
         }
         #endregion
@@ -410,6 +403,23 @@ namespace MVZ2.Entities
             }
         }
         #endregion
+
+        private void AddCursorSource()
+        {
+            if (_cursorSource == null)
+            {
+                _cursorSource = new EntityCursorSource(this, CursorType.Point);
+                Main.CursorManager.AddCursorSource(_cursorSource);
+            }
+        }
+        private void RemoveCursorSource()
+        {
+            if (_cursorSource != null)
+            {
+                Main.CursorManager.RemoveCursorSource(_cursorSource);
+                _cursorSource = null;
+            }
+        }
 
         private bool ShouldTwinkle()
         {
@@ -681,7 +691,7 @@ namespace MVZ2.Entities
 
         public override bool IsValid()
         {
-            return target;
+            return target && target.isActiveAndEnabled;
         }
 
         public EntityController target;
