@@ -702,7 +702,7 @@
         </entry>
         <entry id="desire_pot">
             <header>
-                <p>欲望壶会复制敌人身上拥有的星之碎片。</p>
+                <p>欲望壶会从敌人身上复制其携带的星之碎片，每个欲望壶最多复制三个。</p>
             </header>
             <properties>
                 <p>技能：<![CDATA[<color=red>将最前方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>]]></p>

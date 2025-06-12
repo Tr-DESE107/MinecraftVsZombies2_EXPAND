@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-06-11 03:08+0800\n"
+"POT-Creation-Date: 2025-06-12 12:33+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1314,7 +1314,7 @@ msgstr ""
 #. Header for contraptions mvz2:desire_pot
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "欲望壶会复制敌人身上拥有的星之碎片。"
+msgid "欲望壶会从敌人身上复制其携带的星之碎片，每个欲望壶最多复制三个。"
 msgstr ""
 
 #. Properties for contraptions mvz2:desire_pot
