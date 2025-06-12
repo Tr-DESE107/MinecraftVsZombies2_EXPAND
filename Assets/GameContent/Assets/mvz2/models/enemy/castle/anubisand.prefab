@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: anubisand
       objectReference: {fileID: 0}
+    - target: {fileID: 5441237328102164597, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.528
+      objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: animators.Array.size
       value: 1
@@ -188,16 +192,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.185, y: 0.39}
-      - {x: -0.185, y: 0.2}
-      - {x: -0.09, y: 0.19999999}
-      - {x: -0.09, y: 0.100000024}
-      - {x: -0.09, y: -0.39}
-      - {x: -0.02, y: -0.46}
-      - {x: 0.1, y: -0.46}
-      - {x: 0.1, y: 0.19999999}
-      - {x: 0.125, y: 0.2}
-      - {x: 0.125, y: 0.39}
+    - - {x: -0.222, y: 0.556}
+      - {x: -0.222, y: 0.328}
+      - {x: -0.108, y: 0.328}
+      - {x: -0.108, y: 0.208}
+      - {x: -0.108, y: -0.38}
+      - {x: -0.024, y: -0.464}
+      - {x: 0.12, y: -0.464}
+      - {x: 0.12, y: 0.328}
+      - {x: 0.15, y: 0.328}
+      - {x: 0.15, y: 0.556}
   m_UseDelaunayMesh: 0
 --- !u!4 &5168359216187517942 stripped
 Transform:
