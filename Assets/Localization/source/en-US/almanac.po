@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-06-11 03:08+0800\n"
-"PO-Revision-Date: 2025-06-11 15:08+0800\n"
+"POT-Creation-Date: 2025-06-12 12:33+0800\n"
+"PO-Revision-Date: 2025-06-12 12:35+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1525,8 +1525,8 @@ msgstr ""
 #. Header for contraptions mvz2:desire_pot
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "欲望壶会复制敌人身上拥有的星之碎片。"
-msgstr "Desire Pots duplicate the starshards carried by enemies."
+msgid "欲望壶会从敌人身上复制其携带的星之碎片，每个欲望壶最多复制三个。"
+msgstr "Desire Pots duplicate the starshards carried by enemies. Every pot can duplicate up to 3 starshards."
 
 #. Properties for contraptions mvz2:desire_pot
 #: Almanac meta file
@@ -5528,6 +5528,10 @@ msgstr "Lengthen the board"
 msgctxt "option.name"
 msgid "增加弹珠"
 msgstr "Add a pearl"
+
+#~ msgctxt "contraptions.description"
+#~ msgid "欲望壶会复制敌人身上拥有的星之碎片。"
+#~ msgstr "Desire Pots duplicate the starshards carried by enemies."
 
 #~ msgctxt "almanac_tag.name"
 #~ msgid "漂浮"
