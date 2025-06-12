@@ -378,7 +378,7 @@ namespace PVZEngine.Level.Collisions
             {
                 foreach (var seriEnt in seri.EntityTrash)
                 {
-                    var entity = entities[seriEnt.ID];
+                    var entity = entityTrash[seriEnt.ID];
                     entity.LoadCollisions(level, seriEnt);
                 }
             }
