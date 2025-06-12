@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla;
@@ -11,6 +12,7 @@ using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
@@ -42,6 +44,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.UpdateLogic(entity);
             entity.SetModelProperty("Evoked", entity.State == STATE_EVOKED);
+            entity.SetModelProperty("DuplicatedCount", GetDuplicatedCount(entity));
         }
 
         protected override void OnEvoke(Entity entity)
@@ -179,8 +182,25 @@ namespace MVZ2.GameContent.Contraptions
             entity.Level.AddEnergy(-damage);
             return damage;
         }
+
+        public static void DuplicateStarshard(Entity pot)
+        {
+            pot.Spawn(VanillaPickupID.starshard, pot.GetCenter());
+            var count = GetDuplicatedCount(pot);
+            count++;
+            SetDuplicatedCount(pot, count);
+            if (count >= MAX_DUPLICATED_COUNT)
+            {
+                var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE);
+                pot.Die(effects, pot);
+            }
+        }
+
         public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOCATION_TIMER);
         public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_EVOCATION_TIMER, timer);
+
+        public static int GetDuplicatedCount(Entity entity) => entity.GetBehaviourField<int>(PROP_DUPLICATED_COUNT);
+        public static void SetDuplicatedCount(Entity entity, int value) => entity.SetBehaviourField(PROP_DUPLICATED_COUNT, value);
 
         public static float GetFatigueDamage(LevelEngine level) => level.GetBehaviourField<float>(PROP_FATIGUE_DAMAGE);
         public static void SetFatigueDamage(LevelEngine level, float value) => level.SetBehaviourField(PROP_FATIGUE_DAMAGE, value);
@@ -191,11 +211,13 @@ namespace MVZ2.GameContent.Contraptions
         public const int EVOCATION_CARD_COUNT = 2;
         public const int FATIGUE_INCREAMENT = 25;
         public const int DETECT_INTERVAL = 10;
+        public const int MAX_DUPLICATED_COUNT = 3;
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         public const int STATE_EVOKED = VanillaEntityStates.CONTRAPTION_SPECIAL;
         public const string PROP_REGION = VanillaContraptionNames.desirePot;
         [LevelPropertyRegistry(PROP_REGION)]
         private static readonly VanillaLevelPropertyMeta<float> PROP_FATIGUE_DAMAGE = new VanillaLevelPropertyMeta<float>("FatigueDamage");
+        private static readonly VanillaEntityPropertyMeta<int> PROP_DUPLICATED_COUNT = new VanillaEntityPropertyMeta<int>("duplicated_count");
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
     }
 }
