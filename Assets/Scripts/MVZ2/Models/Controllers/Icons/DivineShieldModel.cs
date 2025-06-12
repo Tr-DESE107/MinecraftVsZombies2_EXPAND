@@ -4,9 +4,9 @@ namespace MVZ2.Models
 {
     public class DivineShieldModel : ModelComponent
     {
-        public override void UpdateLogic()
+        public override void UpdateFrame(float deltaTime)
         {
-            base.UpdateLogic();
+            base.UpdateFrame(deltaTime);
             var size = Model.GetProperty<Vector3>("Size");
             size.x += 32;
             size.y += 32;
