@@ -47,6 +47,7 @@ namespace MVZ2.Options
             LoadOptionsFromFile();
 
             LoadObsoletePrefs();
+            UpdateFPSMode();
         }
 
         public void LoadOptionsFromFile()
@@ -240,7 +241,7 @@ namespace MVZ2.Options
         }
         #endregion
 
-        #region 蓝图选择警告
+        #region 命令方块模式
         public int GetCommandBlockMode()
         {
             return options.commandBlockMode;
@@ -255,6 +256,48 @@ namespace MVZ2.Options
             var mode = GetCommandBlockMode();
             mode = (mode + 1) % CommandBlockModes.COUNT;
             SetCommandBlockMode(mode);
+        }
+        #endregion
+
+        #region FPS显示
+        public int GetFPSMode()
+        {
+            return options.fpsMode;
+        }
+        public void SetFPSMode(int value)
+        {
+            options.fpsMode = value;
+            SaveOptionsToFile();
+            UpdateFPSMode();
+        }
+        public void CycleFPSMode()
+        {
+            var mode = GetFPSMode();
+            mode = (mode + 1) % FPSModes.COUNT;
+            SetFPSMode(mode);
+        }
+        private void UpdateFPSMode()
+        {
+            var fpsMode = GetFPSMode();
+            var fpsActive = fpsMode != FPSModes.DISABLED;
+            Main.Scene.SetFPSEnabled(fpsActive);
+            if (fpsActive)
+            {
+                Vector2 corner = new Vector2(1, 0);
+                switch (fpsMode)
+                {
+                    case FPSModes.TOP_LEFT:
+                        corner = new Vector2(0, 1);
+                        break;
+                    case FPSModes.TOP_RIGHT:
+                        corner = new Vector2(1, 1);
+                        break;
+                    case FPSModes.BOTTOM_LEFT:
+                        corner = new Vector2(0, 0);
+                        break;
+                }
+                Main.Scene.SetFPSCorner(corner);
+            }
         }
         #endregion
 

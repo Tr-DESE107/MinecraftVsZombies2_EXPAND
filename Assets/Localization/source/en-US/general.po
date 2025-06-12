@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-06-11 10:33+0800\n"
-"PO-Revision-Date: 2025-06-11 10:35+0800\n"
+"POT-Creation-Date: 2025-06-12 07:45+0800\n"
+"PO-Revision-Date: 2025-06-12 19:46+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1147,76 +1147,110 @@ msgstr ""
 "All users cannot be loaded, the files may be corrupted.\n"
 "You have to delete a user and create a new one to continue."
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:245
+#: Scripts\MVZ2\Options\OptionsLogic.cs:272
 msgid "交换触发：{0}"
 msgstr "Swap Trigger: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:247
+#: Scripts\MVZ2\Options\OptionsLogic.cs:274
 msgid "全屏：{0}"
 msgstr "Full Screen: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:249
+#: Scripts\MVZ2\Options\OptionsLogic.cs:276
 msgid "设备震动：{0}"
 msgstr "Vibration: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:251
+#: Scripts\MVZ2\Options\OptionsLogic.cs:278
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:253
+#: Scripts\MVZ2\Options\OptionsLogic.cs:280
 msgid "后台暂停：{0}"
 msgstr "Pause on Focus Lost: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:257
+#: Scripts\MVZ2\Options\OptionsLogic.cs:284
 msgid "音乐音量：{0}"
 msgstr "Music Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:259
+#: Scripts\MVZ2\Options\OptionsLogic.cs:286
 msgid "音效音量：{0}"
 msgstr "Sound Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:261
+#: Scripts\MVZ2\Options\OptionsLogic.cs:288
 msgid "加速倍率：{0}"
 msgstr "Fast-forward: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:264
+#: Scripts\MVZ2\Options\OptionsLogic.cs:291
 msgid "血与碎块：{0}"
 msgstr "Blood and Gore: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:267
+#: Scripts\MVZ2\Options\OptionsLogic.cs:294
 msgid "跳过对话：{0}"
 msgstr "Skip dialogs: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:269
+#: Scripts\MVZ2\Options\OptionsLogic.cs:296
 msgid "赞助者名称：{0}"
 msgstr "Sponsor Names: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:271
+#: Scripts\MVZ2\Options\OptionsLogic.cs:298
 msgid "选卡警告：{0}"
 msgstr "Blueprint Warnings: {0}"
 
 # 命令方块蓝图名，{0}为原名称
-#: Scripts\MVZ2\Options\OptionsLogic.cs:273
+#: Scripts\MVZ2\Options\OptionsLogic.cs:300
 msgid "命令方块：{0}"
 msgstr "Command Block: {0}"
 
+# 选项，{0}为是否开启
+#: Scripts\MVZ2\Options\OptionsLogic.cs:302
+msgid "显示帧率：{0}"
+msgstr "Show FPS: {0}"
+
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:276
+#: Scripts\MVZ2\Options\OptionsLogic.cs:305
 msgctxt "option.command_block_mode"
 msgid "手选"
 msgstr "Manual"
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:278
+#: Scripts\MVZ2\Options\OptionsLogic.cs:307
 msgctxt "option.command_block_mode"
 msgid "前位"
 msgstr "Previous"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:282
+#: Scripts\MVZ2\Options\OptionsLogic.cs:310
+msgctxt "option.fps_mode"
+msgid "关闭"
+msgstr "Disabled"
+
+# FPS模式
+#: Scripts\MVZ2\Options\OptionsLogic.cs:312
+msgctxt "option.fps_mode"
+msgid "左上"
+msgstr "Top Left"
+
+# FPS模式
+#: Scripts\MVZ2\Options\OptionsLogic.cs:314
+msgctxt "option.fps_mode"
+msgid "右上"
+msgstr "Top Right"
+
+# FPS模式
+#: Scripts\MVZ2\Options\OptionsLogic.cs:316
+msgctxt "option.fps_mode"
+msgid "左下"
+msgstr "Bottom Left"
+
+# FPS模式
+#: Scripts\MVZ2\Options\OptionsLogic.cs:318
+msgctxt "option.fps_mode"
+msgid "右下"
+msgstr "Bottom Right"
+
+#: Scripts\MVZ2\Options\OptionsLogic.cs:321
 msgid "粒子数量：{0}"
 msgstr "Particle Count: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:284
+#: Scripts\MVZ2\Options\OptionsLogic.cs:323
 msgid "屏幕震动：{0}"
 msgstr "Screen Shake: {0}"
 
@@ -2181,6 +2215,11 @@ msgstr "Getting Sponsors..."
 msgid "{0}%"
 msgstr "{0}%"
 
+# 帧率显示
+#: Scripts\MVZ2\Managers\PerformanceManager.cs:59
+msgid "FPS: {0}"
+msgstr "FPS: {0}"
+
 #: Scripts\MVZ2\Mainmenu\MainmenuController.cs:889
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
@@ -2244,33 +2283,33 @@ msgstr "English (United States)"
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1200
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1202
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue without filling up the contraption slots?"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1204
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1206
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 "The blueprints selected last time contained multiple identical contraptions."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1206
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1208
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 "The blueprints selected last time contained contraptions that are not "
 "unlocked yet."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1208
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1210
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 "The artifacts selected last time contained multiple identical artifacts."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1210
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1212
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 "The artifacts selected last time contained artifacts that are not unlocked "
 "yet."
 
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:305
+#: Scripts\MVZ2\Level\LevelController_Entities.cs:306
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"

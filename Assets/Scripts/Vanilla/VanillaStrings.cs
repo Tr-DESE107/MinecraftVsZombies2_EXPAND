@@ -208,6 +208,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_LANGUAGE_NAME = "language_name";
         public const string CONTEXT_OPTION_NAME = "option.name";
         public const string CONTEXT_COMMAND_BLOCK_MODE = "option.command_block_mode";
+        public const string CONTEXT_FPS_MODE = "option.fps_mode";
         public const string CONTEXT_RECHARGE_TIME = "recharge_time";
         public const string CONTEXT_STAT_CATEGORY = "stat_category";
         public const string CONTEXT_STORE_TALK = "store_talk";

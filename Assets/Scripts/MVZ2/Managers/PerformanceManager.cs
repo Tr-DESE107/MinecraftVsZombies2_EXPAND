@@ -1,5 +1,5 @@
-﻿
-using System;
+﻿using System;
+using MukioI18n;
 using UnityEngine;
 
 
@@ -23,7 +23,11 @@ namespace MVZ2.Managers
                 currentFPS = frameCount / fpsCheckInterval;
                 frameCount = 0;
                 fpsTimer = 0;
+
+                var fpsString = Main.LanguageManager._(FPS_TEMPLATE, currentFPS);
+                Main.Scene.SetFPS(fpsString);
             }
+
         }
         public void UpdatePerformanceMonitor()
         {
@@ -42,8 +46,7 @@ namespace MVZ2.Managers
         private void OnGUI()
         {
             GUI.color = Color.green;
-            GUI.Label(new Rect(0, 0, 200, 20), $"FPS:{currentFPS:N0}");
-            GUI.Label(new Rect(0, 20, 200, 20), $"Animator Batch Size:{GetAnimatorBatchSize()}");
+            GUI.Label(new Rect(0, 0, 200, 20), $"Animator Batch Size:{GetAnimatorBatchSize()}");
         }
 #endif
 
@@ -52,7 +55,9 @@ namespace MVZ2.Managers
             animatorBatchData.Adjust(currentFPS);
         }
 
-
+        public MainManager Main => MainManager.Instance;
+        [TranslateMsg("帧率显示")]
+        public const string FPS_TEMPLATE = "FPS: {0}";
         // 运行时变量
         private float fpsTimer;
         private float frameCount;

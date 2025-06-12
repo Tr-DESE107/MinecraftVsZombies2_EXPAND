@@ -133,6 +133,26 @@ namespace MVZ2.Options
             }
             return Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE, COMMAND_BLOCK_MODE_MANUAL);
         }
+        protected string GetValueTextFPSMode(int value)
+        {
+            var key = FPS_MODE_DISABLED;
+            switch (value)
+            {
+                case FPSModes.TOP_LEFT:
+                    key = FPS_MODE_TOP_LEFT;
+                    break;
+                case FPSModes.TOP_RIGHT:
+                    key = FPS_MODE_TOP_RIGHT;
+                    break;
+                case FPSModes.BOTTOM_LEFT:
+                    key = FPS_MODE_BOTTOM_LEFT;
+                    break;
+                case FPSModes.BOTTOM_RIGHT:
+                    key = FPS_MODE_BOTTOM_RIGHT;
+                    break;
+            }
+            return Main.LanguageManager._p(VanillaStrings.CONTEXT_FPS_MODE, key);
+        }
         protected string GetDifficultyText(NamespaceID id)
         {
             return Main.ResourceManager.GetDifficultyName(id);
@@ -221,6 +241,13 @@ namespace MVZ2.Options
             var text = Main.LanguageManager._(OPTION_COMMAND_BLOCK_MODE, valueText);
             dialog.SetButtonText(TextButtonType.CommandBlockMode, text);
         }
+        protected void UpdateShowFPSButton()
+        {
+            var value = Main.OptionsManager.GetFPSMode();
+            var valueText = GetValueTextFPSMode(value);
+            var text = Main.LanguageManager._(OPTION_FPS_MODE, valueText);
+            dialog.SetButtonText(TextButtonType.ShowFPS, text);
+        }
         protected float ValueToFastForwardMultiplier(float value)
         {
             return FASTFORWARD_MULTIPLIER_START + FASTFORWARD_STEP * value;
@@ -272,12 +299,24 @@ namespace MVZ2.Options
         public const string OPTION_CHOOSE_WARNINGS = "选卡警告：{0}";
         [TranslateMsg("选项，{0}为模式")]
         public const string OPTION_COMMAND_BLOCK_MODE = "命令方块：{0}";
+        [TranslateMsg("选项，{0}为是否开启")]
+        public const string OPTION_FPS_MODE = "显示帧率：{0}";
 
         [TranslateMsg("命令方块模式", VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE)]
         public const string COMMAND_BLOCK_MODE_MANUAL = "手选";
         [TranslateMsg("命令方块模式", VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE)]
         public const string COMMAND_BLOCK_MODE_PREVIOUS = "前位";
 
+        [TranslateMsg("FPS模式", VanillaStrings.CONTEXT_FPS_MODE)]
+        public const string FPS_MODE_DISABLED = "关闭";
+        [TranslateMsg("FPS模式", VanillaStrings.CONTEXT_FPS_MODE)]
+        public const string FPS_MODE_TOP_LEFT = "左上";
+        [TranslateMsg("FPS模式", VanillaStrings.CONTEXT_FPS_MODE)]
+        public const string FPS_MODE_TOP_RIGHT = "右上";
+        [TranslateMsg("FPS模式", VanillaStrings.CONTEXT_FPS_MODE)]
+        public const string FPS_MODE_BOTTOM_LEFT = "左下";
+        [TranslateMsg("FPS模式", VanillaStrings.CONTEXT_FPS_MODE)]
+        public const string FPS_MODE_BOTTOM_RIGHT = "右下";
 
         [TranslateMsg("选项，{0}为量")]
         public const string OPTION_PARTICLE_AMOUNT = "粒子数量：{0}";
