@@ -1,4 +1,3 @@
-using System;
 using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
