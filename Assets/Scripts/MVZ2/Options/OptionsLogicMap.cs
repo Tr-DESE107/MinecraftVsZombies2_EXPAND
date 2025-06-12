@@ -25,6 +25,7 @@ namespace MVZ2.Options
             UpdateShowSponsorNamesButton();
             UpdateChooseWarningsButton();
             UpdateCommandBlockModeButton();
+            UpdateShowFPSButton();
 
             base.InitDialog();
 
@@ -76,6 +77,12 @@ namespace MVZ2.Options
                     {
                         Main.OptionsManager.CycleCommandBlockMode();
                         UpdateCommandBlockModeButton();
+                    }
+                    break;
+                case ButtonType.ShowFPS:
+                    {
+                        Main.OptionsManager.CycleFPSMode();
+                        UpdateShowFPSButton();
                     }
                     break;
             }

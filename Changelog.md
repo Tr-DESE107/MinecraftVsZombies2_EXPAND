@@ -1,3 +1,6 @@
+## Added
+- "Show FPS" option.
+
 ## Modified
 
 ### Balancing

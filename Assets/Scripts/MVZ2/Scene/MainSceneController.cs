@@ -266,6 +266,19 @@ namespace MVZ2.Scenes
             chapterTransition.Hide();
         }
         #endregion
+
+        public void SetFPSEnabled(bool enabled)
+        {
+            fpsDisplayer.SetActive(enabled);
+        }
+        public void SetFPSCorner(Vector2 corner)
+        {
+            fpsDisplayer.SetCorner(corner);
+        }
+        public void SetFPS(string fps)
+        {
+            fpsDisplayer.SetFPS(fps);
+        }
         public void GotoMapOrMainmenu()
         {
             if (main.SaveManager.IsLevelCleared(VanillaStageID.prologue))
@@ -336,6 +349,8 @@ namespace MVZ2.Scenes
         private AchievementHintController achievementHint;
         [SerializeField]
         private PopupController popup;
+        [SerializeField]
+        private FPSDisplayer fpsDisplayer;
         [SerializeField]
         private InputNameDialogController inputNameDialog;
         [SerializeField]

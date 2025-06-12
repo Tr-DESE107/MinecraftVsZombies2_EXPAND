@@ -18,6 +18,7 @@ namespace MVZ2.Options
                 showSponsorNames = showSponsorNames,
                 blueprintWarningsDisabled = blueprintWarningsDisabled,
                 commandBlockMode = commandBlockMode,
+                fpsMode = fpsMode,
             };
         }
         public void LoadFromSerializable(SerializableOptions options)
@@ -29,6 +30,7 @@ namespace MVZ2.Options
             showSponsorNames = options.showSponsorNames;
             blueprintWarningsDisabled = options.blueprintWarningsDisabled;
             commandBlockMode = options.commandBlockMode;
+            fpsMode = options.fpsMode;
         }
         public bool swapTrigger;
         public bool vibration;
@@ -49,6 +51,7 @@ namespace MVZ2.Options
         public bool showSponsorNames;
         public bool blueprintWarningsDisabled;
         public int commandBlockMode;
+        public int fpsMode;
     }
     [Serializable]
     public class SerializableOptions
@@ -58,5 +61,6 @@ namespace MVZ2.Options
         public bool showSponsorNames;
         public bool blueprintWarningsDisabled;
         public int commandBlockMode;
+        public int fpsMode;
     }
 }
