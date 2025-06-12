@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whenFalse: 0
   propertyName: IsOn
 --- !u!4 &7863114276409198130 stripped
 Transform:
