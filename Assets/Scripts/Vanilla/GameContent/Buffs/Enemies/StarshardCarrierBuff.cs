@@ -37,7 +37,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (!IsDrainedByDesirePot(buff))
             {
                 UpdateDesirePot(buff);
-                SetDrainedByDesirePot(buff, true);
             }
         }
         private void UpdateDesirePot(Buff buff)
@@ -53,6 +52,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 var lump = pot.Spawn(VanillaEffectID.desireLump, entity.GetCenter());
                 lump.SetParent(pot);
                 pot.PlaySound(VanillaSoundID.shadowCast);
+                SetDrainedByDesirePot(buff, true);
             }
         }
         private void UpdateColorOffset(Buff buff)
