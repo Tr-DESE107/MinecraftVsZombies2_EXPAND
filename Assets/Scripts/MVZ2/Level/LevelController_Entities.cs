@@ -287,6 +287,7 @@ namespace MVZ2.Level
             {
                 var index = (i + startIndex) % count;
                 var animator = toUpdate[index];
+                animator.enabled = false;
                 animator.Update(deltaTime * gameSpeed * updateSpeed);
             }
             currentEntityAnimatorIndex = (updateCount + startIndex) % count;
