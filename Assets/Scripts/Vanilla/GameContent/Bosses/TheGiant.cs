@@ -436,13 +436,13 @@ namespace MVZ2.GameContent.Bosses
                 var collider = smashDetectBuffer[i];
                 collider.TakeDamage(entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), entity);
                 damaged = true;
-                entity.Level.ShakeScreen(10, 0, 15);
-                entity.PlaySound(VanillaSoundID.thump);
             }
             if (damaged)
             {
                 entity.PlaySound(VanillaSoundID.smash);
             }
+            entity.Level.ShakeScreen(10, 0, 15);
+            entity.PlaySound(VanillaSoundID.thump);
         }
         public static bool CanArmsAttack(Entity entity)
         {
