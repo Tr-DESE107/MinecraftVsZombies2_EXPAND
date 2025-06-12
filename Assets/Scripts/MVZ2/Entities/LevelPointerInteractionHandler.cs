@@ -9,6 +9,11 @@ namespace MVZ2
 {
     public class LevelPointerInteractionHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerReleaseHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler, IDropHandler
     {
+        public void ResetData()
+        {
+            hoveredPointerDatas.Clear();
+            pressedPointerDatas.Clear();
+        }
         public void UpdateHoldAndStreak()
         {
             foreach (var eventData in hoveredPointerDatas)

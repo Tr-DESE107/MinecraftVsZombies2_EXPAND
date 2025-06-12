@@ -43,6 +43,7 @@ namespace MVZ2.Entities
             entity.OnEquipArmor += OnArmorEquipCallback;
             entity.OnRemoveArmor += OnArmorRemoveCallback;
 
+            holdStreakHandler.ResetData();
 
             entity.SetModelInterface(bodyModelInterface);
             SetModel(Entity.ModelID);

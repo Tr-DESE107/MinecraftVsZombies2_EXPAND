@@ -15,6 +15,21 @@ namespace MVZ2.UI
                 UpdateCursor();
             }
         }
+        private void LateUpdate()
+        {
+            UpdateCursor();
+        }
+        private void UpdateCursor()
+        {
+            if (isHovered && Interactable)
+            {
+                Enter();
+            }
+            else
+            {
+                Exit();
+            }
+        }
         void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
             if (Interactable)
@@ -48,22 +63,11 @@ namespace MVZ2.UI
                 _cursorSource = null;
             }
         }
-        private void UpdateCursor()
-        {
-            if (isHovered && Interactable)
-            {
-                Enter();
-            }
-            else
-            {
-                Exit();
-            }
-        }
         public bool Interactable
         {
             get
             {
-                return (!trackSelectable || trackSelectable.interactable) && interactable;
+                return (!trackSelectable || (trackSelectable.interactable && trackSelectable.isActiveAndEnabled)) && interactable;
             }
             set
             {
