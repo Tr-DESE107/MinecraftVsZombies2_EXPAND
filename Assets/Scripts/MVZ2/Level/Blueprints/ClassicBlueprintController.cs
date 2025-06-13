@@ -14,16 +14,34 @@ namespace MVZ2.Level
         protected override void OnDestroy()
         {
             Controller.BlueprintController.DestroyClassicBlueprintAt(Index);
+            CurrentRecharged = false;
+        }
+        public override void UpdateFixed()
+        {
+            base.UpdateFixed();
+            var maxRecharge = SeedPack.GetMaxRecharge();
+            var recharge = SeedPack.GetRecharge();
+            bool recharged = recharge >= maxRecharge;
+            if (recharged != CurrentRecharged)
+            {
+                CurrentRecharged = recharged;
+                if (recharged)
+                {
+                    ui.RechargeFlash();
+                }
+            }
         }
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
 
-            var maxCharge = SeedPack.GetMaxRecharge();
-            ui.SetRecharge(maxCharge == 0 ? 0 : 1 - SeedPack.GetRecharge() / maxCharge);
+            var maxRecharge = SeedPack.GetMaxRecharge();
+            var recharge = SeedPack.GetRecharge();
+            ui.SetRecharge(maxRecharge == 0 ? 0 : 1 - recharge / maxRecharge);
             ui.SetDisabled(!CanPick());
             ui.SetTwinkleAlpha(ShouldBlueprintTwinkle(SeedPack) ? Controller.GetTwinkleAlpha() : 0);
             ui.SetSelected(Level.IsHoldingClassicBlueprint(Index));
+            ui.UpdateAnimation(deltaTime);
         }
         public override bool IsCommandBlock()
         {
@@ -33,13 +51,19 @@ namespace MVZ2.Level
         {
             return new SerializableClassicBlueprintController()
             {
+                recharged = CurrentRecharged
             };
         }
         protected override void LoadSerializable(SerializableBlueprintController serializable)
         {
+            if (serializable is not SerializableClassicBlueprintController seri)
+                return;
+            CurrentRecharged = seri.recharged;
         }
+        public bool CurrentRecharged { get; private set; }
     }
     public class SerializableClassicBlueprintController : SerializableBlueprintController
     {
+        public bool recharged;
     }
 }
