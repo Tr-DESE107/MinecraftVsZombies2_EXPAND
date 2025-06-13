@@ -1320,7 +1320,7 @@ msgstr ""
 #. Properties for contraptions mvz2:desire_pot
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>将最前方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>"
+msgid "技能：<color=red>将最后方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:desire_pot
