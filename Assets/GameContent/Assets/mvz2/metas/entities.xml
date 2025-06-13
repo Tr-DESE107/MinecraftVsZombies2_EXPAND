@@ -1109,7 +1109,7 @@
         <enemy id="dullahan" name="无头骑士" deathMessage="真让人摸不着头脑。" unlock="mvz2:level.castle_6">
             <properties>
                 <float name="mvz2:maxHealth" value="300" />
-                <vector3 name="mvz2:size" x="38" y="103" z="38" />
+                <vector3 name="mvz2:size" x="38" y="77" z="38" />
                 <id name="mvz2:shell" value="mvz2:nether" />
                 <id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
