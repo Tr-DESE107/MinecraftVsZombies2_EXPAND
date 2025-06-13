@@ -98,9 +98,8 @@ namespace MVZ2.Level
 
             var uiPreset = GetUIPreset();
             uiPreset.UpdateFrame(0);
-            SetStarshardIcon();
+            InitLevelUI();
             SetUnlockedUIActive();
-            UpdateLighting();
         }
         public void StartLevelIntro(float delay)
         {

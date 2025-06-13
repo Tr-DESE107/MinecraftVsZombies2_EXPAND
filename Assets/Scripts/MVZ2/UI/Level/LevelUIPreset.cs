@@ -69,6 +69,10 @@ namespace MVZ2.Level.UI
         {
             pickaxeSlot.SetDisabled(selected);
         }
+        public void SetPickaxeHotkeyText(string hotkey)
+        {
+            pickaxeSlot.SetHotkeyText(hotkey);
+        }
         public void SetPickaxeNumberText(PickaxeNumberText info)
         {
             pickaxeSlot.SetNumberText(info);
@@ -89,6 +93,11 @@ namespace MVZ2.Level.UI
         {
             triggerSlot.SetSelected(selected);
             triggerSlotConveyor.SetSelected(selected);
+        }
+        public void SetTriggerHotkeyText(string hotkey)
+        {
+            triggerSlot.SetHotkeyText(hotkey);
+            triggerSlotConveyor.SetHotkeyText(hotkey);
         }
         public TriggerSlot GetCurrentTriggerUI()
         {
@@ -136,6 +145,10 @@ namespace MVZ2.Level.UI
         {
             starshardPanel.SetDisabled(selected);
         }
+        public void SetStarshardHotkeyText(string hotkey)
+        {
+            starshardPanel.SetHotkeyText(hotkey);
+        }
         #endregion
 
         #region срио╫г
@@ -152,6 +165,11 @@ namespace MVZ2.Level.UI
         {
             speedUpEnabledObject.SetActive(speedUp);
             speedUpDisabledObject.SetActive(!speedUp);
+        }
+        public void SetSpeedUpHotkeyText(string hotkey)
+        {
+            if (speedUpHotkeyText)
+                speedUpHotkeyText.text = hotkey;
         }
         #endregion
 
@@ -527,6 +545,8 @@ namespace MVZ2.Level.UI
         GameObject speedUpEnabledObject;
         [SerializeField]
         GameObject speedUpDisabledObject;
+        [SerializeField]
+        TextMeshProUGUI speedUpHotkeyText;
         [SerializeField]
         Button menuButton;
         [SerializeField]

@@ -35,6 +35,7 @@ namespace MVZ2.Options
             UpdateChooseWarningsButton();
             UpdateCommandBlockModeButton();
             UpdateShowFPSButton();
+            UpdateShowHotkeysButton();
 
             base.InitDialog();
 
@@ -42,6 +43,7 @@ namespace MVZ2.Options
             dialog.SetButtonActive(ButtonType.LeaveLevel, false);
             dialog.SetButtonActive(ButtonType.Restart, false);
             dialog.SetButtonActive(ButtonType.Keybinding, !Global.IsMobile());
+            dialog.SetButtonActive(ButtonType.ShowHotkeys, !Global.IsMobile());
 
             dialog.SetPage(Page.Main);
         }
@@ -101,6 +103,12 @@ namespace MVZ2.Options
                     {
                         Main.OptionsManager.CycleFPSMode();
                         UpdateShowFPSButton();
+                    }
+                    break;
+                case ButtonType.ShowHotkeys:
+                    {
+                        Main.OptionsManager.SwitchShowHotkeyIndicators();
+                        UpdateShowHotkeysButton();
                     }
                     break;
                 case ButtonType.Keybinding:

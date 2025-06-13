@@ -15,6 +15,11 @@ namespace MVZ2.Level.UI
         {
             animator.SetBool("Disabled", selected);
         }
+        public void SetHotkeyText(string hotkey)
+        {
+            if (hotkeyText)
+                hotkeyText.text = hotkey;
+        }
         public void SetNumberText(PickaxeNumberText info)
         {
             numberText.gameObject.SetActive(info.show);
@@ -44,6 +49,8 @@ namespace MVZ2.Level.UI
         private TooltipAnchor tooltipAnchor;
         [SerializeField]
         private TextMeshProUGUI numberText;
+        [SerializeField]
+        private TextMeshProUGUI hotkeyText;
     }
     public struct PickaxeNumberText
     {

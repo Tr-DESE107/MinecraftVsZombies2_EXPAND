@@ -844,8 +844,7 @@ namespace MVZ2.Mainmenu
             string keyName;
             if (bindingKeyIndex != index)
             {
-                var key = main.InputManager.GetKeyCodeNameKey(keyCode);
-                keyName = main.LanguageManager._p(InputManager.CONTEXT_KEY_NAME, key);
+                keyName = main.InputManager.GetKeyCodeName(keyCode);
                 keyColor = conflict ? Color.red : Color.white;
             }
             else

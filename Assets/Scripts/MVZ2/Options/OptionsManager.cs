@@ -301,6 +301,22 @@ namespace MVZ2.Options
         }
         #endregion
 
+        #region 热键显示
+        public bool ShowHotkeyIndicators()
+        {
+            return options.showHotkeyIndicators;
+        }
+        public void SetShowHotkeyIndicators(bool value)
+        {
+            options.showHotkeyIndicators = value;
+            SaveOptionsToFile();
+        }
+        public void SwitchShowHotkeyIndicators()
+        {
+            SetShowHotkeyIndicators(!ShowHotkeyIndicators());
+        }
+        #endregion
+
         #region 音乐音量
         public float GetMusicVolume()
         {

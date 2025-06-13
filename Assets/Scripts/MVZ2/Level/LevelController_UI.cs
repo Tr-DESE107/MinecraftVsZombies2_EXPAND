@@ -884,6 +884,28 @@ namespace MVZ2.Level
         #endregion
 
 
+        private void InitLevelUI()
+        {
+            SetStarshardIcon();
+            // 光照
+            UpdateLighting();
+            UpdateHotkeyTexts();
+        }
+        private void UpdateHotkeyTexts()
+        {
+            var preset = ui.GetUIPreset();
+            preset.SetPickaxeHotkeyText(GetHotkeyName(HotKeys.pickaxe));
+            preset.SetStarshardHotkeyText(GetHotkeyName(HotKeys.starshard));
+            preset.SetTriggerHotkeyText(GetHotkeyName(HotKeys.trigger));
+            preset.SetSpeedUpHotkeyText(GetHotkeyName(HotKeys.fastForward));
+        }
+        private string GetHotkeyName(NamespaceID keyID)
+        {
+            if (Global.IsMobile() || !Main.OptionsManager.ShowHotkeyIndicators())
+                return string.Empty;
+            var keycode = Main.OptionsManager.GetKeyBinding(keyID);
+            return keycode != KeyCode.None ? Main.InputManager.GetKeyCodeName(keycode) : string.Empty;
+        }
         /// <summary>
         /// 更新能量、关卡进度条、手持物品、蓝图状态、星之碎片。
         /// </summary>

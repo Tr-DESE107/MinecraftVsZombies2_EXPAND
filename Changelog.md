@@ -1,5 +1,5 @@
 ## Added
-- "Show FPS" option.
+- "Show FPS" and "Show Hot Keys" option.
 - Fully-Charged flash for blueprints.
 
 ## Modified

@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f70064fbad3e8e249acbd5365f606f06, type: 3}
     - target: {fileID: 7593837354094044028, guid: d377c9e0a0b972741b4e7bd972dc775d, type: 3}
       propertyPath: m_Name
-      value: castle1
+      value: castle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
