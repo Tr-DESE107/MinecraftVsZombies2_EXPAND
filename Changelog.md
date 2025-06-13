@@ -32,6 +32,7 @@
 - Evocation: Copies "The last 2 blueprints" instead of "The top 2 blueprints".
 
 ### Misc
+- Wither Skeleton monsters are now 20% bigger than normal enemies.
 - Adjusted the compression format for entity textures.
 
 ## Fixed
