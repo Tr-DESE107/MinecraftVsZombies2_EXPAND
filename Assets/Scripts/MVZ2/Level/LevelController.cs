@@ -670,7 +670,7 @@ namespace MVZ2.Level
                 if (quadTree == null)
                     continue;
                 var node = quadTree.GetRootNode();
-                Gizmos.color = Color.HSVToRGB(flag / 7f, 1, 1);
+                Gizmos.color = Color.HSVToRGB(i / 8f, 1, 1);
                 DrawQuadTreeNode(node);
                 buffer.Clear();
                 quadTree.GetAllTargets(buffer);
