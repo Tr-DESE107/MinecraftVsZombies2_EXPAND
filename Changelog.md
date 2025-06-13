@@ -28,7 +28,7 @@
 
 #### Desire Pot
 - Every Desire Pot can only duplicate up to 3 starshards.
-- The starshard carried by an enemy which has already been duplicated by Desire Pots no longer can be duplicated by newly-built Desire Pots.
+- The starshard carried by an enemy will now trigger ALL Desire Pots at once, and will no longer trigger any Desire Pot thereafter.
 - Evocation: Copies "The last 2 blueprints" instead of "The top 2 blueprints".
 
 ### Misc
