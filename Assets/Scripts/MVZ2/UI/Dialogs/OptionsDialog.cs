@@ -102,6 +102,7 @@ namespace MVZ2.UI
             textButtonDict.Add(TextButtonType.ChooseWarnings, chooseWarningsButton);
             textButtonDict.Add(TextButtonType.CommandBlockMode, commandBlockModeButton);
             textButtonDict.Add(TextButtonType.ShowFPS, showFPSButton);
+            textButtonDict.Add(TextButtonType.ShowHotkeys, showHotkeysButton);
             textButtonDict.Add(TextButtonType.Credits, creditsButton);
             textButtonDict.Add(TextButtonType.Keybinding, keybindingButton);
 
@@ -129,6 +130,7 @@ namespace MVZ2.UI
             buttonDict.Add(ButtonType.ChooseWarnings, chooseWarningsButton.Button);
             buttonDict.Add(ButtonType.CommandBlockMode, commandBlockModeButton.Button);
             buttonDict.Add(ButtonType.ShowFPS, showFPSButton.Button);
+            buttonDict.Add(ButtonType.ShowHotkeys, showHotkeysButton.Button);
             buttonDict.Add(ButtonType.Credits, creditsButton.Button);
             buttonDict.Add(ButtonType.Keybinding, keybindingButton.Button);
             buttonDict.Add(ButtonType.MoreBack, moreBackButton);
@@ -243,6 +245,8 @@ namespace MVZ2.UI
         [SerializeField]
         private TextButton showFPSButton;
         [SerializeField]
+        private TextButton showHotkeysButton;
+        [SerializeField]
         private TextButton creditsButton;
         [SerializeField]
         private TextButton keybindingButton;
@@ -282,6 +286,7 @@ namespace MVZ2.UI
             ChooseWarnings,
             CommandBlockMode,
             ShowFPS,
+            ShowHotkeys,
             Credits,
             Keybinding,
         }
@@ -309,6 +314,7 @@ namespace MVZ2.UI
             ChooseWarnings,
             CommandBlockMode,
             ShowFPS,
+            ShowHotkeys,
 
             Credits,
             Keybinding,

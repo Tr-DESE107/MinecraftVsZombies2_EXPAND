@@ -1,5 +1,6 @@
 ﻿using System;
 using MVZ2.UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,6 +19,11 @@ namespace MVZ2.Level.UI
         public void SetDisabled(bool selected)
         {
             animator.SetBool("Disabled", selected);
+        }
+        public void SetHotkeyText(string hotkey)
+        {
+            if (hotkeyText)
+                hotkeyText.text = hotkey;
         }
         public void SetPoints(int count, int maxCount)
         {
@@ -39,5 +45,7 @@ namespace MVZ2.Level.UI
         private StarshardPanelIcon icon;
         [SerializeField]
         private ElementListUI pointsList;
+        [SerializeField]
+        private TextMeshProUGUI hotkeyText;
     }
 }

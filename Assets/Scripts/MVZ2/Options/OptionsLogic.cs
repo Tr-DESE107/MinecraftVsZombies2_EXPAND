@@ -248,6 +248,11 @@ namespace MVZ2.Options
             var text = Main.LanguageManager._(OPTION_FPS_MODE, valueText);
             dialog.SetButtonText(TextButtonType.ShowFPS, text);
         }
+        protected void UpdateShowHotkeysButton()
+        {
+            var value = Main.OptionsManager.ShowHotkeyIndicators();
+            UpdateButtonText(value, OPTION_SHOW_HOTKEYS, TextButtonType.ShowHotkeys);
+        }
         protected float ValueToFastForwardMultiplier(float value)
         {
             return FASTFORWARD_MULTIPLIER_START + FASTFORWARD_STEP * value;
@@ -301,6 +306,8 @@ namespace MVZ2.Options
         public const string OPTION_COMMAND_BLOCK_MODE = "命令方块：{0}";
         [TranslateMsg("选项，{0}为是否开启")]
         public const string OPTION_FPS_MODE = "显示帧率：{0}";
+        [TranslateMsg("选项，{0}为是否开启")]
+        public const string OPTION_SHOW_HOTKEYS = "显示快捷键：{0}";
 
         [TranslateMsg("命令方块模式", VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE)]
         public const string COMMAND_BLOCK_MODE_MANUAL = "手选";

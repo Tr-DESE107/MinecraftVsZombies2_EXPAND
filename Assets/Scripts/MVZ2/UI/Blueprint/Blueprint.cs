@@ -52,6 +52,11 @@ namespace MVZ2.UI
         {
             triggerCostObject.SetActive(active);
         }
+        public void SetHotkeyText(string hotkey)
+        {
+            if (hotkeyText)
+                hotkeyText.text = hotkey;
+        }
         public void SetRecharge(float charge)
         {
             rechargeImage.fillAmount = charge;
@@ -159,6 +164,8 @@ namespace MVZ2.UI
         private GameObject disabledObject;
         [SerializeField]
         private GameObject triggerCostObject;
+        [SerializeField]
+        private TextMeshProUGUI hotkeyText;
         [SerializeField]
         private UIModel model;
         [SerializeField]

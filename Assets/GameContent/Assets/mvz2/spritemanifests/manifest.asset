@@ -891,6 +891,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f06b4e6d36bea8c4bb91bc0eeb3d059c, type: 3}
   - name: ui/level/card_curtain
     sprite: {fileID: 21300000, guid: 8377ca22c43dd784f85308891f7c59a7, type: 3}
+  - name: ui/level/card_recharge_flash
+    sprite: {fileID: 21300000, guid: e29fc40df52a5fd498fcf99ae5d4fe10, type: 3}
   - name: ui/level/card_upgrade
     sprite: {fileID: 21300000, guid: 8cf98dd491e96bf47ad3a5767c1578b2, type: 3}
   - name: ui/level/conveyor_belt_part

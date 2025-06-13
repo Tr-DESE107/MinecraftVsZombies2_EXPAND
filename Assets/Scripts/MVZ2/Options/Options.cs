@@ -19,6 +19,7 @@ namespace MVZ2.Options
                 blueprintWarningsDisabled = blueprintWarningsDisabled,
                 commandBlockMode = commandBlockMode,
                 fpsMode = fpsMode,
+                showHotkeyIndicators = showHotkeyIndicators,
             };
         }
         public void LoadFromSerializable(SerializableOptions options)
@@ -31,6 +32,7 @@ namespace MVZ2.Options
             blueprintWarningsDisabled = options.blueprintWarningsDisabled;
             commandBlockMode = options.commandBlockMode;
             fpsMode = options.fpsMode;
+            showHotkeyIndicators = options.showHotkeyIndicators;
         }
         public bool swapTrigger;
         public bool vibration;
@@ -52,6 +54,7 @@ namespace MVZ2.Options
         public bool blueprintWarningsDisabled;
         public int commandBlockMode;
         public int fpsMode;
+        public bool showHotkeyIndicators;
     }
     [Serializable]
     public class SerializableOptions
@@ -62,5 +65,6 @@ namespace MVZ2.Options
         public bool blueprintWarningsDisabled;
         public int commandBlockMode;
         public int fpsMode;
+        public bool showHotkeyIndicators;
     }
 }

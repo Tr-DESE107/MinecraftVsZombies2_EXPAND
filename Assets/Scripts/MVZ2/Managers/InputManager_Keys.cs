@@ -160,6 +160,11 @@ namespace MVZ2.Managers
                 return KEYNAME_UNKNOWN;
             return info.name;
         }
+        public string GetKeyCodeName(KeyCode keycode)
+        {
+            var nameKey = GetKeyCodeNameKey(keycode);
+            return Main.LanguageManager._p(InputManager.CONTEXT_KEY_NAME, nameKey);
+        }
         public KeyCode GetCurrentPressedKey()
         {
             foreach (var pair in keyInfos)
