@@ -850,6 +850,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 181b15ca8138bdc4e9ecb94aa1f1a38b
+    m_Address: mvz2:pickup/starshards/dream
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18bdc9c8c3fe2c548bee01dd98e6d9df
     m_Address: mvz2:damage/shield/shield_hit1
     m_ReadOnly: 0
@@ -1733,13 +1740,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 311e353cabcefad4497f399a5a53758d
     m_Address: mvz2:contraption/castle/giant_bowl
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 317389ec4fe5a994ba7f042745b0f045
-    m_Address: mvz2:pickup/starshards/default
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -2969,13 +2969,6 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4e2bd1aa689c4dc45974c96c672b49f5
-    m_Address: mvz2:pickup/starshards/mausoleum
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e3cd9bca2bf19f41a4dabfa8af2d5ae
     m_Address: mvz2:spider_cry2
     m_ReadOnly: 0
@@ -4130,6 +4123,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70ba99a0ac0b198498c4f07106cd856a
+    m_Address: mvz2:pickup/starshards/mausoleum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 70bd3779c2eea2b4fb4e071481e6acb1
     m_Address: mvz2:mobile_blueprint/talisman_zombie
@@ -5313,13 +5313,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9060b852db8277d41a1432ec241fa646
-    m_Address: mvz2:pickup/starshards/dream
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 906ce113fd4d66149af2e0d8c40a4299
     m_Address: mvz2:anvil
     m_ReadOnly: 0
@@ -5747,13 +5740,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9be88d49c2a357e42825f5e2320b26c1
-    m_Address: mvz2:pickup/starshards/halloween
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c248fa89323d594a9c08ed0413b6aea
     m_Address: mvz2:map_button
     m_ReadOnly: 0
@@ -5788,13 +5774,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9c8eef82c98cc73429569c81597c1516
-    m_Address: mvz2:pickup/starshards/castle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9cb472c3c1348464db552f84dadec941
     m_Address: mvz2:stats
@@ -7910,6 +7889,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d377c9e0a0b972741b4e7bd972dc775d
+    m_Address: mvz2:pickup/starshards/base
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d3a87c3e470695547904801be20ee66e
     m_Address: mvz2:projectile/crossbow_bolt
     m_ReadOnly: 0
@@ -8470,6 +8456,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e29fc40df52a5fd498fcf99ae5d4fe10
+    m_Address: mvz2:ui/level/card_recharge_flash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2de8f00c91d8ad498a0031ee7f96f5e
     m_Address: mvz2:phone_ring
     m_ReadOnly: 0
@@ -8750,6 +8743,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb2400b391ea18a469d5cca9ef46852a
+    m_Address: mvz2:pickup/starshards/halloween
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb2ee79a0855dd74aa5271554aa39c14
     m_Address: mvz2:contraption/dream/lily_pad
     m_ReadOnly: 0
@@ -8917,6 +8917,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee7b785caa943744cbc82bf64eea8a57
+    m_Address: mvz2:pickup/starshards/castle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee8a95d990407e34ea9ff1aa13122998
     m_Address: mvz2:entity/projectiles/bullet
@@ -9392,6 +9399,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f97c35c9ae25d3845bb6d383ea71445b
+    m_Address: mvz2:pickup/starshards/default
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f997f16a236d16f44a380a07a0235df6
     m_Address: mvz2:talk/dialog_flashback
