@@ -56,6 +56,16 @@ namespace MVZ2.UI
         {
             rechargeImage.fillAmount = charge;
         }
+        public void RechargeFlash()
+        {
+            rechargeFlashAlpha = 1;
+            UpdateRechargeFlash();
+        }
+        public void UpdateAnimation(float deltaTime)
+        {
+            rechargeFlashAlpha = Mathf.Clamp01(rechargeFlashAlpha - deltaTime / rechargeFlashTime);
+            UpdateRechargeFlash();
+        }
         public void SetDisabled(bool disabled)
         {
             disabledObject.SetActive(disabled);
@@ -73,6 +83,12 @@ namespace MVZ2.UI
         private void Awake()
         {
             holdStreakHandler.OnPointerInteraction += (_, d, i) => CallPointerInteraction(d, i);
+        }
+        private void UpdateRechargeFlash()
+        {
+            var color = rechargeFlashImage.color;
+            color.a = rechargeFlashAlpha;
+            rechargeFlashImage.color = color;
         }
         bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data, PointerEventData eventData)
         {
@@ -108,6 +124,7 @@ namespace MVZ2.UI
         public UIModel Model => model;
         public int Index { get; set; } = -1;
         public bool IsInConveyor { get; set; }
+        private float rechargeFlashAlpha = 0;
         [SerializeField]
         private PointerInteraction selectInteraction = PointerInteraction.Down;
         [SerializeField]
@@ -132,6 +149,10 @@ namespace MVZ2.UI
         private TextMeshProUGUI costText;
         [SerializeField]
         private Image rechargeImage;
+        [SerializeField]
+        private Image rechargeFlashImage;
+        [SerializeField]
+        private float rechargeFlashTime = 0.5f;
         [SerializeField]
         private GameObject selectedObject;
         [SerializeField]
