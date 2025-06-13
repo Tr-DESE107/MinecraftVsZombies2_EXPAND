@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Damages;
@@ -159,19 +160,17 @@ namespace MVZ2.GameContent.Contraptions
             {
                 heldBlueprints = level.GetAllSeedPacks().Where(e => e != null && e.IsCharged());
             }
+            var sourceBlueprints = heldBlueprints.TakeLast(EVOCATION_CARD_COUNT);
+
             SeedPack[] pile = new SeedPack[EVOCATION_CARD_COUNT];
-            var count = heldBlueprints.Count();
-            if (count > 0)
+            var count = sourceBlueprints.Count();
+            for (int i = 0; i < pile.Length; i++)
             {
-                for (int i = 0; i < pile.Length; i++)
-                {
-                    if (i >= count)
-                        continue;
-                    var seedPack = heldBlueprints.ElementAt(i);
-                    pile[i] = seedPack;
-                }
+                if (i >= count)
+                    continue;
+                pile[i] = sourceBlueprints.ElementAt(i);
             }
-            return pile.ToArray();
+            return pile;
         }
         private float Fatigue(Entity entity)
         {
