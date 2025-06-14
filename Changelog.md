@@ -1,6 +1,7 @@
 ## Added
 - "Show FPS" and "Show Hot Keys" option.
 - Fully-Charged flash for blueprints.
+- Energy number will now flicker if you try to select a blueprint while you have not enough energy.
 
 ## Modified
 

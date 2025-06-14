@@ -183,5 +183,10 @@ namespace MVZ2Logic.Level
             var component = level.GetUIComponent();
             component.UpdateLevelName();
         }
+        public static void FlickerEnergy(this LevelEngine level)
+        {
+            var component = level.GetUIComponent();
+            component.FlickerEnergy();
+        }
     }
 }

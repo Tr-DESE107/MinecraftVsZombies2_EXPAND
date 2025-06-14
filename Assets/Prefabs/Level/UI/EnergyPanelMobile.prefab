@@ -247,7 +247,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 55}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3982280328251139742
 MonoBehaviour:
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5f3afbbabc5d9488d3632e74eb3b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiAnimator: {fileID: 7444196314670554572}
+  textAnimator: {fileID: 7444196314670554572}
   energyText: {fileID: 2869584400670422161}
 --- !u!95 &7444196314670554572
 Animator:
@@ -273,7 +273,7 @@ Animator:
   m_GameObject: {fileID: 7830798956868419460}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc642639b03e7f84f8b8a2d6cdadd196, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

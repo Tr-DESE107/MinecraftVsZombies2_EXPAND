@@ -54,6 +54,10 @@ namespace MVZ2.Level.UI
         {
             energyPanel.SetEnergy(value);
         }
+        public void FlickerEnergy()
+        {
+            energyPanel.FlickerEnergy();
+        }
         #endregion
 
         #region Ìú¸ä

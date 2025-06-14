@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Pickups;
+using MVZ2.GameContent.Seeds;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
@@ -11,6 +12,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
+using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -113,8 +115,13 @@ namespace MVZ2.GameContent.HeldItems
                 return;
             }
             // 无法拾取蓝图。
-            if (!blueprint.CanPick())
+            var blueprintError = blueprint.GetPickError();
+            if (NamespaceID.IsValid(blueprintError))
             {
+                if (blueprintError == VanillaBlueprintErrors.notEnoughEnergy)
+                {
+                    level.FlickerEnergy();
+                }
                 level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
