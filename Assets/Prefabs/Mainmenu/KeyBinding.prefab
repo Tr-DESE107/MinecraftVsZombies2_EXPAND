@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 7327705170946132265}
   - component: {fileID: 6852547387084668871}
   - component: {fileID: 3283854506776149130}
+  - component: {fileID: 3208073580750796827}
   m_Layer: 0
   m_Name: KeyBinding
   m_TagString: Untagged
@@ -461,6 +462,19 @@ MonoBehaviour:
   items: {fileID: 7999614770868656020}
   backButton: {fileID: 2073343743674592854}
   resetButton: {fileID: 2667503289521419018}
+--- !u!114 &3208073580750796827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8281531824112785435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5cacb83e4c22f64cbf97cee695eda6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 3283854506776149130}
 --- !u!1001 &1672250416017271229
 PrefabInstance:
   m_ObjectHideFlags: 0

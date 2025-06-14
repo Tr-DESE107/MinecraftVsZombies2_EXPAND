@@ -21,6 +21,21 @@ namespace MVZ2.Level
     }
     public class LevelBlueprintController : LevelControllerPart, ILevelBlueprintController
     {
+        public void ForceUpdateBlueprintHotkeyTexts()
+        {
+            foreach (var blueprint in classicBlueprints)
+            {
+                if (blueprint == null)
+                    continue;
+                blueprint.ForceUpdateBlueprintHotkeyText();
+            }
+            foreach (var blueprint in conveyorBlueprints)
+            {
+                if (blueprint == null)
+                    continue;
+                blueprint.ForceUpdateBlueprintHotkeyText();
+            }
+        }
         #region 引擎层
 
         public override void AddEngineCallbacks(LevelEngine level)

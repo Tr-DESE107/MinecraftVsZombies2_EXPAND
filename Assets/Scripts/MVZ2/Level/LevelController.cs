@@ -979,9 +979,12 @@ namespace MVZ2.Level
                         }
                     }
                 }
-                if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.fastForward)))
+                if (optionsLogic == null)
                 {
-                    SwitchSpeedUp();
+                    if (Input.GetKeyDown(Options.GetKeyBinding(HotKeys.fastForward)))
+                    {
+                        SwitchSpeedUp();
+                    }
                 }
             }
 

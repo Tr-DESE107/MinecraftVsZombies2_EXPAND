@@ -24,6 +24,10 @@ namespace MVZ2.Level
             base.Remove();
             SeedPack.SetModelInterface(null);
         }
+        public void ForceUpdateBlueprintHotkeyText()
+        {
+            UpdateHotkeyText();
+        }
         protected override void AddCallbacks()
         {
             base.AddCallbacks();

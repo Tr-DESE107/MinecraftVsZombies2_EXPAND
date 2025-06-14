@@ -260,6 +260,15 @@ namespace MVZ2.Level
             inputAndUIDisabled = disabled;
             ui.SetUIDisabled(disabled);
         }
+        public void UpdateHotkeyTexts()
+        {
+            var preset = ui.GetUIPreset();
+            preset.SetPickaxeHotkeyText(GetHotkeyName(HotKeys.pickaxe));
+            preset.SetStarshardHotkeyText(GetHotkeyName(HotKeys.starshard));
+            preset.SetTriggerHotkeyText(GetHotkeyName(HotKeys.trigger));
+            preset.SetSpeedUpHotkeyText(GetHotkeyName(HotKeys.fastForward));
+            blueprintController.ForceUpdateBlueprintHotkeyTexts();
+        }
         public Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float z)
         {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
@@ -895,14 +904,6 @@ namespace MVZ2.Level
             // 光照
             UpdateLighting();
             UpdateHotkeyTexts();
-        }
-        private void UpdateHotkeyTexts()
-        {
-            var preset = ui.GetUIPreset();
-            preset.SetPickaxeHotkeyText(GetHotkeyName(HotKeys.pickaxe));
-            preset.SetStarshardHotkeyText(GetHotkeyName(HotKeys.starshard));
-            preset.SetTriggerHotkeyText(GetHotkeyName(HotKeys.trigger));
-            preset.SetSpeedUpHotkeyText(GetHotkeyName(HotKeys.fastForward));
         }
         private string GetHotkeyName(NamespaceID keyID)
         {

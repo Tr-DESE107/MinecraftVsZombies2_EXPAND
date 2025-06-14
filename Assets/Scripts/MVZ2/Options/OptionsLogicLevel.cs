@@ -24,14 +24,27 @@ namespace MVZ2.Options
             dialog.SetButtonActive(ButtonType.Difficulty, !isInLevel);
             dialog.SetButtonActive(ButtonType.Restart, isInLevel);
 
-            dialog.SetButtonActive(ButtonType.MoreOptions, false);
+            dialog.SetDropdownActive(DropdownType.Language, false);
+            dialog.SetButtonActive(ButtonType.BloodAndGore, false);
+            dialog.SetButtonActive(ButtonType.Credits, false);
             dialog.SetButtonActive(ButtonType.LeaveLevel, true);
+        }
+        public override void Dispose()
+        {
+            base.Dispose();
+            Level.UpdateHotkeyTexts();
         }
         protected override async void OnButtonClickCallback(ButtonType type)
         {
             base.OnButtonClickCallback(type);
             switch (type)
             {
+                case ButtonType.ShowHotkeys:
+                    {
+                        Level.UpdateHotkeyTexts();
+                    }
+                    break;
+
                 case ButtonType.LeaveLevel:
                     {
                         if (Level.IsGameStarted() || Level.GetCurrentFlag() > 0)
@@ -70,6 +83,7 @@ namespace MVZ2.Options
             dialog.SetButtonText(TextButtonType.LeaveLevel, text);
         }
         #endregion
+
         [TranslateMsg("对话框内容")]
         public const string DIALOG_DESC_LEAVE_LEVEL = "确认要返回吗？\n你的进度会被保存。";
 
