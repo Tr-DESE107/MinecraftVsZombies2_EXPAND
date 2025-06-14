@@ -29,20 +29,17 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             base.PostAdd(buff);
             UpdateColorOffset(buff);
+            UpdateDesirePot(buff);
         }
         public override void PostUpdate(Buff buff)
         {
             base.PostUpdate(buff);
             UpdateColorOffset(buff);
-            if (!IsDrainedByDesirePot(buff))
-            {
-                UpdateDesirePot(buff);
-            }
         }
         private void UpdateDesirePot(Buff buff)
         {
             var entity = buff.GetEntity();
-            if (entity == null || !entity.IsVulnerableEntity() || entity.Position.x >= VanillaLevelExt.ATTACK_RIGHT_BORDER)
+            if (entity == null || !entity.IsVulnerableEntity())
                 return;
 
             desirePotBuffer.Clear();
@@ -52,7 +49,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 var lump = pot.Spawn(VanillaEffectID.desireLump, entity.GetCenter());
                 lump.SetParent(pot);
                 pot.PlaySound(VanillaSoundID.shadowCast);
-                SetDrainedByDesirePot(buff, true);
             }
         }
         private void UpdateColorOffset(Buff buff)
@@ -75,12 +71,9 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 buff.Remove();
             }
         }
-        public static bool IsDrainedByDesirePot(Buff buff) => buff.GetProperty<bool>(PROP_DRAINED_BY_DESIRE_POT);
-        public static void SetDrainedByDesirePot(Buff buff, bool value) => buff.SetProperty(PROP_DRAINED_BY_DESIRE_POT, value);
         public const int MAX_TIME = 60;
         public static readonly VanillaBuffPropertyMeta<int> PROP_TIME = new VanillaBuffPropertyMeta<int>("Time");
         public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR_OFFSET = new VanillaBuffPropertyMeta<Color>("ColorOffset");
-        public static readonly VanillaBuffPropertyMeta<bool> PROP_DRAINED_BY_DESIRE_POT = new VanillaBuffPropertyMeta<bool>("drained_by_desire_pot");
         private List<Entity> desirePotBuffer = new List<Entity>();
     }
 }
