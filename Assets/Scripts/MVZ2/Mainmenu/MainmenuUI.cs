@@ -77,30 +77,6 @@ namespace MVZ2.Mainmenu.UI
         {
             achievements.UpdateAchievements(viewDatas);
         }
-        public void ShowCredits(CreditsCategoryViewData[] viewDatas)
-        {
-            credits.gameObject.SetActive(true);
-            credits.UpdateCredits(viewDatas);
-        }
-        public void HideCredits()
-        {
-            credits.gameObject.SetActive(false);
-        }
-
-        #region 按键绑定
-        public void UpdateKeyBindingItems(KeybindingItemViewData[] viewDatas)
-        {
-            keybinding.UpdateItems(viewDatas);
-        }
-        public void UpdateKeyBindingItem(int index, KeybindingItemViewData viewData)
-        {
-            keybinding.UpdateItem(index, viewData);
-        }
-        public void SetKeybindingActive(bool active)
-        {
-            keybinding.gameObject.SetActive(active);
-        }
-        #endregion
         public IEnumerable<MainmenuButton> GetAllButtons()
         {
             return mainmenuButtonDict.Values;
@@ -135,11 +111,6 @@ namespace MVZ2.Mainmenu.UI
 
             stats.OnReturnClick += () => OnStatsReturnButtonClick?.Invoke();
             achievements.OnReturnClick += () => OnAchievementsReturnButtonClick?.Invoke();
-            credits.OnBackButtonClick += () => OnCreditsReturnButtonClick?.Invoke();
-
-            keybinding.OnBackButtonClick += () => OnKeybindingReturnButtonClick?.Invoke();
-            keybinding.OnResetButtonClick += () => OnKeybindingResetButtonClick?.Invoke();
-            keybinding.OnItemButtonClick += (index) => OnKeybindingItemButtonClick?.Invoke(index);
         }
         public event Action<MainmenuButtonType> OnMainmenuButtonClick;
         public event Action OnUserManageDialogCreateNewUserButtonClick;
@@ -147,10 +118,6 @@ namespace MVZ2.Mainmenu.UI
         public event Action<int> OnUserManageDialogUserSelect;
         public event Action OnStatsReturnButtonClick;
         public event Action OnAchievementsReturnButtonClick;
-        public event Action OnCreditsReturnButtonClick;
-        public event Action OnKeybindingReturnButtonClick;
-        public event Action OnKeybindingResetButtonClick;
-        public event Action<int> OnKeybindingItemButtonClick;
 
 
         public OptionsDialog OptionsDialog => optionsDialog;
@@ -162,10 +129,6 @@ namespace MVZ2.Mainmenu.UI
         private StatsUI stats;
         [SerializeField]
         private AchievementsUI achievements;
-        [SerializeField]
-        private CreditsPage credits;
-        [SerializeField]
-        private KeybindingPage keybinding;
 
         [Header("Backgrounds")]
         [SerializeField]

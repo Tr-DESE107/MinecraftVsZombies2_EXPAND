@@ -267,6 +267,15 @@ namespace MVZ2.Scenes
         }
         #endregion
 
+        public void ShowKeybinding()
+        {
+            keybinding.Display();
+        }
+        public void ShowCredits()
+        {
+            credits.Display();
+        }
+
         public void SetFPSEnabled(bool enabled)
         {
             fpsDisplayer.SetActive(enabled);
@@ -317,6 +326,7 @@ namespace MVZ2.Scenes
         #region 属性字段
         private MainManager main => MainManager.Instance;
         private Dictionary<MainScenePageType, ScenePage> pages = new Dictionary<MainScenePageType, ScenePage>();
+
         [SerializeField]
         private MainSceneUI ui;
         [SerializeField]
@@ -345,6 +355,10 @@ namespace MVZ2.Scenes
         private MusicRoomController musicRoom;
         [SerializeField]
         private ArcadeController arcade;
+        [SerializeField]
+        private KeybindingController keybinding;
+        [SerializeField]
+        private CreditsController credits;
         [SerializeField]
         private AchievementHintController achievementHint;
         [SerializeField]

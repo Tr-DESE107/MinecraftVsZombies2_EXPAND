@@ -16,7 +16,6 @@ using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
-using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
@@ -91,28 +90,6 @@ namespace MVZ2.Mainmenu
             }
             ui.SetRayblockerActive(false);
         }
-        public void ShowCredits()
-        {
-            var viewDatas = new List<CreditsCategoryViewData>();
-            var categories = main.ResourceManager.GetAllCreditsCategories();
-            foreach (var category in categories)
-            {
-                var viewData = new CreditsCategoryViewData()
-                {
-                    name = main.LanguageManager._p(VanillaStrings.CONTEXT_CREDITS_CATEGORY, category.Name),
-                    entries = category.Entries.Select(e => main.LanguageManager._p(VanillaStrings.CONTEXT_STAFF_NAME, e)).ToArray(),
-                };
-                viewDatas.Add(viewData);
-            }
-            ui.ShowCredits(viewDatas.ToArray());
-        }
-        public void ShowKeybinding()
-        {
-            bindingKeys = main.OptionsManager.GetAllKeyBindings();
-            bindingKeyIndex = -1;
-            UpdateKeybindingItems();
-            ui.SetKeybindingActive(true);
-        }
         #region 生命周期
         private void Awake()
         {
@@ -139,11 +116,6 @@ namespace MVZ2.Mainmenu
 
             ui.OnStatsReturnButtonClick += OnStatsReturnClickCallback;
             ui.OnAchievementsReturnButtonClick += OnAchievementsReturnClickCallback;
-            ui.OnCreditsReturnButtonClick += OnCreditsReturnClickCallback;
-
-            ui.OnKeybindingReturnButtonClick += OnKeybindingReturnButtonClickCallback;
-            ui.OnKeybindingResetButtonClick += OnKeybindingResetButtonClickCallback;
-            ui.OnKeybindingItemButtonClick += OnKeybindingItemButtonClickCallback;
         }
         private void Update()
         {
@@ -166,7 +138,6 @@ namespace MVZ2.Mainmenu
                 animator.SetFloat("BlendX", blend.x);
                 animator.SetFloat("BlendY", blend.y);
             }
-            UpdateKeybindingCheck();
         }
         #endregion
 
@@ -261,14 +232,14 @@ namespace MVZ2.Mainmenu
             ui.SetOptionsDialogVisible(false);
             if (optionsLogic == null)
                 return;
-            if (optionsLogic.NeedsReload)
-            {
-                main.OptionsManager.SetLanguage(optionsLogic.Language);
-                main.OptionsManager.SetBloodAndGore(optionsLogic.BloodAndGore);
-                Reload();
-            }
+            bool needsReload = optionsLogic.NeedsReload;
             optionsLogic.OnClose -= OnOptionsCloseClickCallback;
             optionsLogic.Dispose();
+            optionsLogic = null;
+            if (needsReload)
+            {
+                Reload();
+            }
         }
 
         #region 用户管理
@@ -456,40 +427,6 @@ namespace MVZ2.Mainmenu
         private void OnAchievementsReturnClickCallback()
         {
             StartAnimatorTransition(basementBlend);
-        }
-        #endregion
-
-        #region 制作人员名单
-        private void OnCreditsReturnClickCallback()
-        {
-            ui.HideCredits();
-        }
-        #endregion
-
-        #region 按键绑定
-        private void OnKeybindingReturnButtonClickCallback()
-        {
-            bindingKeys = null;
-            bindingKeyIndex = -1;
-            ui.SetKeybindingActive(false);
-        }
-        private void OnKeybindingResetButtonClickCallback()
-        {
-            var title = main.LanguageManager._(VanillaStrings.WARNING);
-            var desc = main.LanguageManager._(RESET_KEY_BINDINGS_WARNING);
-            main.Scene.ShowDialogSelect(title, desc, (confirm) =>
-            {
-                if (confirm)
-                {
-                    main.OptionsManager.ResetKeyBindings();
-                    UpdateKeybindingItems();
-                }
-            });
-        }
-        private void OnKeybindingItemButtonClickCallback(int index)
-        {
-            bindingKeyIndex = index;
-            UpdateKeybindingItem(index);
         }
         #endregion
 
@@ -801,89 +738,6 @@ namespace MVZ2.Mainmenu
         }
         #endregion
 
-        #region 按键绑定
-        private void UpdateKeybindingItems()
-        {
-            var viewDatas = new List<KeybindingItemViewData>();
-            var conflictKeys = bindingKeys
-                .Select(k => main.OptionsManager.GetKeyBinding(k))
-                .GroupBy(k => k)
-                .Where(g => g.Count() > 1)
-                .Select(g => g.Key);
-            for (int i = 0; i < bindingKeys.Length; i++)
-            {
-                var id = bindingKeys[i];
-                var keyCode = main.OptionsManager.GetKeyBinding(id);
-                var conflict = conflictKeys.Contains(keyCode);
-                var viewData = GetKeybindingItemViewData(i, conflict);
-                viewDatas.Add(viewData);
-            }
-            ui.UpdateKeyBindingItems(viewDatas.ToArray());
-        }
-        private void UpdateKeybindingItem(int index)
-        {
-            var conflictKeys = bindingKeys
-                .Select(k => main.OptionsManager.GetKeyBinding(k))
-                .GroupBy(k => k)
-                .Where(g => g.Count() > 1)
-                .Select(g => g.Key);
-            var id = bindingKeys[index];
-            var keyCode = main.OptionsManager.GetKeyBinding(id);
-            var conflict = conflictKeys.Contains(keyCode);
-            var viewData = GetKeybindingItemViewData(index, conflict);
-            ui.UpdateKeyBindingItem(index, viewData);
-        }
-        private KeybindingItemViewData GetKeybindingItemViewData(int index, bool conflict)
-        {
-            var id = bindingKeys[index];
-            var nameKey = main.OptionsManager.GetHotkeyNameKey(id);
-            var name = main.LanguageManager._p(VanillaStrings.CONTEXT_HOTKEY_NAME, nameKey);
-
-            var keyCode = main.OptionsManager.GetKeyBinding(id);
-            var keyColor = Color.white;
-            string keyName;
-            if (bindingKeyIndex != index)
-            {
-                keyName = main.InputManager.GetKeyCodeName(keyCode);
-                keyColor = conflict ? Color.red : Color.white;
-            }
-            else
-            {
-                keyName = main.LanguageManager._(PRESS_KEY_HINT);
-            }
-            return new KeybindingItemViewData()
-            {
-                name = name,
-                key = keyName,
-                keyColor = keyColor
-            };
-        }
-        private void UpdateKeybindingCheck()
-        {
-            if (bindingKeys == null)
-                return;
-            if (bindingKeyIndex < 0 || bindingKeyIndex >= bindingKeys.Length)
-                return;
-            if (!Input.anyKeyDown)
-                return;
-            KeyCode code = main.InputManager.GetCurrentPressedKey();
-            if (code == KeyCode.None)
-            {
-                bindingKeyIndex = -1;
-                UpdateKeybindingItems();
-                return;
-            }
-            if (code == KeyCode.Escape)
-            {
-                code = KeyCode.None;
-            }
-            var id = bindingKeys[bindingKeyIndex];
-            bindingKeyIndex = -1;
-            main.OptionsManager.SetKeyBinding(id, code);
-            UpdateKeybindingItems();
-        }
-        #endregion
-
         #region 属性字段
         [TranslateMsg("删除用户时的错误信息，{0}为错误信息")]
         public const string ERROR_MESSAGE_UNABLE_TO_DELETE_USER = "无法删除用户：{0}";
@@ -893,10 +747,6 @@ namespace MVZ2.Mainmenu
         public const string ERROR_MESSAGE_NO_SPARE_USERS_TO_SWITCH = "没有其他有效的用户可供切换。";
         [TranslateMsg("退出对话框的描述")]
         public const string QUIT_DESC = "确认要退出吗？";
-        [TranslateMsg("重置所有按键绑定的警告")]
-        public const string RESET_KEY_BINDINGS_WARNING = "确认要重置所有按键绑定吗？";
-        [TranslateMsg("设置按键提醒")]
-        public const string PRESS_KEY_HINT = "请按键";
         [TranslateMsg("存档导出失败的警告")]
         public const string ERROR_NOT_EXPORTED = "导出存档失败。";
         [TranslateMsg("存档导入失败的警告")]
@@ -934,8 +784,6 @@ namespace MVZ2.Mainmenu
         private Vector2 animatorBlendEnd;
         private float animatorBlendTimeout;
 
-        private NamespaceID[] bindingKeys;
-        public int bindingKeyIndex;
         #endregion
     }
 }

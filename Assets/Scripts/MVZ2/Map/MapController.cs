@@ -212,10 +212,15 @@ namespace MVZ2.Map
         }
         private void OnOptionsDialogCloseCallback()
         {
+            bool needsReload = optionsLogic.NeedsReload;
             optionsLogic.OnClose -= OnOptionsDialogCloseCallback;
             optionsLogic.Dispose();
             optionsLogic = null;
             ui.SetOptionsDialogActive(false);
+            if (needsReload)
+            {
+                ReloadMap();
+            }
         }
         private void OnMapButtonClickCallback(int index)
         {
@@ -258,8 +263,7 @@ namespace MVZ2.Map
             {
                 Main.SaveManager.Unlock(VanillaUnlockID.dreamIsNightmare);
             }
-            Main.SaveManager.SaveToFile(); // 切换梦境与梦魇时保存游戏
-            Main.Scene.DisplayMap(MapID);
+            ReloadMap();
         }
         private void OnMapPinClickCallback(NamespaceID id)
         {
@@ -661,6 +665,10 @@ namespace MVZ2.Map
             if (!NamespaceID.IsValid(stageID))
                 return 0;
             return (int)Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
+        }
+        private void ReloadMap()
+        {
+            Main.Scene.DisplayMap(MapID);
         }
 
         #endregion
