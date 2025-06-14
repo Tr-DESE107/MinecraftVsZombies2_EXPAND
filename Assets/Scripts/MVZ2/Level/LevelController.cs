@@ -419,7 +419,7 @@ namespace MVZ2.Level
             {
                 perf.UpdatePerformanceMonitor();
             }
-            var maxBatchPercentage = Main.PerformanceManager.GetAnimatorBatchSize() / 100f;
+            var maxBatchPercentage = Main.OptionsManager.GetAnimationFrequency();
 
             // 更新实体动画。
             entityAnimatorBuffer.Clear();

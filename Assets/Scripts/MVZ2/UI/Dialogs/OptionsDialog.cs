@@ -83,6 +83,7 @@ namespace MVZ2.UI
             sliderDict.Add(SliderType.Particles, particlesSlider);
             sliderDict.Add(SliderType.FastForward, fastForwardSlider);
             sliderDict.Add(SliderType.Shake, shakeSlider);
+            sliderDict.Add(SliderType.AnimationFrequency, animationFrequencySlider);
 
             dropdownDict.Add(DropdownType.Language, languageDropdown);
             dropdownDict.Add(DropdownType.Resolution, resolutionDropdown);
@@ -200,11 +201,6 @@ namespace MVZ2.UI
         private TextButton pauseOnFocusLostButton;
 
         [SerializeField]
-        private TextButton fullscreenButton;
-        [SerializeField]
-        private TextButton vibrationButton;
-
-        [SerializeField]
         private TextButton diffcultyButton;
         [SerializeField]
         private Button restartButton;
@@ -219,41 +215,55 @@ namespace MVZ2.UI
 
         [Header("More Elements")]
         [SerializeField]
-        private TextSlider particlesSlider;
+        private Button moreBackButton;
         [SerializeField]
-        private TextSlider shakeSlider;
+        private Transform[] moreElementLines;
+
+        [Header("General")]
         [SerializeField]
         private GameObject languageDropdownPair;
         [SerializeField]
         private TMP_Dropdown languageDropdown;
         [SerializeField]
-        private GameObject resolutionDropdownPair;
-        [SerializeField]
-        private TMP_Dropdown resolutionDropdown;
-        [SerializeField]
-        private Transform[] moreElementLines;
-        [SerializeField]
-        private TextButton bloodAndGoreButton;
+        private TextButton vibrationButton;
         [SerializeField]
         private TextButton skipAllTalksButton;
-        [SerializeField]
-        private TextButton showSponsorNamesButton;
         [SerializeField]
         private TextButton chooseWarningsButton;
         [SerializeField]
         private TextButton commandBlockModeButton;
+
+        [Header("Display")]
+        [SerializeField]
+        private TextSlider particlesSlider;
+        [SerializeField]
+        private TextSlider shakeSlider;
+        [SerializeField]
+        private TextSlider animationFrequencySlider;
+        [SerializeField]
+        private GameObject resolutionDropdownPair;
+        [SerializeField]
+        private TMP_Dropdown resolutionDropdown;
+        [SerializeField]
+        private TextButton fullscreenButton;
+        [SerializeField]
+        private TextButton bloodAndGoreButton;
         [SerializeField]
         private TextButton showFPSButton;
+
+        [Header("Controls")]
         [SerializeField]
         private TextButton showHotkeysButton;
         [SerializeField]
+        private TextButton keybindingButton;
+
+        [Header("Misc")]
+        [SerializeField]
+        private TextButton showSponsorNamesButton;
+        [SerializeField]
         private TextButton creditsButton;
         [SerializeField]
-        private TextButton keybindingButton;
-        [SerializeField]
         private Button exportLogFilesButton;
-        [SerializeField]
-        private Button moreBackButton;
         public enum Page
         {
             Main,
@@ -265,7 +275,8 @@ namespace MVZ2.UI
             Sound,
             FastForward,
             Particles,
-            Shake
+            Shake,
+            AnimationFrequency,
         }
         public enum DropdownType
         {

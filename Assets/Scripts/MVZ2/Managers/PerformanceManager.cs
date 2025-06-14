@@ -37,22 +37,9 @@ namespace MVZ2.Managers
                 AdjustBatchSize();
             }
         }
-        public int GetAnimatorBatchSize()
-        {
-            return animatorBatchData.currentBatchSize;
-        }
-
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-        private void OnGUI()
-        {
-            GUI.color = Color.green;
-            GUI.Label(new Rect(0, 0, 200, 20), $"Animator Batch Size:{GetAnimatorBatchSize()}");
-        }
-#endif
 
         void AdjustBatchSize()
         {
-            animatorBatchData.Adjust(currentFPS);
         }
 
         public MainManager Main => MainManager.Instance;
