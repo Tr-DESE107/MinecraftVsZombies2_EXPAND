@@ -42,6 +42,14 @@ namespace MVZ2.GameContent.Enemies
             {
                 enemy.Level.AddBuff<ReverseSatelliteBuff>();
             }
+            if (!IsLeft(enemy))
+            {
+                var leavingTimer = GetLeaveTimer(enemy);
+                if (leavingTimer == null || leavingTimer.Expired || enemy.Level.WaveState == VanillaLevelStates.STATE_AFTER_FINAL_WAVE || enemy.Level.IsAllEnemiesCleared())
+                {
+                    SetLeft(enemy, true);
+                }
+            }
 
             if (enemy.State == STATE_LEAVING)
             {
@@ -91,13 +99,9 @@ namespace MVZ2.GameContent.Enemies
             {
                 state = STATE_STAY;
             }
-            if (state == STATE_STAY)
+            if (state == STATE_STAY && IsLeft(enemy))
             {
-                var leavingTimer = GetLeaveTimer(enemy);
-                if (leavingTimer == null || leavingTimer.Expired || enemy.Level.WaveState == VanillaLevelStates.STATE_AFTER_FINAL_WAVE || enemy.Level.IsAllEnemiesCleared())
-                {
-                    state = STATE_LEAVING;
-                }
+                state = STATE_LEAVING;
             }
             return state;
         }
@@ -146,9 +150,12 @@ namespace MVZ2.GameContent.Enemies
         }
         public static FrameTimer GetLeaveTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, FIELD_LEAVE_TIMER);
         public static void SetLeaveTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, FIELD_LEAVE_TIMER, value);
+        public static bool IsLeft(Entity entity) => entity.GetBehaviourField<bool>(ID, FIELD_LEFT);
+        public static void SetLeft(Entity entity, bool value) => entity.SetBehaviourField(ID, FIELD_LEFT, value);
         public const int STATE_STAY = VanillaEntityStates.WALK;
         public const int STATE_LEAVING = VanillaEntityStates.ENEMY_SPECIAL;
         public const int LEAVE_TIME = 900;
+        public static readonly VanillaEntityPropertyMeta<bool> FIELD_LEFT = new VanillaEntityPropertyMeta<bool>("is_left");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_LEAVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("LeaveTimer");
         private static readonly NamespaceID ID = VanillaEnemyID.reverseSatellite;
     }
