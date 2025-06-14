@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-06-14 10:29+0800\n"
+"POT-Creation-Date: 2025-06-14 09:32+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,52 +99,52 @@ msgstr ""
 msgid "菜单"
 msgstr ""
 
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Middle/ButtonArea1/MoreOptions/Text
+msgid "更多选项"
+msgstr ""
+
 #. 关卡内菜单选项
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Middle/ButtonArea2/RestartButton/Text
 msgid "重新开始"
 msgstr ""
 
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Bottom/ButtonArea/MoreOptions/Text
-msgid "更多选项"
+#. 选项分类
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/General/Title/Text
+msgid "常规"
 msgstr ""
 
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Dropdowns/Dropdown2/ResolutionDropdown/Label
+#. 选项分类
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Title/Text
+msgid "显示"
+msgstr ""
+
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/ResolutionDropdown/Label
 msgid "分辨率"
 msgstr ""
 
+#. 选项分类
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Controls/Title/Text
+msgid "控制"
+msgstr ""
+
 #. 按钮文本
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Buttons/Line1/Credits/Text
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Controls/Options/Buttons/Keybindings/Text
+msgid "快捷键设置"
+msgstr ""
+
+#. 选项分类
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Misc/Title/Text
+msgid "杂项"
+msgstr ""
+
+#. 按钮文本
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Misc/Options/Buttons/Credits/Text
 msgid "制作人员名单"
 msgstr ""
 
 #. 按钮文本
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Buttons/Line2/Keybindings/Text
-msgid "快捷键设置"
-msgstr ""
-
-#. 按钮文本
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Buttons/Line2/ExportLogFiles/Text
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Misc/Options/Buttons/ExportLogFiles/Text
 msgid "导出游戏日志"
-msgstr ""
-
-#. 选项分类
-#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Buttons/CategoryPreferences/Text
-msgid "偏好"
-msgstr ""
-
-#. 标题
-#: /MainGame/MainScene/Mainmenu/Canvas/KeyBinding/Layout/Title
-msgid "按键绑定"
-msgstr ""
-
-#. 按键绑定界面的确认按钮文本
-#: /MainGame/MainScene/Mainmenu/Canvas/KeyBinding/Layout/Buttons/ConfirmButton/Text
-msgid "确认"
-msgstr ""
-
-#. 按键绑定界面的重置按钮文本
-#: /MainGame/MainScene/Mainmenu/Canvas/KeyBinding/Layout/Buttons/ResetButton/Text
-msgid "重置"
 msgstr ""
 
 #. 对话跳过按钮
@@ -299,6 +299,21 @@ msgstr ""
 
 #: /MainGame/MainScene/Addons/Canvas/Loading/Text
 msgid "加载中……"
+msgstr ""
+
+#. 标题
+#: /MainGame/MainScene/GlobalUICanvas/KeyBinding/Layout/Title
+msgid "按键绑定"
+msgstr ""
+
+#. 按键绑定界面的确认按钮文本
+#: /MainGame/MainScene/GlobalUICanvas/KeyBinding/Layout/Buttons/ConfirmButton/Text
+msgid "确认"
+msgstr ""
+
+#. 按键绑定界面的重置按钮文本
+#: /MainGame/MainScene/GlobalUICanvas/KeyBinding/Layout/Buttons/ResetButton/Text
+msgid "重置"
 msgstr ""
 
 #. 成就完成提示
@@ -1220,135 +1235,150 @@ msgid ""
 "必须删除一个存档，并新建存档以继续游戏。"
 msgstr ""
 
+# 设置按键提醒
+#: Scripts\MVZ2\Scene\KeybindingController.cs:157
+msgid "请按键"
+msgstr ""
+
+# 重置所有按键绑定的警告
+#: Scripts\MVZ2\Scene\KeybindingController.cs:159
+msgid "确认要重置所有按键绑定吗？"
+msgstr ""
+
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:277
+#: Scripts\MVZ2\Options\OptionsLogic.cs:532
 msgid "交换触发：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:279
+#: Scripts\MVZ2\Options\OptionsLogic.cs:534
 msgid "全屏：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:281
+#: Scripts\MVZ2\Options\OptionsLogic.cs:536
 msgid "设备震动：{0}"
 msgstr ""
 
 # 选项，{0}为难度
-#: Scripts\MVZ2\Options\OptionsLogic.cs:283
+#: Scripts\MVZ2\Options\OptionsLogic.cs:538
 msgid "难度：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:285
+#: Scripts\MVZ2\Options\OptionsLogic.cs:540
 msgid "后台暂停：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:289
+#: Scripts\MVZ2\Options\OptionsLogic.cs:544
 msgid "音乐音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:291
+#: Scripts\MVZ2\Options\OptionsLogic.cs:546
 msgid "音效音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:293
+#: Scripts\MVZ2\Options\OptionsLogic.cs:548
 msgid "加速倍率：{0}"
 msgstr ""
 
+# 选项，{0}为量
+#: Scripts\MVZ2\Options\OptionsLogic.cs:550
+msgid "动画频率：{0}"
+msgstr ""
+
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:296
+#: Scripts\MVZ2\Options\OptionsLogic.cs:553
 msgid "血与碎块：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:299
+#: Scripts\MVZ2\Options\OptionsLogic.cs:556
 msgid "跳过对话：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:301
+#: Scripts\MVZ2\Options\OptionsLogic.cs:558
 msgid "赞助者名称：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:303
+#: Scripts\MVZ2\Options\OptionsLogic.cs:560
 msgid "选卡警告：{0}"
 msgstr ""
 
 # 选项，{0}为模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:305
+#: Scripts\MVZ2\Options\OptionsLogic.cs:562
 msgid "命令方块：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:307
+#: Scripts\MVZ2\Options\OptionsLogic.cs:564
 msgid "显示帧率：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:309
+#: Scripts\MVZ2\Options\OptionsLogic.cs:566
 msgid "显示快捷键：{0}"
 msgstr ""
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:312
+#: Scripts\MVZ2\Options\OptionsLogic.cs:569
 msgctxt "option.command_block_mode"
 msgid "手选"
 msgstr ""
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:314
+#: Scripts\MVZ2\Options\OptionsLogic.cs:571
 msgctxt "option.command_block_mode"
 msgid "前位"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:317
+#: Scripts\MVZ2\Options\OptionsLogic.cs:574
 msgctxt "option.fps_mode"
 msgid "关闭"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:319
+#: Scripts\MVZ2\Options\OptionsLogic.cs:576
 msgctxt "option.fps_mode"
 msgid "左上"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:321
+#: Scripts\MVZ2\Options\OptionsLogic.cs:578
 msgctxt "option.fps_mode"
 msgid "右上"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:323
+#: Scripts\MVZ2\Options\OptionsLogic.cs:580
 msgctxt "option.fps_mode"
 msgid "左下"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:325
+#: Scripts\MVZ2\Options\OptionsLogic.cs:582
 msgctxt "option.fps_mode"
 msgid "右下"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:328
+#: Scripts\MVZ2\Options\OptionsLogic.cs:585
 msgid "粒子数量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:330
+#: Scripts\MVZ2\Options\OptionsLogic.cs:587
 msgid "屏幕震动：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Options\OptionsLogicLevel.cs:73
+#: Scripts\MVZ2\Options\OptionsLogicLevel.cs:87
 msgid ""
 "确认要返回吗？\n"
 "你的进度会被保存。"
@@ -1460,26 +1490,26 @@ msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:668
+#: Scripts\MVZ2\Map\MapController.cs:676
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:670
+#: Scripts\MVZ2\Map\MapController.cs:678
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:672
+#: Scripts\MVZ2\Map\MapController.cs:680
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:674
+#: Scripts\MVZ2\Map\MapController.cs:682
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -2316,62 +2346,52 @@ msgid "{0}%"
 msgstr ""
 
 # 帧率显示
-#: Scripts\MVZ2\Managers\PerformanceManager.cs:59
+#: Scripts\MVZ2\Managers\PerformanceManager.cs:46
 msgid "FPS: {0}"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:888
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:742
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:890
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:744
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:892
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:746
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:894
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:748
 msgid "确认要退出吗？"
 msgstr ""
 
-# 重置所有按键绑定的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:896
-msgid "确认要重置所有按键绑定吗？"
-msgstr ""
-
-# 设置按键提醒
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:898
-msgid "请按键"
-msgstr ""
-
 # 存档导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:900
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:750
 msgid "导出存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:902
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:752
 msgid "导入存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:904
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:754
 msgid "导入存档失败，文件可能已损坏。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:906
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:756
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 
 # 存档导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:908
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:758
 msgid "存档已导出至{0}。"
 msgstr ""
 
@@ -2418,19 +2438,19 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:929
+#: Scripts\MVZ2\Level\LevelController_UI.cs:930
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:931
+#: Scripts\MVZ2\Level\LevelController_UI.cs:932
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:933
+#: Scripts\MVZ2\Level\LevelController_UI.cs:934
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 
