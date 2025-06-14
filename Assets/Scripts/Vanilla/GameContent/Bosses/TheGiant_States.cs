@@ -779,7 +779,7 @@ namespace MVZ2.GameContent.Bosses
                         break;
                     case SUBSTATE_PACMAN:
                         UpdatePacman(entity);
-                        if (!IsPacmanPanic(entity) && (substateTimer.Expired || entity.IsDead))
+                        if ((!IsPacmanPanic(entity) && substateTimer.Expired) || entity.IsDead)
                         {
                             EndPacman(entity);
                         }
