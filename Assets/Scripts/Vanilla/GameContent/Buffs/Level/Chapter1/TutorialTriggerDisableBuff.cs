@@ -1,4 +1,4 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
@@ -11,8 +11,7 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public TutorialTriggerDisableBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(VanillaLevelProps.TRIGGER_DISABLED, true));
-            AddModifier(new StringModifier(VanillaLevelProps.TRIGGER_DISABLE_MESSAGE, VanillaStrings.TOOLTIP_DISABLE_MESSAGE));
+            AddModifier(new NamespaceIDModifier(VanillaLevelProps.TRIGGER_DISABLE_ID, VanillaBlueprintErrors.tutorial));
         }
     }
 }

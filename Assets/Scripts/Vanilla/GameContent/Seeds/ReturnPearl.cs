@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Seeds
         public override void Update(SeedPack seedPack, float rechargeSpeed)
         {
             base.Update(seedPack, rechargeSpeed);
-            seedPack.SetProperty(EngineSeedProps.DISABLED, !IsValid(seedPack));
+            seedPack.SetProperty(EngineSeedProps.DISABLE_ID, IsValid(seedPack) ? null : VanillaBlueprintErrors.invalid);
         }
         public override void Use(SeedPack seedPack)
         {

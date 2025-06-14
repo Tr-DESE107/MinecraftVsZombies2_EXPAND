@@ -25,6 +25,13 @@ namespace MVZ2.Games
                 return null;
             return meta.Message;
         }
+        public string GetBlueprintErrorMessage(NamespaceID error)
+        {
+            var meta = GetBlueprintErrorMeta(error);
+            if (meta == null)
+                return null;
+            return meta.Message;
+        }
         public void AddMod(IModLogic mod)
         {
             foreach (var def in mod.GetDefinitions())

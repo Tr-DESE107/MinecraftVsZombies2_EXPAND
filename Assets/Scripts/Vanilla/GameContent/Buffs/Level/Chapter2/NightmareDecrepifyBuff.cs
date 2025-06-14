@@ -1,4 +1,4 @@
-﻿using MVZ2.Vanilla;
+﻿using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
@@ -12,12 +12,10 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public NightmareDecrepifyBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new BooleanModifier(VanillaLevelProps.PICKAXE_DISABLED, true));
-            AddModifier(new StringModifier(VanillaLevelProps.PICKAXE_DISABLE_MESSAGE, VanillaStrings.TOOLTIP_DECREPIFY));
+            AddModifier(new NamespaceIDModifier(VanillaLevelProps.PICKAXE_DISABLE_ID, VanillaBlueprintErrors.decrepify));
             AddModifier(new BooleanModifier(VanillaLevelProps.PICKAXE_DISABLE_ICON, true));
 
-            AddModifier(new BooleanModifier(VanillaLevelProps.STARSHARD_DISABLED, true));
-            AddModifier(new StringModifier(VanillaLevelProps.STARSHARD_DISABLE_MESSAGE, VanillaStrings.TOOLTIP_DECREPIFY));
+            AddModifier(new NamespaceIDModifier(VanillaLevelProps.STARSHARD_DISABLE_ID, VanillaBlueprintErrors.decrepify));
             AddModifier(new BooleanModifier(VanillaLevelProps.STARSHARD_DISABLE_ICON, true));
         }
         public override void PostAdd(Buff buff)

@@ -43,6 +43,15 @@ namespace MVZ2.Managers
                 return null;
             return metalist.Options.FirstOrDefault(m => m.ID == id.Path);
         }
+        public BlueprintErrorMeta GetBlueprintErrorMeta(NamespaceID id)
+        {
+            if (id == null)
+                return null;
+            var metalist = GetBlueprintMetaList(id.SpaceName);
+            if (metalist == null)
+                return null;
+            return metalist.Errors.FirstOrDefault(m => m.ID == id.Path);
+        }
         public string GetSeedOptionName(NamespaceID id)
         {
             if (id == null)

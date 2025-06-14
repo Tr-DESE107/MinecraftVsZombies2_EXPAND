@@ -1,4 +1,5 @@
-﻿using MVZ2Logic;
+﻿using MVZ2.GameContent.Seeds;
+using MVZ2Logic;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Level;
@@ -14,31 +15,37 @@ namespace MVZ2.Vanilla.SeedPacks
         }
         public static bool CanPick(this SeedPack seed, out string errorMessage)
         {
+            var id = seed.GetPickError();
+            if (NamespaceID.IsValid(id))
+            {
+                errorMessage = Global.Game.GetBlueprintErrorMessage(id);
+                return false;
+            }
+            errorMessage = null;
+            return true;
+        }
+        public static NamespaceID GetPickError(this SeedPack seed)
+        {
             if (seed is ClassicSeedPack)
             {
                 if (seed == null)
                 {
-                    errorMessage = null;
-                    return false;
+                    return VanillaBlueprintErrors.invalid;
                 }
                 if (!seed.IsCharged())
                 {
-                    errorMessage = Global.Game.GetText(VanillaStrings.TOOLTIP_RECHARGING);
-                    return false;
+                    return VanillaBlueprintErrors.recharging;
                 }
                 if (seed.Level.Energy < seed.GetCost())
                 {
-                    errorMessage = Global.Game.GetText(Vanilla.VanillaStrings.TOOLTIP_NOT_ENOUGH_ENERGY);
-                    return false;
+                    return VanillaBlueprintErrors.notEnoughEnergy;
                 }
                 if (seed.IsDisabled())
                 {
-                    errorMessage = Global.Game.GetText(seed.GetDisableMessage());
-                    return false;
+                    return seed.GetDisableID();
                 }
             }
-            errorMessage = null;
-            return true;
+            return null;
         }
         public static NamespaceID GetSeedEntityID(this SeedPack seed)
         {

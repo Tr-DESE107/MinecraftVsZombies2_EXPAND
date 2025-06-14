@@ -974,10 +974,11 @@ namespace MVZ2.Level
                 string error = null;
                 if (!level.level.CanUsePickaxe())
                 {
-                    var message = level.level.GetPickaxeDisableMessage();
+                    var disableID = controller.level.GetPickaxeDisableID();
+                    var message = Global.Game.GetBlueprintErrorMessage(disableID);
                     if (!string.IsNullOrEmpty(message))
                     {
-                        error = level.Localization._(message);
+                        error = level.Localization._p(VanillaStrings.CONTEXT_BLUEPRINT_ERROR, message);
                     }
                 }
                 return new TooltipViewData()
@@ -1002,12 +1003,13 @@ namespace MVZ2.Level
             public TooltipViewData GetViewData(LevelController level)
             {
                 string error = null;
-                if (controller.level.IsTriggerDisabled())
+                if (level.level.CanUseTrigger())
                 {
-                    var message = controller.level.GetTriggerDisableMessage();
+                    var disableID = level.level.GetTriggerDisableID();
+                    var message = Global.Game.GetBlueprintErrorMessage(disableID);
                     if (!string.IsNullOrEmpty(message))
                     {
-                        error = controller.Localization._(message);
+                        error = controller.Localization._p(VanillaStrings.CONTEXT_BLUEPRINT_ERROR, message);
                     }
                 }
                 return new TooltipViewData()

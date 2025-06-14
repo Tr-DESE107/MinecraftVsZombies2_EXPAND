@@ -116,10 +116,6 @@ namespace MVZ2.Vanilla
         public const string CONFIRM = "确认";
 
         [TranslateMsg("游戏内文本提示")]
-        public const string TOOLTIP_NOT_ENOUGH_ENERGY = "能量不足";
-        [TranslateMsg("游戏内文本提示")]
-        public const string TOOLTIP_RECHARGING = "重新充能中…";
-        [TranslateMsg("游戏内文本提示")]
         public const string TOOLTIP_DIG_CONTRAPTION = "挖掉器械";
         [TranslateMsg("游戏内文本提示")]
         public const string TOOLTIP_TRIGGER_CONTRAPTION = "触发器械";
@@ -207,6 +203,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ALMANAC_GROUP_NAME = "almanac.group_name";
         public const string CONTEXT_LANGUAGE_NAME = "language_name";
         public const string CONTEXT_OPTION_NAME = "option.name";
+        public const string CONTEXT_BLUEPRINT_ERROR = "blueprint.error";
         public const string CONTEXT_COMMAND_BLOCK_MODE = "option.command_block_mode";
         public const string CONTEXT_FPS_MODE = "option.fps_mode";
         public const string CONTEXT_RECHARGE_TIME = "recharge_time";
