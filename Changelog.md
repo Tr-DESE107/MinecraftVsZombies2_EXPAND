@@ -1,7 +1,6 @@
 ## Added
 - "Show FPS" and "Show Hot Keys" option.
 - Fully-Charged flash for blueprints.
-- Energy number will now flicker if you try to select a blueprint while you have not enough energy.
 
 ## Modified
 
@@ -35,6 +34,9 @@
 ### Misc
 - Wither Skeleton monsters are now 20% bigger than normal enemies.
 - Adjusted the compression format for entity textures.
+- Energy number will now flicker if you try to select a blueprint while you have not enough energy.
+- Replaced the text of endless level button to ∞ from E.
+- There will be a hint text at the start of endless level.
 
 ## Fixed
 - Level may failed to be loaded.

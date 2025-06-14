@@ -22,6 +22,8 @@ namespace MVZ2.Vanilla
         public const string ADVICE_DEVELOPING = "剩余内容正在开发中，敬请期待！";
 
         [TranslateMsg("无尽模式的提示", CONTEXT_ADVICE)]
+        public const string ADVICE_ENDLESS_HINT = "你能存活多少轮？";
+        [TranslateMsg("无尽模式的提示", CONTEXT_ADVICE)]
         public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的敌人要来了！";
         [TranslateMsg("预览战场的提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_CONTINUE = "点击以继续";

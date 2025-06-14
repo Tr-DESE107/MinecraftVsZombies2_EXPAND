@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-06-14 09:41+0800\n"
+"POT-Creation-Date: 2025-06-14 10:29+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -789,17 +789,23 @@ msgstr ""
 # 无尽模式的提示
 #: Scripts\Vanilla\VanillaStrings.cs:24
 msgctxt "advice"
+msgid "你能存活多少轮？"
+msgstr ""
+
+# 无尽模式的提示
+#: Scripts\Vanilla\VanillaStrings.cs:26
+msgctxt "advice"
 msgid "更多的敌人要来了！"
 msgstr ""
 
 # 预览战场的提示
-#: Scripts\Vanilla\VanillaStrings.cs:26
+#: Scripts\Vanilla\VanillaStrings.cs:28
 msgctxt "advice"
 msgid "点击以继续"
 msgstr ""
 
 # 欲望壶技能的提示，{0}为受到的总伤害
-#: Scripts\Vanilla\VanillaStrings.cs:28
+#: Scripts\Vanilla\VanillaStrings.cs:30
 msgctxt "advice"
 msgid "没有抽到牌！受到{0}点疲劳伤害！"
 msgid_plural "没有抽到牌！受到{0}点疲劳伤害！"
@@ -807,13 +813,13 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 欲望壶技能的提示
-#: Scripts\Vanilla\VanillaStrings.cs:30
+#: Scripts\Vanilla\VanillaStrings.cs:32
 msgctxt "advice"
 msgid "没有抽到牌！但那又怎样呢？"
 msgstr ""
 
 # 我是僵尸模式的提示，{0}为剩余轮数
-#: Scripts\Vanilla\VanillaStrings.cs:32
+#: Scripts\Vanilla\VanillaStrings.cs:34
 msgctxt "advice"
 msgid "干得好！还剩{0}轮！"
 msgid_plural "干得好！还剩{0}轮！"
@@ -821,7 +827,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 我是僵尸模式的提示，{0}为目前连胜
-#: Scripts\Vanilla\VanillaStrings.cs:34
+#: Scripts\Vanilla\VanillaStrings.cs:36
 msgctxt "advice"
 msgid "干得好！目前连胜：{0}！"
 msgid_plural "干得好！目前连胜：{0}！"
@@ -829,208 +835,208 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 固有蓝图的提示
-#: Scripts\Vanilla\VanillaStrings.cs:37
+#: Scripts\Vanilla\VanillaStrings.cs:39
 msgid "固有"
 msgstr ""
 
 # 不推荐使用的提示
-#: Scripts\Vanilla\VanillaStrings.cs:39
+#: Scripts\Vanilla\VanillaStrings.cs:41
 msgid "不推荐在这关使用"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:42
+#: Scripts\Vanilla\VanillaStrings.cs:44
 msgid "购买"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:44
+#: Scripts\Vanilla\VanillaStrings.cs:46
 msgid "购买第七个器械槽位？"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:46
+#: Scripts\Vanilla\VanillaStrings.cs:48
 msgid "是否进行新手教程？"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:48
+#: Scripts\Vanilla\VanillaStrings.cs:50
 msgid "新手教程"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:50
+#: Scripts\Vanilla\VanillaStrings.cs:52
 msgid "通关"
 msgstr ""
 
-#: Scripts\Vanilla\VanillaStrings.cs:52
+#: Scripts\Vanilla\VanillaStrings.cs:54
 msgid ""
 "恭喜通关！\n"
 "接下来的内容还在开发中，敬请期待！"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:55
+#: Scripts\Vanilla\VanillaStrings.cs:57
 msgid "用户名不能为空"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:57
+#: Scripts\Vanilla\VanillaStrings.cs:59
 msgid "已经存在该用户名"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:59
+#: Scripts\Vanilla\VanillaStrings.cs:61
 msgid "无法重命名为该用户名"
 msgstr ""
 
 # 输入名称对话框的错误信息
-#: Scripts\Vanilla\VanillaStrings.cs:61
+#: Scripts\Vanilla\VanillaStrings.cs:63
 msgid "第一次游戏必须输入用户名"
 msgstr ""
 
 # 删除用户时的警告，{0}为名称
-#: Scripts\Vanilla\VanillaStrings.cs:63
+#: Scripts\Vanilla\VanillaStrings.cs:65
 msgid ""
 "确认删除用户{0}吗？\n"
 "该用户所有的数据都将被删除！"
 msgstr ""
 
 # 重命名特殊用户时的警告
-#: Scripts\Vanilla\VanillaStrings.cs:65
+#: Scripts\Vanilla\VanillaStrings.cs:67
 msgid "你无法重命名该用户"
-msgstr ""
-
-# 冷却时间
-#: Scripts\Vanilla\VanillaStrings.cs:69
-msgctxt "recharge_time"
-msgid "无"
 msgstr ""
 
 # 冷却时间
 #: Scripts\Vanilla\VanillaStrings.cs:71
 msgctxt "recharge_time"
-msgid "短"
+msgid "无"
 msgstr ""
 
 # 冷却时间
 #: Scripts\Vanilla\VanillaStrings.cs:73
 msgctxt "recharge_time"
-msgid "长"
+msgid "短"
 msgstr ""
 
 # 冷却时间
 #: Scripts\Vanilla\VanillaStrings.cs:75
 msgctxt "recharge_time"
+msgid "长"
+msgstr ""
+
+# 冷却时间
+#: Scripts\Vanilla\VanillaStrings.cs:77
+msgctxt "recharge_time"
 msgid "很长"
 msgstr ""
 
 # 对话档案对话框标题
-#: Scripts\Vanilla\VanillaStrings.cs:79
+#: Scripts\Vanilla\VanillaStrings.cs:81
 msgctxt "archive"
 msgid "剧情分支"
 msgstr ""
 
 # 对话档案对话框内容
-#: Scripts\Vanilla\VanillaStrings.cs:81
+#: Scripts\Vanilla\VanillaStrings.cs:83
 msgctxt "archive"
 msgid "是否拥有足够的金钱？"
 msgstr ""
 
 # 对话档案对话框标题
-#: Scripts\Vanilla\VanillaStrings.cs:83
+#: Scripts\Vanilla\VanillaStrings.cs:85
 msgctxt "archive"
 msgid "对话结束"
 msgstr ""
 
 # 对话档案对话框内容
-#: Scripts\Vanilla\VanillaStrings.cs:85
+#: Scripts\Vanilla\VanillaStrings.cs:87
 msgctxt "archive"
 msgid "是否重新播放？"
 msgstr ""
 
 # 通用的是
-#: Scripts\Vanilla\VanillaStrings.cs:89
+#: Scripts\Vanilla\VanillaStrings.cs:91
 msgid "是"
 msgstr ""
 
 # 通用的否
-#: Scripts\Vanilla\VanillaStrings.cs:91
+#: Scripts\Vanilla\VanillaStrings.cs:93
 msgid "否"
 msgstr ""
 
 # 通用的开
-#: Scripts\Vanilla\VanillaStrings.cs:93
+#: Scripts\Vanilla\VanillaStrings.cs:95
 msgid "开"
 msgstr ""
 
 # 通用的关
-#: Scripts\Vanilla\VanillaStrings.cs:95
+#: Scripts\Vanilla\VanillaStrings.cs:97
 msgid "关"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:101
+#: Scripts\Vanilla\VanillaStrings.cs:103
 msgid "返回地图"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:103
+#: Scripts\Vanilla\VanillaStrings.cs:105
 msgid "返回主菜单"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:107
+#: Scripts\Vanilla\VanillaStrings.cs:109
 msgid "警告"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:109
+#: Scripts\Vanilla\VanillaStrings.cs:111
 msgid "提示"
 msgstr ""
 
 # 通用文本
-#: Scripts\Vanilla\VanillaStrings.cs:111
+#: Scripts\Vanilla\VanillaStrings.cs:113
 msgid "退出"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:118
+#: Scripts\Vanilla\VanillaStrings.cs:120
 msgid "挖掉器械"
 msgstr ""
 
 # 游戏内文本提示
-#: Scripts\Vanilla\VanillaStrings.cs:120
+#: Scripts\Vanilla\VanillaStrings.cs:122
 msgid "触发器械"
-msgstr ""
-
-# 关卡难度
-#: Scripts\Vanilla\VanillaStrings.cs:124
-msgctxt "difficulty"
-msgid "简单"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:126
 msgctxt "difficulty"
-msgid "普通"
+msgid "简单"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:128
 msgctxt "difficulty"
-msgid "困难"
+msgid "普通"
 msgstr ""
 
 # 关卡难度
 #: Scripts\Vanilla\VanillaStrings.cs:130
 msgctxt "difficulty"
+msgid "困难"
+msgstr ""
+
+# 关卡难度
+#: Scripts\Vanilla\VanillaStrings.cs:132
+msgctxt "difficulty"
 msgid "未知难度"
 msgstr ""
 
 # 关卡名称
-#: Scripts\Vanilla\VanillaStrings.cs:134
+#: Scripts\Vanilla\VanillaStrings.cs:136
 msgctxt "levelname"
 msgid "未知关卡"
 msgstr ""
 
 # 关卡名称，{0}为关卡名，{1}为冒险模式天数
-#: Scripts\Vanilla\VanillaStrings.cs:136
+#: Scripts\Vanilla\VanillaStrings.cs:138
 msgctxt "levelname"
 msgid "{0} - 第{1}天"
 msgid_plural "{0} - 第{1}天"
@@ -1038,7 +1044,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 关卡名称，{0}为关卡名，{1}为无尽模式轮数
-#: Scripts\Vanilla\VanillaStrings.cs:138
+#: Scripts\Vanilla\VanillaStrings.cs:140
 msgctxt "levelname"
 msgid "{0} - 第{1}轮"
 msgid_plural "{0} - 第{1}轮"
@@ -1046,67 +1052,67 @@ msgstr[0] ""
 msgstr[1] ""
 
 # 死亡信息-未知
-#: Scripts\Vanilla\VanillaStrings.cs:142
+#: Scripts\Vanilla\VanillaStrings.cs:144
 msgctxt "death_message"
 msgid "你死了！"
 msgstr ""
 
 # 死亡信息-梦魇碾压墙
-#: Scripts\Vanilla\VanillaStrings.cs:144
+#: Scripts\Vanilla\VanillaStrings.cs:146
 msgctxt "death_message"
 msgid "<color=red>来到我们之中吧</color>"
 msgstr ""
 
 # 死亡信息-我是僵尸
-#: Scripts\Vanilla\VanillaStrings.cs:146
+#: Scripts\Vanilla\VanillaStrings.cs:148
 msgctxt "death_message"
 msgid "你失去了所有能量！"
 msgstr ""
 
 # 实体名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:149
+#: Scripts\Vanilla\VanillaStrings.cs:151
 msgctxt "entity.name"
 msgid "？？？"
 msgstr ""
 
 # 实体对策名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:152
+#: Scripts\Vanilla\VanillaStrings.cs:154
 msgctxt "entity_counter.name"
 msgid "？？？"
 msgstr ""
 
 # 蓝图选项名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:155
+#: Scripts\Vanilla\VanillaStrings.cs:157
 msgctxt "option.name"
 msgid "？？？"
 msgstr ""
 
 # 实体说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:158
+#: Scripts\Vanilla\VanillaStrings.cs:160
 msgctxt "entity.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 制品名称-未知
-#: Scripts\Vanilla\VanillaStrings.cs:161
+#: Scripts\Vanilla\VanillaStrings.cs:163
 msgctxt "artifact.name"
 msgid "？？？"
 msgstr ""
 
 # 制品说明-未知
-#: Scripts\Vanilla\VanillaStrings.cs:164
+#: Scripts\Vanilla\VanillaStrings.cs:166
 msgctxt "artifact.tooltip"
 msgid "？？？"
 msgstr ""
 
 # 怪物说明-还没有遇到
-#: Scripts\Vanilla\VanillaStrings.cs:167
+#: Scripts\Vanilla\VanillaStrings.cs:169
 msgctxt "almanac"
 msgid "（还没有遇到）"
 msgstr ""
 
 # 音乐名-无
-#: Scripts\Vanilla\VanillaStrings.cs:171
+#: Scripts\Vanilla\VanillaStrings.cs:173
 msgctxt "music.name"
 msgid "无"
 msgstr ""
@@ -2412,19 +2418,19 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:924
+#: Scripts\MVZ2\Level\LevelController_UI.cs:929
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:926
+#: Scripts\MVZ2\Level\LevelController_UI.cs:931
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:928
+#: Scripts\MVZ2\Level\LevelController_UI.cs:933
 msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
 msgstr ""
 

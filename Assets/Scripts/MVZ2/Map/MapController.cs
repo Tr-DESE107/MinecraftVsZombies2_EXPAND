@@ -603,7 +603,7 @@ namespace MVZ2.Map
                 endlessColor = buttonColorLocked;
             model.SetEndlessButtonInteractable(endlessUnlocked);
             model.SetEndlessButtonColor(endlessColor);
-            model.SetEndlessButtonText("E");
+            model.SetEndlessButtonText("\u221E");
 
             model.SetMapKeyActive(Main.SaveManager.IsUnlocked(VanillaUnlockID.halloween11));
 
