@@ -1,5 +1,6 @@
 ﻿using MVZ2.Level.UI;
 using MVZ2.UI;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
@@ -109,7 +110,7 @@ namespace MVZ2.Level
         {
             if (!CanPick(out var errorMessage) && !string.IsNullOrEmpty(errorMessage))
             {
-                return errorMessage;
+                return Main.LanguageManager._p(VanillaStrings.CONTEXT_BLUEPRINT_ERROR, errorMessage);
             }
             return string.Empty;
         }

@@ -29,6 +29,7 @@ namespace MVZ2Logic.Games
         public ISpawnMeta[] GetModSpawnMetas(string spaceName);
         public IGridLayerMeta GetGridLayerMeta(NamespaceID id);
         public IGridErrorMeta GetGridErrorMeta(NamespaceID id);
+        public IBlueprintErrorMeta GetBlueprintErrorMeta(NamespaceID id);
         public bool IsContraptionInAlmanac(NamespaceID id);
         public bool IsEnemyInAlmanac(NamespaceID id);
     }

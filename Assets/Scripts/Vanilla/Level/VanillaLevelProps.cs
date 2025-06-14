@@ -51,8 +51,7 @@ namespace MVZ2.Vanilla.Level
         #region 星之碎片
         public static readonly PropertyMeta<int> STARSHARD_COUNT = Get<int>("starshardCount");
         public static readonly PropertyMeta<int> STARSHARD_SLOT_COUNT = Get<int>("starshardSlotCount");
-        public static readonly PropertyMeta<bool> STARSHARD_DISABLED = Get<bool>("starshardDisabled");
-        public static readonly PropertyMeta<string> STARSHARD_DISABLE_MESSAGE = Get<string>("starshardDisableMessage");
+        public static readonly PropertyMeta<NamespaceID> STARSHARD_DISABLE_ID = Get<NamespaceID>("starshardDisableID");
         public static readonly PropertyMeta<bool> STARSHARD_DISABLE_ICON = Get<bool>("starshardDisableIcon");
         public static int GetStarshardSlotCount(this LevelEngine game)
         {
@@ -64,7 +63,11 @@ namespace MVZ2.Vanilla.Level
         }
         public static bool IsStarshardDisabled(this LevelEngine level)
         {
-            return level.GetProperty<bool>(STARSHARD_DISABLED);
+            return NamespaceID.IsValid(level.GetStarshardDisableID());
+        }
+        public static NamespaceID GetStarshardDisableID(this LevelEngine level)
+        {
+            return level.GetProperty<NamespaceID>(STARSHARD_DISABLE_ID);
         }
         public static bool ShouldShowStarshardDisableIcon(this LevelEngine level)
         {
@@ -96,14 +99,17 @@ namespace MVZ2.Vanilla.Level
         #endregion
 
         #region 铁镐
-        public static readonly PropertyMeta<bool> PICKAXE_DISABLED = Get<bool>("pickaxeDisabled");
-        public static readonly PropertyMeta<string> PICKAXE_DISABLE_MESSAGE = Get<string>("pickaxeDisableMessage");
+        public static readonly PropertyMeta<NamespaceID> PICKAXE_DISABLE_ID = Get<NamespaceID>("pickaxeDisableID");
         public static readonly PropertyMeta<bool> PICKAXE_DISABLE_ICON = Get<bool>("pickaxeDisableIcon");
         public static readonly PropertyMeta<int> PICKAXE_REMAIN_COUNT = Get<int>("pickaxeRemainCount");
         public static readonly PropertyMeta<int> PICKAXE_COUNT_LIMIT = Get<int>("pickaxeCountLimit");
         public static bool IsPickaxeDisabled(this LevelEngine level)
         {
-            return level.GetProperty<bool>(PICKAXE_DISABLED);
+            return NamespaceID.IsValid(level.GetPickaxeDisableID());
+        }
+        public static NamespaceID GetPickaxeDisableID(this LevelEngine level)
+        {
+            return level.GetProperty<NamespaceID>(PICKAXE_DISABLE_ID);
         }
         public static bool CanUsePickaxe(this LevelEngine level)
         {
@@ -114,10 +120,6 @@ namespace MVZ2.Vanilla.Level
             if (level.IsPickaxeCountLimited() && level.GetPickaxeRemainCount() <= 0)
                 return false;
             return true;
-        }
-        public static string GetPickaxeDisableMessage(this LevelEngine level)
-        {
-            return level.GetProperty<string>(PICKAXE_DISABLE_MESSAGE);
         }
         public static bool ShouldShowPickaxeDisableIcon(this LevelEngine level)
         {
@@ -151,8 +153,7 @@ namespace MVZ2.Vanilla.Level
         #endregion
 
         #region 触发器
-        public static readonly PropertyMeta<bool> TRIGGER_DISABLED = Get<bool>("triggerDisabled");
-        public static readonly PropertyMeta<string> TRIGGER_DISABLE_MESSAGE = Get<string>("triggerDisableMessage");
+        public static readonly PropertyMeta<NamespaceID> TRIGGER_DISABLE_ID = Get<NamespaceID>("triggerDisableID");
         public static bool CanUseTrigger(this LevelEngine level)
         {
             if (!level.IsTriggerActive())
@@ -163,11 +164,11 @@ namespace MVZ2.Vanilla.Level
         }
         public static bool IsTriggerDisabled(this LevelEngine level)
         {
-            return level.GetProperty<bool>(TRIGGER_DISABLED);
+            return NamespaceID.IsValid(level.GetTriggerDisableID());
         }
-        public static string GetTriggerDisableMessage(this LevelEngine level)
+        public static NamespaceID GetTriggerDisableID(this LevelEngine level)
         {
-            return level.GetProperty<string>(TRIGGER_DISABLE_MESSAGE);
+            return level.GetProperty<NamespaceID>(TRIGGER_DISABLE_ID);
         }
         #endregion
 

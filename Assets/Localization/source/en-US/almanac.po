@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-06-12 12:33+0800\n"
-"PO-Revision-Date: 2025-06-13 09:37+0800\n"
+"POT-Creation-Date: 2025-06-14 09:41+0800\n"
+"PO-Revision-Date: 2025-06-14 09:42+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -5510,6 +5510,30 @@ msgstr "Eye of the Giant"
 msgctxt "artifact.tooltip"
 msgid "器械x250%伤害，但x50%攻击速度"
 msgstr "x250% damage but x50% attack speed for contraptions"
+
+#. Message for blueprint error recharging
+#: Blueprints meta file
+msgctxt "blueprint.error"
+msgid "重新充能中…"
+msgstr "Recharging…"
+
+#. Message for blueprint error not_enough_energy
+#: Blueprints meta file
+msgctxt "blueprint.error"
+msgid "能量不足"
+msgstr "Not enough energy"
+
+#. Message for blueprint error tutorial
+#: Blueprints meta file
+msgctxt "blueprint.error"
+msgid "无法使用"
+msgstr "Cannot be used"
+
+#. Message for blueprint error decrepify
+#: Blueprints meta file
+msgctxt "blueprint.error"
+msgid "受到衰老诅咒！"
+msgstr "Decrepified!"
 
 #. Name for blueprint option return_pearl
 #: Blueprints meta file

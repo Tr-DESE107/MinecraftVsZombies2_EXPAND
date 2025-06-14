@@ -106,6 +106,10 @@ namespace MVZ2.Editor
                 AddTranslation(potGenerator, meta.Name, artifactsReference, $"Name for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_NAME);
                 AddTranslation(potGenerator, meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
             }
+            foreach (var error in blueprintsList.Errors)
+            {
+                AddTranslation(potGenerator, error.Message, blueprintsReference, $"Message for blueprint error {error.ID}", VanillaStrings.CONTEXT_BLUEPRINT_ERROR);
+            }
             foreach (var option in blueprintsList.Options)
             {
                 AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", VanillaStrings.CONTEXT_OPTION_NAME);

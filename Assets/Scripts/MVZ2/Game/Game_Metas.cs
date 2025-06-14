@@ -90,6 +90,10 @@ namespace MVZ2.Games
         {
             return metaProvider.GetGridErrorMeta(id);
         }
+        public IBlueprintErrorMeta GetBlueprintErrorMeta(NamespaceID id)
+        {
+            return metaProvider.GetBlueprintErrorMeta(id);
+        }
         public bool IsContraptionInAlmanac(NamespaceID id)
         {
             return metaProvider.IsContraptionInAlmanac(id);

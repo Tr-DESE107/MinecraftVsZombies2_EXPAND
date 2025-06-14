@@ -455,6 +455,8 @@ namespace MVZ2.Managers
 
         IGridLayerMeta IGameMetas.GetGridLayerMeta(NamespaceID id) => GetGridLayerMeta(id);
         IGridErrorMeta IGameMetas.GetGridErrorMeta(NamespaceID id) => GetGridErrorMeta(id);
+
+        IBlueprintErrorMeta IGameMetas.GetBlueprintErrorMeta(NamespaceID id) => GetBlueprintErrorMeta(id);
         #endregion
 
         #endregion
