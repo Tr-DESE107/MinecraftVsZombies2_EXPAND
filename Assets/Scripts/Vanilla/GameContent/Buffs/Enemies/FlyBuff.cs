@@ -47,7 +47,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
             velocity.y = velocity.y * (1 - flySpeedFactor) + targetSpeed * flySpeedFactor;
             entity.Velocity = velocity;
 
-            entity.CheckAlignWithLane();
+            if (entity.Type == EntityTypes.ENEMY)
+            {
+                entity.CheckAlignWithLane();
+            }
         }
         public static readonly VanillaBuffPropertyMeta<float> PROP_GRAVITY_MULTIPLIER = new VanillaBuffPropertyMeta<float>("GravityMultiplier");
         public static readonly VanillaBuffPropertyMeta<float> PROP_TARGET_HEIGHT = new VanillaBuffPropertyMeta<float>("TargetHeight");
