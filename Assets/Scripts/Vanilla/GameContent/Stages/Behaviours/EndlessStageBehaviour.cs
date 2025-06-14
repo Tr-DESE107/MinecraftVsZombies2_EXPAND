@@ -25,6 +25,14 @@ namespace MVZ2.GameContent.Stages
         {
             stageDef.AddTrigger(LevelCallbacks.POST_WAVE_FINISHED, PostWaveFinishedCallback);
         }
+        public override void Start(LevelEngine level)
+        {
+            base.Start(level);
+            if (level.CurrentFlag == 0)
+            {
+                level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_ENDLESS_HINT, 1, 150);
+            }
+        }
         public override void Update(LevelEngine level)
         {
             base.Update(level);
