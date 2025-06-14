@@ -39,7 +39,6 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             }
             UpdateDevourerPosition(devourer);
-            devourer.SetModelProperty("Mill", true);
         }
         protected override void OnEvoke(Entity entity)
         {
@@ -88,6 +87,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 UpdateNotEvoked(devourer);
             }
+            devourer.SetModelProperty("Mill", devourer.State != VanillaEntityStates.CONTRAPTION_SPECIAL);
         }
         private void UpdateEvoked(Entity devourer)
         {
@@ -159,7 +159,6 @@ namespace MVZ2.GameContent.Contraptions
             devourTimer?.ResetTime(EVOCATION_DURATION);
             devourer.State = VanillaEntityStates.CONTRAPTION_SPECIAL;
             FindPacmanGhostTarget(devourer);
-            devourer.SetAnimationBool("Mill", false);
             devourer.CollisionMaskHostile |= EntityCollisionHelper.MASK_VULNERABLE;
         }
         private void UpdateNotEvoked(Entity devourer)
