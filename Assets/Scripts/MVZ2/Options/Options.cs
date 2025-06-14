@@ -55,6 +55,7 @@ namespace MVZ2.Options
         public int commandBlockMode;
         public int fpsMode;
         public bool showHotkeyIndicators;
+        public float minAnimationFrequency;
     }
     [Serializable]
     public class SerializableOptions

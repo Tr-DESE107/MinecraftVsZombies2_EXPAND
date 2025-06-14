@@ -50,6 +50,7 @@ namespace MVZ2.Options
 
             // Display
             UpdateFullscreenButton(Main.OptionsManager.IsFullscreen());
+            UpdateAnimationFrequencySlider();
             InitResolutionDropdown();
             UpdateResolutionDropdown();
             UpdateParticlesSlider();
@@ -222,6 +223,13 @@ namespace MVZ2.Options
                         UpdateFastforwardSlider();
                     }
                     break;
+                case SliderType.AnimationFrequency:
+                    {
+                        var multi = ValueToAnimationFrequency(value);
+                        Main.OptionsManager.SetAnimationFrequency(multi);
+                        UpdateAnimationFrequencySlider();
+                    }
+                    break;
                 case SliderType.Particles:
                     {
                         Main.OptionsManager.SetParticleAmount(value);
@@ -340,6 +348,17 @@ namespace MVZ2.Options
             dialog.SetSliderValue(SliderType.FastForward, value);
             dialog.SetSliderText(SliderType.FastForward, text);
         }
+        protected void UpdateAnimationFrequencySlider()
+        {
+            var multi = Main.OptionsManager.GetAnimationFrequency();
+            var value = AnimationFrequencyToValue(multi);
+
+            var valueText = Main.GetFloatPercentageText(multi);
+            var text = Main.LanguageManager._(OPTION_ANIMATION_FREQUENCY, valueText);
+            dialog.SetSliderRange(SliderType.AnimationFrequency, ANIMATION_FREQUENCY_SLIDER_START, ANIMATION_FREQUENCY_SLIDER_END, false);
+            dialog.SetSliderValue(SliderType.AnimationFrequency, value);
+            dialog.SetSliderText(SliderType.AnimationFrequency, text);
+        }
         protected float ValueToFastForwardMultiplier(float value)
         {
             return FASTFORWARD_MULTIPLIER_START + FASTFORWARD_STEP * value;
@@ -347,6 +366,14 @@ namespace MVZ2.Options
         protected float FastForwardMultiplierToValue(float multi)
         {
             return Mathf.RoundToInt((multi - FASTFORWARD_MULTIPLIER_START) / FASTFORWARD_STEP);
+        }
+        private float ValueToAnimationFrequency(float value)
+        {
+            return value;
+        }
+        protected float AnimationFrequencyToValue(float frequency)
+        {
+            return frequency;
         }
         protected void UpdateSwapTriggerButton()
         {
@@ -496,6 +523,11 @@ namespace MVZ2.Options
         public const float FASTFORWARD_MULTIPLIER_RANGE = FASTFORWARD_MULTIPLIER_END - FASTFORWARD_MULTIPLIER_START;
         public const float FASTFORWARD_STEP = FASTFORWARD_MULTIPLIER_RANGE / FASTFORWARD_STEP_COUNT;
 
+        public const float ANIMATION_FREQUENCY_SLIDER_START = 0.3f;
+        public const float ANIMATION_FREQUENCY_SLIDER_END = 1;
+        public const float ANIMATION_FREQUENCY_START = 0.3f;
+        public const float ANIMATION_FREQUENCY_END = 1;
+
 
         [TranslateMsg("选项，{0}为是否开启")]
         public const string OPTION_SWAP_TRIGGER = "交换触发：{0}";
@@ -515,6 +547,8 @@ namespace MVZ2.Options
         public const string OPTION_SOUND = "音效音量：{0}";
         [TranslateMsg("选项，{0}为量")]
         public const string OPTION_FASTFORWARD_MULTIPLIER = "加速倍率：{0}";
+        [TranslateMsg("选项，{0}为量")]
+        public const string OPTION_ANIMATION_FREQUENCY = "动画频率：{0}";
 
         [TranslateMsg("选项，{0}为是否开启")]
         public const string OPTION_BLOOD_AND_GORE = "血与碎块：{0}";
