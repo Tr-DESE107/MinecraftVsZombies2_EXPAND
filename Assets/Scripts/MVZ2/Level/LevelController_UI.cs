@@ -859,6 +859,11 @@ namespace MVZ2.Level
         #endregion
 
         #region 能量
+        public void FlickerEnergy()
+        {
+            var levelUI = GetUIPreset();
+            levelUI.FlickerEnergy();
+        }
         private void UpdateEnergy()
         {
             var ui = GetUIPreset();

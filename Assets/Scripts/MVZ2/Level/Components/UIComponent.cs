@@ -188,6 +188,10 @@ namespace MVZ2.Level.Components
         {
             Controller.UpdateLevelName();
         }
+        public void FlickerEnergy()
+        {
+            Controller.FlickerEnergy();
+        }
         public HintArrowTargetType TargetType { get; private set; }
         public long TargetID { get; private set; }
         public static readonly NamespaceID componentID = new NamespaceID(Vanilla.VanillaMod.spaceName, "ui");

@@ -137,6 +137,7 @@ namespace MVZ2Logic.Level.Components
         void SetModelAnimatorFloat(string name, float value);
 
         void UpdateLevelName();
+        void FlickerEnergy();
     }
     public interface IMoneyComponent : ILevelComponent
     {
