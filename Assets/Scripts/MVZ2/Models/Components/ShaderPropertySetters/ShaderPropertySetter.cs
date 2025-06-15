@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace MVZ2.Models
 {
@@ -23,11 +24,20 @@ namespace MVZ2.Models
         public abstract T GetCurrentValue();
         protected virtual void OnEnable()
         {
-            UpdateProperty();
+            enableTriggered = true;
         }
         protected virtual void OnDisable()
         {
+            enableTriggered = false;
             ResetProperty();
+        }
+        protected virtual void LateUpdate()
+        {
+            if (enableTriggered)
+            {
+                enableTriggered = false;
+                UpdateProperty();
+            }
         }
         public RendererElement Element
         {
@@ -41,5 +51,6 @@ namespace MVZ2.Models
             }
         }
         private RendererElement element;
+        private bool enableTriggered = false;
     }
 }
