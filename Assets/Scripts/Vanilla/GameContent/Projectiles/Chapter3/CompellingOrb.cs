@@ -52,12 +52,13 @@ namespace MVZ2.GameContent.Projectiles
             if (hitResult.Shield != null)
                 return;
             var target = hitResult.Other;
-            if (!CanControl(target))
+            var mesmerizer = projectile.Parent;
+            if (!CanControl(mesmerizer, target))
             {
                 target.PlaySound(VanillaSoundID.mindClear);
                 return;
             }
-            target.CharmWithSource(projectile.Parent);
+            target.CharmWithSource(mesmerizer);
             target.PlaySound(VanillaSoundID.mindControl);
         }
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
@@ -68,9 +69,9 @@ namespace MVZ2.GameContent.Projectiles
             param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
             entity.Spawn(VanillaEffectID.smoke, entity.Position, param);
         }
-        public static bool CanControl(Entity target)
+        public static bool CanControl(Entity mesmerizer, Entity target)
         {
-            return !target.IsLoyal() && !target.IsCharmed() && (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.ENEMY || target.Type == EntityTypes.OBSTACLE);
+            return !target.IsLoyal() && target != mesmerizer && !target.IsCharmed() && (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.ENEMY || target.Type == EntityTypes.OBSTACLE);
         }
         public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
         public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
