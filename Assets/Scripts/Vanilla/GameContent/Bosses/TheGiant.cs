@@ -62,6 +62,13 @@ namespace MVZ2.GameContent.Bosses
         {
             base.UpdateLogic(entity);
             stateMachine.UpdateLogic(entity);
+
+            if (GetPhase(entity) == PHASE_3)
+            {
+                var malleable = GetMalleable(entity);
+                malleable = Mathf.Max(0, malleable - MALLEABLE_DECAY_PHASE_3);
+                SetMalleable(entity, malleable);
+            }
         }
         public override void PostCollision(EntityCollision collision, int state)
         {

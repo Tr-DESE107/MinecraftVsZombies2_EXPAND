@@ -1310,14 +1310,14 @@ namespace MVZ2.GameContent.Bosses
                         }
                         break;
                     case SUBSTATE_HEAL:
-                        if (entity.IsDead)
-                        {
-                            entity.Revive();
-                        }
                         SetPhase(entity, PHASE_3);
                         entity.Health = entity.GetMaxHealth() * substateTimer.GetPassedPercentage();
                         if (substateTimer.Expired)
                         {
+                            if (entity.IsDead)
+                            {
+                                entity.Revive();
+                            }
                             stateMachine.SetSubState(entity, SUBSTATE_ROAR);
                             stateMachine.SetAnimationSubstate(entity, ANIMATION_SUBSTATE_ROAR);
                             substateTimer.ResetTime(90);
@@ -1416,11 +1416,6 @@ namespace MVZ2.GameContent.Bosses
             public override void OnUpdateLogic(EntityStateMachine machine, Entity entity)
             {
                 base.OnUpdateLogic(machine, entity);
-
-                var malleable = GetMalleable(entity);
-                malleable = Mathf.Max(0, malleable - MALLEABLE_DECAY_PHASE_3);
-                SetMalleable(entity, malleable);
-
                 CheckDeath(entity);
             }
             public const int SUBSTATE_CRAWL_START = 0;
