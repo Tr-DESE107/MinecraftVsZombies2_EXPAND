@@ -56,6 +56,18 @@ PrefabInstance:
       propertyPath: sprites.Array.data[1]
       value: 
       objectReference: {fileID: 21300004, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
+    - target: {fileID: 7053084648785371650, guid: d2d49595b19ea50489ac9ae21590c502, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
+    - target: {fileID: 7219861543843117215, guid: d2d49595b19ea50489ac9ae21590c502, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300002, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
+    - target: {fileID: 7219861543843117215, guid: d2d49595b19ea50489ac9ae21590c502, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300004, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
     - target: {fileID: 8422312609840960053, guid: d2d49595b19ea50489ac9ae21590c502, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
