@@ -1,3 +1,6 @@
+## Modified
+- The Giant will now spawn a zombie for every 0.5 seconds when it reaches the leftmost in phase 3.
+
 ## Fixed
 - The Giant will not decrease its damage reduction when it reaches the leftmost in phase 3 under hard difficulty.
 
