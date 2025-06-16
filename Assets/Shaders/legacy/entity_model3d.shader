@@ -81,7 +81,7 @@ Shader "MinecraftVSZombies2/Legacy/Model"
             }
 
             HLSLPROGRAM
-            #include "hlsl/entity.hlsl"
+            #include "../hlsl/entity.hlsl"
             #pragma vertex EntityVert
             #pragma fragment EntityFrag
             #pragma multi_compile LIT _

@@ -94,7 +94,7 @@
             Name "Main"
 
             HLSLPROGRAM
-            #include "hlsl/lighting.hlsl"
+            #include "../hlsl/lighting.hlsl"
             #pragma vertex vert
             #pragma fragment frag
             

@@ -40,7 +40,7 @@
             #pragma multi_compile USE_SHAPE_LIGHT_TYPE_3 __
             #pragma multi_compile _ DEBUG_DISPLAY
 
-            #include "hlsl/entity_shadow.hlsl" 
+            #include "../hlsl/entity_shadow.hlsl" 
             ENDHLSL
         }
     }

@@ -11,7 +11,7 @@
 		_ClipThresold("Clip Thresold", Range(0, 1)) = 0.5
     }
 
-	CGINCLUDE
+	HLSLINCLUDE
 	#include "UnityCG.cginc"
 	#pragma target 3.0
 
@@ -74,7 +74,7 @@
 		return col;
 	}
 
-	ENDCG
+	ENDHLSL
 
 	SubShader
 	{
@@ -94,10 +94,10 @@
 			ZWrite Off
 			Cull Off
 
-			CGPROGRAM
+			HLSLPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			ENDCG
+			ENDHLSL
 
 		}
 
