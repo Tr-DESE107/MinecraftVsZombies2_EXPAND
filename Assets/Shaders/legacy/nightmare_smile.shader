@@ -39,7 +39,7 @@
 
             HLSLPROGRAM
             #include "UnityCG.cginc"
-            #include "hlsl/lighting.hlsl"
+            #include "../hlsl/lighting.hlsl"
             #pragma vertex vert
             #pragma fragment frag
             
