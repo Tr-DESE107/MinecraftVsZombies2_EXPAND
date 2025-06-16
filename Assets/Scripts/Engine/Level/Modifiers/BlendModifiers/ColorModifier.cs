@@ -23,21 +23,21 @@ namespace PVZEngine.Modifiers
         }
         public BlendOperator SrcOperator { get; private set; }
         public BlendOperator DstOperator { get; private set; }
-        public static ColorModifier Multiply(PropertyKey<Color> propertyName, Color valueConst)
+        public static ColorModifier Multiply(PropertyKey<Color> propertyName, Color valueConst, int priority = 0)
         {
-            return new ColorModifier(propertyName, BlendOperator.DstColor, BlendOperator.Zero, valueConst);
+            return new ColorModifier(propertyName, BlendOperator.DstColor, BlendOperator.Zero, valueConst, priority);
         }
-        public static ColorModifier Multiply(PropertyKey<Color> propertyName, PropertyKey<Color> buffPropertyName)
+        public static ColorModifier Multiply(PropertyKey<Color> propertyName, PropertyKey<Color> buffPropertyName, int priority = 0)
         {
-            return new ColorModifier(propertyName, BlendOperator.DstColor, BlendOperator.Zero, buffPropertyName);
+            return new ColorModifier(propertyName, BlendOperator.DstColor, BlendOperator.Zero, buffPropertyName, priority);
         }
-        public static ColorModifier Override(PropertyKey<Color> propertyName, Color valueConst)
+        public static ColorModifier Override(PropertyKey<Color> propertyName, Color valueConst, int priority = 0)
         {
-            return new ColorModifier(propertyName, BlendOperator.One, BlendOperator.Zero, valueConst);
+            return new ColorModifier(propertyName, BlendOperator.One, BlendOperator.Zero, valueConst, priority);
         }
-        public static ColorModifier Override(PropertyKey<Color> propertyName, PropertyKey<Color> buffPropertyName)
+        public static ColorModifier Override(PropertyKey<Color> propertyName, PropertyKey<Color> buffPropertyName, int priority = 0)
         {
-            return new ColorModifier(propertyName, BlendOperator.One, BlendOperator.Zero, buffPropertyName);
+            return new ColorModifier(propertyName, BlendOperator.One, BlendOperator.Zero, buffPropertyName, priority);
         }
         public override ModifierCalculator GetCalculator()
         {
