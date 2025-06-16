@@ -86,6 +86,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorOffset: {r: 0, g: 0, b: 0, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _GrayscaleFactor: {r: 0.598, g: 1.174, b: 0.224, a: 0}
     - _HSVOffset: {r: 0, g: 0, b: 0, a: 0}
     - _LightMapST: {r: 14, g: 10.2, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

@@ -10,6 +10,7 @@
 		_ColorOffset("Color Offset", Color) = (0,0,0,0)
 		[Toggle]
 		_Grayscale("Grayscale", Int) = 0
+		_GrayscaleFactor("Grayscale Factor", Vector) = (0.598,1.174,0.224,0)
 
 		[Header(Burn)]
 		[Toggle(BURN_ON)]

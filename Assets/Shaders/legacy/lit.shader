@@ -33,7 +33,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
             #pragma vertex vert
             #pragma fragment frag
             #pragma multi_compile _ LIT
-            #include "hlsl/lighting.hlsl"
+            #include "../hlsl/lighting.hlsl"
 
             struct appdata {
                 float4 vertex : POSITION;
