@@ -1,4 +1,6 @@
 ## Modified
+- Adjusted the color of command block contraptions.
+- Command block contraptions now emit white light.
 - The Giant will now spawn a zombie for every 0.5 seconds when it reaches the leftmost in phase 3.
 
 ## Fixed

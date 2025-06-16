@@ -20,11 +20,11 @@ half4 Tint(half4 color, half4 tint)
     return color * tint;
 }
 
-half4 Grayscale(half4 color)
+half4 Grayscale(half4 color, half3 factor)
 {
-    //»ñÈ¡»Ò¶ÈÖµ
-    half _texGray = dot(color.rgb, half3(0.5, 0.5, 0.5)); //dot(_texCol.rgb, vec3(0.299, 0.587, 0.114));
-    //½«»Ò¶ÈÖµ·Ö±ð¸³ÓèrgbÈýÉ«Í¨µÀ
+    //èŽ·å–ç°åº¦å€¼
+    half _texGray = dot(color.rgb, factor);
+    //å°†ç°åº¦å€¼åˆ†åˆ«èµ‹äºˆrgbä¸‰è‰²é€šé“
     return half4(_texGray, _texGray, _texGray, color.a);
 }
 
@@ -59,12 +59,14 @@ UNITY_DEFINE_INSTANCED_PROP(float4, _Color)
 UNITY_DEFINE_INSTANCED_PROP(half4, _ColorOffset)
 UNITY_DEFINE_INSTANCED_PROP(float3, _HSVOffset)
 UNITY_DEFINE_INSTANCED_PROP(int, _Grayscale)
+UNITY_DEFINE_INSTANCED_PROP(half3, _GrayscaleFactor)
 UNITY_INSTANCING_BUFFER_END(Props)
 #else
 float4 _Color;
 half4 _ColorOffset;
 float3 _HSVOffset;
 int _Grayscale;
+half3 _GrayscaleFactor;
 #endif
 
 v2f_entity EntityVert(appdata_entity v)
@@ -102,7 +104,7 @@ half4 EntityFrag(v2f_entity i) : SV_Target
 #endif
     if (UNITY_ACCESS_INSTANCED_PROP(Props, _Grayscale) > 0)
     {
-        col = Grayscale(col);
+        col = Grayscale(col, UNITY_ACCESS_INSTANCED_PROP(Props, _GrayscaleFactor));
     }
                 
     col.rgb = col.rgb + UNITY_ACCESS_INSTANCED_PROP(Props, _ColorOffset).rgb;
@@ -126,12 +128,12 @@ half4 EntityFrag(v2f_entity i) : SV_Target
 half4 EntityFrag(v2f_entity i) : SV_Target
 {
     half4 col = tex2D(_MainTex, i.uv);
+    col = Tint(col, i.color);
     if (_Grayscale > 0)
     {
-        col = Grayscale(col);
+        col = Grayscale(col, _GrayscaleFactor);
     }
     col = Tint(col, _Color);
-    col = Tint(col, i.color);
 #if HSV_TINT
     col = ModifyHSV(col, _HSVOffset);
 #endif
