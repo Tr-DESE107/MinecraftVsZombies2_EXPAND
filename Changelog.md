@@ -1,11 +1,11 @@
 ## Modified
 - Adjusted the color of command block contraptions.
-- Command block contraptions now emit white light.
-- The Giant will now spawn a zombie for every 0.5 seconds when it reaches the leftmost in phase 3.
+- Light emitted by Command block contraptions is now white.
+- The Giant will now spawn a zombie for every 0.5 second when it reaches the leftmost in phase 3.
 
 ## Fixed
 - The Giant will not decrease its damage reduction when it reaches the leftmost in phase 3 under hard difficulty.
-- The hot key text will block the starshard panel tp be clicked.
+- The hot key text will block the starshard panel to be clicked.
 
 ---
 
