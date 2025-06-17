@@ -185,6 +185,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b27d973956921144f81710753ef50c35, type: 3}
   - {fileID: 21300000, guid: 7f17579a8f0c42344b02ba3589ca2d6e, type: 3}
   - {fileID: 21300000, guid: 16ff246ec2a095242a62262d2ac32272, type: 3}
+  - {fileID: 21300000, guid: 53000fe10b2b2114a9d2a2a204f7c143, type: 3}
   pickaxeSprite: {fileID: 21300000, guid: c98850842ba8ff14f919f63ce5114326, type: 3}
   triggerSprite: {fileID: 21300000, guid: e0c7697228ff843469a11a3a633766bb, type: 3}
 --- !u!114 &672198186561203434
@@ -1112,10 +1113,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5191390146032141435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 256, y: 256}
+  m_SizeDelta: {x: -2, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3452719491233279883
 CanvasRenderer:
@@ -1147,7 +1148,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 3cb42106841fca546970463cc36fbf45, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

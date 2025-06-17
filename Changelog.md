@@ -1,3 +1,6 @@
+## Added
+- A new pause easter egg image.
+
 ## Modified
 - Adjusted the color of command block contraptions.
 - Light emitted by Command block contraptions is now white.
