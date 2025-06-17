@@ -3270,6 +3270,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53000fe10b2b2114a9d2a2a204f7c143
+    m_Address: mvz2:ui/level/pause_image_loss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5361472b4d206f44eba9f43295606ec2
     m_Address: mvz2:tesla_construction
     m_ReadOnly: 0
