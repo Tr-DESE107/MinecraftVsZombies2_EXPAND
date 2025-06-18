@@ -9,6 +9,7 @@
 ## Fixed
 - The Giant will not decrease its damage reduction when it reaches the leftmost in phase 3 under hard difficulty.
 - The hot key text will block the starshard panel to be clicked.
+- Command block contraptions cannot be instant-triggered.
 
 ---
 
