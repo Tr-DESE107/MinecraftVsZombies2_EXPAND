@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-06-14 09:41+0800\n"
+"POT-Creation-Date: 2025-06-18 09:46+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -513,6 +513,18 @@ msgstr ""
 #: Almanac meta file
 msgctxt "almanac_tag_enum.name"
 msgid "沙子"
+msgstr ""
+
+#. Name for almanac tag enum value mvz2:netherrack of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "下界岩"
+msgstr ""
+
+#. Description for almanac tag enum value mvz2:netherrack of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "免疫火焰伤害，阻挡锐利物体和火焰溅射，但受到20x冲击伤害"
 msgstr ""
 
 #. Header for contraptions mvz2:dispenser
