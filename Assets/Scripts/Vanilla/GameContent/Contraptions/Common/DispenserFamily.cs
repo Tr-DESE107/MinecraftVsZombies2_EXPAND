@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -51,9 +52,15 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetShootTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_SHOOT_TIMER, timer);
         protected virtual int GetTimerTime(Entity entity)
         {
-            return Mathf.FloorToInt(entity.RNG.Next(40, 45));
+            if (entity.Level.IsIZombie())
+            {
+                return ATTACK_INTERVAL_MAX;
+            }
+            return entity.RNG.Next(ATTACK_INTERVAL_MIN, ATTACK_INTERVAL_MAX + 1);
         }
         protected DispenserDetector detector;
+        private const int ATTACK_INTERVAL_MIN = 40;
+        private const int ATTACK_INTERVAL_MAX = 45;
         private const string PROP_REGION = "dispenser_family";
         [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_SHOOT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ShootTimer");
