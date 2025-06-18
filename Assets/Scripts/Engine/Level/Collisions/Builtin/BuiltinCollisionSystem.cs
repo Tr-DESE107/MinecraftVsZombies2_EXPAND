@@ -50,7 +50,20 @@ namespace PVZEngine.Level.Collisions
                     tree.FindTargetsInRect(rect1, collisionBuffer, 0);
                 }
                 var prevPosition = collider1.GetPosition() - (ent1.Position - ent1.PreviousPosition);
-                collisionBuffer.Sort((c1, c2) => (c1.GetPosition() - prevPosition).sqrMagnitude.CompareTo((c2.GetPosition() - prevPosition).sqrMagnitude));
+
+                int SortCollider(BuiltinCollisionCollider c1, BuiltinCollisionCollider c2)
+                {
+                    var distance1 = (c1.GetPosition() - prevPosition).sqrMagnitude;
+                    var distance2 = (c2.GetPosition() - prevPosition).sqrMagnitude;
+                    var distanceResult = distance1.CompareTo(distance2);
+                    if (distanceResult != 0)
+                        return distanceResult;
+                    var id1 = c1.Entity.ID;
+                    var id2 = c2.Entity.ID;
+                    return id1.CompareTo(id2);
+                }
+                collisionBuffer.Sort(SortCollider);
+
                 foreach (var collider2 in collisionBuffer)
                 {
                     if (collider1 == collider2)
@@ -75,6 +88,7 @@ namespace PVZEngine.Level.Collisions
             }
             entityTrash.Clear();
         }
+
 
         #region 实体
         public void InitEntity(Entity entity)
