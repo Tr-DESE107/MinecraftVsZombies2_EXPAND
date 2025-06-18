@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Shells
         public const string nether = "nether";
         public const string diamond = "diamond";
         public const string sand = "sand";
+        public const string netherrack = "netherrack";
     }
     public static class VanillaShellID
     {
@@ -30,6 +31,7 @@ namespace MVZ2.GameContent.Shells
         public static readonly NamespaceID nether = Get(VanillaShellNames.nether);
         public static readonly NamespaceID diamond = Get(VanillaShellNames.diamond);
         public static readonly NamespaceID sand = Get(VanillaShellNames.sand);
+        public static readonly NamespaceID netherrack = Get(VanillaShellNames.netherrack);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

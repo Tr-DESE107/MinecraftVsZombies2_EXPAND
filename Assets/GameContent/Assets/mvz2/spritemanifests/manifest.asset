@@ -2141,6 +2141,16 @@ MonoBehaviour:
     - {fileID: -632628095, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
     - {fileID: -1708348277, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
     - {fileID: -65933743, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: -1379939824, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: 1529787697, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: 896879156, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: -798597153, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: -901227842, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: -996809505, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: 1782906014, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: 859273935, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: -2100665222, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
+    - {fileID: 379182745, guid: 2d508ee9563c4a64aa13edf30218cd42, type: 3}
   - name: ui/almanac/special_marks
     spritesheet:
     - {fileID: 91842071, guid: 8f5188cc46ef9a44696613996b27b1ec, type: 3}

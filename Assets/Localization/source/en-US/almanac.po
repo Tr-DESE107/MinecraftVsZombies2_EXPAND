@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-06-14 09:41+0800\n"
-"PO-Revision-Date: 2025-06-14 09:42+0800\n"
+"POT-Creation-Date: 2025-06-18 09:46+0800\n"
+"PO-Revision-Date: 2025-06-18 21:47+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -520,6 +520,18 @@ msgstr "Diamond"
 msgctxt "almanac_tag_enum.name"
 msgid "沙子"
 msgstr "Sand"
+
+#. Name for almanac tag enum value mvz2:netherrack of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "下界岩"
+msgstr "Netherrack"
+
+#. Description for almanac tag enum value mvz2:netherrack of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "免疫火焰伤害，阻挡锐利物体和火焰溅射，但受到20x冲击伤害"
+msgstr "Immune to fire damage, stops piercing attacks and fire splashes, but takes 20x impact damage"
 
 #. Header for contraptions mvz2:dispenser
 #: Almanac meta file

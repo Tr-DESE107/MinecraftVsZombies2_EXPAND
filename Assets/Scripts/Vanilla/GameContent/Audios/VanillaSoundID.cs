@@ -113,6 +113,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID moneyFall = Get("money_fall");
         public readonly static NamespaceID morseCodeReverse = Get("morse_code_reverse");
         public readonly static NamespaceID mutantCry = Get("mutant_cry");
+        public readonly static NamespaceID netherrackBreak = Get("netherrack_break");
         public readonly static NamespaceID nightmareaperRage = Get("nightmareaper_rage");
         public readonly static NamespaceID nightmareaperDeath = Get("nightmareaper_death");
         public readonly static NamespaceID nightmarePortal = Get("nightmare_portal");
