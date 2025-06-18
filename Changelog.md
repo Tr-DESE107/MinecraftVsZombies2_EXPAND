@@ -5,6 +5,7 @@
 - Adjusted the color of command block contraptions.
 - Light emitted by Command block contraptions is now white.
 - The Giant will now spawn a zombie for every 0.5 second when it reaches the leftmost in phase 3.
+- Removed the mechanic where Dispensers' attack speed fluctuates randomly in I, Zombie mode.
 
 ## Fixed
 - The Giant will not decrease its damage reduction when it reaches the leftmost in phase 3 under hard difficulty.
