@@ -36,9 +36,7 @@ namespace MVZ2.GameContent.Effects
                     entity.TriggerModel("Break");
                     entity.PlaySound(VanillaSoundID.glassBreakBig);
                     entity.Level.ShakeScreen(10, 0, 15);
-                    var buff = entity.AddBuff<WhiteFlashBuff>();
-                    buff.SetProperty(WhiteFlashBuff.PROP_TIMEOUT, 2);
-                    buff.SetProperty(WhiteFlashBuff.PROP_MAX_TIMEOUT, 2);
+                    WhiteFlashBuff.AddToEntity(entity, 2);
                 }
             }
 

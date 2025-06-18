@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Buffs.Contraptions;
+﻿using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
@@ -58,6 +59,15 @@ namespace MVZ2.GameContent.Contraptions
             bool frozen = entity.IsAIFrozen();
             entity.SetAnimationBool("Working", !frozen && entity.State == STATE_WORKING);
         }
+        public override bool CanTrigger(Entity entity)
+        {
+            if (IsTriggered(entity))
+                return false;
+            var targetDef = GetEntityDefinitionToTransform(entity);
+            if (targetDef != null && targetDef.CanInstantTrigger())
+                return true;
+            return base.CanTrigger(entity);
+        }
         public override bool CanEvoke(Entity entity)
         {
             var targetDef = GetEntityDefinitionToTransform(entity);
@@ -72,6 +82,13 @@ namespace MVZ2.GameContent.Contraptions
             base.OnEvoke(entity);
             entity.SetEvoked(true);
         }
+        public override void Trigger(Entity entity)
+        {
+            base.Trigger(entity);
+            SetTriggered(entity, true);
+            entity.PlaySound(VanillaSoundID.wakeup);
+            WhiteFlashBuff.AddToEntity(entity, 15);
+        }
         public static void TransformBlock(Entity entity)
         {
             var targetID = GetEntityDefinitionToTransform(entity);
@@ -85,6 +102,10 @@ namespace MVZ2.GameContent.Contraptions
             var grid = entity.GetGrid();
             var spawned = grid.SpawnPlacedEntity(targetID.GetID());
             spawned.AddBuff<ImitatedBuff>();
+            if (IsTriggered(entity) && spawned.CanTrigger())
+            {
+                spawned.Trigger();
+            }
             if (entity.IsEvoked() && spawned.CanEvoke())
             {
                 spawned.Evoke();
@@ -119,6 +140,8 @@ namespace MVZ2.GameContent.Contraptions
         {
             result.SetFinalValue(false);
         }
+        public static bool IsTriggered(Entity entity) => entity.GetBehaviourField<bool>(PROP_TRIGGERED);
+        public static void SetTriggered(Entity entity, bool timer) => entity.SetBehaviourField(PROP_TRIGGERED, timer);
         public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_PRODUCTION_TIMER);
         public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_PRODUCTION_TIMER, timer);
         public static NamespaceID GetTargetEntity(Entity entity) => entity.GetBehaviourField<NamespaceID>(PROP_TARGET_ENTITY);
@@ -128,6 +151,7 @@ namespace MVZ2.GameContent.Contraptions
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         public const int STATE_WORKING = VanillaEntityStates.CONTRAPTION_SPECIAL;
 
+        private static readonly VanillaEntityPropertyMeta<bool> PROP_TRIGGERED = new VanillaEntityPropertyMeta<bool>("triggered");
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ProductionTimer");
         private static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_TARGET_ENTITY = new VanillaEntityPropertyMeta<NamespaceID>("TargetEntity");
     }

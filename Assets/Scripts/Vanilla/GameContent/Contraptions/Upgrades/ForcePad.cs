@@ -87,9 +87,7 @@ namespace MVZ2.GameContent.Contraptions
             {
                 affectedEntities.Clear();
             }
-            var buff = entity.AddBuff<WhiteFlashBuff>();
-            buff.SetProperty(WhiteFlashBuff.PROP_TIMEOUT, 15);
-            buff.SetProperty(WhiteFlashBuff.PROP_MAX_TIMEOUT, 15);
+            WhiteFlashBuff.AddToEntity(entity, 15);
             entity.PlaySound(VanillaSoundID.wakeup);
         }
         private void UpdateGeneralAbility(Entity entity)

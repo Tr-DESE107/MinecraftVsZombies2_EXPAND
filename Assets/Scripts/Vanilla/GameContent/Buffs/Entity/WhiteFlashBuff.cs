@@ -34,6 +34,14 @@ namespace MVZ2.GameContent.Buffs
                 buff.Remove();
             }
         }
+        public static Buff AddToEntity(Entity entity, int timeout)
+        {
+            var buff = entity.CreateBuff<WhiteFlashBuff>();
+            buff.SetProperty(WhiteFlashBuff.PROP_TIMEOUT, timeout);
+            buff.SetProperty(WhiteFlashBuff.PROP_MAX_TIMEOUT, timeout);
+            entity.AddBuff(buff);
+            return buff;
+        }
         public static readonly VanillaBuffPropertyMeta<Color> PROP_COLOR = new VanillaBuffPropertyMeta<Color>("Color");
         public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
         public static readonly VanillaBuffPropertyMeta<int> PROP_MAX_TIMEOUT = new VanillaBuffPropertyMeta<int>("MaxTimeout");
