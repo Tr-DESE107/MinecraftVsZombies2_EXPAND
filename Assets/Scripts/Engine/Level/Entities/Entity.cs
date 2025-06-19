@@ -214,9 +214,9 @@ namespace PVZEngine.Entities
                 return;
             results.AddRange(list);
         }
-        private void UpdateAllBuffedProperties()
+        private void UpdateAllBuffedProperties(bool triggersEvaluation)
         {
-            properties.UpdateAllModifiedProperties();
+            properties.UpdateAllModifiedProperties(triggersEvaluation);
         }
         private void UpdateModifiedProperty(IPropertyKey name)
         {
@@ -263,13 +263,16 @@ namespace PVZEngine.Entities
             GetModifierItems(name, results);
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue, bool triggersEvaluation)
         {
-            if (name == ((PropertyKey<float>)EngineEntityProps.MAX_HEALTH))
+            if (triggersEvaluation)
             {
-                var before = beforeValue.ToGeneric<float>();
-                var after = afterValue.ToGeneric<float>();
-                Health = Mathf.Min(after, Health * (after / before));
+                if (name == ((PropertyKey<float>)EngineEntityProps.MAX_HEALTH))
+                {
+                    var before = beforeValue.ToGeneric<float>();
+                    var after = afterValue.ToGeneric<float>();
+                    Health = Mathf.Min(after, Health * (after / before));
+                }
             }
             Cache.UpdateProperty(this, name, beforeValue, afterValue);
             PostPropertyChanged?.Invoke(name, beforeValue, afterValue);
@@ -922,7 +925,7 @@ namespace PVZEngine.Entities
             LoadAuras(seri);
 
             UpdateModifierCaches();
-            UpdateAllBuffedProperties();
+            UpdateAllBuffedProperties(false);
             Cache.UpdateAll(this);
         }
         public static Entity CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
@@ -966,7 +969,7 @@ namespace PVZEngine.Entities
         {
             PreviousPosition = Position;
             Health = this.GetMaxHealth();
-            UpdateAllBuffedProperties();
+            UpdateAllBuffedProperties(true);
             Cache.UpdateAll(this);
         }
         private void OnUpdate()

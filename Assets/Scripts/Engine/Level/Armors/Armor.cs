@@ -82,9 +82,9 @@ namespace PVZEngine.Armors
         {
             properties.SetProperty(name, value);
         }
-        private void UpdateAllBuffedProperties()
+        private void UpdateAllBuffedProperties(bool triggersEvaluation)
         {
-            properties.UpdateAllModifiedProperties();
+            properties.UpdateAllModifiedProperties(triggersEvaluation);
         }
         private void UpdateBuffedProperty(IPropertyKey name)
         {
@@ -108,13 +108,16 @@ namespace PVZEngine.Armors
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue, bool triggersEvaluation)
         {
-            if (EngineArmorProps.MAX_HEALTH.Equals(name))
+            if (triggersEvaluation)
             {
-                var before = beforeValue.ToGeneric<float>();
-                var after = afterValue.ToGeneric<float>();
-                Health = Mathf.Min(after, Health * (after / before));
+                if (EngineArmorProps.MAX_HEALTH.Equals(name))
+                {
+                    var before = beforeValue.ToGeneric<float>();
+                    var after = afterValue.ToGeneric<float>();
+                    Health = Mathf.Min(after, Health * (after / before));
+                }
             }
         }
         PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
@@ -193,7 +196,7 @@ namespace PVZEngine.Armors
             armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level, armor);
             armor.buffs.OnPropertyChanged += armor.UpdateBuffedProperty;
             armor.properties = PropertyBlock.FromSerializable(seri.properties, armor);
-            armor.UpdateAllBuffedProperties();
+            armor.UpdateAllBuffedProperties(false);
             return armor;
         }
         public void LoadAuras(SerializableArmor seri)

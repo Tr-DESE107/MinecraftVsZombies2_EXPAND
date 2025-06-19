@@ -41,7 +41,7 @@ namespace PVZEngine.SeedPacks
         {
             Definition = definition;
             properties.ClearFallbackCaches();
-            UpdateAllBuffedProperties();
+            UpdateAllBuffedProperties(true);
             OnDefinitionChanged?.Invoke(definition);
         }
 
@@ -63,9 +63,9 @@ namespace PVZEngine.SeedPacks
         {
             properties.SetProperty(name, value);
         }
-        private void UpdateAllBuffedProperties()
+        private void UpdateAllBuffedProperties(bool triggersEvaluation)
         {
-            properties.UpdateAllModifiedProperties();
+            properties.UpdateAllModifiedProperties(triggersEvaluation);
         }
         private void UpdateBuffedProperty(IPropertyKey name)
         {
@@ -86,7 +86,7 @@ namespace PVZEngine.SeedPacks
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue)
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue, bool triggersEvaluation)
         {
         }
         PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
@@ -230,7 +230,7 @@ namespace PVZEngine.SeedPacks
             buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
             buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
             auras.LoadFromSerializable(level, seri.auras);
-            UpdateAllBuffedProperties();
+            UpdateAllBuffedProperties(false);
         }
         #endregion
 

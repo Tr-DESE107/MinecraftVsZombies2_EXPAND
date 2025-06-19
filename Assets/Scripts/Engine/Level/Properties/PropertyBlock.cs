@@ -37,17 +37,17 @@ namespace PVZEngine.Level
         {
             return modifiableProperties.GetPropertyNames();
         }
-        public void UpdateAllModifiedProperties()
+        public void UpdateAllModifiedProperties(bool triggersEvaluation)
         {
-            modifiableProperties.UpdateAllModifiedProperties();
+            modifiableProperties.UpdateAllModifiedProperties(triggersEvaluation);
         }
-        public void UpdateModifiedProperty<T>(PropertyKey<T> name)
+        public void UpdateModifiedProperty<T>(PropertyKey<T> name, bool triggersEvaluation = true)
         {
-            modifiableProperties.UpdateModifiedProperty<T>(name);
+            modifiableProperties.UpdateModifiedProperty<T>(name, triggersEvaluation);
         }
-        public void UpdateModifiedProperty(IPropertyKey name)
+        public void UpdateModifiedProperty(IPropertyKey name, bool triggersEvaluation = true)
         {
-            modifiableProperties.UpdateModifiedPropertyObject(name);
+            modifiableProperties.UpdateModifiedPropertyObject(name, triggersEvaluation);
         }
         #endregion
 
