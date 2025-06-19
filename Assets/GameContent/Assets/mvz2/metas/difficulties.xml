@@ -18,7 +18,7 @@
     </difficulty>
     <difficulty id="lunatic" name="EXPAND" value="200">
         <button back="mvz2:map_buttonL[0]" bottom="mvz2:map_buttonL[1]" overlay="mvz2:map_buttonL[2]"/>
-        <icon arcade="mvz2:ui/arcade/clear_trophy[2]"/>
+        <icon arcade="mvz2:ui/arcade/clear_trophy[3]"/>
         <clear cartMoney="50" clearMoney="500" rerunMoney="3000" puzzleMoney="3000"/>
         <buff id="level_lunatic" iZombie="mvz2:i_zombie_hard" />
     </difficulty>

@@ -2308,6 +2308,10 @@ MonoBehaviour:
     - {fileID: 1593830320, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
     - {fileID: 1307917129, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
     - {fileID: -1275393187, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
+    - {fileID: -1467405244, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
+  - name: ui/arcade/clear_trophyL
+    spritesheet:
+    - {fileID: 21300000, guid: 73a66db6856396443a0b351974b0cf69, type: 3}
   - name: ui/level/nightmare_broken_glasses
     spritesheet:
     - {fileID: -496670632954994581, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}

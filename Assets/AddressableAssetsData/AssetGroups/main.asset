@@ -4453,6 +4453,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73a66db6856396443a0b351974b0cf69
+    m_Address: mvz2:ui/arcade/clear_trophyL
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 73ddfc766e9b88f43bb441a689469065
     m_Address: mvz2:entity/effects/absorb_line
     m_ReadOnly: 0
