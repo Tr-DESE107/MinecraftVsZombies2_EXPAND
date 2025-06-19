@@ -126,15 +126,15 @@ namespace PVZEngine.Level
         }
 
         #region 增益
-        public void UpdateAllModifiedProperties()
+        public void UpdateAllModifiedProperties(bool triggersEvaluation)
         {
             var paths = Container.GetModifiedProperties();
             foreach (var path in paths)
             {
-                UpdateModifiedPropertyObject(path);
+                UpdateModifiedPropertyObject(path, triggersEvaluation);
             }
         }
-        public void UpdateModifiedPropertyObject(IPropertyKey name)
+        public void UpdateModifiedPropertyObject(IPropertyKey name, bool triggersEvaluation = true)
         {
             var baseValue = GetPropertyObject(name, ignoreBuffs: true);
 
@@ -152,9 +152,9 @@ namespace PVZEngine.Level
             {
                 buffedProperties.RemovePropertyObject(name);
             }
-            Container.UpdateModifiedProperty(name, beforeValue, value);
+            Container.UpdateModifiedProperty(name, beforeValue, value, triggersEvaluation);
         }
-        public void UpdateModifiedProperty<T>(PropertyKey<T> name)
+        public void UpdateModifiedProperty<T>(PropertyKey<T> name, bool triggersEvaluation = true)
         {
             var baseValue = GetProperty<T>(name, ignoreBuffs: true);
 
@@ -172,7 +172,7 @@ namespace PVZEngine.Level
             {
                 buffedProperties.RemoveProperty(name);
             }
-            Container.UpdateModifiedProperty(name, beforeValue, value);
+            Container.UpdateModifiedProperty(name, beforeValue, value, triggersEvaluation);
         }
         #endregion
         public SerializableModifiableProperties ToSerializable()

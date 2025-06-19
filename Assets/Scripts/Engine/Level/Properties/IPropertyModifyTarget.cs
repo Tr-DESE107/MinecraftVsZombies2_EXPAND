@@ -7,7 +7,7 @@ namespace PVZEngine.Level
     {
         bool GetFallbackProperty(IPropertyKey name, out object value);
         void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results);
-        void UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue);
+        void UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue, bool triggersEvaluation);
         PropertyModifier[] GetModifiersUsingProperty(IPropertyKey name);
         IEnumerable<IPropertyKey> GetModifiedProperties();
     }
