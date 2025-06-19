@@ -20,6 +20,8 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleFireInTheHole = "puzzle_fire_in_the_hole";
         public const string puzzleAllYourObservesAreBelongToUs = "puzzle_all_your_observes_are_belong_to_us";
 
+        public const string iZombieDebug = "i_zombie_debug";
+
         public const string izeComposite = "ize_composite";
         public const string izeControl = "ize_control";
         public const string izeInstakill = "ize_instakill";
@@ -46,6 +48,8 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID puzzleMineclear = Get(VanillaIZombieLayoutNames.puzzleMineclear);
         public static readonly NamespaceID puzzleFireInTheHole = Get(VanillaIZombieLayoutNames.puzzleFireInTheHole);
         public static readonly NamespaceID puzzleAllYourObservesAreBelongToUs = Get(VanillaIZombieLayoutNames.puzzleAllYourObservesAreBelongToUs);
+
+        public static readonly NamespaceID iZombieDebug = Get(VanillaIZombieLayoutNames.iZombieDebug);
 
         public static readonly NamespaceID izeComposite = Get(VanillaIZombieLayoutNames.izeComposite);
         public static readonly NamespaceID izeControl = Get(VanillaIZombieLayoutNames.izeControl);
