@@ -50,14 +50,29 @@ namespace PVZEngine.Level.Collisions
                     tree.FindTargetsInRect(rect1, collisionBuffer, 0);
                 }
                 var prevPosition = collider1.GetPosition() - (ent1.Position - ent1.PreviousPosition);
+                var axis = ent1.Velocity.normalized;
+                bool isAxisValid = axis.sqrMagnitude > 0.0001f;
 
                 int SortCollider(BuiltinCollisionCollider c1, BuiltinCollisionCollider c2)
                 {
-                    var distance1 = (c1.GetPosition() - prevPosition).sqrMagnitude;
-                    var distance2 = (c2.GetPosition() - prevPosition).sqrMagnitude;
-                    var distanceResult = distance1.CompareTo(distance2);
-                    if (distanceResult != 0)
-                        return distanceResult;
+                    var pos1 = Vector3Int.FloorToInt(c1.GetPosition());
+                    var pos2 = Vector3Int.FloorToInt(c2.GetPosition());
+                    if (isAxisValid)
+                    {
+                        var dot1 = Vector3.Dot(pos1, axis);
+                        var dot2 = Vector3.Dot(pos2, axis);
+                        var dotResult = dot1.CompareTo(dot2);
+                        if (dotResult != 0)
+                            return dotResult;
+                    }
+                    else
+                    {
+                        var distance1 = (pos1 - prevPosition).sqrMagnitude;
+                        var distance2 = (pos2 - prevPosition).sqrMagnitude;
+                        var distanceResult = distance1.CompareTo(distance2);
+                        if (distanceResult != 0)
+                            return distanceResult;
+                    }
                     var id1 = c1.Entity.ID;
                     var id2 = c2.Entity.ID;
                     return id1.CompareTo(id2);
