@@ -80,6 +80,8 @@ namespace MVZ2.GameContent.Stages
         public const string puzzleFireInTheHole = "puzzle_fire_in_the_hole";
         public const string puzzleAllYourObservesAreBelongToUs = "puzzle_all_your_observes_are_belong_to_us";
         public const string puzzleIZombieEndless = "puzzle_i_zombie_endless";
+
+        public const string iZombieDebug = "i_zombie_debug";
     }
     public static class VanillaStageID
     {
@@ -97,6 +99,8 @@ namespace MVZ2.GameContent.Stages
         public static readonly NamespaceID dream11 = Get(VanillaStageNames.dream11);
         public static readonly NamespaceID castle1 = Get(VanillaStageNames.castle1);
         public static readonly NamespaceID mausoleum1 = Get(VanillaStageNames.mausoleum1);
+
+        public static readonly NamespaceID iZombieDebug = Get(VanillaStageNames.iZombieDebug);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

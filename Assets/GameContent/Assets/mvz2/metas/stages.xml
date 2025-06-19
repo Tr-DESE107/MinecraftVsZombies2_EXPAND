@@ -1,4 +1,7 @@
 <stages>
+    <stage id="i_zombie_debug" name="测试关卡" type="puzzle" startEnergy="9990" music="mvz2:puzzle">
+        <camera position="lawn" transition="instant"/>
+    </stage>
     <stage id="debug" name="测试关卡" type="special">
         <camera transition="instant"/>
         <conveyor>
