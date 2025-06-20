@@ -12,6 +12,9 @@
 - The Giant will not decrease its damage reduction when it reaches the leftmost in phase 3 under hard difficulty.
 - The hot key text will block the starshard panel to be clicked.
 - Command block contraptions cannot be instant-triggered.
+- Entities which have changed toughness like Imp in I, Zombie or evoked Obsidian will scale toughness again after reloading the level.
+- Gargoyle Statue and Spawner has not "Carrier Layer" tag in Almanac.
+- Entity texture in Almanac will be green due to pumpkin carriages' green light if the Almanac is opened in Halloween Endless.
 
 ---
 
