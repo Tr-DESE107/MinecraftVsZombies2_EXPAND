@@ -1922,6 +1922,7 @@
                 <tags>
                     <tag id="mvz2:shell" value="mvz2:stone"/>
                     <tag id="mvz2:grid_layer_main"/>
+                    <tag id="mvz2:grid_layer_carrier"/>
                 </tags>
                 <header>
                     <p>石像鬼雕像会在最后一波时变成石像鬼。</p>
@@ -2013,6 +2014,7 @@
                 <icon model="mvz2:entity.monster_spawner"/>
                 <tags>
                     <tag id="mvz2:grid_layer_main"/>
+                    <tag id="mvz2:grid_layer_carrier"/>
                 </tags>
                 <header>
                     <p>刷怪笼会在一大波僵尸来临时召唤一只其内部的敌人。</p>
