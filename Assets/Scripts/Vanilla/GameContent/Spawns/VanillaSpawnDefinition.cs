@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Spawns
             var decayEnd = this.GetWeightDecayEndFlag();
             var decay = this.GetWeightDecayPerFlag();
 
-            var decayFlags = Mathf.Clamp(level.CurrentFlag - decayStart, 0, decayEnd);
+            var decayFlags = Mathf.Clamp(level.CurrentFlag, decayStart, decayEnd) - decayStart;
             return weight - decay * decayFlags;
         }
         public bool CanSpawnAtWaterLane { get; set; }
