@@ -297,7 +297,7 @@ namespace MVZ2.Vanilla.Level
         /// <returns></returns>
         public static float GetCurrentSpawnLimitWave(this LevelEngine level, int wave, int flags)
         {
-            var rounds = flags / level.GetWavesPerFlag();
+            var rounds = flags / level.GetTotalFlags();
             // 每经过一轮，当前波数视为+1。
             return wave + rounds;
         }
