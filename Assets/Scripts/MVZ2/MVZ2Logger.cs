@@ -45,11 +45,11 @@ namespace MVZ2.Debugs
         #region 生命周期
         void OnEnable()
         {
-            Application.logMessageReceived += OnLogReceivedCallback;
+            Application.logMessageReceivedThreaded += OnLogReceivedCallback;
         }
         void OnDisable()
         {
-            Application.logMessageReceived -= OnLogReceivedCallback;
+            Application.logMessageReceivedThreaded -= OnLogReceivedCallback;
         }
         private void Awake()
         {
@@ -98,22 +98,26 @@ namespace MVZ2.Debugs
         #region 事件回调
         void OnLogReceivedCallback(string logString, string stackTrace, LogType type)
         {
-            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            StringBuilder sb = new StringBuilder();
-            sb.Append($"[{timestamp}] ");
-            sb.Append($"[{type}] ");
-            sb.Append(logString);
-            sb.Append("\n");
-            sb.Append(stackTrace);
-            sb.Append("\n\n");
-
-            lock (logExportlock)
+            lock (logLock)
             {
-                if (logWriter == null)
+                string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                StringBuilder sb = new StringBuilder();
+                sb.Append($"[{timestamp}] ");
+                sb.Append($"[{type}] ");
+                sb.Append(logString);
+                sb.Append("\n");
+                sb.Append(stackTrace);
+                sb.Append("\n\n");
+
+                lock (logExportlock)
                 {
-                    StartLogWriter(GetLogPath());
+                    if (logWriter == null)
+                    {
+                        StartLogWriter(GetLogPath());
+                    }
+                    logWriter.WriteLine(sb.ToString());
+                    logWriter.Flush();
                 }
-                logWriter.WriteLine(sb.ToString());
             }
         }
         #endregion
@@ -181,6 +185,7 @@ namespace MVZ2.Debugs
         [SerializeField]
         string extension = ".log";
         StreamWriter logWriter;
-        object logExportlock = new object();
+        readonly object logLock = new object();
+        readonly object logExportlock = new object();
     }
 }
