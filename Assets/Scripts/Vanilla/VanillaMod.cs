@@ -66,6 +66,7 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new BlueprintImplements());
             ImplementCallbacks(new StatsImplements());
             ImplementCallbacks(new EntityImplements());
+            ImplementCallbacks(new IZombieImplements());
             ImplementCallbacks(new DifficultyImplements());
             ImplementCallbacks(new CartToMoneyImplements());
             ImplementCallbacks(new TalkActionImplements());
