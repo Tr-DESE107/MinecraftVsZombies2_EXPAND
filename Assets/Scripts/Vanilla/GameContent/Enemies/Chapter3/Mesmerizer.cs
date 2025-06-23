@@ -103,7 +103,7 @@ namespace MVZ2.GameContent.Enemies
             if (!collider.IsForMain())
                 return false;
             var target = collider.Entity;
-            if (!CompellingOrb.CanControl(self,target))
+            if (!CompellingOrb.CanControl(self, target))
                 return false;
             if (target.IsFloor())
                 return false;
