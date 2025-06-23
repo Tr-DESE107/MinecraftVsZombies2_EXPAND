@@ -1,4 +1,5 @@
 ﻿using MVZ2.GameContent.Areas;
+using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -12,7 +13,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Projectiles
 {
     [EntityBehaviourDefinition(VanillaProjectileNames.largeSnowball)]
-    public class LargeSnowball : ProjectileBehaviour
+    public class LargeSnowball : ProjectileBehaviour, IHellfireIgniteBehaviour
     {
         public LargeSnowball(string nsp, string name) : base(nsp, name)
         {
@@ -59,9 +60,26 @@ namespace MVZ2.GameContent.Projectiles
         }
         public static float GetSnowballScale(Entity entity) => entity.GetBehaviourField<float>(ID, PROP_SNOWBALL_SCALE);
         public static void SetSnowballScale(Entity entity, float scale) => entity.SetBehaviourField(ID, PROP_SNOWBALL_SCALE, scale);
+        public void Ignite(Entity entity, Entity hellfire, bool cursed)
+        {
+            var scale = GetSnowballScale(entity);
+
+            var reduceMulti = cursed ? 2 : 1;
+            scale -= IGNITE_SCALE_REDUCTION * reduceMulti;
+            SetSnowballScale(entity, scale);
+            if (scale < 1)
+            {
+                var level = entity.Level;
+                var param = entity.GetSpawnParams();
+                var cobble = level.Spawn(VanillaProjectileID.cobble, entity.Position, entity.SpawnerReference.GetEntity(level), param);
+                cobble.Velocity = entity.Velocity;
+                entity.Remove();
+            }
+        }
 
         private static readonly NamespaceID ID = VanillaAreaID.halloween;
         public static readonly VanillaEntityPropertyMeta<float> PROP_SNOWBALL_SCALE = new VanillaEntityPropertyMeta<float>("SnowballScale");
+        public const float IGNITE_SCALE_REDUCTION = 0.2f;
         public const float MIN_SCALE = 1;
         public const float SCALE_SPEED = 0.1f;
         public const float MAX_SCALE = 10;

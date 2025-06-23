@@ -6,38 +6,18 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.woodenBall)]
-    public class WoodenBall : ProjectileBehaviour, IHellfireIgniteBehaviour
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.hellfireIgnitedArrow)]
+    public class HellfireIgnitedArrowBehaviour : ProjectileBehaviour, IHellfireIgniteBehaviour
     {
-        public WoodenBall(string nsp, string name) : base(nsp, name)
+        public HellfireIgnitedArrowBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
         public override void Update(Entity projectile)
         {
             base.Update(projectile);
-            float angleSpeed = -projectile.Velocity.x * 2.5f;
-            projectile.RenderRotation += Vector3.forward * angleSpeed;
-
-            UpdateIgnited(projectile);
-        }
-        public void Ignite(Entity entity, Entity hellfire, bool cursed)
-        {
-            var igniteBuff = entity.GetFirstBuff<HellfireIgnitedBuff>();
-            if (igniteBuff == null)
-            {
-                igniteBuff = entity.AddBuff<HellfireIgnitedBuff>();
-            }
-            if (!HellfireIgnitedBuff.GetCursed(igniteBuff) && cursed)
-            {
-                HellfireIgnitedBuff.Curse(igniteBuff);
-            }
-        }
-        private void UpdateIgnited(Entity projectile)
-        {
             ignitedBuffBuffer.Clear();
             projectile.GetBuffs<HellfireIgnitedBuff>(ignitedBuffBuffer);
 
@@ -56,19 +36,31 @@ namespace MVZ2.GameContent.Projectiles
             }
 
             // 更新模型。
-            var igniteState = 0;
+            var ignited = 0;
             if (ignitedBuffBuffer.Count > 0)
             {
                 if (ignitedBuffBuffer.Any(b => HellfireIgnitedBuff.GetCursed(b)))
                 {
-                    igniteState = 2;
+                    ignited = 2;
                 }
                 else
                 {
-                    igniteState = 1;
+                    ignited = 1;
                 }
             }
-            projectile.SetModelProperty("IgniteState", igniteState);
+            projectile.SetAnimationInt("Ignited", ignited);
+        }
+        public void Ignite(Entity entity, Entity hellfire, bool cursed)
+        {
+            var igniteBuff = entity.GetFirstBuff<HellfireIgnitedBuff>();
+            if (igniteBuff == null)
+            {
+                igniteBuff = entity.AddBuff<HellfireIgnitedBuff>();
+            }
+            if (!HellfireIgnitedBuff.GetCursed(igniteBuff) && cursed)
+            {
+                HellfireIgnitedBuff.Curse(igniteBuff);
+            }
         }
         private List<Buff> ignitedBuffBuffer = new List<Buff>();
     }

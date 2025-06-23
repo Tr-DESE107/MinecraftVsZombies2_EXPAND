@@ -1,8 +1,9 @@
-﻿using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Buffs.Projectiles;
+﻿using System.Collections.Generic;
+using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
@@ -17,15 +18,18 @@ namespace MVZ2.GameContent.Contraptions
     {
         public Hellfire(string nsp, string name) : base(nsp, name)
         {
-        }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.CollisionMaskFriendly |= EntityCollisionHelper.MASK_PROJECTILE;
+            detector = new HellfireIgniteDetector(32)
+            {
+                factionTarget = FactionTarget.Friendly,
+                mask = EntityCollisionHelper.MASK_PROJECTILE,
+            };
         }
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
+
+            UpdateIgnite(entity);
+
             entity.SetAnimationBool("Evoked", IsCursed(entity));
         }
         public override bool CanEvoke(Entity entity)
@@ -46,27 +50,17 @@ namespace MVZ2.GameContent.Contraptions
             SetMeteor(entity, new EntityID(meteor));
             meteor.PlaySound(VanillaSoundID.bombFalling);
         }
-        public override void PostCollision(EntityCollision collision, int state)
+        private void UpdateIgnite(Entity hellfire)
         {
-            base.PostCollision(collision, state);
-            if (state == EntityCollisionHelper.STATE_EXIT)
-                return;
-            var other = collision.Other;
-            var canIgnite = other.Definition?.HasBehaviour<HellfireIgnitedProjectileBehaviour>() ?? false;
-            if (!canIgnite)
-                return;
-            var self = collision.Entity;
-            if (!self.IsFriendly(other))
-                return;
-
-            var igniteBuff = other.GetFirstBuff<HellfireIgnitedBuff>();
-            if (igniteBuff == null)
+            bool cursed = IsCursed(hellfire);
+            igniteBuffer.Clear();
+            detector.DetectEntities(hellfire, igniteBuffer);
+            foreach (Entity target in igniteBuffer)
             {
-                igniteBuff = other.AddBuff<HellfireIgnitedBuff>();
-            }
-            if (!HellfireIgnitedBuff.GetCursed(igniteBuff) && IsCursed(self))
-            {
-                HellfireIgnitedBuff.Curse(igniteBuff);
+                var behaviour = target.Definition?.GetBehaviour<IHellfireIgniteBehaviour>();
+                if (behaviour == null)
+                    return;
+                behaviour.Ignite(target, hellfire, cursed);
             }
         }
         public static void Curse(Entity entity)
@@ -80,5 +74,11 @@ namespace MVZ2.GameContent.Contraptions
         public static EntityID GetMeteor(Entity entity) => entity.GetProperty<EntityID>(PROP_METEOR);
         public static readonly VanillaBuffPropertyMeta<bool> PROP_CURSED = new VanillaBuffPropertyMeta<bool>("cursed");
         public static readonly VanillaBuffPropertyMeta<EntityID> PROP_METEOR = new VanillaBuffPropertyMeta<EntityID>("meteor");
+        private Detector detector;
+        private List<Entity> igniteBuffer = new List<Entity>();
+    }
+    public interface IHellfireIgniteBehaviour
+    {
+        void Ignite(Entity entity, Entity hellfire, bool cursed);
     }
 }

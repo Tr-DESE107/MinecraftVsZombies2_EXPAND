@@ -2,6 +2,7 @@
 - A new pause easter egg image.
 
 ## Modified
+- Hellfires now react with snowballs, large snowballs, wooden balls and ice bolts.
 - Adjusted the color of command block contraptions.
 - Light emitted by Command block contraptions is now white.
 - Changed the material of Hellfire to Netherrack.
