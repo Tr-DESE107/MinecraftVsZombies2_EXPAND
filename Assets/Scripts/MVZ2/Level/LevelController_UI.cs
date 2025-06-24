@@ -436,7 +436,7 @@ namespace MVZ2.Level
             }
             else
             {
-                ResumeGame(100);
+                ResumeGameDelayed(100);
             }
         }
         private void UI_OnSpeedUpButtonClickCallback()
@@ -479,7 +479,7 @@ namespace MVZ2.Level
         }
         private void UI_OnPauseDialogResumeClickedCallback()
         {
-            ResumeGame(100);
+            ResumeGameDelayed(100);
         }
         private async void UI_OnGameOverRetryButtonClickedCallback()
         {
@@ -495,7 +495,7 @@ namespace MVZ2.Level
             switch (type)
             {
                 case LevelLoadedDialog.ButtonType.Resume:
-                    ResumeGame(100);
+                    ResumeGameDelayed(100);
                     ui.SetLevelLoadedDialogVisible(false);
                     levelLoaded = false;
                     break;

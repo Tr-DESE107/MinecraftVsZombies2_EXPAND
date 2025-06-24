@@ -542,6 +542,17 @@ namespace MVZ2.Level
             isPaused = true;
             Music.Pause();
         }
+        public void ResumeGameDelayed(int level = 0)
+        {
+            StartCoroutine(coroutine());
+
+            IEnumerator coroutine()
+            {
+                yield return null;
+
+                ResumeGame(level);
+            }
+        }
         public bool ResumeGame(int level = 0)
         {
             if (!isPaused || level < pauseLevel)
