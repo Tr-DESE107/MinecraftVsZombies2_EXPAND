@@ -12,6 +12,7 @@
 ## Fixed
 - The Giant will not decrease its damage reduction when it reaches the leftmost in phase 3 under hard difficulty.
 - The hot key text will block the starshard panel to be clicked.
+- The held contraption would be placed directly at the finger position when clicking the dialog button to cancel the pause in Android.
 - Command block contraptions cannot be instant-triggered.
 - Entities which have changed toughness like Imp in I, Zombie or evoked Obsidian will scale toughness again after reloading the level.
 - The increament of attack speed of enemies is unexpectedly high in I, Zombie levels when they have not taken damage for a while.
