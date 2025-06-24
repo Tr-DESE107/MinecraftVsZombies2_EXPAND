@@ -7,9 +7,10 @@ namespace MVZ2.GameContent.Detections
 {
     public class PunchtonDetector : Detector
     {
-        public PunchtonDetector()
+        public PunchtonDetector(bool outsideLawn)
         {
             mask = EntityCollisionHelper.MASK_PLANT | EntityCollisionHelper.MASK_ENEMY | EntityCollisionHelper.MASK_OBSTACLE;
+            this.outsideLawn = outsideLawn;
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {
@@ -31,10 +32,11 @@ namespace MVZ2.GameContent.Detections
             if (!base.ValidateCollider(param, collider))
                 return false;
             var target = collider.Entity;
-            if (!TargetInLawn(target))
+            if (!TargetInLawn(target) && !outsideLawn)
                 return false;
             return true;
         }
         public bool infiniteRange = false;
+        public bool outsideLawn = false;
     }
 }
