@@ -128,17 +128,19 @@ namespace PVZEngine.Level
         public void Update()
         {
             ClearEntityTrash();
+
             UpdateSeedPacks();
-            UpdateDelayedEnergyEntities();
 
-            UpdateEntities();
-            CollisionUpdate();
-
-            buffs.Update();
             foreach (var component in levelComponents)
             {
                 component.Update();
             }
+
+            UpdateDelayedEnergyEntities();
+            UpdateEntities();
+            CollisionUpdate();
+
+            buffs.Update();
             AreaDefinition.Update(this);
             StageDefinition.Update(this);
             Triggers.RunCallback(LevelCallbacks.POST_LEVEL_UPDATE, new LevelCallbackParams(this));

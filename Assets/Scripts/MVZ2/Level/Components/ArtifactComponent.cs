@@ -65,6 +65,7 @@ namespace MVZ2.Level.Components
 
         public override void Update()
         {
+            base.Update();
             artifacts.Update();
         }
         public override void UpdateFrame(float deltaTime, float simulationSpeed)
