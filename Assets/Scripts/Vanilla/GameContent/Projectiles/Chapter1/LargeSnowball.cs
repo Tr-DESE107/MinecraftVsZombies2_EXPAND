@@ -71,6 +71,7 @@ namespace MVZ2.GameContent.Projectiles
             {
                 var level = entity.Level;
                 var param = entity.GetSpawnParams();
+                param.SetProperty(VanillaEntityProps.DAMAGE, 10f);
                 var cobble = level.Spawn(VanillaProjectileID.cobble, entity.Position, entity.SpawnerReference.GetEntity(level), param);
                 cobble.Velocity = entity.Velocity;
                 entity.Remove();
