@@ -729,6 +729,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f1e4625420d356e4eb58b79513629607, type: 3}
   - name: entity/projectiles/crossbow_bolt
     sprite: {fileID: 21300000, guid: 838820327528a4d439a51f03582183f9, type: 3}
+  - name: entity/projectiles/cursed_fireball
+    sprite: {fileID: 21300000, guid: 0d1eecefbebaead49b85fb2324fde531, type: 3}
+  - name: entity/projectiles/cursed_fire_trail
+    sprite: {fileID: 21300000, guid: 5087351033f1d0d4ab74797ba2defe46, type: 3}
   - name: entity/projectiles/dart
     sprite: {fileID: 21300000, guid: 0a0f7cbdb4c6650409a18d59ba158a03, type: 3}
   - name: entity/projectiles/fireball
@@ -745,6 +749,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 77e47ba4e4bc65a46bf4e84b41c40576, type: 3}
   - name: entity/projectiles/ice_bolt
     sprite: {fileID: 21300000, guid: 74521e763130e2249885ce873fba23f2, type: 3}
+  - name: entity/projectiles/ignited_wooden_ball
+    sprite: {fileID: 21300000, guid: 1bfca53233078f04bbeb35d311715ae8, type: 3}
+  - name: entity/projectiles/ignited_wooden_ball_cursed
+    sprite: {fileID: 21300000, guid: b8edef59b9ae0284082846af29941760, type: 3}
   - name: entity/projectiles/javelin
     sprite: {fileID: 21300000, guid: 8af07b31f932791429fddf24a251679f, type: 3}
   - name: entity/projectiles/knife
@@ -779,6 +787,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 62ae9a026747aea4f83506787af8d75a, type: 3}
   - name: entity/projectiles/spike_ball
     sprite: {fileID: 21300000, guid: b9edefea292182b489711acd39777a42, type: 3}
+  - name: entity/projectiles/stoneball
+    sprite: {fileID: 21300000, guid: 02b2a6769dd3bb84d92a60b6d1867601, type: 3}
   - name: entity/projectiles/tnt_model
     sprite: {fileID: 21300000, guid: 2dcf2a5a02a900846ab9ca6458a25522, type: 3}
   - name: entity/projectiles/wooden_ball
