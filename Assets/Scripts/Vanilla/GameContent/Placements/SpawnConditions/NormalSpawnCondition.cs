@@ -1,4 +1,5 @@
-﻿using MVZ2.Vanilla.Grids;
+﻿using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla.Grids;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -13,7 +14,7 @@ namespace MVZ2.GameContent.Placements
             if (grid.IsWater())
             {
                 var carrier = grid.GetLayerEntity(VanillaGridLayers.carrier);
-                if (carrier == null)
+                if (carrier == null || !carrier.Definition.HasBehaviour<ICarrierBehaviour>())
                 {
                     return VanillaGridStatus.needLilypad;
                 }
