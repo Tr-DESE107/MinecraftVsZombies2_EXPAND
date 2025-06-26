@@ -14,6 +14,7 @@
         public const string armorEntity = "armor_entity";
         public const string fragmented = "fragmented";
         public const string takeGrid = "take_grid";
+        public const string lilyPadCarrier = "lily_pad_carrier";
         public const string hellfireIgnitedArrow = "hellfire_ignited_arrow";
 
     }

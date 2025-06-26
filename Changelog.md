@@ -1,3 +1,8 @@
+## Fixed
+- Contraptions can be placed on a command block that transforming into a lily pad.
+
+---
+
 # 0.4.5
 
 ## Added

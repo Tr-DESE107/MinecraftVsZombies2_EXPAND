@@ -412,6 +412,9 @@
 
         <!-- Dream Contraptions -->
         <contraption id="lily_pad" name="睡莲" tooltip="允许在水上放置器械" unlock="mvz2:level.dream_1">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:lily_pad_carrier"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
