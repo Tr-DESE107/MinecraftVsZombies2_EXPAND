@@ -1,3 +1,5 @@
+# 0.4.5
+
 ## Added
 - A new pause easter egg image.
 
