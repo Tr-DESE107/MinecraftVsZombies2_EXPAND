@@ -4,13 +4,14 @@ using MVZ2.Vanilla.Grids;
 using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
+using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Contraptions
 {
     public interface ICarrierBehaviour
     {
     }
-    public abstract class CarrierContraptionBehaviour : ContraptionBehaviour, ICarrierBehaviour
+    public abstract class CarrierContraptionBehaviour : EntityBehaviourDefinition, ICarrierBehaviour
     {
         public CarrierContraptionBehaviour(string nsp, string name) : base(nsp, name)
         {
