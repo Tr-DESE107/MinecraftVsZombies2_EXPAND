@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using PVZEngine;

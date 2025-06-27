@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla.Contraptions;
+﻿using MVZ2.Vanilla.Contraptions;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
@@ -15,7 +14,6 @@ namespace MVZ2.Vanilla.Entities
         }
         public virtual void Evoke(Entity entity)
         {
-            entity.Level.Spawn(VanillaEffectID.evocationStar, entity.GetCenter(), entity);
             OnEvoke(entity);
         }
         public virtual bool CanTrigger(Entity entity)
