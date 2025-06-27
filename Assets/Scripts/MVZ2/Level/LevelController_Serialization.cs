@@ -57,12 +57,12 @@ namespace MVZ2.Level
                 uiPreset = GetUIPreset().ToSerializable(),
             };
         }
-        public void LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
+        public bool LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
         {
             if (!LevelManager.GetLevelStateIdentifierList().Compare(seri.identifiers))
             {
                 ShowLevelErrorLoadingDialog();
-                return;
+                return false;
             }
 
             try
@@ -127,7 +127,7 @@ namespace MVZ2.Level
             {
                 ShowLevelErrorLoadingDialog(e);
                 Debug.LogException(e);
-                return;
+                return false;
             }
 
             // 设置UI可见状态
@@ -171,6 +171,8 @@ namespace MVZ2.Level
             levelLoaded = true;
 
             level.AreaDefinition.PostLoad(level);
+
+            return true;
         }
 
         #endregion
