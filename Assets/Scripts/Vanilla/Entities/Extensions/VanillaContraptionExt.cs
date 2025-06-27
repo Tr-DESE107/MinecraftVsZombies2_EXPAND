@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
-using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
-namespace MVZ2.Vanilla.Entities
+namespace MVZ2.Vanilla.Contraptions
 {
     public static class VanillaContraptionExt
     {
@@ -25,10 +26,11 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void Evoke(this Entity contraption)
         {
-            var evokable = contraption.Definition.GetBehaviour<IEvokableContraption>();
-            if (evokable == null)
-                return;
-            evokable.Evoke(contraption);
+            contraption.Spawn(VanillaEffectID.evocationStar, contraption.GetCenter());
+            foreach (var evokable in contraption.Definition.GetBehaviours<IEvokableContraption>())
+            {
+                evokable.Evoke(contraption);
+            }
             var param = new EntityCallbackParams(contraption);
             contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_EVOKE, param, contraption.GetDefinitionID());
         }
@@ -102,10 +104,10 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void Trigger(this Entity contraption)
         {
-            var triggerable = contraption.Definition.GetBehaviour<ITriggerableContraption>();
-            if (triggerable == null)
-                return;
-            triggerable.Trigger(contraption);
+            foreach (var triggerable in contraption.Definition.GetBehaviours<ITriggerableContraption>())
+            {
+                triggerable.Trigger(contraption);
+            }
             contraption.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_CONTRAPTION_TRIGGER, new EntityCallbackParams(contraption));
         }
         public static bool CanUpgradeToContraption(this Entity contraption, EntityDefinition target)
@@ -137,14 +139,6 @@ namespace MVZ2.Vanilla.Entities
             contraption.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_OBSIDIAN_FIRST_AID, new EntityCallbackParams(contraption), contraption.GetDefinitionID());
             return contraption;
         }
-        public static bool IsEvoked(this Entity contraption)
-        {
-            return contraption.GetProperty<bool>(PROP_EVOKED);
-        }
-        public static void SetEvoked(this Entity contraption, bool value)
-        {
-            contraption.SetProperty(PROP_EVOKED, value);
-        }
 
         public static void ShortCircuit(this Entity contraption, int time)
         {
@@ -164,8 +158,5 @@ namespace MVZ2.Vanilla.Entities
             }
             buff.SetProperty(WitheredBuff.PROP_TIMEOUT, time);
         }
-        private const string PROP_REGION = "contraptions";
-        [EntityPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta<bool> PROP_EVOKED = new VanillaEntityPropertyMeta<bool>("Evoked");
     }
 }
