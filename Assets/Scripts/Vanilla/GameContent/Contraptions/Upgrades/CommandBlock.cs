@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Contraptions
             var targetDef = GetEntityDefinitionToTransform(entity);
             if (targetDef == null)
                 return false;
-            if (!targetDef.CanInstantEvoke())
+            if (!targetDef.WillInstantEvoke(entity.Level))
                 return false;
             return base.CanEvoke(entity);
         }

@@ -1,5 +1,8 @@
-﻿using PVZEngine;
+﻿using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Level;
+using PVZEngine;
 using PVZEngine.Definitions;
+using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.Vanilla.SeedPacks
@@ -55,6 +58,21 @@ namespace MVZ2.Vanilla.SeedPacks
         public static bool CanInstantEvoke(this SeedDefinition definition)
         {
             return definition.GetProperty<bool>(CAN_INSTANT_EVOKE);
+        }
+        public static bool WillInstantEvoke(this SeedDefinition definition, LevelEngine level)
+        {
+            if (definition == null)
+                return false;
+            if (!definition.CanInstantEvoke())
+                return false;
+            if (level.IsDay())
+            {
+                var entityID = definition.GetSeedEntityID();
+                var entityDef = level.Content.GetEntityDefinition(entityID);
+                if (entityDef.IsNocturnal())
+                    return false;
+            }
+            return true;
         }
         public static bool IsTwinkling(this SeedPack seed)
         {

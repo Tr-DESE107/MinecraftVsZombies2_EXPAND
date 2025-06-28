@@ -1,6 +1,8 @@
-﻿using MVZ2.Vanilla.Properties;
+﻿using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.Vanilla.Contraptions
 {
@@ -118,6 +120,16 @@ namespace MVZ2.Vanilla.Contraptions
         public static bool CanInstantEvoke(this EntityDefinition definition)
         {
             return definition.GetProperty<bool>(INSTANT_EVOKE);
+        }
+        public static bool WillInstantEvoke(this EntityDefinition definition, LevelEngine level)
+        {
+            if (definition == null)
+                return false;
+            if (!definition.CanInstantEvoke())
+                return false;
+            if (level.IsDay() && definition.IsNocturnal())
+                return false;
+            return true;
         }
         public static NamespaceID GetFragmentID(this Entity entity) => entity.GetProperty<NamespaceID>(VanillaContraptionProps.FRAGMENT_ID);
     }
