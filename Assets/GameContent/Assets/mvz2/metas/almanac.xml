@@ -181,12 +181,12 @@
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>300</color>]]></p>
-                <p>生产速度：<![CDATA[<color=red>24秒</color>]]></p>
+                <p>生产时间：<![CDATA[<color=red>24秒</color>]]></p>
                 <p>提供能量：<![CDATA[<color=red>25</color>]]></p>
                 <p>技能：<![CDATA[<color=red>瞬间生成6枚红石</color>]]></p>
             </properties>
             <flavor>
-                <p>有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。</p>
+                <p>精准采集是你这样用的？</p>
             </flavor>
         </entry>
         <entry id="mvz2:obsidian">
@@ -552,7 +552,7 @@
                 <p>巨碗能够缓慢生产并存储星之碎片，这些星之碎片只能通过摧毁巨碗取出。</p>
             </header>
             <properties>
-                <p>生产速度：<![CDATA[<color=red>60秒</color>]]></p>
+                <p>生产时间：<![CDATA[<color=red>60秒</color>]]></p>
                 <p>存储上限：<![CDATA[<color=red>5</color>]]></p>
                 <p>技能：<![CDATA[<color=red>向内部存储一颗星之碎片</color>]]></p>
             </properties>
@@ -1555,6 +1555,10 @@
                 <header>
                     <p>史蒂夫制造的自动矿场，会在白天的时候自动挖掘红石矿。</p>
                 </header>
+                <properties>
+                    <p>生产时间：<![CDATA[<color=red>10秒</color>]]></p>
+                    <p>提供能量：<![CDATA[<color=red>25</color>]]></p>
+                </properties>
                 <flavor>
                     <p>史蒂夫精通机械，这台自动矿场出自他的手中。依靠太阳能工作，自动寻找地下存储的红石矿，然后将其运输到地表。</p>
                     <p>……不过既然它需要太阳能，为什么不直接把太阳能变成能量呢？</p>

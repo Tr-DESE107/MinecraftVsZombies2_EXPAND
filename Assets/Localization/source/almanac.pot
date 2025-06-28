@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-06-18 09:46+0800\n"
+"POT-Creation-Date: 2025-06-28 12:44+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -560,7 +560,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>300</color>\n"
-"生产速度：<color=red>24秒</color>\n"
+"生产时间：<color=red>24秒</color>\n"
 "提供能量：<color=red>25</color>\n"
 "技能：<color=red>瞬间生成6枚红石</color>"
 msgstr ""
@@ -568,7 +568,7 @@ msgstr ""
 #. Flavor for contraptions mvz2:furnace
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。"
+msgid "精准采集是你这样用的？"
 msgstr ""
 
 #. Header for contraptions mvz2:obsidian
@@ -1136,7 +1136,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"生产速度：<color=red>60秒</color>\n"
+"生产时间：<color=red>60秒</color>\n"
 "存储上限：<color=red>5</color>\n"
 "技能：<color=red>向内部存储一颗星之碎片</color>"
 msgstr ""
@@ -2518,6 +2518,14 @@ msgctxt "misc.description"
 msgid "史蒂夫制造的自动矿场，会在白天的时候自动挖掘红石矿。"
 msgstr ""
 
+#. Properties for misc mvz2:miner
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生产时间：<color=red>10秒</color>\n"
+"提供能量：<color=red>25</color>"
+msgstr ""
+
 #. Flavor for misc mvz2:miner
 #: Almanac meta file
 msgctxt "misc.description"
@@ -2908,12 +2916,6 @@ msgstr ""
 #: Almanac meta file
 msgctxt "misc.description"
 msgid "一位普通的魔法使，也是森近 霖之助曾经的好友。"
-msgstr ""
-
-#. Properties for misc mvz2:marisa
-#: Almanac meta file
-msgctxt "misc.description"
-msgid "画师：<color=red>小幽喜欢口乙烯 & 三花花</color>"
 msgstr ""
 
 #. Flavor for misc mvz2:marisa
