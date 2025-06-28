@@ -340,7 +340,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 150
+  m_SortingOrder: 85
   m_SortAtRoot: 0
 --- !u!114 &5244756624707596614
 MonoBehaviour:
