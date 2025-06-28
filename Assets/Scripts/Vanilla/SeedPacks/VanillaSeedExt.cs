@@ -61,10 +61,10 @@ namespace MVZ2.Vanilla.SeedPacks
             var blueprintDef = seedPack?.Definition;
             return blueprintDef.IsTriggerActive() && blueprintDef.CanInstantTrigger();
         }
-        public static bool CanInstantEvoke(this SeedPack seedPack)
+        public static bool WillInstantEvoke(this SeedPack seedPack)
         {
             var blueprintDef = seedPack?.Definition;
-            return blueprintDef.CanInstantEvoke();
+            return blueprintDef.WillInstantEvoke(seedPack.Level);
         }
     }
 }

@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Pickups;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
@@ -47,7 +48,7 @@ namespace MVZ2.GameContent.HeldItems
         public bool ShouldMakeEntityTwinkle(Entity entity, IHeldItemData data)
         {
             var seedDefinition = BlueprintPickup.GetSeedDefinition(entity);
-            return seedDefinition != null && seedDefinition.CanInstantEvoke();
+            return seedDefinition.WillInstantEvoke(entity.Level);
         }
     }
 }

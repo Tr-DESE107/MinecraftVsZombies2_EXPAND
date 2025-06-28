@@ -104,7 +104,7 @@ namespace MVZ2.Level
             {
                 return true;
             }
-            else if (Level.IsHoldingStarshard() && SeedPack.CanInstantEvoke())
+            else if (Level.IsHoldingStarshard() && SeedPack.WillInstantEvoke())
             {
                 return true;
             }

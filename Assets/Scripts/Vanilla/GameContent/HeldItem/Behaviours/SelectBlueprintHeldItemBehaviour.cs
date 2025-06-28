@@ -98,7 +98,7 @@ namespace MVZ2.GameContent.HeldItems
         }
         private PickData GetBlueprintPickData(SeedPack seedPack)
         {
-            bool canInstantEvoke = seedPack.CanInstantEvoke();
+            bool canInstantEvoke = seedPack.WillInstantEvoke();
             bool canInstantTrigger = seedPack.CanInstantTrigger();
             return GetBlueprintPickData(seedPack.Level, canInstantEvoke, canInstantTrigger);
         }
@@ -191,7 +191,7 @@ namespace MVZ2.GameContent.HeldItems
         }
         private PickData GetBlueprintPickData(LevelEngine level, SeedDefinition seedDef)
         {
-            bool canInstantEvoke = seedDef.CanInstantEvoke();
+            bool canInstantEvoke = seedDef.WillInstantEvoke(level);
             bool canInstantTrigger = seedDef.IsTriggerActive() && seedDef.CanInstantTrigger();
             return GetBlueprintPickData(level, canInstantEvoke, canInstantTrigger);
         }
