@@ -77,6 +77,7 @@ namespace MVZ2.GameContent.Stages
                     level.HideHintArrow();
                     break;
                 case STATE_DISPENSER_EVOKED:
+                    level.HideHintArrow();
                     StartTimer(level, 150);
                     break;
                 case STATE_GREEN_ENEMY:
@@ -105,6 +106,10 @@ namespace MVZ2.GameContent.Stages
                         if (heldEntityType == VanillaHeldTypes.starshard)
                         {
                             StartState(level, STATE_EVOKE_DISPENSER);
+                        }
+                        else if (level.EntityExists(e => e.IsEvoked()))
+                        {
+                            StartState(level, STATE_DISPENSER_EVOKED);
                         }
                     }
                     break;

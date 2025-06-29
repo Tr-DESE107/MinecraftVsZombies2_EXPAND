@@ -151,6 +151,10 @@ namespace MVZ2.GameContent.Stages
                         {
                             StartState(level, STATE_TRIGGER_TNT);
                         }
+                        else if (level.EntityExists(e => e.GetDefinitionID() == VanillaContraptionID.tnt && TNT.IsIgnited(e)) || !level.EntityExists(VanillaContraptionID.tnt))
+                        {
+                            StartState(level, STATE_TNT_TRIGGERED);
+                        }
                     }
                     break;
                 case STATE_TRIGGER_TNT:
