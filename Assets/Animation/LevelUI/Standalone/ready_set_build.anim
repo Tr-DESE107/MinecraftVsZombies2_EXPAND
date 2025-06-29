@@ -205,7 +205,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3696138779
+      path: 1274418271
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -214,7 +214,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1275594645
+      path: 2883911300
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -223,7 +223,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3154224373
+      path: 833243742
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -232,7 +232,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3696138779
+      path: 1274418271
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -241,7 +241,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1275594645
+      path: 2883911300
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -250,7 +250,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1232858479
+      path: 3737346859
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -592,18 +592,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: PlaySound2D
-    data: mvz2:ready_set_build
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 2.5
-    functionName: CallStartGame
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

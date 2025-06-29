@@ -856,6 +856,7 @@ namespace MVZ2.Level
         {
             var ui = GetUIPreset();
             ui.ShowReadySetBuild();
+            level.PlaySound(VanillaSoundID.readySetBuild);
         }
         #endregion
 
