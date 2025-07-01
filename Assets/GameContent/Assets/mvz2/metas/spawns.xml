@@ -2,7 +2,7 @@
     <entry id="zombie" entity="mvz2:zombie" >
         <spawn level="1" />
         <preview count="3" />
-        <terrain water="true"/>
+        <terrain water="true" air="true"/>
         <weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
     </entry>
     <entry id="leather_capped_zombie" entity="mvz2:leather_capped_zombie" >

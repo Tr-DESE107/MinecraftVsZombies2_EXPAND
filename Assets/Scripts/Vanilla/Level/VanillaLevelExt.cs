@@ -670,6 +670,7 @@ namespace MVZ2.Vanilla.Level
         {
             return Enumerable.Range(0, level.GetMaxLaneCount());
         }
+        #region 水路
         public static IEnumerable<int> GetWaterLanes(this LevelEngine level)
         {
             return level.GetAllLanes().Where(l => level.IsWaterLane(l));
@@ -721,6 +722,39 @@ namespace MVZ2.Vanilla.Level
                 }
             }
         }
+        #endregion
+
+        #region 空路
+        public static IEnumerable<int> GetAirLanes(this LevelEngine level)
+        {
+            return level.GetAllLanes().Where(l => level.IsAirLane(l));
+        }
+        public static bool IsAirLane(this LevelEngine level, int lane)
+        {
+            for (int column = 0; column < level.GetMaxColumnCount(); column++)
+            {
+                var grid = level.GetGrid(column, lane);
+                if (grid == null)
+                    continue;
+                if (grid.IsAir())
+                    return true;
+            }
+            return false;
+        }
+        public static bool IsAirGrid(this LevelEngine level, int column, int lane)
+        {
+            var grid = level.GetGrid(column, lane);
+            if (grid == null)
+                return false;
+            return grid.IsAir();
+        }
+        public static bool IsAirAt(this LevelEngine level, float x, float z)
+        {
+            var column = level.GetColumn(x);
+            var lane = level.GetLane(z);
+            return level.IsAirGrid(column, lane);
+        }
+        #endregion
         public static void UpdatePersistentLevelUnlocks(this LevelEngine level)
         {
             var game = Global.Game;

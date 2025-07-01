@@ -1,5 +1,6 @@
 ﻿using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -12,6 +13,7 @@ namespace MVZ2.GameContent.Grids
     {
         public AirGrid(string nsp, string name) : base(nsp, name)
         {
+            SetProperty<bool>(VanillaGridProps.IS_AIR, true);
         }
 
         public override NamespaceID GetPlaceSound(Entity entity)

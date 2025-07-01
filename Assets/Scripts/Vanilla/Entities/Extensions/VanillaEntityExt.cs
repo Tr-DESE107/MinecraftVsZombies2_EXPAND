@@ -763,6 +763,20 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.IsOnWater() && entity.IsOnGround;
         }
+        public static bool IsOnAir(this Entity entity)
+        {
+            var grid = entity.GetGrid();
+            return grid != null && grid.IsAir();
+        }
+        public static bool IsInAir(this Entity entity)
+        {
+            return entity.IsOnAir() && entity.IsOnGround;
+        }
+        public static bool IsAboveLand(this Entity entity)
+        {
+            var grid = entity.GetGrid();
+            return grid == null || (!grid.IsWater() && !grid.IsAir());
+        }
         public static void PlaySplashEffect(this Entity entity)
         {
             var size = entity.GetScaledSize();
@@ -772,13 +786,33 @@ namespace MVZ2.Vanilla.Entities
         public static void PlaySplashEffect(this Entity entity, Vector3 scale)
         {
             var level = entity.Level;
+            entity.PlaySplashEffect(scale, level.GetWaterColor());
+        }
+        public static void PlayAirSplashEffect(this Entity entity)
+        {
+            var size = entity.GetScaledSize();
+            var scale = Mathf.Clamp(size.x * size.y * size.z / SPLASH_SIZE_UNIT, 1, 5);
+            entity.PlayAirSplashEffect(scale * Vector3.one);
+        }
+        public static void PlayAirSplashEffect(this Entity entity, Vector3 scale)
+        {
+            entity.PlaySplashEffect(scale, new Color(1, 1, 1, 0.5f));
+        }
+        public static void PlaySplashEffect(this Entity entity, Vector3 scale, Color color)
+        {
+            var level = entity.Level;
             var pos = entity.Position;
             pos.y = entity.GetGroundY();
             var splash = level.Spawn(VanillaEffectID.splashParticles, pos, entity);
-            splash.SetTint(level.GetWaterColor());
+            splash.SetTint(color);
             splash.SetDisplayScale(scale);
         }
 
+        public static void PlayAirSplashSound(this Entity entity)
+        {
+            var sound = VanillaSoundID.cloth;
+            entity.PlaySound(sound);
+        }
         public static void PlaySplashSound(this Entity entity)
         {
             var level = entity.Level;

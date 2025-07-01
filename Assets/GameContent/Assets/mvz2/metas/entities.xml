@@ -34,6 +34,7 @@
             </behaviours>
             <properties>
                 <int name="mvz2:waterInteraction" value="1" />
+                <int name="mvz2:airInteraction" value="1" />
 
                 <bool name="mvz2:receivesLight" value="true" />
                 <bool name="mvz2:canDeactive" value="true" />
@@ -79,6 +80,7 @@
                 <int name="mvz2:faction" value="1" />
 
                 <int name="mvz2:waterInteraction" value="1" />
+                <int name="mvz2:airInteraction" value="1" />
             </properties>
         </enemy>
         <obstacle id="3" parent="entity">
@@ -97,6 +99,7 @@
                 <bool name="mvz2:faceLeftAtDefault" value="true" />
                 <idArray name="mvz2:gridLayers" value="mvz2:main" />
                 <int name="mvz2:waterInteraction" value="1" />
+                <int name="mvz2:airInteraction" value="1" />
                 <int name="mvz2:faction" value="1" />
             </properties>
         </obstacle>
@@ -116,6 +119,7 @@
                 <float name="mvz2:takenCrushDamage" value="900" />
                 <bool name="mvz2:faceLeftAtDefault" value="true" />
                 <int name="mvz2:faction" value="1" />
+                <int name="mvz2:airInteraction" value="1" />
             </properties>
         </boss>
         <cart id="5" parent="entity">
@@ -128,6 +132,7 @@
                 <id name="mvz2:cartTriggerSound" value="mvz2:minecart" />
                 <float name="mvz2:gravity" value="1" />
                 <int name="mvz2:waterInteraction" value="1" />
+                <int name="mvz2:airInteraction" value="1" />
             </properties>
         </cart>
         <pickup id="6" parent="entity">
@@ -152,6 +157,7 @@
                 <float name="mvz2:changeLaneSpeed" value="10" />
                 <vector3 name="mvz2:shadowScale" x="0.5" y="0.5" z="0.5" />
                 <int name="mvz2:waterInteraction" value="1" />
+                <int name="mvz2:airInteraction" value="1" />
             </properties>
         </projectile>
         <effect id="8" parent="entity">
@@ -470,6 +476,7 @@
                 <bool name="mvz2:instantEvoke" value="false" />
                 <int name="mvz2:maxTimeout" value="30" />
                 <int name="mvz2:waterInteraction" value="0" />
+                <int name="mvz2:airInteraction" value="0" />
                 <float name="mvz2:gravity" value="-0.25" />
                 <vector3 name="mvz2:size" x="0" y="0" z="0" />
                 <id name="mvz2:shell" value="mvz2:grass" />
@@ -642,6 +649,7 @@
                 <vector3 name="mvz2:lightRange" x="80" y="80" z="80" />
                 <color name="mvz2:lightColor" value="#00BBFF" />
                 <int name="mvz2:waterInteraction" value="0" />
+                <int name="mvz2:airInteraction" value="0" />
 
                 <vector3 name="mvz2:shadowScale" x="0.5" y="0.5" z="0.5" />
 
@@ -666,6 +674,7 @@
                 <id name="mvz2:placement" value="mvz2:devourer" />
                 <idArray name="mvz2:gridLayers" value="mvz2:tool" />
                 <int name="mvz2:waterInteraction" value="0" />
+                <int name="mvz2:airInteraction" value="0" />
 
                 <int name="mvz2:cost" value="75" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
@@ -870,6 +879,7 @@
             <properties>
                 <int name="mvz2:cost" value="50" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="leather_capped_zombie" name="皮帽僵尸" deathMessage="脑子是好的，但不是每个人都有">
@@ -877,6 +887,7 @@
                 <id name="mvz2:starting_armor" value="mvz2:leather_cap" />
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="iron_helmetted_zombie" name="铁盔僵尸" deathMessage="脑子是好的，但不是每个人都有">
@@ -884,12 +895,14 @@
                 <id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="flag_zombie" name="旗帜僵尸" deathMessage="脑子是好的，但不是每个人都有">
             <properties>
                 <int name="mvz2:cost" value="300" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
 
@@ -906,6 +919,7 @@
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。">
@@ -923,6 +937,7 @@
 
                 <int name="mvz2:cost" value="100" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="ghost" name="幽灵" deathMessage="现在有伴了。" unlock="mvz2:level.halloween_3">
@@ -937,6 +952,7 @@
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="3" />
+                <int name="mvz2:airInteraction" value="3" />
             </properties>
         </enemy>
         <enemy id="mummy" name="木乃伊" deathMessage="裹成个粽子。" unlock="mvz2:level.halloween_6">
@@ -950,6 +966,7 @@
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="necromancer" name="死灵法师" deathMessage="你挂了\n死亡带走了12450金币和经验值"
@@ -961,6 +978,7 @@
 
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
 
@@ -983,6 +1001,7 @@
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="cave_spider" name="洞穴蜘蛛" deathMessage="你有蜂蜜瓶还是牛奶桶呢？都没有。"
@@ -1007,6 +1026,7 @@
 
                 <int name="mvz2:cost" value="150" />
                 <int name="mvz2:waterInteraction" value="3" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
@@ -1028,6 +1048,7 @@
 
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="3" />
+                <int name="mvz2:airInteraction" value="3" />
             </properties>
         </enemy>
         <enemy id="mother_terror" name="恐怖之母" deathMessage="生异形啊" unlock="mvz2:level.dream_8">
@@ -1049,6 +1070,7 @@
 
                 <int name="mvz2:cost" value="175" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="parasite_terror" name="恐怖寄生虫" deathMessage="恐怖寄生虫 已消灭世界上的所有……"
@@ -1073,6 +1095,7 @@
 
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
 
@@ -1092,6 +1115,7 @@
 
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2:level.castle_3">
@@ -1107,6 +1131,7 @@
 
                 <int name="mvz2:cost" value="150" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="dullahan" name="无头骑士" deathMessage="真让人摸不着头脑。" unlock="mvz2:level.castle_6">
@@ -1120,6 +1145,7 @@
 
                 <int name="mvz2:cost" value="175" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！"
@@ -1140,6 +1166,8 @@
                 <vector3 name="mvz2:size" x="130" y="70" z="40" />
                 <vector3 name="mvz2:shadowScale" x="3" y="1" z="1" />
                 <idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
+                <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
 
                 <int name="mvz2:cost" value="300" />
             </properties>
@@ -1165,12 +1193,14 @@
                 <id name="mvz2:starting_shield" value="mvz2:reflective_barrier" />
                 <int name="mvz2:cost" value="100" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="talisman_zombie" name="灵符僵尸" deathMessage="好吃" unlock="mvz2:level.mausoleum_3">
             <properties>
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="wicked_hermit_zombie" name="邪仙僵尸" deathMessage="省得找个铲子来挖坟了。"
@@ -1179,6 +1209,7 @@
                 <id name="mvz2:starting_armor" value="mvz2:wicked_hermit_hat" />
                 <int name="mvz2:cost" value="150" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="shikaisen_zombie" name="尸解仙僵尸" deathMessage="那我怎么没复活？"
@@ -1186,6 +1217,7 @@
             <properties>
                 <int name="mvz2:cost" value="125" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="emperor_zombie" name="皇帝僵尸" deathMessage="中道崩殂" unlock="mvz2:level.mausoleum_8">
@@ -1193,6 +1225,7 @@
                 <id name="mvz2:starting_armor" value="mvz2:emperor_crown" />
                 <int name="mvz2:cost" value="100" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
 
@@ -1245,6 +1278,7 @@
                 <float name="mvz2:cryPitch" value="2" />
                 <int name="mvz2:cost" value="50" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
 
@@ -1379,6 +1413,7 @@
 
                 <int name="mvz2:cost" value="1000" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="skeleton_warrior" name="骷髅战士" deathMessage="骸死我了" unlock="mvz2:level.mausoleum_7">
@@ -1392,6 +1427,7 @@
 
                 <int name="mvz2:cost" value="175" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="skeleton_mage" name="骷髅法师" deathMessage="骸死我了" unlock="mvz2:level.mausoleum_7">
@@ -1407,6 +1443,7 @@
 
                 <int name="mvz2:cost" value="75" />
                 <int name="mvz2:waterInteraction" value="2" />
+                <int name="mvz2:airInteraction" value="2" />
             </properties>
         </enemy>
         <enemy id="shikaisen_staff" name="尸解仙之杖" deathMessage="？" unlock="mvz2:level.mausoleum_6">
@@ -1553,6 +1590,7 @@
                 <id name="mvz2:cartTriggerSound" value="mvz2:meow" />
                 <float name="mvz2:gravity" value="0" />
                 <int name="mvz2:waterInteraction" value="0" />
+                <int name="mvz2:airInteraction" value="0" />
             </properties>
         </cart>
         <cart id="bowl_chariot" name="碗车" >
@@ -1941,6 +1979,7 @@
             <properties>
                 <int name="mvz2:maxTimeout" value="60" />
                 <int name="mvz2:waterInteraction" value="1" />
+                <int name="mvz2:airInteraction" value="1" />
                 <float name="mvz2:friction" value="0.1" />
                 <float name="mvz2:gravity" value="1" />
             </properties>
@@ -2223,6 +2262,7 @@
             <properties>
                 <int name="mvz2:maxTimeout" value="90" />
                 <int name="mvz2:waterInteraction" value="1" />
+                <int name="mvz2:airInteraction" value="1" />
                 <float name="mvz2:friction" value="0.1" />
                 <float name="mvz2:gravity" value="1" />
                 <vector3 name="mvz2:size" x="180" y="50" z="50" />

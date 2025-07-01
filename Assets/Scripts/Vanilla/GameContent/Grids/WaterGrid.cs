@@ -1,4 +1,5 @@
 ﻿using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Grids;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -11,6 +12,7 @@ namespace MVZ2.GameContent.Grids
     {
         public WaterGrid(string nsp, string name) : base(nsp, name)
         {
+            SetProperty(VanillaGridProps.IS_WATER, true);
         }
 
         public override NamespaceID GetPlaceSound(Entity entity)

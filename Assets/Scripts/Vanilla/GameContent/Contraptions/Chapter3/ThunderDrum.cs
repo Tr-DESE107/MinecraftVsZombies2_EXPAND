@@ -98,7 +98,7 @@ namespace MVZ2.GameContent.Contraptions
                 return false;
             if (!target.IsOnGround)
                 return false;
-            if (target.IsOnWater())
+            if (!target.IsAboveLand())
                 return false;
             return true;
         }

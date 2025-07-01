@@ -1843,6 +1843,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3322237d80cabdd4cb9ca5b49b955e2e
+    m_Address: mvz2:ship_level_sub
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 333296bf7a142dd43a413222f3881bcb
     m_Address: mvz2:mobile_blueprint/parasite_terror
     m_ReadOnly: 0
@@ -5389,6 +5396,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9063aaf9537da714b930248c1c3085ee
+    m_Address: mvz2:ship_level
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 906ce113fd4d66149af2e0d8c40a4299
     m_Address: mvz2:anvil
