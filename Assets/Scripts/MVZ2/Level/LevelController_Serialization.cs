@@ -5,6 +5,7 @@ using MVZ2.Entities;
 using MVZ2.Games;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
+using MVZ2.Models;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -250,7 +251,7 @@ namespace MVZ2.Level
         public float twinkleTime;
 
         public SerializableEntityController[] entities;
-        public SerializableAreaModelData areaModel;
+        public SerializableModelData areaModel;
 
         public SerializableLevel level;
 

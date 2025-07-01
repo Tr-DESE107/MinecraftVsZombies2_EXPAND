@@ -76,7 +76,7 @@ namespace MVZ2.Entities
                 Model = null;
             }
             var model = Models.Model.Create(modelId, transform, Level.GetCamera(), Entity.InitSeed);
-            Model = model;
+            Model = model as SpriteModel;
             if (!Model)
                 return;
             Model.OnUpdateFrame += OnModelUpdateFrameCallback;
@@ -277,11 +277,11 @@ namespace MVZ2.Entities
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {
-            return Model.GraphicGroup.SortingLayerID;
+            return Model.RendererGroup.SortingLayerID;
         }
         int ILevelRaycastReceiver.GetSortingOrder()
         {
-            return Model.GraphicGroup.SortingOrder;
+            return Model.RendererGroup.SortingOrder;
         }
         #endregion
 
@@ -486,7 +486,7 @@ namespace MVZ2.Entities
             { EntityTypes.PICKUP, 7 },
         };
         public MainManager Main => MainManager.Instance;
-        public Model Model { get; private set; }
+        public SpriteModel Model { get; private set; }
         public ShadowController Shadow => shadow;
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
@@ -516,7 +516,7 @@ namespace MVZ2.Entities
             {
                 var entity = entityCtrl.Entity;
                 var model = entityCtrl.Model;
-                var rendererGroup = model.GraphicGroup;
+                var rendererGroup = model.RendererGroup;
                 rendererGroup.SetTint(entityCtrl.GetTint());
                 rendererGroup.SetHSV(entity.GetHSV());
                 rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
@@ -545,7 +545,7 @@ namespace MVZ2.Entities
             {
                 var entity = entityCtrl.Entity;
                 var model = entityCtrl.Model;
-                var rendererGroup = model.GraphicGroup;
+                var rendererGroup = model.RendererGroup;
                 foreach (var dirtyProperty in dirtyProperties)
                 {
                     switch (dirtyProperty)

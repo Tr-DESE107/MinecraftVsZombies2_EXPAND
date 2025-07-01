@@ -833,7 +833,7 @@ namespace MVZ2.Level
         {
             isGameOver = true;
             level.PlaySound(VanillaSoundID.loseMusic);
-            model.SetDoorVisible(false);
+            model.SetAnimatorBool("GameOver", true);
             level.HideAdvice();
             SetUIVisibleState(VisibleState.Nothing);
             RemoveLevelState();
@@ -1071,6 +1071,7 @@ namespace MVZ2.Level
         }
         private void InitLevelModel(NamespaceID stageId)
         {
+            model.Init(GetCamera());
             var stageMeta = Resources.GetStageMeta(stageId);
             if (stageMeta == null)
                 return;
@@ -1140,10 +1141,9 @@ namespace MVZ2.Level
             }
             SetLighting(background, global);
         }
-        private void SetLighting(Color night, Color darkness)
+        private void SetLighting(Color background, Color global)
         {
-            Main.GraphicsManager.SetLighting(night, darkness);
-            model?.SetLighting(darkness);
+            Main.GraphicsManager.SetLighting(background, global);
         }
         #endregion
 

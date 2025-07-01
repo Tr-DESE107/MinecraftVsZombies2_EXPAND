@@ -45,7 +45,7 @@ namespace MVZ2.Models
         public override ModelGraphicGroup GraphicGroup => RendererGroup;
         public Collider2D Collider => modelCollider;
         public HeldTargetFlag HeldTargetFlag => heldTargetFlag;
-        public ModelRendererGroup RendererGroup => rendererGroup;
+        public ModelSortedRendererGroup RendererGroup => rendererGroup;
         [Header("Sprite")]
         [SerializeField]
         private GameObject colliderObject;
@@ -54,7 +54,7 @@ namespace MVZ2.Models
         [SerializeField]
         private HeldTargetFlag heldTargetFlag;
         [SerializeField]
-        private ModelRendererGroup rendererGroup;
+        private ModelSortedRendererGroup rendererGroup;
         [SerializeField]
         private LightController lightController;
     }
