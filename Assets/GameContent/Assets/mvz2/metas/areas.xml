@@ -333,7 +333,7 @@
             <grid id="mvz2:stone" />
         </grids>
     </area>
-    <area id="ship" model="mvz2:ship" music="mvz2:ship_level" cart="mvz2:bowl_chariot" starshard="mvz2:starshards/ship" tags="mvz2:day mvz2:no_water mvz2:air">
+    <area id="ship" model="mvz2:ship" music="mvz2:ship_level" cart="mvz2:unzan_fist" starshard="mvz2:starshards/ship" tags="mvz2:day mvz2:no_water mvz2:air">
         <positions enemySpawnX="1080" doorZ="240" />
         <grids width="80" height="80" leftX="260" bottomZ="40" lanes="6" columns="9">
             <!-- Lane 1 -->

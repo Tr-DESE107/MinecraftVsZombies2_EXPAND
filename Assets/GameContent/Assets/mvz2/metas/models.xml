@@ -120,6 +120,7 @@
     <model name="nyaightmare" type="entity" path="mvz2:cart/nyaightmare" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="bowl_chariot" type="entity" path="mvz2:cart/bowl_chariot" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="ballista" type="entity" path="mvz2:cart/ballista" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="unzan_fist" type="entity" path="mvz2:cart/unzan_fist" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <!-- Pickups -->
     <model name="redstone" type="entity" path="mvz2:pickup/redstone" width="64" height="64" xOffset="0" yOffset="-16"/>

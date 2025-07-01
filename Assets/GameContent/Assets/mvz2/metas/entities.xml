@@ -1609,6 +1609,14 @@
                 <id name="mvz2:fragmentId" value="mvz2:wooden_dropper" />
             </properties>
         </cart>
+        <cart id="unzan_fist" name="云山之拳">
+            <properties>
+                <id name="mvz2:cartTriggerSound" value="mvz2:ufo" />
+                <float name="mvz2:gravity" value="0" />
+                <int name="mvz2:waterInteraction" value="0" />
+                <int name="mvz2:airInteraction" value="0" />
+            </properties>
+        </cart>
 
         <!-- Pickups -->
         <pickup id="redstone" name="红石">
