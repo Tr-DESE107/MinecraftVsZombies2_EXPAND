@@ -56,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8863192310220582761}
   - component: {fileID: 1086327434528303836}
+  - component: {fileID: 3416483972678643166}
   m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
@@ -130,6 +131,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3416483972678643166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670376285932742773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &3799299510679417759
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1554807909308335402}
   - component: {fileID: 3611676925950151824}
+  - component: {fileID: 8146500055970119873}
   m_Layer: 12
   m_Name: Foreground
   m_TagString: Untagged
@@ -214,6 +229,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8146500055970119873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799299510679417759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &4650240256723826731
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8788528046178174595}
   - component: {fileID: 4956961238327148201}
+  - component: {fileID: 2373134937878843361}
   m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
@@ -298,6 +327,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2373134937878843361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4650240256723826731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedInGroup: 0
 --- !u!1 &6774762952520082630
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +568,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: halloween
       objectReference: {fileID: 0}
+    - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+      propertyPath: renderers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 3416483972678643166}
+    - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+      propertyPath: renderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 2373134937878843361}
+    - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+      propertyPath: renderers.Array.data[2]
+      value: 
+      objectReference: {fileID: 8146500055970119873}
     - target: {fileID: 5671797193147986414, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

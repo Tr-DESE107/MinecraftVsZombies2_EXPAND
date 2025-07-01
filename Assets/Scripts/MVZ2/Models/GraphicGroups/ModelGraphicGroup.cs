@@ -110,14 +110,10 @@ namespace MVZ2.Models
         {
             var serializable = CreateSerializable();
             serializable.animators = animators.Select(a => new SerializableAnimator(a)).ToArray();
-            serializable.sortingLayerID = SortingLayerID;
-            serializable.sortingOrder = SortingOrder;
             return serializable;
         }
         public void LoadFromSerializable(SerializableModelGraphicGroup serializable)
         {
-            SortingLayerID = serializable.sortingLayerID;
-            SortingOrder = serializable.sortingOrder;
             for (int i = 0; i < animators.Count; i++)
             {
                 if (i >= serializable.animators.Length)
@@ -152,10 +148,6 @@ namespace MVZ2.Models
         {
         }
         #endregion
-        public abstract int SortingLayerID { get; set; }
-        public abstract string SortingLayerName { get; set; }
-        public abstract int SortingOrder { get; set; }
-
 
         [SerializeField]
         private bool testMode = false;
@@ -168,7 +160,5 @@ namespace MVZ2.Models
     public class SerializableModelGraphicGroup
     {
         public SerializableAnimator[] animators;
-        public int sortingLayerID;
-        public int sortingOrder;
     }
 }

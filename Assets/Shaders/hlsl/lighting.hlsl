@@ -6,6 +6,7 @@ int _LightStarted;
 float4 _LightGlobal;
 float4 _LightBackground;
 int _BackgroundLit;
+int _SpotLit;
 
 
 float2 GetLightUV(float4 vertex)
@@ -38,17 +39,18 @@ float4 GetSpotLight(float2 lightUV)
 }
 float4 GetLight(float2 lightUV)
 {
-    float4 global = GetGlobalLight();
-    float4 spot = GetSpotLight(lightUV);
+    float4 light = GetGlobalLight();
     if (_BackgroundLit)
     {
         float4 background = GetBackgroundLight();
-        return spot + global * background;
+        light *= background;
     }
-    else
+    if (_SpotLit)
     {
-        return spot + global;
+        float4 spot = GetSpotLight(lightUV);
+        light += spot;
     }
+    return light;
 }
 
 

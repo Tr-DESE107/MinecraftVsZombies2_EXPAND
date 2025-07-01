@@ -14,6 +14,7 @@ Shader "MinecraftVSZombies2/Legacy/Model"
 		_LIT("Lit", Int) = 1
 		[HideInInspector] _LightDisabled("Light Disabled", Int) = 0
 		[Toggle] _BackgroundLit("Lit by Background", Int) = 0
+		[Toggle] _SpotLit("Lit by Spot", Int) = 1
         _LightMapSpot("Light Map Spot", 2D) = "black" {}
         _LightMapST ("Light Map ST", Vector) = (14, 10.2, 0, 0)
     }
