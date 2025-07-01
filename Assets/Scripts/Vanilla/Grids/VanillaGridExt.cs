@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Grids;
-using MVZ2.GameContent.Placements;
+﻿using MVZ2.GameContent.Placements;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -20,11 +19,6 @@ namespace MVZ2.Vanilla.Grids
 {
     public static class VanillaGridExt
     {
-        public static bool IsWater(this LawnGrid grid)
-        {
-            return grid.Definition.GetID() == VanillaGridID.water;
-        }
-
         public static HeldHighlight GetSeedHeldHighlight(this LawnGrid grid, SeedDefinition seedDef)
         {
             if (seedDef != null)

@@ -39,7 +39,7 @@ namespace MVZ2.GameContent.Implements
             var velocity = param.velocity;
             if (!entity.IsVulnerableEntity())
                 return;
-            if (entity.IsOnWater())
+            if (!entity.IsAboveLand())
                 return;
             if (velocity.y >= 0)
                 return;

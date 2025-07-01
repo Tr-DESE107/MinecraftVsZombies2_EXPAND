@@ -15,6 +15,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public NightmareaperFallBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new IntModifier(VanillaEntityProps.WATER_INTERACTION, NumberOperator.Set, WaterInteraction.REMOVE));
+            AddModifier(new IntModifier(VanillaEntityProps.AIR_INTERACTION, NumberOperator.Set, WaterInteraction.REMOVE));
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Add, 1));
             AddTrigger(VanillaLevelCallbacks.POST_WATER_INTERACTION, PostWaterInteractionCallback, filter: WaterInteraction.ACTION_REMOVE);
         }

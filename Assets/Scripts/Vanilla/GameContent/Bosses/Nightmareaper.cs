@@ -81,7 +81,7 @@ namespace MVZ2.GameContent.Bosses
             var info = param.deathInfo;
             if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
-            if (entity.IsOnWater())
+            if (!entity.IsAboveLand())
                 return;
             foreach (Entity nightmareaper in entity.Level.FindEntities(VanillaBossID.nightmareaper))
             {

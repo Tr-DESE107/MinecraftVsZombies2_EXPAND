@@ -111,6 +111,22 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 沉没（空中）
+        public static readonly PropertyMeta<int> AIR_INTERACTION = Get<int>("airInteraction");
+        public static int GetAirInteraction(this EntityDefinition entityDef)
+        {
+            return entityDef.GetProperty<int>(AIR_INTERACTION);
+        }
+        public static int GetAirInteraction(this Entity entity)
+        {
+            return entity.GetProperty<int>(AIR_INTERACTION);
+        }
+        public static void SetAirInteraction(this Entity entity, int value)
+        {
+            entity.SetProperty(AIR_INTERACTION, value);
+        }
+        #endregion
+
         #region 车辆
         public static readonly PropertyMeta<int> VEHICLE_INTERACTION = Get<int>("vehicleInteraction");
         public static int GetVehicleInteraction(this Entity entity)

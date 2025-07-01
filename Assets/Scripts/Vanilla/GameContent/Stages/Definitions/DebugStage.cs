@@ -44,12 +44,12 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.dispenser,
                 VanillaContraptionID.spikeBlock,
-                VanillaContraptionID.diamondSpikes,
-                VanillaEnemyID.gargoyle,
-                VanillaEnemyID.shikaisenZombie,
-                VanillaEnemyID.emperorZombie,
-                VanillaEnemyID.skeletonWarrior,
-                VanillaEnemyID.soulsand,
+                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.lilyPad,
+                VanillaContraptionID.lightningOrb,
+                VanillaContraptionID.devourer,
+                VanillaContraptionID.mineTNT,
+                VanillaEnemyID.zombie,
                 VanillaEnemyID.mutantZombie,
                 VanillaEnemyID.megaMutantZombie,
             });

@@ -24,7 +24,8 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             var level = entity.Level;
-            if (level.IsWaterLane(entity.GetLane()))
+            var lane = entity.GetLane();
+            if (level.IsWaterLane(lane) || level.IsAirLane(lane))
             {
                 entity.AddBuff<BoatBuff>();
                 entity.SetAnimationBool("HasBoat", true);
