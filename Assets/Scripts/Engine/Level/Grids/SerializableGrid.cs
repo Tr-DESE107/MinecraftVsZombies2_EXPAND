@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PVZEngine.Level;
 
 namespace PVZEngine.Grids
 {
@@ -10,5 +11,6 @@ namespace PVZEngine.Grids
         public int column;
         public NamespaceID definitionID;
         public Dictionary<string, long> layerEntities;
+        public SerializablePropertyBlock properties;
     }
 }

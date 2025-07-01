@@ -333,4 +333,69 @@
             <grid id="mvz2:stone" />
         </grids>
     </area>
+    <area id="ship" model="mvz2:ship" music="mvz2:ship_level" cart="mvz2:bowl_chariot" starshard="mvz2:starshards/ship" tags="mvz2:day mvz2:no_water mvz2:air">
+        <positions enemySpawnX="1080" doorZ="240" />
+        <grids width="80" height="80" leftX="260" bottomZ="40" lanes="6" columns="9">
+            <!-- Lane 1 -->
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:stone" />
+            <!-- Lane 2 -->
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone" />
+            <!-- Lane 3 -->
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone" />
+            <!-- Lane 4 -->
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone" />
+            <!-- Lane 5 -->
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone_slab" />
+            <grid id="mvz2:stone" />
+            <!-- Lane 6 -->
+            <grid id="mvz2:wood" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:air" />
+            <grid id="mvz2:stone" />
+        </grids>
+    </area>
 </areas>
