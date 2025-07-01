@@ -323,4 +323,15 @@
             <p>而最后，这压迫感会将你推向深渊。</p>
         </description>
     </music>
+    <music id="ship_level" name="晴空中的UFO恋曲" unlock="mvz2:level.ship_1">
+        <track main="mvz2:ship_level" sub="mvz2:ship_level_sub"/>
+        <source>东方星莲船</source>
+        <origin>夜空中的UFO恋曲</origin>
+        <author>Dr.糕萌酸钾-Studio</author>
+        <description>
+            <p>星莲船关卡的音乐。</p>
+            <p>原曲是《东方星莲船》Extra关的音乐《夜空中的UFO恋曲》。</p>
+            <p>=====乐评施工中=====</p>
+        </description>
+    </music>
 </musics>
