@@ -878,6 +878,12 @@
         <sample path="mvz2:random/wood3" weight="1" />
         <sample path="mvz2:random/wood4" weight="1" />
     </sound>
+    <sound name="cloth">
+        <sample path="mvz2:random/cloth/cloth1" weight="1" />
+        <sample path="mvz2:random/cloth/cloth2" weight="1" />
+        <sample path="mvz2:random/cloth/cloth3" weight="1" />
+        <sample path="mvz2:random/cloth/cloth4" weight="1" />
+    </sound>
     <sound name="zap">
         <sample path="mvz2:zap1" weight="1" />
         <sample path="mvz2:zap2" weight="1" />

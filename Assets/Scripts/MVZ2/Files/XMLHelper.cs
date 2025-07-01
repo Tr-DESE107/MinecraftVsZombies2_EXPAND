@@ -100,7 +100,7 @@ namespace MVZ2.IO
             if (attr == null)
                 return null;
             var list = new List<NamespaceID>();
-            foreach (var str in attr.Value.Split(";"))
+            foreach (var str in attr.Value.Split(' ', ';'))
             {
                 if (NamespaceID.TryParse(str, defaultNsp, out var condition))
                 {
