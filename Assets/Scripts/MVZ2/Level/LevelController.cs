@@ -9,6 +9,7 @@ using MVZ2.Entities;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Games;
+using MVZ2.HeldItems;
 using MVZ2.Level.Components;
 using MVZ2.Localization;
 using MVZ2.Logic.Level;
@@ -33,6 +34,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Level.Collisions;
+using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
@@ -498,6 +500,7 @@ namespace MVZ2.Level
             {
                 model.UpdateFrame(uiDeltaTime);
                 model.SetSimulationSpeed(uiSimulationSpeed);
+                model.UpdateAnimators(uiDeltaTime);
             }
 
             if (level != null)
@@ -647,6 +650,7 @@ namespace MVZ2.Level
                 size = new Rect(0, -500, 1600, 1600),
             };
             builtinCollisionSystem = new BuiltinCollisionSystem(quadTreeParams);
+            areaModelInterface = new AreaModelInterface(this);
             Awake_Grids();
             Awake_Entities();
 
@@ -1076,6 +1080,14 @@ namespace MVZ2.Level
             if (stageMeta == null)
                 return;
             SetModelPreset(stageMeta.ModelPreset);
+        }
+        public AreaModel GetAreaModel()
+        {
+            return model;
+        }
+        public IModelInterface GetAreaModelInterface()
+        {
+            return areaModelInterface;
         }
         private async Task StartLevelIntroAsync(float delay)
         {
