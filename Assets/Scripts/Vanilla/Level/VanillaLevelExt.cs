@@ -755,6 +755,21 @@ namespace MVZ2.Vanilla.Level
             return level.IsAirGrid(column, lane);
         }
         #endregion
+
+        public static bool IsDuringHugeWave(this LevelEngine level)
+        {
+            var waveState = level.WaveState;
+            if (waveState == VanillaLevelStates.STATE_HUGE_WAVE_APPROACHING)
+                return true;
+            if (level.IsHugeWave(level.CurrentWave))
+            {
+                if (waveState == VanillaLevelStates.STATE_STARTED)
+                    return true;
+                if (waveState == VanillaLevelStates.STATE_FINAL_WAVE)
+                    return true;
+            }
+            return false;
+        }
         public static void UpdatePersistentLevelUnlocks(this LevelEngine level)
         {
             var game = Global.Game;

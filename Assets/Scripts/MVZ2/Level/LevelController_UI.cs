@@ -946,6 +946,7 @@ namespace MVZ2.Level
         public RandomGenerator RNG => rng;
         private RandomGenerator rng;
         private OptionsLogicLevel optionsLogic;
+        private IModelInterface areaModelInterface;
         private IModelInterface heldItemModelInterface;
         private CursorSource heldItemCursorSource;
         private bool inputAndUIDisabled;

@@ -204,6 +204,7 @@ namespace MVZ2.Level
         {
             level.AddComponent(new AdviceComponent(level, this));
             level.AddComponent(new HeldItemComponent(level, this));
+            level.AddComponent(new AreaComponent(level, this));
             level.AddComponent(new UIComponent(level, this));
             level.AddComponent(new LogicComponent(level, this));
             level.AddComponent(new SoundComponent(level, this));
