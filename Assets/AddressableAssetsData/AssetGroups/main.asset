@@ -339,6 +339,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0baadbd18e9ae0f479fe464c035e2947
+    m_Address: mvz2:random/cloth/cloth3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bad8dd7ca96eb047840a09bdbdcc162
     m_Address: mvz2:mainmenu/submenu_background
     m_ReadOnly: 0
@@ -2003,6 +2010,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 366ec22d96589624e80dcffad730f39a
+    m_Address: mvz2:random/cloth/cloth2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 367ccdc45819b674ea5f55cb43176a32
     m_Address: mvz2:entity/mummy/mummy2
     m_ReadOnly: 0
@@ -2521,6 +2535,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 414b6a75aa993d841b9de8b3ba9c9e27
+    m_Address: mvz2:random/cloth/cloth4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41531d8ef0693fa41a5341fcbd896474
     m_Address: mvz2:archive/prologue_note
     m_ReadOnly: 0
@@ -2569,6 +2590,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 433c6b1a800db444f899d76baf7237fa
+    m_Address: mvz2:ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AreaModel
+    - Main
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 434824b4c6871cb40b7121122b27dfd9
     m_Address: mvz2:charged_bolt2
@@ -3634,6 +3662,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f4cc3fb20d2e444dadca8933f948c21
+    m_Address: mvz2:random/cloth/cloth1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fd5dd6553755524490a5b49f96a2b43
     m_Address: mvz2:entity/armor/reflective_barrier
     m_ReadOnly: 0
@@ -3857,6 +3892,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 662e52d9c6cc3e446ae341b425b857bf
+    m_Address: mvz2:level/ship/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6661be6b03238a2409e5b705222184e0
     m_Address: mvz2:misc/graveyard
@@ -7209,6 +7251,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1584df56dfc82b429b7dc438127d3c2
+    m_Address: mvz2:level/ship/clouds
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c15c0ad358a95a2418ff64fa1c67a224
     m_Address: mvz2:soul_sand_break5
