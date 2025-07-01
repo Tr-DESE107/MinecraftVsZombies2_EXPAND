@@ -52,6 +52,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
             };
 
             sampler2D _MainTex;
+            float4 _MainTex_ST;
             half4 _Color;
 
             v2f vert (appdata v)
@@ -61,7 +62,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
                 #if LIT
                 o.lightUV = GetLightUV(v.vertex);
                 #endif
-                o.uv = v.uv;
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.color = v.color;
                 return o;
             }
