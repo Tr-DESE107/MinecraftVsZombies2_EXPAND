@@ -5,6 +5,7 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
+using MVZ2.Vanilla.Contraptions;
 
 namespace MVZ2.GameContent.Contraptions
 {
