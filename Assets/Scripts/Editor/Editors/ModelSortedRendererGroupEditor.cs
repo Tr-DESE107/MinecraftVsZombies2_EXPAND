@@ -4,18 +4,22 @@ using UnityEngine;
 
 namespace MVZ2.Editor
 {
-    [CustomEditor(typeof(ModelRendererGroup))]
-    public class ModelRendererGroupEditor : UnityEditor.Editor
+    [CustomEditor(typeof(ModelSortedRendererGroup))]
+    public class ModelSortedRendererGroupEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
-            var group = target as ModelRendererGroup;
+            var group = target as ModelSortedRendererGroup;
             var testModeProperty = serializedObject.FindProperty("testMode");
+            var sortingGroupProperty = serializedObject.FindProperty("sortingGroup");
+            var subSortingGroupsProperty = serializedObject.FindProperty("subSortingGroups");
             var renderersProperty = serializedObject.FindProperty("renderers");
             var transformsProperty = serializedObject.FindProperty("transforms");
             var particlesProperty = serializedObject.FindProperty("particles");
             var animatorsProperty = serializedObject.FindProperty("animators");
             EditorGUILayout.PropertyField(testModeProperty);
+            EditorGUILayout.PropertyField(sortingGroupProperty);
+            EditorGUILayout.PropertyField(subSortingGroupsProperty);
             EditorGUILayout.PropertyField(renderersProperty);
             EditorGUILayout.PropertyField(transformsProperty);
             EditorGUILayout.PropertyField(particlesProperty);

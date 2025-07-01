@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace MVZ2.Models
 {
-    [RequireComponent(typeof(SortingGroup))]
     public class ModelRendererGroup : ModelGraphicGroup
     {
         #region 公有方法
@@ -24,16 +22,6 @@ namespace MVZ2.Models
                 throw new ArgumentException("Wrong model group element type.", nameof(element));
             renderers.Add(rendererElement);
         }
-        public void CancelSortAtRoot()
-        {
-            foreach (var element in subSortingGroups)
-            {
-                if (element.ExcludedInGroup)
-                    continue;
-                var group = element.Group;
-                group.sortAtRoot = false;
-            }
-        }
         private void ReplaceComponents<T>(List<T> list, IEnumerable<T> targets)
         {
             list.RemoveAll(e => !targets.Contains(e));
@@ -41,19 +29,6 @@ namespace MVZ2.Models
         }
         public override void UpdateElements()
         {
-            var groups = GetComponentsInChildren<SortingGroup>(true)
-                .Where(g => IsChildOfGroup(g.transform, this) && g.gameObject != gameObject)
-                .Select(r =>
-                {
-                    var element = r.GetComponent<SortingGroupElement>();
-                    if (!element)
-                    {
-                        element = r.gameObject.AddComponent<SortingGroupElement>();
-                    }
-                    return element;
-                });
-            ReplaceComponents(subSortingGroups, groups);
-
             var renderer = GetComponentsInChildren<Renderer>(true)
                 .Where(g => IsChildOfGroup(g.transform, this) && g is not SpriteMask && g.gameObject.layer != Layers.LIGHT)
                 .Select(r =>
@@ -131,7 +106,7 @@ namespace MVZ2.Models
         #region 私有方法
         protected override SerializableModelGraphicGroup CreateSerializable()
         {
-            var serializable = new SerializableModelRendererGroup();
+            var serializable = new SerializableModelUnsortedRendererGroup();
             serializable.particles = particles.Select(e => e.ToSerializable()).ToArray();
             serializable.renderers = renderers.Select(e => e.ToSerializable()).ToArray();
             return serializable;
@@ -139,96 +114,40 @@ namespace MVZ2.Models
         protected override void LoadSerializable(SerializableModelGraphicGroup serializable)
         {
             base.LoadSerializable(serializable);
-            if (serializable is not SerializableModelRendererGroup spriteGroup)
+            if (serializable is not SerializableModelUnsortedRendererGroup areaGroup)
                 return;
             for (int i = 0; i < renderers.Count; i++)
             {
-                if (i >= spriteGroup.renderers.Length)
+                if (i >= areaGroup.renderers.Length)
                     break;
                 var element = renderers[i];
-                var data = spriteGroup.renderers[i];
+                var data = areaGroup.renderers[i];
                 element.LoadFromSerializable(data);
             }
             for (int i = 0; i < particles.Count; i++)
             {
-                if (i >= spriteGroup.particles.Length)
+                if (i >= areaGroup.particles.Length)
                     break;
                 var particle = particles[i];
-                var data = spriteGroup.particles[i];
+                var data = areaGroup.particles[i];
                 particle.LoadFromSerializable(data);
             }
         }
-        private static bool IsParticleChildOfGroup(Transform child, ModelRendererGroup group)
+        private static bool IsParticleChildOfGroup(Transform child, ModelGraphicGroup group)
         {
             return !child.parent.GetComponentInParent<ParticleSystem>() && IsChildOfGroup(child, group);
         }
         #endregion
 
         #region 属性字段
-        public override int SortingLayerID
-        {
-            get => sortingGroup.sortingLayerID;
-            set
-            {
-                sortingGroup.sortingLayerID = value;
-                foreach (var element in subSortingGroups)
-                {
-                    if (element.ExcludedInGroup)
-                        continue;
-                    var group = element.Group;
-                    if (!group.sortAtRoot)
-                        continue;
-                    group.sortingLayerID = value;
-                }
-            }
-        }
-        public override string SortingLayerName
-        {
-            get => sortingGroup.sortingLayerName;
-            set
-            {
-                sortingGroup.sortingLayerName = value;
-                foreach (var element in subSortingGroups)
-                {
-                    if (element.ExcludedInGroup)
-                        continue;
-                    var group = element.Group;
-                    if (!group.sortAtRoot)
-                        continue;
-                    group.sortingLayerName = value;
-                }
-            }
-        }
-        public override int SortingOrder
-        {
-            get => sortingGroup.sortingOrder;
-            set
-            {
-                sortingGroup.sortingOrder = value;
-                foreach (var element in subSortingGroups)
-                {
-                    if (element.ExcludedInGroup)
-                        continue;
-                    var group = element.Group;
-                    if (!group.sortAtRoot)
-                        continue;
-                    group.sortingOrder = value;
-                }
-            }
-        }
-
         [SerializeField]
-        private SortingGroup sortingGroup;
+        protected List<RendererElement> renderers = new List<RendererElement>();
         [SerializeField]
-        private List<SortingGroupElement> subSortingGroups = new List<SortingGroupElement>();
-        [SerializeField]
-        private List<RendererElement> renderers = new List<RendererElement>();
-        [SerializeField]
-        private List<ParticlePlayer> particles = new List<ParticlePlayer>();
+        protected List<ParticlePlayer> particles = new List<ParticlePlayer>();
         #endregion
 
     }
-    public class SerializableModelRendererGroup : SerializableModelGraphicGroup
+    public class SerializableModelUnsortedRendererGroup : SerializableModelGraphicGroup
     {
         public SerializableParticleSystem[] particles;
         public SerializableGraphicElement[] renderers;

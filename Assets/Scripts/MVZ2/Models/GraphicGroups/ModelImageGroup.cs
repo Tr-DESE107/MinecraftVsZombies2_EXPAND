@@ -96,10 +96,6 @@ namespace MVZ2.Models
         }
         #endregion
 
-        public override int SortingLayerID { get => canvas.sortingLayerID; set => canvas.sortingLayerID = value; }
-        public override string SortingLayerName { get => canvas.sortingLayerName; set => canvas.sortingLayerName = value; }
-        public override int SortingOrder { get => canvas.sortingOrder; set => canvas.sortingOrder = value; }
-
         [SerializeField]
         private Canvas canvas;
         [SerializeField]
@@ -109,5 +105,9 @@ namespace MVZ2.Models
     public class SerializableModelImageGroup : SerializableModelGraphicGroup
     {
         public SerializableGraphicElement[] images;
+        [Obsolete]
+        public int sortingLayerID;
+        [Obsolete]
+        public int sortingOrder;
     }
 }

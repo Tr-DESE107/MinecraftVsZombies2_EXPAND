@@ -5,6 +5,7 @@ using MVZ2.Entities;
 using MVZ2.Games;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
+using MVZ2.Models;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -51,7 +52,7 @@ namespace MVZ2.Level
 
                 parts = parts.Select(p => p.ToSerializable()).ToArray(),
 
-                areaModel = model.ToSerializable(),
+                model = model.ToSerializable(),
 
                 level = SerializeLevel(),
                 uiPreset = GetUIPreset().ToSerializable(),
@@ -121,7 +122,7 @@ namespace MVZ2.Level
                     controller.UpdateFrame(0);
                     controller.UpdateAnimators(0);
                 }
-                model.LoadFromSerializable(seri.areaModel);
+                model.LoadFromSerializable(seri.model ?? seri.areaModel);
             }
             catch (Exception e)
             {
@@ -250,6 +251,8 @@ namespace MVZ2.Level
         public float twinkleTime;
 
         public SerializableEntityController[] entities;
+        public SerializableModelData model;
+        [Obsolete]
         public SerializableAreaModelData areaModel;
 
         public SerializableLevel level;
