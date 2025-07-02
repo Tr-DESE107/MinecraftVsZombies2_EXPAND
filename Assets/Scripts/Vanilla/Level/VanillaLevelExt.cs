@@ -736,7 +736,7 @@ namespace MVZ2.Vanilla.Level
                 var grid = level.GetGrid(column, lane);
                 if (grid == null)
                     continue;
-                if (grid.IsAir())
+                if (grid.IsCloud())
                     return true;
             }
             return false;
@@ -746,7 +746,7 @@ namespace MVZ2.Vanilla.Level
             var grid = level.GetGrid(column, lane);
             if (grid == null)
                 return false;
-            return grid.IsAir();
+            return grid.IsCloud();
         }
         public static bool IsAirAt(this LevelEngine level, float x, float z)
         {

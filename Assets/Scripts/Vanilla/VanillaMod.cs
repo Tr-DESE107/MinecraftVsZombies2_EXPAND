@@ -72,6 +72,7 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new TalkActionImplements());
             ImplementCallbacks(new BlueprintRecommendImplements());
             ImplementCallbacks(new WaterImplements());
+            ImplementCallbacks(new CloudImplements());
             ImplementCallbacks(new AchievementsImplements());
             ImplementCallbacks(new RandomChinaImplements());
             ImplementCallbacks(new AlmanacImplements());

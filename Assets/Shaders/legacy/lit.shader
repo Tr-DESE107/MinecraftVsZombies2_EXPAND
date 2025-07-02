@@ -6,6 +6,10 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
         _Color ("Tint", Color) = (1,1,1,1)
         [Enum(None, 0, Front, 1, Back, 2)]
 		_Cull("Cull", Int) = 1
+        [Toggle]
+		_ZWrite("Z Write", Int) = 0
+        [Enum(UnityEngine.Rendering.CompareFunction)]
+		_ZTest("Z Test", Int) = 4
 
 		[Header(Lighting)]
 		[Toggle(LIT)]
@@ -24,7 +28,8 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
             "RenderType"="Transparent" 
         }
 
-        ZWrite Off
+        ZWrite [_ZWrite]
+        ZTest [_ZTest]
         Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
         Cull [_Cull]
 
@@ -74,6 +79,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
                 #if LIT
                 col = ApplyLight(col, i.lightUV);
                 #endif
+                clip(col.a - 0.01);
                 return col;
             }
             ENDHLSL

@@ -3,8 +3,6 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
-using PVZEngine.Models;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Areas
 {

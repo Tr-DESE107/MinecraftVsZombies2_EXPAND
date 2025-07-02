@@ -121,7 +121,7 @@ namespace MVZ2.Vanilla.Enemies
             private void Hammer(Entity self)
             {
                 var level = self.Level;
-                if (self.IsOnGround)
+                if (self.Position.y <= self.GetRealGroundLimitY() + 5)
                 {
                     var x = self.Position.x + self.GetFacingX() * self.GetRange() * 0.5f;
                     var z = self.Position.z;

@@ -215,6 +215,7 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackType<ContraptionSacrificeParams> POST_CONTRAPTION_SACRIFICE = new();
 
         public readonly static CallbackType<WaterInteractionParams> POST_WATER_INTERACTION = new();
+        public readonly static CallbackType<WaterInteractionParams> POST_AIR_INTERACTION = new();
 
         public readonly static CallbackType<EntityCallbackParams> ENEMY_DROP_REWARDS = new();
         public readonly static CallbackType<EntityCallbackParams> PRE_ENEMY_NEUTRALIZE = new();

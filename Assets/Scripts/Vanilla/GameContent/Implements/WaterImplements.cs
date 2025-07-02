@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using MVZ2.GameContent.Buffs;
+﻿using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
@@ -14,7 +13,13 @@ namespace MVZ2.GameContent.Implements
     {
         public override void Implement(Mod mod)
         {
+            mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, EntityInitCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, EntityUpdateCallback);
+        }
+        private void EntityInitCallback(EntityCallbackParams param, CallbackResult result)
+        {
+            var entity = param.entity;
+            UpdateWater(entity);
         }
         private void EntityUpdateCallback(EntityCallbackParams param, CallbackResult result)
         {
@@ -26,164 +31,78 @@ namespace MVZ2.GameContent.Implements
 
             // 器械：如果重力大于0，不是水生的，并且没有睡莲，沉没。否则漂在水面上。
             // 障碍物、小推车：如果重力大于0，沉没。否则漂在水面上。
-            UpdateLiquid(entity);
+            UpdateWater(entity);
         }
-        private bool IsActionInside(int action)
+        private void TriggerWaterInteraction(Entity entity, int action)
         {
-            return action == WaterInteraction.ACTION_ENTER || action == WaterInteraction.ACTION_INSIDE;
-        }
-        private void UpdateWaterAction(Entity entity, int action)
-        {
-            switch (action)
+            var callbackParam = new VanillaLevelCallbacks.WaterInteractionParams()
             {
-                case WaterInteraction.ACTION_REMOVE:
-                    {
-                        entity.PlaySplashEffect();
-                        entity.PlaySplashSound();
-                        if (entity.Type == EntityTypes.ENEMY)
-                        {
-                            entity.Neutralize();
-                        }
-                        entity.Remove();
-                        var callbackParam = new VanillaLevelCallbacks.WaterInteractionParams()
-                        {
-                            entity = entity,
-                            action = action
-                        };
-                        entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, callbackParam, action);
-                    }
-                    break;
-
-                case WaterInteraction.ACTION_ENTER:
-                    {
-                        entity.PlaySplashEffect();
-                        entity.PlaySplashSound();
-                        var callbackParam = new VanillaLevelCallbacks.WaterInteractionParams()
-                        {
-                            entity = entity,
-                            action = action
-                        };
-                        entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, callbackParam, action);
-                    }
-                    break;
-                case WaterInteraction.ACTION_EXIT:
-                    {
-                        entity.PlaySplashEffect();
-                        entity.PlaySound(VanillaSoundID.water);
-                        var callbackParam = new VanillaLevelCallbacks.WaterInteractionParams()
-                        {
-                            entity = entity,
-                            action = action
-                        };
-                        entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, callbackParam, action);
-                    }
-                    break;
-            }
+                entity = entity,
+                action = action
+            };
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, callbackParam, action);
         }
-        private void UpdateAirAction(Entity entity, int action)
+        private void UpdateWater(Entity entity)
         {
-            switch (action)
-            {
-                case WaterInteraction.ACTION_REMOVE:
-                    {
-                        entity.PlayAirSplashEffect();
-                        entity.PlayAirSplashSound();
-                        if (entity.Type == EntityTypes.ENEMY)
-                        {
-                            entity.Neutralize();
-                        }
-                        entity.Remove();
-                        var callbackParam = new VanillaLevelCallbacks.WaterInteractionParams()
-                        {
-                            entity = entity,
-                            action = action
-                        };
-                        entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, callbackParam, action);
-                    }
-                    break;
-
-                case WaterInteraction.ACTION_ENTER:
-                case WaterInteraction.ACTION_EXIT:
-                    {
-                        entity.PlayAirSplashEffect();
-                        entity.PlayAirSplashSound();
-                        var callbackParam = new VanillaLevelCallbacks.WaterInteractionParams()
-                        {
-                            entity = entity,
-                            action = action
-                        };
-                        entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_WATER_INTERACTION, callbackParam, action);
-                    }
-                    break;
-            }
-        }
-        private void UpdateLiquid(Entity entity)
-        {
-            bool air = entity.IsOnAir();
             bool water = entity.IsOnWater();
-            int action;
-            if (air)
+            if (!water)
             {
-                action = GetLiquidAction(entity, entity.GetAirInteraction());
-            }
-            else if (water)
-            {
-                action = GetLiquidAction(entity, entity.GetWaterInteraction());
-            }
-            else if (entity.HasBuff<InWaterBuff>())
-            {
-                entity.RemoveBuffs<InWaterBuff>();
-                action = WaterInteraction.ACTION_EXIT;
-            }
-            else
-            {
+                if (entity.HasBuff<InWaterBuff>())
+                {
+                    // 不在水上，但有水上buff，说明之前在水上，现在离开了水面。
+                    entity.RemoveBuffs<InWaterBuff>();
+                    TriggerWaterInteraction(entity, WaterInteraction.ACTION_EXIT);
+                    entity.SetAnimationBool("InWater", false);
+                }
                 return;
             }
 
+            // 在水面之上
+            var interaction = entity.GetWaterInteraction();
+            bool inWater = entity.IsOnGround;
 
-            if (air)
+            if (interaction == WaterInteraction.REMOVE)
             {
-                UpdateAirAction(entity, action);
+                // 遇水移除
+                if (inWater)
+                {
+                    // 在水中
+                    entity.PlaySplashEffect();
+                    entity.PlaySplashSound();
+                    if (entity.Type == EntityTypes.ENEMY)
+                    {
+                        entity.Neutralize();
+                    }
+                    entity.Remove();
+                    TriggerWaterInteraction(entity, WaterInteraction.ACTION_REMOVE);
+                }
+                return;
             }
-            else if (water)
-            {
-                UpdateWaterAction(entity, action);
-            }
+            // 不移除
 
-            entity.SetAnimationBool("InWater", IsActionInside(action));
-        }
-        private int GetLiquidAction(Entity entity, int interaction)
-        {
-            bool inside = entity.IsOnGround;
-
-            if (interaction == WaterInteraction.REMOVE && inside)
-            {
-                return WaterInteraction.ACTION_REMOVE;
-            }
 
             if (interaction == WaterInteraction.NONE)
             {
-                inside = false;
+                inWater = false;
             }
 
-            if (inside != entity.HasBuff<InWaterBuff>())
+            if (inWater != entity.HasBuff<InWaterBuff>())
             {
-                if (inside)
+                entity.PlaySplashEffect();
+                if (inWater)
                 {
                     entity.AddBuff<InWaterBuff>();
-                    return WaterInteraction.ACTION_ENTER;
+                    entity.PlaySplashSound();
+                    TriggerWaterInteraction(entity, WaterInteraction.ACTION_ENTER);
                 }
                 else
                 {
                     entity.RemoveBuffs<InWaterBuff>();
-                    return WaterInteraction.ACTION_EXIT;
+                    entity.PlaySound(VanillaSoundID.water);
+                    TriggerWaterInteraction(entity, WaterInteraction.ACTION_EXIT);
                 }
             }
-            if (inside)
-            {
-                return WaterInteraction.ACTION_INSIDE;
-            }
-            return WaterInteraction.ACTION_OUTSIDE;
+            entity.SetAnimationBool("InWater", inWater);
         }
     }
 }

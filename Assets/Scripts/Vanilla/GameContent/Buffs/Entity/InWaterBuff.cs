@@ -45,16 +45,7 @@ namespace MVZ2.GameContent.Buffs
                 {
                     if (entity.Position.y <= -thresoldHeight && !entity.IsDead)
                     {
-                        if (entity.IsOnAir())
-                        {
-                            entity.PlayAirSplashEffect();
-                            entity.PlayAirSplashSound();
-                            entity.Die(new DamageEffectList(VanillaDamageEffects.FALL_OFF, VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.REMOVE_ON_DEATH), entity, null);
-                        }
-                        else
-                        {
-                            entity.Die(new DamageEffectList(VanillaDamageEffects.DROWN, VanillaDamageEffects.SELF_DAMAGE), entity, null);
-                        }
+                        entity.Die(new DamageEffectList(VanillaDamageEffects.DROWN, VanillaDamageEffects.SELF_DAMAGE), entity, null);
                     }
                 }
                 float verticalFriction = Mathf.Lerp(1, 0.5f, sinkPercentage / thresold);

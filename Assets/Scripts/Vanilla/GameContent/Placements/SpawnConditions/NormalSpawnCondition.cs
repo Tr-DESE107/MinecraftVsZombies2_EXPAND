@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Placements
                     return VanillaGridStatus.needLilypad;
                 }
             }
-            else if (grid.IsAir())
+            else if (grid.IsCloud())
             {
                 return VanillaGridStatus.notOnAir;
             }
