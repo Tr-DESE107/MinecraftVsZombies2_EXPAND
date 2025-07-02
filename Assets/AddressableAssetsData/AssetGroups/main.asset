@@ -682,12 +682,26 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 135dff09421d4164c91798ffaa81d047
+    m_Address: mvz2:entity/carts/unzan_fist
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13b6d5b3963809543b2c3ae66757af81
     m_Address: mvz2:damage/hit3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13f4669be302ba24296364d49d0b1219
+    m_Address: mvz2:level/ship/sky
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13f6471543c524e498c1b3c2aaa1c3c3
     m_Address: mvz2:reflection
@@ -5145,6 +5159,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b5c2b9c35854d848a4877e248c0d640
+    m_Address: mvz2:cart/unzan_fist
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8b6fcf46139505d41b1ef83b75aedd0d
     m_Address: mvz2:entity/enemy/parasite_terror
     m_ReadOnly: 0
@@ -7534,6 +7555,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7f50d8658623a44886293ea828537fd
     m_Address: mvz2:store/background_village
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c81f845f2fb22814b8806ad126a5c494
+    m_Address: mvz2:level/ship/ufo
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
