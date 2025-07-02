@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Placements
     {
         public override NamespaceID GetSpawnError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
         {
-            if (grid.IsAir())
+            if (grid.IsCloud())
                 return VanillaGridStatus.notOnAir;
             if (grid.IsSlab())
                 return VanillaGridStatus.notOnPlane;

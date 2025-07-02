@@ -295,8 +295,8 @@ namespace MVZ2.Entities
             shadowPos.y = groundY;
             shadowPos += modelPropertyCache.ShadowOffset;
 
-            float scale = 1 + relativeY / 300;
-            float alpha = 1 - relativeY / 300;
+            float scale = Mathf.Max(0, 1 + relativeY / 300);
+            float alpha = Mathf.Clamp01(1 - relativeY / 300);
             var shadowTransform = Shadow.transform;
             shadowTransform.position = Level.LawnToTrans(shadowPos) + posOffset;
             shadowTransform.localScale = modelPropertyCache.ShadowScale * scale;

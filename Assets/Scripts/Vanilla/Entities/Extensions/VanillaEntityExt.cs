@@ -763,19 +763,19 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.IsOnWater() && entity.IsOnGround;
         }
-        public static bool IsOnAir(this Entity entity)
+        public static bool IsAboveCloud(this Entity entity)
         {
             var grid = entity.GetGrid();
-            return grid != null && grid.IsAir();
+            return grid != null && grid.IsCloud();
         }
-        public static bool IsInAir(this Entity entity)
+        public static bool IsInCloud(this Entity entity)
         {
-            return entity.IsOnAir() && entity.IsOnGround;
+            return entity.IsAboveCloud() && entity.IsOnGround;
         }
         public static bool IsAboveLand(this Entity entity)
         {
             var grid = entity.GetGrid();
-            return grid == null || (!grid.IsWater() && !grid.IsAir());
+            return grid == null || (!grid.IsWater() && !grid.IsCloud());
         }
         public static void PlaySplashEffect(this Entity entity)
         {
@@ -975,6 +975,11 @@ namespace MVZ2.Vanilla.Entities
             return entity != null && entity.IsEntityOf(VanillaPickupID.blueprintPickup);
         }
         #endregion
+
+        public static float GetRealGroundLimitY(this Entity entity)
+        {
+            return entity.GetGroundLimitOffset() + entity.GetGroundY();
+        }
         public static SpawnParams GetSpawnParams(this Entity entity)
         {
             var param = new SpawnParams();

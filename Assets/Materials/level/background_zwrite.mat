@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: background
+  m_Name: background_zwrite
   m_Shader: {fileID: 4800000, guid: 3adf19911e6eca84b85fde7eb8ada35b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -16,6 +16,7 @@ Material:
   m_InvalidKeywords:
   - _BACKGROUNDLIT_ON
   - _SPOTLIT_ON
+  - _ZWRITE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -173,7 +174,7 @@ Material:
     - _WhiteAlpha: 0
     - _WorkflowMode: 1
     - _ZTest: 4
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BurnEdgeColor: {r: 0, g: 0.4, b: 0.3, a: 1}
