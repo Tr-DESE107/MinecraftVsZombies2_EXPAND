@@ -63,7 +63,7 @@ namespace MVZ2.GameContent.Contraptions
             if (!devourer.IsHostile(other))
                 return;
             var level = devourer.Level;
-            var output = other.TakeDamage(devourer.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH), devourer);
+            var output = other.TakeDamage(devourer.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER), devourer);
             if (output != null)
             {
                 if (output.HasAnyFatal())

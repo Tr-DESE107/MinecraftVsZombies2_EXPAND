@@ -118,17 +118,20 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
-                return;
+            if (!info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            {
+                var param = entity.GetSpawnParams();
+                param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
+                var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
+            }
 
-            var param = entity.GetSpawnParams();
-            param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
-            var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
-
-            var anubisandOffset = ANUBISAND_OFFSET;
-            anubisandOffset.x *= entity.GetFacingX();
-            var anubisand = entity.SpawnWithParams(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
-            entity.Remove();
+            if (!info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+            {
+                var anubisandOffset = ANUBISAND_OFFSET;
+                anubisandOffset.x *= entity.GetFacingX();
+                var anubisand = entity.SpawnWithParams(VanillaEnemyID.anubisand, entity.Position + anubisandOffset);
+                entity.Remove();
+            }
         }
         #endregion
 

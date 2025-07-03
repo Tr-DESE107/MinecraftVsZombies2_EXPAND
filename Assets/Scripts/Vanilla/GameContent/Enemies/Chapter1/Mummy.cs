@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
                 return;
             var param = entity.GetSpawnParams();
             param.SetProperty(EngineEntityProps.SCALE, entity.GetScale());

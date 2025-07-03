@@ -102,7 +102,7 @@ namespace MVZ2.Vanilla.Entities
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (damageInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
             {
                 entity.Remove();
                 return;

@@ -104,7 +104,7 @@ namespace MVZ2.GameContent.Buffs
         {
             if (entity.Position.y <= FALL_OFF_Y && !entity.IsDead)
             {
-                entity.Die(new DamageEffectList(VanillaDamageEffects.FALL_OFF, VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.REMOVE_ON_DEATH), entity, null);
+                entity.Die(new DamageEffectList(VanillaDamageEffects.FALL_OFF, VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER), entity, null);
             }
         }
         private void FloatInteraction(Entity entity, out float gravityAddition)

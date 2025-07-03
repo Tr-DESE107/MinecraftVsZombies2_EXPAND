@@ -119,7 +119,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             if (enemy.ImmuneVortex())
                 return;
-            enemy.Die(new DamageEffectList(VanillaDamageEffects.DROWN), hopper);
+            enemy.Die(new DamageEffectList(VanillaDamageEffects.DROWN, VanillaDamageEffects.NO_DEATH_TRIGGER), hopper);
             var hopperPos = hopper.Position;
             hopperPos.y = hopper.GetGroundY();
             var hopperPos2D = new Vector2(hopper.Position.x, hopper.Position.z);
