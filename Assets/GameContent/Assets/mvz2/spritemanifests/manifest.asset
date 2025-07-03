@@ -417,6 +417,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ead2b534e897e48469cac6037a937e50, type: 3}
   - name: starshards/mausoleum
     sprite: {fileID: 21300000, guid: b405364c48af1734683363a805c66044, type: 3}
+  - name: starshards/ship
+    sprite: {fileID: 21300000, guid: de297cfa423d4064ba27277d2746f079, type: 3}
   - name: starshard_rings/castle
     sprite: {fileID: 21300000, guid: f70064fbad3e8e249acbd5365f606f06, type: 3}
   - name: starshard_rings/default
@@ -427,6 +429,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b71a3502ba3935b49a514559f8734478, type: 3}
   - name: starshard_rings/mausoleum
     sprite: {fileID: 21300000, guid: f74aabbf5c6403f4b908c053d7ecc630, type: 3}
+  - name: starshard_rings/ship
+    sprite: {fileID: 21300000, guid: 1dcd2061d05fd3c429fd6b75083a5b5d, type: 3}
   - name: store/background_kourindou
     sprite: {fileID: 21300000, guid: f14a7915d621a6d41b9c33aa5e927a0c, type: 3}
   - name: store/background_village
@@ -495,6 +499,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3d9178829e9e3e340b9f8df54bfcbbb5, type: 3}
   - name: entity/carts/pumpkin_carriage
     sprite: {fileID: 21300000, guid: 65b141497a801624881cf387625a6801, type: 3}
+  - name: entity/carts/unzan_fist
+    sprite: {fileID: 21300000, guid: 135dff09421d4164c91798ffaa81d047, type: 3}
   - name: entity/contraptions/black_hole_bomb
     sprite: {fileID: 21300000, guid: 412713fe007467441a2952c3fd3f3ba9, type: 3}
   - name: entity/contraptions/devourer
@@ -817,6 +823,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a536357a72bfdb04184c7a08c9a9d57d, type: 3}
   - name: level/mausoleum/pillbox
     sprite: {fileID: 21300000, guid: 7513cd2470186434dac756e22275249b, type: 3}
+  - name: level/ship/ship_back
+    sprite: {fileID: 21300000, guid: 0d763afc8cc9cb644953bb63087e098a, type: 3}
+  - name: level/ship/ship_fore
+    sprite: {fileID: 21300000, guid: 662e52d9c6cc3e446ae341b425b857bf, type: 3}
+  - name: level/ship/sky
+    sprite: {fileID: 21300000, guid: 13f4669be302ba24296364d49d0b1219, type: 3}
+  - name: level/ship/ufo
+    sprite: {fileID: 21300000, guid: c81f845f2fb22814b8806ad126a5c494, type: 3}
   - name: map/castle/map
     sprite: {fileID: 21300000, guid: eb7696c6ae30a5844aeb6c8c789f3acc, type: 3}
   - name: map/dream/apollo_meridian_blue
@@ -847,6 +861,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 18170164ed705914ebb03c0ee8ca6ef9, type: 3}
   - name: map/mausoleum/map
     sprite: {fileID: 21300000, guid: faa2211777e02a84b8a7e50170afab89, type: 3}
+  - name: map/ship/end_ship
+    sprite: {fileID: 21300000, guid: 46fd845ce654ebb43bd75d875facaea1, type: 3}
+  - name: map/ship/ship
+    sprite: {fileID: 21300000, guid: f771d42a2d0c8f94986cc56fa505e972, type: 3}
   - name: shading/musicroom/background
     sprite: {fileID: 21300000, guid: 794c8f0b77af644418898bcd66583207, type: 3}
   - name: shading/musicroom/starmap
@@ -957,6 +975,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 982248cc3f9823f4a9f759db1e00184f, type: 3}
   - name: map/gensokyo/pins/mausoleum
     sprite: {fileID: 21300000, guid: 9c2ffe9b1f0c11c4e8e821a591f6f10a, type: 3}
+  - name: map/gensokyo/pins/ship
+    sprite: {fileID: 21300000, guid: a530bd663cca7d34aa3b3fd92ffddc00, type: 3}
   - name: ui/level/mobile/card_curtain
     sprite: {fileID: 21300000, guid: 47f64bb4f9829ae49a99df91e2c19d03, type: 3}
   - name: ui/level/mobile/energy_slot
@@ -1617,7 +1637,6 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -391827783, guid: 824a13f315e37c0479a2e4a8e03f358f, type: 3}
     - {fileID: -1257104159, guid: 824a13f315e37c0479a2e4a8e03f358f, type: 3}
-    - {fileID: 1631164139, guid: 824a13f315e37c0479a2e4a8e03f358f, type: 3}
   - name: entity/contraption/stone_shield
     spritesheet:
     - {fileID: 1538110737, guid: 966a0e1617ca8a143ac09df2e9c328ff, type: 3}
@@ -2062,6 +2081,10 @@ MonoBehaviour:
     - {fileID: 1756366700, guid: cdb53ab5c1044c94bbfc0ef3da28259e, type: 3}
     - {fileID: 783071837, guid: cdb53ab5c1044c94bbfc0ef3da28259e, type: 3}
     - {fileID: -807408713, guid: cdb53ab5c1044c94bbfc0ef3da28259e, type: 3}
+  - name: level/ship/clouds
+    spritesheet:
+    - {fileID: -1450609700, guid: c1584df56dfc82b429b7dc438127d3c2, type: 3}
+    - {fileID: 1655478530, guid: c1584df56dfc82b429b7dc438127d3c2, type: 3}
   - name: mainmenu/view/castle
     spritesheet:
     - {fileID: 1026532252, guid: 03dafdf2ab6ba7e499b6f7a6f350be32, type: 3}

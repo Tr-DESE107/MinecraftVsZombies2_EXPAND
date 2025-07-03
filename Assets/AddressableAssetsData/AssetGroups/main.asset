@@ -423,6 +423,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d46d25231baa8046982678dbbe0b2d2
+    m_Address: mvz2:held/starshards/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d4af8afe02894146b1bf6b83fd5c2e6
     m_Address: mvz2:enemy/shrine/imp
     m_ReadOnly: 0
@@ -1066,6 +1073,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1dcd2061d05fd3c429fd6b75083a5b5d
+    m_Address: mvz2:starshard_rings/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e040a7ca0ea87148a69fcf7c9a900a3
     m_Address: mvz2:mechanism
@@ -5509,6 +5523,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92270fbfb47f6dc42abdb3c3f9a1f0ee
+    m_Address: mvz2:pickup/starshards/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 924887d4b0c49ca4a95e462a77626841
     m_Address: mvz2:random/crystal/crystal_place3
     m_ReadOnly: 0
@@ -6148,6 +6169,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a517e81da420e4941880bb250f059923
     m_Address: mvz2:entity/enemies/bow_texture
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a530bd663cca7d34aa3b3fd92ffddc00
+    m_Address: mvz2:map/gensokyo/pins/ship
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8441,6 +8469,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de297cfa423d4064ba27277d2746f079
+    m_Address: mvz2:starshards/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de2ac3b8888568f44a60df2ff9aaa6a3
     m_Address: mvz2:effect/spirit_universe
