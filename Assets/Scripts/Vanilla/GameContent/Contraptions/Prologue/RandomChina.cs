@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Contraptions
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
                 return;
 
             var grid = entity.GetGrid();
