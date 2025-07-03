@@ -739,7 +739,7 @@
         </contraption>
         
         <!-- Ship Contraptions -->
-        <contraption id="gunpowder_barrel" name="火药桶" tooltip="提供大量能量，但有爆炸的风险">
+        <contraption id="gunpowder_barrel" name="火药桶" tooltip="提供大量能量，但有爆炸的风险" unlock="mvz2/:level.ship_1">
             <properties>
                 <bool name="mvz2:producer" value="true" />
                 <float name="mvz2:range" value="120" />
