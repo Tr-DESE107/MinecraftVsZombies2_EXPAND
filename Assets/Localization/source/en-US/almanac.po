@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-06-28 12:44+0800\n"
-"PO-Revision-Date: 2025-06-28 12:45+0800\n"
+"POT-Creation-Date: 2025-07-03 07:10+0800\n"
+"PO-Revision-Date: 2025-07-03 19:16+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1563,6 +1563,44 @@ msgstr ""
 "Unban the pot?\n"
 "\n"
 "Um... I didn't seem to hear anything just now."
+
+#. Header for contraptions mvz2:gunpowder_barrel
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的器械。火药桶在被破坏时也会爆炸。"
+msgstr ""
+"Gunpowder Barrels produce gunpowder that provides massive energy, but will explode and damage nearby contraptions if not collected in "
+"time. Gunpowder Barrels also explode when destroyed."
+
+#. Properties for contraptions mvz2:gunpowder_barrel
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"爆炸伤害：<color=red>100（简单）、150（普通）、3000（困难）</color>\n"
+"生产时间：<color=red>24秒</color>\n"
+"提供能量：<color=red>50</color>\n"
+"技能：<color=red>改为生成暴怒火药，提供75能量，但是会更快爆炸</color>"
+msgstr ""
+"Explosion Damage: <color=red>100 (Easy), 150 (Normal), 3000 (Hard)</color>\n"
+"Produce time: <color=red>24 seconds</color>\n"
+"Energy production: <color=red>50</color>\n"
+"Evocation: <color=red>Produce furious gunpowder instead, which provides 75 energy but explodes faster</color>"
+
+#. Flavor for contraptions mvz2:gunpowder_barrel
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"众所周知，最早的黑火药由三种材料制作：\n"
+"硫磺（一种易燃品）\n"
+"硝石（被埋葬的尸体旁一般会产生结晶）\n"
+"木炭（燃烧木头的产物）\n"
+"那么——等等，我为什么要告诉你这些？"
+msgstr ""
+"As everyone knows, the earliest gunpowder was made from three materials:\n"
+"Sulfur (a flammable substance)\n"
+"Saltpeter (crystals that typically form near buried bodies)\n"
+"Charcoal (the product of burning wood)\n"
+"So—wait, why should I be telling you this?"
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -4553,6 +4591,18 @@ msgctxt "entity.tooltip"
 msgid "复制敌人身上的星之碎片"
 msgstr "Duplicate starshards carried by enemies"
 
+#. Name for entity mvz2:gunpowder_barrel
+#: Entity meta file
+msgctxt "entity.name"
+msgid "火药桶"
+msgstr "Gunpowder Barrel"
+
+#. Tooltip for entity mvz2:gunpowder_barrel
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "提供大量能量，但有爆炸的风险"
+msgstr "Provide massive energy, but may explode"
+
 #. Name for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -5167,11 +5217,29 @@ msgctxt "entity.name"
 msgid "小型弩车"
 msgstr "Mini Ballista"
 
+#. Name for entity mvz2:unzan_fist
+#: Entity meta file
+msgctxt "entity.name"
+msgid "云山之拳"
+msgstr "Unzan's Fist"
+
 #. Name for entity mvz2:redstone
 #: Entity meta file
 msgctxt "entity.name"
 msgid "红石"
 msgstr "Redstone"
+
+#. Name for entity mvz2:gunpowder
+#: Entity meta file
+msgctxt "entity.name"
+msgid "火药"
+msgstr "Gunpowder"
+
+#. Name for entity mvz2:furious_gunpowder
+#: Entity meta file
+msgctxt "entity.name"
+msgid "暴怒火药"
+msgstr "Furious Gunpowder"
 
 #. Name for entity mvz2:emerald
 #: Entity meta file

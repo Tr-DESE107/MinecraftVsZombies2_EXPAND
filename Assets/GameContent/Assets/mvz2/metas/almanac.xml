@@ -694,7 +694,24 @@
         </entry>
         
         <!-- Chapter 5 -->
-        <entry/>
+        <entry id="mvz2:gunpowder_barrel">
+            <header>
+                <p>火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的器械。火药桶在被破坏时也会爆炸。</p>
+            </header>
+            <properties>
+                <p>爆炸伤害：<![CDATA[<color=red>100（简单）、150（普通）、3000（困难）</color>]]></p>
+                <p>生产时间：<![CDATA[<color=red>24秒</color>]]></p>
+                <p>提供能量：<![CDATA[<color=red>50</color>]]></p>
+                <p>技能：<![CDATA[<color=red>改为生成暴怒火药，提供75能量，但是会更快爆炸</color>]]></p>
+            </properties>
+            <flavor>
+                <p>众所周知，最早的黑火药由三种材料制作：</p>
+                <p>硫磺（一种易燃品）</p>
+                <p>硝石（被埋葬的尸体旁一般会产生结晶）</p>
+                <p>木炭（燃烧木头的产物）</p>
+                <p>那么——等等，我为什么要告诉你这些？</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>
