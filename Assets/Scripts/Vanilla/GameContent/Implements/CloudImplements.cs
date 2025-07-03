@@ -27,10 +27,10 @@ namespace MVZ2.GameContent.Implements
         {
             var interaction = entity.GetAirInteraction();
             bool aboveCloud = entity.IsAboveCloud();
-            bool shouldHaveBuff = aboveCloud && interaction != AirInteraction.NONE;
+            bool shouldHaveBuff = aboveCloud;
             if (shouldHaveBuff != entity.HasBuff<AboveCloudBuff>())
             {
-                if (!shouldHaveBuff && interaction == AirInteraction.FALL_OFF && entity.Position.y < entity.GetGroundY()) // 掉下去的不能再回陆地
+                if (!shouldHaveBuff && interaction == AirInteraction.FALL_OFF && entity.Position.y < entity.GetGroundY() - 20f) // 掉下去的不能再回陆地
                 {
                     return;
                 }

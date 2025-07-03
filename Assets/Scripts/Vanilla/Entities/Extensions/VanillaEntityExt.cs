@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Carts;
@@ -766,7 +767,18 @@ namespace MVZ2.Vanilla.Entities
         public static bool IsAboveCloud(this Entity entity)
         {
             var grid = entity.GetGrid();
-            return grid != null && grid.IsCloud();
+            if (grid != null && grid.IsCloud())
+                return true;
+            if (entity.Level.AreaID == VanillaAreaID.ship)
+            {
+                var column = entity.GetColumn();
+                var lane = entity.GetLane();
+                if (column >= 0 && column < entity.Level.GetMaxColumnCount() && (lane < 0 || lane >= entity.Level.GetMaxLaneCount()))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public static bool IsInCloud(this Entity entity)
         {
