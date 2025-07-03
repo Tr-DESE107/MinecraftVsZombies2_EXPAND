@@ -1349,7 +1349,7 @@ msgstr ""
 #. Header for contraptions mvz2:gunpowder_barrel
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的器械。火药桶在被破坏时也会爆炸。"
+msgid "火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的友方单位。火药桶在被破坏时也会爆炸。"
 msgstr ""
 
 #. Properties for contraptions mvz2:gunpowder_barrel
@@ -1987,7 +1987,7 @@ msgstr ""
 #. Header for enemies mvz2:emperor_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "皇帝僵尸使用手中的圣剑来给予周围的敌人圣盾，使它们免疫下一次受到的伤害。"
+msgid "皇帝僵尸使用手中的圣剑来给予周围的友方单位圣盾，使它们免疫下一次受到的伤害。"
 msgstr ""
 
 #. Properties for enemies mvz2:emperor_zombie
@@ -1996,7 +1996,7 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+50</color>\n"
 "施法冷却：<color=red>5秒</color>\n"
-"特点：<color=red>一次最多给予10个周围的敌人圣盾，抵消下一次受到的伤害</color>"
+"特点：<color=red>一次最多给予10个周围的友方单位圣盾，抵消下一次受到的伤害</color>"
 msgstr ""
 
 #. Flavor for enemies mvz2:emperor_zombie

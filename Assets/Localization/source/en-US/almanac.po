@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-07-04 11:57+0800\n"
-"PO-Revision-Date: 2025-07-04 11:59+0800\n"
+"PO-Revision-Date: 2025-07-04 12:28+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1567,10 +1567,10 @@ msgstr ""
 #. Header for contraptions mvz2:gunpowder_barrel
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的器械。火药桶在被破坏时也会爆炸。"
+msgid "火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的友方单位。火药桶在被破坏时也会爆炸。"
 msgstr ""
-"Gunpowder Barrels produce gunpowder that provides massive energy, but will explode and damage nearby contraptions if not collected in "
-"time. Gunpowder Barrels also explode when destroyed."
+"Gunpowder Barrels produce gunpowder that provides massive energy, but will explode and damage nearby friendly units if not collected "
+"in time. Gunpowder Barrels also explode when destroyed."
 
 #. Properties for contraptions mvz2:gunpowder_barrel
 #: Almanac meta file
@@ -2368,8 +2368,8 @@ msgstr "Exceptionally skilled at doing sit-ups."
 #. Header for enemies mvz2:emperor_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "皇帝僵尸使用手中的圣剑来给予周围的敌人圣盾，使它们免疫下一次受到的伤害。"
-msgstr "Emperor Zombie uses the Holy Sword to grant Divine Shields to nearby enemies, making them immune to the next damage."
+msgid "皇帝僵尸使用手中的圣剑来给予周围的友方单位圣盾，使它们免疫下一次受到的伤害。"
+msgstr "Emperor Zombie uses the Holy Sword to grant Divine Shields to nearby friendly units, making them immune to the next damage."
 
 #. Properties for enemies mvz2:emperor_zombie
 #: Almanac meta file
@@ -2377,11 +2377,11 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+50</color>\n"
 "施法冷却：<color=red>5秒</color>\n"
-"特点：<color=red>一次最多给予10个周围的敌人圣盾，抵消下一次受到的伤害</color>"
+"特点：<color=red>一次最多给予10个周围的友方单位圣盾，抵消下一次受到的伤害</color>"
 msgstr ""
 "Toughness: <color=red>200+50</color>\n"
 "Cast Cooldown: <color=red>5 seconds</color>\n"
-"Special: <color=red>Gives divine shields to up to 10 nearby enemies, negating the next damage they take</color>"
+"Special: <color=red>Gives divine shields to up to 10 nearby friendly units, negating the next damage they take</color>"
 
 #. Flavor for enemies mvz2:emperor_zombie
 #: Almanac meta file
