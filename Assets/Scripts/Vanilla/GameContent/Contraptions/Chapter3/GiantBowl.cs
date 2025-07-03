@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Pickups;
+﻿using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
@@ -92,6 +93,8 @@ namespace MVZ2.GameContent.Contraptions
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
+            if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+                return;
             var points = GetPointCount(entity);
             for (int i = 0; i < points; i++)
             {
