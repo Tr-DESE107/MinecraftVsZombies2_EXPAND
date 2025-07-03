@@ -63,7 +63,10 @@ namespace PVZEngine.Level
         public static PropertyBlock FromSerializable(SerializablePropertyBlock seri, IPropertyModifyTarget container)
         {
             var block = new PropertyBlock();
-            block.modifiableProperties = ModifiableProperties.FromSerializable(seri.modifiable, container);
+            if (seri != null)
+            {
+                block.modifiableProperties = ModifiableProperties.FromSerializable(seri.modifiable, container);
+            }
             return block;
         }
 

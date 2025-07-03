@@ -185,7 +185,10 @@ namespace PVZEngine.Level
         public static ModifiableProperties FromSerializable(SerializableModifiableProperties seri, IPropertyModifyTarget container)
         {
             var block = new ModifiableProperties(container);
-            block.properties = PropertyDictionary.FromSerializable(seri.properties);
+            if (seri != null)
+            {
+                block.properties = PropertyDictionary.FromSerializable(seri.properties);
+            }
             return block;
         }
 
