@@ -8,17 +8,17 @@
     <entry id="leather_capped_zombie" entity="mvz2:leather_capped_zombie" >
         <spawn level="2" />
         <preview count="2" />
-        <terrain water="true"/>
+        <terrain water="true" air="true"/>
         <weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="150" />
     </entry>
     <entry id="iron_helmetted_zombie" entity="mvz2:iron_helmetted_zombie" >
         <spawn level="4" />
-        <terrain water="true"/>
+        <terrain water="true" air="true"/>
         <weight base="3000" />
     </entry>
     <entry id="flag_zombie" entity="mvz2:flag_zombie" >
         <spawn level="0" />
-        <terrain water="true"/>
+        <terrain water="true" air="true"/>
         <weight base="0" />
     </entry>
 
@@ -90,7 +90,7 @@
     <!-- Mausoleum -->
     <entry id="reflective_barrier_zombie" entity="mvz2:reflective_barrier_zombie" >
         <spawn level="3" minWave="5"/>
-        <terrain water="true"/>
+        <terrain water="true" air="true"/>
         <weight base="3000" />
     </entry>
     <entry id="wicked_hermit_zombie" entity="mvz2:wicked_hermit_zombie" >
