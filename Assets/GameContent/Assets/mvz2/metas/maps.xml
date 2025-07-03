@@ -102,4 +102,22 @@
             <stage id="mvz2:mausoleum_11"/>
         </stages>
     </map>
+    <map id="ship" area="mvz2:ship" width="4200" height="3600">
+        <presets>
+            <preset id="mvz2:ship" model="mvz2:ship" backgroundColor="#A4D8F0" music="mvz2:ship_map"/>
+        </presets>
+        <stages endless="mvz2:ship_endless">
+            <stage id="mvz2:ship_1"/>
+            <stage id="mvz2:ship_2"/>
+            <stage id="mvz2:ship_3"/>
+            <stage id="mvz2:ship_4"/>
+            <stage id="mvz2:ship_5"/>
+            <stage id="mvz2:ship_6"/>
+            <stage id="mvz2:ship_7"/>
+            <stage id="mvz2:ship_8"/>
+            <stage id="mvz2:ship_9"/>
+            <stage id="mvz2:ship_10"/>
+            <stage id="mvz2:ship_11"/>
+        </stages>
+    </map>
 </maps>
