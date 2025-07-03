@@ -325,6 +325,17 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 光环
+        public AuraEffect GetAuraEffect<T>() where T : AuraEffectDefinition
+        {
+            return auras.Get<T>();
+        }
+        public AuraEffect[] GetAuraEffects()
+        {
+            return auras.GetAll();
+        }
+        #endregion
+
         #region 物理
 
         #region 体积
