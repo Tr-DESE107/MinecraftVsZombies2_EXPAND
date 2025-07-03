@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-06-28 12:44+0800\n"
+"POT-Creation-Date: 2025-07-03 07:10+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1344,6 +1344,33 @@ msgid ""
 "让壶解禁？\n"
 "\n"
 "嗯……我刚才好像什么都没有听到。"
+msgstr ""
+
+#. Header for contraptions mvz2:gunpowder_barrel
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的器械。火药桶在被破坏时也会爆炸。"
+msgstr ""
+
+#. Properties for contraptions mvz2:gunpowder_barrel
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"爆炸伤害：<color=red>100（简单）、150（普通）、3000（困难）</color>\n"
+"生产时间：<color=red>24秒</color>\n"
+"提供能量：<color=red>50</color>\n"
+"技能：<color=red>改为生成暴怒火药，提供75能量，但是会更快爆炸</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:gunpowder_barrel
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"众所周知，最早的黑火药由三种材料制作：\n"
+"硫磺（一种易燃品）\n"
+"硝石（被埋葬的尸体旁一般会产生结晶）\n"
+"木炭（燃烧木头的产物）\n"
+"那么——等等，我为什么要告诉你这些？"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -3876,6 +3903,18 @@ msgctxt "entity.tooltip"
 msgid "复制敌人身上的星之碎片"
 msgstr ""
 
+#. Name for entity mvz2:gunpowder_barrel
+#: Entity meta file
+msgctxt "entity.name"
+msgid "火药桶"
+msgstr ""
+
+#. Tooltip for entity mvz2:gunpowder_barrel
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "提供大量能量，但有爆炸的风险"
+msgstr ""
+
 #. Name for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -4480,10 +4519,28 @@ msgctxt "entity.name"
 msgid "小型弩车"
 msgstr ""
 
+#. Name for entity mvz2:unzan_fist
+#: Entity meta file
+msgctxt "entity.name"
+msgid "云山之拳"
+msgstr ""
+
 #. Name for entity mvz2:redstone
 #: Entity meta file
 msgctxt "entity.name"
 msgid "红石"
+msgstr ""
+
+#. Name for entity mvz2:gunpowder
+#: Entity meta file
+msgctxt "entity.name"
+msgid "火药"
+msgstr ""
+
+#. Name for entity mvz2:furious_gunpowder
+#: Entity meta file
+msgctxt "entity.name"
+msgid "暴怒火药"
 msgstr ""
 
 #. Name for entity mvz2:emerald
