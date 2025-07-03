@@ -76,6 +76,23 @@ namespace MVZ2.Vanilla.Level
             }
             return damageOutputs.ToArray();
         }
+        public static DamageOutput[] ExplodeAgainstFriendly(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
+        {
+            return level.ExplodeAgainstFriendly(center, radius, faction, amount, effects, new EntityReferenceChain(source));
+        }
+        public static DamageOutput[] ExplodeAgainstFriendly(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
+        {
+            List<DamageOutput> damageOutputs = new List<DamageOutput>();
+            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, 0, EntityCollisionHelper.MASK_VULNERABLE))
+            {
+                var damageOutput = entityCollider.TakeDamage(amount, effects, source);
+                if (damageOutput != null)
+                {
+                    damageOutputs.Add(damageOutput);
+                }
+            }
+            return damageOutputs.ToArray();
+        }
         public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
         {
             return level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, new EntityReferenceChain(source));

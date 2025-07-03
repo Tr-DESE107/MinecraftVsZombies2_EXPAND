@@ -46,6 +46,8 @@ namespace MVZ2.GameContent.Contraptions
         public const string blackHoleBomb = "black_hole_bomb";
         public const string desirePot = "desire_pot";
 
+        public const string gunpowderBarrel = "gunpowder_barrel";
+
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";
         public const string goldenDropper = "golden_dropper";
@@ -98,6 +100,8 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID necrotombstone = Get(VanillaContraptionNames.necrotombstone);
         public static readonly NamespaceID blackHoleBomb = Get(VanillaContraptionNames.blackHoleBomb);
         public static readonly NamespaceID desirePot = Get(VanillaContraptionNames.desirePot);
+
+        public static readonly NamespaceID gunpowderBarrel = Get(VanillaContraptionNames.gunpowderBarrel);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);

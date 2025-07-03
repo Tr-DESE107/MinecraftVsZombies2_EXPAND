@@ -6,6 +6,8 @@ namespace MVZ2.GameContent.Pickups
     public static class VanillaPickupNames
     {
         public const string redstone = "redstone";
+        public const string gunpowder = "gunpowder";
+        public const string furiousGunpowder = "furious_gunpowder";
         public const string emerald = "emerald";
         public const string ruby = "ruby";
         public const string sapphire = "sapphire";
@@ -18,6 +20,8 @@ namespace MVZ2.GameContent.Pickups
     public static class VanillaPickupID
     {
         public static readonly NamespaceID redstone = Get(VanillaPickupNames.redstone);
+        public static readonly NamespaceID gunpowder = Get(VanillaPickupNames.gunpowder);
+        public static readonly NamespaceID furiousGunpowder = Get(VanillaPickupNames.furiousGunpowder);
         public static readonly NamespaceID emerald = Get(VanillaPickupNames.emerald);
         public static readonly NamespaceID ruby = Get(VanillaPickupNames.ruby);
         public static readonly NamespaceID sapphire = Get(VanillaPickupNames.sapphire);

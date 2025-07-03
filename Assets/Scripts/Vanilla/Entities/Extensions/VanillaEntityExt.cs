@@ -352,6 +352,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.Level.Explode(center, radius, faction, amount, effects, entity);
         }
+        public static DamageOutput[] ExplodeAgainstFriendly(this Entity entity, Vector3 center, float radius, int faction, float amount, DamageEffectList effects)
+        {
+            return entity.Level.ExplodeAgainstFriendly(center, radius, faction, amount, effects, entity);
+        }
         public static DamageOutput[] SplashDamage(this Entity entity, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects)
         {
             return entity.Level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, entity);

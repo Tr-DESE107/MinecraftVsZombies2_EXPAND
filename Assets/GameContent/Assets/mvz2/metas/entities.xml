@@ -737,6 +737,24 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
+        
+        <!-- Ship Contraptions -->
+        <contraption id="gunpowder_barrel" name="火药桶" tooltip="提供大量能量，但有爆炸的风险">
+            <properties>
+                <bool name="mvz2:producer" value="true" />
+                <float name="mvz2:range" value="120" />
+                <float name="mvz2:damage" value="150" />
+
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <id name="mvz2:shell" value="mvz2:wood" />
+                <id name="mvz2:hitSound" value="mvz2:wood" />
+                <id name="mvz2:placeSound" value="mvz2:wood" />
+                <id name="mvz2:deathSound" value="mvz2:wood" />
+
+                <int name="mvz2:cost" value="50" />
+                <id name="mvz2:rechargeId" value="mvz2:short" />
+            </properties>
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人"
@@ -1620,9 +1638,38 @@
 
         <!-- Pickups -->
         <pickup id="redstone" name="红石">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:energy_pickup"/>
+            </behaviours>
             <properties>
                 <int name="mvz2:sortingOrder" value="9999" />
                 <int name="mvz2:energyValue" value="25" />
+                <id name="mvz2:collectSound" value="mvz2:points" />
+            </properties>
+        </pickup>
+        <pickup id="gunpowder" name="火药">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:energy_pickup"/>
+            </behaviours>
+            <properties>
+                <float name="mvz2:range" value="120" />
+                <float name="mvz2:damage" value="150" />
+                <int name="mvz2:sortingOrder" value="9999" />
+                <int name="mvz2:energyValue" value="50" />
+                <id name="mvz2:collectSound" value="mvz2:points" />
+            </properties>
+        </pickup>
+        <pickup id="furious_gunpowder" name="暴怒火药">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:energy_pickup"/>
+                <behaviour operator="add" id="mvz2:gunpowder"/>
+            </behaviours>
+            <properties>
+                <float name="mvz2:range" value="120" />
+                <float name="mvz2:damage" value="150" />
+                <int name="mvz2:sortingOrder" value="9999" />
+                <int name="mvz2:energyValue" value="75" />
+                <int name="mvz2:maxTimeout" value="90" />
                 <id name="mvz2:collectSound" value="mvz2:points" />
             </properties>
         </pickup>
