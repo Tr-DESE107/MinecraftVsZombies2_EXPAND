@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-06-14 09:32+0800\n"
+"POT-Creation-Date: 2025-07-03 02:21+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -477,103 +477,103 @@ msgid "小型之怒"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:200
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:206
 msgctxt "advice.starshard_tutorial.0"
 msgid "点击星之碎片槽选中星之碎片！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:202
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:208
 msgctxt "advice.starshard_tutorial.1"
 msgid "点击发射器！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:204
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:210
 msgctxt "advice.starshard_tutorial.2"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:206
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:212
 msgctxt "advice.starshard_tutorial.3"
 msgid "绿色的怪物会携带星之碎片！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:208
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:214
 msgctxt "advice.starshard_tutorial.4"
 msgid "点击收集星之碎片！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:210
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:216
 msgctxt "advice.starshard_tutorial.5"
 msgid "现在干掉铁盔僵尸！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:298
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:302
 msgctxt "advice.trigger_tutorial.0"
 msgid "放置TNT！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:300
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:304
 msgctxt "advice.trigger_tutorial.1"
 msgid "点击选中触发器！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:302
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:306
 msgctxt "advice.trigger_tutorial.2"
 msgid "点击以触发TNT！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:304
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:308
 msgctxt "advice.trigger_tutorial.3"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:306
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:310
 msgctxt "advice.trigger_tutorial.4"
 msgid "选中触发器！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:308
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:312
 msgctxt "advice.trigger_tutorial.5"
 msgid "点击TNT蓝图！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:310
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:314
 msgctxt "advice.trigger_tutorial.6"
 msgid "放置TNT，它会立即被触发！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:312
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:316
 msgctxt "advice.trigger_tutorial.7"
 msgid "干得好！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:314
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:318
 msgctxt "advice.trigger_tutorial.8"
 msgid "立即触发只限于一次性消耗类型的器械。"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:316
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:320
 msgctxt "advice.trigger_tutorial.9"
 msgid "如果你想交换这两个动作的效果，你可以在设置中更改。"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:318
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:322
 msgctxt "advice.trigger_tutorial.10"
 msgid "祝你好运！"
 msgstr ""
@@ -719,47 +719,47 @@ msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
 
 # 梦魇对话框标题
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:484
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:485
 msgid "选择你的命运"
 msgstr ""
 
 # 梦魇对话框文本
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:486
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:487
 msgid "选吧。"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:488
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
 msgid "潘多拉的魔盒"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:490
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
 msgid "尸潮"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:492
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
 msgid "衰老"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:494
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
 msgid "疯狂"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:496
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
 msgid "成真"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:498
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
 msgid "深潜者"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:500
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
 msgid "黑太阳"
 msgstr ""
 
@@ -2336,12 +2336,12 @@ msgid "Menu"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:284
+#: Scripts\MVZ2\Managers\MainManager.cs:286
 msgid "获取赞助者列表……"
 msgstr ""
 
 # 值，{0}为百分数
-#: Scripts\MVZ2\Managers\MainManager.cs:286
+#: Scripts\MVZ2\Managers\MainManager.cs:288
 msgid "{0}%"
 msgstr ""
 
@@ -2438,20 +2438,53 @@ msgid "在图鉴中查看"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:930
+#: Scripts\MVZ2\Level\LevelController_UI.cs:965
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:932
+#: Scripts\MVZ2\Level\LevelController_UI.cs:967
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
-# 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:934
-msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
+# 对话框内容，{0}为错误信息
+#: Scripts\MVZ2\Level\LevelController_UI.cs:969
+msgid ""
+"加载关卡失败，存档状态和当前游戏状态不匹配：\n"
+"{0}"
+msgstr ""
+
+# 关卡标识符名称，{0}为命名空间名，{1}为数据版本号
+#: Scripts\MVZ2\Level\LevelController_UI.cs:971
+msgid "{0}（版本{1}）"
+msgstr ""
+
+# 关卡标识符名称，{0}为命名空间名，{1}为数据版本号，{2}为当前数据版本号
+#: Scripts\MVZ2\Level\LevelController_UI.cs:973
+msgid "{0}（版本{1}，当前状态为{2}）"
+msgstr ""
+
+# 对话框内容，{0}为不匹配的关卡标识符列表
+#: Scripts\MVZ2\Level\LevelController_UI.cs:975
+msgid ""
+"版本号不匹配：\n"
+"{0}"
+msgstr ""
+
+# 对话框内容，{0}为丢失的关卡标识符列表
+#: Scripts\MVZ2\Level\LevelController_UI.cs:977
+msgid ""
+"丢失的模组：\n"
+"{0}"
+msgstr ""
+
+# 对话框内容，{0}为多出的关卡标识符列表
+#: Scripts\MVZ2\Level\LevelController_UI.cs:979
+msgid ""
+"多出的模组：\n"
+"{0}"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
@@ -2544,7 +2577,7 @@ msgstr ""
 msgid "语言包已导出至{0}。"
 msgstr ""
 
-#. Name for stage mvz2:debug
+#. Name for stage mvz2:i_zombie_debug
 #: Stage meta file
 msgctxt "levelname"
 msgid "测试关卡"
@@ -3479,6 +3512,27 @@ msgid ""
 "而最后，这压迫感会将你推向深渊。"
 msgstr ""
 
+#. Name for music mvz2:ship_level
+#: Music meta file
+msgctxt "music.name"
+msgid "晴空中的UFO恋曲"
+msgstr ""
+
+#. Origin for music mvz2:ship_level
+#: Music meta file
+msgctxt "music.origin"
+msgid "夜空中的UFO恋曲"
+msgstr ""
+
+#. Description for music mvz2:ship_level
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"星莲船关卡的音乐。\n"
+"原曲是《东方星莲船》Extra关的音乐《夜空中的UFO恋曲》。\n"
+"=====乐评施工中====="
+msgstr ""
+
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
 msgctxt "archive.tagname"
@@ -3597,6 +3651,12 @@ msgstr ""
 #: Grid meta file
 msgctxt "advice"
 msgid "你不能在陆地上放置该器械"
+msgstr ""
+
+#. Message for grid error mvz2:not_on_air
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在空中放置该器械"
 msgstr ""
 
 #. Message for grid error mvz2:only_can_sleep

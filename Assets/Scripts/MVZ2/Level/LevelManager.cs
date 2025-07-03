@@ -214,6 +214,18 @@ namespace MVZ2.Level
         private float transToLawnScale = 100;
         private LevelController controller;
     }
+    public struct LevelDataIdentifierCompareResult
+    {
+        public LevelDataIdentifierPair[] versionMismatches;
+        public LevelDataIdentifier[] missingMismatches;
+        public LevelDataIdentifier[] additionalMismatches;
+        public bool valid;
+    }
+    public struct LevelDataIdentifierPair
+    {
+        public LevelDataIdentifier lhs;
+        public LevelDataIdentifier rhs;
+    }
     [Serializable]
     public class LevelDataIdentifierList
     {
@@ -221,13 +233,65 @@ namespace MVZ2.Level
         {
             this.identifiers.AddRange(identifiers);
         }
-        public bool Compare(LevelDataIdentifierList list)
+        public LevelDataIdentifierCompareResult Compare(LevelDataIdentifierList other)
         {
-            if (list == null)
-                return false;
-            if (list.identifiers.Count != identifiers.Count)
-                return false;
-            return list.identifiers.Any(i => identifiers.Contains(i));
+            if (other == null)
+            {
+                return new LevelDataIdentifierCompareResult()
+                {
+                    valid = false,
+                    versionMismatches = Array.Empty<LevelDataIdentifierPair>(),
+                    missingMismatches = Array.Empty<LevelDataIdentifier>(),
+                    additionalMismatches = identifiers.ToArray(),
+                };
+            }
+
+            var versionMismatches = new List<LevelDataIdentifierPair>();
+            var missingMismatches = new List<LevelDataIdentifier>();
+            var additionalMismatches = new List<LevelDataIdentifier>();
+            foreach (var i1 in identifiers)
+            {
+                bool nameMatches = false;
+                foreach (var i2 in other.identifiers)
+                {
+                    if (i1.spaceName == i2.spaceName)
+                    {
+                        nameMatches = true;
+                        if (i1.dataVersion != i2.dataVersion)
+                        {
+                            versionMismatches.Add(new LevelDataIdentifierPair() { lhs = i1, rhs = i2 });
+                        }
+                    }
+                }
+                if (!nameMatches)
+                {
+                    additionalMismatches.Add(i1);
+                }
+            }
+            foreach (var i1 in other.identifiers)
+            {
+                bool nameMatches = false;
+                foreach (var i2 in identifiers)
+                {
+                    if (i1.spaceName == i2.spaceName)
+                    {
+                        nameMatches = true;
+                        break;
+                    }
+                }
+                if (!nameMatches)
+                {
+                    missingMismatches.Add(i1);
+                }
+            }
+            bool valid = versionMismatches.Count + missingMismatches.Count + additionalMismatches.Count == 0;
+            return new LevelDataIdentifierCompareResult()
+            {
+                valid = valid,
+                versionMismatches = versionMismatches.ToArray(),
+                missingMismatches = missingMismatches.ToArray(),
+                additionalMismatches = additionalMismatches.ToArray()
+            };
         }
         public override int GetHashCode()
         {
