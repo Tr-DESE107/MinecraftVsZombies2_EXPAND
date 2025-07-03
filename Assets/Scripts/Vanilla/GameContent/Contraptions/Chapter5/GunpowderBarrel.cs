@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
@@ -49,9 +50,10 @@ namespace MVZ2.GameContent.Contraptions
             base.PostDeath(entity, deathInfo);
             if (deathInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
                 return;
+            var damage = entity.GetDamage() * entity.Level.GetGunpowderDamageMultiplier();
             var range = entity.GetRange();
             var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
-            entity.ExplodeAgainstFriendly(entity.GetCenter(), range, entity.GetFaction(), entity.GetDamage(), effects);
+            entity.ExplodeAgainstFriendly(entity.GetCenter(), range, entity.GetFaction(), damage, effects);
 
             var explosionParam = entity.GetSpawnParams();
             explosionParam.SetProperty(EngineEntityProps.SIZE, Vector3.one * (range * 2));
