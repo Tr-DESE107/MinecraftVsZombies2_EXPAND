@@ -19,9 +19,14 @@ namespace MVZ2.GameContent.Buffs
         {
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.AddMultiple, PROP_GRAVITY_ADDITION, VanillaModifierPriorities.WATER_GRAVITY));
             AddModifier(new FloatModifier(EngineEntityProps.FRICTION, NumberOperator.Multiply, PROP_FRICTION_MULTI));
-            AddModifier(new FloatModifier(EngineEntityProps.GROUND_LIMIT_OFFSET, NumberOperator.Add, -1000f));
+            AddModifier(new FloatModifier(EngineEntityProps.GROUND_LIMIT_OFFSET, NumberOperator.Add, PROP_GROUND_LIMIT_OFFSET));
+            AddModifier(new FloatModifier(VanillaEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
             AddModifier(new BooleanModifier(VanillaEnemyProps.HARMLESS, PROP_FALLING));
-            AddModifier(new BooleanModifier(VanillaEntityProps.SHADOW_HIDDEN, PROP_FALLING));
+        }
+        public override void PostAdd(Buff buff)
+        {
+            base.PostAdd(buff);
+            buff.SetProperty(PROP_GROUND_LIMIT_OFFSET, MIN_GROUND_LIMIT_OFFSET);
         }
         public override void PostRemove(Buff buff)
         {
@@ -43,14 +48,22 @@ namespace MVZ2.GameContent.Buffs
         {
             float frictionMulti = 1;
             float gravityAddition = 0;
+            float groundLimitOffset = 0;
+            float shadowAlpha = 0.25f;
             bool falling = false;
 
             var groundY = entity.GetGroundY();
-            bool insideCloud = entity.Position.y < groundY;
+            var interaction = entity.GetAirInteraction();
+            bool noneInteraction = interaction == AirInteraction.NONE;
+            bool insideCloud = entity.Position.y < groundY && !noneInteraction;
+            if (!noneInteraction)
+            {
+                groundLimitOffset = MIN_GROUND_LIMIT_OFFSET;
+            }
             if (insideCloud)
             {
                 // 低于地面
-                var interaction = entity.GetAirInteraction();
+                shadowAlpha = 0;
                 frictionMulti = 0.2f;
                 falling = entity.IsDead || interaction == AirInteraction.FALL_OFF;
                 if (interaction == AirInteraction.REMOVE)
@@ -63,7 +76,7 @@ namespace MVZ2.GameContent.Buffs
                     // 跌落
                     FallInteraction(entity);
                 }
-                else
+                else if (interaction == AirInteraction.FLOAT)
                 {
                     // 漂浮
                     FloatInteraction(entity, out gravityAddition);
@@ -71,6 +84,8 @@ namespace MVZ2.GameContent.Buffs
             }
             buff.SetProperty(PROP_FRICTION_MULTI, frictionMulti);
             buff.SetProperty(PROP_GRAVITY_ADDITION, gravityAddition);
+            buff.SetProperty(PROP_GROUND_LIMIT_OFFSET, groundLimitOffset);
+            buff.SetProperty(PROP_SHADOW_ALPHA, shadowAlpha);
             buff.SetProperty(PROP_FALLING, falling);
             CheckInteractionCallback(entity, buff, insideCloud);
         }
@@ -132,8 +147,11 @@ namespace MVZ2.GameContent.Buffs
             entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_AIR_INTERACTION, callbackParam, action);
         }
         public const float FLOAT_THRESOLD = 0.3333333f;
+        public const float MIN_GROUND_LIMIT_OFFSET = -1000f;
         public const float FALL_OFF_Y = -600f;
         public static readonly VanillaBuffPropertyMeta<float> PROP_FRICTION_MULTI = new VanillaBuffPropertyMeta<float>("friction_multi");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_GROUND_LIMIT_OFFSET = new VanillaBuffPropertyMeta<float>("ground_limit_offset");
+        public static readonly VanillaBuffPropertyMeta<float> PROP_SHADOW_ALPHA = new VanillaBuffPropertyMeta<float>("shadow_alpha");
         public static readonly VanillaBuffPropertyMeta<float> PROP_GRAVITY_ADDITION = new VanillaBuffPropertyMeta<float>("GravityAddition");
         public static readonly VanillaBuffPropertyMeta<bool> PROP_FALLING = new VanillaBuffPropertyMeta<bool>("falling");
         public static readonly VanillaBuffPropertyMeta<bool> PROP_INSIDE_CLOUD = new VanillaBuffPropertyMeta<bool>("inside_cloud");

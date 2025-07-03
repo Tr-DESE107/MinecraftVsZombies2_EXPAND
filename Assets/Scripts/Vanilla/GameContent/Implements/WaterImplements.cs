@@ -53,6 +53,7 @@ namespace MVZ2.GameContent.Implements
                     entity.RemoveBuffs<InWaterBuff>();
                     TriggerWaterInteraction(entity, WaterInteraction.ACTION_EXIT);
                     entity.SetAnimationBool("InWater", false);
+                    entity.SetModelProperty("InWater", false);
                 }
                 return;
             }
@@ -103,6 +104,7 @@ namespace MVZ2.GameContent.Implements
                 }
             }
             entity.SetAnimationBool("InWater", inWater);
+            entity.SetModelProperty("InWater", inWater);
         }
     }
 }

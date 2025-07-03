@@ -27,6 +27,7 @@
         Blend DstColor Zero, One OneMinusSrcAlpha
         Cull Off
         ZWrite Off
+        ZTest Always
 
         Pass
         {
