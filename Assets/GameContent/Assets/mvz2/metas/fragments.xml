@@ -178,6 +178,12 @@
             <key hex="#69976C" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="gunpowder_barrel">
+        <colorKeys>
+            <key hex="#C6A570" time="0.5"/>
+            <key hex="#805E36" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2"/>

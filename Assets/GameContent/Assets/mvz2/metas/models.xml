@@ -42,6 +42,8 @@
     <model name="black_hole_bomb" type="entity" path="mvz2:contraption/mausoleum/black_hole_bomb" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="desire_pot" type="entity" path="mvz2:contraption/mausoleum/desire_pot" width="64" height="64" xOffset="0" yOffset="-28"/>
 
+    <model name="gunpowder_barrel" type="entity" path="mvz2:contraption/ship/gunpowder_barrel" width="64" height="64" xOffset="0" yOffset="-28"/>
+
     <model name="infectenser" type="entity" path="mvz2:contraption/upgrade/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="force_pad" type="entity" path="mvz2:contraption/upgrade/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="golden_dropper" type="entity" path="mvz2:contraption/upgrade/golden_dropper" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -124,6 +126,8 @@
 
     <!-- Pickups -->
     <model name="redstone" type="entity" path="mvz2:pickup/redstone" width="64" height="64" xOffset="0" yOffset="-16"/>
+    <model name="gunpowder" type="entity" path="mvz2:pickup/gunpowder" width="64" height="64" xOffset="0" yOffset="-16"/>
+    <model name="furious_gunpowder" type="entity" path="mvz2:pickup/furious_gunpowder" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="emerald" type="entity" path="mvz2:pickup/emerald" width="32" height="32" xOffset="0" yOffset="-16"/>
     <model name="ruby" type="entity" path="mvz2:pickup/ruby" width="48" height="48" xOffset="0" yOffset="-20"/>
     <model name="sapphire" type="entity" path="mvz2:pickup/sapphire" width="48" height="48" xOffset="0" yOffset="-20"/>

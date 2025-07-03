@@ -934,6 +934,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ac6185d8f5264948af85daee6364e54
+    m_Address: mvz2:pickup/furious_gunpowder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1adb67d35f526fa46b4f9eef62188a56
     m_Address: mvz2:entity/cart/nyaightmare
     m_ReadOnly: 0
@@ -1619,6 +1626,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c2cb3e709a9af442bc70a6482d2ec2a
+    m_Address: mvz2:entity/contraption/gunpowder_barrel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c42c8de90a7c30499eae9212c363c7d
     m_Address: mvz2:mainmenu/back_to_mainmenu
@@ -2359,6 +2373,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d448719755b3604297b30ed821122ef
+    m_Address: mvz2:entity/pickups/gunpowder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d56ca3e620bfb14abab50beefc95cbe
     m_Address: mvz2:contraption/dream/vortex_hopper
@@ -4074,6 +4095,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b616186e5a21fc438c9a232f796d56d
+    m_Address: mvz2:entity/pickups/furious_gunpowder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b7890603e8ff0b449785725ca9663e1
     m_Address: mvz2:cart/nyaightmare
@@ -5943,6 +5971,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d5c273c39ad9474c83c4f932481251b
+    m_Address: mvz2:contraption/ship/gunpowder_barrel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d730e080bace4646938c15cdabc88d0
     m_Address: mvz2:entity/effects/water_splash
     m_ReadOnly: 0
@@ -7230,6 +7265,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be28a0498d9e8fc45b4efff2a2fc70ba
+    m_Address: mvz2:pickup/gunpowder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: beaefb38f5a5fce469c095db69c2fbdc
     m_Address: mvz2:effect/binary_particles

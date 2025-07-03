@@ -58,6 +58,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.GetProperty<int>(ENERGY_VALUE);
         }
+        public static int GetEnergyValue(this EntityDefinition definition)
+        {
+            return definition.GetProperty<int>(ENERGY_VALUE);
+        }
         public static bool RemoveOnCollect(this Entity entity)
         {
             return entity.GetProperty<bool>(REMOVE_ON_COLLECT);
