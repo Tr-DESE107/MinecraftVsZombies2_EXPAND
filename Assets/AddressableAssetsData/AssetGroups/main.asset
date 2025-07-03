@@ -437,6 +437,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d763afc8cc9cb644953bb63087e098a
+    m_Address: mvz2:level/ship/ship_back
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d7f2041adf80d54c9e2d84f3b4a6f2c
     m_Address: mvz2:shading/pool_shade
     m_ReadOnly: 0
@@ -828,6 +835,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16fc5dd769a48d34292fd51b6a315f93
+    m_Address: mvz2:ship_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16ff246ec2a095242a62262d2ac32272
     m_Address: mvz2:ui/level/pause_image_6
@@ -2773,6 +2787,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46fd845ce654ebb43bd75d875facaea1
+    m_Address: mvz2:map/ship/end_ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4733fb55accce48499a5e6432fba9112
     m_Address: mvz2:talk/villager/villager_extra_long2
     m_ReadOnly: 0
@@ -3915,7 +3936,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 662e52d9c6cc3e446ae341b425b857bf
-    m_Address: mvz2:level/ship/ship
+    m_Address: mvz2:level/ship/ship_fore
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8323,6 +8344,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dac1586e39e4041458440f57f1c2bca6
+    m_Address: mvz2:ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db3c78d339728b54896ae08ad492515f
     m_Address: mvz2:entity/zombie/zombie_death
     m_ReadOnly: 0
@@ -9434,6 +9462,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f771d42a2d0c8f94986cc56fa505e972
+    m_Address: mvz2:map/ship/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f77f74f52e5407f41a2a580c09dca22a
     m_Address: mvz2:effect/gas

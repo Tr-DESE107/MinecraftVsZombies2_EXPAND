@@ -283,6 +283,10 @@ namespace MVZ2.Map
             {
                 Main.Scene.DisplayMap(VanillaMapID.mausoleum);
             }
+            else if (id == MapPinID.ship)
+            {
+                Main.Scene.DisplayMap(VanillaMapID.ship);
+            }
             else if (id == MapPinID.kourindou)
             {
                 Main.Scene.DisplayStore(() => Main.Scene.DisplayMap(MapID), true);
