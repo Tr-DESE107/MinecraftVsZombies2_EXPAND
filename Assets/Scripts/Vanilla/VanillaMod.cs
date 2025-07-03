@@ -73,6 +73,7 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new BlueprintRecommendImplements());
             ImplementCallbacks(new WaterImplements());
             ImplementCallbacks(new CloudImplements());
+            ImplementCallbacks(new CarrierImplements());
             ImplementCallbacks(new AchievementsImplements());
             ImplementCallbacks(new RandomChinaImplements());
             ImplementCallbacks(new AlmanacImplements());

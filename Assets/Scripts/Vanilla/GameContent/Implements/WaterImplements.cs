@@ -13,13 +13,7 @@ namespace MVZ2.GameContent.Implements
     {
         public override void Implement(Mod mod)
         {
-            mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, EntityInitCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, EntityUpdateCallback);
-        }
-        private void EntityInitCallback(EntityCallbackParams param, CallbackResult result)
-        {
-            var entity = param.entity;
-            UpdateWater(entity);
         }
         private void EntityUpdateCallback(EntityCallbackParams param, CallbackResult result)
         {

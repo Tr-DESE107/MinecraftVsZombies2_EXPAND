@@ -10,6 +10,7 @@ namespace MVZ2.GameContent.Contraptions
 {
     public interface ICarrierBehaviour
     {
+        void UpdateCarrier(Entity entity);
     }
     public abstract class CarrierContraptionBehaviour : EntityBehaviourDefinition, ICarrierBehaviour
     {
@@ -17,6 +18,13 @@ namespace MVZ2.GameContent.Contraptions
         {
             AddAura(new PassengerAura(GetPassenagerBuffID()));
             AddAura(new CarrierAura(GetCarrierBuffID()));
+        }
+        public void UpdateCarrier(Entity carrier)
+        {
+            foreach (var aura in carrier.GetAuraEffects())
+            {
+                aura.UpdateAura();
+            }
         }
         protected abstract NamespaceID GetCarrierBuffID();
         protected abstract NamespaceID GetPassenagerBuffID();
@@ -53,4 +61,5 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
     }
+
 }
