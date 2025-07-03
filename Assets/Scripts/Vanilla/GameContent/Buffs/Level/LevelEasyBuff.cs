@@ -20,6 +20,9 @@ namespace MVZ2.GameContent.Buffs.Level
             AddAura(new ContraptionAura());
             AddAura(new ArmorAura());
             AddModifier(new FloatModifier(VanillaLevelProps.CONVEY_SPEED, NumberOperator.Multiply, 1.5f));
+
+            AddModifier(new FloatModifier(VanillaDifficultyProps.GUNPOWDER_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 0.66666666666f));
+
             AddModifier(new IntModifier(VanillaDifficultyProps.NAPSTABLOOK_PARALYSIS_TIME, NumberOperator.Add, -22));
             AddModifier(new IntModifier(VanillaDifficultyProps.MOTHER_TERROR_EGG_COUNT, NumberOperator.Add, -1));
             AddModifier(new IntModifier(VanillaDifficultyProps.PARASITIZED_TERROR_COUNT, NumberOperator.Add, -1));

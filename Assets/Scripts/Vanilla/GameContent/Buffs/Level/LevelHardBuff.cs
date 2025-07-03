@@ -15,6 +15,9 @@ namespace MVZ2.GameContent.Buffs.Level
         public LevelHardBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new BooleanModifier(VanillaLevelProps.NO_CARTS, true));
+
+            AddModifier(new FloatModifier(VanillaDifficultyProps.GUNPOWDER_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 20));
+
             AddModifier(new FloatModifier(VanillaLevelProps.SPAWN_POINTS_POWER, NumberOperator.AddMultiple, 0.2f));
             AddModifier(new IntModifier(VanillaDifficultyProps.NAPSTABLOOK_PARALYSIS_TIME, NumberOperator.Multiply, 2));
             AddModifier(new FloatModifier(VanillaDifficultyProps.GHAST_DAMAGE_MULTIPLIER, NumberOperator.Add, 1f));

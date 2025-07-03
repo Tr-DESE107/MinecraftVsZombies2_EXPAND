@@ -203,6 +203,7 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 
 - x150% produce speed for contraptions.
 - +1 grid of lightning radius for glowing contraptions.
+- The explosion damage of Gunpowder Barrel and Gunpowder is 100.
 
 **Enemies**
 
@@ -233,6 +234,10 @@ For v0.3.0+ versions, save structures are cross-platform compatible (Windows/And
 - No carts.
 - More enemies will be spawned.
 - Clearing a level that has already been cleared gives a diamond, if it has not been cleared 5 rubies will be given instead.
+
+**Contraptions**
+
+- The explosion damage of Gunpowder Barrel and Gunpowder is 3000.
 
 **Enemies**
 

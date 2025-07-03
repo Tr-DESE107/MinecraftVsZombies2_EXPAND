@@ -1,4 +1,5 @@
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -36,9 +37,10 @@ namespace MVZ2.GameContent.Pickups
 
             if (timeout <= 1 && pickup.Exists())
             {
+                var damage = pickup.GetDamage() * pickup.Level.GetGunpowderDamageMultiplier();
                 var range = pickup.GetRange();
                 var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
-                pickup.ExplodeAgainstFriendly(pickup.GetCenter(), range, pickup.GetFaction(), pickup.GetDamage(), effects);
+                pickup.ExplodeAgainstFriendly(pickup.GetCenter(), range, pickup.GetFaction(), pickup.GetDamage() * damage, effects);
 
                 var explosionParam = pickup.GetSpawnParams();
                 explosionParam.SetProperty(EngineEntityProps.SIZE, Vector3.one * (range * 2));
