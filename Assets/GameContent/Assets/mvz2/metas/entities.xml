@@ -751,7 +751,7 @@
                 <id name="mvz2:placeSound" value="mvz2:wood" />
                 <id name="mvz2:deathSound" value="mvz2:wood" />
 
-                <int name="mvz2:cost" value="50" />
+                <int name="mvz2:cost" value="25" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
@@ -1655,7 +1655,7 @@
                 <float name="mvz2:range" value="120" />
                 <float name="mvz2:damage" value="150" />
                 <int name="mvz2:sortingOrder" value="9999" />
-                <int name="mvz2:energyValue" value="50" />
+                <int name="mvz2:energyValue" value="25" />
                 <id name="mvz2:collectSound" value="mvz2:points" />
             </properties>
         </pickup>
@@ -1668,7 +1668,7 @@
                 <float name="mvz2:range" value="120" />
                 <float name="mvz2:damage" value="150" />
                 <int name="mvz2:sortingOrder" value="9999" />
-                <int name="mvz2:energyValue" value="75" />
+                <int name="mvz2:energyValue" value="50" />
                 <int name="mvz2:maxTimeout" value="90" />
                 <id name="mvz2:collectSound" value="mvz2:points" />
             </properties>
