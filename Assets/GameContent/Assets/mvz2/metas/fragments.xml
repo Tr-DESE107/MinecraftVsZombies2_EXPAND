@@ -210,6 +210,13 @@
             <key hex="#FFA900" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="high_frequency_pulse_dispenser">
+        <colorKeys>
+            <key hex="#940000" time="0.333"/>
+            <key hex="#4E4E4E" time="0.666"/>
+            <key hex="#ABABAB" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="diamond_spikes">
         <colorKeys>
             <key hex="#48FFFF" time="0.75"/>

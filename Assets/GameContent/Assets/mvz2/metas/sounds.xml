@@ -439,6 +439,9 @@
     <sound name="morse_code_reverse">
         <sample path="mvz2:morse_code_reverse" weight="1" />
     </sound>
+    <sound name="motor">
+        <sample path="mvz2:motor" weight="1" />
+    </sound>
     <sound name="mummy_cry">
         <sample path="mvz2:entity/mummy/mummy1" weight="1" />
         <sample path="mvz2:entity/mummy/mummy2" weight="1" />
@@ -541,6 +544,9 @@
     </sound>
     <sound name="power_on">
         <sample path="mvz2:power_on" weight="1" />
+    </sound>
+    <sound name="power_up">
+        <sample path="mvz2:power_up" weight="1" />
     </sound>
     <sound name="prize">
         <sample path="mvz2:prize" weight="1" />

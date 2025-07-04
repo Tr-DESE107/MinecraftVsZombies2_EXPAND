@@ -3375,6 +3375,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57298386a0b940c498c0ff59a77ac315
+    m_Address: mvz2:entity/contraption/high_frequency_pulse_dispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 579cf24a5de6c3449ba61159e5649187
     m_Address: mvz2:mobile_blueprint/moonlight_sensor
     m_ReadOnly: 0
@@ -4341,6 +4348,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72b73ad148db49d41b014fc7705fe72b
+    m_Address: mvz2:contraption/upgrade/high_frequency_pulse_dispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 733266dbebe372949b508891f27eed17
     m_Address: mvz2:fuse
     m_ReadOnly: 0
@@ -4930,6 +4944,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82c51c2dae5da77488e453f5d663c144
     m_Address: mvz2:contraption/halloween/tnt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 831dad86f7c9bda4aabbf952e38c04e1
+    m_Address: mvz2:contraption/ship/repeatenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6327,6 +6348,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a66ad52dde2b87b4382b6c5ee64e602c
+    m_Address: mvz2:power_up
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6c3bff2554b63442a1f25c7c9dac764
     m_Address: mvz2:talks/dream
@@ -8652,6 +8680,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e11e707ec5fea6640903ed06cadd0805
+    m_Address: mvz2:motor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e13d63a63bce9fe45a5c703980ec6d6d
     m_Address: mvz2:entity/gargoyle/gargoyle3
     m_ReadOnly: 0
@@ -8770,6 +8805,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e45d0cf1efcdf424ca5b2b1bbc8b18a8
+    m_Address: mvz2:entity/contraption/repeatenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e54f2595624bbc447b98881de587ce72
     m_Address: mvz2:ui/level/hint_arrow
