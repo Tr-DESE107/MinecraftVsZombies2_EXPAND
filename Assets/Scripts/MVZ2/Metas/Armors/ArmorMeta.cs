@@ -10,12 +10,14 @@ namespace MVZ2.Metas
     public class ArmorMeta : IArmorMeta
     {
         public string ID { get; private set; }
+        public NamespaceID[] Tags { get; private set; }
         public NamespaceID[] Behaviours { get; private set; }
         public ColliderConstructor[] ColliderConstructors { get; private set; }
         public Dictionary<string, object> Properties { get; private set; }
         public static ArmorMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            var tags = node.GetAttributeNamespaceIDArray("tags", defaultNsp);
 
             var behavioursNode = node["behaviours"];
             List<NamespaceID> behaviours = new List<NamespaceID>();
@@ -49,6 +51,7 @@ namespace MVZ2.Metas
                 ID = id,
                 Behaviours = behaviours.ToArray(),
                 ColliderConstructors = colliders.ToArray(),
+                Tags = tags,
                 Properties = properties
             };
         }

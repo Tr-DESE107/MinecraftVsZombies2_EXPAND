@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using MVZ2.Cursors;
 using MVZ2.HeldItems;
 using MVZ2.Level;
@@ -322,22 +323,35 @@ namespace MVZ2.Entities
         #region 护甲
         private void CreateArmorModel(NamespaceID slot, Armor armor)
         {
+            if (!Model)
+                return;
             if (armor?.Definition == null)
                 return;
             var modelID = armor.Definition.GetModelID();
-            CreateArmorModel(slot, modelID);
-        }
-        private void CreateArmorModel(NamespaceID slot, NamespaceID modelID)
-        {
-            if (!Model)
-                return;
             if (!NamespaceID.IsValid(modelID))
                 return;
-            var slotMeta = Main.ResourceManager.GetArmorSlotMeta(slot);
-            if (slotMeta == null)
+            var anchor = GetArmorModelAnchor(armor.Definition.GetID(), slot);
+            if (string.IsNullOrEmpty(anchor))
                 return;
-            var anchor = slotMeta.Anchor;
             Model.CreateArmor(anchor, slot, modelID);
+        }
+        public string GetArmorModelAnchor(NamespaceID armorID, NamespaceID slotID)
+        {
+            var slotMeta = Main.ResourceManager.GetArmorSlotMeta(slotID);
+            if (slotMeta == null)
+                return null;
+
+            var armorMeta = Main.ResourceManager.GetArmorMeta(armorID);
+            if (armorMeta != null)
+            {
+                var tagAnchorMeta = slotMeta.Anchors.FirstOrDefault(a => armorMeta.Tags.Contains(a.Tag));
+                if (tagAnchorMeta != null)
+                {
+                    return tagAnchorMeta.Anchor;
+                }
+            }
+
+            return slotMeta.Anchors.FirstOrDefault()?.Anchor;
         }
         private void RemoveArmorModel(NamespaceID slot)
         {
@@ -375,8 +389,11 @@ namespace MVZ2.Entities
                 var meta = Main.ResourceManager.GetArmorSlotMeta(slotID);
                 if (meta == null)
                     continue;
-                var anchorName = meta.Anchor;
-                Model.ClearModelAnchor(anchorName);
+                var anchorMetas = meta.Anchors;
+                foreach (var anchorMeta in anchorMetas)
+                {
+                    Model.ClearModelAnchor(anchorMeta.Anchor);
+                }
             }
         }
         #endregion

@@ -1,7 +1,12 @@
 <armors>
     <slots>
-        <slot name="main" anchor="armor" />
-        <slot name="shield" anchor="shield" />
+        <slot name="main" >
+            <anchor anchor="armor" />
+        </slot>
+        <slot name="shield" >
+            <anchor anchor="shield" />
+            <anchor anchor="shield_hands" tag="mvz2:between_hands" />
+        </slot>
     </slots>
     <entries>
         <entry id="leather_cap">
@@ -92,6 +97,24 @@
             <props>
                 <id name="mvz2:shell" value="mvz2:wood" />
                 <float name="mvz2:maxHealth" value="50" />
+            </props>
+        </entry>
+        <entry id="umbrella_shield" tags="mvz2:between_hands">
+            <behaviours>
+                <behaviour id="mvz2:damage_state_3"/>
+                <behaviour id="mvz2:umbrella_shield"/>
+            </behaviours>
+            <colliders>
+                <collider name="main" >
+                    <offset x="-55" y="14" z="0"/>
+                    <size x="42" y="87" z="42"/>
+                    <pivot x="0.5" y="0" z="0.5"/>
+                </collider>
+            </colliders>
+            <props>
+                <id name="mvz2:shell" value="mvz2:leather" />
+                <float name="mvz2:maxHealth" value="270" />
+                <id name="mvz2:hitSound" value="mvz2:leather_hit" />
             </props>
         </entry>
     </entries>
