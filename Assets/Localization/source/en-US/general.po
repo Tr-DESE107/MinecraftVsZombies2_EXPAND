@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-07-03 02:21+0800\n"
-"PO-Revision-Date: 2025-07-03 14:25+0800\n"
+"POT-Creation-Date: 2025-07-04 03:30+0800\n"
+"PO-Revision-Date: 2025-07-04 15:31+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1397,7 +1397,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Composer: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:676
+#: Scripts\MVZ2\Map\MapController.cs:680
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1405,7 +1405,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:678
+#: Scripts\MVZ2\Map\MapController.cs:682
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1413,11 +1413,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:680
+#: Scripts\MVZ2\Map\MapController.cs:684
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:682
+#: Scripts\MVZ2\Map\MapController.cs:686
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -2256,46 +2256,46 @@ msgstr "{0}%"
 msgid "FPS: {0}"
 msgstr "FPS: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:742
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:758
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:744
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:760
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:746
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:762
 msgid "没有其他有效的用户可供切换。"
 msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:748
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:764
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
 # 语言包导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:750
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:766
 msgid "导出存档失败。"
 msgstr "Failed to export the user."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:752
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:768
 msgid "导入存档失败。"
 msgstr "Failed to import the user."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:754
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:770
 msgid "导入存档失败，文件可能已损坏。"
 msgstr "Failed to import the user. The file may corrupt."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:756
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:772
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 "Failed to import the user. A user with identical name exists, but the user "
 "to be imported cannot be renamed."
 
 # 语言包导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:758
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:774
 msgid "存档已导出至{0}。"
 msgstr "The user has been successfully exported to {0}."
 
@@ -2550,6 +2550,18 @@ msgstr "Mausoleum"
 msgctxt "levelname"
 msgid "梦殿大祀庙无尽"
 msgstr "Mausoleum Endless"
+
+#. Name for stage mvz2:ship_1
+#: Stage meta file
+msgctxt "levelname"
+msgid "圣辇船"
+msgstr "Ship"
+
+#. Name for stage mvz2:ship_endless
+#: Stage meta file
+msgctxt "levelname"
+msgid "圣辇船无尽"
+msgstr "Ship Endless"
 
 #. Name for stage mvz2:whack_a_ghost
 #: Stage meta file
@@ -3639,6 +3651,20 @@ msgstr ""
 "atmosphere.\n"
 "In the end, this oppressive force pushes you toward the abyss."
 
+#. Name for music mvz2:ship_map
+#: Music meta file
+msgctxt "music.name"
+msgid "美猴王-地图"
+msgstr "Monkey King Map"
+
+#. Description for music mvz2:ship_map
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"圣辇船地图的音乐。\n"
+"=====乐评施工中====="
+msgstr ""
+
 #. Name for music mvz2:ship_level
 #: Music meta file
 msgctxt "music.name"
@@ -4249,6 +4275,42 @@ msgstr "Background Pictures"
 msgctxt "staff_name"
 msgid "Minecraft幻想乡地图-TouhouCraft团队"
 msgstr "Minecraft Gensokyo Map-TouhouCraft Team"
+
+#. Name for credits category 地图背景-圣辇船
+#: Credits meta file
+msgctxt "credits_category"
+msgid "地图背景-圣辇船"
+msgstr "Map Background - Ship"
+
+#. Name for credit staff 地图背景-圣辇船
+#: Credits meta file
+msgctxt "staff_name"
+msgid "传说中的金色小丑鱼"
+msgstr "传说中的金色小丑鱼"
+
+#. Name for credit staff 地图背景-圣辇船
+#: Credits meta file
+msgctxt "staff_name"
+msgid "琉"
+msgstr "琉"
+
+#. Name for credit staff 地图背景-圣辇船
+#: Credits meta file
+msgctxt "staff_name"
+msgid "一个发射器"
+msgstr "一个发射器"
+
+#. Name for credit staff 地图背景-圣辇船
+#: Credits meta file
+msgctxt "staff_name"
+msgid "creator"
+msgstr "creator"
+
+#. Name for credit staff 地图背景-圣辇船
+#: Credits meta file
+msgctxt "staff_name"
+msgid "修瞑"
+msgstr "修瞑"
 
 #. Name for credits category 音乐
 #: Credits meta file
