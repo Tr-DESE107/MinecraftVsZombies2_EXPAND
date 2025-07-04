@@ -25,8 +25,9 @@ namespace MVZ2.GameContent.Pickups
         {
             base.Update(pickup);
             var timeout = pickup.Timeout;
+            bool collected = pickup.IsCollected();
             float r = 0;
-            if (timeout <= TWINKLE_TIMEOUT)
+            if (!collected && timeout <= TWINKLE_TIMEOUT)
             {
                 var percentage = (1 - timeout / (float)TWINKLE_TIMEOUT);
                 var x = Mathf.Pow(percentage * TWINKLE_SPEED, 3);
@@ -35,7 +36,7 @@ namespace MVZ2.GameContent.Pickups
             var offset = new Color(1, 0, 0, r);
             SetColorOffset(pickup, offset);
 
-            if (timeout <= 1 && pickup.Exists())
+            if (!collected && timeout <= 1 && pickup.Exists())
             {
                 var damage = pickup.GetDamage() * pickup.Level.GetGunpowderDamageMultiplier();
                 var range = pickup.GetRange();

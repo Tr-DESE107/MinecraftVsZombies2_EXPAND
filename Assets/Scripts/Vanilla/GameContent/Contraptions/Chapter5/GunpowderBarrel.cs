@@ -4,11 +4,13 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -29,7 +31,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
 
-            var productionTimer = new FrameTimer(entity.RNG.Next(90, 375));
+            var productionTimer = new FrameTimer(entity.RNG.Next(PRODUCTION_TIME_START_MIN, PRODUCTION_TIME_START_MAX));
             SetProductionTimer(entity, productionTimer);
         }
         protected override void UpdateAI(Entity entity)
@@ -60,6 +62,8 @@ namespace MVZ2.GameContent.Contraptions
             entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), explosionParam);
 
             entity.PlaySound(VanillaSoundID.explosion);
+
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(entity), entity.GetDefinitionID());
         }
         public override bool CanEvoke(Entity entity)
         {
@@ -120,10 +124,12 @@ namespace MVZ2.GameContent.Contraptions
                     var energyValue = redstoneDefinition?.GetEnergyValue() ?? 50;
                     entity.Level.AddEnergy(-energyValue);
                 }
-                productionTimer.ResetTime(720);
+                productionTimer.ResetTime(PRODUCTION_TIME);
             }
         }
-
+        public const int PRODUCTION_TIME_START_MIN = 90;
+        public const int PRODUCTION_TIME_START_MAX = 360;
+        public const int PRODUCTION_TIME = 1080;
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ProductionTimer");
         private static readonly VanillaEntityPropertyMeta<bool> PROP_FURIOUS = new VanillaEntityPropertyMeta<bool>("fury");
         private static readonly VanillaEntityPropertyMeta<Color> PROP_COLOR_OFFSET = new VanillaEntityPropertyMeta<Color>("color_offset");

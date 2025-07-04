@@ -1669,7 +1669,7 @@
                 <float name="mvz2:damage" value="150" />
                 <int name="mvz2:sortingOrder" value="9999" />
                 <int name="mvz2:energyValue" value="75" />
-                <int name="mvz2:maxTimeout" value="90" />
+                <int name="mvz2:maxTimeout" value="150" />
                 <id name="mvz2:collectSound" value="mvz2:points" />
             </properties>
         </pickup>
