@@ -1424,10 +1424,6 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[8]
       value: 
       objectReference: {fileID: 3935985662071211584}
-    - target: {fileID: 7545653319874429337, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7717581738674343506, guid: ce2287686f123ab4b87f60ae16c878e8, type: 3}
       propertyPath: m_Controller
       value: 
