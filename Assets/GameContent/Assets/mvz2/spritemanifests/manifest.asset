@@ -1637,6 +1637,10 @@ MonoBehaviour:
     - {fileID: -484938836, guid: d1792fc8e74e78044ba9bd1d4212f8f7, type: 3}
     - {fileID: 1812289307, guid: d1792fc8e74e78044ba9bd1d4212f8f7, type: 3}
     - {fileID: -1125990712, guid: d1792fc8e74e78044ba9bd1d4212f8f7, type: 3}
+  - name: entity/contraption/repeatenser
+    spritesheet:
+    - {fileID: 1355251931, guid: e45d0cf1efcdf424ca5b2b1bbc8b18a8, type: 3}
+    - {fileID: 1296306111, guid: e45d0cf1efcdf424ca5b2b1bbc8b18a8, type: 3}
   - name: entity/contraption/silvenser
     spritesheet:
     - {fileID: 1795380811, guid: 4b61b6a8f9cd754419a8862656f249c1, type: 3}
