@@ -25,6 +25,10 @@
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
+        <tag id="placement_repeatenser" name="升级器械：连射发射器" description="必须放置在连射发射器上" priority="0" >
+            <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
         <tag id="placement_diamond_spikes" name="升级器械：尖刺方块" description="必须放置在尖刺方块上" priority="0" >
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[6]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
@@ -713,7 +717,20 @@
                 <p>那么——等等，我为什么要告诉你这些？</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:repeatenser">
+            <header>
+                <p>连射发射器一次能发射两支箭矢。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>2支/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>]]></p>
+            </properties>
+            <flavor>
+                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
+                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>
@@ -848,7 +865,25 @@
         <entry/>
 
         <!-- Upgrades 2 -->
-        <entry/>
+        <entry id="mvz2:high_frequency_pulse_dispenser">
+            <tags>
+                <tag id="mvz2:placement_repeatenser"/>
+            </tags>
+            <header>
+                <p>高频脉冲发射器一次能发射四支箭矢。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>4支/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>永久改为发射六支箭矢，并<tag id="mvz2:light_source"/>发光</color>]]></p>
+            </properties>
+            <flavor>
+                <p>高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。</p>
+                <p>高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。</p>
+                <p>高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。</p>
+                <p>高——闭嘴吧。</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>

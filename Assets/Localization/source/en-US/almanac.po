@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-07-04 11:57+0800\n"
-"PO-Revision-Date: 2025-07-04 12:28+0800\n"
+"POT-Creation-Date: 2025-07-04 01:06+0800\n"
+"PO-Revision-Date: 2025-07-04 13:06+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1604,6 +1604,34 @@ msgstr ""
 "Charcoal (the product of burning wood)\n"
 "So—wait, why should I be telling you this?"
 
+#. Header for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "连射发射器一次能发射两支箭矢。"
+msgstr "Repeatenser can shoot 2 arrows at once."
+
+#. Properties for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>2支/1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>"
+msgstr ""
+"Fire rate: <color=red>2 shots/1.5s</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Rapidly fires 60 arrows, finishing with a large arrow</color>"
+
+#. Flavor for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。\n"
+"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。"
+msgstr ""
+"It wasn't fortunate enough to join the ranks of the H.F.P.D soldiers because it had to say everything twice.\n"
+"It wasn't fortunate enough to join the ranks of the H.F.P.D soldiers because it had to say everything twice."
+
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -1686,6 +1714,41 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid "它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！"
 msgstr "It bought the joke patent of the Wooden Dropper, so it can joke about Goooooooooooooooooooooooooooooolden Dropper deservedly!"
+
+#. Header for contraptions mvz2:high_frequency_pulse_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "高频脉冲发射器一次能发射四支箭矢。"
+msgstr "H.F.P.D (High Frequency Pulse Dispenser) fires 4 arrows at once."
+
+#. Properties for contraptions mvz2:high_frequency_pulse_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>4支/1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\"/>发光</color>"
+msgstr ""
+"Fire rate: <color=red>4 shots/1.5s</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Permanently fires 6 arrows at once instead and <tag id=\"mvz2:light_source\"/>glows</color>"
+
+#. Flavor for contraptions mvz2:high_frequency_pulse_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。\n"
+"高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。\n"
+"高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。\n"
+"高——闭嘴吧。"
+msgstr ""
+"The H.F.P.D unit is a highly disciplined force. Their entry requirements are extremely strict, including—repeating every sentence four "
+"times.\n"
+"The H.F.P.D unit is a highly disciplined force. Their entry requirements are extremely strict, including—repeating every sentence four "
+"times.\n"
+"The H.F.P.D unit is a highly disciplined force. Their entry requirements are extremely strict, including—repeating every sentence four "
+"times.\n"
+"The- Shut up already!"
 
 #. Header for contraptions mvz2:diamond_spikes
 #: Almanac meta file
@@ -4605,6 +4668,18 @@ msgctxt "entity.tooltip"
 msgid "提供大量能量，但有爆炸的风险"
 msgstr "Provide massive energy, but may explode"
 
+#. Name for entity mvz2:repeatenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "连射发射器"
+msgstr "Repeatenser"
+
+#. Tooltip for entity mvz2:repeatenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "一次射出两支箭矢"
+msgstr "Shoot 2 arrows at once"
+
 #. Name for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -4652,6 +4727,22 @@ msgid ""
 msgstr ""
 "(Requires Wooden Dropper)\n"
 "Fires bouncing golden balls which produce emeralds"
+
+#. Name for entity mvz2:high_frequency_pulse_dispenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "高频脉冲发射器"
+msgstr "H.F.P.D"
+
+#. Tooltip for entity mvz2:high_frequency_pulse_dispenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要连射发射器）\n"
+"一次射出四支箭矢"
+msgstr ""
+"(Requires Repeatenser)\n"
+"Shoots 4 arrows at once"
 
 #. Name for entity mvz2:diamond_spikes
 #: Entity meta file
