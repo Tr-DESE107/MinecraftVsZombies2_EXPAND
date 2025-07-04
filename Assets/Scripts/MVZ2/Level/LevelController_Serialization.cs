@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Runtime.Serialization;
+using MongoDB.Bson.Serialization.Attributes;
 using MVZ2.Entities;
 using MVZ2.Games;
 using MVZ2.Level.Components;
@@ -20,12 +21,18 @@ namespace MVZ2.Level
     public partial class LevelController : MonoBehaviour, IDisposable
     {
         #region 公有方法
+        public SerializableLevelControllerHeader SaveGameHeader()
+        {
+            return new SerializableLevelControllerHeader()
+            {
+                identifiers = LevelManager.GetLevelStateIdentifierList(),
+            };
+        }
         public SerializableLevelController SaveGame()
         {
             return new SerializableLevelController()
             {
                 rng = rng.ToSerializable(),
-                identifiers = LevelManager.GetLevelStateIdentifierList(),
 
                 bannerProgresses = bannerProgresses?.ToArray(),
                 levelProgress = levelProgress,
@@ -58,15 +65,18 @@ namespace MVZ2.Level
                 uiPreset = GetUIPreset().ToSerializable(),
             };
         }
-        public bool LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
+        public bool ValidateGameStateHeader(SerializableLevelControllerHeader header)
         {
-            var compareResult = LevelManager.GetLevelStateIdentifierList().Compare(seri.identifiers);
+            var compareResult = LevelManager.GetLevelStateIdentifierList().Compare(header.identifiers);
             if (!compareResult.valid)
             {
                 ShowLevelMismatchLoadingDialog(compareResult);
                 return false;
             }
-
+            return true;
+        }
+        public bool LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
+        {
             try
             {
                 rng = RandomGenerator.FromSerializable(seri.rng);
@@ -224,10 +234,15 @@ namespace MVZ2.Level
 
         #endregion
     }
+    [BsonIgnoreExtraElements]
+    public class SerializableLevelControllerHeader
+    {
+        public LevelDataIdentifierList identifiers;
+    }
+    [BsonIgnoreExtraElements]
     public class SerializableLevelController
     {
         public SerializableRNG rng;
-        public LevelDataIdentifierList identifiers;
 
         public float levelProgress;
         public float[] bannerProgresses;

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.IO;
 using MVZ2Logic;
 using UnityEngine;
 
@@ -6,27 +6,43 @@ namespace MVZ2.IO
 {
     public class FileManager : MonoBehaviour
     {
-        public void WriteJsonFile(string path, string json)
+        public void WriteStringFile(string path, string content)
         {
             if (!compressed && IsEditor())
             {
-                SerializeHelper.WriteJson(path, json);
+                SerializeHelper.Write(path, content);
             }
             else
             {
-                SerializeHelper.WriteCompressedJson(path, json);
+                SerializeHelper.WriteCompressedStringFile(path, content);
             }
         }
-        public string ReadJsonFile(string path)
+        public string ReadStringFile(string path)
         {
-            try
+            if (SerializeHelper.IsGZipCompressed(path))
             {
-                return SerializeHelper.ReadCompressedJson(path);
+                return SerializeHelper.ReadCompressed(path);
             }
-            catch (Exception)
+            return SerializeHelper.Read(path);
+        }
+        public Stream OpenFileWrite(string path)
+        {
+            if (!compressed && IsEditor())
             {
-                return SerializeHelper.ReadJson(path);
+                return SerializeHelper.OpenWrite(path);
             }
+            else
+            {
+                return SerializeHelper.OpenCompressedWrite(path);
+            }
+        }
+        public MemoryStream OpenFileRead(string path)
+        {
+            if (SerializeHelper.IsGZipCompressed(path))
+            {
+                return SerializeHelper.OpenCompressedRead(path);
+            }
+            return SerializeHelper.OpenRead(path);
         }
         private bool IsEditor()
         {

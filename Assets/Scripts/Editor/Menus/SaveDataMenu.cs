@@ -13,9 +13,9 @@ namespace MVZ2.Editor
             var filePath = EditorUtility.OpenFilePanel("Open compressed save data file", directory, "dat,lvl");
             if (!File.Exists(filePath))
                 return;
-            var json = SerializeHelper.ReadCompressedJson(filePath);
+            var json = SerializeHelper.ReadCompressed(filePath);
             var destPath = EditorUtility.SaveFilePanel("Save decompressed save data file", directory, "Decompressed", "json");
-            SerializeHelper.WriteJson(destPath, json);
+            SerializeHelper.Write(destPath, json);
             Debug.Log($"Save data decompressed to {destPath}.");
         }
         public static void CompressSaveData()
@@ -24,9 +24,9 @@ namespace MVZ2.Editor
             var filePath = EditorUtility.OpenFilePanel("Open decompressed save data file", directory, "");
             if (!File.Exists(filePath))
                 return;
-            var json = SerializeHelper.ReadJson(filePath);
+            var json = SerializeHelper.Read(filePath);
             var destPath = EditorUtility.SaveFilePanel("Save compressed save data file", directory, "Compressed", "dat");
-            SerializeHelper.WriteCompressedJson(destPath, json);
+            SerializeHelper.WriteCompressedStringFile(destPath, json);
             Debug.Log($"Save data compressed to {destPath}.");
         }
     }

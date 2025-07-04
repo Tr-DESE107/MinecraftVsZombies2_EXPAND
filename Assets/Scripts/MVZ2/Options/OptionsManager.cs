@@ -58,7 +58,7 @@ namespace MVZ2.Options
             var path = GetOptionsFilePath();
             if (!File.Exists(path))
                 return;
-            var json = Main.FileManager.ReadJsonFile(path);
+            var json = Main.FileManager.ReadStringFile(path);
             var seri = SerializeHelper.FromBson<SerializableOptions>(json);
             options.LoadFromSerializable(seri);
         }
@@ -70,7 +70,7 @@ namespace MVZ2.Options
             FileHelper.ValidateDirectory(path);
             var seri = options.ToSerializable();
             var json = SerializeHelper.ToBson(seri);
-            Main.FileManager.WriteJsonFile(path, json);
+            Main.FileManager.WriteStringFile(path, json);
         }
         public string GetOptionsFilePath()
         {

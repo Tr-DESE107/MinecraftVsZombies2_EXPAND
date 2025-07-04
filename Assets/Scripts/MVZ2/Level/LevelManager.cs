@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson.IO;
 using MVZ2.IO;
 using MVZ2.Logic.Level;
 using MVZ2.Managers;
@@ -49,9 +50,21 @@ namespace MVZ2.Level
             var stageID = controller.GetStartStageID();
             var path = GetLevelStatePath(stageID);
             FileHelper.ValidateDirectory(path);
-            var seri = controller.SaveGame();
-            var json = seri.ToBson();
-            Main.FileManager.WriteJsonFile(path, json);
+
+
+            // 打开文件流
+            using var stream = Main.FileManager.OpenFileWrite(path);
+            using var writer = new StreamWriter(stream);
+
+            // 写入文件首信息
+            var header = controller.SaveGameHeader();
+            var headerJson = header.ToBson();
+            writer.WriteLine(headerJson);
+
+            // 写入文件内容
+            var content = controller.SaveGame();
+            var contentJson = content.ToBson();
+            writer.WriteLine(contentJson);
 
             UpdateCurrentEndlessFlags(stageID, controller.GetCurrentFlag());
         }
@@ -64,23 +77,33 @@ namespace MVZ2.Level
             try
             {
                 controller.SetActive(true);
-                var seri = LoadLevelStateData(stageID);
-                bool success = controller.LoadGame(seri, Main.Game, areaID, stageID);
-                if (success)
-                {
-                    UpdateCurrentEndlessFlags(stageID, controller.GetCurrentFlag());
-                }
+                var path = GetLevelStatePath(stageID);
+
+                // 打开文件流
+                using var stream = Main.FileManager.OpenFileRead(path);
+                using var streamReader = new StreamReader(stream);
+                using var jsonReader = new JsonReader(streamReader);
+
+                // 读取首行数据
+                var header = SerializeHelper.ReadBson<SerializableLevelControllerHeader>(jsonReader);
+
+                // 验证首行数据
+                var validate = controller.ValidateGameStateHeader(header);
+                if (!validate)
+                    return;
+
+                // 读取内容
+                var content = SerializeHelper.ReadBson<SerializableLevelController>(jsonReader);
+
+                bool success = controller.LoadGame(content, Main.Game, areaID, stageID);
+                if (!success)
+                    return;
+                UpdateCurrentEndlessFlags(stageID, controller.GetCurrentFlag());
             }
             catch (Exception e)
             {
                 controller.ShowLevelErrorLoadingDialog(e);
             }
-        }
-        public SerializableLevelController LoadLevelStateData(NamespaceID stageID)
-        {
-            var path = GetLevelStatePath(stageID);
-            var json = Main.FileManager.ReadJsonFile(path);
-            return SerializeHelper.FromBson<SerializableLevelController>(json);
         }
         public bool HasLevelState(NamespaceID stageID)
         {

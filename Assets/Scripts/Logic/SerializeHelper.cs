@@ -88,51 +88,95 @@ namespace MVZ2Logic
 
             isInited = true;
         }
-        public static void WriteCompressedJson(string path, string json)
+        public static bool IsGZipCompressed(string filePath)
+        {
+            const byte gzipFirstByte = 0x1F;
+            const byte gzipSecondByte = 0x8B;
+            const byte deflateMethod = 0x08;
+
+            try
+            {
+                using var file = File.OpenRead(filePath);
+                if (file.Length < 3) return false; // 文件太小
+
+                byte[] header = new byte[3];
+                int bytesRead = file.Read(header, 0, 3);
+
+                return bytesRead == 3 &&
+                       header[0] == gzipFirstByte &&
+                       header[1] == gzipSecondByte &&
+                       header[2] == deflateMethod;
+            }
+            catch
+            {
+                return false; // 文件访问错误
+            }
+        }
+        public static void WriteCompressedStringFile(string path, string json)
         {
             try
             {
-                using var stream = File.Open(path, FileMode.Create);
-                using var gzipStream = new GZipStream(stream, CompressionMode.Compress);
-                using var textWriter = new StreamWriter(gzipStream);
-                textWriter.Write(json);
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"Failed to write compressed json to file {path}: {e}");
-            }
-        }
-        public static string ReadCompressedJson(string path)
-        {
-            using var stream = File.Open(path, FileMode.Open);
-            using var gzipStream = new GZipStream(stream, CompressionMode.Decompress);
-            using var memory = new MemoryStream();
-            gzipStream.CopyTo(memory);
-            memory.Seek(0, SeekOrigin.Begin);
-            using var textReader = new StreamReader(memory);
-            return textReader.ReadToEnd();
-        }
-        public static void WriteJson(string path, string json)
-        {
-            try
-            {
-                using var stream = File.Open(path, FileMode.Create);
+                using var stream = OpenCompressedWrite(path);
                 using var textWriter = new StreamWriter(stream);
                 textWriter.Write(json);
             }
             catch (Exception e)
             {
-                Debug.LogError($"Failed to write compressed json to file {path}: {e}");
+                Debug.LogError($"Failed to write compressed string to file {path}: {e}");
             }
         }
-        public static string ReadJson(string path)
+        public static Stream OpenCompressedWrite(string path)
         {
-            using var stream = File.Open(path, FileMode.Open);
-            using var memory = new MemoryStream();
-            stream.CopyTo(memory);
-            memory.Seek(0, SeekOrigin.Begin);
+            var stream = File.Open(path, FileMode.Create);
+            var gzipStream = new GZipStream(stream, CompressionMode.Compress);
+            return gzipStream;
+        }
+        public static string ReadCompressed(string path)
+        {
+            using var memory = OpenCompressedRead(path);
             using var textReader = new StreamReader(memory);
             return textReader.ReadToEnd();
+        }
+        public static MemoryStream OpenCompressedRead(string path)
+        {
+            using var stream = File.Open(path, FileMode.Open);
+            using var gzipStream = new GZipStream(stream, CompressionMode.Decompress);
+            var memory = new MemoryStream();
+            gzipStream.CopyTo(memory);
+            memory.Seek(0, SeekOrigin.Begin);
+            return memory;
+        }
+        public static void Write(string path, string json)
+        {
+            try
+            {
+                using var stream = OpenWrite(path);
+                using var textWriter = new StreamWriter(stream);
+                textWriter.Write(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Failed to write string to file {path}: {e}");
+            }
+        }
+        public static Stream OpenWrite(string path)
+        {
+            return File.Open(path, FileMode.Create);
+        }
+        public static string Read(string path)
+        {
+            using var memory = OpenRead(path);
+            using var textReader = new StreamReader(memory);
+            return textReader.ReadToEnd();
+        }
+        public static MemoryStream OpenRead(string path)
+        {
+            using var stream = File.Open(path, FileMode.Open);
+
+            var memory = new MemoryStream();
+            stream.CopyTo(memory);
+            memory.Seek(0, SeekOrigin.Begin);
+            return memory;
         }
         public static string ToBson(this object obj, bool readFriendly = false)
         {
@@ -146,6 +190,13 @@ namespace MVZ2Logic
         {
             ConventionRegistry.Register(nameof(CustomClassMapConvention), conventions, t => true);
             T obj = BsonSerializer.Deserialize<T>(bson);
+            ConventionRegistry.Remove(nameof(CustomClassMapConvention));
+            return obj;
+        }
+        public static T ReadBson<T>(IBsonReader reader)
+        {
+            ConventionRegistry.Register(nameof(CustomClassMapConvention), conventions, t => true);
+            T obj = BsonSerializer.Deserialize<T>(reader);
             ConventionRegistry.Remove(nameof(CustomClassMapConvention));
             return obj;
         }
