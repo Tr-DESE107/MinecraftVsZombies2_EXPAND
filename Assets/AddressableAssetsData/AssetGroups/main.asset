@@ -3942,6 +3942,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fa006a3a6b49704c8fdf300d77d032d
+    m_Address: mvz2:entity/enemy/ufo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5fa19dba806dc524ab66eb46c5979d40
     m_Address: mvz2:effect/fragment
     m_ReadOnly: 0
@@ -5243,6 +5250,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81dd671c4a73dc1439c7e4394a95e1c0
+    m_Address: mvz2:enemy/ship/undead_flying_object
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8232e349821c7af46bf3bb99ffabf9d9
     m_Address: mvz2:pop
     m_ReadOnly: 0
@@ -5621,6 +5635,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ca4037f1d5fcf342b4ffe04c46d6590
+    m_Address: mvz2:mobile_blueprint/repeatenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8cf98dd491e96bf47ad3a5767c1578b2
     m_Address: mvz2:ui/level/card_upgrade
     m_ReadOnly: 0
@@ -5651,6 +5672,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e09eb5034d8901409cccb88e3f86633
     m_Address: mvz2:artifacts/eye_of_the_giant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e09edf9f3387ba4a91b2afcc76b3476
+    m_Address: mvz2:mobile_blueprint/undead_flying_object
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6979,6 +7007,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aff8b41543694e649bc9659d6b690072
+    m_Address: mvz2:entity/enemies/ufo_spotlight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b05d18af8935a124aa7e41acd5df9754
     m_Address: mvz2:zap1
     m_ReadOnly: 0
@@ -7854,15 +7889,15 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c7f50d8658623a44886293ea828537fd
-    m_Address: mvz2:store/background_village
+  - m_GUID: c7c2c17e30f15d84fa48bd11657b600a
+    m_Address: mvz2:mobile_blueprint/gunpowder_barrel
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c81f845f2fb22814b8806ad126a5c494
-    m_Address: mvz2:level/ship/ufo
+  - m_GUID: c7f50d8658623a44886293ea828537fd
+    m_Address: mvz2:store/background_village
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9557,6 +9592,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1e4625420d356e4eb58b79513629607
     m_Address: mvz2:entity/projectiles/compelling_orb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f24e02b7e9159cb4ebd603ab477f2152
+    m_Address: mvz2:mobile_blueprint/high_frequency_pulse_dispenser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

@@ -14,15 +14,18 @@ namespace MVZ2.Models
         }
         public void SetLightVisible(bool visible)
         {
-            bone.SetLightVisible(visible);
+            if (bone)
+                bone.SetLightVisible(visible);
         }
         public void SetLightColor(Color color)
         {
-            bone.SetLightColor(color);
+            if (bone)
+                bone.SetLightColor(color);
         }
         public void SetLightRange(Vector2 range)
         {
-            bone.SetLightRange(range);
+            if (bone)
+                bone.SetLightRange(range);
         }
         public void SetColliderActive(bool active)
         {

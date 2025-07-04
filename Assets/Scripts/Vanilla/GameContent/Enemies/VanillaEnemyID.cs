@@ -34,6 +34,9 @@ namespace MVZ2.GameContent.Enemies
         public const string shikaisenZombie = "shikaisen_zombie";
         public const string emperorZombie = "emperor_zombie";
 
+        public const string undeadFlyingObject = "undead_flying_object";
+        public const string ufo = undeadFlyingObject;
+
         public const string mutantZombie = "mutant_zombie";
         public const string megaMutantZombie = "mega_mutant_zombie";
         public const string imp = "imp";
@@ -81,6 +84,9 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID wickedHermitZombie = Get(VanillaEnemyNames.wickedHermitZombie);
         public static readonly NamespaceID shikaisenZombie = Get(VanillaEnemyNames.shikaisenZombie);
         public static readonly NamespaceID emperorZombie = Get(VanillaEnemyNames.emperorZombie);
+
+        public static readonly NamespaceID undeadFlyingObject = Get(VanillaEnemyNames.undeadFlyingObject);
+        public static readonly NamespaceID ufo = undeadFlyingObject;
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
         public static readonly NamespaceID megaMutantZombie = Get(VanillaEnemyNames.megaMutantZombie);
