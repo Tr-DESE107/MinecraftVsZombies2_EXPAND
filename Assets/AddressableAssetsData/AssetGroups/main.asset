@@ -2878,6 +2878,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47ac2610c2e27e341820f80884cd641a
+    m_Address: mvz2:entity/armor/umbrella
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47e358101a35f3c4eb66d746582948c4
     m_Address: mvz2:entity/boss/the_giant_snake_tail
     m_ReadOnly: 0
@@ -5599,6 +5606,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9232a69e77659cf47add111d4fccbe5c
+    m_Address: mvz2:wind
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 924887d4b0c49ca4a95e462a77626841
     m_Address: mvz2:random/crystal/crystal_place3
@@ -9853,6 +9867,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fede1eedc93cff44a81172e3ff4993bd
+    m_Address: mvz2:armor/umbrella_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff1139cf5b4ce3e408ba7ca6e7fd9ab0
     m_Address: mvz2:castle_level

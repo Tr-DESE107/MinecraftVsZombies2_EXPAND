@@ -149,6 +149,14 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 有效敌人
+        public static readonly PropertyMeta<bool> HANDS_UP = Get<bool>("hands_up");
+        public static bool IsDoingHandsUp(this Entity enemy)
+        {
+            return enemy.GetProperty<bool>(HANDS_UP);
+        }
+        #endregion
+
         public static readonly PropertyMeta<bool> IMMUNE_VORTEX = Get<bool>("immuneVortex");
         public static bool ImmuneVortex(this Entity enemy)
         {

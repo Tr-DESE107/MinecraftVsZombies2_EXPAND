@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic.Entities;
@@ -17,7 +18,7 @@ namespace MVZ2.Metas
         public static ArmorMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var tags = node.GetAttributeNamespaceIDArray("tags", defaultNsp);
+            var tags = node.GetAttributeNamespaceIDArray("tags", defaultNsp) ?? Array.Empty<NamespaceID>();
 
             var behavioursNode = node["behaviours"];
             List<NamespaceID> behaviours = new List<NamespaceID>();

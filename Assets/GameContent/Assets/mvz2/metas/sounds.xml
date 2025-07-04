@@ -846,6 +846,9 @@
     <sound name="wheel_of_death_loop">
         <sample path="mvz2:entity/nightmareaper/wheel_of_death_loop" weight="1" />
     </sound>
+    <sound name="wind">
+        <sample path="mvz2:wind" weight="1" />
+    </sound>
     <sound name="wither_cry">
         <sample path="mvz2:entity/wither/cry1" weight="1" />
         <sample path="mvz2:entity/wither/cry2" weight="1" />

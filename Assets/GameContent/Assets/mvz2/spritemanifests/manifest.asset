@@ -1284,6 +1284,17 @@ MonoBehaviour:
     - {fileID: -1055558042, guid: 8f4a25505be15d244b85ae394574d811, type: 3}
     - {fileID: -113835488, guid: 8f4a25505be15d244b85ae394574d811, type: 3}
     - {fileID: -1032856091, guid: 8f4a25505be15d244b85ae394574d811, type: 3}
+  - name: entity/armor/umbrella
+    spritesheet:
+    - {fileID: -1184294957, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
+    - {fileID: 8436474, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
+    - {fileID: 1529302494, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
+    - {fileID: 1709937073, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
+    - {fileID: 511234984, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
+    - {fileID: 1370357897, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
+    - {fileID: -1346151238, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
+    - {fileID: 1817556834, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
+    - {fileID: -1984530239, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
   - name: entity/boss/frankenstein
     spritesheet:
     - {fileID: -8387447821006724102, guid: 74da7e893d261a549a659cfaef15b372, type: 3}
@@ -1563,6 +1574,13 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 412644075, guid: 2562dbc08cdc1bd459d0a70219d7d4e4, type: 3}
     - {fileID: -1257440946, guid: 2562dbc08cdc1bd459d0a70219d7d4e4, type: 3}
+  - name: entity/contraption/high_frequency_pulse_dispenser
+    spritesheet:
+    - {fileID: -474296180, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
+    - {fileID: -1374259480, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
+    - {fileID: 1527027455, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
+    - {fileID: -2143279266, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
+    - {fileID: -22312393, guid: 57298386a0b940c498c0ff59a77ac315, type: 3}
   - name: entity/contraption/lightning_orb
     spritesheet:
     - {fileID: 1215340357, guid: 16d57d3a0e4ea894fa24ebb0c305c8e3, type: 3}

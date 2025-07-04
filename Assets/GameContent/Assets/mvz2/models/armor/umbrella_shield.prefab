@@ -29,8 +29,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1882124194296940409}
   - {fileID: 769778782808133587}
+  - {fileID: 1882124194296940409}
   m_Father: {fileID: 8553409116115444165}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2272649149860423883
@@ -160,13 +160,14 @@ GameObject:
   - component: {fileID: 7889582526382816347}
   - component: {fileID: 4292741895357445492}
   - component: {fileID: 1126129389659093757}
+  - component: {fileID: 5234709743551356914}
   m_Layer: 0
-  m_Name: SpriteFall
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &769778782808133587
 Transform:
   m_ObjectHideFlags: 0
@@ -263,6 +264,20 @@ MonoBehaviour:
   - {fileID: 1709937073, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
   - {fileID: 511234984, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
   - {fileID: 1370357897, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
+--- !u!114 &5234709743551356914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2316737948785852115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenFalse: 1
+  propertyName: TongueDroop
 --- !u!1 &4350997683045007829
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,13 +290,14 @@ GameObject:
   - component: {fileID: 3072895616114613856}
   - component: {fileID: 4684754257989769083}
   - component: {fileID: 4444940142972632713}
+  - component: {fileID: 3445461833713149561}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: SpriteDroop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1882124194296940409
 Transform:
   m_ObjectHideFlags: 0
@@ -378,6 +394,20 @@ MonoBehaviour:
   - {fileID: -1346151238, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
   - {fileID: 1817556834, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
   - {fileID: -1984530239, guid: 47ac2610c2e27e341820f80884cd641a, type: 3}
+--- !u!114 &3445461833713149561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4350997683045007829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenFalse: 0
+  propertyName: TongueDroop
 --- !u!1 &5959625348643728273
 GameObject:
   m_ObjectHideFlags: 0

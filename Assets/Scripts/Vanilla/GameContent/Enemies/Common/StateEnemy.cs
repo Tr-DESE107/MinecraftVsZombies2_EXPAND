@@ -50,6 +50,10 @@ namespace MVZ2.Vanilla.Enemies
             {
                 return VanillaEntityStates.IDLE;
             }
+            else if (enemy.IsDoingHandsUp())
+            {
+                return VanillaEntityStates.ENEMY_HANDS_UP;
+            }
             else if (enemy.Target != null)
             {
                 return VanillaEntityStates.ATTACK;
