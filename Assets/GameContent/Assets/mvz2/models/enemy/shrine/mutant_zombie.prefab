@@ -908,78 +908,6 @@ MonoBehaviour:
   propertyName: Weapon
   comparer: 0
   constValue: 1
---- !u!1 &2576175890179847754
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2048500070565454891}
-  - component: {fileID: 6077838655691183337}
-  - component: {fileID: 5467354951383866608}
-  - component: {fileID: 7512601349844230995}
-  m_Layer: 0
-  m_Name: Armor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2048500070565454891
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576175890179847754}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.16, z: -0.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8677109763732294977}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!210 &6077838655691183337
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576175890179847754}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 50
-  m_SortAtRoot: 0
---- !u!114 &5467354951383866608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576175890179847754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: armor
---- !u!114 &7512601349844230995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2576175890179847754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  excludedInGroup: 0
 --- !u!1 &2966546468131990608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,8 +1541,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.35, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2048500070565454891}
+  m_Children: []
   m_Father: {fileID: 1779918408024244662}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1949206328557907646
@@ -3200,7 +3127,7 @@ PrefabInstance:
       objectReference: {fileID: 182688417446982005}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: subSortingGroups.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: subSortingGroups.Array.data[0]
@@ -3210,10 +3137,6 @@ PrefabInstance:
       propertyPath: subSortingGroups.Array.data[1]
       value: 
       objectReference: {fileID: 6618197181018544053}
-    - target: {fileID: 6691928640828811806, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
-      propertyPath: subSortingGroups.Array.data[2]
-      value: 
-      objectReference: {fileID: 7512601349844230995}
     - target: {fileID: 7717581738674343506, guid: 689034d4e1df7594b85450c0b364f6b6, type: 3}
       propertyPath: m_Controller
       value: 

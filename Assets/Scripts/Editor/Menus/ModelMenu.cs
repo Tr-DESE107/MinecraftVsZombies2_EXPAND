@@ -39,6 +39,7 @@ namespace MVZ2.Editor
             var model = obj.GetComponent<Model>();
             if (!model)
                 return;
+            model.UpdateElements();
             model.GraphicGroup.UpdateElements();
             PrefabUtility.SaveAsPrefabAsset(obj, path, out var successfully);
             PrefabUtility.UnloadPrefabContents(obj);

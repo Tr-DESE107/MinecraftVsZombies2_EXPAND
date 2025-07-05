@@ -23,6 +23,21 @@ namespace MVZ2.Models
         {
             GraphicGroup.AddElement(element);
         }
+        public void UpdateElements()
+        {
+            var anchors = GetComponentsInChildren<ModelAnchor>(true)
+                .Where(g => g.GetComponentInParent<Model>() == this);
+            var newAnchors = anchors.OrderBy(a =>
+            {
+                var index = Array.IndexOf(modelAnchors, a);
+                return index == -1 ? int.MaxValue : index;
+            }).ToArray();
+            if (!modelAnchors.SequenceEqual(newAnchors))
+            {
+                modelAnchors = newAnchors;
+            }
+        }
+
         #region 生命周期
         public virtual void Init(Camera camera, int seed = 0)
         {
