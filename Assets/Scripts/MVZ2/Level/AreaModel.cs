@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Models;
 using UnityEngine;
@@ -30,6 +31,18 @@ namespace MVZ2.Level
             }
             currentPreset = name;
         }
+        public override void UpdateElements()
+        {
+            base.UpdateElements();
+            var newGroup = GetComponent<ModelGroupArea>();
+            if (newGroup != group)
+            {
+                group = newGroup;
+            }
+            var newPresets = GetComponentsInChildren<AreaModelPreset>(true)
+                .Where(g => g.IsDirectChild<Model>(this) && g.gameObject != gameObject);
+            presets.ReplaceList(newPresets);
+        }
         #region 序列化
         protected override SerializableModelData CreateSerializable()
         {
@@ -46,14 +59,14 @@ namespace MVZ2.Level
         }
         #endregion
 
-        public override ModelGraphicGroup GraphicGroup => RendererGroup;
-        public ModelRendererGroup RendererGroup => rendererGroup;
+        public override ModelGroup GraphicGroup => RendererGroup;
+        public ModelGroupArea RendererGroup => group;
         private string currentPreset;
         [Header("Area")]
         [SerializeField]
-        private ModelRendererGroup rendererGroup;
+        private ModelGroupArea group;
         [SerializeField]
-        private AreaModelPreset[] presets;
+        private List<AreaModelPreset> presets = new List<AreaModelPreset>();
     }
     [Serializable]
     public class SerializableAreaModelData : SerializableModelData

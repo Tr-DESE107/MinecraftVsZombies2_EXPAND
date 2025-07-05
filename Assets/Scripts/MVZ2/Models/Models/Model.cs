@@ -23,19 +23,8 @@ namespace MVZ2.Models
         {
             GraphicGroup.AddElement(element);
         }
-        public void UpdateElements()
+        public virtual void UpdateElements()
         {
-            var anchors = GetComponentsInChildren<ModelAnchor>(true)
-                .Where(g => g.GetComponentInParent<Model>() == this);
-            var newAnchors = anchors.OrderBy(a =>
-            {
-                var index = Array.IndexOf(modelAnchors, a);
-                return index == -1 ? int.MaxValue : index;
-            }).ToArray();
-            if (!modelAnchors.SequenceEqual(newAnchors))
-            {
-                modelAnchors = newAnchors;
-            }
         }
 
         #region 生命周期
@@ -178,7 +167,7 @@ namespace MVZ2.Models
         {
             rng = RandomGenerator.FromSerializable(serializable.rng);
             destroyTimeout = serializable.destroyTimeout;
-            GraphicGroup.LoadFromSerializable(serializable.graphicGroup);
+            GraphicGroup.FromSerializable(serializable.graphicGroup);
             if (serializable.propertyDict != null)
             {
                 var dict = PropertyDictionaryString.FromSerializable(serializable.propertyDict);
@@ -346,6 +335,26 @@ namespace MVZ2.Models
         }
         #endregion
 
+        #region 模型单元
+        #endregion
+
+        #region 锚点
+        public ModelAnchor GetAnchor(string name)
+        {
+            return GraphicGroup.GetAnchor(name);
+        }
+        public IEnumerable<ModelAnchor> GetAllAnchors()
+        {
+            return GraphicGroup.GetAllAnchors();
+        }
+        public Transform GetCenterTransform()
+        {
+            var anchor = GetAnchor(LogicModelHelper.ANCHOR_CENTER);
+            if (!anchor)
+                return null;
+            return anchor.transform;
+        }
+        #endregion
         public static ModelMeta GetModelMeta(NamespaceID modelID)
         {
             var main = MainManager.Instance;
@@ -361,24 +370,6 @@ namespace MVZ2.Models
                 return null;
             return res.GetModel(modelMeta.Path);
         }
-        public ModelAnchor GetAnchor(string name)
-        {
-            if (string.IsNullOrEmpty(name))
-                return null;
-            var hash = name.GetHashCode();
-            foreach (var anchor in modelAnchors)
-            {
-                if (anchor == null)
-                    continue;
-                if (anchor.KeyHash == hash)
-                    return anchor;
-            }
-            return null;
-        }
-        public ModelAnchor[] GetAllAnchors()
-        {
-            return modelAnchors;
-        }
         public RandomGenerator GetRNG()
         {
             return rng;
@@ -388,9 +379,7 @@ namespace MVZ2.Models
         public event Action<float> OnUpdateFrame;
 
         #region 属性字段
-        public abstract ModelGraphicGroup GraphicGroup { get; }
-        public Transform GetRootTransform() => GetAnchor(LogicModelHelper.ANCHOR_ROOT).transform;
-        public Transform GetCenterTransform() => GetAnchor(LogicModelHelper.ANCHOR_CENTER).transform;
+        public abstract ModelGroup GraphicGroup { get; }
 
         private NamespaceID id;
         private NamespaceID parentKey;
@@ -401,21 +390,14 @@ namespace MVZ2.Models
         private ModelParentInterface modelInterface;
         private RandomGenerator rng;
         private PropertyDictionaryString propertyDict = new PropertyDictionaryString();
-        [Header("General")]
-        [SerializeField]
-        private ModelAnchor[] modelAnchors;
         private List<ModelComponent> modelComponents = new List<ModelComponent>();
 
-        [Header("Nesting")]
-        [SerializeField]
+        // 嵌套
         private Model parent;
-        [SerializeField]
         private List<Model> childModels = new List<Model>();
 
-        [Header("Destruction")]
-        [SerializeField]
+        // 延迟摧毁
         private int destroyDelay;
-        [SerializeField]
         private UnityEvent onDelayedDestroy;
         #endregion
     }
@@ -425,7 +407,7 @@ namespace MVZ2.Models
         public NamespaceID key;
         public NamespaceID id;
         public SerializableRNG rng;
-        public SerializableModelGraphicGroup graphicGroup;
+        public SerializableModelGroup graphicGroup;
         public SerializablePropertyDictionaryString propertyDict;
         public SerializableModelData[] childModels;
         public int destroyTimeout;

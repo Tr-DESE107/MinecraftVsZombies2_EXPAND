@@ -77,7 +77,7 @@ namespace MVZ2.Entities
                 Model = null;
             }
             var model = Models.Model.Create(modelId, transform, Level.GetCamera(), Entity.InitSeed);
-            Model = model as SpriteModel;
+            Model = model as EntityModel;
             if (!Model)
                 return;
             Model.OnUpdateFrame += OnModelUpdateFrameCallback;
@@ -157,9 +157,10 @@ namespace MVZ2.Entities
 
         public void UpdateModelColliderActive(HeldTargetFlag flag)
         {
-            if (Model is SpriteModel sprModel)
+            if (Model is EntityModel sprModel)
             {
-                sprModel.SetColliderActive((flag & sprModel.HeldTargetFlag) != HeldTargetFlag.None);
+                var heldTargetFlag = HeldTargetFlagHelper.GetHeldTargetFlagByType(Entity.Type);
+                sprModel.SetColliderActive((flag & heldTargetFlag) != HeldTargetFlag.None);
             }
         }
         public void SetHighlight(bool highlight)
@@ -173,7 +174,7 @@ namespace MVZ2.Entities
         public PointerEventData GetHoveredPointerEventData(int index) => holdStreakHandler.GetHoveredPointerEventData(index);
         public Vector2 TransformWorld2ColliderPosition(Vector3 worldPosition)
         {
-            if (Model is not SpriteModel spriteModel)
+            if (Model is not EntityModel spriteModel)
                 return Vector2.zero;
             var collider = spriteModel.Collider;
             if (collider is not BoxCollider2D boxCollider)
@@ -288,11 +289,11 @@ namespace MVZ2.Entities
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {
-            return Model.RendererGroup.SortingLayerID;
+            return Model.SortingLayerID;
         }
         int ILevelRaycastReceiver.GetSortingOrder()
         {
-            return Model.RendererGroup.SortingOrder;
+            return Model.SortingOrder;
         }
         #endregion
 
@@ -534,7 +535,7 @@ namespace MVZ2.Entities
             { EntityTypes.PICKUP, 7 },
         };
         public MainManager Main => MainManager.Instance;
-        public SpriteModel Model { get; private set; }
+        public EntityModel Model { get; private set; }
         public ShadowController Shadow => shadow;
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
@@ -571,9 +572,9 @@ namespace MVZ2.Entities
                 rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
 
                 model.transform.localScale = entity.GetFinalDisplayScale();
-                rendererGroup.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
-                rendererGroup.SortingOrder = entity.GetSortingOrder();
-                if (model is SpriteModel sprModel)
+                model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
+                model.SortingOrder = entity.GetSortingOrder();
+                if (model is EntityModel sprModel)
                 {
                     sprModel.SetLightVisible(entity.IsLightSource());
                     sprModel.SetLightColor(entity.GetLightColor());
@@ -615,10 +616,10 @@ namespace MVZ2.Entities
                             model.transform.localScale = entity.GetFinalDisplayScale();
                             break;
                         case PropertyName.SortingLayer:
-                            rendererGroup.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
+                            model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
                             break;
                         case PropertyName.SortingOrder:
-                            rendererGroup.SortingOrder = entity.GetSortingOrder();
+                            model.SortingOrder = entity.GetSortingOrder();
                             break;
 
                         case PropertyName.ShadowHidden:
@@ -636,7 +637,7 @@ namespace MVZ2.Entities
 
                         case PropertyName.LightSource:
                             {
-                                if (model is SpriteModel sprModel)
+                                if (model is EntityModel sprModel)
                                 {
                                     sprModel.SetLightVisible(entity.IsLightSource());
                                 }
@@ -644,7 +645,7 @@ namespace MVZ2.Entities
                             break;
                         case PropertyName.LightColor:
                             {
-                                if (model is SpriteModel sprModel)
+                                if (model is EntityModel sprModel)
                                 {
                                     sprModel.SetLightColor(entity.GetLightColor());
                                 }
@@ -652,7 +653,7 @@ namespace MVZ2.Entities
                             break;
                         case PropertyName.LightRange:
                             {
-                                if (model is SpriteModel sprModel)
+                                if (model is EntityModel sprModel)
                                 {
                                     var lightScaleLawn = entity.GetLightRange();
                                     var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;

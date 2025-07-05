@@ -8,7 +8,7 @@
         public const string shadow = "Shadow";
         public const string places = "Places";
         public const string carriers = "Carriers";
-        public const string entities = "Entities";
+        public const string defaultLayer = "Default";
         public const string pickups = "Pickups";
         public const string foreground = "Foreground";
         public const string collectedDrops = "CollectedDrops";

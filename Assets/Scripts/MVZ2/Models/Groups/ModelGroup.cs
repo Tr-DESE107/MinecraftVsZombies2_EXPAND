@@ -1,0 +1,207 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+namespace MVZ2.Models
+{
+    public abstract class ModelGroup : MonoBehaviour
+    {
+        #region 动画器
+        public void UpdateFrame(float deltaTime)
+        {
+            foreach (var animator in animators)
+            {
+                if (testMode && Application.isEditor)
+                {
+                    animator.enabled = true;
+                }
+            }
+        }
+        public void UpdateAnimators(float deltaTime)
+        {
+            foreach (var animator in animators)
+            {
+                if (!animator)
+                    continue;
+                if (!testMode || !Application.isEditor)
+                {
+                    animator.enabled = false;
+                    animator.Update(deltaTime);
+                }
+            }
+        }
+        public void GetAnimatorsToUpdate(IList<Animator> results)
+        {
+            foreach (var animator in animators)
+            {
+                if (testMode && Application.isEditor)
+                    continue;
+                if (!animator)
+                    continue;
+                if (!animator.runtimeAnimatorController)
+                    continue;
+                if (!animator.gameObject.activeInHierarchy)
+                    continue;
+                results.Add(animator);
+            }
+        }
+        public void TriggerAnimator(string name)
+        {
+            foreach (var animator in animators)
+            {
+                animator.SetTrigger(name);
+            }
+        }
+        public void SetAnimatorBool(string name, bool value)
+        {
+            foreach (var animator in animators)
+            {
+                animator.SetBool(name, value);
+            }
+        }
+        public void SetAnimatorInt(string name, int value)
+        {
+            foreach (var animator in animators)
+            {
+                animator.SetInteger(name, value);
+            }
+        }
+        public void SetAnimatorFloat(string name, float value)
+        {
+            foreach (var animator in animators)
+            {
+                animator.SetFloat(name, value);
+            }
+        }
+
+        #endregion
+
+        #region 着色器
+        public abstract void SetShaderInt(string name, int value);
+        public abstract void SetShaderFloat(string name, float alpha);
+        public abstract void SetShaderColor(string name, Color color);
+        public abstract void SetShaderVector(string name, Vector4 vector);
+        public void SetTint(Color color)
+        {
+            SetShaderColor("_Color", color);
+        }
+        public void SetColorOffset(Color color)
+        {
+            SetShaderColor("_ColorOffset", color);
+        }
+        public void SetHSV(Vector3 hsv)
+        {
+            SetShaderVector("_HSVOffset", hsv);
+        }
+        #endregion
+
+        #region 锚点
+        public ModelAnchor GetAnchor(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return null;
+            var hash = name.GetHashCode();
+            foreach (var anchor in modelAnchors)
+            {
+                if (anchor == null)
+                    continue;
+                if (anchor.KeyHash == hash)
+                    return anchor;
+            }
+            return null;
+        }
+        public ModelAnchor[] GetAllAnchors()
+        {
+            return modelAnchors.ToArray();
+        }
+        #endregion
+
+        #region 设置
+        public virtual void SetSimulationSpeed(float speed)
+        {
+        }
+        public void SetGroundY(float y)
+        {
+            foreach (var trans in transforms)
+            {
+                if (!trans || !trans.LockToGround)
+                    continue;
+                var pos = trans.transform.position;
+                pos.y = y;
+                trans.transform.position = pos;
+            }
+        }
+        #endregion
+
+        #region 元素管理
+        public abstract void AddElement(GraphicElement element);
+        public virtual void UpdateElements()
+        {
+            var newAnchors = GetComponentsInChildren<ModelAnchor>(true)
+                .Where(g => g.IsDirectChild<ModelGroup>(this));
+            modelAnchors.ReplaceList(newAnchors);
+
+            var trans = GetComponentsInChildren<TransformElement>(true)
+                .Where(g => g.IsDirectChild<ModelGroup>(this));
+            transforms.ReplaceList(trans);
+
+            var anims = GetComponentsInChildren<Animator>(true)
+                .Where(g => g.IsDirectChild<ModelGroup>(this));
+            animators.ReplaceList(anims);
+        }
+        #endregion
+
+        #region 序列化
+        public abstract SerializableModelGroup ToSerializable();
+        public void FromSerializable(SerializableModelGroup serializable)
+        {
+            for (int i = 0; i < animators.Count; i++)
+            {
+                if (i >= serializable.animators.Length)
+                    break;
+                var animator = animators[i];
+                var data = serializable.animators[i];
+                data.Deserialize(animator);
+            }
+            LoadFromSerializable(serializable);
+        }
+        protected void SaveToSerializableUnit(SerializableModelGroup serializable)
+        {
+            serializable.animators = animators.Select(a => new SerializableAnimator(a)).ToArray();
+        }
+        protected virtual void LoadFromSerializable(SerializableModelGroup serializable)
+        {
+        }
+        #endregion
+
+        #region 生命周期
+        private void Awake()
+        {
+            foreach (var animator in animators)
+            {
+                if (!animator)
+                {
+                    Debug.LogWarning($"Model {gameObject.name} has a missing animator!");
+                    return;
+                }
+                animator.logWarnings = false;
+            }
+        }
+        #endregion
+
+        #region 属性与字段
+        [SerializeField]
+        private bool testMode = false;
+        [SerializeField]
+        protected List<ModelAnchor> modelAnchors = new List<ModelAnchor>();
+        [SerializeField]
+        protected List<Animator> animators = new List<Animator>();
+        [SerializeField]
+        protected List<TransformElement> transforms = new List<TransformElement>();
+        #endregion
+    }
+    public class SerializableModelGroup
+    {
+        public SerializableAnimator[] animators;
+    }
+}

@@ -10,11 +10,11 @@ namespace MVZ2.Editor
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            var group = target as Model;
+            var model = target as Model;
             if (GUILayout.Button("Update Elements"))
             {
-                group.UpdateElements();
-                EditorUtility.SetDirty(group);
+                model.UpdateElements();
+                EditorUtility.SetDirty(model);
             }
             serializedObject.ApplyModifiedProperties();
         }

@@ -17,7 +17,7 @@ namespace MVZ2.Almanacs
             {
                 model = Model.Create(prefab, rootTransform, camera);
                 updater.model = model;
-                if (model is SpriteModel spriteModel)
+                if (model is EntityModel spriteModel)
                 {
                     spriteModel.CancelSortAtRoot();
                 }

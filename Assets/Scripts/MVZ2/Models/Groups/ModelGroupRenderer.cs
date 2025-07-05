@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace MVZ2.Models
 {
-    public class ModelRendererGroup : ModelGraphicGroup
+    public abstract class ModelGroupRenderer : ModelGroup
     {
-        #region 公有方法
+        #region 粒子
         public override void SetSimulationSpeed(float speed)
         {
             base.SetSimulationSpeed(speed);
@@ -16,21 +16,20 @@ namespace MVZ2.Models
                 particle.SetSimulationSpeed(speed);
             }
         }
+        #endregion
+
+        #region 元素管理
         public override void AddElement(GraphicElement element)
         {
             if (element is not RendererElement rendererElement)
                 throw new ArgumentException("Wrong model group element type.", nameof(element));
             renderers.Add(rendererElement);
         }
-        private void ReplaceComponents<T>(List<T> list, IEnumerable<T> targets)
-        {
-            list.RemoveAll(e => !targets.Contains(e));
-            list.AddRange(targets.Except(list));
-        }
         public override void UpdateElements()
         {
-            var renderer = GetComponentsInChildren<Renderer>(true)
-                .Where(g => IsChildOfGroup(g.transform, this) && g is not SpriteMask && g.gameObject.layer != Layers.LIGHT)
+            base.UpdateElements();
+            var newRenderers = GetComponentsInChildren<Renderer>(true)
+                .Where(g => g.IsDirectChild<ModelGroup>(this) && g is not SpriteMask && g.gameObject.layer != Layers.LIGHT)
                 .Select(r =>
                 {
                     var element = r.GetComponent<RendererElement>();
@@ -40,14 +39,10 @@ namespace MVZ2.Models
                     }
                     return element;
                 });
-            ReplaceComponents(renderers, renderer);
+            renderers.ReplaceList(newRenderers);
 
-            var trans = GetComponentsInChildren<TransformElement>(true)
-                .Where(g => IsChildOfGroup(g.transform, this));
-            ReplaceComponents(transforms, trans);
-
-            var parts = GetComponentsInChildren<ParticleSystem>(true)
-                .Where(p => IsParticleChildOfGroup(p.transform, this))
+            var newParticles = GetComponentsInChildren<ParticleSystem>(true)
+                .Where(p => p.IsDirectChild<ModelGroup>(this) && !p.transform.parent.GetComponentInParent<ParticleSystem>())
                 .Select(r =>
                 {
                     var element = r.GetComponent<ParticlePlayer>();
@@ -57,12 +52,42 @@ namespace MVZ2.Models
                     }
                     return element;
                 });
-            ReplaceComponents(particles, parts);
-
-            var anims = GetComponentsInChildren<Animator>(true)
-                .Where(g => IsChildOfGroup(g.transform, this));
-            ReplaceComponents(animators, anims);
+            particles.ReplaceList(newParticles);
         }
+        #endregion
+
+        #region 序列化
+        protected void SaveToSerializableRenderer(SerializableModelGroupRenderer serializable)
+        {
+            SaveToSerializableUnit(serializable);
+            serializable.particles = particles.Select(e => e.ToSerializable()).ToArray();
+            serializable.renderers = renderers.Select(e => e.ToSerializable()).ToArray();
+        }
+        protected override void LoadFromSerializable(SerializableModelGroup serializable)
+        {
+            base.LoadFromSerializable(serializable);
+            if (serializable is not SerializableModelGroupRenderer rendererUnit)
+                return;
+            for (int i = 0; i < renderers.Count; i++)
+            {
+                if (i >= rendererUnit.renderers.Length)
+                    break;
+                var element = renderers[i];
+                var data = rendererUnit.renderers[i];
+                element.LoadFromSerializable(data);
+            }
+            for (int i = 0; i < particles.Count; i++)
+            {
+                if (i >= rendererUnit.particles.Length)
+                    break;
+                var particle = particles[i];
+                var data = rendererUnit.particles[i];
+                particle.LoadFromSerializable(data);
+            }
+        }
+        #endregion
+
+        #region 着色器
         public override void SetShaderInt(string name, int value)
         {
             foreach (var element in renderers)
@@ -82,7 +107,6 @@ namespace MVZ2.Models
                 element.SetFloat(name, alpha);
             }
         }
-
         public override void SetShaderColor(string name, Color color)
         {
             foreach (var element in renderers)
@@ -103,51 +127,14 @@ namespace MVZ2.Models
         }
         #endregion
 
-        #region 私有方法
-        protected override SerializableModelGraphicGroup CreateSerializable()
-        {
-            var serializable = new SerializableModelUnsortedRendererGroup();
-            serializable.particles = particles.Select(e => e.ToSerializable()).ToArray();
-            serializable.renderers = renderers.Select(e => e.ToSerializable()).ToArray();
-            return serializable;
-        }
-        protected override void LoadSerializable(SerializableModelGraphicGroup serializable)
-        {
-            base.LoadSerializable(serializable);
-            if (serializable is not SerializableModelUnsortedRendererGroup areaGroup)
-                return;
-            for (int i = 0; i < renderers.Count; i++)
-            {
-                if (i >= areaGroup.renderers.Length)
-                    break;
-                var element = renderers[i];
-                var data = areaGroup.renderers[i];
-                element.LoadFromSerializable(data);
-            }
-            for (int i = 0; i < particles.Count; i++)
-            {
-                if (i >= areaGroup.particles.Length)
-                    break;
-                var particle = particles[i];
-                var data = areaGroup.particles[i];
-                particle.LoadFromSerializable(data);
-            }
-        }
-        private static bool IsParticleChildOfGroup(Transform child, ModelGraphicGroup group)
-        {
-            return !child.parent.GetComponentInParent<ParticleSystem>() && IsChildOfGroup(child, group);
-        }
-        #endregion
-
         #region 属性字段
         [SerializeField]
         protected List<RendererElement> renderers = new List<RendererElement>();
         [SerializeField]
         protected List<ParticlePlayer> particles = new List<ParticlePlayer>();
         #endregion
-
     }
-    public class SerializableModelUnsortedRendererGroup : SerializableModelGraphicGroup
+    public abstract class SerializableModelGroupRenderer : SerializableModelGroup
     {
         public SerializableParticleSystem[] particles;
         public SerializableGraphicElement[] renderers;

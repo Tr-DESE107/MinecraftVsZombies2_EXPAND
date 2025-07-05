@@ -210,10 +210,10 @@ namespace MVZ2.Managers
             SerializeHelper.RegisterClass<SerializableUIModelData>();
             SerializeHelper.RegisterClass<SerializableAreaModelData>();
 
-            SerializeHelper.RegisterClass<SerializableModelGraphicGroup>();
-            SerializeHelper.RegisterClass<SerializableModelUnsortedRendererGroup>();
-            SerializeHelper.RegisterClass<SerializableModelRendererGroup>();
-            SerializeHelper.RegisterClass<SerializableModelImageGroup>();
+            SerializeHelper.RegisterClass<SerializableModelGroup>();
+            SerializeHelper.RegisterClass<SerializableModelGroupArea>();
+            SerializeHelper.RegisterClass<SerializableModelGroupEntity>();
+            SerializeHelper.RegisterClass<SerializableModelGroupUI>();
 
             SerializeHelper.RegisterClass<SerializableGraphicElement>();
             SerializeHelper.RegisterClass<SerializableRendererElement>();
