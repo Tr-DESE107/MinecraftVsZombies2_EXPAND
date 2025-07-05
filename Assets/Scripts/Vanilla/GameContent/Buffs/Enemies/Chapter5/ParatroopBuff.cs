@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             AddModifier(new FloatModifier(VanillaEntityProps.FALL_RESISTANCE, NumberOperator.Add, 10000));
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Multiply, 0));
-            AddModifier(new BooleanModifier(VanillaEnemyProps.HANDS_UP, true));
+            AddModifier(new IntModifier(VanillaEnemyProps.STATE_OVERRIDE, NumberOperator.Set, VanillaEntityStates.ENEMY_PARACHUTE));
             AddTrigger(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, PostContactGroundCallback);
         }
         public override void PostAdd(Buff buff)

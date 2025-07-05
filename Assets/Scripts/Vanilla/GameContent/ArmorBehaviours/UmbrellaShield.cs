@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Armors
         {
             base.PostUpdate(armor);
             var droop = false;
-            if (armor.Owner != null && !armor.Owner.IsDoingHandsUp())
+            if (armor.Owner != null && armor.Owner.State != VanillaEntityStates.ENEMY_PARACHUTE)
             {
                 droop = true;
             }
