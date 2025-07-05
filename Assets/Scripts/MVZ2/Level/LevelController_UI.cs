@@ -310,7 +310,7 @@ namespace MVZ2.Level
         public Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float z)
         {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
-            worldPosition.z = 0;
+            worldPosition.z = transform.position.z;
 
             var lawnPosition = TransToLawn(worldPosition);
             lawnPosition.z = z;
@@ -321,7 +321,7 @@ namespace MVZ2.Level
         public Vector3 ScreenToLawnPositionByY(Vector2 screenPosition, float y)
         {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
-            worldPosition.z = 0;
+            worldPosition.z = transform.position.z;
 
             var lawnPosition = TransToLawn(worldPosition);
             lawnPosition.z = lawnPosition.y - y;
@@ -332,7 +332,7 @@ namespace MVZ2.Level
         public Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY)
         {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
-            worldPosition.z = 0;
+            worldPosition.z = transform.position.z;
 
             var lawnPosition = TransToLawn(worldPosition);
             var targetY = lawnPosition.y;
