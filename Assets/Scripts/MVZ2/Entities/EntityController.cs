@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using MVZ2.Cursors;
 using MVZ2.HeldItems;
 using MVZ2.Level;
@@ -10,6 +9,7 @@ using MVZ2.Models;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -84,6 +84,16 @@ namespace MVZ2.Entities
             modelPropertyCache.UpdateAll(this);
             Model.UpdateFrame(0);
             Model.UpdateAnimators(0);
+
+            // 重新创建护甲模型
+            foreach (var slot in Entity.GetActiveArmorSlots())
+            {
+                var armor = Entity.GetArmorAtSlot(slot);
+                if (armor != null)
+                {
+                    CreateArmorModel(slot, armor);
+                }
+            }
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {
@@ -330,28 +340,44 @@ namespace MVZ2.Entities
             var modelID = armor.Definition.GetModelID();
             if (!NamespaceID.IsValid(modelID))
                 return;
-            var anchor = GetArmorModelAnchor(armor.Definition.GetID(), slot);
+            var armorID = armor.Definition.GetID();
+            var anchor = GetArmorModelAnchor(slot, armorID);
             if (string.IsNullOrEmpty(anchor))
                 return;
-            Model.CreateArmor(anchor, slot, modelID);
-        }
-        public string GetArmorModelAnchor(NamespaceID armorID, NamespaceID slotID)
-        {
-            var slotMeta = Main.ResourceManager.GetArmorSlotMeta(slotID);
-            if (slotMeta == null)
-                return null;
-
-            var armorMeta = Main.ResourceManager.GetArmorMeta(armorID);
-            if (armorMeta != null)
+            var model = Model.CreateArmor(anchor, slot, modelID);
+            if (model)
             {
-                var tagAnchorMeta = slotMeta.Anchors.FirstOrDefault(a => armorMeta.Tags.Contains(a.Tag));
-                if (tagAnchorMeta != null)
+                var modelPosition = GetArmorModelOffset(slot, armorID);
+                model.transform.localPosition = modelPosition;
+            }
+        }
+        public Vector3 GetArmorModelOffset(NamespaceID slotID, NamespaceID armorID)
+        {
+            var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
+            if (shapeMeta != null)
+            {
+                var offset = shapeMeta.GetArmorModelOffset(slotID, armorID);
+                offset *= Level.LawnToTransScale;
+                return offset;
+            }
+            return Vector3.zero;
+        }
+        public string GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
+        {
+            var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
+            if (shapeMeta != null)
+            {
+                var anchor = shapeMeta.GetArmorModelAnchor(slotID, armorID);
+                if (!string.IsNullOrEmpty(anchor))
                 {
-                    return tagAnchorMeta.Anchor;
+                    return anchor;
                 }
             }
 
-            return slotMeta.Anchors.FirstOrDefault()?.Anchor;
+            var slotMeta = Main.ResourceManager.GetArmorSlotMeta(slotID);
+            if (slotMeta != null)
+                return slotMeta.Anchor;
+            return null;
         }
         private void RemoveArmorModel(NamespaceID slot)
         {
@@ -389,10 +415,15 @@ namespace MVZ2.Entities
                 var meta = Main.ResourceManager.GetArmorSlotMeta(slotID);
                 if (meta == null)
                     continue;
-                var anchorMetas = meta.Anchors;
-                foreach (var anchorMeta in anchorMetas)
+                Model.ClearModelAnchor(meta.Anchor);
+            }
+            var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
+            if (shapeMeta != null)
+            {
+                var anchors = shapeMeta.GetAllArmorModelAnchors();
+                foreach (var anchor in anchors)
                 {
-                    Model.ClearModelAnchor(anchorMeta.Anchor);
+                    Model.ClearModelAnchor(anchor);
                 }
             }
         }

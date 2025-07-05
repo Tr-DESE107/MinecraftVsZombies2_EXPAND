@@ -18,6 +18,7 @@ namespace MVZ2.Modding
         public DifficultyMetaList DifficultyMetaList { get; set; }
         public ArmorMetaList ArmorMetaList { get; set; }
         public EntityMetaList EntityMetaList { get; set; }
+        public ShapeMetaList ShapeMetaList { get; set; }
         public ArtifactMetaList ArtifactMetaList { get; set; }
         public AlmanacMetaList AlmanacMetaList { get; set; }
         public NoteMetaList NoteMetaList { get; set; }

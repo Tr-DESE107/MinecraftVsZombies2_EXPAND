@@ -913,6 +913,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18282686495af424b9dd5236476eb0fe
+    m_Address: mvz2:shapes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18bdc9c8c3fe2c548bee01dd98e6d9df
     m_Address: mvz2:damage/shield/shield_hit1
     m_ReadOnly: 0

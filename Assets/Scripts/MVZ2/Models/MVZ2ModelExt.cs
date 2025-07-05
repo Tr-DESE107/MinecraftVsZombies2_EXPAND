@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using MVZ2Logic;
+﻿using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Armors;
 
@@ -7,18 +6,18 @@ namespace MVZ2.Models
 {
     public static class MVZ2ModelExt
     {
-        public static string[] GetAnchorsOfArmorSlot(NamespaceID slot)
+        public static string GetAnchorOfArmorSlot(NamespaceID slot)
         {
             var game = Global.Game;
             var slotMeta = game.GetArmorSlotMeta(slot);
             if (slotMeta == null)
                 return null;
-            return slotMeta.Anchors.Select(a => a.Anchor).ToArray();
+            return slotMeta.Anchor;
         }
-        public static void CreateArmor(this Model model, string anchor, NamespaceID slot, NamespaceID id)
+        public static Model CreateArmor(this Model model, string anchor, NamespaceID slot, NamespaceID id)
         {
             var key = EngineArmorExt.GetModelKeyOfArmorSlot(slot);
-            model.CreateChildModel(anchor, key, id);
+            return model.CreateChildModel(anchor, key, id);
         }
         public static bool RemoveArmor(this Model model, NamespaceID slot)
         {

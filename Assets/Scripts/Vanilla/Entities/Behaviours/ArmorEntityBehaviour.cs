@@ -1,11 +1,11 @@
 ﻿using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
+using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -40,7 +40,14 @@ namespace MVZ2.Vanilla.Entities
 
             if (!armor.HasNoDiscard())
             {
-                var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, GetArmorPosition(entity), entity);
+                var armorID = armor.Definition.GetID();
+                var position = entity.GetArmorDisplayPosition(slot, armorID);
+                var displayScale = entity.GetArmorDisplayScale(slot, armorID);
+
+                var spawnParam = entity.GetSpawnParams();
+                spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, displayScale);
+                var effect = entity.Spawn(VanillaEffectID.brokenArmor, position, spawnParam);
+
                 var sourcePosition = result?.Source?.GetEntity(entity.Level)?.Position;
                 var moveDirection = entity.GetFacingDirection();
                 if (sourcePosition.HasValue)
@@ -48,17 +55,9 @@ namespace MVZ2.Vanilla.Entities
                     moveDirection = (entity.Position - sourcePosition.Value).normalized;
                 }
                 effect.Velocity = moveDirection * 10;
-                effect.SetDisplayScale(entity.GetDisplayScale());
+
                 effect.ChangeModel(armor.Definition.GetModelID());
             }
-        }
-        #endregion
-
-        #region 私有方法
-        protected Vector3 GetArmorPosition(Entity entity)
-        {
-            var bounds = entity.GetBounds();
-            return bounds.center + Vector3.up * bounds.extents.y;
         }
         #endregion
     }

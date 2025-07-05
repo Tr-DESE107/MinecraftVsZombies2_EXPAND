@@ -7,12 +7,7 @@ namespace MVZ2Logic.Entities
     public interface IArmorSlotMeta
     {
         string Name { get; }
-        IArmorSlotAnchorMeta[] Anchors { get; }
-    }
-    public interface IArmorSlotAnchorMeta
-    {
         string Anchor { get; }
-        NamespaceID Tag { get; }
     }
     public interface IArmorMeta
     {

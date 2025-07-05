@@ -363,6 +363,8 @@ namespace MVZ2.Models
         }
         public ModelAnchor GetAnchor(string name)
         {
+            if (string.IsNullOrEmpty(name))
+                return null;
             var hash = name.GetHashCode();
             foreach (var anchor in modelAnchors)
             {

@@ -33,6 +33,9 @@ namespace MVZ2.Metas
                 case "entities":
                     resource.EntityMetaList = EntityMetaList.FromXmlNode(document["entities"], defaultNsp);
                     break;
+                case "shapes":
+                    resource.ShapeMetaList = ShapeMetaList.FromXmlNode(document["shapes"], defaultNsp);
+                    break;
                 case "artifacts":
                     resource.ArtifactMetaList = ArtifactMetaList.FromXmlNode(document["artifacts"], defaultNsp);
                     break;

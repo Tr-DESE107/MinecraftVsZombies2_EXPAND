@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: hell_chariot_armors
+  m_Controller: {fileID: 9100000, guid: 6c2a484f1902d3b4b86b574194516de5, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4710962f85bd6594ca6834339f17b888, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0f4a6f1080208ab4b86295950066e08a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b8bb7a4db50e4dc4ca7e6f27cf7dbbe6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6b4072fba706b7c49a6aaefa9cb36a89, type: 2}

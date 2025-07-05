@@ -54,12 +54,12 @@ namespace PVZEngine.Armors
         {
             return GetID().ToModelID(EngineModelID.TYPE_ARMOR);
         }
-        public ColliderConstructor[] GetColliderConstructors()
+        public virtual IEnumerable<ColliderConstructor> GetColliderConstructors(Entity entity, NamespaceID slotID)
         {
             return colliderConstructors;
         }
         public sealed override string GetDefinitionType() => EngineDefinitionTypes.ARMOR;
-        private ColliderConstructor[] colliderConstructors;
+        protected ColliderConstructor[] colliderConstructors;
         private List<NamespaceID> behaviours = new List<NamespaceID>();
         private List<ArmorBehaviourDefinition> behaviourCaches = new List<ArmorBehaviourDefinition>();
     }

@@ -710,7 +710,7 @@ namespace PVZEngine.Entities
         }
         private void CreateCollidersForArmor(NamespaceID slot, Armor armor)
         {
-            foreach (var cons in armor.GetColliderConstructors())
+            foreach (var cons in armor.GetColliderConstructors(this, slot))
             {
                 var info = cons;
                 info.name = GetArmorColliderName(slot, cons.name);
@@ -720,7 +720,7 @@ namespace PVZEngine.Entities
         }
         private void RemoveCollidersFromArmor(NamespaceID slot, Armor armor)
         {
-            foreach (var cons in armor.GetColliderConstructors())
+            foreach (var cons in armor.GetColliderConstructors(this, slot))
             {
                 var name = GetArmorColliderName(slot, cons.name);
                 RemoveCollider(name);
@@ -731,7 +731,7 @@ namespace PVZEngine.Entities
             var armor = GetArmorAtSlot(slot);
             if (armor == null)
                 yield break;
-            foreach (var cons in armor.GetColliderConstructors())
+            foreach (var cons in armor.GetColliderConstructors(this, slot))
             {
                 var name = GetArmorColliderName(slot, cons.name);
                 yield return GetCollider(name);
