@@ -38,6 +38,10 @@ namespace MVZ2.Editor
                 ConvertModelAt(path);
             }
         }
+        public static void ConvertModelToBase(string path, string basePath, string newBase, string boneBase, string format = "{0}")
+        {
+            ConvertModelAtTo(path, basePath, newBase, boneBase, format);
+        }
         private static void SearchModelPaths(string folder, List<string> pathList)
         {
             string[] files = Directory.GetFiles(folder, "*", SearchOption.AllDirectories);
@@ -63,29 +67,36 @@ namespace MVZ2.Editor
         }
         private static void ConvertModelAt(string path)
         {
-            if (!IsPrefabVariantOf(path, MODEL_PARENT_OBSOLETE))
+            ConvertModelAtTo(path, MODEL_PARENT_OBSOLETE, ENTITY_MODEL_PARENT, BONE_MODEL_PATH);
+        }
+        private static void ConvertModelAtTo(string path, string basePath, string newBase, string boneBase, string format = "{0}")
+        {
+            if (!IsPrefabVariantOf(path, basePath))
             {
                 Debug.LogWarning($"{path} is not a variant of the obsolete Model prefab. Skipping conversion.");
                 return;
             }
             var list = new List<ModificationInfo>();
             var objectReferences = new List<InnerObjectReference>();
-            GetPrefabVariantModificationsRelativeTo(path, MODEL_PARENT_OBSOLETE, list);
+            GetPrefabVariantModificationsRelativeTo(path, basePath, list);
             GetPrefabInnerObjectReferences(path, objectReferences);
 
+            var name = Path.GetFileNameWithoutExtension(path);
+            var directory = Path.GetDirectoryName(path);
             var extension = Path.GetExtension(path);
-            var newPath = path.Substring(0, path.Length - extension.Length) + "_converted" + extension;
-            CreateModelVariant(ENTITY_MODEL_PARENT, list, objectReferences, newPath);
+            var newPath = Path.Combine(directory, string.Format(format, name)) + extension;
+            CreateModelVariant(newBase, boneBase, list, objectReferences, newPath);
         }
-        private static void CreateModelVariant(string basePath, List<ModificationInfo> modifications, List<InnerObjectReference> innerReferences, string newPath)
+        private static void CreateModelVariant(string basePath, string boneBase, List<ModificationInfo> modifications, List<InnerObjectReference> innerReferences, string newPath)
         {
             var basePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(basePath);
             var newGO = PrefabUtility.InstantiatePrefab(basePrefab, null) as GameObject;
             var name = Path.GetFileNameWithoutExtension(newPath);
             newGO.name = name;
 
-            var bonePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(BONE_MODEL_PATH);
+            var bonePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(boneBase);
             var boneGO = PrefabUtility.InstantiatePrefab(bonePrefab, newGO.transform) as GameObject;
+            boneGO.name = "bone";
             ApplyModelModifications(boneGO, modifications, innerReferences);
 
             //PrefabUtility.SaveAsPrefabAsset(newGO, newPath, out var successfully);
@@ -106,6 +117,10 @@ namespace MVZ2.Editor
             var directory = Path.GetDirectoryName(mod.targetPath).Replace('\\', '/');
             var objToCreate = mod.objectReference as GameObject;
             var targetTransform = root.transform.Find(directory);
+            if (!targetTransform)
+            {
+                Debug.LogWarning($"Transform {directory} to create GameObject {name} does not exists.");
+            }
             var prefabRoot = PrefabUtility.GetNearestPrefabInstanceRoot(objToCreate);
             GameObject newChildGO;
             if (!prefabRoot)
@@ -114,13 +129,13 @@ namespace MVZ2.Editor
             }
             else
             {
-                var toCreate = PrefabUtility.GetCorrespondingObjectFromSource(prefabRoot);
-                newChildGO = PrefabUtility.InstantiatePrefab(toCreate, targetTransform) as GameObject;
+                var instantPrefab = PrefabUtility.GetCorrespondingObjectFromSource(prefabRoot);
+                newChildGO = PrefabUtility.InstantiatePrefab(instantPrefab, targetTransform) as GameObject;
 
                 var list = new List<ModificationInfo>();
                 var objectReferences = new List<InnerObjectReference>();
-                GetPrefabVariantModifications(objToCreate, list);
-                GetPrefabInnerObjectReferences(objToCreate, objectReferences);
+                GetPrefabVariantModifications(prefabRoot, list);
+                GetPrefabInnerObjectReferences(prefabRoot, objectReferences);
                 ApplyModelModifications(newChildGO, list, objectReferences);
             }
             newChildGO.name = name;
@@ -185,7 +200,9 @@ namespace MVZ2.Editor
         private static void ApplyModelModifications(GameObject go, List<ModificationInfo> modifications, List<InnerObjectReference> innerReferences)
         {
             // 处理新增GameObject
-            foreach (var mod in modifications.Where(m => m.type == ModificationType.AddedGameObject))
+            // 因为父物体添加的GameObject在后面，所以反转顺序，防止添加的GameObject的父物体不存在。
+            var addedGameObjects = modifications.Where(m => m.type == ModificationType.AddedGameObject).Reverse();
+            foreach (var mod in addedGameObjects)
             {
                 ConvertAddedGameObject(go, mod);
             }
@@ -564,7 +581,7 @@ namespace MVZ2.Editor
         public const string HELD_MODEL_PARENT_OBSOLETE = "Assets/Prefabs/Models/Obsolete/HeldModel.prefab";
         public const string MODEL_PARENT_OBSOLETE = "Assets/Prefabs/Models/Obsolete/SpriteModel.prefab";
         public const string ENTITY_MODEL_PARENT = "Assets/Prefabs/Models/EntityModel.prefab";
-        public const string BONE_MODEL_PATH = "Assets/GameContent/Assets/mvz2/models/units/bones/bone.prefab";
+        public const string BONE_MODEL_PATH = "Assets/GameContent/Assets/mvz2/models/bones/bone.prefab";
         private class ModificationInfo
         {
             public string targetPath;

@@ -56,10 +56,10 @@ namespace MVZ2.Editor
         {
             ModelMenu.UpdateModelElements();
         }
-        [MenuItem("MVZ2/Assets/Models/Convert Selected Models to New", priority = 4100, secondaryPriority = 0)]
+        [MenuItem("MVZ2/Assets/Models/Convert Models to New", priority = 4100, secondaryPriority = 0)]
         public static void ConvertOldModel()
         {
-            ModelMenu.ConvertModel();
+            ModelConversionWindow.ShowWindow();
         }
         [MenuItem("MVZ2/Assets/Sprites/Update Sprite Manifest", priority = 5000, secondaryPriority = 0)]
         public static void UpdateSpriteManifestAtGameContent()

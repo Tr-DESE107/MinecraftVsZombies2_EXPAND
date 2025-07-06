@@ -397,7 +397,9 @@ namespace MVZ2.Models
         private List<Model> childModels = new List<Model>();
 
         // 延迟摧毁
+        [SerializeField]
         private int destroyDelay;
+        [SerializeField]
         private UnityEvent onDelayedDestroy;
         #endregion
     }

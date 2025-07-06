@@ -10,7 +10,6 @@ namespace MVZ2.Editor
         protected override void GetPropertyFields(List<SerializedProperty> list)
         {
             base.GetPropertyFields(list);
-            list.Add(serializedObject.FindProperty("canvas"));
             list.Add(serializedObject.FindProperty("images"));
         }
     }
