@@ -14,19 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5134337979047610562, guid: 8831902be3baaeb42bd2369c1e280b2f, type: 3}
       propertyPath: m_Name
-      value: HeldModel
-      objectReference: {fileID: 0}
-    - target: {fileID: 6247621814009837820, guid: 8831902be3baaeb42bd2369c1e280b2f, type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6247621814009837820, guid: 8831902be3baaeb42bd2369c1e280b2f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 6247621814009837820, guid: 8831902be3baaeb42bd2369c1e280b2f, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -184251447
+      value: EnemyModel
       objectReference: {fileID: 0}
     - target: {fileID: 6999929167464410214, guid: 8831902be3baaeb42bd2369c1e280b2f, type: 3}
       propertyPath: m_LocalPosition.x

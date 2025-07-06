@@ -20,7 +20,7 @@
                 <float name="mvz2:takenCrushDamage" value="10000000" />
                 <float name="mvz2:cryPitch" value="1" />
                 <int name="mvz2:faction" value="0" />
-                <string name="mvz2:sortingLayer" value="Entities" />
+                <string name="mvz2:sortingLayer" value="Default" />
 
                 <int name="mvz2:cost" value="0" />
                 <id name="mvz2:rechargeId" value="mvz2:none" />
