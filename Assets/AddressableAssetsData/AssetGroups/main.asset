@@ -24,13 +24,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0099e1948a249c246a1f5ad7d269ff7a
-    m_Address: mvz2:boss/the_giant
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 00ad714282dc4364fa67260f36745fae
     m_Address: mvz2:random/netherrack/break3
     m_ReadOnly: 0
@@ -360,13 +353,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0ad952a54ac62cc40aa4243ede0e6468
-    m_Address: mvz2:boss/slenderman
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b687cc971691aa4786964a361a0d14c
     m_Address: mvz2:artifacts/greedy_vacuum
     m_ReadOnly: 0
@@ -670,13 +656,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 123080f471c7a22479f120e85b388165
     m_Address: mvz2:bones/spider
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 12a7d92a949605f46888a4e22b1600fd
-    m_Address: mvz2:boss/frankenstein
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1185,13 +1164,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1f7e2d1bb6589b7489834ad1f5ea68c0
-    m_Address: mvz2:boss/the_giant_snake_tail
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1fa7f21a7f8675f47a19b64ae5086153
     m_Address: mvz2:mainmenu/mainmenu
@@ -5278,13 +5250,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 89901ba4bfafc4b4e87ddb1dc852d2f6
-    m_Address: mvz2:boss/nightmareaper
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a0fa8e6a83d14c4581f8cee8ce07eed
     m_Address: mvz2:mobile_blueprint/necromancer
     m_ReadOnly: 0
@@ -5441,13 +5406,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8db82be40ad22c949aeac353e033a702
     m_Address: mvz2:effect/gear_particles
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8dd917576b14045488b246e74400b9a3
-    m_Address: mvz2:boss/seija
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10022,13 +9980,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ff83737ccd004a84b8c1149cb98e7ffb
-    m_Address: mvz2:boss/wither
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffc82409076aa3e4481bb54a1438d1db
     m_Address: mvz2:entity/enemies/golden_axe
