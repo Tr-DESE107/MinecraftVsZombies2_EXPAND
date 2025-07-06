@@ -115,6 +115,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03e17289f24fe124385b3fd71d2baca6
+    m_Address: mvz2:enemy/castle/skeleton_horse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04449195224ad4244a17407dc21b85f1
     m_Address: mvz2:damage/bone/bone_hit1
     m_ReadOnly: 0
@@ -185,12 +192,26 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0682ac922b1b43f4ab8a8a98cebc73c3
+    m_Address: mvz2:enemy/castle/dullahan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06bd83f6d02e8394fab6740abdfe9321
     m_Address: mvz2:entity/bone_wall/bone_wall_destroyed
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06be4dfb7c8b7ee4ab0ec6da7e88f7bb
+    m_Address: mvz2:enemy/castle/hell_chariot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06dcaddfa4e9dc141aa55d92f5dda56c
     m_Address: mvz2:glowstone
@@ -226,13 +247,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 07c60e0f7227b39418c6cdb32e056fcf
-    m_Address: mvz2:enemy/castle/bedserker
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 07f0858ead454ce4dae7b219cc8ba50e
     m_Address: mvz2:enemy/dream/mother_terror
@@ -633,13 +647,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1147f1680b001d94095ff895b1464df0
-    m_Address: mvz2:enemy/castle/mesmerizer
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 114ce1ebae93833479298364ca7af9c2
     m_Address: mvz2:tesla_power
     m_ReadOnly: 0
@@ -1024,13 +1031,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1bbe75d5487a3c0488fa0041cebec312
-    m_Address: mvz2:enemy/castle/wither_skeleton
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1bd643181a7ae694bb749f3e6fd4619b
     m_Address: mvz2:armor/skeleton_warrior_shield
@@ -2122,13 +2122,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 362a04b6e085d6741b7622b6924a35c0
-    m_Address: mvz2:enemy/castle/berserker
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 362da70159fb18b4a8a82d376f1976ba
     m_Address: mvz2:contraption/dream/anvil
     m_ReadOnly: 0
@@ -3130,13 +3123,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4c5926539a5244c4aaba729490fbbed6
-    m_Address: mvz2:enemy/castle/skeleton_horse
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d1a02ea98fa8a440b49d3871b5d0dff
     m_Address: mvz2:ui/map/map_drag_mark
     m_ReadOnly: 0
@@ -3612,13 +3598,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5bd1acbcd90ebbb4fb6dfed80ef2a88b
-    m_Address: mvz2:enemy/castle/seija_cursed_doll
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c2a63853e3c0a44ca7d42827e94eb10
     m_Address: mvz2:revive_cast
@@ -4963,6 +4942,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ffd1cb9090e03640a99c54a18de2d01
+    m_Address: mvz2:bones/wither_skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 804225591a395d3499b55198f88fa584
     m_Address: mvz2:halloween_boss
     m_ReadOnly: 0
@@ -4997,6 +4983,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80f10033d388d824a88e0237b0e79e8d
+    m_Address: mvz2:enemy/castle/anubisand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 80f626c9425eb4a4cbe0f89f42f25cf0
     m_Address: mvz2:agnoy
@@ -5257,13 +5250,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 886cbf32a5f99b04493a4ea352debd4d
-    m_Address: mvz2:enemy/castle/dullahan_main
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8887a1348e7752d4bb4aab022fbc8847
     m_Address: mvz2:mainmenu/view/nightmare
     m_ReadOnly: 0
@@ -5398,7 +5384,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c5cc48f60d7d3e4f81a1b121d8fdde2
-    m_Address: mvz2:enemy/halloween/skeleton_base_old
+    m_Address: mvz2:obsolete/skeleton_base_old
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -5424,13 +5410,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8d11feb529f6b9c42b607c5acd5b44f7
-    m_Address: mvz2:enemy/castle/dullahan_head
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d55b7a649c53f34c914877ea928893e
     m_Address: mvz2:entity/ghast/ghast_death
@@ -5504,6 +5483,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8eb46ba6806a1bd4a9c513acc51f3523
     m_Address: mvz2:effect/diamond_spike_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ec55301558bfc54c9d94f7065fda760
+    m_Address: mvz2:enemy/castle/dullahan_main
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -5775,6 +5761,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93775bbcfc92d274fbfd2a524caa8be9
+    m_Address: mvz2:enemy/castle/soulsand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9390c4e06c35d1849b57a496ba6b0339
     m_Address: mvz2:mobile_blueprint/seija
     m_ReadOnly: 0
@@ -5979,7 +5972,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 995a5c513facdb94293c6ce226198cfa
-    m_Address: mvz2:enemy/prologue/zombie_old
+    m_Address: mvz2:obsolete/zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6832,13 +6825,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b0a9828998f854a41ab899af5c9cc3d7
-    m_Address: mvz2:enemy/castle/hell_chariot
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0cbb31d2a700d44c8d6af6f63942063
     m_Address: mvz2:effect/thunder_bolt_horizontal
     m_ReadOnly: 0
@@ -7322,13 +7308,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bb38144aa3758594b92a9ca609b00b85
-    m_Address: mvz2:enemy/castle/reverse_satellite
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb5ecf4eaca68cc49be8e39e2b78bda8
     m_Address: mvz2:level/castle/castle_twilight
     m_ReadOnly: 0
@@ -7419,6 +7398,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bded572031703084ca75d3a1a2cc8785
+    m_Address: mvz2:bones/head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: be28a0498d9e8fc45b4efff2a2fc70ba
     m_Address: mvz2:pickup/gunpowder
@@ -7531,6 +7517,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c220236ea4022ae4fac6743e5c4821cc
+    m_Address: mvz2:bones/horse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2307bc3371a5c04f873383a0bfb9fe5
     m_Address: mvz2:prize
@@ -8386,6 +8379,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6c9127d9f5c4394daf358afeaac2a7e
+    m_Address: mvz2:enemy/castle/berserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d6d776afc0f96844e9adb7a2ce6c1b99
     m_Address: mvz2:gulp
     m_ReadOnly: 0
@@ -8456,8 +8456,8 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d86f3f32d6f2e544dbe0b1f841b8fef6
-    m_Address: mvz2:enemy/halloween/skeleton_base
+  - m_GUID: d89d131147847e74f971f991d5baa0ab
+    m_Address: mvz2:enemy/castle/reverse_satellite
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8752,6 +8752,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df4b37f82bb5bec438a70507f3913e97
     m_Address: mvz2:projectile/spike
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df8b1133d31b7b94da945857e4484f4d
+    m_Address: mvz2:enemy/castle/bedserker
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9121,13 +9128,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eac964fb32d58454ca025c76381a04f6
-    m_Address: mvz2:enemy/castle/dullahan
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ead2b534e897e48469cac6037a937e50
     m_Address: mvz2:starshards/halloween
     m_ReadOnly: 0
@@ -9303,13 +9303,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ed6fefcd13fc8b243b3429b80571c274
-    m_Address: mvz2:enemy/castle/anubisand
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee0a778b8029fb145a6764e65f31fbac
     m_Address: mvz2:icon/static_particles
     m_ReadOnly: 0
@@ -9340,6 +9333,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eefa245eb2888394a9145f9886e67a92
     m_Address: mvz2:icon/terror_parasitized
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef093a32063e87d46872603f25d18a5a
+    m_Address: mvz2:enemy/castle/dullahan_head
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9618,6 +9618,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f49063a046c00624cb58c16ba88f3694
+    m_Address: mvz2:enemy/castle/mesmerizer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5346a49dd46a2a4194dcbca45d9a022
     m_Address: mvz2:map/dream/sleepenser
     m_ReadOnly: 0
@@ -9647,10 +9654,11 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f57e21459d32585419d277b8883f7426
-    m_Address: mvz2:anubisand
+    m_Address: mvz2:units/anubisand
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f595f40e714ca554fbaa630677a07d0c
     m_Address: mvz2:effect/electric_arc
@@ -9827,6 +9835,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9d57c38d8200e6419e44a8abaf48c88
+    m_Address: mvz2:enemy/castle/seija_cursed_doll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9d66c79b7d34c646a1c7940ad078ef7
     m_Address: Main
     m_ReadOnly: 0
@@ -9909,13 +9924,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fc5450a9e1bd5d24ba24e41daeb61fbf
-    m_Address: mvz2:enemy/castle/soulsand
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc7453eba6c52d340834cd81aef0fc98
     m_Address: mvz2:morse_code_reverse
