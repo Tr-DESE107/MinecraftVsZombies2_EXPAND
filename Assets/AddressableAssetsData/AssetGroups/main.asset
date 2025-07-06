@@ -472,13 +472,6 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0d4af8afe02894146b1bf6b83fd5c2e6
-    m_Address: mvz2:enemy/shrine/imp
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d4ebeebf58039f44b54ff10434c99d4
     m_Address: mvz2:entity/effect/static
     m_ReadOnly: 0
@@ -1437,6 +1430,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25a59114d28fd6e46b019c49d4fad264
+    m_Address: mvz2:enemy/shrine/imp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c080cbfda0cb24ab261eb38b1e7f3d
     m_Address: mvz2:entity/effects/flash
@@ -2948,6 +2948,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 486576667a6275845b9c4c5a48c87eed
+    m_Address: mvz2:enemy/shrine/mutant_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 48d03b03b358d9948863f3eb0517933a
     m_Address: mvz2:artifacts/pagoda_branch
     m_ReadOnly: 0
@@ -3543,6 +3550,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b197e2b4a8161c4e8f1808052883a63
+    m_Address: mvz2:bones/mutant_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b26f4e24b68dee49b2c8d3592d95d91
     m_Address: mvz2:entity/boss/seija_camera
     m_ReadOnly: 0
@@ -3930,13 +3944,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63a05174c3979bc4997142266dc829d8
     m_Address: mvz2:contraption/prologue/mine_tnt
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 640498c4a0c1e9e478d0ce0218f62222
-    m_Address: mvz2:enemy/shrine/mutant_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4871,6 +4878,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f0c49e8fa74f80448413c2a309bcd6f
+    m_Address: mvz2:enemy/shrine/mega_mutant_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f17579a8f0c42344b02ba3589ca2d6e
     m_Address: mvz2:ui/level/pause_image_5
@@ -7832,13 +7846,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c93e39c5ab85d6940ba717234f2be33c
-    m_Address: mvz2:enemy/shrine/mega_mutant_zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c97af9f0f5b17654188e82b19cc1350a
     m_Address: mvz2:gravitation_surge
