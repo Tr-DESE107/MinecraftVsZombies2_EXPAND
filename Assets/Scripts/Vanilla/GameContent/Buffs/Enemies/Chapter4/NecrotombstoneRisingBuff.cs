@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var entity = buff.GetEntity();
             if (entity != null)
             {
-                entity.SetAnimationBool("Rising", true);
+                entity.SetModelProperty("Rising", true);
             }
         }
         public override void PostUpdate(Buff buff)
@@ -47,7 +47,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                     return;
                 }
                 buff.SetProperty(PROP_GROUND_LIMIT_OFFSET, Mathf.Lerp(-100, 0, timer.GetPassedPercentage()));
-                entity.SetAnimationBool("Rising", true);
+                entity.SetModelProperty("Rising", true);
             }
         }
         public override void PostRemove(Buff buff)
@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             var entity = buff.GetEntity();
             if (entity != null)
             {
-                entity.SetAnimationBool("Rising", false);
+                entity.SetModelProperty("Rising", false);
             }
         }
         public const int MAX_TIME = 30;
