@@ -850,13 +850,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1638747b3e81fd143ba72fe5035844ea
-    m_Address: mvz2:enemy/mausoleum/shikaisen_zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16432db882004f24084a9ab5a4c88143
     m_Address: mvz2:random/glass_break2
     m_ReadOnly: 0
@@ -1060,13 +1053,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1c4cde1b18c294a4bbc35ce35dcaf143
-    m_Address: mvz2:enemy/mausoleum/talisman_zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c5ef86d50d239a47a36537b14f214d0
     m_Address: mvz2:projectile/reflection_bullet
     m_ReadOnly: 0
@@ -1193,6 +1179,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f30a94359df286448d0ef81b8018430
+    m_Address: mvz2:enemy/mausoleum/skeleton_warrior
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f79614fcb97c93488cfbb1f01cd6ec4
     m_Address: mvz2:achievements/mesmerised_matchup
     m_ReadOnly: 0
@@ -1213,13 +1206,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1fd96b56021772842a0225b291f70542
-    m_Address: mvz2:enemy/mausoleum/skeleton_mage
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20878af0986885c4793b4099d7815082
     m_Address: mvz2:bones/bone
@@ -2766,13 +2752,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 440294be06b4bd14785efb5767c9116a
-    m_Address: mvz2:enemy/mausoleum/skeleton_warrior
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44bd337d7a161b2498137668fbec6e35
     m_Address: mvz2:entity/contraptions/spike_block
     m_ReadOnly: 0
@@ -3452,13 +3431,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 57fe36dbd26e41c43a5daff6005e09cb
-    m_Address: mvz2:enemy/mausoleum/reflective_barrier_zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 580a757d547930b41a026df31631b7c9
     m_Address: mvz2:entity/enemies/mesmerizer_head
     m_ReadOnly: 0
@@ -3885,6 +3857,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61c0748c531b0e245accf518bb27e194
+    m_Address: mvz2:enemy/mausoleum/reflective_barrier_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 61ca227b36b8e184cbc60d52d7e3d01c
     m_Address: mvz2:spider_cry1
@@ -4411,6 +4390,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 729f6cb40a51da2449f5a7e7b4ead347
+    m_Address: mvz2:enemy/mausoleum/shikaisen_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 72ab79aa07a6b4b44b40ccea8c6d5bd8
     m_Address: mvz2:entity/enemy/soulsand
     m_ReadOnly: 0
@@ -4494,6 +4480,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74e16a1bfe361c845b13b27252c2a5e0
+    m_Address: mvz2:enemy/mausoleum/skeleton_mage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75127238d9b7c934395ce66830a82cf1
     m_Address: mvz2:entity/contraptions/giant_bowl_point
@@ -5823,13 +5816,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 95860ad70aaf9b048b4e87974f29e947
-    m_Address: mvz2:enemy/mausoleum/emperor_zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95a0ff4bc65b3c3489a4dd2274848c9d
     m_Address: mvz2:entity/enemy/reverse_satellite
@@ -7644,13 +7630,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c45e65a66018ee54cb5c8165984aaa2d
-    m_Address: mvz2:enemy/mausoleum/wicked_hermit_zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4b8257cfe3564b43890a309b80d59ac
     m_Address: mvz2:effect/nightmare_portal
     m_ReadOnly: 0
@@ -8049,6 +8028,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce430ba2024246f4dadf478ac8a0e8d5
+    m_Address: mvz2:enemy/mausoleum/wicked_hermit_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cecfb1a9efb49964e86f4d6237e7efde
     m_Address: mvz2:random/crystal/crystal_break1
@@ -9226,13 +9212,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ec2e102bd348bc54db8709ba32961542
-    m_Address: mvz2:enemy/mausoleum/shikaisen_staff
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec4b089e7682f9041bf3edd496701567
     m_Address: mvz2:icon/parabot_insected
     m_ReadOnly: 0
@@ -9456,6 +9435,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f08ae18a8ae0839438edbb6f78cab369
+    m_Address: mvz2:enemy/mausoleum/emperor_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f09ba06086cfa354b8cfda77f33d71aa
     m_Address: mvz2:entity/effects/spike_particles
@@ -9709,6 +9695,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7218f246a9df254899e2d3bc60c755b
+    m_Address: mvz2:enemy/mausoleum/shikaisen_staff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f74aabbf5c6403f4b908c053d7ecc630
     m_Address: mvz2:starshard_rings/mausoleum
     m_ReadOnly: 0
@@ -9910,6 +9903,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb77e4a8870433548a8bc1c9cf6f25c3
+    m_Address: mvz2:enemy/mausoleum/talisman_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fbd4f223bde2b0548986faf783bc0f17
     m_Address: mvz2:effect/magnetic_line
