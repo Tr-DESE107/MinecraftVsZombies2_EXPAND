@@ -46,14 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4600f281eb8c2ed468dfe0b14c791acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelAnchors: []
-  parent: {fileID: 0}
-  childModels: []
   destroyDelay: 0
   onDelayedDestroy:
     m_PersistentCalls:
       m_Calls: []
-  rendererGroup: {fileID: 3234477955047591329}
+  group: {fileID: 3234477955047591329}
   presets: []
 --- !u!114 &3234477955047591329
 MonoBehaviour:
@@ -68,8 +65,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testMode: 0
-  animators:
-  - {fileID: 624476360387784730}
+  modelAnchors: []
+  animators: []
   transforms: []
   renderers: []
   particles: []

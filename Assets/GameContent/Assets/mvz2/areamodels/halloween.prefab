@@ -118,7 +118,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2057763135
-  m_SortingLayer: -9
+  m_SortingLayer: -8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bd7b2da4545106b46b4afbf8863f9926, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -314,7 +314,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2057763135
-  m_SortingLayer: -9
+  m_SortingLayer: -8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2f37ee72c04034a4d930b31185d1e90e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -477,7 +477,7 @@ SortingGroup:
   m_GameObject: {fileID: 8874173904330119611}
   m_Enabled: 1
   m_SortingLayerID: -2057763135
-  m_SortingLayer: -9
+  m_SortingLayer: -8
   m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!1001 &1171288021863012484
@@ -661,9 +661,17 @@ PrefabInstance:
       value: halloween
       objectReference: {fileID: 0}
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+      propertyPath: animators.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: renderers.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+      propertyPath: animators.Array.data[0]
+      value: 
+      objectReference: {fileID: 6851802056000943596}
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: renderers.Array.data[0]
       value: 
@@ -730,6 +738,11 @@ PrefabInstance:
 --- !u!4 &1804444975863460888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5671797193147986414, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+  m_PrefabInstance: {fileID: 6322183450378946038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6851802056000943596 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 624476360387784730, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
   m_PrefabInstance: {fileID: 6322183450378946038}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7627273007246719137
