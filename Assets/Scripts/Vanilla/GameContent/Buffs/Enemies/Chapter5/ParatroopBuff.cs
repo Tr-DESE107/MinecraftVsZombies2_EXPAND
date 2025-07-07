@@ -17,7 +17,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             AddModifier(new FloatModifier(VanillaEntityProps.FALL_RESISTANCE, NumberOperator.Add, 10000));
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Multiply, 0));
             AddModifier(new IntModifier(VanillaEnemyProps.STATE_OVERRIDE, NumberOperator.Set, VanillaEntityStates.ENEMY_PARACHUTE));
-            AddTrigger(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, PostContactGroundCallback);
         }
         public override void PostAdd(Buff buff)
         {
@@ -48,11 +47,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 return;
             }
             entity.Velocity = entity.Velocity * 0.7f + Vector3.down * (FALL_SPEED * 0.3f);
-        }
-        private void PostContactGroundCallback(LevelCallbacks.PostEntityContactGroundParams param, CallbackResult result)
-        {
-            var entity = param.entity;
-            foreach (var buff in entity.GetBuffs<ParatroopBuff>())
+
+            if (entity.IsOnGround)
             {
                 buff.Remove();
             }
