@@ -245,8 +245,7 @@ namespace MVZ2.Editor
         private static void ApplyModelModifications(GameObject go, List<ModificationInfo> modifications, List<InnerObjectReference> innerReferences)
         {
             // 处理新增GameObject
-            // 因为父物体添加的GameObject在后面，所以反转顺序，防止添加的GameObject的父物体不存在。
-            var addedGameObjects = modifications.Where(m => m.type == ModificationType.AddedGameObject).Reverse();
+            var addedGameObjects = modifications.Where(m => m.type == ModificationType.AddedGameObject);
             foreach (var mod in addedGameObjects)
             {
                 ConvertAddedGameObject(go, mod);
@@ -286,7 +285,7 @@ namespace MVZ2.Editor
             GetPrefabInheritanceChain(variantPath, chain);
             if (chain.Count <= 0)
                 return;
-            var relativeChain = chain.TakeWhile(c => c != prefabPath);
+            var relativeChain = chain.TakeWhile(c => c != prefabPath).Reverse();
             foreach (var parent in relativeChain)
             {
                 var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(parent);
@@ -345,8 +344,7 @@ namespace MVZ2.Editor
                     var targetPath = GetTargetRelativePath(mod.target, prefab.transform);
 
                     // 重复属性修改
-                    if (list.Exists(e => e.type == ModificationType.Property && e.targetPath == targetPath && e.targetType == targetType && e.propertyPath == propertyPath))
-                        continue;
+                    list.RemoveAll(e => e.type == ModificationType.Property && e.targetPath == targetPath && e.targetType == targetType && e.propertyPath == propertyPath);
 
                     Object modifiedObject = GetObjectByPath(prefab, targetPath, targetType);
                     if (modifiedObject == null)

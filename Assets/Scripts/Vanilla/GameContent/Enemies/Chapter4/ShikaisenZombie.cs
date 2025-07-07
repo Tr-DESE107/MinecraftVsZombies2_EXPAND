@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateLogic(entity);
             entity.SetModelDamagePercent();
-            entity.SetModelProperty("HasStaff", HasStaff(entity));
+            entity.SetModelProperty("NoStaff", !HasStaff(entity));
         }
         public static Entity SpawnStaff(Entity entity)
         {

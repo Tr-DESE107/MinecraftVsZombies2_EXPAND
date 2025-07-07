@@ -59,7 +59,7 @@ namespace MVZ2.Models
         #region 序列化
         protected void SaveToSerializableRenderer(SerializableModelGroupRenderer serializable)
         {
-            SaveToSerializableUnit(serializable);
+            SaveToSerializableGroup(serializable);
             serializable.particles = particles.Select(e => e.ToSerializable()).ToArray();
             serializable.renderers = renderers.Select(e => e.ToSerializable()).ToArray();
         }
@@ -68,21 +68,27 @@ namespace MVZ2.Models
             base.LoadFromSerializable(serializable);
             if (serializable is not SerializableModelGroupRenderer rendererUnit)
                 return;
-            for (int i = 0; i < renderers.Count; i++)
+            if (renderers != null)
             {
-                if (i >= rendererUnit.renderers.Length)
-                    break;
-                var element = renderers[i];
-                var data = rendererUnit.renderers[i];
-                element.LoadFromSerializable(data);
+                for (int i = 0; i < renderers.Count; i++)
+                {
+                    if (i >= rendererUnit.renderers.Length)
+                        break;
+                    var element = renderers[i];
+                    var data = rendererUnit.renderers[i];
+                    element.LoadFromSerializable(data);
+                }
             }
-            for (int i = 0; i < particles.Count; i++)
+            if (particles != null)
             {
-                if (i >= rendererUnit.particles.Length)
-                    break;
-                var particle = particles[i];
-                var data = rendererUnit.particles[i];
-                particle.LoadFromSerializable(data);
+                for (int i = 0; i < particles.Count; i++)
+                {
+                    if (i >= rendererUnit.particles.Length)
+                        break;
+                    var particle = particles[i];
+                    var data = rendererUnit.particles[i];
+                    particle.LoadFromSerializable(data);
+                }
             }
         }
         #endregion

@@ -52,7 +52,7 @@ namespace MVZ2.Models
             modelComponents.RemoveAll(e => !e);
             foreach (var comp in modelComponents)
             {
-                if (!comp)
+                if (!comp || !comp.enabled)
                     continue;
                 comp.UpdateLogic();
             }
@@ -78,7 +78,7 @@ namespace MVZ2.Models
             modelComponents.RemoveAll(e => !e);
             foreach (var comp in modelComponents)
             {
-                if (!comp)
+                if (!comp || !comp.enabled)
                     continue;
                 comp.UpdateFrame(deltaTime);
             }

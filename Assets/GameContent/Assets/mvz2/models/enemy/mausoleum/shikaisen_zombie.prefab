@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whenFalse: 0
-  propertyName: HasStaff
+  whenFalse: 1
+  propertyName: NoStaff
 --- !u!1 &5137812669747015636
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +424,10 @@ PrefabInstance:
       propertyPath: bone
       value: 
       objectReference: {fileID: 2346612593338627550}
+    - target: {fileID: 234888048645700515, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelCollider
+      value: 
+      objectReference: {fileID: 2216604461202821376}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.size
       value: 1

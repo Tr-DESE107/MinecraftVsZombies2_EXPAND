@@ -155,19 +155,22 @@ namespace MVZ2.Models
         public abstract SerializableModelGroup ToSerializable();
         public void FromSerializable(SerializableModelGroup serializable)
         {
-            for (int i = 0; i < animators.Count; i++)
+            if (animators != null && serializable.animators != null)
             {
-                if (i >= serializable.animators.Length)
-                    break;
-                var animator = animators[i];
-                var data = serializable.animators[i];
-                data.Deserialize(animator);
+                for (int i = 0; i < animators.Count; i++)
+                {
+                    if (i >= serializable.animators.Length)
+                        break;
+                    var animator = animators[i];
+                    var data = serializable.animators[i];
+                    data.Deserialize(animator);
+                }
             }
             LoadFromSerializable(serializable);
         }
-        protected void SaveToSerializableUnit(SerializableModelGroup serializable)
+        protected void SaveToSerializableGroup(SerializableModelGroup serializable)
         {
-            serializable.animators = animators.Select(a => new SerializableAnimator(a)).ToArray();
+            serializable.animators = animators?.Select(a => new SerializableAnimator(a))?.ToArray();
         }
         protected virtual void LoadFromSerializable(SerializableModelGroup serializable)
         {

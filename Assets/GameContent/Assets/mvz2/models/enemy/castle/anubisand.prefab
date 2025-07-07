@@ -553,6 +553,10 @@ PrefabInstance:
       propertyPath: bone
       value: 
       objectReference: {fileID: 7929186668622654503}
+    - target: {fileID: 234888048645700515, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelCollider
+      value: 
+      objectReference: {fileID: 8721560186058102738}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.size
       value: 2

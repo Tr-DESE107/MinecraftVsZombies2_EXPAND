@@ -127,6 +127,10 @@ PrefabInstance:
       propertyPath: bone
       value: 
       objectReference: {fileID: 1383432773607457638}
+    - target: {fileID: 234888048645700515, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
+      propertyPath: modelCollider
+      value: 
+      objectReference: {fileID: 837625596931937626}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.size
       value: 1
@@ -287,6 +291,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a551336c1b81e2f4f8ab80e9da99a71b, type: 3}
+--- !u!61 &837625596931937626 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3309945950544965263, guid: a551336c1b81e2f4f8ab80e9da99a71b, type: 3}
+  m_PrefabInstance: {fileID: 2769874594811526101}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4793439983860446931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7274766952612580614, guid: a551336c1b81e2f4f8ab80e9da99a71b, type: 3}

@@ -52,7 +52,9 @@ namespace MVZ2.Models
         #region 序列化
         public override SerializableModelGroup ToSerializable()
         {
-            return new SerializableModelGroupUI();
+            var ui = new SerializableModelGroupUI();
+            SaveToSerializableGroup(ui);
+            return ui;
         }
         #endregion
 
