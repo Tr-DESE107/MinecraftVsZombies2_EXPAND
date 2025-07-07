@@ -26,11 +26,20 @@ namespace MVZ2.Models
         }
         public void SetColliderActive(bool active)
         {
-            bone.SetColliderActive(active);
+            if (modelCollider)
+            {
+                modelCollider.enabled = active;
+            }
         }
         public override void UpdateElements()
         {
             base.UpdateElements();
+            var newCollider = GetComponentsInChildren<Collider2D>(true)
+                .Where(g => g.IsDirectChild<Model>(this)).FirstOrDefault();
+            if (newCollider != modelCollider)
+            {
+                modelCollider = newCollider;
+            }
             var newSortingGroup = GetComponent<SortingGroup>();
             if (newSortingGroup != sortingGroup)
             {
@@ -81,11 +90,13 @@ namespace MVZ2.Models
             }
         }
         public override ModelGroup GraphicGroup => RendererGroup;
-        public Collider2D Collider => bone.Collider;
+        public Collider2D Collider => modelCollider;
         public ModelGroupEntity RendererGroup => group;
         [Header("Entity")]
         [SerializeField]
         private SortingGroup sortingGroup;
+        [SerializeField]
+        private Collider2D modelCollider;
         [SerializeField]
         private ModelGroupEntity group;
         [SerializeField]

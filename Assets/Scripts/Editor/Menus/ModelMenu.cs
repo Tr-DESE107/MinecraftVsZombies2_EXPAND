@@ -25,23 +25,6 @@ namespace MVZ2.Editor
 
             Debug.Log($"Update model elements completed.");
         }
-        public static void ConvertModel()
-        {
-            foreach (var gameObject in Selection.gameObjects)
-            {
-                var path = AssetDatabase.GetAssetPath(gameObject);
-                if (string.IsNullOrEmpty(path))
-                {
-                    Debug.LogWarning($"{path} is not a variant of the obsolete HeldModel prefab. Skipping conversion.");
-                    continue;
-                }
-                ConvertModelAt(path);
-            }
-        }
-        public static void ConvertModelToBase(string path, string basePath, string newBase, string boneBase, string format = "{0}")
-        {
-            ConvertModelAtTo(path, basePath, newBase, boneBase, format);
-        }
         private static void SearchModelPaths(string folder, List<string> pathList)
         {
             string[] files = Directory.GetFiles(folder, "*", SearchOption.AllDirectories);
@@ -64,6 +47,67 @@ namespace MVZ2.Editor
             PrefabUtility.SaveAsPrefabAsset(obj, path, out var successfully);
             PrefabUtility.UnloadPrefabContents(obj);
             Debug.Log($"{path}: {successfully}");
+        }
+
+        public static void MoveModelColliderToRoot(string path, GameObject colliderPrefab)
+        {
+            var obj = PrefabUtility.LoadPrefabContents(path);
+            MoveModelColliderToRoot(obj, path, colliderPrefab);
+            PrefabUtility.UnloadPrefabContents(obj);
+        }
+        private static void MoveModelColliderToRoot(GameObject obj, string path, GameObject colliderPrefab)
+        {
+            var model = obj.GetComponent<EntityModel>();
+            if (!model)
+                return;
+            var collider = obj.GetComponentInChildren<Collider2D>();
+            if (!collider)
+                return;
+            if (collider.transform.parent == model.transform)
+                return;
+            // 如果碰撞体的父物体不是模型本身，则将碰撞体移到模型下
+            GameObject newColliderGO;
+            if (!colliderPrefab)
+            {
+                newColliderGO = new GameObject();
+            }
+            else
+            {
+                newColliderGO = PrefabUtility.InstantiatePrefab(colliderPrefab, model.transform) as GameObject;
+            }
+            newColliderGO.name = "Collider";
+            newColliderGO.transform.SetParent(model.transform, false);
+            newColliderGO.transform.SetAsFirstSibling();
+            var colliderType = collider.GetType();
+            var newCollider = newColliderGO.GetComponent(colliderType);
+            if (!newCollider)
+            {
+                newCollider = newColliderGO.AddComponent(colliderType);
+            }
+            EditorUtility.CopySerialized(collider, newCollider);
+            Object.DestroyImmediate(collider);
+
+            PrefabUtility.SaveAsPrefabAsset(obj, path, out var successfully);
+            Debug.Log($"{path}: {successfully}");
+        }
+
+        #region 转换模型
+        public static void ConvertModel()
+        {
+            foreach (var gameObject in Selection.gameObjects)
+            {
+                var path = AssetDatabase.GetAssetPath(gameObject);
+                if (string.IsNullOrEmpty(path))
+                {
+                    Debug.LogWarning($"{path} is not a variant of the obsolete HeldModel prefab. Skipping conversion.");
+                    continue;
+                }
+                ConvertModelAt(path);
+            }
+        }
+        public static void ConvertModelToBase(string path, string basePath, string newBase, string boneBase, string format = "{0}")
+        {
+            ConvertModelAtTo(path, basePath, newBase, boneBase, format);
         }
         private static void ConvertModelAt(string path)
         {
@@ -109,6 +153,7 @@ namespace MVZ2.Editor
             //    Debug.LogWarning($"Failed to create new model variant at {newPath}.");
             //}
         }
+        #endregion
 
         #region 应用修改
         private static void ConvertAddedGameObject(GameObject root, ModificationInfo mod)

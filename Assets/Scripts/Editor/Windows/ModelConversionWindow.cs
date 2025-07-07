@@ -8,45 +8,53 @@ namespace MVZ2.Editor
 {
     public class ModelConversionWindow : EditorWindow
     {
-        WindowData data;
+        ConversionData conversion;
+        MoveColliderData moveCollider;
         Vector2 scrollPosition;
-        SerializedObject seriObj;
+        SerializedObject seriConversion;
+        SerializedObject seriMoveCollider;
         public static void ShowWindow()
         {
             GetWindow<ModelConversionWindow>("Model Conversion");
         }
         private void OnEnable()
         {
-            if (!data)
+            if (!conversion)
             {
-                data = ScriptableObject.CreateInstance<WindowData>();
+                conversion = ScriptableObject.CreateInstance<ConversionData>();
             }
-            seriObj = new SerializedObject(data);
+            if (!moveCollider)
+            {
+                moveCollider = ScriptableObject.CreateInstance<MoveColliderData>();
+            }
+            seriConversion = new SerializedObject(conversion);
+            seriMoveCollider = new SerializedObject(moveCollider);
         }
 
         void OnGUI()
         {
+            scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
+
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Model Conversion", EditorStyles.boldLabel);
             EditorGUILayout.Space();
 
-            scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
             // 选择Prefab
-            EditorGUILayout.PropertyField(seriObj.FindProperty("selectedPrefabsVariant"), new GUIContent("Variant Prefabs"));
-            EditorGUILayout.PropertyField(seriObj.FindProperty("selectedPrefabBase"), new GUIContent("Relative To"));
-            EditorGUILayout.PropertyField(seriObj.FindProperty("selectedPrefabNewBase"), new GUIContent("New Base"));
-            EditorGUILayout.PropertyField(seriObj.FindProperty("selectedPrefabBoneBase"), new GUIContent("Bone Base"));
-            seriObj.ApplyModifiedProperties();
+            EditorGUILayout.PropertyField(seriConversion.FindProperty("selectedPrefabsVariant"), new GUIContent("Variant Prefabs"));
+            EditorGUILayout.PropertyField(seriConversion.FindProperty("selectedPrefabBase"), new GUIContent("Relative To"));
+            EditorGUILayout.PropertyField(seriConversion.FindProperty("selectedPrefabNewBase"), new GUIContent("New Base"));
+            EditorGUILayout.PropertyField(seriConversion.FindProperty("selectedPrefabBoneBase"), new GUIContent("Bone Base"));
+            seriConversion.ApplyModifiedProperties();
 
             EditorGUILayout.Space();
             if (GUILayout.Button("Convert"))
             {
-                if (data != null && data.selectedPrefabsVariant.Count > 0 && data.selectedPrefabBase && data.selectedPrefabNewBase && data.selectedPrefabBoneBase)
+                if (conversion != null && conversion.selectedPrefabsVariant.Count > 0 && conversion.selectedPrefabBase && conversion.selectedPrefabNewBase && conversion.selectedPrefabBoneBase)
                 {
-                    var basePath = AssetDatabase.GetAssetPath(data.selectedPrefabBase);
-                    var newBasePath = AssetDatabase.GetAssetPath(data.selectedPrefabNewBase);
-                    var boneBasePath = AssetDatabase.GetAssetPath(data.selectedPrefabBoneBase);
-                    foreach (var variant in data.selectedPrefabsVariant)
+                    var basePath = AssetDatabase.GetAssetPath(conversion.selectedPrefabBase);
+                    var newBasePath = AssetDatabase.GetAssetPath(conversion.selectedPrefabNewBase);
+                    var boneBasePath = AssetDatabase.GetAssetPath(conversion.selectedPrefabBoneBase);
+                    foreach (var variant in conversion.selectedPrefabsVariant)
                     {
                         var variantPath = AssetDatabase.GetAssetPath(variant);
                         ModelMenu.ConvertModelToBase(variantPath, basePath, newBasePath, boneBasePath);
@@ -54,15 +62,44 @@ namespace MVZ2.Editor
                 }
             }
 
+
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Move Model Collider", EditorStyles.boldLabel);
+            EditorGUILayout.Space();
+
+            // 选择Prefab
+            EditorGUILayout.PropertyField(seriMoveCollider.FindProperty("selectedPrefabsVariant"), new GUIContent("Models"));
+            EditorGUILayout.PropertyField(seriMoveCollider.FindProperty("selectedColliderPrefab"), new GUIContent("Collider Prefab"));
+            seriMoveCollider.ApplyModifiedProperties();
+
+            EditorGUILayout.Space();
+            if (GUILayout.Button("Move"))
+            {
+                if (moveCollider != null && moveCollider.selectedPrefabsVariant.Count > 0)
+                {
+                    foreach (var variant in moveCollider.selectedPrefabsVariant)
+                    {
+                        var variantPath = AssetDatabase.GetAssetPath(variant);
+                        ModelMenu.MoveModelColliderToRoot(variantPath, moveCollider.selectedColliderPrefab);
+                    }
+                }
+            }
+
             EditorGUILayout.EndScrollView();
         }
         [Serializable]
-        private class WindowData : ScriptableObject
+        private class ConversionData : ScriptableObject
         {
             public List<GameObject> selectedPrefabsVariant = new List<GameObject>();
             public GameObject selectedPrefabBase;
             public GameObject selectedPrefabNewBase;
             public GameObject selectedPrefabBoneBase;
+        }
+        [Serializable]
+        private class MoveColliderData : ScriptableObject
+        {
+            public List<GameObject> selectedPrefabsVariant = new List<GameObject>();
+            public GameObject selectedColliderPrefab;
         }
     }
 }

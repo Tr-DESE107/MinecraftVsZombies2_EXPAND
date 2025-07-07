@@ -26,18 +26,6 @@ namespace MVZ2.Models
                 lightController.SetRange(range);
             }
         }
-        public void SetColliderActive(bool active)
-        {
-            if (modelCollider)
-            {
-                modelCollider.enabled = active;
-            }
-        }
-        public Collider2D Collider => modelCollider;
-        [Header("Collision")]
-        [SerializeField]
-        private Collider2D modelCollider;
-
         [Header("Light")]
         [SerializeField]
         private LightController lightController;
