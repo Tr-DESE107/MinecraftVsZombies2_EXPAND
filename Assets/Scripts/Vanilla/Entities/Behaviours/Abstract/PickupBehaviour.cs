@@ -59,7 +59,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public virtual bool CanAutoCollect(Entity pickup)
         {
-            return pickup.GetRelativeY() <= 0;
+            return pickup.IsOnGround;
         }
     }
 }
