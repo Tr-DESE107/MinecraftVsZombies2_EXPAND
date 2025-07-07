@@ -2843,13 +2843,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 475484a654e7e3142b61bcf6e3583f4d
-    m_Address: mvz2:enemy/halloween/ghost
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4756509eba10d744bb3323a794303f92
     m_Address: mvz2:mobile_blueprint/flag_zombie
     m_ReadOnly: 0
@@ -2870,13 +2863,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 47894eab01daa474ea408a1b6540ca96
-    m_Address: mvz2:enemy/halloween/skeleton
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47aa6cbff8c048c40a3da0ad86fa845d
     m_Address: mvz2:artifacts/the_creatures_heart
@@ -3563,13 +3549,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5c2f6b07a5190204eb3005831fac183a
-    m_Address: mvz2:enemy/halloween/gargoyle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c45a63c958bde04d90195b3a2e87734
     m_Address: mvz2:effect/explosion
@@ -4452,13 +4431,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 75aeaeb2218da954b8273a0ea8a1b93f
-    m_Address: mvz2:enemy/halloween/necromancer
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75b0d67cc3ae5e843baa944916995256
     m_Address: mvz2:projectile/large_arrow
@@ -6419,13 +6391,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a7e28eba85b9ce64cbb6eb3254ad851b
-    m_Address: mvz2:enemy/prologue/iron_helmetted_zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a84ced210884b2b4cac4a4b7d7f4f6a6
     m_Address: mvz2:entity/projectiles/soulfire_ball
     m_ReadOnly: 0
@@ -7497,13 +7462,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c2fee4be52329b84cad8cea5bb42445a
-    m_Address: mvz2:enemy/prologue/leather_capped_zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c321612661c274844b82586aba232f9f
     m_Address: mvz2:characters/crazy_villager
     m_ReadOnly: 0
@@ -7994,13 +7952,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cf07278ba3ead524cbc99190282cd556
-    m_Address: mvz2:enemy/halloween/mummy
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf35e37b41a96884bbac2da2ee062a64
     m_Address: mvz2:effect/miner
     m_ReadOnly: 0
@@ -8154,13 +8105,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d2d49595b19ea50489ac9ae21590c502
-    m_Address: mvz2:enemy/prologue/flag_zombie
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d377c9e0a0b972741b4e7bd972dc775d
     m_Address: mvz2:pickup/starshards/base
@@ -9659,13 +9603,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f85f2ef6d4079c14daceec24db946d68
-    m_Address: mvz2:enemy/halloween/napstablook
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8aa3c3a44b8f774e9b5441b1cb9f0e6
     m_Address: mvz2:ui/level/progress_bar/nightmare_foreground
     m_ReadOnly: 0
@@ -9916,13 +9853,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fff3c29357fe3ba43a7acb87f044cb1a
-    m_Address: mvz2:enemy/halloween/bone_wall
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a46faf0c3a4988d45b208f5a8e98bb12, type: 2}
