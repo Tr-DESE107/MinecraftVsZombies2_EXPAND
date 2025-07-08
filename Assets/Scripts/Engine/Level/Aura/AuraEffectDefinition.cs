@@ -8,6 +8,11 @@ namespace PVZEngine.Auras
         public AuraEffectDefinition()
         {
         }
+        public AuraEffectDefinition(NamespaceID buffID, int updateInterval = 1)
+        {
+            BuffID = buffID;
+            UpdateInterval = updateInterval;
+        }
         public virtual void PostAdd(AuraEffect auraEffect) { }
         public virtual void PostRemove(AuraEffect auraEffect) { }
         public abstract void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results);

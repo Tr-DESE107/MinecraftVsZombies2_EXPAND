@@ -96,6 +96,7 @@ namespace MVZ2.GameContent.Buffs
 
         public const string paratroop = "paratroop";
         public const string summonedByUFO = "summonedByUFO";
+        public const string ufoBlueAbsorb = "ufo_blue_absorb";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";
@@ -195,6 +196,10 @@ namespace MVZ2.GameContent.Buffs
             public const string theGiantSnake = "the_giant_snake";
             public const string theGiantPhase3 = "the_giant_phase3";
         }
+        public static class Pickup
+        {
+            public const string absorbedByUFO = "absorbedByUFO";
+        }
     }
     public static class VanillaBuffID
     {
@@ -236,6 +241,10 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID theCreaturesHeartReduceCost = Get(VanillaBuffNames.SeedPack.theCreaturesHeartReduceCost);
             public static readonly NamespaceID upgradeEndlessCost = Get(VanillaBuffNames.SeedPack.upgradeEndlessCost);
             public static readonly NamespaceID witherSkeletonSkullReduceCost = Get(VanillaBuffNames.SeedPack.witherSkeletonSkullReduceCost);
+        }
+        public static class Pickup
+        {
+            public static readonly NamespaceID absorbedByUFO = Get(VanillaBuffNames.Pickup.absorbedByUFO);
         }
         public static class Level
         {

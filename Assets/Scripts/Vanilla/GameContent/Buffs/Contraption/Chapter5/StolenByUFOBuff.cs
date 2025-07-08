@@ -37,12 +37,12 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             if (entity != null)
             {
                 var ufoID = buff.GetProperty<EntityID>(PROP_UFO);
-                if (!ufoID.Exists(buff.Level))
+                var ufo = ufoID.GetEntity(buff.Level);
+                if (!ufo.ExistsAndAlive())
                 {
                     buff.Remove();
                     return;
                 }
-                var ufo = ufoID.GetEntity(buff.Level);
 
                 var velocity = entity.Velocity;
                 velocity.y = velocity.y * (1 - MOVE_FACTOR) + Mathf.Sign(ufo.Position.y - entity.Position.y) * ABSORB_SPEED * MOVE_FACTOR;

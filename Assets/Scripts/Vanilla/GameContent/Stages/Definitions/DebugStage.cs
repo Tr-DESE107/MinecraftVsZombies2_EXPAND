@@ -43,14 +43,14 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.furnace,
                 VanillaContraptionID.gunpowderBarrel,
-                VanillaContraptionID.pistenser,
-                VanillaContraptionID.teslaCoil,
+                VanillaContraptionID.woodenDropper,
+                VanillaContraptionID.goldenDropper,
                 VanillaContraptionID.devourer,
-                VanillaContraptionID.mineTNT,
+                VanillaContraptionID.glowstone,
                 VanillaEnemyID.ufoRed,
                 VanillaEnemyID.ufoGreen,
                 VanillaEnemyID.ufoBlue,
-                VanillaBossID.wither,
+                VanillaEnemyID.megaMutantZombie,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
