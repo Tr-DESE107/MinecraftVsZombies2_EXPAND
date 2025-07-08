@@ -11,6 +11,7 @@ namespace PVZEngine.Entities
             Gravity = entity.GetGravity();
             Friction = entity.GetFriction();
             GroundLimitOffset = entity.GetGroundLimitOffset();
+            GridPivotOffset = entity.GetGridPivotOffset();
             VelocityDampen = entity.GetVelocityDampen();
             Size = entity.GetSize();
             Scale = entity.GetScale();
@@ -37,6 +38,10 @@ namespace PVZEngine.Entities
             else if (EngineEntityProps.GROUND_LIMIT_OFFSET.Equals(name))
             {
                 GroundLimitOffset = afterValue.ToGeneric<float>();
+            }
+            else if (EngineEntityProps.GRID_PIVOT_OFFSET.Equals(name))
+            {
+                GridPivotOffset = afterValue.ToGeneric<Vector3>();
             }
             else if (EngineEntityProps.VELOCITY_DAMPEN.Equals(name))
             {
@@ -83,6 +88,7 @@ namespace PVZEngine.Entities
         public float Gravity { get; private set; }
         public float Friction { get; private set; }
         public float GroundLimitOffset { get; private set; }
+        public Vector3 GridPivotOffset { get; private set; }
         public Vector3 VelocityDampen { get; private set; }
         public Vector3 Size { get; private set; }
         public Vector3 Scale { get; private set; }

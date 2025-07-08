@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using PVZEngine;
 using PVZEngine.Auras;
@@ -52,8 +53,10 @@ namespace MVZ2.GameContent.Contraptions
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var sourceEnt = auraEffect.Source.GetEntity();
-                var grid = sourceEnt?.GetGrid();
-                if (grid != null)
+                if (sourceEnt == null)
+                    return;
+                var grids = sourceEnt.GetGridsToTake();
+                foreach (var grid in grids)
                 {
                     results.Add(grid.GetMainEntity());
                     results.Add(grid.GetProtectorEntity());

@@ -175,6 +175,14 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 网格中心偏移
+        public static readonly PropertyMeta<Vector3> GRID_PIVOT_OFFSET = Get<Vector3>("grid_pivot_offset");
+        public static Vector3 GetGridPivotOffset(this Entity entity)
+        {
+            return entity.GetProperty<Vector3>(EngineEntityProps.GRID_PIVOT_OFFSET);
+        }
+        #endregion
+
         #region 碰撞盒中心点
         public static readonly PropertyMeta<Vector3> BOUNDS_PIVOT = Get<Vector3>("boundsPivot");
         public static Vector3 GetBoundsPivot(this EntityDefinition entity)

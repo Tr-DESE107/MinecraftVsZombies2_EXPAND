@@ -36,63 +36,85 @@ namespace MVZ2.Vanilla.Contraptions
         }
         public static bool HasPassenger(this Entity contraption)
         {
-            var grid = contraption?.GetGrid();
-            if (grid == null || grid.GetCarrierEntity() != contraption)
+            if (contraption == null)
                 return false;
             var game = Global.Game;
-            // 选取当前实体所占有图格的非承载层。
-            var layers = grid.GetLayers();
-            var carryingLayers = layers.Where(l => l != VanillaGridLayers.carrier);
-
-            foreach (var layer in carryingLayers)
+            var grids = contraption.GetGridsToTake();
+            foreach (var grid in grids)
             {
-                var target = grid.GetLayerEntity(layer);
-                if (target != null && target.Exists() && target != contraption)
-                    return true;
+                if (grid.GetCarrierEntity() == contraption)
+                {
+                    // 选取当前实体所占有图格的非承载层。
+                    var layers = grid.GetLayers();
+                    var carryingLayers = layers.Where(l => l != VanillaGridLayers.carrier);
+
+                    foreach (var layer in carryingLayers)
+                    {
+                        var target = grid.GetLayerEntity(layer);
+                        if (target != null && target.Exists() && target != contraption)
+                            return true;
+                    }
+                }
             }
             return false;
         }
         public static Entity GetFirstProtectingTarget(this Entity contraption)
         {
-            var grid = contraption?.GetGrid();
-            if (grid == null || grid.GetProtectorEntity() != contraption)
+            if (contraption == null)
                 return null;
-            var protectingLayers = VanillaGridLayers.protectedLayers;
-
-            foreach (var layer in protectingLayers)
+            var grids = contraption.GetGridsToTake();
+            foreach (var grid in grids)
             {
-                var target = grid.GetLayerEntity(layer);
-                if (target != null && target.Exists() && target != contraption)
-                    return target;
+                if (grid.GetProtectorEntity() == contraption)
+                {
+                    var protectingLayers = VanillaGridLayers.protectedLayers;
+
+                    foreach (var layer in protectingLayers)
+                    {
+                        var target = grid.GetLayerEntity(layer);
+                        if (target != null && target.Exists() && target != contraption)
+                            return target;
+                    }
+                }
             }
             return null;
         }
         public static Entity[] GetProtectingTargets(this Entity contraption)
         {
-            var grid = contraption?.GetGrid();
-            if (grid == null || grid.GetProtectorEntity() != contraption)
+            if (contraption == null)
                 return Array.Empty<Entity>();
-            var protectingLayers = VanillaGridLayers.protectedLayers;
 
             List<Entity> targets = new List<Entity>();
-            foreach (var layer in protectingLayers)
+            var grids = contraption.GetGridsToTake();
+            foreach (var grid in grids)
             {
-                var target = grid.GetLayerEntity(layer);
-                if (target != null && target.Exists() && target != contraption)
+                if (grid.GetProtectorEntity() == contraption)
                 {
-                    targets.Add(target);
+                    var protectingLayers = VanillaGridLayers.protectedLayers;
+
+                    foreach (var layer in protectingLayers)
+                    {
+                        var target = grid.GetLayerEntity(layer);
+                        if (target != null && target.Exists() && target != contraption)
+                        {
+                            targets.Add(target);
+                        }
+                    }
                 }
             }
             return targets.ToArray();
         }
         public static Entity GetProtector(this Entity contraption)
         {
-            var grid = contraption?.GetGrid();
-            if (grid == null)
+            if (contraption == null)
                 return null;
-            var protector = grid.GetProtectorEntity();
-            if (protector != null && protector.Exists() && protector != contraption)
-                return protector;
+            var grids = contraption.GetGridsToTake();
+            foreach (var grid in grids)
+            {
+                var protector = grid.GetProtectorEntity();
+                if (protector != null && protector.Exists() && protector != contraption)
+                    return protector;
+            }
             return null;
         }
         public static bool CanTrigger(this Entity contraption)
@@ -121,7 +143,7 @@ namespace MVZ2.Vanilla.Contraptions
                 return null;
             var awake = !contraption.HasBuff<NocturnalBuff>();
             contraption.Remove();
-            var upgraded = contraption.GetGrid().SpawnPlacedEntity(target);
+            var upgraded = grid.SpawnPlacedEntity(target);
             if (upgraded == null)
                 return null;
             if (awake)

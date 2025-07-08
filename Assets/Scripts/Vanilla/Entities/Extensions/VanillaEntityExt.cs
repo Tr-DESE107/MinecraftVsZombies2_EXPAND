@@ -603,31 +603,66 @@ namespace MVZ2.Vanilla.Entities
         #region 网格
         public static void UpdateTakenGrids(this Entity entity)
         {
+            // 将所有合法的网格添加到待添加列表中。
+            entityGridToAddBuffer.Clear();
+            if (entity.ExistsAndAlive())
+            {
+                var grids = entity.GetGridsToTake();
+                foreach (var grid in grids)
+                {
+                    if (CanTakeGrid(entity, grid))
+                    {
+                        entityGridToAddBuffer.Add(grid);
+                    }
+                }
+            }
+
+            // 获取目前占用的网格列表。
             entityGridBuffer.Clear();
             entity.GetTakenGrids(entityGridBuffer);
-            foreach (var grid in entityGridBuffer)
+
+            // 检查目前占用的网格，将不符合条件的网格加到移除列表中，将符合条件的网格保留，剩下的就是需要新增的网格。
+            entityGridToRemoveBuffer.Clear();
+            foreach (var key in entityGridBuffer)
+            {
+                if (entityGridToAddBuffer.Contains(key))
+                {
+                    // 符合条件并且目前在表中。
+                    // 保留而非新添加到表中。
+                    entityGridToAddBuffer.Remove(key);
+                }
+                else
+                {
+                    // 不符合条件。
+                    entityGridToRemoveBuffer.Add(key);
+                }
+            }
+            // 移除不符合条件的网格。
+            foreach (var grid in entityGridToRemoveBuffer)
             {
                 entityGridLayerBuffer.Clear();
                 entity.GetTakingGridLayersNonAlloc(grid, entityGridLayerBuffer);
                 foreach (var layer in entityGridLayerBuffer)
                 {
-                    if (CanTakeGrid(entity, grid, layer))
-                        continue;
-                    entity.ReleaseGrid(grid, layer);
+                    if (!HasGridLayerToTake(entity, layer))
+                    {
+                        entity.ReleaseGrid(grid, layer);
+                    }
                 }
             }
-            if (entity.ExistsAndAlive())
+            // 添加新的符合条件的网格。
+            foreach (var grid in entityGridToAddBuffer)
             {
-                var gridBelow = entity.GetGrid();
                 foreach (var layer in entity.GetGridLayersToTake())
                 {
-                    if (!CanTakeGrid(entity, gridBelow, layer))
-                        continue;
-                    entity.TakeGrid(gridBelow, layer);
+                    if (HasGridLayerToTake(entity, layer))
+                    {
+                        entity.TakeGrid(grid, layer);
+                    }
                 }
             }
         }
-        public static bool CanTakeGrid(this Entity entity, LawnGrid grid, NamespaceID layer)
+        private static bool CanTakeGrid(this Entity entity, LawnGrid grid)
         {
             if (grid == null)
                 return false;
@@ -635,14 +670,18 @@ namespace MVZ2.Vanilla.Entities
                 return false;
             if (entity.GetRelativeY() > leaveGridHeight)
                 return false;
-            if (entity.GetGrid() != grid)
-                return false;
-            var layersToTake = entity.GetGridLayersToTake();
-            if (!layersToTake.Contains(layer))
-                return false;
             return true;
         }
+        private static bool HasGridLayerToTake(this Entity entity, NamespaceID layer)
+        {
+            var layersToTake = entity.GetGridLayersToTake();
+            if (layersToTake == null)
+                return false;
+            return layersToTake.Contains(layer);
+        }
         private const float leaveGridHeight = 64;
+        private static List<LawnGrid> entityGridToAddBuffer = new List<LawnGrid>();
+        private static List<LawnGrid> entityGridToRemoveBuffer = new List<LawnGrid>();
         private static List<LawnGrid> entityGridBuffer = new List<LawnGrid>();
         private static List<NamespaceID> entityGridLayerBuffer = new List<NamespaceID>();
         #endregion

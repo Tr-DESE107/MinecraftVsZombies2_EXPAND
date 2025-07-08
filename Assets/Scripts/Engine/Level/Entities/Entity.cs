@@ -445,11 +445,13 @@ namespace PVZEngine.Entities
         #region 网格
         public int GetColumn()
         {
-            return Level.GetColumn(Position.x);
+            var gridPivotOffset = Cache.GridPivotOffset;
+            return Level.GetColumn(Position.x + gridPivotOffset.x);
         }
         public int GetLane()
         {
-            return Level.GetLane(Position.z);
+            var gridPivotOffset = Cache.GridPivotOffset;
+            return Level.GetLane(Position.z + gridPivotOffset.y);
         }
         public NamespaceID[] GetTakingGridLayers(LawnGrid grid)
         {
