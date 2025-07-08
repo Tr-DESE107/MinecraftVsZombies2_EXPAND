@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MVZ2.Cursors;
+using MVZ2.GameContent.Armors;
 using MVZ2.HeldItems;
 using MVZ2.Level;
 using MVZ2.Level.UI;
@@ -396,8 +397,15 @@ namespace MVZ2.Entities
             var armorModel = Model.GetArmorModel(slot);
             if (!armorModel)
                 return;
-            armorModel.GraphicGroup.SetTint(armor.GetTint());
-            armorModel.GraphicGroup.SetColorOffset(armor.GetColorOffset());
+            var tint = armor.GetTint();
+            var colorOffset = armor.GetColorOffset();
+            if (slot == VanillaArmorSlots.main)
+            {
+                tint *= Entity.GetHelmetTint();
+                colorOffset += Entity.GetHelmetColorOffset();
+            }
+            armorModel.GraphicGroup.SetTint(tint);
+            armorModel.GraphicGroup.SetColorOffset(colorOffset);
         }
         private void UpdateArmorModels()
         {

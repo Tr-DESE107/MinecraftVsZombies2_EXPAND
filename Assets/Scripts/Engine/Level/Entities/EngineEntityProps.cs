@@ -5,9 +5,9 @@ namespace PVZEngine.Entities
     [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class EngineEntityProps
     {
-        private static PropertyMeta<T> Get<T>(string name)
+        private static PropertyMeta<T> Get<T>(string name, T defaultValue = default)
         {
-            return new PropertyMeta<T>(name);
+            return new PropertyMeta<T>(name, defaultValue);
         }
 
         #region 默认朝左
@@ -156,6 +156,30 @@ namespace PVZEngine.Entities
         public static void SetColorOffset(this Entity entity, Color value)
         {
             entity.SetProperty(COLOR_OFFSET, value);
+        }
+        #endregion
+
+        #region 头盔染色
+        public static readonly PropertyMeta<Color> HELMET_TINT = Get<Color>("helmet_tint", Color.white);
+        public static Color GetHelmetTint(this Entity entity, bool ignoreBuffs = false)
+        {
+            return entity.GetProperty<Color>(HELMET_TINT, ignoreBuffs: ignoreBuffs);
+        }
+        public static void SetHelmetTint(this Entity entity, Color value)
+        {
+            entity.SetProperty(HELMET_TINT, value);
+        }
+        #endregion
+
+        #region 头盔颜色偏移
+        public static readonly PropertyMeta<Color> HELMET_COLOR_OFFSET = Get<Color>("helmet_color_offset");
+        public static Color GetHelmetColorOffset(this Entity entity, bool ignoreBuffs = false)
+        {
+            return entity.GetProperty<Color>(HELMET_COLOR_OFFSET, ignoreBuffs: ignoreBuffs);
+        }
+        public static void SetHelmetColorOffset(this Entity entity, Color value)
+        {
+            entity.SetProperty(HELMET_COLOR_OFFSET, value);
         }
         #endregion
 
