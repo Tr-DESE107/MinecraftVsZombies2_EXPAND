@@ -121,10 +121,9 @@ namespace MVZ2.Entities
             var pos = Entity.Position;
             var currentTransPos = Level.LawnToTrans(pos);
             transform.position = Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
-            var finalOffset = transform.position - currentTransPos;
+            UpdateShadow();
             lastPosition = transform.position;
 
-            UpdateShadow(finalOffset);
             var shouldTwinkle = ShouldTwinkle();
             if (twinkling != shouldTwinkle)
             {
@@ -299,7 +298,7 @@ namespace MVZ2.Entities
         #endregion
 
         #region 位置
-        protected void UpdateShadow(Vector3 posOffset)
+        protected void UpdateShadow()
         {
             var pos = Entity.Position;
             var groundY = Entity.GetGroundY();
@@ -307,14 +306,20 @@ namespace MVZ2.Entities
             var shadowPos = pos;
             shadowPos.y = groundY;
             shadowPos += modelPropertyCache.ShadowOffset;
+            var worldPosition = Level.LawnToTrans(shadowPos) + GetTransformOffset();
+            var position = transform.InverseTransformPoint(worldPosition);
 
-            float scale = Mathf.Max(0, 1 + relativeY / 300);
-            float alpha = Mathf.Clamp01(1 - relativeY / 300);
+            var scale = Mathf.Max(0, 1 + relativeY / 300) * modelPropertyCache.ShadowScale;
+
+            var alpha = Mathf.Clamp01(1 - relativeY / 300) * modelPropertyCache.ShadowAlpha;
+
+            var hidden = modelPropertyCache.ShadowHidden;
+
             var shadowTransform = Shadow.transform;
-            shadowTransform.position = Level.LawnToTrans(shadowPos) + posOffset;
-            shadowTransform.localScale = modelPropertyCache.ShadowScale * scale;
-            Shadow.gameObject.SetActive(!modelPropertyCache.ShadowHidden);
-            Shadow.SetAlpha(modelPropertyCache.ShadowAlpha * alpha);
+            shadowTransform.localPosition = position;
+            shadowTransform.localScale = scale;
+            Shadow.gameObject.SetActive(!hidden);
+            Shadow.SetAlpha(alpha);
         }
         protected float GetZOffset()
         {
