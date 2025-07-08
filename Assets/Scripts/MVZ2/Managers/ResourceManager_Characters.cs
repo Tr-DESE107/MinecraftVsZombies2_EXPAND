@@ -27,6 +27,8 @@ namespace MVZ2.Managers
         #region 元数据
         public TalkCharacterMeta GetCharacterMeta(NamespaceID characterID)
         {
+            if (!NamespaceID.IsValid(characterID))
+                return null;
             var modResource = main.ResourceManager.GetModResource(characterID.SpaceName);
             if (modResource == null)
                 return null;

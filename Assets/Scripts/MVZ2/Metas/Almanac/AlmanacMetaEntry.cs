@@ -19,6 +19,7 @@ namespace MVZ2.Metas
         public NamespaceID unlock;
 
         public SpriteReference sprite;
+        public NamespaceID character;
         public NamespaceID model;
         public bool iconFixedSize;
         public bool iconZoom;
@@ -36,6 +37,7 @@ namespace MVZ2.Metas
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
 
             SpriteReference sprite = null;
+            NamespaceID character = null;
             NamespaceID model = null;
             bool iconFixedSize = false;
             bool iconZoom = true;
@@ -43,6 +45,7 @@ namespace MVZ2.Metas
             if (iconNode != null)
             {
                 sprite = iconNode.GetAttributeSpriteReference("sprite", defaultNsp);
+                character = iconNode.GetAttributeNamespaceID("character", defaultNsp);
                 model = iconNode.GetAttributeNamespaceID("model", defaultNsp);
                 iconFixedSize = iconNode.GetAttributeBool("fixedSize") ?? iconFixedSize;
                 iconZoom = iconNode.GetAttributeBool("zoom") ?? iconZoom;
@@ -102,6 +105,7 @@ namespace MVZ2.Metas
                 name = name,
                 unlock = unlock,
                 sprite = sprite,
+                character = character,
                 model = model,
                 iconFixedSize = iconFixedSize,
                 iconZoom = iconZoom,

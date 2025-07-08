@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Managers;
+using MVZ2.Metas;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Games;
 using PVZEngine;
@@ -90,7 +92,6 @@ namespace MVZ2.Almanacs
                     var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.MISC, id);
                     if (entry == null)
                         return AlmanacEntryViewData.Empty;
-                    var spriteID = entry.sprite;
                     var modelID = entry.model;
                     Sprite sprite;
                     if (NamespaceID.IsValid(modelID))
@@ -99,7 +100,7 @@ namespace MVZ2.Almanacs
                     }
                     else
                     {
-                        sprite = Main.GetFinalSprite(spriteID);
+                        sprite = GetMiscEntrySprite(entry);
                     }
                     return new AlmanacEntryViewData()
                     {
@@ -107,6 +108,21 @@ namespace MVZ2.Almanacs
                     };
                 }).ToArray()
             };
+        }
+        public Sprite GetMiscEntrySprite(AlmanacMetaEntry entry)
+        {
+            if (entry == null)
+                return null;
+            var spriteID = entry.sprite;
+            var characterID = entry.character;
+            if (!SpriteReference.IsValid(spriteID) && NamespaceID.IsValid(characterID))
+            {
+                return Main.ResourceManager.GetCharacterSprite(characterID);
+            }
+            else
+            {
+                return Main.GetFinalSprite(spriteID);
+            }
         }
         private NamespaceID[] GetIDListByAlmanacOrder(IEnumerable<NamespaceID> idList, string category)
         {

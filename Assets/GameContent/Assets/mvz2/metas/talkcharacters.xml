@@ -14,7 +14,7 @@
         <variant id="mvz2:close_eye" parent="mvz2:normal">
             <layer sprite="mvz2:characters/orant[1]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:warning" parent="mvz2:normal">
+        <variant id="mvz2:warning" parent="mvz2:normal" unlock="mvz2:level.halloween_9">
             <layer sprite="mvz2:characters/orant[2]" positionX="0" positionY="0" />
         </variant>
     </character>
@@ -25,49 +25,49 @@
         <variant id="mvz2:open_mouth" parent="mvz2:normal">
             <layer sprite="mvz2:characters/doremy[11]" positionX="347" positionY="223" />
         </variant>
-        <variant id="mvz2:sad" parent="mvz2:normal">
+        <variant id="mvz2:sad" parent="mvz2:normal" unlock="mvz2:level.dream_4">
             <layer sprite="mvz2:characters/doremy[8]" positionX="277" positionY="98" />
             <layer sprite="mvz2:characters/doremy[11]" positionX="347" positionY="223" />
         </variant>
-        <variant id="mvz2:taunt" parent="mvz2:normal">
+        <variant id="mvz2:taunt" parent="mvz2:normal" unlock="mvz2:level.dream_4">
             <layer sprite="mvz2:characters/doremy[8]" positionX="277" positionY="98" />
             <layer sprite="mvz2:characters/doremy[12]" positionX="339" positionY="218" />
         </variant>
         <variant id="mvz2:confused" parent="mvz2:sad">
             <layer sprite="mvz2:characters/doremy[5]" positionX="127" positionY="6" />
         </variant>
-        <variant id="mvz2:open_book" parent="mvz2:normal">
+        <variant id="mvz2:open_book" parent="mvz2:normal" unlock="mvz2:level.dream_3">
             <layer sprite="mvz2:characters/doremy[1]" positionX="117" positionY="234" />
         </variant>
-        <variant id="mvz2:read_smile" parent="mvz2:open_book">
+        <variant id="mvz2:read_smile" parent="mvz2:open_book" unlock="mvz2:level.dream_3">
             <layer sprite="mvz2:characters/doremy[10]" positionX="277" positionY="98" />
         </variant>
-        <variant id="mvz2:read" parent="mvz2:read_smile">
+        <variant id="mvz2:read" parent="mvz2:read_smile" unlock="mvz2:level.dream_4">
             <layer sprite="mvz2:characters/doremy[11]" positionX="347" positionY="223" />
         </variant>
-        <variant id="mvz2:nervous" parent="mvz2:normal">
+        <variant id="mvz2:nervous" parent="mvz2:normal" unlock="mvz2:level.dream_5">
             <layer sprite="mvz2:characters/doremy[7]" positionX="277" positionY="98" />
             <layer sprite="mvz2:characters/doremy[13]" positionX="341" positionY="220" />
             <layer sprite="mvz2:characters/doremy[2]" positionX="117" positionY="234" />
         </variant>
-        <variant id="mvz2:suffering" width="860" height="1367" extendRight="200" pivotX="0.5" pivotY="0.5">
+        <variant id="mvz2:suffering" width="860" height="1367" extendRight="200" pivotX="0.5" pivotY="0.5" unlock="mvz2:level.dream_6" >
             <layer sprite="mvz2:characters/doremy_suffering[0]" positionX="0" positionY="259" />
             <layer sprite="mvz2:characters/dim_vision[0]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:cursed" width="641" height="1513" extendLeft="100" pivotX="0.5" pivotY="0.5">
+        <variant id="mvz2:cursed" width="641" height="1513" extendLeft="100" pivotX="0.5" pivotY="0.5" unlock="mvz2:level.dream_7">
             <layer sprite="mvz2:characters/doremy[0]" positionX="0" positionY="233" />
             <layer sprite="mvz2:characters/doremy[3]" positionX="117" positionY="467" />
             <layer sprite="mvz2:characters/doremy[4]" positionX="277" positionY="331" />
             <layer sprite="mvz2:characters/doremy[11]" positionX="347" positionY="456" />
             <layer sprite="mvz2:characters/dim_vision[0]" positionX="233" positionY="0" />
         </variant>
-        <variant id="mvz2:cursed_close_eyes" parent="mvz2:cursed">
+        <variant id="mvz2:cursed_close_eyes" parent="mvz2:cursed" unlock="mvz2:level.dream_7">
             <layer sprite="mvz2:characters/doremy[9]" positionX="277" positionY="331" />
         </variant>
-        <variant id="mvz2:cured" parent="mvz2:open_mouth">
+        <variant id="mvz2:cured" parent="mvz2:open_mouth" unlock="mvz2:level.dream_11">
             <layer sprite="mvz2:characters/doremy[3]" positionX="117" positionY="234" />
         </variant>
-        <variant id="mvz2:slightly_close_eyes" parent="mvz2:normal">
+        <variant id="mvz2:slightly_close_eyes" parent="mvz2:normal" unlock="mvz2:level.dream_11">
             <layer sprite="mvz2:characters/doremy[8]" positionX="277" positionY="98" />
         </variant>
     </character>
@@ -81,13 +81,13 @@
         <variant id="mvz2:worried" parent="mvz2:normal">
             <layer sprite="mvz2:characters/tokiko[2]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:happy" parent="mvz2:normal">
+        <variant id="mvz2:happy" parent="mvz2:normal" unlock="mvz2:kourindou_visited_castle">
             <layer sprite="mvz2:characters/tokiko[3]" positionX="0" positionY="0" />
         </variant>
         <variant id="mvz2:afraid" parent="mvz2:normal">
             <layer sprite="mvz2:characters/tokiko[4]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:frightened" parent="mvz2:normal">
+        <variant id="mvz2:frightened" parent="mvz2:normal" unlock="mvz2:level.mausoleum_11">
             <layer sprite="mvz2:characters/tokiko[5]" positionX="0" positionY="0" />
         </variant>
     </character>
@@ -101,22 +101,22 @@
         <variant id="mvz2:laugh" parent="mvz2:normal">
             <layer sprite="mvz2:characters/seija[2]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:mind_controlled" parent="mvz2:normal">
+        <variant id="mvz2:mind_controlled" parent="mvz2:normal" unlock="mvz2:level.castle_7">
             <layer sprite="mvz2:characters/seija[3]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:stunned" parent="mvz2:normal">
+        <variant id="mvz2:stunned" parent="mvz2:normal" unlock="mvz2:level.castle_7">
             <layer sprite="mvz2:characters/seija[4]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:surprised" parent="mvz2:normal">
+        <variant id="mvz2:surprised" parent="mvz2:normal" unlock="mvz2:level.castle_7">
             <layer sprite="mvz2:characters/seija[5]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:close_eye_silence" parent="mvz2:normal">
+        <variant id="mvz2:close_eye_silence" parent="mvz2:normal" unlock="mvz2:level.castle_7">
             <layer sprite="mvz2:characters/seija[6]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:silence" parent="mvz2:normal">
+        <variant id="mvz2:silence" parent="mvz2:normal" unlock="mvz2:level.castle_7">
             <layer sprite="mvz2:characters/seija[7]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:angry" parent="mvz2:normal">
+        <variant id="mvz2:angry" parent="mvz2:normal" unlock="mvz2:level.castle_7">
             <layer sprite="mvz2:characters/seija[8]" positionX="0" positionY="0" />
         </variant>
     </character>
@@ -124,49 +124,43 @@
         <variant id="mvz2:normal" width="160" height="448" extendLeft="-80" extendRight="-80" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/shinmyoumaru[0]" />
         </variant>
-        <variant id="mvz2:cringe" parent="mvz2:normal">
+        <variant id="mvz2:cringe" parent="mvz2:normal" unlock="mvz2:level.castle_3">
             <layer sprite="mvz2:characters/shinmyoumaru[1]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:happy" parent="mvz2:normal">
+        <variant id="mvz2:happy" parent="mvz2:normal" unlock="mvz2:level.castle_3">
             <layer sprite="mvz2:characters/shinmyoumaru[2]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:relax" parent="mvz2:normal">
-            <layer sprite="mvz2:characters/shinmyoumaru[3]" positionX="0" positionY="0" />
-        </variant>
-        <variant id="mvz2:surprised" parent="mvz2:normal">
+        <variant id="mvz2:surprised" parent="mvz2:normal" unlock="mvz2:level.castle_4" >
             <layer sprite="mvz2:characters/shinmyoumaru[4]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:think" parent="mvz2:normal">
+        <variant id="mvz2:think" parent="mvz2:normal" unlock="mvz2:level.castle_4">
             <layer sprite="mvz2:characters/shinmyoumaru[8]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:worried" parent="mvz2:normal">
+        <variant id="mvz2:worried" parent="mvz2:normal" unlock="mvz2:level.castle_3">
             <layer sprite="mvz2:characters/shinmyoumaru[9]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:fear" parent="mvz2:normal">
+        <variant id="mvz2:fear" parent="mvz2:normal" unlock="mvz2:level.castle_8">
             <layer sprite="mvz2:characters/shinmyoumaru[10]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:hide_eyes" parent="mvz2:normal">
+        <variant id="mvz2:hide_eyes" parent="mvz2:normal" unlock="mvz2:level.castle_8">
             <layer sprite="mvz2:characters/shinmyoumaru[11]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:hold_mallet_cry" parent="mvz2:normal">
+        <variant id="mvz2:hold_mallet_cry" parent="mvz2:normal" unlock="mvz2:level.castle_9">
             <layer sprite="mvz2:characters/shinmyoumaru[12]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:hold_mallet_weep_close_eyes" parent="mvz2:hold_mallet_cry">
+        <variant id="mvz2:hold_mallet_weep_close_eyes" parent="mvz2:hold_mallet_cry" unlock="mvz2:level.castle_9">
             <layer sprite="mvz2:characters/shinmyoumaru[7]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:weep" parent="mvz2:worried">
+        <variant id="mvz2:weep" parent="mvz2:worried" unlock="mvz2:level.castle_10">
             <layer sprite="mvz2:characters/shinmyoumaru[5]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:weep_close_eyes" parent="mvz2:worried">
+        <variant id="mvz2:weep_close_eyes" parent="mvz2:worried" unlock="mvz2:level.castle_11">
             <layer sprite="mvz2:characters/shinmyoumaru[6]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:weep" parent="mvz2:worried">
-            <layer sprite="mvz2:characters/shinmyoumaru_big[5]" positionX="0" positionY="0" />
-        </variant>
-        <variant id="mvz2:big" width="387" height="1280" pivotX="0.5" extendLeft="-20" extendRight="-20" pivotY="0.6">
+        <variant id="mvz2:big" width="387" height="1280" pivotX="0.5" extendLeft="-20" extendRight="-20" pivotY="0.6" unlock="mvz2:level.castle_11">
             <layer sprite="mvz2:characters/shinmyoumaru_big[1]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:gift_mallet" width="387" height="1280" extendLeft="-20" extendRight="-20"  pivotX="0.5" pivotY="0.6">
+        <variant id="mvz2:gift_mallet" width="387" height="1280" extendLeft="-20" extendRight="-20"  pivotX="0.5" pivotY="0.6" unlock="mvz2:level.castle_11">
             <layer sprite="mvz2:characters/shinmyoumaru_big[0]" positionX="0" positionY="0" />
         </variant>
         <variant id="mvz2:bottle_normal" width="432" height="716" extendLeft="0" extendRight="0" pivotX="0.5" pivotY="0.6">
@@ -183,19 +177,19 @@
         <variant id="mvz2:normal" width="584" height="1280" extendLeft="75" extendRight="0" pivotX="0.5" pivotY="0.65">
             <layer sprite="mvz2:characters/futo[0]" />
         </variant>
-        <variant id="mvz2:daze" parent="mvz2:normal">
+        <variant id="mvz2:daze" parent="mvz2:normal" unlock="mvz2:level.mausoleum_2">
             <layer sprite="mvz2:characters/futo[1]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:question" parent="mvz2:normal">
+        <variant id="mvz2:question" parent="mvz2:normal" unlock="mvz2:level.mausoleum_4">
             <layer sprite="mvz2:characters/futo[2]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:scared" parent="mvz2:normal">
+        <variant id="mvz2:scared" parent="mvz2:normal" unlock="mvz2:level.mausoleum_7">
             <layer sprite="mvz2:characters/futo[3]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:worried" parent="mvz2:normal">
+        <variant id="mvz2:worried" parent="mvz2:normal" unlock="mvz2:level.mausoleum_7">
             <layer sprite="mvz2:characters/futo[4]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:cringe" parent="mvz2:normal">
+        <variant id="mvz2:cringe" parent="mvz2:normal" unlock="mvz2:level.mausoleum_9">
             <layer sprite="mvz2:characters/futo[5]" positionX="0" positionY="0" />
         </variant>
     </character>
@@ -206,18 +200,20 @@
         <variant id="mvz2:happy" parent="mvz2:normal">
             <layer sprite="mvz2:characters/marisa[3]" positionX="288" positionY="192" />
         </variant>
+        <variant id="mvz2:sad" width="636" height="1280" extendRight="0" pivotX="0.5" pivotY="0.65">
+            <layer sprite="mvz2:characters/marisa[1]" />
+        </variant>
+        <!-- 
         <variant id="mvz2:angry" parent="mvz2:normal">
             <layer sprite="mvz2:characters/marisa[4]" positionX="288" positionY="192" />
         </variant>
         <variant id="mvz2:scared" parent="mvz2:normal">
             <layer sprite="mvz2:characters/marisa[5]" positionX="288" positionY="192" />
         </variant>
-        <variant id="mvz2:sad" width="636" height="1280" extendRight="0" pivotX="0.5" pivotY="0.65">
-            <layer sprite="mvz2:characters/marisa[1]" />
-        </variant>
         <variant id="mvz2:unwilling" width="636" height="1280" extendRight="0" pivotX="0.5" pivotY="0.65">
             <layer sprite="mvz2:characters/marisa[2]" />
         </variant>
+        -->
     </character>
     <character id="seiga" name="青娥">
         <variant id="mvz2:normal" width="818" height="1280"  extendLeft="100" extendRight="100" pivotX="0.5" pivotY="0.65">
@@ -226,13 +222,13 @@
         <variant id="mvz2:happy" parent="mvz2:normal">
             <layer sprite="mvz2:characters/seiga[1]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:evil" parent="mvz2:normal">
+        <variant id="mvz2:evil" parent="mvz2:normal" unlock="mvz2:level.mausoleum_9">
             <layer sprite="mvz2:characters/seiga[2]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:cringe" parent="mvz2:normal">
+        <variant id="mvz2:cringe" parent="mvz2:normal" unlock="mvz2:level.mausoleum_6">
             <layer sprite="mvz2:characters/seiga[3]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:vigilant" parent="mvz2:normal">
+        <variant id="mvz2:vigilant" parent="mvz2:normal" unlock="mvz2:level.mausoleum_9">
             <layer sprite="mvz2:characters/seiga[4]" positionX="0" positionY="0" />
         </variant>
     </character>
@@ -240,25 +236,25 @@
         <variant id="mvz2:normal" width="817" height="1280" extendLeft="100" extendRight="100" pivotX="0.5" pivotY="0.6">
             <layer sprite="mvz2:characters/miko[0]" />
         </variant>
-        <variant id="mvz2:close_eyes" parent="mvz2:normal">
+        <variant id="mvz2:close_eyes" parent="mvz2:normal" unlock="mvz2:level.mausoleum_1">
             <layer sprite="mvz2:characters/miko[1]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:surprised" parent="mvz2:normal">
+        <variant id="mvz2:surprised" parent="mvz2:normal" unlock="mvz2:level.mausoleum_8">
             <layer sprite="mvz2:characters/miko[2]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:worried" parent="mvz2:normal">
+        <variant id="mvz2:worried" parent="mvz2:normal" unlock="mvz2:level.mausoleum_6">
             <layer sprite="mvz2:characters/miko[3]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:calm" parent="mvz2:normal">
+        <variant id="mvz2:calm" parent="mvz2:normal" unlock="mvz2:level.mausoleum_6">
             <layer sprite="mvz2:characters/miko[4]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:angry" parent="mvz2:normal">
+        <variant id="mvz2:angry" parent="mvz2:normal" unlock="mvz2:level.mausoleum_9">
             <layer sprite="mvz2:characters/miko[5]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:calm_close_eyes" parent="mvz2:normal">
+        <variant id="mvz2:calm_close_eyes" parent="mvz2:normal" unlock="mvz2:level.mausoleum_9">
             <layer sprite="mvz2:characters/miko[6]" positionX="0" positionY="0" />
         </variant>
-        <variant id="mvz2:angry_close_eyes" parent="mvz2:normal">
+        <variant id="mvz2:angry_close_eyes" parent="mvz2:normal" unlock="mvz2:level.mausoleum_9">
             <layer sprite="mvz2:characters/miko[7]" positionX="0" positionY="0" />
         </variant>
     </character>

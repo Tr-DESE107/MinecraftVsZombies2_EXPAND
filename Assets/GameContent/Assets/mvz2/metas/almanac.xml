@@ -1738,7 +1738,7 @@
         <!-- Characters -->
         <group id="mvz2:characters" name="人物" order="300">
             <entry id="mvz2:villager" name="村民" >
-                <icon sprite="mvz2:characters/crazy_villager[0]"/>
+                <icon character="mvz2:crazy_villager"/>
                 <header>
                     <p>与史蒂夫共同生活的白衣村民，原名戴夫。</p>
                 </header>
@@ -1751,7 +1751,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:orant" name="欧兰特" >
-                <icon sprite="mvz2:characters/orant[0]"/>
+                <icon character="mvz2:orant"/>
                 <header>
                     <p>欧兰特是一名灵魂术士，可以操纵恐惧和灵魂。</p>
                 </header>
@@ -1764,7 +1764,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:doremy" name="哆来咪·苏伊特" unlock="mvz2:level.dream_1">
-                <icon sprite="mvz2:characters/doremy[0]"/>
+                <icon character="mvz2:doremy"/>
                 <header>
                     <p>哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。</p>
                 </header>
@@ -1777,7 +1777,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:tokiko" name="朱鹭子" unlock="mvz2:kourindou_visited">
-                <icon sprite="mvz2:characters/tokiko[0]"/>
+                <icon character="mvz2:tokiko"/>
                 <header>
                     <p>常在香霖堂附近活动的读书妖怪，在霖之助失踪后成为了香霖堂的店主。</p>
                 </header>
@@ -1792,7 +1792,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:seija" name="鬼人 正邪" unlock="mvz2:level.castle_1">
-                <icon sprite="mvz2:characters/seija[0]"/>
+                <icon character="mvz2:seija"/>
                 <header>
                     <p>一名天邪鬼，曾利用了针妙丸，妄图使用万宝槌的力量颠覆幻想乡的强弱规则。</p>
                 </header>
@@ -1807,7 +1807,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:shinmyoumaru" name="少名 针妙丸" unlock="mvz2:level.castle_2">
-                <icon sprite="mvz2:characters/shinmyoumaru[0]"/>
+                <icon character="mvz2:shinmyoumaru"/>
                 <header>
                     <p>一寸法师的后代，辉针城的城主，如今小人族的领导者。</p>
                 </header>
@@ -1823,7 +1823,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:futo" name="物部 布都" unlock="mvz2:level.mausoleum_1">
-                <icon sprite="mvz2:characters/futo[0]"/>
+                <icon character="mvz2:futo"/>
                 <header>
                     <p>日本古代大氏族物部氏的后人，丰聪耳神子的手下。</p>
                 </header>
@@ -1837,7 +1837,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:marisa" name="雾雨 魔理沙" unlock="mvz2:level.mausoleum_1">
-                <icon sprite="mvz2:characters/marisa[0]"/>
+                <icon character="mvz2:marisa"/>
                 <header>
                     <p>一位普通的魔法使，也是森近 霖之助曾经的好友。</p>
                 </header>
@@ -1851,7 +1851,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:miko" name="丰聪耳 神子" unlock="mvz2:level.mausoleum_1">
-                <icon sprite="mvz2:characters/miko[0]"/>
+                <icon character="mvz2:miko"/>
                 <header>
                     <p>日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。</p>
                 </header>
@@ -1866,7 +1866,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:seiga" name="霍 青娥" unlock="mvz2:level.mausoleum_3">
-                <icon sprite="mvz2:characters/seiga[0]"/>
+                <icon character="mvz2:seiga"/>
                 <header>
                     <p>一名使用邪术的邪仙。</p>
                 </header>
@@ -1882,7 +1882,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:mysterious_hologram" name="神秘影像" unlock="mvz2:level.mausoleum_11">
-                <icon sprite="mvz2:characters/hologram"/>
+                <icon character="mvz2:hologram"/>
                 <header>
                     <p>出现在被僵尸包围的香霖堂的神秘影像，它对史蒂夫发出了威胁。</p>
                 </header>
