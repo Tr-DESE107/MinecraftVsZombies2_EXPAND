@@ -58,6 +58,7 @@ namespace MVZ2.GameContent.Buffs
         public const string imitated = "imitated";
         public const string noteBlockCharged = "note_block_charged";
         public const string hfpdUpgraded = "hfpd_upgraded";
+        public const string stolenByUFO = "summonedByUFO";
 
         // Enemy
         public const string gemCarrier = "gem_carrier";

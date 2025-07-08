@@ -35,6 +35,12 @@ namespace MVZ2.Vanilla.Grids
             protector,
             carrier
         };
+        public static NamespaceID[] ufoLayers = new NamespaceID[]
+        {
+            main,
+            protector,
+            carrier
+        };
 
 
         private static NamespaceID Get(string name)
