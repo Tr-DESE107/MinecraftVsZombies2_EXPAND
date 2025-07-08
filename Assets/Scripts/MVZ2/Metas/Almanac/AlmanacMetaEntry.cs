@@ -16,6 +16,7 @@ namespace MVZ2.Metas
     {
         public NamespaceID id;
         public string name;
+        public NamespaceID encounterUnlock;
         public NamespaceID unlock;
 
         public SpriteReference sprite;
@@ -34,6 +35,7 @@ namespace MVZ2.Metas
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
             var name = node.GetAttribute("name");
+            var encounterUnlock = node.GetAttributeNamespaceID("encounterUnlock", defaultNsp);
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
 
             SpriteReference sprite = null;
@@ -103,6 +105,7 @@ namespace MVZ2.Metas
             {
                 id = id,
                 name = name,
+                encounterUnlock = encounterUnlock,
                 unlock = unlock,
                 sprite = sprite,
                 character = character,

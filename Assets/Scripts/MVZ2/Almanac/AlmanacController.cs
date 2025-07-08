@@ -286,7 +286,14 @@ namespace MVZ2.Almanacs
         {
             if (!NamespaceID.IsValid(contraptionID))
                 return;
-            GetEntityAlmanacInfos(contraptionID, VanillaAlmanacCategories.CONTRAPTIONS, out var model, out var name, out var description);
+            const string type = VanillaAlmanacCategories.CONTRAPTIONS;
+
+            GetEntityAlmanacInfos(contraptionID, type, out var model, out var name, out var description);
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, contraptionID);
+            if (!string.IsNullOrEmpty(entry.name))
+            {
+                name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(type), entry.name);
+            }
 
             int cost = 0;
             string recharge = string.Empty;
@@ -305,7 +312,7 @@ namespace MVZ2.Almanacs
             var rechargeText = GetTranslatedString(VanillaStrings.CONTEXT_ALMANAC, RECHARGE_LABEL, recharge);
 
             var page = Global.IsMobile() ? AlmanacPageType.ContraptionsMobile : AlmanacPageType.ContraptionsStandalone;
-            UpdateEntryTags(page, VanillaAlmanacCategories.CONTRAPTIONS, contraptionID);
+            UpdateEntryTags(page, type, contraptionID);
 
             var iconInfos = GetDescriptionTagIconInfos(description);
             var replacements = iconInfos.Select(i => i.replacement).ToArray();
@@ -320,20 +327,27 @@ namespace MVZ2.Almanacs
         {
             if (!NamespaceID.IsValid(enemyID))
                 return;
-            activeEnemyEntryID = enemyID;
-            GetEntityAlmanacInfos(enemyID, VanillaAlmanacCategories.ENEMIES, out var model, out var name, out var description);
+            const string type = VanillaAlmanacCategories.ENEMIES;
 
-            bool notEncountered = Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) <= 0;
-            if (notEncountered)
+            activeEnemyEntryID = enemyID;
+            GetEntityAlmanacInfos(enemyID, type, out var model, out var name, out var description);
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, enemyID);
+            if (!string.IsNullOrEmpty(entry.name))
+            {
+                name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(type), entry.name);
+            }
+
+            bool encountered = Main.SaveManager.IsUnlocked(entry.encounterUnlock) || Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
+            if (encountered)
+            {
+                UpdateEntryTags(AlmanacPageType.Enemies, type, enemyID);
+            }
+            else
             {
                 name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_NAME, VanillaStrings.UNKNOWN_ENTITY_NAME);
                 description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, VanillaStrings.NOT_ENCOUNTERED_YET);
 
                 ClearEntryTags(AlmanacPageType.Enemies);
-            }
-            else
-            {
-                UpdateEntryTags(AlmanacPageType.Enemies, VanillaAlmanacCategories.ENEMIES, enemyID);
             }
 
             var iconInfos = GetDescriptionTagIconInfos(description);

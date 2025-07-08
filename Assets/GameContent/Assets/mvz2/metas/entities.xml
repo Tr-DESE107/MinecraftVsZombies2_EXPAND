@@ -1276,9 +1276,10 @@
         </humanoid>
 
         <!-- Chapter 5 -->
-        <ufo id="undead_flying_object_red" name="不死飞行物" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
-        <ufo id="undead_flying_object_green" name="不死飞行物" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
-        <ufo id="undead_flying_object_blue" name="不死飞行物" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
+        <ufo id="undead_flying_object_red" name="不死飞行物（红）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
+        <ufo id="undead_flying_object_green" name="不死飞行物（绿）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
+        <ufo id="undead_flying_object_blue" name="不死飞行物（蓝）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
+        <ufo id="undead_flying_object_rainbow" name="不死飞行物（彩）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
 
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <properties>

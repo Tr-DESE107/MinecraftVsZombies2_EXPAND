@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-07-04 01:06+0800\n"
+"POT-Creation-Date: 2025-07-08 11:00+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,6 +81,18 @@ msgstr ""
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "必须放置在木制投掷器上"
+msgstr ""
+
+#. Name for almanac tag placement_repeatenser
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：连射发射器"
+msgstr ""
+
+#. Description for almanac tag placement_repeatenser
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在连射发射器上"
 msgstr ""
 
 #. Name for almanac tag placement_diamond_spikes
@@ -2053,6 +2065,35 @@ msgctxt "enemies.description"
 msgid ""
 "他并不是什么大国的皇帝，就是一个僵尸小圈子里面，天天被捧的高高的，实际上就只会套盾，被碰一下就破防，还以为自己有多大能耐的土皇帝罢了。\n"
 "<color=red>【图鉴 已被禁言，有效期是永久】</color>"
+msgstr ""
+
+#. Name for enemies mvz2:undead_flying_object_red
+#: Almanac meta file
+msgctxt "enemies.name"
+msgid "不死飞行物"
+msgstr ""
+
+#. Header for enemies mvz2:undead_flying_object_red
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "不死飞行物从空中来袭并对你进行干扰。在那之后它们就会离开。"
+msgstr ""
+
+#. Properties for enemies mvz2:undead_flying_object_red
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>100</color>\n"
+"红色：<color=red>放出僵尸</color>\n"
+"绿色：<color=red>绑架器械</color>\n"
+"蓝色：<color=red>吸取掉落物</color>\n"
+"彩色：<color=red>变成两个随机颜色的不死飞行物</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:undead_flying_object_red
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "如果你的农场里大面积地种植了小麦，或者圈养了很多的奶牛，那你可一定要小心这帮家伙了。"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -4364,6 +4405,36 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "中道崩殂"
+msgstr ""
+
+#. Name for entity mvz2:undead_flying_object_red
+#: Entity meta file
+msgctxt "entity.name"
+msgid "不死飞行物（红）"
+msgstr ""
+
+#. Death message for entity mvz2:undead_flying_object_red
+#: Entity meta file
+msgctxt "death_message"
+msgid "被抓走了！"
+msgstr ""
+
+#. Name for entity mvz2:undead_flying_object_green
+#: Entity meta file
+msgctxt "entity.name"
+msgid "不死飞行物（绿）"
+msgstr ""
+
+#. Name for entity mvz2:undead_flying_object_blue
+#: Entity meta file
+msgctxt "entity.name"
+msgid "不死飞行物（蓝）"
+msgstr ""
+
+#. Name for entity mvz2:undead_flying_object_rainbow
+#: Entity meta file
+msgctxt "entity.name"
+msgid "不死飞行物（彩）"
 msgstr ""
 
 #. Name for entity mvz2:mutant_zombie
