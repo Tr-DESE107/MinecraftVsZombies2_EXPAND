@@ -60,7 +60,7 @@ namespace MVZ2.GameContent.Pickups
             else
             {
                 var velocity = pickup.Velocity;
-                if (pickup.Position.z < GetMinZ() && velocity.z < 0 || pickup.Position.z > GetMaxZ() && velocity.z > 0)
+                if (pickup.Position.z < GetMinZ(pickup) && velocity.z < 0 || pickup.Position.z > GetMaxZ(pickup) && velocity.z > 0)
                 {
                     velocity.z *= -1;
                 }
@@ -119,13 +119,13 @@ namespace MVZ2.GameContent.Pickups
         {
             return VanillaLevelExt.GetPickupBorderX(true) - 10;
         }
-        public static float GetMinZ()
+        public static float GetMinZ(Entity pickup)
         {
-            return 40;
+            return 40 - pickup.Position.y;
         }
-        public static float GetMaxZ()
+        public static float GetMaxZ(Entity pickup)
         {
-            return VanillaLevelExt.SCREEN_HEIGHT - 120;
+            return VanillaLevelExt.SCREEN_HEIGHT - 120 - pickup.Position.y;
         }
         public override NamespaceID GetModelID(NamespaceID origin)
         {
