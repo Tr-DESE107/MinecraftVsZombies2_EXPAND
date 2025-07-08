@@ -47,9 +47,9 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.teslaCoil,
                 VanillaContraptionID.devourer,
                 VanillaContraptionID.mineTNT,
-                VanillaEnemyID.zombie,
-                VanillaEnemyID.ghast,
-                VanillaEnemyID.ufo,
+                VanillaEnemyID.ufoRed,
+                VanillaEnemyID.ufoGreen,
+                VanillaEnemyID.ufoBlue,
                 VanillaBossID.wither,
             });
             level.SetArtifactSlotCount(3);

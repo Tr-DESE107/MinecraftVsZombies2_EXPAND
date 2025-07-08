@@ -1,27 +1,20 @@
-﻿using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Buffs.Enemies;
+﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObject)]
-    public class UndeadFlyingObject : StateEnemy
+    public abstract class UndeadFlyingObject : StateEnemy
     {
         public UndeadFlyingObject(string nsp, string name) : base(nsp, name)
         {
@@ -29,8 +22,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            SetType(entity, TYPE_GREEN);
-            SetStateTimer(entity, new FrameTimer(GetStayTime(entity)));
+            SetStateTimer(entity, new FrameTimer(GetStayTime()));
             var column = entity.GetColumn();
             var lane = entity.GetLane();
             SetTargetGridX(entity, column);
@@ -56,7 +48,6 @@ namespace MVZ2.GameContent.Enemies
                 var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE);
                 entity.Die(effects, entity);
             }
-            entity.SetAnimationInt("Color", GetType(entity));
             entity.SetAnimationBool("SpotlightOn", entity.State == STATE_ACT);
         }
         public override void PostDeath(Entity entity, DeathInfo info)
@@ -75,14 +66,6 @@ namespace MVZ2.GameContent.Enemies
                 param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
                 var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
                 entity.PlaySound(VanillaSoundID.explosion);
-            }
-            var stolen = GetStolenEntityID(entity);
-            if (NamespaceID.IsValid(stolen))
-            {
-                var blueprintID = VanillaBlueprintID.FromEntity(stolen);
-                var spawnParams = entity.GetSpawnParams();
-                spawnParams.SetProperty(BlueprintPickup.PROP_BLUEPRINT_ID, blueprintID);
-                var pickup = entity.Spawn(VanillaPickupID.blueprintPickup, entity.GetCenter(), spawnParams);
             }
             entity.Remove();
         }
@@ -111,88 +94,13 @@ namespace MVZ2.GameContent.Enemies
                     break;
             }
         }
-        private void UpdateStateStay(Entity enemy)
+        protected virtual void UpdateStateStay(Entity enemy)
         {
             FlyToTargetPosition(enemy);
-
-            var timer = GetStateTimer(enemy);
-            timer.Run();
-            if (timer.Expired)
-            {
-                var type = GetType(enemy);
-                switch (type)
-                {
-                    case TYPE_RED:
-                        {
-                            SetUFOState(enemy, STATE_ACT);
-                            timer.ResetTime(GetActTime(enemy));
-                        }
-                        break;
-                    case TYPE_GREEN:
-                        {
-                            var grid = enemy.GetGrid();
-                            var layers = grid.GetLayers();
-                            var orderedLayers = VanillaGridLayers.ufoLayers;
-                            foreach (var layer in orderedLayers)
-                            {
-                                var entity = grid.GetLayerEntity(layer);
-                                if (!CanStartSteal(entity))
-                                    continue;
-                                enemy.Target = entity;
-                                var buff = entity.AddBuff<StolenByUFOBuff>();
-                                buff.SetProperty(StolenByUFOBuff.PROP_UFO, new EntityID(enemy));
-                                break;
-                            }
-                            if (!enemy.Target.ExistsAndAlive())
-                            {
-                                SetUFOState(enemy, STATE_LEAVE);
-                            }
-                            else
-                            {
-                                SetUFOState(enemy, STATE_ACT);
-                            }
-                        }
-                        break;
-                }
-            }
         }
-        private void UpdateStateAct(Entity enemy)
+        protected virtual void UpdateStateAct(Entity enemy)
         {
             FlyToTargetPosition(enemy);
-
-            var type = GetType(enemy);
-            switch (type)
-            {
-                case TYPE_RED:
-                    {
-                        var timer = GetStateTimer(enemy);
-                        timer.Run();
-                        if (timer.PassedFrameFromMax(RED_RELEASE_ZOMBIE_TIME))
-                        {
-                            var enemyID = redEnemyPool.Random(enemy.RNG);
-                            var param = enemy.GetSpawnParams();
-                            param.OnApply += (e) =>
-                            {
-                                e.AddBuff<SummonedByUFOBuff>();
-                                WhiteFlashBuff.AddToEntity(e, 30);
-                            };
-                            enemy.Spawn(enemyID, enemy.Position, param);
-                        }
-                        if (timer.Expired)
-                        {
-                            SetUFOState(enemy, STATE_LEAVE);
-                        }
-                    }
-                    break;
-                case TYPE_GREEN:
-                    {
-                        if (!enemy.Target.ExistsAndAlive() || !enemy.Target.HasBuff<StolenByUFOBuff>() || NamespaceID.IsValid(GetStolenEntityID(enemy)))
-                        {
-                            SetUFOState(enemy, STATE_LEAVE);
-                        }
-                    }
-                    break;
-            }
         }
         private void UpdateStateLeave(Entity enemy)
         {
@@ -238,52 +146,8 @@ namespace MVZ2.GameContent.Enemies
             var y = level.GetGroundY(x, z) + FLY_HEIGHT;
             return new Vector3(x, y, z);
         }
-        private static int GetStayTime(Entity enemy)
-        {
-            return GetStayTime(GetType(enemy));
-        }
-        private static int GetStayTime(int type)
-        {
-            switch (type)
-            {
-                case TYPE_RED:
-                    return STAY_TIME_RED;
-                case TYPE_GREEN:
-                    return STAY_TIME_GREEN;
-                case TYPE_BLUE:
-                    return STAY_TIME_BLUE;
-                case TYPE_RAINBOW:
-                    return STAY_TIME_RAINBOW;
-            }
-            return STAY_TIME_RED;
-        }
-        private static int GetActTime(Entity enemy)
-        {
-            return GetActTime(GetType(enemy));
-        }
-        private static int GetActTime(int type)
-        {
-            switch (type)
-            {
-                case TYPE_RED:
-                    return ACT_TIME_RED;
-                case TYPE_GREEN:
-                    return ACT_TIME_GREEN;
-                case TYPE_BLUE:
-                    return ACT_TIME_BLUE;
-                case TYPE_RAINBOW:
-                    return ACT_TIME_RAINBOW;
-            }
-            return ACT_TIME_RED;
-        }
-        public static bool CanStartSteal(Entity entity)
-        {
-            return entity.ExistsAndAlive() && !entity.HasBuff<StolenByUFOBuff>();
-        }
-        public static int GetType(Entity entity) => entity.GetBehaviourField<int>(PROP_TYPE);
-        public static void SetType(Entity entity, int value) => entity.SetBehaviourField(PROP_TYPE, value);
-        public static NamespaceID GetStolenEntityID(Entity entity) => entity.GetBehaviourField<NamespaceID>(PROP_STOLEN_ENTITY_ID);
-        public static void SetStolenEntityID(Entity entity, NamespaceID value) => entity.SetBehaviourField(PROP_STOLEN_ENTITY_ID, value);
+        public abstract int GetStayTime();
+        public abstract int GetActTime();
         public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
         public static void SetStateTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_STATE_TIMER, value);
         public static int GetUFOState(Entity entity) => entity.GetBehaviourField<int>(PROP_UFO_STATE);
@@ -292,24 +156,6 @@ namespace MVZ2.GameContent.Enemies
         public static void SetTargetGridX(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_GRID_X, value);
         public static int GetTargetGridY(Entity entity) => entity.GetBehaviourField<int>(PROP_TARGET_GRID_Y);
         public static void SetTargetGridY(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_GRID_Y, value);
-
-        public const int TYPE_RED = 0;
-        public const int TYPE_GREEN = 1;
-        public const int TYPE_BLUE = 2;
-        public const int TYPE_RAINBOW = 3;
-
-        public const int STAY_TIME_RED = 90;
-        public const int STAY_TIME_GREEN = 240;
-        public const int STAY_TIME_BLUE = 30;
-        public const int STAY_TIME_RAINBOW = 240;
-
-        public const int ACT_TIME_RED = 60;
-        public const int ACT_TIME_GREEN = 150;
-        public const int ACT_TIME_BLUE = 300;
-        public const int ACT_TIME_RAINBOW = 30;
-
-        public const int RED_RELEASE_ZOMBIE_TIME = 30;
-        public const int GREEN_STEAL_CONTRAPTION_TIME = 30;
 
         public const float FLY_HEIGHT = 80;
         public const float FLY_SPEED_ENTER = 0.3f;
@@ -324,17 +170,16 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_STAY = VanillaEntityStates.WALK;
         public const int STATE_ACT = VanillaEntityStates.ATTACK;
         public const int STATE_LEAVE = VanillaEntityStates.ENEMY_LEAVE;
+        private const string PROP_REGION = "ufo";
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<int> PROP_TYPE = new VanillaEntityPropertyMeta<int>("type");
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_X = new VanillaEntityPropertyMeta<int>("target_grid_x");
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_Y = new VanillaEntityPropertyMeta<int>("target_grid_y");
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<int> PROP_UFO_STATE = new VanillaEntityPropertyMeta<int>("ufo_state", STATE_STAY);
+        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("state_timer");
-        public static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_STOLEN_ENTITY_ID = new VanillaEntityPropertyMeta<NamespaceID>("stolen_entity_id");
-        public static NamespaceID[] redEnemyPool = new NamespaceID[]
-        {
-            VanillaEnemyID.zombie,
-            VanillaEnemyID.leatherCappedZombie,
-            VanillaEnemyID.ironHelmettedZombie,
-        };
     }
 }

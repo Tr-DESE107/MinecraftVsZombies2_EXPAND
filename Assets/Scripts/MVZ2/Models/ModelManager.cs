@@ -13,8 +13,9 @@ namespace MVZ2.Models
             modelShotRoot.gameObject.SetActive(true);
 
             //设置模型
-            var modelInstance = Model.Create(model, modelShotPositionTransform, modelShotCamera).gameObject;
+            var modelInstance = Model.Create(model, modelShotPositionTransform, modelShotCamera);
             modelInstance.transform.localPosition = Vector3.zero;
+            modelInstance.UpdateFrame(0);
 
 
             //创建一个用于渲染图片的RenderTexture
@@ -62,7 +63,7 @@ namespace MVZ2.Models
             RenderTexture.active = null; // 重置活动的Render Texture
             modelShotCamera.targetTexture = null;
             renderTexture.Release();
-            DestroyImmediate(modelInstance);
+            DestroyImmediate(modelInstance.gameObject);
 
             // 创建Sprite。
             Sprite sprite = main.ResourceManager.CreateSprite(texture, new Rect(0, 0, width, height), Vector2.one * 0.5f, pictureName, "modelIcon");
