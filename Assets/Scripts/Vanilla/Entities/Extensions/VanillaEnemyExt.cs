@@ -126,7 +126,7 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        public static void CheckAlignWithLane(this Entity entity)
+        public static void CheckAlignToLane(this Entity entity)
         {
             if (entity.IsChangingLane())
                 return;

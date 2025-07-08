@@ -207,8 +207,10 @@ namespace MVZ2.Vanilla.Grids
             var z = level.GetEntityLaneZ(grid.Lane);
             var y = level.GetGroundY(x, z);
 
-            var position = new Vector3(x, y, z);
             var entityDef = level.Content.GetEntityDefinition(entityID);
+            if (entityDef == null)
+                return null;
+            var position = new Vector3(x, y, z) + entityDef.GetStartingPositionOffset();
             var entity = level.Spawn(entityID, position, null, param);
             entity.PlaySound(grid.GetPlaceSound(entity));
 

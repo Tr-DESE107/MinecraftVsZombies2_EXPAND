@@ -72,9 +72,9 @@ namespace MVZ2.Vanilla.Entities
                 entity.Position = pos;
             }
 
-            if (entity.IsOnGround)
+            if (entity.IsOnGround && !entity.NoAlignToLane())
             {
-                entity.CheckAlignWithLane();
+                entity.CheckAlignToLane();
             }
 
             var scale = entity.GetFinalDisplayScale();

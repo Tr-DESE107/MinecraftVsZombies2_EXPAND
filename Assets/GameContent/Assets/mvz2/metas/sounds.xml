@@ -787,7 +787,7 @@
         <sample path="mvz2:trident_thunder1" weight="1" />
         <sample path="mvz2:trident_thunder2" weight="1" />
     </sound>
-    <sound name="ufo">
+    <sound name="ufo" maxCount="1">
         <sample path="mvz2:ufo" weight="1" />
     </sound>
     <sound name="villager_crazy" priority="64">

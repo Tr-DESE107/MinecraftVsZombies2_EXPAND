@@ -1,4 +1,6 @@
-﻿using MVZ2.GameContent.Buffs.Enemies;
+﻿using System.Collections.Generic;
+using System.Linq;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
@@ -9,6 +11,8 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
+using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 
@@ -33,10 +37,6 @@ namespace MVZ2.GameContent.Enemies
             buff.SetProperty(FlyBuff.PROP_FLY_SPEED_FACTOR, FLY_SPEED_FACTOR_ENTER);
             buff.SetProperty(FlyBuff.PROP_FLY_SPEED, FLY_SPEED_ENTER);
             buff.SetProperty(FlyBuff.PROP_MAX_FLY_SPEED, MAX_FLY_SPEED);
-
-            var position = entity.Position;
-            position.y = START_HEIGHT + entity.Level.GetGroundY(position.x, position.z);
-            entity.Position = position;
 
             entity.PlaySound(VanillaSoundID.ufo);
         }
@@ -117,9 +117,10 @@ namespace MVZ2.GameContent.Enemies
 
             var targetPosition = GetTargetPosition(enemy);
             var targetVelocity = targetPosition - enemy.Position;
+            targetVelocity = targetVelocity.normalized * Mathf.Min(MAX_MOVE_SPEED, targetVelocity.magnitude);
             var velocity = enemy.Velocity;
-            velocity.x = velocity.x * 0.5f + targetVelocity.x * 0.5f;
-            velocity.z = velocity.z * 0.5f + targetVelocity.z * 0.5f;
+            velocity.x = velocity.x * (1 - MOVE_FACTOR) + targetVelocity.x * MOVE_FACTOR;
+            velocity.z = velocity.z * (1 - MOVE_FACTOR) + targetVelocity.z * MOVE_FACTOR;
             enemy.Velocity = velocity;
         }
         private void Leave(Entity enemy)
@@ -148,6 +149,8 @@ namespace MVZ2.GameContent.Enemies
         }
         public abstract int GetStayTime();
         public abstract int GetActTime();
+
+        #region 属性
         public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
         public static void SetStateTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_STATE_TIMER, value);
         public static int GetUFOState(Entity entity) => entity.GetBehaviourField<int>(PROP_UFO_STATE);
@@ -156,6 +159,69 @@ namespace MVZ2.GameContent.Enemies
         public static void SetTargetGridX(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_GRID_X, value);
         public static int GetTargetGridY(Entity entity) => entity.GetBehaviourField<int>(PROP_TARGET_GRID_Y);
         public static void SetTargetGridY(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_GRID_Y, value);
+        #endregion
+
+        #region 生成逻辑
+        public static bool IsUFO(Entity entity)
+        {
+            var id = entity.GetDefinitionID();
+            return id == VanillaEnemyID.ufoRed || id == VanillaEnemyID.ufoGreen || id == VanillaEnemyID.ufoBlue || id == VanillaEnemyID.ufoRainbow;
+        }
+        public static void FillUFOTypeRandomPool(LevelEngine level, List<NamespaceID> results)
+        {
+            if (UndeadFlyingObjectRed.CanSpawn(level))
+            {
+                results.Add(VanillaEnemyID.ufoRed);
+            }
+            if (UndeadFlyingObjectGreen.CanSpawn(level))
+            {
+                results.Add(VanillaEnemyID.ufoGreen);
+            }
+            if (UndeadFlyingObjectBlue.CanSpawn(level))
+            {
+                results.Add(VanillaEnemyID.ufoBlue);
+            }
+        }
+        public static void FillUFOPossibleSpawnGrids(LevelEngine level, NamespaceID id, HashSet<LawnGrid> results)
+        {
+            if (id == VanillaEnemyID.ufoRed)
+            {
+                UndeadFlyingObjectRed.GetPossibleSpawnGrids(level, results);
+            }
+            else if (id == VanillaEnemyID.ufoGreen)
+            {
+                UndeadFlyingObjectGreen.GetPossibleSpawnGrids(level, results);
+            }
+            else if (id == VanillaEnemyID.ufoBlue)
+            {
+                UndeadFlyingObjectBlue.GetPossibleSpawnGrids(level, results);
+            }
+        }
+        public static IEnumerable<LawnGrid> FilterConflictSpawnGrids(LevelEngine level, IEnumerable<LawnGrid> possibleGrids)
+        {
+            HashSet<LawnGrid> conflictGrids = new HashSet<LawnGrid>();
+            conflictGrids.Clear();
+            foreach (var other in level.FindEntities(e => IsUFO(e)))
+            {
+                var x = UndeadFlyingObject.GetTargetGridX(other);
+                var y = UndeadFlyingObject.GetTargetGridY(other);
+                var grid = level.GetGrid(x, y);
+                if (grid != null)
+                {
+                    conflictGrids.Add(grid);
+                }
+            }
+            var notConflictGrids = possibleGrids.Except(conflictGrids);
+            if (notConflictGrids.Count() > 0)
+            {
+                return notConflictGrids;
+            }
+            else
+            {
+                return possibleGrids;
+            }
+        }
+        #endregion
 
         public const float FLY_HEIGHT = 80;
         public const float FLY_SPEED_ENTER = 0.3f;
@@ -165,14 +231,14 @@ namespace MVZ2.GameContent.Enemies
         public const float MAX_FLY_SPEED = 100f;
         public const float LEAVE_HEIGHT = 600;
         public const float START_HEIGHT = 600;
+        public const float MAX_MOVE_SPEED = 15f;
+        public const float MOVE_FACTOR = 0.5f;
         public const int STATE_DEATH = VanillaEntityStates.DEAD;
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         public const int STATE_STAY = VanillaEntityStates.WALK;
         public const int STATE_ACT = VanillaEntityStates.ATTACK;
         public const int STATE_LEAVE = VanillaEntityStates.ENEMY_LEAVE;
         private const string PROP_REGION = "ufo";
-        [EntityPropertyRegistry(PROP_REGION)]
-        public static readonly VanillaEntityPropertyMeta<int> PROP_TYPE = new VanillaEntityPropertyMeta<int>("type");
         [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_X = new VanillaEntityPropertyMeta<int>("target_grid_x");
         [EntityPropertyRegistry(PROP_REGION)]

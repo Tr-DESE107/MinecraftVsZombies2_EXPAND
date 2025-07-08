@@ -1,8 +1,10 @@
-﻿using MVZ2.GameContent.Buffs;
+﻿using System.Collections.Generic;
+using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
 
@@ -48,6 +50,27 @@ namespace MVZ2.GameContent.Enemies
         }
         public override int GetStayTime() => STAY_TIME;
         public override int GetActTime() => ACT_TIME;
+
+        public static bool CanSpawn(LevelEngine level)
+        {
+            return true;
+        }
+        public static void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
+        {
+            var maxColumn = level.GetMaxColumnCount();
+            var maxLane = level.GetMaxLaneCount();
+            for (int x = maxColumn - 4; x < maxColumn; x++)
+            {
+                for (int y = 0; y < maxLane; y++)
+                {
+                    var grid = level.GetGrid(x, y);
+                    if (grid != null)
+                    {
+                        results.Add(grid);
+                    }
+                }
+            }
+        }
 
         public const int STAY_TIME = 90;
         public const int ACT_TIME = 60;

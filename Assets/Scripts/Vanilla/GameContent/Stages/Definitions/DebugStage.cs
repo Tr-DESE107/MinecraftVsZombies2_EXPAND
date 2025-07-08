@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.ufoRed,
                 VanillaEnemyID.ufoGreen,
                 VanillaEnemyID.ufoBlue,
-                VanillaEnemyID.megaMutantZombie,
+                VanillaEnemyID.ufoRainbow,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

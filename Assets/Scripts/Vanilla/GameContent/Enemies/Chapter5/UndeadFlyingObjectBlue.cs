@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
@@ -46,7 +47,6 @@ namespace MVZ2.GameContent.Enemies
                     }
                 }
             }
-            entity.Remove();
         }
         protected override void UpdateStateStay(Entity enemy)
         {
@@ -96,10 +96,29 @@ namespace MVZ2.GameContent.Enemies
             }
             return list.Remove(value);
         }
+        public static bool CanSpawn(LevelEngine level)
+        {
+            return true;
+        }
+        public static void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
+        {
+            var maxColumn = level.GetMaxColumnCount();
+            var maxLane = level.GetMaxLaneCount();
+            for (int x = 0; x < maxColumn; x++)
+            {
+                for (int y = 0; y < maxLane; y++)
+                {
+                    var grid = level.GetGrid(x, y);
+                    if (grid != null)
+                    {
+                        results.Add(grid);
+                    }
+                }
+            }
+        }
 
         public const int STAY_TIME = 30;
         public const int ACT_TIME = 300;
-        public const int STEAL_CONTRAPTION_TIME = 30;
         public static readonly VanillaEntityPropertyMeta<List<NamespaceID>> PROP_ABSORBED_ENTITY_ID = new VanillaEntityPropertyMeta<List<NamespaceID>>("absorbed_entity_id");
     }
 }

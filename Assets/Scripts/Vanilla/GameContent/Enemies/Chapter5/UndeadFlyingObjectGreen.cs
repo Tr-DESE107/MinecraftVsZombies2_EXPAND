@@ -1,4 +1,5 @@
-﻿using MVZ2.GameContent.Buffs.Contraptions;
+﻿using System.Collections.Generic;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Entities;
@@ -7,6 +8,7 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
@@ -28,7 +30,6 @@ namespace MVZ2.GameContent.Enemies
                 spawnParams.SetProperty(BlueprintPickup.PROP_BLUEPRINT_ID, blueprintID);
                 var pickup = entity.Spawn(VanillaPickupID.blueprintPickup, entity.GetCenter(), spawnParams);
             }
-            entity.Remove();
         }
         protected override void UpdateStateStay(Entity enemy)
         {
@@ -43,7 +44,7 @@ namespace MVZ2.GameContent.Enemies
                 foreach (var layer in orderedLayers)
                 {
                     var entity = grid.GetLayerEntity(layer);
-                    if (!CanStartSteal(entity))
+                    if (!CanStartSteal(enemy, entity))
                         continue;
                     enemy.Target = entity;
                     var buff = entity.AddBuff<StolenByUFOBuff>();
@@ -70,9 +71,32 @@ namespace MVZ2.GameContent.Enemies
         }
         public override int GetStayTime() => STAY_TIME;
         public override int GetActTime() => ACT_TIME;
-        public static bool CanStartSteal(Entity entity)
+        public static bool CanStartSteal(Entity ufo, Entity entity)
         {
-            return entity.ExistsAndAlive() && !entity.HasBuff<StolenByUFOBuff>();
+            return CanStartSteal(ufo.GetFaction(), entity);
+        }
+        public static bool CanStartSteal(int ufoFaction, Entity entity)
+        {
+            if (!entity.ExistsAndAlive())
+                return false;
+            if (entity.Type != EntityTypes.PLANT && entity.Type != EntityTypes.OBSTACLE)
+                return false;
+            if (entity.HasBuff<StolenByUFOBuff>())
+                return false;
+            if (!EngineEntityExt.IsHostile(ufoFaction, entity.GetFaction()))
+                return false;
+            return true;
+        }
+        public static bool CanSpawn(LevelEngine level)
+        {
+            return level.EntityExists(e => CanStartSteal(level.Option.RightFaction, e));
+        }
+        public static void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
+        {
+            foreach (var ent in level.FindEntities(e => CanStartSteal(level.Option.RightFaction, e)))
+            {
+                results.Add(ent.GetGrid());
+            }
         }
         public static NamespaceID GetStolenEntityID(Entity entity) => entity.GetBehaviourField<NamespaceID>(PROP_STOLEN_ENTITY_ID);
         public static void SetStolenEntityID(Entity entity, NamespaceID value) => entity.SetBehaviourField(PROP_STOLEN_ENTITY_ID, value);

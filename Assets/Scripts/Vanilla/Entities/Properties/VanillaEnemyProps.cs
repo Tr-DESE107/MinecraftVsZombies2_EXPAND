@@ -132,6 +132,18 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 不与行对齐
+        public static readonly PropertyMeta<bool> NO_ALIGN_TO_LANE = Get<bool>("no_align_to_lane");
+        public static bool NoAlignToLane(this Entity enemy)
+        {
+            return enemy.GetProperty<bool>(NO_ALIGN_TO_LANE);
+        }
+        public static bool NoAlignToLane(this EntityDefinition enemy)
+        {
+            return enemy.GetProperty<bool>(NO_ALIGN_TO_LANE);
+        }
+        #endregion
+
         #region 乘客位置
         public static readonly PropertyMeta<Vector3> PASSENGER_OFFSET = Get<Vector3>("passengerOffset");
         public static Vector3 GetPassengerOffset(this Entity enemy)

@@ -129,6 +129,14 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 起始位置偏移
+        public static readonly PropertyMeta<Vector3> STARTING_POSITION_OFFSET = Get<Vector3>("starting_position_offset");
+        public static Vector3 GetStartingPositionOffset(this EntityDefinition entityDef)
+        {
+            return entityDef.GetProperty<Vector3>(STARTING_POSITION_OFFSET);
+        }
+        #endregion
+
         #region 车辆
         public static readonly PropertyMeta<int> VEHICLE_INTERACTION = Get<int>("vehicleInteraction");
         public static int GetVehicleInteraction(this Entity entity)
