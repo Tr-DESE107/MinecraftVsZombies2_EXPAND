@@ -1292,7 +1292,69 @@
                 <int name="mvz2:waterInteraction" value="2" />
             </properties>
         </enemy>
-        <enemy id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2:level.castle_3">
+
+		<enemy id="AngryReverser" name="愤怒的反逆者" deathMessage="服从凋灵吧" >
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:mesmerizer_crown" />
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotOffset" x="30" y="96" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="0" y="0" z="0" />
+				<id name="mvz2:shell" value="mvz2:nether" />
+				<id name="mvz2:projectileId" value="mvz2:compelling_orb" />
+				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
+				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
+				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+
+				<int name="mvz2:cost" value="125" />
+				<int name="mvz2:waterInteraction" value="2" />
+			</properties>
+		</enemy>
+
+		<enemy id="NetherWarrior" name="下界战士" deathMessage="骸死我了">
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:skeleton_warrior_helmet" />
+				<id name="mvz2:starting_shield" value="mvz2:skeleton_warrior_shield" />
+				<id name="mvz2:shell" value="mvz2:nether" />
+				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
+				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+				<bool name="mvz2:noReward" value="true" />
+
+				<int name="mvz2:cost" value="175" />
+				<int name="mvz2:waterInteraction" value="2" />
+			</properties>
+		</enemy>
+
+		<enemy id="NetherVanguard" name="下界冲锋者" deathMessage="骸死我了">
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:skeleton_warrior_helmet" />
+				<id name="mvz2:starting_shield" value="mvz2:skeleton_warrior_shield" />
+				<id name="mvz2:shell" value="mvz2:nether" />
+				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
+				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+				<bool name="mvz2:noReward" value="true" />
+
+				<int name="mvz2:cost" value="175" />
+				<int name="mvz2:waterInteraction" value="2" />
+			</properties>
+		</enemy>
+		
+		<enemy id="NetherArcher" name="下界弓手" deathMessage="被射成刺猬了！">
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:skeleton_warrior_helmet" />
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
+				<id name="mvz2:shell" value="mvz2:nether" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
+				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
+				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+
+				<int name="mvz2:cost" value="75" />
+				<int name="mvz2:waterInteraction" value="2" />
+			</properties>
+		</enemy>
+		
+		<enemy id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2:level.castle_3">
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:berserker_helmet" />
                 <float name="mvz2:range" value="80" />

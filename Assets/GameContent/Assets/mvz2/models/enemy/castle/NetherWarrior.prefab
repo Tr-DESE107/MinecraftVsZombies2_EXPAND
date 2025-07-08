@@ -24,6 +24,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1788139634, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
+    - target: {fileID: 5290092244730766058, guid: 440294be06b4bd14785efb5767c9116a, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -124353358, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
+    - target: {fileID: 5290092244730766058, guid: 440294be06b4bd14785efb5767c9116a, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 581941778, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
     - target: {fileID: 5528626019057055863, guid: 440294be06b4bd14785efb5767c9116a, type: 3}
       propertyPath: m_Sprite
       value: 

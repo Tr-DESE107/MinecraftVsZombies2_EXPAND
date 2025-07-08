@@ -57,6 +57,7 @@
         public const int SPIDER_CLIMB = ENEMY_CAST;
 
         public const int MESMERIZER_CAST = ENEMY_CAST;
+        public const int AngryReverser_CAST = ENEMY_CAST;
 
         public const int SKELETON_HORSE_GALLOP = ENEMY_RUN;
         public const int SKELETON_HORSE_JUMP = ENEMY_CAST;

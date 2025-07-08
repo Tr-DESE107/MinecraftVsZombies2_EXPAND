@@ -160,6 +160,7 @@
         <spawn level="3" minWave="5" />
         <weight base="2500" />
     </entry>
+	
     <entry id="berserker" entity="mvz2:berserker" >
         <spawn level="3" />
         <weight base="2000" />
@@ -181,6 +182,24 @@
         <weight base="2000" />
     </entry>
 
+
+	<entry id="NetherWarrior" entity="mvz2:NetherWarrior" >
+		<spawn level="3" />
+		<weight base="2000" />
+	</entry>
+	<entry id="NetherArcher" entity="mvz2:NetherArcher" >
+		<spawn level="3" />
+		<weight base="2000" />
+	</entry>
+	<entry id="NetherVanguard" entity="mvz2:NetherVanguard" >
+		<spawn level="3" />
+		<weight base="1500" />
+	</entry>
+	<entry id="AngryReverser" entity="mvz2:AngryReverser" >
+		<spawn level="3" minWave="5" />
+		<weight base="1250" />
+	</entry>
+	
     <!-- Mausoleum -->
     <entry id="reflective_barrier_zombie" entity="mvz2:reflective_barrier_zombie" >
         <spawn level="3" minWave="5"/>

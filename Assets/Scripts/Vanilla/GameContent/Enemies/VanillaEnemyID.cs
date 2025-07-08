@@ -46,6 +46,11 @@ namespace MVZ2.GameContent.Enemies
         public const string hellChariot = "hell_chariot";
         public const string anubisand = "anubisand";
 
+        public const string NetherWarrior = "NetherWarrior";
+        public const string NetherArcher = "NetherArcher";
+        public const string NetherVanguard = "NetherVanguard";
+        public const string AngryReverser = "AngryReverser";
+
         public const string reflectiveBarrierZombie = "reflective_barrier_zombie";
         public const string talismanZombie = "talisman_zombie";
         public const string wickedHermitZombie = "wicked_hermit_zombie";
@@ -115,6 +120,11 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID dullahan = Get(VanillaEnemyNames.dullahan);
         public static readonly NamespaceID hellChariot = Get(VanillaEnemyNames.hellChariot);
         public static readonly NamespaceID anubisand = Get(VanillaEnemyNames.anubisand);
+
+        public static readonly NamespaceID NetherWarrior = Get(VanillaEnemyNames.NetherWarrior);
+        public static readonly NamespaceID NetherArcher = Get(VanillaEnemyNames.NetherArcher);
+        public static readonly NamespaceID NetherVanguard = Get(VanillaEnemyNames.NetherVanguard);
+        public static readonly NamespaceID AngryReverser = Get(VanillaEnemyNames.AngryReverser);
 
         public static readonly NamespaceID MonkZombie = Get(VanillaEnemyNames.MonkZombie);
 
