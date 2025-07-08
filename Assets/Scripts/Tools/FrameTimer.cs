@@ -42,6 +42,10 @@ namespace Tools
                 }
             }
         }
+        public bool PassedFrameFromMax(int frame)
+        {
+            return PassedFrame(MaxFrame - frame);
+        }
         public bool PassedFrame(int frame)
         {
             return LastFrame > frame && Frame <= frame;

@@ -94,6 +94,7 @@ namespace MVZ2.GameContent.Buffs
         public const string shikaisenRevive = "shikaisen_revive";
 
         public const string paratroop = "paratroop";
+        public const string summonedByUFO = "summonedByUFO";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";

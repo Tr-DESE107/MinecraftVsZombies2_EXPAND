@@ -1,4 +1,6 @@
-﻿using MVZ2.GameContent.Buffs.Enemies;
+﻿using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
@@ -6,6 +8,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -23,7 +26,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            SetStateTimer(entity, new FrameTimer(STAY_TIME));
+            SetStateTimer(entity, new FrameTimer(GetStayTime(entity)));
             var column = entity.GetColumn();
             var lane = entity.GetLane();
             SetTargetGridX(entity, column);
@@ -104,7 +107,7 @@ namespace MVZ2.GameContent.Enemies
             if (timer.Expired)
             {
                 SetUFOState(enemy, STATE_ACT);
-                timer.ResetTime(ACT_TIME);
+                timer.ResetTime(GetActTime(enemy));
             }
         }
         private void UpdateStateAct(Entity enemy)
@@ -113,6 +116,23 @@ namespace MVZ2.GameContent.Enemies
 
             var timer = GetStateTimer(enemy);
             timer.Run();
+            var type = GetType(enemy);
+            switch (type)
+            {
+                case TYPE_RED:
+                    if (timer.PassedFrameFromMax(RED_RELEASE_ZOMBIE_TIME))
+                    {
+                        var enemyID = redEnemyPool.Random(enemy.RNG);
+                        var param = enemy.GetSpawnParams();
+                        param.OnApply += (e) =>
+                        {
+                            e.AddBuff<SummonedByUFOBuff>();
+                            WhiteFlashBuff.AddToEntity(e, 30);
+                        };
+                        enemy.Spawn(enemyID, enemy.Position, param);
+                    }
+                    break;
+            }
             if (timer.Expired)
             {
                 SetUFOState(enemy, STATE_LEAVE);
@@ -162,6 +182,46 @@ namespace MVZ2.GameContent.Enemies
             var y = level.GetGroundY(x, z) + FLY_HEIGHT;
             return new Vector3(x, y, z);
         }
+        private static int GetStayTime(Entity enemy)
+        {
+            return GetStayTime(GetType(enemy));
+        }
+        private static int GetStayTime(int type)
+        {
+            switch (type)
+            {
+                case TYPE_RED:
+                    return STAY_TIME_RED;
+                case TYPE_GREEN:
+                    return STAY_TIME_GREEN;
+                case TYPE_BLUE:
+                    return STAY_TIME_BLUE;
+                case TYPE_RAINBOW:
+                    return STAY_TIME_RAINBOW;
+            }
+            return STAY_TIME_RED;
+        }
+        private static int GetActTime(Entity enemy)
+        {
+            return GetActTime(GetType(enemy));
+        }
+        private static int GetActTime(int type)
+        {
+            switch (type)
+            {
+                case TYPE_RED:
+                    return ACT_TIME_RED;
+                case TYPE_GREEN:
+                    return ACT_TIME_GREEN;
+                case TYPE_BLUE:
+                    return ACT_TIME_BLUE;
+                case TYPE_RAINBOW:
+                    return ACT_TIME_RAINBOW;
+            }
+            return ACT_TIME_RED;
+        }
+        public static int GetType(Entity entity) => entity.GetBehaviourField<int>(PROP_TYPE);
+        public static void SetType(Entity entity, int value) => entity.SetBehaviourField(PROP_TYPE, value);
         public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
         public static void SetStateTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(PROP_STATE_TIMER, value);
         public static int GetUFOState(Entity entity) => entity.GetBehaviourField<int>(PROP_UFO_STATE);
@@ -171,8 +231,23 @@ namespace MVZ2.GameContent.Enemies
         public static int GetTargetGridY(Entity entity) => entity.GetBehaviourField<int>(PROP_TARGET_GRID_Y);
         public static void SetTargetGridY(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_GRID_Y, value);
 
-        public const int STAY_TIME = 240;
-        public const int ACT_TIME = 150;
+        public const int TYPE_RED = 0;
+        public const int TYPE_GREEN = 1;
+        public const int TYPE_BLUE = 2;
+        public const int TYPE_RAINBOW = 3;
+
+        public const int STAY_TIME_RED = 90;
+        public const int STAY_TIME_GREEN = 240;
+        public const int STAY_TIME_BLUE = 30;
+        public const int STAY_TIME_RAINBOW = 240;
+
+        public const int ACT_TIME_RED = 60;
+        public const int ACT_TIME_GREEN = 150;
+        public const int ACT_TIME_BLUE = 300;
+        public const int ACT_TIME_RAINBOW = 30;
+
+        public const int RED_RELEASE_ZOMBIE_TIME = 30;
+
         public const float FLY_HEIGHT = 80;
         public const float FLY_SPEED_ENTER = 0.3f;
         public const float FLY_SPEED_LEAVE = 0.1f;
@@ -186,9 +261,16 @@ namespace MVZ2.GameContent.Enemies
         public const int STATE_STAY = VanillaEntityStates.WALK;
         public const int STATE_ACT = VanillaEntityStates.ATTACK;
         public const int STATE_LEAVE = VanillaEntityStates.ENEMY_LEAVE;
+        public static readonly VanillaEntityPropertyMeta<int> PROP_TYPE = new VanillaEntityPropertyMeta<int>("type");
         public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_X = new VanillaEntityPropertyMeta<int>("target_grid_x");
         public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_Y = new VanillaEntityPropertyMeta<int>("target_grid_y");
         public static readonly VanillaEntityPropertyMeta<int> PROP_UFO_STATE = new VanillaEntityPropertyMeta<int>("ufo_state", STATE_STAY);
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("state_timer");
+        public static NamespaceID[] redEnemyPool = new NamespaceID[]
+        {
+            VanillaEnemyID.zombie,
+            VanillaEnemyID.leatherCappedZombie,
+            VanillaEnemyID.ironHelmettedZombie,
+        };
     }
 }

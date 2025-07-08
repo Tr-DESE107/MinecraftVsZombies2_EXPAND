@@ -1,4 +1,5 @@
-﻿using PVZEngine.Entities;
+﻿using System;
+using PVZEngine.Entities;
 
 namespace PVZEngine.Level
 {
@@ -14,7 +15,9 @@ namespace PVZEngine.Level
             {
                 entity.SetPropertyObject(property, properties.GetPropertyObject(property));
             }
+            OnApply?.Invoke(entity);
         }
         private PropertyDictionary properties = new PropertyDictionary();
+        public event Action<Entity> OnApply;
     }
 }
