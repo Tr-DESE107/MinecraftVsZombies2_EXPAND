@@ -747,6 +747,10 @@
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
             <spawn id="mvz2:hell_chariot"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:NetherVanguard"/>
+			<spawn id="mvz2:AngryReverser"/>
         </spawns>
         <properties>
             <bool name="noEnergy" value="true"/>

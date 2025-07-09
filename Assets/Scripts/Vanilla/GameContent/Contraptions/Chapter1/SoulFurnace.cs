@@ -251,7 +251,7 @@ namespace MVZ2.GameContent.Contraptions
         public const int MAX_FUEL = 60;
         public const int REFUEL_THRESOLD = 10;
         public const int I_ZOMBIE_FUEL = REFUEL_THRESOLD + 5;
-        public const int MAX_EVOKE_TIME = 53;
+        public const int MAX_EVOKE_TIME = 150;
         private Detector evocationDetector;
         private List<IEntityCollider> detectBuffer = new List<IEntityCollider>();
 
