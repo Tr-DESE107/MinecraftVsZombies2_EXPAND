@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using PVZEngine;
@@ -10,6 +11,7 @@ namespace MVZ2.GameContent.Contraptions
 {
     public interface ICarrierBehaviour
     {
+        void UpdateCarrier(Entity entity);
     }
     public abstract class CarrierContraptionBehaviour : EntityBehaviourDefinition, ICarrierBehaviour
     {
@@ -17,6 +19,13 @@ namespace MVZ2.GameContent.Contraptions
         {
             AddAura(new PassengerAura(GetPassenagerBuffID()));
             AddAura(new CarrierAura(GetCarrierBuffID()));
+        }
+        public void UpdateCarrier(Entity carrier)
+        {
+            foreach (var aura in carrier.GetAuraEffects())
+            {
+                aura.UpdateAura();
+            }
         }
         protected abstract NamespaceID GetCarrierBuffID();
         protected abstract NamespaceID GetPassenagerBuffID();
@@ -44,8 +53,10 @@ namespace MVZ2.GameContent.Contraptions
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var sourceEnt = auraEffect.Source.GetEntity();
-                var grid = sourceEnt?.GetGrid();
-                if (grid != null)
+                if (sourceEnt == null)
+                    return;
+                var grids = sourceEnt.GetGridsToTake();
+                foreach (var grid in grids)
                 {
                     results.Add(grid.GetMainEntity());
                     results.Add(grid.GetProtectorEntity());
@@ -53,4 +64,5 @@ namespace MVZ2.GameContent.Contraptions
             }
         }
     }
+
 }

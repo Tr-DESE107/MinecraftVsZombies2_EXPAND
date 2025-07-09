@@ -1,3 +1,4 @@
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Detections;
@@ -40,6 +41,8 @@ namespace MVZ2.Vanilla.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
+            if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+                return;
             stateMachine.StartState(entity, STATE_DEATH);
         }
         public static bool HasImp(Entity entity) => entity.GetBehaviourField<bool>(FIELD_HAS_IMP);

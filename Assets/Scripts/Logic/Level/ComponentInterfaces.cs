@@ -17,6 +17,10 @@ namespace MVZ2Logic.Level.Components
         void ShowAdvicePlural(string context, string textKey, long n, int priority, int timeout, params string[] args) => ShowAdvicePlural(context, textKey, textKey, n, priority, timeout, args);
         void HideAdvice();
     }
+    public interface IAreaComponent : ILevelComponent
+    {
+        IModelInterface GetAreaModelInterface();
+    }
     public interface IHeldItemComponent : ILevelComponent
     {
         void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false);

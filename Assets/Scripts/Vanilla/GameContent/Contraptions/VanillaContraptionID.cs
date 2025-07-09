@@ -51,9 +51,15 @@ namespace MVZ2.GameContent.Contraptions
         public const string blackHoleBomb = "black_hole_bomb";
         public const string desirePot = "desire_pot";
 
+        public const string gunpowderBarrel = "gunpowder_barrel";
+        public const string repeatenser = "repeatenser";
+
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";
         public const string goldenDropper = "golden_dropper";
+
+        public const string highFrequencyPulseDispenser = "high_frequency_pulse_dispenser";
+        public const string hfpd = highFrequencyPulseDispenser;
         public const string diamondSpikes = "diamond_spikes";
         public const string commandBlock = "command_block";
 
@@ -109,9 +115,15 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID blackHoleBomb = Get(VanillaContraptionNames.blackHoleBomb);
         public static readonly NamespaceID desirePot = Get(VanillaContraptionNames.desirePot);
 
+        public static readonly NamespaceID gunpowderBarrel = Get(VanillaContraptionNames.gunpowderBarrel);
+        public static readonly NamespaceID repeatenser = Get(VanillaContraptionNames.repeatenser);
+
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);
         public static readonly NamespaceID goldenDropper = Get(VanillaContraptionNames.goldenDropper);
+
+        public static readonly NamespaceID highFrequencyPulseDispenser = Get(VanillaContraptionNames.highFrequencyPulseDispenser);
+        public static readonly NamespaceID hfpd = highFrequencyPulseDispenser;
         public static readonly NamespaceID diamondSpikes = Get(VanillaContraptionNames.diamondSpikes);
         public static readonly NamespaceID commandBlock = Get(VanillaContraptionNames.commandBlock);
 

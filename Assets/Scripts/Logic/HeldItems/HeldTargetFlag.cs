@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using PVZEngine.Entities;
 
 namespace MVZ2Logic.HeldItems
 {
@@ -14,5 +16,23 @@ namespace MVZ2Logic.HeldItems
         Pickup = 1 << 5,
         Projectile = 1 << 6,
         Effect = 1 << 7,
+    }
+    public static class HeldTargetFlagHelper
+    {
+        public static HeldTargetFlag GetHeldTargetFlagByType(int type)
+        {
+            return typeFlagDict.TryGetValue(type, out var flag) ? flag : HeldTargetFlag.None;
+        }
+        private static Dictionary<int, HeldTargetFlag> typeFlagDict = new Dictionary<int, HeldTargetFlag>()
+        {
+            { EntityTypes.PLANT, HeldTargetFlag.Plant },
+            { EntityTypes.ENEMY, HeldTargetFlag.Enemy },
+            { EntityTypes.OBSTACLE, HeldTargetFlag.Obstacle },
+            { EntityTypes.BOSS, HeldTargetFlag.Boss },
+            { EntityTypes.CART, HeldTargetFlag.Cart },
+            { EntityTypes.PICKUP, HeldTargetFlag.Pickup },
+            { EntityTypes.PROJECTILE, HeldTargetFlag.Projectile },
+            { EntityTypes.EFFECT, HeldTargetFlag.Effect },
+        };
     }
 }

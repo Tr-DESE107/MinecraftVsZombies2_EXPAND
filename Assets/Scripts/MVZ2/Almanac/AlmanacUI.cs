@@ -147,17 +147,25 @@ namespace MVZ2.Almanacs
         }
 
         #region Ëõ·Å
-        public void StartZoom(Sprite sprite)
+        public void StartZoom()
         {
-            zoomPage.Display(sprite);
+            zoomPage.Display();
         }
         public void StopZoom()
         {
             zoomPage.Hide();
         }
+        public void SetZoomSprite(Sprite sprite)
+        {
+            zoomPage.SetSprite(sprite);
+        }
         public void SetZoomHintText(string text)
         {
             zoomPage.SetZoomHintText(text);
+        }
+        public void SetZoomPageButtonsActive(bool active)
+        {
+            zoomPage.SetPageButtonActive(active);
         }
         #endregion
         private void Awake()
@@ -207,6 +215,7 @@ namespace MVZ2.Almanacs
                 }
             }
             zoomPage.OnReturnClick += () => OnZoomReturnClick?.Invoke();
+            zoomPage.OnPageButtonClick += (v) => OnZoomPageButtonClick?.Invoke(v);
         }
         public event Action<bool> OnReturnClick;
         public event Action<IndexAlmanacPage.ButtonType> OnIndexButtonClick;
@@ -225,6 +234,7 @@ namespace MVZ2.Almanacs
         public event Action<AlmanacPageType, int> OnTagIconDown;
 
         public event Action OnZoomReturnClick;
+        public event Action<bool> OnZoomPageButtonClick;
 
         private Dictionary<AlmanacPageType, AlmanacPage> almanacPages = new Dictionary<AlmanacPageType, AlmanacPage>();
 

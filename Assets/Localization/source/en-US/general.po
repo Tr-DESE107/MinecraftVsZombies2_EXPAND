@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-06-14 09:32+0800\n"
-"PO-Revision-Date: 2025-06-15 08:51+0800\n"
+"POT-Creation-Date: 2025-07-04 03:30+0800\n"
+"PO-Revision-Date: 2025-07-09 14:32+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -498,87 +498,87 @@ msgctxt "random_china.event_name"
 msgid "小型之怒"
 msgstr "Wrath of the Small"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:200
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:206
 msgctxt "advice.starshard_tutorial.0"
 msgid "点击星之碎片槽选中星之碎片！"
 msgstr "Click the Starshard to select it!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:202
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:208
 msgctxt "advice.starshard_tutorial.1"
 msgid "点击发射器！"
 msgstr "Click the Dispenser!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:204
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:210
 msgctxt "advice.starshard_tutorial.2"
 msgid "干得漂亮！"
 msgstr "Excellent job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:206
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:212
 msgctxt "advice.starshard_tutorial.3"
 msgid "绿色的怪物会携带星之碎片！"
 msgstr "Green enemies carry Starshards!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:208
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:214
 msgctxt "advice.starshard_tutorial.4"
 msgid "点击收集星之碎片！"
 msgstr "Click to collect Starshards!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:210
+#: Scripts\Vanilla\GameContent\Stages\Definitions\StarshardTutorialStage.cs:216
 msgctxt "advice.starshard_tutorial.5"
 msgid "现在干掉铁盔僵尸！"
 msgstr "Now defeat the Iron Helmet Zombie!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:298
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:302
 msgctxt "advice.trigger_tutorial.0"
 msgid "放置TNT！"
 msgstr "Click and place TNT!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:300
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:304
 msgctxt "advice.trigger_tutorial.1"
 msgid "点击选中触发器！"
 msgstr "Select the Trigger!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:302
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:306
 msgctxt "advice.trigger_tutorial.2"
 msgid "点击以触发TNT！"
 msgstr "Click to trigger the TNT!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:304
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:308
 msgctxt "advice.trigger_tutorial.3"
 msgid "干得漂亮！"
 msgstr "Excellent job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:306
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:310
 msgctxt "advice.trigger_tutorial.4"
 msgid "选中触发器！"
 msgstr "Select the Trigger!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:308
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:312
 msgctxt "advice.trigger_tutorial.5"
 msgid "点击TNT蓝图！"
 msgstr "Click the TNT blueprint!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:310
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:314
 msgctxt "advice.trigger_tutorial.6"
 msgid "放置TNT，它会立即被触发！"
 msgstr "Place TNT, then it will be instantly triggered!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:312
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:316
 msgctxt "advice.trigger_tutorial.7"
 msgid "干得好！"
 msgstr "Good job!"
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:314
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:318
 msgctxt "advice.trigger_tutorial.8"
 msgid "立即触发只限于一次性消耗类型的器械。"
 msgstr "Instant triggering can only be used on single-use contraptions."
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:316
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:320
 msgctxt "advice.trigger_tutorial.9"
 msgid "如果你想交换这两个动作的效果，你可以在设置中更改。"
 msgstr "You can swap these two actions in Settings."
 
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:318
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:322
 msgctxt "advice.trigger_tutorial.10"
 msgid "祝你好运！"
 msgstr "Good luck!"
@@ -703,39 +703,39 @@ msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:484
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:485
 msgid "选择你的命运"
 msgstr "Choose your fate"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:486
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:487
 msgid "选吧。"
 msgstr "Choose."
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:488
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
 msgid "潘多拉的魔盒"
 msgstr "Pandora's Box"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:490
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
 msgid "尸潮"
 msgstr "Biohazard"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:492
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
 msgid "衰老"
 msgstr "Decrepify"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:494
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
 msgid "疯狂"
 msgstr "Insanity"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:496
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
 msgid "成真"
 msgstr "Come True"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:498
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
 msgid "深潜者"
 msgstr "The Lurker"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:500
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
 msgid "黑太阳"
 msgstr "The Black Sun"
 
@@ -1397,7 +1397,7 @@ msgstr "Origin: {0}"
 msgid "作者：{0}"
 msgstr "Composer: {0}"
 
-#: Scripts\MVZ2\Map\MapController.cs:676
+#: Scripts\MVZ2\Map\MapController.cs:680
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
@@ -1405,7 +1405,7 @@ msgstr ""
 "Hold right mouse and drag to move the view\n"
 "Scroll to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:678
+#: Scripts\MVZ2\Map\MapController.cs:682
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
@@ -1413,11 +1413,11 @@ msgstr ""
 "Drag with one finger to move the view\n"
 "Touch with two fingers to scale the view"
 
-#: Scripts\MVZ2\Map\MapController.cs:680
+#: Scripts\MVZ2\Map\MapController.cs:684
 msgid "正在进入关卡……"
 msgstr "Entering Level…"
 
-#: Scripts\MVZ2\Map\MapController.cs:682
+#: Scripts\MVZ2\Map\MapController.cs:686
 msgid ""
 "轮数\n"
 "{0}/{1}"
@@ -2243,11 +2243,11 @@ msgctxt "key.name"
 msgid "Menu"
 msgstr "Menu"
 
-#: Scripts\MVZ2\Managers\MainManager.cs:284
+#: Scripts\MVZ2\Managers\MainManager.cs:286
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
-#: Scripts\MVZ2\Managers\MainManager.cs:286
+#: Scripts\MVZ2\Managers\MainManager.cs:288
 msgid "{0}%"
 msgstr "{0}%"
 
@@ -2256,46 +2256,46 @@ msgstr "{0}%"
 msgid "FPS: {0}"
 msgstr "FPS: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:742
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:758
 msgid "无法删除用户：{0}"
 msgstr "Cannot delete user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:744
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:760
 msgid "无法切换至用户：{0}"
 msgstr "Cannot switch to user: {0}"
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:746
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:762
 msgid "没有其他有效的用户可供切换。"
 msgstr "There are no other available users to switch."
 
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:748
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:764
 msgid "确认要退出吗？"
 msgstr "Quit?"
 
 # 语言包导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:750
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:766
 msgid "导出存档失败。"
 msgstr "Failed to export the user."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:752
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:768
 msgid "导入存档失败。"
 msgstr "Failed to import the user."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:754
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:770
 msgid "导入存档失败，文件可能已损坏。"
 msgstr "Failed to import the user. The file may corrupt."
 
 # 语言包导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:756
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:772
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 "Failed to import the user. A user with identical name exists, but the user "
 "to be imported cannot be renamed."
 
 # 语言包导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:758
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:774
 msgid "存档已导出至{0}。"
 msgstr "The user has been successfully exported to {0}."
 
@@ -2340,7 +2340,7 @@ msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr "View in Almanac"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:930
+#: Scripts\MVZ2\Level\LevelController_UI.cs:965
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
@@ -2348,15 +2348,55 @@ msgstr ""
 "Restart level?\n"
 "The progress of this level will be lost."
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:932
+#: Scripts\MVZ2\Level\LevelController_UI.cs:967
 msgid "加载关卡失败，出现错误：{0}"
 msgstr "Failed to load stage. An error occurred: {0}"
 
-#: Scripts\MVZ2\Level\LevelController_UI.cs:934
-msgid "加载关卡失败，存档状态和当前游戏状态不匹配。"
+#: Scripts\MVZ2\Level\LevelController_UI.cs:969
+msgid ""
+"加载关卡失败，存档状态和当前游戏状态不匹配：\n"
+"{0}"
 msgstr ""
 "Failed to load stage. The state of the stage is not match with the current "
-"game state."
+"game state: \n"
+"{0}"
+
+# 关卡标识符名称，{0}为命名空间名，{1}为数据版本号
+#: Scripts\MVZ2\Level\LevelController_UI.cs:971
+msgid "{0}（版本{1}）"
+msgstr "{0} (version {1})"
+
+# 关卡标识符名称，{0}为命名空间名，{1}为数据版本号，{2}为当前数据版本号
+#: Scripts\MVZ2\Level\LevelController_UI.cs:973
+msgid "{0}（版本{1}，当前状态为{2}）"
+msgstr "{0} (version {1}, current {2})"
+
+# 对话框内容，{0}为不匹配的关卡标识符列表
+#: Scripts\MVZ2\Level\LevelController_UI.cs:975
+msgid ""
+"版本号不匹配：\n"
+"{0}"
+msgstr ""
+"Mismatched version:\n"
+"{0}"
+
+# 对话框内容，{0}为丢失的关卡标识符列表
+#: Scripts\MVZ2\Level\LevelController_UI.cs:977
+msgid ""
+"丢失的模组：\n"
+"{0}"
+msgstr ""
+"Missing mods:\n"
+"{0}"
+
+# 对话框内容，{0}为多出的关卡标识符列表
+#: Scripts\MVZ2\Level\LevelController_UI.cs:979
+msgid ""
+"多出的模组：\n"
+"{0}"
+msgstr ""
+"Excess mods:\n"
+"{0}"
 
 #: Scripts\MVZ2\Archive\ArchiveController.cs:248
 msgid "<b>[{0}]</b> {1}"
@@ -2445,7 +2485,7 @@ msgstr "Failed to import the language pack."
 msgid "语言包已导出至{0}。"
 msgstr "The language pack has been successfully exported to {0}."
 
-#. Name for stage mvz2:debug
+#. Name for stage mvz2:i_zombie_debug
 #: Stage meta file
 msgctxt "levelname"
 msgid "测试关卡"
@@ -2510,6 +2550,18 @@ msgstr "Mausoleum"
 msgctxt "levelname"
 msgid "梦殿大祀庙无尽"
 msgstr "Mausoleum Endless"
+
+#. Name for stage mvz2:ship_1
+#: Stage meta file
+msgctxt "levelname"
+msgid "圣辇船"
+msgstr "Ship"
+
+#. Name for stage mvz2:ship_endless
+#: Stage meta file
+msgctxt "levelname"
+msgid "圣辇船无尽"
+msgstr "Ship Endless"
 
 #. Name for stage mvz2:whack_a_ghost
 #: Stage meta file
@@ -3599,6 +3651,41 @@ msgstr ""
 "atmosphere.\n"
 "In the end, this oppressive force pushes you toward the abyss."
 
+#. Name for music mvz2:ship_map
+#: Music meta file
+msgctxt "music.name"
+msgid "美猴王-地图"
+msgstr "Monkey King Map"
+
+#. Description for music mvz2:ship_map
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"圣辇船地图的音乐。\n"
+"=====乐评施工中====="
+msgstr ""
+
+#. Name for music mvz2:ship_level
+#: Music meta file
+msgctxt "music.name"
+msgid "晴空中的UFO恋曲"
+msgstr "UFO Romance in the Sunny Sky"
+
+#. Origin for music mvz2:ship_level
+#: Music meta file
+msgctxt "music.origin"
+msgid "夜空中的UFO恋曲"
+msgstr "UFO Romance in the Night Sky"
+
+#. Description for music mvz2:ship_level
+#: Music meta file
+msgctxt "music.description"
+msgid ""
+"星莲船关卡的音乐。\n"
+"原曲是《东方星莲船》Extra关的音乐《夜空中的UFO恋曲》。\n"
+"=====乐评施工中====="
+msgstr ""
+
 #. Name for archive tag mvz2:prologue
 #: Archive meta file
 msgctxt "archive.tagname"
@@ -3718,6 +3805,12 @@ msgstr "You cannot place this contraption on planks"
 msgctxt "advice"
 msgid "你不能在陆地上放置该器械"
 msgstr "You cannot place this contraption on land"
+
+#. Message for grid error mvz2:not_on_air
+#: Grid meta file
+msgctxt "advice"
+msgid "你不能在空中放置该器械"
+msgstr "You cannot place this contraption on air"
 
 #. Message for grid error mvz2:only_can_sleep
 #: Grid meta file
@@ -4182,6 +4275,42 @@ msgstr "Background Pictures"
 msgctxt "staff_name"
 msgid "Minecraft幻想乡地图-TouhouCraft团队"
 msgstr "Minecraft Gensokyo Map-TouhouCraft Team"
+
+#. Name for credits category 地图背景-圣辇船
+#: Credits meta file
+msgctxt "credits_category"
+msgid "地图背景-圣辇船"
+msgstr "Map Background - Ship"
+
+#. Name for credit staff 地图背景-圣辇船
+#: Credits meta file
+msgctxt "staff_name"
+msgid "传说中的金色小丑鱼"
+msgstr "传说中的金色小丑鱼"
+
+#. Name for credit staff 地图背景-圣辇船
+#: Credits meta file
+msgctxt "staff_name"
+msgid "琉"
+msgstr "琉"
+
+#. Name for credit staff 地图背景-圣辇船
+#: Credits meta file
+msgctxt "staff_name"
+msgid "一个发射器"
+msgstr "一个发射器"
+
+#. Name for credit staff 地图背景-圣辇船
+#: Credits meta file
+msgctxt "staff_name"
+msgid "creator"
+msgstr "creator"
+
+#. Name for credit staff 地图背景-圣辇船
+#: Credits meta file
+msgctxt "staff_name"
+msgid "修瞑"
+msgstr "修瞑"
 
 #. Name for credits category 音乐
 #: Credits meta file

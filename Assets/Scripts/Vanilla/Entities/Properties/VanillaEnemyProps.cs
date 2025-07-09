@@ -149,6 +149,14 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 状态覆盖
+        public static readonly PropertyMeta<int> STATE_OVERRIDE = Get<int>("state_override", defaultValue: -1);
+        public static int GetStateOverride(this Entity enemy)
+        {
+            return enemy.GetProperty<int>(STATE_OVERRIDE);
+        }
+        #endregion
+
         public static readonly PropertyMeta<bool> IMMUNE_VORTEX = Get<bool>("immuneVortex");
         public static bool ImmuneVortex(this Entity enemy)
         {

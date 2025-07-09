@@ -62,6 +62,7 @@ namespace MVZ2.Metas
     {
         public NamespaceID id;
         public NamespaceID parent;
+        public NamespaceID unlock;
         public int? width;
         public int? height;
         public float? pivotX;
@@ -74,6 +75,7 @@ namespace MVZ2.Metas
             var variant = new TalkCharacterVariantTemplate();
             variant.id = node.GetAttributeNamespaceID("id", defaultNsp);
             variant.parent = node.GetAttributeNamespaceID("parent", defaultNsp);
+            variant.unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
 
             variant.width = node.GetAttributeInt("width");
             variant.height = node.GetAttributeInt("height");
@@ -95,6 +97,7 @@ namespace MVZ2.Metas
             var result = new TalkCharacterVariant();
             var visited = new Stack<TalkCharacterVariantTemplate>();
             GetCharacterVariantProperties(templates, result, visited);
+            result.unlock = unlock;
             return result;
         }
         private void GetCharacterVariantProperties(IEnumerable<TalkCharacterVariantTemplate> templatePool, TalkCharacterVariant result, Stack<TalkCharacterVariantTemplate> visited)
@@ -124,6 +127,7 @@ namespace MVZ2.Metas
     public class TalkCharacterVariant
     {
         public NamespaceID id;
+        public NamespaceID unlock;
         public int width;
         public int height;
         public float pivotX = 0.5f;

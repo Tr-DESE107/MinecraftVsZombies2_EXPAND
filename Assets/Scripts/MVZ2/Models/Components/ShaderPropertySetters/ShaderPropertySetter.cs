@@ -22,8 +22,9 @@ namespace MVZ2.Models
         public abstract void SetProperty(T value);
         public abstract T GetDefaultValue();
         public abstract T GetCurrentValue();
-        protected virtual void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
             enableTriggered = true;
         }
         protected virtual void OnDisable()

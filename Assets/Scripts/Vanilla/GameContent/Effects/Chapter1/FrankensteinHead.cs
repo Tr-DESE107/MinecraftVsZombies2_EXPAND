@@ -21,6 +21,8 @@ namespace MVZ2.GameContent.Effects
         public override void PostContactGround(Entity entity, Vector3 velocity)
         {
             base.PostContactGround(entity, velocity);
+            if (entity.IsAboveCloud())
+                return;
             var vel = entity.Velocity;
             vel.y *= -0.4f;
             entity.Velocity = vel;

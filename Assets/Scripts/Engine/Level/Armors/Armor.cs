@@ -39,9 +39,9 @@ namespace PVZEngine.Armors
             result = result ?? new ArmorDestroyInfo(Owner, this, Slot, new DamageEffectList(), new EntityReferenceChain(null), null);
             Owner.DestroyArmor(Slot, result);
         }
-        public ColliderConstructor[] GetColliderConstructors()
+        public IEnumerable<ColliderConstructor> GetColliderConstructors(Entity entity, NamespaceID slot)
         {
-            return Definition.GetColliderConstructors();
+            return Definition.GetColliderConstructors(entity, slot);
         }
 
         #region 动画

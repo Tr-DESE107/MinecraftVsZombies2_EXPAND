@@ -1,12 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace PVZEngine.Grids
 {
-    public class LawnGrid
+    public class LawnGrid : IPropertyModifyTarget
     {
         #region 公有事件
         public LawnGrid(LevelEngine level, GridDefinition definition, int lane, int column)
@@ -15,6 +17,7 @@ namespace PVZEngine.Grids
             Lane = lane;
             Column = column;
             Definition = definition;
+            properties = new PropertyBlock(this);
         }
         public int GetIndex()
         {
@@ -76,7 +79,8 @@ namespace PVZEngine.Grids
                 lane = Lane,
                 column = Column,
                 definitionID = Definition.GetID(),
-                layerEntities = layerEntities.ToDictionary(p => p.Key.ToString(), p => p.Value.ID)
+                layerEntities = layerEntities.ToDictionary(p => p.Key.ToString(), p => p.Value.ID),
+                properties = properties.ToSerializable(),
             };
         }
         public static LawnGrid Deserialize(SerializableGrid seri, LevelEngine level)
@@ -87,9 +91,51 @@ namespace PVZEngine.Grids
         }
         public void LoadFromSerializable(SerializableGrid seri, LevelEngine level)
         {
+            properties = PropertyBlock.FromSerializable(seri.properties, this);
             layerEntities = seri.layerEntities.ToDictionary(p => NamespaceID.ParseStrict(p.Key), p => level.FindEntityByID(p.Value));
         }
         #endregion 方法
+
+        #region 网格属性
+        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
+        {
+            return properties.GetProperty<T>(name, ignoreBuffs);
+        }
+        public void SetProperty<T>(PropertyKey<T> name, T value)
+        {
+            properties.SetProperty(name, value);
+        }
+        public void SetPropertyObject(IPropertyKey name, object value)
+        {
+            properties.SetPropertyObject(name, value);
+        }
+        #endregion
+
+        #region 接口实现
+        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object value)
+        {
+            if (Definition == null)
+            {
+                value = default;
+                return false;
+            }
+            return Definition.TryGetPropertyObject(name, out value);
+        }
+        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
+        {
+            yield break;
+        }
+        PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
+        {
+            return Array.Empty<PropertyModifier>();
+        }
+        void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
+        {
+        }
+        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue, bool triggersEvaluation)
+        {
+        }
+        #endregion
 
         #region 属性
         public LevelEngine Level { get; private set; }
@@ -97,13 +143,7 @@ namespace PVZEngine.Grids
         public int Column { get; set; }
         public GridDefinition Definition { get; set; }
         private Dictionary<NamespaceID, Entity> layerEntities = new Dictionary<NamespaceID, Entity>();
+        private PropertyBlock properties;
         #endregion 属性
-    }
-    public enum PlaceType
-    {
-        Plantable = 1,
-        Buildable = 2,
-        Solid = 4,
-        Aquatic = 8,
     }
 }

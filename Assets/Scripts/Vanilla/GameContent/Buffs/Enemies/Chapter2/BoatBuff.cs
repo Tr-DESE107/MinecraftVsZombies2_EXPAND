@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         public BoatBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new IntModifier(VanillaEntityProps.WATER_INTERACTION, NumberOperator.Set, WaterInteraction.FLOAT));
+            AddModifier(new IntModifier(VanillaEntityProps.AIR_INTERACTION, NumberOperator.Set, WaterInteraction.FLOAT));
         }
     }
 }

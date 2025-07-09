@@ -13,6 +13,7 @@ namespace MVZ2.GameContent.Buffs
         public WhiteFlashBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, PROP_COLOR));
+            AddModifier(new ColorModifier(EngineEntityProps.HELMET_COLOR_OFFSET, PROP_COLOR));
         }
         public override void PostUpdate(Buff buff)
         {

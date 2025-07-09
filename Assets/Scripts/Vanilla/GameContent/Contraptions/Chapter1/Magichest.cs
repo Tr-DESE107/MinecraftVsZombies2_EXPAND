@@ -6,6 +6,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -79,7 +80,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.SetModelProperty("FlashScale", target.GetScaledSize());
             entity.SetModelProperty("FlashSourcePosition", target.GetCenter());
-            var effects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH);
+            var effects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
             target.Die(effects, entity);
             SetFlashVisible(entity, true);
             entity.AddBuff<MagichestInvincibleBuff>();

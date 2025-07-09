@@ -5,9 +5,9 @@ namespace PVZEngine.Entities
     [PropertyRegistryRegion(PropertyRegions.entity)]
     public static class EngineEntityProps
     {
-        private static PropertyMeta<T> Get<T>(string name)
+        private static PropertyMeta<T> Get<T>(string name, T defaultValue = default)
         {
-            return new PropertyMeta<T>(name);
+            return new PropertyMeta<T>(name, defaultValue);
         }
 
         #region 默认朝左
@@ -159,6 +159,30 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 头盔染色
+        public static readonly PropertyMeta<Color> HELMET_TINT = Get<Color>("helmet_tint", Color.white);
+        public static Color GetHelmetTint(this Entity entity, bool ignoreBuffs = false)
+        {
+            return entity.GetProperty<Color>(HELMET_TINT, ignoreBuffs: ignoreBuffs);
+        }
+        public static void SetHelmetTint(this Entity entity, Color value)
+        {
+            entity.SetProperty(HELMET_TINT, value);
+        }
+        #endregion
+
+        #region 头盔颜色偏移
+        public static readonly PropertyMeta<Color> HELMET_COLOR_OFFSET = Get<Color>("helmet_color_offset");
+        public static Color GetHelmetColorOffset(this Entity entity, bool ignoreBuffs = false)
+        {
+            return entity.GetProperty<Color>(HELMET_COLOR_OFFSET, ignoreBuffs: ignoreBuffs);
+        }
+        public static void SetHelmetColorOffset(this Entity entity, Color value)
+        {
+            entity.SetProperty(HELMET_COLOR_OFFSET, value);
+        }
+        #endregion
+
         #region 阵营
         public static readonly PropertyMeta<int> FACTION = Get<int>("faction");
         public static void SetFaction(this Entity entity, int value)
@@ -172,6 +196,14 @@ namespace PVZEngine.Entities
         public static float GetGroundLimitOffset(this Entity entity)
         {
             return entity.GetProperty<float>(EngineEntityProps.GROUND_LIMIT_OFFSET);
+        }
+        #endregion
+
+        #region 网格中心偏移
+        public static readonly PropertyMeta<Vector3> GRID_PIVOT_OFFSET = Get<Vector3>("grid_pivot_offset");
+        public static Vector3 GetGridPivotOffset(this Entity entity)
+        {
+            return entity.GetProperty<Vector3>(EngineEntityProps.GRID_PIVOT_OFFSET);
         }
         #endregion
 

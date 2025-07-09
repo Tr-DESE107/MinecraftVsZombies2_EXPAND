@@ -6,6 +6,7 @@
         public const string armor = "armor";
         public const string artifact = "artifact";
         public const string level = "level";
+        public const string grid = "grid";
         public const string cart = "cart";
         public const string seed = "seed";
         public const string shell = "shell";

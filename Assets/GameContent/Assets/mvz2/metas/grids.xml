@@ -25,6 +25,7 @@
         <error id="not_on_water" message="你不能在水上放置该器械"/>
         <error id="not_on_plane" message="你不能在薄面上放置该器械"/>
         <error id="not_on_land" message="你不能在陆地上放置该器械"/>
+        <error id="not_on_air" message="你不能在空中放置该器械"/>
         <error id="only_can_sleep" message="只能放置在可以睡觉的器械上"/>
         <error id="only_can_mill" message="只能放置在刷怪笼或者器械上"/>
         <error id="only_upgrade" message="只能放置在目标器械上"/>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Carts;
@@ -351,6 +352,10 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.Level.Explode(center, radius, faction, amount, effects, entity);
         }
+        public static DamageOutput[] ExplodeAgainstFriendly(this Entity entity, Vector3 center, float radius, int faction, float amount, DamageEffectList effects)
+        {
+            return entity.Level.ExplodeAgainstFriendly(center, radius, faction, amount, effects, entity);
+        }
         public static DamageOutput[] SplashDamage(this Entity entity, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects)
         {
             return entity.Level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, entity);
@@ -598,31 +603,66 @@ namespace MVZ2.Vanilla.Entities
         #region 网格
         public static void UpdateTakenGrids(this Entity entity)
         {
+            // 将所有合法的网格添加到待添加列表中。
+            entityGridToAddBuffer.Clear();
+            if (entity.ExistsAndAlive())
+            {
+                var grids = entity.GetGridsToTake();
+                foreach (var grid in grids)
+                {
+                    if (CanTakeGrid(entity, grid))
+                    {
+                        entityGridToAddBuffer.Add(grid);
+                    }
+                }
+            }
+
+            // 获取目前占用的网格列表。
             entityGridBuffer.Clear();
             entity.GetTakenGrids(entityGridBuffer);
-            foreach (var grid in entityGridBuffer)
+
+            // 检查目前占用的网格，将不符合条件的网格加到移除列表中，将符合条件的网格保留，剩下的就是需要新增的网格。
+            entityGridToRemoveBuffer.Clear();
+            foreach (var key in entityGridBuffer)
+            {
+                if (entityGridToAddBuffer.Contains(key))
+                {
+                    // 符合条件并且目前在表中。
+                    // 保留而非新添加到表中。
+                    entityGridToAddBuffer.Remove(key);
+                }
+                else
+                {
+                    // 不符合条件。
+                    entityGridToRemoveBuffer.Add(key);
+                }
+            }
+            // 移除不符合条件的网格。
+            foreach (var grid in entityGridToRemoveBuffer)
             {
                 entityGridLayerBuffer.Clear();
                 entity.GetTakingGridLayersNonAlloc(grid, entityGridLayerBuffer);
                 foreach (var layer in entityGridLayerBuffer)
                 {
-                    if (CanTakeGrid(entity, grid, layer))
-                        continue;
-                    entity.ReleaseGrid(grid, layer);
+                    if (!HasGridLayerToTake(entity, layer))
+                    {
+                        entity.ReleaseGrid(grid, layer);
+                    }
                 }
             }
-            if (entity.ExistsAndAlive())
+            // 添加新的符合条件的网格。
+            foreach (var grid in entityGridToAddBuffer)
             {
-                var gridBelow = entity.GetGrid();
                 foreach (var layer in entity.GetGridLayersToTake())
                 {
-                    if (!CanTakeGrid(entity, gridBelow, layer))
-                        continue;
-                    entity.TakeGrid(gridBelow, layer);
+                    if (HasGridLayerToTake(entity, layer))
+                    {
+                        entity.TakeGrid(grid, layer);
+                    }
                 }
             }
         }
-        public static bool CanTakeGrid(this Entity entity, LawnGrid grid, NamespaceID layer)
+        private static bool CanTakeGrid(this Entity entity, LawnGrid grid)
         {
             if (grid == null)
                 return false;
@@ -630,14 +670,18 @@ namespace MVZ2.Vanilla.Entities
                 return false;
             if (entity.GetRelativeY() > leaveGridHeight)
                 return false;
-            if (entity.GetGrid() != grid)
-                return false;
-            var layersToTake = entity.GetGridLayersToTake();
-            if (!layersToTake.Contains(layer))
-                return false;
             return true;
         }
+        private static bool HasGridLayerToTake(this Entity entity, NamespaceID layer)
+        {
+            var layersToTake = entity.GetGridLayersToTake();
+            if (layersToTake == null)
+                return false;
+            return layersToTake.Contains(layer);
+        }
         private const float leaveGridHeight = 64;
+        private static List<LawnGrid> entityGridToAddBuffer = new List<LawnGrid>();
+        private static List<LawnGrid> entityGridToRemoveBuffer = new List<LawnGrid>();
         private static List<LawnGrid> entityGridBuffer = new List<LawnGrid>();
         private static List<NamespaceID> entityGridLayerBuffer = new List<NamespaceID>();
         #endregion
@@ -763,6 +807,31 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.IsOnWater() && entity.IsOnGround;
         }
+        public static bool IsAboveCloud(this Entity entity)
+        {
+            var grid = entity.GetGrid();
+            if (grid != null && grid.IsCloud())
+                return true;
+            if (entity.Level.AreaID == VanillaAreaID.ship)
+            {
+                var column = entity.GetColumn();
+                var lane = entity.GetLane();
+                if (column >= 0 && column < entity.Level.GetMaxColumnCount() && (lane < 0 || lane >= entity.Level.GetMaxLaneCount()))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static bool IsInCloud(this Entity entity)
+        {
+            return entity.IsAboveCloud() && entity.IsOnGround;
+        }
+        public static bool IsAboveLand(this Entity entity)
+        {
+            var grid = entity.GetGrid();
+            return grid == null || (!grid.IsWater() && !grid.IsCloud());
+        }
         public static void PlaySplashEffect(this Entity entity)
         {
             var size = entity.GetScaledSize();
@@ -772,13 +841,33 @@ namespace MVZ2.Vanilla.Entities
         public static void PlaySplashEffect(this Entity entity, Vector3 scale)
         {
             var level = entity.Level;
+            entity.PlaySplashEffect(scale, level.GetWaterColor());
+        }
+        public static void PlayAirSplashEffect(this Entity entity)
+        {
+            var size = entity.GetScaledSize();
+            var scale = Mathf.Clamp(size.x * size.y * size.z / SPLASH_SIZE_UNIT, 1, 5);
+            entity.PlayAirSplashEffect(scale * Vector3.one);
+        }
+        public static void PlayAirSplashEffect(this Entity entity, Vector3 scale)
+        {
+            entity.PlaySplashEffect(scale, new Color(1, 1, 1, 0.5f));
+        }
+        public static void PlaySplashEffect(this Entity entity, Vector3 scale, Color color)
+        {
+            var level = entity.Level;
             var pos = entity.Position;
             pos.y = entity.GetGroundY();
             var splash = level.Spawn(VanillaEffectID.splashParticles, pos, entity);
-            splash.SetTint(level.GetWaterColor());
+            splash.SetTint(color);
             splash.SetDisplayScale(scale);
         }
 
+        public static void PlayAirSplashSound(this Entity entity)
+        {
+            var sound = VanillaSoundID.cloth;
+            entity.PlaySound(sound);
+        }
         public static void PlaySplashSound(this Entity entity)
         {
             var level = entity.Level;
@@ -941,6 +1030,11 @@ namespace MVZ2.Vanilla.Entities
             return entity != null && entity.IsEntityOf(VanillaPickupID.blueprintPickup);
         }
         #endregion
+
+        public static float GetRealGroundLimitY(this Entity entity)
+        {
+            return entity.GetGroundLimitOffset() + entity.GetGroundY();
+        }
         public static SpawnParams GetSpawnParams(this Entity entity)
         {
             var param = new SpawnParams();

@@ -72,6 +72,8 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new TalkActionImplements());
             ImplementCallbacks(new BlueprintRecommendImplements());
             ImplementCallbacks(new WaterImplements());
+            ImplementCallbacks(new CloudImplements());
+            ImplementCallbacks(new CarrierImplements());
             ImplementCallbacks(new AchievementsImplements());
             ImplementCallbacks(new RandomChinaImplements());
             ImplementCallbacks(new AlmanacImplements());
@@ -190,6 +192,7 @@ namespace MVZ2.Vanilla
                 var weight = meta.Weight;
                 var excludedTags = terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>();
                 var water = meta.Terrain?.Water ?? false;
+                var air = meta.Terrain?.Air ?? false;
                 var noEndless = meta.NoEndless;
 
                 var spawnDef = new VanillaSpawnDefinition(Namespace, name, spawnLevel, noEndless, new NamespaceID(Namespace, name), excludedTags);
@@ -203,6 +206,7 @@ namespace MVZ2.Vanilla
                     spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
                 }
                 spawnDef.CanSpawnAtWaterLane = water;
+                spawnDef.CanSpawnAtAirLane = air;
                 AddDefinition(spawnDef);
             }
         }

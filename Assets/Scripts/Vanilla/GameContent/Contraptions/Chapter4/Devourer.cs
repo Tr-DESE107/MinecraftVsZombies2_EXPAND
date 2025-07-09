@@ -7,6 +7,7 @@ using MVZ2.GameContent.Obstacles;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
@@ -62,7 +63,7 @@ namespace MVZ2.GameContent.Contraptions
             if (!devourer.IsHostile(other))
                 return;
             var level = devourer.Level;
-            var output = other.TakeDamage(devourer.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH), devourer);
+            var output = other.TakeDamage(devourer.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER), devourer);
             if (output != null)
             {
                 if (output.HasAnyFatal())
@@ -191,7 +192,8 @@ namespace MVZ2.GameContent.Contraptions
             }
             else
             {
-                target.Remove();
+                var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE, VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
+                target.Die(effects, devourer);
                 var spawnParams = devourer.GetSpawnParams();
                 var entityID = target.GetDefinitionID();
                 var blueprintID = VanillaBlueprintID.FromEntity(entityID);

@@ -15,6 +15,7 @@ Material:
   - LIT
   m_InvalidKeywords:
   - _BACKGROUNDLIT_ON
+  - _SPOTLIT_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -143,6 +144,7 @@ Material:
     - _HSVTint: 0
     - _HurtAlpha: 0
     - _LIT: 1
+    - _LightDisabled: 0
     - _MagentaAlpha: 0
     - _Metallic: 0
     - _Mode: 0
@@ -154,6 +156,7 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _SpotLit: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _StarshardAlpha: 0
@@ -169,8 +172,8 @@ Material:
     - _UVSec: 0
     - _WhiteAlpha: 0
     - _WorkflowMode: 1
-    - _ZTest: 8
-    - _ZWrite: 1
+    - _ZTest: 4
+    - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BurnEdgeColor: {r: 0, g: 0.4, b: 0.3, a: 1}

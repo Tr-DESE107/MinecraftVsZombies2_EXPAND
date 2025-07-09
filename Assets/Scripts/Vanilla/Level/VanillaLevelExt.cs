@@ -76,6 +76,23 @@ namespace MVZ2.Vanilla.Level
             }
             return damageOutputs.ToArray();
         }
+        public static DamageOutput[] ExplodeAgainstFriendly(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
+        {
+            return level.ExplodeAgainstFriendly(center, radius, faction, amount, effects, new EntityReferenceChain(source));
+        }
+        public static DamageOutput[] ExplodeAgainstFriendly(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
+        {
+            List<DamageOutput> damageOutputs = new List<DamageOutput>();
+            foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, 0, EntityCollisionHelper.MASK_VULNERABLE))
+            {
+                var damageOutput = entityCollider.TakeDamage(amount, effects, source);
+                if (damageOutput != null)
+                {
+                    damageOutputs.Add(damageOutput);
+                }
+            }
+            return damageOutputs.ToArray();
+        }
         public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
         {
             return level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, new EntityReferenceChain(source));
@@ -670,6 +687,7 @@ namespace MVZ2.Vanilla.Level
         {
             return Enumerable.Range(0, level.GetMaxLaneCount());
         }
+        #region 水路
         public static IEnumerable<int> GetWaterLanes(this LevelEngine level)
         {
             return level.GetAllLanes().Where(l => level.IsWaterLane(l));
@@ -720,6 +738,54 @@ namespace MVZ2.Vanilla.Level
                     }
                 }
             }
+        }
+        #endregion
+
+        #region 空路
+        public static IEnumerable<int> GetAirLanes(this LevelEngine level)
+        {
+            return level.GetAllLanes().Where(l => level.IsAirLane(l));
+        }
+        public static bool IsAirLane(this LevelEngine level, int lane)
+        {
+            for (int column = 0; column < level.GetMaxColumnCount(); column++)
+            {
+                var grid = level.GetGrid(column, lane);
+                if (grid == null)
+                    continue;
+                if (grid.IsCloud())
+                    return true;
+            }
+            return false;
+        }
+        public static bool IsAirGrid(this LevelEngine level, int column, int lane)
+        {
+            var grid = level.GetGrid(column, lane);
+            if (grid == null)
+                return false;
+            return grid.IsCloud();
+        }
+        public static bool IsAirAt(this LevelEngine level, float x, float z)
+        {
+            var column = level.GetColumn(x);
+            var lane = level.GetLane(z);
+            return level.IsAirGrid(column, lane);
+        }
+        #endregion
+
+        public static bool IsDuringHugeWave(this LevelEngine level)
+        {
+            var waveState = level.WaveState;
+            if (waveState == VanillaLevelStates.STATE_HUGE_WAVE_APPROACHING)
+                return true;
+            if (level.IsHugeWave(level.CurrentWave))
+            {
+                if (waveState == VanillaLevelStates.STATE_STARTED)
+                    return true;
+                if (waveState == VanillaLevelStates.STATE_FINAL_WAVE)
+                    return true;
+            }
+            return false;
         }
         public static void UpdatePersistentLevelUnlocks(this LevelEngine level)
         {

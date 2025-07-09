@@ -16,15 +16,23 @@ namespace MVZ2.GameContent.Spawns
         public override int GetRandomSpawnLane(LevelEngine level)
         {
             var allLanes = level.GetAllLanes();
-            var waterLanes = level.GetWaterLanes();
             var resultLanes = allLanes;
-            if ((level.CurrentFlag <= 0 && level.CurrentWave <= 3) || !CanSpawnAtWaterLane)
+
+            bool isStartWaves = level.CurrentFlag <= 0 && level.CurrentWave <= 3;
+            if (isStartWaves || !CanSpawnAtWaterLane)
             {
-                resultLanes = allLanes.Except(waterLanes);
-                if (resultLanes.Count() <= 0)
-                {
-                    resultLanes = allLanes;
-                }
+                var waterLanes = level.GetWaterLanes();
+                resultLanes = resultLanes.Except(waterLanes);
+            }
+            if (isStartWaves || !CanSpawnAtAirLane)
+            {
+                var airLanes = level.GetAirLanes();
+                resultLanes = resultLanes.Except(airLanes);
+            }
+
+            if (resultLanes.Count() <= 0)
+            {
+                resultLanes = allLanes;
             }
             return level.GetRandomEnemySpawnLane(resultLanes);
         }
@@ -39,5 +47,6 @@ namespace MVZ2.GameContent.Spawns
             return weight - decay * decayFlags;
         }
         public bool CanSpawnAtWaterLane { get; set; }
+        public bool CanSpawnAtAirLane { get; set; }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Runtime.Serialization;
+using MongoDB.Bson.Serialization.Attributes;
 using MVZ2.Entities;
 using MVZ2.Games;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
+using MVZ2.Models;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -19,12 +21,18 @@ namespace MVZ2.Level
     public partial class LevelController : MonoBehaviour, IDisposable
     {
         #region 公有方法
+        public SerializableLevelControllerHeader SaveGameHeader()
+        {
+            return new SerializableLevelControllerHeader()
+            {
+                identifiers = LevelManager.GetLevelStateIdentifierList(),
+            };
+        }
         public SerializableLevelController SaveGame()
         {
             return new SerializableLevelController()
             {
                 rng = rng.ToSerializable(),
-                identifiers = LevelManager.GetLevelStateIdentifierList(),
 
                 bannerProgresses = bannerProgresses?.ToArray(),
                 levelProgress = levelProgress,
@@ -51,20 +59,24 @@ namespace MVZ2.Level
 
                 parts = parts.Select(p => p.ToSerializable()).ToArray(),
 
-                areaModel = model.ToSerializable(),
+                model = model.ToSerializable(),
 
                 level = SerializeLevel(),
                 uiPreset = GetUIPreset().ToSerializable(),
             };
         }
-        public void LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
+        public bool ValidateGameStateHeader(SerializableLevelControllerHeader header)
         {
-            if (!LevelManager.GetLevelStateIdentifierList().Compare(seri.identifiers))
+            var compareResult = LevelManager.GetLevelStateIdentifierList().Compare(header.identifiers);
+            if (!compareResult.valid)
             {
-                ShowLevelErrorLoadingDialog();
-                return;
+                ShowLevelMismatchLoadingDialog(compareResult);
+                return false;
             }
-
+            return true;
+        }
+        public bool LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
+        {
             try
             {
                 rng = RandomGenerator.FromSerializable(seri.rng);
@@ -121,13 +133,13 @@ namespace MVZ2.Level
                     controller.UpdateFrame(0);
                     controller.UpdateAnimators(0);
                 }
-                model.LoadFromSerializable(seri.areaModel);
+                model.LoadFromSerializable(seri.model ?? seri.areaModel);
             }
             catch (Exception e)
             {
                 ShowLevelErrorLoadingDialog(e);
                 Debug.LogException(e);
-                return;
+                return false;
             }
 
             // 设置UI可见状态
@@ -171,6 +183,8 @@ namespace MVZ2.Level
             levelLoaded = true;
 
             level.AreaDefinition.PostLoad(level);
+
+            return true;
         }
 
         #endregion
@@ -201,6 +215,7 @@ namespace MVZ2.Level
         {
             level.AddComponent(new AdviceComponent(level, this));
             level.AddComponent(new HeldItemComponent(level, this));
+            level.AddComponent(new AreaComponent(level, this));
             level.AddComponent(new UIComponent(level, this));
             level.AddComponent(new LogicComponent(level, this));
             level.AddComponent(new SoundComponent(level, this));
@@ -219,10 +234,15 @@ namespace MVZ2.Level
 
         #endregion
     }
+    [BsonIgnoreExtraElements]
+    public class SerializableLevelControllerHeader
+    {
+        public LevelDataIdentifierList identifiers;
+    }
+    [BsonIgnoreExtraElements]
     public class SerializableLevelController
     {
         public SerializableRNG rng;
-        public LevelDataIdentifierList identifiers;
 
         public float levelProgress;
         public float[] bannerProgresses;
@@ -248,6 +268,8 @@ namespace MVZ2.Level
         public float twinkleTime;
 
         public SerializableEntityController[] entities;
+        public SerializableModelData model;
+        [Obsolete]
         public SerializableAreaModelData areaModel;
 
         public SerializableLevel level;

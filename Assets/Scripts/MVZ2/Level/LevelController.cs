@@ -9,6 +9,7 @@ using MVZ2.Entities;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Games;
+using MVZ2.HeldItems;
 using MVZ2.Level.Components;
 using MVZ2.Localization;
 using MVZ2.Logic.Level;
@@ -33,6 +34,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Level.Collisions;
+using PVZEngine.Models;
 using PVZEngine.SeedPacks;
 using Tools;
 using UnityEngine;
@@ -498,6 +500,7 @@ namespace MVZ2.Level
             {
                 model.UpdateFrame(uiDeltaTime);
                 model.SetSimulationSpeed(uiSimulationSpeed);
+                model.UpdateAnimators(uiDeltaTime);
             }
 
             if (level != null)
@@ -647,6 +650,7 @@ namespace MVZ2.Level
                 size = new Rect(0, -500, 1600, 1600),
             };
             builtinCollisionSystem = new BuiltinCollisionSystem(quadTreeParams);
+            areaModelInterface = new AreaModelInterface(this);
             Awake_Grids();
             Awake_Entities();
 
@@ -833,7 +837,7 @@ namespace MVZ2.Level
         {
             isGameOver = true;
             level.PlaySound(VanillaSoundID.loseMusic);
-            model.SetDoorVisible(false);
+            model.SetAnimatorBool("GameOver", true);
             level.HideAdvice();
             SetUIVisibleState(VisibleState.Nothing);
             RemoveLevelState();
@@ -1071,10 +1075,19 @@ namespace MVZ2.Level
         }
         private void InitLevelModel(NamespaceID stageId)
         {
+            model.Init(GetCamera());
             var stageMeta = Resources.GetStageMeta(stageId);
             if (stageMeta == null)
                 return;
             SetModelPreset(stageMeta.ModelPreset);
+        }
+        public AreaModel GetAreaModel()
+        {
+            return model;
+        }
+        public IModelInterface GetAreaModelInterface()
+        {
+            return areaModelInterface;
         }
         private async Task StartLevelIntroAsync(float delay)
         {
@@ -1140,10 +1153,9 @@ namespace MVZ2.Level
             }
             SetLighting(background, global);
         }
-        private void SetLighting(Color night, Color darkness)
+        private void SetLighting(Color background, Color global)
         {
-            Main.GraphicsManager.SetLighting(night, darkness);
-            model?.SetLighting(darkness);
+            Main.GraphicsManager.SetLighting(background, global);
         }
         #endregion
 

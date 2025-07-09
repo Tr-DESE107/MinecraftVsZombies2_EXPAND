@@ -63,6 +63,10 @@ namespace MVZ2.Vanilla.Entities
                     {
                         // 碰到小车的僵尸受到伤害。
                         ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE), entity);
+                        foreach (var behaviour in entity.Definition.GetBehaviours<ICartBehaviour>())
+                        {
+                            behaviour.PostCrush(entity, ent);
+                        }
                     }
                     // 如果超出屏幕，消失。
                     if (entity.GetBounds().min.x >= VanillaLevelExt.GetBorderX(true))

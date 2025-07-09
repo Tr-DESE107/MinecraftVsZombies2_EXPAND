@@ -7,6 +7,7 @@ using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Talk;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -77,6 +78,7 @@ namespace MVZ2.GameContent.Stages
                     level.HideHintArrow();
                     break;
                 case STATE_DISPENSER_EVOKED:
+                    level.HideHintArrow();
                     StartTimer(level, 150);
                     break;
                 case STATE_GREEN_ENEMY:
@@ -105,6 +107,10 @@ namespace MVZ2.GameContent.Stages
                         if (heldEntityType == VanillaHeldTypes.starshard)
                         {
                             StartState(level, STATE_EVOKE_DISPENSER);
+                        }
+                        else if (level.EntityExists(e => e.IsEvoked()))
+                        {
+                            StartState(level, STATE_DISPENSER_EVOKED);
                         }
                     }
                     break;

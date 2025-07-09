@@ -25,6 +25,10 @@
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
+        <tag id="placement_repeatenser" name="升级器械：连射发射器" description="必须放置在连射发射器上" priority="0" >
+            <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[0]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+        </tag>
         <tag id="placement_diamond_spikes" name="升级器械：尖刺方块" description="必须放置在尖刺方块上" priority="0" >
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[6]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
@@ -182,12 +186,12 @@
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>300</color>]]></p>
-                <p>生产速度：<![CDATA[<color=red>24秒</color>]]></p>
+                <p>生产时间：<![CDATA[<color=red>24秒</color>]]></p>
                 <p>提供能量：<![CDATA[<color=red>红石50</color>]]></p>
                 <p>技能：<![CDATA[<color=red>瞬间生成6枚红石</color>]]></p>
             </properties>
             <flavor>
-                <p>有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。</p>
+                <p>精准采集是你这样用的？</p>
             </flavor>
         </entry>
         <entry id="mvz2:obsidian">
@@ -477,7 +481,7 @@
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>20，金球40</color>]]></p>
-                <p>技能：<![CDATA[<color=red>立即喷射30发木球</color>]]></p>
+                <p>技能：<![CDATA[<color=red>立即喷射30颗大型木球，每颗造成80点伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>使用技能前：木制投掷器</p>
@@ -576,7 +580,7 @@
                 <p>巨碗能够缓慢生产并存储星之碎片，这些星之碎片只能通过摧毁巨碗取出。</p>
             </header>
             <properties>
-                <p>生产速度：<![CDATA[<color=red>60秒</color>]]></p>
+                <p>生产时间：<![CDATA[<color=red>60秒</color>]]></p>
                 <p>存储上限：<![CDATA[<color=red>5</color>]]></p>
                 <p>技能：<![CDATA[<color=red>向内部存储一颗星之碎片</color>]]></p>
             </properties>
@@ -718,8 +722,39 @@
         </entry>
         
         <!-- Chapter 5 -->
-        <entry/>
-        <entry/>
+        <entry id="mvz2:gunpowder_barrel">
+            <header>
+                <p>火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的友方单位。火药桶在被破坏时也会爆炸。</p>
+            </header>
+            <properties>
+                <p>爆炸伤害：<![CDATA[<color=red>100（简单）、150（普通）、300（困难）</color>]]></p>
+                <p>爆炸半径：<![CDATA[<color=red>1.5格</color>]]></p>
+                <p>生产时间：<![CDATA[<color=red>36秒</color>]]></p>
+                <p>提供能量：<![CDATA[<color=red>50</color>]]></p>
+                <p>技能：<![CDATA[<color=red>改为生成暴怒火药，提供75能量，但是会更快爆炸</color>]]></p>
+            </properties>
+            <flavor>
+                <p>众所周知，最早的黑火药由三种材料制作：</p>
+                <p>硫磺（一种易燃品）</p>
+                <p>硝石（被埋葬的尸体旁一般会产生结晶）</p>
+                <p>木炭（燃烧木头的产物）</p>
+                <p>那么——等等，我为什么要告诉你这些？</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:repeatenser">
+            <header>
+                <p>连射发射器一次能发射两支箭矢。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>2支/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>]]></p>
+            </properties>
+            <flavor>
+                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
+                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>
@@ -899,7 +934,25 @@
         <entry/>
 
         <!-- Upgrades 2 -->
-        <entry/>
+        <entry id="mvz2:high_frequency_pulse_dispenser">
+            <tags>
+                <tag id="mvz2:placement_repeatenser"/>
+            </tags>
+            <header>
+                <p>高频脉冲发射器一次能发射四支箭矢。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>4支/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>永久改为发射六支箭矢，并<tag id="mvz2:light_source"/>发光</color>]]></p>
+            </properties>
+            <flavor>
+                <p>高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。</p>
+                <p>高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。</p>
+                <p>高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。</p>
+                <p>高——闭嘴吧。</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>
@@ -1598,12 +1651,12 @@
         </entry>
         <entry id="mvz2:emperor_zombie">
             <header>
-                <p>皇帝僵尸使用手中的圣剑来给予周围的敌人圣盾，使它们免疫下一次受到的伤害。</p>
+                <p>皇帝僵尸使用手中的圣剑来给予周围的友方单位圣盾，使它们免疫下一次受到的伤害。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200+50</color>]]></p>
                 <p>施法冷却：<![CDATA[<color=red>5秒</color>]]></p>
-                <p>特点：<![CDATA[<color=red>一次最多给予10个周围的敌人圣盾，抵消下一次受到的伤害</color>]]></p>
+                <p>特点：<![CDATA[<color=red>一次最多给予10个周围的友方单位圣盾，抵消下一次受到的伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>他并不是什么大国的皇帝，就是一个僵尸小圈子里面，天天被捧的高高的，实际上就只会套盾，被碰一下就破防，还以为自己有多大能耐的土皇帝罢了。</p>
@@ -1957,6 +2010,10 @@
                 <header>
                     <p>史蒂夫制造的自动矿场，会在白天的时候自动挖掘红石矿。</p>
                 </header>
+                <properties>
+                    <p>生产时间：<![CDATA[<color=red>10秒</color>]]></p>
+                    <p>提供能量：<![CDATA[<color=red>25</color>]]></p>
+                </properties>
                 <flavor>
                     <p>史蒂夫精通机械，这台自动矿场出自他的手中。依靠太阳能工作，自动寻找地下存储的红石矿，然后将其运输到地表。</p>
                     <p>……不过既然它需要太阳能，为什么不直接把太阳能变成能量呢？</p>
@@ -2083,7 +2140,7 @@
         <!-- Characters -->
         <group id="mvz2:characters" name="人物" order="300">
             <entry id="mvz2:villager" name="村民" >
-                <icon sprite="mvz2:characters/crazy_villager[0]"/>
+                <icon character="mvz2:crazy_villager"/>
                 <header>
                     <p>与史蒂夫共同生活的白衣村民，原名戴夫。</p>
                 </header>
@@ -2096,7 +2153,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:orant" name="欧兰特" >
-                <icon sprite="mvz2:characters/orant[0]"/>
+                <icon character="mvz2:orant"/>
                 <header>
                     <p>欧兰特是一名灵魂术士，可以操纵恐惧和灵魂。</p>
                 </header>
@@ -2109,7 +2166,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:doremy" name="哆来咪·苏伊特" unlock="mvz2:level.dream_1">
-                <icon sprite="mvz2:characters/doremy[0]"/>
+                <icon character="mvz2:doremy"/>
                 <header>
                     <p>哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。</p>
                 </header>
@@ -2122,7 +2179,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:tokiko" name="朱鹭子" unlock="mvz2:kourindou_visited">
-                <icon sprite="mvz2:characters/tokiko[0]"/>
+                <icon character="mvz2:tokiko"/>
                 <header>
                     <p>常在香霖堂附近活动的读书妖怪，在霖之助失踪后成为了香霖堂的店主。</p>
                 </header>
@@ -2137,7 +2194,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:seija" name="鬼人 正邪" unlock="mvz2:level.castle_1">
-                <icon sprite="mvz2:characters/seija[0]"/>
+                <icon character="mvz2:seija"/>
                 <header>
                     <p>一名天邪鬼，曾利用了针妙丸，妄图使用万宝槌的力量颠覆幻想乡的强弱规则。</p>
                 </header>
@@ -2152,7 +2209,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:shinmyoumaru" name="少名 针妙丸" unlock="mvz2:level.castle_2">
-                <icon sprite="mvz2:characters/shinmyoumaru[0]"/>
+                <icon character="mvz2:shinmyoumaru"/>
                 <header>
                     <p>一寸法师的后代，辉针城的城主，如今小人族的领导者。</p>
                 </header>
@@ -2168,7 +2225,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:futo" name="物部 布都" unlock="mvz2:level.mausoleum_1">
-                <icon sprite="mvz2:characters/futo[0]"/>
+                <icon character="mvz2:futo"/>
                 <header>
                     <p>日本古代大氏族物部氏的后人，丰聪耳神子的手下。</p>
                 </header>
@@ -2182,7 +2239,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:marisa" name="雾雨 魔理沙" unlock="mvz2:level.mausoleum_1">
-                <icon sprite="mvz2:characters/marisa[0]"/>
+                <icon character="mvz2:marisa"/>
                 <header>
                     <p>一位普通的魔法使，也是森近 霖之助曾经的好友。</p>
                 </header>
@@ -2196,7 +2253,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:miko" name="丰聪耳 神子" unlock="mvz2:level.mausoleum_1">
-                <icon sprite="mvz2:characters/miko[0]"/>
+                <icon character="mvz2:miko"/>
                 <header>
                     <p>日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。</p>
                 </header>
@@ -2211,7 +2268,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:seiga" name="霍 青娥" unlock="mvz2:level.mausoleum_3">
-                <icon sprite="mvz2:characters/seiga[0]"/>
+                <icon character="mvz2:seiga"/>
                 <header>
                     <p>一名使用邪术的邪仙。</p>
                 </header>
@@ -2227,7 +2284,7 @@
                 </flavor>
             </entry>
             <entry id="mvz2:mysterious_hologram" name="神秘影像" unlock="mvz2:level.mausoleum_11">
-                <icon sprite="mvz2:characters/hologram"/>
+                <icon character="mvz2:hologram"/>
                 <header>
                     <p>出现在被僵尸包围的香霖堂的神秘影像，它对史蒂夫发出了威胁。</p>
                 </header>

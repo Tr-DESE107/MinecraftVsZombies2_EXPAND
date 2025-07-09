@@ -50,6 +50,14 @@ namespace MVZ2.Games
         {
             return metaProvider.GetModEntityMetas(spaceName);
         }
+        public IShapeMeta GetShapeMeta(NamespaceID stageID)
+        {
+            return metaProvider.GetShapeMeta(stageID);
+        }
+        public IShapeMeta[] GetModShapeMetas(string spaceName)
+        {
+            return metaProvider.GetModShapeMetas(spaceName);
+        }
         public IEntityCounterMeta GetEntityCounterMeta(NamespaceID stageID)
         {
             return metaProvider.GetEntityCounterMeta(stageID);

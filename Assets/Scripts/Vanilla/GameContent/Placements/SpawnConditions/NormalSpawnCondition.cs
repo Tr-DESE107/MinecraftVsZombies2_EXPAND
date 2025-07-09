@@ -19,6 +19,10 @@ namespace MVZ2.GameContent.Placements
                     return VanillaGridStatus.needLilypad;
                 }
             }
+            else if (grid.IsCloud())
+            {
+                return VanillaGridStatus.notOnAir;
+            }
             return base.GetSpawnError(placement, grid, entity);
         }
     }

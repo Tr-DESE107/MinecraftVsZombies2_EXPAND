@@ -62,18 +62,19 @@ namespace MVZ2.GameContent.Contraptions
                 var sourceEnt = source.GetEntity();
                 if (sourceEnt == null)
                     return;
-                var grid = sourceEnt.GetGrid();
-                if (grid == null)
-                    return;
-                var main = grid.GetMainEntity();
-                if (main != null)
+                var grids = sourceEnt.GetGridsToTake();
+                foreach (var grid in grids)
                 {
-                    results.Add(main);
-                }
-                var carrier = grid.GetCarrierEntity();
-                if (carrier != null)
-                {
-                    results.Add(carrier);
+                    var main = grid.GetMainEntity();
+                    if (main != null)
+                    {
+                        results.Add(main);
+                    }
+                    var carrier = grid.GetCarrierEntity();
+                    if (carrier != null)
+                    {
+                        results.Add(carrier);
+                    }
                 }
             }
         }

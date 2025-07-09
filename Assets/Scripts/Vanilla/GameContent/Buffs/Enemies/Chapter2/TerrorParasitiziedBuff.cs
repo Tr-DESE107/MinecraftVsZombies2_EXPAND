@@ -66,7 +66,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             var entity = param.entity;
             var info = param.deathInfo;
-            if (info.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
                 return;
             foreach (var buff in entity.GetBuffs<TerrorParasitizedBuff>())
             {

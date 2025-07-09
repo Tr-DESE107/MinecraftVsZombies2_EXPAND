@@ -12,6 +12,9 @@ namespace MVZ2.GameContent.Difficulties
             return new VanillaDifficultyPropertyMeta<T>(name, defaultValue);
         }
         // Contraptions
+        public static readonly VanillaDifficultyPropertyMeta<float> GUNPOWDER_DAMAGE_MULTIPLIER = Get<float>("gunpowderDamageMultiplier", 1);
+        public static float GetGunpowderDamageMultiplier(this LevelEngine level) => level.GetProperty<float>(GUNPOWDER_DAMAGE_MULTIPLIER);
+        
         public static readonly VanillaDifficultyPropertyMeta<int> REDSTONE_ORE_DROP_COUNT = Get<int>("redstoneOreDropCount", 10);
         public static int GetRedstoneOreDropCount(this LevelEngine level) => level.GetProperty<int>(REDSTONE_ORE_DROP_COUNT);
 

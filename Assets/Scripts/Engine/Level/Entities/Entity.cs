@@ -325,6 +325,17 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 光环
+        public AuraEffect GetAuraEffect<T>() where T : AuraEffectDefinition
+        {
+            return auras.Get<T>();
+        }
+        public AuraEffect[] GetAuraEffects()
+        {
+            return auras.GetAll();
+        }
+        #endregion
+
         #region 物理
 
         #region 体积
@@ -434,11 +445,13 @@ namespace PVZEngine.Entities
         #region 网格
         public int GetColumn()
         {
-            return Level.GetColumn(Position.x);
+            var gridPivotOffset = Cache.GridPivotOffset;
+            return Level.GetColumn(Position.x + gridPivotOffset.x);
         }
         public int GetLane()
         {
-            return Level.GetLane(Position.z);
+            var gridPivotOffset = Cache.GridPivotOffset;
+            return Level.GetLane(Position.z + gridPivotOffset.y);
         }
         public NamespaceID[] GetTakingGridLayers(LawnGrid grid)
         {
@@ -683,22 +696,52 @@ namespace PVZEngine.Entities
         {
             return armorDict.Keys.ToArray();
         }
+        public void ActivateArmorColliders(NamespaceID slot)
+        {
+            foreach (var collider in GetArmorColliders(slot))
+            {
+                collider.SetEnabled(true);
+            }
+        }
+        public void DeactivateArmorColliders(NamespaceID slot)
+        {
+            foreach (var collider in GetArmorColliders(slot))
+            {
+                collider.SetEnabled(false);
+            }
+        }
         private void CreateCollidersForArmor(NamespaceID slot, Armor armor)
         {
-            foreach (var cons in armor.GetColliderConstructors())
+            foreach (var cons in armor.GetColliderConstructors(this, slot))
             {
                 var info = cons;
-                info.name = $"{slot}/{cons.name}";
+                info.name = GetArmorColliderName(slot, cons.name);
                 info.armorSlot = slot;
                 CreateCollider(info);
             }
         }
         private void RemoveCollidersFromArmor(NamespaceID slot, Armor armor)
         {
-            foreach (var cons in armor.GetColliderConstructors())
+            foreach (var cons in armor.GetColliderConstructors(this, slot))
             {
-                RemoveCollider($"{slot}/{cons.name}");
+                var name = GetArmorColliderName(slot, cons.name);
+                RemoveCollider(name);
             }
+        }
+        private IEnumerable<IEntityCollider> GetArmorColliders(NamespaceID slot)
+        {
+            var armor = GetArmorAtSlot(slot);
+            if (armor == null)
+                yield break;
+            foreach (var cons in armor.GetColliderConstructors(this, slot))
+            {
+                var name = GetArmorColliderName(slot, cons.name);
+                yield return GetCollider(name);
+            }
+        }
+        private static string GetArmorColliderName(NamespaceID slot, string name)
+        {
+            return $"{slot}/{name}";
         }
         #endregion
 
@@ -985,7 +1028,7 @@ namespace PVZEngine.Entities
                 entity = this,
                 velocity = velocity
             };
-            Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, param);
+            Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, param, Definition.GetID());
         }
         private void OnLeaveGround()
         {

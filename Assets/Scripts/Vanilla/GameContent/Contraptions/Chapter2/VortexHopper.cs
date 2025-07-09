@@ -3,6 +3,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
@@ -118,7 +119,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             if (enemy.ImmuneVortex())
                 return;
-            enemy.Die(new DamageEffectList(VanillaDamageEffects.DROWN), hopper);
+            enemy.Die(new DamageEffectList(VanillaDamageEffects.DROWN, VanillaDamageEffects.NO_DEATH_TRIGGER), hopper);
             var hopperPos = hopper.Position;
             hopperPos.y = hopper.GetGroundY();
             var hopperPos2D = new Vector2(hopper.Position.x, hopper.Position.z);

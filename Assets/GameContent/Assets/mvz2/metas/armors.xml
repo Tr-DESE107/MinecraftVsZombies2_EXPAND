@@ -40,26 +40,6 @@
                 <float name="mvz2:maxHealth" value="400" />
             </props>
         </entry>
-        <entry id="reflective_barrier">
-            <behaviours>
-                <behaviour id="mvz2:damage_state_3"/>
-                <behaviour id="mvz2:reflective_barrier"/>
-            </behaviours>
-            <colliders>
-                <collider name="main" >
-                    <offset x="-40" y="0" z="0"/>
-                    <size x="5" y="100" z="40"/>
-                    <pivot x="0.5" y="0" z="0.5"/>
-                </collider>
-            </colliders>
-            <props>
-                <bool name="mvz2:noDiscard" value="true" />
-                <id name="mvz2:shell" value="mvz2:stone" />
-                <float name="mvz2:maxHealth" value="600" />
-                <id name="mvz2:hitSound" value="mvz2:glass" />
-                <id name="mvz2:deathSound" value="mvz2:glass_break" />
-            </props>
-        </entry>
         <entry id="wicked_hermit_hat">
             <props>
                 <id name="mvz2:shell" value="mvz2:leather" />
@@ -75,12 +55,40 @@
                 <float name="mvz2:maxHealth" value="300" />
             </props>
         </entry>
+        <entry id="emperor_crown">
+            <props>
+                <id name="mvz2:shell" value="mvz2:wood" />
+                <float name="mvz2:maxHealth" value="50" />
+            </props>
+        </entry>
+
+        <!-- Shields -->
+        <entry id="reflective_barrier">
+            <behaviours>
+                <behaviour id="mvz2:damage_state_3"/>
+                <behaviour id="mvz2:reflective_barrier"/>
+            </behaviours>
+            <colliders>
+                <collider name="main" >
+                    <offset x="0" y="0" z="0"/>
+                    <size x="5" y="100" z="40"/>
+                    <pivot x="0.5" y="0.5" z="0.5"/>
+                </collider>
+            </colliders>
+            <props>
+                <bool name="mvz2:noDiscard" value="true" />
+                <id name="mvz2:shell" value="mvz2:stone" />
+                <float name="mvz2:maxHealth" value="600" />
+                <id name="mvz2:hitSound" value="mvz2:glass" />
+                <id name="mvz2:deathSound" value="mvz2:glass_break" />
+            </props>
+        </entry>
         <entry id="skeleton_warrior_shield">
             <colliders>
                 <collider name="main" >
-                    <offset x="-40" y="28" z="0"/>
+                    <offset x="0" y="0" z="0"/>
                     <size x="10" y="40" z="40"/>
-                    <pivot x="0.5" y="0" z="0.5"/>
+                    <pivot x="0.5" y="0.5" z="0.5"/>
                 </collider>
             </colliders>
             <props>
@@ -88,10 +96,22 @@
                 <float name="mvz2:maxHealth" value="200" />
             </props>
         </entry>
-        <entry id="emperor_crown">
+        <entry id="umbrella_shield" tags="mvz2:between_hands">
+            <behaviours>
+                <behaviour id="mvz2:damage_state_3"/>
+                <behaviour id="mvz2:umbrella_shield"/>
+            </behaviours>
+            <colliders>
+                <collider name="main" >
+                    <offset x="-27" y="0" z="0"/>
+                    <size x="42" y="86" z="42"/>
+                    <pivot x="0.5" y="0.5" z="0.5"/>
+                </collider>
+            </colliders>
             <props>
-                <id name="mvz2:shell" value="mvz2:wood" />
-                <float name="mvz2:maxHealth" value="50" />
+                <id name="mvz2:shell" value="mvz2:leather" />
+                <float name="mvz2:maxHealth" value="270" />
+                <id name="mvz2:hitSound" value="mvz2:leather_hit" />
             </props>
         </entry>
     </entries>

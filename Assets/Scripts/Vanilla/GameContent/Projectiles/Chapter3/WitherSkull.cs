@@ -3,6 +3,7 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
@@ -41,7 +42,7 @@ namespace MVZ2.GameContent.Projectiles
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (damageInfo.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
                 return;
             Explode(entity);
         }

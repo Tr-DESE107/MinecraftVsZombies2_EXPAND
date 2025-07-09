@@ -75,7 +75,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostContactGround(Entity entity, Vector3 velocity)
         {
             base.PostContactGround(entity, velocity);
-            if ((entity.IsDead || entity.IsAIFrozen()) && !entity.IsOnWater())
+            if ((entity.IsDead || entity.IsAIFrozen()) && entity.IsAboveLand())
             {
                 float damageMutliplier = entity.Level.GetReverseSatelliteDamageMultiplier();
                 float radius = entity.GetRange();

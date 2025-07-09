@@ -123,7 +123,7 @@ namespace MVZ2.Saves
             FileHelper.ValidateDirectory(saveDataMetaPath);
             var serializable = userDataList.ToSerializable();
             var metaJson = serializable.ToBson();
-            Main.FileManager.WriteJsonFile(saveDataMetaPath, metaJson);
+            Main.FileManager.WriteStringFile(saveDataMetaPath, metaJson);
         }
         #endregion
 
@@ -139,7 +139,7 @@ namespace MVZ2.Saves
             {
                 try
                 {
-                    var metaJson = Main.FileManager.ReadJsonFile(saveDataMetaPath);
+                    var metaJson = Main.FileManager.ReadStringFile(saveDataMetaPath);
                     var serializable = SerializeHelper.FromBson<SerializableUserDataList>(metaJson);
                     userDataList = UserDataList.FromSerializable(serializable);
                 }
@@ -459,7 +459,7 @@ namespace MVZ2.Saves
             FileHelper.ValidateDirectory(saveDataMetaPath);
             var seriUserList = newUserDataList.ToSerializable();
             var userListJson = seriUserList.ToBson();
-            Main.FileManager.WriteJsonFile(saveDataMetaPath, userListJson);
+            Main.FileManager.WriteStringFile(saveDataMetaPath, userListJson);
 
             // 存档。
             var saveDatas = ImportOldUserData(newUserDataList, saveData.saveDatas);
@@ -476,7 +476,7 @@ namespace MVZ2.Saves
                 FileHelper.ValidateDirectory(path);
                 var seriUserData = modSaveData.ToSerializable();
                 var userDataJson = seriUserData.ToBson();
-                Main.FileManager.WriteJsonFile(path, userDataJson);
+                Main.FileManager.WriteStringFile(path, userDataJson);
             }
         }
         #endregion

@@ -100,7 +100,7 @@ namespace MVZ2.IO
             if (attr == null)
                 return null;
             var list = new List<NamespaceID>();
-            foreach (var str in attr.Value.Split(";"))
+            foreach (var str in attr.Value.Split(' ', ';'))
             {
                 if (NamespaceID.TryParse(str, defaultNsp, out var condition))
                 {
@@ -281,25 +281,53 @@ namespace MVZ2.IO
             {
                 case "vector2":
                     {
-                        var x = node.GetAttributeFloat("x");
-                        var y = node.GetAttributeFloat("y");
-                        bool valid = x.HasValue && y.HasValue;
-                        if (valid)
-                            propValue = new Vector2(x.Value, y.Value);
-                        return valid;
+                        if (node.TryGetAttributeVector2(out var vec2))
+                        {
+                            propValue = vec2;
+                            return true;
+                        }
                     }
+                    break;
                 case "vector3":
                     {
-                        var x = node.GetAttributeFloat("x");
-                        var y = node.GetAttributeFloat("y");
-                        var z = node.GetAttributeFloat("z");
-                        bool valid = x.HasValue && y.HasValue && z.HasValue;
-                        if (valid)
-                            propValue = new Vector3(x.Value, y.Value, z.Value);
-                        return valid;
+                        if (node.TryGetAttributeVector3(out var vec3))
+                        {
+                            propValue = vec3;
+                            return true;
+                        }
                     }
+                    break;
             }
             return false;
+        }
+        public static bool TryGetAttributeVector2(this XmlNode node, out Vector2 propValue)
+        {
+            propValue = default;
+            var x = node.GetAttributeFloat("x");
+            var y = node.GetAttributeFloat("y");
+            bool valid = x.HasValue && y.HasValue;
+            if (valid)
+                propValue = new Vector2(x.Value, y.Value);
+            return valid;
+        }
+        public static bool TryGetAttributeVector3(this XmlNode node, out Vector3 propValue)
+        {
+            propValue = default;
+            var x = node.GetAttributeFloat("x");
+            var y = node.GetAttributeFloat("y");
+            var z = node.GetAttributeFloat("z");
+            bool valid = x.HasValue && y.HasValue && z.HasValue;
+            if (valid)
+                propValue = new Vector3(x.Value, y.Value, z.Value);
+            return valid;
+        }
+        public static Vector2? GetAttributeVector2(this XmlNode node)
+        {
+            return TryGetAttributeVector2(node, out var vec) ? vec : null;
+        }
+        public static Vector3? GetAttributeVector3(this XmlNode node)
+        {
+            return TryGetAttributeVector3(node, out var vec) ? vec : null;
         }
         public static bool TryGetAttributeNullable(this XmlNode node, string name, string nullAttributeName, string type, string defaultNsp, out object propValue)
         {

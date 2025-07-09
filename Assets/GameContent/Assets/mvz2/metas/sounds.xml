@@ -439,6 +439,9 @@
     <sound name="morse_code_reverse">
         <sample path="mvz2:morse_code_reverse" weight="1" />
     </sound>
+    <sound name="motor">
+        <sample path="mvz2:motor" weight="1" />
+    </sound>
     <sound name="mummy_cry">
         <sample path="mvz2:entity/mummy/mummy1" weight="1" />
         <sample path="mvz2:entity/mummy/mummy2" weight="1" />
@@ -541,6 +544,9 @@
     </sound>
     <sound name="power_on">
         <sample path="mvz2:power_on" weight="1" />
+    </sound>
+    <sound name="power_up">
+        <sample path="mvz2:power_up" weight="1" />
     </sound>
     <sound name="prize">
         <sample path="mvz2:prize" weight="1" />
@@ -840,6 +846,9 @@
     <sound name="wheel_of_death_loop">
         <sample path="mvz2:entity/nightmareaper/wheel_of_death_loop" weight="1" />
     </sound>
+    <sound name="wind">
+        <sample path="mvz2:wind" weight="1" />
+    </sound>
     <sound name="wither_cry">
         <sample path="mvz2:entity/wither/cry1" weight="1" />
         <sample path="mvz2:entity/wither/cry2" weight="1" />
@@ -877,6 +886,12 @@
         <sample path="mvz2:random/wood2" weight="1" />
         <sample path="mvz2:random/wood3" weight="1" />
         <sample path="mvz2:random/wood4" weight="1" />
+    </sound>
+    <sound name="cloth">
+        <sample path="mvz2:random/cloth/cloth1" weight="1" />
+        <sample path="mvz2:random/cloth/cloth2" weight="1" />
+        <sample path="mvz2:random/cloth/cloth3" weight="1" />
+        <sample path="mvz2:random/cloth/cloth4" weight="1" />
     </sound>
     <sound name="zap">
         <sample path="mvz2:zap1" weight="1" />

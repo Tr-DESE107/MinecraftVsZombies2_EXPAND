@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-06-18 09:46+0800\n"
-"PO-Revision-Date: 2025-06-18 21:47+0800\n"
+"POT-Creation-Date: 2025-07-04 01:06+0800\n"
+"PO-Revision-Date: 2025-07-09 14:31+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -574,7 +574,7 @@ msgstr "Furnaces are essential for you to generate extra redstone which can be c
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>300</color>\n"
-"生产速度：<color=red>24秒</color>\n"
+"生产时间：<color=red>24秒</color>\n"
 "提供能量：<color=red>25</color>\n"
 "技能：<color=red>瞬间生成6枚红石</color>"
 msgstr ""
@@ -586,8 +586,8 @@ msgstr ""
 #. Flavor for contraptions mvz2:furnace
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。"
-msgstr "Someone was so lazy that they installed a dropper attached to the mine under it. Oh and that mine uses geothermal energy."
+msgid "精准采集是你这样用的？"
+msgstr "Is this how you use Silk Touch?"
 
 #. Header for contraptions mvz2:obsidian
 #: Almanac meta file
@@ -1293,7 +1293,7 @@ msgstr "Giant Bowl slowly produces and stores starshards, these starshards can o
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"生产速度：<color=red>60秒</color>\n"
+"生产时间：<color=red>60秒</color>\n"
 "存储上限：<color=red>5</color>\n"
 "技能：<color=red>向内部存储一颗星之碎片</color>"
 msgstr ""
@@ -1564,6 +1564,74 @@ msgstr ""
 "\n"
 "Um... I didn't seem to hear anything just now."
 
+#. Header for contraptions mvz2:gunpowder_barrel
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "火药桶能生产为你提供大量能量的火药，但若未及时拾取，则会炸伤周围的友方单位。火药桶在被破坏时也会爆炸。"
+msgstr ""
+"Gunpowder Barrels produce gunpowder that provides massive energy, but will explode and damage nearby friendly units if not collected "
+"in time. Gunpowder Barrels also explode when destroyed."
+
+#. Properties for contraptions mvz2:gunpowder_barrel
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"爆炸伤害：<color=red>100（简单）、150（普通）、300（困难）</color>\n"
+"爆炸半径：<color=red>1.5格</color>\n"
+"生产时间：<color=red>36秒</color>\n"
+"提供能量：<color=red>50</color>\n"
+"技能：<color=red>改为生成暴怒火药，提供75能量，但是会更快爆炸</color>"
+msgstr ""
+"Explosion Damage: <color=red>100 (Easy), 150 (Normal), 300 (Hard)</color>\n"
+"Explosion Radius: <color=red>1.5 grids</color>\n"
+"Produce time: <color=red>36 seconds</color>\n"
+"Energy production: <color=red>50</color>\n"
+"Evocation: <color=red>Produce furious gunpowder instead, which provides 75 energy but explodes faster</color>"
+
+#. Flavor for contraptions mvz2:gunpowder_barrel
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"众所周知，最早的黑火药由三种材料制作：\n"
+"硫磺（一种易燃品）\n"
+"硝石（被埋葬的尸体旁一般会产生结晶）\n"
+"木炭（燃烧木头的产物）\n"
+"那么——等等，我为什么要告诉你这些？"
+msgstr ""
+"As everyone knows, the earliest gunpowder was made from three materials:\n"
+"Sulfur (a flammable substance)\n"
+"Saltpeter (crystals that typically form near buried bodies)\n"
+"Charcoal (the product of burning wood)\n"
+"So—wait, why should I be telling you this?"
+
+#. Header for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "连射发射器一次能发射两支箭矢。"
+msgstr "Repeatenser can shoot 2 arrows at once."
+
+#. Properties for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>2支/1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>"
+msgstr ""
+"Fire rate: <color=red>2 shots/1.5s</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Rapidly fires 60 arrows, finishing with a large arrow</color>"
+
+#. Flavor for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。\n"
+"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。"
+msgstr ""
+"It wasn't fortunate enough to join the ranks of the H.F.P.D soldiers because it had to say everything twice.\n"
+"It wasn't fortunate enough to join the ranks of the H.F.P.D soldiers because it had to say everything twice."
+
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -1646,6 +1714,41 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid "它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！"
 msgstr "It bought the joke patent of the Wooden Dropper, so it can joke about Goooooooooooooooooooooooooooooolden Dropper deservedly!"
+
+#. Header for contraptions mvz2:high_frequency_pulse_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "高频脉冲发射器一次能发射四支箭矢。"
+msgstr "H.F.P.D (High Frequency Pulse Dispenser) fires 4 arrows at once."
+
+#. Properties for contraptions mvz2:high_frequency_pulse_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>4支/1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>永久改为发射六支箭矢，并<tag id=\"mvz2:light_source\"/>发光</color>"
+msgstr ""
+"Fire rate: <color=red>4 shots/1.5s</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Permanently fires 6 arrows at once instead and <tag id=\"mvz2:light_source\"/>glows</color>"
+
+#. Flavor for contraptions mvz2:high_frequency_pulse_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。\n"
+"高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。\n"
+"高频脉冲发射器的队伍是一支训练有素的队伍，它们的入队要求十分严格，包括——每句话都要说四遍。\n"
+"高——闭嘴吧。"
+msgstr ""
+"The H.F.P.D unit is a highly disciplined force. Their entry requirements are extremely strict, including—repeating every sentence four "
+"times.\n"
+"The H.F.P.D unit is a highly disciplined force. Their entry requirements are extremely strict, including—repeating every sentence four "
+"times.\n"
+"The H.F.P.D unit is a highly disciplined force. Their entry requirements are extremely strict, including—repeating every sentence four "
+"times.\n"
+"The- Shut up already!"
 
 #. Header for contraptions mvz2:diamond_spikes
 #: Almanac meta file
@@ -2328,8 +2431,8 @@ msgstr "Exceptionally skilled at doing sit-ups."
 #. Header for enemies mvz2:emperor_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "皇帝僵尸使用手中的圣剑来给予周围的敌人圣盾，使它们免疫下一次受到的伤害。"
-msgstr "Emperor Zombie uses the Holy Sword to grant Divine Shields to nearby enemies, making them immune to the next damage."
+msgid "皇帝僵尸使用手中的圣剑来给予周围的友方单位圣盾，使它们免疫下一次受到的伤害。"
+msgstr "Emperor Zombie uses the Holy Sword to grant Divine Shields to nearby friendly units, making them immune to the next damage."
 
 #. Properties for enemies mvz2:emperor_zombie
 #: Almanac meta file
@@ -2337,11 +2440,11 @@ msgctxt "enemies.description"
 msgid ""
 "生命：<color=red>200+50</color>\n"
 "施法冷却：<color=red>5秒</color>\n"
-"特点：<color=red>一次最多给予10个周围的敌人圣盾，抵消下一次受到的伤害</color>"
+"特点：<color=red>一次最多给予10个周围的友方单位圣盾，抵消下一次受到的伤害</color>"
 msgstr ""
 "Toughness: <color=red>200+50</color>\n"
 "Cast Cooldown: <color=red>5 seconds</color>\n"
-"Special: <color=red>Gives divine shields to up to 10 nearby enemies, negating the next damage they take</color>"
+"Special: <color=red>Gives divine shields to up to 10 nearby friendly units, negating the next damage they take</color>"
 
 #. Flavor for enemies mvz2:emperor_zombie
 #: Almanac meta file
@@ -3019,6 +3122,16 @@ msgctxt "misc.description"
 msgid "史蒂夫制造的自动矿场，会在白天的时候自动挖掘红石矿。"
 msgstr "Steve's automated miner, which automatically digs for redstone during the day."
 
+#. Properties for misc mvz2:miner
+#: Almanac meta file
+msgctxt "misc.description"
+msgid ""
+"生产时间：<color=red>10秒</color>\n"
+"提供能量：<color=red>25</color>"
+msgstr ""
+"Produce time: <color=red>10 seconds</color>\n"
+"Energy production: <color=red>25</color>"
+
 #. Flavor for misc mvz2:miner
 #: Almanac meta file
 msgctxt "misc.description"
@@ -3474,12 +3587,6 @@ msgstr "Marisa Kirisame"
 msgctxt "misc.description"
 msgid "一位普通的魔法使，也是森近 霖之助曾经的好友。"
 msgstr "An ordinary magician, and also a former good friend of Rinnosuke Morichika."
-
-#. Properties for misc mvz2:marisa
-#: Almanac meta file
-msgctxt "misc.description"
-msgid "画师：<color=red>小幽喜欢口乙烯 & 三花花</color>"
-msgstr "Artist: <color=red>小幽喜欢口乙烯 & 三花花</color>"
 
 #. Flavor for misc mvz2:marisa
 #: Almanac meta file
@@ -4549,6 +4656,30 @@ msgctxt "entity.tooltip"
 msgid "复制敌人身上的星之碎片"
 msgstr "Duplicate starshards carried by enemies"
 
+#. Name for entity mvz2:gunpowder_barrel
+#: Entity meta file
+msgctxt "entity.name"
+msgid "火药桶"
+msgstr "Gunpowder Barrel"
+
+#. Tooltip for entity mvz2:gunpowder_barrel
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "提供大量能量，但有爆炸的风险"
+msgstr "Provide massive energy, but may explode"
+
+#. Name for entity mvz2:repeatenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "连射发射器"
+msgstr "Repeatenser"
+
+#. Tooltip for entity mvz2:repeatenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "一次射出两支箭矢"
+msgstr "Shoot 2 arrows at once"
+
 #. Name for entity mvz2:infectenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -4596,6 +4727,22 @@ msgid ""
 msgstr ""
 "(Requires Wooden Dropper)\n"
 "Fires bouncing golden balls which produce emeralds"
+
+#. Name for entity mvz2:high_frequency_pulse_dispenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "高频脉冲发射器"
+msgstr "H.F.P.D"
+
+#. Tooltip for entity mvz2:high_frequency_pulse_dispenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要连射发射器）\n"
+"一次射出四支箭矢"
+msgstr ""
+"(Requires Repeatenser)\n"
+"Shoots 4 arrows at once"
 
 #. Name for entity mvz2:diamond_spikes
 #: Entity meta file
@@ -5163,11 +5310,29 @@ msgctxt "entity.name"
 msgid "小型弩车"
 msgstr "Mini Ballista"
 
+#. Name for entity mvz2:unzan_fist
+#: Entity meta file
+msgctxt "entity.name"
+msgid "云山之拳"
+msgstr "Unzan's Fist"
+
 #. Name for entity mvz2:redstone
 #: Entity meta file
 msgctxt "entity.name"
 msgid "红石"
 msgstr "Redstone"
+
+#. Name for entity mvz2:gunpowder
+#: Entity meta file
+msgctxt "entity.name"
+msgid "火药"
+msgstr "Gunpowder"
+
+#. Name for entity mvz2:furious_gunpowder
+#: Entity meta file
+msgctxt "entity.name"
+msgid "暴怒火药"
+msgstr "Furious Gunpowder"
 
 #. Name for entity mvz2:emerald
 #: Entity meta file
@@ -5564,6 +5729,18 @@ msgstr "Lengthen the board"
 msgctxt "option.name"
 msgid "增加弹珠"
 msgstr "Add a pearl"
+
+#~ msgctxt "contraptions.description"
+#~ msgid "有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。"
+#~ msgstr "Someone was so lazy that they installed a dropper attached to the mine under it. Oh and that mine uses geothermal energy."
+
+#~ msgctxt "misc.description"
+#~ msgid "生产速度：<color=red>10秒</color>"
+#~ msgstr "Produce time: <color=red>10 seconds</color>"
+
+#~ msgctxt "misc.description"
+#~ msgid "画师：<color=red>小幽喜欢口乙烯 & 三花花</color>"
+#~ msgstr "Artist: <color=red>小幽喜欢口乙烯 & 三花花</color>"
 
 #~ msgctxt "contraptions.description"
 #~ msgid "欲望壶会复制敌人身上拥有的星之碎片。"

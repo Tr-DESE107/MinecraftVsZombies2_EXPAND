@@ -62,16 +62,13 @@ TagManager:
   - name: BackUI
     uniqueID: 2202724129
     locked: 0
-  - name: Entities
-    uniqueID: 4028947305
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Foreground
     uniqueID: 4254708015
     locked: 0
-  - name: Darkness
+  - name: VolumeLight
     uniqueID: 1572647217
     locked: 0
   - name: Pickups

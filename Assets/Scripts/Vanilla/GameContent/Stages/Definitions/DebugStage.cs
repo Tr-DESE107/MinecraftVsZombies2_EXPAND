@@ -2,7 +2,6 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -23,8 +22,8 @@ namespace MVZ2.GameContent.Stages
             base.OnStart(level);
             ClassicStart(level);
             //ConveyorStart(level);
-            level.LevelProgressVisible = true;
-            level.SetProgressBarToBoss(VanillaProgressBarID.theGiant);
+            //level.LevelProgressVisible = true;
+            //level.SetProgressBarToBoss(VanillaProgressBarID.theGiant);
             level.SetTriggerActive(true);
             var cartRef = level.GetCartReference();
             level.SpawnCarts(cartRef, VanillaLevelExt.CART_START_X, 20);
@@ -42,16 +41,16 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.dispenser,
-                VanillaContraptionID.spikeBlock,
-                VanillaContraptionID.diamondSpikes,
-                VanillaEnemyID.gargoyle,
-                VanillaEnemyID.shikaisenZombie,
-                VanillaEnemyID.emperorZombie,
-                VanillaEnemyID.skeletonWarrior,
-                VanillaEnemyID.soulsand,
-                VanillaEnemyID.mutantZombie,
-                VanillaEnemyID.megaMutantZombie,
+                VanillaContraptionID.furnace,
+                VanillaContraptionID.gunpowderBarrel,
+                VanillaContraptionID.goldenDropper,
+                VanillaContraptionID.lightningOrb,
+                VanillaContraptionID.devourer,
+                VanillaContraptionID.mineTNT,
+                VanillaEnemyID.zombie,
+                VanillaEnemyID.ghast,
+                VanillaEnemyID.dullahanHead,
+                VanillaBossID.wither,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

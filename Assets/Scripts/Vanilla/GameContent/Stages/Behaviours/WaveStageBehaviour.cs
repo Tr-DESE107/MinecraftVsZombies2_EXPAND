@@ -236,7 +236,7 @@ namespace MVZ2.GameContent.Stages
 
         private static void UpdateHighWaveState(LevelEngine level)
         {
-            bool highWave = level.WaveState == VanillaLevelStates.STATE_HUGE_WAVE_APPROACHING || level.IsHugeWave(level.CurrentWave) || level.GetEntityCount(e => e.IsAliveEnemy()) >= 10;
+            bool highWave = level.IsDuringHugeWave() || level.GetEntityCount(e => e.IsAliveEnemy()) >= 10;
             SetHighWave(level, highWave);
         }
         private static void UpdateHighWaveWeight(LevelEngine level)

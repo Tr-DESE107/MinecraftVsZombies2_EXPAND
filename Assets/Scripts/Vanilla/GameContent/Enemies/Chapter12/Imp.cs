@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateLogic(entity);
             entity.SetModelDamagePercent();
-            entity.SetAnimationBool("HasBoat", entity.HasBuff<BoatBuff>());
+            entity.SetModelProperty("HasBoat", entity.HasBuff<BoatBuff>());
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {

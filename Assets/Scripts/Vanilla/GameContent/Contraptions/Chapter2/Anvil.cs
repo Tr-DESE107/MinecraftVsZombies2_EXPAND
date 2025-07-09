@@ -73,16 +73,17 @@ namespace MVZ2.GameContent.Contraptions
 
             anvil.PlaySound(VanillaSoundID.anvil);
 
-            var grid = anvil.GetGrid();
-            if (grid == null)
-                return;
-            var selfGridLayers = anvil.GetGridLayersToTake();
-            foreach (var layer in selfGridLayers)
+            var grids = anvil.GetGridsToTake();
+            foreach (var grid in grids)
             {
-                var ent = grid.GetLayerEntity(layer);
-                if (CanSmash(anvil, ent))
+                var selfGridLayers = anvil.GetGridLayersToTake();
+                foreach (var layer in selfGridLayers)
                 {
-                    ent.Die(new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.SELF_DAMAGE), anvil, null);
+                    var ent = grid.GetLayerEntity(layer);
+                    if (CanSmash(anvil, ent))
+                    {
+                        ent.Die(new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.SELF_DAMAGE), anvil, null);
+                    }
                 }
             }
         }

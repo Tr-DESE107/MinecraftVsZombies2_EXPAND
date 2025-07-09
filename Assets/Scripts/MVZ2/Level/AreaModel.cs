@@ -1,28 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Models;
 using UnityEngine;
 
 namespace MVZ2.Level
 {
-    public class AreaModel : MonoBehaviour
+    [DisallowMultipleComponent]
+    public class AreaModel : Model
     {
-        public void UpdateFrame(float deltaTime)
-        {
-            updateGroup.UpdateFrame(deltaTime);
-        }
-        public void SetSimulationSpeed(float simulationSpeed)
-        {
-            updateGroup.SetSimulationSpeed(simulationSpeed);
-        }
-        public void SetLighting(Color lighting)
-        {
-            var darknessValue = new Color(1 - lighting.r, 1 - lighting.g, 1 - lighting.b, 1 - lighting.a);
-            foreach (var renderer in darknessRenderers)
-            {
-                renderer.color = darknessValue;
-            }
-        }
         public void SetPreset(string name)
         {
             bool hasActive = false;
@@ -45,64 +31,48 @@ namespace MVZ2.Level
             }
             currentPreset = name;
         }
-        public void SetDoorVisible(bool visible)
+        public override void UpdateElements()
         {
-            foreach (var obj in doorObjects)
+            base.UpdateElements();
+            var newGroup = GetComponent<ModelGroupArea>();
+            if (newGroup != group)
             {
-                obj.SetActive(visible);
+                group = newGroup;
             }
+            var newPresets = GetComponentsInChildren<AreaModelPreset>(true)
+                .Where(g => g.IsDirectChild<Model>(this) && g.gameObject != gameObject);
+            presets.ReplaceList(newPresets);
         }
-
-        #region 动画
-        public void TriggerAnimator(string name)
-        {
-            updateGroup.TriggerAnimator(name);
-        }
-        public void SetAnimatorBool(string name, bool value)
-        {
-            updateGroup.SetAnimatorBool(name, value);
-        }
-        public void SetAnimatorInt(string name, int value)
-        {
-            updateGroup.SetAnimatorInt(name, value);
-        }
-        public void SetAnimatorFloat(string name, float value)
-        {
-            updateGroup.SetAnimatorFloat(name, value);
-        }
-        #endregion
-
         #region 序列化
-        public SerializableAreaModelData ToSerializable()
+        protected override SerializableModelData CreateSerializable()
         {
-            return new SerializableAreaModelData()
-            {
-                currentPreset = currentPreset,
-                updateGroup = updateGroup.ToSerializable(),
-            };
+            var serializable = new SerializableAreaModelData();
+            serializable.currentPreset = currentPreset;
+            return serializable;
         }
-        public void LoadFromSerializable(SerializableAreaModelData serializable)
+        protected override void LoadSerializable(SerializableModelData serializable)
         {
-            SetPreset(serializable.currentPreset);
-            updateGroup.LoadFromSerializable(serializable.updateGroup);
+            base.LoadSerializable(serializable);
+            if (serializable is not SerializableAreaModelData areaModel)
+                return;
+            SetPreset(areaModel.currentPreset);
         }
         #endregion
 
+        public override ModelGroup GraphicGroup => RendererGroup;
+        public ModelGroupArea RendererGroup => group;
         private string currentPreset;
-
+        [Header("Area")]
         [SerializeField]
-        private ModelUpdateGroup updateGroup;
+        private ModelGroupArea group;
         [SerializeField]
-        private GameObject[] doorObjects;
-        [SerializeField]
-        private SpriteRenderer[] darknessRenderers;
-        [SerializeField]
-        private AreaModelPreset[] presets;
+        private List<AreaModelPreset> presets = new List<AreaModelPreset>();
     }
     [Serializable]
-    public class SerializableAreaModelData
+    public class SerializableAreaModelData : SerializableModelData
     {
         public string currentPreset;
+        [Obsolete]
         public SerializableModelUpdateGroup updateGroup;
     }
 }

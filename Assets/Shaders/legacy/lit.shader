@@ -6,12 +6,17 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
         _Color ("Tint", Color) = (1,1,1,1)
         [Enum(None, 0, Front, 1, Back, 2)]
 		_Cull("Cull", Int) = 1
+        [Toggle]
+		_ZWrite("Z Write", Int) = 0
+        [Enum(UnityEngine.Rendering.CompareFunction)]
+		_ZTest("Z Test", Int) = 4
 
 		[Header(Lighting)]
 		[Toggle(LIT)]
 		_LIT("Lit", Int) = 1
 		[HideInInspector] _LightDisabled("Light Disabled", Int) = 0
 		[Toggle] _BackgroundLit("Lit by Background", Int) = 0
+		[Toggle] _SpotLit("Lit by Spot", Int) = 1
         _LightMapSpot("Light Map Spot", 2D) = "black" {}
         _LightMapST ("Light Map ST", Vector) = (14, 10.2, 0, 0)
     }
@@ -23,7 +28,8 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
             "RenderType"="Transparent" 
         }
 
-        ZWrite Off
+        ZWrite [_ZWrite]
+        ZTest [_ZTest]
         Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
         Cull [_Cull]
 
@@ -51,6 +57,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
             };
 
             sampler2D _MainTex;
+            float4 _MainTex_ST;
             half4 _Color;
 
             v2f vert (appdata v)
@@ -60,7 +67,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
                 #if LIT
                 o.lightUV = GetLightUV(v.vertex);
                 #endif
-                o.uv = v.uv;
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.color = v.color;
                 return o;
             }
@@ -72,6 +79,7 @@ Shader "MinecraftVSZombies2/Legacy/Lit"
                 #if LIT
                 col = ApplyLight(col, i.lightUV);
                 #endif
+                clip(col.a - 0.01);
                 return col;
             }
             ENDHLSL

@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Contraptions
             var targetDef = GetEntityDefinitionToTransform(entity);
             if (targetDef == null)
                 return false;
-            if (!targetDef.CanInstantEvoke())
+            if (!targetDef.WillInstantEvoke(entity.Level))
                 return false;
             return base.CanEvoke(entity);
         }
@@ -132,6 +132,7 @@ namespace MVZ2.GameContent.Contraptions
             if (definition != null)
             {
                 spawnParam.SetProperty(VanillaEntityProps.WATER_INTERACTION, definition.GetWaterInteraction());
+                spawnParam.SetProperty(VanillaEntityProps.AIR_INTERACTION, definition.GetAirInteraction());
                 spawnParam.SetProperty(VanillaEntityProps.GRID_LAYERS, definition.GetGridLayersToTake());
             }
             return spawnParam;

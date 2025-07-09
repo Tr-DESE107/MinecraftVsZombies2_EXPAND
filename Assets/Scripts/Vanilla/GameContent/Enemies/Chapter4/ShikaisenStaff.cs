@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Enemies
         {
             var entity = param.entity;
             var info = param.deathInfo;
-            if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH) || info.HasEffect(VanillaDamageEffects.DROWN))
+            if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH) || info.HasEffect(VanillaDamageEffects.DROWN) || info.HasEffect(VanillaDamageEffects.FALL_OFF))
                 return;
             var staff = entity.Level.FindFirstEntity(e => e.IsEntityOf(VanillaEnemyID.shikaisenStaff) && (e.Position - entity.Position).magnitude <= e.GetRange() && e.ExistsAndAlive());
             if (staff == null)

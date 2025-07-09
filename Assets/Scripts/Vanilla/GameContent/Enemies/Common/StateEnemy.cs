@@ -50,13 +50,21 @@ namespace MVZ2.Vanilla.Enemies
             {
                 return VanillaEntityStates.IDLE;
             }
-            else if (enemy.Target != null)
-            {
-                return VanillaEntityStates.ATTACK;
-            }
             else
             {
-                return VanillaEntityStates.WALK;
+                var over = enemy.GetStateOverride();
+                if (over >= 0)
+                {
+                    return over;
+                }
+                else if (enemy.Target != null)
+                {
+                    return VanillaEntityStates.ATTACK;
+                }
+                else
+                {
+                    return VanillaEntityStates.WALK;
+                }
             }
         }
         protected virtual void UpdateActionState(Entity enemy, int state)

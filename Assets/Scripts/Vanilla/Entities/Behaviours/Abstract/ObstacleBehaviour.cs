@@ -25,7 +25,7 @@ namespace MVZ2.Vanilla.Entities
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {
             base.PostDeath(entity, damageInfo);
-            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
+            if (damageInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
             {
                 entity.Remove();
                 return;
@@ -34,18 +34,22 @@ namespace MVZ2.Vanilla.Entities
         }
         protected void KillConflictContraptions(Entity entity)
         {
-            var grid = entity.GetGrid();
-            var statueTakenLayers = new List<NamespaceID>();
-            entity.GetTakingGridLayersNonAlloc(grid, statueTakenLayers);
-            var entityTakenLayers = new List<NamespaceID>();
-            foreach (var contraption in entity.Level.FindEntities(e => e.Type == EntityTypes.PLANT && e.GetGrid() == grid))
+            var grids = entity.GetGridsToTake();
+            foreach (var grid in grids)
             {
-                entityTakenLayers.Clear();
-                contraption.GetTakingGridLayersNonAlloc(grid, entityTakenLayers);
-                if (!entityTakenLayers.Any(l => statueTakenLayers.Contains(l)))
-                    continue;
-                contraption.Die();
+                statueTakenLayersBuffer.Clear();
+                entity.GetTakingGridLayersNonAlloc(grid, statueTakenLayersBuffer);
+                foreach (var contraption in entity.Level.FindEntities(e => e.Type == EntityTypes.PLANT && e.GetGridsToTake().Contains(grid)))
+                {
+                    entityTakenLayersBuffer.Clear();
+                    contraption.GetTakingGridLayersNonAlloc(grid, entityTakenLayersBuffer);
+                    if (!entityTakenLayersBuffer.Any(l => statueTakenLayersBuffer.Contains(l)))
+                        continue;
+                    contraption.Die();
+                }
             }
         }
+        private List<NamespaceID> statueTakenLayersBuffer = new List<NamespaceID>();
+        private List<NamespaceID> entityTakenLayersBuffer = new List<NamespaceID>();
     }
 }

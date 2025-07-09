@@ -27,21 +27,23 @@ namespace MVZ2.Models
             return Main.LevelManager.TransToLawnScale * scale;
         }
         public MainManager Main => MainManager.Instance;
-#if UNITY_EDITOR
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
+#if UNITY_EDITOR
             if (Application.isPlaying)
                 return;
             Model = GetComponentInParent<Model>();
             Init();
+#endif
         }
-        private void Update()
+        protected virtual void Update()
         {
+#if UNITY_EDITOR
             if (Application.isPlaying)
                 return;
             UpdateFrame(Time.deltaTime);
-        }
 #endif
+        }
         public Model Model { get; set; }
     }
 }

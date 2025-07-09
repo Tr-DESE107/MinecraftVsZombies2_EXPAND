@@ -1,6 +1,8 @@
-﻿using MVZ2Logic;
+﻿using System.Collections.Generic;
+using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Entities;
+using PVZEngine.Grids;
 using UnityEngine;
 
 namespace MVZ2.Vanilla.Entities
@@ -108,6 +110,22 @@ namespace MVZ2.Vanilla.Entities
         public static void SetWaterInteraction(this Entity entity, int value)
         {
             entity.SetProperty(WATER_INTERACTION, value);
+        }
+        #endregion
+
+        #region 沉没（空中）
+        public static readonly PropertyMeta<int> AIR_INTERACTION = Get<int>("airInteraction");
+        public static int GetAirInteraction(this EntityDefinition entityDef)
+        {
+            return entityDef.GetProperty<int>(AIR_INTERACTION);
+        }
+        public static int GetAirInteraction(this Entity entity)
+        {
+            return entity.GetProperty<int>(AIR_INTERACTION);
+        }
+        public static void SetAirInteraction(this Entity entity, int value)
+        {
+            entity.SetProperty(AIR_INTERACTION, value);
         }
         #endregion
 
@@ -389,6 +407,41 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 单元格
+        public static readonly PropertyMeta<Vector2Int[]> EXTRA_GRIDS = Get<Vector2Int[]>("extra_grids");
+        public static Vector2Int[] GetExtraGrids(this EntityDefinition entity)
+        {
+            return entity.GetProperty<Vector2Int[]>(EXTRA_GRIDS);
+        }
+        public static Vector2Int[] GetExtraGrids(this Entity entity)
+        {
+            return entity.GetProperty<Vector2Int[]>(EXTRA_GRIDS);
+        }
+        public static IEnumerable<LawnGrid> GetGridsToTake(this Entity entity)
+        {
+            var level = entity.Level;
+            var column = entity.GetColumn();
+            var lane = entity.GetLane();
+
+            var gridBelow = level.GetGrid(column, lane);
+            if (gridBelow != null)
+            {
+                yield return gridBelow;
+            }
+            var extraGrids = entity.GetExtraGrids();
+            if (extraGrids != null)
+            {
+                foreach (var offset in extraGrids)
+                {
+                    var grid = level.GetGrid(column + offset.x, lane + offset.y);
+                    if (grid != null)
+                    {
+                        yield return grid;
+                    }
+                }
+            }
+        }
+
+
         public static readonly PropertyMeta<NamespaceID[]> GRID_LAYERS = Get<NamespaceID[]>("gridLayers");
         public static NamespaceID[] GetGridLayersToTake(this EntityDefinition entity)
         {

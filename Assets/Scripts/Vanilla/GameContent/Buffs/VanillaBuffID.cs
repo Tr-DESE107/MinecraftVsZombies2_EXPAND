@@ -9,6 +9,7 @@ namespace MVZ2.GameContent.Buffs
         public const string entityPhysics = "entity_physics";
         public const string fly = "fly";
         public const string inWater = "in_water";
+        public const string aboveCloud = "above_cloud";
         public const string parabot = "parabot";
         public const string whiteFlash = "white_flash";
         public const string charm = "charm";
@@ -59,6 +60,7 @@ namespace MVZ2.GameContent.Buffs
         public const string desirePotHighlight = "desire_pot_highlight";
         public const string imitated = "imitated";
         public const string noteBlockCharged = "note_block_charged";
+        public const string hfpdUpgraded = "hfpd_upgraded";
 
         // Enemy
         public const string gemCarrier = "gem_carrier";
@@ -93,6 +95,8 @@ namespace MVZ2.GameContent.Buffs
         public const string iZombieImp = "i_zombie_imp";
         public const string iZombieSkeletonWarrior = "i_zombie_skeleton_warrior";
         public const string shikaisenRevive = "shikaisen_revive";
+
+        public const string paratroop = "paratroop";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";

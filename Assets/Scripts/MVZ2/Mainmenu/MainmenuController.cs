@@ -123,7 +123,23 @@ namespace MVZ2.Mainmenu
             {
                 if (Input.GetKeyDown(KeyCode.F1))
                 {
-                    StartCoroutine(GotoDebugStage());
+                    StartCoroutine(GotoDebugStage(VanillaAreaID.halloween));
+                }
+                else if (Input.GetKeyDown(KeyCode.F2))
+                {
+                    StartCoroutine(GotoDebugStage(VanillaAreaID.dream));
+                }
+                else if (Input.GetKeyDown(KeyCode.F3))
+                {
+                    StartCoroutine(GotoDebugStage(VanillaAreaID.castle));
+                }
+                else if (Input.GetKeyDown(KeyCode.F4))
+                {
+                    StartCoroutine(GotoDebugStage(VanillaAreaID.mausoleum));
+                }
+                else if (Input.GetKeyDown(KeyCode.F5))
+                {
+                    StartCoroutine(GotoDebugStage(VanillaAreaID.ship));
                 }
             }
             if (animatorBlendTimeout > 0)
@@ -472,12 +488,12 @@ namespace MVZ2.Mainmenu
             main.LevelManager.InitLevel(VanillaAreaID.day, VanillaStageID.prologue);
             Hide();
         }
-        private IEnumerator GotoDebugStage()
+        private IEnumerator GotoDebugStage(NamespaceID areaID)
         {
             var task = main.LevelManager.GotoLevelSceneAsync();
             while (!task.IsCompleted)
                 yield return null;
-            main.LevelManager.InitLevel(VanillaAreaID.day, VanillaStageID.debug);
+            main.LevelManager.InitLevel(areaID, VanillaStageID.debug);
             Hide();
         }
 

@@ -2,10 +2,12 @@
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -122,7 +124,9 @@ namespace MVZ2.GameContent.Contraptions
                 }
                 else
                 {
-                    entity.Level.AddEnergy(-25);
+                    var redstoneDefinition = entity.Level.Content.GetEntityDefinition(VanillaPickupID.redstone);
+                    var energyValue = redstoneDefinition?.GetEnergyValue() ?? 25;
+                    entity.Level.AddEnergy(-energyValue);
                 }
                 productionTimer.ResetTime(720);
             }

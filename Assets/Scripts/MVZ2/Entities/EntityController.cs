@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MVZ2.Cursors;
+using MVZ2.GameContent.Armors;
 using MVZ2.HeldItems;
 using MVZ2.Level;
 using MVZ2.Level.UI;
@@ -9,6 +10,7 @@ using MVZ2.Models;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -76,13 +78,23 @@ namespace MVZ2.Entities
                 Model = null;
             }
             var model = Models.Model.Create(modelId, transform, Level.GetCamera(), Entity.InitSeed);
-            Model = model;
+            Model = model as EntityModel;
             if (!Model)
                 return;
             Model.OnUpdateFrame += OnModelUpdateFrameCallback;
             modelPropertyCache.UpdateAll(this);
             Model.UpdateFrame(0);
             Model.UpdateAnimators(0);
+
+            // 重新创建护甲模型
+            foreach (var slot in Entity.GetActiveArmorSlots())
+            {
+                var armor = Entity.GetArmorAtSlot(slot);
+                if (armor != null)
+                {
+                    CreateArmorModel(slot, armor);
+                }
+            }
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {
@@ -146,9 +158,10 @@ namespace MVZ2.Entities
 
         public void UpdateModelColliderActive(HeldTargetFlag flag)
         {
-            if (Model is SpriteModel sprModel)
+            if (Model is EntityModel sprModel)
             {
-                sprModel.SetColliderActive((flag & sprModel.HeldTargetFlag) != HeldTargetFlag.None);
+                var heldTargetFlag = HeldTargetFlagHelper.GetHeldTargetFlagByType(Entity.Type);
+                sprModel.SetColliderActive((flag & heldTargetFlag) != HeldTargetFlag.None);
             }
         }
         public void SetHighlight(bool highlight)
@@ -162,7 +175,7 @@ namespace MVZ2.Entities
         public PointerEventData GetHoveredPointerEventData(int index) => holdStreakHandler.GetHoveredPointerEventData(index);
         public Vector2 TransformWorld2ColliderPosition(Vector3 worldPosition)
         {
-            if (Model is not SpriteModel spriteModel)
+            if (Model is not EntityModel spriteModel)
                 return Vector2.zero;
             var collider = spriteModel.Collider;
             if (collider is not BoxCollider2D boxCollider)
@@ -277,11 +290,11 @@ namespace MVZ2.Entities
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {
-            return Model.GraphicGroup.SortingLayerID;
+            return Model.SortingLayerID;
         }
         int ILevelRaycastReceiver.GetSortingOrder()
         {
-            return Model.GraphicGroup.SortingOrder;
+            return Model.SortingOrder;
         }
         #endregion
 
@@ -295,8 +308,8 @@ namespace MVZ2.Entities
             shadowPos.y = groundY;
             shadowPos += modelPropertyCache.ShadowOffset;
 
-            float scale = 1 + relativeY / 300;
-            float alpha = 1 - relativeY / 300;
+            float scale = Mathf.Max(0, 1 + relativeY / 300);
+            float alpha = Mathf.Clamp01(1 - relativeY / 300);
             var shadowTransform = Shadow.transform;
             shadowTransform.position = Level.LawnToTrans(shadowPos) + posOffset;
             shadowTransform.localScale = modelPropertyCache.ShadowScale * scale;
@@ -322,22 +335,51 @@ namespace MVZ2.Entities
         #region 护甲
         private void CreateArmorModel(NamespaceID slot, Armor armor)
         {
+            if (!Model)
+                return;
             if (armor?.Definition == null)
                 return;
             var modelID = armor.Definition.GetModelID();
-            CreateArmorModel(slot, modelID);
-        }
-        private void CreateArmorModel(NamespaceID slot, NamespaceID modelID)
-        {
-            if (!Model)
-                return;
             if (!NamespaceID.IsValid(modelID))
                 return;
-            var slotMeta = Main.ResourceManager.GetArmorSlotMeta(slot);
-            if (slotMeta == null)
+            var armorID = armor.Definition.GetID();
+            var anchor = GetArmorModelAnchor(slot, armorID);
+            if (string.IsNullOrEmpty(anchor))
                 return;
-            var anchor = slotMeta.Anchor;
-            Model.CreateArmor(anchor, slot, modelID);
+            var model = Model.CreateArmor(anchor, slot, modelID);
+            if (model)
+            {
+                var modelPosition = GetArmorModelOffset(slot, armorID);
+                model.transform.localPosition = modelPosition;
+            }
+        }
+        public Vector3 GetArmorModelOffset(NamespaceID slotID, NamespaceID armorID)
+        {
+            var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
+            if (shapeMeta != null)
+            {
+                var offset = shapeMeta.GetArmorModelOffset(slotID, armorID);
+                offset *= Level.LawnToTransScale;
+                return offset;
+            }
+            return Vector3.zero;
+        }
+        public string GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
+        {
+            var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
+            if (shapeMeta != null)
+            {
+                var anchor = shapeMeta.GetArmorModelAnchor(slotID, armorID);
+                if (!string.IsNullOrEmpty(anchor))
+                {
+                    return anchor;
+                }
+            }
+
+            var slotMeta = Main.ResourceManager.GetArmorSlotMeta(slotID);
+            if (slotMeta != null)
+                return slotMeta.Anchor;
+            return null;
         }
         private void RemoveArmorModel(NamespaceID slot)
         {
@@ -355,8 +397,15 @@ namespace MVZ2.Entities
             var armorModel = Model.GetArmorModel(slot);
             if (!armorModel)
                 return;
-            armorModel.GraphicGroup.SetTint(armor.GetTint());
-            armorModel.GraphicGroup.SetColorOffset(armor.GetColorOffset());
+            var tint = armor.GetTint();
+            var colorOffset = armor.GetColorOffset();
+            if (slot == VanillaArmorSlots.main)
+            {
+                tint *= Entity.GetHelmetTint();
+                colorOffset += Entity.GetHelmetColorOffset();
+            }
+            armorModel.GraphicGroup.SetTint(tint);
+            armorModel.GraphicGroup.SetColorOffset(colorOffset);
         }
         private void UpdateArmorModels()
         {
@@ -375,8 +424,16 @@ namespace MVZ2.Entities
                 var meta = Main.ResourceManager.GetArmorSlotMeta(slotID);
                 if (meta == null)
                     continue;
-                var anchorName = meta.Anchor;
-                Model.ClearModelAnchor(anchorName);
+                Model.ClearModelAnchor(meta.Anchor);
+            }
+            var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
+            if (shapeMeta != null)
+            {
+                var anchors = shapeMeta.GetAllArmorModelAnchors();
+                foreach (var anchor in anchors)
+                {
+                    Model.ClearModelAnchor(anchor);
+                }
             }
         }
         #endregion
@@ -486,7 +543,7 @@ namespace MVZ2.Entities
             { EntityTypes.PICKUP, 7 },
         };
         public MainManager Main => MainManager.Instance;
-        public Model Model { get; private set; }
+        public EntityModel Model { get; private set; }
         public ShadowController Shadow => shadow;
         public Entity Entity { get; private set; }
         public LevelController Level { get; private set; }
@@ -516,16 +573,16 @@ namespace MVZ2.Entities
             {
                 var entity = entityCtrl.Entity;
                 var model = entityCtrl.Model;
-                var rendererGroup = model.GraphicGroup;
+                var rendererGroup = model.RendererGroup;
                 rendererGroup.SetTint(entityCtrl.GetTint());
                 rendererGroup.SetHSV(entity.GetHSV());
                 rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
                 rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
 
                 model.transform.localScale = entity.GetFinalDisplayScale();
-                rendererGroup.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
-                rendererGroup.SortingOrder = entity.GetSortingOrder();
-                if (model is SpriteModel sprModel)
+                model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
+                model.SortingOrder = entity.GetSortingOrder();
+                if (model is EntityModel sprModel)
                 {
                     sprModel.SetLightVisible(entity.IsLightSource());
                     sprModel.SetLightColor(entity.GetLightColor());
@@ -545,7 +602,7 @@ namespace MVZ2.Entities
             {
                 var entity = entityCtrl.Entity;
                 var model = entityCtrl.Model;
-                var rendererGroup = model.GraphicGroup;
+                var rendererGroup = model.RendererGroup;
                 foreach (var dirtyProperty in dirtyProperties)
                 {
                     switch (dirtyProperty)
@@ -567,10 +624,10 @@ namespace MVZ2.Entities
                             model.transform.localScale = entity.GetFinalDisplayScale();
                             break;
                         case PropertyName.SortingLayer:
-                            rendererGroup.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
+                            model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
                             break;
                         case PropertyName.SortingOrder:
-                            rendererGroup.SortingOrder = entity.GetSortingOrder();
+                            model.SortingOrder = entity.GetSortingOrder();
                             break;
 
                         case PropertyName.ShadowHidden:
@@ -588,7 +645,7 @@ namespace MVZ2.Entities
 
                         case PropertyName.LightSource:
                             {
-                                if (model is SpriteModel sprModel)
+                                if (model is EntityModel sprModel)
                                 {
                                     sprModel.SetLightVisible(entity.IsLightSource());
                                 }
@@ -596,7 +653,7 @@ namespace MVZ2.Entities
                             break;
                         case PropertyName.LightColor:
                             {
-                                if (model is SpriteModel sprModel)
+                                if (model is EntityModel sprModel)
                                 {
                                     sprModel.SetLightColor(entity.GetLightColor());
                                 }
@@ -604,7 +661,7 @@ namespace MVZ2.Entities
                             break;
                         case PropertyName.LightRange:
                             {
-                                if (model is SpriteModel sprModel)
+                                if (model is EntityModel sprModel)
                                 {
                                     var lightScaleLawn = entity.GetLightRange();
                                     var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson.IO;
 using MVZ2.IO;
 using MVZ2.Logic.Level;
 using MVZ2.Managers;
@@ -49,9 +50,21 @@ namespace MVZ2.Level
             var stageID = controller.GetStartStageID();
             var path = GetLevelStatePath(stageID);
             FileHelper.ValidateDirectory(path);
-            var seri = controller.SaveGame();
-            var json = seri.ToBson();
-            Main.FileManager.WriteJsonFile(path, json);
+
+
+            // 打开文件流
+            using var stream = Main.FileManager.OpenFileWrite(path);
+            using var writer = new StreamWriter(stream);
+
+            // 写入文件首信息
+            var header = controller.SaveGameHeader();
+            var headerJson = header.ToBson();
+            writer.WriteLine(headerJson);
+
+            // 写入文件内容
+            var content = controller.SaveGame();
+            var contentJson = content.ToBson();
+            writer.WriteLine(contentJson);
 
             UpdateCurrentEndlessFlags(stageID, controller.GetCurrentFlag());
         }
@@ -64,20 +77,33 @@ namespace MVZ2.Level
             try
             {
                 controller.SetActive(true);
-                var seri = LoadLevelStateData(stageID);
-                controller.LoadGame(seri, Main.Game, areaID, stageID);
+                var path = GetLevelStatePath(stageID);
+
+                // 打开文件流
+                using var stream = Main.FileManager.OpenFileRead(path);
+                using var streamReader = new StreamReader(stream);
+                using var jsonReader = new JsonReader(streamReader);
+
+                // 读取首行数据
+                var header = SerializeHelper.ReadBson<SerializableLevelControllerHeader>(jsonReader);
+
+                // 验证首行数据
+                var validate = controller.ValidateGameStateHeader(header);
+                if (!validate)
+                    return;
+
+                // 读取内容
+                var content = SerializeHelper.ReadBson<SerializableLevelController>(jsonReader);
+
+                bool success = controller.LoadGame(content, Main.Game, areaID, stageID);
+                if (!success)
+                    return;
                 UpdateCurrentEndlessFlags(stageID, controller.GetCurrentFlag());
             }
             catch (Exception e)
             {
                 controller.ShowLevelErrorLoadingDialog(e);
             }
-        }
-        public SerializableLevelController LoadLevelStateData(NamespaceID stageID)
-        {
-            var path = GetLevelStatePath(stageID);
-            var json = Main.FileManager.ReadJsonFile(path);
-            return SerializeHelper.FromBson<SerializableLevelController>(json);
         }
         public bool HasLevelState(NamespaceID stageID)
         {
@@ -200,7 +226,7 @@ namespace MVZ2.Level
                 Main.SaveManager.SetCurrentEndlessFlag(stageID, flags);
             }
         }
-        public const int CURRENT_DATA_VERSION = 2;
+        public const int CURRENT_DATA_VERSION = 3;
         public float LawnToTransScale => 1 / transToLawnScale;
         public float TransToLawnScale => transToLawnScale;
         public MainManager Main => main;
@@ -211,6 +237,18 @@ namespace MVZ2.Level
         private float transToLawnScale = 100;
         private LevelController controller;
     }
+    public struct LevelDataIdentifierCompareResult
+    {
+        public LevelDataIdentifierPair[] versionMismatches;
+        public LevelDataIdentifier[] missingMismatches;
+        public LevelDataIdentifier[] additionalMismatches;
+        public bool valid;
+    }
+    public struct LevelDataIdentifierPair
+    {
+        public LevelDataIdentifier lhs;
+        public LevelDataIdentifier rhs;
+    }
     [Serializable]
     public class LevelDataIdentifierList
     {
@@ -218,13 +256,65 @@ namespace MVZ2.Level
         {
             this.identifiers.AddRange(identifiers);
         }
-        public bool Compare(LevelDataIdentifierList list)
+        public LevelDataIdentifierCompareResult Compare(LevelDataIdentifierList other)
         {
-            if (list == null)
-                return false;
-            if (list.identifiers.Count != identifiers.Count)
-                return false;
-            return list.identifiers.Any(i => identifiers.Contains(i));
+            if (other == null)
+            {
+                return new LevelDataIdentifierCompareResult()
+                {
+                    valid = false,
+                    versionMismatches = Array.Empty<LevelDataIdentifierPair>(),
+                    missingMismatches = Array.Empty<LevelDataIdentifier>(),
+                    additionalMismatches = identifiers.ToArray(),
+                };
+            }
+
+            var versionMismatches = new List<LevelDataIdentifierPair>();
+            var missingMismatches = new List<LevelDataIdentifier>();
+            var additionalMismatches = new List<LevelDataIdentifier>();
+            foreach (var i1 in identifiers)
+            {
+                bool nameMatches = false;
+                foreach (var i2 in other.identifiers)
+                {
+                    if (i1.spaceName == i2.spaceName)
+                    {
+                        nameMatches = true;
+                        if (i1.dataVersion != i2.dataVersion)
+                        {
+                            versionMismatches.Add(new LevelDataIdentifierPair() { lhs = i1, rhs = i2 });
+                        }
+                    }
+                }
+                if (!nameMatches)
+                {
+                    additionalMismatches.Add(i1);
+                }
+            }
+            foreach (var i1 in other.identifiers)
+            {
+                bool nameMatches = false;
+                foreach (var i2 in identifiers)
+                {
+                    if (i1.spaceName == i2.spaceName)
+                    {
+                        nameMatches = true;
+                        break;
+                    }
+                }
+                if (!nameMatches)
+                {
+                    missingMismatches.Add(i1);
+                }
+            }
+            bool valid = versionMismatches.Count + missingMismatches.Count + additionalMismatches.Count == 0;
+            return new LevelDataIdentifierCompareResult()
+            {
+                valid = valid,
+                versionMismatches = versionMismatches.ToArray(),
+                missingMismatches = missingMismatches.ToArray(),
+                additionalMismatches = additionalMismatches.ToArray()
+            };
         }
         public override int GetHashCode()
         {

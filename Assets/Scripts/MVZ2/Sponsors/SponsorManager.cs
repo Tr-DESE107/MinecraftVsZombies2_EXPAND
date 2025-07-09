@@ -151,7 +151,7 @@ namespace MVZ2.Supporters
             {
                 return null;
             }
-            var json = Main.FileManager.ReadJsonFile(path);
+            var json = Main.FileManager.ReadStringFile(path);
             return BsonSerializer.Deserialize<SponsorInfos>(json);
         }
         private void SaveSponsorsCache(SponsorInfos saveInfo)
@@ -159,7 +159,7 @@ namespace MVZ2.Supporters
             var path = GetSponsorCacheFilePath();
             FileHelper.ValidateDirectory(path);
             var json = saveInfo.ToJson();
-            Main.FileManager.WriteJsonFile(path, json);
+            Main.FileManager.WriteStringFile(path, json);
         }
         private bool ShouldRepull(SponsorInfos infos)
         {
