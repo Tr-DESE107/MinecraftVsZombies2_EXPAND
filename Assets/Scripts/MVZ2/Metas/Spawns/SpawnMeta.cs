@@ -8,6 +8,7 @@ namespace MVZ2.Metas
     public class SpawnMeta : ISpawnMeta
     {
         public string ID { get; private set; }
+        public string Type { get; private set; }
         public NamespaceID Entity { get; private set; }
         public int SpawnLevel { get; private set; }
         public int MinSpawnWave { get; private set; }
@@ -20,6 +21,7 @@ namespace MVZ2.Metas
         public static SpawnMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            var type = node.GetAttribute("type") ?? "entity";
             var entity = node.GetAttributeNamespaceID("entity", defaultNsp);
             var noEndless = node.GetAttributeBool("noEndless") ?? false;
 
@@ -55,6 +57,7 @@ namespace MVZ2.Metas
             return new SpawnMeta()
             {
                 ID = id,
+                Type = type,
                 Entity = entity,
                 SpawnLevel = level,
                 NoEndless = noEndless,

@@ -233,7 +233,7 @@ namespace MVZ2.Vanilla.Level
 
                     var param = new SpawnParams();
                     param.SetProperty(VanillaEnemyProps.PREVIEW_ENEMY, true);
-                    Entity enm = level.Spawn(spawnDef.EntityID, pos, null, param);
+                    Entity enm = level.Spawn(spawnDef.GetPreviewEntityID(), pos, null, param);
                     createdEnemies.Add(enm);
 
                     spawnToCreate.Remove(spawnDef);
@@ -328,7 +328,13 @@ namespace MVZ2.Vanilla.Level
 
             // 当前的有效敌人池。
             var pool = level.GetEnemyPool();
-            var spawnDefs = pool.Select(id => level.Content.GetSpawnDefinition(id)).Where(def => def != null && def.SpawnLevel > 0);
+            var spawnDefs = pool.Select(id => level.Content.GetSpawnDefinition(id)).Where(def => def != null);
+            foreach (var spawnDef in spawnDefs)
+            {
+                spawnDef.PreSpawnAtWave(level, wave, ref totalPoints);
+            }
+
+            var validSpawnDefs = spawnDefs.Where(def => def.CanSpawnInLevel(level));
 
             // 已生成怪物数量。
             int spawnedCount = 0;
@@ -338,7 +344,7 @@ namespace MVZ2.Vanilla.Level
             {
                 // 当前所有可以生成的敌人。
                 // 不被当前波次限制。
-                var possibleSpawnDefs = spawnDefs.Where(def => def.SpawnLevel <= totalPoints);
+                var possibleSpawnDefs = validSpawnDefs.Where(def => def.GetSpawnLevel(level) <= totalPoints);
 
                 // 没有可生成的敌人了，跳出
                 if (possibleSpawnDefs.Count() <= 0)
@@ -358,14 +364,14 @@ namespace MVZ2.Vanilla.Level
                 var rng = level.GetSpawnRNG();
                 var spawnDef = finalSpawnPool.WeightedRandom(i => i.GetWeight(level), rng);
                 level.SpawnEnemyAtRandomLane(spawnDef);
-                totalPoints -= spawnDef.SpawnLevel;
+                totalPoints -= spawnDef.GetSpawnLevel(level);
                 spawnedCount++;
             }
 
             if (level.IsFinalWave(wave))
             {
                 // 最后一波如果还有没生成过的敌人，强制全部生成一次
-                var notSpawnedDefs = spawnDefs.Where(def => !level.IsEnemySpawned(def.GetID()));
+                var notSpawnedDefs = validSpawnDefs.Where(def => !level.IsEnemySpawned(def.GetID()));
                 foreach (var notSpawnedDef in notSpawnedDefs)
                 {
                     level.SpawnEnemyAtRandomLane(notSpawnedDef);
@@ -388,17 +394,25 @@ namespace MVZ2.Vanilla.Level
         }
         public static Entity SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane)
         {
+            var x = level.GetEnemySpawnX();
+            return level.SpawnEnemy(spawnDef, lane, x);
+        }
+        public static Entity SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane, float x)
+        {
             if (spawnDef == null)
                 return null;
-            var x = level.GetEnemySpawnX();
             var z = level.GetEntityLaneZ(lane);
             var y = level.GetGroundY(x, z);
             var pos = new Vector3(x, y, z);
-            var enemy = level.Spawn(spawnDef.EntityID, pos, null);
-            level.AddSpawnedEnemyID(spawnDef.GetID());
+            var enemy = level.Spawn(spawnDef.GetSpawnEntityID(), pos, null);
+            level.TriggerEnemySpawned(spawnDef.GetID(), enemy);
+            return enemy;
+        }
+        public static void TriggerEnemySpawned(this LevelEngine level, NamespaceID spawnID, Entity enemy)
+        {
+            level.AddSpawnedEnemyID(spawnID);
             level.StageDefinition.PostEnemySpawned(enemy);
             level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, new EntityCallbackParams(enemy));
-            return enemy;
         }
         public static Entity SpawnFlagZombie(this LevelEngine level)
         {

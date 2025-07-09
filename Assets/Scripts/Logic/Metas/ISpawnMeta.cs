@@ -5,6 +5,7 @@ namespace MVZ2Logic.Spawns
     public interface ISpawnMeta
     {
         string ID { get; }
+        string Type { get; }
         NamespaceID Entity { get; }
         int SpawnLevel { get; }
         int MinSpawnWave { get; }

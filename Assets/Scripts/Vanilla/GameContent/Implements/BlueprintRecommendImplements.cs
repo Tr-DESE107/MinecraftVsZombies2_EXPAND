@@ -122,11 +122,7 @@ namespace MVZ2.GameContent.Implements
                 var spawnDef = level.Content.GetSpawnDefinition(spawnID);
                 if (spawnDef == null)
                     continue;
-                var entityID = spawnDef.EntityID;
-                var entityDef = level.Content.GetEntityDefinition(entityID);
-                if (entityDef == null)
-                    continue;
-                var tags = entityDef.GetCounterTags();
+                var tags = spawnDef.GetCounterTags(level);
                 if (tags == null)
                     continue;
                 foreach (var tag in tags)
