@@ -38,7 +38,10 @@ namespace MVZ2.GameContent.Enemies
             buff.SetProperty(FlyBuff.PROP_FLY_SPEED, FLY_SPEED_ENTER);
             buff.SetProperty(FlyBuff.PROP_MAX_FLY_SPEED, MAX_FLY_SPEED);
 
-            entity.PlaySound(VanillaSoundID.ufo);
+            if (!entity.IsPreviewEnemy())
+            {
+                entity.PlaySound(VanillaSoundID.ufo, volume: 0.5f);
+            }
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -167,34 +170,53 @@ namespace MVZ2.GameContent.Enemies
             var id = entity.GetDefinitionID();
             return id == VanillaEnemyID.ufoRed || id == VanillaEnemyID.ufoGreen || id == VanillaEnemyID.ufoBlue || id == VanillaEnemyID.ufoRainbow;
         }
-        public static void FillUFOTypeRandomPool(LevelEngine level, List<NamespaceID> results)
+        public static NamespaceID GetIDByType(int type)
+        {
+            switch (type)
+            {
+                case TYPE_RED:
+                default:
+                    return VanillaEnemyID.ufoRed;
+                case TYPE_GREEN:
+                    return VanillaEnemyID.ufoGreen;
+                case TYPE_BLUE:
+                    return VanillaEnemyID.ufoBlue;
+                case TYPE_RAINBOW:
+                    return VanillaEnemyID.ufoRainbow;
+            }
+        }
+        public static void FillUFOTypeRandomPool(LevelEngine level, List<int> results)
         {
             if (UndeadFlyingObjectRed.CanSpawn(level))
             {
-                results.Add(VanillaEnemyID.ufoRed);
+                results.Add(TYPE_RED);
             }
             if (UndeadFlyingObjectGreen.CanSpawn(level))
             {
-                results.Add(VanillaEnemyID.ufoGreen);
+                results.Add(TYPE_GREEN);
             }
             if (UndeadFlyingObjectBlue.CanSpawn(level))
             {
-                results.Add(VanillaEnemyID.ufoBlue);
+                results.Add(TYPE_BLUE);
             }
         }
-        public static void FillUFOPossibleSpawnGrids(LevelEngine level, NamespaceID id, HashSet<LawnGrid> results)
+        public static void FillUFOPossibleSpawnGrids(LevelEngine level, int type, HashSet<LawnGrid> results)
         {
-            if (id == VanillaEnemyID.ufoRed)
+            if (type == TYPE_RED)
             {
                 UndeadFlyingObjectRed.GetPossibleSpawnGrids(level, results);
             }
-            else if (id == VanillaEnemyID.ufoGreen)
+            else if (type == TYPE_GREEN)
             {
                 UndeadFlyingObjectGreen.GetPossibleSpawnGrids(level, results);
             }
-            else if (id == VanillaEnemyID.ufoBlue)
+            else if (type == TYPE_BLUE)
             {
                 UndeadFlyingObjectBlue.GetPossibleSpawnGrids(level, results);
+            }
+            else if (type == TYPE_RAINBOW)
+            {
+                UndeadFlyingObjectRainbow.GetPossibleSpawnGrids(level, results);
             }
         }
         public static IEnumerable<LawnGrid> FilterConflictSpawnGrids(LevelEngine level, IEnumerable<LawnGrid> possibleGrids)
@@ -222,6 +244,11 @@ namespace MVZ2.GameContent.Enemies
             }
         }
         #endregion
+
+        public const int TYPE_RED = 0;
+        public const int TYPE_GREEN = 1;
+        public const int TYPE_BLUE = 2;
+        public const int TYPE_RAINBOW = 3;
 
         public const float FLY_HEIGHT = 80;
         public const float FLY_SPEED_ENTER = 0.3f;

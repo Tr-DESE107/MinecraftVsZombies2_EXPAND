@@ -2,6 +2,10 @@
 
 namespace MVZ2.GameContent.Enemies
 {
+    public static class VanillaSpawnNames
+    {
+        public const string undeadFlyingObject = "undead_flying_object";
+    }
     public static class VanillaSpawnID
     {
         public static readonly NamespaceID zombie = GetFromEntity(VanillaEnemyID.zombie);

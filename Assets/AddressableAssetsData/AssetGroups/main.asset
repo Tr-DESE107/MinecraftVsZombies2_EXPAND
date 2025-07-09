@@ -4481,6 +4481,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f1b81e56e9c00041a34f173eb75c0ff
+    m_Address: mvz2:bones/contraption_with_collider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f22bfed212241144ada2b8c00f2bea2
     m_Address: mvz2:blueprints
     m_ReadOnly: 0
@@ -8140,6 +8147,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd470ecea0f6f7549b3e393689f0d7c5
+    m_Address: mvz2:effect/ufo_background
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd590dd9f5d29994db2a5356364308e6
     m_Address: mvz2:entity/boss/the_giant

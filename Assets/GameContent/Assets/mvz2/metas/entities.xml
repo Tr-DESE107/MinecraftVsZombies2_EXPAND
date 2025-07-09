@@ -2526,5 +2526,12 @@
                 <int name="mvz2:maxTimeout" value="54" />
             </properties>
         </effect>
+        <effect id="ufo_background">
+            <properties>
+                <string name="mvz2:sortingLayer" value="Background"/>
+                <int name="mvz2:sortingOrder" value="-100"/>
+                <int name="mvz2:maxTimeout" value="120" />
+            </properties>
+        </effect>
     </entries>
 </entities>

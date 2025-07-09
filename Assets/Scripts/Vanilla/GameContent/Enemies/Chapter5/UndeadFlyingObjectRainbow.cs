@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Enemies
             HashSet<LawnGrid> possibleGrids = new HashSet<LawnGrid>();
 
             // 获取可以随机生成的UFO类型。
-            List<NamespaceID> typePool = new List<NamespaceID>();
+            List<int> typePool = new List<int>();
             FillUFOTypeRandomPool(level, typePool);
 
             for (int i = 0; i < count; i++)
@@ -70,7 +70,8 @@ namespace MVZ2.GameContent.Enemies
                 // 检查冲突网格，确保不会与其他UFO冲突。
                 var resultGrids = FilterConflictSpawnGrids(level, possibleGrids);
                 var targetGrid = resultGrids.Random(rng);
-                SpawnRandomUFO(type, rainbow, targetGrid.Column, targetGrid.Lane);
+                var id = GetIDByType(type);
+                SpawnRandomUFO(id, rainbow, targetGrid.Column, targetGrid.Lane);
             }
         }
         public static Entity SpawnRandomUFO(NamespaceID id, Entity rainbow, int column, int lane)

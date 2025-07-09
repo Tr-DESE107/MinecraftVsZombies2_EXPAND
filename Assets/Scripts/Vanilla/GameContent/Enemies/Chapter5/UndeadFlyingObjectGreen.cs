@@ -89,13 +89,31 @@ namespace MVZ2.GameContent.Enemies
         }
         public static bool CanSpawn(LevelEngine level)
         {
-            return level.EntityExists(e => CanStartSteal(level.Option.RightFaction, e));
+            return level.GetEntityCount(e => CanStartSteal(level.Option.RightFaction, e)) <= 3;
         }
         public static void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
         {
+            bool filled = false;
             foreach (var ent in level.FindEntities(e => CanStartSteal(level.Option.RightFaction, e)))
             {
                 results.Add(ent.GetGrid());
+                filled = true;
+            }
+            if (!filled)
+            {
+                var maxColumn = level.GetMaxColumnCount();
+                var maxLane = level.GetMaxLaneCount();
+                for (int x = 0; x < maxColumn; x++)
+                {
+                    for (int y = 0; y < maxLane; y++)
+                    {
+                        var grid = level.GetGrid(x, y);
+                        if (grid != null)
+                        {
+                            results.Add(grid);
+                        }
+                    }
+                }
             }
         }
         public static NamespaceID GetStolenEntityID(Entity entity) => entity.GetBehaviourField<NamespaceID>(PROP_STOLEN_ENTITY_ID);

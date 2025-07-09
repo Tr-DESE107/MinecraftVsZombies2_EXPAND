@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Implements;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Spawns;
@@ -187,6 +188,9 @@ namespace MVZ2.Vanilla
                 if (meta == null)
                     continue;
                 var name = meta.ID;
+                var type = meta.Type;
+                if (type != "entity")
+                    continue;
                 var spawnLevel = meta.SpawnLevel;
                 var terrain = meta.Terrain;
                 var weight = meta.Weight;
@@ -195,7 +199,12 @@ namespace MVZ2.Vanilla
                 var air = meta.Terrain?.Air ?? false;
                 var noEndless = meta.NoEndless;
 
-                var spawnDef = new VanillaSpawnDefinition(Namespace, name, spawnLevel, noEndless, new NamespaceID(Namespace, name), excludedTags);
+                var spawnDef = new VanillaSpawnDefinition(Namespace, name);
+                var entityID = new NamespaceID(Namespace, name);
+                var preview = new SpawnPreviewBehaviour(entityID);
+                var inLevel = new SpawnInLevelBehaviour(spawnDef, spawnLevel, entityID, water, air);
+                var endless = new SpawnEndlessBehaviour(spawnLevel <= 0 || noEndless, excludedTags);
+                spawnDef.SetBehaviours(preview, inLevel, endless);
                 spawnDef.SetProperty(VanillaSpawnProps.MIN_SPAWN_WAVE, meta.MinSpawnWave);
                 spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
                 if (weight != null)
@@ -205,8 +214,15 @@ namespace MVZ2.Vanilla
                     spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_END, weight.DecreaseEnd);
                     spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
                 }
-                spawnDef.CanSpawnAtWaterLane = water;
-                spawnDef.CanSpawnAtAirLane = air;
+                AddDefinition(spawnDef);
+            }
+            {
+                var spawnDef = new VanillaSpawnDefinition(Namespace, VanillaSpawnNames.undeadFlyingObject);
+                var entityID = VanillaEnemyID.ufoRed;
+                var preview = new SpawnPreviewBehaviour(entityID);
+                var inLevel = new UFOSpawnInLevelBehaviour(2);
+                var endless = new SpawnEndlessBehaviour(false, Array.Empty<NamespaceID>());
+                spawnDef.SetBehaviours(preview, inLevel, endless);
                 AddDefinition(spawnDef);
             }
         }
