@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-07-08 11:00+0800\n"
-"PO-Revision-Date: 2025-07-08 23:00+0800\n"
+"POT-Creation-Date: 2025-07-10 06:44+0800\n"
+"PO-Revision-Date: 2025-07-10 18:46+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2481,7 +2481,7 @@ msgstr "Undead Flying Object"
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "不死飞行物从空中来袭并对你进行干扰。在那之后它们就会离开。"
-msgstr "Undead Flying Object invades from the sky and harasses you. Afterwards, they leave."
+msgstr "Undead Flying Objects invade from the sky and harass you. Afterwards, they leave."
 
 #. Properties for enemies mvz2:undead_flying_object_red
 #: Almanac meta file
@@ -2504,6 +2504,59 @@ msgstr ""
 msgctxt "enemies.description"
 msgid "如果你的农场里大面积地种植了小麦，或者圈养了很多的奶牛，那你可一定要小心这帮家伙了。"
 msgstr "Watch out for these if you have large patches of wheat planted in your fields, or keep herds of cows!"
+
+#. Header for enemies mvz2:cannoneer_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。"
+msgstr "The heavy cannons of Cannoneer Zombies can help them block bullets and fire a Cannonball Zombie every once in a while."
+
+#. Properties for enemies mvz2:cannoneer_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+1110（铁炮）</color>\n"
+"移速：<color=red>0.5，1（失去铁炮后）</color>\n"
+"发射间隔：<color=red>8秒</color>"
+msgstr ""
+"Toughness: <color=red>200+1100 (Cannon)</color>\n"
+"Speed: <color=red>0.5, 1 (After losing the cannon)</color>\n"
+"Fire Interval: <color=red>8 seconds</color>"
+
+#. Flavor for enemies mvz2:cannoneer_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "曾经开发过一款手机游戏，不过可惜的是，那款游戏很快就停服了。"
+msgstr ""
+"Once developed a 2D platformer back when he put his cannon on his head. He was laid off, and the higher-ups told him to take the "
+"bullet. He's now back for revenge after joining the rival company."
+
+#. Header for enemies mvz2:cannonball_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "炮弹僵尸由炮手僵尸发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。"
+msgstr ""
+"Cannonball Zombies are launched into the battlefield by Cannoneer Zombies. They levitate in the air and attack like regular zombies."
+
+#. Properties for enemies mvz2:cannonball_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>160</color>\n"
+"移速：<color=red>2</color>"
+msgstr ""
+"Toughness: <color=red>160</color>\n"
+"Speed: <color=red>2</color>"
+
+#. Flavor for enemies mvz2:cannonball_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"没错，炮弹也是一只僵尸！\n"
+"而且特别害怕被脚踩！"
+msgstr ""
+"Yes, indeed! This cannonball is also a ZOMBIE!\n"
+"And it's especially afraid of being stomped on!"
 
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
@@ -5158,6 +5211,30 @@ msgctxt "entity.name"
 msgid "不死飞行物（彩）"
 msgstr "Undead Flying Object (Rainbow)"
 
+#. Name for entity mvz2:cannoneer_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "炮手僵尸"
+msgstr "Cannoneer Zombie"
+
+#. Death message for entity mvz2:cannoneer_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "炮决！"
+msgstr "Cannon execution!"
+
+#. Name for entity mvz2:cannonball_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "炮弹僵尸"
+msgstr "Cannonball Zombie"
+
+#. Death message for entity mvz2:cannonball_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "-1up"
+msgstr "-1up"
+
 #. Name for entity mvz2:mutant_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -5805,6 +5882,18 @@ msgstr "Lengthen the board"
 msgctxt "option.name"
 msgid "增加弹珠"
 msgstr "Add a pearl"
+
+#~ msgctxt "enemies.description"
+#~ msgid "炮弹僵尸由炮手僵尸发射而来。"
+#~ msgstr "Cannonball Zombies are fired into the battlefield by the Cannoneer Zombies."
+
+#~ msgctxt "enemies.name"
+#~ msgid "炮手僵尸"
+#~ msgstr "Cannoneer Zombie"
+
+#~ msgctxt "enemies.name"
+#~ msgid "炮弹僵尸"
+#~ msgstr "Cannonball Zombie"
 
 #~ msgctxt "contraptions.description"
 #~ msgid "有人闲得慌在它下面安装了一个连着矿场的投掷器。哦，这个矿场是靠地热能的。"

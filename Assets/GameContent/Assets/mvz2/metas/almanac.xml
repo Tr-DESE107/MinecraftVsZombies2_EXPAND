@@ -1278,6 +1278,32 @@
                 <p>如果你的农场里大面积地种植了小麦，或者圈养了很多的奶牛，那你可一定要小心这帮家伙了。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:cannoneer_zombie">
+            <header>
+                <p>炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200+1110（铁炮）</color>]]></p>
+                <p>移速：<![CDATA[<color=red>0.5，1（失去铁炮后）</color>]]></p>
+                <p>发射间隔：<![CDATA[<color=red>8秒</color>]]></p>
+            </properties>
+            <flavor>
+                <p>曾经开发过一款手机游戏，不过可惜的是，那款游戏很快就停服了。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:cannonball_zombie">
+            <header>
+                <p>炮弹僵尸由炮手僵尸发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>160</color>]]></p>
+                <p>移速：<![CDATA[<color=red>2</color>]]></p>
+            </properties>
+            <flavor>
+                <p>没错，炮弹也是一只僵尸！</p>
+                <p>而且特别害怕被脚踩！</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

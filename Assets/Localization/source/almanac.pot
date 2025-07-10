@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-07-08 11:00+0800\n"
+"POT-Creation-Date: 2025-07-10 06:44+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2094,6 +2094,49 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "如果你的农场里大面积地种植了小麦，或者圈养了很多的奶牛，那你可一定要小心这帮家伙了。"
+msgstr ""
+
+#. Header for enemies mvz2:cannoneer_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。"
+msgstr ""
+
+#. Properties for enemies mvz2:cannoneer_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>200+1110（铁炮）</color>\n"
+"移速：<color=red>0.5，1（失去铁炮后）</color>\n"
+"发射间隔：<color=red>8秒</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:cannoneer_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "曾经开发过一款手机游戏，不过可惜的是，那款游戏很快就停服了。"
+msgstr ""
+
+#. Header for enemies mvz2:cannonball_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "炮弹僵尸由炮手僵尸发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。"
+msgstr ""
+
+#. Properties for enemies mvz2:cannonball_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>160</color>\n"
+"移速：<color=red>2</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:cannonball_zombie
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"没错，炮弹也是一只僵尸！\n"
+"而且特别害怕被脚踩！"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -4435,6 +4478,30 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.name"
 msgid "不死飞行物（彩）"
+msgstr ""
+
+#. Name for entity mvz2:cannoneer_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "炮手僵尸"
+msgstr ""
+
+#. Death message for entity mvz2:cannoneer_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "炮决！"
+msgstr ""
+
+#. Name for entity mvz2:cannonball_zombie
+#: Entity meta file
+msgctxt "entity.name"
+msgid "炮弹僵尸"
+msgstr ""
+
+#. Death message for entity mvz2:cannonball_zombie
+#: Entity meta file
+msgctxt "death_message"
+msgid "-1up"
 msgstr ""
 
 #. Name for entity mvz2:mutant_zombie
