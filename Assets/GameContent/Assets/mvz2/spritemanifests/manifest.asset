@@ -349,8 +349,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3a2d8f0334da2b349b397a3ed1cf7b97, type: 3}
   - name: mobile_blueprint/totenser
     sprite: {fileID: 21300000, guid: ed576f37fbc44b44d9396b8ea59f7911, type: 3}
-  - name: mobile_blueprint/undead_flying_object
-    sprite: {fileID: 21300000, guid: 8e09edf9f3387ba4a91b2afcc76b3476, type: 3}
+  - name: mobile_blueprint/undead_flying_object_blue
+    sprite: {fileID: 21300000, guid: 0ee514c074ca3dd4cafad1abc2e8d5a6, type: 3}
+  - name: mobile_blueprint/undead_flying_object_green
+    sprite: {fileID: 21300000, guid: 80dd7dcc96e791f4fa2769903da9fb52, type: 3}
+  - name: mobile_blueprint/undead_flying_object_rainbow
+    sprite: {fileID: 21300000, guid: 5ff28871fd459c0479645419965e61d4, type: 3}
+  - name: mobile_blueprint/undead_flying_object_red
+    sprite: {fileID: 21300000, guid: 32e27889327ee5243a74df156f0839ce, type: 3}
   - name: mobile_blueprint/vortex_hopper
     sprite: {fileID: 21300000, guid: 9e43064c78598fd4493a1d5c14308edb, type: 3}
   - name: mobile_blueprint/wicked_hermit_zombie

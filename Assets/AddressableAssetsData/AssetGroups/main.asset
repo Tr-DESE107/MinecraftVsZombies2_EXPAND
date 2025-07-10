@@ -5705,13 +5705,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8e09edf9f3387ba4a91b2afcc76b3476
-    m_Address: mvz2:mobile_blueprint/undead_flying_object
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e0d71e6c2e48c849bcc74bc255e073e
     m_Address: mvz2:small_explosion
     m_ReadOnly: 0
