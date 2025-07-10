@@ -53,23 +53,23 @@ namespace PVZEngine.Armors
         }
         public void TriggerAnimation(string name)
         {
-            GetModelInterface().TriggerAnimation(name);
+            GetModelInterface()?.TriggerAnimation(name);
         }
         public void SetAnimationBool(string name, bool value)
         {
-            GetModelInterface().SetAnimationBool(name, value);
+            GetModelInterface()?.SetAnimationBool(name, value);
         }
         public void SetAnimationInt(string name, int value)
         {
-            GetModelInterface().SetAnimationInt(name, value);
+            GetModelInterface()?.SetAnimationInt(name, value);
         }
         public void SetAnimationFloat(string name, float value)
         {
-            GetModelInterface().SetAnimationFloat(name, value);
+            GetModelInterface()?.SetAnimationFloat(name, value);
         }
         public void SetModelProperty(string name, object value)
         {
-            GetModelInterface().SetModelProperty(name, value);
+            GetModelInterface()?.SetModelProperty(name, value);
         }
         #endregion
 

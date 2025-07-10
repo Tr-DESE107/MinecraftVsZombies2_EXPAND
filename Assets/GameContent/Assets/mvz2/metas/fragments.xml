@@ -278,4 +278,10 @@
             <key alpha="0.5" time="1"/>
         </alphaKeys>
     </fragment>
+    <fragment name="cannon">
+        <colorKeys>
+            <key hex="#313131" time="0.7"/>
+            <key hex="#FFFFFF" time="1"/>
+        </colorKeys>
+    </fragment>
 </fragments>

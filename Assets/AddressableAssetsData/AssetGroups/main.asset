@@ -157,6 +157,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04aa3823146ebe94bbb7892155a53211
+    m_Address: mvz2:units/colliders/spider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04dcfd1cd164cbb41b834f5a6fdfba4b
     m_Address: mvz2:entity/effects/nightmare_portal_mask
     m_ReadOnly: 0
@@ -395,6 +402,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ae5af202f9ad9c4cb362f05a0290a3b
+    m_Address: mvz2:units/colliders/humanoid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b0b0a4c89fcedf4eb691c038221b10a
     m_Address: mvz2:projectile/parabot
     m_ReadOnly: 0
@@ -569,6 +583,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ee514c074ca3dd4cafad1abc2e8d5a6
+    m_Address: mvz2:mobile_blueprint/undead_flying_object_blue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f85791f4565cdd48b780ea2b27b64f5
     m_Address: mvz2:random/crystal/crystal_place1
@@ -843,6 +864,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 149e191aac53ee54a9cc4f197a4bc20f
+    m_Address: mvz2:enemy/ship/cannoneer_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14becc4245c8850408177ba9fc2ee0ac
     m_Address: mvz2:effect/desire_lump
     m_ReadOnly: 0
@@ -870,6 +898,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15598234b16316b4facfa06c0de7f264
+    m_Address: mvz2:armor/cannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 156441727ef8a404b83a6f530a242d60
     m_Address: mvz2:effect/water_lightning_particles
@@ -2032,6 +2067,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32e27889327ee5243a74df156f0839ce
+    m_Address: mvz2:mobile_blueprint/undead_flying_object_red
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32f36e28f5381c345b9988e80c40ee5a
     m_Address: mvz2:note/prologue
     m_ReadOnly: 0
@@ -2073,6 +2115,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 338b16969c1ce004585dd1a061bc5b40
+    m_Address: mvz2:enemy/ship/cannonball_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33be9ddfa854a7f4bb06b09b59441cf1
     m_Address: mvz2:talk/villager/villager_crazy
@@ -2527,6 +2576,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3db4f008109ea604880fe630ab6bd92a
+    m_Address: mvz2:units/colliders/small_spider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3dbd91e96448f5e4fbe0aa7bfdd4e675
     m_Address: mvz2:map/dream/apollo_meridian_red
@@ -3977,6 +4033,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ff28871fd459c0479645419965e61d4
+    m_Address: mvz2:mobile_blueprint/undead_flying_object_rainbow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6010ff70670e67442819cac44a583438
     m_Address: mvz2:musics
     m_ReadOnly: 0
@@ -4228,6 +4291,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67a299599bce8ba49a895bdf56cbdace
+    m_Address: mvz2:entity/enemy/cannoneer_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67e48334d4595cf49923ddb4b0725fff
     m_Address: mvz2:stages
@@ -5243,6 +5313,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80dd7dcc96e791f4fa2769903da9fb52
+    m_Address: mvz2:mobile_blueprint/undead_flying_object_green
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 80f10033d388d824a88e0237b0e79e8d
     m_Address: mvz2:enemy/castle/anubisand
     m_ReadOnly: 0
@@ -6160,6 +6237,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 983c95778175afa4899ce4ca543a5a13
+    m_Address: mvz2:units/colliders/wither_skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 985fbd93414b34845b4a0a7ee830eb1a
     m_Address: mvz2:entity/projectiles/gas
     m_ReadOnly: 0
@@ -7051,6 +7135,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0de64e2af2016c45ae16c1d0b361591
     m_Address: mvz2:arcade/breakout
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b11db4b170db8634b901f6162c53376e
+    m_Address: mvz2:entity/enemies/cannonball_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8483,6 +8574,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d50c30aa1b15e3446a51858fff9a0548
+    m_Address: mvz2:units/colliders/skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d52e41cedef77e246a62344b51d6c0f2
     m_Address: mvz2:wither_boss
@@ -10127,6 +10225,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fef5240ef6b58184c95282c0fa82357c
+    m_Address: mvz2:entity/armor/cannon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff1139cf5b4ce3e408ba7ca6e7fd9ab0
     m_Address: mvz2:castle_level

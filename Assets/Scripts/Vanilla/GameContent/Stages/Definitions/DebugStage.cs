@@ -41,14 +41,14 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.furnace,
-                VanillaContraptionID.gunpowderBarrel,
                 VanillaContraptionID.woodenDropper,
-                VanillaContraptionID.goldenDropper,
-                VanillaContraptionID.devourer,
+                VanillaContraptionID.gunpowderBarrel,
+                VanillaContraptionID.lightningOrb,
+                VanillaContraptionID.stoneDropper,
+                VanillaContraptionID.repeatenser,
                 VanillaContraptionID.glowstone,
-                VanillaEnemyID.ufoRed,
-                VanillaEnemyID.ufoGreen,
+                VanillaEnemyID.cannoneerZombie,
+                VanillaEnemyID.cannonballZombie,
                 VanillaEnemyID.ufoBlue,
                 VanillaEnemyID.ufoRainbow,
             });

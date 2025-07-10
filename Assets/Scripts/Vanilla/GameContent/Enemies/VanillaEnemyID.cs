@@ -42,6 +42,8 @@ namespace MVZ2.GameContent.Enemies
         public const string ufoGreen = undeadFlyingObjectGreen;
         public const string ufoBlue = undeadFlyingObjectBlue;
         public const string ufoRainbow = undeadFlyingObjectRainbow;
+        public const string cannoneerZombie = "cannoneer_zombie";
+        public const string cannonballZombie = "cannonball_zombie";
 
         public const string mutantZombie = "mutant_zombie";
         public const string megaMutantZombie = "mega_mutant_zombie";
@@ -99,6 +101,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID ufoGreen = undeadFlyingObjectGreen;
         public static readonly NamespaceID ufoBlue = undeadFlyingObjectBlue;
         public static readonly NamespaceID ufoRainbow = undeadFlyingObjectRainbow;
+        public static readonly NamespaceID cannoneerZombie = Get(VanillaEnemyNames.cannoneerZombie);
+        public static readonly NamespaceID cannonballZombie = Get(VanillaEnemyNames.cannonballZombie);
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
         public static readonly NamespaceID megaMutantZombie = Get(VanillaEnemyNames.megaMutantZombie);

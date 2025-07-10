@@ -96,7 +96,7 @@
                 <float name="mvz2:maxHealth" value="200" />
             </props>
         </entry>
-        <entry id="umbrella_shield" tags="mvz2:between_hands">
+        <entry id="umbrella_shield">
             <behaviours>
                 <behaviour id="mvz2:damage_state_3"/>
                 <behaviour id="mvz2:umbrella_shield"/>
@@ -112,6 +112,24 @@
                 <id name="mvz2:shell" value="mvz2:leather" />
                 <float name="mvz2:maxHealth" value="270" />
                 <id name="mvz2:hitSound" value="mvz2:leather_hit" />
+            </props>
+        </entry>
+        <entry id="cannon">
+            <behaviours>
+                <behaviour id="mvz2:damage_state_3"/>
+                <behaviour id="mvz2:cannon"/>
+            </behaviours>
+            <colliders>
+                <collider name="main" >
+                    <offset x="-5" y="0" z="0"/>
+                    <size x="61" y="36" z="36"/>
+                    <pivot x="0.5" y="0.5" z="0.5"/>
+                </collider>
+            </colliders>
+            <props>
+                <bool name="mvz2:noDiscard" value="true" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <float name="mvz2:maxHealth" value="1110" />
             </props>
         </entry>
     </entries>

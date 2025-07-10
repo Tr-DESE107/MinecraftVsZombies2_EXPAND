@@ -1280,6 +1280,24 @@
         <ufo id="undead_flying_object_green" name="不死飞行物（绿）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
         <ufo id="undead_flying_object_blue" name="不死飞行物（蓝）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
         <ufo id="undead_flying_object_rainbow" name="不死飞行物（彩）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
+        <zombie id="cannoneer_zombie" name="炮手僵尸" deathMessage="炮决！" unlock="mvz2:level.ship_3">
+            <properties>
+                <id name="mvz2:starting_shield" value="mvz2:cannon" />
+                <int name="mvz2:cost" value="150" />
+            </properties>
+        </zombie>
+        <zombie id="cannonball_zombie" name="炮弹僵尸" deathMessage="-1up" unlock="mvz2:level.ship_4">
+            <properties>
+                <float name="mvz2:maxHealth" value="100" />
+                <float name="mvz2:mass" value="-1" />
+                <float name="mvz2:speed" value="2" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:shape" value="mvz2:dullahan_head" />
+                <vector3 name="mvz2:size" x="38" y="26" z="38" />
+
+                <int name="mvz2:cost" value="150" />
+            </properties>
+        </zombie>
 
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <properties>
