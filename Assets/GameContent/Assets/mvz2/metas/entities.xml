@@ -805,6 +805,12 @@
                 <int name="mvz2:cost" value="200" />
             </properties>
         </dispenser>
+        <dispenser id="triplenser" name="三头发射器" tooltip="一次射出三行的箭矢" unlock="mvz2:level.ship_3">
+            <properties>
+                <id name="mvz2:fragmentId" value="mvz2:dispenser" />
+                <int name="mvz2:cost" value="300" />
+            </properties>
+        </dispenser>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人"

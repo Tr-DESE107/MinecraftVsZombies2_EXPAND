@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -41,13 +42,13 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.woodenDropper,
-                VanillaContraptionID.gunpowderBarrel,
-                VanillaContraptionID.lightningOrb,
+                VanillaContraptionID.smallDispenser,
+                VanillaContraptionID.infectenser,
+                VanillaContraptionID.obsidian,
                 VanillaContraptionID.stoneDropper,
-                VanillaContraptionID.repeatenser,
-                VanillaContraptionID.glowstone,
-                VanillaEnemyID.cannoneerZombie,
+                VanillaContraptionID.triplenser,
+                VanillaPickupID.emerald,
+                VanillaEnemyID.mesmerizer,
                 VanillaEnemyID.cannonballZombie,
                 VanillaEnemyID.shikaisenStaff,
                 VanillaEnemyID.ufoRainbow,

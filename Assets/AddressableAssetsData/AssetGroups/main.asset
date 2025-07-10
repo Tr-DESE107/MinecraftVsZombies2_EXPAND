@@ -1200,6 +1200,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ce6dc58e8464274cb75bcc29d1ce3f8
+    m_Address: mvz2:entity/contraption/triplenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d01491d6c38d40428fedd37cfac8db6
     m_Address: mvz2:entity/enemy/wicked_hermit_zombie
     m_ReadOnly: 0
@@ -1325,6 +1332,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20967377dc6e8b34894b23d0c5342333
+    m_Address: mvz2:contraption/ship/triplenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20cb1b235fabd9f49b957a6cb970904b
     m_Address: mvz2:entity/enemy/cave_spider
@@ -2240,6 +2254,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36644e32a58432140b6b7f7339f2bac1
+    m_Address: mvz2:mobile_blueprint/cannoneer_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 366ec22d96589624e80dcffad730f39a
     m_Address: mvz2:random/cloth/cloth2
@@ -5735,6 +5756,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ca4037f1d5fcf342b4ffe04c46d6590
     m_Address: mvz2:mobile_blueprint/repeatenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cdebccec54e7554e9fa0219707d489d
+    m_Address: mvz2:mobile_blueprint/cannonball_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
@@ -22,7 +23,6 @@ namespace MVZ2.GameContent.Contraptions
             AddModifier(new Vector3Modifier(VanillaEntityProps.SHOT_OFFSET, NumberOperator.Add, PROP_EXTEND_SHOOT_OFFSET));
             AddModifier(new Vector3Modifier(EngineEntityProps.SIZE, NumberOperator.Add, PROP_EXTEND_SHOOT_OFFSET));
             AddModifier(new BooleanModifier(VanillaContraptionProps.BLOCKS_JUMP, PROP_BLOCKS_JUMP));
-            detector.ignoreHighEnemy = false;
         }
 
         public override void Init(Entity entity)
@@ -53,6 +53,10 @@ namespace MVZ2.GameContent.Contraptions
             entity.SetProperty(PROP_BLOCKS_JUMP, extend > 0);
         }
 
+        protected override Detector GetDetector()
+        {
+            return new DispenserDetector();
+        }
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
