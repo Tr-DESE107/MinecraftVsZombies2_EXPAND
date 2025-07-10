@@ -685,6 +685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2080925549125677196}
   - component: {fileID: 5227252890753216894}
+  - component: {fileID: 1145506291283719754}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -722,6 +723,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockToGround: 1
+--- !u!114 &1145506291283719754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444052252806235734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenFalse: 1
+  propertyName: InAir
 --- !u!1 &9216210432828343292
 GameObject:
   m_ObjectHideFlags: 0

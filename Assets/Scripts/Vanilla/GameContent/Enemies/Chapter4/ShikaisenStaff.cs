@@ -7,6 +7,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
@@ -17,6 +18,7 @@ namespace MVZ2.GameContent.Enemies
         public ShikaisenStaff(string nsp, string name) : base(nsp, name)
         {
             AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
+            AddModifier(new Vector3Modifier(EngineEntityProps.VELOCITY_DAMPEN, NumberOperator.Set, PROP_VELOCITY_DAMPEN));
         }
         public override void Init(Entity entity)
         {
@@ -27,12 +29,28 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            var targetPosition = GetTargetPosition(entity);
-            targetPosition.y = entity.Level.GetGroundY(targetPosition.x, targetPosition.z);
-            entity.Position = targetPosition;
-            entity.Velocity = Vector3.zero;
+            bool onGround = entity.Position.y <= entity.GetRealGroundLimitY() + 0.01f;
+            if (onGround)
+            {
+                if (!IsStickOnGround(entity))
+                {
+                    SetStickOnGround(entity, true);
+                    SetTargetPosition(entity, entity.Position);
+                }
+                var targetPosition = GetTargetPosition(entity);
+                targetPosition.y = entity.Level.GetGroundY(targetPosition.x, targetPosition.z);
+                entity.Position = targetPosition;
+                entity.Velocity = Vector3.zero;
+                SetVelocityDampen(entity, Vector3.one);
+            }
+            else
+            {
+                SetStickOnGround(entity, false);
+                SetVelocityDampen(entity, Vector3.zero);
+            }
             entity.StopChangingLane();
 
+            entity.SetModelProperty("InAir", !onGround);
             entity.SetAnimationFloat("Range", entity.GetRange());
             entity.SetModelDamagePercent();
             if (entity.Timeout >= 0)
@@ -71,9 +89,15 @@ namespace MVZ2.GameContent.Enemies
             base.PostDeath(entity, info);
             entity.Remove();
         }
+        public static bool IsStickOnGround(Entity enemy) => enemy.GetBehaviourField<bool>(PROP_STICK_ON_GROUND);
+        public static void SetStickOnGround(Entity enemy, bool value) => enemy.SetBehaviourField(PROP_STICK_ON_GROUND, value);
         public static Vector3 GetTargetPosition(Entity enemy) => enemy.GetBehaviourField<Vector3>(PROP_TARGET_POSITION);
         public static void SetTargetPosition(Entity enemy, Vector3 value) => enemy.SetBehaviourField(PROP_TARGET_POSITION, value);
+        public static Vector3 GetVelocityDampen(Entity enemy) => enemy.GetBehaviourField<Vector3>(PROP_VELOCITY_DAMPEN);
+        public static void SetVelocityDampen(Entity enemy, Vector3 value) => enemy.SetBehaviourField(PROP_VELOCITY_DAMPEN, value);
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_STICK_ON_GROUND = new VanillaEntityPropertyMeta<bool>("stick_on_ground");
         public static readonly VanillaEntityPropertyMeta<Vector3> PROP_TARGET_POSITION = new VanillaEntityPropertyMeta<Vector3>("TargetPosition");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_VELOCITY_DAMPEN = new VanillaEntityPropertyMeta<Vector3>("velocity_dampen");
         private List<Entity> detectBuffer = new List<Entity>(1024);
     }
 }
