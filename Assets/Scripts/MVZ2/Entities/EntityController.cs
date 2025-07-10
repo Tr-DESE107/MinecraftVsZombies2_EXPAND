@@ -302,13 +302,16 @@ namespace MVZ2.Entities
         {
             var pos = Entity.Position;
             var groundY = Entity.GetGroundY();
-            var relativeY = pos.y - groundY;
             var shadowPos = pos;
             shadowPos.y = groundY;
-            shadowPos += modelPropertyCache.ShadowOffset;
-            var worldPosition = Level.LawnToTrans(shadowPos) + GetTransformOffset();
+
+            var worldPosition = Level.LawnToTrans(shadowPos);
+            worldPosition.x = transform.position.x;
+            worldPosition.z = transform.position.z;
+            worldPosition += Level.LawnToTransDistance(modelPropertyCache.ShadowOffset);
             var position = transform.InverseTransformPoint(worldPosition);
 
+            var relativeY = pos.y - groundY;
             var scale = Mathf.Max(0, 1 + relativeY / 300) * modelPropertyCache.ShadowScale;
 
             var alpha = Mathf.Clamp01(1 - relativeY / 300) * modelPropertyCache.ShadowAlpha;

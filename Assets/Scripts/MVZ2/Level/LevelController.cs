@@ -305,6 +305,17 @@ namespace MVZ2.Level
             vector *= TransToLawnScale;
             return vector;
         }
+        public Vector3 LawnToTransDistance(Vector3 distance)
+        {
+            distance *= LawnToTransScale;
+            return new Vector3(distance.x, distance.z + distance.y, distance.z);
+        }
+        public Vector3 TransToLawnDistance(Vector3 distance)
+        {
+            Vector3 vector = new Vector3(distance.x, distance.y - distance.z, distance.z);
+            vector *= TransToLawnScale;
+            return vector;
+        }
         #endregion
 
         public int GetCurrentFlag()
