@@ -28,6 +28,11 @@ namespace MVZ2.GameContent.Armors
         public override void PostUpdate(Armor armor)
         {
             base.PostUpdate(armor);
+            var owner = armor.Owner;
+            if (owner.State != VanillaEntityStates.WALK && owner.State != VanillaEntityStates.ENEMY_RUN && owner.State != VanillaEntityStates.ENEMY_SIT)
+            {
+                return;
+            }
             var timer = GetTimer(armor);
             if (timer == null)
             {
@@ -39,7 +44,6 @@ namespace MVZ2.GameContent.Armors
             {
                 timer.Reset();
 
-                var owner = armor.Owner;
                 var pos = owner.Position + owner.GetArmorOffset(armor.Slot, armor.Definition.GetID()) + owner.GetFacingDirection() * 20 + new Vector3(0, -12, 0);
                 var ball = owner.SpawnWithParams(VanillaEnemyID.cannonballZombie, pos);
                 var multiplier = owner.GetWeakKnockbackMultiplier();
