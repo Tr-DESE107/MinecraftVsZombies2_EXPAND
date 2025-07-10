@@ -108,6 +108,10 @@
 
     <!-- Mausoleum -->
     <entry id="undead_flying_object" type="custom" entity="mvz2:emperor_zombie" />
+    <entry id="cannoneer_zombie" entity="mvz2:cannoneer_zombie" >
+        <spawn level="4" minWave="10" />
+        <weight base="1500" />
+    </entry>
     
     <entry id="mutant_zombie" entity="mvz2:mutant_zombie" >
         <spawn level="10" minWave="15"/>
