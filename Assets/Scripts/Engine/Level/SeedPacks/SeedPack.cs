@@ -229,6 +229,7 @@ namespace PVZEngine.SeedPacks
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
             buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
+            buffs.LoadAuras(seri.buffs, level);
             auras.LoadFromSerializable(level, seri.auras);
             UpdateAllBuffedProperties(false);
         }

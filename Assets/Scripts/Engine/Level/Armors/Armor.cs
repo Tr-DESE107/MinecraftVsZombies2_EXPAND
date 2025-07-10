@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -11,7 +13,7 @@ using UnityEngine;
 
 namespace PVZEngine.Armors
 {
-    public class Armor : IBuffTarget, IPropertyModifyTarget
+    public class Armor : IBuffTarget, IPropertyModifyTarget, IAuraSource
     {
         private Armor()
         {
@@ -25,19 +27,28 @@ namespace PVZEngine.Armors
             Definition = definition;
             Health = this.GetMaxHealth();
 
-            SetProperty(EngineArmorProps.TINT, Color.white);
+            CreateAuraEffects();
         }
         public void Update()
         {
             Health = Mathf.Min(Health, this.GetMaxHealth());
             if (Definition != null)
                 Definition.PostUpdate(this);
+            auras.Update();
             buffs.Update();
         }
         public void Destroy(ArmorDestroyInfo result = null)
         {
             result = result ?? new ArmorDestroyInfo(Owner, this, Slot, new DamageEffectList(), new EntityReferenceChain(null), null);
             Owner.DestroyArmor(Slot, result);
+        }
+        public void PostAdd()
+        {
+            auras.PostAdd();
+        }
+        public void PostRemove()
+        {
+            auras.PostRemove();
         }
         public IEnumerable<ColliderConstructor> GetColliderConstructors(Entity entity, NamespaceID slot)
         {
@@ -168,6 +179,27 @@ namespace PVZEngine.Armors
             return currentBuffID++;
         }
         #endregion
+
+        #region 光环
+        public AuraEffect GetAuraEffect<T>() where T : AuraEffectDefinition
+        {
+            return auras.Get<T>();
+        }
+        public AuraEffect[] GetAuraEffects()
+        {
+            return auras.GetAll();
+        }
+        private void CreateAuraEffects()
+        {
+            var auraDefs = Definition.GetAuras();
+            for (int i = 0; i < auraDefs.Length; i++)
+            {
+                var auraDef = auraDefs[i];
+                auras.Add(Level, new AuraEffect(auraDef, i, this));
+            }
+        }
+        #endregion
+
         public static bool Exists(Armor armor)
         {
             return armor != null && armor.Owner != null && armor.Definition != null && armor.Health > 0;
@@ -181,7 +213,8 @@ namespace PVZEngine.Armors
                 currentBuffID = currentBuffID,
                 definitionID = Definition.GetID(),
                 buffs = buffs.ToSerializable(),
-                properties = properties.ToSerializable()
+                properties = properties.ToSerializable(),
+                auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray()
             };
         }
         public static Armor Deserialize(SerializableArmor seri, Entity owner)
@@ -202,6 +235,9 @@ namespace PVZEngine.Armors
         public void LoadAuras(SerializableArmor seri)
         {
             buffs.LoadAuras(seri.buffs, Level);
+
+            CreateAuraEffects();
+            auras.LoadFromSerializable(Level, seri.auras);
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         Entity IBuffTarget.GetEntity() => Owner;
@@ -209,6 +245,9 @@ namespace PVZEngine.Armors
         void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         bool IBuffTarget.Exists() => Owner != null && Owner.Exists() && Owner.IsEquippingArmor(this);
+        Entity IAuraSource.GetEntity() => Owner;
+        LevelEngine IAuraSource.GetLevel() => Level;
+        bool IAuraSource.IsValid() => Owner != null && Owner.Exists() && Owner.IsEquippingArmor(this);
 
         #region 属性字段
         public LevelEngine Level => Owner?.Level;
@@ -219,6 +258,7 @@ namespace PVZEngine.Armors
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private PropertyBlock properties;
+        private AuraEffectList auras = new AuraEffectList();
         #endregion
     }
 }

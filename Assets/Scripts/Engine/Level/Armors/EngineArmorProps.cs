@@ -5,11 +5,11 @@ namespace PVZEngine.Armors
     [PropertyRegistryRegion(PropertyRegions.armor)]
     public static class EngineArmorProps
     {
-        private static PropertyMeta<T> Get<T>(string name)
+        private static PropertyMeta<T> Get<T>(string name, T defaultValue = default)
         {
-            return new PropertyMeta<T>(name);
+            return new PropertyMeta<T>(name, defaultValue);
         }
-        public static readonly PropertyMeta<Color> TINT = Get<Color>("tint");
+        public static readonly PropertyMeta<Color> TINT = Get<Color>("tint", Color.white);
         public static readonly PropertyMeta<Color> COLOR_OFFSET = Get<Color>("colorOffset");
         public static readonly PropertyMeta<float> MAX_HEALTH = Get<float>("maxHealth");
         public static readonly PropertyMeta<NamespaceID> SHELL = Get<NamespaceID>("shell");

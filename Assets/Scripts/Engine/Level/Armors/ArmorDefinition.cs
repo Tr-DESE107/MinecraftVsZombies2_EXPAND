@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using PVZEngine.Auras;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
@@ -53,6 +55,10 @@ namespace PVZEngine.Armors
         public NamespaceID GetModelID()
         {
             return GetID().ToModelID(EngineModelID.TYPE_ARMOR);
+        }
+        public AuraEffectDefinition[] GetAuras()
+        {
+            return behaviourCaches.SelectMany(b => b.GetAuras()).ToArray();
         }
         public virtual IEnumerable<ColliderConstructor> GetColliderConstructors(Entity entity, NamespaceID slotID)
         {
