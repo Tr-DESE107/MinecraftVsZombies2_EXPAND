@@ -1501,13 +1501,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 25388ea4f5efda54c9acda3bee18a824
-    m_Address: mvz2:units/humanoid_collider
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2543dabb7bd5f20479dc6d6b41ccac27
     m_Address: mvz2:armor/leather_cap
     m_ReadOnly: 0
