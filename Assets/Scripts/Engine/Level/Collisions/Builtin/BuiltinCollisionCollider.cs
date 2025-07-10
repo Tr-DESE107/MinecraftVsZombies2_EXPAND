@@ -54,6 +54,16 @@ namespace PVZEngine.Entities
             hitbox.ReevaluateBounds();
             bottomRect = hitbox.GetLocalBounds().GetBottomRect();
         }
+        public bool GetCollisionTime(Vector3 prevPosition, BuiltinCollisionCollider target, float precision, out float collisionTime)
+        {
+            return GetCollisionTime(prevPosition, target.hitbox.GetBounds(), precision, out collisionTime);
+        }
+        public bool GetCollisionTime(Vector3 prevPosition, Bounds target, float precision, out float collisionTime)
+        {
+            var center = hitbox.GetBoundsCenter();
+            center = ((Vector3)Vector3Int.FloorToInt(center * precision)) / precision;
+            return MathTool.CalculateAABBCollisionTime(prevPosition, center, hitbox.GetBoundsSize(), target, out collisionTime);
+        }
 
         #region 检测
         public bool CheckSphere(Vector3 center, float radius)

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Tools.Mathematics
 {
@@ -582,6 +583,120 @@ namespace Tools.Mathematics
             }
 
             return (t_min <= 1) && (t_max >= 0);
+        }
+        public static bool RayIntersectsBox(Vector3 rayOrigin, Vector3 rayDirection, Bounds box, out float hitDistance, out Vector3 hitPoint)
+        {
+            return RayIntersectsBox(rayOrigin, rayDirection, box.min, box.max, out hitDistance, out hitPoint);
+        }
+        public static bool RayIntersectsBox(Vector3 rayOrigin, Vector3 rayDirection, Vector3 boxMin, Vector3 boxMax, out float hitDistance, out Vector3 hitPoint)
+        {
+            hitDistance = 0;
+            hitPoint = Vector3.zero;
+
+            // 初始化最小和最大t值
+            float tMin = float.MinValue;
+            float tMax = float.MaxValue;
+
+            // 检查每个坐标轴（X, Y, Z）
+            for (int axis = 0; axis < 3; axis++)
+            {
+                var directionValue = rayDirection[axis];
+                var originValue = rayOrigin[axis];
+                var boxMinValue = boxMin[axis];
+                var boxMaxValue = boxMax[axis];
+                // 处理方向接近0的情况（避免除零）
+                if (Math.Abs(directionValue) < float.Epsilon)
+                {
+                    // 如果射线起点不在当前轴的边界内，则不相交
+                    if (originValue < boxMinValue || originValue > boxMaxValue)
+                        return false;
+                }
+                else
+                {
+                    // 计算当前轴的两个交点t值
+                    float t1 = (boxMinValue - originValue) / directionValue;
+                    float t2 = (boxMaxValue - originValue) / directionValue;
+
+                    // 确保t1是较小值，t2是较大值
+                    if (t1 > t2)
+                    {
+                        float temp = t1;
+                        t1 = t2;
+                        t2 = temp;
+                    }
+
+                    // 更新最小和最大t值
+                    if (t1 > tMin)
+                        tMin = t1;
+                    if (t2 < tMax)
+                        tMax = t2;
+
+                    // 检查是否无交集
+                    if (tMin > tMax || tMax < 0)
+                        return false;
+                }
+            }
+
+            // 处理射线起点在盒子内部的情况
+            if (tMin < 0)
+            {
+                if (tMax < 0)
+                    return false; // 盒子完全在射线后方
+                hitDistance = 0; // 起点作为交点
+            }
+            else
+            {
+                hitDistance = tMin;
+            }
+
+            // 计算交点位置
+            hitPoint = rayOrigin + hitDistance * rayDirection;
+            return true;
+        }
+        public static bool CalculateAABBCollisionTime(Vector3 startCenter, Vector3 endCenter, Vector3 size, Bounds target, out float collisionTime)
+        {
+            collisionTime = 0;
+            Vector3 velocity = endCenter - startCenter;
+
+            Bounds movingStart = new Bounds(startCenter, size);
+
+            float tEntry = float.NegativeInfinity;
+            float tExit = float.PositiveInfinity;
+
+            for (int axis = 0; axis < 3; axis++)
+            {
+                float minA = movingStart.min[axis];
+                float maxA = movingStart.max[axis];
+                float minB = target.min[axis];
+                float maxB = target.max[axis];
+                float vel = velocity[axis];
+
+                // 处理静态重叠情况
+                if (vel == 0)
+                {
+                    if (maxA <= minB || minA >= maxB)
+                        return false; // 无重叠
+                    continue; // 保持当前时间范围不变
+                }
+
+                float t0 = (minB - maxA) / vel;
+                float t1 = (maxB - minA) / vel;
+
+                if (vel < 0) // 确保t0是进入时间，t1是离开时间
+                {
+                    (t0, t1) = (t1, t0);
+                }
+
+                tEntry = Math.Max(tEntry, t0);
+                tExit = Math.Min(tExit, t1);
+            }
+
+            // 检查是否发生碰撞且在[0,1]时间范围内
+            if (tEntry > tExit || tEntry < 0 || tEntry > 1)
+                return false;
+
+            collisionTime = tEntry;
+            return true;
         }
         #endregion
 
