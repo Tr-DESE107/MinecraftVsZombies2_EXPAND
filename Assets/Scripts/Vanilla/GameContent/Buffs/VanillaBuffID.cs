@@ -97,6 +97,7 @@ namespace MVZ2.GameContent.Buffs
         public const string paratroop = "paratroop";
         public const string summonedByUFO = "summoned_by_ufo";
         public const string ufoBlueAbsorb = "ufo_blue_absorb";
+        public const string heavyCannon = "heavy_cannon";
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";
@@ -229,6 +230,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID brokenLantern = Get(VanillaBuffNames.brokenLantern);
         public static readonly NamespaceID eyeOfTheGiant = Get(VanillaBuffNames.eyeOfTheGiant);
         public static readonly NamespaceID bottledBlackholeDamage = Get(VanillaBuffNames.bottledBlackholeDamage);
+        public static readonly NamespaceID heavyCannon = Get(VanillaBuffNames.heavyCannon);
 
         public static readonly NamespaceID passengerEnterHouse = Get(VanillaBuffNames.passengerEnterHouse);
         private static NamespaceID Get(string name)

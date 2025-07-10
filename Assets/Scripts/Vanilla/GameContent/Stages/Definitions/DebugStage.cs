@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.glowstone,
                 VanillaEnemyID.cannoneerZombie,
                 VanillaEnemyID.cannonballZombie,
-                VanillaEnemyID.ufoBlue,
+                VanillaEnemyID.shikaisenStaff,
                 VanillaEnemyID.ufoRainbow,
             });
             level.SetArtifactSlotCount(3);

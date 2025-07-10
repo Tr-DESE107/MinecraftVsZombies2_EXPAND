@@ -1,10 +1,14 @@
-﻿using MVZ2.GameContent.Enemies;
+﻿using System.Collections.Generic;
+using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Fragments;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Entities;
 using PVZEngine.Armors;
+using PVZEngine.Auras;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -19,6 +23,7 @@ namespace MVZ2.GameContent.Armors
         public Cannon(string nsp, string name) : base(nsp, name)
         {
             AddTrigger(LevelCallbacks.POST_DESTROY_ARMOR, PostArmorDestroyCallback);
+            AddAura(new HeavyAura());
         }
         public override void PostUpdate(Armor armor)
         {
@@ -34,8 +39,11 @@ namespace MVZ2.GameContent.Armors
             {
                 timer.Reset();
 
-                var pos = armor.Owner.Position + armor.Owner.GetArmorOffset(armor.Slot, armor.Definition.GetID()) + armor.Owner.GetFacingDirection() * 20;
-                var ball = armor.Owner.SpawnWithParams(VanillaEnemyID.cannonballZombie, pos);
+                var owner = armor.Owner;
+                var pos = owner.Position + owner.GetArmorOffset(armor.Slot, armor.Definition.GetID()) + owner.GetFacingDirection() * 20 + new Vector3(0, -12, 0);
+                var ball = owner.SpawnWithParams(VanillaEnemyID.cannonballZombie, pos);
+                var multiplier = owner.GetWeakKnockbackMultiplier();
+                owner.Velocity -= owner.GetFacingDirection() * (5 * multiplier);
 
                 ball.PlaySound(VanillaSoundID.smallExplosion);
             }
@@ -54,5 +62,20 @@ namespace MVZ2.GameContent.Armors
         public static void SetTimer(Armor armor, FrameTimer value) => armor.SetProperty(PROP_TIMER, value);
         public const int SHOOT_INTERVAL = 240;
         public static readonly VanillaArmorPropertyMeta<FrameTimer> PROP_TIMER = new VanillaArmorPropertyMeta<FrameTimer>("timer");
+
+        public class HeavyAura : AuraEffectDefinition
+        {
+            public HeavyAura() : base(VanillaBuffID.heavyCannon, 4)
+            {
+            }
+
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
+            {
+                var armor = auraEffect.Source as Armor;
+                if (armor == null)
+                    return;
+                results.Add(armor.Owner);
+            }
+        }
     }
 }

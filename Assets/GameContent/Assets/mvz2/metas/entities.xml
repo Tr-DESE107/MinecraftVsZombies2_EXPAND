@@ -1288,7 +1288,7 @@
         </zombie>
         <zombie id="cannonball_zombie" name="炮弹僵尸" deathMessage="-1up" unlock="mvz2:level.ship_4">
             <properties>
-                <float name="mvz2:maxHealth" value="100" />
+                <float name="mvz2:maxHealth" value="160" />
                 <float name="mvz2:mass" value="-1" />
                 <float name="mvz2:speed" value="2" />
                 <id name="mvz2:shell" value="mvz2:metal" />
