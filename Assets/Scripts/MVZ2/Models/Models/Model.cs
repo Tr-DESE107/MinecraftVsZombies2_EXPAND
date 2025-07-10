@@ -156,6 +156,7 @@ namespace MVZ2.Models
             serializable.id = id;
             serializable.key = parentKey;
             serializable.anchor = parentAnchor;
+            serializable.position = transform.localPosition;
             serializable.rng = rng.ToSerializable();
             serializable.propertyDict = propertyDict != null ? propertyDict.ToSerializable() : null;
             serializable.childModels = childModels.Select(c => c.ToSerializable()).ToArray();
@@ -179,6 +180,7 @@ namespace MVZ2.Models
             foreach (var seriChild in serializable.childModels)
             {
                 var child = CreateChildModel(seriChild.anchor, seriChild.key, seriChild.id);
+                child.transform.localPosition = seriChild.position;
                 child.LoadFromSerializable(seriChild);
             }
             LoadSerializable(serializable);
@@ -406,6 +408,7 @@ namespace MVZ2.Models
     public class SerializableModelData
     {
         public string anchor;
+        public Vector3 position;
         public NamespaceID key;
         public NamespaceID id;
         public SerializableRNG rng;
