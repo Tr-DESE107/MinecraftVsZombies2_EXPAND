@@ -273,6 +273,10 @@
     <model name="ice_bolt" type="entity" path="mvz2:projectile/ice_bolt" width="64" height="20" xOffset="6" yOffset="0"/>
     <model name="charged_bolt" type="entity" path="mvz2:projectile/charged_bolt" width="64" height="64" xOffset="0" yOffset="0"/>
 
+    <model name="hell_planet_otherworld" type="entity" path="mvz2:projectile/hell_planet_otherworld" width="56" height="56" xOffset="0" yOffset="0"/>
+    <model name="hell_planet_earth" type="entity" path="mvz2:projectile/hell_planet_earth" width="46" height="46" xOffset="0" yOffset="0"/>
+    <model name="hell_planet_moon" type="entity" path="mvz2:projectile/hell_planet_moon" width="26" height="26" xOffset="0" yOffset="0"/>
+
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>
     <model name="iron_helmet" type="armor" path="mvz2:armor/iron_helmet" width="33" height="14" xOffset="0" yOffset="0"/>

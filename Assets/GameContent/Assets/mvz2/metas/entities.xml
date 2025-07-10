@@ -2057,6 +2057,51 @@
                 <color name="mvz2:lightColor" value="#FFFFFF" />
             </properties>
         </projectile>
+        <projectile id="hell_planet_otherworld">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:hell_planet"/>
+            </behaviours>
+            <properties>
+                <bool name="mvz2:piercing" value="true" />
+                <bool name="mvz2:killOnGround" value="false" />
+                <float name="mvz2:damage" value="1000" />
+                <idArray name="mvz2:damageEffects" value="mvz2:damage_body_after_armor_broken" />
+                <vector3 name="mvz2:size" x="52" y="52" z="52" />
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="104" y="104" z="104" />
+                <color name="mvz2:lightColor" value="#FF0000" />
+            </properties>
+        </projectile>
+        <projectile id="hell_planet_earth">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:hell_planet"/>
+            </behaviours>
+            <properties>
+                <bool name="mvz2:piercing" value="true" />
+                <bool name="mvz2:killOnGround" value="false" />
+                <float name="mvz2:damage" value="500" />
+                <idArray name="mvz2:damageEffects" value="mvz2:damage_body_after_armor_broken" />
+                <vector3 name="mvz2:size" x="42" y="42" z="42" />
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="84" y="84" z="84" />
+                <color name="mvz2:lightColor" value="#0000FF" />
+            </properties>
+        </projectile>
+        <projectile id="hell_planet_moon">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:hell_planet"/>
+            </behaviours>
+            <properties>
+                <bool name="mvz2:piercing" value="true" />
+                <bool name="mvz2:killOnGround" value="false" />
+                <float name="mvz2:damage" value="250" />
+                <idArray name="mvz2:damageEffects" value="mvz2:damage_body_after_armor_broken" />
+                <vector3 name="mvz2:size" x="22" y="22" z="22" />
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="44" y="44" z="44" />
+                <color name="mvz2:lightColor" value="#FFFFFF" />
+            </properties>
+        </projectile>
 
         <!-- Effects -->
         <effect id="miner">

@@ -1,9 +1,12 @@
 ﻿using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Projectiles;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -50,6 +53,32 @@ namespace MVZ2.GameContent.Contraptions
         protected override void OnEvoke(Entity entity)
         {
             base.OnEvoke(entity);
+            var otherworldParam = entity.GetShootParams();
+            otherworldParam.damage = entity.GetDamage() * 50;
+            otherworldParam.projectileID = VanillaProjectileID.hellPlanetOtherworld;
+            otherworldParam.velocity = otherworldParam.velocity.normalized;
+            var otherworld = entity.ShootProjectile(otherworldParam);
+
+            var earthParam = entity.GetShootParams();
+            earthParam.damage = entity.GetDamage() * 25;
+            earthParam.projectileID = VanillaProjectileID.hellPlanetEarth;
+            earthParam.velocity = Vector3.zero;
+            var earth = entity.ShootProjectile(earthParam);
+            earth.SetParent(otherworld);
+            HellPlanet.SetOrbitDistance(earth, 80);
+            HellPlanet.SetOrbitSpeed(earth, 3);
+
+            var moonParam = entity.GetShootParams();
+            moonParam.damage = entity.GetDamage() * 12.5f;
+            moonParam.projectileID = VanillaProjectileID.hellPlanetMoon;
+            moonParam.velocity = Vector3.zero;
+            var moon = entity.ShootProjectile(moonParam);
+            moon.SetParent(earth);
+            HellPlanet.SetOrbitDistance(moon, 40);
+            HellPlanet.SetOrbitSpeed(moon, 5);
+
+            entity.PlaySound(VanillaSoundID.odd);
+            entity.PlaySound(VanillaSoundID.boon);
         }
         protected override Detector GetDetector()
         {

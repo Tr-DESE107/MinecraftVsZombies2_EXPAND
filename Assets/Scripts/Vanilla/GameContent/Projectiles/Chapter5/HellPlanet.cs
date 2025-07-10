@@ -1,0 +1,58 @@
+﻿using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using PVZEngine.Modifiers;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Projectiles
+{
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.hellPlanet)]
+    public class HellPlanet : ProjectileBehaviour
+    {
+        public HellPlanet(string nsp, string name) : base(nsp, name)
+        {
+            AddModifier(new Vector3Modifier(EngineEntityProps.DISPLAY_SCALE, NumberOperator.Multiply, PROP_SCALE));
+            AddModifier(new Vector3Modifier(EngineEntityProps.SCALE, NumberOperator.Multiply, PROP_SCALE));
+            AddModifier(new BooleanModifier(VanillaProjectileProps.NO_DESTROY_OUTSIDE_LAWN, PROP_NO_DESTROY_OUTSIDE_LAWN));
+        }
+        public override void Update(Entity entity)
+        {
+            base.Update(entity);
+            var scaleMultiplier = GetScaleMultiplier(entity);
+            scaleMultiplier = scaleMultiplier * 0.9f + Vector3.one * 0.1f;
+            SetScaleMultiplier(entity, scaleMultiplier);
+
+            var orbitAngle = GetOrbitAngle(entity);
+            orbitAngle += GetOrbitSpeed(entity);
+            SetOrbitAngle(entity, orbitAngle);
+
+
+            var parent = entity.Parent;
+            if (parent.ExistsAndAlive())
+            {
+                var orbitDistance = GetOrbitDistance(entity);
+                var targetOffset = Quaternion.Euler(0, orbitAngle, 0) * (Vector3.right * orbitDistance);
+                var targetPosition = parent.Position + targetOffset;
+                entity.Velocity = (targetPosition - entity.Position);
+            }
+            SetNoDestroyOutsideLawn(entity, entity.GetChildren().Length > 0);
+        }
+
+        public static bool NoDestroyOutsideLawn(Entity entity) => entity.GetBehaviourField<bool>(PROP_NO_DESTROY_OUTSIDE_LAWN);
+        public static void SetNoDestroyOutsideLawn(Entity entity, bool value) => entity.SetBehaviourField(PROP_NO_DESTROY_OUTSIDE_LAWN, value);
+        public static float GetOrbitAngle(Entity entity) => entity.GetBehaviourField<float>(PROP_ORBIT_ANGLE);
+        public static void SetOrbitAngle(Entity entity, float value) => entity.SetBehaviourField(PROP_ORBIT_ANGLE, value);
+        public static float GetOrbitSpeed(Entity entity) => entity.GetBehaviourField<float>(PROP_ORBIT_SPEED);
+        public static void SetOrbitSpeed(Entity entity, float value) => entity.SetBehaviourField(PROP_ORBIT_SPEED, value);
+        public static float GetOrbitDistance(Entity entity) => entity.GetBehaviourField<float>(PROP_ORBIT_DISTANCE);
+        public static void SetOrbitDistance(Entity entity, float value) => entity.SetBehaviourField(PROP_ORBIT_DISTANCE, value);
+        public static Vector3 GetScaleMultiplier(Entity entity) => entity.GetBehaviourField<Vector3>(PROP_SCALE);
+        public static void SetScaleMultiplier(Entity entity, Vector3 value) => entity.SetBehaviourField(PROP_SCALE, value);
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_NO_DESTROY_OUTSIDE_LAWN = new VanillaEntityPropertyMeta<bool>("no_destroy_outside_lawn");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_ORBIT_ANGLE = new VanillaEntityPropertyMeta<float>("orbit_angle");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_ORBIT_SPEED = new VanillaEntityPropertyMeta<float>("orbit_speed");
+        public static readonly VanillaEntityPropertyMeta<float> PROP_ORBIT_DISTANCE = new VanillaEntityPropertyMeta<float>("orbit_distance");
+        public static readonly VanillaEntityPropertyMeta<Vector3> PROP_SCALE = new VanillaEntityPropertyMeta<Vector3>("scale");
+    }
+}

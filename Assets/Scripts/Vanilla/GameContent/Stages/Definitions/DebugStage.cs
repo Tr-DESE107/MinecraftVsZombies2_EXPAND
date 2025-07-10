@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaEnemyID.mesmerizer,
                 VanillaEnemyID.cannonballZombie,
                 VanillaEnemyID.shikaisenStaff,
-                VanillaEnemyID.ufoRainbow,
+                VanillaEnemyID.megaMutantZombie,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
