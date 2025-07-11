@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-07-10 06:44+0800\n"
-"PO-Revision-Date: 2025-07-10 18:46+0800\n"
+"POT-Creation-Date: 2025-07-11 10:50+0800\n"
+"PO-Revision-Date: 2025-07-11 10:50+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1643,6 +1643,36 @@ msgid ""
 msgstr ""
 "It wasn't fortunate enough to join the ranks of the H.F.P.D soldiers because it had to say everything twice.\n"
 "It wasn't fortunate enough to join the ranks of the H.F.P.D soldiers because it had to say everything twice."
+
+#. Header for contraptions mvz2:triplenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "三头发射器一次能发射三行的箭矢。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。"
+msgstr ""
+"Triplensers fire arrows across three lanes at once. When placed on the outermost lane, they fire the arrow on its own lane instead."
+
+#. Properties for contraptions mvz2:triplenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>3支/1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>发射三颗缓慢飞行的，互相环绕的星球，穿透并反复打击敌人</color>"
+msgstr ""
+"Fire rate: <color=red>3 shots/1.5s</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Launches three slowly orbiting planets that pierce through enemies and strike them repeatedly</color>"
+
+#. Flavor for contraptions mvz2:triplenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"它喜欢看的典故有很多：三打白骨精、三顾茅庐、三打祝家庄……\n"
+"……确定它喜欢看的是典故的内容吗？"
+msgstr ""
+"It adores a lot of classic tales – <i>Goldilocks and the Three Bears</i>, <i>The Three Little Pigs</i>, <i>The Three Musketeers</"
+"i>...\n"
+"...Are you sure you actually care about the stories?"
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -4777,7 +4807,19 @@ msgstr "Repeatenser"
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "一次射出两支箭矢"
-msgstr "Shoot 2 arrows at once"
+msgstr "Shoot 2 arrows at a time"
+
+#. Name for entity mvz2:triplenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "三头发射器"
+msgstr "Triplenser"
+
+#. Tooltip for entity mvz2:triplenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "一次射出三行的箭矢"
+msgstr "Shoot arrows in 3 lanes"
 
 #. Name for entity mvz2:infectenser
 #: Entity meta file

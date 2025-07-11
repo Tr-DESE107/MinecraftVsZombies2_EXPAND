@@ -731,7 +731,21 @@
                 <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
             </flavor>
         </entry>
-        <entry/>
+        
+        <entry id="mvz2:triplenser">
+            <header>
+                <p>三头发射器一次能发射三行的箭矢。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>3支/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>发射三颗缓慢飞行的，互相环绕的星球，穿透并反复打击敌人</color>]]></p>
+            </properties>
+            <flavor>
+                <p>它喜欢看的典故有很多：三打白骨精、三顾茅庐、三打祝家庄……</p>
+                <p>……确定它喜欢看的是典故的内容吗？</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>
