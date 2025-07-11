@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Spawns
             var modular = flagModular % intervalWaves;
             if (modular == (intervalWaves - 1))
             {
-                int count = Mathf.Min(3, Mathf.CeilToInt(wave / 6f));
+                int count = Mathf.Min(10, Mathf.CeilToInt(totalPoints * 0.3333333f));
                 List<int> typePool = new List<int>();
                 UndeadFlyingObject.FillUFOTypeRandomPool(level, typePool);
 
