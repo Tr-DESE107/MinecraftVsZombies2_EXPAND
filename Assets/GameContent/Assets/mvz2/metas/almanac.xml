@@ -1325,7 +1325,7 @@
                 <p>炮弹僵尸由炮手僵尸发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>160</color>]]></p>
+                <p>生命：<![CDATA[<color=red>100</color>]]></p>
                 <p>移速：<![CDATA[<color=red>2</color>]]></p>
             </properties>
             <flavor>

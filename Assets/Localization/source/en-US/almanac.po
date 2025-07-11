@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-07-11 05:29+0800\n"
-"PO-Revision-Date: 2025-07-11 17:34+0800\n"
+"POT-Creation-Date: 2025-07-11 07:06+0800\n"
+"PO-Revision-Date: 2025-07-11 19:06+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2608,10 +2608,10 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid ""
-"生命：<color=red>160</color>\n"
+"生命：<color=red>100</color>\n"
 "移速：<color=red>2</color>"
 msgstr ""
-"Toughness: <color=red>160</color>\n"
+"Toughness: <color=red>100</color>\n"
 "Speed: <color=red>2</color>"
 
 #. Flavor for enemies mvz2:cannonball_zombie
