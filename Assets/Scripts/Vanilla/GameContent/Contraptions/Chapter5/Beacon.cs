@@ -85,8 +85,10 @@ namespace MVZ2.GameContent.Contraptions
             var shotSpeed = entity.GetShotVelocity().magnitude;
             foreach (var direction in shootDirections)
             {
+                var dir = direction;
+                dir.x *= entity.GetFacingX();
                 var shootParams = entity.GetShootParams();
-                shootParams.velocity = direction * shotSpeed;
+                shootParams.velocity = dir * shotSpeed;
                 entity.ShootProjectile(shootParams);
             }
             entity.TriggerAnimation("Shoot");
