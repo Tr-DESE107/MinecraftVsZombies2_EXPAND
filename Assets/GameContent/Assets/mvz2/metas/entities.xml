@@ -2631,6 +2631,7 @@
         </effect>
         <effect id="ufo_background">
             <properties>
+                <float name="mvz2:groundLimitOffset" value="-1000" />
                 <string name="mvz2:sortingLayer" value="Background"/>
                 <int name="mvz2:sortingOrder" value="-100"/>
                 <int name="mvz2:maxTimeout" value="120" />

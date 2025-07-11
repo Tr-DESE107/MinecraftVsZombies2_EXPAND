@@ -23,8 +23,8 @@ namespace MVZ2.GameContent.Effects
         }
         public static int GetType(Entity entity) => entity.GetBehaviourField<int>(PROP_TYPE);
         public static void SetType(Entity entity, int value) => entity.SetBehaviourField(PROP_TYPE, value);
-        public const float MIN_X = 600;
-        public const float MAX_X = 640;
+        public const float MIN_X = 520;
+        public const float MAX_X = 720;
         public const float MIN_Y = -160;
         public const float MAX_Y = -120;
         public const float MIN_Z = 40;
