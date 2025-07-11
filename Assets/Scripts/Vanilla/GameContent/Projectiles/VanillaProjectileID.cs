@@ -47,6 +47,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string hellPlanetEarth = "hell_planet_earth";
         public const string hellPlanetMoon = "hell_planet_moon";
         public const string shuriken = "shuriken";
+        public const string beaconMeteor = "beacon_meteor";
     }
     public static class VanillaProjectileID
     {
@@ -92,6 +93,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID hellPlanetEarth = Get(VanillaProjectileNames.hellPlanetEarth);
         public static readonly NamespaceID hellPlanetMoon = Get(VanillaProjectileNames.hellPlanetMoon);
         public static readonly NamespaceID shuriken = Get(VanillaProjectileNames.shuriken);
+        public static readonly NamespaceID beaconMeteor = Get(VanillaProjectileNames.beaconMeteor);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

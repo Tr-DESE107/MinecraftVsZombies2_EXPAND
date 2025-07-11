@@ -103,7 +103,7 @@ namespace PVZEngine.Auras
         }
         private Buff AddTargetBuff(IBuffTarget target)
         {
-            var buff = target.CreateBuff(Definition.BuffID);
+            var buff = target.NewBuff(Definition.BuffID);
             target.AddBuff(buff);
             buffCaches[target] = buff;
             return buff;

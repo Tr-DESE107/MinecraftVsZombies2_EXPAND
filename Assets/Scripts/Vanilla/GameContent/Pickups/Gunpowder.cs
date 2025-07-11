@@ -43,9 +43,7 @@ namespace MVZ2.GameContent.Pickups
                 var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
                 pickup.ExplodeAgainstFriendly(pickup.GetCenter(), range, pickup.GetFaction(), pickup.GetDamage() * damage, effects);
 
-                var explosionParam = pickup.GetSpawnParams();
-                explosionParam.SetProperty(EngineEntityProps.SIZE, Vector3.one * (range * 2));
-                pickup.Spawn(VanillaEffectID.explosion, pickup.GetCenter(), explosionParam);
+                Explosion.Spawn(pickup, pickup.GetCenter(), range);
 
                 pickup.PlaySound(VanillaSoundID.explosion);
 

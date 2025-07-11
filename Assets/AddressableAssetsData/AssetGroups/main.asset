@@ -1529,6 +1529,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 245e1c1fe1196f645a94aa795303fd00
+    m_Address: mvz2:tractor_beam
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 246bf4383058f29459ba61df6b57ff55
     m_Address: mvz2:mainmenu/quit
     m_ReadOnly: 0
@@ -9463,6 +9470,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb56d62470e9e2b4ca837e54e7d0e2c3
+    m_Address: mvz2:projectile/beacon_meteor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb748549348de4d458c512aac07bb380
     m_Address: mvz2:ui/almanac/background

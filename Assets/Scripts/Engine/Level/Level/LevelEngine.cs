@@ -404,6 +404,19 @@ namespace PVZEngine.Level
                 return null;
             return new Buff(this, buffDef, buffID);
         }
+        public Buff NewBuff<T>() where T : BuffDefinition
+        {
+            return CreateBuff<T>(AllocBuffID());
+        }
+        public Buff NewBuff(NamespaceID id)
+        {
+            return CreateBuff(id, AllocBuffID());
+        }
+        public Buff NewBuff(BuffDefinition buffDef)
+        {
+            return CreateBuff(buffDef, AllocBuffID());
+        }
+
 
         #endregion
 
@@ -626,7 +639,7 @@ namespace PVZEngine.Level
         Armor IBuffTarget.GetArmor() => null;
         void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
-        Buff IBuffTarget.CreateBuff(NamespaceID id) => CreateBuff(id, AllocBuffID());
+        Buff IBuffTarget.NewBuff(NamespaceID id) => CreateBuff(id, AllocBuffID());
         bool IBuffTarget.Exists() => true;
         #endregion
 

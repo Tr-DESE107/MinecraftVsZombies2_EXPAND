@@ -37,7 +37,7 @@ namespace MVZ2.GameContent.Buffs
         }
         public static Buff AddToEntity(Entity entity, int timeout)
         {
-            var buff = entity.CreateBuff<WhiteFlashBuff>();
+            var buff = entity.NewBuff<WhiteFlashBuff>();
             buff.SetProperty(WhiteFlashBuff.PROP_TIMEOUT, timeout);
             buff.SetProperty(WhiteFlashBuff.PROP_MAX_TIMEOUT, timeout);
             entity.AddBuff(buff);

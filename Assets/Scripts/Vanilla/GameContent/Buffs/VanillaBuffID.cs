@@ -159,6 +159,7 @@ namespace MVZ2.GameContent.Buffs
             public const string ancientEgypt = "ancient_egypt";
             public const string spiritUniverseNight = "spirit_universe_night";
             public const string ufoSpawn = "ufo_spawn";
+            public const string beaconMeteor = "beacon_meteor";
 
             // 难度
             public const string levelEasy = "level_easy";

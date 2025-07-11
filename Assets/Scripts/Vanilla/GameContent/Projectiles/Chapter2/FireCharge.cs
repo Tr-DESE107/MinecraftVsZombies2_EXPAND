@@ -4,12 +4,10 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
@@ -34,12 +32,12 @@ namespace MVZ2.GameContent.Projectiles
         public static void Explode(Entity entity)
         {
             var range = entity.GetRange();
-            entity.PlaySound(VanillaSoundID.explosion);
-            var explosion = entity.Level.Spawn(VanillaEffectID.explosion, entity.GetCenter(), entity);
-            explosion.SetSize(Vector3.one * (range * 2));
+            Explosion.Spawn(entity, entity.GetCenter(), range);
+
             var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE);
             entity.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects);
+
+            entity.PlaySound(VanillaSoundID.meteorLand);
         }
-        public static NamespaceID ID => VanillaProjectileID.fireCharge;
     }
 }

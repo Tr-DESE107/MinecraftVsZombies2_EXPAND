@@ -1,8 +1,12 @@
-﻿using MVZ2.GameContent.Detections;
+﻿using MVZ2.GameContent.Buffs.Level;
+using MVZ2.GameContent.Detections;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -23,21 +27,57 @@ namespace MVZ2.GameContent.Contraptions
             base.Init(entity);
             var shootTimer = new FrameTimer(GetTimerTime(entity));
             SetShootTimer(entity, shootTimer);
+            SetEvocationTimer(entity, new FrameTimer(60));
         }
 
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
-            var shootTimer = GetShootTimer(entity);
-            shootTimer.Run(entity.GetAttackSpeed());
-            if (shootTimer.Expired)
+            if (!entity.IsEvoked())
             {
-                var target = detector.Detect(entity);
-                if (target != null)
+                var shootTimer = GetShootTimer(entity);
+                shootTimer.Run(entity.GetAttackSpeed());
+                if (shootTimer.Expired)
                 {
-                    OnShootTick(entity);
+                    var target = detector.Detect(entity);
+                    if (target != null)
+                    {
+                        OnShootTick(entity);
+                    }
+                    shootTimer.ResetTime(GetTimerTime(entity));
                 }
-                shootTimer.ResetTime(GetTimerTime(entity));
+            }
+            else
+            {
+                var evoTimer = GetEvocationTimer(entity);
+                evoTimer.Run();
+                if (evoTimer.Expired)
+                {
+                    var buff = entity.Level.NewBuff<BeaconMeteorBuff>();
+                    BeaconMeteorBuff.SetFaction(buff, entity.GetFaction());
+                    BeaconMeteorBuff.SetDamage(buff, entity.GetDamage() * 90);
+                    BeaconMeteorBuff.SetCount(buff, 5);
+                    BeaconMeteorBuff.SetRNG(buff, new RandomGenerator(entity.RNG.Next()));
+                    entity.Level.AddBuff(buff);
+                    entity.SetEvoked(false);
+                }
+            }
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            bool beamOn = entity.IsEvoked() && !entity.IsAIFrozen();
+            entity.SetAnimationBool("BeamOn", beamOn);
+            if (beamOn != entity.Level.HasLoopSoundEntity(VanillaSoundID.tractorBeam, entity.ID))
+            {
+                if (beamOn)
+                {
+                    entity.Level.AddLoopSoundEntity(VanillaSoundID.tractorBeam, entity.ID);
+                }
+                else
+                {
+                    entity.Level.RemoveLoopSoundEntity(VanillaSoundID.tractorBeam, entity.ID);
+                }
             }
         }
         public void OnShootTick(Entity entity)
@@ -51,8 +91,17 @@ namespace MVZ2.GameContent.Contraptions
             }
             entity.TriggerAnimation("Shoot");
         }
+        protected override void OnEvoke(Entity entity)
+        {
+            base.OnEvoke(entity);
+            entity.SetEvoked(true);
+            var timer = GetEvocationTimer(entity);
+            timer.Reset();
+        }
         public static FrameTimer GetShootTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_SHOOT_TIMER);
         public static void SetShootTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_SHOOT_TIMER, timer);
+        public static FrameTimer GetEvocationTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_EVOCATION_TIMER);
+        public static void SetEvocationTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_EVOCATION_TIMER, timer);
         protected virtual int GetTimerTime(Entity entity)
         {
             if (entity.Level.IsIZombie())
@@ -73,5 +122,6 @@ namespace MVZ2.GameContent.Contraptions
             new Vector3(0.866025f, 0, -0.5f).normalized, // Front-Down
         };
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_SHOOT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("shoot_timer");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("evocation_timer");
     }
 }

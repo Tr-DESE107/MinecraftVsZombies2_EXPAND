@@ -1,6 +1,7 @@
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -12,10 +13,25 @@ namespace MVZ2.GameContent.Effects
         public Explosion(string nsp, string name) : base(nsp, name)
         {
         }
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+            entity.SetModelProperty("Size", entity.GetScaledSize());
+        }
         public override void Update(Entity entity)
         {
             base.Update(entity);
             entity.SetModelProperty("Size", entity.GetScaledSize());
+        }
+        public static Entity Spawn(Entity spawner, Vector3 position, Vector3 size)
+        {
+            var param = spawner.GetSpawnParams();
+            param.SetProperty(EngineEntityProps.SIZE, size);
+            return spawner.Spawn(VanillaEffectID.explosion, position, param);
+        }
+        public static Entity Spawn(Entity spawner, Vector3 position, float radius)
+        {
+            return Spawn(spawner, position, Vector3.one * (radius * 2));
         }
         #endregion
     }

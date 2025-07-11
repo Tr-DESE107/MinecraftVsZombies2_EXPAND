@@ -167,8 +167,7 @@ namespace MVZ2.GameContent.Bosses
             boss.PlaySound(VanillaSoundID.smash);
             level.Spawn(VanillaEffectID.thunderBolt, centerPos, boss);
 
-            var explosion = level.Spawn(VanillaEffectID.explosion, centerPos, boss);
-            explosion.SetSize(Vector3.one * 120);
+            Explosion.Spawn(boss, centerPos, 60);
 
             const int arcCounts = 8;
             const float arcAngle = 360 / arcCounts;

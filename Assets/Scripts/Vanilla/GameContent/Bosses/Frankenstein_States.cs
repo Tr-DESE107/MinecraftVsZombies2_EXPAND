@@ -186,11 +186,10 @@ namespace MVZ2.GameContent.Bosses
                             substateTimer.ResetTime(120);
                             break;
                         case SUBSTATE_DEAD_HEAD_DROPPED:
-                            var level = entity.Level;
-                            var explosion = level.Spawn(VanillaEffectID.explosion, entity.GetCenter(), entity);
-                            explosion.SetSize(Vector3.one * 240);
+                            Explosion.Spawn(entity, entity.GetCenter(), 120);
+
                             entity.PlaySound(VanillaSoundID.explosion);
-                            level.ShakeScreen(10, 0, 15);
+                            entity.Level.ShakeScreen(10, 0, 15);
                             entity.Remove();
                             break;
                     }
@@ -208,8 +207,8 @@ namespace MVZ2.GameContent.Bosses
                 level.ShakeScreen(5, 0, 15);
                 boss.PlaySound(VanillaSoundID.explosion);
                 boss.PlaySound(VanillaSoundID.powerOff);
-                var expPart = level.Spawn(VanillaEffectID.explosion, headPos, boss);
-                expPart.SetSize(Vector3.one * 60);
+
+                Explosion.Spawn(boss, headPos, 30);
             }
         }
         private class FaintState : EntityStateMachineState

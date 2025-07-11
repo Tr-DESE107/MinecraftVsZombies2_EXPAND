@@ -100,15 +100,15 @@ namespace PVZEngine.SeedPacks
         #endregion
 
         #region 增益
-        public Buff CreateBuff<T>() where T : BuffDefinition
+        public Buff NewBuff<T>() where T : BuffDefinition
         {
             return Level.CreateBuff<T>(AllocBuffID());
         }
-        public Buff CreateBuff(BuffDefinition buffDef)
+        public Buff NewBuff(BuffDefinition buffDef)
         {
             return Level.CreateBuff(buffDef, AllocBuffID());
         }
-        public Buff CreateBuff(NamespaceID id)
+        public Buff NewBuff(NamespaceID id)
         {
             return Level.CreateBuff(id, AllocBuffID());
         }
@@ -123,7 +123,7 @@ namespace PVZEngine.SeedPacks
         }
         public Buff AddBuff<T>() where T : BuffDefinition
         {
-            var buff = CreateBuff<T>();
+            var buff = NewBuff<T>();
             AddBuff(buff);
             return buff;
         }

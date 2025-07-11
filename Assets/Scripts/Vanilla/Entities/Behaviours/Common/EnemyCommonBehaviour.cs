@@ -20,7 +20,7 @@ namespace MVZ2.Vanilla.Entities
         {
             base.Init(entity);
 
-            var buff = entity.CreateBuff<RandomEnemySpeedBuff>();
+            var buff = entity.NewBuff<RandomEnemySpeedBuff>();
             RandomEnemySpeedBuff.SetSpeed(buff, entity.RNG.Next(1, 1.5f));
             entity.AddBuff(buff);
 

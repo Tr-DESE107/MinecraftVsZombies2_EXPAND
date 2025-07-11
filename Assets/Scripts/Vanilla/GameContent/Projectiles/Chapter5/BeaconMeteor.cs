@@ -4,7 +4,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -12,10 +11,10 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Projectiles
 {
-    [EntityBehaviourDefinition(VanillaProjectileNames.missile)]
-    public class Missile : ProjectileBehaviour
+    [EntityBehaviourDefinition(VanillaProjectileNames.beaconMeteor)]
+    public class BeaconMeteor : ProjectileBehaviour
     {
-        public Missile(string nsp, string name) : base(nsp, name)
+        public BeaconMeteor(string nsp, string name) : base(nsp, name)
         {
         }
         protected override void PreHitEntity(ProjectileHitInput hit, DamageInput damage, CallbackResult result)
@@ -33,13 +32,13 @@ namespace MVZ2.GameContent.Projectiles
         public static void Explode(Entity entity)
         {
             var range = entity.GetRange();
-            entity.PlaySound(VanillaSoundID.explosion);
-
             Explosion.Spawn(entity, entity.GetCenter(), range);
 
             var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE);
             entity.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects);
+
+            entity.Level.ShakeScreen(10, 0, 15);
+            entity.PlaySound(VanillaSoundID.explosion);
         }
-        public static NamespaceID ID => VanillaProjectileID.fireCharge;
     }
 }

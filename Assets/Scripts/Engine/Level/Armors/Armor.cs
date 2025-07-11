@@ -142,15 +142,15 @@ namespace PVZEngine.Armors
         #endregion
 
         #region 增益
-        public Buff CreateBuff<T>() where T : BuffDefinition
+        public Buff NewBuff<T>() where T : BuffDefinition
         {
             return Level.CreateBuff<T>(AllocBuffID());
         }
-        public Buff CreateBuff(BuffDefinition buffDef)
+        public Buff NewBuff(BuffDefinition buffDef)
         {
             return Level.CreateBuff(buffDef, AllocBuffID());
         }
-        public Buff CreateBuff(NamespaceID id)
+        public Buff NewBuff(NamespaceID id)
         {
             return Level.CreateBuff(id, AllocBuffID());
         }
@@ -165,7 +165,7 @@ namespace PVZEngine.Armors
         }
         public void AddBuff<T>() where T : BuffDefinition
         {
-            AddBuff(CreateBuff<T>());
+            AddBuff(NewBuff<T>());
         }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);

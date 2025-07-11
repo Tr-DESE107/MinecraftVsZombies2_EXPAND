@@ -7,7 +7,7 @@ namespace PVZEngine.Buffs
 {
     public interface IBuffTarget
     {
-        Buff CreateBuff(NamespaceID buffID);
+        Buff NewBuff(NamespaceID buffID);
         bool AddBuff(Buff buff);
         bool RemoveBuff(Buff buff);
         IModelInterface GetInsertedModel(NamespaceID key);

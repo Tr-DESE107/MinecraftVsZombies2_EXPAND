@@ -57,9 +57,7 @@ namespace MVZ2.GameContent.Contraptions
             var effects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE);
             entity.ExplodeAgainstFriendly(entity.GetCenter(), range, entity.GetFaction(), damage, effects);
 
-            var explosionParam = entity.GetSpawnParams();
-            explosionParam.SetProperty(EngineEntityProps.SIZE, Vector3.one * (range * 2));
-            entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), explosionParam);
+            Explosion.Spawn(entity, entity.GetCenter(), range);
 
             entity.PlaySound(VanillaSoundID.explosion);
 

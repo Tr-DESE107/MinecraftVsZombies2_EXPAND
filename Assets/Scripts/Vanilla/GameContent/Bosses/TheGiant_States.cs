@@ -1461,9 +1461,7 @@ namespace MVZ2.GameContent.Bosses
 
                     entity.PlaySound(VanillaSoundID.explosion);
 
-                    var expParam = entity.GetSpawnParams();
-                    expParam.SetProperty(EngineEntityProps.SIZE, Vector3.one * 240);
-                    var exp = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), expParam);
+                    Explosion.Spawn(entity, entity.GetCenter(), 120);
                     entity.Level.ShakeScreen(20, 0, 30);
 
                     for (int i = 0; i < 50; i++)

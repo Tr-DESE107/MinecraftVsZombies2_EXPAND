@@ -552,9 +552,7 @@ namespace MVZ2.GameContent.Bosses
                         entity.PlaySound(VanillaSoundID.explosion);
                         entity.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN));
 
-                        var param = entity.GetSpawnParams();
-                        param.SetProperty(EngineEntityProps.SIZE, Vector3.one * 240);
-                        var exp = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
+                        Explosion.Spawn(entity, entity.GetCenter(), 120);
                         for (int i = 0; i < entity.Level.GetMaxLaneCount(); i++)
                         {
                             if (i == entity.GetLane())
@@ -668,9 +666,7 @@ namespace MVZ2.GameContent.Bosses
                                 entity.PlaySound(VanillaSoundID.witherSpawn);
                                 var bedserker = entity.SpawnWithParams(VanillaEnemyID.bedserker, entity.Position + entity.GetFacingDirection() * 80);
 
-                                var param = entity.GetSpawnParams();
-                                param.SetProperty(EngineEntityProps.SIZE, Vector3.one * 120);
-                                entity.Spawn(VanillaEffectID.explosion, bedserker.GetCenter(), param);
+                                Explosion.Spawn(entity, bedserker.GetCenter(), 60);
                                 entity.PlaySound(VanillaSoundID.explosion);
                             }
                         }
@@ -744,9 +740,7 @@ namespace MVZ2.GameContent.Bosses
                     entity.PlaySound(VanillaSoundID.explosion);
                     entity.Explode(entity.GetCenter(), 120, entity.GetFaction(), entity.GetDamage() * 18, new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN));
 
-                    var param = entity.GetSpawnParams();
-                    param.SetProperty(EngineEntityProps.SIZE, Vector3.one * 240);
-                    var exp = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
+                    Explosion.Spawn(entity, entity.GetCenter(), 120);
                     entity.Level.ShakeScreen(20, 0, 30);
                     entity.Remove();
                 }

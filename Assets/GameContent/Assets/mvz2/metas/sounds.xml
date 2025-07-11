@@ -774,6 +774,9 @@
     <sound name="touhou_death">
         <sample path="mvz2:touhou_death" weight="1" />
     </sound>
+    <sound name="tractor_beam">
+        <sample path="mvz2:tractor_beam" weight="1" />
+    </sound>
     <sound name="train_travel">
         <sample path="mvz2:train_travel" weight="1" />
     </sound>

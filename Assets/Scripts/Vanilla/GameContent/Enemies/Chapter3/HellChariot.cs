@@ -120,9 +120,7 @@ namespace MVZ2.GameContent.Enemies
             base.PostDeath(entity, info);
             if (!info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
             {
-                var param = entity.GetSpawnParams();
-                param.SetProperty(EngineEntityProps.SIZE, entity.GetScaledSize());
-                var explosion = entity.Spawn(VanillaEffectID.explosion, entity.GetCenter(), param);
+                Explosion.Spawn(entity, entity.GetCenter(), entity.GetScaledSize());
             }
 
             if (!info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))

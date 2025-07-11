@@ -80,7 +80,7 @@ namespace MVZ2.GameContent.Enemies
             var staff = entity.Level.FindFirstEntity(e => e.IsEntityOf(VanillaEnemyID.shikaisenStaff) && (e.Position - entity.Position).magnitude <= e.GetRange() && e.ExistsAndAlive());
             if (staff == null)
                 return;
-            var buff = entity.CreateBuff<ShikaisenReviveBuff>();
+            var buff = entity.NewBuff<ShikaisenReviveBuff>();
             ShikaisenReviveBuff.SetSource(buff, new EntityID(staff));
             entity.AddBuff(buff);
         }

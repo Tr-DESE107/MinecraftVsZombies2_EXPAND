@@ -34,9 +34,7 @@ namespace MVZ2.GameContent.Effects
                 TeslaCoil.Shock(entity, entity.GetDamage(), entity.GetFaction(), SHOCK_RADIUS, targetPos, new DamageEffectList(VanillaDamageEffects.LIGHTNING, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY, VanillaDamageEffects.MUTE));
                 TeslaCoil.CreateArc(entity, pos, targetPos);
 
-                var param = entity.GetSpawnParams();
-                param.SetProperty(EngineEntityProps.SIZE, Vector3.one * SHOCK_RADIUS * 2);
-                var explosion = entity.Spawn(VanillaEffectID.explosion, targetPos, param);
+                Explosion.Spawn(entity, targetPos, SHOCK_RADIUS);
 
                 if (entity.Timeout % 3 == 0)
                 {
