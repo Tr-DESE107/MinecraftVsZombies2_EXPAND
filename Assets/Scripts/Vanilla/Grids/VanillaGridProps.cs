@@ -26,5 +26,9 @@ namespace MVZ2.Vanilla.Grids
             return grid.GetProperty<bool>(IS_AIR);
         }
 
+        public static bool IsLand(this LawnGrid grid)
+        {
+            return !grid.IsWater() && !grid.IsCloud();
+        }
     }
 }

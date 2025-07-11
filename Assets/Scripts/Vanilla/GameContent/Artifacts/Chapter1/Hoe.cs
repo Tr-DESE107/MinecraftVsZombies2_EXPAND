@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Grids;
+using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
@@ -45,9 +46,11 @@ namespace MVZ2.GameContent.Artifacts
                 var targetLane = enemy.GetLane();
                 var targetColumn = TARGET_COLUMN;
                 var grid = level.GetGrid(targetColumn, targetLane);
+                while (grid != null && !grid.IsLand())
+                {
+                    grid = level.GetGrid(grid.Column - 1, grid.Lane);
+                }
                 if (grid == null)
-                    continue;
-                if (grid.Definition.GetID() == VanillaGridID.water)
                     continue;
                 var pos = grid.GetEntityPosition();
                 var hoe = level.Spawn(VanillaEffectID.hoe, pos, null);
