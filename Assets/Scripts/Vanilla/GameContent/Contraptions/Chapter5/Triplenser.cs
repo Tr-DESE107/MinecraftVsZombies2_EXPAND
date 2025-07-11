@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Contraptions
             earthParam.velocity = Vector3.zero;
             var earth = entity.ShootProjectile(earthParam);
             earth.SetParent(otherworld);
-            HellPlanet.SetOrbitDistance(earth, 80);
+            HellPlanet.SetOrbitDistance(earth, 72);
             HellPlanet.SetOrbitSpeed(earth, 3);
 
             var moonParam = entity.GetShootParams();
@@ -74,8 +74,8 @@ namespace MVZ2.GameContent.Contraptions
             moonParam.velocity = Vector3.zero;
             var moon = entity.ShootProjectile(moonParam);
             moon.SetParent(earth);
-            HellPlanet.SetOrbitDistance(moon, 40);
-            HellPlanet.SetOrbitSpeed(moon, 5);
+            HellPlanet.SetOrbitDistance(moon, 36);
+            HellPlanet.SetOrbitSpeed(moon, 9);
 
             entity.PlaySound(VanillaSoundID.odd);
             entity.PlaySound(VanillaSoundID.boon);

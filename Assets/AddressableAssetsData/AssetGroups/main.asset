@@ -9044,6 +9044,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0f684122a1a2be4ca65e579ae6bf2f7
+    m_Address: mvz2:projectile/hell_planet_earth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e10d04c0c4472b34aa0a58c97d380cfa
     m_Address: mvz2:damage/slice/slice1
     m_ReadOnly: 0
@@ -9961,6 +9968,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7703407001c49940a06caec118fce4b
+    m_Address: mvz2:projectile/hell_planet_otherworld
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f771d42a2d0c8f94986cc56fa505e972
     m_Address: mvz2:map/ship/ship
     m_ReadOnly: 0
@@ -10156,6 +10170,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc2a8cedec134704fab8d73e17d51cd2
+    m_Address: mvz2:projectile/hell_planet_moon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc3e815806f7eaf4694e0d4333cc9185
     m_Address: mvz2:icons/disabled
     m_ReadOnly: 0
@@ -10274,6 +10295,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffb9065a06ea7a345978dc5d8d0d0bea
+    m_Address: mvz2:entity/projectiles/hell_planets
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffc82409076aa3e4481bb54a1438d1db
     m_Address: mvz2:entity/enemies/golden_axe

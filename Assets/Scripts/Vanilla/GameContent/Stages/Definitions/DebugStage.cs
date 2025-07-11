@@ -44,13 +44,13 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.smallDispenser,
                 VanillaContraptionID.infectenser,
-                VanillaContraptionID.obsidian,
-                VanillaContraptionID.stoneDropper,
+                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.forcePad,
                 VanillaContraptionID.triplenser,
                 VanillaPickupID.emerald,
                 VanillaEnemyID.mesmerizer,
                 VanillaEnemyID.cannonballZombie,
-                VanillaEnemyID.shikaisenStaff,
+                VanillaEnemyID.mutantZombie,
                 VanillaEnemyID.megaMutantZombie,
             });
             level.SetArtifactSlotCount(3);

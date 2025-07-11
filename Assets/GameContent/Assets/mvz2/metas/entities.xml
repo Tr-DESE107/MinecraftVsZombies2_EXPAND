@@ -2064,7 +2064,7 @@
             <properties>
                 <bool name="mvz2:piercing" value="true" />
                 <bool name="mvz2:killOnGround" value="false" />
-                <float name="mvz2:damage" value="1000" />
+                <float name="mvz2:damage" value="999" />
                 <idArray name="mvz2:damageEffects" value="mvz2:damage_body_after_armor_broken" />
                 <vector3 name="mvz2:size" x="52" y="52" z="52" />
                 <bool name="mvz2:isLightSource" value="true" />
@@ -2079,7 +2079,7 @@
             <properties>
                 <bool name="mvz2:piercing" value="true" />
                 <bool name="mvz2:killOnGround" value="false" />
-                <float name="mvz2:damage" value="500" />
+                <float name="mvz2:damage" value="333" />
                 <idArray name="mvz2:damageEffects" value="mvz2:damage_body_after_armor_broken" />
                 <vector3 name="mvz2:size" x="42" y="42" z="42" />
                 <bool name="mvz2:isLightSource" value="true" />
@@ -2094,7 +2094,7 @@
             <properties>
                 <bool name="mvz2:piercing" value="true" />
                 <bool name="mvz2:killOnGround" value="false" />
-                <float name="mvz2:damage" value="250" />
+                <float name="mvz2:damage" value="111" />
                 <idArray name="mvz2:damageEffects" value="mvz2:damage_body_after_armor_broken" />
                 <vector3 name="mvz2:size" x="22" y="22" z="22" />
                 <bool name="mvz2:isLightSource" value="true" />
