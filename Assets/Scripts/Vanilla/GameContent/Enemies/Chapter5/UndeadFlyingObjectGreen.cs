@@ -89,7 +89,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public static bool CanSpawn(LevelEngine level)
         {
-            return level.GetEntityCount(e => CanStartSteal(level.Option.RightFaction, e)) <= 3;
+            return level.GetEntityCount(e => CanStartSteal(level.Option.RightFaction, e)) > 3;
         }
         public static void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
         {
