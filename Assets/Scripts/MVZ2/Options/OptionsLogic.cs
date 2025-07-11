@@ -57,6 +57,7 @@ namespace MVZ2.Options
             UpdateShakeSlider();
             UpdateBloodAndGoreButton();
             UpdateShowFPSButton();
+            UpdateHDRLightingButton();
 
             // Controls
             UpdateShowHotkeysButton();
@@ -165,6 +166,12 @@ namespace MVZ2.Options
                     {
                         Main.OptionsManager.CycleFPSMode();
                         UpdateShowFPSButton();
+                    }
+                    break;
+                case ButtonType.HDRLighting:
+                    {
+                        Main.OptionsManager.SwitchHDRLightingDisabled();
+                        UpdateHDRLightingButton();
                     }
                     break;
 
@@ -488,6 +495,13 @@ namespace MVZ2.Options
             var text = Main.LanguageManager._(OPTION_FPS_MODE, valueText);
             dialog.SetButtonText(TextButtonType.ShowFPS, text);
         }
+        protected void UpdateHDRLightingButton()
+        {
+            var value = !Main.OptionsManager.HDRLightingDisabled();
+            var valueText = GetValueText(value);
+            var text = Main.LanguageManager._(OPTION_HDR_LIGHTING, valueText);
+            dialog.SetButtonText(TextButtonType.HDR_LIGHTING, text);
+        }
         private void UpdateBloodAndGoreButton()
         {
             var value = BloodAndGore;
@@ -549,6 +563,8 @@ namespace MVZ2.Options
         public const string OPTION_FASTFORWARD_MULTIPLIER = "加速倍率：{0}";
         [TranslateMsg("选项，{0}为量")]
         public const string OPTION_ANIMATION_FREQUENCY = "动画频率：{0}";
+        [TranslateMsg("选项，{0}为量")]
+        public const string OPTION_HDR_LIGHTING = "HDR光照：{0}";
 
         [TranslateMsg("选项，{0}为是否开启")]
         public const string OPTION_BLOOD_AND_GORE = "血与碎块：{0}";

@@ -49,6 +49,7 @@ namespace MVZ2.Options
 
             LoadObsoletePrefs();
             UpdateFPSMode();
+            UpdateHDRLighting();
         }
 
         public void LoadOptionsFromFile()
@@ -143,6 +144,27 @@ namespace MVZ2.Options
         public void SwitchFullscreen()
         {
             SetFullscreen(!IsFullscreen());
+        }
+        #endregion
+
+        #region HDR
+        public bool HDRLightingDisabled()
+        {
+            return options.hdrLightingDisabled;
+        }
+        public void SetHDRLightingDisabled(bool value)
+        {
+            options.hdrLightingDisabled = value;
+            UpdateHDRLighting();
+            SaveOptionsToFile();
+        }
+        public void SwitchHDRLightingDisabled()
+        {
+            SetHDRLightingDisabled(!HDRLightingDisabled());
+        }
+        private void UpdateHDRLighting()
+        {
+            Shader.SetGlobalInt("_HDRDisabled", HDRLightingDisabled() ? 1 : 0);
         }
         #endregion
 

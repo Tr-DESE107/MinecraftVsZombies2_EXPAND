@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-07-04 03:30+0800\n"
+"POT-Creation-Date: 2025-07-11 07:44+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -687,22 +687,22 @@ msgid "试着挖掉所有器械！"
 msgstr ""
 
 # 选卡警告，{0}为原器械，{1}为升级器械
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:159
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:155
 msgid "你确定想要在没有{0}的情况下使用{1}？"
 msgstr ""
 
 # 选卡警告，{0}为目标敌人
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:161
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:157
 msgid "你没有选能干掉{0}的器械，确定要继续吗？"
 msgstr ""
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:163
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:159
 msgid "你没有选能生产能量的器械，确定要继续吗？"
 msgstr ""
 
 # 选卡警告
-#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:165
+#: Scripts\Vanilla\GameContent\Implements\BlueprintRecommendImplements.cs:161
 msgid "你确定这关不使用任何水生器械吗？"
 msgstr ""
 
@@ -1246,134 +1246,139 @@ msgid "确认要重置所有按键绑定吗？"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:532
+#: Scripts\MVZ2\Options\OptionsLogic.cs:546
 msgid "交换触发：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:534
+#: Scripts\MVZ2\Options\OptionsLogic.cs:548
 msgid "全屏：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:536
+#: Scripts\MVZ2\Options\OptionsLogic.cs:550
 msgid "设备震动：{0}"
 msgstr ""
 
 # 选项，{0}为难度
-#: Scripts\MVZ2\Options\OptionsLogic.cs:538
+#: Scripts\MVZ2\Options\OptionsLogic.cs:552
 msgid "难度：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:540
+#: Scripts\MVZ2\Options\OptionsLogic.cs:554
 msgid "后台暂停：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:544
+#: Scripts\MVZ2\Options\OptionsLogic.cs:558
 msgid "音乐音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:546
+#: Scripts\MVZ2\Options\OptionsLogic.cs:560
 msgid "音效音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:548
+#: Scripts\MVZ2\Options\OptionsLogic.cs:562
 msgid "加速倍率：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:550
+#: Scripts\MVZ2\Options\OptionsLogic.cs:564
 msgid "动画频率：{0}"
 msgstr ""
 
+# 选项，{0}为量
+#: Scripts\MVZ2\Options\OptionsLogic.cs:566
+msgid "HDR光照：{0}"
+msgstr ""
+
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:553
+#: Scripts\MVZ2\Options\OptionsLogic.cs:569
 msgid "血与碎块：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:556
+#: Scripts\MVZ2\Options\OptionsLogic.cs:572
 msgid "跳过对话：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:558
+#: Scripts\MVZ2\Options\OptionsLogic.cs:574
 msgid "赞助者名称：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:560
+#: Scripts\MVZ2\Options\OptionsLogic.cs:576
 msgid "选卡警告：{0}"
 msgstr ""
 
 # 选项，{0}为模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:562
+#: Scripts\MVZ2\Options\OptionsLogic.cs:578
 msgid "命令方块：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:564
+#: Scripts\MVZ2\Options\OptionsLogic.cs:580
 msgid "显示帧率：{0}"
 msgstr ""
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:566
+#: Scripts\MVZ2\Options\OptionsLogic.cs:582
 msgid "显示快捷键：{0}"
 msgstr ""
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:569
+#: Scripts\MVZ2\Options\OptionsLogic.cs:585
 msgctxt "option.command_block_mode"
 msgid "手选"
 msgstr ""
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:571
+#: Scripts\MVZ2\Options\OptionsLogic.cs:587
 msgctxt "option.command_block_mode"
 msgid "前位"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:574
+#: Scripts\MVZ2\Options\OptionsLogic.cs:590
 msgctxt "option.fps_mode"
 msgid "关闭"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:576
+#: Scripts\MVZ2\Options\OptionsLogic.cs:592
 msgctxt "option.fps_mode"
 msgid "左上"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:578
+#: Scripts\MVZ2\Options\OptionsLogic.cs:594
 msgctxt "option.fps_mode"
 msgid "右上"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:580
+#: Scripts\MVZ2\Options\OptionsLogic.cs:596
 msgctxt "option.fps_mode"
 msgid "左下"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:582
+#: Scripts\MVZ2\Options\OptionsLogic.cs:598
 msgctxt "option.fps_mode"
 msgid "右下"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:585
+#: Scripts\MVZ2\Options\OptionsLogic.cs:601
 msgid "粒子数量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:587
+#: Scripts\MVZ2\Options\OptionsLogic.cs:603
 msgid "屏幕震动：{0}"
 msgstr ""
 
@@ -2512,37 +2517,37 @@ msgid ""
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:749
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:795
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:751
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:797
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:753
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:799
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr ""
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:755
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:801
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:757
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:803
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:759
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:805
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr ""

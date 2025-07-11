@@ -101,6 +101,7 @@ namespace MVZ2.UI
             textButtonDict.Add(TextButtonType.SkipAllTalks, skipAllTalksButton);
             textButtonDict.Add(TextButtonType.ShowSponsorNames, showSponsorNamesButton);
             textButtonDict.Add(TextButtonType.ChooseWarnings, chooseWarningsButton);
+            textButtonDict.Add(TextButtonType.HDR_LIGHTING, hdrButton);
             textButtonDict.Add(TextButtonType.CommandBlockMode, commandBlockModeButton);
             textButtonDict.Add(TextButtonType.ShowFPS, showFPSButton);
             textButtonDict.Add(TextButtonType.ShowHotkeys, showHotkeysButton);
@@ -131,6 +132,7 @@ namespace MVZ2.UI
             buttonDict.Add(ButtonType.ChooseWarnings, chooseWarningsButton.Button);
             buttonDict.Add(ButtonType.CommandBlockMode, commandBlockModeButton.Button);
             buttonDict.Add(ButtonType.ShowFPS, showFPSButton.Button);
+            buttonDict.Add(ButtonType.HDRLighting, hdrButton.Button);
             buttonDict.Add(ButtonType.ShowHotkeys, showHotkeysButton.Button);
             buttonDict.Add(ButtonType.Credits, creditsButton.Button);
             buttonDict.Add(ButtonType.Keybinding, keybindingButton.Button);
@@ -250,6 +252,8 @@ namespace MVZ2.UI
         private TextButton bloodAndGoreButton;
         [SerializeField]
         private TextButton showFPSButton;
+        [SerializeField]
+        private TextButton hdrButton;
 
         [Header("Controls")]
         [SerializeField]
@@ -297,6 +301,7 @@ namespace MVZ2.UI
             ChooseWarnings,
             CommandBlockMode,
             ShowFPS,
+            HDR_LIGHTING,
             ShowHotkeys,
             Credits,
             Keybinding,
@@ -326,6 +331,7 @@ namespace MVZ2.UI
             CommandBlockMode,
             ShowFPS,
             ShowHotkeys,
+            HDRLighting,
 
             Credits,
             Keybinding,

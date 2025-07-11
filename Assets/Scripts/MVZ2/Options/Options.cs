@@ -1,4 +1,5 @@
 ﻿using System;
+using MongoDB.Bson.Serialization.Attributes;
 using PVZEngine;
 
 namespace MVZ2.Options
@@ -20,6 +21,7 @@ namespace MVZ2.Options
                 commandBlockMode = commandBlockMode,
                 fpsMode = fpsMode,
                 showHotkeyIndicators = showHotkeyIndicators,
+                hdrLightingDisabled = hdrLightingDisabled,
             };
         }
         public void LoadFromSerializable(SerializableOptions options)
@@ -33,6 +35,7 @@ namespace MVZ2.Options
             commandBlockMode = options.commandBlockMode;
             fpsMode = options.fpsMode;
             showHotkeyIndicators = options.showHotkeyIndicators;
+            hdrLightingDisabled = options.hdrLightingDisabled;
         }
         public bool swapTrigger;
         public bool vibration;
@@ -55,9 +58,11 @@ namespace MVZ2.Options
         public int commandBlockMode;
         public int fpsMode;
         public bool showHotkeyIndicators;
+        public bool hdrLightingDisabled;
         public float minAnimationFrequency;
     }
     [Serializable]
+    [BsonIgnoreExtraElements]
     public class SerializableOptions
     {
         public SerializableKeyBindingOptions keyBindings;
@@ -67,5 +72,6 @@ namespace MVZ2.Options
         public int commandBlockMode;
         public int fpsMode;
         public bool showHotkeyIndicators;
+        public bool hdrLightingDisabled;
     }
 }
