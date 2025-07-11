@@ -7,7 +7,6 @@ using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Games;
 using PVZEngine;
@@ -17,6 +16,7 @@ namespace MVZ2.Almanacs
 {
     public class AlmanacManager : MonoBehaviour
     {
+        #region 获取图鉴项列表
         public void GetOrderedBlueprints(IEnumerable<NamespaceID> blueprints, List<NamespaceID> appendList)
         {
             var idList = GetIDListByAlmanacOrder(blueprints, VanillaAlmanacCategories.CONTRAPTIONS);
@@ -46,83 +46,6 @@ namespace MVZ2.Almanacs
                 entries = g.entries.Where(e => Main.SaveManager.IsInvalidOrUnlocked(e.unlock)).Select(e => e.id).ToArray()
             }).Where(g => g != null && g.entries.Count() > 0);
             appendList.AddRange(groups);
-        }
-        public ChoosingBlueprintViewData GetChoosingBlueprintViewData(NamespaceID id, bool isEndless)
-        {
-            if (!NamespaceID.IsValid(id))
-                return ChoosingBlueprintViewData.Empty;
-            var blueprintDef = Main.Game.GetSeedDefinition(id);
-            if (blueprintDef == null)
-                return ChoosingBlueprintViewData.Empty;
-            return new ChoosingBlueprintViewData()
-            {
-                blueprint = Main.ResourceManager.GetBlueprintViewData(blueprintDef, isEndless),
-                disabled = false
-            };
-        }
-        public AlmanacEntryViewData GetEnemyEntryViewData(NamespaceID id)
-        {
-            if (!NamespaceID.IsValid(id))
-                return AlmanacEntryViewData.Empty;
-            var def = Main.Game.GetEntityDefinition(id);
-            if (def == null)
-                return AlmanacEntryViewData.Empty;
-            var modelID = def.GetModelID();
-            var modelIcon = Main.ResourceManager.GetModelIcon(modelID);
-            return new AlmanacEntryViewData() { sprite = modelIcon };
-        }
-        public AlmanacEntryViewData GetArtifactEntryViewData(NamespaceID id)
-        {
-            if (!NamespaceID.IsValid(id))
-                return AlmanacEntryViewData.Empty;
-            var def = Main.Game.GetArtifactDefinition(id);
-            if (def == null)
-                return AlmanacEntryViewData.Empty;
-            var spriteRef = def.GetSpriteReference();
-            var sprite = Main.GetFinalSprite(spriteRef);
-            return new AlmanacEntryViewData() { sprite = sprite };
-        }
-        public AlmanacEntryGroupViewData GetMiscGroupViewData(AlmanacEntryGroup group)
-        {
-            return new AlmanacEntryGroupViewData()
-            {
-                name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME, group.name),
-                entries = group.entries.Select(id =>
-                {
-                    var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.MISC, id);
-                    if (entry == null)
-                        return AlmanacEntryViewData.Empty;
-                    var modelID = entry.model;
-                    Sprite sprite;
-                    if (NamespaceID.IsValid(modelID))
-                    {
-                        sprite = Main.ResourceManager.GetModelIcon(modelID);
-                    }
-                    else
-                    {
-                        sprite = GetMiscEntrySprite(entry);
-                    }
-                    return new AlmanacEntryViewData()
-                    {
-                        sprite = sprite
-                    };
-                }).ToArray()
-            };
-        }
-        public Sprite GetMiscEntrySprite(AlmanacMetaEntry entry)
-        {
-            if (entry == null)
-                return null;
-            var spriteID = entry.sprite;
-            var characterID = entry.character;
-            if (!SpriteReference.IsValid(spriteID) && NamespaceID.IsValid(characterID))
-            {
-                return Main.ResourceManager.GetCharacterSprite(characterID);
-            }
-            else
-            {
-                return Main.GetFinalSprite(spriteID);
-            }
         }
         private NamespaceID[] GetIDListByAlmanacOrder(IEnumerable<NamespaceID> idList, string category)
         {
@@ -160,6 +83,116 @@ namespace MVZ2.Almanacs
         {
             return miscCountPerRow;
         }
+        #endregion
+
+        #region 获取图鉴项显示信息
+        public ChoosingBlueprintViewData GetChoosingBlueprintViewData(NamespaceID id, bool isEndless)
+        {
+            if (!NamespaceID.IsValid(id))
+                return ChoosingBlueprintViewData.Empty;
+            var blueprintDef = Main.Game.GetSeedDefinition(id);
+            if (blueprintDef == null)
+                return ChoosingBlueprintViewData.Empty;
+            return new ChoosingBlueprintViewData()
+            {
+                blueprint = Main.ResourceManager.GetBlueprintViewData(blueprintDef, isEndless),
+                disabled = false
+            };
+        }
+        public AlmanacEntryViewData GetEnemyEntryViewData(NamespaceID id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return AlmanacEntryViewData.Empty;
+            var def = Main.Game.GetEntityDefinition(id);
+            if (def == null)
+                return AlmanacEntryViewData.Empty;
+
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, id);
+            Sprite icon = GetEntryThumbnailSprite(entry);
+            if (!icon)
+            {
+                var modelID = def.GetModelID();
+                icon = Main.ResourceManager.GetModelIcon(modelID);
+            }
+            return new AlmanacEntryViewData() { sprite = icon };
+        }
+        public AlmanacEntryViewData GetArtifactEntryViewData(NamespaceID id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return AlmanacEntryViewData.Empty;
+            var def = Main.Game.GetArtifactDefinition(id);
+            if (def == null)
+                return AlmanacEntryViewData.Empty;
+
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ARTIFACTS, id);
+            Sprite icon = GetEntryThumbnailSprite(entry);
+            if (!icon)
+            {
+                var spriteRef = def.GetSpriteReference();
+                icon = Main.GetFinalSprite(spriteRef);
+            }
+            return new AlmanacEntryViewData() { sprite = icon };
+        }
+        public AlmanacEntryViewData GetMiscEntryViewData(NamespaceID id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return AlmanacEntryViewData.Empty;
+
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.MISC, id);
+            return new AlmanacEntryViewData() { sprite = GetEntryThumbnailSprite(entry) };
+        }
+        public AlmanacEntryGroupViewData GetMiscGroupViewData(AlmanacEntryGroup group)
+        {
+            return new AlmanacEntryGroupViewData()
+            {
+                name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC_GROUP_NAME, group.name),
+                entries = group.entries.Select(GetMiscEntryViewData).ToArray()
+            };
+        }
+        #endregion
+
+        #region 缩略图
+        public Sprite GetEntryThumbnailSprite(AlmanacMetaEntry entry)
+        {
+            Sprite sprite = GetPictureThumbnailSprite(entry?.thumbnail);
+            if (!sprite)
+            {
+                sprite = GetPictureThumbnailSprite(entry?.picture);
+            }
+            return sprite;
+        }
+        public Sprite GetPictureThumbnailSprite(AlmanacPicture picture)
+        {
+            if (picture == null)
+                return null;
+            Sprite sprite = Main.ResourceManager.GetModelIcon(picture.model);
+            if (!sprite)
+            {
+                sprite = GetPictureSprite(picture);
+            }
+            return sprite;
+        }
+        #endregion
+
+        #region 图片
+        public Sprite GetEntryPictureSprite(AlmanacMetaEntry entry)
+        {
+            return GetPictureSprite(entry?.picture);
+        }
+        public Sprite GetPictureSprite(AlmanacPicture picture)
+        {
+            if (picture == null)
+                return null;
+            Sprite sprite = Main.GetFinalSprite(picture.sprite);
+            if (!sprite)
+            {
+                sprite = Main.ResourceManager.GetCharacterSprite(picture.character);
+            }
+            return sprite;
+        }
+        #endregion
+
+
         public MainManager Main => MainManager.Instance;
         [SerializeField]
         private int blueprintCountPerRowStandalone = 8;

@@ -15,43 +15,56 @@ namespace MVZ2.Metas
     public class AlmanacMetaEntry
     {
         public NamespaceID id;
+        public int index = -1;
+        public bool hidden = false;
+
+        // 杂项
         public string name;
-        public NamespaceID encounterUnlock;
         public NamespaceID unlock;
+        public NamespaceID encounterUnlock;
 
-        public SpriteReference sprite;
-        public NamespaceID character;
-        public NamespaceID model;
-        public bool iconFixedSize;
-        public bool iconZoom;
+        // 缩略图
+        public AlmanacPicture thumbnail;
 
+        // 图片
+        public AlmanacPicture picture;
+        public bool pictureFixedSize;
+        public bool pictureZoom;
+
+        // 图标
         public AlmanacEntryTagInfo[] tags;
+
+        // 文本
         public string header;
         public string properties;
         public AlmanacMetaFlavor[] flavors;
-        public int index = -1;
-        public bool hidden = false;
+
         public static AlmanacMetaEntry FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
             var name = node.GetAttribute("name");
             var encounterUnlock = node.GetAttributeNamespaceID("encounterUnlock", defaultNsp);
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+            var hidden = node.GetAttributeBool("hidden") ?? false;
 
-            SpriteReference sprite = null;
-            NamespaceID character = null;
-            NamespaceID model = null;
-            bool iconFixedSize = false;
-            bool iconZoom = true;
-            var iconNode = node["icon"];
-            if (iconNode != null)
+            AlmanacPicture thumbnail = null;
+            var thumbnailNode = node["thumbnail"];
+            if (thumbnailNode != null)
             {
-                sprite = iconNode.GetAttributeSpriteReference("sprite", defaultNsp);
-                character = iconNode.GetAttributeNamespaceID("character", defaultNsp);
-                model = iconNode.GetAttributeNamespaceID("model", defaultNsp);
-                iconFixedSize = iconNode.GetAttributeBool("fixedSize") ?? iconFixedSize;
-                iconZoom = iconNode.GetAttributeBool("zoom") ?? iconZoom;
+                thumbnail = AlmanacPicture.FromXmlNode(thumbnailNode, defaultNsp);
             }
+
+            AlmanacPicture picture = null;
+            bool pictureFixedSize = false;
+            bool pictureZoom = true;
+            var pictureNode = node["picture"];
+            if (pictureNode != null)
+            {
+                picture = AlmanacPicture.FromXmlNode(pictureNode, defaultNsp);
+                pictureFixedSize = pictureNode.GetAttributeBool("fixedSize") ?? pictureFixedSize;
+                pictureZoom = pictureNode.GetAttributeBool("zoom") ?? pictureZoom;
+            }
+
             var tags = new List<AlmanacEntryTagInfo>();
             var tagsNode = node["tags"];
             if (tagsNode != null)
@@ -71,8 +84,6 @@ namespace MVZ2.Metas
             var propertiesNode = node["properties"];
             var header = headerNode != null ? ConcatNodeParagraphs(headerNode) : string.Empty;
             var properties = propertiesNode != null ? ConcatNodeParagraphs(propertiesNode) : string.Empty;
-
-            var hidden = node.GetAttributeBool("hidden") ?? false;
 
             AlmanacMetaFlavor[] flavors;
             var flavorsNode = node["flavors"];
@@ -107,12 +118,14 @@ namespace MVZ2.Metas
                 name = name,
                 encounterUnlock = encounterUnlock,
                 unlock = unlock,
-                sprite = sprite,
-                character = character,
-                model = model,
-                iconFixedSize = iconFixedSize,
-                iconZoom = iconZoom,
                 hidden = hidden,
+
+                thumbnail = thumbnail,
+
+                picture = picture,
+                pictureFixedSize = pictureFixedSize,
+                pictureZoom = pictureZoom,
+
                 tags = tags.ToArray(),
                 header = header,
                 properties = properties,
@@ -150,6 +163,26 @@ namespace MVZ2.Metas
                 }
             }
             return sb.ToString();
+        }
+    }
+
+    public class AlmanacPicture
+    {
+        public SpriteReference sprite;
+        public NamespaceID character;
+        public NamespaceID model;
+        public static AlmanacPicture FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            SpriteReference sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
+            NamespaceID character = node.GetAttributeNamespaceID("character", defaultNsp);
+            NamespaceID model = node.GetAttributeNamespaceID("model", defaultNsp);
+
+            return new AlmanacPicture()
+            {
+                sprite = sprite,
+                character = character,
+                model = model
+            };
         }
     }
 

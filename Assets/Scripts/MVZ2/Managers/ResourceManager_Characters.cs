@@ -49,6 +49,8 @@ namespace MVZ2.Managers
         }
         public Sprite GetCharacterSprite(NamespaceID characterID)
         {
+            if (!NamespaceID.IsValid(characterID))
+                return null;
             var variants = FindInMods(characterID, mr => mr.CharacterVariantSprites);
             if (variants == null)
                 return null;
