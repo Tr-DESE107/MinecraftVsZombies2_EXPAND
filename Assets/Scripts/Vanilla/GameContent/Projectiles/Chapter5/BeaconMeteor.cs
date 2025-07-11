@@ -38,7 +38,7 @@ namespace MVZ2.GameContent.Projectiles
             entity.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects);
 
             entity.Level.ShakeScreen(10, 0, 15);
-            entity.PlaySound(VanillaSoundID.explosion);
+            entity.PlaySound(VanillaSoundID.meteorLand);
         }
     }
 }

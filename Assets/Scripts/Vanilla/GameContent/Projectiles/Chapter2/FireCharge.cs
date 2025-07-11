@@ -37,7 +37,7 @@ namespace MVZ2.GameContent.Projectiles
             var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE);
             entity.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects);
 
-            entity.PlaySound(VanillaSoundID.meteorLand);
+            entity.PlaySound(VanillaSoundID.explosion);
         }
     }
 }
