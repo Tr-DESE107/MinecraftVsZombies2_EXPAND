@@ -55,8 +55,8 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     var buff = entity.Level.NewBuff<BeaconMeteorBuff>();
                     BeaconMeteorBuff.SetFaction(buff, entity.GetFaction());
-                    BeaconMeteorBuff.SetDamage(buff, entity.GetDamage() * 90);
-                    BeaconMeteorBuff.SetCount(buff, 5);
+                    BeaconMeteorBuff.SetDamage(buff, entity.GetDamage() * EVOCATION_DAMAGE_MULTIPLIER);
+                    BeaconMeteorBuff.SetCount(buff, EVOCATION_METEOR_COUNT);
                     BeaconMeteorBuff.SetRNG(buff, new RandomGenerator(entity.RNG.Next()));
                     entity.Level.AddBuff(buff);
                     entity.SetEvoked(false);
@@ -113,6 +113,9 @@ namespace MVZ2.GameContent.Contraptions
         protected Detector detector;
         private const int ATTACK_INTERVAL_MIN = 40;
         private const int ATTACK_INTERVAL_MAX = 45;
+        public const float EVOCATION_DAMAGE_MULTIPLIER = 45;
+        public const int EVOCATION_METEOR_COUNT = 10;
+
         public static Vector3[] shootDirections = new Vector3[]
         {
             new Vector3(-1, 0, 0), // Back
