@@ -71,7 +71,7 @@
             <colliders>
                 <collider name="main" >
                     <offset x="0" y="0" z="0"/>
-                    <size x="5" y="100" z="40"/>
+                    <size x="5" y="100" z="20"/>
                     <pivot x="0.5" y="0.5" z="0.5"/>
                 </collider>
             </colliders>
@@ -87,7 +87,7 @@
             <colliders>
                 <collider name="main" >
                     <offset x="0" y="0" z="0"/>
-                    <size x="10" y="40" z="40"/>
+                    <size x="10" y="40" z="20"/>
                     <pivot x="0.5" y="0.5" z="0.5"/>
                 </collider>
             </colliders>
@@ -104,7 +104,7 @@
             <colliders>
                 <collider name="main" >
                     <offset x="-27" y="0" z="0"/>
-                    <size x="42" y="86" z="42"/>
+                    <size x="42" y="86" z="21"/>
                     <pivot x="0.5" y="0.5" z="0.5"/>
                 </collider>
             </colliders>
@@ -122,7 +122,7 @@
             <colliders>
                 <collider name="main" >
                     <offset x="-5" y="0" z="0"/>
-                    <size x="61" y="36" z="36"/>
+                    <size x="61" y="36" z="18"/>
                     <pivot x="0.5" y="0.5" z="0.5"/>
                 </collider>
             </colliders>

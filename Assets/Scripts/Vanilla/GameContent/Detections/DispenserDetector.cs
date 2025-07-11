@@ -71,7 +71,6 @@ namespace MVZ2.GameContent.Detections
         {
             if (!ValidateTarget(self, collider.Entity))
                 return false;
-            Bounds targetBounds = collider.GetBoundingBox();
             if (colliderFilter != null && !colliderFilter(self, collider))
                 return false;
             return true;

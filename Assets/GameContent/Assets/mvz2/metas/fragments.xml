@@ -188,7 +188,14 @@
         <colorKeys>
             <key hex="#4F4F4F" time="0.35"/>
             <key hex="#ABABAB" time="0.7"/>
-            <key hex="#7D5A32" time="0.3"/>
+            <key hex="#7D5A32" time="1"/>
+        </colorKeys>
+    </fragment>
+    <fragment name="beacon">
+        <colorKeys>
+            <key hex="#39305A" time="0.2"/>
+            <key hex="#A8D0D9" time="0.6"/>
+            <key hex="#54D9D0" time="1"/>
         </colorKeys>
     </fragment>
     <fragment name="infectenser">

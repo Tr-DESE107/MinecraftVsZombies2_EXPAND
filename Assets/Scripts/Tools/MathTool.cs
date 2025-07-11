@@ -535,6 +535,10 @@ namespace Tools.Mathematics
         {
             return (cube.ClosestPoint(sphereCenter) - sphereCenter).sqrMagnitude <= sphereRadius * sphereRadius;
         }
+        public static bool CollideBetweenCubeAndCapsule(Capsule capsule, Bounds cube)
+        {
+            return CollideBetweenCubeAndCapsule(capsule, cube.center, cube.size);
+        }
         public static bool CollideBetweenCubeAndCapsule(Capsule capsule, Vector3 cubeCenter, Vector3 cubeSize)
         {
             // 扩展立方体
