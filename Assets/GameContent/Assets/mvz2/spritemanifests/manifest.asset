@@ -183,6 +183,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2d37eb66e5d769343ab9e6ee42496b68, type: 3}
   - name: mobile_blueprint/anvil
     sprite: {fileID: 21300000, guid: 07fea5983538e114e87a25057c32b6c2, type: 3}
+  - name: mobile_blueprint/beacon
+    sprite: {fileID: 21300000, guid: af016291e3e050b418ac40e349963a65, type: 3}
   - name: mobile_blueprint/bedserker
     sprite: {fileID: 21300000, guid: 10f0a75a79063264f8e9d4e7413c683f, type: 3}
   - name: mobile_blueprint/berserker
@@ -411,6 +413,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: beb139d5d07db39408272c27eaea0034, type: 3}
   - name: products/starshard_slot
     sprite: {fileID: 21300000, guid: b944e3154656ac74f8054ed14cb53335, type: 3}
+  - name: shading/beacon_beam
+    sprite: {fileID: 21300000, guid: b1900c06e1957174da8b8d05764e05e6, type: 3}
   - name: shading/charge_bar
     sprite: {fileID: 21300000, guid: 875c02db89f827e4fb926c954366d39e, type: 3}
   - name: shading/circle
@@ -785,6 +789,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 15206f91cba867643894b071e1884fc8, type: 3}
   - name: entity/projectiles/seija_bullet_dark
     sprite: {fileID: 21300000, guid: 5d6681133238a864eb4f3882be1730fe, type: 3}
+  - name: entity/projectiles/shuriken
+    sprite: {fileID: 21300000, guid: a0b32ddee03147744b7b625e4c60863a, type: 3}
   - name: entity/projectiles/snowball
     sprite: {fileID: 21300000, guid: 0b6aa6449e74e064eb7a4dc5dd9cc283, type: 3}
   - name: entity/projectiles/soulfire_ball
@@ -1466,6 +1472,10 @@ MonoBehaviour:
     - {fileID: -1083742067, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 413586417, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
     - {fileID: 1656711901, guid: 4928638317c505a4e86671ea24a68c7f, type: 3}
+  - name: entity/contraption/beacon
+    spritesheet:
+    - {fileID: 616420050, guid: 19334bb02ae9acb499abf76dbcaa51f9, type: 3}
+    - {fileID: 22659964, guid: 19334bb02ae9acb499abf76dbcaa51f9, type: 3}
   - name: entity/contraption/command_block
     spritesheet:
     - {fileID: -1167386140, guid: 8efa2e79b292918498e73ab732763604, type: 3}
