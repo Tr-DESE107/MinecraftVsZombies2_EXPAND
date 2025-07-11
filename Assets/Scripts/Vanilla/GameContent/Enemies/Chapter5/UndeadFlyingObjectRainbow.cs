@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using Tools;
+using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -22,6 +25,8 @@ namespace MVZ2.GameContent.Enemies
             if (timer.Expired)
             {
                 SpawnRandomUFOs(enemy, 2);
+                var effect = enemy.Spawn(VanillaEffectID.smokeCluster, enemy.GetCenter());
+                effect.SetTint(new Color(1, 0.8f, 1, 1));
                 enemy.Remove();
             }
         }
