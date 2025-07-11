@@ -2234,6 +2234,7 @@ MonoBehaviour:
     - {fileID: 1648357590, guid: 5d2c28a61405a06409579f821db2bf10, type: 3}
     - {fileID: 321962143, guid: 5d2c28a61405a06409579f821db2bf10, type: 3}
     - {fileID: 875420487, guid: 5d2c28a61405a06409579f821db2bf10, type: 3}
+    - {fileID: -782307434, guid: 5d2c28a61405a06409579f821db2bf10, type: 3}
   - name: ui/almanac/placement_tags_upgrade_new
     spritesheet:
     - {fileID: -1064595, guid: c88dad8213774ad48b823b141be673dc, type: 3}

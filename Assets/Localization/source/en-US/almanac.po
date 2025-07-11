@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-07-11 10:50+0800\n"
-"PO-Revision-Date: 2025-07-11 10:50+0800\n"
+"POT-Creation-Date: 2025-07-11 02:44+0800\n"
+"PO-Revision-Date: 2025-07-11 14:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -16,6 +16,18 @@ msgstr ""
 "X-Crowdin-File: /crowdin/almanac.pot\n"
 "X-Crowdin-File-ID: 18\n"
 "X-Generator: Poedit 3.5\n"
+
+#. Name for almanac tag placement_buried
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "埋藏器械"
+msgstr "Buried Contraption"
+
+#. Description for almanac tag placement_buried
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "只能放置在实心地面上"
+msgstr "Can only be placed on solid land"
 
 #. Name for almanac tag placement_land
 #: Almanac meta file

@@ -1,15 +1,19 @@
 <almanac>
     <tags>
-        <tag id="placement_land" name="陆地器械" description="只能放置在地面上" priority="0" >
+        <tag id="placement_buried" name="埋藏器械" description="只能放置在实心地面上" priority="0" >
             <icon sprite="mvz2:ui/almanac/placement_tags[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#57433c" />
         </tag>
-        <tag id="placement_aquatic" name="水生器械" description="只能放置在水中" priority="0" >
+        <tag id="placement_land" name="陆地器械" description="只能放置在地面上" priority="0" >
             <icon sprite="mvz2:ui/almanac/placement_tags[1]" />
+            <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#57433c" />
+        </tag>
+        <tag id="placement_aquatic" name="水生器械" description="只能放置在水中" priority="0" >
+            <icon sprite="mvz2:ui/almanac/placement_tags[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#347871" />
         </tag>
         <tag id="placement_suspension" name="悬浮器械" description="不依赖于承载者便可放置在特殊格子上" priority="0" >
-            <icon sprite="mvz2:ui/almanac/placement_tags[2]" />
+            <icon sprite="mvz2:ui/almanac/placement_tags[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#4587a6" />
         </tag>
 

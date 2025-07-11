@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Placements
         {
             AddMethod(VanillaPlaceMethods.entity);
             AddMethod(VanillaPlaceMethods.firstAid);
-            this.SetAlmanacTag(VanillaAlmanacTagID.placementLand);
+            this.SetAlmanacTag(VanillaAlmanacTagID.placementBuried);
         }
     }
 }

@@ -3,7 +3,7 @@ guid: 5d2c28a61405a06409579f821db2bf10
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -185,6 +185,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: placement_tags_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41dbfce9eedc8e74cb49172905b73429
+      internalID: -782307434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -199,6 +220,7 @@ TextureImporter:
       placement_tags_0: 1648357590
       placement_tags_1: 321962143
       placement_tags_2: 875420487
+      placement_tags_3: -782307434
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
