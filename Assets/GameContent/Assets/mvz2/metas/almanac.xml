@@ -735,7 +735,6 @@
                 <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
             </flavor>
         </entry>
-        
         <entry id="mvz2:triplenser">
             <header>
                 <p>三头发射器一次能发射三行的箭矢。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。</p>
@@ -750,7 +749,19 @@
                 <p>……确定它喜欢看的是典故的内容吗？</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:beacon">
+            <header>
+                <p>信标能向后方、上方、下方、前上方、前下方五个方向同时发射星星手里剑。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>5发/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>召唤10颗陨石，打击场上随机位置</color>]]></p>
+            </properties>
+            <flavor>
+                <p>它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>

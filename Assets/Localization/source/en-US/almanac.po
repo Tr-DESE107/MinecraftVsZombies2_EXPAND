@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-07-11 02:44+0800\n"
-"PO-Revision-Date: 2025-07-11 14:45+0800\n"
+"POT-Creation-Date: 2025-07-11 05:29+0800\n"
+"PO-Revision-Date: 2025-07-11 17:34+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1685,6 +1685,30 @@ msgstr ""
 "It adores a lot of classic tales – <i>Goldilocks and the Three Bears</i>, <i>The Three Little Pigs</i>, <i>The Three Musketeers</"
 "i>...\n"
 "...Are you sure you actually care about the stories?"
+
+#. Header for contraptions mvz2:beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "信标能向后方、上方、下方、前上方、前下方五个方向同时发射星星手里剑。"
+msgstr "Beacons shoot starikens in five directions at a time: back, up, down, front-up, and front-down."
+
+#. Properties for contraptions mvz2:beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>5发/1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>召唤10颗陨石，打击场上随机位置</color>"
+msgstr ""
+"Fire rate: <color=red>5 shots/1.5s</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Summon 10 meteors to strike random positions on the battlefield</color>"
+
+#. Flavor for contraptions mvz2:beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。"
+msgstr "It's not made with the Nether Star, just a counterfeit product made from a dispenser that can shoot shurikens."
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -4832,6 +4856,18 @@ msgstr "Triplenser"
 msgctxt "entity.tooltip"
 msgid "一次射出三行的箭矢"
 msgstr "Shoot arrows in 3 lanes"
+
+#. Name for entity mvz2:beacon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "信标"
+msgstr "Beacon"
+
+#. Tooltip for entity mvz2:beacon
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "向五个方向发射手里剑"
+msgstr "Shoot shurikens in 5 directions"
 
 #. Name for entity mvz2:infectenser
 #: Entity meta file
