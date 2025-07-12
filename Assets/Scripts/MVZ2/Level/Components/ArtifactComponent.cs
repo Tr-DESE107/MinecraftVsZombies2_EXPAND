@@ -98,19 +98,27 @@ namespace MVZ2.Level.Components
             {
                 var artifact = artifacts.GetArtifactAt(i);
                 Sprite icon = null;
-                string numberText = string.Empty;
+                string text = string.Empty;
                 bool grayscale = false;
                 bool glowing = false;
                 if (artifact != null)
                 {
                     icon = Main.GetFinalSprite(artifact.Definition.GetSpriteReference());
-                    var number = artifact.GetNumber();
-                    numberText = number < 0 ? string.Empty : number.ToString();
+                    var displayText = artifact.GetDisplayText();
+                    if (!string.IsNullOrEmpty(displayText))
+                    {
+                        text = displayText;
+                    }
+                    else
+                    {
+                        var number = artifact.GetNumber();
+                        text = number < 0 ? string.Empty : number.ToString();
+                    }
                     grayscale = artifact.IsInactive();
                     glowing = artifact.GetGlowing();
                 }
                 uiPreset.SetArtifactIcon(i, icon);
-                uiPreset.SetArtifactNumber(i, numberText);
+                uiPreset.SetArtifactNumber(i, text);
                 uiPreset.SetArtifactGrayscale(i, grayscale);
                 uiPreset.SetArtifactGlowing(i, glowing);
             }

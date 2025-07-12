@@ -15,8 +15,10 @@ namespace MVZ2.Vanilla.Entities
             if (!CanCollect(pickup))
                 return;
             var collectible = pickup.Definition.GetBehaviour<ICollectiblePickup>();
-            if (collectible != null)
-                collectible.PostCollect(pickup);
+            if (collectible == null)
+                return;
+            collectible.PostCollect(pickup);
+            pickup.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PICKUP_COLLECT, new EntityCallbackParams(pickup), pickup.GetDefinitionID());
         }
         public static bool CanCollect(this Entity entity)
         {

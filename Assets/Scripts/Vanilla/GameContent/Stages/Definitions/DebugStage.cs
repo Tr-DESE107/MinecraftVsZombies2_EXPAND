@@ -2,7 +2,7 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Seeds;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -42,21 +42,21 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.teslaCoil,
-                VanillaEnemyID.skeletonMage,
-                VanillaBlueprintID.skeletonMageFire,
-                VanillaBlueprintID.skeletonMageFrost,
-                VanillaBlueprintID.skeletonMageLightning,
-                VanillaEnemyID.ufo,
-                VanillaBlueprintID.ufoRed,
-                VanillaBlueprintID.ufoGreen,
-                VanillaBlueprintID.ufoBlue,
-                VanillaBlueprintID.ufoRainbow,
+                VanillaContraptionID.smallDispenser,
+                VanillaContraptionID.infectenser,
+                VanillaContraptionID.gravityPad,
+                VanillaContraptionID.forcePad,
+                VanillaPickupID.emerald,
+                VanillaPickupID.ruby,
+                VanillaPickupID.sapphire,
+                VanillaPickupID.diamond,
+                VanillaEnemyID.mutantZombie,
+                VanillaEnemyID.megaMutantZombie,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]
             {
-                VanillaArtifactID.netherStar,
+                VanillaArtifactID.ufoToy,
                 VanillaArtifactID.almanac,
                 VanillaArtifactID.theCreaturesHeart,
             });

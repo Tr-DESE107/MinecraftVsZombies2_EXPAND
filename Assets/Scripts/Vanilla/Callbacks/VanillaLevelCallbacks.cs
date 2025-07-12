@@ -226,6 +226,7 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackType<EnemyMeleeAttackParams> POST_ENEMY_MELEE_ATTACK = new();
 
         public readonly static CallbackType<EntityCallbackParams> CAN_PICKUP_COLLECT = new();
+        public readonly static CallbackType<EntityCallbackParams> POST_PICKUP_COLLECT = new();
 
         public readonly static CallbackType<EntityCallbackParams> POST_PROJECTILE_SHOT = new();
         public readonly static CallbackType<PreProjectileHitParams> PRE_PROJECTILE_HIT = new();

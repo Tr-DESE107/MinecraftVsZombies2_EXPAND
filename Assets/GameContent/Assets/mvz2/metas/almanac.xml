@@ -1590,6 +1590,20 @@
                 <p>眼睛愤怒地缩紧了瞳孔。</p>
             </flavor>
         </entry>
+        <entry/>
+        <entry id="mvz2:ufo_toy">
+            <header>
+                <p>一个带有魔力的四棱锥玩具。</p>
+            </header>
+            <properties>
+                <p>效果：<![CDATA[<color=red>拾取三个同色宝石后，再生成一个同色的宝石</color>]]></p>
+            </properties>
+            <flavor>
+                <p>这个玩具形状是个四棱锥。它的底部有四个不同颜色的飞碟凹槽，每个颜色的凹槽里面都有三个飞碟。</p>
+                <p>四个侧面中，每个侧面都有三个凹槽，凹槽周围分别被涂上了不同的颜色：<![CDATA[<color=red>红红红</color>、<color=green>绿绿绿</color>、<color=blue>蓝蓝蓝</color>、<color=red>红</color><color=green>绿</color><color=blue>蓝</color>]]>。</p>
+                <p><![CDATA[你问我这个玩具怎么玩？很简单，只需要把2个<color=red>红色</color>的和1个<color=blue>蓝色</color>的飞碟放在同一面的凹槽上就行了！]]></p>
+            </flavor>
+        </entry>
     </artifacts>
     <misc>
         <!-- Bosses -->

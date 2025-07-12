@@ -1,0 +1,139 @@
+﻿using System.Collections.Generic;
+using System.Text;
+using MVZ2.GameContent.Pickups;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
+using MVZ2Logic;
+using MVZ2Logic.Artifacts;
+using MVZ2Logic.Level;
+using PVZEngine;
+using PVZEngine.Callbacks;
+using PVZEngine.Entities;
+
+namespace MVZ2.GameContent.Artifacts
+{
+    [ArtifactDefinition(VanillaArtifactNames.ufoToy)]
+    public class UFOToy : ArtifactDefinition
+    {
+        public UFOToy(string nsp, string name) : base(nsp, name)
+        {
+            AddTrigger(VanillaLevelCallbacks.POST_PICKUP_COLLECT, PostPickupCollectCallback);
+        }
+        private void PostPickupCollectCallback(EntityCallbackParams param, CallbackResult result)
+        {
+            var pickup = param.entity;
+            var level = pickup.Level;
+            foreach (var artifact in level.GetArtifacts())
+            {
+                if (artifact == null || artifact.Definition != this)
+                    continue;
+                var type = GetPickupType(pickup);
+                if (type == TYPE_NULL)
+                    continue;
+                var count = GetTypeCount(artifact, type);
+                count++;
+                if (count >= MAX_COUNT)
+                {
+                    var times = count / MAX_COUNT;
+                    count = count % MAX_COUNT;
+                    for (int i = 0; i < times; i++)
+                    {
+                        level.Produce(pickup.Definition, pickup.GetCenter(), pickup);
+                    }
+                    artifact.Highlight();
+                }
+                SetTypeCount(artifact, type, count);
+                UpdateDisplayText(artifact);
+            }
+        }
+        public static int GetPickupType(Entity pickup)
+        {
+            var id = pickup.GetDefinitionID();
+            if (pickupTypeDict.TryGetValue(id, out var type))
+            {
+                return type;
+            }
+            return TYPE_NULL;
+        }
+        public static int GetTypeMask(int type)
+        {
+            return type switch
+            {
+                TYPE_RED => (int)RED_MASK,
+                TYPE_GREEN => (int)GREEN_MASK,
+                TYPE_BLUE => (int)BLUE_MASK,
+                TYPE_DIAMOND => (int)DIAMOND_MASK,
+                _ => 0
+            };
+        }
+        public static int GetTypeOffset(int type)
+        {
+            return COUNT_BITS * type;
+        }
+        public static int GetCountFlags(Artifact artifact) => artifact.GetProperty<int>(PROP_COUNT_FLAGS);
+        public static void SetCountFlags(Artifact artifact, int value) => artifact.SetProperty(PROP_COUNT_FLAGS, value);
+        public static int GetTypeCount(Artifact artifact, int type)
+        {
+            var countFlags = GetCountFlags(artifact);
+            return (countFlags & GetTypeMask(type)) >> GetTypeOffset(type);
+        }
+        public static void SetTypeCount(Artifact artifact, int type, int value)
+        {
+            var countFlags = GetCountFlags(artifact);
+            var mask = GetTypeMask(type);
+            countFlags = (countFlags & (~mask)) | ((value << GetTypeOffset(type)) & mask);
+            SetCountFlags(artifact, countFlags);
+        }
+        public static void UpdateDisplayText(Artifact artifact)
+        {
+            var stringBuilder = new StringBuilder();
+            for (int i = 0; i < TYPE_COUNT; i++)
+            {
+                var count = GetTypeCount(artifact, i);
+                if (count > 0)
+                {
+                    if (typeColorDict.TryGetValue(i, out var color))
+                    {
+                        stringBuilder.Append($"<color={color}>{count}</color>");
+                    }
+                    else
+                    {
+                        stringBuilder.Append(count);
+                    }
+                }
+            }
+            artifact.SetDisplayText(stringBuilder.ToString());
+        }
+        public const int TYPE_NULL = -1;
+        public const int TYPE_RED = 0;
+        public const int TYPE_GREEN = 1;
+        public const int TYPE_BLUE = 2;
+        public const int TYPE_DIAMOND = 3;
+        public const int TYPE_COUNT = 4;
+
+        public const int MAX_COUNT = 3;
+
+        public const int COUNT_BITS = 4;
+        public const uint RED_MASK = 0x000F;
+        public const uint GREEN_MASK = 0x00F0;
+        public const uint BLUE_MASK = 0x0F00;
+        public const uint DIAMOND_MASK = 0xF000;
+
+        public static readonly VanillaArtifactPropertyMeta<int> PROP_COUNT_FLAGS = new VanillaArtifactPropertyMeta<int>("count_flags");
+        public static Dictionary<NamespaceID, int> pickupTypeDict = new Dictionary<NamespaceID, int>()
+        {
+            { VanillaPickupID.ruby, TYPE_RED },
+            { VanillaPickupID.emerald, TYPE_GREEN },
+            { VanillaPickupID.sapphire, TYPE_BLUE },
+            { VanillaPickupID.diamond, TYPE_DIAMOND },
+        };
+        public static Dictionary<int, string> typeColorDict = new Dictionary<int, string>()
+        {
+            { TYPE_RED, "#FF0000" },
+            { TYPE_GREEN, "#00FF00" },
+            { TYPE_BLUE, "#0000FF" },
+            { TYPE_DIAMOND, "#00FFFF" },
+        };
+    }
+}
