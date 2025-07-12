@@ -323,6 +323,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f8d0d1426f88a6b4bb83eb101121870e, type: 3}
   - name: mobile_blueprint/skeleton_horse
     sprite: {fileID: 21300000, guid: 6423a491a15f75342ad5caf161cf634d, type: 3}
+  - name: mobile_blueprint/skeleton_mage
+    sprite: {fileID: 21300000, guid: ae918595844e8b446a1aca7d71291b61, type: 3}
+  - name: mobile_blueprint/skeleton_mage_fire
+    sprite: {fileID: 21300000, guid: 58e2346d2fb90df44b58aebece0d82ad, type: 3}
+  - name: mobile_blueprint/skeleton_mage_frost
+    sprite: {fileID: 21300000, guid: 50f49ea46da419e4dafa5ecbbd64b606, type: 3}
+  - name: mobile_blueprint/skeleton_mage_lightning
+    sprite: {fileID: 21300000, guid: c58e2047282dbf342864f9b099d799c4, type: 3}
   - name: mobile_blueprint/skeleton_warrior
     sprite: {fileID: 21300000, guid: de2f50015df9b2341aa191a0813d294f, type: 3}
   - name: mobile_blueprint/slenderman

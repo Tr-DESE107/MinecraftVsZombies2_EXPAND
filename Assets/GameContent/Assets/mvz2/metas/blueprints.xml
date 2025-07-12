@@ -17,6 +17,16 @@
         </option>
     </options>
     <entities>
+        <entity id="skeleton_mage_fire" cost="75" name="骷髅法师（火）" entity="mvz2:skeleton_mage" variant="1">
+            <icon model="mvz2:entity.skeleton_mage_fire" mobile="mvz2:mobile_blueprint/skeleton_mage_fire" />
+        </entity>
+        <entity id="skeleton_mage_frost" cost="75" name="骷髅法师（冰）" entity="mvz2:skeleton_mage" variant="2">
+            <icon model="mvz2:entity.skeleton_mage_frost" mobile="mvz2:mobile_blueprint/skeleton_mage_frost" />
+        </entity>
+        <entity id="skeleton_mage_lightning" cost="75" name="骷髅法师（电）" entity="mvz2:skeleton_mage" variant="3">
+            <icon model="mvz2:entity.skeleton_mage_lightning" mobile="mvz2:mobile_blueprint/skeleton_mage_lightning" />
+        </entity>
+
         <entity id="undead_flying_object_red" cost="75" name="不死飞行物（红）" entity="mvz2:undead_flying_object" variant="0">
             <icon model="mvz2:entity.undead_flying_object_red" mobile="mvz2:mobile_blueprint/undead_flying_object_red" />
         </entity>

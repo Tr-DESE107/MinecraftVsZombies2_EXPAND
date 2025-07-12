@@ -26,14 +26,17 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             SetStateTimer(entity, new FrameTimer(ATTACK_CAST_TIME));
-            entity.SetVariant(mageVariants.Random(entity.RNG));
-            entity.SetAnimationInt("Class", entity.GetVariant());
+            if (entity.GetVariant() == VARIANT_RANDOM)
+            {
+                entity.SetVariant(mageVariants.Random(entity.RNG));
+            }
+            entity.SetAnimationInt("Variant", entity.GetVariant());
         }
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
             entity.SetModelDamagePercent();
-            entity.SetAnimationInt("Class", entity.GetVariant());
+            entity.SetAnimationInt("Variant", entity.GetVariant());
         }
         protected override int GetActionState(Entity enemy)
         {
@@ -174,9 +177,10 @@ namespace MVZ2.GameContent.Enemies
         public const int ATTACK_FIRE_TIME = 5;
         public const int ATTACK_RESTORE_TIME = 20;
 
-        public const int VARIANT_FIRE = 0;
-        public const int VARIANT_FROST = 1;
-        public const int VARIANT_LIGHTNING = 2;
+        public const int VARIANT_RANDOM = 0;
+        public const int VARIANT_FIRE = 1;
+        public const int VARIANT_FROST = 2;
+        public const int VARIANT_LIGHTNING = 3;
         public static readonly VanillaEntityPropertyMeta<int> PROP_ATTACK_STATE = new VanillaEntityPropertyMeta<int>("attackState");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("attackTimer");
         public static int[] mageVariants = new int[]

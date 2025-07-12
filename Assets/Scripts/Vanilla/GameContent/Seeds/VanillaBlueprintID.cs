@@ -9,6 +9,10 @@ namespace MVZ2.GameContent.Seeds
         public const string lengthenBoard = "lengthen_board";
         public const string addPearl = "add_pearl";
 
+        public const string skeletonMageFire = "skeleton_mage_fire";
+        public const string skeletonMageFrost = "skeleton_mage_frost";
+        public const string skeletonMageLightning = "skeleton_mage_lightning";
+
         public const string undeadFlyingObjectRed = "undead_flying_object_red";
         public const string undeadFlyingObjectGreen = "undead_flying_object_green";
         public const string undeadFlyingObjectBlue = "undead_flying_object_blue";
@@ -23,6 +27,10 @@ namespace MVZ2.GameContent.Seeds
         public static readonly NamespaceID returnPearl = Get(VanillaBlueprintNames.returnPearl);
         public static readonly NamespaceID lengthenBoard = Get(VanillaBlueprintNames.lengthenBoard);
         public static readonly NamespaceID addPearl = Get(VanillaBlueprintNames.addPearl);
+
+        public static readonly NamespaceID skeletonMageFire = Get(VanillaBlueprintNames.skeletonMageFire);
+        public static readonly NamespaceID skeletonMageFrost = Get(VanillaBlueprintNames.skeletonMageFrost);
+        public static readonly NamespaceID skeletonMageLightning = Get(VanillaBlueprintNames.skeletonMageLightning);
 
         public static readonly NamespaceID undeadFlyingObjectRed = Get(VanillaBlueprintNames.undeadFlyingObjectRed);
         public static readonly NamespaceID undeadFlyingObjectGreen = Get(VanillaBlueprintNames.undeadFlyingObjectGreen);

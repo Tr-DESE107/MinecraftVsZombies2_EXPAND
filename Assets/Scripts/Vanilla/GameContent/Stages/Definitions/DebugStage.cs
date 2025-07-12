@@ -42,11 +42,11 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.smallDispenser,
-                VanillaContraptionID.infectenser,
-                VanillaContraptionID.gravityPad,
-                VanillaContraptionID.forcePad,
+                VanillaContraptionID.teslaCoil,
                 VanillaEnemyID.skeletonMage,
+                VanillaBlueprintID.skeletonMageFire,
+                VanillaBlueprintID.skeletonMageFrost,
+                VanillaBlueprintID.skeletonMageLightning,
                 VanillaEnemyID.ufo,
                 VanillaBlueprintID.ufoRed,
                 VanillaBlueprintID.ufoGreen,
