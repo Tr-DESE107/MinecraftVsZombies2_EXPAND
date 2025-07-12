@@ -10,6 +10,22 @@ namespace PVZEngine.Level
 {
     public partial class LevelEngine
     {
+        #region 关卡时间
+        public long GetLevelTime()
+        {
+            return levelTime;
+        }
+        private void AddLevelTime()
+        {
+            levelTime++;
+        }
+        public bool IsTimeInterval(long interval, long offset = 0)
+        {
+            return levelTime % interval == offset;
+        }
+        #endregion
+
+        #region 关卡事件
         public void PrepareForBattle()
         {
             StageDefinition.PrepareForBattle(this);
@@ -28,6 +44,9 @@ namespace PVZEngine.Level
             var param = new LevelCallbackParams(this);
             Triggers.RunCallback(LevelCallbacks.POST_HUGE_WAVE_EVENT, param);
         }
+        #endregion
+
+        #region 已生成的怪物
         public void AddSpawnedEnemyID(NamespaceID enemyId)
         {
             if (IsEnemySpawned(enemyId))
@@ -38,31 +57,17 @@ namespace PVZEngine.Level
         {
             return spawnedID.Remove(enemyId);
         }
-        public bool IsEnemySpawned(NamespaceID enemyId)
-        {
-            return spawnedID.Contains(enemyId);
-        }
         public NamespaceID[] GetSpawnedEnemiesID()
         {
             return spawnedID.ToArray();
         }
-        public float GetEnemySpawnX()
+        public bool IsEnemySpawned(NamespaceID enemyId)
         {
-            return GetProperty<float>(EngineAreaProps.ENEMY_SPAWN_X);
+            return spawnedID.Contains(enemyId);
         }
-        public void GameOver(int type, Entity killer, string message)
-        {
-            KillerEnemy = killer;
-            OnGameOver?.Invoke(type, killer, message);
-            var param = new LevelCallbacks.PostGameOverParams()
-            {
-                level = this,
-                type = type,
-                killer = killer,
-                message = message
-            };
-            Triggers.RunCallbackFiltered(LevelCallbacks.POST_GAME_OVER, param, type);
-        }
+        #endregion
+
+        #region 随机行
         public int GetRandomEnemySpawnLane()
         {
             var length = GetMaxLaneCount();
@@ -82,11 +87,57 @@ namespace PVZEngine.Level
             spawnedLanes.Add(row);
             return row;
         }
+        #endregion
+
+        #region 游戏结束
+        public void Clear()
+        {
+            IsCleared = true;
+            OnClear?.Invoke();
+            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_CLEAR, new LevelCallbackParams(this));
+        }
+        public void GameOver(int type, Entity killer, string message)
+        {
+            KillerEnemy = killer;
+            OnGameOver?.Invoke(type, killer, message);
+            var param = new LevelCallbacks.PostGameOverParams()
+            {
+                level = this,
+                type = type,
+                killer = killer,
+                message = message
+            };
+            Triggers.RunCallbackFiltered(LevelCallbacks.POST_GAME_OVER, param, type);
+        }
+        #endregion
+
+        #region 序列化
+        private void WriteProgressToSerializable(SerializableLevel seri)
+        {
+            seri.isCleared = IsCleared;
+            seri.levelTime = levelTime;
+            seri.spawnedLanes = spawnedLanes;
+            seri.spawnedID = spawnedID;
+        }
+        private void ReadProgressFromSerializable(SerializableLevel seri)
+        {
+            levelTime = seri.levelTime;
+            IsCleared = seri.isCleared;
+            spawnedLanes = seri.spawnedLanes;
+            spawnedID = seri.spawnedID;
+        }
+        #endregion
+
         public event Action<int, Entity, string> OnGameOver;
+        public event Action OnClear;
         public int CurrentWave { get; set; }
         public int CurrentFlag { get; set; }
         public int WaveState { get; set; }
         public bool LevelProgressVisible { get; set; }
+        public bool IsCleared { get; private set; }
+        public Entity KillerEnemy { get; private set; }
+        private string deathMessage;
+        private long levelTime = 0;
         private List<int> spawnedLanes = new List<int>();
         private List<NamespaceID> spawnedID = new List<NamespaceID>();
     }

@@ -27,6 +27,10 @@ namespace PVZEngine.Definitions
         {
             return level.GetProperty<NamespaceID[]>(AREA_TAGS);
         }
+        public static float GetEnemySpawnX(this LevelEngine level)
+        {
+            return level.GetProperty<float>(EngineAreaProps.ENEMY_SPAWN_X);
+        }
         public static NamespaceID GetCartReference(this LevelEngine level) => level.GetProperty<NamespaceID>(CART_REFERENCE);
     }
 }

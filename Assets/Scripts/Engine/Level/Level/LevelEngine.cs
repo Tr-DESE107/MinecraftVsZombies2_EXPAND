@@ -117,13 +117,7 @@ namespace PVZEngine.Level
             AreaDefinition.Update(this);
             StageDefinition.Update(this);
             Triggers.RunCallback(LevelCallbacks.POST_LEVEL_UPDATE, new LevelCallbackParams(this));
-            levelTime++;
-        }
-        public void Clear()
-        {
-            IsCleared = true;
-            OnClear?.Invoke();
-            Triggers.RunCallback(LevelCallbacks.POST_LEVEL_CLEAR, new LevelCallbackParams(this));
+            AddLevelTime();
         }
         #endregion
 
@@ -271,8 +265,6 @@ namespace PVZEngine.Level
         {
             var level = new SerializableLevel()
             {
-                levelTime = levelTime,
-                isCleared = IsCleared,
                 stageDefinitionID = StageDefinition.GetID(),
                 areaDefinitionID = AreaDefinition.GetID(),
                 difficulty = Difficulty,
@@ -298,13 +290,12 @@ namespace PVZEngine.Level
                 currentFlag = CurrentFlag,
                 waveState = WaveState,
                 levelProgressVisible = LevelProgressVisible,
-                spawnedLanes = spawnedLanes,
-                spawnedID = spawnedID,
 
                 buffs = buffs.ToSerializable(),
 
                 components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
             };
+            WriteProgressToSerializable(level);
             WriteRandomToSerializable(level);
             WriteGridsToSerializable(level);
             return level;
@@ -312,10 +303,9 @@ namespace PVZEngine.Level
         public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameLocalization translator, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
         {
             var level = new LevelEngine(provider, translator, triggers, collisionSystem);
-            level.levelTime = seri.levelTime;
+            level.ReadProgressFromSerializable(seri);
             level.ReadRandomFromSerializable(seri);
 
-            level.IsCleared = seri.isCleared;
             level.ChangeStage(seri.stageDefinitionID);
             level.ChangeArea(seri.areaDefinitionID);
             level.InitGrids(level.AreaDefinition);
@@ -334,8 +324,6 @@ namespace PVZEngine.Level
             level.CurrentFlag = seri.currentFlag;
             level.WaveState = seri.waveState;
             level.LevelProgressVisible = seri.levelProgressVisible;
-            level.spawnedLanes = seri.spawnedLanes;
-            level.spawnedID = seri.spawnedID;
 
             level.conveyorSlotCount = seri.conveyorSlotCount;
             level.conveyorSeedSpendRecord = ConveyorSeedSpendRecords.ToDeserialized(seri.conveyorSeedSpendRecord);
@@ -417,18 +405,6 @@ namespace PVZEngine.Level
         }
         #endregion
 
-
-        #region 关卡时间
-        public long GetLevelTime()
-        {
-            return levelTime;
-        }
-        public bool IsTimeInterval(long interval, long offset = 0)
-        {
-            return levelTime % interval == offset;
-        }
-        #endregion
-
         #endregion
 
         #region 私有方法
@@ -441,31 +417,22 @@ namespace PVZEngine.Level
         bool IBuffTarget.Exists() => true;
         #endregion
 
-        public event Action OnClear;
-
         #region 属性字段
         public IGameContent Content { get; private set; }
         public IGameLocalization Localization { get; private set; }
-        public bool IsRerun { get; set; }
-        public bool IsCleared { get; private set; }
         public NamespaceID StageID { get; private set; }
         public StageDefinition StageDefinition { get; private set; }
         public NamespaceID AreaID { get; private set; }
         public AreaDefinition AreaDefinition { get; private set; }
-        /// <summary>
-        /// 进屋的僵尸。
-        /// </summary>
-        public Entity KillerEnemy { get; private set; }
         public NamespaceID Difficulty { get; set; }
+        public bool IsRerun { get; set; }
         public int TPS => Option.TPS;
         public LevelOption Option { get; private set; }
 
-        private string deathMessage;
 
         private PropertyBlock properties;
         private BuffList buffs = new BuffList();
 
-        private long levelTime = 0;
         private long currentBuffID = 1;
 
         private List<ILevelComponent> levelComponents = new List<ILevelComponent>();
