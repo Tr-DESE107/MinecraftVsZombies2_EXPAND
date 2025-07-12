@@ -77,22 +77,7 @@ namespace PVZEngine.Level
 
             Energy = this.GetStartEnergy();
 
-            InitAreaProperties();
-
-            // Initalize current stage info.
-            var maxLane = GetMaxLaneCount();
-            int maxColumn = GetMaxColumnCount();
-
-            grids = new LawnGrid[maxColumn * maxLane];
-
-            var gridDefinitions = AreaDefinition.GetGridLayout().Select(i => Content.GetGridDefinition(i)).ToArray();
-            for (int i = 0; i < gridDefinitions.Length; i++)
-            {
-                var definition = gridDefinitions[i];
-                int lane = Mathf.FloorToInt(i / maxColumn);
-                int column = i % maxColumn;
-                grids[i] = new LawnGrid(this, definition, lane, column);
-            }
+            InitGrids(AreaDefinition);
         }
         public void Setup()
         {
@@ -208,133 +193,6 @@ namespace PVZEngine.Level
         }
         #endregion
 
-        #region 坐标相关方法
-        public int GetGridIndex(int column, int lane)
-        {
-            return column + lane * GetMaxColumnCount();
-        }
-        public int GetGridLaneByIndex(int index)
-        {
-            return index / GetMaxColumnCount();
-        }
-        public int GetGridColumnByIndex(int index)
-        {
-            return index % GetMaxColumnCount();
-        }
-        public float GetGridWidth()
-        {
-            return gridWidth;
-        }
-        public float GetGridHeight()
-        {
-            return gridHeight;
-        }
-        public float GetGridRightX()
-        {
-            return GetGridLeftX() + GetMaxColumnCount() * GetGridWidth();
-        }
-        public float GetGridLeftX()
-        {
-            return gridLeftX;
-        }
-        public float GetGridTopZ()
-        {
-            return GetGridBottomZ() + GetMaxLaneCount() * GetGridHeight();
-        }
-        public float GetGridBottomZ()
-        {
-            return gridBottomZ;
-        }
-        public float GetLawnCenterX()
-        {
-            return (GetGridLeftX() + GetGridRightX()) * 0.5f;
-        }
-        public float GetLawnCenterZ()
-        {
-            return (GetGridBottomZ() + GetGridTopZ()) * 0.5f;
-        }
-        public int GetMaxLaneCount()
-        {
-            return maxLaneCount;
-        }
-        public int GetMaxColumnCount()
-        {
-            return maxColumnCount;
-        }
-        public int GetLane(float z)
-        {
-            return Mathf.FloorToInt((GetGridTopZ() - z) / GetGridHeight());
-        }
-        public int GetColumn(float x)
-        {
-            return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridWidth());
-        }
-        public int GetNearestEntityLane(float z)
-        {
-            return GetLane(z - entityLaneZOffset + GetGridHeight() * 0.5f);
-        }
-        public float GetEntityLaneZ(int row)
-        {
-            return GetLaneZ(row) + entityLaneZOffset;
-        }
-        public float GetEntityColumnX(int column)
-        {
-            return GetColumnX(column) + GetGridWidth() * 0.5f;
-        }
-        public float GetColumnX(int column)
-        {
-            return GetGridLeftX() + column * GetGridWidth();
-        }
-        public Vector3 GetEntityGridPosition(int column, int lane)
-        {
-            var x = GetEntityColumnX(column);
-            var z = GetEntityLaneZ(lane);
-            var y = GetGroundY(x, z);
-            return new Vector3(x, y, z);
-        }
-        public Vector3 GetEntityGridPositionByIndex(int index)
-        {
-            var column = GetGridColumnByIndex(index);
-            var lane = GetGridLaneByIndex(index);
-            return GetEntityGridPosition(column, lane);
-        }
-        public float GetLaneZ(int lane)
-        {
-            return GetGridTopZ() - (lane + 1) * GetGridHeight();
-        }
-        public float GetGroundY(Vector3 pos)
-        {
-            return GetGroundY(pos.x, pos.z);
-        }
-        public float GetGroundY(float x, float z)
-        {
-            return AreaDefinition.GetGroundY(this, x, z);
-        }
-        public LawnGrid GetGrid(int index)
-        {
-            if (index < 0 || index >= GetMaxColumnCount() * GetMaxLaneCount())
-                return null;
-            return grids[index];
-        }
-
-        public LawnGrid GetGrid(int column, int lane)
-        {
-            if (column < 0 || column >= GetMaxColumnCount() || lane < 0 || lane >= GetMaxLaneCount())
-                return null;
-            return GetGrid(lane * GetMaxColumnCount() + column);
-        }
-
-        public LawnGrid GetGrid(Vector2Int pos)
-        {
-            return GetGrid(pos.x, pos.y);
-        }
-
-        public LawnGrid[] GetAllGrids()
-        {
-            return grids.ToArray();
-        }
-        #endregion 坐标相关方法
-
         #region 时间
         public int GetSecondTicks(float second)
         {
@@ -423,7 +281,7 @@ namespace PVZEngine.Level
         #region 序列化
         public SerializableLevel Serialize()
         {
-            return new SerializableLevel()
+            var level = new SerializableLevel()
             {
                 seed = Seed,
                 levelTime = levelTime,
@@ -442,7 +300,6 @@ namespace PVZEngine.Level
                 miscRandom = miscRandom.ToSerializable(),
 
                 properties = properties.ToSerializable(),
-                grids = grids.Select(g => g.Serialize()).ToArray(),
                 seedPacks = seedPacks.Select(g => g != null ? g.Serialize() : null).ToArray(),
                 conveyorSeedPacks = conveyorSeedPacks.Select(s => s != null ? s.Serialize() : null).ToArray(),
                 conveyorSlotCount = conveyorSlotCount,
@@ -469,6 +326,8 @@ namespace PVZEngine.Level
 
                 components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
             };
+            WriteGridsToSerializable(level);
+            return level;
         }
         public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameLocalization translator, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
         {
@@ -486,11 +345,11 @@ namespace PVZEngine.Level
             level.IsCleared = seri.isCleared;
             level.ChangeStage(seri.stageDefinitionID);
             level.ChangeArea(seri.areaDefinitionID);
-            level.InitAreaProperties();
+            level.InitGrids(level.AreaDefinition);
+            level.CreateGridsFromSerializable(seri);
 
             level.Difficulty = seri.difficulty;
             level.Option = LevelOption.Deserialize(seri.Option);
-            level.grids = seri.grids.Select(g => LawnGrid.Deserialize(g, level)).ToArray();
             level.properties = PropertyBlock.FromSerializable(seri.properties, level);
 
             level.Energy = seri.energy;
@@ -566,12 +425,7 @@ namespace PVZEngine.Level
             // 在实体加载后面
             level.collisionSystem.LoadFromSerializable(level, seri.collisionSystem);
             // 加载所有网格的属性，需要引用实体。
-            for (int i = 0; i < level.grids.Length; i++)
-            {
-                var grid = level.grids[i];
-                var seriGrid = seri.grids[i];
-                grid.LoadFromSerializable(seriGrid, level);
-            }
+            level.ReadGridsFromSerializable(seri);
 
             level.delayedEnergyEntities = seri.delayedEnergyEntities.ToDictionary(d => level.FindEntityByID(d.entityId), d => d.energy);
             level.UpdateAllBuffedProperties(false);
@@ -624,16 +478,6 @@ namespace PVZEngine.Level
         #endregion
 
         #region 私有方法
-        public void InitAreaProperties()
-        {
-            gridWidth = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_WIDTH);
-            gridHeight = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_HEIGHT);
-            gridLeftX = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_LEFT_X);
-            gridBottomZ = AreaDefinition.GetProperty<float>(EngineAreaProps.GRID_BOTTOM_Z);
-            maxLaneCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_LANE_COUNT);
-            entityLaneZOffset = AreaDefinition.GetProperty<float>(EngineAreaProps.ENTITY_LANE_Z_OFFSET);
-            maxColumnCount = AreaDefinition.GetProperty<int>(EngineAreaProps.MAX_COLUMN_COUNT);
-        }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         Entity IBuffTarget.GetEntity() => null;
         Armor IBuffTarget.GetArmor() => null;
@@ -677,16 +521,8 @@ namespace PVZEngine.Level
         private string deathMessage;
 
         private PropertyBlock properties;
-        private LawnGrid[] grids;
         private BuffList buffs = new BuffList();
 
-        private float gridWidth;
-        private float gridHeight;
-        private float gridLeftX;
-        private float gridBottomZ;
-        private float entityLaneZOffset;
-        private int maxLaneCount;
-        private int maxColumnCount;
         private long levelTime = 0;
 
         private List<ILevelComponent> levelComponents = new List<ILevelComponent>();
