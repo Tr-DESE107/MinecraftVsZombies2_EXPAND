@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-07-12 05:59+0800\n"
-"PO-Revision-Date: 2025-07-12 18:24+0800\n"
+"POT-Creation-Date: 2025-07-12 06:29+0800\n"
+"PO-Revision-Date: 2025-07-12 19:24+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3077,6 +3077,34 @@ msgstr ""
 "\n"
 "The eye angrily constricts its pupil."
 
+#. Header for artifacts mvz2:ufo_toy
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "一个带有魔力的四棱锥玩具。"
+msgstr "A magical pyramid-shaped toy."
+
+#. Properties for artifacts mvz2:ufo_toy
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>拾取三个同色宝石后，再生成一个同色的宝石</color>"
+msgstr "Effect: <color=red>Whenever you collect 3 gems of the same color, spawn another gem of that same color</color>"
+
+#. Flavor for artifacts mvz2:ufo_toy
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"这个玩具形状是个四棱锥。它的底部有四个不同颜色的飞碟凹槽，每个颜色的凹槽里面都有三个飞碟。\n"
+"四个侧面中，每个侧面都有三个凹槽，凹槽周围分别被涂上了不同的颜色：<color=red>红红红</color>、<color=green>绿绿绿</color>、<color=blue>"
+"蓝蓝蓝</color>、<color=red>红</color><color=green>绿</color><color=blue>蓝</color>。\n"
+"你问我这个玩具怎么玩？很简单，只需要把2个<color=red>红色</color>的和1个<color=blue>蓝色</color>的飞碟放在同一面的凹槽上就行了！"
+msgstr ""
+"This toy is shaped like a pyramid. Its base has four slots for UFO chips, each slot designated for a different color, and each holds "
+"three UFO chips.\n"
+"Each of the four sides features three slots, with the surrounding areas painted in distinct color schemes: <color=red>Red-Red-Red</"
+"color>, <color=green>Green-Green-Green</color>, <color=blue>Blue-Blue-Blue</color>, and <color=red>Red</color>-<color=green>Green</"
+"color>-<color=blue>Blue</color>.\n"
+"How to play? Simply place two <color=red>Red</color> chips and one <color=blue>Blue</color> chip into the slots on the same side!"
+
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
 msgctxt "almanac.group_name"
@@ -5912,6 +5940,54 @@ msgstr "Eye of the Giant"
 msgctxt "artifact.tooltip"
 msgid "器械x250%伤害，但x50%攻击速度"
 msgstr "x250% damage but x50% attack speed for contraptions"
+
+#. Name for artifact mvz2:ufo_toy
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "飞碟玩具"
+msgstr "UFO Toy"
+
+#. Tooltip for artifact mvz2:ufo_toy
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "拾取三个同色宝石后，再生成一个同色的宝石"
+msgstr "Whenever you collect 3 gems of the same color, spawn another gem of that same color"
+
+#. Name for artifact mvz2:dowsing_rods
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "探宝棒"
+msgstr "Dowsing Rods"
+
+#. Tooltip for artifact mvz2:dowsing_rods
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "击杀怪物时有概率掉落神秘礼物"
+msgstr "Enemies have a chance to drop mysterious gifts"
+
+#. Name for artifact mvz2:sorceress_scroll
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "魔人经卷"
+msgstr "Sorceress' Scroll"
+
+#. Tooltip for artifact mvz2:sorceress_scroll
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "禁用星之碎片，+100%器械伤害"
+msgstr "Disable starshards, +100% contraption damage"
+
+#. Name for artifact mvz2:dragon_claw
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "龙爪"
+msgstr "Dragon Claw"
+
+#. Tooltip for artifact mvz2:dragon_claw
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "生命值低于50%的敌人受到的伤害+100%"
+msgstr "Enemies with toughness lower than 50% take +100% more damage"
 
 #. Message for blueprint error recharging
 #: Blueprints meta file

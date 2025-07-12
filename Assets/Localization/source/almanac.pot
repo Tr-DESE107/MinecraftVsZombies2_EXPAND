@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-07-12 05:59+0800\n"
+"POT-Creation-Date: 2025-07-12 06:29+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2574,6 +2574,27 @@ msgid ""
 "<color=red>“然后，永无止境地<b>贪婪</b>下去！！！”</color>\n"
 "\n"
 "眼睛愤怒地缩紧了瞳孔。"
+msgstr ""
+
+#. Header for artifacts mvz2:ufo_toy
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "一个带有魔力的四棱锥玩具。"
+msgstr ""
+
+#. Properties for artifacts mvz2:ufo_toy
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>拾取三个同色宝石后，再生成一个同色的宝石</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:ufo_toy
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"这个玩具形状是个四棱锥。它的底部有四个不同颜色的飞碟凹槽，每个颜色的凹槽里面都有三个飞碟。\n"
+"四个侧面中，每个侧面都有三个凹槽，凹槽周围分别被涂上了不同的颜色：<color=red>红红红</color>、<color=green>绿绿绿</color>、<color=blue>蓝蓝蓝</color>、<color=red>红</color><color=green>绿</color><color=blue>蓝</color>。\n"
+"你问我这个玩具怎么玩？很简单，只需要把2个<color=red>红色</color>的和1个<color=blue>蓝色</color>的飞碟放在同一面的凹槽上就行了！"
 msgstr ""
 
 #. Name for almanac group mvz2:bosses
@@ -5170,6 +5191,54 @@ msgstr ""
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "器械x250%伤害，但x50%攻击速度"
+msgstr ""
+
+#. Name for artifact mvz2:ufo_toy
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "飞碟玩具"
+msgstr ""
+
+#. Tooltip for artifact mvz2:ufo_toy
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "拾取三个同色宝石后，再生成一个同色的宝石"
+msgstr ""
+
+#. Name for artifact mvz2:dowsing_rods
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "探宝棒"
+msgstr ""
+
+#. Tooltip for artifact mvz2:dowsing_rods
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "击杀怪物时有概率掉落神秘礼物"
+msgstr ""
+
+#. Name for artifact mvz2:sorceress_scroll
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "魔人经卷"
+msgstr ""
+
+#. Tooltip for artifact mvz2:sorceress_scroll
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "禁用星之碎片，+100%器械伤害"
+msgstr ""
+
+#. Name for artifact mvz2:dragon_claw
+#: Artifact meta file
+msgctxt "artifact.name"
+msgid "龙爪"
+msgstr ""
+
+#. Tooltip for artifact mvz2:dragon_claw
+#: Artifact meta file
+msgctxt "artifact.tooltip"
+msgid "生命值低于50%的敌人受到的伤害+100%"
 msgstr ""
 
 #. Message for blueprint error recharging
