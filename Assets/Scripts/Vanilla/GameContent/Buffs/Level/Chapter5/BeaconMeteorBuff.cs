@@ -108,6 +108,6 @@ namespace MVZ2.GameContent.Buffs.Level
         public static readonly VanillaBuffPropertyMeta<int> PROP_COUNT = new VanillaBuffPropertyMeta<int>("count");
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("timer");
         public static readonly VanillaBuffPropertyMeta<RandomGenerator> PROP_RNG = new VanillaBuffPropertyMeta<RandomGenerator>("rng");
-        public static readonly VanillaBuffPropertyMeta<int> PROP_STATE = new VanillaBuffPropertyMeta<int>("timer");
+        public static readonly VanillaBuffPropertyMeta<int> PROP_STATE = new VanillaBuffPropertyMeta<int>("state");
     }
 }
