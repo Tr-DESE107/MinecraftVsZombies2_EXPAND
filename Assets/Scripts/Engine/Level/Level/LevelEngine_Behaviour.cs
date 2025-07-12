@@ -78,7 +78,7 @@ namespace PVZEngine.Level
                 spawnedLanes.Clear();
                 possibleLanes = lanes;
             }
-            int row = possibleLanes.Random(spawnRandom);
+            int row = possibleLanes.Random(GetSpawnRNG());
             spawnedLanes.Add(row);
             return row;
         }

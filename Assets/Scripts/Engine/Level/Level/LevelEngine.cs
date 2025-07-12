@@ -6,12 +6,10 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
-using PVZEngine.Grids;
 using PVZEngine.Level.Collisions;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using PVZEngine.SeedPacks;
-using Tools;
 using UnityEngine;
 
 namespace PVZEngine.Level
@@ -59,18 +57,8 @@ namespace PVZEngine.Level
         #region 生命周期
         public void Init(NamespaceID areaId, NamespaceID stageId, LevelOption option, int seed = 0)
         {
-            Seed = seed == 0 ? Guid.NewGuid().GetHashCode() : seed;
-
             Option = option;
-
-            levelRandom = new RandomGenerator(Seed);
-            entityRandom = CreateRNG();
-            effectRandom = CreateRNG();
-            roundRandom = CreateRNG();
-            spawnRandom = CreateRNG();
-            conveyorRandom = CreateRNG();
-
-            miscRandom = CreateRNG();
+            InitRandom(seed);
 
             ChangeArea(areaId);
             ChangeStage(stageId);
@@ -283,21 +271,12 @@ namespace PVZEngine.Level
         {
             var level = new SerializableLevel()
             {
-                seed = Seed,
                 levelTime = levelTime,
                 isCleared = IsCleared,
                 stageDefinitionID = StageDefinition.GetID(),
                 areaDefinitionID = AreaDefinition.GetID(),
                 difficulty = Difficulty,
                 Option = Option.Serialize(),
-
-                levelRandom = levelRandom.ToSerializable(),
-                entityRandom = entityRandom.ToSerializable(),
-                effectRandom = effectRandom.ToSerializable(),
-                roundRandom = roundRandom.ToSerializable(),
-                spawnRandom = spawnRandom.ToSerializable(),
-                conveyorRandom = conveyorRandom.ToSerializable(),
-                miscRandom = miscRandom.ToSerializable(),
 
                 properties = properties.ToSerializable(),
                 seedPacks = seedPacks.Select(g => g != null ? g.Serialize() : null).ToArray(),
@@ -326,21 +305,15 @@ namespace PVZEngine.Level
 
                 components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
             };
+            WriteRandomToSerializable(level);
             WriteGridsToSerializable(level);
             return level;
         }
         public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameLocalization translator, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
         {
             var level = new LevelEngine(provider, translator, triggers, collisionSystem);
-            level.Seed = seri.seed;
             level.levelTime = seri.levelTime;
-            level.levelRandom = RandomGenerator.FromSerializable(seri.levelRandom);
-            level.entityRandom = RandomGenerator.FromSerializable(seri.entityRandom);
-            level.effectRandom = RandomGenerator.FromSerializable(seri.effectRandom);
-            level.roundRandom = RandomGenerator.FromSerializable(seri.roundRandom);
-            level.spawnRandom = RandomGenerator.FromSerializable(seri.spawnRandom);
-            level.conveyorRandom = RandomGenerator.FromSerializable(seri.conveyorRandom);
-            level.miscRandom = RandomGenerator.FromSerializable(seri.miscRandom);
+            level.ReadRandomFromSerializable(seri);
 
             level.IsCleared = seri.isCleared;
             level.ChangeStage(seri.stageDefinitionID);
@@ -444,25 +417,6 @@ namespace PVZEngine.Level
         }
         #endregion
 
-        #region 随机数生成器
-        public RandomGenerator CreateRNG()
-        {
-            return new RandomGenerator(levelRandom.Next());
-        }
-
-        public RandomGenerator GetSpawnRNG()
-        {
-            return spawnRandom;
-        }
-        public RandomGenerator GetRoundRNG()
-        {
-            return roundRandom;
-        }
-        public RandomGenerator GetConveyorRNG()
-        {
-            return conveyorRandom;
-        }
-        #endregion
 
         #region 关卡时间
         public long GetLevelTime()
@@ -492,7 +446,6 @@ namespace PVZEngine.Level
         #region 属性字段
         public IGameContent Content { get; private set; }
         public IGameLocalization Localization { get; private set; }
-        public int Seed { get; private set; }
         public bool IsRerun { get; set; }
         public bool IsCleared { get; private set; }
         public NamespaceID StageID { get; private set; }
@@ -506,24 +459,14 @@ namespace PVZEngine.Level
         public NamespaceID Difficulty { get; set; }
         public int TPS => Option.TPS;
         public LevelOption Option { get; private set; }
-        private RandomGenerator levelRandom;
 
-        private RandomGenerator entityRandom;
-        private RandomGenerator effectRandom;
-
-        private RandomGenerator roundRandom;
-        private RandomGenerator spawnRandom;
-        private RandomGenerator conveyorRandom;
-
-        private RandomGenerator miscRandom;
-
-        private long currentBuffID = 1;
         private string deathMessage;
 
         private PropertyBlock properties;
         private BuffList buffs = new BuffList();
 
         private long levelTime = 0;
+        private long currentBuffID = 1;
 
         private List<ILevelComponent> levelComponents = new List<ILevelComponent>();
         #endregion 保存属性

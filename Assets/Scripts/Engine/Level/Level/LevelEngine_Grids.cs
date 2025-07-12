@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace PVZEngine.Level
 {
-    public partial class LevelEngine : IBuffTarget, IDisposable, IPropertyModifyTarget
+    public partial class LevelEngine
     {
         #region ≥ı ºªØ
         private void InitGrids(AreaDefinition area)

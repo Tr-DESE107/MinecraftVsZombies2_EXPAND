@@ -23,7 +23,7 @@ namespace PVZEngine.Level
         }
         public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner, SpawnParams param = null)
         {
-            return Spawn(entityDef, pos, spawner, entityRandom.Next(), param);
+            return Spawn(entityDef, pos, spawner, NewEntitySeed(), param);
         }
         public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner, SpawnParams param = null)
         {

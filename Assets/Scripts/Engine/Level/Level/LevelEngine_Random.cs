@@ -1,0 +1,77 @@
+using System;
+using Tools;
+
+namespace PVZEngine.Level
+{
+    public partial class LevelEngine
+    {
+        #region Ëæ»úÊý
+        public RandomGenerator CreateRNG()
+        {
+            return new RandomGenerator(levelRandom.Next());
+        }
+        public RandomGenerator GetSpawnRNG()
+        {
+            return spawnRandom;
+        }
+        public RandomGenerator GetRoundRNG()
+        {
+            return roundRandom;
+        }
+        public RandomGenerator GetConveyorRNG()
+        {
+            return conveyorRandom;
+        }
+        public int NewEntitySeed()
+        {
+            return entityRandom.Next();
+        }
+        #endregion
+        public void InitRandom(int seed)
+        {
+            Seed = seed == 0 ? Guid.NewGuid().GetHashCode() : seed;
+            levelRandom = new RandomGenerator(Seed);
+            entityRandom = CreateRNG();
+            effectRandom = CreateRNG();
+            roundRandom = CreateRNG();
+            spawnRandom = CreateRNG();
+            conveyorRandom = CreateRNG();
+
+            miscRandom = CreateRNG();
+
+        }
+        public void WriteRandomToSerializable(SerializableLevel level)
+        {
+            level.seed = Seed;
+            level.levelRandom = levelRandom.ToSerializable();
+            level.entityRandom = entityRandom.ToSerializable();
+            level.effectRandom = effectRandom.ToSerializable();
+            level.roundRandom = roundRandom.ToSerializable();
+            level.spawnRandom = spawnRandom.ToSerializable();
+            level.conveyorRandom = conveyorRandom.ToSerializable();
+            level.miscRandom = miscRandom.ToSerializable();
+        }
+        public void ReadRandomFromSerializable(SerializableLevel seri)
+        {
+            Seed = seri.seed;
+            levelRandom = RandomGenerator.FromSerializable(seri.levelRandom);
+            entityRandom = RandomGenerator.FromSerializable(seri.entityRandom);
+            effectRandom = RandomGenerator.FromSerializable(seri.effectRandom);
+            roundRandom = RandomGenerator.FromSerializable(seri.roundRandom);
+            spawnRandom = RandomGenerator.FromSerializable(seri.spawnRandom);
+            conveyorRandom = RandomGenerator.FromSerializable(seri.conveyorRandom);
+            miscRandom = RandomGenerator.FromSerializable(seri.miscRandom);
+        }
+        public int Seed { get; private set; }
+        private RandomGenerator levelRandom;
+
+        private RandomGenerator entityRandom;
+        private RandomGenerator effectRandom;
+
+        private RandomGenerator roundRandom;
+        private RandomGenerator spawnRandom;
+        private RandomGenerator conveyorRandom;
+
+        private RandomGenerator miscRandom;
+    }
+}
