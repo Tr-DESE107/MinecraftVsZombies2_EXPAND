@@ -97,12 +97,6 @@ namespace MVZ2.GameContent.Pickups
             }
             GemEffect.SpawnGemEffects(level, money, pickup.Position, pickup, false);
 
-            foreach (var p in level.GetEntities(EntityTypes.PICKUP))
-            {
-                if (p == pickup || p.IsCollected() || p.NoCollect() || p.NoAutoCollect())
-                    continue;
-                p.Collect();
-            }
             level.Clear();
             level.ResetHeldItem();
             level.StopMusic();

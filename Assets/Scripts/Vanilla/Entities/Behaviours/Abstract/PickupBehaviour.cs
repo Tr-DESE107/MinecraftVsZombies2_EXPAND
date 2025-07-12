@@ -21,7 +21,11 @@ namespace MVZ2.Vanilla.Entities
             {
                 var level = pickup.Level;
                 var willAutoCollect = false;
-                if (level.IsAutoCollectAll())
+                if (level.IsCleared)
+                {
+                    willAutoCollect = true;
+                }
+                else if (level.IsAutoCollectAll())
                 {
                     willAutoCollect = true;
                 }
