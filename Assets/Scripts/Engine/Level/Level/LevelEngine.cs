@@ -277,11 +277,8 @@ namespace PVZEngine.Level
                 conveyorSeedSpendRecord = conveyorSeedSpendRecord.ToSerializable(),
                 collisionSystem = collisionSystem.ToSerializable(),
 
-                currentEntityID = currentEntityID,
                 currentBuffID = currentBuffID,
                 currentSeedPackID = currentSeedPackID,
-                entities = entities.Values.Select(e => e.Serialize()).ToList(),
-                entityTrash = entityTrash.Values.Select(e => e.Serialize()).ToList(),
 
                 energy = Energy,
                 delayedEnergyEntities = delayedEnergyEntities.Select(d => new SerializableDelayedEnergy() { entityId = d.Key.ID, energy = d.Value }).ToArray(),
@@ -295,6 +292,7 @@ namespace PVZEngine.Level
 
                 components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
             };
+            WriteEntitiesToSerializable(level);
             WriteProgressToSerializable(level);
             WriteRandomToSerializable(level);
             WriteGridsToSerializable(level);
@@ -316,7 +314,6 @@ namespace PVZEngine.Level
             level.properties = PropertyBlock.FromSerializable(seri.properties, level);
 
             level.Energy = seri.energy;
-            level.currentEntityID = seri.currentEntityID;
             level.currentBuffID = seri.currentBuffID;
             level.currentSeedPackID = seri.currentSeedPackID;
 
@@ -332,16 +329,7 @@ namespace PVZEngine.Level
             level.seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.Deserialize(g, level) : null).ToArray();
             level.conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => s != null ? ConveyorSeedPack.Deserialize(s, level) : null).ToList();
             // 加载所有实体。
-            foreach (var ent in seri.entities)
-            {
-                var entity = Entity.CreateDeserializingEntity(ent, level);
-                level.entities.Add(ent.id, entity);
-            }
-            foreach (var ent in seri.entityTrash)
-            {
-                var entity = Entity.CreateDeserializingEntity(ent, level);
-                level.entityTrash.Add(ent.id, entity);
-            }
+            level.CreateEntitiesFromSerializable(seri);
             // 加载所有BUFF。
             level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
             level.buffs.OnPropertyChanged += level.UpdateBuffedProperty;
@@ -369,18 +357,7 @@ namespace PVZEngine.Level
                     continue;
                 seed.ApplyDeserializedProperties(level, seriSeed);
             }
-            for (int i = 0; i < level.entities.Count; i++)
-            {
-                var seriEnt = seri.entities[i];
-                var id = seriEnt.id;
-                level.entities[id].ApplyDeserialize(seriEnt);
-            }
-            for (int i = 0; i < level.entityTrash.Count; i++)
-            {
-                var seriEnt = seri.entityTrash[i];
-                var id = seriEnt.id;
-                level.entityTrash[id].ApplyDeserialize(seriEnt);
-            }
+            level.ReadEntitiesFromSerializable(seri);
             level.buffs.LoadAuras(seri.buffs, level);
 
             // 在实体加载后面

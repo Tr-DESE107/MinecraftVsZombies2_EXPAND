@@ -3,41 +3,84 @@ using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Base;
 using PVZEngine.Entities;
-using PVZEngine.Level.Collisions;
 using UnityEngine;
 
 namespace PVZEngine.Level
 {
     public partial class LevelEngine
     {
-        private void AddEntity(Entity entity)
+
+        private Entity FindEntityInTrash(long id)
         {
+            if (entityTrash.TryGetValue(id, out var entity))
+                return entity;
+            return null;
         }
-        internal void RemoveEntity(Entity entity)
+        private void ClearEntityTrash()
         {
-            var id = entity.ID;
-            entities.Remove(id);
-            entityTrash.Add(id, entity);
-            collisionSystem.DestroyEntity(entity);
-            OnEntityRemove?.Invoke(entity);
+            entityTrash.Clear();
         }
-        public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner, SpawnParams param = null)
+        private void UpdateEntities()
         {
-            return Spawn(entityDef, pos, spawner, NewEntitySeed(), param);
+            entityUpdateBuffer.Clear();
+            entityUpdateBuffer.CopyFrom(entities.OrderBy(e => e.Key).Select(e => e.Value));
+            for (int i = 0; i < entityUpdateBuffer.Count; i++)
+            {
+                var entity = entityUpdateBuffer[i];
+                entity.Update();
+            }
         }
-        public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner, SpawnParams param = null)
+
+        private void WriteEntitiesToSerializable(SerializableLevel seri)
         {
-            var entityDef = Content.GetEntityDefinition(entityRef);
-            if (entityDef == null)
-                return null;
-            return Spawn(entityDef, pos, spawner, param);
+            seri.currentEntityID = currentEntityID;
+            seri.entities = entities.Values.Select(e => e.Serialize()).ToList();
+            seri.entityTrash = entityTrash.Values.Select(e => e.Serialize()).ToList();
+        }
+        private void CreateEntitiesFromSerializable(SerializableLevel seri)
+        {
+            currentEntityID = seri.currentEntityID;
+            foreach (var ent in seri.entities)
+            {
+                var entity = Entity.CreateDeserializingEntity(ent, this);
+                entities.Add(ent.id, entity);
+            }
+            foreach (var ent in seri.entityTrash)
+            {
+                var entity = Entity.CreateDeserializingEntity(ent, this);
+                entityTrash.Add(ent.id, entity);
+            }
+        }
+        private void ReadEntitiesFromSerializable(SerializableLevel seri)
+        {
+            for (int i = 0; i < entities.Count; i++)
+            {
+                var seriEnt = seri.entities[i];
+                var id = seriEnt.id;
+                entities[id].ApplyDeserialize(seriEnt);
+            }
+            for (int i = 0; i < entityTrash.Count; i++)
+            {
+                var seriEnt = seri.entityTrash[i];
+                var id = seriEnt.id;
+                entityTrash[id].ApplyDeserialize(seriEnt);
+            }
+        }
+        #region 生成
+        private long AllocEntityID()
+        {
+            long id = currentEntityID;
+            currentEntityID++;
+            return id;
         }
         public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner, int seed, SpawnParams param = null)
         {
+            if (entityDef == null)
+                return null;
             long id = AllocEntityID();
             var spawned = new Entity(this, id, new EntityReferenceChain(spawner), entityDef, seed);
             spawned.Position = pos;
-            collisionSystem.InitEntity(spawned);
+            InitEntityCollision(spawned);
             if (param != null)
             {
                 param.Apply(spawned);
@@ -47,15 +90,38 @@ namespace PVZEngine.Level
             spawned.Init(spawner);
             return spawned;
         }
+        public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity spawner, SpawnParams param = null) => Spawn(entityDef, pos, spawner, NewEntitySeed(), param);
         public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner, int seed, SpawnParams param = null)
         {
             var entityDef = Content.GetEntityDefinition(entityRef);
-            if (entityDef == null)
-                return null;
             return Spawn(entityDef, pos, spawner, seed, param);
         }
+        public Entity Spawn(NamespaceID entityRef, Vector3 pos, Entity spawner, SpawnParams param = null)
+        {
+            var entityDef = Content.GetEntityDefinition(entityRef);
+            return Spawn(entityDef, pos, spawner, param);
+        }
+        #endregion
 
-        #region 查询
+        #region 移除
+        internal void RemoveEntity(Entity entity)
+        {
+            var id = entity.ID;
+            entities.Remove(id);
+            entityTrash.Add(id, entity);
+            RemoveEntityCollision(entity);
+            OnEntityRemove?.Invoke(entity);
+        }
+        #endregion
+
+        #region 查询实体列表
+        public IEnumerable<Entity> EnumerateEntities()
+        {
+            foreach (var pair in entities)
+            {
+                yield return pair.Value;
+            }
+        }
         public Entity[] GetEntities(params int[] filterTypes)
         {
             if (filterTypes == null || filterTypes.Length <= 0)
@@ -66,6 +132,10 @@ namespace PVZEngine.Level
             {
                 return filterTypes.Contains(e.Type);
             }
+        }
+        public Entity[] FindEntities(Func<Entity, bool> predicate)
+        {
+            return entities.Values.Where(predicate).ToArray();
         }
         public Entity[] FindEntities(EntityDefinition def)
         {
@@ -89,16 +159,30 @@ namespace PVZEngine.Level
                 return e.IsEntityOf(id);
             }
         }
-        public Entity[] FindEntities(Func<Entity, bool> predicate)
-        {
-            return entities.Values.Where(predicate).ToArray();
-        }
-        public IEnumerable<Entity> EnumerateEntities()
+        public void FindEntitiesNonAlloc(Func<Entity, bool> predicate, List<Entity> results)
         {
             foreach (var pair in entities)
             {
-                yield return pair.Value;
+                if (predicate(pair.Value))
+                {
+                    results.Add(pair.Value);
+                }
             }
+        }
+        #endregion
+
+        #region 查询实体数量
+        public int GetEntityCount(Func<Entity, bool> predicate)
+        {
+            int count = 0;
+            foreach (var pair in entities)
+            {
+                if (predicate(pair.Value))
+                {
+                    count++;
+                }
+            }
+            return count;
         }
         public int GetEntityCount(EntityDefinition def)
         {
@@ -122,28 +206,9 @@ namespace PVZEngine.Level
                 return e.IsEntityOf(id);
             }
         }
-        public int GetEntityCount(Func<Entity, bool> predicate)
-        {
-            int count = 0;
-            foreach (var pair in entities)
-            {
-                if (predicate(pair.Value))
-                {
-                    count++;
-                }
-            }
-            return count;
-        }
-        public void FindEntitiesNonAlloc(Func<Entity, bool> predicate, List<Entity> results)
-        {
-            foreach (var pair in entities)
-            {
-                if (predicate(pair.Value))
-                {
-                    results.Add(pair.Value);
-                }
-            }
-        }
+        #endregion
+
+        #region 查询单个实体
         public Entity FindEntityByID(long id)
         {
             if (entities.TryGetValue(id, out var entity))
@@ -218,6 +283,19 @@ namespace PVZEngine.Level
             }
             return targetEntity;
         }
+        #endregion
+
+        #region 查询实体存在
+        public bool EntityExists(Predicate<Entity> predicate)
+        {
+            foreach (var pair in entities)
+            {
+                var entity = pair.Value;
+                if (predicate(entity))
+                    return true;
+            }
+            return false;
+        }
         public bool EntityExists(long id)
         {
             return EntityExists(predicate);
@@ -245,115 +323,16 @@ namespace PVZEngine.Level
                 return e.IsEntityOf(id);
             }
         }
-        public bool EntityExists(Predicate<Entity> predicate)
-        {
-            foreach (var pair in entities)
-            {
-                var entity = pair.Value;
-                if (predicate(entity))
-                    return true;
-            }
-            return false;
-        }
-        #endregion
-
-        #region 碰撞检测
-        public void UpdateEntityCollisionDetection(Entity entity)
-        {
-            collisionSystem.UpdateEntityDetection(entity);
-        }
-        public void UpdateEntityCollisionPosition(Entity entity)
-        {
-            collisionSystem.UpdateEntityPosition(entity);
-        }
-        public void UpdateEntityCollisionSize(Entity entity)
-        {
-            collisionSystem.UpdateEntitySize(entity);
-        }
-        public IEntityCollider[] OverlapBox(Vector3 center, Vector3 size, int faction, int hostileMask, int friendlyMask)
-        {
-            return collisionSystem.OverlapBox(center, size, faction, hostileMask, friendlyMask);
-        }
-        public void OverlapBoxNonAlloc(Vector3 center, Vector3 size, int faction, int hostileMask, int friendlyMask, List<IEntityCollider> results)
-        {
-            collisionSystem.OverlapBoxNonAlloc(center, size, faction, hostileMask, friendlyMask, results);
-        }
-        public IEntityCollider[] OverlapSphere(Vector3 center, float radius, int faction, int hostileMask, int friendlyMask)
-        {
-            return collisionSystem.OverlapSphere(center, radius, faction, hostileMask, friendlyMask);
-        }
-        public void OverlapSphereNonAlloc(Vector3 center, float radius, int faction, int hostileMask, int friendlyMask, List<IEntityCollider> results)
-        {
-            collisionSystem.OverlapSphereNonAlloc(center, radius, faction, hostileMask, friendlyMask, results);
-        }
-        public IEntityCollider[] OverlapCapsule(Vector3 point0, Vector3 point1, float radius, int faction, int hostileMask, int friendlyMask)
-        {
-            return collisionSystem.OverlapCapsule(point0, point1, radius, faction, hostileMask, friendlyMask);
-        }
-        public void OverlapCapsuleNonAlloc(Vector3 point0, Vector3 point1, float radius, int faction, int hostileMask, int friendlyMask, List<IEntityCollider> results)
-        {
-            collisionSystem.OverlapCapsuleNonAlloc(point0, point1, radius, faction, hostileMask, friendlyMask, results);
-        }
-        public IEntityCollider AddEntityCollider(Entity entity, ColliderConstructor info)
-        {
-            return collisionSystem.CreateCustomCollider(entity, info);
-        }
-        public bool RemoveEntityCollider(Entity entity, string name)
-        {
-            return collisionSystem.RemoveCollider(entity, name);
-        }
-        public IEntityCollider GetEntityCollider(Entity entity, string name)
-        {
-            return collisionSystem.GetCollider(entity, name);
-        }
-        public void GetEntityCurrentCollisions(Entity entity, List<EntityCollision> collisions)
-        {
-            collisionSystem.GetCurrentCollisions(entity, collisions);
-        }
-        #endregion
-
-        private long AllocEntityID()
-        {
-            long id = currentEntityID;
-            currentEntityID++;
-            return id;
-        }
-        private Entity FindEntityInTrash(long id)
-        {
-            if (entityTrash.TryGetValue(id, out var entity))
-                return entity;
-            return null;
-        }
-        private void ClearEntityTrash()
-        {
-            entityTrash.Clear();
-        }
-
-        private void UpdateEntities()
-        {
-            entityUpdateBuffer.Clear();
-            entityUpdateBuffer.CopyFrom(entities.OrderBy(e => e.Key).Select(e => e.Value));
-            for (int i = 0; i < entityUpdateBuffer.Count; i++)
-            {
-                var entity = entityUpdateBuffer[i];
-                entity.Update();
-            }
-        }
-        #region 碰撞
-        private void CollisionUpdate()
-        {
-            collisionSystem.Update();
-        }
         #endregion
 
         #region 事件
-        public Action<Entity> OnEntitySpawn;
-        public Action<Entity> OnEntityRemove;
+        public event Action<Entity> OnEntitySpawn;
+        public event Action<Entity> OnEntityRemove;
         #endregion
+
         private long currentEntityID = 1;
         private SortedDictionary<long, Entity> entities = new SortedDictionary<long, Entity>();
         private Dictionary<long, Entity> entityTrash = new Dictionary<long, Entity>();
         private ArrayBuffer<Entity> entityUpdateBuffer = new ArrayBuffer<Entity>(2048);
-        private ICollisionSystem collisionSystem;
     }
 }
