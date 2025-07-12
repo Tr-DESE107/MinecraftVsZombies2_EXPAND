@@ -31,11 +31,11 @@ namespace MVZ2.GameContent.Contraptions
             base.OnEvoke(entity);
             var pos = entity.Position;
             pos.y = entity.GetGroundY() - 100;
-            var mageClass = SkeletonMage.mageClasses.Random(entity.RNG);
+            var mageClass = SkeletonMage.mageVariants.Random(entity.RNG);
             for (int i = 0; i < MAGE_COUNT; i++)
             {
                 var mage = entity.SpawnWithParams(VanillaEnemyID.skeletonMage, pos);
-                SkeletonMage.SetClass(mage, mageClass);
+                mage.SetVariant(mageClass);
                 mage.AddBuff<NecrotombstoneRisingBuff>();
                 mage.UpdateModel();
 

@@ -88,10 +88,34 @@
     <model name="shikaisen_zombie" type="entity" path="mvz2:enemy/mausoleum/shikaisen_zombie" width="64" height="96" xOffset="10" yOffset="-44"/>
     <model name="emperor_zombie" type="entity" path="mvz2:enemy/mausoleum/emperor_zombie" width="70" height="104" xOffset="1" yOffset="-47"/>
     
-    <model name="undead_flying_object_red" type="entity" path="mvz2:enemy/ship/undead_flying_object_red" width="80" height="56" xOffset="0" yOffset="-24"/>
-    <model name="undead_flying_object_green" type="entity" path="mvz2:enemy/ship/undead_flying_object_green" width="80" height="56" xOffset="0" yOffset="-24"/>
-    <model name="undead_flying_object_blue" type="entity" path="mvz2:enemy/ship/undead_flying_object_blue" width="80" height="56" xOffset="0" yOffset="-24"/>
-    <model name="undead_flying_object_rainbow" type="entity" path="mvz2:enemy/ship/undead_flying_object_rainbow" width="80" height="56" xOffset="0" yOffset="-24"/>
+    <model name="undead_flying_object_red" type="entity" path="mvz2:enemy/ship/undead_flying_object" width="80" height="56" xOffset="0" yOffset="-24">
+        <animator>
+            <parameters>
+                <int name="Color" value="0" />
+            </parameters>
+        </animator>    
+    </model>
+    <model name="undead_flying_object_green" type="entity" path="mvz2:enemy/ship/undead_flying_object" width="80" height="56" xOffset="0" yOffset="-24">
+        <animator>
+            <parameters>
+                <int name="Color" value="1" />
+            </parameters>
+        </animator>    
+    </model>
+    <model name="undead_flying_object_blue" type="entity" path="mvz2:enemy/ship/undead_flying_object" width="80" height="56" xOffset="0" yOffset="-24">
+        <animator>
+            <parameters>
+                <int name="Color" value="2" />
+            </parameters>
+        </animator>    
+    </model>
+    <model name="undead_flying_object_rainbow" type="entity" path="mvz2:enemy/ship/undead_flying_object" width="80" height="56" xOffset="0" yOffset="-24">
+        <animator>
+            <parameters>
+                <int name="Color" value="3" />
+            </parameters>
+        </animator>    
+    </model>
     <model name="cannoneer_zombie" type="entity" path="mvz2:enemy/ship/cannoneer_zombie" width="85" height="92" xOffset="22" yOffset="-41"/>
     <model name="cannonball_zombie" type="entity" path="mvz2:enemy/ship/cannonball_zombie" width="36" height="32" xOffset="0" yOffset="-16"/>
 

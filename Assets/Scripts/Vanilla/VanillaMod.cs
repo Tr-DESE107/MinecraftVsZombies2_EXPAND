@@ -218,7 +218,7 @@ namespace MVZ2.Vanilla
             }
             {
                 var spawnDef = new VanillaSpawnDefinition(Namespace, VanillaSpawnNames.undeadFlyingObject);
-                var preview = new SpawnPreviewBehaviour(VanillaEnemyID.ufoRainbow);
+                var preview = new SpawnPreviewBehaviour(VanillaEnemyID.ufo);
                 var inLevel = new UFOSpawnInLevelBehaviour(2);
                 var endless = new SpawnEndlessBehaviour(false, Array.Empty<NamespaceID>());
                 spawnDef.SetBehaviours(preview, inLevel, endless);

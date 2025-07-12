@@ -97,6 +97,18 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
+        #region 变种
+        public static readonly PropertyMeta<int> VARIANT = Get<int>("variant");
+        public static int GetVariant(this Entity entity)
+        {
+            return entity.GetProperty<int>(VARIANT);
+        }
+        public static void SetVariant(this Entity entity, int value)
+        {
+            entity.SetProperty(VARIANT, value);
+        }
+        #endregion
+
         #region 沉没
         public static readonly PropertyMeta<int> WATER_INTERACTION = Get<int>("waterInteraction");
         public static int GetWaterInteraction(this EntityDefinition entityDef)

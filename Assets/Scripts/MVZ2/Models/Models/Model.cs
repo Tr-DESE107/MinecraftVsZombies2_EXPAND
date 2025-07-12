@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Managers;
-using MVZ2.Metas;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Models;
@@ -319,20 +318,30 @@ namespace MVZ2.Models
         #endregion
 
         #region 创建
+        public static Model Create(ModelViewData viewData, Transform parent)
+        {
+            return Create(viewData.id, parent, viewData.camera, viewData.seed);
+        }
         public static Model Create(NamespaceID modelID, Transform parent, Camera camera, int seed = 0)
         {
-            var prefab = GetPrefab(modelID);
-            var model = Create(prefab, parent, camera, seed);
-            if (model)
-                model.id = modelID;
-            return model;
-        }
-        public static Model Create(Model prefab, Transform parent, Camera camera, int seed = 0)
-        {
+            var main = MainManager.Instance;
+            var res = main.ResourceManager;
+            var modelMeta = res.GetModelMeta(modelID);
+            if (modelMeta == null)
+                return null;
+            var prefab = res.GetModel(modelMeta.Path);
             if (prefab == null)
                 return null;
             var model = Instantiate(prefab, parent).GetComponent<Model>();
-            model.Init(camera, seed);
+            if (model)
+            {
+                model.id = modelID;
+                foreach (var parameter in modelMeta.AnimatorParameters)
+                {
+                    parameter.Apply(model);
+                }
+                model.Init(camera, seed);
+            }
             return model;
         }
         #endregion
@@ -357,21 +366,6 @@ namespace MVZ2.Models
             return anchor.transform;
         }
         #endregion
-        public static ModelMeta GetModelMeta(NamespaceID modelID)
-        {
-            var main = MainManager.Instance;
-            var res = main.ResourceManager;
-            return res.GetModelMeta(modelID);
-        }
-        public static Model GetPrefab(NamespaceID modelID)
-        {
-            var main = MainManager.Instance;
-            var res = main.ResourceManager;
-            var modelMeta = GetModelMeta(modelID);
-            if (modelMeta == null)
-                return null;
-            return res.GetModel(modelMeta.Path);
-        }
         public RandomGenerator GetRNG()
         {
             return rng;

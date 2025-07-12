@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 {
                     entity.Remove();
                     buff.Remove();
-                    UndeadFlyingObjectBlue.AddAbsorbedEntityID(ufo, entity.GetDefinitionID());
+                    UFOBehaviourBlue.AddAbsorbedEntityID(ufo, entity.GetDefinitionID());
                 }
             }
         }

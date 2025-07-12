@@ -86,14 +86,14 @@ namespace MVZ2.Almanacs
         {
             miscs.SetGroups(groups);
         }
-        public void SetActiveContraptionEntry(Model prefab, Camera camera, string name, string description, string cost, string recharge)
+        public void SetActiveContraptionEntry(ModelViewData model, string name, string description, string cost, string recharge)
         {
-            standaloneContraptions.SetActiveEntry(prefab, camera, name, description, cost, recharge);
-            mobileContraptions.SetActiveEntry(prefab, camera, name, description, cost, recharge);
+            standaloneContraptions.SetActiveEntry(model, name, description, cost, recharge);
+            mobileContraptions.SetActiveEntry(model, name, description, cost, recharge);
         }
-        public void SetActiveEnemyEntry(Model prefab, Camera camera, string name, string description)
+        public void SetActiveEnemyEntry(ModelViewData model, string name, string description)
         {
-            enemies.SetActiveEntry(prefab, camera, name, description);
+            enemies.SetActiveEntry(model, name, description);
         }
         public void SetActiveArtifactEntry(Sprite sprite, string name, string description)
         {
@@ -103,9 +103,9 @@ namespace MVZ2.Almanacs
         {
             miscs.SetActiveEntry(sprite, name, description, sized, zoom);
         }
-        public void SetActiveMiscEntry(Model prefab, Camera camera, string name, string description)
+        public void SetActiveMiscEntry(ModelViewData model, string name, string description)
         {
-            miscs.SetActiveEntry(prefab, camera, name, description);
+            miscs.SetActiveEntry(model, name, description);
         }
         public void UpdateTagIcons(AlmanacPageType page, AlmanacTagIconViewData[] viewDatas)
         {

@@ -70,11 +70,11 @@ namespace MVZ2.Almanacs
             iconZoomButtonRoot.SetActive(zoom);
             SetDescription(name, description);
         }
-        public void SetActiveEntry(Model prefab, Camera camera, string name, string description)
+        public void SetActiveEntry(ModelViewData model, string name, string description)
         {
             entryImageRegion.gameObject.SetActive(false);
             entryModel.gameObject.SetActive(true);
-            entryModel.ChangeModel(prefab, camera);
+            entryModel.ChangeModel(model);
             SetDescription(name, description);
         }
         protected override void Awake()

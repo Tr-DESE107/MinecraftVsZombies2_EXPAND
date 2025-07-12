@@ -26,17 +26,14 @@ namespace MVZ2.Level.UI
                 model.SetSimulationSpeed(speed);
             }
         }
-        public void SetModel(Model prefab, Camera camera)
+        public void SetModel(ModelViewData viewData)
         {
             if (model)
             {
                 Destroy(model.gameObject);
                 model = null;
             }
-            if (prefab)
-            {
-                model = Model.Create(prefab, modelRoot, camera);
-            }
+            model = Model.Create(viewData, modelRoot);
         }
         public Model GetModel()
         {

@@ -3,6 +3,7 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
+using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Grids;
@@ -30,7 +31,7 @@ namespace MVZ2.GameContent.Spawns
             {
                 int count = Mathf.Min(10, Mathf.CeilToInt(totalPoints * 0.3333333f));
                 List<int> typePool = new List<int>();
-                UndeadFlyingObject.FillUFOTypeRandomPool(level, typePool);
+                UndeadFlyingObject.FillUFOVariantRandomPool(level, typePool);
 
                 if (typePool.Count <= 0)
                 {
@@ -41,11 +42,11 @@ namespace MVZ2.GameContent.Spawns
                 for (int i = 0; i < count; i++)
                 {
                     var typeIndex = (startIndex + i) % typePool.Count;
-                    var type = typePool[typeIndex];
+                    var variant = typePool[typeIndex];
 
                     if (rng.Next(100) < 10)
                     {
-                        type = UndeadFlyingObject.TYPE_RAINBOW;
+                        variant = UndeadFlyingObject.VARIANT_RAINBOW;
                     }
                     if (level.AreaID == VanillaAreaID.ship)
                     {
@@ -57,10 +58,10 @@ namespace MVZ2.GameContent.Spawns
 
                         var velocity = UFOBackground.FLY_DIRECTION * rng.Next(UFOBackground.MIN_SPEED, UFOBackground.MAX_SPEED);
                         background.Velocity = velocity;
-                        UFOBackground.SetType(background, type);
+                        background.SetVariant(variant);
                     }
                     var buff = level.AddBuff<UFOSpawnBuff>();
-                    UFOSpawnBuff.SetType(buff, type);
+                    UFOSpawnBuff.SetVariant(buff, variant);
                 }
             }
             else if (modular == 0)
@@ -69,7 +70,7 @@ namespace MVZ2.GameContent.Spawns
                 HashSet<LawnGrid> possibleGrids = new HashSet<LawnGrid>();
                 foreach (var buff in level.GetBuffs<UFOSpawnBuff>())
                 {
-                    var type = UFOSpawnBuff.GetType(buff);
+                    var type = UFOSpawnBuff.GetVariant(buff);
                     possibleGrids.Clear();
                     UndeadFlyingObject.FillUFOPossibleSpawnGrids(level, type, possibleGrids);
 
@@ -80,8 +81,8 @@ namespace MVZ2.GameContent.Spawns
                     var lane = grid.Lane;
                     var pos = grid.GetEntityPosition();
                     pos.y += UndeadFlyingObject.START_HEIGHT;
-                    var id = UndeadFlyingObject.GetIDByType(type);
-                    var ufo = level.Spawn(id, pos, null);
+                    var ufo = level.Spawn(VanillaEnemyID.ufo, pos, null);
+                    ufo.SetVariant(type);
                     UndeadFlyingObject.SetTargetGridX(ufo, column);
                     UndeadFlyingObject.SetTargetGridY(ufo, lane);
 
@@ -97,7 +98,7 @@ namespace MVZ2.GameContent.Spawns
         public bool CanSpawnInLevel(LevelEngine level) => false;
         public int GetWeight(LevelEngine level) => 0;
         public int GetSpawnLevel(LevelEngine level) => SpawnLevel;
-        public NamespaceID GetSpawnEntityID() => VanillaEnemyID.ufoRed;
+        public NamespaceID GetSpawnEntityID() => VanillaEnemyID.ufo;
         public int SpawnLevel { get; }
     }
 }

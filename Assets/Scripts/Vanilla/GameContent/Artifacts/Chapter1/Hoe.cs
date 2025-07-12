@@ -1,5 +1,4 @@
 ﻿using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Grids;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;

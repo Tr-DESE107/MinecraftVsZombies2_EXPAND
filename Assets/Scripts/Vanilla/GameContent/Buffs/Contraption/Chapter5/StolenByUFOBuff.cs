@@ -58,7 +58,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 {
                     entity.Remove();
                     buff.Remove();
-                    UndeadFlyingObjectGreen.SetStolenEntityID(ufo, entity.GetDefinitionID());
+                    UFOBehaviourGreen.SetStolenEntityID(ufo, entity.GetDefinitionID());
                 }
             }
         }

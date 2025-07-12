@@ -10,8 +10,8 @@ namespace MVZ2.GameContent.Buffs.Level
         public UFOSpawnBuff(string nsp, string name) : base(nsp, name)
         {
         }
-        public static void SetType(Buff buff, int type) => buff.SetProperty(PROP_TYPE, type);
-        public static int GetType(Buff buff) => buff.GetProperty<int>(PROP_TYPE);
-        public static readonly VanillaBuffPropertyMeta<int> PROP_TYPE = new VanillaBuffPropertyMeta<int>("type");
+        public static void SetVariant(Buff buff, int type) => buff.SetProperty(PROP_VARIANT, type);
+        public static int GetVariant(Buff buff) => buff.GetProperty<int>(PROP_VARIANT);
+        public static readonly VanillaBuffPropertyMeta<int> PROP_VARIANT = new VanillaBuffPropertyMeta<int>("variant");
     }
 }

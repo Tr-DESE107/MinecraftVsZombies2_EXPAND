@@ -321,7 +321,8 @@ namespace MVZ2.Almanacs
             var iconStacks = iconInfos.Select(i => i.viewData).ToArray();
             var finalDesc = ReplaceText(description, replacements);
 
-            ui.SetActiveContraptionEntry(model, almanacCamera, name, finalDesc, costText, rechargeText);
+            var viewData = new ModelViewData(model, almanacCamera);
+            ui.SetActiveContraptionEntry(viewData, name, finalDesc, costText, rechargeText);
             ui.UpdateContraptionDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
         }
@@ -357,7 +358,8 @@ namespace MVZ2.Almanacs
             var iconStacks = iconInfos.Select(i => i.viewData).ToArray();
             var finalDesc = ReplaceText(description, replacements);
 
-            ui.SetActiveEnemyEntry(model, almanacCamera, name, finalDesc);
+            var viewData = new ModelViewData(model, almanacCamera);
+            ui.SetActiveEnemyEntry(viewData, name, finalDesc);
             ui.UpdateEnemyDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
         }
@@ -416,8 +418,8 @@ namespace MVZ2.Almanacs
                 var modelID = picture.model;
                 if (NamespaceID.IsValid(modelID) && Main.ResourceManager.GetModelMeta(modelID) is ModelMeta modelMeta)
                 {
-                    var model = Main.ResourceManager.GetModel(modelMeta.Path);
-                    ui.SetActiveMiscEntry(model, almanacCamera, name, finalDesc);
+                    var viewData = new ModelViewData(modelID, almanacCamera);
+                    ui.SetActiveMiscEntry(viewData, name, finalDesc);
                 }
                 else
                 {
@@ -431,7 +433,7 @@ namespace MVZ2.Almanacs
             ui.UpdateMiscDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
         }
-        private void GetEntityAlmanacInfos(NamespaceID entityID, string almanacCategory, out Model model, out string name, out string description)
+        private void GetEntityAlmanacInfos(NamespaceID entityID, string almanacCategory, out NamespaceID model, out string name, out string description)
         {
             model = null;
             name = null;
@@ -447,12 +449,7 @@ namespace MVZ2.Almanacs
 
             if (definition == null)
                 return;
-            var modelID = definition.GetModelID();
-            var modelMeta = Main.ResourceManager.GetModelMeta(modelID);
-            if (modelMeta != null)
-            {
-                model = Main.ResourceManager.GetModel(modelMeta.Path);
-            }
+            model = definition.GetModelID();
         }
         private void GetArtifactAlmanacInfos(NamespaceID entityID, string almanacCategory, out Sprite sprite, out string name, out string description)
         {

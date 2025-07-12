@@ -13,11 +13,39 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObjectGreen)]
-    public class UndeadFlyingObjectGreen : UndeadFlyingObject
+    public class UFOBehaviourGreen : UFOBehaviour
     {
-        public UndeadFlyingObjectGreen(string nsp, string name) : base(nsp, name)
+        public UFOBehaviourGreen() : base(UndeadFlyingObject.VARIANT_GREEN)
         {
+        }
+        public override bool CanSpawn(LevelEngine level)
+        {
+            return level.GetEntityCount(e => CanStartSteal(level.Option.RightFaction, e)) > 3;
+        }
+        public override void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
+        {
+            bool filled = false;
+            foreach (var ent in level.FindEntities(e => CanStartSteal(level.Option.RightFaction, e)))
+            {
+                results.Add(ent.GetGrid());
+                filled = true;
+            }
+            if (!filled)
+            {
+                var maxColumn = level.GetMaxColumnCount();
+                var maxLane = level.GetMaxLaneCount();
+                for (int x = 0; x < maxColumn; x++)
+                {
+                    for (int y = 0; y < maxLane; y++)
+                    {
+                        var grid = level.GetGrid(x, y);
+                        if (grid != null)
+                        {
+                            results.Add(grid);
+                        }
+                    }
+                }
+            }
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
@@ -31,10 +59,27 @@ namespace MVZ2.GameContent.Enemies
                 var pickup = entity.Spawn(VanillaPickupID.blueprintPickup, entity.GetCenter(), spawnParams);
             }
         }
-        protected override void UpdateStateStay(Entity enemy)
+        public override void UpdateActionState(Entity entity, int state)
         {
-            base.UpdateStateStay(enemy);
-            var timer = GetStateTimer(enemy);
+            base.UpdateActionState(entity, state);
+            switch (state)
+            {
+                case STATE_STAY:
+                    UpdateStateStay(entity);
+                    break;
+                case STATE_ACT:
+                    UpdateStateAct(entity);
+                    break;
+                case STATE_LEAVE:
+                    UpdateStateLeave(entity);
+                    break;
+            }
+        }
+        private void UpdateStateStay(Entity enemy)
+        {
+            EnterUpdate(enemy);
+
+            var timer = GetOrInitStateTimer(enemy, STAY_TIME);
             timer.Run();
             if (timer.Expired)
             {
@@ -61,16 +106,19 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
         }
-        protected override void UpdateStateAct(Entity enemy)
+        private void UpdateStateAct(Entity enemy)
         {
-            base.UpdateStateAct(enemy);
+            EnterUpdate(enemy);
+
             if (!enemy.Target.ExistsAndAlive() || !enemy.Target.HasBuff<StolenByUFOBuff>() || NamespaceID.IsValid(GetStolenEntityID(enemy)))
             {
                 SetUFOState(enemy, STATE_LEAVE);
             }
         }
-        public override int GetStayTime() => STAY_TIME;
-        public override int GetActTime() => ACT_TIME;
+        private void UpdateStateLeave(Entity entity)
+        {
+            LeaveUpdate(entity);
+        }
         public static bool CanStartSteal(Entity ufo, Entity entity)
         {
             return CanStartSteal(ufo.GetFaction(), entity);
@@ -87,41 +135,15 @@ namespace MVZ2.GameContent.Enemies
                 return false;
             return true;
         }
-        public static bool CanSpawn(LevelEngine level)
-        {
-            return level.GetEntityCount(e => CanStartSteal(level.Option.RightFaction, e)) > 3;
-        }
-        public static void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
-        {
-            bool filled = false;
-            foreach (var ent in level.FindEntities(e => CanStartSteal(level.Option.RightFaction, e)))
-            {
-                results.Add(ent.GetGrid());
-                filled = true;
-            }
-            if (!filled)
-            {
-                var maxColumn = level.GetMaxColumnCount();
-                var maxLane = level.GetMaxLaneCount();
-                for (int x = 0; x < maxColumn; x++)
-                {
-                    for (int y = 0; y < maxLane; y++)
-                    {
-                        var grid = level.GetGrid(x, y);
-                        if (grid != null)
-                        {
-                            results.Add(grid);
-                        }
-                    }
-                }
-            }
-        }
         public static NamespaceID GetStolenEntityID(Entity entity) => entity.GetBehaviourField<NamespaceID>(PROP_STOLEN_ENTITY_ID);
         public static void SetStolenEntityID(Entity entity, NamespaceID value) => entity.SetBehaviourField(PROP_STOLEN_ENTITY_ID, value);
 
         public const int STAY_TIME = 240;
         public const int ACT_TIME = 150;
         public const int STEAL_CONTRAPTION_TIME = 30;
+
+        public const string PROP_REGION = VanillaEnemyNames.ufo;
+        [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_STOLEN_ENTITY_ID = new VanillaEntityPropertyMeta<NamespaceID>("stolen_entity_id");
     }
 }

@@ -1292,8 +1292,7 @@
         </entry>
 
 
-        <entry id="mvz2:undead_flying_object_rainbow" name="不死飞行物" encounterUnlock="mvz2:level.ship_2">
-            <thumbnail model="mvz2:entity.undead_flying_object_red"/>
+        <entry id="mvz2:undead_flying_object" name="不死飞行物" encounterUnlock="mvz2:level.ship_2">
             <header>
                 <p>不死飞行物从空中来袭并对你进行干扰。在那之后它们就会离开。</p>
             </header>

@@ -8,7 +8,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
-using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
@@ -18,7 +17,8 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
 {
-    public abstract class UndeadFlyingObject : StateEnemy
+    [EntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObject)]
+    public class UndeadFlyingObject : StateEnemy
     {
         public UndeadFlyingObject(string nsp, string name) : base(nsp, name)
         {
@@ -26,7 +26,6 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            SetStateTimer(entity, new FrameTimer(GetStayTime()));
             var column = entity.GetColumn();
             var lane = entity.GetLane();
             SetTargetGridX(entity, column);
@@ -51,7 +50,13 @@ namespace MVZ2.GameContent.Enemies
                 var effects = new DamageEffectList(VanillaDamageEffects.SELF_DAMAGE);
                 entity.Die(effects, entity);
             }
+            entity.SetAnimationInt("Variant", entity.GetVariant());
             entity.SetAnimationBool("SpotlightOn", entity.State == STATE_ACT);
+            var variant = entity.GetVariant();
+            if (behaviours.TryGetValue(variant, out var behaviour))
+            {
+                behaviour.UpdateLogic(entity);
+            }
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
@@ -68,6 +73,11 @@ namespace MVZ2.GameContent.Enemies
                 Explosion.Spawn(entity, entity.GetCenter(), entity.GetScaledSize());
                 entity.PlaySound(VanillaSoundID.explosion);
             }
+            var variant = entity.GetVariant();
+            if (behaviours.TryGetValue(variant, out var behaviour))
+            {
+                behaviour.PostDeath(entity, info);
+            }
             entity.Remove();
         }
         protected override int GetActionState(Entity enemy)
@@ -82,32 +92,13 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateActionState(Entity enemy, int state)
         {
             base.UpdateActionState(enemy, state);
-            switch (state)
+            var variant = enemy.GetVariant();
+            if (behaviours.TryGetValue(variant, out var behaviour))
             {
-                case STATE_STAY:
-                    UpdateStateStay(enemy);
-                    break;
-                case STATE_ACT:
-                    UpdateStateAct(enemy);
-                    break;
-                case STATE_LEAVE:
-                    UpdateStateLeave(enemy);
-                    break;
+                behaviour.UpdateActionState(enemy, state);
             }
         }
-        protected virtual void UpdateStateStay(Entity enemy)
-        {
-            FlyToTargetPosition(enemy);
-        }
-        protected virtual void UpdateStateAct(Entity enemy)
-        {
-            FlyToTargetPosition(enemy);
-        }
-        private void UpdateStateLeave(Entity enemy)
-        {
-            Leave(enemy);
-        }
-        private void FlyToTargetPosition(Entity enemy)
+        public static void EnterUpdate(Entity enemy)
         {
             foreach (var buff in enemy.GetBuffs<FlyBuff>())
             {
@@ -124,7 +115,7 @@ namespace MVZ2.GameContent.Enemies
             velocity.z = velocity.z * (1 - MOVE_FACTOR) + targetVelocity.z * MOVE_FACTOR;
             enemy.Velocity = velocity;
         }
-        private void Leave(Entity enemy)
+        public static void LeaveUpdate(Entity enemy)
         {
             foreach (var buff in enemy.GetBuffs<FlyBuff>())
             {
@@ -138,7 +129,7 @@ namespace MVZ2.GameContent.Enemies
                 enemy.Remove();
             }
         }
-        private Vector3 GetTargetPosition(Entity enemy)
+        private static Vector3 GetTargetPosition(Entity enemy)
         {
             var level = enemy.Level;
             var column = GetTargetGridX(enemy);
@@ -148,8 +139,6 @@ namespace MVZ2.GameContent.Enemies
             var y = level.GetGroundY(x, z) + FLY_HEIGHT;
             return new Vector3(x, y, z);
         }
-        public abstract int GetStayTime();
-        public abstract int GetActTime();
 
         #region 属性
         public static FrameTimer GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
@@ -165,56 +154,23 @@ namespace MVZ2.GameContent.Enemies
         #region 生成逻辑
         public static bool IsUFO(Entity entity)
         {
-            var id = entity.GetDefinitionID();
-            return id == VanillaEnemyID.ufoRed || id == VanillaEnemyID.ufoGreen || id == VanillaEnemyID.ufoBlue || id == VanillaEnemyID.ufoRainbow;
+            return entity.IsEntityOf(VanillaEnemyID.ufo);
         }
-        public static NamespaceID GetIDByType(int type)
+        public static void FillUFOVariantRandomPool(LevelEngine level, List<int> results)
         {
-            switch (type)
+            foreach (var pair in behaviours)
             {
-                case TYPE_RED:
-                default:
-                    return VanillaEnemyID.ufoRed;
-                case TYPE_GREEN:
-                    return VanillaEnemyID.ufoGreen;
-                case TYPE_BLUE:
-                    return VanillaEnemyID.ufoBlue;
-                case TYPE_RAINBOW:
-                    return VanillaEnemyID.ufoRainbow;
+                if (pair.Value.CanSpawn(level))
+                {
+                    results.Add(pair.Key);
+                }
             }
         }
-        public static void FillUFOTypeRandomPool(LevelEngine level, List<int> results)
+        public static void FillUFOPossibleSpawnGrids(LevelEngine level, int variant, HashSet<LawnGrid> results)
         {
-            if (UndeadFlyingObjectRed.CanSpawn(level))
+            foreach (var pair in behaviours)
             {
-                results.Add(TYPE_RED);
-            }
-            if (UndeadFlyingObjectGreen.CanSpawn(level))
-            {
-                results.Add(TYPE_GREEN);
-            }
-            if (UndeadFlyingObjectBlue.CanSpawn(level))
-            {
-                results.Add(TYPE_BLUE);
-            }
-        }
-        public static void FillUFOPossibleSpawnGrids(LevelEngine level, int type, HashSet<LawnGrid> results)
-        {
-            if (type == TYPE_RED)
-            {
-                UndeadFlyingObjectRed.GetPossibleSpawnGrids(level, results);
-            }
-            else if (type == TYPE_GREEN)
-            {
-                UndeadFlyingObjectGreen.GetPossibleSpawnGrids(level, results);
-            }
-            else if (type == TYPE_BLUE)
-            {
-                UndeadFlyingObjectBlue.GetPossibleSpawnGrids(level, results);
-            }
-            else if (type == TYPE_RAINBOW)
-            {
-                UndeadFlyingObjectRainbow.GetPossibleSpawnGrids(level, results);
+                pair.Value.GetPossibleSpawnGrids(level, results);
             }
         }
         public static IEnumerable<LawnGrid> FilterConflictSpawnGrids(LevelEngine level, IEnumerable<LawnGrid> possibleGrids)
@@ -243,10 +199,10 @@ namespace MVZ2.GameContent.Enemies
         }
         #endregion
 
-        public const int TYPE_RED = 0;
-        public const int TYPE_GREEN = 1;
-        public const int TYPE_BLUE = 2;
-        public const int TYPE_RAINBOW = 3;
+        public const int VARIANT_RED = 0;
+        public const int VARIANT_GREEN = 1;
+        public const int VARIANT_BLUE = 2;
+        public const int VARIANT_RAINBOW = 3;
 
         public const float FLY_HEIGHT = 80;
         public const float FLY_SPEED_ENTER = 0.3f;
@@ -254,23 +210,28 @@ namespace MVZ2.GameContent.Enemies
         public const float FLY_SPEED_FACTOR_ENTER = 0.5f;
         public const float FLY_SPEED_FACTOR_LEAVE = 0.1f;
         public const float MAX_FLY_SPEED = 100f;
-        public const float LEAVE_HEIGHT = 600;
         public const float START_HEIGHT = 600;
+        public const float LEAVE_HEIGHT = 600;
         public const float MAX_MOVE_SPEED = 15f;
         public const float MOVE_FACTOR = 0.5f;
+
         public const int STATE_DEATH = VanillaEntityStates.DEAD;
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         public const int STATE_STAY = VanillaEntityStates.WALK;
         public const int STATE_ACT = VanillaEntityStates.ATTACK;
         public const int STATE_LEAVE = VanillaEntityStates.ENEMY_LEAVE;
-        private const string PROP_REGION = "ufo";
-        [EntityPropertyRegistry(PROP_REGION)]
+
+
         public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_X = new VanillaEntityPropertyMeta<int>("target_grid_x");
-        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_Y = new VanillaEntityPropertyMeta<int>("target_grid_y");
-        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<int> PROP_UFO_STATE = new VanillaEntityPropertyMeta<int>("ufo_state", STATE_STAY);
-        [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("state_timer");
+        public static SortedDictionary<int, UFOBehaviour> behaviours = new SortedDictionary<int, UFOBehaviour>()
+        {
+            { VARIANT_RED, new UFOBehaviourRed() },
+            { VARIANT_GREEN, new UFOBehaviourGreen() },
+            { VARIANT_BLUE, new UFOBehaviourBlue() },
+            { VARIANT_RAINBOW, new UFOBehaviourRainbow() },
+        };
     }
 }

@@ -210,26 +210,6 @@
                 <id name="mvz2:shape" value="mvz2:small_spider" />
             </properties>
         </smallSpider>
-        <ufo id="2" parent="enemy">
-            <properties>
-                <float name="mvz2:maxHealth" value="100" />
-                <bool name="mvz2:flying_enemy" value="true" />
-                <bool name="mvz2:harmless" value="true" />
-                <bool name="mvz2:no_align_to_lane" value="true" />
-                <vector3 name="mvz2:starting_position_offset" x="0" y="600" z="0" />
-                <vector3 name="mvz2:size" x="80" y="56" z="56" />
-                <id name="mvz2:shell" value="mvz2:metal" />
-                <id name="mvz2:shape" value="mvz2:ufo" />
-                <id name="mvz2:crySound" null="true" />
-                <id name="mvz2:deathSound" value="mvz2:power_off" />
-
-                <bool name="mvz2:isLightSource" value="true" />
-                <vector3 name="mvz2:lightRange" x="80" y="80" z="80" />
-                <color name="mvz2:lightColor" value="#FFFF00" />
-
-                <int name="mvz2:cost" value="150" />
-            </properties>
-        </ufo>
         <gem id="6" parent="pickup">
             <properties>
                 <id name="mvz2:dropSound" value="mvz2:money_fall" />
@@ -1300,10 +1280,27 @@
         </humanoid>
 
         <!-- Chapter 5 -->
-        <ufo id="undead_flying_object_red" name="不死飞行物（红）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
-        <ufo id="undead_flying_object_green" name="不死飞行物（绿）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
-        <ufo id="undead_flying_object_blue" name="不死飞行物（蓝）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
-        <ufo id="undead_flying_object_rainbow" name="不死飞行物（彩）" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" />
+        <enemy id="undead_flying_object" name="不死飞行物" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" >
+            <properties>
+                <id name="mvz2:modelId" value="mvz2:entity.undead_flying_object" />
+                <float name="mvz2:maxHealth" value="100" />
+                <bool name="mvz2:flying_enemy" value="true" />
+                <bool name="mvz2:harmless" value="true" />
+                <bool name="mvz2:no_align_to_lane" value="true" />
+                <vector3 name="mvz2:starting_position_offset" x="0" y="600" z="0" />
+                <vector3 name="mvz2:size" x="80" y="56" z="56" />
+                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:shape" value="mvz2:ufo" />
+                <id name="mvz2:crySound" null="true" />
+                <id name="mvz2:deathSound" value="mvz2:power_off" />
+
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="80" y="80" z="80" />
+                <color name="mvz2:lightColor" value="#FFFF00" />
+
+                <int name="mvz2:cost" value="150" />
+            </properties>
+        </enemy>
         <zombie id="cannoneer_zombie" name="炮手僵尸" deathMessage="炮决！" unlock="mvz2:level.ship_3">
             <properties>
                 <id name="mvz2:starting_shield" value="mvz2:cannon" />

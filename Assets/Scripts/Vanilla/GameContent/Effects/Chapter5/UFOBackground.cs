@@ -1,6 +1,4 @@
 ﻿using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
@@ -19,10 +17,8 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            entity.SetAnimationInt("Type", GetType(entity));
+            entity.SetAnimationInt("Variant", entity.GetVariant());
         }
-        public static int GetType(Entity entity) => entity.GetBehaviourField<int>(PROP_TYPE);
-        public static void SetType(Entity entity, int value) => entity.SetBehaviourField(PROP_TYPE, value);
         public const float MIN_X = 520;
         public const float MAX_X = 720;
         public const float MIN_Y = -160;
@@ -33,7 +29,5 @@ namespace MVZ2.GameContent.Effects
         public const float MIN_SPEED = (600 - (MIN_Y + MIN_Z)) / TIMEOUT;
         public const int TIMEOUT = 120;
         public static readonly Vector3 FLY_DIRECTION = new Vector3(0.2f, 0, 1);
-
-        private static readonly VanillaEntityPropertyMeta<int> PROP_TYPE = new VanillaEntityPropertyMeta<int>("type");
     }
 }

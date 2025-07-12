@@ -3137,13 +3137,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4953f157a33c2ba4ba216a08816ff6b0
-    m_Address: mvz2:enemy/ship/undead_flying_object_blue
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 497bfc6a32aab54479a1ff02a4142841
     m_Address: mvz2:charged_bolt1
     m_ReadOnly: 0
@@ -5515,13 +5508,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 84d51139b3d520243bcb6201a087c5b1
-    m_Address: mvz2:enemy/ship/undead_flying_object_green
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 850d4c9b6833d8047ac10f992af536ff
     m_Address: mvz2:products/artifact_slot
@@ -8770,13 +8756,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d7f4059d2f07c1c4884526631a4918c0
-    m_Address: mvz2:enemy/ship/undead_flying_object_rainbow
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d8130bf7140daa14a9605dddcd5bd851
     m_Address: mvz2:entity/contraptions/infectenser

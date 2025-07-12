@@ -9,13 +9,32 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObjectBlue)]
-    public class UndeadFlyingObjectBlue : UndeadFlyingObject
+    public class UFOBehaviourBlue : UFOBehaviour
     {
-        public UndeadFlyingObjectBlue(string nsp, string name) : base(nsp, name)
+        public UFOBehaviourBlue() : base(UndeadFlyingObject.VARIANT_BLUE)
         {
         }
-        protected override void UpdateLogic(Entity entity)
+        public override bool CanSpawn(LevelEngine level)
+        {
+            return true;
+        }
+        public override void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
+        {
+            var maxColumn = level.GetMaxColumnCount();
+            var maxLane = level.GetMaxLaneCount();
+            for (int x = 0; x < maxColumn; x++)
+            {
+                for (int y = 0; y < maxLane; y++)
+                {
+                    var grid = level.GetGrid(x, y);
+                    if (grid != null)
+                    {
+                        results.Add(grid);
+                    }
+                }
+            }
+        }
+        public override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
             if (entity.State == STATE_ACT)
@@ -48,32 +67,48 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
         }
-        protected override void UpdateStateStay(Entity enemy)
+        public override void UpdateActionState(Entity entity, int state)
         {
-            base.UpdateStateStay(enemy);
-            var timer = GetStateTimer(enemy);
+            base.UpdateActionState(entity, state);
+            switch (state)
+            {
+                case STATE_STAY:
+                    UpdateStateStay(entity);
+                    break;
+                case STATE_ACT:
+                    UpdateStateAct(entity);
+                    break;
+                case STATE_LEAVE:
+                    UpdateStateLeave(entity);
+                    break;
+            }
+        }
+        private void UpdateStateStay(Entity enemy)
+        {
+            EnterUpdate(enemy);
+
+            var timer = GetOrInitStateTimer(enemy, STAY_TIME);
             timer.Run();
             if (timer.Expired)
             {
                 SetUFOState(enemy, STATE_ACT);
-                timer.ResetTime(GetActTime());
+                timer.ResetTime(ACT_TIME);
             }
         }
-        protected override void UpdateStateAct(Entity enemy)
+        private void UpdateStateAct(Entity enemy)
         {
-            base.UpdateStateAct(enemy);
-            var timer = GetStateTimer(enemy);
+            EnterUpdate(enemy);
+
+            var timer = GetOrInitStateTimer(enemy, ACT_TIME);
             timer.Run();
             if (timer.Expired)
             {
                 SetUFOState(enemy, STATE_LEAVE);
             }
         }
-        public override int GetStayTime() => STAY_TIME;
-        public override int GetActTime() => ACT_TIME;
-        public static bool CanStartSteal(Entity entity)
+        private void UpdateStateLeave(Entity entity)
         {
-            return entity.ExistsAndAlive() && !entity.HasBuff<StolenByUFOBuff>();
+            LeaveUpdate(entity);
         }
         public static List<NamespaceID> GetAbsorbedEntityID(Entity entity) => entity.GetBehaviourField<List<NamespaceID>>(PROP_ABSORBED_ENTITY_ID);
         public static void SetAbsorbedEntityID(Entity entity, List<NamespaceID> value) => entity.SetBehaviourField(PROP_ABSORBED_ENTITY_ID, value);
@@ -96,29 +131,11 @@ namespace MVZ2.GameContent.Enemies
             }
             return list.Remove(value);
         }
-        public static bool CanSpawn(LevelEngine level)
-        {
-            return true;
-        }
-        public static void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
-        {
-            var maxColumn = level.GetMaxColumnCount();
-            var maxLane = level.GetMaxLaneCount();
-            for (int x = 0; x < maxColumn; x++)
-            {
-                for (int y = 0; y < maxLane; y++)
-                {
-                    var grid = level.GetGrid(x, y);
-                    if (grid != null)
-                    {
-                        results.Add(grid);
-                    }
-                }
-            }
-        }
 
         public const int STAY_TIME = 30;
         public const int ACT_TIME = 300;
+        public const string PROP_REGION = VanillaEnemyNames.ufo;
+        [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<List<NamespaceID>> PROP_ABSORBED_ENTITY_ID = new VanillaEntityPropertyMeta<List<NamespaceID>>("absorbed_entity_id");
     }
 }

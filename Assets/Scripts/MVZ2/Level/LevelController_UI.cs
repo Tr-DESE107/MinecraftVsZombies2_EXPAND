@@ -45,13 +45,8 @@ namespace MVZ2.Level
         #region 手持物品
         public void SetHeldItemModel(NamespaceID modelID)
         {
-            Model model = null;
-            var modelMeta = Main.ResourceManager.GetModelMeta(modelID);
-            if (modelMeta != null)
-            {
-                model = Main.ResourceManager.GetModel(modelMeta.Path);
-            }
-            ui.SetHeldItemModel(model, GetCamera());
+            var viewData = new ModelViewData(modelID, GetCamera());
+            ui.SetHeldItemModel(viewData);
         }
         public Model GetHeldItemModel()
         {
@@ -381,7 +376,7 @@ namespace MVZ2.Level
             ui.OnGameOverRetryButtonClicked += UI_OnGameOverRetryButtonClickedCallback;
             ui.OnGameOverBackButtonClicked += UI_OnGameOverBackButtonClickedCallback;
 
-            ui.SetHeldItemModel(null, GetCamera());
+            ui.SetHeldItemModel(new ModelViewData(null, GetCamera()));
             ui.SetPauseDialogActive(false);
             ui.SetOptionsDialogActive(false);
             ui.SetGameOverDialogActive(false);

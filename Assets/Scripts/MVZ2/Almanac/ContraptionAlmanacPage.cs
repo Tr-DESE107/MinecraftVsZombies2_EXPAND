@@ -15,9 +15,9 @@ namespace MVZ2.Almanacs
             commandBlockSlot.SetCommandBlockActive(commandBlockVisible);
             commandBlockSlot.UpdateCommandBlockItem(commandBlockViewData);
         }
-        public void SetActiveEntry(Model prefab, Camera camera, string name, string description, string cost, string recharge)
+        public void SetActiveEntry(ModelViewData model, string name, string description, string cost, string recharge)
         {
-            entryModel.ChangeModel(prefab, camera);
+            entryModel.ChangeModel(model);
             SetDescription(name, description);
             costText.text = cost;
             rechargeText.text = recharge;

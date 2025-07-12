@@ -34,14 +34,8 @@ namespace MVZ2.GameContent.Enemies
         public const string shikaisenZombie = "shikaisen_zombie";
         public const string emperorZombie = "emperor_zombie";
 
-        public const string undeadFlyingObjectRed = "undead_flying_object_red";
-        public const string undeadFlyingObjectGreen = "undead_flying_object_green";
-        public const string undeadFlyingObjectBlue = "undead_flying_object_blue";
-        public const string undeadFlyingObjectRainbow = "undead_flying_object_rainbow";
-        public const string ufoRed = undeadFlyingObjectRed;
-        public const string ufoGreen = undeadFlyingObjectGreen;
-        public const string ufoBlue = undeadFlyingObjectBlue;
-        public const string ufoRainbow = undeadFlyingObjectRainbow;
+        public const string undeadFlyingObject = "undead_flying_object";
+        public const string ufo = undeadFlyingObject;
         public const string cannoneerZombie = "cannoneer_zombie";
         public const string cannonballZombie = "cannonball_zombie";
 
@@ -93,14 +87,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID shikaisenZombie = Get(VanillaEnemyNames.shikaisenZombie);
         public static readonly NamespaceID emperorZombie = Get(VanillaEnemyNames.emperorZombie);
 
-        public static readonly NamespaceID undeadFlyingObjectRed = Get(VanillaEnemyNames.undeadFlyingObjectRed);
-        public static readonly NamespaceID undeadFlyingObjectGreen = Get(VanillaEnemyNames.undeadFlyingObjectGreen);
-        public static readonly NamespaceID undeadFlyingObjectBlue = Get(VanillaEnemyNames.undeadFlyingObjectBlue);
-        public static readonly NamespaceID undeadFlyingObjectRainbow = Get(VanillaEnemyNames.undeadFlyingObjectRainbow);
-        public static readonly NamespaceID ufoRed = undeadFlyingObjectRed;
-        public static readonly NamespaceID ufoGreen = undeadFlyingObjectGreen;
-        public static readonly NamespaceID ufoBlue = undeadFlyingObjectBlue;
-        public static readonly NamespaceID ufoRainbow = undeadFlyingObjectRainbow;
+        public static readonly NamespaceID undeadFlyingObject = Get(VanillaEnemyNames.undeadFlyingObject);
+        public static readonly NamespaceID ufo = undeadFlyingObject;
         public static readonly NamespaceID cannoneerZombie = Get(VanillaEnemyNames.cannoneerZombie);
         public static readonly NamespaceID cannonballZombie = Get(VanillaEnemyNames.cannonballZombie);
 

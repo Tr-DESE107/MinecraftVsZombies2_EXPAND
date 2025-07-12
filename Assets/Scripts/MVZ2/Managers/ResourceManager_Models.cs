@@ -92,15 +92,15 @@ namespace MVZ2.Managers
             {
                 var meta = metas[i];
 
-                var model = GetModel(meta.Path);
+                var modelID = meta.Path;
                 var metaPath = EngineModelID.ConcatName(meta.Type, meta.Name);
                 var metaID = new NamespaceID(modNamespace, metaPath);
-                if (model != null)
+                if (NamespaceID.IsValid(modelID))
                 {
                     Sprite sprite;
                     if (meta.Shot)
                     {
-                        sprite = main.ModelManager.ShotIcon(model, meta.Width, meta.Height, new Vector2(meta.XOffset, meta.YOffset), metaID.ToString());
+                        sprite = main.ModelManager.ShotIcon(modelID, meta.Width, meta.Height, new Vector2(meta.XOffset, meta.YOffset), metaID.ToString());
                     }
                     else
                     {

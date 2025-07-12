@@ -63,9 +63,9 @@ namespace MVZ2.UI
         {
             heldItem.transform.position = worldPos;
         }
-        public void SetHeldItemModel(Model prefab, Camera camera)
+        public void SetHeldItemModel(ModelViewData viewData)
         {
-            heldItem.SetModel(prefab, camera);
+            heldItem.SetModel(viewData);
         }
         public void SetHeldItemTrigger(bool visible, bool trigger)
         {
