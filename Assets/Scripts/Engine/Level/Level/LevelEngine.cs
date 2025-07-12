@@ -9,7 +9,6 @@ using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
-using PVZEngine.SeedPacks;
 using UnityEngine;
 
 namespace PVZEngine.Level
@@ -102,7 +101,9 @@ namespace PVZEngine.Level
         {
             ClearEntityTrash();
 
-            UpdateSeedPacks();
+            var rechargeSpeed = this.GetRechargeSpeed();
+            UpdateClassicSeedPacks(rechargeSpeed);
+            UpdateConveyorSeedPacks(rechargeSpeed);
 
             foreach (var component in levelComponents)
             {
@@ -271,14 +272,10 @@ namespace PVZEngine.Level
                 Option = Option.Serialize(),
 
                 properties = properties.ToSerializable(),
-                seedPacks = seedPacks.Select(g => g != null ? g.Serialize() : null).ToArray(),
-                conveyorSeedPacks = conveyorSeedPacks.Select(s => s != null ? s.Serialize() : null).ToArray(),
-                conveyorSlotCount = conveyorSlotCount,
-                conveyorSeedSpendRecord = conveyorSeedSpendRecord.ToSerializable(),
+                currentSeedPackID = currentSeedPackID,
                 collisionSystem = collisionSystem.ToSerializable(),
 
                 currentBuffID = currentBuffID,
-                currentSeedPackID = currentSeedPackID,
 
                 energy = Energy,
                 delayedEnergyEntities = delayedEnergyEntities.Select(d => new SerializableDelayedEnergy() { entityId = d.Key.ID, energy = d.Value }).ToArray(),
@@ -292,6 +289,8 @@ namespace PVZEngine.Level
 
                 components = levelComponents.ToDictionary(c => c.GetID().ToString(), c => c.ToSerializable())
             };
+            WriteSeedPacksToSerializable(level);
+            WriteConveyorToSerializable(level);
             WriteEntitiesToSerializable(level);
             WriteProgressToSerializable(level);
             WriteRandomToSerializable(level);
@@ -315,19 +314,16 @@ namespace PVZEngine.Level
 
             level.Energy = seri.energy;
             level.currentBuffID = seri.currentBuffID;
-            level.currentSeedPackID = seri.currentSeedPackID;
 
             level.CurrentWave = seri.currentWave;
             level.CurrentFlag = seri.currentFlag;
             level.WaveState = seri.waveState;
             level.LevelProgressVisible = seri.levelProgressVisible;
 
-            level.conveyorSlotCount = seri.conveyorSlotCount;
-            level.conveyorSeedSpendRecord = ConveyorSeedSpendRecords.ToDeserialized(seri.conveyorSeedSpendRecord);
-
             // 加载所有种子包。
-            level.seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.Deserialize(g, level) : null).ToArray();
-            level.conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => s != null ? ConveyorSeedPack.Deserialize(s, level) : null).ToList();
+            level.currentSeedPackID = seri.currentSeedPackID;
+            level.CreateSeedPacksFromSerializable(seri);
+            level.CreateConveyorFromSerializable(seri);
             // 加载所有实体。
             level.CreateEntitiesFromSerializable(seri);
             // 加载所有BUFF。
@@ -339,24 +335,8 @@ namespace PVZEngine.Level
 
             // 加载所有种子包、实体、BUFF的详细信息。
             // 因为有光环这种东西的存在，可能会引用buff，所以需要在buff加载完之后加载。
-            foreach (var seed in level.seedPacks)
-            {
-                if (seed == null)
-                    continue;
-                var seriSeed = seri.seedPacks.FirstOrDefault(s => s.id == seed.ID);
-                if (seriSeed == null)
-                    continue;
-                seed.ApplyDeserializedProperties(level, seriSeed);
-            }
-            foreach (var seed in level.conveyorSeedPacks)
-            {
-                if (seed == null)
-                    continue;
-                var seriSeed = seri.conveyorSeedPacks.FirstOrDefault(s => s.id == seed.ID);
-                if (seriSeed == null)
-                    continue;
-                seed.ApplyDeserializedProperties(level, seriSeed);
-            }
+            level.ReadSeedPacksFromSerializable(seri);
+            level.ReadConveyorFromSerializable(seri);
             level.ReadEntitiesFromSerializable(seri);
             level.buffs.LoadAuras(seri.buffs, level);
 
