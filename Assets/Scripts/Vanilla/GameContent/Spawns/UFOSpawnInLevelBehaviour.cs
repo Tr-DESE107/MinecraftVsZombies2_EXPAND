@@ -4,6 +4,7 @@ using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Grids;
@@ -81,10 +82,12 @@ namespace MVZ2.GameContent.Spawns
                     var lane = grid.Lane;
                     var pos = grid.GetEntityPosition();
                     pos.y += UndeadFlyingObject.START_HEIGHT;
+
                     var ufo = level.Spawn(VanillaEnemyID.ufo, pos, null);
                     ufo.SetVariant(type);
                     UndeadFlyingObject.SetTargetGridX(ufo, column);
                     UndeadFlyingObject.SetTargetGridY(ufo, lane);
+                    level.TriggerEnemySpawned(VanillaSpawnID.GetFromEntity(VanillaEnemyID.ufo), ufo);
 
                     totalPoints -= SpawnLevel;
                     buff.Remove();
