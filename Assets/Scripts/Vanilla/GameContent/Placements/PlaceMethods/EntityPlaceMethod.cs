@@ -1,8 +1,10 @@
 ﻿using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
 using PVZEngine.Placements;
 
 namespace MVZ2.GameContent.Placements
@@ -15,13 +17,20 @@ namespace MVZ2.GameContent.Placements
         }
         public override Entity PlaceEntity(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity, PlaceParams param)
         {
+            Entity ent;
             if (param.IsCommandBlock())
             {
                 var spawnParam = CommandBlock.GetImitateSpawnParams(entity.GetID());
-                var commandBlock = grid.SpawnPlacedEntity(VanillaContraptionID.commandBlock, spawnParam);
-                return commandBlock;
+                spawnParam.SetProperty(VanillaEntityProps.VARIANT, param.GetVariant());
+                ent = grid.SpawnPlacedEntity(VanillaContraptionID.commandBlock, spawnParam);
             }
-            return grid.SpawnPlacedEntity(entity.GetID());
+            else
+            {
+                var spawnParam = new SpawnParams();
+                spawnParam.SetProperty(VanillaEntityProps.VARIANT, param.GetVariant());
+                ent = grid.SpawnPlacedEntity(entity.GetID(), spawnParam);
+            }
+            return ent;
         }
     }
 }

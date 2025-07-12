@@ -656,8 +656,16 @@ namespace MVZ2.Level
             var seedType = definition.GetSeedType();
             if (seedType == SeedTypes.ENTITY)
             {
-                var entityID = definition.GetSeedEntityID();
-                name = Main.ResourceManager.GetEntityName(entityID);
+                var customEntityMeta = Main.ResourceManager.GetEntityBlueprintMeta(blueprintID);
+                if (customEntityMeta != null && !string.IsNullOrEmpty(customEntityMeta.Name))
+                {
+                    name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_NAME, customEntityMeta.Name);
+                }
+                else
+                {
+                    var entityID = definition.GetSeedEntityID();
+                    name = Main.ResourceManager.GetEntityName(entityID);
+                }
             }
             else if (seedType == SeedTypes.OPTION)
             {
@@ -678,8 +686,16 @@ namespace MVZ2.Level
             var seedType = definition.GetSeedType();
             if (seedType == SeedTypes.ENTITY)
             {
-                var entityID = definition.GetSeedEntityID();
-                return Main.ResourceManager.GetEntityTooltip(entityID);
+                var customEntityMeta = Main.ResourceManager.GetEntityBlueprintMeta(blueprintID);
+                if (customEntityMeta != null && !string.IsNullOrEmpty(customEntityMeta.Tooltip))
+                {
+                    return Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_TOOLTIP, customEntityMeta.Tooltip);
+                }
+                else
+                {
+                    var entityID = definition.GetSeedEntityID();
+                    return Main.ResourceManager.GetEntityTooltip(entityID);
+                }
             }
             return string.Empty;
         }

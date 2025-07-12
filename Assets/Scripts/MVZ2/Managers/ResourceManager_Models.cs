@@ -100,7 +100,7 @@ namespace MVZ2.Managers
                     Sprite sprite;
                     if (meta.Shot)
                     {
-                        sprite = main.ModelManager.ShotIcon(modelID, meta.Width, meta.Height, new Vector2(meta.XOffset, meta.YOffset), metaID.ToString());
+                        sprite = main.ModelManager.ShotIcon(metaID, meta.Width, meta.Height, new Vector2(meta.XOffset, meta.YOffset), metaID.ToString());
                     }
                     else
                     {

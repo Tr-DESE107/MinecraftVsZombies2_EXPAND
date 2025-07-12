@@ -22,10 +22,10 @@ namespace MVZ2.GameContent.Enemies
         {
             return level.GetEntityCount(e => CanStartSteal(level.Option.RightFaction, e)) > 3;
         }
-        public override void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
+        public override void GetPossibleSpawnGrids(LevelEngine level, int faction, HashSet<LawnGrid> results)
         {
             bool filled = false;
-            foreach (var ent in level.FindEntities(e => CanStartSteal(level.Option.RightFaction, e)))
+            foreach (var ent in level.FindEntities(e => CanStartSteal(faction, e)))
             {
                 results.Add(ent.GetGrid());
                 filled = true;

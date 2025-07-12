@@ -357,6 +357,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ed576f37fbc44b44d9396b8ea59f7911, type: 3}
   - name: mobile_blueprint/tripenser
     sprite: {fileID: 21300000, guid: 0d1a3773e4097404bbaf9f2a2110fcfa, type: 3}
+  - name: mobile_blueprint/undead_flying_object
+    sprite: {fileID: 21300000, guid: f341858279d9e0e4cadea5a1467728a1, type: 3}
   - name: mobile_blueprint/undead_flying_object_blue
     sprite: {fileID: 21300000, guid: 0ee514c074ca3dd4cafad1abc2e8d5a6, type: 3}
   - name: mobile_blueprint/undead_flying_object_green

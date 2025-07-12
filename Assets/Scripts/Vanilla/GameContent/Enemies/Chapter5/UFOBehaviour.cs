@@ -14,7 +14,7 @@ namespace MVZ2.GameContent.Enemies
             Type = type;
         }
         public virtual bool CanSpawn(LevelEngine level) => false;
-        public virtual void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
+        public virtual void GetPossibleSpawnGrids(LevelEngine level, int faction, HashSet<LawnGrid> results)
         {
             var maxColumn = level.GetMaxColumnCount();
             var maxLane = level.GetMaxLaneCount();

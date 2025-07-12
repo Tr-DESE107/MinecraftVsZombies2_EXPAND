@@ -27,9 +27,13 @@ namespace MVZ2.GameContent.Placements
             if (entity != null && entity.Exists())
             {
                 var ent = entity.UpgradeToContraption(entityDef.GetID());
-                if (ent != null && param.IsCommandBlock())
+                if (ent != null)
                 {
-                    ent.AddBuff<ImitatedBuff>();
+                    if (param.IsCommandBlock())
+                    {
+                        ent.AddBuff<ImitatedBuff>();
+                    }
+                    ent.SetVariant(param.GetVariant());
                 }
                 return ent;
             }

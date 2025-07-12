@@ -5391,7 +5391,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81dd671c4a73dc1439c7e4394a95e1c0
-    m_Address: mvz2:enemy/ship/undead_flying_object_red
+    m_Address: mvz2:enemy/ship/undead_flying_object
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

@@ -174,12 +174,7 @@ namespace MVZ2.GameContent.HeldItems
             var seedDef = GetSeedDefinition(entity);
             if (seedDef == null)
                 return;
-            if (seedDef.GetSeedType() == SeedTypes.ENTITY)
-            {
-                var entityID = seedDef.GetSeedEntityID();
-                var entityDef = level.Content.GetEntityDefinition(entityID);
-                result.SetFinalValue(entityDef.GetModelID());
-            }
+            result.SetFinalValue(seedDef.GetModelID());
         }
         public override void OnSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
         {

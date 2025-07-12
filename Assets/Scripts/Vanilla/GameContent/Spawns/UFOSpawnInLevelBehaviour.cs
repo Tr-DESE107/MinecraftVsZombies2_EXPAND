@@ -72,7 +72,7 @@ namespace MVZ2.GameContent.Spawns
                 {
                     var type = UFOSpawnBuff.GetVariant(buff);
                     possibleGrids.Clear();
-                    UndeadFlyingObject.FillUFOPossibleSpawnGrids(level, type, possibleGrids);
+                    UndeadFlyingObject.FillUFOPossibleSpawnGrids(level, type, level.Option.RightFaction, possibleGrids);
 
                     var filteredGrids = UndeadFlyingObject.FilterConflictSpawnGrids(level, possibleGrids);
 

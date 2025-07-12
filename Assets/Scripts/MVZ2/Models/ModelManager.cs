@@ -21,6 +21,7 @@ namespace MVZ2.Models
                 return null;
             }
             modelInstance.transform.localPosition = Vector3.zero;
+            modelInstance.UpdateAnimators(0);
             modelInstance.UpdateFrame(0);
 
 

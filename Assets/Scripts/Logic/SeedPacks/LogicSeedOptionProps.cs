@@ -14,6 +14,11 @@ namespace MVZ2Logic.SeedPacks
         {
             return definition.GetProperty<SpriteReference>(ICON);
         }
+        public static readonly PropertyMeta<NamespaceID> MODEL_ID = Get<NamespaceID>("model_id");
+        public static NamespaceID GetModelID(this SeedOptionDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(MODEL_ID);
+        }
         public static readonly PropertyMeta<int> COST = Get<int>("cost");
         public static int GetCost(this SeedOptionDefinition definition)
         {

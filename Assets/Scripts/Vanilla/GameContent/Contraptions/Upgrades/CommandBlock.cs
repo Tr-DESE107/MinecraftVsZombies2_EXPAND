@@ -100,7 +100,9 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             }
             var grid = entity.GetGrid();
-            var spawned = grid.SpawnPlacedEntity(targetID.GetID());
+            var spawnParams = entity.GetSpawnParams();
+            spawnParams.SetProperty(VanillaEntityProps.VARIANT, entity.GetVariant());
+            var spawned = grid.SpawnPlacedEntity(targetID.GetID(), spawnParams);
             spawned.AddBuff<ImitatedBuff>();
             if (IsTriggered(entity) && spawned.CanTrigger())
             {

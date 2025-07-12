@@ -4,7 +4,6 @@ using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
-using PVZEngine.Grids;
 using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
@@ -17,22 +16,6 @@ namespace MVZ2.GameContent.Enemies
         public override bool CanSpawn(LevelEngine level)
         {
             return true;
-        }
-        public override void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
-        {
-            var maxColumn = level.GetMaxColumnCount();
-            var maxLane = level.GetMaxLaneCount();
-            for (int x = 0; x < maxColumn; x++)
-            {
-                for (int y = 0; y < maxLane; y++)
-                {
-                    var grid = level.GetGrid(x, y);
-                    if (grid != null)
-                    {
-                        results.Add(grid);
-                    }
-                }
-            }
         }
         public override void UpdateLogic(Entity entity)
         {

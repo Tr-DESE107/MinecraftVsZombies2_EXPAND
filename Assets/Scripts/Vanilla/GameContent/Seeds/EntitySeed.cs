@@ -3,6 +3,7 @@ using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
+using MVZ2Logic;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Auras;
@@ -24,6 +25,9 @@ namespace MVZ2.GameContent.Seeds
             SetProperty(VanillaSeedProps.TRIGGER_ACTIVE, info.triggerActive);
             SetProperty(VanillaSeedProps.CAN_INSTANT_EVOKE, info.canInstantEvoke);
             SetProperty(VanillaSeedProps.CAN_INSTANT_TRIGGER, info.canInstantTrigger);
+            SetProperty(LogicSeedProps.VARIANT, info.variant);
+            SetProperty(LogicSeedProps.ICON, info.icon);
+            SetProperty(LogicSeedProps.MODEL_ID, info.model);
             SetProperty(VanillaSeedProps.UPGRADE_BLUEPRINT, info.upgrade);
             if (info.upgrade)
             {
@@ -73,5 +77,8 @@ namespace MVZ2.GameContent.Seeds
         public bool canInstantTrigger;
         public bool upgrade;
         public bool canInstantEvoke;
+        public int variant;
+        public SpriteReference icon;
+        public NamespaceID model;
     }
 }

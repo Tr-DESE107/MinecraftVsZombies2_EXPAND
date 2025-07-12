@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -45,12 +46,12 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.infectenser,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.forcePad,
-                VanillaContraptionID.beacon,
-                VanillaEnemyID.skeletonHorse,
-                VanillaEnemyID.reflectiveBarrierZombie,
-                VanillaEnemyID.cannoneerZombie,
-                VanillaEnemyID.mutantZombie,
-                VanillaEnemyID.megaMutantZombie,
+                VanillaEnemyID.skeletonMage,
+                VanillaEnemyID.ufo,
+                VanillaBlueprintID.ufoRed,
+                VanillaBlueprintID.ufoGreen,
+                VanillaBlueprintID.ufoBlue,
+                VanillaBlueprintID.ufoRainbow,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Enemies
         private void UpdateStateStay(Entity enemy)
         {
             EnterUpdate(enemy);
-            var timer = GetStateTimer(enemy);
+            var timer = GetOrInitStateTimer(enemy, STAY_TIME);
             timer.Run();
             if (timer.Expired)
             {
@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Enemies
 
                 // 获取可以生成该UFO的网格。
                 possibleGrids.Clear();
-                UndeadFlyingObject.FillUFOPossibleSpawnGrids(level, type, possibleGrids);
+                UndeadFlyingObject.FillUFOPossibleSpawnGrids(level, type, rainbow.GetFaction(), possibleGrids);
 
                 // 如果没有可用的网格，则跳过。
                 if (possibleGrids.Count <= 0)

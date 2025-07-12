@@ -248,8 +248,8 @@ namespace MVZ2.Entities
         #region 事件回调
         private void PostInitCallback()
         {
-            UpdateFrame(0);
             UpdateAnimators(0);
+            UpdateFrame(0);
         }
         private void PostPropertyChangedCallback(IPropertyKey key, object beforeValue, object afterValue)
         {

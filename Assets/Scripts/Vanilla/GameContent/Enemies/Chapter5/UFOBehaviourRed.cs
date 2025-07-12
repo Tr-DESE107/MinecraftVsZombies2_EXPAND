@@ -15,11 +15,18 @@ namespace MVZ2.GameContent.Enemies
         public UFOBehaviourRed() : base(UndeadFlyingObject.VARIANT_RED)
         {
         }
-        public override void GetPossibleSpawnGrids(LevelEngine level, HashSet<LawnGrid> results)
+        public override bool CanSpawn(LevelEngine level)
+        {
+            return true;
+        }
+        public override void GetPossibleSpawnGrids(LevelEngine level, int faction, HashSet<LawnGrid> results)
         {
             var maxColumn = level.GetMaxColumnCount();
             var maxLane = level.GetMaxLaneCount();
-            for (int x = maxColumn - 4; x < maxColumn; x++)
+            var friendly = faction == level.Option.LeftFaction;
+            var startColumn = friendly ? 0 : maxColumn - 4;
+            var endColumn = friendly ? 4 : maxColumn;
+            for (int x = startColumn; x < endColumn; x++)
             {
                 for (int y = 0; y < maxLane; y++)
                 {
@@ -61,7 +68,7 @@ namespace MVZ2.GameContent.Enemies
         }
         private void UpdateStateAct(Entity enemy)
         {
-            LeaveUpdate(enemy);
+            EnterUpdate(enemy);
 
             var timer = GetOrInitStateTimer(enemy, ACT_TIME);
             timer.Run();

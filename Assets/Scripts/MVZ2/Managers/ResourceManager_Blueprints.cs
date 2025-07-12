@@ -7,7 +7,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic.Games;
+using MVZ2Logic;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -42,6 +42,22 @@ namespace MVZ2.Managers
             if (metalist == null)
                 return null;
             return metalist.Options.FirstOrDefault(m => m.ID == id.Path);
+        }
+        public BlueprintEntityMeta[] GetModEntityBlueprintMetas(string spaceName)
+        {
+            var metalist = GetBlueprintMetaList(spaceName);
+            if (metalist == null)
+                return null;
+            return metalist.Entities.ToArray();
+        }
+        public BlueprintEntityMeta GetEntityBlueprintMeta(NamespaceID id)
+        {
+            if (id == null)
+                return null;
+            var metalist = GetBlueprintMetaList(id.SpaceName);
+            if (metalist == null)
+                return null;
+            return metalist.Entities.FirstOrDefault(m => m.ID == id.Path);
         }
         public BlueprintErrorMeta GetBlueprintErrorMeta(NamespaceID id)
         {
@@ -137,8 +153,16 @@ namespace MVZ2.Managers
                 var seedType = seedDef.GetSeedType();
                 if (seedType == SeedTypes.ENTITY)
                 {
-                    var entityID = seedDef.GetSeedEntityID();
-                    return GetSprite(entityID.SpaceName, $"mobile_blueprint/{entityID.Path}");
+                    var customEntityMeta = Main.ResourceManager.GetEntityBlueprintMeta(seedDef.GetID());
+                    if (customEntityMeta != null && SpriteReference.IsValid(customEntityMeta.GetMobileIcon()))
+                    {
+                        return GetSprite(customEntityMeta.GetMobileIcon());
+                    }
+                    else
+                    {
+                        var entityID = seedDef.GetSeedEntityID();
+                        return GetSprite(entityID.SpaceName, $"mobile_blueprint/{entityID.Path}");
+                    }
                 }
                 else if (seedType == SeedTypes.OPTION)
                 {
@@ -152,29 +176,12 @@ namespace MVZ2.Managers
         {
             if (seedDef != null)
             {
-                var seedType = seedDef.GetSeedType();
-                if (seedType == SeedTypes.ENTITY)
+                Sprite sprite = Main.GetFinalSprite(seedDef.GetIcon());
+                if (!sprite)
                 {
-                    var entityID = seedDef.GetSeedEntityID();
-                    if (!NamespaceID.IsValid(entityID))
-                        return GetDefaultSprite();
-                    var entityDef = Main.Game.GetEntityDefinition(entityID);
-                    if (entityDef == null)
-                        return GetDefaultSprite();
-                    var modelID = entityDef.GetModelID();
-                    return GetModelIcon(modelID);
+                    sprite = GetModelIcon(seedDef.GetModelID());
                 }
-                else if (seedType == SeedTypes.OPTION)
-                {
-                    var optionID = seedDef.GetSeedOptionID();
-                    if (!NamespaceID.IsValid(optionID))
-                        return GetDefaultSprite();
-                    var optionDef = Main.Game.GetSeedOptionDefinition(optionID);
-                    if (optionDef == null)
-                        return GetDefaultSprite();
-                    var iconID = optionDef.GetIcon();
-                    return GetSprite(iconID);
-                }
+                return sprite;
             }
             return GetDefaultSprite();
         }

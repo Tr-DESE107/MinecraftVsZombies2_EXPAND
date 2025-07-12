@@ -509,9 +509,9 @@ namespace MVZ2.Level
             // 更新场景。
             if (model)
             {
+                model.UpdateAnimators(uiDeltaTime);
                 model.UpdateFrame(uiDeltaTime);
                 model.SetSimulationSpeed(uiSimulationSpeed);
-                model.UpdateAnimators(uiDeltaTime);
             }
 
             if (level != null)

@@ -27,6 +27,8 @@ namespace MVZ2Logic.Games
         public IModelMeta[] GetModModelMetas(string spaceName);
         public ISeedOptionMeta GetSeedOptionMeta(NamespaceID id);
         public ISeedOptionMeta[] GetModSeedOptionMetas(string spaceName);
+        public IEntitySeedMeta GetEntitySeedMeta(NamespaceID id);
+        public IEntitySeedMeta[] GetModEntitySeedMetas(string spaceName);
         public ISpawnMeta GetSpawnMeta(NamespaceID id);
         public ISpawnMeta[] GetModSpawnMetas(string spaceName);
         public IGridLayerMeta GetGridLayerMeta(NamespaceID id);

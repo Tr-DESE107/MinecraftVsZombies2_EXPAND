@@ -166,11 +166,11 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
         }
-        public static void FillUFOPossibleSpawnGrids(LevelEngine level, int variant, HashSet<LawnGrid> results)
+        public static void FillUFOPossibleSpawnGrids(LevelEngine level, int variant, int faction, HashSet<LawnGrid> results)
         {
-            foreach (var pair in behaviours)
+            if (behaviours.TryGetValue(variant, out var behaviour))
             {
-                pair.Value.GetPossibleSpawnGrids(level, results);
+                behaviour.GetPossibleSpawnGrids(level, faction, results);
             }
         }
         public static IEnumerable<LawnGrid> FilterConflictSpawnGrids(LevelEngine level, IEnumerable<LawnGrid> possibleGrids)

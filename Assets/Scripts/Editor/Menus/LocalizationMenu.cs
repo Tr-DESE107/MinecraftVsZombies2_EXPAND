@@ -114,6 +114,11 @@ namespace MVZ2.Editor
             {
                 AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", VanillaStrings.CONTEXT_OPTION_NAME);
             }
+            foreach (var entity in blueprintsList.Entities)
+            {
+                AddTranslation(potGenerator, entity.Name, blueprintsReference, $"Name for entity blueprint {entity.ID}", VanillaStrings.CONTEXT_ENTITY_NAME);
+                AddTranslation(potGenerator, entity.Tooltip, blueprintsReference, $"Tooltip for entity blueprint {entity.ID}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
+            }
             potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
             Debug.Log("Almanac Translations Updated.");
         }
