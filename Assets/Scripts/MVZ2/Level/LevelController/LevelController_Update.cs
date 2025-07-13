@@ -252,7 +252,7 @@ namespace MVZ2.Level
             var uiDeltaTime = deltaTime * uiSimulationSpeed;
 
             float darknessSpeed = 2;
-            if (!IsGameStarted() || IsGameOver())
+            if (!IsGameStarted() || IsGameOver() || level.IsCleared)
             {
                 darknessSpeed = -2;
             }
