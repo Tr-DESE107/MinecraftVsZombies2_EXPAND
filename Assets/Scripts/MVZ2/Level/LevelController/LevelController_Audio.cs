@@ -1,0 +1,69 @@
+﻿using MVZ2.Vanilla.Level;
+using PVZEngine;
+using UnityEngine;
+
+namespace MVZ2.Level
+{
+    public partial class LevelController
+    {
+        public void SetMusicLowQuality(bool lowQuality)
+        {
+            normalAudioListener.SetActive(!lowQuality);
+            lowQualityAudioListener.SetActive(lowQuality);
+        }
+        private void StartGame_Audio()
+        {
+            Music.Play(level.GetMusicID());
+            MusicTime = 0;
+            MusicTrackWeight = 0;
+        }
+        private void WriteToSerializable_Audio(SerializableLevelController seri)
+        {
+            seri.musicID = CurrentMusic;
+            seri.musicTime = MusicTime;
+            seri.musicVolume = MusicVolume;
+            seri.musicTrackWeight = MusicTrackWeight;
+        }
+        private void ReadFromSerializable_Audio(SerializableLevelController seri)
+        {
+            CurrentMusic = seri.musicID;
+            MusicTime = seri.musicTime;
+            MusicVolume = seri.musicVolume;
+        }
+        public NamespaceID CurrentMusic
+        {
+            get => Music.GetCurrentMusicID();
+            set
+            {
+                if (NamespaceID.IsValid(value))
+                {
+                    Music.Play(value);
+                }
+                else
+                {
+                    Music.Stop();
+                }
+            }
+        }
+        public float MusicTime
+        {
+            get => Music.Time;
+            set => Music.Time = value;
+        }
+        public float MusicVolume
+        {
+            get => Music.GetVolume();
+            set => Music.SetVolume(value);
+        }
+        public float MusicTrackWeight
+        {
+            get => Music.GetTrackWeight();
+            set => Music.SetTrackWeight(value);
+        }
+        [Header("Audio")]
+        [SerializeField]
+        private GameObject normalAudioListener;
+        [SerializeField]
+        private GameObject lowQualityAudioListener;
+    }
+}

@@ -1,0 +1,201 @@
+﻿using System.Collections.Generic;
+using MVZ2.Cursors;
+using MVZ2.GameContent.HeldItems;
+using MVZ2.GameContent.Pickups;
+using MVZ2.HeldItems;
+using MVZ2.Level.UI;
+using MVZ2.Models;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.HeldItems;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.SeedPacks;
+using MVZ2Logic;
+using MVZ2Logic.HeldItems;
+using MVZ2Logic.Level;
+using PVZEngine;
+using PVZEngine.Models;
+using PVZEngine.SeedPacks;
+using UnityEngine;
+
+namespace MVZ2.Level
+{
+    public partial class LevelController
+    {
+        public void SetHeldItemUI(IHeldItemData data)
+        {
+            var definition = data.Definition;
+
+            // 设置图标。
+            var modelID = definition?.GetModelID(level, data);
+            SetHeldItemModel(modelID, definition, data);
+
+            // 显示触发器图标。
+            UpdateHeldItemIcons(definition, data);
+
+            // 设置射线检测。
+            UpdateHeldItemRaycaster(definition, data);
+
+            // 设置光标。
+            UpdateHeldItemCursor(data.Type, modelID);
+
+            // 更新网格。
+            UpdateGridHighlight();
+        }
+        public Model GetHeldItemModel()
+        {
+            return ui.GetHeldItemModel();
+        }
+        public IModelInterface GetHeldItemModelInterface()
+        {
+            return heldItemModelInterface;
+        }
+
+        private void Awake_HeldItem()
+        {
+            heldItemModelInterface = new HeldItemModelInterface(this);
+            ui.SetHeldItemModel(new ModelViewData(null, GetCamera()));
+        }
+        private void UpdateHeldItemPosition()
+        {
+            bool isPressing = Input.touchCount > 0 || Input.GetMouseButton(0);
+            Vector2 heldItemPosition;
+            if (Main.InputManager.GetActivePointerType() == PointerTypes.TOUCH && !isPressing && !level.KeepHeldItemInScreen())
+            {
+                heldItemPosition = new Vector2(-1000, -1000);
+            }
+            else
+            {
+                heldItemPosition = levelCamera.Camera.ScreenToWorldPoint(Main.InputManager.GetPointerPosition());
+            }
+            ui.SetHeldItemPosition(heldItemPosition);
+        }
+        private void SetHeldItemModel(NamespaceID modelID, HeldItemDefinition definition, IHeldItemData data)
+        {
+            var viewData = new ModelViewData(modelID, GetCamera());
+            ui.SetHeldItemModel(viewData);
+            var model = GetHeldItemModel();
+            if (model != null)
+            {
+                model.SetShaderInt("_LightDisabled", 1);
+                definition?.PostSetModel(level, data, heldItemModelInterface);
+            }
+        }
+        private void UpdateHeldItemIcons(HeldItemDefinition definition, IHeldItemData data)
+        {
+            bool triggerVisible = false;
+            if (data.Type == VanillaHeldTypes.blueprintPickup)
+            {
+                var blueprintPickup = level.GetHoldingEntity(data);
+                var seedDef = BlueprintPickup.GetSeedDefinition(blueprintPickup);
+                if (seedDef.IsTriggerActive() && seedDef.CanInstantTrigger())
+                {
+                    triggerVisible = true;
+                }
+            }
+            else
+            {
+                SeedPack blueprint = definition?.GetSeedPack(level, data);
+                if (blueprint != null && blueprint.IsTriggerActive() && blueprint.CanInstantTrigger())
+                {
+                    triggerVisible = true;
+                }
+            }
+            ui.SetHeldItemTrigger(triggerVisible, data.InstantTrigger);
+            ui.SetHeldItemImbued(data.InstantEvoke);
+        }
+        private void UpdateHeldItemRaycaster(HeldItemDefinition definition, IHeldItemData data)
+        {
+            // 设置射线检测图层。
+            List<int> layers = new List<int>();
+            layers.Add(Layers.RAYCAST_RECEIVER);
+            layers.Add(Layers.GRID);
+            layers.Add(Layers.DEFAULT);
+            layers.Add(Layers.PICKUP);
+            LayerMask layerMask = Layers.GetMask(layers.ToArray());
+
+            var uiPreset = GetUIPreset();
+            uiPreset.SetRaycasterMask(layerMask);
+            levelRaycaster.eventMask = layerMask;
+
+            // 设置射线检测半径。
+            var radius = (definition?.GetRadius(level, data) ?? 0) * LawnToTransScale;
+            levelRaycaster.SetHeldItem(definition, data, radius);
+        }
+        private void UpdateHeldItemCursor(NamespaceID heldType, NamespaceID modelID)
+        {
+            bool isHeldItemNone = heldType == BuiltinHeldTypes.none || !NamespaceID.IsValid(modelID);
+            if (isHeldItemNone)
+            {
+                if (heldItemCursorSource != null)
+                {
+                    Main.CursorManager.RemoveCursorSource(heldItemCursorSource);
+                    heldItemCursorSource = null;
+                }
+            }
+            else
+            {
+                if (heldItemCursorSource == null)
+                {
+                    heldItemCursorSource = new HeldItemCursorSource(this);
+                    Main.CursorManager.AddCursorSource(heldItemCursorSource);
+                }
+            }
+        }
+        private void UpdateHeldItemCursorEnabled()
+        {
+            var enabled = IsGameRunning() && (level != null && !level.IsCleared);
+            if (heldItemCursorSource != null && enabled != heldItemCursorSource.Enabled)
+            {
+                heldItemCursorSource.SetEnabled(enabled);
+            }
+        }
+        public void UpdateEntityHeldTargetColliders(HeldTargetFlag mask)
+        {
+            foreach (var entity in entities)
+            {
+                entity.UpdateModelColliderActive(mask);
+            }
+        }
+        private void UpdateHeldSlotUI()
+        {
+            bool pickaxeDisabled = !level.CanUsePickaxe();
+            bool starshardDisabled = level.IsStarshardDisabled();
+            var uiPreset = GetUIPreset();
+            uiPreset.SetStarshardSelected(level.IsHoldingStarshard());
+            uiPreset.SetStarshardDisabled(starshardDisabled && level.ShouldShowStarshardDisableIcon());
+
+            var limit = level.GetPickaxeCountLimit();
+            var remainCount = level.GetPickaxeRemainCount();
+            var pickaxeNumberText = new PickaxeNumberText()
+            {
+                show = level.IsPickaxeCountLimited(),
+                text = $"{remainCount}/{limit}",
+                color = remainCount <= 0 ? Color.red : Color.white
+            };
+            uiPreset.SetPickaxeSelected(level.IsHoldingPickaxe());
+            uiPreset.SetPickaxeDisabled(pickaxeDisabled && level.ShouldShowPickaxeDisableIcon());
+            uiPreset.SetPickaxeNumberText(pickaxeNumberText);
+
+            uiPreset.SetTriggerSelected(level.IsHoldingTrigger());
+        }
+        private void ValidateHeldItem()
+        {
+            bool pickaxeDisabled = !level.CanUsePickaxe();
+            bool starshardDisabled = level.IsStarshardDisabled();
+            if (pickaxeDisabled && level.IsHoldingPickaxe())
+            {
+                level.ResetHeldItem();
+            }
+            if (starshardDisabled && level.IsHoldingStarshard())
+            {
+                level.ResetHeldItem();
+            }
+        }
+
+        #region 属性字段
+        private IModelInterface heldItemModelInterface;
+        private CursorSource heldItemCursorSource;
+        #endregion
+
+    }
+}

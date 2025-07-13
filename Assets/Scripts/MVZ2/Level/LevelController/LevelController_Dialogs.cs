@@ -1,0 +1,205 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using MukioI18n;
+using MVZ2.Level.UI;
+using MVZ2.Options;
+using MVZ2.Vanilla;
+using Tools;
+using UnityEngine;
+
+namespace MVZ2.Level
+{
+    public partial class LevelController
+    {
+        private void Awake_Dialogs()
+        {
+            ui.OnPauseDialogResumeClicked += UI_OnPauseDialogResumeClickedCallback;
+            ui.OnLevelLoadedDialogButtonClicked += UI_OnLevelLoadedDialogOptionClickedCallback;
+            ui.OnLevelErrorLoadingDialogButtonClicked += UI_OnLevelErrorLoadingDialogOptionClickedCallback;
+
+            ui.OnGameOverRetryButtonClicked += UI_OnGameOverRetryButtonClickedCallback;
+            ui.OnGameOverBackButtonClicked += UI_OnGameOverBackButtonClickedCallback;
+
+            ui.SetPauseDialogActive(false);
+            ui.SetOptionsDialogActive(false);
+            ui.SetGameOverDialogActive(false);
+            ui.SetLevelLoadedDialogVisible(false);
+            ui.SetLevelErrorLoadingDialogVisible(false);
+        }
+
+        #region 重新开始确认
+        public void ShowRestartConfirmDialog()
+        {
+            var title = Localization._(VanillaStrings.RESTART);
+            var desc = Localization._(DIALOG_DESC_RESTART);
+            Scene.ShowDialogSelect(title, desc, async (confirm) =>
+            {
+                if (confirm)
+                {
+                    await RestartLevel();
+                }
+            });
+        }
+        #endregion
+
+        #region 加载失败
+        public void ShowLevelErrorLoadingDialog(Exception e)
+        {
+            ShowLevelErrorLoadingDialog(Localization._(ERROR_LOAD_LEVEL_EXCEPTION, e.Message));
+        }
+        private void ShowLevelErrorLoadingDialog(string desc)
+        {
+            ui.SetLevelErrorLoadingDialogVisible(true);
+            ui.SetLevelErrorLoadingDialogDesc(desc);
+        }
+        private void ShowLevelLoadedDialog()
+        {
+            ui.SetLevelLoadedDialogVisible(true);
+        }
+        private void ShowLevelMismatchLoadingDialog(LevelDataIdentifierCompareResult compareResult)
+        {
+            var errorMessages = new List<string>();
+            if (compareResult.versionMismatches.Length > 0)
+            {
+                var messages = string.Join("\n", compareResult.versionMismatches.Select(m => GetVersionMismatchErrorMessage(m)));
+                var str = Localization._(ERROR_LOAD_LEVEL_IDENTIFIER_VERSION_NOT_MATCH, messages);
+                errorMessages.Add(str);
+            }
+            if (compareResult.missingMismatches.Length > 0)
+            {
+                var messages = string.Join("\n", compareResult.missingMismatches.Select(m => GetMissingIdentifierMismatchErrorMessage(m)));
+                var str = Localization._(ERROR_LOAD_LEVEL_IDENTIFIER_MISSING_IDENTIFIER, messages);
+                errorMessages.Add(str);
+            }
+            if (compareResult.additionalMismatches.Length > 0)
+            {
+                var messages = string.Join("\n", compareResult.additionalMismatches.Select(m => GetAdditionalIdentifierMismatchErrorMessage(m)));
+                var str = Localization._(ERROR_LOAD_LEVEL_IDENTIFIER_ADDITIONAL_IDENTIFIER, messages);
+                errorMessages.Add(str);
+            }
+            var errorMessageStr = string.Join("\n\n", errorMessages);
+            var error = Localization._(ERROR_LOAD_LEVEL_IDENTIFIER_NOT_MATCH, errorMessageStr);
+            ShowLevelErrorLoadingDialog(error);
+        }
+        private string GetVersionMismatchErrorMessage(LevelDataIdentifierPair pair)
+        {
+            return Localization._(ERROR_LOAD_LEVEL_IDENTIFIER_PAIR, pair.lhs.spaceName, pair.rhs.dataVersion, pair.lhs.dataVersion);
+        }
+        private string GetMissingIdentifierMismatchErrorMessage(LevelDataIdentifier identifier)
+        {
+            return Localization._(ERROR_LOAD_LEVEL_IDENTIFIER, identifier.spaceName, identifier.dataVersion);
+        }
+        private string GetAdditionalIdentifierMismatchErrorMessage(LevelDataIdentifier identifier)
+        {
+            var name = Main.ModManager.GetModInfo(identifier.spaceName)?.DisplayName ?? identifier.spaceName;
+            return Localization._(ERROR_LOAD_LEVEL_IDENTIFIER, name, identifier.dataVersion);
+        }
+        private async void UI_OnLevelLoadedDialogOptionClickedCallback(LevelLoadedDialog.ButtonType type)
+        {
+            switch (type)
+            {
+                case LevelLoadedDialog.ButtonType.Resume:
+                    ResumeGameDelayed(100);
+                    ui.SetLevelLoadedDialogVisible(false);
+                    levelLoaded = false;
+                    break;
+                case LevelLoadedDialog.ButtonType.Restart:
+                    ShowRestartConfirmDialog();
+                    break;
+                default:
+                    await ExitLevel();
+                    break;
+            }
+        }
+        private async void UI_OnLevelErrorLoadingDialogOptionClickedCallback(bool restart)
+        {
+            ui.SetLevelErrorLoadingDialogInteractable(false);
+            if (restart)
+            {
+                await RestartLevel();
+            }
+            else
+            {
+                await ExitLevel();
+            }
+        }
+        #endregion
+
+        #region 选项
+        private void ShowOptionsDialog()
+        {
+            ui.SetOptionsDialogActive(true);
+
+            optionsLogic = new OptionsLogicLevel(ui.OptionsDialog, this);
+            optionsLogic.InitDialog();
+            optionsLogic.OnClose += UI_OnOptionsMenuCloseCallback;
+        }
+        #endregion
+
+        #region 暂停
+        private void ShowPausedDialog()
+        {
+            var sprite = pauseImages.Random(rng);
+            ui.SetPauseDialogActive(true);
+            ui.SetPauseDialogImage(Main.GetFinalSprite(sprite));
+        }
+        private void UI_OnPauseDialogResumeClickedCallback()
+        {
+            ResumeGameDelayed(100);
+        }
+        #endregion
+
+        #region 游戏结束
+        private void ShowGameOverDialog()
+        {
+            string message;
+            if (killerID != null)
+            {
+                message = Resources.GetEntityDeathMessage(killerID);
+            }
+            else
+            {
+                message = deathMessage;
+            }
+            ui.SetGameOverDialogActive(true);
+            ui.SetGameOverDialogMessage(Localization._p(VanillaStrings.CONTEXT_DEATH_MESSAGE, message));
+        }
+        private async void UI_OnGameOverRetryButtonClickedCallback()
+        {
+            ui.SetGameOverDialogInteractable(false);
+            await RestartLevel();
+        }
+        private async void UI_OnGameOverBackButtonClickedCallback()
+        {
+            await ExitLevel();
+        }
+        #endregion
+
+        #region 属性字段
+
+        [TranslateMsg("对话框内容")]
+        public const string DIALOG_DESC_RESTART = "确认要重新开始关卡吗？\n本关的进度都将丢失。";
+        [TranslateMsg("对话框内容，{0}为错误信息")]
+        public const string ERROR_LOAD_LEVEL_EXCEPTION = "加载关卡失败，出现错误：{0}";
+        [TranslateMsg("对话框内容，{0}为错误信息")]
+        public const string ERROR_LOAD_LEVEL_IDENTIFIER_NOT_MATCH = "加载关卡失败，存档状态和当前游戏状态不匹配：\n{0}";
+        [TranslateMsg("关卡标识符名称，{0}为命名空间名，{1}为数据版本号")]
+        public const string ERROR_LOAD_LEVEL_IDENTIFIER = "{0}（版本{1}）";
+        [TranslateMsg("关卡标识符名称，{0}为命名空间名，{1}为数据版本号，{2}为当前数据版本号")]
+        public const string ERROR_LOAD_LEVEL_IDENTIFIER_PAIR = "{0}（版本{1}，当前状态为{2}）";
+        [TranslateMsg("对话框内容，{0}为不匹配的关卡标识符列表")]
+        public const string ERROR_LOAD_LEVEL_IDENTIFIER_VERSION_NOT_MATCH = "版本号不匹配：\n{0}";
+        [TranslateMsg("对话框内容，{0}为丢失的关卡标识符列表")]
+        public const string ERROR_LOAD_LEVEL_IDENTIFIER_MISSING_IDENTIFIER = "丢失的模组：\n{0}";
+        [TranslateMsg("对话框内容，{0}为多出的关卡标识符列表")]
+        public const string ERROR_LOAD_LEVEL_IDENTIFIER_ADDITIONAL_IDENTIFIER = "多出的模组：\n{0}";
+
+        private OptionsLogicLevel optionsLogic;
+
+        [Header("Dialogs")]
+        [SerializeField]
+        private List<Sprite> pauseImages = new List<Sprite>();
+        #endregion
+    }
+}

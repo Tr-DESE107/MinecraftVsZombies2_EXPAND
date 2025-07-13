@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
-using MVZ2.Cameras;
 using MVZ2.Level.UI;
-using MVZ2.Rendering;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
@@ -17,61 +14,8 @@ using UnityEngine;
 
 namespace MVZ2.Level
 {
-    public partial class LevelController : MonoBehaviour, IDisposable
+    public partial class LevelController
     {
-        public Camera GetCamera()
-        {
-            return levelCamera.Camera;
-        }
-        #region 私有方法
-
-        #region 移动相机
-        private void SetCameraPosition(LevelCameraPosition position)
-        {
-            var pos = cameraHousePosition;
-            var anchor = cameraHouseAnchor;
-            switch (position)
-            {
-                case LevelCameraPosition.Lawn:
-                    pos = cameraLawnPosition;
-                    anchor = cameraLawnAnchor;
-                    break;
-                case LevelCameraPosition.Choose:
-                    pos = cameraChoosePosition;
-                    anchor = cameraChooseAnchor;
-                    break;
-            }
-            levelCamera.SetPosition(pos, anchor);
-        }
-        private IEnumerator MoveCameraLawn(Vector3 target, Vector2 targetAnchor, float maxTime)
-        {
-            float time = 0;
-            Vector3 start = levelCamera.CameraPosition;
-            Vector2 startAnchor = levelCamera.CameraAnchor;
-            while (time < maxTime)
-            {
-                time = Mathf.Clamp(time + Time.deltaTime, 0, maxTime);
-                var lerp = cameraMoveCurve.Evaluate(time / maxTime);
-                var pos = Vector3.Lerp(start, target, lerp);
-                var anchor = Vector2.Lerp(startAnchor, targetAnchor, lerp);
-                levelCamera.SetPosition(pos, anchor);
-                yield return null;
-            }
-        }
-        private IEnumerator MoveCameraToHouse()
-        {
-            return MoveCameraLawn(cameraHousePosition, cameraHouseAnchor, 1f);
-        }
-        public IEnumerator MoveCameraToLawn()
-        {
-            return MoveCameraLawn(cameraLawnPosition, cameraLawnAnchor, 1f);
-        }
-        public IEnumerator MoveCameraToChoose()
-        {
-            return MoveCameraLawn(cameraChoosePosition, cameraChooseAnchor, 1f);
-        }
-        #endregion
-
         #region 游戏开始
         private void GameStartInstantTransition()
         {
@@ -200,64 +144,6 @@ namespace MVZ2.Level
                 StartCoroutine(ExitLevelTransition(delay));
             }
         }
-        #endregion
-
-        private void UpdateCamera()
-        {
-            var targetRotation = level.GetCameraRotation();
-            if (!IsGameStarted() || IsGameOver())
-            {
-                targetRotation = 0;
-            }
-            var rotation = levelCamera.GetRotation();
-            levelCamera.SetSpace(Main.IsMobile() ? cameraLeftSpaceMobile : cameraLeftSpaceStandalone);
-            levelCamera.SetRotation(rotation * 0.8f + targetRotation * 0.2f);
-
-            var camera = levelCamera.Camera;
-            var cameraHeight = camera.orthographicSize * 2;
-            var cameraWidth = cameraHeight * camera.aspect;
-            var cameraSize = new Vector2(cameraWidth, cameraHeight);
-            var anchorOffset = levelCamera.CameraAnchor - Vector2.one * 0.5f;
-            var cameraCenter = levelCamera.CameraPosition - (Vector3)(anchorOffset * cameraSize);
-            var cameraMin = cameraCenter - (Vector3)(cameraSize * 0.5f);
-            var width = (cameraLimitX - cameraMin.x) / cameraLimitX;
-            var preset = ui.GetUIPreset();
-            preset.SetCameraLimitWidth(width);
-
-            downgradeScript.enabled = level.AreGraphicsDowngrade();
-        }
-
-        #endregion
-
-        #region 属性字段
-
-        [Header("Cameras")]
-        [SerializeField]
-        private GameObject cameraRoot;
-        [SerializeField]
-        private LevelCamera levelCamera;
-        [SerializeField]
-        private RenderDowngrade downgradeScript;
-        [SerializeField]
-        private AnimationCurve cameraMoveCurve;
-        [SerializeField]
-        private float cameraLimitX = 2.2f;
-        [SerializeField]
-        private float cameraLeftSpaceMobile = 2.2f;
-        [SerializeField]
-        private float cameraLeftSpaceStandalone = 0;
-        [SerializeField]
-        private Vector3 cameraHousePosition = new Vector3(0, 3, -10);
-        [SerializeField]
-        private Vector2 cameraHouseAnchor = new Vector2(0, 0.5f);
-        [SerializeField]
-        private Vector3 cameraLawnPosition = new Vector3(10.2f, 3, -10);
-        [SerializeField]
-        private Vector2 cameraLawnAnchor = new Vector2(1, 0.5f);
-        [SerializeField]
-        private Vector3 cameraChoosePosition = new Vector3(14, 3, -10);
-        [SerializeField]
-        private Vector2 cameraChooseAnchor = new Vector2(1, 0.5f);
         #endregion
     }
 }

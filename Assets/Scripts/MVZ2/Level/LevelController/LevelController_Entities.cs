@@ -1,73 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using MukioI18n;
-using MVZ2.Collisions;
 using MVZ2.Entities;
-using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Effects;
 using MVZ2.Level.UI;
 using MVZ2.Managers;
-using MVZ2.Supporters;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
-using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using PVZEngine.Level.Collisions;
-using Tools;
+using PVZEngine.Level;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Pool;
 
 namespace MVZ2.Level
 {
-    public partial class LevelController : MonoBehaviour, IDisposable
+    public partial class LevelController
     {
-        #region 公有方法
-        public EntityController GetEntityController(Entity entity)
-        {
-            return entities.FirstOrDefault(e => e.Entity == entity);
-        }
-        #endregion
-
-        #region 私有方法
-
         private void Awake_Entities()
         {
             entityControllerPool = new ObjectPool<EntityController>(CreateEntityControllerFunc, GetEntityControllerFunc, ReleaseEntityControllerFunc, DestroyEntityControllerFunc);
         }
+        private void AddLevelCallbacks_Entities(LevelEngine level)
+        {
+            level.OnEntitySpawn += OnEngineEntitySpawnCallback;
+            level.OnEntityRemove += OnEngineEntityRemoveCallback;
+        }
+        private void WriteToSerializable_Entities(SerializableLevelController seri)
+        {
+            seri.entities = entities.Select(e => e.ToSerializable()).ToArray();
+        }
+        private void ReadFromSerializable_Entities(SerializableLevelController seri)
+        {
+            foreach (var entity in level.GetEntities())
+            {
+                var controller = CreateControllerForEntity(entity);
+
+                var seriEntity = seri.entities.FirstOrDefault(e => e.id == entity.ID);
+                if (seriEntity == null)
+                    throw new SerializationException($"Could not find entity data with id {entity.ID} in the level state data.");
+                controller.LoadFromSerializable(seriEntity);
+                controller.UpdateAnimators(0);
+                controller.UpdateFrame(0);
+            }
+        }
 
         #region 事件回调
-        private void Engine_OnEntitySpawnCallback(Entity entity)
+        private void OnEngineEntitySpawnCallback(Entity entity)
         {
             CreateControllerForEntity(entity);
         }
-        private void Engine_OnEntityRemoveCallback(Entity entity)
+        private void OnEngineEntityRemoveCallback(Entity entity)
         {
             RemoveControllerFromEntity(entity);
-        }
-        private void Engine_PostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
-        {
-            var entity = param.entity;
-            var seed = param.blueprint;
-            var definition = param.definition;
-            var heldData = param.heldData;
-            if (!Main.OptionsManager.ShowSponsorNames())
-                return;
-            if (entity.IsEntityOf(VanillaContraptionID.furnace))
-            {
-                ShowFurnaceSponsorName(entity);
-            }
-            else if (entity.IsEntityOf(VanillaContraptionID.moonlightSensor))
-            {
-                ShowMoonlightSensorSponsorName(entity);
-            }
         }
         private void UI_OnEntityPointerInteractionCallback(EntityController entityCtrl, PointerEventData eventData, PointerInteraction interaction)
         {
@@ -81,83 +71,79 @@ namespace MVZ2.Level
 
             if (interaction == PointerInteraction.Enter) // 指针进入
             {
-                SetHoveredEntity(entityCtrl);
-                if (!IsGameRunning())
-                {
-                    // 显示查看图鉴提示
-                    if (entityCtrl.Entity.IsPreviewEnemy() && CanChooseBlueprints())
-                    {
-                        ShowTooltip(new EntityTooltipSource(this, entityCtrl));
-                    }
-                }
+                OnEntityPointerEnter(entityCtrl);
             }
             else if (interaction == PointerInteraction.Exit) // 指针退出
             {
-                SetHoveredEntity(null);
-                // 隐藏查看图鉴提示
-                if (entityCtrl.Entity.IsPreviewEnemy())
-                {
-                    HideTooltip();
-                }
+                OnEntityPointerExit(entityCtrl);
             }
             else if (interaction == PointerInteraction.Down) // 指针按下
             {
-                if (!IsGameRunning())
-                {
-                    var pointer = InputManager.GetPointerDataFromEventData(eventData);
-                    var entity = entityCtrl.Entity;
-                    if (pointer.type != PointerTypes.MOUSE || pointer.button == MouseButtons.LEFT)
-                    {
-                        // 打开图鉴
-                        if (entity.IsPreviewEnemy() && Main.SaveManager.IsAlmanacUnlocked() && CanChooseBlueprints())
-                        {
-                            var entityID = entityCtrl.Entity.GetDefinitionID();
-                            if (Main.ResourceManager.IsEnemyInAlmanac(entityID) && Main.SaveManager.IsEnemyUnlocked(entityID))
-                            {
-                                HideTooltip();
-                                OpenEnemyAlmanac(entity.GetDefinitionID());
-                                Main.SoundManager.Play2D(VanillaSoundID.tap);
-                            }
-                        }
-                    }
-                }
+                OnEntityPointerDown(entityCtrl, eventData);
             }
         }
-        #endregion
-
-        #region 叫声
-        private void UpdateEnemyCry()
+        private void OnEntityPointerEnter(EntityController entityCtrl)
         {
-            if (level.IsTimeInterval(7))
+            SetHoveredEntity(entityCtrl);
+            // 显示查看图鉴提示
+            if (!IsGameStarted() && entityCtrl.Entity.IsPreviewEnemy() && CanChooseBlueprints())
             {
-                var crySoundEnemies = GetCrySoundEnemies();
-                var enemyCount = crySoundEnemies.Count();
-                float t = Mathf.Clamp01((float)(enemyCount - MinEnemyCryCount) / (MaxEnemyCryCount - MinEnemyCryCount));
-                maxCryTime = (int)Mathf.Lerp(MaxCryInterval, MinCryInterval, t);
-            }
-            cryTimer.Run();
-            if (cryTimer.MaxFrame - cryTimer.Frame >= maxCryTime)
-            {
-                cryTimer.Reset();
-
-                var crySoundEnemies = GetCrySoundEnemies();
-                var enemyCount = crySoundEnemies.Count();
-                if (enemyCount <= 0)
-                    return;
-                var crySoundEnemy = crySoundEnemies.Random(rng);
-                crySoundEnemy.PlayCrySound(crySoundEnemy.GetCrySound());
+                ShowTooltip(new EntityTooltipSource(this, entityCtrl));
             }
         }
-        private IEnumerable<Entity> GetCrySoundEnemies()
+        private void OnEntityPointerExit(EntityController entityCtrl)
         {
-            var enemies = level.GetEntities(EntityTypes.ENEMY);
-            if (enemies.Length <= 0)
-                return Enumerable.Empty<Entity>();
-            return enemies.Where(e => e.GetCrySound() != null);
+            SetHoveredEntity(null);
+            // 隐藏查看图鉴提示
+            if (entityCtrl.Entity.IsPreviewEnemy())
+            {
+                HideTooltip();
+            }
+        }
+        private void OnEntityPointerDown(EntityController entityCtrl, PointerEventData eventData)
+        {
+            if (IsGameStarted())
+                return;
+            var pointer = InputManager.GetPointerDataFromEventData(eventData);
+            var entity = entityCtrl.Entity;
+            if (pointer.type == PointerTypes.MOUSE && pointer.button != MouseButtons.LEFT)
+                return;
+            if (!entity.IsPreviewEnemy() || !Main.SaveManager.IsAlmanacUnlocked() || !CanChooseBlueprints())
+                return;
+            var entityID = entityCtrl.Entity.GetDefinitionID();
+            if (!Main.ResourceManager.IsEnemyInAlmanac(entityID) || !Main.SaveManager.IsEnemyUnlocked(entityID))
+                return;
+            HideTooltip();
+            OpenEnemyAlmanac(entity.GetDefinitionID());
+            Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
         #endregion
 
         #region 控制器
+        private EntityController CreateControllerForEntity(Entity entity)
+        {
+            var entityController = GetEntityControllerFromPool();
+            entityController.Init(this, entity);
+            entityController.OnPointerInteraction += UI_OnEntityPointerInteractionCallback;
+            entities.Add(entityController);
+            return entityController;
+        }
+        private bool RemoveControllerFromEntity(Entity entity)
+        {
+            var entityController = GetEntityController(entity);
+            if (entityController)
+            {
+                entityController.OnPointerInteraction -= UI_OnEntityPointerInteractionCallback;
+                entityController.RemoveEntity();
+                ReleaseEntityControllerFromPool(entityController);
+                return entities.Remove(entityController);
+            }
+            return false;
+        }
+        public EntityController GetEntityController(Entity entity)
+        {
+            return entities.FirstOrDefault(e => e.Entity == entity);
+        }
         private EntityController CreateEntityControllerFunc()
         {
             return Instantiate(entityTemplate.gameObject, Vector3.zero, Quaternion.identity, entitiesRoot).GetComponent<EntityController>();
@@ -182,49 +168,9 @@ namespace MVZ2.Level
         {
             entityControllerPool.Release(entity);
         }
-        private EntityController CreateControllerForEntity(Entity entity)
-        {
-            var entityController = GetEntityControllerFromPool();
-            entityController.Init(this, entity);
-            entityController.OnPointerInteraction += UI_OnEntityPointerInteractionCallback;
-            entities.Add(entityController);
-            return entityController;
-        }
-        private bool RemoveControllerFromEntity(Entity entity)
-        {
-            var entityController = GetEntityController(entity);
-            if (entityController)
-            {
-                entityController.OnPointerInteraction -= UI_OnEntityPointerInteractionCallback;
-                entityController.RemoveEntity();
-                ReleaseEntityControllerFromPool(entityController);
-                return entities.Remove(entityController);
-            }
-            return false;
-        }
         #endregion
 
-        #region 赞助者
-        private void ShowFurnaceSponsorName(Entity furnace)
-        {
-            var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.FURNACE);
-            if (names.Length <= 0)
-                return;
-            var text = furnace.Spawn(VanillaEffectID.floatingText, furnace.GetCenter(), rng.Next());
-            var name = names.Random(text.RNG);
-            FloatingText.SetText(text, name);
-        }
-        private void ShowMoonlightSensorSponsorName(Entity sensor)
-        {
-            var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Sensor.TYPE, SponsorPlans.Sensor.MOONLIGHT_SENSOR);
-            if (names.Length <= 0)
-                return;
-            var text = sensor.Spawn(VanillaEffectID.floatingText, sensor.GetCenter(), rng.Next());
-            var name = names.Random(text.RNG);
-            FloatingText.SetText(text, name);
-        }
-        #endregion
-
+        #region 高亮
         private void SetHoveredEntity(EntityController entity)
         {
             hoveredEntity = entity;
@@ -266,13 +212,9 @@ namespace MVZ2.Level
                 highlightedEntity.SetHighlight(true);
             }
         }
+        #endregion
 
-        private ICollisionSystem GetCollisionSystem()
-        {
-            return builtinCollisionSystem;
-            //return unityCollisionSystem;
-        }
-
+        #region 动画
         private void UpdateEntityAnimators(IList<Animator> toUpdate, float deltaTime, float gameSpeed, float maxBatchPercentage)
         {
             var count = toUpdate.Count;
@@ -292,16 +234,11 @@ namespace MVZ2.Level
             }
             currentEntityAnimatorIndex = (updateCount + startIndex) % count;
         }
-
         #endregion
 
         #region 属性字段
         public const int SelfFaction = 0;
         public const int EnemyFaction = 1;
-        public const int MinEnemyCryCount = 1;
-        public const int MaxEnemyCryCount = 20;
-        public const int MinCryInterval = 60;
-        public const int MaxCryInterval = 300;
 
         [TranslateMsg("实体提示", VanillaStrings.CONTEXT_ENTITY_TOOLTIP)]
         public const string VIEW_IN_ALMANAC = "在图鉴中查看";
@@ -313,19 +250,11 @@ namespace MVZ2.Level
         private List<Animator> entityAnimatorBuffer = new List<Animator>();
         private int currentEntityAnimatorIndex = 0;
 
-        #region 保存属性
-        private FrameTimer cryTimer = new FrameTimer(MaxCryInterval);
-        private int maxCryTime = MaxCryInterval;
-        #endregion
-
         [Header("Entities")]
         [SerializeField]
         private EntityController entityTemplate;
         [SerializeField]
         private Transform entitiesRoot;
-        [SerializeField]
-        private UnityCollisionSystem unityCollisionSystem;
-        private BuiltinCollisionSystem builtinCollisionSystem;
         #endregion
 
         private class EntityTooltipSource : ITooltipSource

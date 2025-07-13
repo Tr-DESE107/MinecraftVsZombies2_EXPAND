@@ -1,0 +1,82 @@
+﻿using System.Collections.Generic;
+using MVZ2.Collisions;
+using PVZEngine.Entities;
+using PVZEngine.Level.Collisions;
+using UnityEngine;
+
+namespace MVZ2.Level
+{
+    public partial class LevelController
+    {
+        private void Awake_Collision()
+        {
+            var quadTreeParams = new QuadTreeParams()
+            {
+                maxDepth = 6,
+                maxObjects = 3,
+                size = new Rect(0, -500, 1600, 1600),
+            };
+            builtinCollisionSystem = new BuiltinCollisionSystem(quadTreeParams);
+        }
+        private void OnDrawGizmos()
+        {
+            if (level == null)
+                return;
+            List<BuiltinCollisionCollider> buffer = new List<BuiltinCollisionCollider>();
+            for (int i = 1; i < 8; i++)
+            {
+                var flag = EntityCollisionHelper.GetTypeMask(i);
+                var quadTree = builtinCollisionSystem.GetCollisionQuadTree(flag);
+                if (quadTree == null)
+                    continue;
+                var node = quadTree.GetRootNode();
+                Gizmos.color = Color.HSVToRGB(i / 8f, 1, 1);
+                DrawQuadTreeNode(node);
+                buffer.Clear();
+                quadTree.GetAllTargets(buffer);
+                foreach (var collider in buffer)
+                {
+                    if (collider is BuiltinCollisionCollider builtinCollider)
+                    {
+                        DrawHitbox(builtinCollider.GetHitbox());
+                    }
+                }
+            }
+        }
+        private void DrawQuadTreeNode(QuadTreeNode<BuiltinCollisionCollider> node)
+        {
+            Rect rect = node.GetRect();
+            var min = rect.min * 0.01f;
+            var max = rect.max * 0.01f;
+            var size2D = max - min;
+            var center2D = min + size2D * 0.5f;
+            var size = new Vector3(size2D.x, 0, size2D.y);
+            var center = new Vector3(center2D.x, 0, center2D.y);
+            Gizmos.DrawWireCube(center, size);
+
+            var childCount = node.GetChildCount();
+            for (int i = 0; i < childCount; i++)
+            {
+                var child = node.GetChild(i);
+                DrawQuadTreeNode(child);
+            }
+        }
+        private void DrawHitbox(Hitbox hitbox)
+        {
+            Bounds bounds = hitbox.GetBounds();
+            var size = bounds.size * 0.01f;
+            var center = bounds.center * 0.01f;
+            Gizmos.DrawWireCube(center, size);
+        }
+
+        private ICollisionSystem GetCollisionSystem()
+        {
+            return builtinCollisionSystem;
+            //return unityCollisionSystem;
+        }
+        [Header("Collision")]
+        [SerializeField]
+        private UnityCollisionSystem unityCollisionSystem;
+        private BuiltinCollisionSystem builtinCollisionSystem;
+    }
+}

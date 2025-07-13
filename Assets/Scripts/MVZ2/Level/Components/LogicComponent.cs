@@ -12,7 +12,7 @@ namespace MVZ2.Level.Components
         }
         public void BeginLevel()
         {
-            Controller.StartLevelTransition();
+            Controller.StartLevelIntroTransition();
         }
         public void StopLevel()
         {

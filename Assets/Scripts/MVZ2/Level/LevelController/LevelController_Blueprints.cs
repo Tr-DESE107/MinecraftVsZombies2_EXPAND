@@ -1,0 +1,30 @@
+﻿using UnityEngine;
+
+namespace MVZ2.Level
+{
+    public partial class LevelController
+    {
+        private void Awake_Blueprints()
+        {
+            ui.BlueprintChoose.SetViewLawnReturnBlockerActive(false);
+            ui.Blueprints.SetConveyorMode(false);
+
+            var uiPreset = GetUIPreset();
+            uiPreset.OnBlueprintPointerInteraction += UI_OnBlueprintPointerInteractionCallback;
+        }
+        private void StartGame_Blueprints()
+        {
+            ui.SetBlueprintsSortingToChoosing(false);
+        }
+        public bool CanChooseBlueprints()
+        {
+            return BlueprintChoosePart.IsInteractable();
+        }
+        public ILevelBlueprintController BlueprintController => blueprintController;
+        public ILevelBlueprintChooseController BlueprintChoosePart => blueprintChooseController;
+        [SerializeField]
+        LevelBlueprintController blueprintController;
+        [SerializeField]
+        LevelBlueprintChooseController blueprintChooseController;
+    }
+}

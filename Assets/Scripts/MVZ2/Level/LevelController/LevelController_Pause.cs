@@ -1,0 +1,89 @@
+﻿using System.Collections;
+using MVZ2Logic.Level;
+
+namespace MVZ2.Level
+{
+    public partial class LevelController
+    {
+        public bool IsGamePaused()
+        {
+            return isPaused;
+        }
+        private bool IsPauseDisabled()
+        {
+            if (level == null)
+                return true;
+            return level.IsPauseDisabled();
+        }
+        public void PauseGame(int pauseLevel = 0)
+        {
+            if (isPaused)
+            {
+                if (pauseLevel > this.pauseLevel)
+                {
+                    this.pauseLevel = pauseLevel;
+                }
+                return;
+            }
+            this.pauseLevel = pauseLevel;
+            isPaused = true;
+            Music.Pause();
+        }
+        public void ResumeGameDelayed(int level = 0)
+        {
+            StartCoroutine(coroutine());
+
+            IEnumerator coroutine()
+            {
+                yield return null;
+
+                ResumeGame(level);
+            }
+        }
+        public bool ResumeGame(int level = 0)
+        {
+            if (!isPaused || level < pauseLevel)
+                return false;
+            if (Main.Scene.HasDialog())
+                return false;
+            pauseLevel = 0;
+            isPaused = false;
+            Music.Resume();
+
+            if (optionsLogic != null)
+            {
+                optionsLogic.Dispose();
+                optionsLogic = null;
+            }
+            ui.SetPauseDialogActive(false);
+            ui.SetOptionsDialogActive(false);
+            ui.SetLevelLoadedDialogVisible(false);
+            levelLoaded = false;
+            return true;
+        }
+        private void OnApplicationFocus(bool focus)
+        {
+            UpdateFocusLost(focus);
+        }
+        private void UpdateFocusLost(bool focus)
+        {
+            if (IsInputDisabled())
+                return;
+            if (!IsGameRunning())
+                return;
+            if (focus)
+                return;
+            if (!Options.GetPauseOnFocusLost())
+                return;
+            if (IsPauseDisabled())
+                return;
+            PauseGame();
+            ShowPausedDialog();
+        }
+
+        #region 属性字段
+        private bool isPaused = false;
+        private int pauseLevel = 0;
+        #endregion
+    }
+}

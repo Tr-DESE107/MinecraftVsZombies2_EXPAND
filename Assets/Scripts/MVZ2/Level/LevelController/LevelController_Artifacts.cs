@@ -1,0 +1,30 @@
+﻿using MVZ2Logic.Level;
+
+namespace MVZ2.Level
+{
+    public partial class LevelController
+    {
+        private void Awake_Artifacts()
+        {
+            var uiPreset = GetUIPreset();
+            uiPreset.OnArtifactPointerEnter += UI_OnArtifactPointerEnterCallback;
+            uiPreset.OnArtifactPointerExit += UI_OnArtifactPointerExitCallback;
+        }
+
+        #region 制品
+        private void UI_OnArtifactPointerEnterCallback(int index)
+        {
+            var uiPreset = GetUIPreset();
+            var artifact = level.GetArtifactAt(index);
+            if (artifact?.Definition == null)
+                return;
+            var artifactID = artifact.Definition.GetID();
+            ShowTooltip(new ArtifactTooltipSource(this, artifactID, uiPreset.GetArtifactAt(index)));
+        }
+        private void UI_OnArtifactPointerExitCallback(int index)
+        {
+            HideTooltip();
+        }
+        #endregion
+    }
+}

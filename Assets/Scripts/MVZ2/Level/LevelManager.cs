@@ -29,8 +29,7 @@ namespace MVZ2.Level
             if (!controller)
                 return;
             Main.SaveManager.SaveToFile(); // 关卡开始时保存游戏
-            controller.StartStageID = stageID;
-            controller.StartAreaID = areaID;
+            controller.SetStartStage(areaID, stageID);
             if (HasLevelState(stageID))
             {
                 LoadLevel(areaID, stageID);

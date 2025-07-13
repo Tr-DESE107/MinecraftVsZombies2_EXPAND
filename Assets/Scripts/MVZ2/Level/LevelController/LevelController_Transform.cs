@@ -1,0 +1,80 @@
+﻿using UnityEngine;
+
+namespace MVZ2.Level
+{
+    public partial class LevelController
+    {
+        #region 方位
+        public Vector3 LawnToTrans(Vector3 pos)
+        {
+            pos *= LawnToTransScale;
+            Vector3 vector = new Vector3(pos.x, pos.z + pos.y, pos.z);
+            vector += transform.position;
+            return vector;
+        }
+        public Vector3 TransToLawn(Vector3 pos)
+        {
+            pos -= transform.position;
+            Vector3 vector = new Vector3(pos.x, pos.y - pos.z, pos.z);
+            vector *= TransToLawnScale;
+            return vector;
+        }
+        public Vector3 LawnToTransDistance(Vector3 distance)
+        {
+            distance *= LawnToTransScale;
+            return new Vector3(distance.x, distance.z + distance.y, distance.z);
+        }
+        public Vector3 TransToLawnDistance(Vector3 distance)
+        {
+            Vector3 vector = new Vector3(distance.x, distance.y - distance.z, distance.z);
+            vector *= TransToLawnScale;
+            return vector;
+        }
+        public Vector3 ScreenToLawnPositionByZ(Vector2 screenPosition, float z)
+        {
+            var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
+            worldPosition.z = transform.position.z;
+
+            var lawnPosition = TransToLawn(worldPosition);
+            lawnPosition.z = z;
+            lawnPosition.y -= z;
+
+            return lawnPosition;
+        }
+        public Vector3 ScreenToLawnPositionByY(Vector2 screenPosition, float y)
+        {
+            var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
+            worldPosition.z = transform.position.z;
+
+            var lawnPosition = TransToLawn(worldPosition);
+            lawnPosition.z = lawnPosition.y - y;
+            lawnPosition.y = y;
+
+            return lawnPosition;
+        }
+        public Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY)
+        {
+            var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
+            worldPosition.z = transform.position.z;
+
+            var lawnPosition = TransToLawn(worldPosition);
+            var targetY = lawnPosition.y;
+            var x = lawnPosition.x;
+            var currentZ = targetY;
+            for (int i = 1; i < 8; i++)
+            {
+                var yOffset = level.GetGroundY(x, currentZ) + relativeY;
+                var result = yOffset + currentZ;
+                currentZ = currentZ + (currentZ - result) * 0.5f;
+            }
+            lawnPosition.z = currentZ;
+            lawnPosition.y = targetY - currentZ;
+
+            return lawnPosition;
+        }
+        #endregion
+
+        public float LawnToTransScale => LevelManager.LawnToTransScale;
+        public float TransToLawnScale => LevelManager.TransToLawnScale;
+    }
+}
