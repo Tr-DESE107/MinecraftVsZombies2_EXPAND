@@ -69,6 +69,9 @@ namespace MVZ2.GameContent.Stages
         public const string breakout = "breakout";
         public const string bigTroubleAndLittleZombie = "big_trouble_and_little_zombie";
 
+        public const string a_tooth_for_a_tooth = "a_tooth_for_a_tooth";
+        
+
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";
         public const string puzzleISkeleton = "puzzle_i_skeleton";

@@ -554,6 +554,7 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:wooden_dropper"/>
         <spawns flags="1">
+			<spawn id="mvz2:zombie"/>
             <spawn id="mvz2:WitherSkeleton"/>
             <spawn id="mvz2:LeatherWitherSkeleton"/>
             <spawn id="mvz2:IronWitherSkeleton"/>
@@ -1228,6 +1229,25 @@
             <bool name="noEnergy" value="true"/>
         </properties>
     </stage>
+
+	<stage id="a_tooth_for_a_tooth" name="以牙还牙" needBlueprints="false" type="minigame" music="mvz2:minigame">
+		<conveyor>
+			<entry id="mvz2:golden_apple" count="10"/>
+			<entry id="mvz2:magichest" count="5"/>
+		</conveyor>
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
+			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:leather_capped_zombie"/>
+			<spawn id="mvz2:iron_helmetted_zombie"/>
+			<spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:mummy"/>
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+			<bool name="noEnergy" value="true"/>
+		</properties>
+	</stage>
 
     <!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >

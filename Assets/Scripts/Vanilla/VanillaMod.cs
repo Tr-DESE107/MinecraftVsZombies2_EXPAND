@@ -220,6 +220,8 @@ namespace MVZ2.Vanilla
             AddDefinition(new WhackAGhostStage(spaceName, VanillaStageNames.whackAGhost));
             AddDefinition(new BreakoutStage(spaceName, VanillaStageNames.breakout));
             AddDefinition(new LittleZombieStage(spaceName, VanillaStageNames.bigTroubleAndLittleZombie));
+            //a_tooth_for_a_tooth
+            
             foreach (var meta in game.GetModStageMetas(spaceName))
             {
                 if (meta == null)
