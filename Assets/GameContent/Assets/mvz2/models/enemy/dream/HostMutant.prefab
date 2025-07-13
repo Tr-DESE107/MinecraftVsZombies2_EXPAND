@@ -91,7 +91,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3963725195638964487, guid: 5b197e2b4a8161c4e8f1808052883a63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 5237456030807457987, guid: 5b197e2b4a8161c4e8f1808052883a63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -818,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 5531222387076467640}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
-      value: HostMutantZombie
+      value: HostMutant
       objectReference: {fileID: 0}
     - target: {fileID: 6999929167464410214, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_LocalPosition.x
