@@ -98,6 +98,10 @@ namespace MVZ2.Level.Components
         {
             Controller.ResumeGame(level);
         }
+        public void ResumeGameDelayed(int level = 0)
+        {
+            Controller.ResumeGameDelayed(level);
+        }
         public void SetUIAndInputDisabled(bool disabled)
         {
             Controller.SetUIAndInputDisabled(disabled);

@@ -287,7 +287,8 @@ namespace MVZ2.GameContent.Bosses
             {
                 var option = selected[i];
                 DoFate(entity, option);
-                level.ResumeGame(100);
+                // 用Delayed，防止当前手持僵尸时点击按钮后直接把僵尸放在地上
+                level.ResumeGameDelayed(100);
             });
         }
         private void DoFate(Entity boss, int option)

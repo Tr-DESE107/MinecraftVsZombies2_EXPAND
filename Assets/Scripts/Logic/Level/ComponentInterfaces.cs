@@ -130,6 +130,7 @@ namespace MVZ2Logic.Level.Components
 
         void PauseGame(int level = 0);
         void ResumeGame(int level = 0);
+        void ResumeGameDelayed(int level = 0);
 
         void SetUIAndInputDisabled(bool value);
         void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
