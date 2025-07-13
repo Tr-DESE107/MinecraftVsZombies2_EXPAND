@@ -1986,6 +1986,15 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 264445295, guid: 58c6512707afe544a8fe8f1c6738e909, type: 3}
     - {fileID: -625061782, guid: 58c6512707afe544a8fe8f1c6738e909, type: 3}
+  - name: entity/enemy/KingSkeleton
+    spritesheet:
+    - {fileID: 1602015279, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
+    - {fileID: -855846050, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
+    - {fileID: 1151918187, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
+    - {fileID: -1080875017, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
+    - {fileID: 950147321, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
+    - {fileID: 1781986370, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
+    - {fileID: 269002808, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
   - name: entity/enemy/MonkZombie
     spritesheet:
     - {fileID: -1724426877, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
@@ -2084,6 +2093,13 @@ MonoBehaviour:
     - {fileID: -938367861, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: 516429795, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: -1181326684, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
+  - name: entity/enemy/Reverser
+    spritesheet:
+    - {fileID: 1691163263, guid: 4402b5e26c8f49d48b2b77d6938f95bb, type: 3}
+    - {fileID: 1888116896, guid: 4402b5e26c8f49d48b2b77d6938f95bb, type: 3}
+    - {fileID: -1049059330, guid: 4402b5e26c8f49d48b2b77d6938f95bb, type: 3}
+    - {fileID: 199549966, guid: 4402b5e26c8f49d48b2b77d6938f95bb, type: 3}
+    - {fileID: 874952477, guid: 4402b5e26c8f49d48b2b77d6938f95bb, type: 3}
   - name: entity/enemy/ReverserArm
     spritesheet:
     - {fileID: 21300000, guid: 19367036b5ca6424f82e919a1c6d205d, type: 3}
@@ -2387,6 +2403,9 @@ MonoBehaviour:
     - {fileID: 1307917129, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
     - {fileID: -1275393187, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
     - {fileID: -1467405244, guid: 84d24c865b8c9b341a85b8104370a001, type: 3}
+  - name: ui/arcade/clear_trophyL
+    spritesheet:
+    - {fileID: 21300000, guid: 73a66db6856396443a0b351974b0cf69, type: 3}
   - name: ui/level/nightmare_broken_glasses
     spritesheet:
     - {fileID: -496670632954994581, guid: 211657565d216cd4a9fb3b2c489ff0af, type: 3}

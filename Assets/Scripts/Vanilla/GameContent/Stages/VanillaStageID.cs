@@ -70,7 +70,8 @@ namespace MVZ2.GameContent.Stages
         public const string bigTroubleAndLittleZombie = "big_trouble_and_little_zombie";
 
         public const string a_tooth_for_a_tooth = "a_tooth_for_a_tooth";
-        
+        public const string Do_Magic_Tricks = "Do_Magic_Tricks";
+        public const string MutantCrisis = "MutantCrisis";
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";

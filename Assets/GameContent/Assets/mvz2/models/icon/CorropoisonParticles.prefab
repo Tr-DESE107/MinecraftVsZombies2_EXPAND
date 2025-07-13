@@ -236,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 6879947060614031734}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
-      value: CorropoisonParticles1
+      value: CorropoisonParticles
       objectReference: {fileID: 0}
     - target: {fileID: 6247621814009837820, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_SortingOrder

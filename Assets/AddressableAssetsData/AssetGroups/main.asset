@@ -3466,6 +3466,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f7522d4b371a4c4c9601192a52d26fa
+    m_Address: mvz2:entity/enemy/KingSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ffd669e6a8191a468f39575216ef435
     m_Address: mvz2:ui/level/progress_bar/seija
     m_ReadOnly: 0
