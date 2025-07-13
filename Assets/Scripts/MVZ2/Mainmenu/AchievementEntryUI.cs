@@ -13,6 +13,7 @@ namespace MVZ2.Mainmenu
             iconImage.enabled = viewData.earned;
             notEarnedIconImage.enabled = !viewData.earned;
             nameText.text = viewData.name;
+            earnedObj.SetActive(false); // 先禁用，这样会触发Translator的OnEnable，重新对文本进行翻译，防止切换语言后出现问题。
             earnedObj.SetActive(viewData.earned);
             descriptionText.text = viewData.description;
         }
