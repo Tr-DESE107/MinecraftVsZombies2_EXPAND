@@ -1102,13 +1102,6 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1987417ea27d79f4fa2ddfa1bf586c53
-    m_Address: mvz2:projectile/largePoisonball
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 19c5d7995232173498a6f525c27f6544
     m_Address: mvz2:effect/mine_debris
     m_ReadOnly: 0
@@ -1248,13 +1241,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1db111bae309876428aa5045504dc0dc
-    m_Address: mvz2:projectile/Poisonball
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1db907c0dfce1124da1e280880b01651
     m_Address: mvz2:low_quality_egypt
@@ -3473,6 +3459,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ff75407048ce3c47b747375afd920ff
+    m_Address: mvz2:projectile/RedKnife
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ffd669e6a8191a468f39575216ef435
     m_Address: mvz2:ui/level/progress_bar/seija
     m_ReadOnly: 0
@@ -3752,6 +3745,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 572be52e5734b534f954104d03566b06
+    m_Address: mvz2:projectile/Poisonball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 579cf24a5de6c3449ba61159e5649187
     m_Address: mvz2:mobile_blueprint/moonlight_sensor
@@ -7623,6 +7623,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6a4b144e55cca941a17f6dbf3c0bffa
+    m_Address: mvz2:projectile/largePoisonball
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6d4138f51d2b2544b3de25c02fe7076
     m_Address: mvz2:enemy/castle/LeatherWitherSkeleton
     m_ReadOnly: 0
@@ -7965,13 +7972,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c087775f05ed25143afa4e3a2a51350b
-    m_Address: mvz2:projectile/RedKnife
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c10d5cdc8afb68b48a2e80b9dae85b0f
     m_Address: mvz2:bash
@@ -8402,6 +8402,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: caaaec08becb2de4b986b99ffb91cf42
     m_Address: mvz2:armor/berserker_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: caabaaf278c71274d94107c7d236546b
+    m_Address: mvz2:projectile/purpleArrow
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
