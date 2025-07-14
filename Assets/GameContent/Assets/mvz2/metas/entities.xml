@@ -1075,6 +1075,7 @@
                 <id name="mvz2:deathSound" value="mvz2:skeleton_death"/>
             </properties>
         </enemy>
+		
         <humanoid id="gargoyle" name="石像鬼" deathMessage="亲爱的日记：今天我死了。">
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented"/>
@@ -1128,6 +1129,16 @@
                 <int name="mvz2:cost" value="125" />
             </properties>
         </humanoid>
+		<humanoid id="KingSkeleton" name="国王骷髅" deathMessage="你挂了\n死亡带走了12450金币和经验值"
+            unlock="mvz2:level.halloween_8">
+			<properties>
+				<id name="mvz2:shell" value="mvz2:bone" />
+				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
+				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
+				<float name="mvz2:maxHealth" value="200"/>
+				<int name="mvz2:cost" value="125" />
+			</properties>
+		</humanoid>
 
         <!-- Dream Enemies -->
         <spider id="spider" name="蜘蛛" deathMessage="我的蜘蛛感应又有反应了。" unlock="mvz2:level.dream_1">

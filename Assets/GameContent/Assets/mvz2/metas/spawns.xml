@@ -78,6 +78,10 @@
         <spawn level="3" minWave="5" />
         <weight base="1500" />
     </entry>
+	<entry id="KingSkeleton" entity="mvz2:KingSkeleton" >
+		<spawn level="3" minWave="5" />
+		<weight base="1500" />
+	</entry>
 	<entry id="gargoyle" entity="mvz2:gargoyle" >
 		<spawn level="3" />
 		<weight base="1500" />

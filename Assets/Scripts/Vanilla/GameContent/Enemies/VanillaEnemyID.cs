@@ -23,6 +23,8 @@ namespace MVZ2.GameContent.Enemies
         public const string mummy = "mummy";
         public const string necromancer = "necromancer";
 
+        public const string KingSkeleton = "KingSkeleton";
+
         public const string HostZombie = "HostZombie";
         public const string BloodlustHostZombie = "BloodlustHostZombie";
         public const string SpiderQueen = "SpiderQueen";
@@ -97,7 +99,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID mummy = Get(VanillaEnemyNames.mummy);
         public static readonly NamespaceID necromancer = Get(VanillaEnemyNames.necromancer);
 
-
+        public static readonly NamespaceID KingSkeleton = Get(VanillaEnemyNames.KingSkeleton);
+        
         public static readonly NamespaceID HostZombie = Get(VanillaEnemyNames.HostZombie);
         public static readonly NamespaceID BloodlustHostZombie = Get(VanillaEnemyNames.BloodlustHostZombie);
         public static readonly NamespaceID SpiderQueen = Get(VanillaEnemyNames.SpiderQueen);
