@@ -167,7 +167,6 @@ namespace MVZ2.Models
         {
             rng = RandomGenerator.FromSerializable(serializable.rng);
             destroyTimeout = serializable.destroyTimeout;
-            GraphicGroup.FromSerializable(serializable.graphicGroup);
             if (serializable.propertyDict != null)
             {
                 var dict = PropertyDictionaryString.FromSerializable(serializable.propertyDict);
@@ -183,6 +182,8 @@ namespace MVZ2.Models
                 child.LoadFromSerializable(seriChild);
             }
             LoadSerializable(serializable);
+            // 最后再加载GraphicGroup，防止Animator在加载数据前尚未启用。
+            GraphicGroup.FromSerializable(serializable.graphicGroup);
         }
         protected abstract SerializableModelData CreateSerializable();
         protected virtual void LoadSerializable(SerializableModelData serializable)

@@ -21,7 +21,7 @@ namespace MVZ2.Models
         {
             foreach (var animator in animators)
             {
-                if (!animator)
+                if (!animator || !animator.gameObject.activeInHierarchy)
                     continue;
                 if (!testMode || !Application.isEditor)
                 {
