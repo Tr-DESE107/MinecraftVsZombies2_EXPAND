@@ -2554,5 +2554,7 @@
                 </flavors>
             </entry>
         </group>
+		<group id="mvz2:ithinkiam" name="我觉得我是" order="1000">
+		</group>
     </misc>
 </almanac>

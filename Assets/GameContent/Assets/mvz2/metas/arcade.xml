@@ -5,7 +5,9 @@
 	<minigame id="a_tooth_for_a_tooth" stage="mvz2:a_tooth_for_a_tooth" area="mvz2:halloween" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
 	<minigame id="Do_Magic_Tricks" stage="mvz2:Do_Magic_Tricks" area="mvz2:day" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
 	<minigame id="MutantCrisis" stage="mvz2:MutantCrisis" area="mvz2:day" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
-	
+	<minigame id="ContraptionDevourer" stage="mvz2:ContraptionDevourer" area="mvz2:day" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
+	<minigame id="RandomChinaAndPot" stage="mvz2:RandomChinaAndPot" area="mvz2:day" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
+
 	<puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie"/>
     <puzzle id="puzzle_i_skeleton" stage="mvz2:puzzle_i_skeleton" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie"/>
     <puzzle id="puzzle_can_you_pass_it" stage="mvz2:puzzle_can_you_pass_it" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie" hiddenUntil="mvz2:level.puzzle_i_zombie"/>

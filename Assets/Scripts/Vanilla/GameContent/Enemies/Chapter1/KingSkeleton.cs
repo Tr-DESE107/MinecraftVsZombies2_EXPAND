@@ -121,8 +121,8 @@ namespace MVZ2.GameContent.Enemies
         private void BuildBoneWalls(Entity entity)
         {
             var level = entity.Level;
-            int startLine = -2;
-            int endLine = 2;
+            int startLine = -1;
+            int endLine = 1;
             var lane = entity.GetLane();
             if (lane == 0)
             {
