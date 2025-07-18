@@ -1127,6 +1127,7 @@
                 <id name="mvz2:deathSound" value="mvz2:skeleton_death" />
                 <float name="mvz2:maxHealth" value="200"/>
                 <int name="mvz2:cost" value="125" />
+				<id name="mvz2:starting_armor" value="mvz2:necromancer_helment" />
             </properties>
         </humanoid>
 		<humanoid id="KingSkeleton" name="国王骷髅" deathMessage="你挂了\n死亡带走了12450金币和经验值"
@@ -1368,7 +1369,7 @@
 
 		<enemy id="AngryReverser" name="愤怒的反逆者" deathMessage="服从凋灵吧" >
 			<properties>
-				<id name="mvz2:starting_armor" value="mvz2:mesmerizer_crown" />
+				<id name="mvz2:starting_armor" value="mvz2:AngryReverserCrown" />
 				<float name="mvz2:range" value="800" />
 				<vector3 name="mvz2:shotOffset" x="30" y="96" z="0" />
 				<vector3 name="mvz2:shotVelocity" x="0" y="0" z="0" />
@@ -1400,7 +1401,7 @@
 
 		<enemy id="NetherVanguard" name="下界冲锋者" deathMessage="骸死我了">
 			<properties>
-				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
+				<id name="mvz2:starting_armor" value="mvz2:netherite_ingot_helmet" />
 				<id name="mvz2:starting_shield" value="mvz2:skeleton_warrior_shield" />
 				<float name="mvz2:maxHealth" value="600" />
 				<id name="mvz2:shell" value="mvz2:nether" />

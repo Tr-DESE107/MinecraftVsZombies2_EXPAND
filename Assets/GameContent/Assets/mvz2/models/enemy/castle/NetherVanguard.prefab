@@ -321,7 +321,7 @@ PrefabInstance:
       addedObject: {fileID: 4124832402845921342}
     - targetCorrespondingSourceObject: {fileID: 8510609027377503110, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3386682539084246566}
+      addedObject: {fileID: 1435981253300559858}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
 --- !u!114 &1337129100343087948 stripped
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b774393e4088b5f41b3a2f3dcbab906e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &3127683442355338631
+--- !u!1001 &3625624055417122956
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -672,59 +672,59 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7970887368318741692}
     m_Modifications:
-    - target: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
+    - target: {fileID: 565491770655542234, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
+      propertyPath: m_Name
+      value: netherite_ingot_helmet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.01
       objectReference: {fileID: 0}
-    - target: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
+    - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.01
       objectReference: {fileID: 0}
-    - target: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
+    - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
+    - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
+    - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
+    - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
+    - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
+    - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
+    - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
+    - target: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2593019072231061253, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
-      propertyPath: m_Name
-      value: skeleton_warrior_helmet (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
---- !u!4 &3386682539084246566 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
+--- !u!4 &1435981253300559858 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 403118717289337761, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
-  m_PrefabInstance: {fileID: 3127683442355338631}
+  m_CorrespondingSourceObject: {fileID: 2431218709569089406, guid: 22b85ec07e4d4cf4fa6cd20ae2b6cf65, type: 3}
+  m_PrefabInstance: {fileID: 3625624055417122956}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4326216083386346336
 PrefabInstance:

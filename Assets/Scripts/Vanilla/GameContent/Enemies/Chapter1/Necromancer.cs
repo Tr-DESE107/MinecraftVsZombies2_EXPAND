@@ -23,7 +23,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             SetStateTimer(entity, new FrameTimer(CAST_COOLDOWN));
-            entity.EquipMainArmor(VanillaArmorID.bedserkerHelmet);
+            
         }
         protected override int GetActionState(Entity enemy)
         {

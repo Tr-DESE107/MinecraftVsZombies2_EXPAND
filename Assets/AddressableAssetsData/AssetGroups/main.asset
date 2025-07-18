@@ -851,7 +851,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13fdf8cd7b2072849ae490ee21624f1f
-    m_Address: mvz2:entity/armor/mesmerizer_crown_pro
+    m_Address: mvz2:entity/armor/AngryReverserCrown
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1468,6 +1468,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 22a8254cab29d4e4da3caf1149aa1f6f
     m_Address: mvz2:projectile/large_arrow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22b85ec07e4d4cf4fa6cd20ae2b6cf65
+    m_Address: mvz2:armor/netherite_ingot_helmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -2411,6 +2418,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37d48e64e059d4246812f7e780e34fc3
     m_Address: mvz2:effect/annihilation_field
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3834cfa11dea2ac47a9be4668224d3fb
+    m_Address: mvz2:armor/necromancer_helment
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4481,6 +4495,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6790ef7d2c5d1d641b424a9bd2ae664b
+    m_Address: mvz2:entity/armor/necromancer_helment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6794bb31d9d949f4398a80691187140f
     m_Address: mvz2:entity/contraptions/golden_apple_halo
     m_ReadOnly: 0
@@ -5343,6 +5364,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d587f3c033da1846a38537e4e37d193
     m_Address: mvz2:entity/pickup/sapphire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d7af3db6427d004f92351c2dc7ab646
+    m_Address: mvz2:entity/armor/bone_helmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7259,6 +7287,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acfb07ddb9ad00744b4b7b50233231da
+    m_Address: mvz2:entity/enemy/necromancerhead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: acfe49e4096d3e242bf14e1ee6fc70eb
     m_Address: mvz2:trident_thunder2
     m_ReadOnly: 0
@@ -8161,6 +8196,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4f7154286950ba42bfd8458dba51238
+    m_Address: mvz2:entity/armor/netherite_ingot_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c51d27579b9227b4989cdfd31c1799aa
     m_Address: mvz2:pick
@@ -9638,6 +9680,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea069fce92dc7c34e80a03889bddae58
+    m_Address: mvz2:armor/AngryReverserCrown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ea4c0b7c8c4abc444bbed3969cda9a5e
     m_Address: mvz2:projectile/arrow

@@ -22,12 +22,27 @@
                 <float name="mvz2:maxHealth" value="1110" />
             </props>
         </entry>
+		<entry id="necromancer_helment">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3"/>
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:bone" />
+				<float name="mvz2:maxHealth" value="300" />
+			</props>
+		</entry>
         <entry id="mesmerizer_crown">
             <props>
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <float name="mvz2:maxHealth" value="100" />
             </props>
         </entry>
+		<entry id="AngryReverserCrown">
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="1200" />
+			</props>
+		</entry>
         <entry id="berserker_helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:stone" />
@@ -41,6 +56,15 @@
 			<props>
 				<id name="mvz2:shell" value="mvz2:metal" />
 				<float name="mvz2:maxHealth" value="400" />
+			</props>
+		</entry>
+		<entry id="netherite_ingot_helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3"/>
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="600" />
 			</props>
 		</entry>
         <entry id="bedserker_helmet">
