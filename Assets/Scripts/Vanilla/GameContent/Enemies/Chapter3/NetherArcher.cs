@@ -7,6 +7,10 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using MVZ2.GameContent.Projectiles;
+using MVZ2.GameContent.Buffs.Projectiles;
+using MVZ2.GameContent.Damages;
+using PVZEngine.Damages;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -90,8 +94,38 @@ namespace MVZ2.GameContent.Enemies
                 {
                     bowPower = BOW_POWER_MAX;
                     SetBowFired(entity, true);
+                    
+                    if (entity.Health <= entity.GetMaxHealth()/ 2)
+                    {
+                        
+                        var param = entity.GetShootParams();
+                        param.projectileID = VanillaProjectileID.arrow;
 
-                    entity.ShootProjectile();
+                        var arrow = entity.ShootProjectile(param);
+
+                        // 添加地狱火 buff，并保存返回值
+                        var buff = arrow.AddBuff<HellfireIgnitedBuff>();
+
+                        // 添加诅咒效果
+                        HellfireIgnitedBuff.Curse(buff);
+
+
+                        entity.ShootProjectile(param);
+                        entity.TakeDamage(10, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DAMAGE_BLINK, VanillaDamageEffects.IGNORE_ARMOR), entity);
+                    }
+                    else
+                    {
+                        var param = entity.GetShootParams();
+                        param.projectileID = VanillaProjectileID.arrow;
+
+                        // 发射箭
+                        var arrow = entity.ShootProjectile(param);
+
+                        // 添加地狱火 buff
+                        arrow.AddBuff<HellfireIgnitedBuff>();
+
+                        entity.ShootProjectile(param);
+                    }
                 }
             }
             else

@@ -34,6 +34,15 @@
                 <float name="mvz2:maxHealth" value="200" />
             </props>
         </entry>
+		<entry id="nether_helmet">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3"/>
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="400" />
+			</props>
+		</entry>
         <entry id="bedserker_helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:stone" />

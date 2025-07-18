@@ -1385,8 +1385,9 @@
 
 		<enemy id="NetherWarrior" name="下界战士" deathMessage="骸死我了">
 			<properties>
-				<id name="mvz2:starting_armor" value="mvz2:skeleton_warrior_helmet" />
+				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
 				<id name="mvz2:starting_shield" value="mvz2:skeleton_warrior_shield" />
+				<float name="mvz2:maxHealth" value="600" />
 				<id name="mvz2:shell" value="mvz2:nether" />
 				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
 				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
@@ -1399,8 +1400,9 @@
 
 		<enemy id="NetherVanguard" name="下界冲锋者" deathMessage="骸死我了">
 			<properties>
-				<id name="mvz2:starting_armor" value="mvz2:skeleton_warrior_helmet" />
+				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
 				<id name="mvz2:starting_shield" value="mvz2:skeleton_warrior_shield" />
+				<float name="mvz2:maxHealth" value="600" />
 				<id name="mvz2:shell" value="mvz2:nether" />
 				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
 				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
@@ -1413,8 +1415,9 @@
 		
 		<enemy id="NetherArcher" name="下界弓手" deathMessage="被射成刺猬了！">
 			<properties>
-				<id name="mvz2:starting_armor" value="mvz2:skeleton_warrior_helmet" />
+				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
 				<float name="mvz2:range" value="800" />
+				<float name="mvz2:maxHealth" value="400" />
 				<vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
 				<vector3 name="mvz2:shotVelocity" x="15" y="0" z="0" />
 				<id name="mvz2:shell" value="mvz2:nether" />
@@ -1460,7 +1463,7 @@
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="2" />
-                <float name="mvz2:maxHealth" value="1350" />
+                <float name="mvz2:maxHealth" value="2500" />
                 <id name="mvz2:fragmentId" value="mvz2:hell_chariot" />
                 <id name="mvz2:shell" value="mvz2:stone" />
                 <id name="mvz2:shape" value="mvz2:hell_chariot" />

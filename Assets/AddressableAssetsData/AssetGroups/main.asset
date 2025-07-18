@@ -353,6 +353,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 094214f689963ca429f93ed306b99a4e
+    m_Address: mvz2:enemy/temple/SkeletonIMP
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0965daa567616694fa6190a4c12d2b96
     m_Address: mvz2:contraption/dream/dream_crystal
     m_ReadOnly: 0
@@ -1801,6 +1808,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b8d1cc3ffa88fd41a3fb4949c6a7c22
+    m_Address: mvz2:armor/nether_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2bc07992dc30ad441aa98588cf8d0e90
     m_Address: mvz2:mobile_blueprint/desire_pot
@@ -3416,6 +3430,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d92b5d7677db944c9d67a9d6df8a26a
+    m_Address: mvz2:entity/armor/nether_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e3cd9bca2bf19f41a4dabfa8af2d5ae
     m_Address: mvz2:spider_cry2
