@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: -1984175535, guid: 4d92b5d7677db944c9d67a9d6df8a26a, type: 3}
     - target: {fileID: 2593019072231061253, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: m_Name
-      value: nether_helment
+      value: nether_helmet
       objectReference: {fileID: 0}
     - target: {fileID: 8545746342994250038, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: sprites.Array.data[0]

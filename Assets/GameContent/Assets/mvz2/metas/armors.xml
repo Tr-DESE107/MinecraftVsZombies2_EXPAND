@@ -22,19 +22,28 @@
                 <float name="mvz2:maxHealth" value="1110" />
             </props>
         </entry>
+		<entry id="SandstoneHelment">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3"/>
+			</behaviours>
+			<props>
+				<id name="mvz2:shell" value="mvz2:stone" />
+				<float name="mvz2:maxHealth" value="400" />
+			</props>
+		</entry>
 		<entry id="necromancer_helment">
 			<behaviours>
 				<behaviour id="mvz2:damage_state_3"/>
 			</behaviours>
 			<props>
 				<id name="mvz2:shell" value="mvz2:bone" />
-				<float name="mvz2:maxHealth" value="300" />
+				<float name="mvz2:maxHealth" value="400" />
 			</props>
 		</entry>
         <entry id="mesmerizer_crown">
             <props>
                 <id name="mvz2:shell" value="mvz2:metal" />
-                <float name="mvz2:maxHealth" value="100" />
+                <float name="mvz2:maxHealth" value="300" />
             </props>
         </entry>
 		<entry id="AngryReverserCrown">

@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: -401330018, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
     - target: {fileID: 2593019072231061253, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: m_Name
-      value: bone_helmet
+      value: necromancer_helment
       objectReference: {fileID: 0}
     - target: {fileID: 8545746342994250038, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: sprites.Array.data[0]

@@ -1109,6 +1109,7 @@
         </humanoid>
         <humanoid id="mummy" name="木乃伊" deathMessage="裹成个粽子。" unlock="mvz2:level.halloween_6">
             <properties>
+				<id name="mvz2:starting_armor" value="mvz2:SandstoneHelment" />
                 <id name="mvz2:shell" value="mvz2:grass" />
                 <id name="mvz2:hitSound" value="mvz2:splat" />
                 <id name="mvz2:crySound" value="mvz2:mummy_cry" />
@@ -1378,6 +1379,7 @@
 				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
 				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
 				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+				<float name="mvz2:maxHealth" value="600" />
 
 				<int name="mvz2:cost" value="125" />
 				<int name="mvz2:waterInteraction" value="2" />
@@ -1506,6 +1508,7 @@
         </zombie>
         <humanoid id="talisman_zombie" name="灵符僵尸" deathMessage="好吃" unlock="mvz2:level.mausoleum_3">
             <properties>
+				<float name="mvz2:maxHealth" value="300" />
                 <int name="mvz2:cost" value="75" />
             </properties>
         </humanoid>

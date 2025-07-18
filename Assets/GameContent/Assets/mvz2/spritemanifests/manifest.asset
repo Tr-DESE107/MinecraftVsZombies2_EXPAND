@@ -467,6 +467,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 92e692ae88b62a541bef812a89e2bac3, type: 3}
   - name: ui/sword
     sprite: {fileID: 21300000, guid: 6bfc7d9706121e5458ed36aa87ece92c, type: 3}
+  - name: entity/armor/AngryReverserCrown
+    sprite: {fileID: 21300000, guid: 13fdf8cd7b2072849ae490ee21624f1f, type: 3}
   - name: entity/armor/bedserker_helmet
     sprite: {fileID: 21300000, guid: e44b0e9757080bf4dbf0ae5b2420e15c, type: 3}
   - name: entity/armor/berserker_helmet
@@ -475,8 +477,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 58755531f1cc59b4ab7563c5bedf58b2, type: 3}
   - name: entity/armor/mesmerizer_crown
     sprite: {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
-  - name: entity/armor/mesmerizer_crown_pro
-    sprite: {fileID: 21300000, guid: 13fdf8cd7b2072849ae490ee21624f1f, type: 3}
   - name: entity/armor/wicked_hermit_hat
     sprite: {fileID: 21300000, guid: 97bbf718dcb8d714cbce072750f648a2, type: 3}
   - name: entity/boss/gun_fire
@@ -1300,6 +1300,10 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 2118295651, guid: 6d34689b106ed35498dffaa3069fa3f5, type: 3}
     - {fileID: 1378232367, guid: 6d34689b106ed35498dffaa3069fa3f5, type: 3}
+  - name: entity/armor/bone_helmet
+    spritesheet:
+    - {fileID: 1074735142, guid: 7d7af3db6427d004f92351c2dc7ab646, type: 3}
+    - {fileID: 2019337756, guid: 7d7af3db6427d004f92351c2dc7ab646, type: 3}
   - name: entity/armor/flag
     spritesheet:
     - {fileID: 21300000, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
@@ -1314,11 +1318,30 @@ MonoBehaviour:
     - {fileID: -528585260921630623, guid: 03832b8b573fa884993ba7232246622f, type: 3}
     - {fileID: 658849057890657363, guid: 03832b8b573fa884993ba7232246622f, type: 3}
     - {fileID: 5196036857812072691, guid: 03832b8b573fa884993ba7232246622f, type: 3}
+  - name: entity/armor/necromancer_helment
+    spritesheet:
+    - {fileID: -401330018, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
+    - {fileID: -353578488, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
+  - name: entity/armor/netherite_ingot_helmet
+    spritesheet:
+    - {fileID: 600301549, guid: c4f7154286950ba42bfd8458dba51238, type: 3}
+    - {fileID: -1413483936, guid: c4f7154286950ba42bfd8458dba51238, type: 3}
+    - {fileID: -270552313, guid: c4f7154286950ba42bfd8458dba51238, type: 3}
+  - name: entity/armor/nether_helmet
+    spritesheet:
+    - {fileID: -1984175535, guid: 4d92b5d7677db944c9d67a9d6df8a26a, type: 3}
+    - {fileID: -610682473, guid: 4d92b5d7677db944c9d67a9d6df8a26a, type: 3}
+    - {fileID: -973421653, guid: 4d92b5d7677db944c9d67a9d6df8a26a, type: 3}
   - name: entity/armor/reflective_barrier
     spritesheet:
     - {fileID: 2038617381, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
     - {fileID: 41696649, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
     - {fileID: -1495750782, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
+  - name: entity/armor/SandstoneHelment
+    spritesheet:
+    - {fileID: -936124431, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}
+    - {fileID: -901474504, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}
+    - {fileID: -1909635451, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}
   - name: entity/armor/skeleton_warrior_helmet
     spritesheet:
     - {fileID: -1055558042, guid: 8f4a25505be15d244b85ae394574d811, type: 3}
@@ -2061,6 +2084,9 @@ MonoBehaviour:
     - {fileID: -340073999, guid: 6255f755251c3b04ea24eab5a0800695, type: 3}
     - {fileID: -406973120, guid: 6255f755251c3b04ea24eab5a0800695, type: 3}
     - {fileID: -1982377404, guid: 6255f755251c3b04ea24eab5a0800695, type: 3}
+  - name: entity/enemy/necromancerhead
+    spritesheet:
+    - {fileID: 21300000, guid: acfb07ddb9ad00744b4b7b50233231da, type: 3}
   - name: entity/enemy/nether_archer
     spritesheet:
     - {fileID: -1127412069, guid: 92a790a86f5d19946a5dc8efe8b47c38, type: 3}

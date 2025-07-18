@@ -2465,6 +2465,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39201c466a6abe34abfb1877f2a47ce0
+    m_Address: mvz2:armor/SandstoneHelment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 392d5a1a4322ba24193d5f42088e6c59
     m_Address: mvz2:ui/musicroom/bar_handler
     m_ReadOnly: 0
@@ -4536,6 +4543,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68df9535e6e494f42a1aec0c040508a8
+    m_Address: mvz2:entity/armor/SandstoneHelment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68ec678f2e1fdfc4eab7a8de70fdf77c
     m_Address: mvz2:entity/effects/sonic_wave

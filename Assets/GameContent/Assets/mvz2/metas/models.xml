@@ -310,6 +310,7 @@
     <!-- Armors -->
     <model name="leather_cap" type="armor" path="mvz2:armor/leather_cap" width="33" height="14" xOffset="0" yOffset="0"/>
     <model name="iron_helmet" type="armor" path="mvz2:armor/iron_helmet" width="33" height="14" xOffset="0" yOffset="0"/>
+	<model name="SandstoneHelment" type="armor" path="mvz2:armor/SandstoneHelment" width="33" height="14" xOffset="0" yOffset="0"/>
 	<model name="necromancer_helment" type="armor" path="mvz2:armor/necromancer_helment" width="32" height="14" xOffset="0" yOffset="-9"/>
     <model name="boat_item" type="armor" path="mvz2:armor/boat_item" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="mesmerizer_crown" type="armor" path="mvz2:armor/mesmerizer_crown" width="34" height="40" xOffset="0" yOffset="-21"/>
