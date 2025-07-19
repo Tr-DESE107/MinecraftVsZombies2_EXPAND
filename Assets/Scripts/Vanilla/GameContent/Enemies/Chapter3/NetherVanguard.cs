@@ -45,6 +45,27 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateLogic(entity);
             entity.SetModelDamagePercent();
+
+            if (entity.State == VanillaEntityStates.ATTACK)
+            {
+                WitherAOE(entity, 2f, entity.GetFaction());
+            }
+        }
+
+        public static void WitherAOE(Entity entity, float damage, int faction)
+        {
+
+            var range = 80;
+
+            entity.Explode(
+                entity.GetCenter(),
+                range,
+                faction,
+                damage,
+                new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE)
+            );
+
+
         }
     }
 }

@@ -167,7 +167,7 @@ namespace MVZ2.GameContent.Contraptions
         public static DamageOutput[] Explode(Entity entity, float range, float damage)
         {
             var damageEffects = new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.EXPLOSION);
-            var damageOutputs = entity.Level.Explode(entity.Position, range, VanillaFactions.NEUTRAL, damage, damageEffects, entity);
+            var damageOutputs = entity.Level.Explode(entity.Position, range, entity.GetFaction(), damage, damageEffects, entity);
             foreach (var output in damageOutputs)
             {
                 var result = output?.BodyResult;

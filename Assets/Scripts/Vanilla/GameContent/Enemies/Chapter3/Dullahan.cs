@@ -92,6 +92,11 @@ namespace MVZ2.GameContent.Enemies
             entity.SetAnimationBool("Sitting", hasHorse);
             entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
             entity.SetModelDamagePercent();
+
+            if (entity.State == VanillaEntityStates.ATTACK)
+            {
+                WitherAOE(entity, 2f, entity.GetFaction());
+            }
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
@@ -121,6 +126,21 @@ namespace MVZ2.GameContent.Enemies
         public static void SetHead(Entity entity, Entity value)
         {
             entity.SetBehaviourField(ID, FIELD_HEAD, new EntityID(value));
+        }
+
+        public static void WitherAOE(Entity entity, float damage, int faction)
+        {
+            var range = 80;
+
+            entity.Explode(
+                entity.GetCenter(),
+                range,
+                faction,
+                damage,
+                new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE)
+            );
+
+
         }
 
         public static readonly VanillaEntityPropertyMeta<EntityID> FIELD_HEAD = new VanillaEntityPropertyMeta<EntityID>("Head");
