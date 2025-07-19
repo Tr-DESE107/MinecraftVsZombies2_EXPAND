@@ -1116,6 +1116,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19f48e6df4da76a4e8ed8c7eb4086f50
+    m_Address: mvz2:artifacts/ShrunkenHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a62ec6260923674096be59047f89949
     m_Address: mvz2:artifacts/dark_matter
     m_ReadOnly: 0
@@ -1248,6 +1255,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d9ef6555e0f7174faff19c5023e9aae
+    m_Address: mvz2:armor/bone_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1db907c0dfce1124da1e280880b01651
     m_Address: mvz2:low_quality_egypt
@@ -2431,7 +2445,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3834cfa11dea2ac47a9be4668224d3fb
-    m_Address: mvz2:armor/necromancer_helment
+    m_Address: mvz2:armor/necromancer_helmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -2473,7 +2487,7 @@ MonoBehaviour:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39201c466a6abe34abfb1877f2a47ce0
-    m_Address: mvz2:armor/SandstoneHelment
+    m_Address: mvz2:armor/SandstoneHelmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4517,7 +4531,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6790ef7d2c5d1d641b424a9bd2ae664b
-    m_Address: mvz2:entity/armor/necromancer_helment
+    m_Address: mvz2:entity/armor/necromancer_helmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4559,7 +4573,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68df9535e6e494f42a1aec0c040508a8
-    m_Address: mvz2:entity/armor/SandstoneHelment
+    m_Address: mvz2:entity/armor/SandstoneHelmet
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

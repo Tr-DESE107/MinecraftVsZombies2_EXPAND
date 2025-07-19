@@ -327,7 +327,7 @@
             <properties>
                 <bool name="mvz2:nocturnal" value="true"/>
 
-                <float name="mvz2:range" value="500"/>
+                <float name="mvz2:range" value="400"/>
                 <id name="mvz2:projectileId" value="mvz2:Poisonball"/>
                 <id name="mvz2:shootSound" value="mvz2:bow"/>
                 <id name="mvz2:fragmentId" value="mvz2:furnace"/>
@@ -1113,7 +1113,7 @@
         </humanoid>
         <humanoid id="mummy" name="木乃伊" deathMessage="裹成个粽子。" unlock="mvz2:level.halloween_6">
             <properties>
-				<id name="mvz2:starting_armor" value="mvz2:SandstoneHelment" />
+				<id name="mvz2:starting_armor" value="mvz2:SandstoneHelmet" />
                 <id name="mvz2:shell" value="mvz2:grass" />
                 <id name="mvz2:hitSound" value="mvz2:splat" />
                 <id name="mvz2:crySound" value="mvz2:mummy_cry" />
@@ -1132,7 +1132,7 @@
                 <id name="mvz2:deathSound" value="mvz2:skeleton_death" />
                 <float name="mvz2:maxHealth" value="200"/>
                 <int name="mvz2:cost" value="125" />
-				<id name="mvz2:starting_armor" value="mvz2:necromancer_helment" />
+				<id name="mvz2:starting_armor" value="mvz2:necromancer_helmet" />
             </properties>
         </humanoid>
 		<humanoid id="KingSkeleton" name="国王骷髅" deathMessage="你挂了\n死亡带走了12450金币和经验值"

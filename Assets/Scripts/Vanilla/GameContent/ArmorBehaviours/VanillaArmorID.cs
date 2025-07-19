@@ -8,8 +8,9 @@ namespace MVZ2.GameContent.Armors
         public const string leatherCap = "leather_cap";
         public const string ironHelmet = "iron_helmet";
 
-        public const string SandstoneHelment = "SandstoneHelment";
-        public const string necromancer_helment = "necromancer_helment";
+        public const string SandstoneHelmet = "SandstoneHelmet";
+        public const string bone_helmet = "bone_helmet";
+        public const string necromancer_helmet = "necromancer_helmet";
 
         public const string mesmerizerCrown = "mesmerizer_crown";
         public const string berserkerHelmet = "berserker_helmet";
@@ -32,8 +33,9 @@ namespace MVZ2.GameContent.Armors
         public static readonly NamespaceID leatherCap = Get(VanillaArmorNames.leatherCap);
         public static readonly NamespaceID ironHelmet = Get(VanillaArmorNames.ironHelmet);
 
-        public static readonly NamespaceID SandstoneHelment = Get(VanillaArmorNames.SandstoneHelment);
-        public static readonly NamespaceID necromancer_helment = Get(VanillaArmorNames.necromancer_helment);
+        public static readonly NamespaceID SandstoneHelmet = Get(VanillaArmorNames.SandstoneHelmet);
+        public static readonly NamespaceID necromancer_helmet = Get(VanillaArmorNames.necromancer_helmet);
+        public static readonly NamespaceID bone_helmet = Get(VanillaArmorNames.bone_helmet);
 
         public static readonly NamespaceID mesmerizerCrown = Get(VanillaArmorNames.mesmerizerCrown);
         public static readonly NamespaceID bersekerHelmet = Get(VanillaArmorNames.berserkerHelmet);

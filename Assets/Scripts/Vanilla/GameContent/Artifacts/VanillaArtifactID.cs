@@ -10,6 +10,8 @@ namespace MVZ2.GameContent.Artifacts
         public const string dreamKey = "dream_key";
         public const string theCreaturesHeart = "the_creatures_heart";
 
+        public const string ShrunkenHead = "ShrunkenHead";
+
         public const string dreamButterfly = "dream_butterfly";
         public const string sweetSleepPillow = "sweet_sleep_pillow";
         public const string pagodaBranch = "pagoda_branch";
@@ -33,6 +35,9 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID almanac = Get(VanillaArtifactNames.almanac);
         public static readonly NamespaceID dreamKey = Get(VanillaArtifactNames.dreamKey);
         public static readonly NamespaceID theCreaturesHeart = Get(VanillaArtifactNames.theCreaturesHeart);
+
+        public static readonly NamespaceID ShrunkenHead = Get(VanillaArtifactNames.ShrunkenHead);
+
         public static readonly NamespaceID dreamButterfly = Get(VanillaArtifactNames.dreamButterfly);
 
         public static readonly NamespaceID sweetSleepPillow = Get(VanillaArtifactNames.sweetSleepPillow);
