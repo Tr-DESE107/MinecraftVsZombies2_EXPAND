@@ -10,12 +10,28 @@ using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using PVZEngine;
+using MVZ2.Vanilla.Level;
+using MVZ2.GameContent.Damages;
+using PVZEngine.Damages;
 
 namespace MVZ2.GameContent.Contraptions
 {
     [EntityBehaviourDefinition(VanillaContraptionNames.hellfire)]
     public class Hellfire : ContraptionBehaviour
     {
+        // 存储“上次触发时的血量”的字段名
+        private static readonly VanillaEntityPropertyMeta<float> PROP_LAST_TRIGGER_HEALTH = new VanillaEntityPropertyMeta<float>("LastTriggerHealth");
+
+        private static float GetLastTriggerHealth(Entity entity) =>
+            entity.GetBehaviourField<float>(ID, PROP_LAST_TRIGGER_HEALTH);
+
+        private static void SetLastTriggerHealth(Entity entity, float hp) =>
+            entity.SetBehaviourField(ID, PROP_LAST_TRIGGER_HEALTH, hp);
+
+        // 当前实体的ID（用于字段访问）
+        private static readonly NamespaceID ID = VanillaContraptionID.hellfire;
+
         public Hellfire(string nsp, string name) : base(nsp, name)
         {
             detector = new HellfireIgniteDetector(32)
@@ -24,14 +40,60 @@ namespace MVZ2.GameContent.Contraptions
                 mask = EntityCollisionHelper.MASK_PROJECTILE,
             };
         }
+
+        public override void Init(Entity entity)
+        {
+            base.Init(entity);
+
+            SetLastTriggerHealth(entity, entity.Health);
+        }
+
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
 
             UpdateIgnite(entity);
 
+            CheckHealthLossTrigger(entity);
+
             entity.SetAnimationBool("Evoked", IsCursed(entity));
         }
+
+        private void CheckHealthLossTrigger(Entity entity)
+        {
+            float lastHP = GetLastTriggerHealth(entity);
+            float currHP = entity.Health;
+
+            // 每掉落一定血量（例如 100 点）触发一次事件
+            int triggerCount = (int)((lastHP - currHP) / 100f);
+            triggerCount = Mathf.Min(triggerCount, 2);
+            if (triggerCount > 0)
+            {
+                for (int i = 0; i < triggerCount; i++)
+                {
+                    FireAOE(entity, 50f, entity.GetFaction());
+                }
+
+                // 更新记录的血量
+                SetLastTriggerHealth(entity, currHP);
+            }
+        }
+
+        public static void FireAOE(Entity entity, float damage, int faction)
+        {
+
+            var range = 40;
+            entity.Explode(
+                entity.GetCenter(),
+                range,
+                faction,
+                damage,
+                new DamageEffectList(VanillaDamageEffects.FIRE, VanillaDamageEffects.MUTE)
+            );
+
+
+        }
+
         public override bool CanEvoke(Entity entity)
         {
             if (IsCursed(entity))
@@ -81,4 +143,5 @@ namespace MVZ2.GameContent.Contraptions
     {
         void Ignite(Entity entity, Entity hellfire, bool cursed);
     }
+
 }

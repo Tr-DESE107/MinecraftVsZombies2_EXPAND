@@ -1306,6 +1306,7 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 1074735142, guid: 7d7af3db6427d004f92351c2dc7ab646, type: 3}
     - {fileID: 2019337756, guid: 7d7af3db6427d004f92351c2dc7ab646, type: 3}
+    - {fileID: -1235216616, guid: 7d7af3db6427d004f92351c2dc7ab646, type: 3}
   - name: entity/armor/flag
     spritesheet:
     - {fileID: 21300000, guid: 58eadcb8281219a418802875c2f38bbe, type: 3}
@@ -1320,7 +1321,7 @@ MonoBehaviour:
     - {fileID: -528585260921630623, guid: 03832b8b573fa884993ba7232246622f, type: 3}
     - {fileID: 658849057890657363, guid: 03832b8b573fa884993ba7232246622f, type: 3}
     - {fileID: 5196036857812072691, guid: 03832b8b573fa884993ba7232246622f, type: 3}
-  - name: entity/armor/necromancer_helment
+  - name: entity/armor/necromancer_helmet
     spritesheet:
     - {fileID: -401330018, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
     - {fileID: -353578488, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
@@ -1340,7 +1341,7 @@ MonoBehaviour:
     - {fileID: 2038617381, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
     - {fileID: 41696649, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
     - {fileID: -1495750782, guid: 5fd5dd6553755524490a5b49f96a2b43, type: 3}
-  - name: entity/armor/SandstoneHelment
+  - name: entity/armor/SandstoneHelmet
     spritesheet:
     - {fileID: -936124431, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}
     - {fileID: -901474504, guid: 68df9535e6e494f42a1aec0c040508a8, type: 3}

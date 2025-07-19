@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6070118448842189996, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
       propertyPath: m_Name
-      value: SandstoneHelment
+      value: SandstoneHelmet
       objectReference: {fileID: 0}
     - target: {fileID: 7078841288723626441, guid: c5d1ee1a11a848242b74ee9ce5d5e06e, type: 3}
       propertyPath: sprites.Array.data[0]

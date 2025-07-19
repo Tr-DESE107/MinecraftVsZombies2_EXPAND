@@ -609,7 +609,7 @@
                 <p>闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹来治疗自己。</p>
             </header>
             <properties>
-                <p>耐久：<![CDATA[<color=red>3000</color>]]></p>
+                <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
                 <p>特点：<![CDATA[<color=red>吸收敌弹，并恢复100耐久</color>]]></p>
                 <p>技能：<![CDATA[<color=red>在5秒内吸收所有伤害并治疗自己，之后将这些伤害返还给所有敌人（最高1800）</color>]]></p>
             </properties>
@@ -620,11 +620,11 @@
         </entry>
         <entry id="mvz2:splitenser">
             <header>
-                <p>双向发射器在向前发射箭矢的同时，也会向后方发射双倍的箭矢。</p>
+                <p>双向发射器在向前发射箭矢的同时，也会向后方发射两次箭矢或飞镖。</p>
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1发/1.5秒（前方），2发/1.5秒（后方）</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>箭和飞镖20</color>]]></p>
                 <p>技能：<![CDATA[<color=red>快速向前后分别发射60支箭矢，最后向后发射一支大箭矢</color>]]></p>
             </properties>
             <flavor>
@@ -659,6 +659,7 @@
                 <p>地狱火会点燃穿过它的箭矢，使其额外造成火焰伤害。</p>
             </header>
             <properties>
+				<p>血量：<![CDATA[<color=red>1500</color>]]></p>
                 <p>伤害增幅：<![CDATA[<color=red>+100%火焰伤害，+66%溅射伤害</color>]]></p>
                 <p>技能：<![CDATA[<color=red>变为诅咒火焰，为箭矢+200%火焰伤害，+133%溅射伤害</color>]]></p>
             </properties>
@@ -681,6 +682,7 @@
                 <p>骷髅战士生命：<![CDATA[<color=red>200+300（头盔）+200（盾）</color>]]></p>
                 <p>骷髅战士速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>技能：<![CDATA[<color=red>召唤3个同种的火焰、冰霜或闪电骷髅法师</color>]]></p>
+				<p>特点：<![CDATA[<color=red>被摧毁时立刻召唤骷髅战士</color>]]></p>
             </properties>
             <flavor>
                 <p>看着这座墓碑，恍惚中，你的脑海中似乎浮现出了一句熟悉的话：</p>
