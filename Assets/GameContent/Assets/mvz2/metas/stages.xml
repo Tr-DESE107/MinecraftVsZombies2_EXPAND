@@ -738,6 +738,7 @@
             <entry id="mvz2:giant_bowl" count="1"/>
             <entry id="mvz2:pistenser" count="12"/>
             <entry id="mvz2:soul_furnace" count="6"/>
+			<entry id="mvz2:tnt" count="11"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
