@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 1803987315390329040, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 600301549, guid: c4f7154286950ba42bfd8458dba51238, type: 3}
+      objectReference: {fileID: -216840252, guid: 6452c58bcebfd4048999128bc5e19b17, type: 3}
     - target: {fileID: 2593019072231061253, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: m_Name
       value: netherite_ingot_helmet
@@ -59,15 +59,15 @@ PrefabInstance:
     - target: {fileID: 8545746342994250038, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 600301549, guid: c4f7154286950ba42bfd8458dba51238, type: 3}
+      objectReference: {fileID: -216840252, guid: 6452c58bcebfd4048999128bc5e19b17, type: 3}
     - target: {fileID: 8545746342994250038, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: -1413483936, guid: c4f7154286950ba42bfd8458dba51238, type: 3}
+      objectReference: {fileID: -1581868723, guid: 6452c58bcebfd4048999128bc5e19b17, type: 3}
     - target: {fileID: 8545746342994250038, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: sprites.Array.data[2]
       value: 
-      objectReference: {fileID: -270552313, guid: c4f7154286950ba42bfd8458dba51238, type: 3}
+      objectReference: {fileID: -531697934, guid: 6452c58bcebfd4048999128bc5e19b17, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

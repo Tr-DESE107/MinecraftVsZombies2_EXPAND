@@ -1760,6 +1760,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a4207e3942d55b42bc64e450611fc1c
+    m_Address: mvz2:entity/enemy/Hemperor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a4746211870c7249adf3104c2ebdac4
     m_Address: mvz2:talk/speech_bubble_no_arrow
     m_ReadOnly: 0
@@ -3935,13 +3942,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 59e7002febf3f8f419ccfd3dea21a1d3
-    m_Address: mvz2:contraption/EXPAND/GlowingObsidian
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a0c08fed03edc745bbc7ea6e497cf14
     m_Address: mvz2:entity/contraption/desire_pot
     m_ReadOnly: 0
@@ -4032,6 +4032,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c2eb55475d16bf4885cf6e84395d05a
+    m_Address: mvz2:enemy/mausoleum/Hemperor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c5027fb3c5657e43b4b4ba9d36deefe
     m_Address: mvz2:halloween
@@ -4375,6 +4382,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6452c58bcebfd4048999128bc5e19b17
+    m_Address: mvz2:entity/armor/netherite_ingot_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 645fcd6dca551b74081afa84999b7736
     m_Address: mvz2:entity/enemies/RedEyeZombieHead
@@ -6643,6 +6657,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bfe0bc240c9b1f4e82cb6e7081086db
+    m_Address: mvz2:contraption/EXPAND/GlowingObsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c16c77d1a4d7f341abd1f576115be5b
     m_Address: mvz2:icon/terror_parasitized
     m_ReadOnly: 0
@@ -8210,13 +8231,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c4f7154286950ba42bfd8458dba51238
-    m_Address: mvz2:entity/armor/netherite_ingot_helmet
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c51d27579b9227b4989cdfd31c1799aa
     m_Address: mvz2:pick

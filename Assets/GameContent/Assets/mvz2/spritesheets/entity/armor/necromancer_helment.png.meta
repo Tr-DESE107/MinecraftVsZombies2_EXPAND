@@ -114,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 21
+        y: 41
         width: 35
         height: 19
       alignment: 0
@@ -135,6 +135,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 21
+        width: 35
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a95259136889b4597b7e6a56f64c06
+      internalID: -353578488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: necromancer_helment_2
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 1
         width: 35
         height: 17
@@ -145,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90a95259136889b4597b7e6a56f64c06
-      internalID: -353578488
+      spriteID: 5d463ae87281b974fb6cbe1dedf38c4e
+      internalID: 1897382163
       vertices: []
       indices: 
       edges: []
@@ -164,6 +185,7 @@ TextureImporter:
     nameFileIdTable:
       necromancer_helment_0: -401330018
       necromancer_helment_1: -353578488
+      necromancer_helment_2: 1897382163
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

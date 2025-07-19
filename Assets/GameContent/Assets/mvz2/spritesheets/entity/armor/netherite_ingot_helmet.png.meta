@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4f7154286950ba42bfd8458dba51238
+guid: 6452c58bcebfd4048999128bc5e19b17
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: netherite_ingot_helmet_0
+      name: netherite_ingot_helmet (1)_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 60
-        width: 40
-        height: 28
+        x: 1
+        y: 0
+        width: 33
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e93dc9753f352ea41bfe705bdafa84db
-      internalID: 600301549
+      spriteID: 815e09feb4cd60c4ab3c63f6d4dce13b
+      internalID: -216840252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: netherite_ingot_helmet_1
+      name: netherite_ingot_helmet (1)_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 31
-        width: 40
-        height: 28
+        x: 35
+        y: 0
+        width: 33
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bd29e56c2fb04544ab82bcf696a6bd0
-      internalID: -1413483936
+      spriteID: 02b46630d0ac9ac4586b7a1c11dcaa47
+      internalID: -1581868723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: netherite_ingot_helmet_2
+      name: netherite_ingot_helmet (1)_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 40
-        height: 28
+        x: 69
+        y: 0
+        width: 33
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c62b9af1b56f6348af2fd88ff6b7b50
-      internalID: -270552313
+      spriteID: 5cd52818b21efca42bd0d2ee22993f67
+      internalID: -531697934
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      netherite_ingot_helmet_0: 600301549
-      netherite_ingot_helmet_1: -1413483936
-      netherite_ingot_helmet_2: -270552313
+      netherite_ingot_helmet (1)_0: -216840252
+      netherite_ingot_helmet (1)_1: -1581868723
+      netherite_ingot_helmet (1)_2: -531697934
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

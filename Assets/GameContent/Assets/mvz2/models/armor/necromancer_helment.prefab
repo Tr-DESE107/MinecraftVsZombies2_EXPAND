@@ -63,11 +63,11 @@ PrefabInstance:
     - target: {fileID: 8545746342994250038, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: -401330018, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
+      objectReference: {fileID: -353578488, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
     - target: {fileID: 8545746342994250038, guid: 2cb70974ea8be7e4bb6c2976c638eb4a, type: 3}
       propertyPath: sprites.Array.data[2]
       value: 
-      objectReference: {fileID: -353578488, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
+      objectReference: {fileID: 1897382163, guid: 6790ef7d2c5d1d641b424a9bd2ae664b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
