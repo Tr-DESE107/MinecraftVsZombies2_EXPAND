@@ -15,6 +15,10 @@
             <stage id="mvz2:halloween_9"/>
             <stage id="mvz2:halloween_10"/>
             <stage id="mvz2:halloween_11"/>
+			<stage id="mvz2:halloween_12"/>
+			<stage id="mvz2:halloween_13"/>
+			<stage id="mvz2:halloween_14"/>
+			<stage id="mvz2:halloween_15"/>
         </stages>
     </map>
     <map id="dream" area="mvz2:dream" >

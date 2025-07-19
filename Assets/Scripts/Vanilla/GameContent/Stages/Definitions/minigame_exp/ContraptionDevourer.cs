@@ -64,7 +64,7 @@ namespace MVZ2.GameContent.Stages
         VanillaContraptionID.desirePot,
         VanillaContraptionID.lightningOrb,
         VanillaContraptionID.glowstone,
-        VanillaContraptionID.glowstone,
+        VanillaContraptionID.GlowingObsidian,
         VanillaContraptionID.hellfire,
         VanillaContraptionID.splitenser,
         VanillaContraptionID.teslaCoil,

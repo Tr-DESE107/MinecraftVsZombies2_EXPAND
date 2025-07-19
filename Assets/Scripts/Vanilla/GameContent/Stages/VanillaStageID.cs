@@ -25,6 +25,11 @@ namespace MVZ2.GameContent.Stages
         public const string halloween11 = "halloween_11";
         public const string halloweenEndless = "halloween_endless";
 
+        public const string halloween12 = "halloween_12";
+        public const string halloween13 = "halloween_13";
+        public const string halloween14 = "halloween_14";
+        public const string halloween15 = "halloween_15";
+
         public const string dream1 = "dream_1";
         public const string dream2 = "dream_2";
         public const string dream3 = "dream_3";

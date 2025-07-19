@@ -299,6 +299,104 @@
         </properties>
     </stage>
 
+	<stage id="halloween_12" name="万圣夜" dayNumber="12" unlock="mvz2:level.halloween_11" >
+
+
+		<clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:RedStoneOre"/>
+		<spawns flags="2" >
+			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:leather_capped_zombie"/>
+			<spawn id="mvz2:iron_helmetted_zombie"/>
+			<spawn id="mvz2:skeleton"/>
+			<spawn id="mvz2:ghost"/>
+			<spawn id="mvz2:mummy"/>
+			<spawn id="mvz2:necromancer"/>
+			<spawn id="mvz2:skeleton_horse"/>
+			<spawn id="mvz2:KingSkeleton"/>
+			<!-- <spawn id="mvz2:石棺僵尸"/> -->
+			<!-- <spawn id="mvz2:狼人"/> -->
+		</spawns>
+		<properties>
+			<integer name="statueCount" value="10" />
+		</properties>
+	</stage>
+	<stage id="halloween_13" name="万圣夜" dayNumber="13" unlock="mvz2:level.halloween_12" >
+
+
+		<clear pickupModel="mvz2:entity.map_pickup" note="mvz2:halloween"/>
+		<spawns flags="2" >
+			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:leather_capped_zombie"/>
+			<spawn id="mvz2:iron_helmetted_zombie"/>
+			<spawn id="mvz2:skeleton"/>
+			<spawn id="mvz2:ghost"/>
+			<spawn id="mvz2:mummy"/>
+			<spawn id="mvz2:necromancer"/>
+			<spawn id="mvz2:skeleton_horse"/>
+			<!-- <spawn id="mvz2:石棺僵尸"/> -->
+			<!-- <spawn id="mvz2:狼人"/> -->
+		</spawns>
+		<properties>
+			<integer name="statueCount" value="10" />
+		</properties>
+	</stage>
+	<stage id="halloween_14" name="万圣夜" dayNumber="14" unlock="mvz2:level.halloween_13" >
+
+
+		<clear pickupModel="mvz2:entity.map_pickup" note="mvz2:halloween"/>
+		<spawns flags="2" >
+			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:leather_capped_zombie"/>
+			<spawn id="mvz2:iron_helmetted_zombie"/>
+			<spawn id="mvz2:skeleton"/>
+			<spawn id="mvz2:ghost"/>
+			<spawn id="mvz2:mummy"/>
+			<spawn id="mvz2:necromancer"/>
+			<spawn id="mvz2:skeleton_horse"/>
+			<!-- <spawn id="mvz2:石棺僵尸"/> -->
+			<!-- <spawn id="mvz2:狼人"/> -->
+		</spawns>
+		<properties>
+			<integer name="statueCount" value="10" />
+		</properties>
+	</stage>
+	<stage id="halloween_15" name="万圣夜" dayNumber="15" type="boss" needBlueprints="false" unlock="mvz2:level.halloween_14" music="mvz2:ultimate_battle" >
+		<model preset="cloudy" />
+		<talks>
+			<talk type="start" value="mvz2:halloween_11"/>
+			<talk type="end" value="mvz2:halloween_11_over"/>
+			<talk type="map" value="mvz2:halloween_11_map"/>
+		</talks>
+		<conveyor>
+			<entry id="mvz2:obsidian" count="8"/>
+			<entry id="mvz2:Poisonser" count="5"/>
+			<entry id="mvz2:glowstone" count="5"/>
+			<entry id="mvz2:punchton" count="5"/>
+			<entry id="mvz2:tnt" count="5"/>
+			<entry id="mvz2:soul_furnace" count="4"/>
+			<entry id="mvz2:silvenser" count="8"/>
+			<entry id="mvz2:magichest" count="3"/>
+		</conveyor>
+		<clear pickupModel="mvz2:entity.dream_key"/>
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:ZombieHead"/>
+			<spawn id="mvz2:leather_capped_zombie"/>
+			<spawn id="mvz2:iron_helmetted_zombie"/>
+			<spawn id="mvz2:skeleton"/>
+			<spawn id="mvz2:SkeletonHead"/>
+			<spawn id="mvz2:ghost"/>
+			<spawn id="mvz2:mummy"/>
+			<spawn id="mvz2:necromancer"/>
+			<spawn id="mvz2:skeleton_horse"/>
+			<!-- <spawn id="mvz2:石棺僵尸"/> -->
+			<!-- <spawn id="mvz2:狼人"/> -->
+		</spawns>
+		<properties>
+			<bool name="noEnergy" value="true"/>
+			<integer name="statueCount" value="10" />
+		</properties>
+	</stage>
     
     
     <!-- Dream -->
