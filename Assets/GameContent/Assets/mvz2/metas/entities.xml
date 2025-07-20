@@ -1672,9 +1672,9 @@
                 <int name="mvz2:maxTimeout" value="240" />
                 <float name="mvz2:friction" value="1" />
                 <float name="mvz2:speed" value="0" />
-                <float name="mvz2:maxHealth" value="350" />
+                <float name="mvz2:maxHealth" value="300" />
                 <vector3 name="mvz2:size" x="80" y="80" z="60" />
-                <id name="mvz2:shell" value="mvz2:nether" />
+                <id name="mvz2:shell" value="mvz2:bone" />
                 <id name="mvz2:shape" value="mvz2:bone_wall" />
                 <id name="mvz2:crySound" null="true" />
                 <id name="mvz2:deathSound" value="mvz2:bone_wall_destroyed" />
@@ -1694,7 +1694,7 @@
 				<float name="mvz2:speed" value="0" />
 				<float name="mvz2:maxHealth" value="450" />
 				<vector3 name="mvz2:size" x="80" y="80" z="60" />
-				<id name="mvz2:shell" value="mvz2:bone" />
+				<id name="mvz2:shell" value="mvz2:nether" />
 				<id name="mvz2:shape" value="mvz2:bone_wall" />
 				<id name="mvz2:crySound" null="true" />
 				<id name="mvz2:deathSound" value="mvz2:bone_wall_destroyed" />

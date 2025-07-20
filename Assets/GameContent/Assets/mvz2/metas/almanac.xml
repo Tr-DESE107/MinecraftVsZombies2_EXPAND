@@ -1203,7 +1203,7 @@
                 <p>自然崩溃的骨墙会爬出骷髅类敌怪</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>350</color>]]></p>
+                <p>生命：<![CDATA[<color=red>300</color>]]></p>
                 <p>速度：<![CDATA[<color=red>0</color>]]></p>
             </properties>
             <flavor>
@@ -1915,6 +1915,17 @@
                 <p>瓶中的黑洞……绑定你的诅咒？</p>
             </flavor>
         </entry>
+		<entry id="mvz2:AngelsFeather">
+			<header>
+				<p>天使的羽毛。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>周期性为场上我方实体赋予圣盾</color>]]></p>
+			</properties>
+			<flavor>
+				<p>愿我不在你身边的时候它能好好保护你</p>
+			</flavor>
+		</entry>
         <entry id="mvz2:smart_phone">
             <header>
                 <p>从外界流落到香霖堂的无主智能手机，必要时可以和朱鹭子通话。</p>

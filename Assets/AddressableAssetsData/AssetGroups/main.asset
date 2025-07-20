@@ -7721,6 +7721,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4b1a3333741b8540887756663edbb40
+    m_Address: mvz2:artifacts/AngelsFeather
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4d85ffb8a267074f81e4c9862d40fed
     m_Address: mvz2:entity/enemy/talisman_zombie
     m_ReadOnly: 0

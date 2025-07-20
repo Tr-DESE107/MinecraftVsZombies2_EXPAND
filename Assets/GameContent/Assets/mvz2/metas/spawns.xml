@@ -246,7 +246,6 @@
 	
 	<entry id="Endermite" entity="mvz2:Endermite" >
 		<spawn level="3"/>
-		<terrain water="true"/>
 		<weight base="1500" />
 	</entry>
 	

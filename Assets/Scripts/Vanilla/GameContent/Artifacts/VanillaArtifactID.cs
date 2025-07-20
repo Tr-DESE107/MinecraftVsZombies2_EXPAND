@@ -18,6 +18,8 @@ namespace MVZ2.GameContent.Artifacts
         public const string darkMatter = "dark_matter";
         public const string bottledBlackhole = "bottled_blackhole";
 
+        public const string AngelsFeather = "AngelsFeather";
+
         public const string smartPhone = "smart_phone";
         public const string invertedMirror = "inverted_mirror";
         public const string miracleMalletReplica = "miracle_mallet_replica";
@@ -45,6 +47,8 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID hoe = Get(VanillaArtifactNames.hoe);
         public static readonly NamespaceID pagodaBranch = Get(VanillaArtifactNames.pagodaBranch);
         public static readonly NamespaceID bottledBlackhole = Get(VanillaArtifactNames.bottledBlackhole);
+
+        public static readonly NamespaceID AngelsFeather = Get(VanillaArtifactNames.AngelsFeather);
 
         public static readonly NamespaceID smartPhone = Get(VanillaArtifactNames.smartPhone);
         public static readonly NamespaceID invertedMirror = Get(VanillaArtifactNames.invertedMirror);

@@ -1,24 +1,10 @@
-using System;
-using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Buffs.SeedPacks;
-using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
-using PVZEngine;
-using PVZEngine.Auras;
-using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
 using PVZEngine.Entities;
-using PVZEngine.SeedPacks;
-using MukioI18n;
 using MVZ2.GameContent.Armors;
-using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
-using PVZEngine.Entities;
-using Tools;
 
 namespace MVZ2.GameContent.Artifacts
 {

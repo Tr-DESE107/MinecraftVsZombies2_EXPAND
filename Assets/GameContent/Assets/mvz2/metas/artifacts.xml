@@ -13,6 +13,8 @@
     <artifact id="dark_matter" name="暗物质" tooltip="器械生产效率×200%，但场景变得黑暗" sprite="mvz2:artifacts/dark_matter" unlock="mvz2:artifact.dark_matter" />
     <artifact id="bottled_blackhole" name="瓶装黑洞" tooltip="每有一个蓝图空位，+15%器械伤害" sprite="mvz2:artifacts/bottled_blackhole" unlock="mvz2:artifact.bottled_blackhole" />
 
+	<artifact id="AngelsFeather" name="天使的羽毛" tooltip="周期性为场上我方实体赋予圣盾" sprite="mvz2:artifacts/AngelsFeather" unlock="mvz2:level.halloween_11" />
+
     <artifact id="smart_phone" name="智能手机" tooltip="你在最后一波开始前每有10能量，关卡结束时便获得10金钱" sprite="mvz2:artifacts/smart_phone" unlock="mvz2:kourindou_visited_castle" />
     <artifact id="inverted_mirror" name="倒置的镜子" tooltip="敌人的射弹能够击中其他敌人" sprite="mvz2:artifacts/inverted_mirror" unlock="mvz2:artifact.inverted_mirror" />
     <artifact id="miracle_mallet_replica" name="万宝槌仿制品" tooltip="+15%器械伤害" sprite="mvz2:artifacts/miracle_mallet_replica" unlock="mvz2:level.castle_11" />
