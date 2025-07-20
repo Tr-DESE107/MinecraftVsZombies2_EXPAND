@@ -187,6 +187,8 @@
     <model name="zombie_scroll" type="entity" path="mvz2:pickup/zombie_scroll" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="trophy" type="entity" path="mvz2:pickup/trophy" width="64" height="64" xOffset="0" yOffset="-32"/>
 
+	<model name="ShrunkenHead" type="entity" path="mvz2:pickup/ShrunkenHead" width="64" height="64" xOffset="0" yOffset="-16"/>
+
     <model name="starshard.default" type="entity" path="mvz2:pickup/starshards/default" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="starshard.halloween" type="entity" path="mvz2:pickup/starshards/halloween" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="starshard.dream" type="entity" path="mvz2:pickup/starshards/dream" width="64" height="64" xOffset="0" yOffset="-16"/>

@@ -344,9 +344,11 @@
 		</properties>
 	</stage>
 	<stage id="halloween_14" name="万圣夜" dayNumber="14" unlock="mvz2:level.halloween_13" >
+		
 
-        
+		<!--<clear pickupModel="mvz2:entity.artifact_pickup" artifactID="mvz2:ShrunkenHead"/>-->
 		<clear pickupModel="mvz2:entity.ShrunkenHead"/>
+		
 		<spawns flags="2" >
 			<spawn id="mvz2:zombie"/>
 			<spawn id="mvz2:KingSkeleton"/>

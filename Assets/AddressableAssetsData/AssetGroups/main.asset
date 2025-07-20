@@ -4649,6 +4649,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b002bb1d10a41944ace1ac1074e936c
+    m_Address: mvz2:pickup/ShrunkenHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b23736b521bd0440b674f16a0460be6
     m_Address: mvz2:entity/enemy/AquaticSpider_death
     m_ReadOnly: 0
