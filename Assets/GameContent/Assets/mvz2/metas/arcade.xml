@@ -2,11 +2,11 @@
     <minigame id="whack_a_ghost" stage="mvz2:whack_a_ghost" area="mvz2:halloween" icon="mvz2:arcade/whack_a_ghost"/>
     <minigame id="breakout" stage="mvz2:breakout" area="mvz2:dream" icon="mvz2:arcade/breakout"/>
     <minigame id="big_trouble_and_little_zombie" stage="mvz2:big_trouble_and_little_zombie" area="mvz2:castle" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
-	<minigame id="a_tooth_for_a_tooth" stage="mvz2:a_tooth_for_a_tooth" area="mvz2:halloween" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
-	<minigame id="Do_Magic_Tricks" stage="mvz2:Do_Magic_Tricks" area="mvz2:day" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
-	<minigame id="MutantCrisis" stage="mvz2:MutantCrisis" area="mvz2:day" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
-	<minigame id="ContraptionDevourer" stage="mvz2:ContraptionDevourer" area="mvz2:day" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
-	<minigame id="RandomChinaAndPot" stage="mvz2:RandomChinaAndPot" area="mvz2:day" icon="mvz2:arcade/big_trouble_and_little_zombie"/>
+	<minigame id="a_tooth_for_a_tooth" stage="mvz2:a_tooth_for_a_tooth" area="mvz2:halloween" icon="mvz2:arcade/a_tooth_for_a_tooth"/>
+	<minigame id="Do_Magic_Tricks" stage="mvz2:Do_Magic_Tricks" area="mvz2:day" icon="mvz2:arcade/Do_Magic_Tricks"/>
+	<minigame id="MutantCrisis" stage="mvz2:MutantCrisis" area="mvz2:day" icon="mvz2:arcade/MutantCrisis"/>
+	<minigame id="ContraptionDevourer" stage="mvz2:ContraptionDevourer" area="mvz2:day" icon="mvz2:arcade/ContraptionDevourer"/>
+	<minigame id="RandomChinaAndPot" stage="mvz2:RandomChinaAndPot" area="mvz2:day" icon="mvz2:arcade/RandomChinaAndPot"/>
 
 	<puzzle id="puzzle_i_zombie" stage="mvz2:puzzle_i_zombie" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie"/>
     <puzzle id="puzzle_i_skeleton" stage="mvz2:puzzle_i_skeleton" area="mvz2:mausoleum_minigame" icon="mvz2:arcade/i_zombie"/>

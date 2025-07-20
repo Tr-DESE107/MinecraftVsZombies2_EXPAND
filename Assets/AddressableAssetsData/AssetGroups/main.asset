@@ -6048,6 +6048,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bfd8d853d605cc49a08296d11cff994
+    m_Address: mvz2:enemy/halloween/ZombieHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c5ca34c05e942546b33c8461e020be1
     m_Address: mvz2:entity/enemy/SkeletonHead
     m_ReadOnly: 0
