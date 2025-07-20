@@ -25,20 +25,20 @@ namespace MVZ2.GameContent.Artifacts
     [ArtifactDefinition(VanillaArtifactNames.ShrunkenHead)]
     public class ShrunkenHead : ArtifactDefinition
     {
-        private float timer = 0f;  // ¼ÆÊ±Æ÷µ±Ç°Öµ
-        private float interval = 5f;  // ¼ÆÊ±¼ä¸ô£¬µ¥Î»Ãë£¬¿ÉÒÔ¸ù¾ÝÐèÇóÐÞ¸Ä
+        private float timer = 0f;  // è®¡æ—¶å™¨å½“å‰å€¼
+        private float interval = 5f;  // è®¡æ—¶é—´éš”ï¼Œå•ä½ç§’ï¼Œå¯ä»¥æ ¹æ®éœ€æ±‚ä¿®æ”¹
 
         public ShrunkenHead(string nsp, string name) : base(nsp, name)
         {
         }
 
-        // ¼ÙÉèArtifactDefinitionÓÐÒ»¸öÀàËÆUpdateµÄ·½·¨
-        // Èç¹ûÃ»ÓÐ£¬ÄãÐèÒªÕÒµ½ÓÎÏ·Ö÷Ñ­»·Àïµ÷ÓÃµÄµØ·½£¬±ÈÈçOnTick¡¢OnUpdate¡¢OnArtifactUpdateµÈ
+        // å‡è®¾ArtifactDefinitionæœ‰ä¸€ä¸ªç±»ä¼¼Updateçš„æ–¹æ³•
+        // å¦‚æžœæ²¡æœ‰ï¼Œä½ éœ€è¦æ‰¾åˆ°æ¸¸æˆä¸»å¾ªçŽ¯é‡Œè°ƒç”¨çš„åœ°æ–¹ï¼Œæ¯”å¦‚OnTickã€OnUpdateã€OnArtifactUpdateç­‰
         public override void PostUpdate(Artifact artifact)
         {
             base.PostUpdate(artifact);
 
-            // Èç¹ûÓÐartifactÌá¹©deltaTime¾ÍÓÃ£¬Ã»ÓÐÔòÓÃ¹Ì¶¨Ê±¼äÄ£Äâ
+            // å¦‚æžœæœ‰artifactæä¾›deltaTimeå°±ç”¨ï¼Œæ²¡æœ‰åˆ™ç”¨å›ºå®šæ—¶é—´æ¨¡æ‹Ÿ
             float deltaTime = UnityEngine.Time.deltaTime; 
 
             timer += deltaTime;
@@ -57,8 +57,13 @@ namespace MVZ2.GameContent.Artifacts
             
             foreach (var enemy in level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.ExistsAndAlive()))
             {
-                enemy.EquipMainArmor(VanillaArmorID.bone_helmet);
-                enemy.PlaySound(VanillaSoundID.armorUp);
+                
+                bool hostile = enemy.IsHostile(0);
+                if (!hostile)
+                    {
+                    enemy.EquipMainArmor(VanillaArmorID.bone_helmet);
+                    enemy.PlaySound(VanillaSoundID.armorUp);
+                }
             }
         }
     }

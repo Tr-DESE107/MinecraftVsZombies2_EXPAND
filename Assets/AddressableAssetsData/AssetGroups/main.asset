@@ -1088,6 +1088,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 189f112b6d7102349abf49d1f81dd167
+    m_Address: mvz2:arcade/ContraptionDevourer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18a4e952754cee842b48776ab027996b
     m_Address: mvz2:pickup/wither_scroll
     m_ReadOnly: 0
@@ -1759,6 +1766,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28c640ffd2f69164ba7d916c0450857b
+    m_Address: mvz2:enemy/ship/Endermite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 294712fdf799501439ac34ed9fdf68c7
     m_Address: mvz2:entity/ghast/ghast_fire
@@ -4369,6 +4383,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62946c4ec1c56824b9e5ae35201dc267
+    m_Address: mvz2:entity/enemy/endermite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62ae9a026747aea4f83506787af8d75a
     m_Address: mvz2:entity/projectiles/spike
     m_ReadOnly: 0
@@ -5201,6 +5222,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79486b33dabc7014b8d326dfcbd70828
+    m_Address: mvz2:arcade/RandomChinaAndPot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 794c8f0b77af644418898bcd66583207
     m_Address: mvz2:shading/musicroom/background
     m_ReadOnly: 0
@@ -5312,6 +5340,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b01598df4c4ae6499b8d5b7002f7543
+    m_Address: mvz2:arcade/Do_Magic_Tricks
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b5ab4ce3e848bf4f95807e6a0a2cc4d
     m_Address: mvz2:achievements/reforged
@@ -7391,6 +7426,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad37274122165ca4fb778cd5c3a969a9
+    m_Address: mvz2:arcade/MutantCrisis
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad459762f7203424488a8ef163260d48
     m_Address: mvz2:sand_dig5
@@ -10264,6 +10306,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f45a057d7f3b72d4883d7d18d28ea03a
     m_Address: mvz2:ui/level/mobile/card_command_block_mobile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f45a6df23c71d23459d9697033f1c6c9
+    m_Address: mvz2:arcade/a_tooth_for_a_tooth
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

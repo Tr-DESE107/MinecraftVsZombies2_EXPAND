@@ -1771,7 +1771,23 @@
                 <p><![CDATA[<color=red>【图鉴 已被禁言，有效期是永久】</color>]]></p>
             </flavor>
         </entry>
+		
+		<entry id="mvz2:Endermite">
+			<header>
+				<p>末影螨能够躲过大部分子弹。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>100</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.25</color>]]></p>
+			</properties>
+			<flavor>
+				<p>你可能觉得这个螨虫实在太小了，我也这么觉得，他甚至没有怪物头颅大。</p>
+				<p>这家伙绝对是个擦弹好手。</p>
+			</flavor>
+		</entry>
+		
     </enemies>
+	
     <artifacts>
         <entry id="mvz2:almanac">
             <header>

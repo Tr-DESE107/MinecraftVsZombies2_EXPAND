@@ -244,6 +244,12 @@
 		<weight base="1500" />
 	</entry>
 	
+	<entry id="Endermite" entity="mvz2:Endermite" >
+		<spawn level="3"/>
+		<terrain water="true"/>
+		<weight base="1500" />
+	</entry>
+	
     <entry id="mutant_zombie" entity="mvz2:mutant_zombie" >
         <spawn level="10" minWave="15"/>
         <terrain water="true"/>

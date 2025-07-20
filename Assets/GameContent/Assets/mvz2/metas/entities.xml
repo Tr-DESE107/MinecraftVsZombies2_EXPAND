@@ -1570,6 +1570,20 @@
             </properties>
         </humanoid>
 
+		<enemy id="Endermite" name="末影螨" deathMessage="吾头在否？！" unlock="mvz2:level.ship_6">
+			<properties>
+				<float name="mvz2:speed" value="1.25"/>
+				<float name="mvz2:maxHealth" value="100"/>
+				<id name="mvz2:shell" value="mvz2:flesh"/>
+				
+				<vector3 name="mvz2:size" x="25" y="10" z="25"/>
+				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:waterInteraction" value="2"/>
+				<bool name="mvz2:low_enemy" value="true" />
+				<idArray name="mvz2:counter_tags" value="mvz2:low_enemy" />
+			</properties>
+		</enemy>
+
 
         <enemy id="HeavyGutant" name="突变重炮手" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <properties>
