@@ -26,6 +26,8 @@ namespace MVZ2.GameContent.Enemies
         public const string KingSkeleton = "KingSkeleton";
         public const string MegaZombie = "MegaZombie";
         public const string SuperMegaZombie = "SuperMegaZombie";
+        public const string EvilMage = "EvilMage";
+        public const string WitherBoneWall = "WitherBoneWall";
 
         public const string HostZombie = "HostZombie";
         public const string BloodlustHostZombie = "BloodlustHostZombie";
@@ -101,6 +103,8 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID mummy = Get(VanillaEnemyNames.mummy);
         public static readonly NamespaceID necromancer = Get(VanillaEnemyNames.necromancer);
 
+        public static readonly NamespaceID EvilMage = Get(VanillaEnemyNames.EvilMage);
+        public static readonly NamespaceID WitherBoneWall = Get(VanillaEnemyNames.WitherBoneWall);
         public static readonly NamespaceID KingSkeleton = Get(VanillaEnemyNames.KingSkeleton);
         public static readonly NamespaceID MegaZombie = Get(VanillaEnemyNames.MegaZombie);
         public static readonly NamespaceID SuperMegaZombie = Get(VanillaEnemyNames.SuperMegaZombie);

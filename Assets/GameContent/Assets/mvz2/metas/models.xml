@@ -84,7 +84,8 @@
     <model name="ghost" type="entity" path="mvz2:enemy/halloween/ghost" width="64" height="96" xOffset="10" yOffset="-44"/>
     <model name="mummy" type="entity" path="mvz2:enemy/halloween/mummy" width="64" height="96" xOffset="10" yOffset="-44"/>
     <model name="necromancer" type="entity" path="mvz2:enemy/halloween/necromancer" width="64" height="96" xOffset="10" yOffset="-44"/>
-	
+
+	<model name="EvilMage" type="entity" path="mvz2:enemy/halloween/EvilMage" width="64" height="96" xOffset="10" yOffset="-44"/>
 	<model name="KingSkeleton" type="entity" path="mvz2:enemy/halloween/KingSkeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
 	<model name="MegaZombie" type="entity" path="mvz2:enemy/halloween/MegaZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
 	<model name="SuperMegaZombie" type="entity" path="mvz2:enemy/halloween/SuperMegaZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
@@ -131,6 +132,7 @@
     <model name="imp" type="entity" path="mvz2:enemy/shrine/imp" width="48" height="56" xOffset="0" yOffset="-28"/>
 
     <model name="bone_wall" type="entity" path="mvz2:enemy/halloween/bone_wall" width="80" height="80" xOffset="0" yOffset="-40"/>
+	<model name="WitherBoneWall" type="entity" path="mvz2:enemy/halloween/wither_bone_wall" width="80" height="80" xOffset="0" yOffset="-40"/>
     <model name="napstablook" type="entity" path="mvz2:enemy/halloween/napstablook" width="64" height="88" xOffset="0" yOffset="-44"/>
     <model name="reverse_satellite" type="entity" path="mvz2:enemy/castle/reverse_satellite" width="64" height="80" xOffset="0" yOffset="-40"/>
     <model name="skeleton_horse" type="entity" path="mvz2:enemy/castle/skeleton_horse" width="94" height="80" xOffset="9" yOffset="-33"/>

@@ -96,7 +96,10 @@
 		<terrain water="true" air="true"/>
 		<weight base="800" />
 	</entry>
-
+	<entry id="EvilMage" entity="mvz2:EvilMage" >
+		<spawn level="3" minWave="5" />
+		<weight base="1000" />
+	</entry>
 	
     <!-- Dream -->
 	<entry id="HostZombie" entity="mvz2:HostZombie" >

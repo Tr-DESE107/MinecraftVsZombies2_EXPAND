@@ -1165,6 +1165,20 @@
 				<int name="mvz2:cost" value="125" />
 			</properties>
 		</humanoid>
+		
+		<humanoid id="EvilMage" name="邪灵法师" deathMessage="你挂了\n死亡带走了10710765535金币和经验值"
+            unlock="mvz2:level.halloween_14">
+			<properties>
+				<id name="mvz2:shell" value="mvz2:nether"/>
+				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry"/>
+				<id name="mvz2:hitSound" value="mvz2:bone_hit"/>
+				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death"/>
+				
+				<float name="mvz2:maxHealth" value="1000"/>
+				<int name="mvz2:cost" value="125" />
+				
+			</properties>
+		</humanoid>
 
         <!-- Dream Enemies -->
         <spider id="spider" name="蜘蛛" deathMessage="我的蜘蛛感应又有反应了。" unlock="mvz2:level.dream_1">
@@ -1644,9 +1658,9 @@
                 <int name="mvz2:maxTimeout" value="240" />
                 <float name="mvz2:friction" value="1" />
                 <float name="mvz2:speed" value="0" />
-                <float name="mvz2:maxHealth" value="350" />
+                <float name="mvz2:maxHealth" value="450" />
                 <vector3 name="mvz2:size" x="80" y="80" z="60" />
-                <id name="mvz2:shell" value="mvz2:bone" />
+                <id name="mvz2:shell" value="mvz2:nether" />
                 <id name="mvz2:shape" value="mvz2:bone_wall" />
                 <id name="mvz2:crySound" null="true" />
                 <id name="mvz2:deathSound" value="mvz2:bone_wall_destroyed" />
@@ -1654,6 +1668,26 @@
                 <int name="mvz2:cost" value="25" />
             </properties>
         </enemy>
+		
+		<enemy id="WitherBoneWall" name="凋零骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_14">
+			<properties>
+				<bool name="mvz2:harmless" value="true" />
+				<bool name="mvz2:notActiveEnemy" value="true" />
+				<bool name="mvz2:noReward" value="true" />
+				<bool name="mvz2:canDeactive" value="false" />
+				<int name="mvz2:maxTimeout" value="240" />
+				<float name="mvz2:friction" value="1" />
+				<float name="mvz2:speed" value="0" />
+				<float name="mvz2:maxHealth" value="350" />
+				<vector3 name="mvz2:size" x="80" y="80" z="60" />
+				<id name="mvz2:shell" value="mvz2:bone" />
+				<id name="mvz2:shape" value="mvz2:bone_wall" />
+				<id name="mvz2:crySound" null="true" />
+				<id name="mvz2:deathSound" value="mvz2:bone_wall_destroyed" />
+
+				<int name="mvz2:cost" value="25" />
+			</properties>
+		</enemy>
         <enemy id="napstablook" name="小幽灵" deathMessage="抱歉……我不是有意这么做的……"
             unlock="mvz2:level.halloween_6">
             <properties>

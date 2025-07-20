@@ -1203,7 +1203,7 @@
                 <p>自然崩溃的骨墙会爬出骷髅类敌怪</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>300</color>]]></p>
+                <p>生命：<![CDATA[<color=red>350</color>]]></p>
                 <p>速度：<![CDATA[<color=red>0</color>]]></p>
             </properties>
             <flavor>
@@ -1264,6 +1264,32 @@
 				<p>这确实是expu版本的一次数值膨胀。</p>
 				<p/>
 				<p>其实我是不想做这种换皮血牛怪的，但他确实好做。</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:EvilMage">
+			<header>
+				<p>邪灵法师会生成强大的凋零骨墙阻挡子弹。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>1000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>死灵法师的凋零骷髅远亲，这帮家伙才是真正的邪恶巫师。</p>
+			</flavor>
+		</entry>
+		
+		<entry id="mvz2:WitherBoneWall">
+			<header>
+				<p>自然崩溃的凋零骨墙会爬出骷髅类敌怪</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>450</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0</color>]]></p>
+			</properties>
+			<flavor>
+				<p>被复活的死者们一开始是很高兴能够复活的，这份喜悦直到发现自己卡在墙里动弹不得为止。</p>
 			</flavor>
 		</entry>
 

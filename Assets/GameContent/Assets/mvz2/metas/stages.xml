@@ -323,8 +323,8 @@
 	<stage id="halloween_13" name="万圣夜" dayNumber="13" unlock="mvz2:level.halloween_12" >
 
 
-		<clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:GlowingObsidian" pointsMultiplier="2.1" pointsAddition="2"/>
-		<spawns flags="2" >
+		<clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:GlowingObsidian"/>
+		<spawns flags="2" pointsMultiplier="2.1" pointsAddition="2" >
 			<spawn id="mvz2:zombie"/>
 			<spawn id="mvz2:leather_capped_zombie"/>
 			<spawn id="mvz2:iron_helmetted_zombie"/>
@@ -345,12 +345,13 @@
 	</stage>
 	<stage id="halloween_14" name="万圣夜" dayNumber="14" unlock="mvz2:level.halloween_13" >
 
-
-		<clear pickupModel="mvz2:entity.map_pickup" note="mvz2:halloween"/>
+        
+		<clear pickupModel="mvz2:entity.ShrunkenHead"/>
 		<spawns flags="2" >
 			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:iron_helmetted_zombie"/>
+			<spawn id="mvz2:KingSkeleton"/>
+			<spawn id="mvz2:SuperMegaZombie"/>
+			<spawn id="mvz2:EvilMage"/>
 			<spawn id="mvz2:skeleton"/>
 			<spawn id="mvz2:ghost"/>
 			<spawn id="mvz2:mummy"/>

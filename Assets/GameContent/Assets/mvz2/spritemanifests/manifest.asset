@@ -1958,6 +1958,15 @@ MonoBehaviour:
     - {fileID: 21769090, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
     - {fileID: -1155102574, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
     - {fileID: -1727391113, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
+  - name: entity/enemy/evil_mage
+    spritesheet:
+    - {fileID: 1447938660, guid: f54f9459361d9c341858ca8a6962f5a3, type: 3}
+    - {fileID: -2022835186, guid: f54f9459361d9c341858ca8a6962f5a3, type: 3}
+    - {fileID: 1300666056, guid: f54f9459361d9c341858ca8a6962f5a3, type: 3}
+    - {fileID: -1969322706, guid: f54f9459361d9c341858ca8a6962f5a3, type: 3}
+    - {fileID: 460221355, guid: f54f9459361d9c341858ca8a6962f5a3, type: 3}
+    - {fileID: 563106308, guid: f54f9459361d9c341858ca8a6962f5a3, type: 3}
+    - {fileID: 826205950, guid: f54f9459361d9c341858ca8a6962f5a3, type: 3}
   - name: entity/enemy/gargoyle
     spritesheet:
     - {fileID: 21300000, guid: 7379af57c598c9a438cfd765804f71e3, type: 3}
@@ -2265,6 +2274,10 @@ MonoBehaviour:
     - {fileID: -238351258, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
     - {fileID: 1356556440, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
     - {fileID: 1828943734, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+  - name: entity/enemy/wither_bone_wall
+    spritesheet:
+    - {fileID: 582393831, guid: 8e37a38233db98d43831108933ff5930, type: 3}
+    - {fileID: -1676758547, guid: 8e37a38233db98d43831108933ff5930, type: 3}
   - name: entity/enemy/wither_skeleton
     spritesheet:
     - {fileID: 21300000, guid: 2223b622235c77b41858ab56433232a5, type: 3}

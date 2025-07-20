@@ -2116,6 +2116,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30af7d8fffea33941b3301515509bb28
+    m_Address: mvz2:enemy/halloween/wither_bone_wall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 311343d4a0954c14cb62acbaf0e5ef16
     m_Address: mvz2:projectile/seija_bullet
     m_ReadOnly: 0
@@ -6111,6 +6118,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e37a38233db98d43831108933ff5930
+    m_Address: mvz2:entity/enemy/wither_bone_wall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e4506b73a85267499be23c6916344ef
     m_Address: mvz2:ui/achievements/frame
     m_ReadOnly: 0
@@ -8764,6 +8778,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf7d9bad9ca38ee48ad2651f0a2d5f87
+    m_Address: mvz2:enemy/halloween/EvilMage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf961fc014fefe94aa951bc654dff1ee
     m_Address: mvz2:cart/unzan_fist
     m_ReadOnly: 0
@@ -10282,6 +10303,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f54f9459361d9c341858ca8a6962f5a3
+    m_Address: mvz2:entity/enemy/evil_mage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5552ce73b0b41f449c646da8a2a69c2
     m_Address: mvz2:mainmenu/view/halloween
