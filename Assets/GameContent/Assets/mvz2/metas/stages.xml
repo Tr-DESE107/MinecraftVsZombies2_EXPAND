@@ -368,11 +368,7 @@
 	</stage>
 	<stage id="halloween_15" name="万圣夜" dayNumber="15" type="boss" needBlueprints="false" unlock="mvz2:level.halloween_14" music="mvz2:ultimate_battle" >
 		<model preset="cloudy" />
-		<talks>
-			<talk type="start" value="mvz2:halloween_11"/>
-			<talk type="end" value="mvz2:halloween_11_over"/>
-			<talk type="map" value="mvz2:halloween_11_map"/>
-		</talks>
+		
 		<conveyor>
 			<entry id="mvz2:obsidian" count="8"/>
 			<entry id="mvz2:Poisonser" count="5"/>
@@ -395,6 +391,11 @@
 			<spawn id="mvz2:mummy"/>
 			<spawn id="mvz2:necromancer"/>
 			<spawn id="mvz2:skeleton_horse"/>
+			<spawn id="mvz2:MegaZombie"/>
+			<spawn id="mvz2:RedEyeZombieHead"/>
+			<spawn id="mvz2:KingSkeleton"/>
+			<spawn id="mvz2:SuperMegaZombie"/>
+			<spawn id="mvz2:EvilMage"/>
 			<!-- <spawn id="mvz2:石棺僵尸"/> -->
 			<!-- <spawn id="mvz2:狼人"/> -->
 		</spawns>
