@@ -72,6 +72,7 @@ namespace MVZ2.GameContent.Contraptions
                 for (int i = 0; i < triggerCount; i++)
                 {
                     FireAOE(entity, 50f, entity.GetFaction());
+                    entity.Level.PlaySound(VanillaSoundID.fire);
                 }
 
                 // 更新记录的血量

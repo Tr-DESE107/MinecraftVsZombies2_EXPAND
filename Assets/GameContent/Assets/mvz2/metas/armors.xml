@@ -88,7 +88,7 @@
         <entry id="bedserker_helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:stone" />
-                <float name="mvz2:maxHealth" value="400" />
+                <float name="mvz2:maxHealth" value="3200" />
             </props>
         </entry>
         <entry id="wicked_hermit_hat">

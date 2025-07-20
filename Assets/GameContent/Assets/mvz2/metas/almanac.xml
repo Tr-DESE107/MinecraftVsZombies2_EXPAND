@@ -1170,14 +1170,16 @@
         </entry>
         <entry id="mvz2:mummy">
             <header>
-                <p>木乃伊会在死后放出能治疗亡灵并伤害器械的毒雾。</p>
+                <p>木乃伊会在死后放出能治疗亡灵并伤害器械的毒雾，他们的砂岩头盔能够抵挡一部分伤害。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>生命：<![CDATA[<color=red>250+400</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>毒雾可以被<tag id="mvz2:fire"/>火烧掉</color>]]></p>
             </properties>
             <flavor>
                 <p>就跟奶奶们一样，木乃伊特别喜欢香水。它们甚至狂热到把香味刻进自己的骨子里，恨不得把周围的人都熏死。天哪，估计只有“木爷伊”能忍受这种气味了。</p>
+				<p/>
+				<p>你问他们戴的头盔？作为尸壳的他们戴个老家的坚固化石不很正常吗？</p>
             </flavor>
         </entry>
         <entry id="mvz2:necromancer">
@@ -1185,11 +1187,15 @@
                 <p>死灵法师会生成临时的骨墙阻挡子弹。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200+400</color>]]></p>
+                <p>生命：<![CDATA[<color=red>300+400</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
             </properties>
             <flavor>
                 <p>死灵法师想不通，为什么就因为复活了死者，他们就莫名其妙的被人们称为“邪恶巫师”，然后就被多收了税。他们其实只是想砌堵墙罢了。</p>
+				<p>顺带一提，他们戴的....应该是骨质头盔而不是眼罩。</p>
+				<p>我也不知道为什么他们要这么戴，不过他们很满意的样子。</p>
+				<p/>
+				<p>或许他们被多收税的真正原因是因为看不清路，在不该砌墙的地方砌了墙。</p>
             </flavor>
         </entry>
         <entry id="mvz2:bone_wall">
@@ -1216,6 +1222,63 @@
                 <p>不是所有骷髅死亡时都自带弓和箭，也不是所有骷髅死亡时都有陪葬品。买不起防具，买不起弓的骷髅大有人在。什么都没有的骷髅只能出卖自己，或是成为国王的仆从，或是法师的实验材料。</p>
             </flavor>
         </entry>
+		
+		<entry id="mvz2:KingSkeleton">
+			<header>
+				<p>国王骷髅能够召唤自己的仆从冲向你的防线。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>350+400</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.75</color>]]></p>
+			</properties>
+			<flavor>
+				<p>虽说他叫国王骷髅，但他连整一套好的衣服都没做到。</p>
+			</flavor>
+		</entry>
+		
+		<entry id="mvz2:MegaZombie">
+			<header>
+				<p>红眼僵尸有着难以置信的耐久。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>3200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.4</color>]]></p>
+			</properties>
+			<flavor>
+				<p>记住了，他是MEGA僵尸，不是MAGA僵尸。</p>
+				<p/>
+				<p>虽说狂热性可能都差不多。</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:SuperMegaZombie">
+			<header>
+				<p>超级红眼僵尸有着难以置信的耐久。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>3200+3200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.4</color>]]></p>
+			</properties>
+			<flavor>
+				<p>你说的对，但是超级红眼僵尸是MC大战僵尸2中一种血量非常高的怪物。他的血量是正常僵尸的32倍，玩家需要用众多超强火力的器械才能将其消灭。</p>
+				<p>这确实是expu版本的一次数值膨胀。</p>
+				<p/>
+				<p>其实我是不想做这种换皮血牛怪的，但他确实好做。</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:RedEyeZombieHead">
+			<header>
+				<p>红眼僵尸头有着难以置信的耐久。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>2000</color>]]></p>
+				<p>速度：<![CDATA[<color=red>0.45</color>]]></p>
+			</properties>
+			<flavor>
+				<p>理论上而言骷髅头才是模仿的地牢守卫，但就血量而言红眼僵尸头才是模仿的最像的。</p>
+			</flavor>
+		</entry>
         
         
         <entry id="mvz2:HostZombie">

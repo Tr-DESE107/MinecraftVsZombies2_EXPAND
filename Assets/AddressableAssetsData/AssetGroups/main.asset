@@ -283,6 +283,13 @@ MonoBehaviour:
     - AreaModel
     - Main
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 076be8bf5ec1e3d44997dc0454ed1f38
+    m_Address: mvz2:enemy/halloween/MegaZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0772ad3299638fa43ae91ead696caef6
     m_Address: mvz2:contraption/castle/giant_bowl
     m_ReadOnly: 0
@@ -954,6 +961,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15de98ead800a9c4ca2520692b758a9f
+    m_Address: mvz2:enemy/halloween/SuperMegaZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15e228f0bfccab240a04829253b7cca5
     m_Address: mvz2:effect/slice_spark
@@ -6439,6 +6453,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 948c5ad7c0a10bc4fad381b36a5d60d7
+    m_Address: mvz2:entity/enemy/MegaZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94f2e4ecd6b77ab49ba575570f0518d5
     m_Address: mvz2:gensokyo

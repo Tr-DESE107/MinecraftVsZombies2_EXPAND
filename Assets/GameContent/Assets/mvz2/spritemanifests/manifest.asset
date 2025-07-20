@@ -2032,6 +2032,12 @@ MonoBehaviour:
     - {fileID: 950147321, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
     - {fileID: 1781986370, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
     - {fileID: 269002808, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
+  - name: entity/enemy/MegaZombie
+    spritesheet:
+    - {fileID: -1468793151, guid: 948c5ad7c0a10bc4fad381b36a5d60d7, type: 3}
+    - {fileID: -994561436, guid: 948c5ad7c0a10bc4fad381b36a5d60d7, type: 3}
+    - {fileID: -1694732556, guid: 948c5ad7c0a10bc4fad381b36a5d60d7, type: 3}
+    - {fileID: 527946774, guid: 948c5ad7c0a10bc4fad381b36a5d60d7, type: 3}
   - name: entity/enemy/MonkZombie
     spritesheet:
     - {fileID: -1724426877, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}

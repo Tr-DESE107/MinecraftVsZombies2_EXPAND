@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 645fcd6dca551b74081afa84999b7736
+guid: 948c5ad7c0a10bc4fad381b36a5d60d7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,11 +43,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -106,33 +106,108 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MegaZombie_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 3
+        width: 19
+        height: 36
+      alignment: 9
+      pivot: {x: 0.4736842, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540e4bf977b2e4248bd75640f45a1c36
+      internalID: -1468793151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaZombie_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 48
+        width: 42
+        height: 14
+      alignment: 9
+      pivot: {x: 0.8571429, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d064d8c7edcde264782c3fb2876659f4
+      internalID: -994561436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaZombie_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8717949}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0753d85b58023994489fdcc154b03cb8
+      internalID: -1694732556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MegaZombie_3
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 3
+        width: 19
+        height: 36
+      alignment: 9
+      pivot: {x: 0.4736842, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d9420266ce3dd94c83182cc4bdb0fe1
+      internalID: 527946774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MegaZombie_0: -1468793151
+      MegaZombie_1: -994561436
+      MegaZombie_2: -1694732556
+      MegaZombie_3: 527946774
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -286,7 +286,7 @@
             </properties>
         </contraption>
 
-        <contraption id="GlowingObsidian" name="发光的黑曜石" tooltip="阻碍敌人的前进，在被摧毁时爆炸" unlock="mvz2:level.halloween_11" >
+        <contraption id="GlowingObsidian" name="发光的黑曜石" tooltip="阻碍敌人的前进，在被摧毁时爆炸" unlock="mvz2:level.halloween_13" >
             <properties>
                 <bool name="mvz2:canDeactive" value="false"/>
                 <bool name="mvz2:defensive" value="true"/>
@@ -1025,6 +1025,23 @@
             </properties>
         </enemy>
 
+		<zombie id="MegaZombie" name="红眼僵尸" deathMessage="脑子是好的，但不是每个人都有">
+			<properties>
+				<int name="mvz2:cost" value="50" />
+				<float name="mvz2:maxHealth" value="3200"/>
+				<float name="mvz2:speed" value="0.4"/>
+			</properties>
+		</zombie>
+
+		<zombie id="SuperMegaZombie" name="超级红眼僵尸" deathMessage="脑子是好的，但不是每个人都有">
+			<properties>
+				<int name="mvz2:cost" value="50" />
+				<float name="mvz2:maxHealth" value="3200"/>
+				<float name="mvz2:speed" value="0.4"/>
+				<id name="mvz2:starting_armor" value="mvz2:bedserker_helmet" />
+			</properties>
+		</zombie>
+
         <!-- Halloween Enemies -->
         <humanoid id="skeleton" name="骷髅" deathMessage="被射成刺猬了！" unlock="mvz2:level.halloween_1">
             <properties>
@@ -1115,6 +1132,7 @@
         <humanoid id="mummy" name="木乃伊" deathMessage="裹成个粽子。" unlock="mvz2:level.halloween_6">
             <properties>
 				<id name="mvz2:starting_armor" value="mvz2:SandstoneHelmet" />
+				<float name="mvz2:maxHealth" value="250"/>
                 <id name="mvz2:shell" value="mvz2:grass" />
                 <id name="mvz2:hitSound" value="mvz2:splat" />
                 <id name="mvz2:crySound" value="mvz2:mummy_cry" />
@@ -1131,7 +1149,7 @@
                 <id name="mvz2:shell" value="mvz2:bone" />
                 <id name="mvz2:crySound" value="mvz2:skeleton_cry" />
                 <id name="mvz2:deathSound" value="mvz2:skeleton_death" />
-                <float name="mvz2:maxHealth" value="200"/>
+                <float name="mvz2:maxHealth" value="300"/>
                 <int name="mvz2:cost" value="125" />
 				<id name="mvz2:starting_armor" value="mvz2:necromancer_helmet" />
             </properties>
@@ -1142,7 +1160,8 @@
 				<id name="mvz2:shell" value="mvz2:bone" />
 				<id name="mvz2:crySound" value="mvz2:skeleton_cry" />
 				<id name="mvz2:deathSound" value="mvz2:skeleton_death" />
-				<float name="mvz2:maxHealth" value="200"/>
+				<float name="mvz2:maxHealth" value="350"/>
+				<float name="mvz2:speed" value="0.75" />
 				<int name="mvz2:cost" value="125" />
 			</properties>
 		</humanoid>

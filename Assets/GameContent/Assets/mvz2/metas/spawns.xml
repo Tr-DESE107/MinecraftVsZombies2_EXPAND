@@ -55,7 +55,7 @@
 	</entry>
 	<entry id="RedEyeZombieHead" entity="mvz2:RedEyeZombieHead" >
 		<spawn level="2" />
-		<weight base="3500" />
+		<weight base="1500" />
 	</entry>
 	<entry id="ZombieHead" entity="mvz2:ZombieHead" >
 		<spawn level="2" />
@@ -85,6 +85,16 @@
 	<entry id="gargoyle" entity="mvz2:gargoyle" >
 		<spawn level="3" />
 		<weight base="1500" />
+	</entry>
+	<entry id="MegaZombie" entity="mvz2:MegaZombie" >
+		<spawn level="4" />
+		<terrain water="true" air="true"/>
+		<weight base="1250" />
+	</entry>
+	<entry id="SuperMegaZombie" entity="mvz2:SuperMegaZombie" >
+		<spawn level="4" />
+		<terrain water="true" air="true"/>
+		<weight base="800" />
 	</entry>
 
 	
