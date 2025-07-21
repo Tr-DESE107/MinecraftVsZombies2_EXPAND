@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Obstacles
             {
                 mainCollider.SetEnabled(false);
             }
-            SetEntityToSpawn(entity, VanillaEnemyID.zombie);
+            SetEntityToSpawn(entity, VanillaEnemyID.skeleton);
         }
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {

@@ -30,13 +30,13 @@ namespace MVZ2.GameContent.Stages
         {
             base.OnStart(level);
 
-            //level.SetSeedSlotCount(3);
-            //level.FillSeedPacks(new NamespaceID[]
-            //{
-            //    VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
-            //    VanillaBlueprintID.FromEntity(VanillaContraptionID.obsidian),
-            //    VanillaBlueprintID.FromEntity(VanillaContraptionID.gravityPad),
-            //});
+            level.SetSeedSlotCount(3);
+            level.FillSeedPacks(new NamespaceID[]
+            {
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.glowstone),
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.obsidian),
+                VanillaBlueprintID.FromEntity(VanillaContraptionID.tnt),
+            });
         }
 
     }

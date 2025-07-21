@@ -744,15 +744,13 @@
         </conveyor>
         <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:golden_apple"/>
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
-            <spawn id="mvz2:WitherSkeleton"/>
-            <spawn id="mvz2:LeatherWitherSkeleton"/>
-            <spawn id="mvz2:IronWitherSkeleton"/>
-            <spawn id="mvz2:berserker"/>
-            <spawn id="mvz2:ghast"/>
-            <spawn id="mvz2:dullahan"/>
-            <spawn id="mvz2:spider"/>
-            <spawn id="mvz2:HostZombie"/>
-            <spawn id="mvz2:HostMutant"/>
+			<spawn id="mvz2:WitherSkeleton"/>
+			<spawn id="mvz2:LeatherWitherSkeleton"/>
+			<spawn id="mvz2:IronWitherSkeleton"/>
+			<spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:mummy"/>
+			<spawn id="mvz2:ghast"/>
+            
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
@@ -1288,7 +1286,7 @@
         <model preset="cloudy" />
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="2" >
             <spawn id="mvz2:ghost"/>
             <spawn id="mvz2:skeleton_horse"/>
             <spawn id="mvz2:dullahan_head"/>
@@ -1324,12 +1322,15 @@
         </conveyor>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
-            <spawn id="mvz2:zombie"/>
-            <spawn id="mvz2:leather_capped_zombie"/>
-            <spawn id="mvz2:iron_helmetted_zombie"/>
-            <spawn id="mvz2:berserker"/>
-            <spawn id="mvz2:mummy"/>
-            <spawn id="mvz2:ghast"/>
+			<spawn id="mvz2:WitherSkeleton"/>
+			<spawn id="mvz2:LeatherWitherSkeleton"/>
+			<spawn id="mvz2:IronWitherSkeleton"/>
+			<spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:ghast"/>
+			<spawn id="mvz2:dullahan"/>
+			<spawn id="mvz2:spider"/>
+			<spawn id="mvz2:HostZombie"/>
+			<spawn id="mvz2:HostMutant"/>
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
@@ -1449,10 +1450,13 @@
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
 		<spawns flags="2" firstWaveTime="600">
 
-			<spawn id="mvz2:mutant_zombie"/>
-			<spawn id="mvz2:mega_mutant_zombie"/>
-			<spawn id="mvz2:HostMutant"/>
-			<spawn id="mvz2:HeavyGutant"/>
+			<spawn id="mvz2:necromancer"/>
+			<spawn id="mvz2:KingSkeleton"/>
+			<spawn id="mvz2:EvilMage"/>
+			<spawn id="mvz2:skeleton_mage"/>
+			<spawn id="mvz2:AngryReverser"/>
+			<spawn id="mvz2:shikaisen_zombie"/>
+			<spawn id="mvz2:wicked_hermit_zombie"/>
 
 		</spawns>
 		<properties>
@@ -1464,13 +1468,16 @@
 		<model preset="cloudy" />
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
 		<camera position="lawn" transition="instant"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+		<spawns flags="4" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
 			<spawn id="mvz2:ghost"/>
 			<spawn id="mvz2:skeleton_horse"/>
 			<spawn id="mvz2:dullahan_head"/>
 			<spawn id="mvz2:necromancer"/>
 			<spawn id="mvz2:AngryReverser"/>
 			<spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:NetherVanguard"/>
 		</spawns>
 		<properties>
 			

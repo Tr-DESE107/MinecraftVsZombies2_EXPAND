@@ -1403,6 +1403,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20f80c720c62e1248b514ad13b0a0939
+    m_Address: mvz2:arcade/WhackASkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 211657565d216cd4a9fb3b2c489ff0af
     m_Address: mvz2:ui/level/nightmare_broken_glasses
     m_ReadOnly: 0
@@ -8133,6 +8140,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf765943926e6514895dea3bf309fd68
+    m_Address: mvz2:arcade/PerformanceArt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf91b1cffcf2bb948bcdb815c1916e71
     m_Address: mvz2:mobile_blueprint/shikaisen_zombie

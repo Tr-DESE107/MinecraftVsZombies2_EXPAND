@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.Artifacts
         {
             var level = artifact.Level;
 
-            foreach (var entity in level.FindEntities(e =>  e.ExistsAndAlive()))
+            foreach (var entity in level.FindEntities(e =>  e.ExistsAndAlive() && (e.Type == EntityTypes.ENEMY || e.Type == EntityTypes.PLANT)))
             {
                 bool hostile = entity.IsHostile(0);
                 if (!hostile)
@@ -51,7 +51,7 @@ namespace MVZ2.GameContent.Artifacts
                     if (buff == null)
                     {
                         entity.AddBuff<DivineShieldBuff>();
-                        entity.PlaySound(VanillaSoundID.armorUp);
+                        
                     }
 
 

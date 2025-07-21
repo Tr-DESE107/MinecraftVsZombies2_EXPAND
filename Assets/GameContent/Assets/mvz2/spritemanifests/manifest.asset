@@ -49,6 +49,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2f65e88c41fd23d4987bba1066e05ba3, type: 3}
   - name: arcade/MutantCrisis
     sprite: {fileID: 21300000, guid: ad37274122165ca4fb778cd5c3a969a9, type: 3}
+  - name: arcade/PerformanceArt
+    sprite: {fileID: 21300000, guid: bf765943926e6514895dea3bf309fd68, type: 3}
   - name: arcade/RandomChinaAndPot
     sprite: {fileID: 21300000, guid: 79486b33dabc7014b8d326dfcbd70828, type: 3}
   - name: arcade/WhackASkeleton
