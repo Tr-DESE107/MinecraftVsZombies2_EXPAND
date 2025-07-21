@@ -51,6 +51,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ad37274122165ca4fb778cd5c3a969a9, type: 3}
   - name: arcade/RandomChinaAndPot
     sprite: {fileID: 21300000, guid: 79486b33dabc7014b8d326dfcbd70828, type: 3}
+  - name: arcade/WhackASkeleton
+    sprite: {fileID: 21300000, guid: 20f80c720c62e1248b514ad13b0a0939, type: 3}
   - name: arcade/whack_a_ghost
     sprite: {fileID: 21300000, guid: ba09814b17fbf24438727f22089f7192, type: 3}
   - name: archive/castle_note

@@ -79,7 +79,10 @@ namespace MVZ2.GameContent.Stages
         public const string MutantCrisis = "MutantCrisis";
         public const string ContraptionDevourer = "ContraptionDevourer";
         public const string RandomChinaAndPot = "RandomChinaAndPot";
+        public const string PerformanceArt = "PerformanceArt";
+        public const string WhackASkeleton = "WhackASkeleton";
         
+            
 
         // Puzzles
         public const string puzzleIZombie = "puzzle_i_zombie";

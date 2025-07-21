@@ -1445,6 +1445,43 @@
 		</properties>
 	</stage>
 
+	<stage id="PerformanceArt" name="行为艺术" type="minigame" music="mvz2:minigame">
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<spawns flags="2" firstWaveTime="600">
+
+			<spawn id="mvz2:mutant_zombie"/>
+			<spawn id="mvz2:mega_mutant_zombie"/>
+			<spawn id="mvz2:HostMutant"/>
+			<spawn id="mvz2:HeavyGutant"/>
+
+		</spawns>
+		<properties>
+			<bool name="ignoreHugeWaveEvent" value="true"/>
+		</properties>
+	</stage>
+
+	<stage id="WhackASkeleton" name="锤骷髅" needBlueprints="false" type="minigame" startEnergy="0" music="mvz2:minigame" >
+		<model preset="cloudy" />
+		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+		<camera position="lawn" transition="instant"/>
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+			<spawn id="mvz2:ghost"/>
+			<spawn id="mvz2:skeleton_horse"/>
+			<spawn id="mvz2:dullahan_head"/>
+			<spawn id="mvz2:necromancer"/>
+			<spawn id="mvz2:AngryReverser"/>
+			<spawn id="mvz2:berserker"/>
+		</spawns>
+		<properties>
+			
+			<bool name="noEnergy" value="true"/>
+			<bool name="autoCollectAll" value="true"/>
+
+			<integer name="spawnerCount" value="8" />
+		</properties>
+		
+	</stage>
+
 	<!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
