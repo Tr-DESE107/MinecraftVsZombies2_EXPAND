@@ -371,6 +371,7 @@
 		
 		<conveyor>
 			<entry id="mvz2:obsidian" count="8"/>
+			<entry id="mvz2:GlowingObsidian" count="8"/>
 			<entry id="mvz2:Poisonser" count="5"/>
 			<entry id="mvz2:glowstone" count="5"/>
 			<entry id="mvz2:punchton" count="5"/>
@@ -379,7 +380,7 @@
 			<entry id="mvz2:silvenser" count="8"/>
 			<entry id="mvz2:magichest" count="3"/>
 		</conveyor>
-		<clear pickupModel="mvz2:entity.dream_key"/>
+		<clear pickupModel="mvz2:entity.artifact_pickup" artifactID="mvz2:ShrunkenHead"/>
 		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
 			<spawn id="mvz2:zombie"/>
 			<spawn id="mvz2:ZombieHead"/>
@@ -1316,9 +1317,12 @@
     <stage id="big_trouble_and_little_zombie" name="小僵尸和大麻烦" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <conveyor>
             <entry id="mvz2:wooden_dropper" count="15"/>
-            <entry id="mvz2:pistenser" count="5"/>
-            <entry id="mvz2:obsidian" count="5"/>
-            <entry id="mvz2:tnt" count="3"/>
+            <entry id="mvz2:pistenser" count="10"/>
+            <entry id="mvz2:obsidian" count="10"/>
+            <entry id="mvz2:tnt" count="6"/>
+			<entry id="mvz2:stone_dropper" count="8"/>
+			<entry id="mvz2:golden_apple" count="8"/>
+			
         </conveyor>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">

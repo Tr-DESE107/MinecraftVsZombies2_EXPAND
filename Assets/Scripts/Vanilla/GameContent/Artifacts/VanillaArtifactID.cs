@@ -11,6 +11,7 @@ namespace MVZ2.GameContent.Artifacts
         public const string theCreaturesHeart = "the_creatures_heart";
 
         public const string ShrunkenHead = "ShrunkenHead";
+        public const string FrankensteinBrain = "FrankensteinBrain";
 
         public const string dreamButterfly = "dream_butterfly";
         public const string sweetSleepPillow = "sweet_sleep_pillow";
@@ -27,6 +28,8 @@ namespace MVZ2.GameContent.Artifacts
         public const string witherSkeletonSkull = "wither_skeleton_skull";
         public const string brokenLantern = "broken_lantern";
 
+        public const string WitherHeartShield = "WitherHeartShield";
+
         public const string manipulativeTalismans = "manipulative_talismans";
         public const string greedyVacuum = "greedy_vacuum";
         public const string lightbomb = "lightbomb";
@@ -39,6 +42,7 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID theCreaturesHeart = Get(VanillaArtifactNames.theCreaturesHeart);
 
         public static readonly NamespaceID ShrunkenHead = Get(VanillaArtifactNames.ShrunkenHead);
+        public static readonly NamespaceID FrankensteinBrain = Get(VanillaArtifactNames.FrankensteinBrain);
 
         public static readonly NamespaceID dreamButterfly = Get(VanillaArtifactNames.dreamButterfly);
 
@@ -56,6 +60,8 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID witherSkeletonSkull = Get(VanillaArtifactNames.witherSkeletonSkull);
         public static readonly NamespaceID netherStar = Get(VanillaArtifactNames.netherStar);
         public static readonly NamespaceID brokenLantern = Get(VanillaArtifactNames.brokenLantern);
+
+        public static readonly NamespaceID WitherHeartShield = Get(VanillaArtifactNames.WitherHeartShield);
 
         public static readonly NamespaceID manipulativeTalismans = Get(VanillaArtifactNames.manipulativeTalismans);
         public static readonly NamespaceID greedyVacuum = Get(VanillaArtifactNames.greedyVacuum);

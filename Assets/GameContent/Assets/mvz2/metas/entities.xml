@@ -417,7 +417,7 @@
 
 				<idArray name="mvz2:gridLayers" value="mvz2:protector" />
             
-                <int name="mvz2:cost" value="150" />
+                <int name="mvz2:cost" value="250" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
@@ -542,7 +542,7 @@
                 <id name="mvz2:hitSound" value="mvz2:crystal" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
 
-                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
@@ -568,8 +568,8 @@
                 <id name="mvz2:deathSound" null="true" />
                 <id name="mvz2:hitSound" null="true" />
                 <idArray name="mvz2:gridLayers" value="" />
-                <int name="mvz2:cost" value="100" />
-                <id name="mvz2:rechargeId" value="mvz2:long" />
+                <int name="mvz2:cost" value="175" />
+                <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
 

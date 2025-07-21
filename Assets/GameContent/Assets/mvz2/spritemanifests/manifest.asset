@@ -83,6 +83,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 34e619cc0502d6c499f470950cf5acec, type: 3}
   - name: artifacts/eye_of_the_giant
     sprite: {fileID: 21300000, guid: 8e09eb5034d8901409cccb88e3f86633, type: 3}
+  - name: artifacts/FrankensteinBrain
+    sprite: {fileID: 21300000, guid: 626129598a5199844bd0251fa586c2bd, type: 3}
   - name: artifacts/greedy_vacuum
     sprite: {fileID: 21300000, guid: 0b687cc971691aa4786964a361a0d14c, type: 3}
   - name: artifacts/hoe
@@ -107,6 +109,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6aeedebbc3d6f934c8d4f7afb3614d86, type: 3}
   - name: artifacts/the_creatures_heart
     sprite: {fileID: 21300000, guid: 47aa6cbff8c048c40a3da0ad86fa845d, type: 3}
+  - name: artifacts/WitherHeartShield
+    sprite: {fileID: 21300000, guid: e4ff65582e1e99d4aa26218e03930405, type: 3}
   - name: artifacts/wither_skeleton_skull
     sprite: {fileID: 21300000, guid: c37ae568963b3c141804d263bfe68ffd, type: 3}
   - name: chapter_transition/chapter_title_end

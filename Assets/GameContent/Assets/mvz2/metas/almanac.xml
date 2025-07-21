@@ -1853,6 +1853,18 @@
 				<p>死灵法师整的都是什么玩意...不能来点阳间的吗</p>
 			</flavor>
 		</entry>
+
+		<entry id="mvz2:FrankensteinBrain">
+			<header>
+				<p>萎缩头颅。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>周期性为场上我方怪物赋予骨质头盔</color>]]></p>
+			</properties>
+			<flavor>
+				<p>死灵法师整的都是什么玩意...不能来点阳间的吗</p>
+			</flavor>
+		</entry>
         
         <entry id="mvz2:sweet_sleep_pillow">
             <header>
@@ -1978,17 +1990,7 @@
                 <p>那么星之碎片到底是什么东西……？</p>
             </flavor>
         </entry>
-        <!-- <entry id="mvz2:wither_skeleton_skull">
-            <header>
-                <p>凋灵骷髅的头颅。</p>
-            </header>
-            <properties>
-                <p>效果：<![CDATA[<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×60%</color>]]></p>
-            </properties>
-            <flavor>
-                <p>多么惊悚恐怖的骷髅头！</p>
-            </flavor>
-        </entry> -->
+        
         <entry id="mvz2:broken_lantern">
             <header>
                 <p>辉针城内装饰用的灯笼，被扯坏了。会减少发光器械的光照范围，但提升它们的生产速度和攻击速度。</p>
@@ -2000,6 +2002,31 @@
                 <p>呃，还是别告诉针妙丸了吧，她可能会生气的。</p>
             </flavor>
         </entry>
+
+		<entry id="mvz2:wither_skeleton_skull">
+			<header>
+				<p>凋灵骷髅的头颅。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>×80%蓝图消耗，但新放下的器械的最大耐久×60%</color>]]></p>
+			</properties>
+			<flavor>
+				<p>多么惊悚恐怖的骷髅头！</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:WitherHeartShield">
+			<header>
+				<p>凋灵护心盾。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>使敌方怪物常态减少受到的75%伤害，但在攻击时额外受到25%的伤害，使我方怪物额外受到75%的伤害。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这面盾牌以不公平的形式护卫着凋灵的"心脏"。</p>
+			</flavor>
+		</entry>
+		
         <entry id="mvz2:manipulative_talismans">
             <header>
                 <p>青娥赠送的一叠符箓，据说可以控制僵尸。</p>
