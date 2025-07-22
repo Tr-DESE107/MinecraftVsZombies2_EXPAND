@@ -4,6 +4,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Level;
+using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -48,6 +49,13 @@ namespace MVZ2.GameContent.Buffs.Enemies
 
             }
 
+            Buff buff = entity.GetFirstBuff<FlyBuff>();
+            if (buff != null)
+            {
+                damageInfo.Multiply(1f);
+                return;
+
+            }
 
             // 获取该实体身上所有WitherHeartShieldResistanceBuff实例
             buffBuffer.Clear();

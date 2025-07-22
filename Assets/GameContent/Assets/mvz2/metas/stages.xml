@@ -1348,7 +1348,7 @@
 			<entry id="mvz2:magichest" count="1"/>
 		</conveyor>
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="2">
 			<spawn id="mvz2:zombie"/>
 			<spawn id="mvz2:leather_capped_zombie"/>
 			<spawn id="mvz2:berserker"/>
@@ -1374,7 +1374,7 @@
 			
 		</conveyor>
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="2">
 			<spawn id="mvz2:zombie"/>
 			<spawn id="mvz2:leather_capped_zombie"/>
 			<spawn id="mvz2:berserker"/>
@@ -1394,7 +1394,7 @@
 
 	<stage id="MutantCrisis" name="巨人危机" type="minigame" music="mvz2:minigame">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="600" pointsMultiplier="4" pointsAddition="3">
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="1">
 			
 			<spawn id="mvz2:mutant_zombie"/>
 			<spawn id="mvz2:mega_mutant_zombie"/>

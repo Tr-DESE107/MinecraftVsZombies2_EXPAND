@@ -4390,6 +4390,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 626129598a5199844bd0251fa586c2bd
+    m_Address: mvz2:artifacts/FrankensteinBrain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62946c4ec1c56824b9e5ae35201dc267
     m_Address: mvz2:entity/enemy/endermite
     m_ReadOnly: 0
@@ -6229,6 +6236,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f3ef6c96e58e2642b44b12c151a1062
+    m_Address: mvz2:artifacts/NightmareMask
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f4a25505be15d244b85ae394574d811
     m_Address: mvz2:entity/armor/skeleton_warrior_helmet
@@ -9666,6 +9680,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4ff65582e1e99d4aa26218e03930405
+    m_Address: mvz2:artifacts/WitherHeartShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e54f2595624bbc447b98881de587ce72
     m_Address: mvz2:ui/level/hint_arrow

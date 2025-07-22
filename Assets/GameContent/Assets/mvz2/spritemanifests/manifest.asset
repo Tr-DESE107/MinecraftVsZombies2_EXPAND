@@ -99,8 +99,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 70875885371f09444af751a1676e6f71, type: 3}
   - name: artifacts/nether_star
     sprite: {fileID: 21300000, guid: 58b00e65f2d3cf54e95b866108f55a09, type: 3}
+  - name: artifacts/NightmareMask
+    sprite: {fileID: 21300000, guid: 8f3ef6c96e58e2642b44b12c151a1062, type: 3}
   - name: artifacts/pagoda_branch
     sprite: {fileID: 21300000, guid: 48d03b03b358d9948863f3eb0517933a, type: 3}
+  - name: artifacts/ShadowCellCore
+    sprite: {fileID: 21300000, guid: 641f2ef95c0d9684eaa734109a643d9a, type: 3}
   - name: artifacts/ShrunkenHead
     sprite: {fileID: 21300000, guid: 19f48e6df4da76a4e8ed8c7eb4086f50, type: 3}
   - name: artifacts/smart_phone

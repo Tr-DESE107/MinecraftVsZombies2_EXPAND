@@ -20,6 +20,7 @@ namespace MVZ2.GameContent.Artifacts
         public const string bottledBlackhole = "bottled_blackhole";
 
         public const string AngelsFeather = "AngelsFeather";
+        public const string NightmareMask = "NightmareMask";
 
         public const string smartPhone = "smart_phone";
         public const string invertedMirror = "inverted_mirror";
@@ -34,6 +35,7 @@ namespace MVZ2.GameContent.Artifacts
         public const string greedyVacuum = "greedy_vacuum";
         public const string lightbomb = "lightbomb";
         public const string eyeOfTheGiant = "eye_of_the_giant";
+        public const string ShadowCellCore = "ShadowCellCore";
     }
     public static class VanillaArtifactID
     {
@@ -53,6 +55,7 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID bottledBlackhole = Get(VanillaArtifactNames.bottledBlackhole);
 
         public static readonly NamespaceID AngelsFeather = Get(VanillaArtifactNames.AngelsFeather);
+        public static readonly NamespaceID NightmareMask = Get(VanillaArtifactNames.NightmareMask);
 
         public static readonly NamespaceID smartPhone = Get(VanillaArtifactNames.smartPhone);
         public static readonly NamespaceID invertedMirror = Get(VanillaArtifactNames.invertedMirror);
@@ -67,6 +70,7 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID greedyVacuum = Get(VanillaArtifactNames.greedyVacuum);
         public static readonly NamespaceID lightbomb = Get(VanillaArtifactNames.lightbomb);
         public static readonly NamespaceID eyeOfTheGiant = Get(VanillaArtifactNames.eyeOfTheGiant);
+        public static readonly NamespaceID ShadowCellCore = Get(VanillaArtifactNames.ShadowCellCore);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
