@@ -46,6 +46,10 @@
             <stage id="mvz2:dream_9"/>
             <stage id="mvz2:dream_10"/>
             <stage id="mvz2:dream_11"/>
+            <stage id="mvz2:dream_12"/>
+            <stage id="mvz2:dream_13"/>
+            <stage id="mvz2:dream_14"/>
+            <stage id="mvz2:dream_15"/>
         </stages>
     </map>
     <map id="gensokyo" width="1020" height="600">
@@ -86,6 +90,10 @@
             <stage id="mvz2:castle_9"/>
             <stage id="mvz2:castle_10"/>
             <stage id="mvz2:castle_11"/>
+            <stage id="mvz2:castle_12"/>
+            <stage id="mvz2:castle_13"/>
+            <stage id="mvz2:castle_14"/>
+            <stage id="mvz2:castle_15"/>
         </stages>
     </map>
     <map id="mausoleum" area="mvz2:mausoleum" width="3200" height="2400">
@@ -104,6 +112,10 @@
             <stage id="mvz2:mausoleum_9"/>
             <stage id="mvz2:mausoleum_10"/>
             <stage id="mvz2:mausoleum_11"/>
+            <stage id="mvz2:mausoleum_12"/>
+            <stage id="mvz2:mausoleum_13"/>
+            <stage id="mvz2:mausoleum_14"/>
+            <stage id="mvz2:mausoleum_15"/>
         </stages>
     </map>
     <map id="ship" area="mvz2:ship" width="4200" height="3600">

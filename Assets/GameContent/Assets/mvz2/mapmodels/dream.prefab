@@ -48,6 +48,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3146854895338399448, guid: 10a783cde4776d342bee9862789deb16, type: 3}
+      propertyPath: mapButtons.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3146854895338399448, guid: 10a783cde4776d342bee9862789deb16, type: 3}
+      propertyPath: mapButtons.Array.data[11]
+      value: 
+      objectReference: {fileID: 6786967516634233363}
+    - target: {fileID: 5545868602515006216, guid: 10a783cde4776d342bee9862789deb16, type: 3}
+      propertyPath: m_Name
+      value: MapButton12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5545868602515006216, guid: 10a783cde4776d342bee9862789deb16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8832129787630700213, guid: 10a783cde4776d342bee9862789deb16, type: 3}
       propertyPath: m_Name
       value: dream
@@ -57,3 +73,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a783cde4776d342bee9862789deb16, type: 3}
+--- !u!114 &6786967516634233363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 258539247418079032, guid: 10a783cde4776d342bee9862789deb16, type: 3}
+  m_PrefabInstance: {fileID: 6748260227126185259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4cda41dc77afb429f229b7b16bb2e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

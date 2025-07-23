@@ -652,6 +652,42 @@
         </spawns>
     </stage>
 
+	<stage id="dream_12" name="梦境世界" dayNumber="12" type="boss" needBlueprints="false" unlock="mvz2:level.dream_11" music="mvz2:nightmare_final" >
+		<talks noStartMusic="true">
+			
+		</talks>
+		<conveyor>
+			<entry id="mvz2:lily_pad" count="16"/>
+			<entry id="mvz2:drivenser" count="30"/>
+			<entry id="mvz2:gravity_pad" count="3"/>
+			<entry id="mvz2:vortex_hopper" count="3"/>
+			<entry id="mvz2:pistenser" count="12"/>
+			<entry id="mvz2:totenser" count="12"/>
+			<entry id="mvz2:dream_crystal" count="6"/>
+			<entry id="mvz2:dream_silk" count="1"/>
+			<entry id="mvz2:glowstone" count="4"/>
+
+		</conveyor>
+		<clear pickupModel="mvz2:entity.money_chest"/>
+		<spawns flags="2" firstWaveTime="10" pointsMultiplier="3" >
+			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:leather_capped_zombie"/>
+			<spawn id="mvz2:iron_helmetted_zombie"/>
+			<spawn id="mvz2:spider"/>
+			<spawn id="mvz2:cave_spider"/>
+			<spawn id="mvz2:ghast"/>
+			<spawn id="mvz2:mother_terror"/>
+			<spawn id="mvz2:necromancer"/>
+			<spawn id="mvz2:skeleton"/>
+			<spawn id="mvz2:HostMutant"/>
+			<spawn id="mvz2:HostZombie"/>
+			<spawn id="mvz2:BloodlustHostZombie"/>
+		</spawns>
+		<properties>
+			<bool name="noEnergy" value="true"/>
+		</properties>
+	</stage>
+
     <!-- Castle -->
     <stage id="castle_1" name="辉针城" dayNumber="1" unlock="mvz2:entered_castle">
         <talks>
@@ -870,6 +906,43 @@
             <spawn id="mvz2:LeatherWitherSkeleton"/>
         </spawns>
     </stage>
+	
+	<stage id="castle_12" name="辉针城" dayNumber="12" type="boss" needBlueprints="false" unlock="mvz2:level.castle_11" music="mvz2:castle_final" >
+		<talks noStartMusic="true">
+			
+		</talks>
+		<conveyor>
+			<entry id="mvz2:glowstone" count="4" minCount="0"/>
+			<entry id="mvz2:wooden_dropper" count="5"/>
+			<entry id="mvz2:spike_block" count="5"/>
+			<entry id="mvz2:stone_dropper" count="8"/>
+			<entry id="mvz2:stone_shield" count="15"/>
+			<entry id="mvz2:golden_apple" count="3"/>
+			<entry id="mvz2:thunder_drum" count="3"/>
+			<entry id="mvz2:tesla_coil" count="8"/>
+			<entry id="mvz2:giant_bowl" count="1"/>
+			<entry id="mvz2:pistenser" count="12"/>
+			<entry id="mvz2:soul_furnace" count="6"/>
+			<entry id="mvz2:tnt" count="11"/>
+		</conveyor>
+		<clear pickupModel="mvz2:entity.money_chest"/>
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+			<spawn id="mvz2:WitherSkeleton"/>
+			<spawn id="mvz2:LeatherWitherSkeleton"/>
+			<spawn id="mvz2:IronWitherSkeleton"/>
+			<spawn id="mvz2:mesmerizer"/>
+			<spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:dullahan"/>
+			<spawn id="mvz2:hell_chariot"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:NetherVanguard"/>
+			<spawn id="mvz2:AngryReverser"/>
+		</spawns>
+		<properties>
+			<bool name="noEnergy" value="true"/>
+		</properties>
+	</stage>
 
     <!-- Mausoleum -->
 	<stage id="mausoleum_1" name="梦殿大祀庙" dayNumber="1" unlock="mvz2:entered_mausoleum">
@@ -1088,6 +1161,35 @@
 		</spawns>
 		<properties>
 			<integer name="spawnerCount" value="1" />
+		</properties>
+	</stage>
+	<stage id="mausoleum_12" name="梦殿大祀庙" dayNumber="12" type="boss" needBlueprints="false" unlock="mvz2:level.mausoleum_11" music="mvz2:mausoleum_final" >
+		<talks noStartMusic="true">
+			
+		</talks>
+		<conveyor>
+			<entry id="mvz2:note_block" count="2"/>
+			<entry id="mvz2:lightning_orb" count="6"/>
+			<entry id="mvz2:splitenser" count="8"/>
+			<entry id="mvz2:devourer" count="2" minCount="0"/>
+			<entry id="mvz2:hellfire" count="4"/>
+			<entry id="mvz2:necrotombstone" count="4"/>
+			<entry id="mvz2:black_hole_bomb" count="1"/>
+			<entry id="mvz2:desire_pot" count="2" minCount="0"/>
+		</conveyor>
+		<clear pickupModel="mvz2:entity.money_chest"/>
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+			<spawn id="mvz2:MonkZombie"/>
+			<spawn id="mvz2:LeatherMonkZombie"/>
+			<spawn id="mvz2:IronMonkZombie"/>
+			<spawn id="mvz2:reflective_barrier_zombie"/>
+			<spawn id="mvz2:wicked_hermit_zombie"/>
+			<spawn id="mvz2:shikaisen_zombie"/>
+			<spawn id="mvz2:emperor_zombie"/>
+		</spawns>
+		<properties>
+			<bool name="noEnergy" value="true"/>
+			<integer name="spawnerCount" value="8" />
 		</properties>
 	</stage>
 

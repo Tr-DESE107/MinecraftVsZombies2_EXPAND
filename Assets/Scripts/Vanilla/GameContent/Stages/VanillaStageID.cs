@@ -41,6 +41,10 @@ namespace MVZ2.GameContent.Stages
         public const string dream9 = "dream_9";
         public const string dream10 = "dream_10";
         public const string dream11 = "dream_11";
+        public const string dream12 = "dream_12";
+        public const string dream13 = "dream_13";
+        public const string dream14 = "dream_14";
+        public const string dream15 = "dream_15";
         public const string dreamEndless = "dream_endless";
 
         public const string castle1 = "castle_1";
@@ -54,6 +58,10 @@ namespace MVZ2.GameContent.Stages
         public const string castle9 = "castle_9";
         public const string castle10 = "castle_10";
         public const string castle11 = "castle_11";
+        public const string castle12 = "castle_12";
+        public const string castle13 = "castle_13";
+        public const string castle14 = "castle_14";
+        public const string castle15 = "castle_15";
         public const string castleEndless = "castle_endless";
 
         public const string mausoleum1 = "mausoleum_1";
@@ -67,6 +75,10 @@ namespace MVZ2.GameContent.Stages
         public const string mausoleum9 = "mausoleum_9";
         public const string mausoleum10 = "mausoleum_10";
         public const string mausoleum11 = "mausoleum_11";
+        public const string mausoleum12 = "mausoleum_12";
+        public const string mausoleum13 = "mausoleum_13";
+        public const string mausoleum14 = "mausoleum_14";
+        public const string mausoleum15 = "mausoleum_15";
         public const string mausoleumEndless = "mausoleum_endless";
 
         // Minigames

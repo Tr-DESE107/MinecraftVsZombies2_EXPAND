@@ -10758,13 +10758,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fa8aa09227f46034b8b939a68f700d45
-    m_Address: mvz2:entity/enemy/MonkZombieOld
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Spritesheet
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa8fc80a727b0a549974a51278bbe414
     m_Address: mvz2:soul_sand_break1
     m_ReadOnly: 0
