@@ -6181,13 +6181,6 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8c8f0dd8566ebae45b3e559662170072
-    m_Address: mvz2:enemy/halloween/RedEyeZombieHead
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ca4037f1d5fcf342b4ffe04c46d6590
     m_Address: mvz2:mobile_blueprint/repeatenser
     m_ReadOnly: 0

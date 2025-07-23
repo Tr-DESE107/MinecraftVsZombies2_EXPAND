@@ -2153,10 +2153,10 @@
 				<p>暗影细胞核心。</p>
 			</header>
 			<properties>
-				<p>效果：<![CDATA[<color=red>敌人的最大生命值降低，但死亡时会生成他们的头颅。</color>]]></p>
+				<p>效果：<![CDATA[<color=red>敌人死亡时会生成他们的头颅。</color>]]></p>
 			</properties>
 			<flavor>
-				<p>没有爱。</p>
+				<p>暗影细胞核心能够唤醒怪物的有效部分。尸体复活不可怕，尸体的单独一部分复活才可怕。</p>
 			</flavor>
 		</entry>
 

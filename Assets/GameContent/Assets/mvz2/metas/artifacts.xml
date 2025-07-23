@@ -14,7 +14,7 @@
     <artifact id="dark_matter" name="暗物质" tooltip="器械生产效率×200%，但场景变得黑暗" sprite="mvz2:artifacts/dark_matter" unlock="mvz2:artifact.dark_matter" />
     <artifact id="bottled_blackhole" name="瓶装黑洞" tooltip="每有一个蓝图空位，+15%器械伤害" sprite="mvz2:artifacts/bottled_blackhole" unlock="mvz2:artifact.bottled_blackhole" />
 
-	<artifact id="AngelsFeather" name="天使的羽毛" tooltip="周期性为场上我方实体赋予圣盾" sprite="mvz2:artifacts/AngelsFeather" unlock="mvz2:level.halloween_11" />
+	<artifact id="AngelsFeather" name="天使的羽毛" tooltip="周期性为场上我方实体赋予圣盾" sprite="mvz2:artifacts/AngelsFeather" unlock="mvz2:level.dream_6" />
 
 
 	<artifact id="smart_phone" name="智能手机" tooltip="你在最后一波开始前每有10能量，关卡结束时便获得10金钱" sprite="mvz2:artifacts/smart_phone" unlock="mvz2:kourindou_visited_castle" />
@@ -31,6 +31,6 @@
 
 	<artifact id="FrankensteinBrain" name="科学怪人之脑" tooltip="场上每有一个同类器械，该器械的能量消耗增加10，所有器械的冷却时间+33%，最大血量+25%" sprite="mvz2:artifacts/FrankensteinBrain" unlock="mvz2:level.halloween_14" />
 	<artifact id="NightmareMask" name="梦魇之面" tooltip="敌人的攻击速度下降20%，但有20%概率不受到本次伤害" sprite="mvz2:artifacts/NightmareMask" unlock="mvz2:level.dream_11" />
-	<artifact id="WitherHeartShield" name="凋灵护心盾" tooltip="使敌方怪物常态减伤，攻击时额外受到伤害，并使我方怪物常态额外受到伤害" sprite="mvz2:artifacts/WitherHeartShield" unlock="mvz2:level.castle_12" />
-    <artifact id="ShadowCellCore" name="暗影细胞核心" tooltip="敌人的最大生命值降低，但死亡时会产生他们的头颅。" sprite="mvz2:artifacts/ShadowCellCore" unlock="mvz2:level.mausoleum_11" />
+	<artifact id="WitherHeartShield" name="凋灵护心盾" tooltip="使敌方怪物常态减伤，攻击时额外受到伤害，并使我方怪物常态额外受到伤害" sprite="mvz2:artifacts/WitherHeartShield" unlock="mvz2:level.castle_11" />
+    <artifact id="ShadowCellCore" name="暗影细胞核心" tooltip="敌人死亡时会生成他们的头颅。" sprite="mvz2:artifacts/ShadowCellCore" unlock="mvz2:level.mausoleum_11" />
 </artifacts>

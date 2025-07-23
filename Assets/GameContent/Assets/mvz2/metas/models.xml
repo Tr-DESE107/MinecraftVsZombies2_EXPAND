@@ -73,8 +73,8 @@
 	
 	<model name="SkeletonHead" type="entity" path="mvz2:enemy/halloween/SkeletonHead" width="32" height="22" xOffset="0" yOffset="-11"/>
 	<model name="ZombieHead" type="entity" path="mvz2:enemy/halloween/ZombieHead" width="32" height="22" xOffset="0" yOffset="-11"/>
-	<model name="RedEyeZombieHead" type="entity" path="mvz2:enemy/halloween/RedEyeZombieHead" width="32" height="22" xOffset="0" yOffset="-21"/>
-	<model name="HostHead" type="entity" path="mvz2:enemy/dream/HostHead" width="32" height="22" xOffset="0" yOffset="-21"/>
+	<model name="RedEyeZombieHead" type="entity" path="mvz2:enemy/halloween/RedEyeZombieHead" width="32" height="22" xOffset="0" yOffset="-11"/>
+	<model name="HostHead" type="entity" path="mvz2:enemy/dream/HostHead" width="32" height="22" xOffset="0" yOffset="-11"/>
 
 	<model name="Endermite" type="entity" path="mvz2:enemy/ship/Endermite" width="25" height="10" xOffset="0" yOffset="-21"/>
 	
