@@ -2119,10 +2119,11 @@
 				<p>科学怪人的大脑。</p>
 			</header>
 			<properties>
-				<p>效果：<![CDATA[<color=red>器械的机械能和冷却时间都增加，血量小幅度提升</color>]]></p>
+				<p>效果：<![CDATA[<color=red>场上每有一个同类器械，该器械的能量消耗增加10，所有器械的冷却时间+33%，最大血量+25%</color>]]></p>
 			</properties>
 			<flavor>
-				<p>没有爱。</p>
+				<p>即使肉体已经死亡，这个大脑也在不断汲取能量并活跃。</p>
+				<p>希望这不意味着他知道发生了什么。</p>
 			</flavor>
 		</entry>
 		<entry id="mvz2:NightmareMask">
@@ -2133,7 +2134,7 @@
 				<p>效果：<![CDATA[<color=red>敌人的攻击力下降，但有概率不受到本次伤害</color>]]></p>
 			</properties>
 			<flavor>
-				<p>没有爱。</p>
+				<p>你确定你在攻击敌人吗？</p>
 			</flavor>
 		</entry>
 		<entry id="mvz2:WitherHeartShield">

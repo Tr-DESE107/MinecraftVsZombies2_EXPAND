@@ -53,6 +53,7 @@ namespace MVZ2.GameContent.Buffs
         public const string ironCurtain = "iron_curtain";
         public const string miracleMalletReplicaDamage = "miracle_mallet_replica_damage";
         public const string witherSkeletonSkullReduceHealth = "wither_skeleton_skull_reduce_health";
+        public const string FrankensteinBrainAddHealthBuff = "FrankensteinBrainAddHealthBuff";
         public const string brokenLantern = "broken_lantern";
         public const string eyeOfTheGiant = "eye_of_the_giant";
         public const string bottledBlackholeDamage = "bottled_blackhole_damage";
@@ -144,6 +145,8 @@ namespace MVZ2.GameContent.Buffs
             public const string slendermanMindSwap = "slenderman_mind_swap";
             public const string upgradeEndlessCost = "upgrade_endless_cost";
             public const string witherSkeletonSkullReduceCost = "wither_skeleton_skull_reduce_cost";
+
+            public const string FrankensteinBrainBuff = "FrankensteinBrainBuff";
         }
         public static class Level
         {
@@ -251,6 +254,8 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID theCreaturesHeartReduceCost = Get(VanillaBuffNames.SeedPack.theCreaturesHeartReduceCost);
             public static readonly NamespaceID upgradeEndlessCost = Get(VanillaBuffNames.SeedPack.upgradeEndlessCost);
             public static readonly NamespaceID witherSkeletonSkullReduceCost = Get(VanillaBuffNames.SeedPack.witherSkeletonSkullReduceCost);
+
+            public static readonly NamespaceID FrankensteinBrainBuff = Get(VanillaBuffNames.SeedPack.FrankensteinBrainBuff);
         }
         public static class Level
         {

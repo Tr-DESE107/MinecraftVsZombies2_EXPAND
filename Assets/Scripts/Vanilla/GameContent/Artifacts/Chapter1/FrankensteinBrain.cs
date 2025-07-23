@@ -12,6 +12,27 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.SeedPacks;
+using System.Collections.Generic;
+using System.Linq;
+using MVZ2.GameContent.Difficulties;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
+using PVZEngine.Auras;
+using PVZEngine.Buffs;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using PVZEngine.Modifiers;
+using System.Collections.Generic;
+using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Armors;
+using MVZ2Logic;
+using MVZ2Logic.Artifacts;
+using MVZ2Logic.Level;
+using PVZEngine;
+using PVZEngine.Auras;
+using PVZEngine.Buffs;
+using PVZEngine.Callbacks;
+using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -24,6 +45,8 @@ namespace MVZ2.GameContent.Artifacts
             AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback, filter: EntityTypes.PLANT);
             AddTrigger(LevelCallbacks.POST_ENTITY_REMOVE, PostEntityRemoveCallback, filter: EntityTypes.PLANT);
             AddAura(new ReduceCostAura());
+            AddAura(new BlueprintAura());
+            AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostContraptionInitCallback, filter: EntityTypes.PLANT);
         }
         public override void PostUpdate(Artifact artifact)
         {
@@ -43,6 +66,22 @@ namespace MVZ2.GameContent.Artifacts
                 aura.UpdateAura();
             }
         }
+        private void PostContraptionInitCallback(EntityCallbackParams param, CallbackResult result)
+        {
+            var contraption = param.entity;
+            var level = contraption.Level;
+            var artifacts = level.GetArtifacts();
+            foreach (var artifact in artifacts)
+            {
+                if (artifact == null)
+                    continue;
+                if (artifact.Definition != this)
+                    continue;
+                artifact.Highlight();
+                contraption.AddBuff<FrankensteinBrainAddHealthBuff>();
+            }
+        }
+
         private void PostEntityInitCallback(EntityCallbackParams param, CallbackResult result)
         {
             var contraption = param.entity;
@@ -72,6 +111,21 @@ namespace MVZ2.GameContent.Artifacts
             }
         }
         public static readonly NamespaceID ID = VanillaArtifactID.FrankensteinBrain;
+
+        public class BlueprintAura : AuraEffectDefinition
+        {
+            public BlueprintAura() : base()
+            {
+                BuffID = VanillaBuffID.SeedPack.FrankensteinBrainBuff;
+                UpdateInterval = 30;
+            }
+
+            public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
+            {
+                var level = auraEffect.Source.GetLevel();
+                results.AddRange(level.GetAllSeedPacks());
+            }
+        }
 
         public class ReduceCostAura : AuraEffectDefinition
         {
@@ -114,7 +168,7 @@ namespace MVZ2.GameContent.Artifacts
                     return;
                 buff.SetProperty(TheCreaturesHeartReduceCostBuff.PROP_ADDITION, seed.Level.GetEntityCount(entityID) * REDUCTION);
             }
-            public const float REDUCTION = -5;
+            public const float REDUCTION = 10;
         }
     }
 }
