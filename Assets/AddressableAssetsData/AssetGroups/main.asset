@@ -724,6 +724,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 113f8d660acfe7748849e3d20cb3575e
+    m_Address: mvz2:arcade/EXPAND_IZ/puzzle_unbreakable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1141abaa0b3afda43b5176a4018f8d53
     m_Address: mvz2:boss/nightmareaper
     m_ReadOnly: 0
@@ -908,6 +915,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15206f91cba867643894b071e1884fc8
     m_Address: mvz2:entity/projectiles/seija_bullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 153901630f9f4e048a028c67bdc6fbac
+    m_Address: mvz2:arcade/EXPAND_IZ/puzzle_i_skeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4439,6 +4453,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 641f2ef95c0d9684eaa734109a643d9a
+    m_Address: mvz2:artifacts/ShadowCellCore
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6423a491a15f75342ad5caf161cf634d
     m_Address: mvz2:mobile_blueprint/skeleton_horse
     m_ReadOnly: 0
@@ -4613,6 +4634,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68a29b6e72abdd043bd05f88aac0eae2
+    m_Address: mvz2:arcade/EXPAND_IZ/puzzle_can_you_pass_it
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68a34c0352f30f44fbe869081863c16f
     m_Address: mvz2:mobile_blueprint/the_giant
@@ -5518,6 +5546,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e0654a046a25aa49a4938aded15c81b
     m_Address: mvz2:mobile_blueprint/wither
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e1c48a0f1b4e9e4cb2959652d229f80
+    m_Address: mvz2:arcade/EXPAND_IZ/puzzle_dead_balloon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7538,6 +7573,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aef7aedad4b355f4ebb236c725ae29d1
+    m_Address: mvz2:arcade/EXPAND_IZ/puzzle_i_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: af372e34e2369a14ebae0a8a2ef7469d
     m_Address: mvz2:zap3
