@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9994cdef8f77dc64c8b87ec562fcc3cb
+guid: 4440268da916c7441be04ae4200cb5e4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MonkZombie_0
+      name: Red_MonkZombie_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b43fb887090db064aa9d8f816aeb9593
-      internalID: -2077321725
+      spriteID: c09af8a42ec5c064f9a3f260e6538e05
+      internalID: 195686219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MonkZombie_1
+      name: Red_MonkZombie_1
       rect:
         serializedVersion: 2
         x: 33
-        y: 47
+        y: 45
         width: 42
-        height: 15
+        height: 14
       alignment: 9
       pivot: {x: 0.8571429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,17 +145,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec4c5dfc116f5ac4c8470bae648fc436
-      internalID: 624386317
+      spriteID: 5595f9eac94fa2d4fbbc047e8047b89b
+      internalID: -925382698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MonkZombie_2
+      name: Red_MonkZombie_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 0
         width: 16
         height: 39
@@ -166,17 +166,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12ff4dbb17198af4e8305be011523c5e
-      internalID: 1232102315
+      spriteID: ad36cb6f2e3017d41b6176d9322427c7
+      internalID: -1265149394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MonkZombie_3
+      name: Red_MonkZombie_3
       rect:
         serializedVersion: 2
-        x: 19
+        x: 28
         y: 3
         width: 19
         height: 36
@@ -187,17 +187,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be4adb83bf0d1c24d88a1a5d2404d543
-      internalID: 1656571575
+      spriteID: 1107c98a2508cd34aa46e66a46476b0a
+      internalID: -1935018447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MonkZombie_4
+      name: Red_MonkZombie_4
       rect:
         serializedVersion: 2
-        x: 39
+        x: 49
         y: 3
         width: 19
         height: 36
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fd770114c305ce41ac3e2cac1269e05
-      internalID: 1770381877
+      spriteID: 6581adc3a19263f4581d1ba54f5388c6
+      internalID: -2092059575
       vertices: []
       indices: 
       edges: []
@@ -225,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MonkZombie_0: -2077321725
-      MonkZombie_1: 624386317
-      MonkZombie_2: 1232102315
-      MonkZombie_3: 1656571575
-      MonkZombie_4: 1770381877
+      Red_MonkZombie_0: 195686219
+      Red_MonkZombie_1: -925382698
+      Red_MonkZombie_2: -1265149394
+      Red_MonkZombie_3: -1935018447
+      Red_MonkZombie_4: -2092059575
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

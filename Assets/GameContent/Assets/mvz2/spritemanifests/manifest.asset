@@ -2088,6 +2088,13 @@ MonoBehaviour:
     - {fileID: 527946774, guid: 948c5ad7c0a10bc4fad381b36a5d60d7, type: 3}
   - name: entity/enemy/MonkZombie
     spritesheet:
+    - {fileID: -2077321725, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
+    - {fileID: 624386317, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
+    - {fileID: 1232102315, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
+    - {fileID: 1656571575, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
+    - {fileID: 1770381877, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
+  - name: entity/enemy/MonkZombieOld
+    spritesheet:
     - {fileID: -1724426877, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
     - {fileID: -1711784147, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
     - {fileID: -70730126, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
@@ -2187,6 +2194,13 @@ MonoBehaviour:
     - {fileID: -938367861, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: 516429795, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: -1181326684, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
+  - name: entity/enemy/Red_MonkZombie
+    spritesheet:
+    - {fileID: 195686219, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - {fileID: -925382698, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - {fileID: -1265149394, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - {fileID: -1935018447, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - {fileID: -2092059575, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
   - name: entity/enemy/Reverser
     spritesheet:
     - {fileID: 1691163263, guid: 4402b5e26c8f49d48b2b77d6938f95bb, type: 3}

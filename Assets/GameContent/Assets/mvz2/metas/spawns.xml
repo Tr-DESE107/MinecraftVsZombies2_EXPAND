@@ -240,6 +240,29 @@
         <weight base="2000" />
     </entry>
 
+	<entry id="MonkZombie" entity="mvz2:MonkZombie" >
+		<spawn level="1" />
+		<preview count="3" />
+		<terrain water="true" air="true"/>
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
+	</entry>
+	<entry id="LeatherMonkZombie" entity="mvz2:LeatherMonkZombie" >
+		<spawn level="2" />
+		<preview count="2" />
+		<terrain water="true" air="true"/>
+		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="150" />
+	</entry>
+	<entry id="IronMonkZombie" entity="mvz2:IronMonkZombie" >
+		<spawn level="4" />
+		<terrain water="true" air="true"/>
+		<weight base="3000" />
+	</entry>
+	<entry id="FlagMonkZombie" entity="mvz2:FlagMonkZombie" >
+		<spawn level="0" />
+		<terrain water="true" air="true"/>
+		<weight base="0" />
+	</entry>
+
 
 	<!-- Ship -->
 	<entry id="HeavyGutant" entity="mvz2:HeavyGutant" >

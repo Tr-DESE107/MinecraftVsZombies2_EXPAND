@@ -120,13 +120,18 @@
 	<model name="hell_chariot" type="entity" path="mvz2:enemy/castle/hell_chariot" width="152" height="120" xOffset="9" yOffset="-60"/>
 	<model name="anubisand" type="entity" path="mvz2:enemy/castle/anubisand" width="52" height="88" xOffset="12" yOffset="-41"/>
 
+	<model name="MonkZombie" type="entity" path="mvz2:enemy/mausoleum/MonkZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="LeatherMonkZombie" type="entity" path="mvz2:enemy/mausoleum/LeatherMonkZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="IronMonkZombie" type="entity" path="mvz2:enemy/mausoleum/IronMonkZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="FlagMonkZombie" type="entity" path="mvz2:enemy/mausoleum/FlagMonkZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
+
 	<model name="reflective_barrier_zombie" type="entity" path="mvz2:enemy/mausoleum/reflective_barrier_zombie" width="80" height="116" xOffset="16" yOffset="-50"/>
     <model name="talisman_zombie" type="entity" path="mvz2:enemy/mausoleum/talisman_zombie" width="64" height="96" xOffset="10" yOffset="-44"/>
     <model name="wicked_hermit_zombie" type="entity" path="mvz2:enemy/mausoleum/wicked_hermit_zombie" width="64" height="96" xOffset="10" yOffset="-44"/>
     <model name="shikaisen_zombie" type="entity" path="mvz2:enemy/mausoleum/shikaisen_zombie" width="64" height="96" xOffset="10" yOffset="-44"/>
     <model name="emperor_zombie" type="entity" path="mvz2:enemy/mausoleum/emperor_zombie" width="70" height="104" xOffset="1" yOffset="-47"/>
     
-    <model name="MonkZombie" type="entity" path="mvz2:enemy/temple/MonkZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
+    
     <model name="HeavyGutant" type="entity" path="mvz2:enemy/ship/HeavyGutant" width="200" height="180" xOffset="0" yOffset="-90"/>
 
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/shrine/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>

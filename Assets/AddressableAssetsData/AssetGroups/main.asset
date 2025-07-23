@@ -641,7 +641,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0fedf3018d39140468117555903e2d71
-    m_Address: mvz2:enemy/temple/MonkZombie
+    m_Address: mvz2:enemy/mausoleum/MonkZombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -725,7 +725,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 113f8d660acfe7748849e3d20cb3575e
-    m_Address: mvz2:arcade/EXPAND_IZ/puzzle_unbreakable
+    m_Address: mvz2:arcade/iz/puzzle_unbreakable
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -921,7 +921,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 153901630f9f4e048a028c67bdc6fbac
-    m_Address: mvz2:arcade/EXPAND_IZ/puzzle_i_skeleton
+    m_Address: mvz2:arcade/iz/puzzle_i_skeleton
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1760,6 +1760,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26ff304e86df95141b97fb19ae8f2d91
+    m_Address: mvz2:arcade/iz/puzzle_absolute_defense
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2815df395a9eef547b9b5664b558bab2
     m_Address: mvz2:enemy/ship/HeavyGutant
     m_ReadOnly: 0
@@ -2031,6 +2038,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ddf23cdef93b0940af2eb6ef2cfad9a
+    m_Address: mvz2:enemy/mausoleum/FirebreatherMonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2dfedcec3d1897541a307c6e344bced5
     m_Address: mvz2:mainmenu/view/dream
@@ -3074,6 +3088,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4440268da916c7441be04ae4200cb5e4
+    m_Address: mvz2:entity/enemy/Red_MonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44bd337d7a161b2498137668fbec6e35
     m_Address: mvz2:entity/contraptions/spike_block
     m_ReadOnly: 0
@@ -3598,6 +3619,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5019659344816ff4786bca441bcaca8d
+    m_Address: mvz2:enemy/mausoleum/LeatherMonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 504d237734e4940488bbf711d9083635
     m_Address: mvz2:mainmenu/user_manage
@@ -4636,7 +4664,7 @@ MonoBehaviour:
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 68a29b6e72abdd043bd05f88aac0eae2
-    m_Address: mvz2:arcade/EXPAND_IZ/puzzle_can_you_pass_it
+    m_Address: mvz2:arcade/iz/puzzle_can_you_pass_it
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -5552,7 +5580,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e1c48a0f1b4e9e4cb2959652d229f80
-    m_Address: mvz2:arcade/EXPAND_IZ/puzzle_dead_balloon
+    m_Address: mvz2:arcade/iz/puzzle_dead_balloon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6720,6 +6748,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9994cdef8f77dc64c8b87ec562fcc3cb
+    m_Address: mvz2:entity/enemy/MonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99fdfba4aeff67c43b3124c97a3a0dd7
     m_Address: mvz2:entity/pickups/redstone
     m_ReadOnly: 0
@@ -7575,7 +7610,7 @@ MonoBehaviour:
     - Music
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aef7aedad4b355f4ebb236c725ae29d1
-    m_Address: mvz2:arcade/EXPAND_IZ/puzzle_i_zombie
+    m_Address: mvz2:arcade/iz/puzzle_i_zombie
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -8413,6 +8448,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c526a6546e644e54989ca8bce8205149
+    m_Address: mvz2:enemy/mausoleum/FlagMonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c52ffe26b09fa8d43bfa1881edcd3b04
     m_Address: mvz2:misc/frankenstein
@@ -10717,7 +10759,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa8aa09227f46034b8b939a68f700d45
-    m_Address: mvz2:entity/enemy/MonkZombie
+    m_Address: mvz2:entity/enemy/MonkZombieOld
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10736,6 +10778,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fac3929eed4b4314b975f5a7274d1bc7
+    m_Address: mvz2:enemy/mausoleum/IronMonkZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fafac1d45c5bdb24b9dfb56a50fc4fe2
     m_Address: mvz2:pacman_kill

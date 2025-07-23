@@ -1690,7 +1690,45 @@
 				<p>可惜局部战斗上的胜利未能完成扎赉特的复仇，扎赉特死后，大部分反逆者收编至下界骑士团，未被收编的、逃离围剿的反逆者们为争夺谁是心灵军团正统打的不可开交。</p>
 			</flavor>
 		</entry>
-        
+
+		<entry id="mvz2:MonkZombie">
+			<header>
+				<p>武僧僵尸每日的习武让他刀枪不惧，心坚如铜</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>站桩，蹲马步，静坐，外加吃脑子，这些构成了武僧僵尸的每天任务</p>
+				<p>然而他因破戒吃脑子又被老祖师罚吃素，这让他现在只有吃脑子的想法，不会被任何花言巧语所蛊惑。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:LeatherMonkZombie">
+			<header>
+				<p>武僧皮帽僵尸拥有能抵抗子弹的皮帽护甲。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300+370</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>你以为武僧就不用头戴护甲了吗？你错了，其实他以为那是他用的斗笠。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:IronMonkZombie">
+			<header>
+				<p>武僧铁盔僵尸的铁盔给他提供了极高的防护。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>300+1100</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这种僵尸带的铁桶其实是个反着的矿车，他负责拿这个矿车给庙里烧水用。</p>
+			</flavor>
+		</entry>
+		
         <entry id="mvz2:reflective_barrier_zombie">
             <header>
                 <p>反射壁僵尸使用反射壁保护自己，并对飞来的子弹作出反击。</p>

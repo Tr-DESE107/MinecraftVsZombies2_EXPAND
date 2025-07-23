@@ -78,6 +78,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: reflective_barrier_zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 5449253582177849332, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -925382698, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - target: {fileID: 6198475333505180476, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1232102315, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
+    - target: {fileID: 6661205224612282001, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1232102315, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
+    - target: {fileID: 7970115725811556222, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1935018447, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - target: {fileID: 7970115725811556222, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -2092059575, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - target: {fileID: 8365785606802476641, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -925382698, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
+    - target: {fileID: 8996217967525711044, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1935018447, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
     m_RemovedComponents:
     - {fileID: 6785545812457648638, guid: a2a566a7ce07850428f426c3406edea6, type: 3}
     m_RemovedGameObjects: []

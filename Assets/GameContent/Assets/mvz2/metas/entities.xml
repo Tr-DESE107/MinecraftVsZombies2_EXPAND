@@ -1018,12 +1018,7 @@
             </properties>
         </zombie>
 
-        <enemy id="MonkZombie" name="武僧僵尸" deathMessage="脑子是好的，但不是每个人都有">
-            <properties>
-                <int name="mvz2:cost" value="50" />
-                <int name="mvz2:waterInteraction" value="2"/>
-            </properties>
-        </enemy>
+        
 
 		<zombie id="MegaZombie" name="红眼僵尸" deathMessage="脑子是好的，但不是每个人都有">
 			<properties>
@@ -1537,7 +1532,9 @@
         </enemy>
 
 
-        <zombie id="reflective_barrier_zombie" name="反射壁僵尸" deathMessage="我反弹你的反弹"
+		<!-- mausoleum Enemies -->
+
+		<zombie id="reflective_barrier_zombie" name="反射壁僵尸" deathMessage="我反弹你的反弹"
             unlock="mvz2:level.mausoleum_1">
             <properties>
                 <id name="mvz2:starting_shield" value="mvz2:reflective_barrier" />
@@ -1569,6 +1566,38 @@
                 <int name="mvz2:cost" value="100" />
             </properties>
         </humanoid>
+
+		<enemy id="MonkZombie" name="武僧僵尸" deathMessage="洒家今日便要开荤了！">
+			<properties>
+				<int name="mvz2:cost" value="50" />
+				<float name="mvz2:maxHealth" value="300" />
+				<int name="mvz2:waterInteraction" value="2"/>
+			</properties>
+		</enemy>
+		<zombie id="LeatherMonkZombie" name="武僧皮帽僵尸" deathMessage="洒家今日便要开荤了！">
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:leather_cap" />
+				<float name="mvz2:maxHealth" value="300" />
+				<int name="mvz2:cost" value="75" />
+			</properties>
+		</zombie>
+		<zombie id="IronMonkZombie" name="武僧铁盔僵尸" deathMessage="洒家今日便要开荤了！">
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
+				<float name="mvz2:maxHealth" value="300" />
+				<int name="mvz2:cost" value="125" />
+			</properties>
+		</zombie>
+		<zombie id="FlagMonkZombie" name="武僧旗帜僵尸" deathMessage="洒家今日便要开荤了！">
+			<properties>
+				<int name="mvz2:cost" value="300" />
+				<float name="mvz2:maxHealth" value="300" />
+				<float name="mvz2:damage" value="200"/>
+				<float name="mvz2:speed" value="1.5"/>
+			</properties>
+		</zombie>
+
+		<!-- Ship Enemies -->
 
 		<enemy id="Endermite" name="末影螨" deathMessage="吾头在否？！" unlock="mvz2:level.ship_6">
 			<properties>
@@ -1604,7 +1633,9 @@
                 <int name="mvz2:waterInteraction" value="3"/>
             </properties>
         </enemy>
-        
+
+		<!-- expand Enemies -->
+		
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.prologue">
             <properties>
                 <float name="mvz2:mass" value="2" />
