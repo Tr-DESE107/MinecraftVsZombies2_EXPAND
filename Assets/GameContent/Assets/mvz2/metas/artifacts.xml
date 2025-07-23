@@ -30,7 +30,7 @@
 	<artifact id="eye_of_the_giant" name="巨人之眼" tooltip="器械x250%伤害，但x50%攻击速度" sprite="mvz2:artifacts/eye_of_the_giant" unlock="mvz2:artifact.eye_of_the_giant" />
 
 	<artifact id="FrankensteinBrain" name="科学怪人之脑" tooltip="场上每有一个同类器械，该器械的能量消耗增加10，所有器械的冷却时间+33%，最大血量+25%" sprite="mvz2:artifacts/FrankensteinBrain" unlock="mvz2:level.halloween_14" />
-	<artifact id="NightmareMask" name="梦魇之面" tooltip="敌人的攻击力下降，但有概率不受到本次伤害" sprite="mvz2:artifacts/NightmareMask" unlock="mvz2:level.dream_11" />
+	<artifact id="NightmareMask" name="梦魇之面" tooltip="敌人的攻击速度下降20%，但有20%概率不受到本次伤害" sprite="mvz2:artifacts/NightmareMask" unlock="mvz2:level.dream_11" />
 	<artifact id="WitherHeartShield" name="凋灵护心盾" tooltip="使敌方怪物常态减伤，攻击时额外受到伤害，并使我方怪物常态额外受到伤害" sprite="mvz2:artifacts/WitherHeartShield" unlock="mvz2:level.castle_12" />
     <artifact id="ShadowCellCore" name="暗影细胞核心" tooltip="敌人的最大生命值降低，但死亡时会产生他们的头颅。" sprite="mvz2:artifacts/ShadowCellCore" unlock="mvz2:level.mausoleum_11" />
 </artifacts>

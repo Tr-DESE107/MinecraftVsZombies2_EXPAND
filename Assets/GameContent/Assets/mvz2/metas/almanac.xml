@@ -2131,7 +2131,7 @@
 				<p>梦魇的面具。</p>
 			</header>
 			<properties>
-				<p>效果：<![CDATA[<color=red>敌人的攻击力下降，但有概率不受到本次伤害</color>]]></p>
+				<p>效果：<![CDATA[<color=red>敌人的攻击速度下降20%，但有20%概率不受到本次伤害。</color>]]></p>
 			</properties>
 			<flavor>
 				<p>你确定你在攻击敌人吗？</p>

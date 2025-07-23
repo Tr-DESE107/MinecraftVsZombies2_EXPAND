@@ -24,6 +24,7 @@ namespace MVZ2.GameContent.Buffs
         public const string Resistance = "Resistance";
         public const string VanguardResistance = "VanguardResistance";
         public const string WitherHeartShieldResistanceBuff = "WitherHeartShieldResistanceBuff";
+        public const string NightmareMaskEvade = "NightmareMaskEvade";
 
         // Contraption
         public const string productionColor = "production_color";
@@ -241,6 +242,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID Resistance = Get(VanillaBuffNames.Resistance);
         public static readonly NamespaceID VanguardResistance = Get(VanillaBuffNames.VanguardResistance);
         public static readonly NamespaceID WitherHeartShieldResistanceBuff = Get(VanillaBuffNames.WitherHeartShieldResistanceBuff);
+        public static readonly NamespaceID NightmareMaskEvade = Get(VanillaBuffNames.NightmareMaskEvade);
 
         public static readonly NamespaceID passengerEnterHouse = Get(VanillaBuffNames.passengerEnterHouse);
         private static NamespaceID Get(string name)

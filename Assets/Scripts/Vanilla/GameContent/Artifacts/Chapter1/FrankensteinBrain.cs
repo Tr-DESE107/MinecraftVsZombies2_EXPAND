@@ -12,27 +12,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.SeedPacks;
-using System.Collections.Generic;
-using System.Linq;
-using MVZ2.GameContent.Difficulties;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using PVZEngine.Auras;
-using PVZEngine.Buffs;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using PVZEngine.Modifiers;
-using System.Collections.Generic;
-using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Armors;
-using MVZ2Logic;
-using MVZ2Logic.Artifacts;
-using MVZ2Logic.Level;
-using PVZEngine;
-using PVZEngine.Auras;
-using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
-using PVZEngine.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
