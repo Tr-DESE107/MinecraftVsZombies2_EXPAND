@@ -32,6 +32,8 @@ namespace MVZ2.GameContent.Damages
         public static readonly NamespaceID TRANSFERRED = Get("transferred");
         public static readonly NamespaceID NO_DAMAGE_BLINK = Get("no_damage_blink");
 
+        public static readonly NamespaceID SoulColdFire = Get("SoulColdFire");
+
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

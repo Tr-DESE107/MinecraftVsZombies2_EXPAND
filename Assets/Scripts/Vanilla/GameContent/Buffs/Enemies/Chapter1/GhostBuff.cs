@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             entity.GetBuffs<GhostBuff>(buffBuffer);
             if (buffBuffer.Count <= 0)
                 return;
-            if (damageInfo.HasEffect(VanillaDamageEffects.FIRE) || damageInfo.HasEffect(VanillaDamageEffects.LIGHTNING))
+            if (damageInfo.HasEffect(VanillaDamageEffects.FIRE) || damageInfo.HasEffect(VanillaDamageEffects.LIGHTNING) || damageInfo.HasEffect(VanillaDamageEffects.SoulColdFire))
             {
                 foreach (var buff in buffBuffer)
                 {
