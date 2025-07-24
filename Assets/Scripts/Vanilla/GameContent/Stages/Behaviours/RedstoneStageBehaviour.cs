@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -30,6 +31,8 @@ namespace MVZ2.GameContent.Stages
         public override void PostEnemySpawned(Entity entity)
         {
             base.PostEnemySpawned(entity);
+            if (entity.HasNoReward())
+                return;
             var level = entity.Level;
             var chance = GetRedstoneChance(level);
             var rng = GetOrCreateRedstoneRNG(level);

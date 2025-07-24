@@ -27,8 +27,6 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void DropRewards(this Entity enemy)
         {
-            if (enemy.HasNoReward())
-                return;
             enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, new EntityCallbackParams(enemy));
         }
         public static void InflictWeakness(this Entity enemy, int time)

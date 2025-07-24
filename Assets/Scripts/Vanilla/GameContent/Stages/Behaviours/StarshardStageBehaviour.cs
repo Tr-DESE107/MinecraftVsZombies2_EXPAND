@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Difficulties;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
@@ -33,6 +34,8 @@ namespace MVZ2.GameContent.Stages
         {
             base.PostEnemySpawned(entity);
             if (!Global.Game.IsStarshardUnlocked())
+                return;
+            if (entity.HasNoReward())
                 return;
             var level = entity.Level;
             var chance = GetStarshardChance(level);
