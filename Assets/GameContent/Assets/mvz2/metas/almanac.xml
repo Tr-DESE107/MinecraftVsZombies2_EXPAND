@@ -598,7 +598,7 @@
                 <p>伤害：<![CDATA[<color=red>5</color>]]></p>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
                 <p>音符上限：<![CDATA[<color=red>10</color>]]></p>
-                <p>技能：<![CDATA[<color=red>在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度</color>]]></p>
+                <p>技能：<![CDATA[<color=red>发生一次1200的爆炸，在30秒内x500%伤害，x500%发射速度，x200%音符飞行速度</color>]]></p>
             </properties>
             <flavor>
                 <p>永远不要试图做音符盒的邻居，别问为什么。</p>
@@ -609,7 +609,7 @@
                 <p>闪电之珠可以阻挡敌人的攻击，并可以通过吸收敌弹来治疗自己。</p>
             </header>
             <properties>
-                <p>耐久：<![CDATA[<color=red>4000</color>]]></p>
+                <p>耐久：<![CDATA[<color=red>5000</color>]]></p>
                 <p>特点：<![CDATA[<color=red>吸收敌弹，并恢复100耐久</color>]]></p>
                 <p>技能：<![CDATA[<color=red>在5秒内吸收所有伤害并治疗自己，之后将这些伤害返还给所有敌人（最高1800）</color>]]></p>
             </properties>
@@ -679,7 +679,7 @@
             </header>
             <properties>
                 <p>召唤时间：<![CDATA[<color=red>15秒</color>]]></p>
-                <p>骷髅战士生命：<![CDATA[<color=red>200+300（头盔）+200（盾）</color>]]></p>
+                <p>骷髅战士生命：<![CDATA[<color=red>200+300（头盔）+300（盾）</color>]]></p>
                 <p>骷髅战士速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>技能：<![CDATA[<color=red>召唤3个同种的火焰、冰霜或闪电骷髅法师</color>]]></p>
 				<p>特点：<![CDATA[<color=red>被摧毁时立刻召唤骷髅战士</color>]]></p>
@@ -713,6 +713,7 @@
             </header>
             <properties>
                 <p>技能：<![CDATA[<color=red>将最后方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>]]></p>
+				<p>特点：<![CDATA[<color=red>被摧毁时会变成随机器械。</color>]]></p>
             </properties>
             <flavor>
                 <p>我是壶中的神灵，我能实现你的愿望，让我听听你内心中的欲望吧……</p>
@@ -950,7 +951,7 @@
 				<p><![CDATA[<color=grey>你有没有发现图鉴里用的都是凋零骷髅这个字眼？正确的写法应该是凋灵骷髅</color>]]></p>
 				<p><![CDATA[<color=grey>图鉴不该犯这种低级错误的</color>]]></p>
 				<p/>
-				<p><![CDATA[<color=grey>图鉴没有写错。</color>]]></p>
+				<p><![CDATA[<color=#C6D1C5>图鉴没有写错。</color>]]></p>
 			</flavor>
 		</entry>
         
@@ -1256,6 +1257,8 @@
 			</properties>
 			<flavor>
 				<p>虽说他叫国王骷髅，但他连整一套好的衣服都没做到。</p>
+				<p>自称国王的骷髅在主世界实在是太常见了，随便走进个洞穴说不定就是XX骷髅国王(自称)的宫殿。</p>
+				<p>你可能很诧异为什么这么穷酸的国王能雇得起仆从，答案一方面在于这世上死掉的骷髅实在是太多了，另一方面在于...绝大部分仆从不是雇的，而是买的和抓的。</p>
 			</flavor>
 		</entry>
 		
@@ -1270,7 +1273,7 @@
 			<flavor>
 				<p>记住了，他是MEGA僵尸，不是MAGA僵尸。</p>
 				<p/>
-				<p>虽说狂热性可能都差不多。</p>
+				<p>虽说某些地方可能差不多。</p>
 			</flavor>
 		</entry>
 
@@ -1300,19 +1303,24 @@
 			</properties>
 			<flavor>
 				<p>死灵法师的凋零骷髅远亲，这帮家伙才是真正的邪恶巫师。</p>
+				<p>死灵法术对于凋零骷髅也不算是多么难以学习的法术，更何况他们有更好的实验素材。</p>
 			</flavor>
 		</entry>
 		
 		<entry id="mvz2:WitherBoneWall">
 			<header>
-				<p>自然崩溃的凋零骨墙会爬出骷髅类敌怪</p>
+				<p>自然崩溃的凋零骨墙会爬出凋零骷髅敌怪</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>450</color>]]></p>
+				<p>生命：<![CDATA[<color=red>425</color>]]></p>
 				<p>速度：<![CDATA[<color=red>0</color>]]></p>
 			</properties>
 			<flavor>
-				<p>被复活的死者们一开始是很高兴能够复活的，这份喜悦直到发现自己卡在墙里动弹不得为止。</p>
+				<p>"或许是下界某次战役堆起来的京观。"</p>
+				<p>"你觉得是哪次战役？"</p>
+				<p>"我不知道，将军堡和猪灵打的那场？或是在扭曲之心和末影人打的？"</p>
+				<p>"有没有可能是平叛心灵军团的？"</p>
+				<p>"更有可能是和远方亲戚打的那场。"</p>
 			</flavor>
 		</entry>
 
@@ -1411,7 +1419,9 @@
                 <p>速度：<![CDATA[<color=red>2</color>]]></p>
             </properties>
             <flavor>
-                <p>曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。</p>
+				<p>洞穴蜘蛛和蜘蛛是一对哥俩，他们喜欢爬山涉水，遇见山就哥哥背着弟弟爬，遇见水就弟弟带着哥哥游。当它们终于到达目的地时，才发现服务器回档了。</p>
+				<p/>
+                <p>另外，它曾蝉联多次“蜘蛛网上冲浪比赛”冠军，只是因为其他蜘蛛不会游泳。</p>
             </flavor>
         </entry>
         <entry id="mvz2:ghast">
@@ -1455,7 +1465,9 @@
                 <p>特点：<![CDATA[<color=red>碰到的血肉之躯会被寄生</color>]]></p>
             </properties>
             <flavor>
-                <p>擅长在网络文件中捆绑流氓软件和BUG。</p>
+				<p>恐怖之母总是对每种事物的名字耿耿于怀，她为自己的名字想了好半天，以前就想过好多好多名字例如“冥河夜叉”、“异形虫母”、“血肉复生者”、“怪诞魔”之类的，后来她终于定下来个名字——这还是她第114514个孩子替她想出来的。</p>
+				<p/>
+				<p>一看就很擅长在网络文件中捆绑流氓软件和BUG。</p>
             </flavor>
         </entry>
         <entry id="mvz2:parasite_terror">
@@ -1467,7 +1479,9 @@
                 <p>速度：<![CDATA[<color=red>4</color>]]></p>
             </properties>
             <flavor>
-                <p>它还没想好自己的网络冷笑话该怎么写。</p>
+				<p>恐怖寄生虫有个远房表亲，那种寄生虫长得像一条带着这张脸的白色的蠕虫。那些家伙不通过啥卵啥有性生殖产生的，其实就是人体内心的恐惧实体化的样子。另外……能让人恐惧实体化的人……名字好像叫欧兰……算了那家伙跟这种蜘蛛没半毛钱关系。</p>
+				<p/>
+                <p>另外，虽然没人问，但它还没想好自己的网络冷笑话该怎么写。</p>
             </flavor>
         </entry>
         <entry id="mvz2:BloodlustHostZombie">
@@ -1562,14 +1576,28 @@
                 <p>...喂，他们哪来的铁啊？</p>
             </flavor>
         </entry>
-        
-        
-        <entry id="mvz2:mesmerizer">
+
+		<entry id="mvz2:NetherWarrior">
+			<header>
+				<p>下界战士在攻击时能够额外造成范围伤害。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>400+400+600</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>特点：<![CDATA[<color=red>攻击时持续对小范围内的器械造成伤害，盾牌可抵挡一定高度的子弹。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>地狱中最常见的部队之一。在下界骑士团的训练下，配备了精良的武器。身为凋零骷髅一族，榨取敌人的生命是他们一贯的作风。</p>
+				<p>真希望你没有惹到他们。</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:mesmerizer">
             <header>
                 <p>又名催眠者，能够精神控制你的器械使其倒戈。杀死它可以解除精神控制。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200+300</color>]]></p>
+                <p>生命：<![CDATA[<color=red>300+300</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>荧石周围的器械无法被控制</color>]]></p>
             </properties>
@@ -1598,6 +1626,21 @@
 				<p><![CDATA[<color=grey>库尔·咒并不喜欢这些家伙，他曾说过：“这东西还是扔到一边比较好。”</color>]]></p>
             </flavor>
         </entry>
+
+		<entry id="mvz2:NetherArcher">
+			<header>
+				<p>下界弓箭手能够发射出带火焰的箭矢。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>400+400</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>下界弓箭手有着天赋异禀的射击能力。他们自被选中后就被恩布勒姆·安娜设下了咒焰，也因此驾驭了掌握咒焰的能力。</p>
+				<p>咒焰不会怜悯任何一个战士，它会在使用者的体内，一直燃烧，一直燃烧。燃烧至如同生命尽头的那道光般耀眼，然后熄灭。</p>
+			</flavor>
+		</entry>
+		
         <entry id="mvz2:dullahan">
             <tags>
                 <tag id="mvz2:shell_head" value="mvz2:nether" />
@@ -1614,6 +1657,7 @@
                 <p>身体速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>头颅速度：<![CDATA[<color=red>2</color>]]></p>
                 <p>弱点：<![CDATA[<color=red>金质物品，无法跳过<tag id="mvz2:high"/>高器械</color>]]></p>
+				<p>特点：<![CDATA[<color=red>身体攻击时持续对小范围内的器械造成伤害。</color>]]></p>
             </properties>
             <flavor>
                 <p>因为无头骑士总是喜欢在写文章的时候把开头擦掉。</p>
@@ -1622,6 +1666,21 @@
 				<p><![CDATA[<color=grey>不是每个凋零骷髅都能割下自己的头的，一般骷髅这样只会丢掉自己的性命。</color>]]></p>
             </flavor>
         </entry>
+
+		<entry id="mvz2:NetherVanguard">
+			<header>
+				<p>下界冲锋者的盾牌和战斧提供了恐怖的防御力与攻击力</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>600+600+600</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>特点：<![CDATA[<color=red>未被阻挡时拥有90%减伤，攻击时持续对小范围内的器械造成伤害，盾牌可抵挡一定高度的子弹。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>地狱的精锐部队之一，组成了地狱军团的前锋。这些令人闻风丧胆的家伙在行军过程中几乎无坚不摧，唯有正面交战才有对其造成伤害的可能，但这也往往是他们最恐怖的时候......</p>
+			</flavor>
+		</entry>
+		
         <entry id="mvz2:hell_chariot">
             <header>
                 <p>地狱战车会碾压行进路上的所有器械，并在被摧毁后放出棺材中的灵魂沙王。</p>
@@ -1656,49 +1715,6 @@
             </flavor>
         </entry>
 
-		<entry id="mvz2:NetherWarrior">
-			<header>
-				<p>下界战士在攻击时能够额外造成范围伤害。</p>
-			</header>
-			<properties>
-				<p>生命：<![CDATA[<color=red>400+400+600</color>]]></p>
-				<p>速度：<![CDATA[<color=red>1</color>]]></p>
-				<p>特点：<![CDATA[<color=red>攻击时持续对小范围内的器械造成伤害，盾牌可抵挡一定高度的子弹，且免疫弹幕子弹伤害。</color>]]></p>
-			</properties>
-			<flavor>
-				<p>地狱中最常见的部队之一。在下界骑士团的训练下，配备了精良的武器。身为凋零骷髅一族，榨取敌人的生命是他们一贯的作风。</p>
-				<p>真希望你没有惹到他们。</p>
-			</flavor>
-		</entry>
-		
-		<entry id="mvz2:NetherArcher">
-			<header>
-				<p>下界弓箭手能够发射出带火焰的箭矢。</p>
-			</header>
-			<properties>
-				<p>生命：<![CDATA[<color=red>400+400</color>]]></p>
-				<p>速度：<![CDATA[<color=red>1</color>]]></p>
-			</properties>
-			<flavor>
-				<p>下界弓箭手有着天赋异禀的射击能力。他们自被选中后就被恩布勒姆·安娜设下了咒焰，也因此驾驭了掌握咒焰的能力。</p>
-                <p>咒焰不会怜悯任何一个战士，它会在使用者的体内，一直燃烧，一直燃烧。燃烧至如同生命尽头的那道光般耀眼，然后熄灭。</p>
-			</flavor>
-		</entry>
-		
-		<entry id="mvz2:NetherVanguard">
-			<header>
-				<p>下界冲锋者的盾牌和战斧提供了恐怖的防御力与攻击力</p>
-			</header>
-			<properties>
-				<p>生命：<![CDATA[<color=red>200+100</color>]]></p>
-				<p>速度：<![CDATA[<color=red>1</color>]]></p>
-				<p>弱点：<![CDATA[<color=red>荧石周围的器械无法被控制</color>]]></p>
-			</properties>
-			<flavor>
-				<p>地狱的精锐部队之一，组成了地狱军团的前锋。这些令人闻风丧胆的家伙在行军过程中几乎无坚不摧，唯有正面交战才有对其造成伤害的可能，但这也往往是他们最恐怖的时候......</p>
-			</flavor>
-		</entry>
-		
 		<entry id="mvz2:AngryReverser">
 			<header>
 				<p>愤怒的反逆者能够快速发射出精神球体，杀死催眠者可以解除精神控制。</p>
@@ -1711,6 +1727,21 @@
 			<flavor>
 				<p>反逆者军队的精英，愤怒的反逆者们铭记扎赉特的教诲，学习领袖的样貌，渴望夺取一切敌人的意志。下界骑士团曾深受这些家伙们的困扰。传闻他们曾在一天内控制了一整个狂战士军团，扭转了作战局势。</p>
 				<p>可惜局部战斗上的胜利未能完成扎赉特的复仇，扎赉特死后，大部分反逆者收编至下界骑士团，未被收编的、逃离围剿的反逆者们为争夺谁是心灵军团正统打的不可开交。</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:bedserker">
+			<header>
+				<p>床战士能够制造惊天动地的大爆炸。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>16800+3200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>2</color>]]></p>
+				
+			</properties>
+			<flavor>
+				<p>对于床战士我们知之甚少，可能所有看到他的调查员都吓哭了吧。</p>
+				
 			</flavor>
 		</entry>
 
@@ -1818,6 +1849,38 @@
                 <p>非常擅长做仰卧起坐。</p>
             </flavor>
         </entry>
+
+		<entry id="mvz2:skeleton_warrior">
+			<header>
+				<p>骷髅战士能够被死灵墓碑召唤前来作战。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200+300（头盔）+300（盾）</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>"为什么你不穿衣服？"</p>
+				<p>"我把衣服卖了拿来买武器了"</p>
+				<p>"你有没有发现你那武器没有给你加一点攻击力？你的攻击力还是100"</p>
+				<p>"说不定未来就107107了"</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:skeleton_mage">
+			<header>
+				<p>不同的骷髅法师能够使用不同种类的法术。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>冰锥20，闪电球20，火弹80</color>]]></p>
+			</properties>
+			<flavor>
+				<p>"我很喜欢这衣服，不卖。"</p>
+				
+			</flavor>
+		</entry>
+		
         <entry id="mvz2:emperor_zombie">
             <header>
                 <p>皇帝僵尸使用手中的圣剑来给予周围的友方单位圣盾，使它们免疫下一次受到的伤害。</p>

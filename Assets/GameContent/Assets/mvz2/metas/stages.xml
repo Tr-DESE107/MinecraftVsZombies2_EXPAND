@@ -697,14 +697,12 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:wooden_dropper"/>
         <spawns flags="1">
-			<spawn id="mvz2:zombie"/>
+			<spawn id="mvz2:spider"/>
             <spawn id="mvz2:WitherSkeleton"/>
             <spawn id="mvz2:LeatherWitherSkeleton"/>
             <spawn id="mvz2:IronWitherSkeleton"/>
             <spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:NetherVanguard"/>
-			<spawn id="mvz2:AngryReverser"/>
+			
         </spawns>
     </stage>
     <stage id="castle_2" name="辉针城" dayNumber="2" unlock="mvz2:level.castle_1">
@@ -719,6 +717,7 @@
             <spawn id="mvz2:LeatherWitherSkeleton"/>
             <spawn id="mvz2:IronWitherSkeleton"/>
             <spawn id="mvz2:mesmerizer"/>
+			<spawn id="mvz2:NetherWarrior"/>
         </spawns>
     </stage>
     <stage id="castle_3" name="辉针城" dayNumber="3" unlock="mvz2:level.castle_2">
@@ -733,6 +732,8 @@
             <spawn id="mvz2:LeatherWitherSkeleton"/>
             <spawn id="mvz2:IronWitherSkeleton"/>
             <spawn id="mvz2:mesmerizer"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:ghast"/>
         </spawns>
     </stage>
     <stage id="castle_4" name="辉针城" dayNumber="4" unlock="mvz2:level.castle_3">
@@ -748,6 +749,7 @@
             <spawn id="mvz2:IronWitherSkeleton"/>
             <spawn id="mvz2:mesmerizer"/>
             <spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:necromancer"/>
         </spawns>
     </stage>
     <stage id="castle_5" name="辉针城" dayNumber="5" unlock="mvz2:level.castle_4">
@@ -763,7 +765,9 @@
             <spawn id="mvz2:IronWitherSkeleton"/>
             <spawn id="mvz2:mesmerizer"/>
             <spawn id="mvz2:berserker"/>
-            <spawn id="mvz2:skeleton"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:necromancer"/>
+			<spawn id="mvz2:NetherArcher"/>
         </spawns>
     </stage>
     <stage id="castle_6" name="辉针城" dayNumber="6" needBlueprints="false" type="minigame" unlock="mvz2:level.castle_5" music="mvz2:minigame">
@@ -808,6 +812,9 @@
             <spawn id="mvz2:mesmerizer"/>
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			
         </spawns>
     </stage>
     <stage id="castle_8" name="辉针城" dayNumber="8" unlock="mvz2:level.castle_7">
@@ -824,6 +831,9 @@
             <spawn id="mvz2:mesmerizer"/>
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:NetherVanguard"/>
         </spawns>
     </stage>
     <stage id="castle_9" name="辉针城" dayNumber="9" unlock="mvz2:level.castle_8">
@@ -842,6 +852,10 @@
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
             <spawn id="mvz2:hell_chariot"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:NetherVanguard"/>
+			<spawn id="mvz2:AngryReverser"/>
         </spawns>
     </stage>
     <stage id="castle_10" name="辉针城" dayNumber="10" unlock="mvz2:level.castle_9">
@@ -859,6 +873,11 @@
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
             <spawn id="mvz2:hell_chariot"/>
+            <spawn id="mvz2:skeleton_mage"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:NetherVanguard"/>
+			<spawn id="mvz2:AngryReverser"/>
         </spawns>
     </stage>
     <stage id="castle_11" name="辉针城" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.castle_10" music="mvz2:castle_final" >
@@ -868,7 +887,7 @@
             <talk type="map" value="mvz2:castle_11_map"/>
         </talks>
         <conveyor>
-            <entry id="mvz2:glowstone" count="4" minCount="0"/>
+            <entry id="mvz2:glowstone" count="6" minCount="0"/>
             <entry id="mvz2:wooden_dropper" count="5"/>
             <entry id="mvz2:spike_block" count="5"/>
             <entry id="mvz2:stone_dropper" count="8"/>
@@ -879,7 +898,7 @@
             <entry id="mvz2:giant_bowl" count="1"/>
             <entry id="mvz2:pistenser" count="12"/>
             <entry id="mvz2:soul_furnace" count="6"/>
-			<entry id="mvz2:tnt" count="11"/>
+			<entry id="mvz2:tnt" count="6"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
@@ -912,18 +931,19 @@
 			
 		</talks>
 		<conveyor>
-			<entry id="mvz2:glowstone" count="4" minCount="0"/>
-			<entry id="mvz2:wooden_dropper" count="5"/>
+			<entry id="mvz2:glowstone" count="8" minCount="0"/>
+			<entry id="mvz2:GlowingObsidian" count="5"/>
 			<entry id="mvz2:spike_block" count="5"/>
 			<entry id="mvz2:stone_dropper" count="8"/>
 			<entry id="mvz2:stone_shield" count="15"/>
 			<entry id="mvz2:golden_apple" count="3"/>
 			<entry id="mvz2:thunder_drum" count="3"/>
 			<entry id="mvz2:tesla_coil" count="8"/>
-			<entry id="mvz2:giant_bowl" count="1"/>
+			<entry id="mvz2:giant_bowl" count="2"/>
+			<entry id="mvz2:magichest" count="1"/>
 			<entry id="mvz2:pistenser" count="12"/>
 			<entry id="mvz2:soul_furnace" count="6"/>
-			<entry id="mvz2:tnt" count="11"/>
+			<entry id="mvz2:tnt" count="8"/>
 		</conveyor>
 		<clear pickupModel="mvz2:entity.money_chest"/>
 		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
@@ -988,6 +1008,7 @@
 			<spawn id="mvz2:IronMonkZombie"/>
 			<spawn id="mvz2:reflective_barrier_zombie"/>
 			<spawn id="mvz2:skeleton"/>
+			<spawn id="mvz2:berserker"/>
 		</spawns>
 		<properties>
 			<integer name="spawnerCount" value="2" />
@@ -1006,6 +1027,8 @@
 			<spawn id="mvz2:IronMonkZombie"/>
 			<spawn id="mvz2:reflective_barrier_zombie"/>
 			<spawn id="mvz2:wicked_hermit_zombie"/>
+			<spawn id="mvz2:mummy"/>
+			<spawn id="mvz2:NetherArcher"/>
 		</spawns>
 		<properties>
 			<integer name="spawnerCount" value="3" />
@@ -1025,6 +1048,7 @@
 			<spawn id="mvz2:reflective_barrier_zombie"/>
 			<spawn id="mvz2:wicked_hermit_zombie"/>
 			<spawn id="mvz2:spider"/>
+			<spawn id="mvz2:NetherArcher"/>
 		</spawns>
 		<properties>
 			<integer name="spawnerCount" value="4" />
@@ -1057,6 +1081,7 @@
 			<spawn id="mvz2:reflective_barrier_zombie"/>
 			<spawn id="mvz2:wicked_hermit_zombie"/>
 			<spawn id="mvz2:shikaisen_zombie"/>
+			<spawn id="mvz2:ghast"/>
 		</spawns>
 		<properties>
 			<integer name="spawnerCount" value="5" />
@@ -1077,6 +1102,7 @@
 			<spawn id="mvz2:reflective_barrier_zombie"/>
 			<spawn id="mvz2:wicked_hermit_zombie"/>
 			<spawn id="mvz2:shikaisen_zombie"/>
+			<spawn id="mvz2:necromancer"/>
 		</spawns>
 		<properties>
 			<integer name="spawnerCount" value="6" />
@@ -1453,7 +1479,7 @@
 			<entry id="mvz2:magichest" count="1"/>
 		</conveyor>
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="2">
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="1">
 			<spawn id="mvz2:zombie"/>
 			<spawn id="mvz2:leather_capped_zombie"/>
 			<spawn id="mvz2:berserker"/>
@@ -1479,7 +1505,7 @@
 			
 		</conveyor>
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="2">
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="1">
 			<spawn id="mvz2:zombie"/>
 			<spawn id="mvz2:leather_capped_zombie"/>
 			<spawn id="mvz2:berserker"/>
@@ -1523,7 +1549,7 @@
 			<spawn id="mvz2:wicked_hermit_zombie"/>
 			<spawn id="mvz2:mesmerizer"/>
 			<spawn id="mvz2:ghast"/>
-
+			<spawn id="mvz2:skeleton"/>
 		</spawns>
 		<properties>
 			<bool name="ignoreHugeWaveEvent" value="true"/>
@@ -1537,16 +1563,16 @@
 
 		</conveyor>
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
+		<spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1">
 			<spawn id="mvz2:zombie"/>
 			<spawn id="mvz2:leather_capped_zombie"/>
 			<spawn id="mvz2:berserker"/>
 			<spawn id="mvz2:KingSkeleton"/>
 			<spawn id="mvz2:necromancer"/>
 			<spawn id="mvz2:skeleton_horse"/>
-			<spawn id="mvz2:ghast"/>
-			<spawn id="mvz2:AngryReverser"/>
-			<spawn id="mvz2:HostMutant"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:mesmerizer"/>
+			<spawn id="mvz2:NetherArcher"/>
 			<spawn id="mvz2:mutant_zombie"/>
 		</spawns>
 		<properties>
@@ -1577,7 +1603,7 @@
 		<model preset="cloudy" />
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
 		<camera position="lawn" transition="instant"/>
-		<spawns flags="4" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+		<spawns flags="3" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
 			<spawn id="mvz2:ghost"/>
 			<spawn id="mvz2:skeleton_horse"/>
 			<spawn id="mvz2:dullahan_head"/>
@@ -1586,7 +1612,6 @@
 			<spawn id="mvz2:berserker"/>
 			<spawn id="mvz2:NetherWarrior"/>
 			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:NetherVanguard"/>
 		</spawns>
 		<properties>
 			

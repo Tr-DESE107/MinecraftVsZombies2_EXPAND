@@ -721,7 +721,7 @@
                 <bool name="mvz2:defensive" value="true" />
                 <bool name="mvz2:noClimb" value="true" />
                 <bool name="mvz2:fragments/noDamageFragments" value="true" />
-                <float name="mvz2:maxHealth" value="4000" />
+                <float name="mvz2:maxHealth" value="5000" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <id name="mvz2:placement" value="mvz2:suspension" />
                 <id name="mvz2:shell" value="mvz2:metal" />
@@ -737,7 +737,7 @@
 
                 <vector3 name="mvz2:shadowScale" x="0.5" y="0.5" z="0.5" />
 
-                <int name="mvz2:cost" value="75" />
+                <int name="mvz2:cost" value="125" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
@@ -905,7 +905,7 @@
             </properties>
         </dispenser>
 		
-		<contraption id="Eviltombstone" name="死灵墓碑" tooltip="召唤友方骷髅战士"
+		<contraption id="Eviltombstone" name="邪灵墓碑" tooltip="召唤友方下界战士"
             unlock="mvz2:contraption.Eviltombstone">
 			<properties>
 				<bool name="mvz2:nocturnal" value="true" />
@@ -1415,12 +1415,13 @@
                 <id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />
                 <id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+				<float name="mvz2:maxHealth" value="300" />
 
                 <int name="mvz2:cost" value="125" />
             </properties>
         </witherSkeleton>
 
-		<enemy id="AngryReverser" name="愤怒的反逆者" deathMessage="服从凋灵吧" >
+		<enemy id="AngryReverser" name="愤怒的反逆者" deathMessage="服从扎赉特吧" unlock="mvz2:level.castle_9">
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:AngryReverserCrown" />
 				<float name="mvz2:range" value="800" />
@@ -1438,7 +1439,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="NetherWarrior" name="下界战士" deathMessage="骸死我了">
+		<enemy id="NetherWarrior" name="下界战士" deathMessage="骸死我了" unlock="mvz2:level.castle_1">
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
 				<id name="mvz2:starting_shield" value="mvz2:skeleton_warrior_shield" />
@@ -1453,7 +1454,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="NetherVanguard" name="下界冲锋者" deathMessage="骸死我了">
+		<enemy id="NetherVanguard" name="下界冲锋者" deathMessage="骸死我了" unlock="mvz2:level.castle_7">
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:netherite_ingot_helmet" />
 				<id name="mvz2:starting_shield" value="mvz2:nether_vanguard_shield" />
@@ -1468,7 +1469,7 @@
 			</properties>
 		</enemy>
 		
-		<enemy id="NetherArcher" name="下界弓手" deathMessage="被射成刺猬了！">
+		<enemy id="NetherArcher" name="下界弓箭手" deathMessage="被射成刺猬了！" unlock="mvz2:level.castle_4">
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
 				<float name="mvz2:range" value="800" />
@@ -1488,7 +1489,7 @@
         <witherSkeleton id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2:level.castle_3">
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:berserker_helmet" />
-                <float name="mvz2:range" value="80" />
+                <float name="mvz2:range" value="120" />
                 <float name="mvz2:speed" value="2" />
                 <id name="mvz2:shell" value="mvz2:nether" />
                 <id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
@@ -1586,21 +1587,21 @@
             </properties>
         </humanoid>
 
-		<enemy id="MonkZombie" name="武僧僵尸" deathMessage="洒家今日便要开荤了！">
+		<enemy id="MonkZombie" name="武僧僵尸" deathMessage="洒家今日便要开荤了！" unlock="mvz2:level.mausoleum_1">
 			<properties>
 				<int name="mvz2:cost" value="50" />
 				<float name="mvz2:maxHealth" value="300" />
 				<int name="mvz2:waterInteraction" value="2"/>
 			</properties>
 		</enemy>
-		<zombie id="LeatherMonkZombie" name="武僧皮帽僵尸" deathMessage="洒家今日便要开荤了！">
+		<zombie id="LeatherMonkZombie" name="武僧皮帽僵尸" deathMessage="洒家今日便要开荤了！" unlock="mvz2:level.mausoleum_1">
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:leather_cap" />
 				<float name="mvz2:maxHealth" value="300" />
 				<int name="mvz2:cost" value="75" />
 			</properties>
 		</zombie>
-		<zombie id="IronMonkZombie" name="武僧铁盔僵尸" deathMessage="洒家今日便要开荤了！">
+		<zombie id="IronMonkZombie" name="武僧铁盔僵尸" deathMessage="洒家今日便要开荤了！" unlock="mvz2:level.mausoleum_1">
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:iron_helmet" />
 				<float name="mvz2:maxHealth" value="300" />
@@ -1616,7 +1617,7 @@
 			</properties>
 		</zombie>
 
-		<zombie id="SixQiZombie" name="六气僵尸" deathMessage="以游无穷者，彼且恶乎待哉？">
+		<zombie id="SixQiZombie" name="六气僵尸" deathMessage="以游无穷者，彼且恶乎待哉？" unlock="mvz2:level.mausoleum_8">
 			<properties>
 				<int name="mvz2:cost" value="300" />
 				<float name="mvz2:maxHealth" value="1236" />
@@ -1751,7 +1752,7 @@
 				<int name="mvz2:maxTimeout" value="240" />
 				<float name="mvz2:friction" value="1" />
 				<float name="mvz2:speed" value="0" />
-				<float name="mvz2:maxHealth" value="450" />
+				<float name="mvz2:maxHealth" value="425" />
 				<vector3 name="mvz2:size" x="80" y="80" z="60" />
 				<id name="mvz2:shell" value="mvz2:nether" />
 				<id name="mvz2:shape" value="mvz2:bone_wall" />
@@ -1932,7 +1933,7 @@
                 <id name="mvz2:starting_armor" value="mvz2:bedserker_helmet" />
                 <float name="mvz2:range" value="80" />
                 <float name="mvz2:speed" value="2" />
-                <float name="mvz2:maxHealth" value="19600" />
+                <float name="mvz2:maxHealth" value="16800" />
                 <id name="mvz2:shell" value="mvz2:nether" />
                 <id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
                 <id name="mvz2:hitSound" value="mvz2:bone_hit" />

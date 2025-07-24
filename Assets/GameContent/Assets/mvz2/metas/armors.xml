@@ -144,7 +144,7 @@
             </colliders>
             <props>
                 <id name="mvz2:shell" value="mvz2:metal" />
-                <float name="mvz2:maxHealth" value="200" />
+                <float name="mvz2:maxHealth" value="300" />
             </props>
         </entry>
 		<entry id="nether_vanguard_shield">
@@ -157,7 +157,7 @@
 			</colliders>
 			<props>
 				<id name="mvz2:shell" value="mvz2:metal" />
-				<float name="mvz2:maxHealth" value="300" />
+				<float name="mvz2:maxHealth" value="600" />
 			</props>
 		</entry>
         <entry id="umbrella_shield" tags="mvz2:between_hands">

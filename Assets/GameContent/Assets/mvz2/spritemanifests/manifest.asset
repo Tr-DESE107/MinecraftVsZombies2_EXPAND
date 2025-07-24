@@ -2281,6 +2281,14 @@ MonoBehaviour:
     - {fileID: -2120333596, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
     - {fileID: 971033789, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
     - {fileID: -1137348783, guid: b9619c28f3ceeb8459f0dd1912cf572a, type: 3}
+  - name: entity/enemy/skeleton_mage
+    spritesheet:
+    - {fileID: 157796363, guid: b36ea7fdb66d26c45a6624502763ca81, type: 3}
+    - {fileID: 194869581, guid: b36ea7fdb66d26c45a6624502763ca81, type: 3}
+    - {fileID: -460567298, guid: b36ea7fdb66d26c45a6624502763ca81, type: 3}
+    - {fileID: 140940971, guid: b36ea7fdb66d26c45a6624502763ca81, type: 3}
+    - {fileID: 1884364012, guid: b36ea7fdb66d26c45a6624502763ca81, type: 3}
+    - {fileID: 121262016, guid: b36ea7fdb66d26c45a6624502763ca81, type: 3}
   - name: entity/enemy/skeleton_mage_headwear
     spritesheet:
     - {fileID: 368372763, guid: babb5d02ad003f04386275ffa8ddfc64, type: 3}

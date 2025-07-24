@@ -94,7 +94,7 @@ namespace MVZ2.GameContent.Contraptions
             }
 
 
-            Explode(entity, 100, 900);
+            Explode(entity, 100, 1200);
             entity.Level.ShakeScreen(10, 0, 15);
         }
         public override bool CanEvoke(Entity entity)
