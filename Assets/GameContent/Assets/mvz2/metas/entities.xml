@@ -1164,7 +1164,7 @@
                 <id name="mvz2:crySound" value="mvz2:skeleton_cry" />
                 <id name="mvz2:deathSound" value="mvz2:skeleton_death" />
                 <float name="mvz2:maxHealth" value="300"/>
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="200" />
 				<id name="mvz2:starting_armor" value="mvz2:necromancer_helmet" />
             </properties>
         </humanoid>
@@ -1329,6 +1329,7 @@
         
         <enemy id="HostMutant" name="宿主突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.dream_11" >
             <properties>
+				<float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="8000"/>
                 <float name="mvz2:maxAttackHeight" value="100"/>
                 <float name="mvz2:speed" value="0.5"/>
@@ -1348,6 +1349,7 @@
         </enemy>
         <enemy id="HostIMP" name="宿主小鬼僵尸" deathMessage="被偷家了" unlock="mvz2:level.dream_11" >
             <properties>
+				<float name="mvz2:mass" value="-1" />
                 <float name="mvz2:fallResistance" value="18"/>
                 <float name="mvz2:cryPitch" value="2"/>
                 <int name="mvz2:cost" value="50" />
@@ -1570,6 +1572,7 @@
         <humanoid id="wicked_hermit_zombie" name="邪仙僵尸" deathMessage="省得找个铲子来挖坟了。"
             unlock="mvz2:level.mausoleum_3">
             <properties>
+				<float name="mvz2:mass" value="-1" />
                 <id name="mvz2:starting_armor" value="mvz2:wicked_hermit_hat" />
                 <int name="mvz2:cost" value="150" />
             </properties>
@@ -1619,6 +1622,7 @@
 
 		<zombie id="SixQiZombie" name="六气僵尸" deathMessage="以游无穷者，彼且恶乎待哉？" unlock="mvz2:level.mausoleum_8">
 			<properties>
+				<float name="mvz2:mass" value="-1" />
 				<int name="mvz2:cost" value="300" />
 				<float name="mvz2:maxHealth" value="1236" />
 				<float name="mvz2:damage" value="200"/>
@@ -1645,6 +1649,7 @@
 
         <enemy id="HeavyGutant" name="突变重炮手" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <properties>
+				<float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="3000"/>
                 <float name="mvz2:maxAttackHeight" value="100"/>
                 <float name="mvz2:speed" value="1"/>
@@ -1829,6 +1834,7 @@
         
         <enemy id="SkeletonHead" name="骷髅头" deathMessage="吾头在否？！" unlock="mvz2:level.halloween_1">
             <properties>
+				<float name="mvz2:mass" value="-1" />
                 <float name="mvz2:speed" value="1.8"/>
                 <float name="mvz2:maxHealth" value="240"/>
                 <id name="mvz2:shell" value="mvz2:bone"/>
@@ -1843,6 +1849,7 @@
         
         <enemy id="ZombieHead" name="僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.halloween_2">
             <properties>
+				<float name="mvz2:mass" value="-1" />
                 <float name="mvz2:speed" value="0.9"/>
                 <float name="mvz2:maxHealth" value="300"/>
                 <id name="mvz2:shell" value="mvz2:flesh"/>
@@ -1859,6 +1866,7 @@
         
         <enemy id="RedEyeZombieHead" name="红眼僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
             <properties>
+				<float name="mvz2:mass" value="-1" />
                 <float name="mvz2:speed" value="0.5"/>
                 <float name="mvz2:maxHealth" value="2000"/>
                 <id name="mvz2:shell" value="mvz2:flesh"/>
@@ -1874,6 +1882,7 @@
 
         <enemy id="HostHead" name="宿主僵尸头" deathMessage="吾头在否？！" unlock="mvz2:level.dream_7">
             <properties>
+				<float name="mvz2:mass" value="-1" />
                 <float name="mvz2:speed" value="0.8"/>
                 <float name="mvz2:maxHealth" value="260"/>
                 <id name="mvz2:shell" value="mvz2:flesh"/>

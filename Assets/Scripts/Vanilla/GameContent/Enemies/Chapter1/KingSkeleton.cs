@@ -136,7 +136,7 @@ namespace MVZ2.GameContent.Enemies
             for (int i = startLine; i <= endLine; i++)
             {
                 var x = entity.Position.x + level.GetGridWidth() * 1.5f * entity.GetFacingX();
-                var z = entity.Position.z + level.GetGridHeight() * i * 0.5f;
+                var z = entity.Position.z + level.GetGridHeight() * i * 1f;
                 var y = level.GetGroundY(x, z);
                 Vector3 wallPos = new Vector3(x, y, z);
                 entity.SpawnWithParams(VanillaEnemyID.MeleeSkeleton, wallPos);
