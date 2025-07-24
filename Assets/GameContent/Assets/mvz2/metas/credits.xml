@@ -20,6 +20,7 @@
         <entry>Cuerzor58</entry>
         <entry>Minecraft幻想乡地图-TouhouCraft团队</entry>
     </category>
+	<!--
     <category name="地图背景-圣辇船">
         <entry>传说中的金色小丑鱼</entry>
         <entry>琉</entry>
@@ -27,6 +28,7 @@
         <entry>creator</entry>
         <entry>修瞑</entry>
     </category>
+	-->
     <category name="音乐">
         <entry>幻梦忧</entry>
         <entry>Dr.糕萌酸钾-Studio</entry>
@@ -43,4 +45,28 @@
         <entry>新概念论士</entry>
         <entry>正邪の老鼠</entry>
     </category>
+	<category name="EXPAND版本作者/协助者">
+		<entry>新概念论士</entry>
+		<entry>芙兰酱喜欢吃饭(GMS2)</entry>
+		<entry>Reverser(GMS2)</entry>
+	</category>
+	<category name="EXPAND画师/贴图提供者">
+		<entry>e7cd79</entry>
+		<entry>布都喵</entry>
+		<entry>1997最佳推销员</entry>
+		<entry>炎之妖精琪露诺</entry>
+		<entry>柠檬精红茶</entry>
+		<entry>谦虚</entry>
+		<entry>kezela233_</entry>
+		<entry>我想喝柠檬水</entry>
+		<entry>telecripers</entry>
+	</category>
+	<category name="EXPANDwiki特别感谢">
+		<entry>STGargoyle</entry>
+		<entry>Reverser</entry>
+		<entry>JWKQS</entry>
+		<entry>自拍猫狗</entry>
+		<entry>起个名真难</entry>
+		<entry>Ximlar</entry>
+	</category>
 </credits>

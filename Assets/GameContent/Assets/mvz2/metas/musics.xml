@@ -323,7 +323,7 @@
             <p>而最后，这压迫感会将你推向深渊。</p>
         </description>
     </music>
-    <music id="ship_map" name="美猴王-地图">
+    <music id="ship_map" name="美猴王-地图" unlock="mvz2:level.ship_1">
         <track main="mvz2:ship_map"/>
         <source>书虫大冒险 Vol.2</source>
         <description>
