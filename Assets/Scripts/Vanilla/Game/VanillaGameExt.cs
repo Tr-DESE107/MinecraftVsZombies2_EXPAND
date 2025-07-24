@@ -21,5 +21,24 @@ namespace MVZ2.Vanilla.Game
             "RandomChina",
             "RandmChina",
         };
+
+        public static bool IsSTGargoyle(this IGame game)
+        {
+            var userName = game.GetCurrentUserName();
+            return game.IsSTGargoyleUserName(userName);
+        }
+        public static bool IsSTGargoyleUserName(this IGame game, string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return false;
+            return STGargoyleNames.Any(n => n.ToLower() == name.ToLower());
+        }
+        public static readonly string[] STGargoyleNames = new string[]
+        {
+            "STGargoyle",
+            "STGaygoyle",
+
+        };
+
     }
 }
