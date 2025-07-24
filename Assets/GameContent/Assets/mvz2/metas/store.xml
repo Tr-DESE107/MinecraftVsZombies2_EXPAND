@@ -141,7 +141,15 @@
                 <stage price="10000" unlocks="mvz2:contraption.golden_dropper"/>
             </stages>
         </product>
-        <product />
+		<product id="Eviltombstone" blueprintId="mvz2:Eviltombstone" required="mvz2:level.mausoleum_6">
+			<talks>
+				<talk character="mvz2:crazy_villager">把邪灵墓碑放在死灵墓碑上！他就可以召唤下界军团征服世界！</talk>
+				<talk character="mvz2:tokiko">好邪恶的墓碑！这位是邪灵墓碑！把他放在死灵墓碑先生上面，然后他就可以产出可怕的下界军队啦！</talk>
+			</talks>
+			<stages>
+				<stage price="100000" unlocks="mvz2:contraption.Eviltombstone"/>
+			</stages>
+		</product>
         <product />
         <product />
         <product />

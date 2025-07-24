@@ -573,6 +573,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ab45c539e2bb18040b691583b08639f1, type: 3}
   - name: entity/contraptions/error_block
     sprite: {fileID: 21300000, guid: 1106f96e2391f404caf8c7b2974ba5ea, type: 3}
+  - name: entity/contraptions/Eviltombstone
+    sprite: {fileID: 21300000, guid: 50a8ea65ed9d3a547ad90f45bd8f587e, type: 3}
   - name: entity/contraptions/force_wave
     sprite: {fileID: 21300000, guid: c91919e3f10e9004f85638cba2384e3e, type: 3}
   - name: entity/contraptions/giant_bowl

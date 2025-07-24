@@ -904,6 +904,25 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
+		
+		<contraption id="Eviltombstone" name="死灵墓碑" tooltip="召唤友方骷髅战士"
+            unlock="mvz2:contraption.Eviltombstone">
+			<properties>
+				<bool name="mvz2:nocturnal" value="true" />
+				<id name="mvz2:fragmentId" value="mvz2:furnace" />
+				
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+				<idArray name="mvz2:gridLayers" value="mvz2:main mvz2:carrier" />
+
+				<bool name="mvz2:upgradeBlueprint" value="true" />
+				<id name="mvz2:upgradeFrom" value="mvz2:necrotombstone" />
+				<id name="mvz2:placement" value="mvz2:upgrade" />
+
+				<int name="mvz2:cost" value="225" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+			</properties>
+		</contraption>
+		
         <dispenser id="high_frequency_pulse_dispenser" name="高频脉冲发射器" tooltip="（需要连射发射器）\n一次射出四支箭矢" unlock="mvz2:level.ship_5">
             <properties>
                 <bool name="mvz2:upgradeBlueprint" value="true" />

@@ -3676,6 +3676,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50a8ea65ed9d3a547ad90f45bd8f587e
+    m_Address: mvz2:entity/contraptions/Eviltombstone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 50c9e8ccf09318c4c811ae6d530b985a
     m_Address: mvz2:level/grids/normal
     m_ReadOnly: 0
@@ -7699,6 +7706,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b202ea70713220d4a87666908c6b7772
+    m_Address: mvz2:contraption/upgrade/Eviltombstone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b2385c35695e45846a215788533e520a
     m_Address: mvz2:entity/boss/seija

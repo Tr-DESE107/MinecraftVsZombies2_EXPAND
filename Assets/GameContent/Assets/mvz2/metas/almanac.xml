@@ -930,7 +930,30 @@
                 <p>它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
             </flavor>
         </entry>
-        <entry/>
+		
+		<entry id="mvz2:Eviltombstone">
+			<tags>
+				<tag id="mvz2:placement_golden_dropper"/>
+			</tags>
+			<header>
+				<p>邪灵墓碑会召唤各种凋零骷髅为你作战。</p>
+			</header>
+			<properties>
+				<p>召唤时间：<![CDATA[<color=red>20秒</color>]]></p>
+				<p>技能：<![CDATA[<color=red>召唤下界冲锋者、狂战士、下界弓箭手</color>]]></p>
+				<p>特点：<![CDATA[<color=red>被摧毁后出现反逆者。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>你有没有考虑过■灵■髅与普通■髅的关系？他们的差别不只显现在■■上，还显现在战斗方式和能力上。凋灵■■在攻击时还会为攻击对象附着凋零这一可怖特性，这一特性在千百年来和千余次凋灵■■与其他■的■■中夺走了大量的性命......</p>
+				<p>■■■■■■■■■■■■■■■■■</p>
+				<p/>
+				<p><![CDATA[<color=grey>你有没有发现图鉴里用的都是凋零骷髅这个字眼？正确的写法应该是凋灵骷髅</color>]]></p>
+				<p><![CDATA[<color=grey>图鉴不该犯这种低级错误的</color>]]></p>
+				<p/>
+				<p><![CDATA[<color=grey>图鉴没有写错。</color>]]></p>
+			</flavor>
+		</entry>
+        
         <entry/>
         <entry/>
         <entry/>
