@@ -241,6 +241,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d018395fbcf32f44c92a79b061e11d83, type: 3}
   - name: mobile_blueprint/error_block
     sprite: {fileID: 21300000, guid: 4a95d1fe4c3e9f342a64658402ac3669, type: 3}
+  - name: mobile_blueprint/Eviltombstone
+    sprite: {fileID: 21300000, guid: 28d615d4432f6624aaa56f1d26ba8883, type: 3}
   - name: mobile_blueprint/flag_zombie
     sprite: {fileID: 21300000, guid: 4756509eba10d744bb3323a794303f92, type: 3}
   - name: mobile_blueprint/force_pad
@@ -255,6 +257,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2eb6e56aede81b84988e3f747de09c05, type: 3}
   - name: mobile_blueprint/giant_bowl
     sprite: {fileID: 21300000, guid: 36b2d82a0eba62b4fa29a20e722ca6a3, type: 3}
+  - name: mobile_blueprint/GlowingObsidian
+    sprite: {fileID: 21300000, guid: 5da6821f9e8a8a44f863cd3f63615cd0, type: 3}
   - name: mobile_blueprint/glowstone
     sprite: {fileID: 21300000, guid: eb5396e8d49b71b4b899a73dae8c9ce9, type: 3}
   - name: mobile_blueprint/golden_apple
