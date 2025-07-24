@@ -25,6 +25,10 @@
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
+		<tag id="placement_necrotombstone" name="升级器械：死灵墓碑" description="必须放置在死灵墓碑上" priority="0" >
+			<icon sprite="mvz2:ui/almanac/Expand_attribute[0]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+		</tag>
         <tag id="placement_repeatenser" name="升级器械：连射发射器" description="必须放置在连射发射器上" priority="0" >
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_origin[0]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
@@ -141,6 +145,14 @@
             <icon sprite="mvz2:ui/almanac/attribute_tags[13]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#3b5b3b" />
         </tag>
+		<tag id="antifly" name="防空" description="可以打击空中敌人" priority="4000" >
+			<icon sprite="mvz2:ui/almanac/Expand_attribute[2]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#3b5b3b" />
+		</tag>
+		<tag id="Buff" name="状态效果" description="可以施加和得到状态效果" priority="4000" >
+			<icon sprite="mvz2:ui/almanac/Expand_buff[0]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
+		</tag>
 
 
         <enum id="mass" type="int">
@@ -257,8 +269,10 @@
         
         
         <entry id="mvz2:Poisonser">
+			<tags>
+				<tag id="mvz2:Buff"/>
+			</tags>
             <header>
-
                 <p>蚀毒发射器能发射短距离的毒球。</p>
             </header>
             <properties>
@@ -418,6 +432,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:pistenser">
+			<tags>
+				<tag id="mvz2:antifly"/>
+			</tags>
             <header>
                 <p>活塞发射器能够伸长自己来攻击高处的敌人。</p>
             </header>
@@ -433,6 +450,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:totenser">
+			<tags>
+				<tag id="mvz2:Buff"/>
+			</tags>
             <header>
                 <p>图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。</p>
             </header>
@@ -934,7 +954,7 @@
 		
 		<entry id="mvz2:Eviltombstone">
 			<tags>
-				<tag id="mvz2:placement_golden_dropper"/>
+				<tag id="mvz2:placement_necrotombstone"/>
 			</tags>
 			<header>
 				<p>邪灵墓碑会召唤各种凋零骷髅为你作战。</p>

@@ -1823,6 +1823,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28d615d4432f6624aaa56f1d26ba8883
+    m_Address: mvz2:mobile_blueprint/Eviltombstone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 294712fdf799501439ac34ed9fdf68c7
     m_Address: mvz2:entity/ghast/ghast_fire
     m_ReadOnly: 0
@@ -4292,6 +4299,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5da6821f9e8a8a44f863cd3f63615cd0
+    m_Address: mvz2:mobile_blueprint/GlowingObsidian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ddce6aa3c01acf40aa89b5845c9d961
     m_Address: mvz2:achievements/overdraw
     m_ReadOnly: 0
@@ -4326,6 +4340,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ecca9c7098d1ee4f980a7d6b2f3ee96
+    m_Address: mvz2:ui/almanac/Expand_attribute
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ed8b824db31b8142833c5c37faecd59
     m_Address: mvz2:effect/explosion

@@ -332,7 +332,7 @@
                 <id name="mvz2:projectileId" value="mvz2:Poisonball"/>
                 <id name="mvz2:shootSound" value="mvz2:bow"/>
                 <id name="mvz2:fragmentId" value="mvz2:furnace"/>
-                <vector3 name="shotOffset" x="25" y="15" z="0"/>
+                <vector3 name="mvz2:shotOffset" x="25" y="15" z="0"/>
                 <vector3 name="mvz2:size" x="32" y="32" z="32"/>
 
                 <int name="mvz2:cost" value="50" />
