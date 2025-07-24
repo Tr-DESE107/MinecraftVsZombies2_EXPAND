@@ -1,10 +1,25 @@
 ﻿using System;
 using UnityEngine;
+using static UnityEditor.UIElements.ToolbarMenu;
 
 namespace Tools.Mathematics
 {
     public static class MathTool
     {
+        public static int CycleOffset(int value, int offset, int count)
+        {
+            value += offset;
+            if (value < 0)
+            {
+                value = value % count + count;
+            }
+            if (value >= count)
+            {
+                value = value % count;
+            }
+            return value;
+        }
+
         #region 1D数轴
         public static bool DoRangesIntersect(float start1, float end1, float start2, float end2)
         {

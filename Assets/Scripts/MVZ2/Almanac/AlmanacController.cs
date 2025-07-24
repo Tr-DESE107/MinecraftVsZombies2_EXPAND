@@ -26,6 +26,7 @@ using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using Tools.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -197,7 +198,7 @@ namespace MVZ2.Almanacs
                 int cycleCount = 0;
                 do
                 {
-                    zoomIndex = (zoomIndex + offset) % variants.Count;
+                    zoomIndex = MathTool.CycleOffset(zoomIndex, offset, variants.Count);
                     cycleCount++;
                     if (cycleCount >= variants.Count)
                     {
