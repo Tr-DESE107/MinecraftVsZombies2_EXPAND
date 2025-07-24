@@ -507,6 +507,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c4364390af09764bb2a42d59f0deee7
+    m_Address: mvz2:arcade/iz/puzzle_mineclear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c507ce6e43ea514f9baa9832c0d3d4d
     m_Address: mvz2:contraption/dream/totenser
     m_ReadOnly: 0
@@ -3227,6 +3234,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4645fad2157b265429ee36dd52645003
+    m_Address: mvz2:arcade/iz/puzzle_all_your_observes_are_belong_to_us
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 467655dda6a792442875b3c72b9aaf73
     m_Address: mvz2:icon/wither_particles
@@ -10921,6 +10935,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fea59b92a83db3a448792917749dda4a
     m_Address: mvz2:entity/boss/wither_armor_white
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fee9b43affcd8f447aa2989b0c0abee5
+    m_Address: mvz2:arcade/iz/puzzle_fire_in_the_hole
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

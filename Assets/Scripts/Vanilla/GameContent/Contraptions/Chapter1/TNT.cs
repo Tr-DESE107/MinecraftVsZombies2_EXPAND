@@ -40,6 +40,10 @@ namespace MVZ2.GameContent.Contraptions
             {
                 IgnitedUpdate(entity);
             }
+            if (entity.IsHostile(0))
+            {
+                Ignite(entity);
+            }
         }
         public override void PostTakeDamage(DamageOutput result)
         {
