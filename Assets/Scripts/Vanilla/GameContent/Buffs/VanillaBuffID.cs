@@ -100,6 +100,7 @@ namespace MVZ2.GameContent.Buffs
         public const string iZombieImp = "i_zombie_imp";
         public const string iZombieSkeletonWarrior = "i_zombie_skeleton_warrior";
         public const string shikaisenRevive = "shikaisen_revive";
+        public const string SixQiResistanceBuff = "SixQiResistanceBuff";
 
         public const string paratroop = "paratroop";
 

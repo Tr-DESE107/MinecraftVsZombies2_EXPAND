@@ -1097,6 +1097,7 @@
 			<spawn id="mvz2:wicked_hermit_zombie"/>
 			<spawn id="mvz2:shikaisen_zombie"/>
 			<spawn id="mvz2:emperor_zombie"/>
+			<spawn id="mvz2:SixQiZombie"/>
 		</spawns>
 		<properties>
 			<integer name="spawnerCount" value="7" />
@@ -1117,6 +1118,7 @@
 			<spawn id="mvz2:wicked_hermit_zombie"/>
 			<spawn id="mvz2:shikaisen_zombie"/>
 			<spawn id="mvz2:emperor_zombie"/>
+			<spawn id="mvz2:SixQiZombie"/>
 		</spawns>
 		<properties>
 			<integer name="spawnerCount" value="8" />

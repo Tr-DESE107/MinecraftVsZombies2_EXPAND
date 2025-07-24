@@ -45,6 +45,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00dd0018d6bd193489043b82463cc7c3
+    m_Address: mvz2:entity/enemy/SixQiZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01135a0e2629bc5439a4f6e0fab3977a
     m_Address: mvz2:bones/contraption
     m_ReadOnly: 0
@@ -1731,6 +1738,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26640ad21e1b38241a1a58aa07195d70
+    m_Address: mvz2:armor/nether_vanguard_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 266bda436ee7214449de23afc046ffe4
     m_Address: mvz2:fatigue
@@ -6720,6 +6734,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98be614d3bbda5a499685b92f54d26d8
+    m_Address: mvz2:entity/enemy/nether_vanguard_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 98ceb6465d489164ab22b423d1a3d218
     m_Address: mvz2:mobile_blueprint/wooden_dropper
     m_ReadOnly: 0
@@ -7755,6 +7776,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b40029d77af137b459541cb06d29796a
+    m_Address: mvz2:enemy/mausoleum/SixQiZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b405364c48af1734683363a805c66044
     m_Address: mvz2:starshards/mausoleum
@@ -10918,6 +10946,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff600d11c606cf94f8710b7d4e5be42f
+    m_Address: mvz2:enemy/halloween/RedEyeZombieHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ffc82409076aa3e4481bb54a1438d1db
     m_Address: mvz2:entity/enemies/golden_axe

@@ -37,11 +37,21 @@ namespace MVZ2.GameContent.Artifacts
             {
                 if (artifact?.Definition != this)
                     continue;
-                
-                    //enemy.Revive();
-                    //enemy.Health = enemy.GetMaxHealth();
-                    //enemy.Charm(level.Option.LeftFaction);
-                    //result.SetFinalValue(false);
+
+                //enemy.Revive();
+                //enemy.Health = enemy.GetMaxHealth();
+                //enemy.Charm(level.Option.LeftFaction);
+                //result.SetFinalValue(false);
+
+                bool isHead = false;
+
+                if (enemy.IsEntityOf(VanillaEnemyID.SkeletonHead) || enemy.IsEntityOf(VanillaEnemyID.ZombieHead) || enemy.IsEntityOf(VanillaEnemyID.RedEyeZombieHead) || enemy.IsEntityOf(VanillaEnemyID.HostHead) || enemy.IsEntityOf(VanillaEnemyID.dullahanHead))
+                {
+                    isHead = true;
+                }
+
+                if (!isHead)
+                {
 
                     var randomID = GetRandomSkeletonID(enemy.RNG);
                     var spawnParam = enemy.GetSpawnParams();
@@ -53,7 +63,7 @@ namespace MVZ2.GameContent.Artifacts
                     artifact.Highlight();
                     enemy.PlaySound(VanillaSoundID.revived);
                     return;
-                
+                }
             }
         }
 

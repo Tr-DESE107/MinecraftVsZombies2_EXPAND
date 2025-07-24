@@ -147,6 +147,19 @@
                 <float name="mvz2:maxHealth" value="200" />
             </props>
         </entry>
+		<entry id="nether_vanguard_shield">
+			<colliders>
+				<collider name="main" >
+					<offset x="0" y="0" z="0"/>
+					<size x="10" y="40" z="40"/>
+					<pivot x="0.5" y="0.5" z="0.5"/>
+				</collider>
+			</colliders>
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="300" />
+			</props>
+		</entry>
         <entry id="umbrella_shield" tags="mvz2:between_hands">
             <behaviours>
                 <behaviour id="mvz2:damage_state_3"/>

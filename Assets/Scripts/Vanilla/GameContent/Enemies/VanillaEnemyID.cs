@@ -67,6 +67,7 @@ namespace MVZ2.GameContent.Enemies
         public const string LeatherMonkZombie = "LeatherMonkZombie";
         public const string IronMonkZombie = "IronMonkZombie";
         public const string FlagMonkZombie = "FlagMonkZombie";
+        public const string SixQiZombie = "SixQiZombie";
 
 
         public const string HeavyGutant = "HeavyGutant";
@@ -147,6 +148,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID LeatherMonkZombie = Get(VanillaEnemyNames.LeatherMonkZombie);
         public static readonly NamespaceID IronMonkZombie = Get(VanillaEnemyNames.IronMonkZombie);
         public static readonly NamespaceID FlagMonkZombie = Get(VanillaEnemyNames.FlagMonkZombie);
+        public static readonly NamespaceID SixQiZombie = Get(VanillaEnemyNames.SixQiZombie);
 
         public static readonly NamespaceID Endermite = Get(VanillaEnemyNames.Endermite);
         public static readonly NamespaceID HeavyGutant = Get(VanillaEnemyNames.HeavyGutant);

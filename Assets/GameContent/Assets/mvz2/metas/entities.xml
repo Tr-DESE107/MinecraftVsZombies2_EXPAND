@@ -1437,7 +1437,7 @@
 		<enemy id="NetherVanguard" name="下界冲锋者" deathMessage="骸死我了">
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:netherite_ingot_helmet" />
-				<id name="mvz2:starting_shield" value="mvz2:skeleton_warrior_shield" />
+				<id name="mvz2:starting_shield" value="mvz2:nether_vanguard_shield" />
 				<float name="mvz2:maxHealth" value="600" />
 				<id name="mvz2:shell" value="mvz2:nether" />
 				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
@@ -1594,6 +1594,15 @@
 				<float name="mvz2:maxHealth" value="300" />
 				<float name="mvz2:damage" value="200"/>
 				<float name="mvz2:speed" value="1.5"/>
+			</properties>
+		</zombie>
+
+		<zombie id="SixQiZombie" name="六气僵尸" deathMessage="以游无穷者，彼且恶乎待哉？">
+			<properties>
+				<int name="mvz2:cost" value="300" />
+				<float name="mvz2:maxHealth" value="1236" />
+				<float name="mvz2:damage" value="200"/>
+				<float name="mvz2:speed" value="0.75"/>
 			</properties>
 		</zombie>
 

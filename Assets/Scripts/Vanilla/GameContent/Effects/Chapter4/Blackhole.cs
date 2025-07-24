@@ -10,6 +10,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using MVZ2.GameContent.Enemies;
 
 namespace MVZ2.GameContent.Effects
 {
@@ -80,6 +81,16 @@ namespace MVZ2.GameContent.Effects
                             target.SetCenter(newCenter);
                             target.StopChangingLane();
                         }
+
+                        if (hostile && target.IsEntityOf(VanillaEnemyID.SixQiZombie))
+                        {
+                            target.Velocity = Vector3.zero;
+                            var newCenter = target.GetCenter() * 0.7f + entity.GetCenter() * 0.3f;
+                            target.SetCenter(newCenter);
+                            target.StopChangingLane();
+                            target.Health = 0;
+                        }
+
                     }
                     else if (target.Type == EntityTypes.PROJECTILE)
                     {

@@ -495,14 +495,20 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6bfc7d9706121e5458ed36aa87ece92c, type: 3}
   - name: arcade/iz/puzzle_absolute_defense
     sprite: {fileID: 21300000, guid: 26ff304e86df95141b97fb19ae8f2d91, type: 3}
+  - name: arcade/iz/puzzle_all_your_observes_are_belong_to_us
+    sprite: {fileID: 21300000, guid: 4645fad2157b265429ee36dd52645003, type: 3}
   - name: arcade/iz/puzzle_can_you_pass_it
     sprite: {fileID: 21300000, guid: 68a29b6e72abdd043bd05f88aac0eae2, type: 3}
   - name: arcade/iz/puzzle_dead_balloon
     sprite: {fileID: 21300000, guid: 7e1c48a0f1b4e9e4cb2959652d229f80, type: 3}
+  - name: arcade/iz/puzzle_fire_in_the_hole
+    sprite: {fileID: 21300000, guid: fee9b43affcd8f447aa2989b0c0abee5, type: 3}
   - name: arcade/iz/puzzle_i_skeleton
     sprite: {fileID: 21300000, guid: 153901630f9f4e048a028c67bdc6fbac, type: 3}
   - name: arcade/iz/puzzle_i_zombie
     sprite: {fileID: 21300000, guid: aef7aedad4b355f4ebb236c725ae29d1, type: 3}
+  - name: arcade/iz/puzzle_mineclear
+    sprite: {fileID: 21300000, guid: 0c4364390af09764bb2a42d59f0deee7, type: 3}
   - name: arcade/iz/puzzle_unbreakable
     sprite: {fileID: 21300000, guid: 113f8d660acfe7748849e3d20cb3575e, type: 3}
   - name: entity/armor/AngryReverserCrown
@@ -2093,13 +2099,6 @@ MonoBehaviour:
     - {fileID: 1232102315, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
     - {fileID: 1656571575, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
     - {fileID: 1770381877, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
-  - name: entity/enemy/MonkZombieOld
-    spritesheet:
-    - {fileID: -1724426877, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
-    - {fileID: -1711784147, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
-    - {fileID: -70730126, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
-    - {fileID: 2084068873, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
-    - {fileID: -1646566641, guid: fa8aa09227f46034b8b939a68f700d45, type: 3}
   - name: entity/enemy/mother_terror
     spritesheet:
     - {fileID: -105107332, guid: 614ed32a96b18ee45b196d855175f379, type: 3}
@@ -2175,6 +2174,9 @@ MonoBehaviour:
     - {fileID: 2054211541, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
     - {fileID: 56546038, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
     - {fileID: 175646590, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
+  - name: entity/enemy/nether_vanguard_shield
+    spritesheet:
+    - {fileID: 708459659, guid: 98be614d3bbda5a499685b92f54d26d8, type: 3}
   - name: entity/enemy/nether_warrior
     spritesheet:
     - {fileID: -1568959676, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
@@ -2249,6 +2251,13 @@ MonoBehaviour:
     - {fileID: 1508109061, guid: 8fa972da5f508ff4fb74e14c8fc0ac2b, type: 3}
     - {fileID: 2061647914, guid: 8fa972da5f508ff4fb74e14c8fc0ac2b, type: 3}
     - {fileID: -425194149, guid: 8fa972da5f508ff4fb74e14c8fc0ac2b, type: 3}
+  - name: entity/enemy/SixQiZombie
+    spritesheet:
+    - {fileID: -175526964, guid: 00dd0018d6bd193489043b82463cc7c3, type: 3}
+    - {fileID: -1441665567, guid: 00dd0018d6bd193489043b82463cc7c3, type: 3}
+    - {fileID: 2036900443, guid: 00dd0018d6bd193489043b82463cc7c3, type: 3}
+    - {fileID: -1867215260, guid: 00dd0018d6bd193489043b82463cc7c3, type: 3}
+    - {fileID: 639538879, guid: 00dd0018d6bd193489043b82463cc7c3, type: 3}
   - name: entity/enemy/skeleton
     spritesheet:
     - {fileID: 21300000, guid: 20e366ae3ad04144489c4e881a2d2b4a, type: 3}
