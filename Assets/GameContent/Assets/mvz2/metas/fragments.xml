@@ -24,6 +24,18 @@
             <key hex="#312829" time="1"/>
         </colorKeys>
     </fragment>
+	<fragment name="GlowingObsidian" blend="true">
+		<colorKeys>
+			<key hex="#FF0000" time="0"/>
+			<key hex="#000000" time="1"/>
+		</colorKeys>
+	</fragment>
+	<fragment name="GlowingObsidianArmor" blend="true">
+		<colorKeys>
+			<key hex="#FFA500" time="0"/>
+			<key hex="#000000" time="1"/>
+		</colorKeys>
+	</fragment>
     <fragment name="mine_tnt">
         <colorKeys>
             <key hex="#FF0000" time="0.6"/>

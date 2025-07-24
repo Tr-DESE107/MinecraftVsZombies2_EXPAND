@@ -30,6 +30,7 @@ namespace MVZ2.GameContent.Buffs
         public const string productionColor = "production_color";
         public const string mineTNTInvincible = "mine_tnt_invincible";
         public const string obsidianArmor = "obsidian_armor";
+        public const string GlowingObsidianArmorBuff = "GlowingObsidianArmorBuff";
         public const string moonlightSensorLaunching = "moonlight_sensor_launching";
         public const string moonlightSensorEvoked = "moonlight_sensor_evoked";
         public const string glowstoneEvoke = "glowstone_evoke";
@@ -216,6 +217,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID productionColor = Get(VanillaBuffNames.productionColor);
         public static readonly NamespaceID mineTNTInvincible = Get(VanillaBuffNames.mineTNTInvincible);
         public static readonly NamespaceID obsidianArmor = Get(VanillaBuffNames.obsidianArmor);
+        public static readonly NamespaceID GlowingObsidianArmorBuff = Get(VanillaBuffNames.GlowingObsidianArmorBuff);
         public static readonly NamespaceID starshardCarrier = Get(VanillaBuffNames.starshardCarrier);
         public static readonly NamespaceID temporaryUpdateBeforeGame = Get(VanillaBuffNames.temporaryUpdateBeforeGame);
         public static readonly NamespaceID thunderLightFadeout = Get(VanillaBuffNames.lightFadeout);

@@ -57,7 +57,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (entity.RNG.Next(5) == 0 && hostile)
             {
                 damageInfo.Multiply(0f);
-                entity.PlaySound(VanillaSoundID.buzzer);
+                
                 return;
 
             }

@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Contraptions
 
             // 生命状态动画控制逻辑
             var maxHP = contraption.GetMaxHealth();
-            bool netherite = contraption.HasBuff<ObsidianArmorBuff>();
+            bool netherite = contraption.HasBuff<GlowingObsidianArmorBuff>();
             if (netherite)
             {
 
@@ -53,7 +53,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (contraption.Health <= maxHP * 0.4f)
                 {
                     var hp = contraption.Health;
-                    contraption.RemoveBuffs<ObsidianArmorBuff>();
+                    contraption.RemoveBuffs<GlowingObsidianArmorBuff>();
                     netherite = false;
                     contraption.Health = hp;
 
@@ -113,7 +113,7 @@ namespace MVZ2.GameContent.Contraptions
         public override bool CanEvoke(Entity entity)
         {
             // 有护甲就不能被大招强化
-            if (entity.HasBuff<ObsidianArmorBuff>())
+            if (entity.HasBuff<GlowingObsidianArmorBuff>())
                 return false;
 
             return base.CanEvoke(entity);
@@ -124,7 +124,7 @@ namespace MVZ2.GameContent.Contraptions
             base.OnEvoke(contraption);
 
             // 添加护甲buff
-            contraption.AddBuff<ObsidianArmorBuff>();
+            contraption.AddBuff<GlowingObsidianArmorBuff>();
 
             // 血量重置
             contraption.Health = contraption.GetMaxHealth();

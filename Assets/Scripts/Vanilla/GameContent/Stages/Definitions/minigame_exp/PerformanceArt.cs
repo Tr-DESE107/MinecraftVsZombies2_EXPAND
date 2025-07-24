@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Stages
             AddBehaviour(new WaveStageBehaviour(this));
             AddBehaviour(new GemStageBehaviour(this));
             AddBehaviour(new StarshardStageBehaviour(this));
-
+            AddBehaviour(new FinalWaveClearBehaviour(this));
         }
 
     }
