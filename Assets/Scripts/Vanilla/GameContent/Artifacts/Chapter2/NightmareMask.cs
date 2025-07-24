@@ -10,7 +10,7 @@ using PVZEngine.Entities;          // 实体系统（包括植物、僵尸、器械等）
 
 namespace MVZ2.GameContent.Artifacts
 {
-    // 定义名为 NightmareMask 的神器（Artifact），名称为“凋灵护心盾”
+    // 定义名为 NightmareMask 的神器（Artifact），名称为“梦魇之面”
     [ArtifactDefinition(VanillaArtifactNames.NightmareMask)]
     public class NightmareMask : ArtifactDefinition
     {
@@ -62,7 +62,7 @@ namespace MVZ2.GameContent.Artifacts
                 BuffID = VanillaBuffID.NightmareMaskEvade; // 设置光环对应的 Buff ID（逻辑效果由 buff 决定）
             }
 
-            // 定义光环影响的目标实体（所有器械植物）
+            // 定义光环影响的目标实体
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var level = auraEffect.Source.GetLevel();  // 获取当前关卡
