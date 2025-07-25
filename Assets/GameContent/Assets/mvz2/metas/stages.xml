@@ -519,7 +519,7 @@
             <spawn id="mvz2:necromancer"/>
             <spawn id="mvz2:skeleton_horse"/>
             <!-- <spawn id="mvz2:水生蜘蛛"/> -->
-			<spawn id="mvz2:cave_spider"/>
+			
             <!-- <spawn id="mvz2:恐怖寄生虫"/> -->
         </spawns>
         <properties>
