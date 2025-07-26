@@ -883,6 +883,8 @@ namespace MVZ2.Level
             var innateCount = innateArtifacts.Length;
             for (int i = 0; i < innateCount; i++)
             {
+                if (i >= chosenArtifacts.Length)
+                    continue;
                 chosenArtifacts[i] = new ArtifactChooseItem(innateArtifacts[i], true);
             }
 
