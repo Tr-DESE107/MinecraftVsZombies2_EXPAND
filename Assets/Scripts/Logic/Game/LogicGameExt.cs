@@ -24,5 +24,15 @@ namespace MVZ2Logic
             game.RunCallback(LogicCallbacks.GET_INNATE_BLUEPRINTS, param);
             return list.ToArray();
         }
+        public static NamespaceID[] GetInnateArtifacts(this IGame game)
+        {
+            var list = new List<NamespaceID>();
+            var param = new LogicCallbacks.GetInnateArtifactsParams()
+            {
+                list = list
+            };
+            game.RunCallback(LogicCallbacks.GET_INNATE_ARTIFACTS, param);
+            return list.ToArray();
+        }
     }
 }
