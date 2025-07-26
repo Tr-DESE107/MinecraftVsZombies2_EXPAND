@@ -38,6 +38,16 @@ namespace MVZ2.Games
             return saveDataProvider.GetUnlockedEnemies();
         }
 
+        public bool IsArtifactUnlocked(NamespaceID id)
+        {
+            return saveDataProvider.IsArtifactUnlocked(id);
+        }
+        public NamespaceID[] GetUnlockedArtifacts()
+        {
+            return saveDataProvider.GetUnlockedArtifacts();
+        }
+
+
         public T GetModSaveData<T>(string spaceName)
         {
             return saveDataProvider.GetModSaveData<T>(spaceName);

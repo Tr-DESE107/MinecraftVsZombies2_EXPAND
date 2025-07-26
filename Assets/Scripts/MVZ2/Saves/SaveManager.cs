@@ -365,7 +365,7 @@ namespace MVZ2.Saves
                 var meta = resourceManager.GetArtifactMeta(id);
                 if (meta == null)
                     continue;
-                if (this.IsValidAndLocked(meta.Unlock))
+                if (!meta.IsUnlocked(this))
                     continue;
                 unlockedArtifactsCache.Add(id);
             }
