@@ -8,6 +8,7 @@ using MVZ2.OldSave;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Callbacks;
 using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
 using PVZEngine;
@@ -73,6 +74,12 @@ namespace MVZ2.Saves
             }
             EvaluateUnlocks(true);
             CheckUserDataFix();
+            var param = new LogicCallbacks.PostUserLoadParams()
+            {
+                userIndex = index,
+                userName = GetUserName(index)
+            };
+            Main.Game.RunCallback(LogicCallbacks.POST_USER_LOAD, param);
         }
         public SaveDataStatus GetSaveDataStatus()
         {
