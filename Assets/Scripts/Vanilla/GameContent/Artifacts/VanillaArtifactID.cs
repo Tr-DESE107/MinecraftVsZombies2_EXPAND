@@ -75,5 +75,9 @@ namespace MVZ2.GameContent.Artifacts
         {
             return new NamespaceID(VanillaMod.spaceName, name);
         }
+        public static NamespaceID GetUnlockID(NamespaceID artifactID)
+        {
+            return new NamespaceID(artifactID.SpaceName, $"artifact.{artifactID.Path}");
+        }
     }
 }

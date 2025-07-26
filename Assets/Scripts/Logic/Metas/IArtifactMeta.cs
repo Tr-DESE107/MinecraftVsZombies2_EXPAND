@@ -1,4 +1,5 @@
-﻿using PVZEngine;
+﻿using System;
+using PVZEngine;
 
 namespace MVZ2Logic.Entities
 {
@@ -7,6 +8,7 @@ namespace MVZ2Logic.Entities
         string ID { get; }
         string Name { get; }
         string Tooltip { get; }
+        [Obsolete]
         NamespaceID Unlock { get; }
         SpriteReference Sprite { get; }
         int Order { get; }

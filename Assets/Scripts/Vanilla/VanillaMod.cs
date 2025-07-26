@@ -344,7 +344,6 @@ namespace MVZ2.Vanilla
                 var artifact = this.GetArtifactDefinition(new NamespaceID(spaceName, name));
                 if (artifact == null)
                     continue;
-                artifact.SetUnlockID(meta.Unlock);
                 artifact.SetSpriteReference(meta.Sprite);
             }
         }

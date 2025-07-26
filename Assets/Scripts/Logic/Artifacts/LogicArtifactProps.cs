@@ -50,15 +50,6 @@ namespace MVZ2Logic.Artifacts
         {
             return artifact.GetProperty<NamespaceID>(TRANSFORM_SOURCE);
         }
-        public static readonly PropertyMeta<NamespaceID> UNLOCK_ID = new PropertyMeta<NamespaceID>("unlockID");
-        public static void SetUnlockID(this ArtifactDefinition artifact, NamespaceID id)
-        {
-            artifact.SetProperty(UNLOCK_ID, id);
-        }
-        public static NamespaceID GetUnlockID(this ArtifactDefinition artifact)
-        {
-            return artifact.GetProperty<NamespaceID>(UNLOCK_ID);
-        }
     }
 }
 
