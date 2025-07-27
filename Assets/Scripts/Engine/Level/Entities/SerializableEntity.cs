@@ -51,11 +51,14 @@ namespace PVZEngine.Entities
         public SerializablePropertyBlock properties;
         public SerializableBuffList buffs;
         public List<long> children;
+        [Obsolete]
         public List<TakenGridInfo> takenGrids;
+        public List<int> takenGridIndexes;
 
         public SerializableAuraEffect[] auras;
 
         [Serializable]
+        [Obsolete]
         public class TakenGridInfo
         {
             public int grid;
