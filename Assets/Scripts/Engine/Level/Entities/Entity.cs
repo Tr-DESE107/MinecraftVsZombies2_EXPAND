@@ -442,7 +442,7 @@ namespace PVZEngine.Entities
         }
         #endregion
 
-        #region 网格
+        #region 网格位置
         public int GetColumn()
         {
             var gridPivotOffset = Cache.GridPivotOffset;
@@ -452,63 +452,6 @@ namespace PVZEngine.Entities
         {
             var gridPivotOffset = Cache.GridPivotOffset;
             return Level.GetLane(Position.z + gridPivotOffset.y);
-        }
-        public NamespaceID[] GetTakingGridLayers(LawnGrid grid)
-        {
-            var hashSet = GetTakenGridLayerHashSet(grid);
-            if (hashSet == null)
-                return Array.Empty<NamespaceID>();
-            return hashSet.ToArray();
-        }
-        public void GetTakingGridLayersNonAlloc(LawnGrid grid, List<NamespaceID> results)
-        {
-            var hashSet = GetTakenGridLayerHashSet(grid);
-            if (hashSet == null)
-                return;
-            results.AddRange(hashSet);
-        }
-        public bool IsTakingGridLayer(LawnGrid grid, NamespaceID layer)
-        {
-            var hashSet = GetTakenGridLayerHashSet(grid);
-            if (hashSet == null)
-                return false;
-            return hashSet.Contains(layer);
-        }
-        public void TakeGrid(LawnGrid grid, NamespaceID layer)
-        {
-            var hashSet = GetOrCreateTakenGridHashSet(grid);
-            hashSet.Add(layer);
-            grid.AddLayerEntity(layer, this);
-        }
-        public bool ReleaseGrid(LawnGrid grid, NamespaceID layer)
-        {
-            var hashSet = GetTakenGridLayerHashSet(grid);
-            if (hashSet == null)
-                return false;
-            if (hashSet.Remove(layer))
-            {
-                grid.RemoveLayerEntity(layer, this);
-                return true;
-            }
-            return false;
-        }
-        public void ClearTakenGrids()
-        {
-            foreach (var pair in takenGrids)
-            {
-                foreach (var layer in pair.Value)
-                {
-                    pair.Key.RemoveLayerEntity(layer, this);
-                }
-            }
-            takenGrids.Clear();
-        }
-        public void GetTakenGrids(List<LawnGrid> results)
-        {
-            foreach (var pair in takenGrids)
-            {
-                results.Add(pair.Key);
-            }
         }
         public int GetGridIndex()
         {
@@ -522,21 +465,52 @@ namespace PVZEngine.Entities
         {
             return new Vector2Int(GetColumn(), GetLane());
         }
-        private HashSet<NamespaceID> GetOrCreateTakenGridHashSet(LawnGrid grid)
+        #endregion
+
+        #region 占据网格
+        public LawnGrid[] GetTakenGrids()
         {
-            var hashSet = GetTakenGridLayerHashSet(grid);
-            if (hashSet == null)
-            {
-                hashSet = new HashSet<NamespaceID>();
-                takenGrids.Add(grid, hashSet);
-            }
-            return hashSet;
+            return takenGrids.ToArray();
         }
-        private HashSet<NamespaceID> GetTakenGridLayerHashSet(LawnGrid grid)
+        public void GetTakenGridsNonAlloc(List<LawnGrid> results)
         {
-            if (takenGrids.TryGetValue(grid, out var set))
-                return set;
-            return null;
+            results.AddRange(takenGrids);
+        }
+        public NamespaceID[] GetTakingGridLayers(LawnGrid grid)
+        {
+            return grid.GetEntityLayers(this);
+        }
+        public void GetTakingGridLayersNonAlloc(LawnGrid grid, List<NamespaceID> results)
+        {
+            grid.GetEntityLayersNonAlloc(this, results);
+        }
+        public bool IsTakingGridLayer(LawnGrid grid, NamespaceID layer)
+        {
+            return grid.IsEntityOnLayer(this, layer);
+        }
+        public void TakeGrid(LawnGrid grid, NamespaceID layer)
+        {
+            grid.AddLayerEntity(layer, this);
+            if (!takenGrids.Contains(grid))
+            {
+                takenGrids.Add(grid);
+            }
+        }
+        public void ReleaseGrid(LawnGrid grid, NamespaceID layer)
+        {
+            grid.RemoveLayerEntity(layer, this);
+            if (!grid.HasEntity(this))
+            {
+                takenGrids.Remove(grid);
+            }
+        }
+        public void ClearTakenGrids()
+        {
+            foreach (var grid in takenGrids)
+            {
+                grid.RemoveGridEntity(this);
+            }
+            takenGrids.Clear();
         }
         #endregion
 
@@ -897,15 +871,10 @@ namespace PVZEngine.Entities
             seri.properties = properties.ToSerializable();
             seri.buffs = buffs.ToSerializable();
             seri.children = children.ConvertAll(e => e?.ID ?? 0);
-            seri.takenGrids = new List<SerializableEntity.TakenGridInfo>();
-            foreach (var pair in takenGrids)
+            seri.takenGridIndexes = new List<int>();
+            foreach (var grid in takenGrids)
             {
-                var info = new SerializableEntity.TakenGridInfo()
-                {
-                    grid = pair.Key.GetIndex(),
-                    layers = pair.Value.ToArray()
-                };
-                seri.takenGrids.Add(info);
+                seri.takenGridIndexes.Add(grid.GetIndex());
             }
 
             seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
@@ -957,14 +926,24 @@ namespace PVZEngine.Entities
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
             if (seri.takenGrids != null)
             {
-                foreach (var takenGrid in seri.takenGrids)
+                foreach (var info in seri.takenGrids)
                 {
-                    if (takenGrid == null || takenGrid.layers == null)
+                    if (info == null || info.layers == null)
                         continue;
-                    var grid = Level.GetGrid(takenGrid.grid);
+                    var grid = Level.GetGrid(info.grid);
                     if (grid == null)
                         continue;
-                    takenGrids.Add(grid, takenGrid.layers.ToHashSet());
+                    takenGrids.Add(grid);
+                }
+            }
+            else if (seri.takenGridIndexes != null)
+            {
+                foreach (var index in seri.takenGridIndexes)
+                {
+                    var grid = Level.GetGrid(index);
+                    if (grid == null)
+                        continue;
+                    takenGrids.Add(grid);
                 }
             }
             LoadAuras(seri);
@@ -1147,7 +1126,7 @@ namespace PVZEngine.Entities
         private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private AuraEffectList auras = new AuraEffectList();
-        private Dictionary<LawnGrid, HashSet<NamespaceID>> takenGrids = new Dictionary<LawnGrid, HashSet<NamespaceID>>();
+        private List<LawnGrid> takenGrids = new List<LawnGrid>();
         private List<Entity> children = new List<Entity>();
         private Dictionary<NamespaceID, int> takenConveyorSeeds = new Dictionary<NamespaceID, int>();
         private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>(new PropertyKeyComparer());

@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Implements
         {
             var entity = param.entity;
             gridBuffer.Clear();
-            entity.GetTakenGrids(gridBuffer);
+            entity.GetTakenGridsNonAlloc(gridBuffer);
             foreach (var grid in gridBuffer)
             {
                 var carrier = grid.GetCarrierEntity();

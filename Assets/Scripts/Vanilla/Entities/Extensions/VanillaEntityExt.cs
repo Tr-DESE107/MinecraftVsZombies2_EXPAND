@@ -21,6 +21,7 @@ using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
+using PVZEngine.Base;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -29,6 +30,8 @@ using PVZEngine.Level;
 using Tools;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.Networking.UnityWebRequest;
+using GridLayerData = System.Tuple<PVZEngine.Grids.LawnGrid, PVZEngine.NamespaceID>;
 
 namespace MVZ2.Vanilla.Entities
 {
@@ -603,62 +606,48 @@ namespace MVZ2.Vanilla.Entities
         #region 网格
         public static void UpdateTakenGrids(this Entity entity)
         {
-            // 将所有合法的网格添加到待添加列表中。
-            entityGridToAddBuffer.Clear();
-            if (entity.ExistsAndAlive())
-            {
-                var grids = entity.GetGridsToTake();
-                foreach (var grid in grids)
-                {
-                    if (CanTakeGrid(entity, grid))
-                    {
-                        entityGridToAddBuffer.Add(grid);
-                    }
-                }
-            }
+            targetGridLayerDataBuffer.Clear();
+            takenGridLayerDataBuffer.Clear();
+            GetTargetGridLayersToTakeNonAlloc(entity, targetGridLayerDataBuffer);
+            GetCurrentGridLayersToTakeNonAlloc(entity, takenGridLayerDataBuffer);
+            entityGridUpdater.Update(targetGridLayerDataBuffer, takenGridLayerDataBuffer, g => entity.TakeGrid(g.Item1, g.Item2), g => entity.ReleaseGrid(g.Item1, g.Item2));
+        }
+        private static void GetTargetGridLayersToTakeNonAlloc(Entity entity, List<GridLayerData> buffer)
+        {
+            if (!entity.ExistsAndAlive())
+                return;
 
-            // 获取目前占用的网格列表。
-            entityGridBuffer.Clear();
-            entity.GetTakenGrids(entityGridBuffer);
+            var grids = entity.GetGridsToTake();
+            if (grids == null)
+                return;
 
-            // 检查目前占用的网格，将不符合条件的网格加到移除列表中，将符合条件的网格保留，剩下的就是需要新增的网格。
-            entityGridToRemoveBuffer.Clear();
-            foreach (var key in entityGridBuffer)
+            var layers = entity.GetGridLayersToTake();
+            if (layers == null)
+                return;
+
+            foreach (var grid in grids)
             {
-                if (entityGridToAddBuffer.Contains(key))
+                if (!CanTakeGrid(entity, grid))
+                    continue;
+                foreach (var layer in layers)
                 {
-                    // 符合条件并且目前在表中。
-                    // 保留而非新添加到表中。
-                    entityGridToAddBuffer.Remove(key);
-                }
-                else
-                {
-                    // 不符合条件。
-                    entityGridToRemoveBuffer.Add(key);
+                    buffer.Add(new GridLayerData(grid, layer));
                 }
             }
-            // 移除不符合条件的网格。
-            foreach (var grid in entityGridToRemoveBuffer)
+        }
+        private static void GetCurrentGridLayersToTakeNonAlloc(Entity entity, List<GridLayerData> buffer)
+        {
+            takenGridBuffer.Clear();
+            entity.GetTakenGridsNonAlloc(takenGridBuffer);
+
+            foreach (var grid in takenGridBuffer)
             {
-                entityGridLayerBuffer.Clear();
-                entity.GetTakingGridLayersNonAlloc(grid, entityGridLayerBuffer);
-                foreach (var layer in entityGridLayerBuffer)
+                takenGridLayersBuffer.Clear();
+                entity.GetTakingGridLayersNonAlloc(grid, takenGridLayersBuffer);
+
+                foreach (var layer in takenGridLayersBuffer)
                 {
-                    if (!HasGridLayerToTake(entity, layer))
-                    {
-                        entity.ReleaseGrid(grid, layer);
-                    }
-                }
-            }
-            // 添加新的符合条件的网格。
-            foreach (var grid in entityGridToAddBuffer)
-            {
-                foreach (var layer in entity.GetGridLayersToTake())
-                {
-                    if (HasGridLayerToTake(entity, layer))
-                    {
-                        entity.TakeGrid(grid, layer);
-                    }
+                    buffer.Add(new GridLayerData(grid, layer));
                 }
             }
         }
@@ -672,18 +661,12 @@ namespace MVZ2.Vanilla.Entities
                 return false;
             return true;
         }
-        private static bool HasGridLayerToTake(this Entity entity, NamespaceID layer)
-        {
-            var layersToTake = entity.GetGridLayersToTake();
-            if (layersToTake == null)
-                return false;
-            return layersToTake.Contains(layer);
-        }
         private const float leaveGridHeight = 64;
-        private static List<LawnGrid> entityGridToAddBuffer = new List<LawnGrid>();
-        private static List<LawnGrid> entityGridToRemoveBuffer = new List<LawnGrid>();
-        private static List<LawnGrid> entityGridBuffer = new List<LawnGrid>();
-        private static List<NamespaceID> entityGridLayerBuffer = new List<NamespaceID>();
+        private static ListUpdater<GridLayerData> entityGridUpdater = new ListUpdater<GridLayerData>();
+        private static List<GridLayerData> targetGridLayerDataBuffer = new List<GridLayerData>();
+        private static List<GridLayerData> takenGridLayerDataBuffer = new List<GridLayerData>();
+        private static List<LawnGrid> takenGridBuffer = new List<LawnGrid>();
+        private static List<NamespaceID> takenGridLayersBuffer = new List<NamespaceID>();
         #endregion
 
 
