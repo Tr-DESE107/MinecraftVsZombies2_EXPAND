@@ -34,7 +34,8 @@ namespace MVZ2Logic.Saves
         {
             return new SerializableUserStats()
             {
-                categories = categories.Select(e => e.ToSerializable()).ToArray()
+                categories = categories.Select(e => e.ToSerializable()).ToArray(),
+                playTimeMilliseconds = PlayTimeMilliseconds,
             };
         }
         public static UserStats FromSerializable(SerializableUserStats serializable)
@@ -42,6 +43,9 @@ namespace MVZ2Logic.Saves
             var stats = new UserStats();
             if (serializable.categories != null)
                 stats.categories.AddRange(serializable.categories.Select(e => UserStatCategory.FromSerializable(e)));
+
+            stats.PlayTimeMilliseconds = serializable.playTimeMilliseconds;
+
             return stats;
         }
         private string[] GetAllCategoryNames()
@@ -59,11 +63,13 @@ namespace MVZ2Logic.Saves
             return entry;
         }
         private List<UserStatCategory> categories = new List<UserStatCategory>();
+        public long PlayTimeMilliseconds { get; set; }
     }
     [Serializable]
     public class SerializableUserStats
     {
         public SerializableUserStatCategory[] categories;
+        public long playTimeMilliseconds;
         [Obsolete]
         [BsonIgnoreIfNull]
         public SerializableUserStatEntry[] entries;

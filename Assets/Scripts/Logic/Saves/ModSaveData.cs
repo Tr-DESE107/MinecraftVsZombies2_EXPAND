@@ -106,6 +106,14 @@ namespace MVZ2Logic.Saves
         {
             SetStat(category, entry, GetStat(category, entry) + value);
         }
+        public void AddPlayTimeMilliseconds(long time)
+        {
+            stats.PlayTimeMilliseconds += time;
+        }
+        public long GetPlayTimeMilliseconds()
+        {
+            return stats.PlayTimeMilliseconds;
+        }
         public UserStats GetAllStats() => stats;
         #endregion
 

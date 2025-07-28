@@ -30,7 +30,6 @@ using PVZEngine.Level;
 using Tools;
 using UnityEditor;
 using UnityEngine;
-using static UnityEngine.Networking.UnityWebRequest;
 using GridLayerData = System.Tuple<PVZEngine.Grids.LawnGrid, PVZEngine.NamespaceID>;
 
 namespace MVZ2.Vanilla.Entities

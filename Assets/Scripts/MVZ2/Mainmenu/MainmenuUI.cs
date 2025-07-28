@@ -69,9 +69,9 @@ namespace MVZ2.Mainmenu.UI
         {
             rayblocker.SetActive(active);
         }
-        public void UpdateStats(StatCategoryViewData[] viewDatas)
+        public void UpdateStats(StatsViewData viewData)
         {
-            stats.UpdateStats(viewDatas);
+            stats.UpdateStats(viewData);
         }
         public void UpdateAchievements(AchievementEntryViewData[] viewDatas)
         {

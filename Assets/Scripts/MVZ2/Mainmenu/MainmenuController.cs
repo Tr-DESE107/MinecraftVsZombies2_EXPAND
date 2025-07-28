@@ -676,11 +676,37 @@ namespace MVZ2.Mainmenu
         #region 统计
         private void ReloadStats()
         {
+            main.SaveManager.UpdatePlayTime();
+
             var nsp = main.BuiltinNamespace;
             UserStats stats = main.SaveManager.GetUserStats(nsp);
+
+            var playTimeText = GetPlayTimeText(stats.PlayTimeMilliseconds);
+
             var categories = stats.GetAllCategories();
-            var viewDatas = new StatCategoryViewData[categories.Length];
-            for (int i = 0; i < viewDatas.Length; i++)
+            var categoriesViewData = GetCategoriesViewData(nsp, categories);
+            var viewData = new StatsViewData()
+            {
+                playTimeText = playTimeText,
+                categories = categoriesViewData
+            };
+            ui.UpdateStats(viewData);
+        }
+        private string GetPlayTimeText(long milliseconds)
+        {
+            var timeSpan = TimeSpan.FromMilliseconds(milliseconds);
+            // 计算总小时数（整数部分）
+            long totalHours = (long)timeSpan.TotalHours;
+            // 剩下的分钟和秒
+            int minutes = timeSpan.Minutes;
+            int seconds = timeSpan.Seconds;
+            // 格式化为字符串：总小时数:分钟:秒
+            return $"{totalHours:D2}:{minutes:D2}:{seconds:D2}";
+        }
+        private StatCategoryViewData[] GetCategoriesViewData(string nsp, UserStatCategory[] categories)
+        {
+            var categoriesViewData = new StatCategoryViewData[categories.Length];
+            for (int i = 0; i < categoriesViewData.Length; i++)
             {
                 var category = categories[i];
                 var meta = main.ResourceManager.GetStatCategoryMeta(new NamespaceID(nsp, category.Name));
@@ -712,14 +738,14 @@ namespace MVZ2.Mainmenu
                         count = count
                     });
                 }
-                viewDatas[i] = new StatCategoryViewData()
+                categoriesViewData[i] = new StatCategoryViewData()
                 {
                     entries = entriesViewData.OrderByDescending(e => e.count).ToArray(),
                     sum = categoryNumber.ToString(),
                     title = title
                 };
             }
-            ui.UpdateStats(viewDatas);
+            return categoriesViewData;
         }
         #endregion
 
@@ -773,6 +799,7 @@ namespace MVZ2.Mainmenu
         public const string ERROR_DUPLICATE_IMPORTING_USER_NAME_AND_CANNOT_RENAME = "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。";
         [TranslateMsg("存档导出成功的提示，{0}为路径")]
         public const string HINT_EXPORTED = "存档已导出至{0}。";
+
 
         private Dictionary<MainmenuButtonType, Action> mainmenuActionDict = new Dictionary<MainmenuButtonType, Action>();
         private MainManager main => MainManager.Instance;

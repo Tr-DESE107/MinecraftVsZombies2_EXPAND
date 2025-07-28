@@ -22,24 +22,27 @@ namespace MVZ2.Saves
         #region 保存
         public void SaveToFile()
         {
+            var playTime = GetPlayTimeDeltaMilliseconds();
+            UpdatePlayTimeDelta();
             foreach (var mod in Main.ModManager.GetAllModInfos())
             {
-                SaveCurrentModData(mod.Namespace);
+                SaveCurrentModData(mod.Namespace, playTime);
             }
         }
-        public void SaveCurrentModData(string spaceName)
+        public void SaveCurrentModData(string spaceName, long playTimeDelta)
         {
             if (userDataList == null)
                 return;
-            SaveModData(userDataList.CurrentUserIndex, spaceName);
+            SaveModData(userDataList.CurrentUserIndex, spaceName, playTimeDelta);
         }
-        public void SaveModData(int userIndex, string spaceName)
+        public void SaveModData(int userIndex, string spaceName, long playTimeDelta)
         {
             var path = GetUserModSaveDataPath(userIndex, spaceName);
             FileHelper.ValidateDirectory(path);
             var modSaveData = GetModSaveData(spaceName);
             if (modSaveData == null)
                 return;
+            UpdatePlayTime(modSaveData, playTimeDelta);
             var serializable = modSaveData.ToSerializable();
             var metaJson = serializable.ToBson();
             Main.FileManager.WriteStringFile(path, metaJson);
@@ -300,6 +303,41 @@ namespace MVZ2.Saves
         }
         #endregion
 
+        #region 游玩时长
+        public void UpdatePlayTime()
+        {
+            var playTime = GetPlayTimeDeltaMilliseconds();
+            UpdatePlayTimeDelta();
+            foreach (var mod in Main.ModManager.GetAllModInfos())
+            {
+                UpdatePlayTime(mod.Namespace, playTime);
+            }
+        }
+        private void UpdatePlayTime(string spaceName, long time)
+        {
+            var modSaveData = GetModSaveData(spaceName);
+            UpdatePlayTime(modSaveData, time);
+        }
+        private void UpdatePlayTime(ModSaveData modSaveData, long time)
+        {
+            if (modSaveData == null)
+                return;
+            modSaveData.AddPlayTimeMilliseconds(time);
+        }
+        private long GetPlayTimeDeltaMilliseconds()
+        {
+            return (long)(GetPlayTimeDelta() * 1000);
+        }
+        private float GetPlayTimeDelta()
+        {
+            return Time.realtimeSinceStartup - lastPlayTime;
+        }
+        private void UpdatePlayTimeDelta()
+        {
+            lastPlayTime = Time.realtimeSinceStartup;
+        }
+        #endregion
+
         public int GetCurrentEndlessFlag(NamespaceID stageID)
         {
             if (!NamespaceID.IsValid(stageID))
@@ -446,6 +484,7 @@ namespace MVZ2.Saves
         private List<NamespaceID> unlockedArtifactsCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedProductsCache = new List<NamespaceID>();
         private List<NamespaceID> unlockedAchievementsCache = new List<NamespaceID>();
+        private float lastPlayTime = 0;
         #endregion
     }
     public class SaveDataStatus

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-07-11 07:44+0800\n"
+"POT-Creation-Date: 2025-07-28 07:25+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,6 +54,11 @@ msgstr ""
 #. 主界面文字
 #: /MainGame/MainScene/Mainmenu/Elements/Labels/Achievement
 msgid "成就"
+msgstr ""
+
+#. 游玩时长统计
+#: /MainGame/MainScene/Mainmenu/Elements/Buttons/Stats/Region/Scroll View/Viewport/Content/PlayTime/Title/Title
+msgid "游玩时长"
 msgstr ""
 
 #: /MainGame/MainScene/Mainmenu/Elements/Buttons/Stats/ReturnButton/Text
@@ -453,7 +458,7 @@ msgid "超级充能"
 msgstr ""
 
 # 随机瓷器事件名称
-#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheHangedManEvent.cs:28
+#: Scripts\Vanilla\GameContent\RandomChinaEvents\TheHangedManEvent.cs:29
 msgctxt "random_china.event_name"
 msgid "倒吊人-XII"
 msgstr ""
@@ -707,59 +712,59 @@ msgid "你确定这关不使用任何水生器械吗？"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:91
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:93
 msgctxt "advice.collect_money"
 msgid "点击收集宝石！"
 msgstr ""
 
 # 拾取宝石的帮助提示
-#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:93
+#: Scripts\Vanilla\GameContent\Implements\GemStageImplements.cs:95
 msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr ""
 
 # 梦魇对话框标题
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:485
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:486
 msgid "选择你的命运"
 msgstr ""
 
 # 梦魇对话框文本
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:487
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:488
 msgid "选吧。"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:490
 msgid "潘多拉的魔盒"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:492
 msgid "尸潮"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:494
 msgid "衰老"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:496
 msgid "疯狂"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:498
 msgid "成真"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:500
 msgid "深潜者"
 msgstr ""
 
 # 梦魇选项
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:502
 msgid "黑太阳"
 msgstr ""
 
@@ -2341,12 +2346,12 @@ msgid "Menu"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:286
+#: Scripts\MVZ2\Managers\MainManager.cs:302
 msgid "获取赞助者列表……"
 msgstr ""
 
 # 值，{0}为百分数
-#: Scripts\MVZ2\Managers\MainManager.cs:288
+#: Scripts\MVZ2\Managers\MainManager.cs:304
 msgid "{0}%"
 msgstr ""
 
@@ -2356,47 +2361,47 @@ msgid "FPS: {0}"
 msgstr ""
 
 # 删除用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:758
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:784
 msgid "无法删除用户：{0}"
 msgstr ""
 
 # 切换用户时的错误信息，{0}为错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:760
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:786
 msgid "无法切换至用户：{0}"
 msgstr ""
 
 # 删除用户时的错误信息
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:762
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:788
 msgid "没有其他有效的用户可供切换。"
 msgstr ""
 
 # 退出对话框的描述
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:764
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:790
 msgid "确认要退出吗？"
 msgstr ""
 
 # 存档导出失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:766
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:792
 msgid "导出存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:768
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:794
 msgid "导入存档失败。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:770
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:796
 msgid "导入存档失败，文件可能已损坏。"
 msgstr ""
 
 # 存档导入失败的警告
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:772
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:798
 msgid "导入存档失败，游戏中存在同名用户，但正在导入的存档不可重命名。"
 msgstr ""
 
 # 存档导出成功的提示，{0}为路径
-#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:774
+#: Scripts\MVZ2\Mainmenu\MainmenuController.cs:800
 msgid "存档已导出至{0}。"
 msgstr ""
 
@@ -2412,84 +2417,84 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1202
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1266
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1206
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1270
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1208
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1272
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1210
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1274
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1212
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1276
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
-# 实体提示
-#: Scripts\MVZ2\Level\LevelController_Entities.cs:306
-msgctxt "entity.tooltip"
-msgid "在图鉴中查看"
-msgstr ""
-
 # 对话框内容
-#: Scripts\MVZ2\Level\LevelController_UI.cs:965
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:181
 msgid ""
 "确认要重新开始关卡吗？\n"
 "本关的进度都将丢失。"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:967
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:183
 msgid "加载关卡失败，出现错误：{0}"
 msgstr ""
 
 # 对话框内容，{0}为错误信息
-#: Scripts\MVZ2\Level\LevelController_UI.cs:969
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:185
 msgid ""
 "加载关卡失败，存档状态和当前游戏状态不匹配：\n"
 "{0}"
 msgstr ""
 
 # 关卡标识符名称，{0}为命名空间名，{1}为数据版本号
-#: Scripts\MVZ2\Level\LevelController_UI.cs:971
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:187
 msgid "{0}（版本{1}）"
 msgstr ""
 
 # 关卡标识符名称，{0}为命名空间名，{1}为数据版本号，{2}为当前数据版本号
-#: Scripts\MVZ2\Level\LevelController_UI.cs:973
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:189
 msgid "{0}（版本{1}，当前状态为{2}）"
 msgstr ""
 
 # 对话框内容，{0}为不匹配的关卡标识符列表
-#: Scripts\MVZ2\Level\LevelController_UI.cs:975
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:191
 msgid ""
 "版本号不匹配：\n"
 "{0}"
 msgstr ""
 
 # 对话框内容，{0}为丢失的关卡标识符列表
-#: Scripts\MVZ2\Level\LevelController_UI.cs:977
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:193
 msgid ""
 "丢失的模组：\n"
 "{0}"
 msgstr ""
 
 # 对话框内容，{0}为多出的关卡标识符列表
-#: Scripts\MVZ2\Level\LevelController_UI.cs:979
+#: Scripts\MVZ2\Level\LevelController\LevelController_Dialogs.cs:195
 msgid ""
 "多出的模组：\n"
 "{0}"
+msgstr ""
+
+# 实体提示
+#: Scripts\MVZ2\Level\LevelController\LevelController_Entities.cs:243
+msgctxt "entity.tooltip"
+msgid "在图鉴中查看"
 msgstr ""
 
 # 对话档案中语句的模板，{0}为人物，{1}为语句内容
@@ -2517,37 +2522,37 @@ msgid ""
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:795
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:799
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:797
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:801
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:799
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:803
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr ""
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:801
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:805
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:803
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:807
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:805
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:809
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr ""

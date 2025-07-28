@@ -174,6 +174,22 @@ namespace MVZ2.Managers
                 throw new DuplicateInstanceException(name);
             }
         }
+#if UNITY_ANDROID
+        private void OnApplicationFocus(bool focus)
+        {
+            // 安卓切换到其他应用时，可能会在后台被系统释放，而不调用OnApplicationQuit.
+            if (!focus)
+            {
+                SaveManager.SaveToFile(); // 安卓切换后台后，保存。
+            }
+        }
+#endif
+
+        private void OnApplicationQuit()
+        {
+            SaveManager.SaveToFile(); // 退出游戏后，保存。
+        }
+
         private void InitGameSettings()
         {
             Screen.sleepTimeout = SleepTimeout.NeverSleep;

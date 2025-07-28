@@ -18,7 +18,7 @@ namespace MVZ2.Vanilla.Saves
                 lastMapID = LastMapID,
                 mapTalkID = MapTalkID,
                 money = money,
-                lastSelection = LastSelection
+                lastSelection = LastSelection,
             };
         }
         public void LoadSerializable(SerializableVanillaSaveData serializable)
