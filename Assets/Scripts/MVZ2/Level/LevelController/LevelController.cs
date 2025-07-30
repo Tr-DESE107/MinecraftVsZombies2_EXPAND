@@ -31,6 +31,7 @@ namespace MVZ2.Level
             Awake_Entities();
             Awake_Talk();
             Awake_Camera();
+            Awake_UI(); // Awake_UI 要放在其他使用UIPreset的前面，防止获取到错误的Preset。
             Awake_HeldItem();
             Awake_ProgressBar();
             Awake_Tooltip();
@@ -38,7 +39,6 @@ namespace MVZ2.Level
             Awake_Tools();
             Awake_Artifacts();
             Awake_Blueprints();
-            Awake_UI();
             foreach (var controller in parts)
             {
                 controller.Init(this);

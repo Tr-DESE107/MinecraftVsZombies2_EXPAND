@@ -22,13 +22,13 @@ namespace MVZ2.Level
         {
             ui.OnExitLevelToNoteCalled += OnUIExitLevelToNoteCalledCallback;
             ui.OnStartGameCalled += StartGame;
+            ui.SetMobile(Main.IsMobile());
 
             var uiPreset = GetUIPreset();
             uiPreset.OnRaycastReceiverPointerInteraction += UI_OnRaycastReceiverPointerInteractionCallback;
             uiPreset.OnMenuButtonClick += UI_OnMenuButtonClickCallback;
             uiPreset.OnSpeedUpButtonClick += UI_OnSpeedUpButtonClickCallback;
 
-            ui.SetMobile(Main.IsMobile());
             uiPreset.HideMoney();
             SetUIVisibleState(VisibleState.Nothing);
         }
