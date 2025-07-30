@@ -48,7 +48,9 @@ namespace MVZ2.GameContent.Detections
             Bounds targetBounds = collider.GetBoundingBox();
             foreach (var direction in Beacon.shootDirections)
             {
-                var destination = direction * range + source;
+                var dir = direction;
+                dir.x *= self.GetFacingX();
+                var destination = dir * range + source;
                 var capsule = new Capsule(source, destination, radius);
                 if (MathTool.CollideBetweenCubeAndCapsule(capsule, targetBounds))
                 {
