@@ -23,9 +23,9 @@ namespace MVZ2.Level
             if (level == null)
                 return;
             List<BuiltinCollisionCollider> buffer = new List<BuiltinCollisionCollider>();
-            for (int i = 1; i < 8; i++)
+            for (int i = 0; i < 8; i++)
             {
-                var flag = EntityCollisionHelper.GetTypeMask(i);
+                var flag = EntityCollisionHelper.GetTypeMask(i + 1);
                 var quadTree = builtinCollisionSystem.GetCollisionQuadTree(flag);
                 if (quadTree == null)
                     continue;
