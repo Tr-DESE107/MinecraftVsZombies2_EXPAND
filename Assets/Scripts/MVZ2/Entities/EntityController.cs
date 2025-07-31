@@ -122,6 +122,7 @@ namespace MVZ2.Entities
             var currentTransPos = Level.LawnToTrans(pos);
             transform.position = Vector3.Lerp(lastPosition, currentTransPos + posOffset, 0.5f);
             UpdateShadow();
+            UpdateHeightIndicator();
             lastPosition = transform.position;
 
             var shouldTwinkle = ShouldTwinkle();
@@ -298,7 +299,7 @@ namespace MVZ2.Entities
         #endregion
 
         #region 位置
-        protected void UpdateShadow()
+        private Vector3 GetGroundLocalPosition()
         {
             var pos = Entity.Position;
             var groundY = Entity.GetGroundY();
@@ -309,9 +310,11 @@ namespace MVZ2.Entities
             worldPosition.x = transform.position.x;
             worldPosition.z = transform.position.z;
             worldPosition += Level.LawnToTransDistance(modelPropertyCache.ShadowOffset);
-            var position = transform.InverseTransformPoint(worldPosition);
-
-            var relativeY = pos.y - groundY;
+            return transform.InverseTransformPoint(worldPosition);
+        }
+        protected void UpdateShadow()
+        {
+            var relativeY = Entity.GetRelativeY();
             var scale = Mathf.Max(0, 1 + relativeY / 300) * modelPropertyCache.ShadowScale;
 
             var alpha = Mathf.Clamp01(1 - relativeY / 300) * modelPropertyCache.ShadowAlpha;
@@ -319,10 +322,24 @@ namespace MVZ2.Entities
             var hidden = modelPropertyCache.ShadowHidden;
 
             var shadowTransform = Shadow.transform;
-            shadowTransform.localPosition = position;
+            shadowTransform.localPosition = GetGroundLocalPosition();
             shadowTransform.localScale = scale;
             Shadow.gameObject.SetActive(!hidden);
             Shadow.SetAlpha(alpha);
+        }
+        private void UpdateHeightIndicator()
+        {
+            var relativeY = Entity.GetRelativeY();
+            bool active = Main.OptionsManager.IsHeightIndicatorEnabled() && Entity.IsVulnerableEntity() && relativeY >= 60;
+            if (heightIndicator.gameObject.activeSelf != active)
+            {
+                heightIndicator.gameObject.SetActive(active);
+            }
+            if (active)
+            {
+                heightIndicator.transform.localPosition = GetGroundLocalPosition();
+                heightIndicator.SetHeight(relativeY * Level.LawnToTransScale);
+            }
         }
         protected float GetZOffset()
         {
@@ -564,6 +581,8 @@ namespace MVZ2.Entities
         private EntityPropertyCache modelPropertyCache = new EntityPropertyCache();
         [SerializeField]
         private ShadowController shadow;
+        [SerializeField]
+        private HeightIndicatorController heightIndicator;
         [SerializeField]
         private TooltipAnchor tooltipAnchor;
         [SerializeField]

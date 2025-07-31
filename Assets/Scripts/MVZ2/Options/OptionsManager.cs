@@ -340,6 +340,22 @@ namespace MVZ2.Options
         }
         #endregion
 
+        #region 高度指示器
+        public bool IsHeightIndicatorEnabled()
+        {
+            return options.heightIndicatorEnabled;
+        }
+        public void SetHeightIndicatorEnabled(bool value)
+        {
+            options.heightIndicatorEnabled = value;
+            SaveOptionsToFile();
+        }
+        public void SwitchHeightIndicatorEnabled()
+        {
+            SetHeightIndicatorEnabled(!IsHeightIndicatorEnabled());
+        }
+        #endregion
+
         #region 音乐音量
         public float GetMusicVolume()
         {

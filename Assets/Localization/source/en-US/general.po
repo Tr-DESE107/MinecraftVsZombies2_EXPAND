@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-07-28 07:25+0800\n"
-"PO-Revision-Date: 2025-07-28 19:26+0800\n"
+"POT-Creation-Date: 2025-07-31 02:19+0800\n"
+"PO-Revision-Date: 2025-07-31 14:20+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1180,123 +1180,127 @@ msgstr "Press a key"
 msgid "确认要重置所有按键绑定吗？"
 msgstr "Are you sure to reset all key bindings?"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:546
+#: Scripts\MVZ2\Options\OptionsLogic.cs:560
 msgid "交换触发：{0}"
 msgstr "Swap Trigger: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:548
+#: Scripts\MVZ2\Options\OptionsLogic.cs:562
 msgid "全屏：{0}"
 msgstr "Full Screen: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:550
+#: Scripts\MVZ2\Options\OptionsLogic.cs:564
 msgid "设备震动：{0}"
 msgstr "Vibration: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:552
+#: Scripts\MVZ2\Options\OptionsLogic.cs:566
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:554
+#: Scripts\MVZ2\Options\OptionsLogic.cs:568
 msgid "后台暂停：{0}"
 msgstr "Pause on Focus Lost: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:558
+#: Scripts\MVZ2\Options\OptionsLogic.cs:572
 msgid "音乐音量：{0}"
 msgstr "Music Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:560
+#: Scripts\MVZ2\Options\OptionsLogic.cs:574
 msgid "音效音量：{0}"
 msgstr "Sound Volume: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:562
+#: Scripts\MVZ2\Options\OptionsLogic.cs:576
 msgid "加速倍率：{0}"
 msgstr "Fast-forward: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:564
+#: Scripts\MVZ2\Options\OptionsLogic.cs:578
 msgid "动画频率：{0}"
 msgstr "Animation Frequency: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:566
+#: Scripts\MVZ2\Options\OptionsLogic.cs:580
 msgid "HDR光照：{0}"
 msgstr "HDR Lighting: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:569
+#: Scripts\MVZ2\Options\OptionsLogic.cs:583
 msgid "血与碎块：{0}"
 msgstr "Blood and Gore: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:572
+#: Scripts\MVZ2\Options\OptionsLogic.cs:586
 msgid "跳过对话：{0}"
 msgstr "Skip dialogues: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:574
+#: Scripts\MVZ2\Options\OptionsLogic.cs:588
 msgid "赞助者名称：{0}"
 msgstr "Sponsor Names: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:576
+#: Scripts\MVZ2\Options\OptionsLogic.cs:590
 msgid "选卡警告：{0}"
 msgstr "Blueprint Warnings: {0}"
 
 # 命令方块蓝图名，{0}为原名称
-#: Scripts\MVZ2\Options\OptionsLogic.cs:578
+#: Scripts\MVZ2\Options\OptionsLogic.cs:592
 msgid "命令方块：{0}"
 msgstr "Command Block: {0}"
 
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:580
+#: Scripts\MVZ2\Options\OptionsLogic.cs:594
 msgid "显示帧率：{0}"
 msgstr "Show FPS: {0}"
 
+#: Scripts\MVZ2\Options\OptionsLogic.cs:596
+msgid "高度指示器：{0}"
+msgstr "Height Indicator: {0}"
+
 # 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:582
+#: Scripts\MVZ2\Options\OptionsLogic.cs:598
 msgid "显示快捷键：{0}"
 msgstr "Show Hot Keys: {0}"
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:585
+#: Scripts\MVZ2\Options\OptionsLogic.cs:601
 msgctxt "option.command_block_mode"
 msgid "手选"
 msgstr "Manual"
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:587
+#: Scripts\MVZ2\Options\OptionsLogic.cs:603
 msgctxt "option.command_block_mode"
 msgid "前位"
 msgstr "Previous"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:590
+#: Scripts\MVZ2\Options\OptionsLogic.cs:606
 msgctxt "option.fps_mode"
 msgid "关闭"
 msgstr "Disabled"
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:592
+#: Scripts\MVZ2\Options\OptionsLogic.cs:608
 msgctxt "option.fps_mode"
 msgid "左上"
 msgstr "Top Left"
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:594
+#: Scripts\MVZ2\Options\OptionsLogic.cs:610
 msgctxt "option.fps_mode"
 msgid "右上"
 msgstr "Top Right"
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:596
+#: Scripts\MVZ2\Options\OptionsLogic.cs:612
 msgctxt "option.fps_mode"
 msgid "左下"
 msgstr "Bottom Left"
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:598
+#: Scripts\MVZ2\Options\OptionsLogic.cs:614
 msgctxt "option.fps_mode"
 msgid "右下"
 msgstr "Bottom Right"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:601
+#: Scripts\MVZ2\Options\OptionsLogic.cs:617
 msgid "粒子数量：{0}"
 msgstr "Particle Count: {0}"
 
-#: Scripts\MVZ2\Options\OptionsLogic.cs:603
+#: Scripts\MVZ2\Options\OptionsLogic.cs:619
 msgid "屏幕震动：{0}"
 msgstr "Screen Shake: {0}"
 

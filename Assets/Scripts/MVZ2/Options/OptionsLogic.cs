@@ -57,6 +57,7 @@ namespace MVZ2.Options
             UpdateShakeSlider();
             UpdateBloodAndGoreButton();
             UpdateShowFPSButton();
+            UpdateHeightIndicatorButton();
             UpdateHDRLightingButton();
 
             // Controls
@@ -166,6 +167,12 @@ namespace MVZ2.Options
                     {
                         Main.OptionsManager.CycleFPSMode();
                         UpdateShowFPSButton();
+                    }
+                    break;
+                case ButtonType.HeightIndicator:
+                    {
+                        Main.OptionsManager.SwitchHeightIndicatorEnabled();
+                        UpdateHeightIndicatorButton();
                     }
                     break;
                 case ButtonType.HDRLighting:
@@ -495,6 +502,13 @@ namespace MVZ2.Options
             var text = Main.LanguageManager._(OPTION_FPS_MODE, valueText);
             dialog.SetButtonText(TextButtonType.ShowFPS, text);
         }
+        protected void UpdateHeightIndicatorButton()
+        {
+            var value = Main.OptionsManager.IsHeightIndicatorEnabled();
+            var valueText = GetValueTextOnOff(value);
+            var text = Main.LanguageManager._(OPTION_HEIGHT_INDICATOR, valueText);
+            dialog.SetButtonText(TextButtonType.HeightIndicator, text);
+        }
         protected void UpdateHDRLightingButton()
         {
             var value = !Main.OptionsManager.HDRLightingDisabled();
@@ -577,8 +591,10 @@ namespace MVZ2.Options
         public const string OPTION_CHOOSE_WARNINGS = "选卡警告：{0}";
         [TranslateMsg("选项，{0}为模式")]
         public const string OPTION_COMMAND_BLOCK_MODE = "命令方块：{0}";
-        [TranslateMsg("选项，{0}为是否开启")]
+        [TranslateMsg("选项，{0}为模式")]
         public const string OPTION_FPS_MODE = "显示帧率：{0}";
+        [TranslateMsg("选项，{0}为是否开启")]
+        public const string OPTION_HEIGHT_INDICATOR = "高度指示器：{0}";
         [TranslateMsg("选项，{0}为是否开启")]
         public const string OPTION_SHOW_HOTKEYS = "显示快捷键：{0}";
 

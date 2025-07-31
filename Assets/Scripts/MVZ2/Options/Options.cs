@@ -22,6 +22,7 @@ namespace MVZ2.Options
                 fpsMode = fpsMode,
                 showHotkeyIndicators = showHotkeyIndicators,
                 hdrLightingDisabled = hdrLightingDisabled,
+                heightIndicatorEnabled = heightIndicatorEnabled,
             };
         }
         public void LoadFromSerializable(SerializableOptions options)
@@ -36,6 +37,7 @@ namespace MVZ2.Options
             fpsMode = options.fpsMode;
             showHotkeyIndicators = options.showHotkeyIndicators;
             hdrLightingDisabled = options.hdrLightingDisabled;
+            heightIndicatorEnabled = options.heightIndicatorEnabled;
         }
         public bool swapTrigger;
         public bool vibration;
@@ -60,6 +62,7 @@ namespace MVZ2.Options
         public bool showHotkeyIndicators;
         public bool hdrLightingDisabled;
         public float minAnimationFrequency;
+        public bool heightIndicatorEnabled;
     }
     [Serializable]
     [BsonIgnoreExtraElements]
@@ -73,5 +76,6 @@ namespace MVZ2.Options
         public int fpsMode;
         public bool showHotkeyIndicators;
         public bool hdrLightingDisabled;
+        public bool heightIndicatorEnabled;
     }
 }
