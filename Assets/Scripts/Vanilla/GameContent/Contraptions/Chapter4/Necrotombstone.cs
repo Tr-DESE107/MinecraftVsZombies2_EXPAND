@@ -34,8 +34,9 @@ namespace MVZ2.GameContent.Contraptions
             var mageClass = SkeletonMage.mageVariants.Random(entity.RNG);
             for (int i = 0; i < MAGE_COUNT; i++)
             {
-                var mage = entity.SpawnWithParams(VanillaEnemyID.skeletonMage, pos);
-                mage.SetVariant(mageClass);
+                var param = entity.GetSpawnParams();
+                param.SetProperty(VanillaEntityProps.VARIANT, mageClass);
+                var mage = entity.Spawn(VanillaEnemyID.skeletonMage, pos, param);
                 mage.AddBuff<NecrotombstoneRisingBuff>();
                 mage.UpdateModel();
 

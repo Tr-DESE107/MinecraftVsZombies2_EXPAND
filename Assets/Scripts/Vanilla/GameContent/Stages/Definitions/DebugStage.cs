@@ -42,14 +42,14 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.smallDispenser,
-                VanillaContraptionID.infectenser,
+                VanillaContraptionID.necrotombstone,
+                VanillaContraptionID.noteBlock,
                 VanillaContraptionID.gravityPad,
                 VanillaContraptionID.forcePad,
-                VanillaPickupID.emerald,
-                VanillaPickupID.ruby,
-                VanillaPickupID.sapphire,
-                VanillaPickupID.diamond,
+                VanillaEnemyID.zombie,
+                VanillaEnemyID.leatherCappedZombie,
+                VanillaEnemyID.ironHelmettedZombie,
+                VanillaEnemyID.reflectiveBarrierZombie,
                 VanillaEnemyID.mutantZombie,
                 VanillaEnemyID.megaMutantZombie,
             });
