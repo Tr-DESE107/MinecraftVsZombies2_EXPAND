@@ -3,6 +3,9 @@
     Properties
     {
         _MainTex("Diffuse", 2D) = "white" {}
+		_ZWrite("Z Write", Int) = 0
+        [Enum(UnityEngine.Rendering.CompareFunction)]
+		_ZTest("Z Test", Int) = 4
 
 		[Header(Color)]
 		[Space(10)]
@@ -63,7 +66,8 @@
 
         Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
         Cull Off
-        ZWrite Off
+        ZWrite [_ZWrite]
+        ZTest [_ZTest]
 
         Pass
         {
