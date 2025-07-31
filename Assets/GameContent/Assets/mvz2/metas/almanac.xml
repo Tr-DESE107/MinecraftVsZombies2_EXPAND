@@ -319,7 +319,7 @@
         </entry>
         <entry id="mvz2:soul_furnace">
             <header>
-                <p>灵魂熔炉发射恐怖的灵魂火，但需要烧毁前方的器械。</p>
+                <p><![CDATA[灵魂熔炉发射恐怖的<tag id="mvz2:fire"/>灵魂火，但需要烧毁前方的器械来补充燃料。]]></p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>80</color>]]></p>
@@ -421,7 +421,7 @@
         </entry>
         <entry id="mvz2:totenser">
             <header>
-                <p>图腾发射器在发射飞镖的同时还会喷火烧伤近处的敌人。</p>
+                <p><![CDATA[图腾发射器在发射飞镖的同时还会<tag id="mvz2:fire"/>喷火烧伤近处的敌人。]]></p>
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
@@ -1113,7 +1113,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
                 <p>速度：<![CDATA[<color=red>2</color>，而后<color=red>0.6</color>（产卵后）]]></p>
-                <p>特点：<![CDATA[<color=red>碰到的血肉之躯会被寄生</color>]]></p>
+                <p>特点：<![CDATA[<color=red>碰到的<tag id="mvz2:shell" enum="mvz2:flesh"/>血肉之躯会被寄生</color>]]></p>
             </properties>
             <flavor>
                 <p>擅长在网络文件中捆绑流氓软件和BUG。</p>
