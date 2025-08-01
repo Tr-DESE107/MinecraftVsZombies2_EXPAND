@@ -25,12 +25,7 @@ namespace MVZ2.GameContent.Pickups
             entity.ChangeModel(modelID);
 
             var level = entity.Level;
-            if (modelID == VanillaModelID.blueprintPickup)
-            {
-                var blueprintID = level.GetClearPickupBlueprint();
-                if (NamespaceID.IsValid(blueprintID))
-                    entity.SetModelProperty("BlueprintID", blueprintID);
-            }
+            entity.SetPickupContentID(level.GetClearPickupContentID());
             if (!level.IsRerun)
             {
                 var noteID = level.GetEndNoteID();

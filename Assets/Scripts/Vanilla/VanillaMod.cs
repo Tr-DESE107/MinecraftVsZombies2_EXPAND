@@ -311,7 +311,7 @@ namespace MVZ2.Vanilla
                 stage.SetProperty(VanillaStageProps.TALKS, meta.Talks);
 
                 stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_MODEL, meta.ClearPickupModel);
-                stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_BLUEPRINT, meta.ClearPickupBlueprint);
+                stage.SetProperty(VanillaStageProps.CLEAR_PICKUP_CONTENT_ID, meta.ClearPickupContentID);
                 stage.SetProperty(VanillaStageProps.DROPS_TROPHY, meta.DropsTrophy);
                 stage.SetProperty(VanillaStageProps.END_NOTE_ID, meta.EndNote);
 

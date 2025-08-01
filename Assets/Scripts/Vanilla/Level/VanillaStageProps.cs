@@ -31,7 +31,7 @@ namespace MVZ2.Vanilla.Level
         public static readonly PropertyMeta<IStageTalkMeta[]> TALKS = Get<IStageTalkMeta[]>("talks");
 
         public static readonly PropertyMeta<NamespaceID> CLEAR_PICKUP_MODEL = Get<NamespaceID>("clearPickupModel");
-        public static readonly PropertyMeta<NamespaceID> CLEAR_PICKUP_BLUEPRINT = Get<NamespaceID>("clearPickupBlueprint");
+        public static readonly PropertyMeta<NamespaceID> CLEAR_PICKUP_CONTENT_ID = Get<NamespaceID>("clear_pickup_content_id");
         public static readonly PropertyMeta<bool> DROPS_TROPHY = Get<bool>("dropsTrophy");
         public static readonly PropertyMeta<NamespaceID> END_NOTE_ID = Get<NamespaceID>("endNoteId");
 
@@ -50,9 +50,9 @@ namespace MVZ2.Vanilla.Level
         {
             return level.GetProperty<NamespaceID>(CLEAR_PICKUP_MODEL);
         }
-        public static NamespaceID GetClearPickupBlueprint(this LevelEngine level)
+        public static NamespaceID GetClearPickupContentID(this LevelEngine level)
         {
-            return level.GetProperty<NamespaceID>(CLEAR_PICKUP_BLUEPRINT);
+            return level.GetProperty<NamespaceID>(CLEAR_PICKUP_CONTENT_ID);
         }
         public static bool DropsTrophy(this LevelEngine level)
         {

@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 var blueprintID = VanillaBlueprintID.FromEntity(stolen);
                 var spawnParams = entity.GetSpawnParams();
-                spawnParams.SetProperty(BlueprintPickup.PROP_BLUEPRINT_ID, blueprintID);
+                spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
                 var pickup = entity.Spawn(VanillaPickupID.blueprintPickup, entity.GetCenter(), spawnParams);
             }
         }

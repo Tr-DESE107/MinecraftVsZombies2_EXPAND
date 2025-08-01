@@ -10,7 +10,7 @@ namespace MVZ2.Models
         public override void UpdateFrame(float deltaTime)
         {
             base.UpdateFrame(deltaTime);
-            var artifactID = Model.GetProperty<NamespaceID>("ArtifactID");
+            var artifactID = Model.GetProperty<NamespaceID>("ContentID");
             if (lastID != artifactID)
             {
                 lastID = artifactID;

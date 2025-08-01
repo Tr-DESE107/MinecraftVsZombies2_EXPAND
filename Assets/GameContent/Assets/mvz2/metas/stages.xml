@@ -37,7 +37,7 @@
             <talk type="end" value="mvz2:halloween_1_over"/>
             <talk type="map" value="mvz2:halloween_1_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:small_dispenser"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:small_dispenser"/>
         <spawns flags="1" firstWaveTime="1800">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -56,7 +56,7 @@
             <talk type="end" value="mvz2:halloween_2_over"/>
             <talk type="map" value="mvz2:halloween_2_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:moonlight_sensor"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:moonlight_sensor"/>
         <spawns flags="1" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -72,7 +72,7 @@
             <talk type="end" value="mvz2:halloween_3_over"/>
             <talk type="map" value="mvz2:halloween_3_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:glowstone"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:glowstone"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -89,7 +89,7 @@
             <talk type="end" value="mvz2:halloween_4_over"/>
             <talk type="map" value="mvz2:halloween_4_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:punchton"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:punchton"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -125,7 +125,7 @@
             <talk type="end" value="mvz2:halloween_6_over"/>
             <talk type="map" value="mvz2:halloween_6_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:tnt"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:tnt"/>
         <camera position="lawn" transition="instant"/>
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
             <spawn id="mvz2:ghost"/>
@@ -147,7 +147,7 @@
             <talk type="end" value="mvz2:halloween_7_over"/>
             <talk type="map" value="mvz2:halloween_7_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:soul_furnace"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:soul_furnace"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -172,7 +172,7 @@
             <talk type="end" value="mvz2:halloween_8_over"/>
             <talk type="map" value="mvz2:halloween_8_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:silvenser"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:silvenser"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -191,7 +191,7 @@
             <talk type="end" value="mvz2:halloween_9_over"/>
             <talk type="map" value="mvz2:halloween_9_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:magichest"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:magichest"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -274,7 +274,7 @@
             <talk type="end" value="mvz2:dream_1_over"/>
             <talk type="map" value="mvz2:dream_1_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:lily_pad"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:lily_pad"/>
         <spawns flags="1">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -286,7 +286,7 @@
             <talk type="end" value="mvz2:dream_2_over"/>
             <talk type="map" value="mvz2:dream_2_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:drivenser"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:drivenser"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -299,7 +299,7 @@
             <talk type="end" value="mvz2:dream_3_over"/>
             <talk type="map" value="mvz2:dream_3_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:gravity_pad"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gravity_pad"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -313,7 +313,7 @@
             <talk type="end" value="mvz2:dream_4_over"/>
             <talk type="map" value="mvz2:dream_4_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:vortex_hopper"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:vortex_hopper"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -343,7 +343,7 @@
             <talk type="end" value="mvz2:dream_6_over"/>
             <talk type="map" value="mvz2:dream_6_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:pistenser"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:pistenser"/>
         <camera position="lawn" transition="instant"/>
         <spawns flags="2" firstWaveTime="30">
             <spawn id="mvz2:zombie"/>
@@ -362,7 +362,7 @@
             <talk type="end" value="mvz2:dream_7_over"/>
             <talk type="map" value="mvz2:dream_7_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:totenser"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:totenser"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -378,7 +378,7 @@
             <talk type="end" value="mvz2:dream_8_over"/>
             <talk type="map" value="mvz2:dream_8_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:dream_crystal"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:dream_crystal"/>
         <spawns flags="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -394,7 +394,7 @@
             <talk type="end" value="mvz2:dream_9_over"/>
             <talk type="map" value="mvz2:dream_9_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:dream_silk"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:dream_silk"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -467,7 +467,7 @@
             <talk type="end" value="mvz2:castle_1_over"/>
             <talk type="map" value="mvz2:castle_1_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:wooden_dropper"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:wooden_dropper"/>
         <spawns flags="1">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -480,7 +480,7 @@
             <talk type="end" value="mvz2:castle_2_over"/>
             <talk type="map" value="mvz2:castle_2_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:spike_block"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:spike_block"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -494,7 +494,7 @@
             <talk type="end" value="mvz2:castle_3_over"/>
             <talk type="map" value="mvz2:castle_3_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:stone_dropper"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:stone_dropper"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -508,7 +508,7 @@
             <talk type="end" value="mvz2:castle_4_over"/>
             <talk type="map" value="mvz2:castle_4_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:stone_shield"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:stone_shield"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -523,7 +523,7 @@
             <talk type="end" value="mvz2:castle_5_over"/>
             <talk type="map" value="mvz2:castle_5_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:diamond_spikes"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:diamond_spikes"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -544,7 +544,7 @@
             <entry id="mvz2:obsidian" count="5"/>
             <entry id="mvz2:tnt" count="5"/>
         </conveyor>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:golden_apple"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:golden_apple"/>
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -562,7 +562,7 @@
             <talk type="end" value="mvz2:castle_7_over"/>
             <talk type="map" value="mvz2:castle_7_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:thunder_drum"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:thunder_drum"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -578,7 +578,7 @@
             <talk type="end" value="mvz2:castle_8_over"/>
             <talk type="map" value="mvz2:castle_8_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:tesla_coil"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:tesla_coil"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -594,7 +594,7 @@
             <talk type="end" value="mvz2:castle_9_over"/>
             <talk type="map" value="mvz2:castle_9_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:giant_bowl"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:giant_bowl"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -669,7 +669,7 @@
             <talk type="end" value="mvz2:mausoleum_1_over"/>
             <talk type="map" value="mvz2:mausoleum_1_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:note_block"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:note_block"/>
         <spawns flags="1">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -682,7 +682,7 @@
             <talk type="end" value="mvz2:mausoleum_2_over"/>
             <talk type="map" value="mvz2:mausoleum_2_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:lightning_orb"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:lightning_orb"/>
         <spawns flags="1">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -699,7 +699,7 @@
             <talk type="end" value="mvz2:mausoleum_3_over"/>
             <talk type="map" value="mvz2:mausoleum_3_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:splitenser"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:splitenser"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -717,7 +717,7 @@
             <talk type="end" value="mvz2:mausoleum_4_over"/>
             <talk type="map" value="mvz2:mausoleum_4_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:devourer"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:devourer"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -735,7 +735,7 @@
             <talk type="end" value="mvz2:mausoleum_5_over"/>
             <talk type="map" value="mvz2:mausoleum_5_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:command_block"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:command_block"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -754,7 +754,7 @@
             <talk type="end" value="mvz2:mausoleum_6_over"/>
             <talk type="map" value="mvz2:mausoleum_6_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:hellfire"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:hellfire"/>
         <camera position="lawn" transition="instant"/>
         <properties>
             <bool name="autoCollectEnergy" value="true"/>
@@ -767,7 +767,7 @@
             <talk type="end" value="mvz2:mausoleum_7_over"/>
             <talk type="map" value="mvz2:mausoleum_7_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:necrotombstone"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:necrotombstone"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -786,7 +786,7 @@
             <talk type="end" value="mvz2:mausoleum_8_over"/>
             <talk type="map" value="mvz2:mausoleum_8_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:black_hole_bomb"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:black_hole_bomb"/>
         <spawns flags="3">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -806,7 +806,7 @@
             <talk type="end" value="mvz2:mausoleum_9_over"/>
             <talk type="map" value="mvz2:mausoleum_9_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:desire_pot"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:desire_pot"/>
         <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -889,7 +889,7 @@
             <talk type="end" value="mvz2:ship_1_over"/>
             <talk type="map" value="mvz2:ship_1_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:gunpowder_barrel"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gunpowder_barrel"/>
         <spawns flags="1" firstWaveTime="1800">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -901,7 +901,7 @@
             <talk type="end" value="mvz2:ship_2_over"/>
             <talk type="map" value="mvz2:ship_2_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:repeatenser"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:repeatenser"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -915,7 +915,7 @@
             <talk type="end" value="mvz2:ship_3_over"/>
             <talk type="map" value="mvz2:ship_3_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:triplenser"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:triplenser"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -930,7 +930,7 @@
             <talk type="end" value="mvz2:ship_4_over"/>
             <talk type="map" value="mvz2:ship_4_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:beacon"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:beacon"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -945,7 +945,7 @@
             <talk type="end" value="mvz2:ship_5_over"/>
             <talk type="map" value="mvz2:ship_5_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:high_frequency_pulse_dispenser"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:high_frequency_pulse_dispenser"/>
         <spawns flags="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -961,7 +961,7 @@
             <talk type="end" value="mvz2:ship_6_over"/>
             <talk type="map" value="mvz2:ship_6_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:firework_dispenser"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:firework_dispenser"/>
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
             <spawn id="mvz2:undead_flying_object"/>
         </spawns>
@@ -972,7 +972,7 @@
             <talk type="end" value="mvz2:ship_7_over"/>
             <talk type="map" value="mvz2:ship_7_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:wooden_fan"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:wooden_fan"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -988,7 +988,7 @@
             <talk type="end" value="mvz2:ship_8_over"/>
             <talk type="map" value="mvz2:ship_8_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:elastic_cloud"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:elastic_cloud"/>
         <spawns flags="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -1005,7 +1005,7 @@
             <talk type="end" value="mvz2:ship_9_over"/>
             <talk type="map" value="mvz2:ship_9_map"/>
         </talks>
-        <clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:jeweled_pagoda"/>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:jeweled_pagoda"/>
         <spawns flags="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
