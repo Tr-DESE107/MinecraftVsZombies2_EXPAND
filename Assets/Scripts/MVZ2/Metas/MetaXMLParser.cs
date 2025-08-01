@@ -51,6 +51,9 @@ namespace MVZ2.Metas
                 case "maps":
                     resource.MapMetaList = MapMetaList.FromXmlNode(document["maps"], defaultNsp);
                     break;
+                case "commands":
+                    resource.CommandMetaList = CommandMetaList.FromXmlNode(document["commands"], defaultNsp);
+                    break;
                 case "areas":
                     resource.AreaMetaList = AreaMetaList.FromXmlNode(document["areas"], defaultNsp);
                     break;

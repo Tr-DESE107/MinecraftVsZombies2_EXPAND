@@ -7,6 +7,7 @@ using MVZ2.Almanacs;
 using MVZ2.Arcade;
 using MVZ2.Archives;
 using MVZ2.ChapterTransition;
+using MVZ2.Debugs;
 using MVZ2.GameContent.Stages;
 using MVZ2.Mainmenu;
 using MVZ2.Mainmenu.UI;
@@ -267,6 +268,13 @@ namespace MVZ2.Scenes
         }
         #endregion
 
+        #region 控制台
+        public void ConsolePrintLine(string text)
+        {
+            debugConsole.PrintLine(text);
+        }
+        #endregion
+        
         #region 工具提示
         public void ShowTooltip(ITooltipSource source)
         {
@@ -368,6 +376,17 @@ namespace MVZ2.Scenes
         private void Update()
         {
             UpdateTooltip();
+            if (Input.GetKeyDown(KeyCode.Equals))
+            {
+                if (debugConsole.IsActive())
+                {
+                    debugConsole.Hide();
+                }
+                else
+                {
+                    debugConsole.Show();
+                }
+            }
         }
         #endregion
 
@@ -416,6 +435,8 @@ namespace MVZ2.Scenes
         private PopupController popup;
         [SerializeField]
         private FPSDisplayer fpsDisplayer;
+        [SerializeField]
+        private DebugConsoleController debugConsole;
         [SerializeField]
         private InputNameDialogController inputNameDialog;
         [SerializeField]

@@ -257,6 +257,24 @@ namespace MVZ2.Editor
                     }
                 }
             }
+            // 命令
+            {
+                var document = LoadMetaXmlDocument(spaceName, "commands.xml");
+                var metaList = CommandMetaList.FromXmlNode(document["commands"], spaceName);
+                var reference = "Commands meta file";
+                foreach (var meta in metaList.metas)
+                {
+                    var id = new NamespaceID(spaceName, meta.ID);
+                    foreach (var variant in meta.Variants)
+                    {
+                        AddTranslation(potGenerator, variant.Description, reference, $"Description for command \"{id} {variant.Subname}\"", VanillaStrings.CONTEXT_COMMAND_DESCRIPTION);
+                        foreach (var param in variant.Parameters)
+                        {
+                            AddTranslation(potGenerator, param.Description, reference, $"Description for parameter {param.Name} of command \"{id} {variant.Subname}\"", VanillaStrings.CONTEXT_COMMAND_PARAMETER_DESCRIPTION);
+                        }
+                    }
+                }
+            }
 
             potGenerator.WriteOut(GetPoTemplatePath("general.pot"));
             Debug.Log("Script Translations Updated.");

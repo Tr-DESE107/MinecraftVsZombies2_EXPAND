@@ -2584,6 +2584,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d0f094a3020c1a4bbec297a273a5ed4
+    m_Address: mvz2:entity/height_indicator
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d38c1fa4b0e4e641a7bb81ade3dad97
     m_Address: mvz2:entity/effect/particle_pure
     m_ReadOnly: 0
@@ -3375,6 +3382,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50f49ea46da419e4dafa5ecbbd64b606
+    m_Address: mvz2:mobile_blueprint/skeleton_mage_frost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51097045838a9b647a215e8e0f56e559
     m_Address: mvz2:held/starshards/mausoleum
     m_ReadOnly: 0
@@ -3703,6 +3717,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58e2346d2fb90df44b58aebece0d82ad
+    m_Address: mvz2:mobile_blueprint/skeleton_mage_fire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58eadcb8281219a418802875c2f38bbe
     m_Address: mvz2:entity/armor/flag
@@ -4761,6 +4782,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74d8652e30ae6cc4facf859271ca3fff
+    m_Address: mvz2:commands
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Meta
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74da7e893d261a549a659cfaef15b372
     m_Address: mvz2:entity/boss/frankenstein
     m_ReadOnly: 0
@@ -5455,6 +5483,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 838820327528a4d439a51f03582183f9
     m_Address: mvz2:entity/projectiles/crossbow_bolt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 839decadd93608a458dfa0676ac6ce7f
+    m_Address: mvz2:artifacts/ufo_toy
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6454,6 +6489,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cea67f824319f140bbd61d186dca978
+    m_Address: mvz2:mobile_blueprint/triplenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9cf2df072b37c23469fc979417ef3af8
     m_Address: mvz2:contraption/halloween/tnt
     m_ReadOnly: 0
@@ -7111,6 +7153,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae918595844e8b446a1aca7d71291b61
+    m_Address: mvz2:mobile_blueprint/skeleton_mage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aeb846fd935c8c24ca242f70ab828253
     m_Address: mvz2:effect/frankenstein_jump_trail
@@ -7979,6 +8028,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c58e2047282dbf342864f9b099d799c4
+    m_Address: mvz2:mobile_blueprint/skeleton_mage_lightning
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5d1ee1a11a848242b74ee9ce5d5e06e
     m_Address: mvz2:armor/iron_helmet
@@ -9851,6 +9907,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f33715c080e647f4eb47909df824bc60
     m_Address: mvz2:note/help_back
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f341858279d9e0e4cadea5a1467728a1
+    m_Address: mvz2:mobile_blueprint/undead_flying_object
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

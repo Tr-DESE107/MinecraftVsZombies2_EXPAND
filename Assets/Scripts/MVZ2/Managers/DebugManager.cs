@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MVZ2.Managers
 {
-    public class DebugManager : MonoBehaviour
+    public partial class DebugManager : MonoBehaviour
     {
         public async void ExportLogFiles()
         {

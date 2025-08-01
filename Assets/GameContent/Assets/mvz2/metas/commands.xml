@@ -1,0 +1,106 @@
+<commands>
+    <command id="help">
+        <variant>
+            <description>查询命令的作用。</description>
+            <params>
+                <param name="command" type="command" optional="true">指令名。</param>
+            </params>
+        </variant>
+    </command>
+    <command id="spawn" inLevel="true">
+        <variant>
+            <description>生成一个实体。默认位置为场地中心。</description>
+            <params>
+                <param name="id" type="ID" idType="entity">要生成的实体ID。</param>
+                <param name="x" type="float" optional="true">要生成的实体位置的X值。</param>
+                <param name="y" type="float" optional="true">要生成的实体位置的Y值。</param>
+                <param name="z" type="float" optional="true">要生成的实体位置的Y值。</param>
+            </params>
+        </variant>
+    </command>
+    <command id="spawngrid" inLevel="true">
+        <variant>
+            <description>在指定的地格位置生成实体。</description>
+            <params>
+                <param name="id" type="ID" idType="entity">要生成的实体ID。</param>
+                <param name="column" type="int" optional="true">实体所在列。0代表最左侧一列，向右递增。</param>
+                <param name="lane" type="int" optional="true">实体所在行。0代表最上方一行，向下递增。</param>
+            </params>
+        </variant>
+    </command>
+    <command id="kill" inLevel="true">
+        <variant>
+            <description>杀死所有怪物。</description>
+            <params/>
+        </variant>
+    </command>
+    <command id="blueprint" inLevel="true">
+        <variant subname="set">
+            <description>将某槽位的蓝图替换为指定ID的蓝图。</description>
+            <params>
+                <param name="slot" type="int">蓝图槽位，0代表第一个槽位，1代表第二个槽位，依此类推。</param>
+                <param name="id" type="ID" idType="blueprint" optional="true">蓝图ID。</param>
+            </params>
+        </variant>
+        <variant subname="remove">
+            <description>移除指定槽位的蓝图。</description>
+            <params>
+                <param name="slot" type="int">蓝图槽位，0代表第一个槽位，1代表第二个槽位，依此类推。</param>
+            </params>
+        </variant>
+    </command>
+    <command id="energy" inLevel="true">
+        <variant subname="set">
+            <description>设置当前能量。</description>
+            <params>
+                <param name="value" type="float">能量。</param>
+            </params>
+        </variant>
+        <variant subname="add">
+            <description>增加或减少当前能量。</description>
+            <params>
+                <param name="value" type="float">能量。</param>
+            </params>
+        </variant>
+    </command>
+    <command id="starshard" inLevel="true">
+        <variant subname="set">
+            <description>设置当前星之碎片数量。</description>
+            <params>
+                <param name="value" type="int">星之碎片数量。</param>
+            </params>
+        </variant>
+        <variant subname="add">
+            <description>增加或减少当前星之碎片数量。</description>
+            <params>
+                <param name="value" type="int">星之碎片数量。</param>
+            </params>
+        </variant>
+    </command>
+    <command id="recharge" inLevel="true">
+        <variant>
+            <description>立即充能所有蓝图。</description>
+            <params/>
+        </variant>
+    </command>
+    <command id="norecharge" inLevel="true">
+        <variant>
+            <description>所有蓝图无需充能。再次使用后关闭该效果。</description>
+            <params/>
+        </variant>
+    </command>
+    <command id="repeat">
+        <variant>
+            <description>重复上一条指令。</description>
+            <params>
+                <param name="times" type="int">次数。</param>
+            </params>
+        </variant>
+    </command>
+    <command id="clear" inLevel="true">
+        <variant>
+            <description>生成一个通关掉落物。</description>
+            <params/>
+        </variant>
+    </command>
+</commands>

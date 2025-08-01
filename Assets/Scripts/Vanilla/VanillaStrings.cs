@@ -220,5 +220,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ALMANAC_TAG_ENUM_NAME = "almanac_tag_enum.name";
         public const string CONTEXT_ALMANAC_TAG_ENUM_DESCRIPTION = "almanac_tag_enum.description";
         public const string CONTEXT_HOTKEY_NAME = "hotkey.name";
+        public const string CONTEXT_COMMAND_DESCRIPTION = "command.description";
+        public const string CONTEXT_COMMAND_PARAMETER_DESCRIPTION = "command_parameter.description";
     }
 }
