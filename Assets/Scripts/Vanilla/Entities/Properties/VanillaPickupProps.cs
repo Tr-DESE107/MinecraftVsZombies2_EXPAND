@@ -71,5 +71,14 @@ namespace MVZ2.Vanilla.Entities
         {
             return pickup.GetProperty<bool>(NO_COLLECT);
         }
+        public static readonly PropertyMeta<NamespaceID> CONTENT_ID = Get<NamespaceID>("content_id");
+        public static NamespaceID GetPickupContentID(this Entity pickup)
+        {
+            return pickup.GetProperty<NamespaceID>(CONTENT_ID);
+        }
+        public static void SetPickupContentID(this Entity pickup, NamespaceID value)
+        {
+            pickup.SetProperty<NamespaceID>(CONTENT_ID, value);
+        }
     }
 }

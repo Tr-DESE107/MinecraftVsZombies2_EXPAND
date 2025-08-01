@@ -69,14 +69,13 @@ namespace MVZ2.GameContent.Pickups
             pickup.SetAnimationBool("Selected", isHolding);
         }
 
-        public static NamespaceID GetBlueprintID(Entity pickup) => pickup.GetBehaviourField<NamespaceID>(PROP_BLUEPRINT_ID);
-        public static void SetBlueprintID(Entity pickup, NamespaceID value) => pickup.SetBehaviourField(PROP_BLUEPRINT_ID, value);
+        public static NamespaceID GetBlueprintID(Entity pickup) => pickup.GetPickupContentID();
+        public static void SetBlueprintID(Entity pickup, NamespaceID id) => pickup.SetPickupContentID(id);
         public static bool IsCommandBlock(Entity pickup) => pickup.GetBehaviourField<bool>(PROP_COMMAND_BLOCK);
         public static void SetCommandBlock(Entity pickup, bool value) => pickup.SetBehaviourField(PROP_COMMAND_BLOCK, value);
         public static bool IgnoresTouchRaycast(Entity pickup) => pickup.GetBehaviourField<bool>(PROP_IGNORE_TOUCH_RAYCAST);
         public static void SetIgnoreTouchRaycast(Entity pickup, bool value) => pickup.SetBehaviourField(PROP_IGNORE_TOUCH_RAYCAST, value);
         public const int PICK_THRESOLD = 5;
-        public static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_BLUEPRINT_ID = new VanillaEntityPropertyMeta<NamespaceID>("BlueprintID");
         public static readonly VanillaEntityPropertyMeta<bool> PROP_COMMAND_BLOCK = new VanillaEntityPropertyMeta<bool>("CommandBlock");
         public static readonly VanillaEntityPropertyMeta<bool> PROP_IGNORE_TOUCH_RAYCAST = new VanillaEntityPropertyMeta<bool>("IgnoreRaycast");
     }

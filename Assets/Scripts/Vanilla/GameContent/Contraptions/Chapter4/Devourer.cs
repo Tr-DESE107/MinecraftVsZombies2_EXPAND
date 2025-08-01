@@ -197,7 +197,7 @@ namespace MVZ2.GameContent.Contraptions
                 var spawnParams = devourer.GetSpawnParams();
                 var entityID = target.GetDefinitionID();
                 var blueprintID = VanillaBlueprintID.FromEntity(entityID);
-                spawnParams.SetProperty(BlueprintPickup.PROP_BLUEPRINT_ID, blueprintID);
+                spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
                 devourer.Produce(VanillaPickupID.blueprintPickup, spawnParams);
             }
         }

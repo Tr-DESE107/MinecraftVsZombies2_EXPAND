@@ -2,7 +2,6 @@ using MVZ2.GameContent.Artifacts;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -39,13 +38,8 @@ namespace MVZ2.GameContent.Pickups
             level.Spawn(VanillaEffectID.starParticles, pickup.Position, pickup);
             pickup.Remove();
         }
-        public static NamespaceID GetArtifactID(Entity pickup) => pickup.GetBehaviourField<NamespaceID>(ID, FIELD_ARTIFACT_ID);
-        public static void SetArtifactID(Entity pickup, NamespaceID id)
-        {
-            pickup.SetBehaviourField(ID, FIELD_ARTIFACT_ID, id);
-            pickup.SetModelProperty("ArtifactID", id);
-        }
-        public static readonly VanillaEntityPropertyMeta<NamespaceID> FIELD_ARTIFACT_ID = new VanillaEntityPropertyMeta<NamespaceID>("ArtifactID");
+        public static NamespaceID GetArtifactID(Entity pickup) => pickup.GetPickupContentID();
+        public static void SetArtifactID(Entity pickup, NamespaceID id) => pickup.SetPickupContentID(id);
         private static readonly NamespaceID ID = VanillaPickupID.artifactPickup;
     }
 }

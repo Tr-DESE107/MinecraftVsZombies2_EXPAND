@@ -19,7 +19,7 @@ namespace MVZ2Logic.Level
         IStageTalkMeta[] Talks { get; }
 
         NamespaceID ClearPickupModel { get; }
-        NamespaceID ClearPickupBlueprint { get; }
+        NamespaceID ClearPickupContentID { get; }
         bool DropsTrophy { get; }
         NamespaceID EndNote { get; }
 

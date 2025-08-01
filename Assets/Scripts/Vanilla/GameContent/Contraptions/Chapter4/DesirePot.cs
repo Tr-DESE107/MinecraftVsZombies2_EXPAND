@@ -98,7 +98,7 @@ namespace MVZ2.GameContent.Contraptions
                     continue;
                 }
                 var spawnParams = entity.GetSpawnParams();
-                spawnParams.SetProperty(BlueprintPickup.PROP_BLUEPRINT_ID, blueprintID);
+                spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
                 spawnParams.SetProperty(BlueprintPickup.PROP_COMMAND_BLOCK, seed.IsCommandBlock());
                 var pickup = entity.Spawn(VanillaPickupID.blueprintPickup, entity.GetCenter(), spawnParams);
 
