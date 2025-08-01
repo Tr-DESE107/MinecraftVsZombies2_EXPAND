@@ -197,22 +197,7 @@ namespace PVZEngine.Grids
             properties = PropertyBlock.FromSerializable(seri.properties, this);
             layerEntities.Clear();
             reverseLayerEntities.Clear();
-            if (seri.layerEntities != null)
-            {
-                foreach (var pair in seri.layerEntities)
-                {
-                    var layer = NamespaceID.ParseStrict(pair.Key);
-                    var entity = level.FindEntityByID(pair.Value);
-                    if (entity == null)
-                        continue;
-
-                    var layerHashSet = new HashSet<NamespaceID>() { layer };
-                    var entityHashSet = new HashSet<Entity>() { entity };
-                    layerEntities.Add(layer, entityHashSet);
-                    reverseLayerEntities.Add(entity, layerHashSet);
-                }
-            }
-            else if (seri.layerEntityLists != null)
+            if (seri.layerEntityLists != null)
             {
                 foreach (var pair in seri.layerEntityLists)
                 {
@@ -228,6 +213,21 @@ namespace PVZEngine.Grids
                         AddReversedLayerEntity(layer, entity);
                     }
                     layerEntities.Add(layer, entityHashSet);
+                }
+            }
+            else if (seri.layerEntities != null)
+            {
+                foreach (var pair in seri.layerEntities)
+                {
+                    var layer = NamespaceID.ParseStrict(pair.Key);
+                    var entity = level.FindEntityByID(pair.Value);
+                    if (entity == null)
+                        continue;
+
+                    var layerHashSet = new HashSet<NamespaceID>() { layer };
+                    var entityHashSet = new HashSet<Entity>() { entity };
+                    layerEntities.Add(layer, entityHashSet);
+                    reverseLayerEntities.Add(entity, layerHashSet);
                 }
             }
         }

@@ -44,15 +44,15 @@ namespace MVZ2.Metas
             bool conditionValid = UnlockConditions != null;
             if (unlockValid || conditionValid)
             {
-                if (unlockValid)
-                {
-                    if (save.IsUnlocked(Unlock))
-                        return true;
-                }
-
                 if (conditionValid)
                 {
                     if (save.MeetsXMLConditions(UnlockConditions))
+                        return true;
+                }
+
+                if (unlockValid)
+                {
+                    if (save.IsUnlocked(Unlock))
                         return true;
                 }
 

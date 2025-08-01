@@ -924,23 +924,23 @@ namespace PVZEngine.Entities
             properties = PropertyBlock.FromSerializable(seri.properties, this);
 
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
-            if (seri.takenGrids != null)
+            if (seri.takenGridIndexes != null)
+            {
+                foreach (var index in seri.takenGridIndexes)
+                {
+                    var grid = Level.GetGrid(index);
+                    if (grid == null)
+                        continue;
+                    takenGrids.Add(grid);
+                }
+            }
+            else if (seri.takenGrids != null)
             {
                 foreach (var info in seri.takenGrids)
                 {
                     if (info == null || info.layers == null)
                         continue;
                     var grid = Level.GetGrid(info.grid);
-                    if (grid == null)
-                        continue;
-                    takenGrids.Add(grid);
-                }
-            }
-            else if (seri.takenGridIndexes != null)
-            {
-                foreach (var index in seri.takenGridIndexes)
-                {
-                    var grid = Level.GetGrid(index);
                     if (grid == null)
                         continue;
                     takenGrids.Add(grid);
