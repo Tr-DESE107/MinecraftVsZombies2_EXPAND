@@ -44,6 +44,8 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                     return false;
                 if (entity.IsCollected()) // 没有被拾取
                     return false;
+                if (entity.NoPickupStolen()) // 能被偷取
+                    return false;
                 if (entity.IsImportantPickup())
                     return false;
                 var sourceEntity = effect.Source?.GetEntity();

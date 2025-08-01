@@ -38,6 +38,11 @@ namespace MVZ2.Vanilla.Entities
         {
             return pickup.GetProperty<bool>(NO_AUTO_COLLECT);
         }
+        public static readonly PropertyMeta<bool> NO_PICKUP_STOLEN = Get<bool>("no_pickup_stolen");
+        public static bool NoPickupStolen(this Entity pickup)
+        {
+            return pickup.GetProperty<bool>(NO_PICKUP_STOLEN);
+        }
         public static NamespaceID GetDropSound(this Entity entity)
         {
             return entity.GetProperty<NamespaceID>(DROP_SOUND);

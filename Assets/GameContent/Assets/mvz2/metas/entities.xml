@@ -1804,6 +1804,7 @@
         <pickup id="blueprint_pickup" name="蓝图掉落物">
             <properties>
                 <bool name="mvz2:noCollect" value="true" />
+                <bool name="mvz2:no_pickup_stolen" value="true" />
                 <int name="mvz2:maxTimeout" value="450" />
                 <id name="mvz2:collectSound" value="mvz2:pick" />
             </properties>
