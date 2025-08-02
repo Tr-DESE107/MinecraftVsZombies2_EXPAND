@@ -44,6 +44,8 @@ namespace MVZ2.Models
 
             SortingGroup.UpdateAllSortingGroups();
 
+            Shader.SetGlobalInt("_PixelSnap", 1);
+
             // Create a standard request
             RenderPipeline.StandardRequest request = new RenderPipeline.StandardRequest();
 
@@ -59,10 +61,11 @@ namespace MVZ2.Models
             {
                 modelShotCamera.Render();
             }
+            Shader.SetGlobalInt("_PixelSnap", 0);
 
             // 从Render Texture读取像素并保存为图片
             Texture2D texture = new Texture2D(width, height);
-            texture.filterMode = FilterMode.Trilinear;
+            texture.filterMode = FilterMode.Bilinear;
             RenderTexture.active = renderTexture;
             texture.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
             texture.Apply();
