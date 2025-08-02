@@ -10,6 +10,7 @@ namespace MVZ2.Almanacs
         {
             rootObject.SetActive(!viewData.empty);
             var sprite = viewData.sprite;
+            iconRoot.localPosition = (Vector3)viewData.offset;
             icon.sprite = sprite;
             icon.enabled = sprite;
             if (sprite)
@@ -31,6 +32,8 @@ namespace MVZ2.Almanacs
         [SerializeField]
         private Button button;
         [SerializeField]
+        private RectTransform iconRoot;
+        [SerializeField]
         private Image icon;
         [SerializeField]
         private AspectRatioFitter ratioFitter;
@@ -39,6 +42,7 @@ namespace MVZ2.Almanacs
     {
         public bool empty;
         public Sprite sprite;
+        public Vector2 offset;
         public static readonly AlmanacEntryViewData Empty = new AlmanacEntryViewData { empty = true };
     }
 }

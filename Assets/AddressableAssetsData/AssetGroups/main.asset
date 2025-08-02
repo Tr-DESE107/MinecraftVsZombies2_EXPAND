@@ -500,13 +500,6 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0d1a3773e4097404bbaf9f2a2110fcfa
-    m_Address: mvz2:mobile_blueprint/tripenser
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d1eecefbebaead49b85fb2324fde531
     m_Address: mvz2:entity/projectiles/cursed_fireball
     m_ReadOnly: 0

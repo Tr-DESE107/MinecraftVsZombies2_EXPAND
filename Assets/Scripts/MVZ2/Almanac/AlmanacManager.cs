@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MVZ2.GameContent.Seeds;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.UI;
@@ -109,12 +110,15 @@ namespace MVZ2.Almanacs
 
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, id);
             Sprite icon = GetEntryThumbnailSprite(entry);
+            Vector2 offset = Vector2.zero;
             if (!icon)
             {
-                var modelID = def.GetModelID();
-                icon = Main.ResourceManager.GetModelIcon(modelID);
+                var blueprintID = VanillaBlueprintID.FromEntity(id);
+                var blueprintDef = Main.Game.GetSeedDefinition(blueprintID);
+                icon = Main.ResourceManager.GetBlueprintIconMobile(blueprintDef);
+                offset = new Vector2(20, 0);
             }
-            return new AlmanacEntryViewData() { sprite = icon };
+            return new AlmanacEntryViewData() { sprite = icon, offset = offset };
         }
         public AlmanacEntryViewData GetArtifactEntryViewData(NamespaceID id)
         {

@@ -111,6 +111,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 79a357758cd7dff4d83ebc2928ce0812, type: 3}
   - name: characters/hologram
     sprite: {fileID: 21300000, guid: 39cde1f66d40cb14d8f732d41ea867f2, type: 3}
+  - name: entity/height_indicator
+    sprite: {fileID: 21300000, guid: 3d0f094a3020c1a4bbec297a273a5ed4, type: 3}
   - name: icons/disabled
     sprite: {fileID: 21300000, guid: fc3e815806f7eaf4694e0d4333cc9185, type: 3}
   - name: icons/divine_shield
@@ -365,8 +367,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3a2d8f0334da2b349b397a3ed1cf7b97, type: 3}
   - name: mobile_blueprint/totenser
     sprite: {fileID: 21300000, guid: ed576f37fbc44b44d9396b8ea59f7911, type: 3}
-  - name: mobile_blueprint/tripenser
-    sprite: {fileID: 21300000, guid: 0d1a3773e4097404bbaf9f2a2110fcfa, type: 3}
+  - name: mobile_blueprint/triplenser
+    sprite: {fileID: 21300000, guid: 9cea67f824319f140bbd61d186dca978, type: 3}
   - name: mobile_blueprint/undead_flying_object
     sprite: {fileID: 21300000, guid: f341858279d9e0e4cadea5a1467728a1, type: 3}
   - name: mobile_blueprint/undead_flying_object_blue
