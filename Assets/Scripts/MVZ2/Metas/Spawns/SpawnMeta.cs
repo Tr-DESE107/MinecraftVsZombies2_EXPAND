@@ -10,6 +10,9 @@ namespace MVZ2.Metas
         public string ID { get; private set; }
         public string Type { get; private set; }
         public NamespaceID Entity { get; private set; }
+        public int EntityVariant { get; private set; }
+        public NamespaceID PreviewEntity { get; private set; }
+        public int PreviewVariant { get; private set; }
         public int SpawnLevel { get; private set; }
         public int MinSpawnWave { get; private set; }
         public int PreviewCount { get; private set; }
@@ -22,8 +25,13 @@ namespace MVZ2.Metas
         {
             var id = node.GetAttribute("id");
             var type = node.GetAttribute("type") ?? "entity";
-            var entity = node.GetAttributeNamespaceID("entity", defaultNsp);
             var noEndless = node.GetAttributeBool("noEndless") ?? false;
+
+            NamespaceID entity = null;
+            int variant = 0;
+            var entityNode = node["entity"];
+            entity = entityNode?.GetAttributeNamespaceID("id", defaultNsp) ?? node.GetAttributeNamespaceID("entity", defaultNsp);
+            variant = entityNode?.GetAttributeInt("variant") ?? variant;
 
             int level = 1;
             int minWave = 0;
@@ -35,9 +43,13 @@ namespace MVZ2.Metas
             }
 
             int previewCount = 1;
+            NamespaceID previewEntity = entity;
+            int previewVariant = variant;
             var previewNode = node["preview"];
             if (previewNode != null)
             {
+                previewEntity = previewNode.GetAttributeNamespaceID("entity", defaultNsp) ?? previewEntity;
+                previewVariant = previewNode.GetAttributeInt("variant") ?? previewVariant;
                 previewCount = previewNode.GetAttributeInt("count") ?? 1;
             }
 
@@ -59,6 +71,9 @@ namespace MVZ2.Metas
                 ID = id,
                 Type = type,
                 Entity = entity,
+                EntityVariant = variant,
+                PreviewEntity = previewEntity,
+                PreviewVariant = previewVariant,
                 SpawnLevel = level,
                 NoEndless = noEndless,
                 MinSpawnWave = minWave,

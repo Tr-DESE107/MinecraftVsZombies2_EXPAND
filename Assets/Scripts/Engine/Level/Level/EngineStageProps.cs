@@ -20,16 +20,16 @@
             return level.GetProperty<int>(WAVES_PER_FLAG);
         }
 
-        public static readonly PropertyMeta<int> FIRST_WAVE_TIME = Get<int>("firstWaveTime");
-        public static int GetFirstWaveTime(this LevelEngine level)
+        public static readonly PropertyMeta<float> FIRST_WAVE_TIME = Get<float>("firstWaveTime");
+        public static float GetFirstWaveTime(this LevelEngine level)
         {
-            return level.GetProperty<int>(FIRST_WAVE_TIME);
+            return level.GetProperty<float>(FIRST_WAVE_TIME);
         }
 
-        public static readonly PropertyMeta<int> CONTINUED_FIRST_WAVE_TIME = Get<int>("continuedFirstWaveTime");
-        public static int GetContinutedFirstWaveTime(this LevelEngine level)
+        public static readonly PropertyMeta<float> CONTINUED_FIRST_WAVE_TIME = Get<float>("continuedFirstWaveTime");
+        public static float GetContinutedFirstWaveTime(this LevelEngine level)
         {
-            return level.GetProperty<int>(CONTINUED_FIRST_WAVE_TIME);
+            return level.GetProperty<float>(CONTINUED_FIRST_WAVE_TIME);
         }
 
         public static bool IsHugeWave(this LevelEngine level, int wave)

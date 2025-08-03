@@ -18,5 +18,13 @@ namespace PVZEngine
                 yield return (t - 1) * interval;
             }
         }
+        public static void ResetSeconds(this FrameTimer timer, float seconds)
+        {
+            timer.ResetTime(Ticks.FromSeconds(seconds));
+        }
+        public static FrameTimer NewSecondTimer(float seconds)
+        {
+            return new FrameTimer(Ticks.FromSeconds(seconds));
+        }
     }
 }

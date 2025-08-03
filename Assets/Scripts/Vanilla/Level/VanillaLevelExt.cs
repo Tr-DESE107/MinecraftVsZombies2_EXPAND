@@ -233,8 +233,11 @@ namespace MVZ2.Vanilla.Level
 
                     var param = new SpawnParams();
                     param.SetProperty(VanillaEnemyProps.PREVIEW_ENEMY, true);
-                    Entity enm = level.Spawn(spawnDef.GetPreviewEntityID(), pos, null, param);
-                    createdEnemies.Add(enm);
+                    var enm = spawnDef.SpawnPreviewEntity(level, pos, param);
+                    if (enm != null)
+                    {
+                        createdEnemies.Add(enm);
+                    }
 
                     spawnToCreate.Remove(spawnDef);
                 }

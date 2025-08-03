@@ -38,10 +38,11 @@
             <talk type="map" value="mvz2:halloween_1_map"/>
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:small_dispenser"/>
-        <spawns flags="1" firstWaveTime="1800">
+        <spawns flags="1">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
         </spawns>
+        <time firstWave="60"/>
     </stage>
     <stage id="starshard_tutorial" name="教程关" type="special">
         <camera transition="to_lawn"/>
@@ -127,9 +128,10 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:tnt"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+        <spawns flags="2" pointsMultiplier="2" pointsAddition="1" >
             <spawn id="mvz2:ghost"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <color name="globalLight" value="#7F7F7F"/>
             <bool name="noEnergy" value="true"/>
@@ -242,7 +244,7 @@
             <entry id="mvz2:magichest" count="3"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.dream_key"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+        <spawns flags="2" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -251,6 +253,7 @@
             <spawn id="mvz2:mummy"/>
             <spawn id="mvz2:necromancer"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="noEnergy" value="true"/>
             <integer name="statueCount" value="10" />
@@ -345,11 +348,12 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:pistenser"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30">
+        <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
             <bool name="noEnergy" value="true"/>
@@ -439,7 +443,7 @@
             <entry id="mvz2:dream_silk" count="1"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+        <spawns flags="2" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -448,6 +452,7 @@
             <spawn id="mvz2:ghast"/>
             <spawn id="mvz2:mother_terror"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="noEnergy" value="true"/>
         </properties>
@@ -545,12 +550,13 @@
             <entry id="mvz2:tnt" count="5"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:golden_apple"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
+        <spawns flags="2" pointsMultiplier="4" pointsAddition="3">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
             <spawn id="mvz2:berserker"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
             <bool name="noEnergy" value="true"/>
@@ -641,7 +647,7 @@
             <entry id="mvz2:giant_bowl" count="1"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+        <spawns flags="2" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -650,6 +656,7 @@
             <spawn id="mvz2:dullahan"/>
             <spawn id="mvz2:hell_chariot"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="noEnergy" value="true"/>
         </properties>
@@ -857,7 +864,7 @@
             <entry id="mvz2:desire_pot" count="2" minCount="0"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+        <spawns flags="2" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -866,6 +873,7 @@
             <spawn id="mvz2:shikaisen_zombie"/>
             <spawn id="mvz2:emperor_zombie"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="noEnergy" value="true"/>
             <integer name="spawnerCount" value="8" />
@@ -890,10 +898,11 @@
             <talk type="map" value="mvz2:ship_1_map"/>
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gunpowder_barrel"/>
-        <spawns flags="1" firstWaveTime="1800">
+        <spawns flags="1">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
         </spawns>
+        <time firstWave="60"/>
     </stage>
     <stage id="ship_2" name="圣辇船" dayNumber="2" unlock="mvz2:level.ship_1">
         <talks>
@@ -955,16 +964,26 @@
             <spawn id="mvz2:reflective_barrier_zombie"/>
         </spawns>
     </stage>
-    <stage id="ship_6" name="圣辇船" dayNumber="6" needBlueprints="false" type="minigame" unlock="mvz2:level.ship_5" music="mvz2:minigame" >
+    <stage id="ship_6" name="圣辇船" dayNumber="6" needBlueprints="false" type="minigame" unlock="mvz2:level.ship_5" music="mvz2:minigame">
         <talks>
             <talk type="start" value="mvz2:ship_6"/>
             <talk type="end" value="mvz2:ship_6_over"/>
             <talk type="map" value="mvz2:ship_6_map"/>
         </talks>
+        <conveyor>
+            <entry id="mvz2:beacon" count="20"/>
+            <entry id="mvz2:lightning_orb" count="5"/>
+            <entry id="mvz2:magichest" count="3" minCount="0"/>
+        </conveyor>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:firework_dispenser"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+        <spawns flags="2" pointsMultiplier="2" pointsAddition="1">
+            <spawn id="mvz2:undead_flying_object_blitz"/>
             <spawn id="mvz2:undead_flying_object"/>
         </spawns>
+        <time firstWave="1" waveMax="15" waveAdvance="5"/>
+        <properties>
+            <bool name="noEnergy" value="true"/>
+        </properties>
     </stage>
     <stage id="ship_7" name="圣辇船" dayNumber="7" unlock="mvz2:level.ship_6" >
         <talks>
@@ -1051,7 +1070,7 @@
             <entry id="mvz2:magichest" count="3"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.dream_key"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+        <spawns flags="2" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -1060,6 +1079,7 @@
             <spawn id="mvz2:mummy"/>
             <spawn id="mvz2:necromancer"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="noEnergy" value="true"/>
         </properties>
@@ -1078,11 +1098,12 @@
         <model preset="cloudy" />
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+        <spawns flags="2" pointsMultiplier="2" pointsAddition="1" >
             <spawn id="mvz2:ghost"/>
             <spawn id="mvz2:skeleton_horse"/>
             <spawn id="mvz2:dullahan_head"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <color name="globalLight" value="#7F7F7F"/>
             <bool name="noEnergy" value="true"/>
@@ -1092,13 +1113,14 @@
     <stage id="breakout" name="打砖块" needBlueprints="false" type="minigame" unlock="mvz2:level.mausoleum_9" music="mvz2:minigame">
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30">
+        <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
             <spawn id="mvz2:necromancer"/>
             <spawn id="mvz2:emperor_zombie"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
             <bool name="noEnergy" value="true"/>
@@ -1113,7 +1135,7 @@
             <entry id="mvz2:tnt" count="3"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
+        <spawns flags="2" pointsMultiplier="4" pointsAddition="3">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -1121,6 +1143,7 @@
             <spawn id="mvz2:mummy"/>
             <spawn id="mvz2:ghast"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
             <bool name="noEnergy" value="true"/>

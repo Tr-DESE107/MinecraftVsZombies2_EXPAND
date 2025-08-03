@@ -3,6 +3,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -87,13 +88,15 @@ namespace MVZ2.GameContent.Spawns
     }
     public class SpawnPreviewBehaviour : ISpawnPreviewBehaviour
     {
-        public SpawnPreviewBehaviour(NamespaceID entityID)
+        public SpawnPreviewBehaviour(NamespaceID entityID, int variant)
         {
             EntityID = entityID;
+            Variant = variant;
         }
-        public NamespaceID GetPreviewEntityID()
+        public Entity SpawnPreviewEntity(LevelEngine level, Vector3 pos, SpawnParams param)
         {
-            return EntityID;
+            param.SetProperty(VanillaEntityProps.VARIANT, Variant);
+            return level.Spawn(EntityID, pos, null, param);
         }
         public NamespaceID[] GetCounterTags(LevelEngine level)
         {
@@ -104,6 +107,7 @@ namespace MVZ2.GameContent.Spawns
             return entityDef.GetCounterTags();
         }
         public NamespaceID EntityID { get; }
+        public int Variant { get; }
     }
     public class SpawnEndlessBehaviour : ISpawnEndlessBehaviour
     {

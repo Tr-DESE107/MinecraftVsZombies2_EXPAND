@@ -26,6 +26,7 @@ using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.Vanilla
 {
@@ -190,8 +191,6 @@ namespace MVZ2.Vanilla
                     continue;
                 var name = meta.ID;
                 var type = meta.Type;
-                if (type != "entity")
-                    continue;
                 var spawnLevel = meta.SpawnLevel;
                 var terrain = meta.Terrain;
                 var weight = meta.Weight;
@@ -199,13 +198,39 @@ namespace MVZ2.Vanilla
                 var water = meta.Terrain?.Water ?? false;
                 var air = meta.Terrain?.Air ?? false;
                 var noEndless = meta.NoEndless;
+                var previewEntity = meta.PreviewEntity;
+                var previewVariant = meta.PreviewVariant;
+                var entityID = meta.Entity;
+                var entityVariant = meta.EntityVariant;
+                var notInEndless = spawnLevel <= 0 || noEndless;
 
-                var spawnDef = new VanillaSpawnDefinition(Namespace, name);
-                var entityID = new NamespaceID(Namespace, name);
-                var preview = new SpawnPreviewBehaviour(entityID);
-                var inLevel = new SpawnInLevelBehaviour(spawnDef, spawnLevel, entityID, water, air);
-                var endless = new SpawnEndlessBehaviour(spawnLevel <= 0 || noEndless, excludedTags);
-                spawnDef.SetBehaviours(preview, inLevel, endless);
+                VanillaSpawnDefinition spawnDef = new VanillaSpawnDefinition(Namespace, name);
+                if (type == "entity")
+                {
+                    var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
+                    var inLevel = new SpawnInLevelBehaviour(spawnDef, spawnLevel, entityID, water, air);
+                    var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
+                    spawnDef.SetBehaviours(preview, inLevel, endless);
+                }
+                else if (name == VanillaSpawnNames.undeadFlyingObject)
+                {
+                    var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
+                    var inLevel = new UFOSpawnInLevelBehaviour(spawnLevel, entityVariant);
+                    var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
+                    spawnDef.SetBehaviours(preview, inLevel, endless);
+                }
+                else if (name == VanillaSpawnNames.undeadFlyingObjectBlitz)
+                {
+                    var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
+                    var inLevel = new UFOSpawnInLevelBehaviour(spawnLevel, entityVariant, 0, 1, 20);
+                    var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
+                    spawnDef.SetBehaviours(preview, inLevel, endless);
+                }
+                if (spawnDef == null)
+                {
+                    Debug.LogWarning($"Could not create SpawnDefinition for spawn meta {Namespace}:{name}");
+                    continue;
+                }
                 spawnDef.SetProperty(VanillaSpawnProps.MIN_SPAWN_WAVE, meta.MinSpawnWave);
                 spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
                 if (weight != null)
@@ -217,43 +242,60 @@ namespace MVZ2.Vanilla
                 }
                 AddDefinition(spawnDef);
             }
-            {
-                var spawnDef = new VanillaSpawnDefinition(Namespace, VanillaSpawnNames.undeadFlyingObject);
-                var preview = new SpawnPreviewBehaviour(VanillaEnemyID.ufo);
-                var inLevel = new UFOSpawnInLevelBehaviour(2);
-                var endless = new SpawnEndlessBehaviour(false, Array.Empty<NamespaceID>());
-                spawnDef.SetBehaviours(preview, inLevel, endless);
-                AddDefinition(spawnDef);
-            }
         }
         private void LoadStages(IGame game)
         {
-            AddDefinition(new WhackAGhostStage(spaceName, VanillaStageNames.halloween6));
-            AddDefinition(new BreakoutStage(spaceName, VanillaStageNames.dream6));
-            AddDefinition(new LittleZombieStage(spaceName, VanillaStageNames.castle6));
-            AddDefinition(new SeijaStage(spaceName, VanillaStageNames.castle7));
-
-            AddDefinition(new WhackAGhostStage(spaceName, VanillaStageNames.whackAGhost));
-            AddDefinition(new BreakoutStage(spaceName, VanillaStageNames.breakout));
-            AddDefinition(new LittleZombieStage(spaceName, VanillaStageNames.bigTroubleAndLittleZombie));
             foreach (var meta in game.GetModStageMetas(spaceName))
             {
                 if (meta == null)
                     continue;
+                StageDefinition stageDef = null;
                 switch (meta.Type)
                 {
                     case StageTypes.TYPE_NORMAL:
                         {
-                            var stage = new ClassicStage(spaceName, meta.ID);
-                            AddDefinition(stage);
+                            stageDef = new ClassicStage(spaceName, meta.ID);
                         }
                         break;
                     case StageTypes.TYPE_ENDLESS:
                         {
-                            var stage = new EndlessStage(spaceName, meta.ID);
-                            AddDefinition(stage);
+                            stageDef = new EndlessStage(spaceName, meta.ID);
                         }
                         break;
+                    default:
+                        switch (meta.ID)
+                        {
+                            case VanillaStageNames.halloween6:
+                                stageDef = new WhackAGhostStage(spaceName, meta.ID);
+                                break;
+                            case VanillaStageNames.dream6:
+                                stageDef = new BreakoutStage(spaceName, meta.ID);
+                                break;
+                            case VanillaStageNames.castle6:
+                                stageDef = new LittleZombieStage(spaceName, meta.ID);
+                                break;
+                            case VanillaStageNames.castle7:
+                                stageDef = new SeijaStage(spaceName, meta.ID);
+                                break;
+                            case VanillaStageNames.ship6:
+                                stageDef = new UFOBlitzStage(spaceName, meta.ID);
+                                break;
+
+                            case VanillaStageNames.whackAGhost:
+                                stageDef = new WhackAGhostStage(spaceName, meta.ID);
+                                break;
+                            case VanillaStageNames.breakout:
+                                stageDef = new BreakoutStage(spaceName, meta.ID);
+                                break;
+                            case VanillaStageNames.bigTroubleAndLittleZombie:
+                                stageDef = new LittleZombieStage(spaceName, meta.ID);
+                                break;
+                        }
+                        break;
+                }
+                if (stageDef != null)
+                {
+                    AddDefinition(stageDef);
                 }
             }
         }
@@ -320,6 +362,10 @@ namespace MVZ2.Vanilla
 
                 stage.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.TotalFlags);
                 stage.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.FirstWaveTime);
+                stage.SetProperty(EngineStageProps.CONTINUED_FIRST_WAVE_TIME, meta.EndlessFirstWaveTime);
+                stage.SetProperty(VanillaStageProps.WAVE_MAX_TIME, meta.MaxWaveTime);
+                stage.SetProperty(VanillaStageProps.WAVE_ADVANCE_TIME, meta.AdvanceWaveTime);
+                stage.SetProperty(VanillaStageProps.WAVE_ADVANCE_HEALTH_PERCENT, meta.AdvanceHealthPercent);
 
                 stage.SetProperty(VanillaLevelProps.ENEMY_POOL, meta.Spawns);
                 stage.SetProperty(VanillaLevelProps.CONVEYOR_POOL, meta.ConveyorPool);

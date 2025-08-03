@@ -1,5 +1,7 @@
 ﻿using PVZEngine.Base;
+using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace PVZEngine.Definitions
 {
@@ -9,7 +11,7 @@ namespace PVZEngine.Definitions
         {
         }
         #region 预览
-        public NamespaceID GetPreviewEntityID() => GetPreviewBehaviour().GetPreviewEntityID();
+        public Entity SpawnPreviewEntity(LevelEngine level, Vector3 pos, SpawnParams param) => GetPreviewBehaviour().SpawnPreviewEntity(level, pos, param);
         public NamespaceID[] GetCounterTags(LevelEngine level) => GetPreviewBehaviour().GetCounterTags(level);
         protected abstract ISpawnPreviewBehaviour GetPreviewBehaviour();
         #endregion
@@ -42,7 +44,7 @@ namespace PVZEngine.Definitions
     }
     public interface ISpawnPreviewBehaviour
     {
-        NamespaceID GetPreviewEntityID();
+        Entity SpawnPreviewEntity(LevelEngine level, Vector3 pos, SpawnParams param);
         NamespaceID[] GetCounterTags(LevelEngine level);
     }
     public interface ISpawnEndlessBehaviour

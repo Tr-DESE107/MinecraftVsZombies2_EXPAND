@@ -7,6 +7,9 @@ namespace MVZ2Logic.Spawns
         string ID { get; }
         string Type { get; }
         NamespaceID Entity { get; }
+        int EntityVariant { get; }
+        NamespaceID PreviewEntity { get; }
+        int PreviewVariant { get; }
         int SpawnLevel { get; }
         int MinSpawnWave { get; }
         int PreviewCount { get; }

@@ -41,6 +41,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 entity.PlaySound(VanillaSoundID.ufo, volume: 0.5f);
             }
+            entity.SetAnimationInt("Variant", entity.GetVariant());
         }
         protected override void UpdateLogic(Entity entity)
         {

@@ -36,7 +36,13 @@ namespace MVZ2.Metas
         public float SpawnPointsAddition { get; private set; }
         public NamespaceID[] Spawns { get; private set; }
         public ConveyorPoolEntry[] ConveyorPool { get; private set; }
-        public int FirstWaveTime { get; private set; }
+
+        public float FirstWaveTime { get; private set; }
+        public float EndlessFirstWaveTime { get; private set; }
+        public float MaxWaveTime { get; private set; }
+        public float AdvanceWaveTime { get; private set; }
+        public float AdvanceHealthPercent { get; private set; }
+
         public bool NeedBlueprints { get; private set; }
 
         public Dictionary<string, object> Properties { get; private set; }
@@ -94,7 +100,6 @@ namespace MVZ2.Metas
 
             var spawnNode = node["spawns"];
             var flags = spawnNode?.GetAttributeInt("flags") ?? 1;
-            var firstWaveTime = spawnNode?.GetAttributeInt("firstWaveTime") ?? 540;
             var spawnPointsPower = spawnNode?.GetAttributeFloat("pointsPower") ?? 1;
             var spawnPointsMultiplier = spawnNode?.GetAttributeFloat("pointsMultiplier") ?? 1;
             var spawnPointsAddition = spawnNode?.GetAttributeFloat("pointsAddition") ?? 0;
@@ -104,6 +109,13 @@ namespace MVZ2.Metas
                 var childNode = spawnNode.ChildNodes[i];
                 spawns[i] = childNode.GetAttributeNamespaceID("id", defaultNsp);
             }
+
+            var timeNode = node["time"];
+            var firstWaveTime = timeNode?.GetAttributeFloat("firstWave") ?? Ticks.ToSeconds(spawnNode?.GetAttributeInt("firstWaveTime") ?? 540);
+            var endlessFirstWaveTime = timeNode?.GetAttributeFloat("endlessFirstWave") ?? 6f;
+            var maxWaveTime = timeNode?.GetAttributeFloat("waveMax") ?? 30;
+            var advanceWaveTime = timeNode?.GetAttributeFloat("waveAdvance") ?? 10;
+            var advanceHealthPercent = timeNode?.GetAttributeFloat("waveAdvanceHealthPercent") ?? 0.6f;
 
             var propertiesNode = node["properties"];
             var properties = propertiesNode.ToPropertyDictionary(defaultNsp);
@@ -133,8 +145,13 @@ namespace MVZ2.Metas
                 ConveyorPool = conveyorPool,
 
                 TotalFlags = flags,
-                FirstWaveTime = firstWaveTime,
                 Spawns = spawns,
+
+                FirstWaveTime = firstWaveTime,
+                EndlessFirstWaveTime = endlessFirstWaveTime,
+                MaxWaveTime = maxWaveTime,
+                AdvanceWaveTime = advanceWaveTime,
+                AdvanceHealthPercent = advanceHealthPercent,
 
                 SpawnPointsPower = spawnPointsPower,
                 SpawnPointsMultiplier = spawnPointsMultiplier,

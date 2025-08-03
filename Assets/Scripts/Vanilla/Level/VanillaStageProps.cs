@@ -17,8 +17,8 @@ namespace MVZ2.Vanilla.Level
         public static readonly PropertyMeta<string> LEVEL_NAME = Get<string>("levelName");
         public static readonly PropertyMeta<int> DAY_NUMBER = Get<int>("dayNumber");
 
-        public static readonly PropertyMeta<int> WAVE_MAX_TIME = Get<int>("waveMaxTime");
-        public static readonly PropertyMeta<int> WAVE_ADVANCE_TIME = Get<int>("waveAdvanceTime");
+        public static readonly PropertyMeta<float> WAVE_MAX_TIME = Get<float>("waveMaxTime");
+        public static readonly PropertyMeta<float> WAVE_ADVANCE_TIME = Get<float>("waveAdvanceTime");
         public static readonly PropertyMeta<float> WAVE_ADVANCE_HEALTH_PERCENT = Get<float>("waveAdvanceHealthPercent");
 
         public static readonly PropertyMeta<bool> NO_ENERGY = Get<bool>("noEnergy");
@@ -43,8 +43,8 @@ namespace MVZ2.Vanilla.Level
 
         public static readonly PropertyMeta<bool> ENDLESS = Get<bool>("endless");
 
-        public static int GetWaveMaxTime(this LevelEngine level) => level.GetProperty<int>(VanillaStageProps.WAVE_MAX_TIME);
-        public static int GetWaveAdvanceTime(this LevelEngine level) => level.GetProperty<int>(VanillaStageProps.WAVE_ADVANCE_TIME);
+        public static float GetWaveMaxTime(this LevelEngine level) => level.GetProperty<float>(VanillaStageProps.WAVE_MAX_TIME);
+        public static float GetWaveAdvanceTime(this LevelEngine level) => level.GetProperty<float>(VanillaStageProps.WAVE_ADVANCE_TIME);
         public static float GetWaveAdvanceHealthPercent(this LevelEngine level) => level.GetProperty<float>(VanillaStageProps.WAVE_ADVANCE_HEALTH_PERCENT);
         public static NamespaceID GetClearPickupModel(this LevelEngine level)
         {

@@ -5,6 +5,7 @@ namespace MVZ2.GameContent.Enemies
     public static class VanillaSpawnNames
     {
         public const string undeadFlyingObject = "undead_flying_object";
+        public const string undeadFlyingObjectBlitz = "undead_flying_object_blitz";
     }
     public static class VanillaSpawnID
     {

@@ -29,7 +29,12 @@ namespace MVZ2Logic.Level
         int TotalFlags { get; }
         NamespaceID[] Spawns { get; }
         IConveyorPoolEntry[] ConveyorPool { get; }
-        int FirstWaveTime { get; }
+        float FirstWaveTime { get; }
+        float EndlessFirstWaveTime { get; }
+        float MaxWaveTime { get; }
+        float AdvanceWaveTime { get; }
+        float AdvanceHealthPercent { get; }
+
         bool NeedBlueprints { get; }
         float SpawnPointsPower { get; }
         float SpawnPointsMultiplier { get; }

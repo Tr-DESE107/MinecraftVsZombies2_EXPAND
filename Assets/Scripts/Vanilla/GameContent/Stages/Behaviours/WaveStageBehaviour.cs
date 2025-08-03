@@ -20,10 +20,6 @@ namespace MVZ2.GameContent.Stages
     {
         public WaveStageBehaviour(StageDefinition stageDef) : base(stageDef)
         {
-            stageDef.SetProperty(EngineStageProps.CONTINUED_FIRST_WAVE_TIME, 180);
-            stageDef.SetProperty(VanillaStageProps.WAVE_MAX_TIME, 900);
-            stageDef.SetProperty(VanillaStageProps.WAVE_ADVANCE_TIME, 300);
-            stageDef.SetProperty(VanillaStageProps.WAVE_ADVANCE_HEALTH_PERCENT, 0.6f);
         }
         public void RunWaveTimer(LevelEngine level)
         {
@@ -43,7 +39,7 @@ namespace MVZ2.GameContent.Stages
             if (waveTimer.Expired)
             {
                 SetWaveMaxHealth(level, 0);
-                waveTimer.ResetTime(level.GetWaveMaxTime());
+                waveTimer.ResetSeconds(level.GetWaveMaxTime());
                 level.RunWave();
             }
         }
@@ -59,8 +55,8 @@ namespace MVZ2.GameContent.Stages
         }
         public override void Start(LevelEngine level)
         {
-            var time = level.CurrentFlag > 0 ? level.GetContinutedFirstWaveTime() : level.GetFirstWaveTime();
-            var waveTimer = new FrameTimer(time);
+            var seconds = level.CurrentFlag > 0 ? level.GetContinutedFirstWaveTime() : level.GetFirstWaveTime();
+            var waveTimer = TimerHelper.NewSecondTimer(seconds);
             SetWaveTimer(level, waveTimer);
             level.WaveState = STATE_NOT_STARTED;
         }
@@ -152,7 +148,7 @@ namespace MVZ2.GameContent.Stages
         private void NextWave(LevelEngine level)
         {
             var waveTimer = GetWaveTimer(level);
-            waveTimer.ResetTime(level.GetWaveMaxTime());
+            waveTimer.ResetSeconds(level.GetWaveMaxTime());
             SetWaveMaxHealth(level, 0);
             level.NextWave();
             if (level.IsFinalWave(level.CurrentWave))

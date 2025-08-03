@@ -64,6 +64,20 @@ namespace MVZ2.GameContent.Stages
         public const string mausoleum11 = "mausoleum_11";
         public const string mausoleumEndless = "mausoleum_endless";
 
+
+        public const string ship1 = "ship_1";
+        public const string ship2 = "ship_2";
+        public const string ship3 = "ship_3";
+        public const string ship4 = "ship_4";
+        public const string ship5 = "ship_5";
+        public const string ship6 = "ship_6";
+        public const string ship7 = "ship_7";
+        public const string ship8 = "ship_8";
+        public const string ship9 = "ship_9";
+        public const string ship10 = "ship_10";
+        public const string ship11 = "ship_11";
+        public const string shipEndless = "ship_endless";
+
         // Minigames
         public const string whackAGhost = "whack_a_ghost";
         public const string breakout = "breakout";
