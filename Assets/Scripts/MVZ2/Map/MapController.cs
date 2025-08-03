@@ -557,6 +557,21 @@ namespace MVZ2.Map
 
         private IEnumerator EnterLevel(NamespaceID areaID, NamespaceID stageID)
         {
+            if (Global.Game.GetAreaDefinition(areaID) == null)
+            {
+                var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                var desc = Main.LanguageManager._(ERROR_AREA_NOT_EXISTS, areaID);
+                Main.Scene.ShowDialogMessage(title, desc);
+                yield break;
+            }
+            if (Global.Game.GetStageDefinition(stageID) == null)
+            {
+                var title = Main.LanguageManager._(VanillaStrings.ERROR);
+                var desc = Main.LanguageManager._(ERROR_STAGE_NOT_EXISTS, stageID);
+                Main.Scene.ShowDialogMessage(title, desc);
+                yield break;
+            }
+
             ui.SetHintText(Main.LanguageManager._(HINT_TEXT_ENTERING_LEVEL));
             ui.SetRaycastBlockerActive(true);
             Main.MusicManager.Stop();
@@ -685,6 +700,10 @@ namespace MVZ2.Map
         public const string HINT_TEXT_ENTERING_LEVEL = "正在进入关卡……";
         [TranslateMsg("地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高")]
         public const string ENDLESS_FLAGS_TEMPLATE = "轮数\n{0}/{1}";
+        [TranslateMsg("进入关卡的错误信息，{0}为地点ID")]
+        public const string ERROR_AREA_NOT_EXISTS = "目标地点{0}不存在。";
+        [TranslateMsg("进入关卡的错误信息，{0}为关卡ID")]
+        public const string ERROR_STAGE_NOT_EXISTS = "目标关卡{0}不存在。";
         private MainManager Main => MainManager.Instance;
         private MapModel model;
         private MapMeta mapMeta;
