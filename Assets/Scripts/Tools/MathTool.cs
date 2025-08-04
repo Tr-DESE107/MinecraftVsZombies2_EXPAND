@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using static UnityEditor.UIElements.ToolbarMenu;
 
 namespace Tools.Mathematics
 {
@@ -711,7 +710,7 @@ namespace Tools.Mathematics
             }
 
             // 检查是否发生碰撞且在[0,1]时间范围内
-            if (tEntry > tExit || tEntry < 0 || tEntry > 1)
+            if (tEntry > tExit || tExit < 0 || tEntry > 1)
                 return false;
 
             collisionTime = tEntry;

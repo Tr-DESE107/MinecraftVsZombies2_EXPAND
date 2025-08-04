@@ -37,44 +37,33 @@ namespace PVZEngine.Level.Collisions
                 var maskTotal = maskHostile | maskFriendly;
                 int ent1Faction = ent1.Cache.Faction;
 
+                collisionBuffer.Clear();
+
+                bool ColliderFilter(BuiltinCollisionCollider collider2)
+                {
+                    if (collider1 == collider2)
+                        return false;
+                    var ent2 = collider2.Entity;
+                    if (ent1 == ent2)
+                        return false;
+                    if (!EntityCollisionHelper.CanCollideFaction(maskHostile, maskFriendly, ent1Faction, ent2))
+                        return false;
+                    return true;
+                };
+                var sorter = new ColliderComparer(collider1);
 
                 var rect1 = collider1.GetCollisionRect();
-
-                collisionBuffer.Clear();
                 foreach (var pair in quadTrees)
                 {
                     var flag = pair.Key;
                     if ((flag & maskTotal) == 0)
                         continue;
                     var tree = pair.Value;
-                    tree.FindTargetsInRect(rect1, collisionBuffer, 0);
+                    tree.FindTargetsInRect(rect1, collisionBuffer, 0, ColliderFilter, sorter);
                 }
-                var prevPosition = collider1.GetPosition() - (ent1.Position - ent1.PreviousPosition);
-
-                int SortCollider(BuiltinCollisionCollider c1, BuiltinCollisionCollider c2)
-                {
-                    const int precision = 1;
-                    var collisionTime1 = collider1.GetCollisionTime(prevPosition, c1, precision, out var time1) ? time1 : float.PositiveInfinity;
-                    var collisionTime2 = collider1.GetCollisionTime(prevPosition, c2, precision, out var time2) ? time2 : float.PositiveInfinity;
-                    var distanceResult = collisionTime1.CompareTo(collisionTime2);
-                    if (distanceResult != 0)
-                        return distanceResult;
-                    var id1 = c1.Entity.ID;
-                    var id2 = c2.Entity.ID;
-                    return id1.CompareTo(id2);
-                }
-                collisionBuffer.Sort(SortCollider);
 
                 foreach (var collider2 in collisionBuffer)
                 {
-                    if (collider1 == collider2)
-                        continue;
-                    var ent2 = collider2.Entity;
-                    if (ent1 == ent2)
-                        continue;
-                    if (!EntityCollisionHelper.CanCollideFaction(maskHostile, maskFriendly, ent1Faction, ent2))
-                        continue;
-
                     collider1.DoCollision(collider2, Vector3.zero);
                 }
 
@@ -419,5 +408,40 @@ namespace PVZEngine.Level.Collisions
         public SerializableBuiltinCollisionSystemEntity[] entityTrash;
         ISerializableCollisionEntity[] ISerializableCollisionSystem.Entities => entities;
         ISerializableCollisionEntity[] ISerializableCollisionSystem.EntityTrash => entityTrash;
+    }
+    public class ColliderComparer : IComparer<BuiltinCollisionCollider>
+    {
+        public ColliderComparer(BuiltinCollisionCollider collider, float precision = 1)
+        {
+            this.collider = collider;
+            this.precision = precision;
+            var ent1 = collider.Entity;
+            prevPosition = collider.GetPosition() - (ent1.Position - ent1.PreviousPosition);
+        }
+
+        public int Compare(BuiltinCollisionCollider c1, BuiltinCollisionCollider c2)
+        {
+            var collisionTime1 = GetCollisionTime(c1);
+            var collisionTime2 = GetCollisionTime(c2);
+            var distanceResult = collisionTime1.CompareTo(collisionTime2);
+            if (distanceResult != 0)
+                return distanceResult;
+            var id1 = c1.Entity.ID;
+            var id2 = c2.Entity.ID;
+            return id1.CompareTo(id2);
+        }
+        private float GetCollisionTime(BuiltinCollisionCollider c)
+        {
+            if (!collisionTimeCache.TryGetValue(c, out var time))
+            {
+                time = collider.GetCollisionTime(prevPosition, c, precision, out var t) ? t : float.PositiveInfinity;
+                collisionTimeCache.Add(c, time);
+            }
+            return time;
+        }
+        private float precision = 1;
+        private BuiltinCollisionCollider collider;
+        private Vector3 prevPosition;
+        private Dictionary<BuiltinCollisionCollider, float> collisionTimeCache = new Dictionary<BuiltinCollisionCollider, float>();
     }
 }

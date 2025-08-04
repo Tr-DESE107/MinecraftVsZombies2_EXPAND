@@ -60,9 +60,15 @@ namespace PVZEngine.Entities
         }
         public bool GetCollisionTime(Vector3 prevPosition, Bounds target, float precision, out float collisionTime)
         {
-            var center = hitbox.GetBoundsCenter();
-            center = ((Vector3)Vector3Int.FloorToInt(center * precision)) / precision;
-            return MathTool.CalculateAABBCollisionTime(prevPosition, center, hitbox.GetBoundsSize(), target, out collisionTime);
+            var oldPosition = prevPosition + hitbox.GetLocalCenter();
+            oldPosition = ((Vector3)Vector3Int.FloorToInt(oldPosition * precision)) / precision;
+
+            var newPosition = hitbox.GetBoundsCenter();
+            newPosition = ((Vector3)Vector3Int.FloorToInt(newPosition * precision)) / precision;
+
+            var targetBounds = target;
+            targetBounds.center = ((Vector3)Vector3Int.FloorToInt(targetBounds.center * precision)) / precision;
+            return MathTool.CalculateAABBCollisionTime(oldPosition, newPosition, hitbox.GetBoundsSize(), targetBounds, out collisionTime);
         }
 
         #region 检测

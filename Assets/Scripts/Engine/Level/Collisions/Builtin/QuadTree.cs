@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -32,9 +33,9 @@ namespace PVZEngine.Level.Collisions
             item.node.Remove(item);
             RemoveItem(item);
         }
-        public void FindTargetsInRect(Rect rect, List<T> results, float rewind = 0)
+        public void FindTargetsInRect(Rect rect, List<T> results, float rewind = 0, Predicate<T> predicate = null, IComparer<T> sorter = null)
         {
-            root.FindTargetsInRect(rect, results, rewind);
+            root.FindTargetsInRect(rect, results, rewind, predicate, sorter);
         }
         public void GetAllTargets(List<T> results)
         {

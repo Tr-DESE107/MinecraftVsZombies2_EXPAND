@@ -154,7 +154,7 @@ namespace PVZEngine.Level.Collisions
         #endregion
 
         #region 查找目标
-        public void FindTargetsInRect(Rect rect, List<T> results, float rewind = 0)
+        public void FindTargetsInRect(Rect rect, List<T> results, float rewind = 0, Predicate<T> predicate = null, IComparer<T> sorter = null)
         {
             if (!rect.OverlapOptimized(looseBounds))
                 return;
@@ -163,16 +163,27 @@ namespace PVZEngine.Level.Collisions
             foreach (var item in items)
             {
                 var target = item.target;
-                if (rect.OverlapOptimized(target.GetCollisionRect(rewind)))
+                if (rect.OverlapOptimized(target.GetCollisionRect(rewind)) && (predicate == null || predicate(target)))
                 {
-                    results.Add(target);
+                    if (sorter != null)
+                    {
+                        var index = results.BinarySearch(target, sorter);
+                        if (index < 0)
+                        {
+                            results.Insert(~index, target);
+                        }
+                    }
+                    else
+                    {
+                        results.Add(target);
+                    }
                 }
             }
 
             //遍历子节点
             foreach (var child in children)
             {
-                child.FindTargetsInRect(rect, results, rewind);
+                child.FindTargetsInRect(rect, results, rewind, predicate, sorter);
             }
         }
         #endregion
