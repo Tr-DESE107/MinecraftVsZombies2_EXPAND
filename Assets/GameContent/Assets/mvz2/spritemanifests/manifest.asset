@@ -2471,6 +2471,20 @@ MonoBehaviour:
   - name: ui/almanac/Expand_buff
     spritesheet:
     - {fileID: 826371942, guid: 79bc90921fac92a4bad7be69e64ed94c, type: 3}
+  - name: ui/almanac/EXPAND_EnemyCategory
+    spritesheet:
+    - {fileID: -1856297382, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 835594114, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -1360795252, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 430786344, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -238938272, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -1085360653, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -773119044, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 661618413, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1174712118, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 869447777, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 2079419674, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1239007083, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
   - name: ui/almanac/grid_layer_tags
     spritesheet:
     - {fileID: 1321867714, guid: f4743b7a556142b4db02b61d15e9da06, type: 3}

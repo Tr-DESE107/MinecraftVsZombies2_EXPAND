@@ -154,6 +154,11 @@
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
 		</tag>
 
+		<tag id="category_skeleton" name="种族:骷髅" description="该实体是骷髅种族" priority="4000" >
+			<icon sprite="mvz2:ui/almanac/EXPAND_EnemyCategory[5]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#7e557e" />
+		</tag>
+
 
         <enum id="mass" type="int">
             <value value="-2" name="很轻" description="受到的击退极大" sprite="mvz2:ui/almanac/mass_tags[0]" backgroundColor="#696a7f"/>
@@ -1156,6 +1161,9 @@
             </flavor>
         </entry>
         <entry id="mvz2:skeleton">
+			<tags>
+				<tag id="mvz2:category_skeleton"/>
+			</tags>
             <header>
                 <p>骷髅能够在前线朝你的器械射击。</p>
             </header>
