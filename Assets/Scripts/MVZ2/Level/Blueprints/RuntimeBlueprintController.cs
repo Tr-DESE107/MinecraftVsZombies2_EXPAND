@@ -4,6 +4,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace MVZ2.Level
             SeedPack = seedPack;
             ui.gameObject.name = seedPack.GetDefinitionID().ToString();
             seedPack.SetModelInterface(modelInterface);
+            UpdateModelInsertions();
         }
         public override void Remove()
         {
@@ -32,11 +34,15 @@ namespace MVZ2.Level
         {
             base.AddCallbacks();
             SeedPack.OnDefinitionChanged += OnDefinitionChangedCallback;
+            SeedPack.OnModelInsertionAdded += OnModelInsertionAddedCallback;
+            SeedPack.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
         }
         protected override void RemoveCallbacks()
         {
             base.RemoveCallbacks();
             SeedPack.OnDefinitionChanged -= OnDefinitionChangedCallback;
+            SeedPack.OnModelInsertionAdded -= OnModelInsertionAddedCallback;
+            SeedPack.OnModelInsertionRemoved -= OnModelInsertionRemovedCallback;
         }
         public virtual void UpdateFixed()
         {
@@ -92,6 +98,18 @@ namespace MVZ2.Level
         {
             ui.UpdateView(Main.ResourceManager.GetBlueprintViewData(SeedPack));
         }
+        private void OnModelInsertionAddedCallback(ModelInsertion insertion)
+        {
+            var model = GetModel();
+            if (model)
+                model.AddModelInsertion(insertion);
+        }
+        private void OnModelInsertionRemovedCallback(ModelInsertion insertion)
+        {
+            var model = GetModel();
+            if (model)
+                model.RemoveModelInsertion(insertion.key);
+        }
         #endregion
 
         protected virtual bool ShouldBlueprintTwinkle(SeedPack seedPack)
@@ -130,6 +148,12 @@ namespace MVZ2.Level
             var hotkey = Main.OptionsManager.GetBlueprintKeyBinding(Index);
             return hotkey != KeyCode.None ? Main.InputManager.GetKeyCodeName(hotkey) : string.Empty;
         }
+        private void UpdateModelInsertions()
+        {
+            var model = GetModel();
+            if (model)
+                model.UpdateModelInsertions(SeedPack.GetModelInsertions());
+        }
         #endregion
 
         #region 序列化
@@ -149,6 +173,7 @@ namespace MVZ2.Level
             if (model != null && serializable.model != null)
             {
                 model.LoadFromSerializable(serializable.model);
+                UpdateModelInsertions();
             }
             LoadSerializable(serializable);
         }

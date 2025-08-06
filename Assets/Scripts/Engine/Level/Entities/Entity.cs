@@ -38,8 +38,8 @@ namespace PVZEngine.Entities
             ID = id;
             SpawnerReference = spawnerReference;
             buffs.OnPropertyChanged += UpdateModifiedProperty;
-            buffs.OnModelInsertionAdded += OnBuffModelAddCallback;
-            buffs.OnModelInsertionRemoved += OnBuffModelRemoveCallback;
+            buffs.OnBuffAdded += OnBuffAddedCallback;
+            buffs.OnBuffRemoved += OnBuffRemovedCallback;
             Cache = new EntityCache();
             properties = new PropertyBlock(this);
         }
@@ -750,55 +750,62 @@ namespace PVZEngine.Entities
         }
         public void SetModelProperty(string name, object value)
         {
-            modelInterface.SetModelProperty(name, value);
+            modelInterface?.SetModelProperty(name, value);
         }
         public void TriggerModel(string name)
         {
-            modelInterface.TriggerModel(name);
+            modelInterface?.TriggerModel(name);
         }
         public void SetShaderInt(string name, int value)
         {
-            modelInterface.SetShaderInt(name, value);
+            modelInterface?.SetShaderInt(name, value);
         }
         public void SetShaderFloat(string name, float value)
         {
-            modelInterface.SetShaderFloat(name, value);
+            modelInterface?.SetShaderFloat(name, value);
         }
         public void SetShaderColor(string name, Color value)
         {
-            modelInterface.SetShaderColor(name, value);
+            modelInterface?.SetShaderColor(name, value);
         }
         public IModelInterface CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
         {
-            return modelInterface.CreateChildModel(anchorName, key, modelID);
+            return modelInterface?.CreateChildModel(anchorName, key, modelID);
         }
         public bool RemoveChildModel(NamespaceID key)
         {
-            return modelInterface.RemoveChildModel(key);
+            return modelInterface?.RemoveChildModel(key) ?? false;
         }
         public IModelInterface GetChildModel(NamespaceID key)
         {
-            return modelInterface.GetChildModel(key);
+            return modelInterface?.GetChildModel(key);
         }
         public void UpdateModel()
         {
-            modelInterface.UpdateModel();
+            modelInterface?.UpdateModel();
         }
         public void TriggerAnimation(string name)
         {
-            modelInterface.TriggerAnimation(name);
+            modelInterface?.TriggerAnimation(name);
         }
         public void SetAnimationBool(string name, bool value)
         {
-            modelInterface.SetAnimationBool(name, value);
+            modelInterface?.SetAnimationBool(name, value);
         }
         public void SetAnimationInt(string name, int value)
         {
-            modelInterface.SetAnimationInt(name, value);
+            modelInterface?.SetAnimationInt(name, value);
         }
         public void SetAnimationFloat(string name, float value)
         {
-            modelInterface.SetAnimationFloat(name, value);
+            modelInterface?.SetAnimationFloat(name, value);
+        }
+        #endregion
+
+        #region 模型插入
+        public ModelInsertion[] GetModelInsertions()
+        {
+            return buffs.SelectMany(b => b.GetModelInsertions()).ToArray();
         }
         #endregion
 
@@ -960,8 +967,8 @@ namespace PVZEngine.Entities
             // 先于光环加载，不然找不到Buff
             entity.buffs = BuffList.FromSerializable(seri.buffs, level, entity);
             entity.buffs.OnPropertyChanged += entity.UpdateModifiedProperty;
-            entity.buffs.OnModelInsertionAdded += entity.OnBuffModelAddCallback;
-            entity.buffs.OnModelInsertionRemoved += entity.OnBuffModelRemoveCallback;
+            entity.buffs.OnBuffAdded += entity.OnBuffAddedCallback;
+            entity.buffs.OnBuffRemoved += entity.OnBuffRemovedCallback;
             return entity;
         }
         public void LoadAuras(SerializableEntity seri)
@@ -1022,15 +1029,20 @@ namespace PVZEngine.Entities
             };
             Level.Triggers.RunCallback(LevelCallbacks.POST_ENTITY_LEAVE_GROUND, param);
         }
-        private void OnBuffModelAddCallback(string anchorName, NamespaceID key, NamespaceID modelID)
+        private void OnBuffAddedCallback(Buff buff)
         {
-            CreateChildModel(anchorName, key, modelID);
+            foreach (var insertion in buff.GetModelInsertions())
+            {
+                OnModelInsertionAdded?.Invoke(insertion);
+            }
         }
-        private void OnBuffModelRemoveCallback(NamespaceID key)
+        private void OnBuffRemovedCallback(Buff buff)
         {
-            RemoveChildModel(key);
+            foreach (var insertion in buff.GetModelInsertions())
+            {
+                OnModelInsertionRemoved?.Invoke(insertion);
+            }
         }
-
         private void CreateAuraEffects()
         {
             var auraDefs = Definition.GetAuras();
@@ -1070,6 +1082,8 @@ namespace PVZEngine.Entities
         public event Action<NamespaceID> OnChangeModel;
         public event Action<NamespaceID, Armor> OnEquipArmor;
         public event Action<NamespaceID, Armor> OnRemoveArmor;
+        public event Action<ModelInsertion> OnModelInsertionAdded;
+        public event Action<ModelInsertion> OnModelInsertionRemoved;
         #endregion
 
         #region 属性字段

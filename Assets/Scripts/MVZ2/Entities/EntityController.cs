@@ -15,6 +15,7 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
@@ -41,9 +42,12 @@ namespace MVZ2.Entities
             entity.PostInit += PostInitCallback;
             entity.PostPropertyChanged += PostPropertyChangedCallback;
             entity.OnChangeModel += OnChangeModelCallback;
+            entity.OnModelInsertionAdded += OnModelInsertionAddedCallback;
+            entity.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
 
             entity.OnEquipArmor += OnArmorEquipCallback;
             entity.OnRemoveArmor += OnArmorRemoveCallback;
+
 
             holdStreakHandler.ResetData();
             RemoveCursorSource();
@@ -63,9 +67,12 @@ namespace MVZ2.Entities
             Entity.PostInit -= PostInitCallback;
             Entity.PostPropertyChanged -= PostPropertyChangedCallback;
             Entity.OnChangeModel -= OnChangeModelCallback;
+            Entity.OnModelInsertionAdded -= OnModelInsertionAddedCallback;
+            Entity.OnModelInsertionRemoved -= OnModelInsertionRemovedCallback;
 
             Entity.OnEquipArmor -= OnArmorEquipCallback;
             Entity.OnRemoveArmor -= OnArmorRemoveCallback;
+            Entity.SetModelInterface(null);
         }
 
         #region 模型
@@ -85,6 +92,7 @@ namespace MVZ2.Entities
             modelPropertyCache.UpdateAll(this);
             Model.UpdateFrame(0);
             Model.UpdateAnimators(0);
+            UpdateModelInsertions();
 
             // 重新创建护甲模型
             foreach (var slot in Entity.GetActiveArmorSlots())
@@ -219,6 +227,7 @@ namespace MVZ2.Entities
             if (Model && serializable.model != null)
             {
                 Model.LoadFromSerializable(serializable.model);
+                UpdateModelInsertions();
             }
         }
         #endregion
@@ -259,6 +268,16 @@ namespace MVZ2.Entities
         private void OnChangeModelCallback(NamespaceID modelID)
         {
             SetModel(modelID);
+        }
+        private void OnModelInsertionAddedCallback(ModelInsertion insertion)
+        {
+            if (Model)
+                Model.AddModelInsertion(insertion);
+        }
+        private void OnModelInsertionRemovedCallback(ModelInsertion insertion)
+        {
+            if (Model)
+                Model.RemoveModelInsertion(insertion.key);
         }
         private void OnArmorEquipCallback(NamespaceID slot, Armor armor)
         {
@@ -483,6 +502,10 @@ namespace MVZ2.Entities
             {
                 modelPropertyCache.Update(this);
             }
+        }
+        private void UpdateModelInsertions()
+        {
+            Model.UpdateModelInsertions(Entity.GetModelInsertions());
         }
         #endregion
 

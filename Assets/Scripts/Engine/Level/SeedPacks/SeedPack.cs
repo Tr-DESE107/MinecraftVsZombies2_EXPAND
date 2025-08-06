@@ -22,8 +22,8 @@ namespace PVZEngine.SeedPacks
             Definition = definition;
 
             buffs.OnPropertyChanged += UpdateBuffedProperty;
-            buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
-            buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
+            buffs.OnBuffAdded += OnBuffAddedCallback;
+            buffs.OnBuffRemoved += OnBuffRemovedCallback;
             properties = new PropertyBlock(this);
 
             var auraCount = definition.GetAuraCount();
@@ -53,6 +53,23 @@ namespace PVZEngine.SeedPacks
         {
             auras.PostRemove();
         }
+
+        #region 事件回调
+        private void OnBuffAddedCallback(Buff buff)
+        {
+            foreach (var insertion in buff.GetModelInsertions())
+            {
+                OnModelInsertionAdded?.Invoke(insertion);
+            }
+        }
+        private void OnBuffRemovedCallback(Buff buff)
+        {
+            foreach (var insertion in buff.GetModelInsertions())
+            {
+                OnModelInsertionRemoved?.Invoke(insertion);
+            }
+        }
+        #endregion
 
         #region 属性
         public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
@@ -201,13 +218,12 @@ namespace PVZEngine.SeedPacks
         {
             return modelInterface.GetChildModel(key);
         }
-        private void OnModelInsertionAddedCallback(string anchorName, NamespaceID key, NamespaceID modelID)
+        #endregion
+
+        #region 模型插入
+        public ModelInsertion[] GetModelInsertions()
         {
-            modelInterface.CreateChildModel(anchorName, key, modelID);
-        }
-        private void OnModelInsertionRemovedCallback(NamespaceID key)
-        {
-            modelInterface.RemoveChildModel(key);
+            return buffs.SelectMany(b => b.GetModelInsertions()).ToArray();
         }
         #endregion
 
@@ -227,8 +243,8 @@ namespace PVZEngine.SeedPacks
             currentBuffID = seri.currentBuffID;
             buffs = BuffList.FromSerializable(seri.buffs, level, this);
             buffs.OnPropertyChanged += UpdateBuffedProperty;
-            buffs.OnModelInsertionAdded += OnModelInsertionAddedCallback;
-            buffs.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
+            buffs.OnBuffAdded += OnBuffAddedCallback;
+            buffs.OnBuffRemoved += OnBuffRemovedCallback;
             buffs.LoadAuras(seri.buffs, level);
             auras.LoadFromSerializable(level, seri.auras);
             UpdateAllBuffedProperties(false);
@@ -249,6 +265,8 @@ namespace PVZEngine.SeedPacks
         bool IAuraSource.IsValid() => true;
         bool IBuffTarget.Exists() => true;
         public event Action<SeedDefinition> OnDefinitionChanged;
+        public event Action<ModelInsertion> OnModelInsertionAdded;
+        public event Action<ModelInsertion> OnModelInsertionRemoved;
 
         #region 属性字段
         public long ID { get; }

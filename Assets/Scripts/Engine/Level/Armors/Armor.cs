@@ -58,9 +58,8 @@ namespace PVZEngine.Armors
         #region 动画
         public IModelInterface GetModelInterface()
         {
-            var modelInterface = Owner.GetModelInterface();
             var key = EngineArmorExt.GetModelKeyOfArmorSlot(Slot);
-            return modelInterface.GetChildModel(key);
+            return Owner.GetChildModel(key);
         }
         public void TriggerAnimation(string name)
         {

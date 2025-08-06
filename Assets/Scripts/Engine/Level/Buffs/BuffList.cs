@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Level;
@@ -6,7 +7,7 @@ using PVZEngine.Modifiers;
 
 namespace PVZEngine.Buffs
 {
-    public class BuffList
+    public class BuffList : IEnumerable<Buff>
     {
         #region 增益操作
         public bool AddBuff(Buff buff)
@@ -201,7 +202,7 @@ namespace PVZEngine.Buffs
                 return false;
             buffs.Add(buff);
             AddModifierCaches(buff);
-            UpdateModelInsertions();
+            OnBuffAdded?.Invoke(buff);
             buff.OnPropertyChanged += OnPropertyChangedCallback;
             return true;
         }
@@ -213,7 +214,7 @@ namespace PVZEngine.Buffs
             {
                 buff.RemoveFromTarget();
                 RemoveModifierCaches(buff);
-                UpdateModelInsertions();
+                OnBuffRemoved?.Invoke(buff);
                 buff.OnPropertyChanged -= OnPropertyChangedCallback;
                 return true;
             }
@@ -238,32 +239,6 @@ namespace PVZEngine.Buffs
         public IPropertyKey[] GetModifierPropertyNames()
         {
             return modifierCaches.Keys.ToArray();
-        }
-        #endregion
-
-        #region 模型
-        public void UpdateModelInsertions()
-        {
-            HashSet<NamespaceID> retainModels = new HashSet<NamespaceID>();
-            foreach (var buff in buffs)
-            {
-                foreach (var insertion in buff.GetModelInsertions())
-                {
-                    retainModels.Add(insertion.key);
-                    if (createdModelInsertions.Contains(insertion.key))
-                        continue;
-                    OnModelInsertionAdded?.Invoke(insertion.anchorName, insertion.key, insertion.modelID);
-                    createdModelInsertions.Add(insertion.key);
-                }
-            }
-            for (int i = createdModelInsertions.Count - 1; i >= 0; i--)
-            {
-                var key = createdModelInsertions[i];
-                if (retainModels.Contains(key))
-                    continue;
-                OnModelInsertionRemoved?.Invoke(key);
-                createdModelInsertions.RemoveAt(i);
-            }
         }
         #endregion
 
@@ -321,19 +296,12 @@ namespace PVZEngine.Buffs
         public static BuffList FromSerializable(SerializableBuffList serializable, LevelEngine level, IBuffTarget target)
         {
             var buffList = new BuffList();
+
             foreach (var seriBuff in serializable.buffs)
             {
                 var buff = Buff.Deserialize(seriBuff, level, target);
                 buff.OnPropertyChanged += buffList.OnPropertyChangedCallback;
                 buffList.buffs.Add(buff);
-
-                foreach (var insertion in buff.GetModelInsertions())
-                {
-                    if (!buffList.createdModelInsertions.Contains(insertion.key))
-                    {
-                        buffList.createdModelInsertions.Add(insertion.key);
-                    }
-                }
             }
             buffList.UpdateModifierCaches();
             return buffList;
@@ -352,12 +320,22 @@ namespace PVZEngine.Buffs
         }
         #endregion
 
-        public event Action<string, NamespaceID, NamespaceID> OnModelInsertionAdded;
-        public event Action<NamespaceID> OnModelInsertionRemoved;
+        IEnumerator<Buff> IEnumerable<Buff>.GetEnumerator()
+        {
+            return buffs.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return buffs.GetEnumerator();
+        }
+
+        public event Action<Buff> OnBuffAdded;
+        public event Action<Buff> OnBuffRemoved;
         public event Action<IPropertyKey> OnPropertyChanged;
+
         private List<Buff> updateBuffer = new List<Buff>();
         private List<Buff> buffs = new List<Buff>();
-        private List<NamespaceID> createdModelInsertions = new List<NamespaceID>();
         private HashSet<IPropertyKey> changedPropertiesBuffer = new HashSet<IPropertyKey>();
         private Dictionary<IPropertyKey, List<ModifierContainerItem>> modifierCaches = new Dictionary<IPropertyKey, List<ModifierContainerItem>>(new PropertyKeyComparer());
         private List<ModifierContainerItem> modifierItemBuffer = new List<ModifierContainerItem>();
