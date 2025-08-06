@@ -66,6 +66,7 @@ namespace MVZ2Logic.Saves
         public long PlayTimeMilliseconds { get; set; }
     }
     [Serializable]
+    [BsonIgnoreExtraElements]
     public class SerializableUserStats
     {
         public SerializableUserStatCategory[] categories;
