@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-06-09 11:55+0800\n"
-"PO-Revision-Date: 2025-06-09 11:58+0800\n"
+"POT-Creation-Date: 2025-08-07 09:43+0800\n"
+"PO-Revision-Date: 2025-08-07 21:53+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2647,7 +2647,7 @@ msgctxt "talk-mvz2:dream_1_map"
 msgid ""
 "不是我说，为什么又有一个人真身进入梦境世界啊。而且还有一个方块大鼻子怪人。"
 msgstr ""
-"Ughh, another person entering the Dream World with a physical body. along "
+"Ughh, another person entering the Dream World with a physical body. Along "
 "with this blocky big-nosed weirdo."
 
 #. Text for talk sentence 1 in talk group dream_1_map's section 0
@@ -2724,7 +2724,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:dream_2"
 msgid "我可以让你们通过这里，不过目前遇到了一点难处。"
-msgstr "I can let you pass, however there are some problems at the moment."
+msgstr "I can let you pass, but there are some problems at the moment."
 
 #. Text for talk sentence 2 in talk group dream_2's section 0
 #: Talk meta file
@@ -2803,7 +2803,7 @@ msgctxt "talk-mvz2:dream_2_map"
 msgid "看起来你们干的不错，能这么快就把那些蜘蛛一网打尽。"
 msgstr ""
 "Seems like you have done a good job, you wiped out those spiders so "
-"efficidently"
+"efficiently."
 
 #. Text for talk sentence 1 in talk group dream_2_map's section 0
 #: Talk meta file
@@ -2826,7 +2826,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:dream_2_map"
 msgid "当然了！我们可是一开始就是奔着这里来的！"
-msgstr "Of course! We came for here from the get go!"
+msgstr "Of course! We came here from the get-go!"
 
 #. Text for talk sentence 4 in talk group dream_2_map's section 0
 #: Talk meta file
@@ -2935,7 +2935,8 @@ msgstr "True, what's going on?"
 msgctxt "talk-mvz2:dream_3"
 msgid "不过，只要有光明，再深邃的黑暗也挡不住我们！"
 msgstr ""
-"But, even the deepest darkness can't interfere us, as long as there's light!"
+"However, even the deepest darkness can't interfere us, as long as there's "
+"light!"
 
 #. Text for talk sentence 3 in talk group dream_3's section 0
 #: Talk meta file
@@ -2979,7 +2980,7 @@ msgctxt "talk-mvz2:dream_3_over"
 msgid "不仅可以减速上面的敌人，还可以在面对低矮敌人的时候拉低子弹的高度！"
 msgstr ""
 "Not only can it slow down enemies above, but it can also pull down "
-"projectiles to reach low height enemies!"
+"projectiles to reach low-height enemies!"
 
 #. Text for talk sentence 3 in talk group dream_3_over's section 0
 #: Talk meta file
@@ -3003,7 +3004,7 @@ msgstr "Right, Doremy, what's going on in the reality of Gensokyo?"
 #: Talk meta file
 msgctxt "talk-mvz2:dream_3_map"
 msgid "内地的话，情况已经差不多稳定下来了吧。"
-msgstr "Well, the situation there should have been stablized by now."
+msgstr "Well, the situation there should have been stabilized by now."
 
 #. Text for talk sentence 2 in talk group dream_3_map's section 0
 #: Talk meta file
@@ -3034,8 +3035,8 @@ msgstr ""
 msgctxt "talk-mvz2:dream_3_map"
 msgid "但对于一些强大的妖怪来说可就不一定了。猎物反倒是那些可怜的方块生物们。"
 msgstr ""
-"But not necessarily for some powerful youkais, the poor blocky things are "
-"the prey instead."
+"But not necessarily for some powerful youkai, the poor blocky things are the "
+"prey instead."
 
 #. Text for talk sentence 6 in talk group dream_3_map's section 0
 #: Talk meta file
@@ -3094,7 +3095,7 @@ msgstr "Ah, nothing. I've been like this for quite some time now."
 msgctxt "talk-mvz2:dream_4"
 msgid "大概是管理梦境的工作有些多了吧。谢谢关照。"
 msgstr ""
-"Perhaps I work too hard on managing dreams. Thank you for your concern."
+"Perhaps I’ve worked too hard on managing dreams. Thank you for your concern."
 
 #. Text for talk sentence 5 in talk group dream_4's section 0
 #: Talk meta file
@@ -3180,7 +3181,7 @@ msgstr "Dreams?"
 #: Talk meta file
 msgctxt "talk-mvz2:dream_4_map"
 msgid "你以前做过的梦的记录，在我这边都能查到。"
-msgstr "I can find the records of all the dreams you had before."
+msgstr "I can find the records of all the dreams you’ve had before."
 
 #. Text for talk sentence 5 in talk group dream_4_map's section 0
 #: Talk meta file
@@ -3246,7 +3247,7 @@ msgstr ""
 msgctxt "talk-mvz2:dream_4_map"
 msgid "因为死者而感到印象深刻——我真的有点想同情你呢。"
 msgstr ""
-"Having such strong memories for someone passed away, I really want to "
+"Having such strong memories of someone who passed away, I really want to "
 "sympathize with you."
 
 #. Text for talk sentence 15 in talk group dream_4_map's section 0
@@ -3313,7 +3314,7 @@ msgstr "What is it?"
 #: Talk meta file
 msgctxt "talk-mvz2:dream_5_map"
 msgid "为什么，有的时候这天突然就黑下来了？"
-msgstr "Why does it suddenly gets dark at times?"
+msgstr "Why does it suddenly get dark at times?"
 
 #. Text for talk sentence 3 in talk group dream_5_map's section 0
 #: Talk meta file
@@ -3500,7 +3501,7 @@ msgstr "Dream World Day 6 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:dream_6_map"
 msgid "哆、哆来咪，你怎么了？！"
-msgstr "Do-Doremy, What happened to you?!"
+msgstr "Do-Doremy, what happened to you?!"
 
 #. Description for talk sentence 0 in talk group dream_6_map's section 0
 #: Talk meta file
@@ -3598,7 +3599,7 @@ msgstr "Wh-Why, has this place become like this?!"
 #: Talk meta file
 msgctxt "talk-mvz2:dream_6_map"
 msgid "所以，那些东西都只是幻象吗？！"
-msgstr "So this means, everything we had been seeing were just cover-ups?!"
+msgstr "So this means, everything we had been seeing was just a cover-up?!"
 
 #. Text for talk sentence 13 in talk group dream_6_map's section 0
 #: Talk meta file
@@ -3668,7 +3669,7 @@ msgstr "It can also use fire breath to burn nearby enemies!"
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_over"
 msgid "最后，来一发致命的毒素投枪吧！"
-msgstr "And at last, throw a deadly poison javelin!"
+msgstr "And lastly, throw a deadly poison javelin!"
 
 #. Archive name for talk group dream_7_map
 #: Talk meta file
@@ -3776,7 +3777,7 @@ msgstr "Horse?"
 #: Talk meta file
 msgctxt "talk-mvz2:dream_7_map"
 msgid "我在几个月前、发现了它的存在。"
-msgstr "I discovered about its existence... a few months ago."
+msgstr "I discovered its existence... a few months ago."
 
 #. Text for talk sentence 16 in talk group dream_7_map's section 0
 #: Talk meta file
@@ -3801,7 +3802,7 @@ msgstr ""
 msgctxt "talk-mvz2:dream_7_map"
 msgid "现在回想起来，那应该、是个非常恐怖的东西，它连我的眼睛都能蒙骗过去。"
 msgstr ""
-"Now that I think about it, for it to deceive even me, It must be something "
+"Now that I think about it, for it to deceive even me, it must be something "
 "extremely horrifying."
 
 #. Text for talk sentence 19 in talk group dream_7_map's section 0
@@ -3809,8 +3810,8 @@ msgstr ""
 msgctxt "talk-mvz2:dream_7_map"
 msgid "当我听你们说梦境突然变得黑暗的时候，我意识到——这件事情不可能这么简单。"
 msgstr ""
-"When you two informed me of the Dream World suddenly turned dark, I "
-"realized- something was wrong…"
+"When you two informed me that the Dream World had suddenly turned dark, I "
+"realized—something was wrong…"
 
 #. Text for talk sentence 20 in talk group dream_7_map's section 0
 #: Talk meta file
@@ -3989,7 +3990,7 @@ msgstr "!"
 msgctxt "talk-mvz2:dream_8_map"
 msgid "你们、快走！不要……管我！用你们的钥匙走吧！"
 msgstr ""
-"Please, leave while you still can! Don't mind me...... Use your Key and go!"
+"Please, leave while you still can! Don't mind me... Use your Key and go!"
 
 #. Text for talk sentence 9 in talk group dream_8_map's section 0
 #: Talk meta file
@@ -4121,7 +4122,7 @@ msgstr "Understood. It's not like I can stop you anyway."
 #: Talk meta file
 msgctxt "talk-mvz2:dream_8_map"
 msgid "你们——为什么要这么做啊……"
-msgstr "Why- are you doing this..."
+msgstr "Why—are you doing this..."
 
 #. Archive name for talk group dream_9
 #: Talk meta file
@@ -4219,7 +4220,7 @@ msgstr "Still telling us to leave, right?"
 #: Talk meta file
 msgctxt "talk-mvz2:dream_9_map"
 msgid "是的。你已经很久没看望过她了吧？"
-msgstr "Yes. You haven't seen her for a while, no?"
+msgstr "Yes. You haven't seen her for a while, right?"
 
 #. Text for talk sentence 3 in talk group dream_9_map's section 0
 #: Talk meta file
@@ -4341,7 +4342,7 @@ msgstr "Miss Doremy... She never wanted me to fight it."
 #: Talk meta file
 msgctxt "talk-mvz2:dream_10_map"
 msgid "但为了能救她，我只能选择不去见她。"
-msgstr "But for her sake, I can only choose not to see her"
+msgstr "But for her sake, I can only choose not to see her."
 
 #. Text for talk sentence 8 in talk group dream_10_map's section 0
 #: Talk meta file
@@ -4379,7 +4380,7 @@ msgctxt "talk-mvz2:dream_11"
 msgid ""
 "我不知道梦魇究竟到底是什么，也并不知道它会什么，但我知道，一定要保持清醒。"
 msgstr ""
-"I don't know what Nightmare is, nor what it can do. But I do know, that you "
+"I don't know what Nightmare is, nor what it can do. But I do know that, I "
 "must stay clear-headed."
 
 #. Text for talk sentence 3 in talk group dream_11's section 0
@@ -4697,7 +4698,8 @@ msgstr "I see. Well, we'll probably see each other again."
 msgctxt "talk-mvz2:dream_11_map"
 msgid "你在做梦的时候，可能还会遇见我，那个时候我们再聊聊吧。"
 msgstr ""
-"You may meet me again when you are dreaming. We'll talk again in such event."
+"You may meet me again when you are dreaming. We'll talk again in such an "
+"event."
 
 #. Text for talk sentence 35 in talk group dream_11_map's section 0
 #: Talk meta file
@@ -4717,7 +4719,7 @@ msgstr ""
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
 msgid "另外，为了表示感谢，在你们离开之前，我有东西要送给你们。"
-msgstr "Also, for appreciation, I have something for you before you leave."
+msgstr "Also, in appreciation, I have something for you before you leave."
 
 #. Text for talk sentence 38 in talk group dream_11_map's section 0
 #: Talk meta file
@@ -4729,7 +4731,7 @@ msgstr "Take this. This is the Dream World's butterfly."
 #: Talk meta file
 msgctxt "talk-mvz2:dream_11_map"
 msgid "它能够保护你，还有器械们免受某些灾难。"
-msgstr "It can protect you, and contraptions from some disasters."
+msgstr "It can protect you, and contraptions from certain disasters."
 
 #. Text for talk sentence 40 in talk group dream_11_map's section 0
 #: Talk meta file
@@ -5465,8 +5467,8 @@ msgstr "Could you do me a favor?"
 msgctxt "talk-mvz2:halloween_1_map"
 msgid "就是……这里的僵尸和死者，都开始复活了起来，能不能帮我……让他们安息？"
 msgstr ""
-"It's that... More zombies and undead start to appear recently. Could you "
-"help me... put them to rest?"
+"It's that... More zombies and undead have started to appear recently. Could "
+"you help me... put them to rest?"
 
 #. Text for talk sentence 7 in talk group halloween_1_map's section 0
 #: Talk meta file
@@ -5803,16 +5805,16 @@ msgstr "This is Punchton!"
 msgctxt "talk-mvz2:halloween_4_over"
 msgid "它能够击退前方的敌人一大格距离！并且重创脆弱的石头或者其他东西！"
 msgstr ""
-"It can knock enemies back a long distance! And heavily damage fragile stones "
-"or other objects!"
+"It can knock enemies back a long distance! And heavily damages fragile "
+"stones or other objects!"
 
 #. Text for talk sentence 2 in talk group halloween_4_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_4_over"
 msgid "不过，在它击退之后会坏掉，需要一段时间来维修自己！"
 msgstr ""
-"However, it will be broken after the punch, and need some time to repair "
-"itself!"
+"However, it will be broken after the punch, and will need some time to "
+"repair itself!"
 
 #. Text for talk sentence 3 in talk group halloween_4_over's section 0
 #: Talk meta file
@@ -5830,7 +5832,7 @@ msgstr "Halloween Day 4 Map"
 #: Talk meta file
 msgctxt "talk-mvz2:halloween_4_map"
 msgid "说起来，这片沼泽着实怪异。"
-msgstr "Come to think of it, this swamp is really bizzare."
+msgstr "Come to think of it, this swamp is really bizarre."
 
 #. Text for talk sentence 1 in talk group halloween_4_map's section 0
 #: Talk meta file
@@ -5908,7 +5910,7 @@ msgctxt "talk-mvz2:halloween_5_over"
 msgid "……这个图鉴会自动记录遇到的所有器械、敌人，是个非常方便的东西。"
 msgstr ""
 "...This Almanac will automatically record contraptions, enemies and other "
-"infomation you've come across- it is a really convenient tool."
+"information you've come across- it is a really convenient tool."
 
 #. Text for talk sentence 5 in talk group halloween_5_over's section 0
 #: Talk meta file
@@ -6114,7 +6116,7 @@ msgid ""
 "一个巨大而又强壮的可怕尸体怪物，它的身上充满了电流。它被叫做——科学怪人的怪"
 "物。"
 msgstr ""
-"A giant, terrible and strong zombie-like monster, filled with enormous "
+"A giant, terrible and strong zombie-like monster, filled with an enormous "
 "amount of electricity. It's called... Frankenstein's monster."
 
 #. Text for talk sentence 2 in talk group halloween_6_map's section 0
@@ -6215,7 +6217,7 @@ msgstr "Your soul shall be mine!"
 msgctxt "talk-mvz2:halloween_7_over"
 msgid "看吧，灵魂熔炉！它能发射致命的灵魂火球，击中后还会焚烧一群敌人！"
 msgstr ""
-"Behold, the Soul Furnace! It can shoot DEADLY soulfire balls and burn groups "
+"Behold, the Soul Furnace! It can shoot DEADLY soul fireballs and burn groups "
 "of enemies on hit!"
 
 #. Text for talk sentence 2 in talk group halloween_7_over's section 0
@@ -6299,8 +6301,8 @@ msgstr "If you have enough money"
 #. Text for talk sentence 0 in talk group seventh_slot's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:seventh_slot"
-msgid "只要750$，怎么样？"
-msgstr "750$ for the 7th slot, whaddaya say?"
+msgid "只要$750，怎么样？"
+msgstr "$750 for the 7th slot, whaddaya say?"
 
 #. Archive text for talk group seventh_slot's section 2
 #: Talk meta file
@@ -6311,8 +6313,8 @@ msgstr "If you don't have enough money"
 #. Text for talk sentence 0 in talk group seventh_slot's section 2
 #: Talk meta file
 msgctxt "talk-mvz2:seventh_slot"
-msgid "需要750$，但你的钱不够啊！"
-msgstr "750$ for the 7th slot, but... seems like you’re too broke..."
+msgid "需要$750，但你的钱不够啊！"
+msgstr "$750 for the 7th slot, but... seems like you’re too broke..."
 
 #. Text for talk sentence 1 in talk group seventh_slot's section 2
 #: Talk meta file
@@ -7527,7 +7529,7 @@ msgstr "Mausoleum Day 3 Outro"
 #. Text for talk sentence 0 in talk group mausoleum_3_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_3_over"
-msgid "双头发射器登场！"
+msgid "双向发射器登场！"
 msgstr "In comes the Splitenser!"
 
 #. Text for talk sentence 1 in talk group mausoleum_3_over's section 0
@@ -10199,7 +10201,7 @@ msgstr "How is your experience with the contraptions now?"
 #: Talk meta file
 msgctxt "talk-mvz2:tutorial"
 msgid "差不多快忘了吧？要不要复习一下呢？"
-msgstr "Have you forgotten everything? Would you like a recall?"
+msgstr "Have you forgotten everything? Would you like a refresher?"
 
 #. Archive text for talk group tutorial's section 1
 #: Talk meta file

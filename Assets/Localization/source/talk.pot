@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-06-14 09:41+0800\n"
+"POT-Creation-Date: 2025-08-07 09:43+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5876,7 +5876,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group seventh_slot's section 1
 #: Talk meta file
 msgctxt "talk-mvz2:seventh_slot"
-msgid "只要750$，怎么样？"
+msgid "只要$750，怎么样？"
 msgstr ""
 
 #. Archive text for talk group seventh_slot's section 2
@@ -5888,7 +5888,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group seventh_slot's section 2
 #: Talk meta file
 msgctxt "talk-mvz2:seventh_slot"
-msgid "需要750$，但你的钱不够啊！"
+msgid "需要$750，但你的钱不够啊！"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group seventh_slot's section 2
@@ -6980,7 +6980,7 @@ msgstr ""
 #. Text for talk sentence 0 in talk group mausoleum_3_over's section 0
 #: Talk meta file
 msgctxt "talk-mvz2:mausoleum_3_over"
-msgid "双头发射器登场！"
+msgid "双向发射器登场！"
 msgstr ""
 
 #. Text for talk sentence 1 in talk group mausoleum_3_over's section 0
