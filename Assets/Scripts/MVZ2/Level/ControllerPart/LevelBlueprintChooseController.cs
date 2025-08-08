@@ -98,7 +98,7 @@ namespace MVZ2.Level
             if (choosingBlueprints == null)
                 return;
             // 替换制品。
-            Level.ReplaceArtifacts(chosenArtifacts.Select(i => i.id).ToArray());
+            Level.ReplaceArtifacts(chosenArtifacts.Select(i => i?.id).ToArray());
 
             // 替换蓝图。
             Level.SetupBattleBlueprints(chosenBlueprints.ToArray());
@@ -467,7 +467,7 @@ namespace MVZ2.Level
         {
             var slotCount = Level.GetArtifactSlotCount();
 
-            var innateCount = chosenArtifacts.Count(i => i.innate);
+            var innateCount = chosenArtifacts.Count(i => i != null && i.innate);
             var targets = artifactsID.Take(slotCount - innateCount).ToArray();
 
             for (int i = innateCount; i < slotCount; i++)
@@ -827,6 +827,8 @@ namespace MVZ2.Level
             for (int i = 0; i < chosenArtifacts.Length; i++)
             {
                 var item = chosenArtifacts[i];
+                if (item == null)
+                    continue;
                 var sprite = GetArtifactIcon(item.id);
                 var artifactViewData = new ArtifactViewData()
                 {
@@ -846,7 +848,7 @@ namespace MVZ2.Level
                 return new ArtifactSelectItemViewData()
                 {
                     icon = sprite,
-                    selected = chosenArtifacts.Any(i => i.id == id),
+                    selected = chosenArtifacts.Any(i => i != null && i.id == id),
                     disabled = disabled
                 };
             }).ToArray();
@@ -859,10 +861,12 @@ namespace MVZ2.Level
             var id = choosingArtifacts[index];
             if (!CanChooseArtifact(id))
                 return;
-            bool isCancel = chosenArtifacts[choosingArtifactSlotIndex].id == id;
+            var artifactAtSlot = chosenArtifacts[choosingArtifactSlotIndex];
+            bool isCancel = artifactAtSlot?.id == id;
             for (int i = 0; i < chosenArtifacts.Length; i++)
             {
-                if (chosenArtifacts[i].id == id)
+                var item = chosenArtifacts[i];
+                if (item != null && item.id == id)
                 {
                     chosenArtifacts[i] = null;
                     SetChosenArtifact(i, null);
@@ -968,7 +972,7 @@ namespace MVZ2.Level
         private bool CanChooseArtifact(NamespaceID id)
         {
             // 如果会取消选择固有制品，则无法选择。
-            if (chosenArtifacts.Any(e => e.id == id && e.innate))
+            if (chosenArtifacts.Any(e => e != null && e.id == id && e.innate))
                 return false;
             return true;
         }
@@ -1084,7 +1088,7 @@ namespace MVZ2.Level
             var selection = new BlueprintSelection()
             {
                 blueprints = selectionBlueprints,
-                artifacts = chosenArtifacts.Where(e => NamespaceID.IsValid(e.id) && !e.innate).Select(i => new ArtifactSelectionItem() { id = i.id }).ToArray()
+                artifacts = chosenArtifacts.Where(e => NamespaceID.IsValid(e?.id) && !e.innate).Select(i => new ArtifactSelectionItem() { id = i.id }).ToArray()
             };
             Main.SaveManager.SetLastSelection(selection);
             Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, new LogicLevelCallbacks.PostBlueprintSelectionParams(Level, chosen));
@@ -1370,7 +1374,8 @@ namespace MVZ2.Level
             }
             public TooltipViewData GetViewData(LevelController level)
             {
-                var artifactID = controller.chosenArtifacts[index].id;
+                var artifact = controller.chosenArtifacts[index];
+                var artifactID = artifact?.id;
                 if (NamespaceID.IsValid(artifactID))
                 {
                     var name = controller.Main.ResourceManager.GetArtifactName(artifactID);
