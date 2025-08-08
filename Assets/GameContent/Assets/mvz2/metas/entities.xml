@@ -428,7 +428,7 @@
                 <id name="mvz2:projectileId" value="mvz2:knife" />
                 <id name="mvz2:shell" value="mvz2:metal" />
 
-                <int name="mvz2:cost" value="175" />
+                <int name="mvz2:cost" value="150" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
@@ -477,7 +477,7 @@
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <id name="mvz2:placement" value="mvz2:drivenser" />
 
-                <int name="mvz2:cost" value="125" />
+                <int name="mvz2:cost" value="150" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
@@ -722,7 +722,7 @@
                 <bool name="mvz2:defensive" value="true" />
                 <bool name="mvz2:noClimb" value="true" />
                 <bool name="mvz2:fragments/noDamageFragments" value="true" />
-                <float name="mvz2:maxHealth" value="5000" />
+                <float name="mvz2:maxHealth" value="4000" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <id name="mvz2:placement" value="mvz2:suspension" />
                 <id name="mvz2:shell" value="mvz2:metal" />

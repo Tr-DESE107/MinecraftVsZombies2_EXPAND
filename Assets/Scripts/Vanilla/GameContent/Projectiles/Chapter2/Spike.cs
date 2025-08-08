@@ -37,7 +37,7 @@ namespace MVZ2.GameContent.Projectiles
             }
         }
 
-        private const int MAX_PIERCE = 2;
+        private const int MAX_PIERCE = 3;
         private static readonly VanillaEntityPropertyMeta<int> PROP_PIERCE_COUNT = new("PierceCount");
     }
 }
