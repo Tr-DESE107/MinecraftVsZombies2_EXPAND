@@ -73,6 +73,8 @@ namespace MVZ2.Vanilla
         [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
         public const string RECHARGE_SHORT = "短";
         [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
+        public const string RECHARGE_MEDIUM = "中";
+        [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
         public const string RECHARGE_LONG = "长";
         [TranslateMsg("冷却时间", CONTEXT_RECHARGE_TIME)]
         public const string RECHARGE_VERY_LONG = "很长";

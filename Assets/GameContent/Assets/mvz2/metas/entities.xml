@@ -477,8 +477,8 @@
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <id name="mvz2:placement" value="mvz2:drivenser" />
 
-                <int name="mvz2:cost" value="150" />
-                <id name="mvz2:rechargeId" value="mvz2:short" />
+                <int name="mvz2:cost" value="175" />
+                <id name="mvz2:rechargeId" value="mvz2:medium" />
             </properties>
         </dispenser>
         <contraption id="gravity_pad" name="重力板" tooltip="增强上方物体的重力" unlock="mvz2:level.dream_3">
@@ -570,7 +570,7 @@
                 <id name="mvz2:hitSound" null="true" />
                 <idArray name="mvz2:gridLayers" value="" />
                 <int name="mvz2:cost" value="175" />
-                <id name="mvz2:rechargeId" value="mvz2:short" />
+                <id name="mvz2:rechargeId" value="mvz2:medium" />
             </properties>
         </contraption>
 
