@@ -16,6 +16,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using System.Linq;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -43,12 +44,7 @@ namespace MVZ2.GameContent.Artifacts
                 //enemy.Charm(level.Option.LeftFaction);
                 //result.SetFinalValue(false);
 
-                bool isHead = false;
-
-                if (enemy.IsEntityOf(VanillaEnemyID.SkeletonHead) || enemy.IsEntityOf(VanillaEnemyID.ZombieHead) || enemy.IsEntityOf(VanillaEnemyID.RedEyeZombieHead) || enemy.IsEntityOf(VanillaEnemyID.HostHead) || enemy.IsEntityOf(VanillaEnemyID.dullahanHead))
-                {
-                    isHead = true;
-                }
+                bool isHead = RandomSkeleton.Contains(enemy.GetDefinitionID());
 
                 if (!isHead)
                 {
