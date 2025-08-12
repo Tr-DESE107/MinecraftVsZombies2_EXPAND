@@ -101,6 +101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bone
       objectReference: {fileID: 0}
+    - target: {fileID: 4958109376267774825, guid: abe1b195af5098c42b830d8fb53dd263, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 864c6ccabfa6b644e9716f4f39df4c13, type: 2}
     - target: {fileID: 8501895977338139399, guid: abe1b195af5098c42b830d8fb53dd263, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

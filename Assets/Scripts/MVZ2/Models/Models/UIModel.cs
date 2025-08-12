@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+﻿using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.Models
 {
     [DisallowMultipleComponent]
     public sealed class UIModel : Model
     {
-        public override void Init(Camera camera, int seed = 0)
+        public override void Init(NamespaceID id, Camera camera, int seed = 0)
         {
-            base.Init(camera, seed);
+            base.Init(id, camera, seed);
             canvas.worldCamera = camera;
         }
         public override void UpdateElements()

@@ -70,7 +70,7 @@ namespace MVZ2.Almanacs
             iconZoomButtonRoot.SetActive(zoom);
             SetDescription(name, description);
         }
-        public void SetActiveEntry(ModelViewData model, string name, string description)
+        public void SetActiveEntry(ModelBuilder model, string name, string description)
         {
             entryImageRegion.gameObject.SetActive(false);
             entryModel.gameObject.SetActive(true);

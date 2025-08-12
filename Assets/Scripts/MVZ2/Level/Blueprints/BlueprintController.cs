@@ -30,7 +30,7 @@ namespace MVZ2.Level
             var model = GetModel();
             if (model != null)
             {
-                model.Init(Controller.GetCamera());
+                model.Init(null, Controller.GetCamera());
             }
             AddCallbacks();
         }

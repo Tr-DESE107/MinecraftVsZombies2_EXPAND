@@ -1,3 +1,4 @@
+using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Models
@@ -8,11 +9,12 @@ namespace MVZ2.Models
         {
             if (model)
             {
-                model.Init(modelCamera);
+                model.Init(modelID, modelCamera);
             }
         }
 
         public Model model;
+        public NamespaceID modelID;
         public Camera modelCamera;
     }
 }

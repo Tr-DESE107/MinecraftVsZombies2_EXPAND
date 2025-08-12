@@ -53,7 +53,7 @@ namespace MVZ2.Level
         private void Awake_HeldItem()
         {
             heldItemModelInterface = new HeldItemModelInterface(this);
-            ui.SetHeldItemModel(new ModelViewData(null, GetCamera()));
+            ui.SetHeldItemModel(new ModelBuilder(null, GetCamera()));
         }
         private void UpdateHeldItemPosition()
         {
@@ -71,7 +71,7 @@ namespace MVZ2.Level
         }
         private void SetHeldItemModel(NamespaceID modelID, HeldItemDefinition definition, IHeldItemData data)
         {
-            var viewData = new ModelViewData(modelID, GetCamera());
+            var viewData = new ModelBuilder(modelID, GetCamera());
             ui.SetHeldItemModel(viewData);
             var model = GetHeldItemModel();
             if (model != null)

@@ -84,7 +84,8 @@ namespace MVZ2.Entities
                 Model.OnUpdateFrame -= OnModelUpdateFrameCallback;
                 Model = null;
             }
-            var model = Models.Model.Create(modelId, transform, Level.GetCamera(), Entity.InitSeed);
+            var builder = new ModelBuilder(modelId, Level.GetCamera(), Entity.InitSeed);
+            var model = builder.Build(transform);
             Model = model as EntityModel;
             if (!Model)
                 return;

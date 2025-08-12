@@ -26,14 +26,14 @@ namespace MVZ2.Level.UI
                 model.SetSimulationSpeed(speed);
             }
         }
-        public void SetModel(ModelViewData viewData)
+        public void SetModel(ModelBuilder viewData)
         {
             if (model)
             {
                 Destroy(model.gameObject);
                 model = null;
             }
-            model = Model.Create(viewData, modelRoot);
+            model = viewData.Build(modelRoot);
         }
         public Model GetModel()
         {

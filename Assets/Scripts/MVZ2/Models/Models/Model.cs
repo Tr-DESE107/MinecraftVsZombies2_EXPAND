@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.Managers;
 using MVZ2Logic.Models;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -28,8 +27,9 @@ namespace MVZ2.Models
         }
 
         #region 生命周期
-        public virtual void Init(Camera camera, int seed = 0)
+        public virtual void Init(NamespaceID id, Camera camera, int seed = 0)
         {
+            this.id = id;
             if (seed == 0)
             {
                 seed = Guid.NewGuid().GetHashCode();
@@ -212,7 +212,8 @@ namespace MVZ2.Models
             var anchor = GetAnchor(anchorName);
             if (!anchor)
                 return null;
-            var child = Model.Create(modelID, anchor.transform, eventCamera, 0);
+            var builder = new ModelBuilder(modelID, eventCamera, 0);
+            var child = builder.Build(anchor.transform);
             if (!child)
                 return null;
             child.transform.localPosition = Vector3.zero;
@@ -326,35 +327,6 @@ namespace MVZ2.Models
         public void SetShaderColor(string name, Color value)
         {
             GraphicGroup.SetShaderColor(name, value);
-        }
-        #endregion
-
-        #region 创建
-        public static Model Create(ModelViewData viewData, Transform parent)
-        {
-            return Create(viewData.id, parent, viewData.camera, viewData.seed);
-        }
-        public static Model Create(NamespaceID modelID, Transform parent, Camera camera, int seed = 0)
-        {
-            var main = MainManager.Instance;
-            var res = main.ResourceManager;
-            var modelMeta = res.GetModelMeta(modelID);
-            if (modelMeta == null)
-                return null;
-            var prefab = res.GetModel(modelMeta.Path);
-            if (prefab == null)
-                return null;
-            var model = Instantiate(prefab, parent).GetComponent<Model>();
-            if (model)
-            {
-                model.id = modelID;
-                foreach (var parameter in modelMeta.AnimatorParameters)
-                {
-                    parameter.Apply(model);
-                }
-                model.Init(camera, seed);
-            }
-            return model;
         }
         #endregion
 

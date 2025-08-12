@@ -63,7 +63,7 @@ namespace MVZ2.UI
         {
             heldItem.transform.position = worldPos;
         }
-        public void SetHeldItemModel(ModelViewData viewData)
+        public void SetHeldItemModel(ModelBuilder viewData)
         {
             heldItem.SetModel(viewData);
         }

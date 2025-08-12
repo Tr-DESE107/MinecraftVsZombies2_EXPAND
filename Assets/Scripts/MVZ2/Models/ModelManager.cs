@@ -14,7 +14,8 @@ namespace MVZ2.Models
             modelShotRoot.gameObject.SetActive(true);
 
             //设置模型
-            var modelInstance = Model.Create(id, modelShotPositionTransform, modelShotCamera);
+            var builder = new ModelBuilder(id, modelShotCamera);
+            var modelInstance = builder.Build(modelShotPositionTransform);
             if (!modelInstance)
             {
                 Debug.LogWarning($"Prefab of model {id} is missing!");

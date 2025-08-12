@@ -322,7 +322,7 @@ namespace MVZ2.Almanacs
             var iconStacks = iconInfos.Select(i => i.viewData).ToArray();
             var finalDesc = ReplaceText(description, replacements);
 
-            var viewData = new ModelViewData(model, almanacCamera);
+            var viewData = new ModelBuilder(model, almanacCamera);
             ui.SetActiveContraptionEntry(viewData, name, finalDesc, costText, rechargeText);
             ui.UpdateContraptionDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
@@ -359,7 +359,7 @@ namespace MVZ2.Almanacs
             var iconStacks = iconInfos.Select(i => i.viewData).ToArray();
             var finalDesc = ReplaceText(description, replacements);
 
-            var viewData = new ModelViewData(model, almanacCamera);
+            var viewData = new ModelBuilder(model, almanacCamera);
             ui.SetActiveEnemyEntry(viewData, name, finalDesc);
             ui.UpdateEnemyDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
@@ -419,7 +419,7 @@ namespace MVZ2.Almanacs
                 var modelID = picture.model;
                 if (NamespaceID.IsValid(modelID) && Main.ResourceManager.GetModelMeta(modelID) is ModelMeta modelMeta)
                 {
-                    var viewData = new ModelViewData(modelID, almanacCamera);
+                    var viewData = new ModelBuilder(modelID, almanacCamera);
                     ui.SetActiveMiscEntry(viewData, name, finalDesc);
                 }
                 else

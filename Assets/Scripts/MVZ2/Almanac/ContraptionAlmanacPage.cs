@@ -15,7 +15,7 @@ namespace MVZ2.Almanacs
             commandBlockSlot.SetCommandBlockActive(commandBlockVisible);
             commandBlockSlot.UpdateCommandBlockItem(commandBlockViewData);
         }
-        public void SetActiveEntry(ModelViewData model, string name, string description, string cost, string recharge)
+        public void SetActiveEntry(ModelBuilder model, string name, string description, string cost, string recharge)
         {
             entryModel.ChangeModel(model);
             SetDescription(name, description);

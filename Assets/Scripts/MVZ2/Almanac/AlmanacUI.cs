@@ -86,12 +86,12 @@ namespace MVZ2.Almanacs
         {
             miscs.SetGroups(groups);
         }
-        public void SetActiveContraptionEntry(ModelViewData model, string name, string description, string cost, string recharge)
+        public void SetActiveContraptionEntry(ModelBuilder model, string name, string description, string cost, string recharge)
         {
             standaloneContraptions.SetActiveEntry(model, name, description, cost, recharge);
             mobileContraptions.SetActiveEntry(model, name, description, cost, recharge);
         }
-        public void SetActiveEnemyEntry(ModelViewData model, string name, string description)
+        public void SetActiveEnemyEntry(ModelBuilder model, string name, string description)
         {
             enemies.SetActiveEntry(model, name, description);
         }
@@ -103,7 +103,7 @@ namespace MVZ2.Almanacs
         {
             miscs.SetActiveEntry(sprite, name, description, sized, zoom);
         }
-        public void SetActiveMiscEntry(ModelViewData model, string name, string description)
+        public void SetActiveMiscEntry(ModelBuilder model, string name, string description)
         {
             miscs.SetActiveEntry(model, name, description);
         }
