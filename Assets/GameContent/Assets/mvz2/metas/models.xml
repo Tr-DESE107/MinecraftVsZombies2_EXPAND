@@ -114,6 +114,7 @@
 	<model name="NetherWarrior" type="entity" path="mvz2:enemy/castle/NetherWarrior" width="64" height="96" xOffset="16" yOffset="-44"/>
 	<model name="NetherVanguard" type="entity" path="mvz2:enemy/castle/NetherVanguard" width="64" height="96" xOffset="16" yOffset="-44"/>
 	<model name="NetherArcher" type="entity" path="mvz2:enemy/castle/NetherArcher" width="64" height="96" xOffset="10" yOffset="-64"/>
+	<model name="RaiderSkull" type="entity" path="mvz2:enemy/castle/RaiderSkull" width="38" height="26" xOffset="0" yOffset="-11"/>
 
 	<model name="mesmerizer" type="entity" path="mvz2:enemy/castle/mesmerizer" width="64" height="116" xOffset="10" yOffset="-64"/>
 	<model name="berserker" type="entity" path="mvz2:enemy/castle/berserker" width="64" height="100" xOffset="10" yOffset="-46"/>

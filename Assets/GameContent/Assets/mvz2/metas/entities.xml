@@ -1554,6 +1554,21 @@
             </properties>
         </enemy>
 
+		<enemy id="RaiderSkull" name="奇袭者头颅" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+			<properties>
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:speed" value="2" />
+				<id name="mvz2:shell" value="mvz2:nether" />
+				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
+				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
+				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+				<id name="mvz2:shape" value="mvz2:dullahan_head" />
+				<vector3 name="mvz2:size" x="32" y="22" z="32"/>
+
+				<float name="mvz2:maxHealth" value="280" />
+				<int name="mvz2:cost" value="50" />
+			</properties>
+		</enemy>
 
 		<!-- mausoleum Enemies -->
 

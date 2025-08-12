@@ -220,6 +220,10 @@
 		<spawn level="3" minWave="5" />
 		<weight base="1250" />
 	</entry>
+	<entry id="RaiderSkull" entity="mvz2:RaiderSkull" >
+		<spawn level="2" />
+		<weight base="2000" />
+	</entry>
 	
     <!-- Mausoleum -->
     <entry id="reflective_barrier_zombie" entity="mvz2:reflective_barrier_zombie" >

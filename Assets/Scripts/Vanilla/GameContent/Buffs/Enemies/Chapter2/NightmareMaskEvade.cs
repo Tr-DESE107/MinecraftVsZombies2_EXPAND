@@ -53,8 +53,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 return;
 
             bool hostile = entity.IsHostile(0);
-            // 敌人有1/5概率这次攻击不受到伤害
-            if (entity.RNG.Next(5) == 0 && hostile)
+            // 敌人有1/3概率这次攻击不受到伤害
+            if (entity.RNG.Next(3) == 0 && hostile)
             {
                 damageInfo.Multiply(0f);
                 

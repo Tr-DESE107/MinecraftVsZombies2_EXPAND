@@ -817,7 +817,7 @@
             <spawn id="mvz2:dullahan"/>
 			<spawn id="mvz2:NetherWarrior"/>
 			<spawn id="mvz2:NetherArcher"/>
-			
+			<spawn id="mvz2:RaiderSkull"/>
         </spawns>
     </stage>
     <stage id="castle_8" name="辉针城" dayNumber="8" unlock="mvz2:level.castle_7">
@@ -837,6 +837,7 @@
 			<spawn id="mvz2:NetherWarrior"/>
 			<spawn id="mvz2:NetherArcher"/>
 			<spawn id="mvz2:NetherVanguard"/>
+			<spawn id="mvz2:RaiderSkull"/>
         </spawns>
     </stage>
     <stage id="castle_9" name="辉针城" dayNumber="9" unlock="mvz2:level.castle_8">
@@ -859,6 +860,7 @@
 			<spawn id="mvz2:NetherArcher"/>
 			<spawn id="mvz2:NetherVanguard"/>
 			<spawn id="mvz2:AngryReverser"/>
+			<spawn id="mvz2:RaiderSkull"/>
         </spawns>
     </stage>
     <stage id="castle_10" name="辉针城" dayNumber="10" unlock="mvz2:level.castle_9">
@@ -881,6 +883,7 @@
 			<spawn id="mvz2:NetherArcher"/>
 			<spawn id="mvz2:NetherVanguard"/>
 			<spawn id="mvz2:AngryReverser"/>
+			<spawn id="mvz2:RaiderSkull"/>
         </spawns>
     </stage>
     <stage id="castle_11" name="辉针城" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.castle_10" music="mvz2:castle_final" >
@@ -916,6 +919,7 @@
 			<spawn id="mvz2:NetherArcher"/>
 			<spawn id="mvz2:NetherVanguard"/>
 			<spawn id="mvz2:AngryReverser"/>
+			<spawn id="mvz2:RaiderSkull"/>
         </spawns>
         <properties>
             <bool name="noEnergy" value="true"/>
@@ -961,6 +965,7 @@
 			<spawn id="mvz2:NetherArcher"/>
 			<spawn id="mvz2:NetherVanguard"/>
 			<spawn id="mvz2:AngryReverser"/>
+			<spawn id="mvz2:RaiderSkull"/>
 		</spawns>
 		<properties>
 			<bool name="noEnergy" value="true"/>

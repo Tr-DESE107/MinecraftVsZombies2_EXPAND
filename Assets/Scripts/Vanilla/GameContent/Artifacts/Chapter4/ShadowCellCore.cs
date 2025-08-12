@@ -81,6 +81,7 @@ namespace MVZ2.GameContent.Artifacts
             VanillaEnemyID.RedEyeZombieHead,
             VanillaEnemyID.HostHead,
             VanillaEnemyID.dullahanHead,
+            VanillaEnemyID.RaiderSkull,
         };
 
         private static int[] RandomSkeletonWeights = new int[]
@@ -89,7 +90,8 @@ namespace MVZ2.GameContent.Artifacts
             20,
             1,
             5,
-            50
+            50,
+            10
         };
 
         

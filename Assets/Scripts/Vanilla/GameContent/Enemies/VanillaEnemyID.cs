@@ -56,6 +56,7 @@ namespace MVZ2.GameContent.Enemies
         public const string NetherArcher = "NetherArcher";
         public const string NetherVanguard = "NetherVanguard";
         public const string AngryReverser = "AngryReverser";
+        public const string RaiderSkull = "RaiderSkull";
 
         public const string reflectiveBarrierZombie = "reflective_barrier_zombie";
         public const string talismanZombie = "talisman_zombie";
@@ -143,6 +144,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID NetherArcher = Get(VanillaEnemyNames.NetherArcher);
         public static readonly NamespaceID NetherVanguard = Get(VanillaEnemyNames.NetherVanguard);
         public static readonly NamespaceID AngryReverser = Get(VanillaEnemyNames.AngryReverser);
+        public static readonly NamespaceID RaiderSkull = Get(VanillaEnemyNames.RaiderSkull);
 
         public static readonly NamespaceID MonkZombie = Get(VanillaEnemyNames.MonkZombie);
         public static readonly NamespaceID LeatherMonkZombie = Get(VanillaEnemyNames.LeatherMonkZombie);

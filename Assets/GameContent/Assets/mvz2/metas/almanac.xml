@@ -1695,6 +1695,20 @@
             </flavor>
         </entry>
 
+		<entry id="mvz2:RaiderSkull">
+			<header>
+				<p>奇袭者头颅能够跨越半场降落，进行背后突袭。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>280</color>]]></p>
+				<p>速度：<![CDATA[<color=red>2</color>]]></p>
+			</properties>
+			<flavor>
+				<p>库尔·咒训练的一支部队。这类凋零骷髅在砍下自己头颅后，会表现出强大的控制自身头颅的能力。他们往往会躲在战场一角，通过操纵自己的飞头切断敌军后方的增援。</p>
+				<p>降落对于每个奇袭者头颅都是一场对生命的赌注，稍有不慎便会殒命。此外，这些头颅如何在战后找到自己的身体也是个麻烦事。</p>
+			</flavor>
+		</entry>
+
 		<entry id="mvz2:NetherVanguard">
 			<header>
 				<p>下界冲锋者的盾牌和战斧提供了恐怖的防御力与攻击力</p>
@@ -2259,7 +2273,7 @@
 				<p>梦魇的面具。</p>
 			</header>
 			<properties>
-				<p>效果：<![CDATA[<color=red>敌人的攻击速度下降20%，但有20%概率不受到本次伤害。</color>]]></p>
+				<p>效果：<![CDATA[<color=red>敌人的攻击速度下降20%，但有33%概率不受到本次伤害。</color>]]></p>
 			</properties>
 			<flavor>
 				<p>你确定你在攻击敌人吗？</p>
