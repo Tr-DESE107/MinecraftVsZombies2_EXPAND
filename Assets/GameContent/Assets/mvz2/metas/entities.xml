@@ -696,6 +696,27 @@
             </properties>
         </contraption>
 
+		<dispenser id="DispenShield" name="发射器护罩" tooltip="发射箭矢并保护内部的器械" unlock="mvz2:level.castle_4">
+			<properties>
+				<bool name="mvz2:canDeactive" value="false" />
+				<float name="mvz2:maxHealth" value="900" />
+				<bool name="mvz2:defensive" value="true" />
+				<id name="mvz2:fragmentId" value="mvz2:furnace" />
+				<vector3 name="mvz2:size" x="80" y="32" z="64" />
+				<vector3 name="mvz2:shotOffset" x="25" y="15" z="0" />
+				<idArray name="mvz2:gridLayers" value="mvz2:protector" />
+				<float name="mvz2:damage" value="20" />
+				<int name="mvz2:cost" value="150" />
+
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotVelocity" x="10" y="0" z="0" />
+				<id name="mvz2:projectileId" value="mvz2:arrow" />
+				<id name="mvz2:shootSound" value="mvz2:bow" />
+				
+				<id name="mvz2:rechargeId" value="mvz2:medium" />
+			</properties>
+		</dispenser>
+
         <!-- Mausoleum Contraptions -->
         <contraption id="note_block" name="音符盒" tooltip="发射反弹的音符" unlock="mvz2:level.mausoleum_1">
             <properties>
@@ -3062,5 +3083,6 @@
                 <int name="mvz2:maxTimeout" value="54" />
             </properties>
         </effect>
-    </entries>
+    
+</entries>
 </entities>

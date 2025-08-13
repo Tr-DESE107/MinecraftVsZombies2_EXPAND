@@ -1626,6 +1626,10 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 207085780836861793, guid: a3ffec953f3b51d4fbe1130f7e6f67e5, type: 3}
     - {fileID: 3811260836624084633, guid: a3ffec953f3b51d4fbe1130f7e6f67e5, type: 3}
+  - name: entity/contraption/DispenShield
+    spritesheet:
+    - {fileID: -1482294135, guid: 1832a4f210266bb4dabd155004f7ae23, type: 3}
+    - {fileID: 1405419950, guid: 1832a4f210266bb4dabd155004f7ae23, type: 3}
   - name: entity/contraption/dream_alarm
     spritesheet:
     - {fileID: 904071528, guid: 09e33d4b66b1efa4eb15944bf80b140f, type: 3}

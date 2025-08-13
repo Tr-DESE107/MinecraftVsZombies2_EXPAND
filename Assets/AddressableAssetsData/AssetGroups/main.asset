@@ -59,6 +59,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 013ddabfa9a7ad4498ce65e138a6adea
+    m_Address: mvz2:mobile_blueprint/cuerzor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01a6d95d6ca2e274e9579d9781bf522e
     m_Address: mvz2:enemy/prologue/zombie
     m_ReadOnly: 0
@@ -1116,6 +1123,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1832a4f210266bb4dabd155004f7ae23
+    m_Address: mvz2:entity/contraption/DispenShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 189f112b6d7102349abf49d1f81dd167
     m_Address: mvz2:arcade/ContraptionDevourer
     m_ReadOnly: 0
@@ -1286,6 +1300,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d01c78f7d98df044b653eab390c102e
     m_Address: mvz2:misc/kourindou_front
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d619edd17fa97f4d84f6f598fd740ad
+    m_Address: mvz2:mobile_blueprint/vulture
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1606,6 +1627,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23a1aeffffb9906498ecdace23a2e39f
+    m_Address: mvz2:mobile_blueprint/mega_mutant_skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 244d499bb206eeb41994439f435532e2
     m_Address: mvz2:contraption/mausoleum/black_hole_bomb
     m_ReadOnly: 0
@@ -1731,6 +1759,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25efcb126d99c4847a4a2d263045b4e8
+    m_Address: mvz2:contraption/EXPAND/DispenShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25f988ff03e536a4e82397cc65d1cd24
     m_Address: mvz2:entity/contraption/fire_block_1
@@ -2513,6 +2548,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 379f1efe228427c448d58235d21228f7
+    m_Address: mvz2:enemy/castle/Anubiskull
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37a8b90f56ba6a14aa1aa3c98314def3
     m_Address: mvz2:zap4
@@ -4033,6 +4075,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58d95c2ef4604404d9d6928185d5b829
+    m_Address: mvz2:mobile_blueprint/mutant_skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58eadcb8281219a418802875c2f38bbe
     m_Address: mvz2:entity/armor/flag
     m_ReadOnly: 0
@@ -4068,12 +4117,26 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59b32a49b17a365419ee9603447b56df
+    m_Address: mvz2:mobile_blueprint/evil_mage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 59cb47d1535f5964b8f9d2b91beb5175
     m_Address: mvz2:spider_cry3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59e8619f29eec2e408a333c08447910b
+    m_Address: mvz2:mobile_blueprint/lightning_mage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a0c08fed03edc745bbc7ea6e497cf14
     m_Address: mvz2:entity/contraption/desire_pot
@@ -4530,6 +4593,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6356a36aeb22a0840bde0faadf6800e4
+    m_Address: mvz2:mobile_blueprint/nightmare_retinue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63931386c553c1940b368a0c2054db20
     m_Address: mvz2:soul_sand_break7
     m_ReadOnly: 0
@@ -4698,12 +4768,26 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 679ba871c15282d4d995e64c33711c8b
+    m_Address: mvz2:mobile_blueprint/raider_head
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 67e48334d4595cf49923ddb4b0725fff
     m_Address: mvz2:stages
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
     - Meta
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 680fd9e7f1496014bbd8d418fe66de65
+    m_Address: mvz2:mobile_blueprint/nether_leader
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 682a1f5ec6af4b54d81d95c0fcf56384
     m_Address: mvz2:mobile_blueprint/leather_capped_zombie
@@ -4985,6 +5069,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f2b6c2d521de48498c08e9afbf7e77b
+    m_Address: mvz2:mobile_blueprint/kagerou
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f3e5c2859c6f054e8a645a5a27e25a2
     m_Address: mvz2:bones/skeleton
     m_ReadOnly: 0
@@ -5078,6 +5169,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 72ab79aa07a6b4b44b40ccea8c6d5bd8
     m_Address: mvz2:entity/enemy/soulsand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73294a588306fae4da404780c0acc3e3
+    m_Address: mvz2:entity/enemy/Anubiskull
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -5243,6 +5341,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76bcca7d3e5aba94083847c4ff9de211
+    m_Address: mvz2:mobile_blueprint/fire_mage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 772451afbb93e0949906b761c0971acc
     m_Address: mvz2:random/crystal/crystal1
     m_ReadOnly: 0
@@ -5375,6 +5480,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79bc90921fac92a4bad7be69e64ed94c
+    m_Address: mvz2:ui/almanac/Expand_buff
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79c213f193d22154cb2676ca7a908066
     m_Address: mvz2:pickup/starshards/dream
@@ -5756,6 +5868,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7fe15cf03f7a8c64cb0f6007db72398c
     m_Address: mvz2:options/add_pearl
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ffbafaab0bdd104f891558a570cab66
+    m_Address: mvz2:mobile_blueprint/wakasagihime
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6496,6 +6615,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91cdcadcb4b1a2e4289f7b75f72be433
+    m_Address: mvz2:mobile_blueprint/wither_skeleton_horse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9201e85d8677d954ab4d9345d4446719
     m_Address: mvz2:contraption/ship/repeatenser
     m_ReadOnly: 0
@@ -6790,6 +6916,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98d6fe7bcff7a4745bad89db4045aef1
+    m_Address: mvz2:mobile_blueprint/HostMutant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 98f6783386f0a7b43bea535a34495e61
     m_Address: mvz2:entity/projectiles/fire_charge
     m_ReadOnly: 0
@@ -6810,6 +6943,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99d1b89d493fa1f46be7439e333af766
+    m_Address: mvz2:mobile_blueprint/Anubiskull
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99fdfba4aeff67c43b3124c97a3a0dd7
     m_Address: mvz2:entity/pickups/redstone
@@ -7217,6 +7357,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a42903509753d8a4ca8c9580dd0c6b8b
+    m_Address: mvz2:mobile_blueprint/HeavyGutant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a4fb4d341a16ba64cbad7dd992c94206
     m_Address: mvz2:products/blueprint_slot
     m_ReadOnly: 0
@@ -7356,6 +7503,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7b657bef639dc54dba8f816b2a7510e
+    m_Address: mvz2:mobile_blueprint/Zarat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7bfb2b9a5817f7448f08ace245ac075
     m_Address: mvz2:talk/villager/villager_short2
@@ -8365,6 +8519,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c142e877b67436e4aa3729a973dd63bd
+    m_Address: mvz2:mobile_blueprint/wither_mage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c1584df56dfc82b429b7dc438127d3c2
     m_Address: mvz2:level/ship/clouds
     m_ReadOnly: 0
@@ -8626,6 +8787,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c722a1dec874bb34e9a87bb1dd009e63
     m_Address: mvz2:entity/enemies/mesmerizer_rod
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c739a0e8065c7794eab33b1e0e3f511f
+    m_Address: mvz2:mobile_blueprint/skeleton_king
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9086,6 +9254,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d03cdd7ab1308314587fb3eaa9ab8326
+    m_Address: mvz2:mobile_blueprint/sekibanki
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d04fa54aea815bb44be98b8a3bb2ed5b
     m_Address: mvz2:entity/contraptions/soul_furnace_light
     m_ReadOnly: 0
@@ -9473,6 +9648,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da694241d06a5a0429d9929813653171
     m_Address: mvz2:achievements/rickroll_drown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da755a232e9ce6b4384950dd90cf9e16
+    m_Address: mvz2:mobile_blueprint/ice_mage
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9933,6 +10115,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e79a71af8e1a608428bbe953db26c4d2
+    m_Address: mvz2:ui/almanac/EXPAND_EnemyCategory
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e815fc79b6c003e4788c0027be0a82e6
     m_Address: mvz2:ui/level/progress_bar/wither
     m_ReadOnly: 0
@@ -10208,6 +10397,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee236b9bf29256844b94ea76798c4239
     m_Address: mvz2:mobile_blueprint/soulsand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee5bd16036d662849b423ed4c594401d
+    m_Address: mvz2:mobile_blueprint/dullahan_pro
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10591,6 +10787,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f599f19f029ba22489f1c52ffe613214
+    m_Address: mvz2:mobile_blueprint/mutant_wither_skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5f3ab77342594147baa89febd10ca30
     m_Address: mvz2:effect/iz_observer
     m_ReadOnly: 0
@@ -10604,6 +10807,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f62acd64afd733642b5dc62cd234b346
+    m_Address: mvz2:mobile_blueprint/nether_warrior
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f645825912b9d5248a6ed2242f3169da
     m_Address: mvz2:entity/ghost/ghost_death
@@ -10975,6 +11185,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe951fedfe269884a9aa5ff36c1e09fd
+    m_Address: mvz2:mobile_blueprint/mega_mutant_wither_skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fea59b92a83db3a448792917749dda4a
     m_Address: mvz2:entity/boss/wither_armor_white
     m_ReadOnly: 0
@@ -11012,6 +11229,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff600d11c606cf94f8710b7d4e5be42f
     m_Address: mvz2:enemy/halloween/RedEyeZombieHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff989c427abfeb046b9f07f43b467858
+    m_Address: mvz2:enemy/castle/RaiderSkull
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

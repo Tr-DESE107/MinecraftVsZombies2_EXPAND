@@ -906,6 +906,22 @@
             </flavor>
         </entry>
 
+		<entry id="mvz2:DispenShield">
+			<header>
+				<p>发射器护罩在保护其内部的器械的同时可以发射箭矢</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>900</color>]]></p>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>20</color>]]></p>
+				<p>技能：<![CDATA[<color=red>射出一个越滚越大的雪球</color>]]></p>
+			</properties>
+			<flavor>
+				<p>发射器护罩是怎么来的？我们用博人眼球的方式表述，那就是：那晚，发射器和石护罩喝醉了。</p>
+				<p>那为什么发射器护罩的星之碎片能力和小型发射器一模一样？恐怕那晚小型发射器也喝醉了。</p>
+			</flavor>
+		</entry>
+		
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">
             <tags>

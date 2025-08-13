@@ -8,6 +8,7 @@
 
 	<model name="GlowingObsidian" type="entity" path="mvz2:contraption/EXPAND/GlowingObsidian" width="64" height="64" xOffset="0" yOffset="-28"/>
 	<model name="RedStoneOre" type="entity" path="mvz2:contraption/EXPAND/RedStoneOre" width="64" height="64" xOffset="0" yOffset="-28"/>
+	<model name="DispenShield" type="entity" path="mvz2:contraption/EXPAND/DispenShield" width="80" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="small_dispenser" type="entity" path="mvz2:contraption/halloween/small_dispenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="moonlight_sensor" type="entity" path="mvz2:contraption/halloween/moonlight_sensor" width="64" height="64" xOffset="0" yOffset="-28"/>
