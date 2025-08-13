@@ -224,6 +224,10 @@
 		<spawn level="2" />
 		<weight base="2000" />
 	</entry>
+	<entry id="Anubiskull" entity="mvz2:Anubiskull" >
+		<spawn level="3" />
+		<weight base="1350" />
+	</entry>
 	
     <!-- Mausoleum -->
     <entry id="reflective_barrier_zombie" entity="mvz2:reflective_barrier_zombie" >

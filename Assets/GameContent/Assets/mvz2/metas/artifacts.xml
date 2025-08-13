@@ -134,7 +134,7 @@
             <condition required="mvz2:level.halloween_14"/>
         </unlock>
     </artifact>
-	<artifact id="NightmareMask" name="梦魇之面" tooltip="敌人的攻击速度下降20%，但有20%概率不受到本次伤害" sprite="mvz2:artifacts/NightmareMask" >
+	<artifact id="NightmareMask" name="梦魇之面" tooltip="敌人的攻击速度下降20%，但有33%概率不受到本次伤害" sprite="mvz2:artifacts/NightmareMask" >
         <unlock>
             <condition required="mvz2:level.dream_11"/>
         </unlock>

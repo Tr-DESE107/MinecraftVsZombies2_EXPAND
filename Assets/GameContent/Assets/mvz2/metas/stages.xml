@@ -838,6 +838,7 @@
 			<spawn id="mvz2:NetherArcher"/>
 			<spawn id="mvz2:NetherVanguard"/>
 			<spawn id="mvz2:RaiderSkull"/>
+			<spawn id="mvz2:Anubiskull"/>
         </spawns>
     </stage>
     <stage id="castle_9" name="辉针城" dayNumber="9" unlock="mvz2:level.castle_8">
@@ -861,6 +862,7 @@
 			<spawn id="mvz2:NetherVanguard"/>
 			<spawn id="mvz2:AngryReverser"/>
 			<spawn id="mvz2:RaiderSkull"/>
+			<spawn id="mvz2:Anubiskull"/>
         </spawns>
     </stage>
     <stage id="castle_10" name="辉针城" dayNumber="10" unlock="mvz2:level.castle_9">
@@ -884,6 +886,7 @@
 			<spawn id="mvz2:NetherVanguard"/>
 			<spawn id="mvz2:AngryReverser"/>
 			<spawn id="mvz2:RaiderSkull"/>
+			<spawn id="mvz2:Anubiskull"/>
         </spawns>
     </stage>
     <stage id="castle_11" name="辉针城" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.castle_10" music="mvz2:castle_final" >
@@ -904,7 +907,7 @@
             <entry id="mvz2:giant_bowl" count="1"/>
             <entry id="mvz2:pistenser" count="12"/>
             <entry id="mvz2:soul_furnace" count="6"/>
-			<entry id="mvz2:tnt" count="6"/>
+			<entry id="mvz2:tnt" count="2"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
@@ -950,7 +953,7 @@
 			<entry id="mvz2:magichest" count="1"/>
 			<entry id="mvz2:pistenser" count="12"/>
 			<entry id="mvz2:soul_furnace" count="6"/>
-			<entry id="mvz2:tnt" count="8"/>
+			<entry id="mvz2:tnt" count="2"/>
 		</conveyor>
 		<clear pickupModel="mvz2:entity.money_chest"/>
 		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
@@ -966,6 +969,7 @@
 			<spawn id="mvz2:NetherVanguard"/>
 			<spawn id="mvz2:AngryReverser"/>
 			<spawn id="mvz2:RaiderSkull"/>
+			<spawn id="mvz2:Anubiskull"/>
 		</spawns>
 		<properties>
 			<bool name="noEnergy" value="true"/>

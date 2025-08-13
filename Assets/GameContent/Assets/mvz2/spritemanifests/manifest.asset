@@ -205,10 +205,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: cb2161762d5c5c54f989ec0a1e6d85e9, type: 3}
   - name: mobile_blueprint/add_pearl
     sprite: {fileID: 21300000, guid: db41f5cca7edeb34a8465f62eae3d2c3, type: 3}
-  - name: mobile_blueprint/anubigod
-    sprite: {fileID: 21300000, guid: 99d1b89d493fa1f46be7439e333af766, type: 3}
   - name: mobile_blueprint/anubisand
     sprite: {fileID: 21300000, guid: 2d37eb66e5d769343ab9e6ee42496b68, type: 3}
+  - name: mobile_blueprint/Anubiskull
+    sprite: {fileID: 21300000, guid: 99d1b89d493fa1f46be7439e333af766, type: 3}
   - name: mobile_blueprint/anvil
     sprite: {fileID: 21300000, guid: 07fea5983538e114e87a25057c32b6c2, type: 3}
   - name: mobile_blueprint/bedserker
@@ -2008,6 +2008,17 @@ MonoBehaviour:
     - {fileID: 1066920086, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
     - {fileID: -1741756473, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
     - {fileID: 689961320, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
+  - name: entity/enemy/Anubiskull
+    spritesheet:
+    - {fileID: 1241274539, guid: 73294a588306fae4da404780c0acc3e3, type: 3}
+    - {fileID: 1969525468, guid: 73294a588306fae4da404780c0acc3e3, type: 3}
+    - {fileID: -1724481462, guid: 73294a588306fae4da404780c0acc3e3, type: 3}
+    - {fileID: -1598104868, guid: 73294a588306fae4da404780c0acc3e3, type: 3}
+    - {fileID: -320826552, guid: 73294a588306fae4da404780c0acc3e3, type: 3}
+    - {fileID: -1374216230, guid: 73294a588306fae4da404780c0acc3e3, type: 3}
+    - {fileID: 1694946562, guid: 73294a588306fae4da404780c0acc3e3, type: 3}
+    - {fileID: 1273587342, guid: 73294a588306fae4da404780c0acc3e3, type: 3}
+    - {fileID: -89958863, guid: 73294a588306fae4da404780c0acc3e3, type: 3}
   - name: entity/enemy/AquaticSpider
     spritesheet:
     - {fileID: 2005272663, guid: 40917e5514d4e964aa4edfccefa8c53f, type: 3}
