@@ -53,10 +53,12 @@ namespace MVZ2.Vanilla.Level
         }
         public static void CheckGameOver(this LevelEngine level)
         {
-            var gameOverEnemies = level.FindEntities(e => e.Position.x < GetBorderX(false) && e.CanEntityEnterHouse());
-            if (gameOverEnemies.Length > 0)
+            if (level.IsCleared) // 关卡通关后不能再死亡
+                return;
+            var gameOverEnemy = level.FindFirstEntity(e => e.Position.x < GetBorderX(false) && e.CanEntityEnterHouse());
+            if (gameOverEnemy != null)
             {
-                level.GameOver(GameOverTypes.ENEMY, gameOverEnemies.FirstOrDefault(), null);
+                level.GameOver(GameOverTypes.ENEMY, gameOverEnemy, null);
             }
         }
         public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
