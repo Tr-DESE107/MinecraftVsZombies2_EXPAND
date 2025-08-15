@@ -706,7 +706,7 @@
 				<vector3 name="mvz2:shotOffset" x="25" y="15" z="0" />
 				<idArray name="mvz2:gridLayers" value="mvz2:protector" />
 				<float name="mvz2:damage" value="20" />
-				<int name="mvz2:cost" value="150" />
+				<int name="mvz2:cost" value="125" />
 
 				<float name="mvz2:range" value="800" />
 				<vector3 name="mvz2:shotVelocity" x="10" y="0" z="0" />
@@ -1493,7 +1493,7 @@
 			</properties>
 		</enemy>
 		
-		<enemy id="NetherArcher" name="下界弓箭手" deathMessage="被射成刺猬了！" unlock="mvz2:level.castle_4">
+		<enemy id="NetherArcher" name="下界弓箭手" deathMessage="被射成刺猬了！" unlock="mvz2:level.castle_3">
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:nether_helmet" />
 				<float name="mvz2:range" value="800" />

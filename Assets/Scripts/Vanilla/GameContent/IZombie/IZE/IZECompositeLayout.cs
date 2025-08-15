@@ -31,6 +31,8 @@ namespace MVZ2.GameContent.IZombie
             RandomFill(map, VanillaContraptionID.stoneDropper, 1, rng);
             RandomFill(map, VanillaContraptionID.splitenser, 2, rng);
             RandomFill(map, VanillaContraptionID.hellfire, 1, rng);
+            RandomFill(map, VanillaContraptionID.GlowingObsidian, 1, rng);
+            //GlowingObsidian
         }
     }
 }

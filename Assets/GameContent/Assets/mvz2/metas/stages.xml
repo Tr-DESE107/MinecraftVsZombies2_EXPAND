@@ -737,6 +737,7 @@
             <spawn id="mvz2:mesmerizer"/>
 			<spawn id="mvz2:NetherWarrior"/>
 			<spawn id="mvz2:ghast"/>
+			<spawn id="mvz2:NetherArcher"/>
         </spawns>
     </stage>
     <stage id="castle_4" name="辉针城" dayNumber="4" unlock="mvz2:level.castle_3">

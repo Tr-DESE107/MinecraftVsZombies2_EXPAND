@@ -16,6 +16,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Buffs;
 
 namespace MVZ2.GameContent.Bosses
 {
@@ -39,6 +40,9 @@ namespace MVZ2.GameContent.Bosses
                 EntityCollisionHelper.MASK_ENEMY |
                 EntityCollisionHelper.MASK_OBSTACLE |
                 EntityCollisionHelper.MASK_BOSS;
+
+            var buff = boss.AddBuff<ExplosionProtection>();
+            buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 0.5f);
         }
         protected override void UpdateAI(Entity entity)
         {

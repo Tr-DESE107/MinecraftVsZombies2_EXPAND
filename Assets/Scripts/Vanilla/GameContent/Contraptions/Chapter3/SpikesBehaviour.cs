@@ -11,6 +11,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Buffs;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -26,6 +27,9 @@ namespace MVZ2.GameContent.Contraptions
             base.Init(entity);
             SetAttackTimer(entity, new FrameTimer(AttackCooldown));
             SetEvocationTimer(entity, new FrameTimer(EvocationDuration));
+
+            var buff = entity.AddBuff<ExplosionProtection>();
+            buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
         }
         protected override void UpdateAI(Entity entity)
         {

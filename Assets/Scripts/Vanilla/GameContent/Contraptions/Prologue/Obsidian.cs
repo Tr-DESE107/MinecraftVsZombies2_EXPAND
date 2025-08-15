@@ -8,6 +8,7 @@ using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using MVZ2.GameContent.Buffs;
 
 
 namespace MVZ2.GameContent.Contraptions
@@ -22,6 +23,9 @@ namespace MVZ2.GameContent.Contraptions
             base.Init(entity);
             // 初始化血量记录，用于判断是否需要发射紫箭
             SetLastShootHealth(entity, entity.Health);
+
+            var buff = entity.AddBuff<ExplosionProtection>();
+            buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
         }
 
         protected override void UpdateLogic(Entity contraption)
