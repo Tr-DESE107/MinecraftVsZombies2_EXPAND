@@ -5940,7 +5940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1839082091380394686, guid: 275b78939bfae694baabc4eaf621ea4b, type: 3}
       propertyPath: text
-      value: "\u662F\u5426\u4EA4\u6362\u4E24\u4E2A\u89E6\u53D1\u5668\u5199\u7684\u65B9\u6CD5\u3002\u82E5\u542F\u7528\uFF0C\u5219\u653E\u7F6E\u5668\u68B0\u540E\u9ED8\u8BA4\u4F1A\u7ACB\u5373\u5C06\u5176\u89E6\u53D1\u3002"
+      value: "\u662F\u5426\u4EA4\u6362\u4E24\u4E2A\u89E6\u53D1\u5668\u68B0\u7684\u65B9\u6CD5\u3002\u82E5\u542F\u7528\uFF0C\u5219\u653E\u7F6E\u5668\u68B0\u540E\u9ED8\u8BA4\u4F1A\u7ACB\u5373\u5C06\u5176\u89E6\u53D1\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 3316512473440080767, guid: 275b78939bfae694baabc4eaf621ea4b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6206,7 +6206,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1839082091380394686, guid: 275b78939bfae694baabc4eaf621ea4b, type: 3}
       propertyPath: text
-      value: "\u5728\u5173\u5361\u4E2D\u653E\u7F6E\u7279\u5B9A\u5668\u68B0\u65F6\uFF0C\u662F\u5426\u968F\u673A\u663E\u793A\u8D5E\u52A9\u4E86\u5BF9\u5E94\u7684\u65B9\u6848\u7684\u8D5E\u52A9\u8005\u7684\u540D\u79F0\u3002"
+      value: "\u5728\u5173\u5361\u4E2D\u653E\u7F6E\u7279\u5B9A\u5668\u68B0\u65F6\uFF0C\u662F\u5426\u968F\u673A\u663E\u793A\u8D5E\u52A9\u4E86\u5BF9\u5E94\u65B9\u6848\u7684\u8D5E\u52A9\u8005\u7684\u540D\u79F0\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 3360019790736496645, guid: 275b78939bfae694baabc4eaf621ea4b, type: 3}
       propertyPath: m_text

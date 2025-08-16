@@ -150,12 +150,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3225782163749732144, guid: 9bf83d0d1dff1664bbe892b89c95fbf7, type: 3}
-      propertyPath: m_PreferredWidth
+      propertyPath: m_MinWidth
       value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 3225782163749732144, guid: 9bf83d0d1dff1664bbe892b89c95fbf7, type: 3}
-      propertyPath: m_PreferredHeight
+      propertyPath: m_MinHeight
       value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225782163749732144, guid: 9bf83d0d1dff1664bbe892b89c95fbf7, type: 3}
+      propertyPath: m_PreferredWidth
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3225782163749732144, guid: 9bf83d0d1dff1664bbe892b89c95fbf7, type: 3}
+      propertyPath: m_PreferredHeight
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3434363501804205344, guid: 9bf83d0d1dff1664bbe892b89c95fbf7, type: 3}
       propertyPath: m_Pivot.x

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-07-31 06:11+0800\n"
+"POT-Creation-Date: 2025-08-16 09:53+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,6 +104,36 @@ msgstr ""
 msgid "菜单"
 msgstr ""
 
+#. 选项提示
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Sliders/Sliders1/MusicSlider
+msgctxt "option.tooltip"
+msgid "背景音乐音量。"
+msgstr ""
+
+#. 选项提示
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Sliders/Sliders2/OptionSlider
+msgctxt "option.tooltip"
+msgid "音效音量。"
+msgstr ""
+
+#. 选项提示
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Sliders/Sliders3/OptionSlider
+msgctxt "option.tooltip"
+msgid "关卡中开启加速时，游戏速度的倍率。"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Top/SwapTriggerToggle
+msgctxt "option.tooltip"
+msgid "是否交换两个触发器械的方法。若启用，则放置器械后默认会立即将其触发。"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Top/OptionToggle
+msgctxt "option.tooltip"
+msgid "是否在游戏失去焦点后暂停游戏。"
+msgstr ""
+
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MainElements/Buttons/Middle/ButtonArea1/MoreOptions/Text
 msgid "更多选项"
 msgstr ""
@@ -118,18 +148,99 @@ msgstr ""
 msgid "常规"
 msgstr ""
 
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/General/Options/Buttons/Vibration
+msgctxt "option.tooltip"
+msgid "（仅限移动端）是否在屏幕震动时震动设备。"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/General/Options/Buttons/SkipAllDialogues
+msgctxt "option.tooltip"
+msgid "是否自动跳过所有剧情对话。"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/General/Options/Buttons/ChooseWarnings
+msgctxt "option.tooltip"
+msgid "是否在蓝图选择完毕后，根据当前情况提出警告。"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/General/Options/Buttons/CommandBlockMode
+msgctxt "option.tooltip"
+msgid ""
+"选择命令方块蓝图的模式。\n"
+"手动：手动选择模仿的器械。\n"
+"前位：自动模仿上一个选择的器械。"
+msgstr ""
+
 #. 选项分类
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Title/Text
 msgid "显示"
+msgstr ""
+
+#. 选项提示
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Sliders1/Particles
+msgctxt "option.tooltip"
+msgid "粒子效果数量。"
+msgstr ""
+
+#. 选项提示
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Sliders2/Shake
+msgctxt "option.tooltip"
+msgid "屏幕震动幅度。"
+msgstr ""
+
+#. 选项提示
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Sliders3/AnimationFrequency
+msgctxt "option.tooltip"
+msgid "关卡中实体动画的更新速率。降低该值可能会提升性能，但会使实体动画效果变差。"
 msgstr ""
 
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/ResolutionDropdown/Label
 msgid "分辨率"
 msgstr ""
 
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Buttons/Fullscreen
+msgctxt "option.tooltip"
+msgid "是否全屏。"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Buttons/BloodAndGore
+msgctxt "option.tooltip"
+msgid "是否启用游戏中的血腥表现。"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Buttons/HeightIndicator
+msgctxt "option.tooltip"
+msgid "是否在关卡中的实体位置较高时，显示实体距离地面的高度。"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Buttons/HDRLighting
+msgctxt "option.tooltip"
+msgid "是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光变得较为刺眼。"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Display/Options/Buttons/ShowFPS
+msgctxt "option.tooltip"
+msgid "是否显示游戏帧率。"
+msgstr ""
+
 #. 选项分类
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Controls/Title/Text
 msgid "控制"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Controls/Options/Buttons/ShowHotkeys
+msgctxt "option.tooltip"
+msgid "是否在关卡中显示界面对应的快捷键。"
 msgstr ""
 
 #. 按钮文本
@@ -140,6 +251,12 @@ msgstr ""
 #. 选项分类
 #: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Misc/Title/Text
 msgid "杂项"
+msgstr ""
+
+#. 选项说明
+#: /MainGame/MainScene/Mainmenu/Canvas/OptionsDialog/Dialog/MoreElements/Scroll View/Viewport/Content/Misc/Options/Buttons/SponsorName
+msgctxt "option.tooltip"
+msgid "在关卡中放置特定器械时，是否随机显示赞助了对应方案的赞助者的名称。"
 msgstr ""
 
 #. 按钮文本
@@ -1250,150 +1367,150 @@ msgstr ""
 msgid "确认要重置所有按键绑定吗？"
 msgstr ""
 
-# 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:560
-msgid "交换触发：{0}"
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:592
+msgid "交换触发"
 msgstr ""
 
-# 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:562
-msgid "全屏：{0}"
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:594
+msgid "全屏"
 msgstr ""
 
-# 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:564
-msgid "设备震动：{0}"
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:596
+msgid "设备震动"
+msgstr ""
+
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:598
+msgid "后台暂停"
 msgstr ""
 
 # 选项，{0}为难度
-#: Scripts\MVZ2\Options\OptionsLogic.cs:566
+#: Scripts\MVZ2\Options\OptionsLogic.cs:600
 msgid "难度：{0}"
 msgstr ""
 
-# 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:568
-msgid "后台暂停：{0}"
-msgstr ""
-
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:572
+#: Scripts\MVZ2\Options\OptionsLogic.cs:604
 msgid "音乐音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:574
+#: Scripts\MVZ2\Options\OptionsLogic.cs:606
 msgid "音效音量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:576
+#: Scripts\MVZ2\Options\OptionsLogic.cs:608
 msgid "加速倍率：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:578
+#: Scripts\MVZ2\Options\OptionsLogic.cs:610
 msgid "动画频率：{0}"
 msgstr ""
 
-# 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:580
-msgid "HDR光照：{0}"
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:612
+msgid "HDR光照"
 msgstr ""
 
-# 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:583
-msgid "血与碎块：{0}"
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:615
+msgid "血与碎块"
 msgstr ""
 
-# 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:586
-msgid "跳过对话：{0}"
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:618
+msgid "跳过对话"
 msgstr ""
 
-# 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:588
-msgid "赞助者名称：{0}"
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:620
+msgid "赞助者名称"
 msgstr ""
 
-# 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:590
-msgid "选卡警告：{0}"
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:622
+msgid "选卡警告"
 msgstr ""
 
 # 选项，{0}为模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:592
+#: Scripts\MVZ2\Options\OptionsLogic.cs:624
 msgid "命令方块：{0}"
 msgstr ""
 
 # 选项，{0}为模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:594
+#: Scripts\MVZ2\Options\OptionsLogic.cs:626
 msgid "显示帧率：{0}"
 msgstr ""
 
-# 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:596
-msgid "高度指示器：{0}"
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:628
+msgid "高度指示器"
 msgstr ""
 
-# 选项，{0}为是否开启
-#: Scripts\MVZ2\Options\OptionsLogic.cs:598
-msgid "显示快捷键：{0}"
+# 选项
+#: Scripts\MVZ2\Options\OptionsLogic.cs:630
+msgid "显示快捷键"
 msgstr ""
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:601
+#: Scripts\MVZ2\Options\OptionsLogic.cs:633
 msgctxt "option.command_block_mode"
 msgid "手选"
 msgstr ""
 
 # 命令方块模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:603
+#: Scripts\MVZ2\Options\OptionsLogic.cs:635
 msgctxt "option.command_block_mode"
 msgid "前位"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:606
+#: Scripts\MVZ2\Options\OptionsLogic.cs:638
 msgctxt "option.fps_mode"
 msgid "关闭"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:608
+#: Scripts\MVZ2\Options\OptionsLogic.cs:640
 msgctxt "option.fps_mode"
 msgid "左上"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:610
+#: Scripts\MVZ2\Options\OptionsLogic.cs:642
 msgctxt "option.fps_mode"
 msgid "右上"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:612
+#: Scripts\MVZ2\Options\OptionsLogic.cs:644
 msgctxt "option.fps_mode"
 msgid "左下"
 msgstr ""
 
 # FPS模式
-#: Scripts\MVZ2\Options\OptionsLogic.cs:614
+#: Scripts\MVZ2\Options\OptionsLogic.cs:646
 msgctxt "option.fps_mode"
 msgid "右下"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:617
+#: Scripts\MVZ2\Options\OptionsLogic.cs:649
 msgid "粒子数量：{0}"
 msgstr ""
 
 # 选项，{0}为量
-#: Scripts\MVZ2\Options\OptionsLogic.cs:619
+#: Scripts\MVZ2\Options\OptionsLogic.cs:651
 msgid "屏幕震动：{0}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Options\OptionsLogicLevel.cs:87
+#: Scripts\MVZ2\Options\OptionsLogicLevel.cs:93
 msgid ""
 "确认要返回吗？\n"
 "你的进度会被保存。"
@@ -1505,29 +1622,39 @@ msgid "作者：{0}"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:680
+#: Scripts\MVZ2\Map\MapController.cs:695
 msgid ""
 "按住右键拖动以移动视图\n"
 "滚轮以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:682
+#: Scripts\MVZ2\Map\MapController.cs:697
 msgid ""
 "单指拖动以移动视图\n"
 "双指触摸以缩放视图"
 msgstr ""
 
 # 地图的提示文本
-#: Scripts\MVZ2\Map\MapController.cs:684
+#: Scripts\MVZ2\Map\MapController.cs:699
 msgid "正在进入关卡……"
 msgstr ""
 
 # 地图的无尽模式提示文本，{0}为当前轮数，{1}为历史最高
-#: Scripts\MVZ2\Map\MapController.cs:686
+#: Scripts\MVZ2\Map\MapController.cs:701
 msgid ""
 "轮数\n"
 "{0}/{1}"
+msgstr ""
+
+# 进入关卡的错误信息，{0}为地点ID
+#: Scripts\MVZ2\Map\MapController.cs:703
+msgid "目标地点{0}不存在。"
+msgstr ""
+
+# 进入关卡的错误信息，{0}为关卡ID
+#: Scripts\MVZ2\Map\MapController.cs:705
+msgid "目标关卡{0}不存在。"
 msgstr ""
 
 # 日志导出失败的警告
@@ -2422,27 +2549,27 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1266
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1270
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1270
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1274
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1272
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1276
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1274
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1278
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1276
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1280
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
@@ -2527,37 +2654,37 @@ msgid ""
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:799
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:800
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:801
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:802
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:803
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:804
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr ""
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:805
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:806
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:807
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:808
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:809
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:810
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr ""

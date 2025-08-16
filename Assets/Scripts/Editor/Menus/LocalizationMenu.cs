@@ -454,7 +454,7 @@ namespace MVZ2.Editor
         {
             if (cp == null)
                 return;
-            if (cp.Key != null)
+            if (!string.IsNullOrEmpty(cp.Key))
             {
                 PotTranslate translate = new PotTranslate(cp.Key, cp.Path, cp.Comment, cp.Context);
                 pot.AddString(translate);
