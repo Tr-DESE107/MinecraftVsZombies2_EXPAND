@@ -30,6 +30,8 @@ namespace Rendering
 
         public void SetSpriteIndex(int i)
         {
+            if (sprites == null)
+                return;
             index = Mathf.Clamp(i, 0, sprites.Length - 1);
             beforeIndex = index;
             Sprite sprite = sprites[index];
