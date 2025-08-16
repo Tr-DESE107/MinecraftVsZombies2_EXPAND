@@ -3,8 +3,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using MukioI18n;
 using MVZ2.Entities;
-using MVZ2.Level.UI;
 using MVZ2.Managers;
+using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
@@ -268,12 +268,16 @@ namespace MVZ2.Level
                 this.entityCtrl = entityCtrl;
             }
 
-            public ITooltipTarget GetTarget(LevelController level)
+            public Camera GetCamera()
+            {
+                return controller.GetCamera();
+            }
+            public ITooltipTarget GetTarget()
             {
                 return entityCtrl;
             }
 
-            public TooltipViewData GetViewData(LevelController level)
+            public TooltipContent GetContent()
             {
                 var main = controller.Main;
                 var name = main.ResourceManager.GetEntityName(entityCtrl.Entity.GetDefinitionID());
@@ -286,7 +290,7 @@ namespace MVZ2.Level
                         description = main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_TOOLTIP, VIEW_IN_ALMANAC);
                     }
                 }
-                return new TooltipViewData()
+                return new TooltipContent()
                 {
                     name = name,
                     description = description

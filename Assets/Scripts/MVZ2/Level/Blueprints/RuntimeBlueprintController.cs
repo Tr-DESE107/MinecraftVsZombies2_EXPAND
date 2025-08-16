@@ -1,5 +1,4 @@
-﻿using MVZ2.Level.UI;
-using MVZ2.UI;
+﻿using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
@@ -79,7 +78,7 @@ namespace MVZ2.Level
         {
             return SeedPack.CanPick(out errorMessage);
         }
-        public override TooltipViewData GetTooltipViewData()
+        public override TooltipContent GetTooltipViewData()
         {
             var viewData = base.GetTooltipViewData();
             viewData.error = GetTooltipErrorMessage();

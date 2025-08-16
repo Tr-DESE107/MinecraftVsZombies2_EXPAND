@@ -1,5 +1,4 @@
-﻿using MVZ2.Level.UI;
-using MVZ2.UI;
+﻿using MVZ2.UI;
 using MVZ2Logic;
 using PVZEngine.Definitions;
 using UnityEngine.EventSystems;
@@ -21,7 +20,7 @@ namespace MVZ2.Level
         {
             Controller.BlueprintChoosePart.DestroyChosenBlueprintUIAt(Index);
         }
-        public override TooltipViewData GetTooltipViewData()
+        public override TooltipContent GetTooltipViewData()
         {
             var tooltip = base.GetTooltipViewData();
             var id = Definition.GetID();

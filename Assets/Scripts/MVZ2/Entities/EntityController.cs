@@ -4,9 +4,9 @@ using MVZ2.Cursors;
 using MVZ2.GameContent.Armors;
 using MVZ2.HeldItems;
 using MVZ2.Level;
-using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
+using MVZ2.UI;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
@@ -612,7 +612,7 @@ namespace MVZ2.Entities
         [SerializeField]
         private LevelPointerInteractionHandler holdStreakHandler;
 
-        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
+        ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
 
         #endregion
 

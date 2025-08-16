@@ -1,5 +1,4 @@
 ﻿using System;
-using MVZ2.Level.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -41,7 +40,7 @@ namespace MVZ2.UI
         {
             OnPointerDown?.Invoke(this);
         }
-        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
+        ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
         public event Action<AlmanacTagIcon> OnPointerEnter;
         public event Action<AlmanacTagIcon> OnPointerExit;
         public event Action<AlmanacTagIcon> OnPointerDown;

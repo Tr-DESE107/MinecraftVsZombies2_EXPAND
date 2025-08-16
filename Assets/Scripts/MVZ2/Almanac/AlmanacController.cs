@@ -5,7 +5,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using MukioI18n;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Models;
@@ -222,14 +221,15 @@ namespace MVZ2.Almanacs
             var icon = ui.GetTagIcon(page, index);
             var tagInfo = GetEntryTagIconInfo(index);
             var viewData = GetTagTooltipViewData(tagInfo.tagID, tagInfo.enumValue);
-            ui.ShowTooltip(icon, viewData);
+            Main.Scene.ShowTooltip(new SimpleTooltipSource(almanacCamera, icon, viewData));
+            Main.Scene.UpdateTooltip();
             UnlockTooltip();
         }
         private void OnTagIconExitCallback(AlmanacPageType page, int index)
         {
             if (tagTooltipLockedTarget >= 0)
                 return;
-            ui.HideTooltip();
+            Main.Scene.HideTooltip();
         }
         private void OnTagIconDownCallback(AlmanacPageType page, int index)
         {
@@ -246,14 +246,15 @@ namespace MVZ2.Almanacs
             if (!TryParseLinkID(linkID, out var index, out var tagID, out var enumValueID))
                 return;
             var viewData = GetTagTooltipViewData(tagID, enumValueID);
-            ui.ShowTooltip(icon, viewData);
+            Main.Scene.ShowTooltip(new SimpleTooltipSource(almanacCamera, icon, viewData));
+            Main.Scene.UpdateTooltip();
             UnlockTooltip();
         }
         private void OnDescriptionIconExitCallback(AlmanacPageType page, string linkID)
         {
             if (!string.IsNullOrEmpty(descriptionTagTooltipLockedTarget))
                 return;
-            ui.HideTooltip();
+            Main.Scene.HideTooltip();
         }
         private void OnDescriptionIconDownCallback(AlmanacPageType page, string linkID)
         {
@@ -533,7 +534,7 @@ namespace MVZ2.Almanacs
         {
             return $"[{index}]{tagID}&{enumID}";
         }
-        private TooltipViewData GetTagTooltipViewData(NamespaceID tagID, string enumValue)
+        private TooltipContent GetTagTooltipViewData(NamespaceID tagID, string enumValue)
         {
             AlmanacTagMeta tagMeta = Main.ResourceManager.GetAlmanacTagMeta(tagID);
             if (tagMeta == null)
@@ -551,7 +552,7 @@ namespace MVZ2.Almanacs
                     var enumValueName = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC_TAG_ENUM_NAME, enumValueMeta.name);
                     name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, TAG_ENUM_TEMPLATE, tagName, enumValueName);
                     desc = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC_TAG_ENUM_DESCRIPTION, enumValueMeta.description);
-                    return new TooltipViewData()
+                    return new TooltipContent()
                     {
                         name = name,
                         description = desc,
@@ -560,7 +561,7 @@ namespace MVZ2.Almanacs
             }
             name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC_TAG_NAME, tagMeta.name);
             desc = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC_TAG_DESCRIPTION, tagMeta.description);
-            return new TooltipViewData()
+            return new TooltipContent()
             {
                 name = name,
                 description = desc,
@@ -755,7 +756,7 @@ namespace MVZ2.Almanacs
         private void UnlockAndHideTooltip()
         {
             UnlockTooltip();
-            ui.HideTooltip();
+            Main.Scene.HideTooltip();
         }
         private void UpdateEntries()
         {

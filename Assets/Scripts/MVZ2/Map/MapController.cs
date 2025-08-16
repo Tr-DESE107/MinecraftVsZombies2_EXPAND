@@ -200,7 +200,7 @@ namespace MVZ2.Map
                 case MapUI.ButtonType.Setting:
                     ui.SetOptionsDialogActive(true);
                     ui.OptionsDialog.ResetPosition();
-                    optionsLogic = new OptionsLogicMap(ui.OptionsDialog);
+                    optionsLogic = new OptionsLogicMap(this, ui.OptionsDialog);
                     optionsLogic.InitDialog();
                     optionsLogic.OnClose += OnOptionsDialogCloseCallback;
                     break;

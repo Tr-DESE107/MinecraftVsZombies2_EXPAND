@@ -1,8 +1,9 @@
-﻿using MVZ2.Level.UI;
+﻿using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.Level
 {
@@ -13,30 +14,15 @@ namespace MVZ2.Level
             pickaxeTooltipSource = new PickaxeTooltipSource(this);
             triggerTooltipSource = new TriggerTooltipSource(this);
 
-            var uiPreset = GetUIPreset();
-            uiPreset.HideTooltip();
+            HideTooltip();
         }
         public void ShowTooltip(ITooltipSource source)
         {
-            tooltipSource = source;
-            var target = tooltipSource.GetTarget(this);
-            if (!target.Anchor || !target.Anchor.isActiveAndEnabled || target.Anchor.IsDisabled)
-                return;
-            var uiPreset = GetUIPreset();
-            uiPreset.ShowTooltip();
-        }
-        public void UpdateTooltip()
-        {
-            if (tooltipSource == null)
-                return;
-            var uiPreset = GetUIPreset();
-            uiPreset.UpdateTooltip(tooltipSource.GetTarget(this), tooltipSource.GetViewData(this));
+            Main.Scene.ShowTooltip(source);
         }
         public void HideTooltip()
         {
-            tooltipSource = null;
-            var uiPreset = GetUIPreset();
-            uiPreset.HideTooltip();
+            Main.Scene.HideTooltip();
         }
 
         #region 属性字段
@@ -52,25 +38,29 @@ namespace MVZ2.Level
             {
                 this.controller = level;
             }
-            public ITooltipTarget GetTarget(LevelController level)
+            public Camera GetCamera()
             {
-                return level.GetUIPreset().GetPickaxeSlot();
+                return controller.GetCamera();
             }
-            public TooltipViewData GetViewData(LevelController level)
+            public ITooltipTarget GetTarget()
+            {
+                return controller.GetUIPreset().GetPickaxeSlot();
+            }
+            public TooltipContent GetContent()
             {
                 string error = null;
-                if (!level.level.CanUsePickaxe())
+                if (!controller.level.CanUsePickaxe())
                 {
                     var disableID = controller.level.GetPickaxeDisableID();
                     var message = Global.Game.GetBlueprintErrorMessage(disableID);
                     if (!string.IsNullOrEmpty(message))
                     {
-                        error = level.Localization._p(VanillaStrings.CONTEXT_BLUEPRINT_ERROR, message);
+                        error = controller.Localization._p(VanillaStrings.CONTEXT_BLUEPRINT_ERROR, message);
                     }
                 }
-                return new TooltipViewData()
+                return new TooltipContent()
                 {
-                    name = level.Localization._(VanillaStrings.TOOLTIP_DIG_CONTRAPTION),
+                    name = controller.Localization._(VanillaStrings.TOOLTIP_DIG_CONTRAPTION),
                     error = error,
                     description = null
                 };
@@ -83,23 +73,27 @@ namespace MVZ2.Level
             {
                 this.controller = level;
             }
-            public ITooltipTarget GetTarget(LevelController level)
+            public Camera GetCamera()
             {
-                return level.GetUIPreset().GetCurrentTriggerUI();
+                return controller.GetCamera();
             }
-            public TooltipViewData GetViewData(LevelController level)
+            public ITooltipTarget GetTarget()
+            {
+                return controller.GetUIPreset().GetCurrentTriggerUI();
+            }
+            public TooltipContent GetContent()
             {
                 string error = null;
-                if (level.level.CanUseTrigger())
+                if (controller.level.CanUseTrigger())
                 {
-                    var disableID = level.level.GetTriggerDisableID();
+                    var disableID = controller.level.GetTriggerDisableID();
                     var message = Global.Game.GetBlueprintErrorMessage(disableID);
                     if (!string.IsNullOrEmpty(message))
                     {
                         error = controller.Localization._p(VanillaStrings.CONTEXT_BLUEPRINT_ERROR, message);
                     }
                 }
-                return new TooltipViewData()
+                return new TooltipContent()
                 {
                     name = controller.Localization._(VanillaStrings.TOOLTIP_TRIGGER_CONTRAPTION),
                     error = error,
@@ -119,17 +113,20 @@ namespace MVZ2.Level
                 this.artifactID = artifactID;
                 this.target = target;
             }
-
-            public ITooltipTarget GetTarget(LevelController level)
+            public Camera GetCamera()
+            {
+                return controller.GetCamera();
+            }
+            public ITooltipTarget GetTarget()
             {
                 return target;
             }
-            public TooltipViewData GetViewData(LevelController level)
+            public TooltipContent GetContent()
             {
                 var main = controller.Main;
                 var name = main.ResourceManager.GetArtifactName(artifactID);
                 var tooltip = main.ResourceManager.GetArtifactTooltip(artifactID);
-                return new TooltipViewData()
+                return new TooltipContent()
                 {
                     name = name,
                     error = string.Empty,
@@ -137,10 +134,5 @@ namespace MVZ2.Level
                 };
             }
         }
-    }
-    public interface ITooltipSource
-    {
-        ITooltipTarget GetTarget(LevelController level);
-        TooltipViewData GetViewData(LevelController level);
     }
 }

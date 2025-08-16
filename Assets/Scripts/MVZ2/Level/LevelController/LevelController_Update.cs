@@ -135,9 +135,6 @@ namespace MVZ2.Level
             // 更新光标。
             UpdateHeldItemCursorEnabled();
 
-            // 更新工具提示。
-            UpdateTooltip();
-
             // 更新UI。
             UpdateFrameUI(deltaTime, gameSpeed);
 

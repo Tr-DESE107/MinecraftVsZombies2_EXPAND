@@ -1,12 +1,14 @@
-﻿using MVZ2.UI;
+﻿using MVZ2.Map;
+using MVZ2.UI;
 
 namespace MVZ2.Options
 {
     using static MVZ2.UI.OptionsDialog;
     public class OptionsLogicMap : OptionsLogic
     {
-        public OptionsLogicMap(OptionsDialog dialog) : base(dialog)
+        public OptionsLogicMap(MapController map, OptionsDialog dialog) : base(dialog)
         {
+            this.map = map;
         }
         public override void InitDialog()
         {
@@ -15,5 +17,6 @@ namespace MVZ2.Options
             dialog.SetButtonActive(ButtonType.LeaveLevel, false);
             dialog.SetButtonActive(ButtonType.Restart, false);
         }
+        private MapController map;
     }
 }

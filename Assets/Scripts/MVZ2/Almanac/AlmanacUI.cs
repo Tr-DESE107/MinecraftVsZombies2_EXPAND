@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using MVZ2.Level.UI;
 using MVZ2.Models;
 using MVZ2.UI;
 using UnityEngine;
@@ -22,18 +21,6 @@ namespace MVZ2.Almanacs
         public void SetIndexArtifactVisible(bool visible)
         {
             indexUI.SetArtifactVisible(visible);
-        }
-        public void ShowTooltip(ITooltipTarget target, TooltipViewData viewData)
-        {
-            var anchor = target.Anchor;
-            if (!anchor || anchor.IsDisabled)
-                return;
-            tooltip.gameObject.SetActive(true);
-            tooltip.SetData(anchor.transform, anchor.Pivot, viewData);
-        }
-        public void HideTooltip()
-        {
-            tooltip.gameObject.SetActive(false);
         }
         public AlmanacTagIcon GetTagIcon(AlmanacPageType page, int index)
         {
@@ -252,8 +239,6 @@ namespace MVZ2.Almanacs
         private MiscAlmanacPage miscs;
         [SerializeField]
         private AlmanacZoomPage zoomPage;
-        [SerializeField]
-        private Tooltip tooltip;
     }
     public enum AlmanacPageType
     {

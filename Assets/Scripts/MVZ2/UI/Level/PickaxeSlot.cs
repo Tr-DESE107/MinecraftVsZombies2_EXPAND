@@ -1,4 +1,5 @@
 ﻿using System;
+using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -42,7 +43,7 @@ namespace MVZ2.Level.UI
         public event Action<PointerEventData> OnPointerEnter;
         public event Action<PointerEventData> OnPointerExit;
         public event Action<PointerEventData> OnPointerDown;
-        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
+        ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
         [SerializeField]
         private Animator animator;
         [SerializeField]

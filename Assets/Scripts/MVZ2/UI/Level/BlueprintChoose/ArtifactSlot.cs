@@ -1,4 +1,5 @@
 ﻿using System;
+using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -41,7 +42,7 @@ namespace MVZ2.Level.UI
         Button button;
         [SerializeField]
         TooltipAnchor tooltipAnchor;
-        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
+        ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
     }
     public struct ArtifactViewData
     {

@@ -28,6 +28,23 @@ namespace MVZ2.UI
         {
             return dialog.gameObject.activeSelf;
         }
+
+        #region 工具提示
+        public void ShowTooltip()
+        {
+            tooltip.Show();
+            tooltip.ForceRebuildLayout();
+        }
+        public void HideTooltip()
+        {
+            tooltip.Hide();
+        }
+        public void UpdateTooltip(TooltipViewData viewData)
+        {
+            tooltip.SetView(viewData);
+        }
+        #endregion
+
         private void Awake()
         {
             screenCoverFader.OnValueChanged += OnBlackscreenFaderValueChangedCallback;
@@ -37,6 +54,8 @@ namespace MVZ2.UI
             blackscreenImage.color = value;
             blackscreenImage.raycastTarget = value.a > 0;
         }
+        [SerializeField]
+        private Tooltip tooltip;
         [SerializeField]
         private CustomDialog dialog;
         [SerializeField]

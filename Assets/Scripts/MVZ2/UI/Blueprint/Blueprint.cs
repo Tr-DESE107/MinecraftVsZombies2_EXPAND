@@ -1,7 +1,6 @@
 ﻿using System;
 using MVZ2.HeldItems;
 using MVZ2.Level;
-using MVZ2.Level.UI;
 using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2Logic;
@@ -125,7 +124,7 @@ namespace MVZ2.UI
         }
         public event Action<Blueprint, PointerEventData, PointerInteraction> OnPointerInteraction;
         public event Action<Blueprint, PointerEventData> OnSelect;
-        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
+        ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
         public UIModel Model => model;
         public int Index { get; set; } = -1;
         public bool IsInConveyor { get; set; }

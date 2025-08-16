@@ -1,0 +1,11 @@
+﻿using UnityEngine;
+
+namespace MVZ2.UI
+{
+    public interface ITooltipSource
+    {
+        Camera GetCamera();
+        ITooltipTarget GetTarget();
+        TooltipContent GetContent();
+    }
+}

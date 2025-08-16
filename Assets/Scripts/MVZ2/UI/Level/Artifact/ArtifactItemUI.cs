@@ -1,5 +1,6 @@
 using System;
 using MVZ2.Models;
+using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -73,6 +74,6 @@ namespace MVZ2.Level.UI
         private TextMeshProUGUI numText;
         [SerializeField]
         private TooltipAnchor tooltipAnchor;
-        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
+        ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
     }
 }

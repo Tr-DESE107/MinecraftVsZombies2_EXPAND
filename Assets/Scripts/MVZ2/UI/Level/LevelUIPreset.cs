@@ -283,24 +283,6 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region 工具提示
-        public void ShowTooltip()
-        {
-            tooltip.gameObject.SetActive(true);
-        }
-        public void UpdateTooltip(ITooltipTarget ui, TooltipViewData viewData)
-        {
-            var anchor = ui.Anchor;
-            if (!anchor || anchor.IsDisabled)
-                return;
-            tooltip.SetData(anchor.transform, anchor.Pivot, viewData);
-        }
-        public void HideTooltip()
-        {
-            tooltip.gameObject.SetActive(false);
-        }
-        #endregion
-
         #region 制品
         public void SetArtifactCount(int count)
         {
@@ -561,10 +543,6 @@ namespace MVZ2.Level.UI
         GameObject adviceObject;
         [SerializeField]
         TextMeshProUGUI adviceText;
-
-        [Header("Tooltip")]
-        [SerializeField]
-        Tooltip tooltip;
 
         [Header("Hint Arrow")]
         [SerializeField]

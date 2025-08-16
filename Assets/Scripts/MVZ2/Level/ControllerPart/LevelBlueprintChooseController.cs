@@ -1311,16 +1311,20 @@ namespace MVZ2.Level
                 this.target = target;
                 this.commandBlock = commandBlock;
             }
-            public ITooltipTarget GetTarget(LevelController level)
+            public Camera GetCamera()
+            {
+                return controller.Controller.GetCamera();
+            }
+            public ITooltipTarget GetTarget()
             {
                 return target;
             }
-            public TooltipViewData GetViewData(LevelController level)
+            public TooltipContent GetContent()
             {
                 var name = controller.GetBlueprintName(blueprintID, commandBlock);
                 var tooltip = controller.GetBlueprintTooltip(blueprintID, commandBlock);
                 var error = controller.GetBlueprintTooltipError(blueprintID, commandBlock);
-                return new TooltipViewData()
+                return new TooltipContent()
                 {
                     name = name,
                     error = error,
@@ -1340,16 +1344,20 @@ namespace MVZ2.Level
                 this.artifactID = artifactID;
                 this.target = target;
             }
-            public ITooltipTarget GetTarget(LevelController level)
+            public Camera GetCamera()
+            {
+                return controller.Controller.GetCamera();
+            }
+            public ITooltipTarget GetTarget()
             {
                 return target;
             }
-            public TooltipViewData GetViewData(LevelController level)
+            public TooltipContent GetContent()
             {
                 var name = controller.Main.ResourceManager.GetArtifactName(artifactID);
                 var tooltip = controller.Main.ResourceManager.GetArtifactTooltip(artifactID);
                 string error = string.Empty;
-                return new TooltipViewData()
+                return new TooltipContent()
                 {
                     name = name,
                     error = error,
@@ -1368,11 +1376,15 @@ namespace MVZ2.Level
                 this.index = index;
                 this.target = target;
             }
-            public ITooltipTarget GetTarget(LevelController level)
+            public Camera GetCamera()
+            {
+                return controller.Controller.GetCamera();
+            }
+            public ITooltipTarget GetTarget()
             {
                 return target;
             }
-            public TooltipViewData GetViewData(LevelController level)
+            public TooltipContent GetContent()
             {
                 var artifact = controller.chosenArtifacts[index];
                 var artifactID = artifact?.id;
@@ -1381,7 +1393,7 @@ namespace MVZ2.Level
                     var name = controller.Main.ResourceManager.GetArtifactName(artifactID);
                     var tooltip = controller.Main.ResourceManager.GetArtifactTooltip(artifactID);
                     string error = controller.GetChosenArtifactTooltipError(index);
-                    return new TooltipViewData()
+                    return new TooltipContent()
                     {
                         name = name,
                         error = error,
@@ -1390,7 +1402,7 @@ namespace MVZ2.Level
                 }
                 else
                 {
-                    return new TooltipViewData()
+                    return new TooltipContent()
                     {
                         name = controller.Main.LanguageManager._(CHOOSE_ARTIFACT),
                         error = string.Empty,

@@ -1,0 +1,7 @@
+﻿namespace MVZ2.UI
+{
+    public interface ITooltipTarget
+    {
+        ITooltipAnchor Anchor { get; }
+    }
+}

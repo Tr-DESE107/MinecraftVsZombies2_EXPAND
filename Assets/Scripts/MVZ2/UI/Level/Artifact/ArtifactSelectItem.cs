@@ -1,4 +1,5 @@
 ﻿using System;
+using MVZ2.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -38,7 +39,7 @@ namespace MVZ2.Level.UI
         [SerializeField]
         private TooltipAnchor tooltipAnchor;
 
-        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
+        ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
     }
     public struct ArtifactSelectItemViewData
     {

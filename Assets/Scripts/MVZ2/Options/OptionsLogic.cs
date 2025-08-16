@@ -26,6 +26,8 @@ namespace MVZ2.Options
             dialog.OnToggleValueChanged += OnToggleValueChangedCallback;
             dialog.OnSliderValueChanged += OnSliderValueChangedCallback;
             dialog.OnDropdownValueChanged += OnDropdownValueChangedCallback;
+            dialog.OnTooltipShow += OnTooltipShowCallback;
+            dialog.OnTooltipHide += OnTooltipHideCallback;
 
             Language = Main.OptionsManager.GetLanguage();
             BloodAndGore = Main.OptionsManager.HasBloodAndGore();
@@ -90,6 +92,8 @@ namespace MVZ2.Options
             dialog.OnToggleValueChanged -= OnToggleValueChangedCallback;
             dialog.OnSliderValueChanged -= OnSliderValueChangedCallback;
             dialog.OnDropdownValueChanged -= OnDropdownValueChangedCallback;
+            dialog.OnTooltipShow -= OnTooltipShowCallback;
+            dialog.OnTooltipHide -= OnTooltipHideCallback;
             ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
         }
         protected virtual void OnButtonClickCallback(ButtonType type)
@@ -299,6 +303,14 @@ namespace MVZ2.Options
         {
             InitResolutionDropdown();
             UpdateResolutionDropdown();
+        }
+        private void OnTooltipShowCallback(ITooltipTarget target, string text)
+        {
+            Main.Scene.ShowTooltip(new SimpleTooltipSource(dialog.GetCamera(), target, new TooltipContent() { description = text }));
+        }
+        private void OnTooltipHideCallback(ITooltipTarget target, string text)
+        {
+            Main.Scene.HideTooltip();
         }
 
         #region 更新元素

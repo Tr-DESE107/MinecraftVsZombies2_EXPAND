@@ -267,6 +267,50 @@ namespace MVZ2.Scenes
         }
         #endregion
 
+        #region 工具提示
+        public void ShowTooltip(ITooltipSource source)
+        {
+            tooltipSource = source;
+            if (tooltipSource == null)
+                return;
+            var target = tooltipSource.GetTarget();
+            var anchor = target.Anchor;
+            if (anchor == null || anchor.IsDisabled)
+                return;
+            UpdateTooltip();
+            ui.ShowTooltip();
+        }
+        public void UpdateTooltip()
+        {
+            var target = tooltipSource?.GetTarget();
+            if (target == null || target.Anchor == null || target.Anchor.IsDisabled)
+            {
+                ui.HideTooltip();
+                return;
+            }
+            var anchor = target.Anchor;
+            var content = tooltipSource.GetContent();
+            var camera = tooltipSource.GetCamera();
+            Vector3 tooltipPosition = anchor.Position;
+            if (camera != null)
+            {
+                var screenPosition = camera.WorldToScreenPoint(anchor.Position);
+                tooltipPosition = uiCamera.ScreenToWorldPoint(screenPosition);
+            }
+            var viewData = new TooltipViewData()
+            {
+                position = tooltipPosition,
+                pivot = anchor.Pivot,
+                content = content,
+            };
+            ui.UpdateTooltip(viewData);
+        }
+        public void HideTooltip()
+        {
+            tooltipSource = null;
+        }
+        #endregion
+
         public void ShowKeybinding()
         {
             keybinding.Display();
@@ -321,12 +365,19 @@ namespace MVZ2.Scenes
             pages.Add(MainScenePageType.MusicRoom, musicRoom);
             pages.Add(MainScenePageType.Arcade, arcade);
         }
+        private void Update()
+        {
+            UpdateTooltip();
+        }
         #endregion
 
         #region 属性字段
         private MainManager main => MainManager.Instance;
         private Dictionary<MainScenePageType, ScenePage> pages = new Dictionary<MainScenePageType, ScenePage>();
+        private ITooltipSource tooltipSource;
 
+        [SerializeField]
+        private Camera uiCamera;
         [SerializeField]
         private MainSceneUI ui;
         [SerializeField]

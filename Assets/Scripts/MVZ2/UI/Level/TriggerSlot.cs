@@ -1,4 +1,5 @@
 ﻿using System;
+using MVZ2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -39,6 +40,6 @@ namespace MVZ2.Level.UI
         [SerializeField]
         private TextMeshProUGUI hotkeyText;
 
-        TooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
+        ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
     }
 }
