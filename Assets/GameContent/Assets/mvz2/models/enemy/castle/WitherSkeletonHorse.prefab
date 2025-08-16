@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &691594020341294941
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1682172510476895406, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2072566570, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 2768142982193237327, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 626937010, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 2768142982193237327, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -364872308, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 2800659207363670653, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2118539743, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 3754322418947396632, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2072566570, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 6195997971879089241, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -826328922, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 6498192071675206135, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498192071675206135, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498192071675206135, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498192071675206135, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498192071675206135, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498192071675206135, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498192071675206135, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498192071675206135, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498192071675206135, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498192071675206135, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7351159977892843590, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1436026082, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 7351159977892843590, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 461413957, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 7643583422659163681, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -933671578, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 8186235334615211335, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 626937010, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 8325084418443518330, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1436026082, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 8747087253816458341, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 800789481, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - target: {fileID: 8956072029816585555, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
+      propertyPath: m_Name
+      value: WitherSkeletonHorse
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03e17289f24fe124385b3fd71d2baca6, type: 3}
