@@ -23,6 +23,7 @@ namespace MVZ2.Options
             this.dialog = dialog;
 
             dialog.OnButtonClick += OnButtonClickCallback;
+            dialog.OnToggleValueChanged += OnToggleValueChangedCallback;
             dialog.OnSliderValueChanged += OnSliderValueChangedCallback;
             dialog.OnDropdownValueChanged += OnDropdownValueChangedCallback;
 
@@ -35,45 +36,45 @@ namespace MVZ2.Options
             UpdateMusicSlider();
             UpdateSoundSlider();
             UpdateFastforwardSlider();
-            UpdateSwapTriggerButton();
-            UpdatePauseOnFocusLostButton();
+            UpdateSwapTriggerToggle();
+            UpdatePauseOnFocusLostToggle();
             UpdateDifficultyButton();
 
             // More
             // General
             InitLanguageDropdown();
             UpdateLanguageDropdown();
-            UpdateVibrationButton();
-            UpdateSkipAllTalksButton();
-            UpdateChooseWarningsButton();
+            UpdateVibrationToggle();
+            UpdateSkipAllTalksToggle();
+            UpdateChooseWarningsToggle();
             UpdateCommandBlockModeButton();
 
             // Display
-            UpdateFullscreenButton(Main.OptionsManager.IsFullscreen());
+            UpdateFullscreenToggle(Main.OptionsManager.IsFullscreen());
             UpdateAnimationFrequencySlider();
             InitResolutionDropdown();
             UpdateResolutionDropdown();
             UpdateParticlesSlider();
             UpdateShakeSlider();
-            UpdateBloodAndGoreButton();
+            UpdateBloodAndGoreToggle();
             UpdateShowFPSButton();
-            UpdateHeightIndicatorButton();
-            UpdateHDRLightingButton();
+            UpdateHeightIndicatorToggle();
+            UpdateHDRLightingToggle();
 
             // Controls
-            UpdateShowHotkeysButton();
+            UpdateShowHotkeysToggle();
 
             // Misc
-            UpdateShowSponsorNamesButton();
+            UpdateShowSponsorNamesToggle();
 
-            dialog.SetButtonActive(ButtonType.SwapTrigger, Main.SaveManager.IsTriggerUnlocked());
+            dialog.SetToggleActive(ToggleType.SwapTrigger, Main.SaveManager.IsTriggerUnlocked());
+            dialog.SetToggleActive(ToggleType.Vibration, Main.IsMobile());
+            dialog.SetToggleActive(ToggleType.Fullscreen, !Main.IsMobile());
+            dialog.SetToggleActive(ToggleType.ShowHotkeys, !Main.IsMobile());
+
             dialog.SetButtonActive(ButtonType.CommandBlockMode, Main.SaveManager.IsCommandBlockUnlocked());
 
-            dialog.SetButtonActive(ButtonType.Vibration, Main.IsMobile());
-
-            dialog.SetButtonActive(ButtonType.Fullscreen, !Main.IsMobile());
             dialog.SetButtonActive(ButtonType.Keybinding, !Main.IsMobile());
-            dialog.SetButtonActive(ButtonType.ShowHotkeys, !Main.IsMobile());
             dialog.SetDropdownActive(DropdownType.Resolution, !Main.IsMobile());
 
             dialog.SetPage(Page.Main);
@@ -86,6 +87,7 @@ namespace MVZ2.Options
                 Main.OptionsManager.SetBloodAndGore(BloodAndGore);
             }
             dialog.OnButtonClick -= OnButtonClickCallback;
+            dialog.OnToggleValueChanged -= OnToggleValueChangedCallback;
             dialog.OnSliderValueChanged -= OnSliderValueChangedCallback;
             dialog.OnDropdownValueChanged -= OnDropdownValueChangedCallback;
             ResolutionManager.OnResolutionChanged -= OnResolutionChangedCallback;
@@ -97,22 +99,10 @@ namespace MVZ2.Options
                 case ButtonType.Back:
                     OnClose?.Invoke();
                     break;
-                case ButtonType.SwapTrigger:
-                    {
-                        Main.OptionsManager.SwitchSwapTrigger();
-                        UpdateSwapTriggerButton();
-                    }
-                    break;
                 case ButtonType.Difficulty:
                     {
                         Main.OptionsManager.CycleDifficulty();
                         UpdateDifficultyButton();
-                    }
-                    break;
-                case ButtonType.PauseOnFocusLost:
-                    {
-                        Main.OptionsManager.SwitchPauseOnFocusLost();
-                        UpdatePauseOnFocusLostButton();
                     }
                     break;
                 case ButtonType.MoreOptions:
@@ -123,24 +113,6 @@ namespace MVZ2.Options
                     break;
 
                 // General.
-                case ButtonType.Vibration:
-                    {
-                        Main.OptionsManager.SwitchVibration();
-                        UpdateVibrationButton();
-                    }
-                    break;
-                case ButtonType.SkipAllTalks:
-                    {
-                        Main.OptionsManager.SwitchSkipAllTalks();
-                        UpdateSkipAllTalksButton();
-                    }
-                    break;
-                case ButtonType.ChooseWarnings:
-                    {
-                        Main.OptionsManager.SwitchBlueprintChooseWarningsDisabled();
-                        UpdateChooseWarningsButton();
-                    }
-                    break;
                 case ButtonType.CommandBlockMode:
                     {
                         Main.OptionsManager.CycleCommandBlockMode();
@@ -149,46 +121,14 @@ namespace MVZ2.Options
                     break;
 
                 // Display.
-                case ButtonType.Fullscreen:
-                    {
-                        bool fullscreen = Main.OptionsManager.IsFullscreen();
-                        Main.OptionsManager.SetFullscreen(!fullscreen);
-                        UpdateFullscreenButton(!fullscreen);
-                    }
-                    break;
-                case ButtonType.BloodAndGore:
-                    {
-                        BloodAndGore = !BloodAndGore;
-                        NeedsReload = true;
-                        UpdateBloodAndGoreButton();
-                    }
-                    break;
                 case ButtonType.ShowFPS:
                     {
                         Main.OptionsManager.CycleFPSMode();
                         UpdateShowFPSButton();
                     }
                     break;
-                case ButtonType.HeightIndicator:
-                    {
-                        Main.OptionsManager.SwitchHeightIndicatorEnabled();
-                        UpdateHeightIndicatorButton();
-                    }
-                    break;
-                case ButtonType.HDRLighting:
-                    {
-                        Main.OptionsManager.SwitchHDRLightingDisabled();
-                        UpdateHDRLightingButton();
-                    }
-                    break;
 
                 // Controls.
-                case ButtonType.ShowHotkeys:
-                    {
-                        Main.OptionsManager.SwitchShowHotkeyIndicators();
-                        UpdateShowHotkeysButton();
-                    }
-                    break;
                 case ButtonType.Keybinding:
                     {
                         Main.Scene.ShowKeybinding();
@@ -206,10 +146,87 @@ namespace MVZ2.Options
                         Main.DebugManager.ExportLogFiles();
                     }
                     break;
-                case ButtonType.ShowSponsorNames:
+            }
+        }
+        protected virtual void OnToggleValueChangedCallback(ToggleType type, bool value)
+        {
+
+            switch (type)
+            {
+                case ToggleType.SwapTrigger:
+                    {
+                        Main.OptionsManager.SwitchSwapTrigger();
+                        UpdateSwapTriggerToggle();
+                    }
+                    break;
+                case ToggleType.PauseOnFocusLost:
+                    {
+                        Main.OptionsManager.SwitchPauseOnFocusLost();
+                        UpdatePauseOnFocusLostToggle();
+                    }
+                    break;
+
+                // General.
+                case ToggleType.Vibration:
+                    {
+                        Main.OptionsManager.SwitchVibration();
+                        UpdateVibrationToggle();
+                    }
+                    break;
+                case ToggleType.SkipAllTalks:
+                    {
+                        Main.OptionsManager.SwitchSkipAllTalks();
+                        UpdateSkipAllTalksToggle();
+                    }
+                    break;
+                case ToggleType.ChooseWarnings:
+                    {
+                        Main.OptionsManager.SwitchBlueprintChooseWarningsDisabled();
+                        UpdateChooseWarningsToggle();
+                    }
+                    break;
+
+                // Display.
+                case ToggleType.Fullscreen:
+                    {
+                        bool fullscreen = Main.OptionsManager.IsFullscreen();
+                        Main.OptionsManager.SetFullscreen(!fullscreen);
+                        UpdateFullscreenToggle(!fullscreen);
+                    }
+                    break;
+                case ToggleType.BloodAndGore:
+                    {
+                        BloodAndGore = !BloodAndGore;
+                        NeedsReload = true;
+                        UpdateBloodAndGoreToggle();
+                    }
+                    break;
+                case ToggleType.HeightIndicator:
+                    {
+                        Main.OptionsManager.SwitchHeightIndicatorEnabled();
+                        UpdateHeightIndicatorToggle();
+                    }
+                    break;
+                case ToggleType.HDRLighting:
+                    {
+                        Main.OptionsManager.SwitchHDRLightingDisabled();
+                        UpdateHDRLightingToggle();
+                    }
+                    break;
+
+                // Controls.
+                case ToggleType.ShowHotkeys:
+                    {
+                        Main.OptionsManager.SwitchShowHotkeyIndicators();
+                        UpdateShowHotkeysToggle();
+                    }
+                    break;
+
+                // Misc.
+                case ToggleType.ShowSponsorNames:
                     {
                         Main.OptionsManager.SwitchShowSponsorNames();
-                        UpdateShowSponsorNamesButton();
+                        UpdateShowSponsorNamesToggle();
                     }
                     break;
             }
@@ -339,6 +356,12 @@ namespace MVZ2.Options
             var text = Main.LanguageManager._(optionKey, valueText);
             dialog.SetButtonText(buttonType, text);
         }
+        protected void UpdateToggle(bool value, string optionKey, ToggleType toggleType)
+        {
+            var text = Main.LanguageManager._(optionKey);
+            dialog.SetToggleText(toggleType, text);
+            dialog.SetToggleOn(toggleType, value);
+        }
 
         #region 主界面
         protected void UpdateMusicSlider()
@@ -389,15 +412,15 @@ namespace MVZ2.Options
         {
             return frequency;
         }
-        protected void UpdateSwapTriggerButton()
+        protected void UpdateSwapTriggerToggle()
         {
             var value = Main.OptionsManager.IsTriggerSwapped();
-            UpdateButtonText(value, OPTION_SWAP_TRIGGER, TextButtonType.SwapTrigger);
+            UpdateToggle(value, OPTION_SWAP_TRIGGER, ToggleType.SwapTrigger);
         }
-        private void UpdatePauseOnFocusLostButton()
+        private void UpdatePauseOnFocusLostToggle()
         {
             var value = Main.OptionsManager.GetPauseOnFocusLost();
-            UpdateButtonText(value, OPTION_PAUSE_ON_FOCUS_LOST, TextButtonType.PauseOnFocusLost);
+            UpdateToggle(value, OPTION_PAUSE_ON_FOCUS_LOST, ToggleType.PauseOnFocusLost);
         }
         protected void UpdateDifficultyButton()
         {
@@ -421,22 +444,20 @@ namespace MVZ2.Options
             var index = Array.IndexOf(languageValues, value);
             dialog.SetDropdownValue(DropdownType.Language, index);
         }
-        protected void UpdateVibrationButton()
+        protected void UpdateVibrationToggle()
         {
             var value = Main.OptionsManager.IsVibration();
-            UpdateButtonText(value, OPTION_VIBRATION, TextButtonType.Vibration);
+            UpdateToggle(value, OPTION_VIBRATION, ToggleType.Vibration);
         }
-        protected void UpdateSkipAllTalksButton()
+        protected void UpdateSkipAllTalksToggle()
         {
             var value = Main.OptionsManager.SkipAllTalks();
-            UpdateButtonText(value, OPTION_SKIP_ALL_TALKS, TextButtonType.SkipAllTalks);
+            UpdateToggle(value, OPTION_SKIP_ALL_TALKS, ToggleType.SkipAllTalks);
         }
-        protected void UpdateChooseWarningsButton()
+        protected void UpdateChooseWarningsToggle()
         {
-            var value = Main.OptionsManager.AreBlueprintChooseWarningsDisabled();
-            var valueText = GetValueTextOnOff(!value);
-            var text = Main.LanguageManager._(OPTION_CHOOSE_WARNINGS, valueText);
-            dialog.SetButtonText(TextButtonType.ChooseWarnings, text);
+            var value = !Main.OptionsManager.AreBlueprintChooseWarningsDisabled();
+            UpdateToggle(value, OPTION_CHOOSE_WARNINGS, ToggleType.ChooseWarnings);
         }
         protected void UpdateCommandBlockModeButton()
         {
@@ -481,9 +502,9 @@ namespace MVZ2.Options
             }
             dialog.SetDropdownValue(DropdownType.Resolution, index);
         }
-        protected void UpdateFullscreenButton(bool value)
+        protected void UpdateFullscreenToggle(bool value)
         {
-            UpdateButtonText(value, OPTION_FULLSCREEN, TextButtonType.Fullscreen);
+            UpdateToggle(value, OPTION_FULLSCREEN, ToggleType.Fullscreen);
         }
         private void UpdateParticlesSlider()
         {
@@ -502,40 +523,36 @@ namespace MVZ2.Options
             var text = Main.LanguageManager._(OPTION_FPS_MODE, valueText);
             dialog.SetButtonText(TextButtonType.ShowFPS, text);
         }
-        protected void UpdateHeightIndicatorButton()
+        protected void UpdateHeightIndicatorToggle()
         {
             var value = Main.OptionsManager.IsHeightIndicatorEnabled();
-            var valueText = GetValueTextOnOff(value);
-            var text = Main.LanguageManager._(OPTION_HEIGHT_INDICATOR, valueText);
-            dialog.SetButtonText(TextButtonType.HeightIndicator, text);
+            UpdateToggle(value, OPTION_HEIGHT_INDICATOR, ToggleType.HeightIndicator);
         }
-        protected void UpdateHDRLightingButton()
+        protected void UpdateHDRLightingToggle()
         {
             var value = !Main.OptionsManager.HDRLightingDisabled();
-            var valueText = GetValueText(value);
-            var text = Main.LanguageManager._(OPTION_HDR_LIGHTING, valueText);
-            dialog.SetButtonText(TextButtonType.HDR_LIGHTING, text);
+            UpdateToggle(value, OPTION_HDR_LIGHTING, ToggleType.HDRLighting);
         }
-        private void UpdateBloodAndGoreButton()
+        private void UpdateBloodAndGoreToggle()
         {
             var value = BloodAndGore;
-            UpdateButtonText(value, OPTION_BLOOD_AND_GORE, TextButtonType.BloodAndGore);
+            UpdateToggle(value, OPTION_BLOOD_AND_GORE, ToggleType.BloodAndGore);
         }
         #endregion
 
         #region 控制
-        protected void UpdateShowHotkeysButton()
+        protected void UpdateShowHotkeysToggle()
         {
             var value = Main.OptionsManager.ShowHotkeyIndicators();
-            UpdateButtonText(value, OPTION_SHOW_HOTKEYS, TextButtonType.ShowHotkeys);
+            UpdateToggle(value, OPTION_SHOW_HOTKEYS, ToggleType.ShowHotkeys);
         }
         #endregion
 
         #region 杂项
-        protected void UpdateShowSponsorNamesButton()
+        protected void UpdateShowSponsorNamesToggle()
         {
             var value = Main.OptionsManager.ShowSponsorNames();
-            UpdateButtonText(value, OPTION_SHOW_SPONSOR_NAMES, TextButtonType.ShowSponsorNames);
+            UpdateToggle(value, OPTION_SHOW_SPONSOR_NAMES, ToggleType.ShowSponsorNames);
         }
         #endregion
 
@@ -557,16 +574,16 @@ namespace MVZ2.Options
         public const float ANIMATION_FREQUENCY_END = 1;
 
 
-        [TranslateMsg("选项，{0}为是否开启")]
-        public const string OPTION_SWAP_TRIGGER = "交换触发：{0}";
-        [TranslateMsg("选项，{0}为是否开启")]
-        public const string OPTION_FULLSCREEN = "全屏：{0}";
-        [TranslateMsg("选项，{0}为是否开启")]
-        public const string OPTION_VIBRATION = "设备震动：{0}";
+        [TranslateMsg("选项")]
+        public const string OPTION_SWAP_TRIGGER = "交换触发";
+        [TranslateMsg("选项")]
+        public const string OPTION_FULLSCREEN = "全屏";
+        [TranslateMsg("选项")]
+        public const string OPTION_VIBRATION = "设备震动";
+        [TranslateMsg("选项")]
+        public const string OPTION_PAUSE_ON_FOCUS_LOST = "后台暂停";
         [TranslateMsg("选项，{0}为难度")]
         public const string OPTION_DIFFICULTY = "难度：{0}";
-        [TranslateMsg("选项，{0}为是否开启")]
-        public const string OPTION_PAUSE_ON_FOCUS_LOST = "后台暂停：{0}";
 
 
         [TranslateMsg("选项，{0}为量")]
@@ -577,26 +594,26 @@ namespace MVZ2.Options
         public const string OPTION_FASTFORWARD_MULTIPLIER = "加速倍率：{0}";
         [TranslateMsg("选项，{0}为量")]
         public const string OPTION_ANIMATION_FREQUENCY = "动画频率：{0}";
-        [TranslateMsg("选项，{0}为量")]
-        public const string OPTION_HDR_LIGHTING = "HDR光照：{0}";
+        [TranslateMsg("选项")]
+        public const string OPTION_HDR_LIGHTING = "HDR光照";
 
-        [TranslateMsg("选项，{0}为是否开启")]
-        public const string OPTION_BLOOD_AND_GORE = "血与碎块：{0}";
+        [TranslateMsg("选项")]
+        public const string OPTION_BLOOD_AND_GORE = "血与碎块";
 
-        [TranslateMsg("选项，{0}为是否开启")]
-        public const string OPTION_SKIP_ALL_TALKS = "跳过对话：{0}";
-        [TranslateMsg("选项，{0}为是否开启")]
-        public const string OPTION_SHOW_SPONSOR_NAMES = "赞助者名称：{0}";
-        [TranslateMsg("选项，{0}为是否开启")]
-        public const string OPTION_CHOOSE_WARNINGS = "选卡警告：{0}";
+        [TranslateMsg("选项")]
+        public const string OPTION_SKIP_ALL_TALKS = "跳过对话";
+        [TranslateMsg("选项")]
+        public const string OPTION_SHOW_SPONSOR_NAMES = "赞助者名称";
+        [TranslateMsg("选项")]
+        public const string OPTION_CHOOSE_WARNINGS = "选卡警告";
         [TranslateMsg("选项，{0}为模式")]
         public const string OPTION_COMMAND_BLOCK_MODE = "命令方块：{0}";
         [TranslateMsg("选项，{0}为模式")]
         public const string OPTION_FPS_MODE = "显示帧率：{0}";
-        [TranslateMsg("选项，{0}为是否开启")]
-        public const string OPTION_HEIGHT_INDICATOR = "高度指示器：{0}";
-        [TranslateMsg("选项，{0}为是否开启")]
-        public const string OPTION_SHOW_HOTKEYS = "显示快捷键：{0}";
+        [TranslateMsg("选项")]
+        public const string OPTION_HEIGHT_INDICATOR = "高度指示器";
+        [TranslateMsg("选项")]
+        public const string OPTION_SHOW_HOTKEYS = "显示快捷键";
 
         [TranslateMsg("命令方块模式", VanillaStrings.CONTEXT_COMMAND_BLOCK_MODE)]
         public const string COMMAND_BLOCK_MODE_MANUAL = "手选";

@@ -25,7 +25,7 @@ namespace MVZ2.Options
             dialog.SetButtonActive(ButtonType.Restart, isInLevel);
 
             dialog.SetDropdownActive(DropdownType.Language, false);
-            dialog.SetButtonActive(ButtonType.BloodAndGore, false);
+            dialog.SetToggleActive(ToggleType.BloodAndGore, false);
             dialog.SetButtonActive(ButtonType.Credits, false);
             dialog.SetButtonActive(ButtonType.LeaveLevel, true);
         }
@@ -39,12 +39,6 @@ namespace MVZ2.Options
             base.OnButtonClickCallback(type);
             switch (type)
             {
-                case ButtonType.ShowHotkeys:
-                    {
-                        Level.UpdateHotkeyTexts();
-                    }
-                    break;
-
                 case ButtonType.LeaveLevel:
                     {
                         if (Level.IsGameStarted() || Level.GetCurrentFlag() > 0)
@@ -71,6 +65,18 @@ namespace MVZ2.Options
                 case ButtonType.Difficulty:
                     {
                         Level.UpdateDifficulty();
+                    }
+                    break;
+            }
+        }
+        protected override void OnToggleValueChangedCallback(ToggleType type, bool value)
+        {
+            base.OnToggleValueChangedCallback(type, value);
+            switch (type)
+            {
+                case ToggleType.ShowHotkeys:
+                    {
+                        Level.UpdateHotkeyTexts();
                     }
                     break;
             }

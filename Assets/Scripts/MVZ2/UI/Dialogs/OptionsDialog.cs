@@ -76,6 +76,28 @@ namespace MVZ2.UI
                 UpdateMoreElementsLines();
             }
         }
+        public void SetToggleActive(ToggleType type, bool value)
+        {
+            if (toggleDict.TryGetValue(type, out var toggle))
+            {
+                toggle.gameObject.SetActive(value);
+                UpdateMoreElementsLines();
+            }
+        }
+        public void SetToggleText(ToggleType type, string text)
+        {
+            if (toggleDict.TryGetValue(type, out var toggle))
+            {
+                toggle.Text.text = text;
+            }
+        }
+        public void SetToggleOn(ToggleType type, bool value)
+        {
+            if (toggleDict.TryGetValue(type, out var toggle))
+            {
+                toggle.Toggle.SetIsOnWithoutNotify(value);
+            }
+        }
         private void Awake()
         {
             sliderDict.Add(SliderType.Music, musicSlider);
@@ -91,30 +113,12 @@ namespace MVZ2.UI
             dropdownPairDict.Add(DropdownType.Language, languageDropdownPair);
             dropdownPairDict.Add(DropdownType.Resolution, resolutionDropdownPair);
 
-            textButtonDict.Add(TextButtonType.SwapTrigger, swapTriggerButton);
-            textButtonDict.Add(TextButtonType.PauseOnFocusLost, pauseOnFocusLostButton);
-            textButtonDict.Add(TextButtonType.Fullscreen, fullscreenButton);
-            textButtonDict.Add(TextButtonType.Vibration, vibrationButton);
             textButtonDict.Add(TextButtonType.Difficulty, diffcultyButton);
             textButtonDict.Add(TextButtonType.LeaveLevel, leaveLevelButton);
-            textButtonDict.Add(TextButtonType.BloodAndGore, bloodAndGoreButton);
-            textButtonDict.Add(TextButtonType.SkipAllTalks, skipAllTalksButton);
-            textButtonDict.Add(TextButtonType.ShowSponsorNames, showSponsorNamesButton);
-            textButtonDict.Add(TextButtonType.ChooseWarnings, chooseWarningsButton);
-            textButtonDict.Add(TextButtonType.HDR_LIGHTING, hdrButton);
             textButtonDict.Add(TextButtonType.CommandBlockMode, commandBlockModeButton);
             textButtonDict.Add(TextButtonType.ShowFPS, showFPSButton);
-            textButtonDict.Add(TextButtonType.HeightIndicator, heightIndicatorButton);
-            textButtonDict.Add(TextButtonType.ShowHotkeys, showHotkeysButton);
             textButtonDict.Add(TextButtonType.Credits, creditsButton);
             textButtonDict.Add(TextButtonType.Keybinding, keybindingButton);
-
-            buttonDict.Add(ButtonType.SwapTrigger, swapTriggerButton.Button);
-            buttonDict.Add(ButtonType.PauseOnFocusLost, pauseOnFocusLostButton.Button);
-
-            // 左上
-            buttonDict.Add(ButtonType.Fullscreen, fullscreenButton.Button);
-            buttonDict.Add(ButtonType.Vibration, vibrationButton.Button);
 
             // 右上
             buttonDict.Add(ButtonType.Difficulty, diffcultyButton.Button);
@@ -127,19 +131,25 @@ namespace MVZ2.UI
             // 右下
             buttonDict.Add(ButtonType.Back, backButton);
 
-            buttonDict.Add(ButtonType.BloodAndGore, bloodAndGoreButton.Button);
-            buttonDict.Add(ButtonType.SkipAllTalks, skipAllTalksButton.Button);
-            buttonDict.Add(ButtonType.ShowSponsorNames, showSponsorNamesButton.Button);
-            buttonDict.Add(ButtonType.ChooseWarnings, chooseWarningsButton.Button);
             buttonDict.Add(ButtonType.CommandBlockMode, commandBlockModeButton.Button);
             buttonDict.Add(ButtonType.ShowFPS, showFPSButton.Button);
-            buttonDict.Add(ButtonType.HeightIndicator, heightIndicatorButton.Button);
-            buttonDict.Add(ButtonType.HDRLighting, hdrButton.Button);
-            buttonDict.Add(ButtonType.ShowHotkeys, showHotkeysButton.Button);
             buttonDict.Add(ButtonType.Credits, creditsButton.Button);
             buttonDict.Add(ButtonType.Keybinding, keybindingButton.Button);
             buttonDict.Add(ButtonType.MoreBack, moreBackButton);
             buttonDict.Add(ButtonType.ExportLogFiles, exportLogFilesButton);
+
+
+            toggleDict.Add(ToggleType.SwapTrigger, swapTriggerToggle);
+            toggleDict.Add(ToggleType.PauseOnFocusLost, pauseOnFocusLostToggle);
+            toggleDict.Add(ToggleType.Fullscreen, fullscreenToggle);
+            toggleDict.Add(ToggleType.Vibration, vibrationToggle);
+            toggleDict.Add(ToggleType.BloodAndGore, bloodAndGoreToggle);
+            toggleDict.Add(ToggleType.SkipAllTalks, skipAllTalksToggle);
+            toggleDict.Add(ToggleType.ShowSponsorNames, showSponsorNamesToggle);
+            toggleDict.Add(ToggleType.ChooseWarnings, chooseWarningsToggle);
+            toggleDict.Add(ToggleType.HeightIndicator, heightIndicatorToggle);
+            toggleDict.Add(ToggleType.HDRLighting, hdrToggle);
+            toggleDict.Add(ToggleType.ShowHotkeys, showHotkeysToggle);
 
 
             foreach (var pair in sliderDict)
@@ -156,6 +166,11 @@ namespace MVZ2.UI
             {
                 var type = pair.Key;
                 pair.Value.onClick.AddListener(() => OnButtonClick?.Invoke(type));
+            }
+            foreach (var pair in toggleDict)
+            {
+                var type = pair.Key;
+                pair.Value.Toggle.onValueChanged.AddListener((v) => OnToggleValueChanged?.Invoke(type, v));
             }
         }
         private void UpdateMoreElementsLines()
@@ -178,12 +193,14 @@ namespace MVZ2.UI
         public event Action<SliderType, float> OnSliderValueChanged;
         public event Action<DropdownType, int> OnDropdownValueChanged;
         public event Action<ButtonType> OnButtonClick;
+        public event Action<ToggleType, bool> OnToggleValueChanged;
 
         private Dictionary<SliderType, TextSlider> sliderDict = new Dictionary<SliderType, TextSlider>();
         private Dictionary<DropdownType, TMP_Dropdown> dropdownDict = new Dictionary<DropdownType, TMP_Dropdown>();
         private Dictionary<DropdownType, GameObject> dropdownPairDict = new Dictionary<DropdownType, GameObject>();
         private Dictionary<TextButtonType, TextButton> textButtonDict = new Dictionary<TextButtonType, TextButton>();
         private Dictionary<ButtonType, Button> buttonDict = new Dictionary<ButtonType, Button>();
+        private Dictionary<ToggleType, LabeledToggle> toggleDict = new Dictionary<ToggleType, LabeledToggle>();
 
         [Header("Pages")]
         [SerializeField]
@@ -200,9 +217,9 @@ namespace MVZ2.UI
         private TextSlider fastForwardSlider;
 
         [SerializeField]
-        private TextButton swapTriggerButton;
+        private LabeledToggle swapTriggerToggle;
         [SerializeField]
-        private TextButton pauseOnFocusLostButton;
+        private LabeledToggle pauseOnFocusLostToggle;
 
         [SerializeField]
         private TextButton diffcultyButton;
@@ -229,11 +246,11 @@ namespace MVZ2.UI
         [SerializeField]
         private TMP_Dropdown languageDropdown;
         [SerializeField]
-        private TextButton vibrationButton;
+        private LabeledToggle vibrationToggle;
         [SerializeField]
-        private TextButton skipAllTalksButton;
+        private LabeledToggle skipAllTalksToggle;
         [SerializeField]
-        private TextButton chooseWarningsButton;
+        private LabeledToggle chooseWarningsToggle;
         [SerializeField]
         private TextButton commandBlockModeButton;
 
@@ -249,25 +266,25 @@ namespace MVZ2.UI
         [SerializeField]
         private TMP_Dropdown resolutionDropdown;
         [SerializeField]
-        private TextButton fullscreenButton;
+        private LabeledToggle fullscreenToggle;
         [SerializeField]
-        private TextButton bloodAndGoreButton;
+        private LabeledToggle bloodAndGoreToggle;
+        [SerializeField]
+        private LabeledToggle heightIndicatorToggle;
+        [SerializeField]
+        private LabeledToggle hdrToggle;
         [SerializeField]
         private TextButton showFPSButton;
-        [SerializeField]
-        private TextButton heightIndicatorButton;
-        [SerializeField]
-        private TextButton hdrButton;
 
         [Header("Controls")]
         [SerializeField]
-        private TextButton showHotkeysButton;
+        private LabeledToggle showHotkeysToggle;
         [SerializeField]
         private TextButton keybindingButton;
 
         [Header("Misc")]
         [SerializeField]
-        private TextButton showSponsorNamesButton;
+        private LabeledToggle showSponsorNamesToggle;
         [SerializeField]
         private TextButton creditsButton;
         [SerializeField]
@@ -293,32 +310,15 @@ namespace MVZ2.UI
         }
         public enum TextButtonType
         {
-            SwapTrigger,
-            PauseOnFocusLost,
-            Fullscreen,
-            Vibration,
             Difficulty,
             LeaveLevel,
-            BloodAndGore,
-            SkipAllTalks,
-            ShowSponsorNames,
-            ChooseWarnings,
             CommandBlockMode,
             ShowFPS,
-            HeightIndicator,
-            HDR_LIGHTING,
-            ShowHotkeys,
             Credits,
             Keybinding,
         }
         public enum ButtonType
         {
-            SwapTrigger,
-            PauseOnFocusLost,
-
-            Fullscreen,
-            Vibration,
-
             Difficulty,
             Restart,
 
@@ -328,20 +328,30 @@ namespace MVZ2.UI
             Back,
 
             MoreBack,
+
+            CommandBlockMode,
+            ShowFPS,
+
+            Credits,
+            Keybinding,
+            ExportLogFiles,
+        }
+        public enum ToggleType
+        {
+            SwapTrigger,
+            PauseOnFocusLost,
+
+            Fullscreen,
+            Vibration,
+
             BloodAndGore,
 
             SkipAllTalks,
             ShowSponsorNames,
             ChooseWarnings,
-            CommandBlockMode,
-            ShowFPS,
             HeightIndicator,
             ShowHotkeys,
             HDRLighting,
-
-            Credits,
-            Keybinding,
-            ExportLogFiles,
         }
     }
 
