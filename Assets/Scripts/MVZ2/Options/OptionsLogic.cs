@@ -304,11 +304,14 @@ namespace MVZ2.Options
             InitResolutionDropdown();
             UpdateResolutionDropdown();
         }
-        private void OnTooltipShowCallback(ITooltipTarget target, string text)
+        private void OnTooltipShowCallback(TooltipHandler handler)
         {
-            Main.Scene.ShowTooltip(new SimpleTooltipSource(dialog.GetCamera(), target, new TooltipContent() { description = text }));
+            if (string.IsNullOrEmpty(handler.text))
+                return;
+            var text = Main.LanguageManager._p(handler.context, handler.text);
+            Main.Scene.ShowTooltip(new SimpleTooltipSource(dialog.GetCamera(), handler, new TooltipContent() { description = text }));
         }
-        private void OnTooltipHideCallback(ITooltipTarget target, string text)
+        private void OnTooltipHideCallback(TooltipHandler handler)
         {
             Main.Scene.HideTooltip();
         }

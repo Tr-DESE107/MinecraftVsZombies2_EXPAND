@@ -176,13 +176,11 @@ namespace MVZ2.UI
                 var type = pair.Key;
                 pair.Value.Toggle.onValueChanged.AddListener((v) => OnToggleValueChanged?.Invoke(type, v));
             }
-            if (tooltipHandlers != null)
+            var tooltipHandlers = gameObject.GetComponentsInChildren<TooltipHandler>(true);
+            foreach (var handler in tooltipHandlers)
             {
-                foreach (var handler in tooltipHandlers)
-                {
-                    handler.OnPointerEnter += OnTooltipHandlerPointerEnterCallback;
-                    handler.OnPointerExit += OnTooltipHandlerPointerExitCallback;
-                }
+                handler.OnPointerEnter += OnTooltipHandlerPointerEnterCallback;
+                handler.OnPointerExit += OnTooltipHandlerPointerExitCallback;
             }
 
 
@@ -194,11 +192,11 @@ namespace MVZ2.UI
         }
         private void OnTooltipHandlerPointerEnterCallback(TooltipHandler handler)
         {
-            OnTooltipShow?.Invoke(handler, handler.text);
+            OnTooltipShow?.Invoke(handler);
         }
         private void OnTooltipHandlerPointerExitCallback(TooltipHandler handler)
         {
-            OnTooltipHide?.Invoke(handler, handler.text);
+            OnTooltipHide?.Invoke(handler);
         }
         private void UpdateMoreElementsLines()
         {
@@ -223,8 +221,8 @@ namespace MVZ2.UI
         public event Action<DropdownType, int> OnDropdownValueChanged;
         public event Action<ButtonType> OnButtonClick;
         public event Action<ToggleType, bool> OnToggleValueChanged;
-        public event Action<ITooltipTarget, string> OnTooltipShow;
-        public event Action<ITooltipTarget, string> OnTooltipHide;
+        public event Action<TooltipHandler> OnTooltipShow;
+        public event Action<TooltipHandler> OnTooltipHide;
 
         private Dictionary<SliderType, TextSlider> sliderDict = new Dictionary<SliderType, TextSlider>();
         private Dictionary<DropdownType, TMP_Dropdown> dropdownDict = new Dictionary<DropdownType, TMP_Dropdown>();
@@ -234,10 +232,6 @@ namespace MVZ2.UI
         private Dictionary<ToggleType, LabeledToggle> toggleDict = new Dictionary<ToggleType, LabeledToggle>();
 
         private Camera canvasCamera;
-
-        [Header("Tooltip")]
-        [SerializeField]
-        private TooltipHandler[] tooltipHandlers;
 
         [Header("Pages")]
         [SerializeField]
