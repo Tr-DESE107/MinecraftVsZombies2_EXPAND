@@ -77,22 +77,27 @@ namespace MVZ2.UI
         {
             closeButton.onClick.AddListener(() => OnCloseClick?.Invoke());
             submitButton.onClick.AddListener(() => OnSubmit?.Invoke(inputField.text));
+            upButton.onClick.AddListener(() => OnArrowButtonClick?.Invoke(true));
+            downButton.onClick.AddListener(() => OnArrowButtonClick?.Invoke(false));
             inputField.onSubmit.AddListener((text) => OnSubmit?.Invoke(text));
             inputField.onSelect.AddListener((text) => OnInputFieldFocus?.Invoke(true));
             inputField.onDeselect.AddListener((text) => OnInputFieldFocus?.Invoke(false));
             inputField.onValueChanged.AddListener((text) => OnInputFieldValueChanged?.Invoke(text));
-            inputField.onEndTextSelection.AddListener((text, start, end) => OnEndTextSelection?.Invoke(text, start, end));
         }
         public event Action OnCloseClick;
+        public event Action<bool> OnArrowButtonClick;
         public event Action<string> OnSubmit;
         public event Action<string> OnInputFieldValueChanged;
-        public event Action<string, int, int> OnEndTextSelection;
         public event Action<bool> OnInputFieldFocus;
         public event Action<int> OnAutoCompleteItemClick;
         [SerializeField]
         private Button closeButton;
         [SerializeField]
         private Button submitButton;
+        [SerializeField]
+        private Button upButton;
+        [SerializeField]
+        private Button downButton;
         [SerializeField]
         private DebugConsoleInputField inputField;
 

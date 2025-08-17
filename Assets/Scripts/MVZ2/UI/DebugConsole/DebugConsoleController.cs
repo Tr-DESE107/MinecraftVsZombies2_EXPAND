@@ -29,19 +29,34 @@ namespace MVZ2.Debugs
         private void Awake()
         {
             ui.OnCloseClick += OnCloseCallback;
+            ui.OnArrowButtonClick += OnArrowButtonClickCallback;
             ui.OnSubmit += OnSubmitCallback;
             ui.OnInputFieldFocus += OnInputFieldFocusCallback;
             ui.OnInputFieldValueChanged += OnInputFieldValueChangedCallback;
-            ui.OnEndTextSelection += OnEndTextSelectionCallback;
             ui.OnAutoCompleteItemClick += OnAutoCompleteItemClickCallback;
         }
         private void Update()
         {
             HandleInputNavigation();
+            if (CheckSuggestionDirty())
+            {
+                UpdateInputFieldSuggestions();
+            }
         }
         private void OnCloseCallback()
         {
             Hide();
+        }
+        private void OnArrowButtonClickCallback(bool up)
+        {
+            if (up)
+            {
+                NavigateHistory(1);
+            }
+            else
+            {
+                NavigateHistory(-1);
+            }
         }
         private void OnSubmitCallback(string text)
         {
@@ -49,13 +64,9 @@ namespace MVZ2.Debugs
         }
         private void OnInputFieldFocusCallback(bool focus)
         {
-            UpdateInputFieldSuggestions();
+            UpdateInputFieldSuggestions(focus);
         }
         private void OnInputFieldValueChangedCallback(string text)
-        {
-            UpdateInputFieldSuggestions();
-        }
-        private void OnEndTextSelectionCallback(string text, int start, int end)
         {
             UpdateInputFieldSuggestions();
         }
@@ -64,11 +75,28 @@ namespace MVZ2.Debugs
             suggestionIndex = index;
             UpdateSelectedAutoComplete();
         }
+
+        private bool CheckSuggestionDirty()
+        {
+            var input = ui.GetCommand();
+            var caret = ui.GetCaretPosition();
+            if (lastInput != input || lastCaret != caret)
+            {
+                lastInput = input;
+                lastCaret = caret;
+                return true;
+            }
+            return false;
+        }
         private void UpdateInputFieldSuggestions()
+        {
+            UpdateInputFieldSuggestions(ui.IsCommandFocused());
+        }
+        private void UpdateInputFieldSuggestions(bool focused)
         {
             // 输入变化时更新自动补全
             string command = ui.GetCommand();
-            if (ui.IsCommandFocused() && !string.IsNullOrWhiteSpace(command))
+            if (focused && !string.IsNullOrWhiteSpace(command))
             {
                 UpdateSuggestions(command, ui.GetCaretPosition());
             }
@@ -81,27 +109,13 @@ namespace MVZ2.Debugs
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                if (isAutoCompleteActive)
-                {
-                    NavigateSuggestions(-1);
-                }
-                else
-                {
-                    NavigateHistory(1);
-                }
+                PressUp();
                 return;
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                if (isAutoCompleteActive)
-                {
-                    NavigateSuggestions(1);
-                }
-                else
-                {
-                    NavigateHistory(-1);
-                }
+                PressDown();
                 return;
             }
 
@@ -109,6 +123,28 @@ namespace MVZ2.Debugs
             {
                 AutoComplete();
                 return;
+            }
+        }
+        void PressUp()
+        {
+            if (isAutoCompleteActive)
+            {
+                NavigateSuggestions(-1);
+            }
+            else
+            {
+                NavigateHistory(1);
+            }
+        }
+        void PressDown()
+        {
+            if (isAutoCompleteActive)
+            {
+                NavigateSuggestions(1);
+            }
+            else
+            {
+                NavigateHistory(-1);
             }
         }
 
@@ -179,7 +215,8 @@ namespace MVZ2.Debugs
             }
             ui.SetCommand(completedText + afterText);
             ui.SetCaretPosition(completedText.Length);
-            HideAutoCompletePanel();
+
+            UpdateInputFieldSuggestions();
         }
         #endregion
 
@@ -256,6 +293,9 @@ namespace MVZ2.Debugs
         private List<string> currentSuggestions = new List<string>();
         private int suggestionIndex;
         private bool isAutoCompleteActive;
+
+        private string lastInput;
+        private int lastCaret = -1;
         [SerializeField]
         private bool keepHistoryBetweenSessions = true;
         [SerializeField]
