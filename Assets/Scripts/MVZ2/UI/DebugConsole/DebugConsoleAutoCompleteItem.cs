@@ -9,6 +9,7 @@ namespace MVZ2.UI
     {
         public void SetText(string text)
         {
+            gameObject.name = text;
             this.text.text = text;
         }
         public void SetIsOn(bool isOn)
@@ -17,7 +18,11 @@ namespace MVZ2.UI
         }
         private void Awake()
         {
-            toggle.onValueChanged.AddListener((v) => OnValueChanged?.Invoke(this, v));
+            toggle.onValueChanged.AddListener(OnValueChangedCallback);
+        }
+        private void OnValueChangedCallback(bool value)
+        {
+            OnValueChanged?.Invoke(this, value);
         }
         public event Action<DebugConsoleAutoCompleteItem, bool> OnValueChanged;
         [SerializeField]

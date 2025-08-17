@@ -40,6 +40,13 @@ namespace MVZ2.UI
         {
             autoCompletePanel.SetActive(false);
         }
+        public void SetAutoCompletePosition(int index)
+        {
+            var substring = inputField.text.Substring(0, index);
+            var size = inputField.textComponent.GetPreferredValues(substring);
+            var rectTransform = autoCompletePanel.transform as RectTransform;
+            rectTransform.anchoredPosition = Vector2.right * size.x + inputField.textComponent.rectTransform.anchoredPosition;
+        }
         public void SetAutoCompleteSelections(string[] autoComplete)
         {
             autoCompleteSelection.updateList(autoComplete.Length, (i, obj) =>
@@ -69,7 +76,8 @@ namespace MVZ2.UI
         }
         private void OnAutoCompleteItemValueChangedCallback(DebugConsoleAutoCompleteItem item, bool value)
         {
-            OnAutoCompleteItemClick?.Invoke(autoCompleteSelection.indexOf(item));
+            if (value)
+                OnAutoCompleteItemClick?.Invoke(autoCompleteSelection.indexOf(item));
         }
         #endregion
 

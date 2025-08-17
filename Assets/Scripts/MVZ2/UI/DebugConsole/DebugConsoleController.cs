@@ -31,7 +31,6 @@ namespace MVZ2.Debugs
             ui.OnCloseClick += OnCloseCallback;
             ui.OnArrowButtonClick += OnArrowButtonClickCallback;
             ui.OnSubmit += OnSubmitCallback;
-            ui.OnInputFieldFocus += OnInputFieldFocusCallback;
             ui.OnInputFieldValueChanged += OnInputFieldValueChangedCallback;
             ui.OnAutoCompleteItemClick += OnAutoCompleteItemClickCallback;
         }
@@ -62,10 +61,6 @@ namespace MVZ2.Debugs
         {
             ExecuteCommand(text);
         }
-        private void OnInputFieldFocusCallback(bool focus)
-        {
-            UpdateInputFieldSuggestions(focus);
-        }
         private void OnInputFieldValueChangedCallback(string text)
         {
             UpdateInputFieldSuggestions();
@@ -73,7 +68,7 @@ namespace MVZ2.Debugs
         private void OnAutoCompleteItemClickCallback(int index)
         {
             suggestionIndex = index;
-            UpdateSelectedAutoComplete();
+            AutoComplete();
         }
 
         private bool CheckSuggestionDirty()
@@ -90,13 +85,9 @@ namespace MVZ2.Debugs
         }
         private void UpdateInputFieldSuggestions()
         {
-            UpdateInputFieldSuggestions(ui.IsCommandFocused());
-        }
-        private void UpdateInputFieldSuggestions(bool focused)
-        {
             // 输入变化时更新自动补全
             string command = ui.GetCommand();
-            if (focused && !string.IsNullOrWhiteSpace(command))
+            if (!string.IsNullOrWhiteSpace(command))
             {
                 UpdateSuggestions(command, ui.GetCaretPosition());
             }
@@ -170,6 +161,7 @@ namespace MVZ2.Debugs
             {
                 suggestionIndex = 0;
                 ShowAutoCompletePanel();
+                ui.SetAutoCompletePosition(currentIndex - parts[parts.Length - 1].Length);
             }
             else
             {
