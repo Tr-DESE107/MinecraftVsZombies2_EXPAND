@@ -1,16 +1,21 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using System.Xml;
 using MVZ2.IO;
+using MVZ2.Vanilla;
+using MVZ2Logic.Commands;
 
 namespace MVZ2.Metas
 {
-    public class CommandMeta
+    public class CommandMeta : ICommandMeta
     {
         public string ID { get; private set; }
+        public string Description { get; private set; }
         public CommandMetaVariant[] Variants { get; private set; }
         public static CommandMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            var description = node["description"]?.InnerText ?? string.Empty;
             var variants = new List<CommandMetaVariant>();
             for (int i = 0; i < node.ChildNodes.Count; i++)
             {
@@ -23,11 +28,16 @@ namespace MVZ2.Metas
             return new CommandMeta()
             {
                 ID = id,
+                Description = description,
                 Variants = variants.ToArray(),
             };
         }
+
+        public string GetDescription() => Description;
+
+        public ICommandVariantMeta[] GetVariants() => Variants;
     }
-    public class CommandMetaVariant
+    public class CommandMetaVariant : ICommandVariantMeta
     {
         public string Subname { get; private set; }
         public string Description { get; private set; }
@@ -55,8 +65,34 @@ namespace MVZ2.Metas
                 Parameters = paramList.ToArray()
             };
         }
+
+        public string GetGrammarText(string commandName)
+        {
+            var sb = new StringBuilder();
+            sb.Append(commandName);
+            if (!string.IsNullOrEmpty(Subname))
+            {
+                sb.Append($" {Subname}");
+            }
+            foreach (var param in Parameters)
+            {
+                if (param.Optional)
+                {
+                    sb.Append($" [{param.Name}]");
+                }
+                else
+                {
+                    sb.Append($" <{param.Name}>");
+                }
+            }
+            return sb.ToString();
+        }
+
+        public string GetDescription() => Description;
+
+        public ICommandParameterMeta[] GetParameters() => Parameters;
     }
-    public class CommandMetaParam
+    public class CommandMetaParam : ICommandParameterMeta
     {
         public string Name { get; private set; }
         public string Type { get; private set; }
@@ -79,5 +115,30 @@ namespace MVZ2.Metas
                 Description = description
             };
         }
+
+        public string GetName() => Name;
+        public string GetDescription() => Description;
+        public string GetTypeString()
+        {
+            switch (Type)
+            {
+                case TYPE_COMMAND:
+                    return VanillaStrings.PARAMETER_TYPE_COMMAND;
+                case TYPE_ID:
+                    return VanillaStrings.PARAMETER_TYPE_ID;
+                case TYPE_BOOL:
+                    return VanillaStrings.PARAMETER_TYPE_BOOLEAN;
+                case TYPE_INT:
+                    return VanillaStrings.PARAMETER_TYPE_INT;
+                case TYPE_FLOAT:
+                    return VanillaStrings.PARAMETER_TYPE_FLOAT;
+            }
+            return VanillaStrings.PARAMETER_TYPE_UNKNOWN;
+        }
+        public const string TYPE_BOOL = "bool";
+        public const string TYPE_INT = "int";
+        public const string TYPE_FLOAT = "float";
+        public const string TYPE_COMMAND = "command";
+        public const string TYPE_ID = "id";
     }
 }

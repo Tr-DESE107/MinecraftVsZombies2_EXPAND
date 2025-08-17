@@ -97,6 +97,10 @@ namespace MVZ2Logic
         {
             Scene.FadeScreenCoverColor(target, duration);
         }
+        public static void Print(string text)
+        {
+            Scene.Print(text);
+        }
 
         #region 选项
         public static bool HasBloodAndGore()
@@ -154,6 +158,7 @@ namespace MVZ2Logic
         void SetScreenCoverColor(Color value);
         void HideChapterTransition();
         void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
+        void Print(string text);
         Coroutine DisplayChapterTransitionCoroutine(NamespaceID chapterID, bool end);
     }
     public interface IMusicManager

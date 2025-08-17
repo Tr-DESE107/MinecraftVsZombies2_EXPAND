@@ -35,6 +35,22 @@ namespace MVZ2.Managers
         {
             return commandsCacheDict.TryGetValue(commandID, out var meta) ? meta : null;
         }
+        public NamespaceID GetCommandIDByName(string text)
+        {
+            if (NamespaceID.TryParse(text, Main.BuiltinNamespace, out var id))
+            {
+                return id;
+            }
+            return null;
+        }
+        public string GetCommandNameByID(NamespaceID id)
+        {
+            if (id.SpaceName == Main.BuiltinNamespace)
+            {
+                return id.Path;
+            }
+            return id.ToString();
+        }
         #endregion
 
         private Dictionary<NamespaceID, CommandMeta> commandsCacheDict = new Dictionary<NamespaceID, CommandMeta>();

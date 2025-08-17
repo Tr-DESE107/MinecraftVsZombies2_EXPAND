@@ -1,4 +1,5 @@
-﻿using MVZ2Logic.Entities;
+﻿using MVZ2Logic.Commands;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Models;
 using MVZ2Logic.SeedPacks;
@@ -34,6 +35,13 @@ namespace MVZ2Logic.Games
         public IGridLayerMeta GetGridLayerMeta(NamespaceID id);
         public IGridErrorMeta GetGridErrorMeta(NamespaceID id);
         public IBlueprintErrorMeta GetBlueprintErrorMeta(NamespaceID id);
+
+
+        public string GetCommandNameByID(NamespaceID id);
+        NamespaceID GetCommandIDByName(string name);
+        public ICommandMeta GetCommandMeta(NamespaceID id);
+        public NamespaceID[] GetAllCommandsID();
+
         public bool IsContraptionInAlmanac(NamespaceID id);
         public bool IsEnemyInAlmanac(NamespaceID id);
     }

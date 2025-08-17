@@ -173,6 +173,28 @@ namespace MVZ2.Vanilla
         [TranslateMsg("音乐名-无", CONTEXT_MUSIC_NAME)]
         public const string MUSIC_NAME_NONE = "无";
 
+        [TranslateMsg("命令输出，{0}为命令名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_NOT_FOUND = "未找到命令{0}！";
+        [TranslateMsg("命令输出-help，{0}为命令名，{1}为命令描述", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_HELP_COMMAND_LIST_TEMPLATE = "{0} - {1}";
+        [TranslateMsg("命令输出-help", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_HELP_DETAILS = "有关某个命令的详细信息，请输入\"help <命令名>\"";
+        [TranslateMsg("命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_HELP_PARAMETER_TEMPLATE = "{0}: [{1}] {2}";
+
+        [TranslateMsg("命令参数类型", CONTEXT_COMMAND_PARAMETER_TYPE)]
+        public const string PARAMETER_TYPE_BOOLEAN = "真值";
+        [TranslateMsg("命令参数类型", CONTEXT_COMMAND_PARAMETER_TYPE)]
+        public const string PARAMETER_TYPE_INT = "整数";
+        [TranslateMsg("命令参数类型", CONTEXT_COMMAND_PARAMETER_TYPE)]
+        public const string PARAMETER_TYPE_FLOAT = "实数";
+        [TranslateMsg("命令参数类型", CONTEXT_COMMAND_PARAMETER_TYPE)]
+        public const string PARAMETER_TYPE_ID = "ID";
+        [TranslateMsg("命令参数类型", CONTEXT_COMMAND_PARAMETER_TYPE)]
+        public const string PARAMETER_TYPE_COMMAND = "命令";
+        [TranslateMsg("命令参数类型", CONTEXT_COMMAND_PARAMETER_TYPE)]
+        public const string PARAMETER_TYPE_UNKNOWN = "未知";
+
         public static string GetAlmanacNameContext(string category)
         {
             return $"{category}.name";
@@ -220,7 +242,10 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ALMANAC_TAG_ENUM_NAME = "almanac_tag_enum.name";
         public const string CONTEXT_ALMANAC_TAG_ENUM_DESCRIPTION = "almanac_tag_enum.description";
         public const string CONTEXT_HOTKEY_NAME = "hotkey.name";
+        public const string CONTEXT_COMMAND_OUTPUT = "command.output";
         public const string CONTEXT_COMMAND_DESCRIPTION = "command.description";
+        public const string CONTEXT_COMMAND_VARIANT_DESCRIPTION = "command_variant.description";
         public const string CONTEXT_COMMAND_PARAMETER_DESCRIPTION = "command_parameter.description";
+        public const string CONTEXT_COMMAND_PARAMETER_TYPE = "command_parameter.type";
     }
 }

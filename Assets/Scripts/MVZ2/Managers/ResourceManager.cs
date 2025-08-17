@@ -8,6 +8,7 @@ using MVZ2.IO;
 using MVZ2.Metas;
 using MVZ2.Modding;
 using MVZ2.TalkData;
+using MVZ2Logic.Commands;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
@@ -468,6 +469,11 @@ namespace MVZ2.Managers
 
         IGridLayerMeta IGameMetas.GetGridLayerMeta(NamespaceID id) => GetGridLayerMeta(id);
         IGridErrorMeta IGameMetas.GetGridErrorMeta(NamespaceID id) => GetGridErrorMeta(id);
+
+        string IGameMetas.GetCommandNameByID(NamespaceID id) => GetCommandNameByID(id);
+        NamespaceID IGameMetas.GetCommandIDByName(string name) => GetCommandIDByName(name);
+        ICommandMeta IGameMetas.GetCommandMeta(NamespaceID id) => GetCommandMeta(id);
+        NamespaceID[] IGameMetas.GetAllCommandsID() => GetAllCommandsID();
 
         IBlueprintErrorMeta IGameMetas.GetBlueprintErrorMeta(NamespaceID id) => GetBlueprintErrorMeta(id);
         #endregion

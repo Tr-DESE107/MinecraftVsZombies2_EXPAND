@@ -38,4 +38,10 @@ namespace MVZ2Logic
         {
         }
     }
+    public class CommandDefinitionAttribute : DefinitionAttribute
+    {
+        public CommandDefinitionAttribute(string name) : base(name, LogicDefinitionTypes.COMMAND)
+        {
+        }
+    }
 }

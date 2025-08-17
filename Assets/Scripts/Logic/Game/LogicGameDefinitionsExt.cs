@@ -33,5 +33,9 @@ namespace MVZ2Logic.Games
         {
             return provider.GetDefinition<IZombieLayoutDefinition>(LogicDefinitionTypes.I_ZOMBIE_LAYOUT, id);
         }
+        public static CommandDefinition GetCommandDefinition(this IGameContent provider, NamespaceID id)
+        {
+            return provider.GetDefinition<CommandDefinition>(LogicDefinitionTypes.COMMAND, id);
+        }
     }
 }

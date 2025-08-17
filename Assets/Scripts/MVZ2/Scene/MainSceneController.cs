@@ -269,12 +269,12 @@ namespace MVZ2.Scenes
         #endregion
 
         #region 控制台
-        public void ConsolePrint(string text)
+        public void Print(string text)
         {
             debugConsole.Print(text);
         }
         #endregion
-        
+
         #region 工具提示
         public void ShowTooltip(ITooltipSource source)
         {

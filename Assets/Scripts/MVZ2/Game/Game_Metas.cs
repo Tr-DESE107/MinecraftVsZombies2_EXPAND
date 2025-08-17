@@ -1,3 +1,4 @@
+using MVZ2Logic.Commands;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
@@ -109,6 +110,22 @@ namespace MVZ2.Games
         public IBlueprintErrorMeta GetBlueprintErrorMeta(NamespaceID id)
         {
             return metaProvider.GetBlueprintErrorMeta(id);
+        }
+        public string GetCommandNameByID(NamespaceID id)
+        {
+            return metaProvider.GetCommandNameByID(id);
+        }
+        public NamespaceID GetCommandIDByName(string name)
+        {
+            return metaProvider.GetCommandIDByName(name);
+        }
+        public ICommandMeta GetCommandMeta(NamespaceID id)
+        {
+            return metaProvider.GetCommandMeta(id);
+        }
+        public NamespaceID[] GetAllCommandsID()
+        {
+            return metaProvider.GetAllCommandsID();
         }
         public bool IsContraptionInAlmanac(NamespaceID id)
         {

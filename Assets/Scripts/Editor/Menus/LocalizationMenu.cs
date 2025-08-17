@@ -15,6 +15,7 @@ using UnityEditor.SceneManagement;
 using UnityEditor.U2D.Sprites;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.UIElements.ToolbarMenu;
 
 namespace MVZ2.Editor
 {
@@ -265,9 +266,11 @@ namespace MVZ2.Editor
                 foreach (var meta in metaList.metas)
                 {
                     var id = new NamespaceID(spaceName, meta.ID);
+                    AddTranslation(potGenerator, meta.Description, reference, $"Description for command \"{id}\"", VanillaStrings.CONTEXT_COMMAND_DESCRIPTION);
+
                     foreach (var variant in meta.Variants)
                     {
-                        AddTranslation(potGenerator, variant.Description, reference, $"Description for command \"{id} {variant.Subname}\"", VanillaStrings.CONTEXT_COMMAND_DESCRIPTION);
+                        AddTranslation(potGenerator, variant.Description, reference, $"Description for command variant \"{id} {variant.Subname}\"", VanillaStrings.CONTEXT_COMMAND_VARIANT_DESCRIPTION);
                         foreach (var param in variant.Parameters)
                         {
                             AddTranslation(potGenerator, param.Description, reference, $"Description for parameter {param.Name} of command \"{id} {variant.Subname}\"", VanillaStrings.CONTEXT_COMMAND_PARAMETER_DESCRIPTION);
