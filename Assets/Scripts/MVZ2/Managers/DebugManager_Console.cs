@@ -236,9 +236,13 @@ namespace MVZ2.Managers
             //    PrintLine($"<color=red>Error: {ex.Message}</color>");
             //}
         }
+        private void Print(string text)
+        {
+            Main.Scene.ConsolePrint(text);
+        }
         private void PrintLine(string text)
         {
-            Main.Scene.ConsolePrintLine(text);
+            Print(text + "\n");
         }
         [SerializeField]
         private string commandHistoryFileName = "commands.txt";

@@ -269,9 +269,9 @@ namespace MVZ2.Scenes
         #endregion
 
         #region 控制台
-        public void ConsolePrintLine(string text)
+        public void ConsolePrint(string text)
         {
-            debugConsole.PrintLine(text);
+            debugConsole.Print(text);
         }
         #endregion
         

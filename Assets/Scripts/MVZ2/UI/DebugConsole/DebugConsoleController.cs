@@ -22,9 +22,9 @@ namespace MVZ2.Debugs
         {
             return gameObject.activeSelf;
         }
-        public void PrintLine(string text)
+        public void Print(string text)
         {
-            ui.PrintLine(text);
+            ui.Print(text);
         }
         private void Awake()
         {
@@ -33,6 +33,7 @@ namespace MVZ2.Debugs
             ui.OnSubmit += OnSubmitCallback;
             ui.OnInputFieldValueChanged += OnInputFieldValueChangedCallback;
             ui.OnAutoCompleteItemClick += OnAutoCompleteItemClickCallback;
+            Application.logMessageReceivedThreaded += OnLogReceivedCallback;
         }
         private void Update()
         {
@@ -69,6 +70,20 @@ namespace MVZ2.Debugs
         {
             suggestionIndex = index;
             AutoComplete();
+        }
+        private void OnLogReceivedCallback(string logString, string stackTrace, LogType type)
+        {
+            switch (type)
+            {
+                case LogType.Log:
+                case LogType.Warning:
+                    return;
+                case LogType.Error:
+                case LogType.Exception:
+                case LogType.Assert:
+                    Print($"<color=red>{logString}</color>\n");
+                    break;
+            }
         }
 
         private bool CheckSuggestionDirty()

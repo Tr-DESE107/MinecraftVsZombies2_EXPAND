@@ -19,9 +19,9 @@ namespace MVZ2.UI
         public string GetCommand() => inputField.text;
         public int GetCaretPosition() => inputField.caretPosition;
         public void SetCaretPosition(int caretPosition) => inputField.caretPosition = caretPosition;
-        public void PrintLine(string text)
+        public void Print(string text)
         {
-            outputText.text += text + "\n";
+            outputText.text += text;
             Canvas.ForceUpdateCanvases();
             outputScroll.verticalNormalizedPosition = 0;
         }
