@@ -36,16 +36,19 @@ namespace MVZ2.Level
         {
             base.AddCallbacks();
             ui.OnPointerInteraction += OnPointerInteractionCallback;
+            ui.OnSelect += OnPointerSelectCallback;
         }
         protected override void RemoveCallbacks()
         {
             base.RemoveCallbacks();
             ui.OnPointerInteraction -= OnPointerInteractionCallback;
+            ui.OnSelect -= OnPointerSelectCallback;
         }
         private void OnPointerInteractionCallback(Blueprint blueprint, PointerEventData eventData, PointerInteraction interaction)
         {
-            if (interaction != PointerInteraction.Down)
-                return;
+        }
+        private void OnPointerSelectCallback(Blueprint blueprint, PointerEventData eventData)
+        {
             if (!Controller.CanChooseBlueprints())
                 return;
             Controller.BlueprintChoosePart.UnchooseBlueprint(Index);

@@ -33,15 +33,18 @@ namespace MVZ2.UI
         public void ShowTooltip()
         {
             tooltip.Show();
-            tooltip.ForceRebuildLayout();
         }
         public void HideTooltip()
         {
             tooltip.Hide();
         }
-        public void UpdateTooltip(TooltipViewData viewData)
+        public void SetTooltipPosition(TooltipPosition viewData)
         {
-            tooltip.SetView(viewData);
+            tooltip.SetPosition(viewData);
+        }
+        public void SetTooltipContent(TooltipContent viewData)
+        {
+            tooltip.SetContent(viewData);
         }
         #endregion
 

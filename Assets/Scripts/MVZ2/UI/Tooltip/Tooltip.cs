@@ -15,10 +15,8 @@ namespace MVZ2.UI
         {
             gameObject.SetActive(false);
         }
-        public void SetView(TooltipViewData viewData)
+        public void SetPosition(TooltipPosition viewData)
         {
-            SetContent(viewData.content);
-
             var rectTransform = transform as RectTransform;
             rectTransform.pivot = viewData.pivot;
             rectTransform.position = viewData.position;
@@ -36,6 +34,7 @@ namespace MVZ2.UI
             nameText.gameObject.SetActive(!string.IsNullOrEmpty(content.name));
             errorText.gameObject.SetActive(!string.IsNullOrEmpty(content.error));
             descriptionText.gameObject.SetActive(!string.IsNullOrEmpty(content.description));
+            ForceRebuildLayout();
         }
         public void ForceRebuildLayout()
         {
@@ -52,11 +51,10 @@ namespace MVZ2.UI
         TextMeshProUGUI descriptionText;
         private List<Canvas> canvasListCache = new List<Canvas>();
     }
-    public struct TooltipViewData
+    public struct TooltipPosition
     {
         public Vector2 pivot;
         public Vector2 position;
-        public TooltipContent content;
     }
     public struct TooltipContent
     {

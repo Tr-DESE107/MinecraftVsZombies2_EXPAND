@@ -297,13 +297,13 @@ namespace MVZ2.Scenes
                 var screenPosition = camera.WorldToScreenPoint(anchor.Position);
                 tooltipPosition = uiCamera.ScreenToWorldPoint(screenPosition);
             }
-            var viewData = new TooltipViewData()
+            var position = new TooltipPosition()
             {
                 position = tooltipPosition,
                 pivot = anchor.Pivot,
-                content = content,
             };
-            ui.UpdateTooltip(viewData);
+            ui.SetTooltipContent(content);
+            ui.SetTooltipPosition(position);
         }
         public void HideTooltip()
         {
