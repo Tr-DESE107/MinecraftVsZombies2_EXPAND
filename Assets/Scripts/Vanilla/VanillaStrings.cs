@@ -181,6 +181,8 @@ namespace MVZ2.Vanilla
         public const string COMMAND_HELP_DETAILS = "有关某个命令的详细信息，请输入\"/help <命令名>\"";
         [TranslateMsg("命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_HELP_PARAMETER_TEMPLATE = "{0}: [{1}] {2}";
+        [TranslateMsg("命令输出-blueprint，{0}为参数", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_BLUEPRINT_SLOT_OUT_OF_RANGE = "蓝图槽位参数{0}超出范围";
         [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_INCORRECT_FORMAT = "命令格式错误";
         [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]
