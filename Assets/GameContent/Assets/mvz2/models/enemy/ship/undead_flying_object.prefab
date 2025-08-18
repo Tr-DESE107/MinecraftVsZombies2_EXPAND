@@ -171,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 8085893417350904658}
     - target: {fileID: 5134337979047610562, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_Name
-      value: undead_flying_object_red
+      value: undead_flying_object
       objectReference: {fileID: 0}
     - target: {fileID: 6999929167464410214, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: m_LocalPosition.x
