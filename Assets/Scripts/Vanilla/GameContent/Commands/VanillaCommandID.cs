@@ -15,6 +15,7 @@ namespace MVZ2.GameContent.Commands
         public const string cheat = "cheat";
         public const string repeat = "repeat";
         public const string clear = "clear";
+        public const string clearLevel = "clearlevel";
     }
     public static class VanillaCommandID
     {
@@ -28,6 +29,7 @@ namespace MVZ2.GameContent.Commands
         public static readonly NamespaceID cheat = Get(VanillaCommandNames.cheat);
         public static readonly NamespaceID repeat = Get(VanillaCommandNames.repeat);
         public static readonly NamespaceID clear = Get(VanillaCommandNames.clear);
+        public static readonly NamespaceID clearLevel = Get(VanillaCommandNames.clearLevel);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
