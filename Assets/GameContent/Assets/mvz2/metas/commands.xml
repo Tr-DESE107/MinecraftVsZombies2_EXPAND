@@ -16,7 +16,7 @@
                 <param name="id" type="id" idType="entity">要生成的实体ID。</param>
                 <param name="x" type="float" optional="true">可选。要生成的实体位置的X值。</param>
                 <param name="y" type="float" optional="true">可选。要生成的实体位置的Y值。</param>
-                <param name="z" type="float" optional="true">可选。要生成的实体位置的Y值。</param>
+                <param name="z" type="float" optional="true">可选。要生成的实体位置的Z值。</param>
             </params>
         </variant>
         <variant subname="grid">
