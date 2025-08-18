@@ -15,6 +15,7 @@ using MVZ2.Managers;
 using MVZ2.Map;
 using MVZ2.MusicRoom;
 using MVZ2.Note;
+using MVZ2.Options;
 using MVZ2.Saves;
 using MVZ2.Store;
 using MVZ2.Titlescreen;
@@ -380,7 +381,7 @@ namespace MVZ2.Scenes
         private void Update()
         {
             UpdateTooltip();
-            if (Input.GetKeyDown(KeyCode.T))
+            if (Input.GetKeyDown(main.OptionsManager.GetKeyBinding(HotKeys.console)))
             {
                 if (!debugConsole.IsActive())
                 {

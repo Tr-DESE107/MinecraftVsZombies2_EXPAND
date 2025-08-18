@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.Vanilla;
@@ -65,6 +66,7 @@ namespace MVZ2.Options
             AddKeyBindingMeta(HotKeys.starshard, KeyCode.W, HOTKEY_NAME_STARSHARD);
             AddKeyBindingMeta(HotKeys.trigger, KeyCode.BackQuote, HOTKEY_NAME_TRIGGER);
             AddKeyBindingMeta(HotKeys.fastForward, KeyCode.F, HOTKEY_NAME_FASTFORWARD);
+            AddKeyBindingMeta(HotKeys.console, KeyCode.T, HOTKEY_NAME_CONSOLE);
             AddKeyBindingMeta(HotKeys.blueprint1, KeyCode.Alpha1, HOTKEY_NAME_BLUEPRINT1);
             AddKeyBindingMeta(HotKeys.blueprint2, KeyCode.Alpha2, HOTKEY_NAME_BLUEPRINT2);
             AddKeyBindingMeta(HotKeys.blueprint3, KeyCode.Alpha3, HOTKEY_NAME_BLUEPRINT3);
@@ -92,6 +94,8 @@ namespace MVZ2.Options
         public const string HOTKEY_NAME_TRIGGER = "触发器";
         [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_FASTFORWARD = "快进";
+        [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
+        public const string HOTKEY_NAME_CONSOLE = "控制台";
         [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
         public const string HOTKEY_NAME_BLUEPRINT1 = "蓝图1";
         [TranslateMsg("按键名", VanillaStrings.CONTEXT_HOTKEY_NAME)]
