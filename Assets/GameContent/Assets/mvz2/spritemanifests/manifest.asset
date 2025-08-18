@@ -1786,6 +1786,17 @@ MonoBehaviour:
     - {fileID: -1721772389, guid: 2a8e7dd36e83bd041a7b0fd5acce604b, type: 3}
     - {fileID: 1953301278, guid: 2a8e7dd36e83bd041a7b0fd5acce604b, type: 3}
     - {fileID: -1735747841, guid: 2a8e7dd36e83bd041a7b0fd5acce604b, type: 3}
+  - name: entity/contraption/MineTNT
+    spritesheet:
+    - {fileID: 243241027, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+    - {fileID: -706711165, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+    - {fileID: -1477325465, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+    - {fileID: 1495812930, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+    - {fileID: -475850040, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+    - {fileID: 1575108489, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+    - {fileID: -1641503494, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+    - {fileID: 1831842489, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
+    - {fileID: -184146754, guid: ae0c515886ad9094d94d5b5e179d3c29, type: 3}
   - name: entity/contraption/mine_dirt
     spritesheet:
     - {fileID: -1044190659, guid: caad8c3049dedbb4796afa81b872ead5, type: 3}
@@ -2061,6 +2072,14 @@ MonoBehaviour:
     - {fileID: -1477107463, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
     - {fileID: 1435127597, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
     - {fileID: 556428364, guid: d59a40ebc8e2cc64392de05f2870d045, type: 3}
+  - name: entity/enemy/dullahan
+    spritesheet:
+    - {fileID: -2107956296, guid: f9f585d00bd0e1d4aadd7940c664f912, type: 3}
+    - {fileID: -345992927, guid: f9f585d00bd0e1d4aadd7940c664f912, type: 3}
+    - {fileID: 1298352251, guid: f9f585d00bd0e1d4aadd7940c664f912, type: 3}
+    - {fileID: 1873733335, guid: f9f585d00bd0e1d4aadd7940c664f912, type: 3}
+    - {fileID: -1641065907, guid: f9f585d00bd0e1d4aadd7940c664f912, type: 3}
+    - {fileID: 1353732996, guid: f9f585d00bd0e1d4aadd7940c664f912, type: 3}
   - name: entity/enemy/emperor_zombie
     spritesheet:
     - {fileID: -1928287117, guid: a9654ff76c5f31a4d87e757c55e35a6d, type: 3}
@@ -2415,6 +2434,17 @@ MonoBehaviour:
     - {fileID: -238351258, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
     - {fileID: 1356556440, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
     - {fileID: 1828943734, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+  - name: entity/enemy/WitherSkeletonHorse
+    spritesheet:
+    - {fileID: 626937010, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - {fileID: -1436026082, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - {fileID: -364872308, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - {fileID: 461413957, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - {fileID: 800789481, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - {fileID: -933671578, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - {fileID: -2118539743, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - {fileID: 2072566570, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
+    - {fileID: -826328922, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}
   - name: entity/enemy/wither_bone_wall
     spritesheet:
     - {fileID: 582393831, guid: 8e37a38233db98d43831108933ff5930, type: 3}

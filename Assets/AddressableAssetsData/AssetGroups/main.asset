@@ -283,6 +283,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 072adeb2dbed8004aac2c12dcc844a9c
+    m_Address: mvz2:enemy/castle/WitherSkeletonHorse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 073caa400cee98e4f9adafc78fdd521a
     m_Address: mvz2:entity/contraption/tesla_coil
     m_ReadOnly: 0
@@ -5782,6 +5789,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e8eb47bed3d1b741b1db0ad5acb7e8b
+    m_Address: mvz2:entity/enemy/WitherSkeletonHorse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7eb25f3d547617c4bb047d1f95e5f495
     m_Address: mvz2:level/castle/foreground
     m_ReadOnly: 0
@@ -7762,6 +7776,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae0c515886ad9094d94d5b5e179d3c29
+    m_Address: mvz2:entity/contraption/MineTNT
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ae1a22e91a039eb4ab8bed023d69ca2d
     m_Address: mvz2:entity/boss/slenderman_tentacle

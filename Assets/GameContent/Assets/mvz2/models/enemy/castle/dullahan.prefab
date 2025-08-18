@@ -415,6 +415,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7164545692936750873, guid: 8ec55301558bfc54c9d94f7065fda760, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164545692936750873, guid: 8ec55301558bfc54c9d94f7065fda760, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7400230302997280882, guid: 8ec55301558bfc54c9d94f7065fda760, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7660445
