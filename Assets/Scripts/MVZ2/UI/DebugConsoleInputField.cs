@@ -347,7 +347,7 @@ namespace MVZ2.UI
         private bool m_ShouldUpdateIMEWindowPosition = false;
         private int m_PreviousIMEInsertionLine = 0;
 
-        private int compositionLength
+        public int compositionLength
         {
             get
             {

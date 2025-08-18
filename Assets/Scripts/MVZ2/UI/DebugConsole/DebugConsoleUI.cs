@@ -20,7 +20,7 @@ namespace MVZ2.UI
             inputField.ForceLabelUpdate();
         }
         public string GetCommand() => inputField.text;
-        public int GetCaretPosition() => inputField.caretPosition;
+        public int GetCaretPosition() => inputField.caretPosition - inputField.compositionLength;
         public void SetCaretPosition(int caretPosition) => inputField.caretPosition = caretPosition;
         public void Print(string text)
         {
