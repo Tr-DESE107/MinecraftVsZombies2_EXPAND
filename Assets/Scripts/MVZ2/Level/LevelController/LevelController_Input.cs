@@ -203,10 +203,6 @@ namespace MVZ2.Level
             {
                 OnCommandBlockTestKey();
             }
-            if (Input.GetKeyDown(KeyCode.F7))
-            {
-                OnMaxEnergyKey();
-            }
         }
         private void OnSaveKey()
         {
@@ -252,10 +248,6 @@ namespace MVZ2.Level
                 var spawnParams = CommandBlock.GetImitateSpawnParams(contraption);
                 var command = grid.SpawnPlacedEntity(VanillaContraptionID.commandBlock, spawnParams);
             }
-        }
-        private void OnMaxEnergyKey()
-        {
-            level.AddEnergy(9990);
         }
         #endregion
     }

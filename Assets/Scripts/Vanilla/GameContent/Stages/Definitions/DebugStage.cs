@@ -26,14 +26,13 @@ namespace MVZ2.GameContent.Stages
             //level.LevelProgressVisible = true;
             //level.SetProgressBarToBoss(VanillaProgressBarID.theGiant);
             level.SetTriggerActive(true);
+            level.SetStarshardSlotCount(5);
             var cartRef = level.GetCartReference();
             level.SpawnCarts(cartRef, VanillaLevelExt.CART_START_X, 20);
         }
         public override void OnUpdate(LevelEngine level)
         {
             base.OnUpdate(level);
-            level.SetStarshardSlotCount(5);
-            level.SetStarshardCount(5);
             level.CheckGameOver();
         }
         private void ClassicStart(LevelEngine level)

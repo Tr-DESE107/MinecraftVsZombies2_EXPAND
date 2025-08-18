@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Commands
             var level = Global.Game.GetLevel();
 
             var mode = parameters[0];
-            var slot = int.Parse(parameters[1]);
+            var slot = ParseHelper.ParseInt(parameters[1]);
             if (slot < 0 || slot >= level.GetSeedSlotCount())
             {
                 var msg = Global.Game.GetTextParticular(VanillaStrings.COMMAND_BLUEPRINT_SLOT_OUT_OF_RANGE, VanillaStrings.CONTEXT_COMMAND_OUTPUT, slot.ToString());

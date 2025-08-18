@@ -1,0 +1,37 @@
+﻿using System;
+using MVZ2.GameContent.Contraptions;
+using MVZ2.Vanilla;
+using MVZ2.Vanilla.Level;
+using MVZ2Logic;
+using MVZ2Logic.IZombie;
+using MVZ2Logic.Level;
+using PVZEngine;
+using PVZEngine.Level;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Commands
+{
+    [CommandDefinition(VanillaCommandNames.starshard)]
+    public class Starshard : CommandDefinition
+    {
+        public Starshard(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override void Invoke(string[] parameters)
+        {
+            var game = Global.Game;
+            var level = Global.Game.GetLevel();
+
+            var mode = parameters[0];
+            var amount = ParseHelper.ParseInt(parameters[1]);
+            if (mode == "set")
+            {
+                level.SetStarshardCount(amount);
+            }
+            else if (mode == "add")
+            {
+                level.AddStarshardCount(amount);
+            }
+        }
+    }
+}
