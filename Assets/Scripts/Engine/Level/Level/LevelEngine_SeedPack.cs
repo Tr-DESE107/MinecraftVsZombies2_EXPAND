@@ -155,6 +155,15 @@ namespace PVZEngine.Level
                 seedPack.ResetRecharge();
             }
         }
+        public void FullRechargeAll()
+        {
+            foreach (var seedPack in seedPacks)
+            {
+                if (seedPack == null)
+                    continue;
+                seedPack.FullRecharge();
+            }
+        }
         #endregion
 
         #region 序列化

@@ -11,6 +11,8 @@ namespace MVZ2.GameContent.Commands
         public const string blueprint = "blueprint";
         public const string energy = "energy";
         public const string starshard = "starshard";
+        public const string recharge = "recharge";
+        public const string cheat = "cheat";
     }
     public static class VanillaCommandID
     {
@@ -20,6 +22,8 @@ namespace MVZ2.GameContent.Commands
         public static readonly NamespaceID blueprint = Get(VanillaCommandNames.blueprint);
         public static readonly NamespaceID energy = Get(VanillaCommandNames.energy);
         public static readonly NamespaceID starshard = Get(VanillaCommandNames.starshard);
+        public static readonly NamespaceID recharge = Get(VanillaCommandNames.recharge);
+        public static readonly NamespaceID cheat = Get(VanillaCommandNames.cheat);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

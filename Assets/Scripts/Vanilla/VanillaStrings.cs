@@ -183,6 +183,12 @@ namespace MVZ2.Vanilla
         public const string COMMAND_HELP_PARAMETER_TEMPLATE = "{0}: [{1}] {2}";
         [TranslateMsg("命令输出-blueprint，{0}为参数", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_BLUEPRINT_SLOT_OUT_OF_RANGE = "蓝图槽位参数{0}超出范围";
+        [TranslateMsg("命令输出-cheat，{0}为参数", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_CHEAT_NOT_FOUND = "未找到作弊命令{0}";
+        [TranslateMsg("命令输出-cheat，{0}为作弊命令名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_CHEAT_ENABLED = "已启用{0}";
+        [TranslateMsg("命令输出-cheat，{0}为作弊命令名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_CHEAT_DISABLED = "已禁用{0}";
         [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_INCORRECT_FORMAT = "命令格式错误";
         [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]
@@ -191,6 +197,11 @@ namespace MVZ2.Vanilla
         public const string COMMAND_INCORRECT_PARAMETER = "参数{0}格式错误";
         [TranslateMsg("命令输出，{0}为参数名", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_MISSING_PARAMETER = "参数{0}丢失";
+
+        [TranslateMsg("作弊命令名称", CONTEXT_COMMAND_CHEAT_NAME)]
+        public const string CHEAT_NAME_RECHARGE = "立即充能";
+        [TranslateMsg("作弊命令名称", CONTEXT_COMMAND_CHEAT_NAME)]
+        public const string CHEAT_NAME_STARSHARD = "无限星之碎片";
 
         [TranslateMsg("命令参数类型", CONTEXT_COMMAND_PARAMETER_TYPE)]
         public const string PARAMETER_TYPE_BOOLEAN = "真值";
@@ -253,6 +264,7 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ALMANAC_TAG_ENUM_DESCRIPTION = "almanac_tag_enum.description";
         public const string CONTEXT_HOTKEY_NAME = "hotkey.name";
         public const string CONTEXT_COMMAND_OUTPUT = "command.output";
+        public const string CONTEXT_COMMAND_CHEAT_NAME = "command.cheat_name";
         public const string CONTEXT_COMMAND_DESCRIPTION = "command.description";
         public const string CONTEXT_COMMAND_VARIANT_DESCRIPTION = "command_variant.description";
         public const string CONTEXT_COMMAND_PARAMETER_DESCRIPTION = "command_parameter.description";

@@ -184,6 +184,10 @@ namespace MVZ2.GameContent.Buffs
 
             public const string theGiantTransition = "the_giant_transition";
             public const string theGiantCleared = "the_giant_cleared";
+
+
+            public const string debugNoRecharge = "debug_no_recharge";
+            public const string debugStarshard = "debug_starshard";
         }
         public static class Boss
         {

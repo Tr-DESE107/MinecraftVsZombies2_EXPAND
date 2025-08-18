@@ -1,0 +1,20 @@
+﻿using MVZ2Logic;
+using MVZ2Logic.IZombie;
+
+namespace MVZ2.GameContent.Commands
+{
+    [CommandDefinition(VanillaCommandNames.recharge)]
+    public class Recharge : CommandDefinition
+    {
+        public Recharge(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override void Invoke(string[] parameters)
+        {
+            var game = Global.Game;
+            var level = Global.Game.GetLevel();
+
+            level.FullRechargeAll();
+        }
+    }
+}

@@ -195,10 +195,6 @@ namespace MVZ2.Level
             {
                 OnPerformanceTestKey();
             }
-            if (Input.GetKeyDown(KeyCode.F5))
-            {
-                OnFastKillBossKey();
-            }
             if (Input.GetKeyDown(KeyCode.F6))
             {
                 OnCommandBlockTestKey();

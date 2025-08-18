@@ -59,7 +59,6 @@ namespace MVZ2.GameContent.Stages
                 VanillaArtifactID.almanac,
                 VanillaArtifactID.theCreaturesHeart,
             });
-            level.SetRechargeSpeed(9999999);
         }
         private void ConveyorStart(LevelEngine level)
         {
