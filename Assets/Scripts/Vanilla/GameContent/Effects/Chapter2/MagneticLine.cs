@@ -20,13 +20,10 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (entity.Parent == null || !entity.Parent.Exists() || entity.Parent.IsDead)
+            if (!entity.Parent.ExistsAndAlive() || !entity.Target.ExistsAndAlive())
             {
                 entity.Remove();
-            }
-            if (entity.Target == null || !entity.Target.Exists() || entity.Target.IsDead)
-            {
-                entity.Remove();
+                return;
             }
             entity.Position = entity.Parent.Position;
             entity.SetModelProperty("Source", entity.Position);
