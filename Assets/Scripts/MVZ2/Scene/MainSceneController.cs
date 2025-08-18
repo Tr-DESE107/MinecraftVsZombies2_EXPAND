@@ -278,6 +278,10 @@ namespace MVZ2.Scenes
         {
             return debugConsole.GetCommandHistory();
         }
+        public void ClearConsole()
+        {
+            debugConsole.ClearConsole();
+        }
         public void Print(string text)
         {
             debugConsole.Print(text);

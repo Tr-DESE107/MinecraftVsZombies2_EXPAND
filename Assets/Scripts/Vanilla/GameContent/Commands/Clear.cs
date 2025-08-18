@@ -1,0 +1,17 @@
+﻿using MVZ2Logic;
+using MVZ2Logic.IZombie;
+
+namespace MVZ2.GameContent.Commands
+{
+    [CommandDefinition(VanillaCommandNames.clear)]
+    public class Clear : CommandDefinition
+    {
+        public Clear(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override void Invoke(string[] parameters)
+        {
+            Global.ClearConsole();
+        }
+    }
+}

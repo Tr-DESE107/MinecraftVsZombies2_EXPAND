@@ -26,6 +26,10 @@ namespace MVZ2.Debugs
         {
             return commandHistory.ToArray();
         }
+        public void ClearConsole()
+        {
+            ui.ClearConsole();
+        }
         public void Print(string text)
         {
             ui.Print(text);

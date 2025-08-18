@@ -100,6 +100,10 @@ namespace MVZ2.Managers
 
             return parts.ToArray();
         }
+        public void ClearConsole()
+        {
+            Main.Scene.ClearConsole();
+        }
 
         #region 历史
         public void SaveCommandHistory(IEnumerable<string> history)

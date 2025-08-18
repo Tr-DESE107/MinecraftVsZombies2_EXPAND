@@ -141,6 +141,10 @@ namespace MVZ2Logic
         {
             return Debugs.SplitCommand(command);
         }
+        public static void ClearConsole()
+        {
+            Debugs.ClearConsole();
+        }
         #endregion
 
         private static IMainManager Main { get; set; }
@@ -211,5 +215,6 @@ namespace MVZ2Logic
         string[] GetCommandHistory();
         void ExecuteCommand(string command);
         string[] SplitCommand(string command);
+        void ClearConsole();
     }
 }

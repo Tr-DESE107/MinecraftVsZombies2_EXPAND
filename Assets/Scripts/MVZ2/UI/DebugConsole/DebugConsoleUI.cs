@@ -28,6 +28,12 @@ namespace MVZ2.UI
             Canvas.ForceUpdateCanvases();
             outputScroll.verticalNormalizedPosition = 0;
         }
+        public void ClearConsole()
+        {
+            outputText.text = string.Empty;
+            Canvas.ForceUpdateCanvases();
+            outputScroll.verticalNormalizedPosition = 0;
+        }
         public void ActivateInputField()
         {
             inputField.ActivateInputField();
