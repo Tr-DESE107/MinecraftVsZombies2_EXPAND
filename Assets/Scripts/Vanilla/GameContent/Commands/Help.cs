@@ -53,6 +53,8 @@ namespace MVZ2.GameContent.Commands
                 PrintLine(commandName);
                 foreach (var variant in meta.GetVariants())
                 {
+                    PrintLine();
+                    PrintLine();
                     PrintLine(variant.GetGrammarText(commandName));
                     PrintLine(game.GetTextParticular(variant.GetDescription(), VanillaStrings.CONTEXT_COMMAND_VARIANT_DESCRIPTION));
                     PrintLine();
@@ -64,7 +66,6 @@ namespace MVZ2.GameContent.Commands
                         var msg = game.GetTextParticular(VanillaStrings.COMMAND_HELP_PARAMETER_TEMPLATE, VanillaStrings.CONTEXT_COMMAND_OUTPUT, paramName, type, desc);
                         PrintLine(msg);
                     }
-                    PrintLine();
                 }
             }
         }

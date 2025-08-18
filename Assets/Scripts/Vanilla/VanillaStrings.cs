@@ -176,9 +176,9 @@ namespace MVZ2.Vanilla
         [TranslateMsg("命令输出，{0}为命令名", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_NOT_FOUND = "未找到命令{0}！";
         [TranslateMsg("命令输出-help，{0}为命令名，{1}为命令描述", CONTEXT_COMMAND_OUTPUT)]
-        public const string COMMAND_HELP_COMMAND_LIST_TEMPLATE = "{0} - {1}";
+        public const string COMMAND_HELP_COMMAND_LIST_TEMPLATE = "/{0} - {1}";
         [TranslateMsg("命令输出-help", CONTEXT_COMMAND_OUTPUT)]
-        public const string COMMAND_HELP_DETAILS = "有关某个命令的详细信息，请输入\"help <命令名>\"";
+        public const string COMMAND_HELP_DETAILS = "有关某个命令的详细信息，请输入\"/help <命令名>\"";
         [TranslateMsg("命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_HELP_PARAMETER_TEMPLATE = "{0}: [{1}] {2}";
 

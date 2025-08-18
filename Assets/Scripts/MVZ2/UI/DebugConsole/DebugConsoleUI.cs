@@ -14,7 +14,10 @@ namespace MVZ2.UI
         public void SetCommand(string command)
         {
             inputField.text = command;
-            inputField.caretPosition = inputField.text.Length;
+        }
+        public void ForceUpdateCommand()
+        {
+            inputField.ForceLabelUpdate();
         }
         public string GetCommand() => inputField.text;
         public int GetCaretPosition() => inputField.caretPosition;

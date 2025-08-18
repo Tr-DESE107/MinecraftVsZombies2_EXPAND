@@ -184,6 +184,11 @@ namespace MVZ2.Managers
 
         private void Update()
         {
+            UpdatePointer();
+            UpdateKeys();
+        }
+        private void UpdatePointer()
+        {
             if (currentPointerType == PointerTypes.MOUSE)
             {
                 if (Input.touchCount > 0)
@@ -274,6 +279,7 @@ namespace MVZ2.Managers
                     break;
             }
             FlushPointerCaches();
+
         }
         private void FlushPointerCaches()
         {

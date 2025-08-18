@@ -42,6 +42,7 @@ namespace MVZ2.Debugs
             {
                 UpdateInputFieldSuggestions();
             }
+            historyNavigated = false;
         }
         private void OnCloseCallback()
         {
@@ -60,7 +61,16 @@ namespace MVZ2.Debugs
         }
         private void OnSubmitCallback(string text)
         {
-            ExecuteCommand(text);
+            if (!string.IsNullOrEmpty(text))
+            {
+                AddToHistory(text);
+                historyIndex = -1;
+                Main.DebugManager.ExecuteCommand(text);
+            }
+            ui.SetCommand(string.Empty);
+            ui.SetCaretPosition(0);
+            HideAutoCompletePanel();
+            ui.ActivateInputField();
         }
         private void OnInputFieldValueChangedCallback(string text)
         {
@@ -102,7 +112,7 @@ namespace MVZ2.Debugs
         {
             // 输入变化时更新自动补全
             string command = ui.GetCommand();
-            if (!string.IsNullOrWhiteSpace(command))
+            if (!historyNavigated && (command != null && command.StartsWith(DebugManager.COMMAND_CHARACTER)))
             {
                 UpdateSuggestions(command, ui.GetCaretPosition());
             }
@@ -113,13 +123,13 @@ namespace MVZ2.Debugs
         }
         void HandleInputNavigation()
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Main.InputManager.GetKeyDownOrHold(KeyCode.UpArrow))
             {
                 PressUp();
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Main.InputManager.GetKeyDownOrHold(KeyCode.DownArrow))
             {
                 PressDown();
                 return;
@@ -168,6 +178,8 @@ namespace MVZ2.Debugs
         {
             string input = text.Substring(0, currentIndex);
             string[] parts = Main.DebugManager.SplitInputText(input);
+            if (parts.Length < 1)
+                return;
 
             currentSuggestions.Clear();
             Main.DebugManager.FillSuggestions(parts, currentSuggestions);
@@ -220,6 +232,7 @@ namespace MVZ2.Debugs
             {
                 completedText = newBeforeText + " " + completedText;
             }
+            completedText = DebugManager.COMMAND_CHARACTER + completedText;
             ui.SetCommand(completedText + afterText);
             ui.SetCaretPosition(completedText.Length);
 
@@ -268,31 +281,17 @@ namespace MVZ2.Debugs
 
             historyIndex = Mathf.Clamp(historyIndex + direction, -1, commandHistory.Count - 1);
 
-            if (historyIndex == -1)
+            var command = string.Empty;
+            if (historyIndex >= 0)
             {
-                ui.SetCommand(string.Empty);
+                command = commandHistory[historyIndex];
             }
-            else
-            {
-                ui.SetCommand(commandHistory[historyIndex]);
-            }
+            ui.SetCommand(command);
+            ui.SetCaretPosition(command.Length);
+            ui.ForceUpdateCommand();
+            historyNavigated = true;
         }
         #endregion
-
-        private void ExecuteCommand(string text)
-        {
-            string input = text.Trim();
-            if (string.IsNullOrWhiteSpace(input))
-                return;
-
-            AddToHistory(input);
-            historyIndex = -1;
-            ui.SetCommand(string.Empty);
-            ui.ActivateInputField();
-            HideAutoCompletePanel();
-
-            Main.DebugManager.ExecuteCommand(input);
-        }
 
         public MainManager Main => MainManager.Instance;
         private List<string> commandHistory = new List<string>();
@@ -303,6 +302,7 @@ namespace MVZ2.Debugs
 
         private string lastInput;
         private int lastCaret = -1;
+        private bool historyNavigated;
         [SerializeField]
         private bool keepHistoryBetweenSessions = true;
         [SerializeField]

@@ -6,6 +6,30 @@ namespace MVZ2.Managers
 {
     public partial class InputManager : MonoBehaviour
     {
+        public bool GetKeyDownOrHold(KeyCode keycode)
+        {
+            if (Input.GetKeyDown(keycode))
+                return true;
+            if (heldKeys.TryGetValue(keycode, out var heldTime))
+            {
+                return Time.time - heldTime > keyHoldTimeThresold;
+            }
+            return false;
+        }
+        private void UpdateKeys()
+        {
+            foreach (var keycode in keyInfos.Keys)
+            {
+                if (Input.GetKeyDown(keycode))
+                {
+                    heldKeys[keycode] = Time.time;
+                }
+                if (Input.GetKeyUp(keycode))
+                {
+                    heldKeys.Remove(keycode);
+                }
+            }
+        }
         public void InitKeys()
         {
             keyInfos.Clear();
@@ -187,6 +211,9 @@ namespace MVZ2.Managers
             keyInfos[code] = new KeyCodeInfo(code, name);
         }
         public readonly Dictionary<KeyCode, KeyCodeInfo> keyInfos = new Dictionary<KeyCode, KeyCodeInfo>();
+        public readonly Dictionary<KeyCode, float> heldKeys = new Dictionary<KeyCode, float>();
+        [SerializeField]
+        private float keyHoldTimeThresold = 0.5f;
 
         public const string CONTEXT_KEY_NAME = "key.name";
         [TranslateMsg("按键名", CONTEXT_KEY_NAME)] public const string KEYNAME_UNKNOWN = "未知";

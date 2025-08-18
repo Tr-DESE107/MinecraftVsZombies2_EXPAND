@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Metas;
+using MVZ2.Vanilla;
+using MVZ2Logic;
+using MVZ2Logic.Games;
+using MVZ2Logic.IZombie;
 using PVZEngine;
 using UnityEngine;
 
@@ -43,14 +48,14 @@ namespace MVZ2.Managers
 
         private string GetCommandName(NamespaceID id)
         {
-            if (id.SpaceName == Main.BuiltinNamespace)
-            {
-                return id.Path;
-            }
-            return id.ToString();
+            return Main.ResourceManager.GetCommandNameByID(id);
         }
         public string[] SplitInputText(string input)
         {
+            if (!input.StartsWith(COMMAND_CHARACTER))
+                return Array.Empty<string>();
+            input = input.Substring(1);
+
             List<string> parts = new List<string>();
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < input.Length; i++)
@@ -108,12 +113,11 @@ namespace MVZ2.Managers
         {
             switch (param.Type)
             {
-                case "command":
-                    if (NamespaceID.TryParse(paramText, Main.BuiltinNamespace, out var id))
+                case CommandMetaParam.TYPE_COMMAND:
                     {
+                        var id = Main.ResourceManager.GetCommandIDByName(paramText);
                         return Main.ResourceManager.GetCommandMeta(id) != null;
                     }
-                    break;
             }
             return false;
         }
@@ -194,7 +198,7 @@ namespace MVZ2.Managers
         {
             switch (type)
             {
-                case "command":
+                case CommandMetaParam.TYPE_COMMAND:
                     {
                         var ids = Main.ResourceManager.GetAllCommandsID();
                         foreach (var id in ids)
@@ -213,32 +217,36 @@ namespace MVZ2.Managers
             PrintLine($"> {input}");
 
             string[] parts = SplitInputText(input);
+            if (parts.Length < 1)
+                return;
             string command = parts[0];
             string[] args = parts.Skip(1).ToArray();
 
-            //CommandDefinition definition = null;
-            //if (NamespaceID.TryParse(command, Main.BuiltinNamespace, out var commandID))
-            //{
-            //    definition = Global.Game.GetCommandDefinition(commandID);
-            //}
-            //if (definition == null)
-            //{
-            //    PrintLine($"<color=red>Command not found: {command}</color>");
-            //    return;
-            //}
+            CommandDefinition definition = null;
+            if (NamespaceID.TryParse(command, Main.BuiltinNamespace, out var commandID))
+            {
+                definition = Global.Game.GetCommandDefinition(commandID);
+            }
+            if (definition == null)
+            {
+                var msg = Main.LanguageManager._p(COMMAND_NOT_FOUND, VanillaStrings.CONTEXT_COMMAND_OUTPUT, command);
+                PrintLine(msg);
+                return;
+            }
 
-            //try
-            //{
-            //    definition.Invoke(args);
-            //}
-            //catch (Exception ex)
-            //{
-            //    PrintLine($"<color=red>Error: {ex.Message}</color>");
-            //}
+            try
+            {
+                definition.Invoke(args);
+            }
+            catch (Exception ex)
+            {
+                var msg = Main.LanguageManager._p(COMMAND_ERROR, VanillaStrings.CONTEXT_COMMAND_OUTPUT, ex.Message);
+                PrintLine(msg);
+            }
         }
         private void Print(string text)
         {
-            Main.Scene.ConsolePrint(text);
+            Main.Scene.Print(text);
         }
         private void PrintLine(string text)
         {
@@ -246,5 +254,10 @@ namespace MVZ2.Managers
         }
         [SerializeField]
         private string commandHistoryFileName = "commands.txt";
+        public const char COMMAND_CHARACTER = '/';
+        [TranslateMsg("命令输出，{0}为命令名", VanillaStrings.CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_NOT_FOUND = "<color=red>命令不存在：{0}</color>";
+        [TranslateMsg("命令输出，{0}为错误", VanillaStrings.CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_ERROR = "<color=red>错误：{0}</color>";
     }
 }

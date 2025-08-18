@@ -2,6 +2,7 @@
 using System.Text;
 using System.Xml;
 using MVZ2.IO;
+using MVZ2.Managers;
 using MVZ2.Vanilla;
 using MVZ2Logic.Commands;
 
@@ -69,6 +70,7 @@ namespace MVZ2.Metas
         public string GetGrammarText(string commandName)
         {
             var sb = new StringBuilder();
+            sb.Append(DebugManager.COMMAND_CHARACTER);
             sb.Append(commandName);
             if (!string.IsNullOrEmpty(Subname))
             {
