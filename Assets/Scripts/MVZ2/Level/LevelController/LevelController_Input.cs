@@ -183,10 +183,6 @@ namespace MVZ2.Level
         #region 调试
         private void UpdateKeysDebug()
         {
-            if (Input.GetKeyDown(KeyCode.F1))
-            {
-                OnFastKillKey();
-            }
             if (Input.GetKeyDown(KeyCode.F2))
             {
                 OnSaveKey();
@@ -210,13 +206,6 @@ namespace MVZ2.Level
             if (Input.GetKeyDown(KeyCode.F7))
             {
                 OnMaxEnergyKey();
-            }
-        }
-        private void OnFastKillKey()
-        {
-            foreach (var enemy in level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsHostile(SelfFaction) && !e.IsDead))
-            {
-                enemy.Die();
             }
         }
         private void OnSaveKey()

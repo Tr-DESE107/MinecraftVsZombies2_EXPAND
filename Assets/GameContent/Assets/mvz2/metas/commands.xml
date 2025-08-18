@@ -37,6 +37,26 @@
             <description>杀死所有怪物。</description>
             <params/>
         </variant>
+        <variant subname="contraption">
+            <description>杀死所有器械。</description>
+            <params/>
+        </variant>
+        <variant subname="enemy">
+            <description>杀死所有怪物。</description>
+            <params/>
+        </variant>
+        <variant subname="obstacle">
+            <description>杀死所有障碍物。</description>
+            <params/>
+        </variant>
+        <variant subname="boss">
+            <description>杀死所有头目。</description>
+            <params/>
+        </variant>
+        <variant subname="all">
+            <description>杀死所有实体。</description>
+            <params/>
+        </variant>
     </command>
     <command id="blueprint" inLevel="true">
         <description>调整蓝图。</description>

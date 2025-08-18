@@ -101,16 +101,16 @@ namespace MVZ2.Managers
         #region 自动补全
         private CommandMetaVariant GetBestFitCommandVariant(CommandMetaVariant[] variants, string[] parts)
         {
-            var maxIndex = -1;
+            var minDifference = int.MaxValue;
             CommandMetaVariant bestVariant = null;
             foreach (var variant in variants)
             {
                 var idx = GetFitCommandVariantParamIndex(variant, parts);
                 if (idx == parts.Length)
                     return variant;
-                if (idx > maxIndex)
+                if (idx - parts.Length < minDifference)
                 {
-                    maxIndex = idx;
+                    minDifference = idx;
                     bestVariant = variant;
                 }
             }
@@ -118,8 +118,6 @@ namespace MVZ2.Managers
         }
         private int GetFitCommandVariantParamIndex(CommandMetaVariant variant, string[] parts)
         {
-            if (parts.Length <= 1)
-                return 0;
             bool hasSubname = !String.IsNullOrEmpty(variant.Subname);
             for (int i = 1; i < parts.Length; i++)
             {
@@ -229,6 +227,18 @@ namespace MVZ2.Managers
             if (meta == null)
                 return;
 
+            // 变体子名称
+            if (parts.Length == 2)
+            {
+                var subnameVariants = meta.Variants.Where(v => !string.IsNullOrEmpty(v.Subname));
+                foreach (var v in subnameVariants)
+                {
+                    if (v.Subname.StartsWith(parts[1]))
+                    {
+                        currentSuggestions.Add(v.Subname);
+                    }
+                }
+            }
             // 查找目前最符合的命令变体。
             var completedParts = parts.SkipLast(1).ToArray();
             var variant = GetBestFitCommandVariant(meta.Variants, completedParts);
@@ -258,6 +268,10 @@ namespace MVZ2.Managers
             foreach (var suggestion in suggestions)
             {
                 if (string.IsNullOrEmpty(last) || suggestion.StartsWith(last))
+                {
+                    currentSuggestions.Add(suggestion);
+                }
+                else if (NamespaceID.TryParseStrict(suggestion, out var parsed) && parsed.Path.StartsWith(last))
                 {
                     currentSuggestions.Add(suggestion);
                 }
