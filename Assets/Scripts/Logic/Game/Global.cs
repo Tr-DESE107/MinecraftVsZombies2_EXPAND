@@ -137,10 +137,6 @@ namespace MVZ2Logic
         {
             Debugs.ExecuteCommand(command);
         }
-        public static string[] SplitCommand(string command)
-        {
-            return Debugs.SplitCommand(command);
-        }
         public static void ClearConsole()
         {
             Debugs.ClearConsole();
@@ -214,7 +210,6 @@ namespace MVZ2Logic
     {
         string[] GetCommandHistory();
         void ExecuteCommand(string command);
-        string[] SplitCommand(string command);
         void ClearConsole();
     }
 }

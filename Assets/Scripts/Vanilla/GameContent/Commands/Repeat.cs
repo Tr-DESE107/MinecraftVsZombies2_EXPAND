@@ -1,13 +1,7 @@
-﻿using System;
-using System.Linq;
-using MVZ2.GameContent.Contraptions;
-using MVZ2.Vanilla;
+﻿using System.Linq;
 using MVZ2Logic;
+using MVZ2Logic.Command;
 using MVZ2Logic.IZombie;
-using MVZ2Logic.Level;
-using PVZEngine;
-using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Commands
 {
@@ -22,7 +16,7 @@ namespace MVZ2.GameContent.Commands
             var count = ParseHelper.ParseInt(parameters[0]);
             var last = Global.GetCommandHistory().FirstOrDefault(h =>
             {
-                var parts = Global.SplitCommand(h);
+                var parts = CommandUtility.SplitCommand(h);
                 return parts.Length < 1 || Global.Game.GetCommandIDByName(parts[0]) != GetID();
             });
             if (string.IsNullOrEmpty(last))

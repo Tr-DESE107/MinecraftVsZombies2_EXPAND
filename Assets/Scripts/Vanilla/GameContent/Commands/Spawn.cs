@@ -1,5 +1,6 @@
 ﻿using MVZ2.Vanilla;
 using MVZ2Logic;
+using MVZ2Logic.Command;
 using MVZ2Logic.IZombie;
 using PVZEngine;
 using UnityEngine;
@@ -26,33 +27,33 @@ namespace MVZ2.GameContent.Commands
             {
                 if (parameters.Length >= 3)
                 {
-                    x = ParseHelper.ParseFloat(parameters[2]);
+                    x = CommandUtility.ParseOptionalFloat(parameters[2], x);
                 }
                 if (parameters.Length >= 4)
                 {
-                    y = ParseHelper.ParseFloat(parameters[3]);
+                    y = CommandUtility.ParseOptionalFloat(parameters[3], y);
                 }
                 if (parameters.Length >= 5)
                 {
-                    z = ParseHelper.ParseFloat(parameters[4]);
+                    z = CommandUtility.ParseOptionalFloat(parameters[4], z);
                 }
             }
             else if (parameters[0] == "grid")
             {
-                var column = Mathf.FloorToInt(level.GetMaxColumnCount() * 0.5f);
-                var lane = Mathf.FloorToInt(level.GetMaxLaneCount() * 0.5f);
+                var column = Mathf.Floor(level.GetMaxColumnCount() * 0.5f);
+                var lane = Mathf.Floor(level.GetMaxLaneCount() * 0.5f);
 
                 if (parameters.Length >= 3)
                 {
-                    column = ParseHelper.ParseInt(parameters[2]);
+                    column = CommandUtility.ParseOptionalFloat(parameters[2], column);
                 }
                 if (parameters.Length >= 4)
                 {
-                    lane = ParseHelper.ParseInt(parameters[3]);
+                    lane = CommandUtility.ParseOptionalFloat(parameters[3], lane);
                 }
 
-                x = level.GetEntityColumnX(column);
-                z = level.GetEntityLaneZ(lane);
+                x = level.GetEntityColumnXFloat(column);
+                z = level.GetEntityLaneZFloat(lane);
                 y = level.GetGroundY(x, z);
             }
 

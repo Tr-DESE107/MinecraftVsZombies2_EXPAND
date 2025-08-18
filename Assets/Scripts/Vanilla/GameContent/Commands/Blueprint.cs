@@ -1,12 +1,10 @@
 ﻿using System;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.IZombie;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Commands
 {

@@ -2,7 +2,6 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;

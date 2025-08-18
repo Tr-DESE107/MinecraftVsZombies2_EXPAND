@@ -195,6 +195,8 @@ namespace MVZ2.Vanilla
         public const string COMMAND_MUST_IN_LEVEL = "该命令只能在关卡中被调用";
         [TranslateMsg("命令输出，{0}为参数名", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_INCORRECT_PARAMETER = "参数{0}格式错误";
+        [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_INCORRECT_PARAMETER_COUNT = "参数数量错误";
         [TranslateMsg("命令输出，{0}为参数名", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_MISSING_PARAMETER = "参数{0}丢失";
 

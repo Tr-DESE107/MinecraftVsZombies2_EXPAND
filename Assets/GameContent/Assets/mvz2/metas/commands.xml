@@ -2,9 +2,13 @@
     <command id="help">
         <description>显示帮助界面。</description>
         <variant>
+            <description>显示帮助界面。</description>
+            <params/>
+        </variant>
+        <variant>
             <description>查询命令的作用。</description>
             <params>
-                <param name="command" type="command" optional="true">可选。命令名。</param>
+                <param name="command" type="command">命令名。</param>
             </params>
         </variant>
     </command>
@@ -23,8 +27,8 @@
             <description>在指定的地格位置生成实体。默认位置为场地中心。</description>
             <params>
                 <param name="id" type="id" idType="entity">要生成的实体ID。</param>
-                <param name="column" type="int" optional="true">可选。实体所在列。0代表最左侧一列，向右递增。</param>
-                <param name="lane" type="int" optional="true">可选。实体所在行。0代表最上方一行，向下递增。</param>
+                <param name="column" type="float" optional="true">可选。实体所在列。0代表最左侧一列，向右递增。</param>
+                <param name="lane" type="float" optional="true">可选。实体所在行。0代表最上方一行，向下递增。</param>
             </params>
         </variant>
     </command>

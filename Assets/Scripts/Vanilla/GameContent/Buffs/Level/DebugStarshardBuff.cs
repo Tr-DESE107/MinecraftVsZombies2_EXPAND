@@ -1,7 +1,6 @@
 ﻿using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
-using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Level
 {

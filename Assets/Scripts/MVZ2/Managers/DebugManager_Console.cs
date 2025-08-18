@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using MukioI18n;
 using MVZ2.IO;
 using MVZ2.Metas;
 using MVZ2.Vanilla;
 using MVZ2Logic;
+using MVZ2Logic.Command;
 using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
 using PVZEngine;
@@ -73,33 +73,7 @@ namespace MVZ2.Managers
                 PrintLine(msg);
             }
         }
-        public string[] SplitCommand(string input)
-        {
-            if (!input.StartsWith(COMMAND_CHARACTER))
-                return Array.Empty<string>();
-            input = input.Substring(1);
-
-            List<string> parts = new List<string>();
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < input.Length; i++)
-            {
-                char c = input[i];
-                if (char.IsWhiteSpace(c))
-                {
-                    parts.Add(sb.ToString());
-                    sb.Clear();
-                }
-                else
-                {
-                    sb.Append(c);
-                }
-            }
-
-            parts.Add(sb.ToString());
-            sb.Clear();
-
-            return parts.ToArray();
-        }
+        public string[] SplitCommand(string input) => CommandUtility.SplitCommand(input);
         public void ClearConsole()
         {
             Main.Scene.ClearConsole();
@@ -142,51 +116,58 @@ namespace MVZ2.Managers
         #region 自动补全
         private CommandMetaVariant GetBestFitCommandVariant(CommandMetaVariant[] variants, string[] parts)
         {
-            var minDifference = int.MaxValue;
+            var maxFits = 0;
             CommandMetaVariant bestVariant = null;
             foreach (var variant in variants)
             {
-                var idx = GetFitCommandVariantParamIndex(variant, parts);
-                if (idx == parts.Length)
+                var fitCount = GetCommandVariantFitPartCount(variant, parts);
+
+                if (fitCount == parts.Length)
                     return variant;
-                if (idx - parts.Length < minDifference)
+                if (fitCount > maxFits)
                 {
-                    minDifference = idx;
+                    maxFits = fitCount;
                     bestVariant = variant;
                 }
             }
             return bestVariant;
         }
-        private int GetFitCommandVariantParamIndex(CommandMetaVariant variant, string[] parts)
+        private int GetCommandVariantFitPartCount(CommandMetaVariant variant, string[] parts)
         {
-            bool hasSubname = !String.IsNullOrEmpty(variant.Subname);
-            for (int i = 1; i < parts.Length; i++)
+            bool hasSubname = !string.IsNullOrEmpty(variant.Subname);
+            // 实参数量大于形参，直接不通过
+            if (parts.Length > variant.GetMaxCommandPartCount())
             {
-                int parameterIndex = i - 1;
-                if (hasSubname)
-                {
-                    if (i == 1 && !variant.Subname.Equals(parts[i], StringComparison.OrdinalIgnoreCase))
-                        // 子命令不一致。
-                        return i;
+                return 0;
+            }
 
-                    parameterIndex--;
-                }
+            // 子命令不一致，不通过
+            if (hasSubname && (parts.Length < 2 || !variant.Subname.Equals(parts[1], StringComparison.OrdinalIgnoreCase)))
+            {
+                return 1;
+            }
+            for (int i = 0; i < variant.Parameters.Length; i++)
+            {
+                int partIndex = variant.GetCommandPartIndexOfParameter(i);
 
-
-                if (parameterIndex < 0 || parameterIndex >= variant.Parameters.Length)
+                if (partIndex < 0 || partIndex >= parts.Length)
                     continue;
-                var parameter = variant.Parameters[parameterIndex];
+                var parameter = variant.Parameters[i];
                 if (parameter == null)
                     continue;
 
-                if (!FitsCommandParameter(parameter, parts[i]))
-                    // 参数不一致。
-                    return i;
+                // 参数不一致。
+                if (!FitsCommandParameter(parameter, parts[partIndex]))
+                    return partIndex;
             }
             return parts.Length;
         }
         private bool FitsCommandParameter(CommandMetaParam param, string paramText)
         {
+            if (paramText == DEFAULT_VALUE_PARAMETER && param.Optional)
+            {
+                return true;
+            }
             switch (param.Type)
             {
                 case CommandMetaParam.TYPE_COMMAND:
@@ -290,11 +271,7 @@ namespace MVZ2.Managers
         {
             if (variant == null)
                 return;
-            int parameterIndex = parts.Length - 2;
-            if (!String.IsNullOrEmpty(variant.Subname))
-            {
-                parameterIndex--;
-            }
+            int parameterIndex = variant.GetParameterIndexOfCommandPart(parts.Length - 1);
             if (parameterIndex < 0 || parameterIndex >= variant.Parameters.Length)
                 return;
             var parameter = variant.Parameters[parameterIndex];
@@ -392,11 +369,7 @@ namespace MVZ2.Managers
             // 检测命令变体的参数是否正确。
             for (int i = 0; i < variant.Parameters.Length; i++)
             {
-                var partIndex = i + 1;
-                if (hasSubname)
-                {
-                    partIndex++;
-                }
+                var partIndex = variant.GetCommandPartIndexOfParameter(i);
                 var parameter = variant.Parameters[i];
                 if (partIndex >= parts.Length)
                 {
@@ -411,6 +384,13 @@ namespace MVZ2.Managers
                 {
                     throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_PARAMETER, parameter.Name));
                 }
+            }
+            var actualParamLength = variant.GetParameterIndexOfCommandPart(parts.Length);
+            var minParameterCount = variant.Parameters.Count(p => !p.Optional);
+            var maxParameterCount = variant.Parameters.Length;
+            if (actualParamLength < minParameterCount || actualParamLength > maxParameterCount)
+            {
+                throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_PARAMETER_COUNT));
             }
         }
         #endregion
@@ -428,7 +408,8 @@ namespace MVZ2.Managers
         private HashSet<string> entityIDSet = new HashSet<string>();
         private HashSet<string> blueprintIDSet = new HashSet<string>();
 
-        public const char COMMAND_CHARACTER = '/';
+        public const char COMMAND_CHARACTER = CommandUtility.COMMAND_CHARACTER;
+        public const string DEFAULT_VALUE_PARAMETER = CommandUtility.DEFAULT_VALUE_PARAMETER;
         [TranslateMsg("命令输出，{0}为命令名", VanillaStrings.CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_NOT_FOUND = "<color=red>命令不存在：{0}</color>";
         [TranslateMsg("命令输出，{0}为错误", VanillaStrings.CONTEXT_COMMAND_OUTPUT)]

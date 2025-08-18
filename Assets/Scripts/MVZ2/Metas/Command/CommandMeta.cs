@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using MVZ2.IO;
@@ -94,8 +95,33 @@ namespace MVZ2.Metas
         }
 
         public string GetDescription() => Description;
-
         public ICommandParameterMeta[] GetParameters() => Parameters;
+        public int GetMaxCommandPartCount()
+        {
+            return GetCommandPartIndexOfParameter(Parameters.Length);
+        }
+        public int GetCommandPartIndexOfParameter(int parameterIndex)
+        {
+            var index = parameterIndex + 1;
+            if (HasSubname())
+            {
+                index++;
+            }
+            return index;
+        }
+        public int GetParameterIndexOfCommandPart(int partIndex)
+        {
+            var index = partIndex - 1;
+            if (HasSubname())
+            {
+                index--;
+            }
+            return index;
+        }
+        public bool HasSubname()
+        {
+            return !String.IsNullOrEmpty(Subname);
+        }
     }
     public class CommandMetaParam : ICommandParameterMeta
     {

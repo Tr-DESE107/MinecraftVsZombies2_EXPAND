@@ -71,9 +71,15 @@ namespace PVZEngine.Level
         {
             return GetLane(z - entityLaneZOffset + GetGridHeight() * 0.5f);
         }
-        public float GetEntityLaneZ(int row)
+        public float GetEntityLaneZ(int lane) => GetEntityLaneZFloat(lane);
+        public float GetLaneZ(int lane) => GetLaneZFloat(lane);
+        public float GetEntityLaneZFloat(float lane)
         {
-            return GetLaneZ(row) + entityLaneZOffset;
+            return GetLaneZFloat(lane) + entityLaneZOffset;
+        }
+        public float GetLaneZFloat(float lane)
+        {
+            return GetGridTopZ() - (lane + 1) * GetGridHeight();
         }
         public int GetGridLaneByIndex(int index)
         {
@@ -99,11 +105,13 @@ namespace PVZEngine.Level
         {
             return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridWidth());
         }
-        public float GetEntityColumnX(int column)
+        public float GetEntityColumnX(int column) => GetEntityColumnXFloat(column);
+        public float GetColumnX(int column) => GetColumnXFloat(column);
+        public float GetEntityColumnXFloat(float column)
         {
-            return GetColumnX(column) + GetGridWidth() * 0.5f;
+            return GetColumnXFloat(column) + GetGridWidth() * 0.5f;
         }
-        public float GetColumnX(int column)
+        public float GetColumnXFloat(float column)
         {
             return GetGridLeftX() + column * GetGridWidth();
         }
@@ -119,10 +127,6 @@ namespace PVZEngine.Level
             var column = GetGridColumnByIndex(index);
             var lane = GetGridLaneByIndex(index);
             return GetEntityGridPosition(column, lane);
-        }
-        public float GetLaneZ(int lane)
-        {
-            return GetGridTopZ() - (lane + 1) * GetGridHeight();
         }
         public float GetGroundY(Vector3 pos)
         {

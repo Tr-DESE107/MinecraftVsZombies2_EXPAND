@@ -40,7 +40,6 @@ namespace MVZ2.GameContent.Commands
                 foreach (var variant in meta.GetVariants())
                 {
                     PrintLine();
-                    PrintLine();
                     PrintLine(variant.GetGrammarText(commandName));
                     PrintLine(game.GetTextParticular(variant.GetDescription(), VanillaStrings.CONTEXT_COMMAND_VARIANT_DESCRIPTION));
                     PrintLine();
