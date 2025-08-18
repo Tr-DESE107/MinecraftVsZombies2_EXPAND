@@ -274,6 +274,10 @@ namespace MVZ2.Scenes
         {
             return debugConsole.IsActive();
         }
+        public string[] GetCommandHistory()
+        {
+            return debugConsole.GetCommandHistory();
+        }
         public void Print(string text)
         {
             debugConsole.Print(text);

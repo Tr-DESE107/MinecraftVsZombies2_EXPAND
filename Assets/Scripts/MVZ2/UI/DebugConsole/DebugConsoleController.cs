@@ -22,6 +22,10 @@ namespace MVZ2.Debugs
         {
             return gameObject.activeSelf;
         }
+        public string[] GetCommandHistory()
+        {
+            return commandHistory.ToArray();
+        }
         public void Print(string text)
         {
             ui.Print(text);
@@ -182,7 +186,7 @@ namespace MVZ2.Debugs
         void UpdateSuggestions(string text, int currentIndex)
         {
             string input = text.Substring(0, currentIndex);
-            string[] parts = Main.DebugManager.SplitInputText(input);
+            string[] parts = Main.DebugManager.SplitCommand(input);
             if (parts.Length < 1)
                 return;
 
@@ -230,7 +234,7 @@ namespace MVZ2.Debugs
             var beforeText = fullText.Substring(0, caretIndex);
             var afterText = fullText.Substring(caretIndex);
 
-            var splitedBefore = Main.DebugManager.SplitInputText(beforeText);
+            var splitedBefore = Main.DebugManager.SplitCommand(beforeText);
             var newBeforeText = string.Join(' ', splitedBefore.SkipLast(1));
 
             var completedText = currentSuggestions[suggestionIndex];

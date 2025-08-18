@@ -17,12 +17,8 @@ using UnityEngine;
 
 namespace MVZ2.Managers
 {
-    public partial class DebugManager : MonoBehaviour
+    public partial class DebugManager : MonoBehaviour, IDebugManager
     {
-        public bool IsConsoleActive()
-        {
-            return Main.Scene.IsConsoleActive();
-        }
         public void LoadCommandParameterSuggestions()
         {
             entityIDSet.Clear();
@@ -35,6 +31,74 @@ namespace MVZ2.Managers
             {
                 blueprintIDSet.Add(def.GetID().ToString());
             }
+        }
+        public bool IsConsoleActive()
+        {
+            return Main.Scene.IsConsoleActive();
+        }
+        public string[] GetCommandHistory()
+        {
+            return Main.Scene.GetCommandHistory();
+        }
+        public void ExecuteCommand(string input)
+        {
+            PrintLine($"> {input}");
+
+            string[] parts = SplitCommand(input);
+            if (parts.Length < 1)
+                return;
+            string command = parts[0];
+            string[] args = parts.Skip(1).ToArray();
+
+            CommandDefinition definition = null;
+            if (NamespaceID.TryParse(command, Main.BuiltinNamespace, out var commandID))
+            {
+                definition = Global.Game.GetCommandDefinition(commandID);
+            }
+            if (definition == null)
+            {
+                var msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_NOT_FOUND, command);
+                PrintLine(msg);
+                return;
+            }
+
+            try
+            {
+                ValidateCommand(parts);
+                definition.Invoke(args);
+            }
+            catch (Exception ex)
+            {
+                var msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
+                PrintLine(msg);
+            }
+        }
+        public string[] SplitCommand(string input)
+        {
+            if (!input.StartsWith(COMMAND_CHARACTER))
+                return Array.Empty<string>();
+            input = input.Substring(1);
+
+            List<string> parts = new List<string>();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < input.Length; i++)
+            {
+                char c = input[i];
+                if (char.IsWhiteSpace(c))
+                {
+                    parts.Add(sb.ToString());
+                    sb.Clear();
+                }
+                else
+                {
+                    sb.Append(c);
+                }
+            }
+
+            parts.Add(sb.ToString());
+            sb.Clear();
+
+            return parts.ToArray();
         }
 
         #region 历史
@@ -69,33 +133,6 @@ namespace MVZ2.Managers
         private string GetCommandName(NamespaceID id)
         {
             return Main.ResourceManager.GetCommandNameByID(id);
-        }
-        public string[] SplitInputText(string input)
-        {
-            if (!input.StartsWith(COMMAND_CHARACTER))
-                return Array.Empty<string>();
-            input = input.Substring(1);
-
-            List<string> parts = new List<string>();
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < input.Length; i++)
-            {
-                char c = input[i];
-                if (char.IsWhiteSpace(c))
-                {
-                    parts.Add(sb.ToString());
-                    sb.Clear();
-                }
-                else
-                {
-                    sb.Append(c);
-                }
-            }
-
-            parts.Add(sb.ToString());
-            sb.Clear();
-
-            return parts.ToArray();
         }
 
         #region 自动补全
@@ -374,39 +411,6 @@ namespace MVZ2.Managers
         }
         #endregion
 
-        public void ExecuteCommand(string input)
-        {
-            PrintLine($"> {input}");
-
-            string[] parts = SplitInputText(input);
-            if (parts.Length < 1)
-                return;
-            string command = parts[0];
-            string[] args = parts.Skip(1).ToArray();
-
-            CommandDefinition definition = null;
-            if (NamespaceID.TryParse(command, Main.BuiltinNamespace, out var commandID))
-            {
-                definition = Global.Game.GetCommandDefinition(commandID);
-            }
-            if (definition == null)
-            {
-                var msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_NOT_FOUND, command);
-                PrintLine(msg);
-                return;
-            }
-
-            try
-            {
-                ValidateCommand(parts);
-                definition.Invoke(args);
-            }
-            catch (Exception ex)
-            {
-                var msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
-                PrintLine(msg);
-            }
-        }
         private void Print(string text)
         {
             Main.Scene.Print(text);

@@ -337,6 +337,7 @@ namespace MVZ2.Managers
         IOptionsManager IMainManager.Options => options;
         IGlobalSave IMainManager.Saves => save;
         IInputManager IMainManager.Input => inputManager;
+        IDebugManager IMainManager.Debugs => debugManager;
 
         private Task initTask;
         private TaskPipeline loadPipeline;

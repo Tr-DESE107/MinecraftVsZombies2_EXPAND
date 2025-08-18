@@ -127,6 +127,22 @@ namespace MVZ2Logic
             SetSaveStat(category, entry, GetSaveStat(category, entry) + value);
         }
         #endregion
+
+        #region 调试
+        public static string[] GetCommandHistory()
+        {
+            return Debugs.GetCommandHistory();
+        }
+        public static void ExecuteCommand(string command)
+        {
+            Debugs.ExecuteCommand(command);
+        }
+        public static string[] SplitCommand(string command)
+        {
+            return Debugs.SplitCommand(command);
+        }
+        #endregion
+
         private static IMainManager Main { get; set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
@@ -135,6 +151,7 @@ namespace MVZ2Logic
         private static ILevelManager Level => Main.Level;
         private static IOptionsManager Options => Main.Options;
         private static IGlobalSave Saves => Main.Saves;
+        private static IDebugManager Debugs => Main.Debugs;
     }
     public interface IMainManager
     {
@@ -147,6 +164,7 @@ namespace MVZ2Logic
         IOptionsManager Options { get; }
         IGlobalSave Saves { get; }
         IInputManager Input { get; }
+        IDebugManager Debugs { get; }
     }
     public interface ISceneController
     {
@@ -187,5 +205,11 @@ namespace MVZ2Logic
         bool IsPointerDown(int type, int button);
         bool IsPointerHolding(int type, int button);
         bool IsPointerUp(int type, int button);
+    }
+    public interface IDebugManager
+    {
+        string[] GetCommandHistory();
+        void ExecuteCommand(string command);
+        string[] SplitCommand(string command);
     }
 }
