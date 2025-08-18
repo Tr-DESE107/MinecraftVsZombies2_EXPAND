@@ -33,7 +33,7 @@ namespace MVZ2.Level
         }
         private bool IsInputDisabled()
         {
-            return level == null || level.IsCleared || isOpeningAlmanac || isOpeningStore || inputAndUIDisabled;
+            return level == null || level.IsCleared || isOpeningAlmanac || isOpeningStore || inputAndUIDisabled || IsConsoleActive();
         }
 
         #region 指针输入

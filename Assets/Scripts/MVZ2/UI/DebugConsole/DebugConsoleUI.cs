@@ -48,7 +48,7 @@ namespace MVZ2.UI
             var substring = inputField.text.Substring(0, index);
             var size = inputField.textComponent.GetPreferredValues(substring);
             var rectTransform = autoCompletePanel.transform as RectTransform;
-            rectTransform.anchoredPosition = Vector2.right * size.x + inputField.textComponent.rectTransform.anchoredPosition;
+            rectTransform.anchoredPosition = Vector2.right * (size.x + inputField.textComponent.rectTransform.anchoredPosition.x);
         }
         public void SetAutoCompleteSelections(string[] autoComplete)
         {
@@ -73,7 +73,7 @@ namespace MVZ2.UI
         {
             if (autoCompleteSelection != null && index >= 0)
             {
-                autoCompleteScroll.verticalNormalizedPosition = index / (float)autoCompleteSelection.Count;
+                autoCompleteScroll.verticalNormalizedPosition = 1 - index / (float)autoCompleteSelection.Count;
                 autoCompleteSelection.getElement<DebugConsoleAutoCompleteItem>(index).SetIsOn(true);
             }
         }

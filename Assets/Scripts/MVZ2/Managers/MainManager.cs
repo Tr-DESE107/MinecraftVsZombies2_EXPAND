@@ -271,6 +271,7 @@ namespace MVZ2.Managers
 
             // 在MOD逻辑加载之后
             SaveManager.Load();
+            DebugManager.LoadCommandParameterSuggestions();
         }
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {

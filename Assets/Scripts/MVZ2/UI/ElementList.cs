@@ -12,7 +12,6 @@ namespace MVZ2.UI
             Action<int, GameObject> onUpdate = null,
             Action<GameObject> onCreateOrEnable = null,
             Action<GameObject> onDestroyOrDisable = null,
-            bool dontDestroy = false,
             bool rebuild = false)
         {
             int maxNum = Math.Max(itemList.Count, count);
@@ -45,7 +44,7 @@ namespace MVZ2.UI
                 else // 不应出现在列表中
                 {
                     GameObject item;
-                    if (!dontDestroy) // 可以销毁
+                    if (!pooled) // 可以销毁
                     {
                         if (count < itemList.Count) // 目前有这个项
                         {
@@ -164,6 +163,8 @@ namespace MVZ2.UI
         private Transform _listRoot;
         [SerializeField]
         private GameObject _template;
+        [SerializeField]
+        private bool pooled;
         [SerializeField]
         private List<GameObject> itemList = new List<GameObject>();
     }

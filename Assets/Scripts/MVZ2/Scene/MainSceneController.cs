@@ -269,6 +269,10 @@ namespace MVZ2.Scenes
         #endregion
 
         #region 控制台
+        public bool IsConsoleActive()
+        {
+            return debugConsole.IsActive();
+        }
         public void Print(string text)
         {
             debugConsole.Print(text);
@@ -376,13 +380,9 @@ namespace MVZ2.Scenes
         private void Update()
         {
             UpdateTooltip();
-            if (Input.GetKeyDown(KeyCode.Equals))
+            if (Input.GetKeyDown(KeyCode.T))
             {
-                if (debugConsole.IsActive())
-                {
-                    debugConsole.Hide();
-                }
-                else
+                if (!debugConsole.IsActive())
                 {
                     debugConsole.Show();
                 }

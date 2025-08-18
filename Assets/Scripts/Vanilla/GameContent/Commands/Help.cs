@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.IZombie;
@@ -11,27 +11,13 @@ namespace MVZ2.GameContent.Commands
         public Help(string nsp, string name) : base(nsp, name)
         {
         }
-        protected override void ValidateParameters(string[] parameters)
-        {
-            if (parameters.Length > 0)
-            {
-                var game = Global.Game;
-                var commandName = parameters[0];
-                var id = game.GetCommandIDByName(commandName);
-                if (game.GetCommandMeta(id) == null)
-                {
-                    var msg = game.GetTextParticular(VanillaStrings.COMMAND_NOT_FOUND, VanillaStrings.CONTEXT_COMMAND_OUTPUT, commandName);
-                    throw new ArgumentException(msg);
-                }
-            }
-        }
-        protected override void Execute(string[] parameters)
+        public override void Invoke(string[] parameters)
         {
             var game = Global.Game;
 
             if (parameters.Length <= 0)
             {
-                var commands = game.GetAllCommandsID();
+                var commands = game.GetAllCommandsID().OrderBy(i => game.GetCommandNameByID(i));
                 foreach (var id in commands)
                 {
                     var name = game.GetCommandNameByID(id);

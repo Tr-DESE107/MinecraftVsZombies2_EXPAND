@@ -12,11 +12,17 @@ namespace MVZ2.Level
     {
         public bool IsGameRunning()
         {
-            return isGameStarted && !isPaused && !isGameOver;
+            return isGameStarted && !isPaused && !isGameOver && !IsConsoleActive();
         }
         public float GetGameSpeed()
         {
+            if (IsConsoleActive())
+                return 0;
             return speedUp && !isGameOver ? Main.OptionsManager.GetFastForwardMultiplier() : 1;
+        }
+        private bool IsConsoleActive()
+        {
+            return Main.DebugManager.IsConsoleActive();
         }
         private void SwitchSpeedUp()
         {
@@ -28,6 +34,8 @@ namespace MVZ2.Level
         #region 逻辑更新
         public void UpdateLogic()
         {
+            if (IsConsoleActive())
+                return;
             if (isGameOver)
             {
                 UpdateLogicGameOver();

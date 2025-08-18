@@ -1,5 +1,4 @@
-﻿using System;
-using PVZEngine.Base;
+﻿using PVZEngine.Base;
 
 namespace MVZ2Logic.IZombie
 {
@@ -8,16 +7,7 @@ namespace MVZ2Logic.IZombie
         public CommandDefinition(string nsp, string name) : base(nsp, name)
         {
         }
-        public void Invoke(string[] parameters)
-        {
-            ValidateParameters(parameters);
-            Execute(parameters);
-        }
-        protected virtual void ValidateParameters(string[] parameters)
-        {
-            throw new NotImplementedException();
-        }
-        protected abstract void Execute(string[] parameters);
+        public abstract void Invoke(string[] parameters);
         protected void Print(string text)
         {
             Global.Print(text);

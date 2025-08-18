@@ -140,6 +140,11 @@ namespace MVZ2.Debugs
                 AutoComplete();
                 return;
             }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Hide();
+                return;
+            }
         }
         void PressUp()
         {
@@ -183,6 +188,7 @@ namespace MVZ2.Debugs
 
             currentSuggestions.Clear();
             Main.DebugManager.FillSuggestions(parts, currentSuggestions);
+            currentSuggestions.Sort();
 
             if (currentSuggestions.Count > 0)
             {

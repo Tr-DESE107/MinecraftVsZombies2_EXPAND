@@ -13,7 +13,7 @@
         <variant>
             <description>生成一个实体。默认位置为场地中心。</description>
             <params>
-                <param name="id" type="ID" idType="entity">要生成的实体ID。</param>
+                <param name="id" type="id" idType="entity">要生成的实体ID。</param>
                 <param name="x" type="float" optional="true">可选。要生成的实体位置的X值。</param>
                 <param name="y" type="float" optional="true">可选。要生成的实体位置的Y值。</param>
                 <param name="z" type="float" optional="true">可选。要生成的实体位置的Y值。</param>
@@ -25,7 +25,7 @@
         <variant>
             <description>在指定的地格位置生成实体。默认位置为场地中心。</description>
             <params>
-                <param name="id" type="ID" idType="entity">要生成的实体ID。</param>
+                <param name="id" type="id" idType="entity">要生成的实体ID。</param>
                 <param name="column" type="int" optional="true">可选。实体所在列。0代表最左侧一列，向右递增。</param>
                 <param name="lane" type="int" optional="true">可选。实体所在行。0代表最上方一行，向下递增。</param>
             </params>
@@ -44,7 +44,7 @@
             <description>将某槽位的蓝图替换为指定ID的蓝图。</description>
             <params>
                 <param name="slot" type="int">蓝图槽位，0代表第一个槽位，1代表第二个槽位，依此类推。</param>
-                <param name="id" type="ID" idType="blueprint">蓝图ID。</param>
+                <param name="id" type="id" idType="blueprint">蓝图ID。</param>
             </params>
         </variant>
         <variant subname="remove">
@@ -107,7 +107,7 @@
             </params>
         </variant>
     </command>
-    <command id="clear" inLevel="true">
+    <command id="clear">
         <description>清屏。</description>
         <variant>
             <description>清屏。</description>

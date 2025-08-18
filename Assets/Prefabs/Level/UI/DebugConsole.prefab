@@ -493,6 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listRoot: {fileID: 7420113501093526518}
   _template: {fileID: 459960106248596229}
+  pooled: 1
   itemList: []
 --- !u!1 &7357994230952175139
 GameObject:

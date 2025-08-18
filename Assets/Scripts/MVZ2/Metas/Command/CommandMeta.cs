@@ -12,10 +12,12 @@ namespace MVZ2.Metas
     {
         public string ID { get; private set; }
         public string Description { get; private set; }
+        public bool InLevel { get; private set; }
         public CommandMetaVariant[] Variants { get; private set; }
         public static CommandMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            var inLevel = node.GetAttributeBool("inLevel") ?? false;
             var description = node["description"]?.InnerText ?? string.Empty;
             var variants = new List<CommandMetaVariant>();
             for (int i = 0; i < node.ChildNodes.Count; i++)
@@ -29,6 +31,7 @@ namespace MVZ2.Metas
             return new CommandMeta()
             {
                 ID = id,
+                InLevel = inLevel,
                 Description = description,
                 Variants = variants.ToArray(),
             };
@@ -142,5 +145,7 @@ namespace MVZ2.Metas
         public const string TYPE_FLOAT = "float";
         public const string TYPE_COMMAND = "command";
         public const string TYPE_ID = "id";
+        public const string ID_TYPE_ENTITY = "entity";
+        public const string ID_TYPE_BLUEPRINT = "blueprint";
     }
 }
