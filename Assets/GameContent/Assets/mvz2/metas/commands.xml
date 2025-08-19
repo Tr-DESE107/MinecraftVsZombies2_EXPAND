@@ -122,6 +122,10 @@
             <description>无限星之碎片。</description>
             <params/>
         </variant>
+        <variant subname="godmode">
+            <description>不会游戏结束。</description>
+            <params/>
+        </variant>
     </command>
     <command id="repeat">
         <description>重复上一条指令。</description>
@@ -144,6 +148,40 @@
         <variant>
             <description>生成一个通关掉落物。</description>
             <params/>
+        </variant>
+    </command>
+    <command id="save" inLevel="true">
+        <description>保存当前关卡的进度。</description>
+        <variant>
+            <description>保存当前关卡的进度。</description>
+            <params/>
+        </variant>
+    </command>
+    <command id="load" inLevel="true">
+        <description>重新读取当前关卡的进度。</description>
+        <variant>
+            <description>重新读取当前关卡的进度。</description>
+            <params/>
+        </variant>
+    </command>
+    <command id="spawnblueprint" inLevel="true">
+        <description>生成指定实体的蓝图掉落物。</description>
+        <variant subname="pos">
+            <description>生成指定实体的蓝图掉落物。默认位置为场地中心。</description>
+            <params>
+                <param name="id" type="id" idType="entity">要生成的蓝图掉落物的对应实体ID。</param>
+                <param name="x" type="float" optional="true">可选。要生成的掉落物位置的X值。</param>
+                <param name="y" type="float" optional="true">可选。要生成的掉落物位置的Y值。</param>
+                <param name="z" type="float" optional="true">可选。要生成的掉落物位置的Z值。</param>
+            </params>
+        </variant>
+        <variant subname="grid">
+            <description>在指定的地格位置生成指定实体的蓝图掉落物。默认位置为场地中心。</description>
+            <params>
+                <param name="id" type="id" idType="entity">要生成的蓝图掉落物的对应实体ID。</param>
+                <param name="column" type="float" optional="true">可选。掉落物所在列。0代表最左侧一列，向右递增。</param>
+                <param name="lane" type="float" optional="true">可选。掉落物所在行。0代表最上方一行，向下递增。</param>
+            </params>
         </variant>
     </command>
 </commands>

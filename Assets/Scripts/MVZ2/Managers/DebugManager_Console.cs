@@ -114,15 +114,16 @@ namespace MVZ2.Managers
         }
 
         #region 自动补全
-        private CommandMetaVariant GetBestFitCommandVariant(CommandMetaVariant[] variants, string[] parts)
+        private CommandMetaVariant GetBestFitCommandVariant(CommandMetaVariant[] variants, string[] parts, bool uncompleted = false)
         {
             var maxFits = 0;
             CommandMetaVariant bestVariant = null;
+            int targetCount = parts.Length;
             foreach (var variant in variants)
             {
-                var fitCount = GetCommandVariantFitPartCount(variant, parts);
+                var fitCount = GetCommandVariantFitPartCount(variant, parts, uncompleted);
 
-                if (fitCount == parts.Length)
+                if (fitCount == targetCount)
                     return variant;
                 if (fitCount > maxFits)
                 {
@@ -132,7 +133,7 @@ namespace MVZ2.Managers
             }
             return bestVariant;
         }
-        private int GetCommandVariantFitPartCount(CommandMetaVariant variant, string[] parts)
+        private int GetCommandVariantFitPartCount(CommandMetaVariant variant, string[] parts, bool uncompleted = false)
         {
             bool hasSubname = !string.IsNullOrEmpty(variant.Subname);
             // 实参数量大于形参，直接不通过
@@ -146,6 +147,8 @@ namespace MVZ2.Managers
             {
                 return 1;
             }
+
+            // 检查参数
             for (int i = 0; i < variant.Parameters.Length; i++)
             {
                 int partIndex = variant.GetCommandPartIndexOfParameter(i);
@@ -155,6 +158,10 @@ namespace MVZ2.Managers
                 var parameter = variant.Parameters[i];
                 if (parameter == null)
                     continue;
+
+                // 未完成的指令，如果目前的参数是最后一个参数（也就是未完成），则所有参数都符合。
+                if (uncompleted && partIndex == parts.Length - 1)
+                    return parts.Length;
 
                 // 参数不一致。
                 if (!FitsCommandParameter(parameter, parts[partIndex]))
@@ -262,8 +269,7 @@ namespace MVZ2.Managers
                 }
             }
             // 查找目前最符合的命令变体。
-            var completedParts = parts.SkipLast(1).ToArray();
-            var variant = GetBestFitCommandVariant(meta.Variants, completedParts);
+            var variant = GetBestFitCommandVariant(meta.Variants, parts, true);
 
             FillSuggestionsOfCommandVariant(variant, parts, currentSuggestions);
         }
