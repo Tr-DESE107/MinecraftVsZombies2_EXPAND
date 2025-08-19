@@ -2,6 +2,7 @@ using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -47,11 +48,21 @@ namespace MVZ2.GameContent.Effects
         private void EnrageReapers(Entity entity)
         {
             var level = entity.Level;
-            level.StopMusic();
-            foreach (Entity nightmareaper in level.FindEntities(VanillaBossID.nightmareaper))
+            if (level.IsGodMode())
             {
-                Nightmareaper.Enrage(nightmareaper);
-                nightmareaper.AddBuff<NightmareaperEnragedBuff>();
+                foreach (Entity nightmareaper in level.FindEntities(VanillaBossID.nightmareaper))
+                {
+                    nightmareaper.Die();
+                }
+            }
+            else
+            {
+                level.StopMusic();
+                foreach (Entity nightmareaper in level.FindEntities(VanillaBossID.nightmareaper))
+                {
+                    Nightmareaper.Enrage(nightmareaper);
+                    nightmareaper.AddBuff<NightmareaperEnragedBuff>();
+                }
             }
         }
         public static int GetTimeout(Entity entity) => entity.GetBehaviourField<int>(ID, PROP_TIMEOUT);

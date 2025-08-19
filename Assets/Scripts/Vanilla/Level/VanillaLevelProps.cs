@@ -286,5 +286,17 @@ namespace MVZ2.Vanilla.Level
             level.SetProperty(NO_CARTS, value);
         }
         #endregion
+
+        #region 上帝模式
+        public static readonly PropertyMeta<bool> GODMODE = Get<bool>("godmode");
+        public static bool IsGodMode(this LevelEngine level)
+        {
+            return level.GetProperty<bool>(GODMODE);
+        }
+        public static void SetGodMode(this LevelEngine level, bool value)
+        {
+            level.SetProperty(GODMODE, value);
+        }
+        #endregion
     }
 }

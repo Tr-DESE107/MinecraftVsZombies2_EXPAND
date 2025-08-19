@@ -55,6 +55,8 @@ namespace MVZ2.Vanilla.Level
         {
             if (level.IsCleared) // 关卡通关后不能再死亡
                 return;
+            if (level.IsGodMode()) // 上帝模式
+                return;
             var gameOverEnemy = level.FindFirstEntity(e => e.Position.x < GetBorderX(false) && e.CanEntityEnterHouse());
             if (gameOverEnemy != null)
             {

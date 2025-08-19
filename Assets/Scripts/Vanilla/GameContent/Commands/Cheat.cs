@@ -26,6 +26,10 @@ namespace MVZ2.GameContent.Commands
             var cheatCode = parameters[0];
             switch (cheatCode)
             {
+                case "godmode":
+                    buffDefinition = game.GetBuffDefinition<DebugGodmodeBuff>();
+                    cheatNameKey = VanillaStrings.CHEAT_NAME_GODMODE;
+                    break;
                 case "recharge":
                     buffDefinition = game.GetBuffDefinition<DebugNoRechargeBuff>();
                     cheatNameKey = VanillaStrings.CHEAT_NAME_RECHARGE;

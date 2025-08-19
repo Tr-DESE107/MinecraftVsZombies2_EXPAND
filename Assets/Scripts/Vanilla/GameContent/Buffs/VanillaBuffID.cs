@@ -186,6 +186,7 @@ namespace MVZ2.GameContent.Buffs
             public const string theGiantCleared = "the_giant_cleared";
 
 
+            public const string debugGodmode = "debug_godmode";
             public const string debugNoRecharge = "debug_no_recharge";
             public const string debugStarshard = "debug_starshard";
         }

@@ -48,7 +48,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 remove = true;
             }
-            else if (entity.Level.IsIZombie() && IsOutsideLeft(entity))
+            else if ((entity.Level.IsIZombie() || entity.Level.IsCleared || entity.Level.IsGodMode()) && IsOutsideLeft(entity))
             {
                 remove = true;
             }

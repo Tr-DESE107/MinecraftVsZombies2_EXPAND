@@ -203,6 +203,8 @@ namespace MVZ2.Vanilla
         public const string COMMAND_MISSING_PARAMETER = "参数{0}丢失";
 
         [TranslateMsg("作弊命令名称", CONTEXT_COMMAND_CHEAT_NAME)]
+        public const string CHEAT_NAME_GODMODE = "上帝模式";
+        [TranslateMsg("作弊命令名称", CONTEXT_COMMAND_CHEAT_NAME)]
         public const string CHEAT_NAME_RECHARGE = "立即充能";
         [TranslateMsg("作弊命令名称", CONTEXT_COMMAND_CHEAT_NAME)]
         public const string CHEAT_NAME_STARSHARD = "无限星之碎片";

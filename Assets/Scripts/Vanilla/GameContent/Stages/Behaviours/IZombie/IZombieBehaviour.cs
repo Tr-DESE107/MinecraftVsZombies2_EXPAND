@@ -189,6 +189,9 @@ namespace MVZ2.GameContent.Stages
             }
             if (cannotAfford)
             {
+                // 上帝模式
+                if (level.IsGodMode())
+                    return;
                 // 存在有效怪物
                 if (level.EntityExists(e => e.Type == EntityTypes.ENEMY && e.IsHostileEntity() && !e.IsNotActiveEnemy()))
                     return;
