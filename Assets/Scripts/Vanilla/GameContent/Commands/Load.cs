@@ -1,0 +1,19 @@
+﻿using MVZ2Logic;
+using MVZ2Logic.IZombie;
+using MVZ2Logic.Level;
+
+namespace MVZ2.GameContent.Commands
+{
+    [CommandDefinition(VanillaCommandNames.load)]
+    public class Load : CommandDefinition
+    {
+        public Load(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override async void Invoke(string[] parameters)
+        {
+            var level = Global.Game.GetLevel();
+            await level.ReloadLevel();
+        }
+    }
+}

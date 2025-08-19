@@ -17,6 +17,8 @@ namespace MVZ2.GameContent.Commands
         public const string repeat = "repeat";
         public const string clear = "clear";
         public const string clearLevel = "clearlevel";
+        public const string save = "save";
+        public const string load = "load";
     }
     public static class VanillaCommandID
     {
@@ -32,6 +34,8 @@ namespace MVZ2.GameContent.Commands
         public static readonly NamespaceID repeat = Get(VanillaCommandNames.repeat);
         public static readonly NamespaceID clear = Get(VanillaCommandNames.clear);
         public static readonly NamespaceID clearLevel = Get(VanillaCommandNames.clearLevel);
+        public static readonly NamespaceID save = Get(VanillaCommandNames.save);
+        public static readonly NamespaceID load = Get(VanillaCommandNames.load);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -1,4 +1,5 @@
-﻿using MVZ2Logic.Level.Components;
+﻿using System.Threading.Tasks;
+using MVZ2Logic.Level.Components;
 using PVZEngine.Level;
 
 namespace MVZ2Logic.Level
@@ -23,6 +24,11 @@ namespace MVZ2Logic.Level
         {
             var component = level.GetLogicComponent();
             component.SaveStateData();
+        }
+        public static Task ReloadLevel(this LevelEngine level)
+        {
+            var component = level.GetLogicComponent();
+            return component.ReloadLevel();
         }
         public static bool IsGamePaused(this LevelEngine level)
         {

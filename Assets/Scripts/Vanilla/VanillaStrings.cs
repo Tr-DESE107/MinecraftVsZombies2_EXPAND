@@ -189,6 +189,8 @@ namespace MVZ2.Vanilla
         public const string COMMAND_CHEAT_ENABLED = "已启用{0}";
         [TranslateMsg("命令输出-cheat，{0}为作弊命令名", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_CHEAT_DISABLED = "已禁用{0}";
+        [TranslateMsg("命令输出-save", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_SAVE_SUCCESS = "已保存关卡状态";
         [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_INCORRECT_FORMAT = "命令格式错误";
         [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]

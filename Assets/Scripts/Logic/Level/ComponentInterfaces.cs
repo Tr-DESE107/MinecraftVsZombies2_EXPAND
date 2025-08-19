@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using MVZ2.HeldItems;
 using MVZ2Logic.Artifacts;
 using PVZEngine;
@@ -35,6 +36,7 @@ namespace MVZ2Logic.Level.Components
         void BeginLevel();
         void StopLevel();
         void SaveStateData();
+        Task ReloadLevel();
         bool IsGamePaused();
         bool IsGameStarted();
         bool IsGameOver();
