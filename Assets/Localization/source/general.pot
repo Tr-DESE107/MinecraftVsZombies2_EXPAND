@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-08-18 05:28+0800\n"
+"POT-Creation-Date: 2025-08-21 08:58+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1302,74 +1302,92 @@ msgctxt "command.output"
 msgid "已禁用{0}"
 msgstr ""
 
-# 命令输出
+# 命令输出-save
 #: Scripts\Vanilla\VanillaStrings.cs:192
 msgctxt "command.output"
-msgid "命令格式错误"
+msgid "已保存关卡状态"
 msgstr ""
 
 # 命令输出
 #: Scripts\Vanilla\VanillaStrings.cs:194
 msgctxt "command.output"
-msgid "该命令只能在关卡中被调用"
+msgid "命令格式错误"
 msgstr ""
 
-# 命令输出，{0}为参数名
+# 命令输出
 #: Scripts\Vanilla\VanillaStrings.cs:196
 msgctxt "command.output"
-msgid "参数{0}格式错误"
+msgid "该命令只能在关卡中被调用"
 msgstr ""
 
 # 命令输出，{0}为参数名
 #: Scripts\Vanilla\VanillaStrings.cs:198
 msgctxt "command.output"
+msgid "参数{0}格式错误"
+msgstr ""
+
+# 命令输出
+#: Scripts\Vanilla\VanillaStrings.cs:200
+msgctxt "command.output"
+msgid "参数数量错误"
+msgstr ""
+
+# 命令输出，{0}为参数名
+#: Scripts\Vanilla\VanillaStrings.cs:202
+msgctxt "command.output"
 msgid "参数{0}丢失"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:201
+#: Scripts\Vanilla\VanillaStrings.cs:205
+msgctxt "command.cheat_name"
+msgid "上帝模式"
+msgstr ""
+
+# 作弊命令名称
+#: Scripts\Vanilla\VanillaStrings.cs:207
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:203
+#: Scripts\Vanilla\VanillaStrings.cs:209
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:206
+#: Scripts\Vanilla\VanillaStrings.cs:212
 msgctxt "command_parameter.type"
 msgid "真值"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:208
+#: Scripts\Vanilla\VanillaStrings.cs:214
 msgctxt "command_parameter.type"
 msgid "整数"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:210
+#: Scripts\Vanilla\VanillaStrings.cs:216
 msgctxt "command_parameter.type"
 msgid "实数"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:212
+#: Scripts\Vanilla\VanillaStrings.cs:218
 msgctxt "command_parameter.type"
 msgid "ID"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:214
+#: Scripts\Vanilla\VanillaStrings.cs:220
 msgctxt "command_parameter.type"
 msgid "命令"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:216
+#: Scripts\Vanilla\VanillaStrings.cs:222
 msgctxt "command_parameter.type"
 msgid "未知"
 msgstr ""
@@ -1637,97 +1655,97 @@ msgid ""
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:87
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:86
 msgctxt "hotkey.name"
 msgid "？？？"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:89
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:88
 msgctxt "hotkey.name"
 msgid "铁镐"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:91
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:90
 msgctxt "hotkey.name"
 msgid "星之碎片"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:93
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:92
 msgctxt "hotkey.name"
 msgid "触发器"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:95
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:94
 msgctxt "hotkey.name"
 msgid "快进"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:97
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:96
 msgctxt "hotkey.name"
 msgid "控制台"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:99
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:98
 msgctxt "hotkey.name"
 msgid "蓝图1"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:101
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:100
 msgctxt "hotkey.name"
 msgid "蓝图2"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:103
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:102
 msgctxt "hotkey.name"
 msgid "蓝图3"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:105
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:104
 msgctxt "hotkey.name"
 msgid "蓝图4"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:107
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:106
 msgctxt "hotkey.name"
 msgid "蓝图5"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:109
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:108
 msgctxt "hotkey.name"
 msgid "蓝图6"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:111
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:110
 msgctxt "hotkey.name"
 msgid "蓝图7"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:113
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:112
 msgctxt "hotkey.name"
 msgid "蓝图8"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:115
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:114
 msgctxt "hotkey.name"
 msgid "蓝图9"
 msgstr ""
 
 # 按键名
-#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:117
+#: Scripts\MVZ2\Options\OptionsManager_KeyBindings.cs:116
 msgctxt "hotkey.name"
 msgid "蓝图10"
 msgstr ""
@@ -1794,13 +1812,13 @@ msgid "日志已导出至{0}。"
 msgstr ""
 
 # 命令输出，{0}为命令名
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:432
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:438
 msgctxt "command.output"
 msgid "<color=red>命令不存在：{0}</color>"
 msgstr ""
 
 # 命令输出，{0}为错误
-#: Scripts\MVZ2\Managers\DebugManager_Console.cs:434
+#: Scripts\MVZ2\Managers\DebugManager_Console.cs:440
 msgctxt "command.output"
 msgid "<color=red>错误：{0}</color>"
 msgstr ""
@@ -4470,13 +4488,19 @@ msgstr ""
 #. Description for command variant "mvz2:help "
 #: Commands meta file
 msgctxt "command_variant.description"
+msgid "显示帮助界面。"
+msgstr ""
+
+#. Description for command variant "mvz2:help "
+#: Commands meta file
+msgctxt "command_variant.description"
 msgid "查询命令的作用。"
 msgstr ""
 
 #. Description for parameter command of command "mvz2:help "
 #: Commands meta file
 msgctxt "command_parameter.description"
-msgid "可选。命令名。"
+msgid "命令名。"
 msgstr ""
 
 #. Description for command "mvz2:spawn"
@@ -4677,6 +4701,12 @@ msgctxt "command_variant.description"
 msgid "无限星之碎片。"
 msgstr ""
 
+#. Description for command variant "mvz2:cheat godmode"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "不会游戏结束。"
+msgstr ""
+
 #. Description for command "mvz2:repeat"
 #: Commands meta file
 msgctxt "command.description"
@@ -4717,5 +4747,113 @@ msgstr ""
 #: Commands meta file
 msgctxt "command_variant.description"
 msgid "生成一个通关掉落物。"
+msgstr ""
+
+#. Description for command "mvz2:save"
+#: Commands meta file
+msgctxt "command.description"
+msgid "保存当前关卡的进度。"
+msgstr ""
+
+#. Description for command variant "mvz2:save "
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "保存当前关卡的进度。"
+msgstr ""
+
+#. Description for command "mvz2:load"
+#: Commands meta file
+msgctxt "command.description"
+msgid "重新读取当前关卡的进度。"
+msgstr ""
+
+#. Description for command variant "mvz2:load "
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "重新读取当前关卡的进度。"
+msgstr ""
+
+#. Description for command "mvz2:spawnblueprint"
+#: Commands meta file
+msgctxt "command.description"
+msgid "生成指定蓝图掉落物。"
+msgstr ""
+
+#. Description for command variant "mvz2:spawnblueprint pos"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "生成指定蓝图掉落物。默认位置为场地中心。"
+msgstr ""
+
+#. Description for parameter id of command "mvz2:spawnblueprint pos"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "要生成的蓝图掉落物的对应实体ID。"
+msgstr ""
+
+#. Description for parameter x of command "mvz2:spawnblueprint pos"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可选。要生成的掉落物位置的X值。"
+msgstr ""
+
+#. Description for parameter y of command "mvz2:spawnblueprint pos"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可选。要生成的掉落物位置的Y值。"
+msgstr ""
+
+#. Description for parameter z of command "mvz2:spawnblueprint pos"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可选。要生成的掉落物位置的Z值。"
+msgstr ""
+
+#. Description for command variant "mvz2:spawnblueprint grid"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "在指定的地格位置生成指定蓝图掉落物。默认位置为场地中心。"
+msgstr ""
+
+#. Description for parameter column of command "mvz2:spawnblueprint grid"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可选。掉落物所在列。0代表最左侧一列，向右递增。"
+msgstr ""
+
+#. Description for parameter lane of command "mvz2:spawnblueprint grid"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "可选。掉落物所在行。0代表最上方一行，向下递增。"
+msgstr ""
+
+#. Description for command "mvz2:artifact"
+#: Commands meta file
+msgctxt "command.description"
+msgid "调整制品。"
+msgstr ""
+
+#. Description for command variant "mvz2:artifact set"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "将某槽位的制品替换为指定ID的制品。"
+msgstr ""
+
+#. Description for parameter slot of command "mvz2:artifact set"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "制品槽位，0代表第一个槽位，1代表第二个槽位，依此类推。"
+msgstr ""
+
+#. Description for parameter id of command "mvz2:artifact set"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "制品ID。"
+msgstr ""
+
+#. Description for command variant "mvz2:artifact remove"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "移除指定槽位的制品。"
 msgstr ""
 
