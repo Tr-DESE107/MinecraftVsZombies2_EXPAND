@@ -1,6 +1,4 @@
 using MVZ2.Managers;
-using MVZ2.UI;
-using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 

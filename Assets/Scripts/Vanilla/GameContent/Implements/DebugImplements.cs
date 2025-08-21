@@ -1,5 +1,4 @@
-﻿using MVZ2.GameContent.Contraptions;
-using MVZ2.Vanilla.Game;
+﻿using MVZ2.Vanilla.Game;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;

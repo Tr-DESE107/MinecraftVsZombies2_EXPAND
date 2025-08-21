@@ -1,5 +1,4 @@
 ﻿using MVZ2.GameContent.Pickups;
-using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic;

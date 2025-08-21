@@ -5,7 +5,6 @@ using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
 using MVZ2Logic.Level;
 using PVZEngine;
-using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Commands
 {
