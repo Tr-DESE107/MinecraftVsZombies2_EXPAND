@@ -173,5 +173,6 @@ namespace MVZ2.Metas
         public const string TYPE_ID = "id";
         public const string ID_TYPE_ENTITY = "entity";
         public const string ID_TYPE_BLUEPRINT = "blueprint";
+        public const string ID_TYPE_ARTIFACT = "artifact";
     }
 }

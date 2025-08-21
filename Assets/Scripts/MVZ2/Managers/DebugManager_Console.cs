@@ -7,6 +7,7 @@ using MVZ2.IO;
 using MVZ2.Metas;
 using MVZ2.Vanilla;
 using MVZ2Logic;
+using MVZ2Logic.Artifacts;
 using MVZ2Logic.Command;
 using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
@@ -23,6 +24,7 @@ namespace MVZ2.Managers
         {
             entityIDSet.Clear();
             blueprintIDSet.Clear();
+            artifactIDSet.Clear();
             foreach (var def in Main.Game.GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY))
             {
                 entityIDSet.Add(def.GetID().ToString());
@@ -30,6 +32,10 @@ namespace MVZ2.Managers
             foreach (var def in Main.Game.GetDefinitions<SeedDefinition>(EngineDefinitionTypes.SEED))
             {
                 blueprintIDSet.Add(def.GetID().ToString());
+            }
+            foreach (var def in Main.Game.GetDefinitions<ArtifactDefinition>(LogicDefinitionTypes.ARTIFACT))
+            {
+                artifactIDSet.Add(def.GetID().ToString());
             }
         }
         public bool IsConsoleActive()
@@ -213,6 +219,10 @@ namespace MVZ2.Managers
                     {
                         return Main.Game.GetSeedDefinition(id) != null;
                     }
+                case CommandMetaParam.ID_TYPE_ARTIFACT:
+                    {
+                        return Main.Game.GetArtifactDefinition(id) != null;
+                    }
             }
             return false;
         }
@@ -335,6 +345,14 @@ namespace MVZ2.Managers
                                     }
                                 }
                                 break;
+                            case CommandMetaParam.ID_TYPE_ARTIFACT:
+                                {
+                                    foreach (var sug in artifactIDSet)
+                                    {
+                                        yield return sug;
+                                    }
+                                }
+                                break;
                         }
                     }
                     break;
@@ -413,6 +431,7 @@ namespace MVZ2.Managers
         private string commandHistoryFileName = "commands.txt";
         private HashSet<string> entityIDSet = new HashSet<string>();
         private HashSet<string> blueprintIDSet = new HashSet<string>();
+        private HashSet<string> artifactIDSet = new HashSet<string>();
 
         public const char COMMAND_CHARACTER = CommandUtility.COMMAND_CHARACTER;
         public const string DEFAULT_VALUE_PARAMETER = CommandUtility.DEFAULT_VALUE_PARAMETER;

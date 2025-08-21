@@ -28,6 +28,16 @@ namespace MVZ2Logic.Level
             var component = level.GetArtifactComponent();
             component.ReplaceArtifacts(definitions);
         }
+        public static void ReplaceArtifact(this LevelEngine level, int slot, ArtifactDefinition definition)
+        {
+            var component = level.GetArtifactComponent();
+            component.ReplaceArtifact(slot, definition);
+        }
+        public static void SetArtifact(this LevelEngine level, int slot, Artifact artifact)
+        {
+            var component = level.GetArtifactComponent();
+            component.SetArtifact(slot, artifact);
+        }
         public static Artifact[] GetArtifacts(this LevelEngine level)
         {
             var component = level.GetArtifactComponent();

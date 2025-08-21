@@ -40,12 +40,7 @@ namespace MVZ2Logic.Artifacts
                 // 移除列表中的所有制品。
                 for (int i = 0; i < artifacts.Length; i++)
                 {
-                    var artifact = artifacts[i];
-                    if (artifact == null)
-                        continue;
-                    artifact.PostRemove();
-                    artifact.OnHighlighted -= OnItemHighlightedCallback;
-                    artifacts[i] = null;
+                    SetArtifact(i, null);
                 }
             }
             else
@@ -90,6 +85,28 @@ namespace MVZ2Logic.Artifacts
                     oldArtifact.PostRemove();
                     oldArtifact.OnHighlighted -= OnItemHighlightedCallback;
                 }
+            }
+        }
+        public void ReplaceArtifact(int slot, ArtifactDefinition definition)
+        {
+            var newArtifact = new Artifact(Level, definition);
+            SetArtifact(slot, newArtifact);
+        }
+        public void SetArtifact(int slot, Artifact newArtifact)
+        {
+            if (slot < 0 || slot >= artifacts.Length)
+                return;
+            var oldArtifact = artifacts[slot];
+            if (oldArtifact != null)
+            {
+                oldArtifact.PostRemove();
+                oldArtifact.OnHighlighted -= OnItemHighlightedCallback;
+            }
+            artifacts[slot] = newArtifact;
+            if (newArtifact != null)
+            {
+                newArtifact.PostAdd();
+                newArtifact.OnHighlighted += OnItemHighlightedCallback;
             }
         }
         public bool HasArtifact<T>() where T : ArtifactDefinition

@@ -167,6 +167,8 @@ namespace MVZ2Logic.Level.Components
         void SetSlotCount(int count);
         int GetSlotCount();
         void ReplaceArtifacts(ArtifactDefinition[] definitions);
+        void ReplaceArtifact(int slot, ArtifactDefinition definition);
+        void SetArtifact(int slot, Artifact artifact);
         Artifact[] GetArtifacts();
         bool HasArtifact(NamespaceID artifactID);
         int GetArtifactIndex(NamespaceID artifactID);

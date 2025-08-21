@@ -184,4 +184,20 @@
             </params>
         </variant>
     </command>
+    <command id="artifact" inLevel="true">
+        <description>调整制品。</description>
+        <variant subname="set">
+            <description>将某槽位的制品替换为指定ID的制品。</description>
+            <params>
+                <param name="slot" type="int">制品槽位，0代表第一个槽位，1代表第二个槽位，依此类推。</param>
+                <param name="id" type="id" idType="artifact">制品ID。</param>
+            </params>
+        </variant>
+        <variant subname="remove">
+            <description>移除指定槽位的制品。</description>
+            <params>
+                <param name="slot" type="int">制品槽位，0代表第一个槽位，1代表第二个槽位，依此类推。</param>
+            </params>
+        </variant>
+    </command>
 </commands>

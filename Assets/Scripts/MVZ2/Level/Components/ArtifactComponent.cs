@@ -34,6 +34,14 @@ namespace MVZ2.Level.Components
         {
             artifacts.ReplaceArtifacts(artifactDef);
         }
+        public void ReplaceArtifact(int slot, ArtifactDefinition artifactDef)
+        {
+            artifacts.ReplaceArtifact(slot, artifactDef);
+        }
+        public void SetArtifact(int slot, Artifact artifact)
+        {
+            artifacts.SetArtifact(slot, artifact);
+        }
         public Artifact[] GetArtifacts()
         {
             return artifacts.GetAllArtifacts();

@@ -36,6 +36,8 @@ namespace MVZ2.Scenes
         public void Init()
         {
             achievementHint.gameObject.SetActive(true);
+            main.SaveManager.OnUserLoad += OnUserLoadCallback;
+            UpdateDebugConsoleIcon();
         }
         #region 对话框
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
@@ -383,8 +385,6 @@ namespace MVZ2.Scenes
         #region 生命周期
         private void Awake()
         {
-            main.SaveManager.OnUserLoad += OnUserLoadCallback;
-
             pages.Add(MainScenePageType.Splash, splash);
             pages.Add(MainScenePageType.Titlescreen, titlescreen);
             pages.Add(MainScenePageType.Mainmenu, mainmenu);
@@ -410,13 +410,17 @@ namespace MVZ2.Scenes
         }
         private void OnUserLoadCallback(int index, string name)
         {
-            ui.SetDebugIconActive(CanUseDebugConsole());
+            UpdateDebugConsoleIcon();
         }
         #endregion
 
         private bool CanUseDebugConsole()
         {
             return Application.isEditor || main.Game.IsDebugUser();
+        }
+        private void UpdateDebugConsoleIcon()
+        {
+            ui.SetDebugIconActive(CanUseDebugConsole());
         }
 
         #region 属性字段
