@@ -65,7 +65,7 @@ namespace MVZ2.Options
             AddKeyBindingMeta(HotKeys.starshard, KeyCode.W, HOTKEY_NAME_STARSHARD);
             AddKeyBindingMeta(HotKeys.trigger, KeyCode.BackQuote, HOTKEY_NAME_TRIGGER);
             AddKeyBindingMeta(HotKeys.fastForward, KeyCode.F, HOTKEY_NAME_FASTFORWARD);
-            AddKeyBindingMeta(HotKeys.console, KeyCode.T, HOTKEY_NAME_CONSOLE);
+            AddKeyBindingMeta(HotKeys.console, KeyCode.Slash, HOTKEY_NAME_CONSOLE);
             AddKeyBindingMeta(HotKeys.blueprint1, KeyCode.Alpha1, HOTKEY_NAME_BLUEPRINT1);
             AddKeyBindingMeta(HotKeys.blueprint2, KeyCode.Alpha2, HOTKEY_NAME_BLUEPRINT2);
             AddKeyBindingMeta(HotKeys.blueprint3, KeyCode.Alpha3, HOTKEY_NAME_BLUEPRINT3);

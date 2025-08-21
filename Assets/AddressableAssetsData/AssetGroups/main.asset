@@ -8148,6 +8148,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c853afac5f602874e877872193826015
+    m_Address: mvz2:ui/debug_console_icon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c85cb6a1769bec24991e09e616aed753
     m_Address: mvz2:armor/mesmerizer_crown
     m_ReadOnly: 0

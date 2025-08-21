@@ -485,6 +485,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 43fcd92f2a72ca443ab18701d0b8563c, type: 3}
   - name: ui/close
     sprite: {fileID: 21300000, guid: ecbd7380d218ae0499f9db9112f463a4, type: 3}
+  - name: ui/debug_console_icon
+    sprite: {fileID: 21300000, guid: c853afac5f602874e877872193826015, type: 3}
   - name: ui/gear
     sprite: {fileID: 21300000, guid: e0c7697228ff843469a11a3a633766bb, type: 3}
   - name: ui/gear_banned
