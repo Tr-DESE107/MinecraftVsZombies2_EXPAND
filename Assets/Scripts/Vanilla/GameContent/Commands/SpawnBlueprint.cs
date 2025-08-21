@@ -61,9 +61,8 @@ namespace MVZ2.GameContent.Commands
                 y = level.GetGroundY(x, z);
             }
 
-            var blueprintID = VanillaBlueprintID.FromEntity(id);
             var spawnParams = new SpawnParams();
-            spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
+            spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, id);
             level.Spawn(VanillaPickupID.blueprintPickup, new Vector3(x, y, z), null, spawnParams);
         }
     }
