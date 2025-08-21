@@ -77,11 +77,14 @@ namespace MVZ2.Saves
             }
             EvaluateUnlocks(true);
             CheckUserDataFix();
+
+            var userName = GetUserName(index);
             var param = new LogicCallbacks.PostUserLoadParams()
             {
                 userIndex = index,
-                userName = GetUserName(index)
+                userName = userName
             };
+            OnUserLoad?.Invoke(index, userName);
             Main.Game.RunCallback(LogicCallbacks.POST_USER_LOAD, param);
         }
         public SaveDataStatus GetSaveDataStatus()
@@ -474,6 +477,8 @@ namespace MVZ2.Saves
             }
         }
         #endregion
+
+        public event Action<int, string> OnUserLoad;
 
         #region 属性字段
         public MainManager Main => MainManager.Instance;

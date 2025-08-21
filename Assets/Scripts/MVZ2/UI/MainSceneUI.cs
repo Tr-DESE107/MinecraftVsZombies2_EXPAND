@@ -1,4 +1,5 @@
 ﻿using System;
+using MVZ2.Debugs;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,6 +49,10 @@ namespace MVZ2.UI
         }
         #endregion
 
+        public void SetDebugIconActive(bool active)
+        {
+            debugConsoleIcon.gameObject.SetActive(active);
+        }
         private void Awake()
         {
             screenCoverFader.OnValueChanged += OnBlackscreenFaderValueChangedCallback;
@@ -65,5 +70,7 @@ namespace MVZ2.UI
         private Image blackscreenImage;
         [SerializeField]
         private ColorFader screenCoverFader;
+        [SerializeField]
+        private DebugConsoleIcon debugConsoleIcon;
     }
 }

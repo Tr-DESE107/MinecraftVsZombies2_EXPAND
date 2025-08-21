@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace MVZ2.UI
 {
-    public class DialogDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class DragMover : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
         {
@@ -34,6 +34,7 @@ namespace MVZ2.UI
         {
             dragging = false;
         }
+        public bool Dragging => dragging;
         [SerializeField]
         private RectTransform dragTarget;
         private bool dragging;

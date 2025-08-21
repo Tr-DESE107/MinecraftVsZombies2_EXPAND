@@ -22,6 +22,7 @@ using MVZ2.Titlescreen;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Game;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Scenes;
@@ -270,6 +271,14 @@ namespace MVZ2.Scenes
         #endregion
 
         #region 控制台
+        public void DisplayConsole()
+        {
+            debugConsole.Show();
+        }
+        public void HideConsole()
+        {
+            debugConsole.Hide();
+        }
         public bool IsConsoleActive()
         {
             return debugConsole.IsActive();
@@ -374,6 +383,8 @@ namespace MVZ2.Scenes
         #region 生命周期
         private void Awake()
         {
+            main.SaveManager.OnUserLoad += OnUserLoadCallback;
+
             pages.Add(MainScenePageType.Splash, splash);
             pages.Add(MainScenePageType.Titlescreen, titlescreen);
             pages.Add(MainScenePageType.Mainmenu, mainmenu);
@@ -389,15 +400,24 @@ namespace MVZ2.Scenes
         private void Update()
         {
             UpdateTooltip();
-            if (Input.GetKeyDown(main.OptionsManager.GetKeyBinding(HotKeys.console)))
+            if (CanUseDebugConsole() && Input.GetKeyDown(main.OptionsManager.GetKeyBinding(HotKeys.console)))
             {
                 if (!debugConsole.IsActive())
                 {
-                    debugConsole.Show();
+                    DisplayConsole();
                 }
             }
         }
+        private void OnUserLoadCallback(int index, string name)
+        {
+            ui.SetDebugIconActive(CanUseDebugConsole());
+        }
         #endregion
+
+        private bool CanUseDebugConsole()
+        {
+            return Application.isEditor || main.Game.IsDebugUser();
+        }
 
         #region 属性字段
         private MainManager main => MainManager.Instance;

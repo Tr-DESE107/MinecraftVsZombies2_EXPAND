@@ -78,6 +78,7 @@ namespace MVZ2.Vanilla
             ImplementCallbacks(new CloudImplements());
             ImplementCallbacks(new CarrierImplements());
             ImplementCallbacks(new AchievementsImplements());
+            ImplementCallbacks(new DebugImplements());
             ImplementCallbacks(new RandomChinaImplements());
             ImplementCallbacks(new AlmanacImplements());
         }
