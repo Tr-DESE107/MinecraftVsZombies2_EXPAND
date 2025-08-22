@@ -88,6 +88,7 @@ namespace MVZ2.Debugs
         {
             suggestionIndex = index;
             AutoComplete();
+            ui.ActivateInputField();
         }
         private void OnLogReceivedCallback(string logString, string stackTrace, LogType type)
         {
