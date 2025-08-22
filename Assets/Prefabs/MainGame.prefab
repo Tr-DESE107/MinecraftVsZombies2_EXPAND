@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
+  m_sendNavigationEvents: 0
   m_DragThreshold: 10
 --- !u!114 &8961181690998140346
 MonoBehaviour:
@@ -1424,7 +1424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110f160f9f7d6254cb1ff3a48ea6086e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragging: 0
   dragTarget: {fileID: 6618190163087740739}
 --- !u!114 &7502026848991266976
 MonoBehaviour:
@@ -1467,7 +1466,6 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 8167749978407262827}
-  dragHandler: {fileID: 2262852894513954930}
 --- !u!1 &6312823102974764855
 GameObject:
   m_ObjectHideFlags: 0
@@ -3148,6 +3146,10 @@ PrefabInstance:
     - target: {fileID: 1870964413599368725, guid: 1f0a36260b9088043aa9803387123985, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2205890157201366034, guid: 1f0a36260b9088043aa9803387123985, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.9999847
       objectReference: {fileID: 0}
     - target: {fileID: 3735177659096803094, guid: 1f0a36260b9088043aa9803387123985, type: 3}
       propertyPath: m_AnchorMax.x
