@@ -2,6 +2,7 @@
 {
     public enum MainScenePageType
     {
+        None,
         Splash,
         Titlescreen,
         Mainmenu,

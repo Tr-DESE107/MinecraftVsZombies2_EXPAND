@@ -36,8 +36,6 @@ namespace MVZ2.Scenes
         public void Init()
         {
             achievementHint.gameObject.SetActive(true);
-            main.SaveManager.OnUserLoad += OnUserLoadCallback;
-            UpdateDebugConsoleIcon();
         }
         #region 对话框
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
@@ -153,6 +151,7 @@ namespace MVZ2.Scenes
                 else
                     pair.Value.Hide();
             }
+            currentPage = type;
         }
         public void HidePages()
         {
@@ -160,6 +159,7 @@ namespace MVZ2.Scenes
             {
                 pair.Value.Hide();
             }
+            currentPage = MainScenePageType.None;
         }
         public void DisplayTitlescreen()
         {
@@ -400,32 +400,35 @@ namespace MVZ2.Scenes
         private void Update()
         {
             UpdateTooltip();
-            if (CanUseDebugConsole() && Input.GetKeyDown(main.OptionsManager.GetKeyBinding(HotKeys.console)))
+            var userName = main.SaveManager.GetCurrentUserName();
+            bool debugPage = CanPageUseDebugConsole();
+            bool canUse = CanUseDebugConsole(userName);
+            bool consoleOpen = !debugConsole.IsActive();
+            if (Input.GetKeyDown(main.OptionsManager.GetKeyBinding(HotKeys.console)) && debugPage && canUse && consoleOpen)
             {
-                if (!debugConsole.IsActive())
-                {
-                    DisplayConsole();
-                }
+                DisplayConsole();
             }
-        }
-        private void OnUserLoadCallback(int index, string name)
-        {
-            UpdateDebugConsoleIcon();
+            ui.SetDebugIconActive(debugPage && canUse && consoleOpen);
         }
         #endregion
 
-        private bool CanUseDebugConsole()
+        private bool CanUseDebugConsole(string username)
         {
-            return Application.isEditor || main.Game.IsDebugUser();
+            if (!CanPageUseDebugConsole())
+                return false;
+            return Application.isEditor || main.Game.IsDebugUserName(username);
         }
-        private void UpdateDebugConsoleIcon()
+        private bool CanPageUseDebugConsole()
         {
-            ui.SetDebugIconActive(CanUseDebugConsole());
+            return currentPage != MainScenePageType.None &&
+                currentPage != MainScenePageType.Splash &&
+                currentPage != MainScenePageType.Titlescreen;
         }
 
         #region 属性字段
         private MainManager main => MainManager.Instance;
         private Dictionary<MainScenePageType, ScenePage> pages = new Dictionary<MainScenePageType, ScenePage>();
+        private MainScenePageType currentPage = MainScenePageType.None;
         private ITooltipSource tooltipSource;
 
         [SerializeField]

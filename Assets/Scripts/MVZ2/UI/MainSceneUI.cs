@@ -51,7 +51,8 @@ namespace MVZ2.UI
 
         public void SetDebugIconActive(bool active)
         {
-            debugConsoleIcon.gameObject.SetActive(active);
+            if (debugConsoleIcon.gameObject.activeSelf != active)
+                debugConsoleIcon.gameObject.SetActive(active);
         }
         private void Awake()
         {
