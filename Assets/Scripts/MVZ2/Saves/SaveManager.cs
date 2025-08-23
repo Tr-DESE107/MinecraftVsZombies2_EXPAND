@@ -8,6 +8,7 @@ using MVZ2.OldSave;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
@@ -407,16 +408,16 @@ namespace MVZ2.Saves
         private void EvaluateUnlockedArtifacts()
         {
             unlockedArtifactsCache.Clear();
-            var resourceManager = Main.ResourceManager;
-            var artifactsID = resourceManager.GetAllArtifactsID();
-            foreach (var id in artifactsID)
+            var game = Main.Game;
+            var artifacts = game.GetAllArtifactDefinitions();
+            foreach (var def in artifacts)
             {
-                var meta = resourceManager.GetArtifactMeta(id);
-                if (meta == null)
+                var unlockConditions = def?.GetUnlockConditions();
+                if (unlockConditions == null)
                     continue;
-                if (!meta.IsUnlocked(this))
+                if (!unlockConditions.IsNullOrMeetsConditions(this))
                     continue;
-                unlockedArtifactsCache.Add(id);
+                unlockedArtifactsCache.Add(def.GetID());
             }
         }
         private void EvaluateUnlockedProducts()

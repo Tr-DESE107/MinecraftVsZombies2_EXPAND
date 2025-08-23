@@ -445,7 +445,7 @@ namespace MVZ2.Modding
         private void LoadArtifactProperties(Mod mod)
         {
             var nsp = mod.Namespace;
-            foreach (IArtifactMeta meta in res.GetModArtifactMetas(nsp))
+            foreach (var meta in res.GetModArtifactMetas(nsp))
             {
                 if (meta == null)
                     continue;
@@ -453,6 +453,9 @@ namespace MVZ2.Modding
                 var artifact = mod.GetArtifactDefinition(new NamespaceID(nsp, name));
                 if (artifact == null)
                     continue;
+                artifact.SetArtifactName(meta.Name);
+                artifact.SetArtifactTooltip(meta.Tooltip);
+                artifact.SetUnlockConditions(meta.UnlockConditions);
                 artifact.SetSpriteReference(meta.Sprite);
             }
         }

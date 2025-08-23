@@ -1,15 +1,20 @@
-﻿using PVZEngine;
+﻿using MVZ2Logic.Conditions;
+using PVZEngine;
 
 namespace MVZ2Logic.Artifacts
 {
     [PropertyRegistryRegion(PropertyRegions.artifact)]
     public static class LogicArtifactProps
     {
-        public static readonly PropertyMeta<SpriteReference> SPRITE_REFERENCE = new PropertyMeta<SpriteReference>("spriteReference");
-        public static readonly PropertyMeta<int> NUMBER = new PropertyMeta<int>("number");
-        public static readonly PropertyMeta<string> DISPLAY_TEXT = new PropertyMeta<string>("display_text");
-        public static readonly PropertyMeta<bool> INACTIVE = new PropertyMeta<bool>("inactive");
-        public static readonly PropertyMeta<bool> GLOWING = new PropertyMeta<bool>("glowing");
+        public static PropertyMeta<T> Get<T>(string name)
+        {
+            return new PropertyMeta<T>(name);
+        }
+        public static readonly PropertyMeta<SpriteReference> SPRITE_REFERENCE = Get<SpriteReference>("spriteReference");
+        public static readonly PropertyMeta<int> NUMBER = Get<int>("number");
+        public static readonly PropertyMeta<string> DISPLAY_TEXT = Get<string>("display_text");
+        public static readonly PropertyMeta<bool> INACTIVE = Get<bool>("inactive");
+        public static readonly PropertyMeta<bool> GLOWING = Get<bool>("glowing");
         public static SpriteReference GetSpriteReference(this ArtifactDefinition definition)
         {
             return definition.GetProperty<SpriteReference>(SPRITE_REFERENCE);
@@ -50,7 +55,7 @@ namespace MVZ2Logic.Artifacts
         {
             return artifact.GetProperty<bool>(GLOWING);
         }
-        public static readonly PropertyMeta<NamespaceID> TRANSFORM_SOURCE = new PropertyMeta<NamespaceID>("transformSource");
+        public static readonly PropertyMeta<NamespaceID> TRANSFORM_SOURCE = Get<NamespaceID>("transformSource");
         public static void SetTransformSource(this Artifact artifact, NamespaceID id)
         {
             artifact.SetProperty(TRANSFORM_SOURCE, id);
@@ -59,6 +64,42 @@ namespace MVZ2Logic.Artifacts
         {
             return artifact.GetProperty<NamespaceID>(TRANSFORM_SOURCE);
         }
+
+        #region 制品名称
+        public static readonly PropertyMeta<string> NAME = Get<string>("name");
+        public static string GetArtifactName(this ArtifactDefinition definition)
+        {
+            return definition.GetProperty<string>(NAME);
+        }
+        public static void SetArtifactName(this ArtifactDefinition definition, string value)
+        {
+            definition.SetProperty(NAME, value);
+        }
+        #endregion
+
+        #region 制品工具提示
+        public static readonly PropertyMeta<string> TOOLTIP = Get<string>("tooltip");
+        public static string GetArtifactTooltip(this ArtifactDefinition definition)
+        {
+            return definition.GetProperty<string>(TOOLTIP);
+        }
+        public static void SetArtifactTooltip(this ArtifactDefinition definition, string value)
+        {
+            definition.SetProperty(TOOLTIP, value);
+        }
+        #endregion
+
+        #region 制品工具提示
+        public static readonly PropertyMeta<IConditionList> UNLOCK = Get<IConditionList>("unlock");
+        public static IConditionList GetUnlockConditions(this ArtifactDefinition definition)
+        {
+            return definition.GetProperty<IConditionList>(UNLOCK);
+        }
+        public static void SetUnlockConditions(this ArtifactDefinition definition, IConditionList value)
+        {
+            definition.SetProperty(UNLOCK, value);
+        }
+        #endregion
     }
 }
 

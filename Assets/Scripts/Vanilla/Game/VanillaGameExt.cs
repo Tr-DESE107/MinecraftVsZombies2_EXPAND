@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MVZ2Logic.Artifacts;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using PVZEngine;
@@ -42,6 +43,29 @@ namespace MVZ2.Vanilla.Game
             }
             return game.GetTextParticular(key, VanillaStrings.CONTEXT_DEATH_MESSAGE);
         }
+
+        #region 制品
+        public static string GetArtifactName(this IGame game, NamespaceID artifactID)
+        {
+            if (artifactID == null)
+                return "null";
+            var def = game.GetArtifactDefinition(artifactID);
+            if (def == null)
+                return artifactID.ToString();
+            var name = def.GetArtifactName() ?? VanillaStrings.UNKNOWN_ARTIFACT_NAME;
+            return game.GetTextParticular(name, VanillaStrings.CONTEXT_ARTIFACT_NAME);
+        }
+        public static string GetArtifactTooltip(this IGame game, NamespaceID artifactID)
+        {
+            if (artifactID == null)
+                return "null";
+            var def = game.GetArtifactDefinition(artifactID);
+            if (def == null)
+                return artifactID.ToString();
+            var tooltip = def.GetArtifactTooltip() ?? VanillaStrings.UNKNOWN_ARTIFACT_TOOLTIP;
+            return game.GetTextParticular(tooltip, VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
+        }
+        #endregion
         public static string GetEntityCounterName(this IGame game, NamespaceID counterID)
         {
             if (counterID == null)

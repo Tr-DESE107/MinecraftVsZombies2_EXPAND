@@ -1,11 +1,10 @@
 ﻿using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic.Fragments;
 using UnityEngine;
 
 namespace MVZ2.Metas
 {
-    public class FragmentMeta : IFragmentMeta
+    public class FragmentMeta
     {
         public string Name { get; private set; }
         public Gradient Gradient { get; private set; }

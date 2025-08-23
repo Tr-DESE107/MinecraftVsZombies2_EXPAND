@@ -36,7 +36,6 @@ namespace MVZ2.Managers
             talksCacheDict.Clear();
             achievementCacheDict.Clear();
             mainmenuViewCacheDict.Clear();
-            artifactsCacheDict.Clear();
             ClearResources_Store();
             difficultyCache.Clear();
             noteCache.Clear();
@@ -137,10 +136,6 @@ namespace MVZ2.Managers
             foreach (var meta in modResource.MainmenuViewMetaList.Metas)
             {
                 mainmenuViewCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
-            }
-            foreach (var meta in modResource.ArtifactMetaList.metas)
-            {
-                artifactsCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
             PostLoadMod_Store(modNamespace, modResource);
             foreach (var meta in modResource.DifficultyMetaList.metas)
@@ -433,8 +428,6 @@ namespace MVZ2.Managers
         IShapeMeta[] IGameMetas.GetModShapeMetas(string spaceName) => GetModShapeMetas(spaceName);
 
         IEntityCounterMeta IGameMetas.GetEntityCounterMeta(NamespaceID id) => GetEntityCounterMeta(id);
-
-        IArtifactMeta[] IGameMetas.GetModArtifactMetas(string spaceName) => GetModArtifactMetas(spaceName);
 
         IModelMeta IGameMetas.GetModelMeta(NamespaceID id) => GetModelMeta(id);
 

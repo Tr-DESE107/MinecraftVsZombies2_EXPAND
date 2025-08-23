@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Xml;
 using MVZ2.IO;
-using MVZ2.Saves;
 using MVZ2Logic;
-using MVZ2Logic.Entities;
-using MVZ2Logic.Games;
 using PVZEngine;
 
 namespace MVZ2.Metas
 {
-    public class ArtifactMeta : IArtifactMeta
+    public class ArtifactMeta
     {
         public string ID { get; private set; }
         public string Name { get; private set; }
@@ -24,42 +21,28 @@ namespace MVZ2.Metas
             var id = node.GetAttribute("id");
             var name = node.GetAttribute("name");
             var tooltip = node.GetAttribute("tooltip");
-            var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-            var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
             var conditions = XMLConditionList.FromXmlNode(node["unlock"], defaultNsp);
+            if (conditions == null)
+            {
+                var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+                if (NamespaceID.IsValid(unlock))
+                {
+                    conditions = new XMLConditionList(new XMLCondition()
+                    {
+                        Required = new NamespaceID[] { unlock }
+                    });
+                }
+            }
+            var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
             return new ArtifactMeta()
             {
                 ID = id,
                 Name = name,
                 Tooltip = tooltip,
-                Unlock = unlock,
                 UnlockConditions = conditions,
                 Order = order,
                 Sprite = sprite,
             };
-        }
-        public bool IsUnlocked(IGameSaveData save)
-        {
-            bool unlockValid = NamespaceID.IsValid(Unlock);
-            bool conditionValid = UnlockConditions != null;
-            if (unlockValid || conditionValid)
-            {
-                if (conditionValid)
-                {
-                    if (save.MeetsXMLConditions(UnlockConditions))
-                        return true;
-                }
-
-                if (unlockValid)
-                {
-                    if (save.IsUnlocked(Unlock))
-                        return true;
-                }
-
-                return false;
-            }
-
-            return true; // 没有解锁条件，默认解锁。
         }
     }
 }

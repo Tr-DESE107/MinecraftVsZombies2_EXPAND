@@ -1,11 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
+using MVZ2Logic.Conditions;
+using MVZ2Logic.Games;
 
 namespace MVZ2.Metas
 {
-    public class XMLConditionList
+    public class XMLConditionList : IConditionList
     {
-        public XMLCondition[] Conditions { get; private set; }
+        public XMLConditionList(params XMLCondition[] conditions)
+        {
+            Conditions = conditions;
+        }
         public static XMLConditionList FromXmlNode(XmlNode node, string defaultNsp)
         {
             if (node == null)
@@ -19,10 +25,13 @@ namespace MVZ2.Metas
                     conditions.Add(XMLCondition.FromXmlNode(childNode, defaultNsp));
                 }
             }
-            return new XMLConditionList()
-            {
-                Conditions = conditions.ToArray()
-            };
+            return new XMLConditionList(conditions.ToArray());
         }
+
+        public bool MeetsConditions(IGameSaveData save)
+        {
+            return Conditions.Any(c => c.MeetsCondition(save));
+        }
+        public XMLCondition[] Conditions { get; private set; }
     }
 }

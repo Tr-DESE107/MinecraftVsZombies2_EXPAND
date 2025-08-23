@@ -22,6 +22,10 @@ namespace MVZ2Logic.Games
         {
             return provider.GetDefinition<ArtifactDefinition>(LogicDefinitionTypes.ARTIFACT, defRef);
         }
+        public static ArtifactDefinition[] GetAllArtifactDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<ArtifactDefinition>(LogicDefinitionTypes.ARTIFACT);
+        }
         public static SeedOptionDefinition GetSeedOptionDefinition(this IGameContent provider, NamespaceID id)
         {
             return provider.GetDefinition<SeedOptionDefinition>(LogicDefinitionTypes.SEED_OPTION, id);

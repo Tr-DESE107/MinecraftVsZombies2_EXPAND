@@ -35,10 +35,6 @@ namespace MVZ2.Games
         {
             return metaProvider.GetEntityCounterMeta(stageID);
         }
-        public IArtifactMeta[] GetModArtifactMetas(string spaceName)
-        {
-            return metaProvider.GetModArtifactMetas(spaceName);
-        }
         public IModelMeta GetModelMeta(NamespaceID stageID)
         {
             return metaProvider.GetModelMeta(stageID);
