@@ -6,6 +6,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Placements;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Game;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;

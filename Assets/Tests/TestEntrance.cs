@@ -19,7 +19,7 @@ namespace MVZ2.Tests
             var logicAssembly = typeof(LogicDefinitionTypes).Assembly;
             PropertyMapper.InitPropertyMaps("mvz2", levelEngineAssembly.GetTypes());
             PropertyMapper.InitPropertyMaps("mvz2", logicAssembly.GetTypes());
-            ModManager.OnRegisterMod += RegisterMod;
+            ModManager.OnRegisterMods += RegisterMod;
             await main.Initialize();
             main.InitLoad();
             var initTask = main.GetInitTask();
@@ -28,12 +28,13 @@ namespace MVZ2.Tests
                 await initTask;
             }
         }
-        private static void RegisterMod(IModManager manager, Game game)
+        private void RegisterMod(IModManager manager)
         {
             var mod = new VanillaMod();
             var assemblies = new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) };
-            mod.Init(game, assemblies);
-            manager.RegisterModLogic(mod.Namespace, mod);
+            var modLoader = new ModLoader(MainManager.Instance);
+            modLoader.Load(mod, assemblies);
+            manager.RegisterMod(mod);
         }
         [SerializeField]
         private MainManager main;

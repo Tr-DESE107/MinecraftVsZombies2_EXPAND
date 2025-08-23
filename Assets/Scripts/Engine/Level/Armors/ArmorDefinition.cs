@@ -14,11 +14,11 @@ namespace PVZEngine.Armors
         {
             colliderConstructors = constructors;
         }
-        public void AddBehaviour(NamespaceID behaviour)
+        public void AddBehaviourID(NamespaceID behaviour)
         {
             behaviours.Add(behaviour);
         }
-        public bool RemoveBehaviour(NamespaceID behaviour)
+        public bool RemoveBehaviourID(NamespaceID behaviour)
         {
             return behaviours.Remove(behaviour);
         }

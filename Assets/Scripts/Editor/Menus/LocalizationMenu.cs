@@ -46,7 +46,7 @@ namespace MVZ2.Editor
             var blueprintsDocument = LoadMetaXmlDocument(spaceName, "blueprints.xml");
 
             var almanacEntryList = AlmanacMetaList.FromXmlNode(almanacDocument["almanac"], spaceName);
-            var entitiesList = EntityMetaList.FromXmlNode(entitiesDocument["entities"], spaceName);
+            var entitiesList = EntityMetaList.FromXmlNode(spaceName, entitiesDocument["entities"], spaceName);
             var characterList = TalkCharacterMetaList.FromXmlNode(talkcharacterDocument["characters"], spaceName);
             var artifactsList = ArtifactMetaList.FromXmlNode(artifactsDocument["artifacts"], spaceName);
             var blueprintsList = BlueprintMetaList.FromXmlNode(blueprintsDocument["blueprints"], spaceName);

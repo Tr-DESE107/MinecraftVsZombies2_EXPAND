@@ -31,7 +31,7 @@ namespace MVZ2.Metas
                     resource.ArmorMetaList = ArmorMetaList.FromXmlNode(document["armors"], defaultNsp);
                     break;
                 case "entities":
-                    resource.EntityMetaList = EntityMetaList.FromXmlNode(document["entities"], defaultNsp);
+                    resource.EntityMetaList = EntityMetaList.FromXmlNode(resource.Namespace, document["entities"], defaultNsp);
                     break;
                 case "shapes":
                     resource.ShapeMetaList = ShapeMetaList.FromXmlNode(document["shapes"], defaultNsp);

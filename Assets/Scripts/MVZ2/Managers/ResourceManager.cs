@@ -437,9 +437,6 @@ namespace MVZ2.Managers
 
         IAreaMeta[] IGameMetas.GetModAreaMetas(string spaceName) => GetModAreaMetas(spaceName);
 
-        IEntityMeta IGameMetas.GetEntityMeta(NamespaceID id) => GetEntityMeta(id);
-        IEntityMeta[] IGameMetas.GetModEntityMetas(string spaceName) => GetModEntityMetas(spaceName);
-
         IShapeMeta IGameMetas.GetShapeMeta(NamespaceID id) => GetShapeMeta(id);
         IShapeMeta[] IGameMetas.GetModShapeMetas(string spaceName) => GetModShapeMetas(spaceName);
 

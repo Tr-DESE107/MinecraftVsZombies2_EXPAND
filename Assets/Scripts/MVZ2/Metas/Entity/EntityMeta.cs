@@ -2,13 +2,12 @@
 using System.Linq;
 using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Entities;
 
 namespace MVZ2.Metas
 {
-    public class EntityMeta : IEntityMeta
+    public class EntityMeta
     {
         public int Type { get; private set; }
         public string ID { get; private set; }
@@ -19,7 +18,7 @@ namespace MVZ2.Metas
         public int Order { get; private set; }
         public NamespaceID[] Behaviours { get; private set; }
         public Dictionary<string, object> Properties { get; private set; }
-        public static EntityMeta FromXmlNode(XmlNode node, string defaultNsp, IEnumerable<EntityMetaTemplate> templates, int order)
+        public static EntityMeta FromXmlNode(string nsp, XmlNode node, string defaultNsp, IEnumerable<EntityMetaTemplate> templates, int order)
         {
             var type = EntityTypes.EFFECT;
             var template = templates.FirstOrDefault(t => t.name == node.Name);
@@ -30,6 +29,7 @@ namespace MVZ2.Metas
             var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n");
 
             var behaviours = new List<NamespaceID>();
+            behaviours.Add(new NamespaceID(nsp, id));
             var behavioursNode = node["behaviours"];
             var propertyNode = node["properties"];
             Dictionary<string, object> properties = propertyNode.ToPropertyDictionary(defaultNsp);

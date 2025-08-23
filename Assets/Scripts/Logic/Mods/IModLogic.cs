@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using MVZ2Logic.Games;
+﻿using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
 using PVZEngine;
 
@@ -7,7 +6,8 @@ namespace MVZ2Logic.Modding
 {
     public interface IModLogic : IGameContent
     {
-        void Init(IGame game, Assembly[] assemblies);
+        string Namespace { get; }
+        void Init(IGame game);
         void LateInit(IGame game);
         void PostReloadMods(IGame game);
         void PostGameInit();

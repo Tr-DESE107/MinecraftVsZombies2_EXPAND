@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
 using PVZEngine;
@@ -15,9 +14,10 @@ namespace MVZ2Logic.Modding
             Namespace = nsp;
             triggers = new CallbackRegistry(Global.Game);
         }
-        public virtual void Init(IGame game, Assembly[] assemblies)
-        {
 
+        #region 初始化
+        public virtual void Init(IGame game)
+        {
         }
         public virtual void LateInit(IGame game)
         {
@@ -35,6 +35,9 @@ namespace MVZ2Logic.Modding
                 }
             }
         }
+        #endregion
+
+        #region 加载&卸载
         public void Load()
         {
             ApplyCallbacks();
@@ -43,9 +46,15 @@ namespace MVZ2Logic.Modding
         {
             RevertCallbacks();
         }
+        #endregion
+
+        #region 保存&读取数据
         public abstract ModSaveData CreateSaveData();
         public abstract ModSaveData LoadSaveData(string json);
-        protected void AddDefinition(Definition def)
+        #endregion
+
+        #region 定义
+        public void AddDefinition(Definition def)
         {
             definitionGroup.Add(def);
             foreach (var trigger in def.GetTriggers())
@@ -65,6 +74,9 @@ namespace MVZ2Logic.Modding
         {
             return definitionGroup.GetDefinitions();
         }
+        #endregion
+
+        #region 回调
         private void ApplyCallbacks()
         {
             triggers.ApplyCallbacks();
@@ -77,6 +89,7 @@ namespace MVZ2Logic.Modding
         {
             triggers.AddTrigger(new Trigger<TArgs>(callbackID, action, priority, filter));
         }
+        #endregion
         public string Namespace { get; }
         private DefinitionGroup definitionGroup = new DefinitionGroup();
         protected CallbackRegistry triggers;

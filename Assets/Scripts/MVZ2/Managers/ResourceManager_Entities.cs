@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Metas;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Game;
 using PVZEngine;
 using UnityEngine;
 
