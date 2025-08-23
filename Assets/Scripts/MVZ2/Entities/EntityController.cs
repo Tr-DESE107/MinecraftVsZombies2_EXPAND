@@ -11,6 +11,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -411,6 +412,7 @@ namespace MVZ2.Entities
         }
         public string GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
         {
+            var game = Main.Game;
             var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
             if (shapeMeta != null)
             {
@@ -421,7 +423,7 @@ namespace MVZ2.Entities
                 }
             }
 
-            var slotMeta = Main.ResourceManager.GetArmorSlotMeta(slotID);
+            var slotMeta = game.GetArmorSlotDefinition(slotID);
             if (slotMeta != null)
                 return slotMeta.Anchor;
             return null;
@@ -463,13 +465,13 @@ namespace MVZ2.Entities
         }
         public void ClearAllArmorModels()
         {
-            var slotsID = Main.ResourceManager.GetAllArmorSlots();
-            foreach (var slotID in slotsID)
+            var game = Main.Game;
+            var slots = game.GetAllArmorSlotDefinitions();
+            foreach (var def in slots)
             {
-                var meta = Main.ResourceManager.GetArmorSlotMeta(slotID);
-                if (meta == null)
+                if (def == null)
                     continue;
-                Model.ClearModelAnchor(meta.Anchor);
+                Model.ClearModelAnchor(def.Anchor);
             }
             var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
             if (shapeMeta != null)

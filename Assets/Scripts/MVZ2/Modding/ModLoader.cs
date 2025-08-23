@@ -12,6 +12,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.Armors;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
@@ -66,6 +67,7 @@ namespace MVZ2.Modding
             LoadEntityMetas(mod);
             // 加载所有护甲。
             LoadArmorMetas(mod);
+            LoadArmorSlotMetas(mod);
             // 加载所有敌人生成信息。
             LoadSpawnMetas(mod);
             // 加载所有关卡Meta。
@@ -141,7 +143,7 @@ namespace MVZ2.Modding
         private void LoadArmorMetas(Mod mod)
         {
             var nsp = mod.Namespace;
-            foreach (IArmorMeta meta in res.GetModArmorMetas(nsp))
+            foreach (var meta in res.GetModArmorMetas(nsp))
             {
                 if (meta == null)
                     continue;
@@ -157,6 +159,19 @@ namespace MVZ2.Modding
                 {
                     def.AddBehaviourID(behaviourID);
                 }
+                mod.AddDefinition(def);
+            }
+        }
+        private void LoadArmorSlotMetas(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (var meta in res.GetModArmorSlotMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.Name;
+                var def = new ArmorSlotDefinition(nsp, name);
+                def.Anchor = meta.Anchor;
                 mod.AddDefinition(def);
             }
         }

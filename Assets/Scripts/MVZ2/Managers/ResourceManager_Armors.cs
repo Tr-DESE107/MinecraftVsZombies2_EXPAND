@@ -24,13 +24,12 @@ namespace MVZ2.Managers
                 return Array.Empty<ArmorMeta>();
             return metaList.metas.ToArray();
         }
-        public NamespaceID[] GetAllArmorSlots()
+        public ArmorSlotMeta[] GetModArmorSlotMetas(string nsp)
         {
-            return armorSlotsCacheDict.Keys.ToArray();
-        }
-        public NamespaceID[] GetAllArmorsID()
-        {
-            return armorsCacheDict.Keys.ToArray();
+            var metaList = GetArmorMetaList(nsp);
+            if (metaList == null)
+                return Array.Empty<ArmorSlotMeta>();
+            return metaList.slots.ToArray();
         }
         #endregion
 

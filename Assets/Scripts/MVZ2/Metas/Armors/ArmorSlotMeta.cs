@@ -1,10 +1,9 @@
 ﻿using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic.Entities;
 
 namespace MVZ2.Metas
 {
-    public class ArmorSlotMeta : IArmorSlotMeta
+    public class ArmorSlotMeta
     {
         public string Name { get; private set; }
         public string Anchor { get; private set; }

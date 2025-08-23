@@ -1,4 +1,5 @@
 ﻿using MVZ2Logic;
+using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Armors;
 
@@ -9,7 +10,7 @@ namespace MVZ2.Models
         public static string GetAnchorOfArmorSlot(NamespaceID slot)
         {
             var game = Global.Game;
-            var slotMeta = game.GetArmorSlotMeta(slot);
+            var slotMeta = game.GetArmorSlotDefinition(slot);
             if (slotMeta == null)
                 return null;
             return slotMeta.Anchor;

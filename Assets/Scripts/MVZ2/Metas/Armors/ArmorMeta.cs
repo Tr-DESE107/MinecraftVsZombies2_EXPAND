@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic.Entities;
 using PVZEngine;
 using PVZEngine.Level.Collisions;
 
 namespace MVZ2.Metas
 {
-    public class ArmorMeta : IArmorMeta
+    public class ArmorMeta
     {
         public string ID { get; private set; }
         public NamespaceID[] Behaviours { get; private set; }

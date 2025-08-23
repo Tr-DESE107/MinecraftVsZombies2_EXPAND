@@ -1,4 +1,5 @@
-﻿using MVZ2Logic.Artifacts;
+﻿using MVZ2Logic.Armors;
+using MVZ2Logic.Artifacts;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.IZombie;
 using MVZ2Logic.Notes;
@@ -32,6 +33,14 @@ namespace MVZ2Logic.Games
         public static IZombieLayoutDefinition GetIZombieLayoutDefinition(this IGameContent provider, NamespaceID id)
         {
             return provider.GetDefinition<IZombieLayoutDefinition>(LogicDefinitionTypes.I_ZOMBIE_LAYOUT, id);
+        }
+        public static ArmorSlotDefinition GetArmorSlotDefinition(this IGameContent provider, NamespaceID id)
+        {
+            return provider.GetDefinition<ArmorSlotDefinition>(LogicDefinitionTypes.ARMOR_SLOT, id);
+        }
+        public static ArmorSlotDefinition[] GetAllArmorSlotDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<ArmorSlotDefinition>(LogicDefinitionTypes.ARMOR_SLOT);
         }
         public static CommandDefinition GetCommandDefinition(this IGameContent provider, NamespaceID id)
         {

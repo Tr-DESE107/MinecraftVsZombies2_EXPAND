@@ -434,11 +434,6 @@ namespace MVZ2.Managers
 
         IEntityCounterMeta IGameMetas.GetEntityCounterMeta(NamespaceID id) => GetEntityCounterMeta(id);
 
-        IArmorSlotMeta IGameMetas.GetArmorSlotMeta(NamespaceID id) => GetArmorSlotMeta(id);
-
-        IArmorMeta IGameMetas.GetArmorMeta(NamespaceID id) => GetArmorMeta(id);
-        IArmorMeta[] IGameMetas.GetModArmorMetas(string spaceName) => GetModArmorMetas(spaceName);
-
         IArtifactMeta[] IGameMetas.GetModArtifactMetas(string spaceName) => GetModArtifactMetas(spaceName);
 
         IModelMeta IGameMetas.GetModelMeta(NamespaceID id) => GetModelMeta(id);
