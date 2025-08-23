@@ -23,14 +23,6 @@ namespace MVZ2.Games
         {
             return metaProvider.GetDifficultyMeta(stageID);
         }
-        public IAreaMeta GetAreaMeta(NamespaceID stageID)
-        {
-            return metaProvider.GetAreaMeta(stageID);
-        }
-        public IAreaMeta[] GetModAreaMetas(string spaceName)
-        {
-            return metaProvider.GetModAreaMetas(spaceName);
-        }
         public IArmorSlotMeta GetArmorSlotMeta(NamespaceID stageID)
         {
             return metaProvider.GetArmorSlotMeta(stageID);

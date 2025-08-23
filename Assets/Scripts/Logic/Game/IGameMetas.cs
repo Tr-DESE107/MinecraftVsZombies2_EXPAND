@@ -13,8 +13,6 @@ namespace MVZ2Logic.Games
         public IStageMeta GetStageMeta(NamespaceID id);
         public IStageMeta[] GetModStageMetas(string spaceName);
         public IDifficultyMeta GetDifficultyMeta(NamespaceID id);
-        public IAreaMeta GetAreaMeta(NamespaceID id);
-        public IAreaMeta[] GetModAreaMetas(string spaceName);
         public IShapeMeta GetShapeMeta(NamespaceID id);
         public IShapeMeta[] GetModShapeMetas(string spaceName);
         public IEntityCounterMeta GetEntityCounterMeta(NamespaceID id);

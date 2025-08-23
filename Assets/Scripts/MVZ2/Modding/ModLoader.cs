@@ -334,7 +334,7 @@ namespace MVZ2.Modding
         private void LoadAreaProperties(Mod mod)
         {
             var nsp = mod.Namespace;
-            foreach (IAreaMeta meta in res.GetModAreaMetas(nsp))
+            foreach (var meta in res.GetModAreaMetas(nsp))
             {
                 if (meta == null)
                     continue;

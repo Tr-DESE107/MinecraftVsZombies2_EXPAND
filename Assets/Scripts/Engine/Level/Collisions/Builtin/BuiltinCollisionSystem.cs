@@ -49,7 +49,8 @@ namespace PVZEngine.Level.Collisions
                     if (!EntityCollisionHelper.CanCollideFaction(maskHostile, maskFriendly, ent1Faction, ent2))
                         return false;
                     return true;
-                };
+                }
+                ;
                 var sorter = new ColliderComparer(collider1);
 
                 var rect1 = collider1.GetCollisionRect();

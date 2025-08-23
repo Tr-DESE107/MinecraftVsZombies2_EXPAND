@@ -2,13 +2,12 @@
 using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic;
-using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Metas
 {
-    public class AreaMeta : IAreaMeta
+    public class AreaMeta
     {
         public string ID { get; private set; }
         public NamespaceID ModelID { get; private set; }
@@ -32,7 +31,6 @@ namespace MVZ2.Metas
         public int Columns { get; private set; }
 
         public AreaGrid[] Grids { get; private set; }
-        IAreaGridMeta[] IAreaMeta.Grids => Grids;
         public static AreaMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -116,7 +114,7 @@ namespace MVZ2.Metas
             };
         }
     }
-    public class AreaGrid : IAreaGridMeta
+    public class AreaGrid
     {
         public NamespaceID ID { get; set; }
         public float YOffset { get; set; }
