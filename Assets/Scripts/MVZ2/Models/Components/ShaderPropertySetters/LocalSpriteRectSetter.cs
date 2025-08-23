@@ -14,6 +14,7 @@ namespace MVZ2.Models
                 return defaultValue;
             if (lastSprite != sprite)
             {
+                lastSprite = sprite;
                 currentValue = new Vector4(
                 sprite.textureRect.min.x / sprite.texture.width,
                 sprite.textureRect.min.y / sprite.texture.height,
