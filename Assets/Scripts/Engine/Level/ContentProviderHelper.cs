@@ -28,6 +28,10 @@ namespace PVZEngine
         {
             return provider.GetDefinition<EntityDefinition>(EngineDefinitionTypes.ENTITY, defRef);
         }
+        public static EntityDefinition[] GetAllEntityDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY);
+        }
         public static EntityBehaviourDefinition GetEntityBehaviourDefinition(this IGameContent provider, NamespaceID defRef)
         {
             return provider.GetDefinition<EntityBehaviourDefinition>(EngineDefinitionTypes.ENTITY_BEHAVIOUR, defRef);

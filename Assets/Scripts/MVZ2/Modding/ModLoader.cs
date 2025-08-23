@@ -106,6 +106,10 @@ namespace MVZ2.Modding
                 var def = new MetaEntityDefinition(meta.Type, nsp, name);
                 var entityID = def.GetID();
 
+                def.SetProperty(LogicEntityProps.NAME, meta.Name);
+                def.SetProperty(LogicEntityProps.DEATH_MESSAGE, meta.DeathMessage);
+                def.SetProperty(LogicEntityProps.TOOLTIP, meta.Tooltip);
+                def.SetProperty(LogicEntityProps.UNLOCK, meta.Unlock);
                 // 加载实体的属性。
                 foreach (var pair in meta.Properties)
                 {

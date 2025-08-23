@@ -2,7 +2,7 @@
 
 namespace MVZ2.GameContent.Implements
 {
-    public abstract class VanillaImplements
+    public abstract class VanillaImplements : IImplements
     {
         public abstract void Implement(Mod mod);
     }

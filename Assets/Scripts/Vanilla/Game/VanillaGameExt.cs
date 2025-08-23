@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using PVZEngine;
 
@@ -13,8 +14,33 @@ namespace MVZ2.Vanilla.Game
             var def = game.GetEntityDefinition(entityID);
             if (def == null)
                 return entityID.ToString();
-            var name = def.Name ?? VanillaStrings.UNKNOWN_ENTITY_NAME;
+            var name = def.GetEntityName() ?? VanillaStrings.UNKNOWN_ENTITY_NAME;
             return game.GetTextParticular(name, VanillaStrings.CONTEXT_ENTITY_NAME);
+        }
+        public static string GetEntityTooltip(this IGame game, NamespaceID entityID)
+        {
+            if (entityID == null)
+                return "null";
+            var def = game.GetEntityDefinition(entityID);
+            if (def == null)
+                return entityID.ToString();
+            var tooltip = def.GetEntityTooltip() ?? VanillaStrings.UNKNOWN_ENTITY_TOOLTIP;
+            return game.GetTextParticular(tooltip, VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
+        }
+
+        public static string GetEntityDeathMessage(this IGame game, NamespaceID entityID)
+        {
+            string key = VanillaStrings.DEATH_MESSAGE_UNKNOWN;
+            if (entityID != null)
+            {
+                var def = game.GetEntityDefinition(entityID);
+                var deathMessage = def?.GetDeathMessage();
+                if (deathMessage != null)
+                {
+                    key = deathMessage;
+                }
+            }
+            return game.GetTextParticular(key, VanillaStrings.CONTEXT_DEATH_MESSAGE);
         }
         public static string GetEntityCounterName(this IGame game, NamespaceID counterID)
         {

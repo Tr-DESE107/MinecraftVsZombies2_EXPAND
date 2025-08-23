@@ -53,16 +53,6 @@ namespace MVZ2.Vanilla
         }
         #endregion
 
-        #region 回调
-        private void ImplementCallbacks(VanillaImplements implements)
-        {
-            implements.Implement(this);
-        }
-        #endregion
-
-
-
-
         public const string spaceName = "mvz2";
     }
 }

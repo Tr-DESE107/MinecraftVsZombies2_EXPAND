@@ -90,6 +90,14 @@ namespace MVZ2Logic.Modding
             triggers.AddTrigger(new Trigger<TArgs>(callbackID, action, priority, filter));
         }
         #endregion
+
+        #region 全局回调
+        protected void ImplementCallbacks(IImplements implements)
+        {
+            implements.Implement(this);
+        }
+        #endregion
+
         public string Namespace { get; }
         private DefinitionGroup definitionGroup = new DefinitionGroup();
         protected CallbackRegistry triggers;

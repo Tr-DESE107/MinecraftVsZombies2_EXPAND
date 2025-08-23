@@ -32,7 +32,6 @@ namespace MVZ2.Managers
         {
             modResources.Clear();
             spriteReferenceCacheDict.Clear();
-            entitiesCacheDict.Clear();
             commandsCacheDict.Clear();
             talksCacheDict.Clear();
             achievementCacheDict.Clear();
@@ -126,10 +125,6 @@ namespace MVZ2.Managers
             foreach (var meta in modResource.ArmorMetaList.metas)
             {
                 armorsCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
-            }
-            foreach (var meta in modResource.EntityMetaList.metas)
-            {
-                entitiesCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
             foreach (var meta in modResource.CommandMetaList.metas)
             {

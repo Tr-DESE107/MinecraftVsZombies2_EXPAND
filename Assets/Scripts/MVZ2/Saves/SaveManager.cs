@@ -9,6 +9,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
 using PVZEngine;
@@ -438,19 +439,19 @@ namespace MVZ2.Saves
             unlockedContraptionsCache.Clear();
             unlockedEnemiesCache.Clear();
             var resourceManager = Main.ResourceManager;
-            var entitiesID = resourceManager.GetAllEntitiesID();
-            foreach (var id in entitiesID)
+            var entities = Main.Game.GetAllEntityDefinitions();
+            foreach (var def in entities)
             {
-                var meta = resourceManager.GetEntityMeta(id);
-                if (meta == null)
+                if (def == null)
                     continue;
-                if (this.IsValidAndLocked(meta.Unlock))
+                if (this.IsValidAndLocked(def.GetEntityUnlock()))
                     continue;
-                if (meta.Type == EntityTypes.PLANT)
+                var id = def.GetID();
+                if (def.Type == EntityTypes.PLANT)
                 {
                     unlockedContraptionsCache.Add(id);
                 }
-                else if (meta.Type == EntityTypes.ENEMY)
+                else if (def.Type == EntityTypes.ENEMY)
                 {
                     unlockedEnemiesCache.Add(id);
                 }

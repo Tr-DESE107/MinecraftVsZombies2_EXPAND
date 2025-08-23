@@ -26,5 +26,52 @@ namespace MVZ2Logic.Entities
         }
         #endregion
 
+        #region 实体名称
+        public static readonly PropertyMeta<string> NAME = Get<string>("name");
+        public static string GetEntityName(this EntityDefinition definition)
+        {
+            return definition.GetProperty<string>(NAME);
+        }
+        public static void SetEntityName(this EntityDefinition entity, string value)
+        {
+            entity.SetProperty(NAME, value);
+        }
+        #endregion
+
+        #region 实体工具提示
+        public static readonly PropertyMeta<string> TOOLTIP = Get<string>("tooltip");
+        public static string GetEntityTooltip(this EntityDefinition definition)
+        {
+            return definition.GetProperty<string>(TOOLTIP);
+        }
+        public static void SetEntityTooltip(this EntityDefinition entity, string value)
+        {
+            entity.SetProperty(TOOLTIP, value);
+        }
+        #endregion
+
+        #region 死亡信息
+        public static readonly PropertyMeta<string> DEATH_MESSAGE = Get<string>("death_message");
+        public static string GetDeathMessage(this EntityDefinition definition)
+        {
+            return definition.GetProperty<string>(DEATH_MESSAGE);
+        }
+        public static void SetDeathMessage(this EntityDefinition entity, string value)
+        {
+            entity.SetProperty(DEATH_MESSAGE, value);
+        }
+        #endregion
+
+        #region 解锁
+        public static readonly PropertyMeta<NamespaceID> UNLOCK = Get<NamespaceID>("unlock");
+        public static NamespaceID GetEntityUnlock(this EntityDefinition definition)
+        {
+            return definition.GetProperty<NamespaceID>(UNLOCK);
+        }
+        public static void SetEntityUnlock(this EntityDefinition entity, NamespaceID value)
+        {
+            entity.SetProperty(UNLOCK, value);
+        }
+        #endregion
     }
 }
