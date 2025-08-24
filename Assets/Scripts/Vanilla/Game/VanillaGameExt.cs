@@ -66,6 +66,21 @@ namespace MVZ2.Vanilla.Game
             return game.GetTextParticular(tooltip, VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
         }
         #endregion
+
+        public static string GetGridErrorMessage(this IGame game, NamespaceID id)
+        {
+            var def = game.GetGridErrorDefinition(id);
+            if (def == null)
+                return null;
+            return def.Message;
+        }
+        public static string GetBlueprintErrorMessage(this IGame game, NamespaceID id)
+        {
+            var def = game.GetSeedErrorDefinition(id);
+            if (def == null)
+                return null;
+            return def.Message;
+        }
         public static string GetEntityCounterName(this IGame game, NamespaceID counterID)
         {
             if (counterID == null)

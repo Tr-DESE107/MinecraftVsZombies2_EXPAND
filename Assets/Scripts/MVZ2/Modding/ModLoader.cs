@@ -15,6 +15,7 @@ using MVZ2Logic;
 using MVZ2Logic.Armors;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Entities;
+using MVZ2Logic.Errors;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
@@ -70,10 +71,19 @@ namespace MVZ2.Modding
             LoadArmorSlotMetas(mod);
             // 加载所有敌人生成信息。
             LoadSpawnMetas(mod);
+
+            // 加载所有网格层信息。
+            LoadGridLayerMetas(mod);
+            // 加载所有网格错误信息。
+            LoadGridErrorMetas(mod);
+
             // 加载所有关卡Meta。
             LoadStages(mod);
+
             LoadOptionBlueprints(mod);
             LoadCustomEntityBlueprints(mod);
+            // 加载所有蓝图错误信息。
+            LoadBlueprintErrorMetas(mod);
         }
         private void LoadDefinitionsFromAssemblies(Mod mod, Assembly[] assemblies)
         {
@@ -291,6 +301,45 @@ namespace MVZ2.Modding
                 {
                     mod.AddDefinition(stageDef);
                 }
+            }
+        }
+        private void LoadGridLayerMetas(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (GridLayerMeta meta in res.GetModGridLayerMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var def = new GridLayerDefinition(nsp, name);
+                def.AlmanacTag = meta.AlmanacTag;
+                mod.AddDefinition(def);
+            }
+        }
+        private void LoadGridErrorMetas(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (GridErrorMeta meta in res.GetModGridErrorMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var def = new ErrorMessageDefinition(nsp, name, LogicDefinitionTypes.GRID_ERROR);
+                def.Message = meta.Message;
+                mod.AddDefinition(def);
+            }
+        }
+        private void LoadBlueprintErrorMetas(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (BlueprintErrorMeta meta in res.GetModBlueprintErrorMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var def = new ErrorMessageDefinition(nsp, name, LogicDefinitionTypes.SEED_ERROR);
+                def.Message = meta.Message;
+                mod.AddDefinition(def);
             }
         }
         private void LoadOptionBlueprints(Mod mod)

@@ -443,16 +443,10 @@ namespace MVZ2.Managers
 
         ISpawnMeta[] IGameMetas.GetModSpawnMetas(string spaceName) => GetModSpawnMetas(spaceName);
 
-
-        IGridLayerMeta IGameMetas.GetGridLayerMeta(NamespaceID id) => GetGridLayerMeta(id);
-        IGridErrorMeta IGameMetas.GetGridErrorMeta(NamespaceID id) => GetGridErrorMeta(id);
-
         string IGameMetas.GetCommandNameByID(NamespaceID id) => GetCommandNameByID(id);
         NamespaceID IGameMetas.GetCommandIDByName(string name) => GetCommandIDByName(name);
         ICommandMeta IGameMetas.GetCommandMeta(NamespaceID id) => GetCommandMeta(id);
         NamespaceID[] IGameMetas.GetAllCommandsID() => GetAllCommandsID();
-
-        IBlueprintErrorMeta IGameMetas.GetBlueprintErrorMeta(NamespaceID id) => GetBlueprintErrorMeta(id);
         #endregion
 
         #endregion

@@ -1,5 +1,6 @@
 ﻿using MVZ2.UI;
 using MVZ2.Vanilla;
+using MVZ2.Vanilla.Game;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using PVZEngine;

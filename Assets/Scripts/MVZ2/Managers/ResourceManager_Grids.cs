@@ -1,39 +1,28 @@
-﻿using System.Linq;
+﻿using System;
 using MVZ2.Metas;
-using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Managers
 {
     public partial class ResourceManager : MonoBehaviour
     {
-        #region 元数据列表
-        public GridMetaList GetGridMetaList(string nsp)
+        #region 层
+        public GridLayerMeta[] GetModGridLayerMetas(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
             if (modResource == null)
-                return null;
-            return modResource.GridMetaList;
-        }
-        #endregion
-
-        #region 层
-        public GridLayerMeta GetGridLayerMeta(NamespaceID grid)
-        {
-            var modResource = main.ResourceManager.GetModResource(grid.SpaceName);
-            if (modResource == null)
-                return null;
-            return modResource.GridMetaList.layers.FirstOrDefault(m => m.ID == grid.Path);
+                return Array.Empty<GridLayerMeta>();
+            return modResource.GridMetaList.layers;
         }
         #endregion
 
         #region 错误
-        public GridErrorMeta GetGridErrorMeta(NamespaceID grid)
+        public GridErrorMeta[] GetModGridErrorMetas(string nsp)
         {
-            var modResource = main.ResourceManager.GetModResource(grid.SpaceName);
+            var modResource = main.ResourceManager.GetModResource(nsp);
             if (modResource == null)
-                return null;
-            return modResource.GridMetaList.errors.FirstOrDefault(m => m.ID == grid.Path);
+                return Array.Empty<GridErrorMeta>();
+            return modResource.GridMetaList.errors;
         }
         #endregion
     }

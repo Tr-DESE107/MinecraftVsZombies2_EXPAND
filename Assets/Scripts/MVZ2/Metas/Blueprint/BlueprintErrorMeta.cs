@@ -1,10 +1,9 @@
 ﻿using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic.SeedPacks;
 
 namespace MVZ2.Metas
 {
-    public class BlueprintErrorMeta : IBlueprintErrorMeta
+    public class BlueprintErrorMeta
     {
         public string ID { get; private set; }
         public string Message { get; private set; }

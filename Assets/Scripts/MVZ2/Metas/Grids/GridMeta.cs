@@ -1,11 +1,10 @@
 ﻿using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic.Spawns;
 using PVZEngine;
 
 namespace MVZ2.Metas
 {
-    public class GridLayerMeta : IGridLayerMeta
+    public class GridLayerMeta
     {
         public string ID { get; private set; }
         public NamespaceID AlmanacTag { get; private set; }
@@ -25,7 +24,7 @@ namespace MVZ2.Metas
             };
         }
     }
-    public class GridErrorMeta : IGridErrorMeta
+    public class GridErrorMeta
     {
         public string ID { get; private set; }
         public string Message { get; private set; }

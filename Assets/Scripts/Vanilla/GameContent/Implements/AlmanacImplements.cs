@@ -7,6 +7,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.Almanacs;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Games;
 using MVZ2Logic.Modding;
 using PVZEngine;
 using PVZEngine.Armors;
@@ -173,10 +174,10 @@ namespace MVZ2.GameContent.Implements
             {
                 foreach (var layer in takenGridLayers)
                 {
-                    var gridLayerMeta = game.GetGridLayerMeta(layer);
-                    if (gridLayerMeta != null && NamespaceID.IsValid(gridLayerMeta.AlmanacTag))
+                    var layerDef = game.GetGridLayerDefinition(layer);
+                    if (layerDef != null && NamespaceID.IsValid(layerDef.AlmanacTag))
                     {
-                        tags.Add(new AlmanacEntryTagInfo(gridLayerMeta.AlmanacTag));
+                        tags.Add(new AlmanacEntryTagInfo(layerDef.AlmanacTag));
                     }
                 }
             }

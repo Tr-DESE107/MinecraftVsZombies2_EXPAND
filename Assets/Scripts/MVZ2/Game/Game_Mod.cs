@@ -18,20 +18,6 @@ namespace MVZ2.Games
         {
             return definitionGroup.GetDefinitions();
         }
-        public string GetGridErrorMessage(NamespaceID error)
-        {
-            var meta = GetGridErrorMeta(error);
-            if (meta == null)
-                return null;
-            return meta.Message;
-        }
-        public string GetBlueprintErrorMessage(NamespaceID error)
-        {
-            var meta = GetBlueprintErrorMeta(error);
-            if (meta == null)
-                return null;
-            return meta.Message;
-        }
         public void AddMod(IModLogic mod)
         {
             foreach (var def in mod.GetDefinitions())

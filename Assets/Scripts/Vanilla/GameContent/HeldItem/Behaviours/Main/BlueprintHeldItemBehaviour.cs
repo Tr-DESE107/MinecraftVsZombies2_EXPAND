@@ -3,6 +3,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Game;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.SeedPacks;

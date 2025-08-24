@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Metas;
@@ -59,14 +60,12 @@ namespace MVZ2.Managers
                 return null;
             return metalist.Entities.FirstOrDefault(m => m.ID == id.Path);
         }
-        public BlueprintErrorMeta GetBlueprintErrorMeta(NamespaceID id)
+        public BlueprintErrorMeta[] GetModBlueprintErrorMetas(string nsp)
         {
-            if (id == null)
-                return null;
-            var metalist = GetBlueprintMetaList(id.SpaceName);
-            if (metalist == null)
-                return null;
-            return metalist.Errors.FirstOrDefault(m => m.ID == id.Path);
+            var modResource = main.ResourceManager.GetModResource(nsp);
+            if (modResource == null)
+                return Array.Empty<BlueprintErrorMeta>();
+            return modResource.BlueprintMetaList.Errors;
         }
         public string GetSeedOptionName(NamespaceID id)
         {
