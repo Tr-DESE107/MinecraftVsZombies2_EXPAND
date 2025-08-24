@@ -10,6 +10,7 @@ using MVZ2.Cameras;
 using MVZ2.Collisions;
 using MVZ2.Cursors;
 using MVZ2.Games;
+using MVZ2.GlobalGame;
 using MVZ2.IO;
 using MVZ2.Level;
 using MVZ2.Level.Components;
@@ -196,7 +197,8 @@ namespace MVZ2.Managers
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Application.targetFrameRate = 60;
 
-            Global.Init(this);
+            var models = new GlobalModels(this);
+            Global.Init(this, models);
             Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);
         }
         private void InitSerializable()

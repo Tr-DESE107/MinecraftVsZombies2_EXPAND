@@ -10,9 +10,10 @@ namespace MVZ2Logic
 {
     public static class Global
     {
-        public static void Init(IMainManager main)
+        public static void Init(IMainManager main, IGlobalModels models)
         {
             Main = main;
+            Models = models;
         }
         public static bool IsMobile()
         {
@@ -144,6 +145,7 @@ namespace MVZ2Logic
         #endregion
 
         private static IMainManager Main { get; set; }
+        public static IGlobalModels Models { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
         private static ISceneController Scene => Main.Scene;
@@ -165,6 +167,10 @@ namespace MVZ2Logic
         IGlobalSave Saves { get; }
         IInputManager Input { get; }
         IDebugManager Debugs { get; }
+    }
+    public interface IGlobalModels
+    {
+        bool ModelExists(NamespaceID id);
     }
     public interface ISceneController
     {

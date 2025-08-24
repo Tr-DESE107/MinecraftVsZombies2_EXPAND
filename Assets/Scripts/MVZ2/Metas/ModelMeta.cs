@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2.Models;
-using MVZ2Logic.Models;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Metas
 {
-    public class ModelMeta : IModelMeta
+    public class ModelMeta
     {
         public string Name { get; private set; }
         public string Type { get; private set; }

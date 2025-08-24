@@ -136,11 +136,7 @@ namespace MVZ2.GameContent.Pickups
             var level = game.GetLevel();
             var areaID = level.AreaID;
             var modelId = new NamespaceID(areaID.SpaceName, $"starshard.{areaID.Path}").ToModelID(EngineModelID.TYPE_ENTITY);
-            if (Global.Game.GetModelMeta(modelId) == null)
-            {
-                return origin;
-            }
-            return modelId;
+            return Global.Models.ModelExists(modelId) ? modelId : origin;
         }
         private const float COLLECTED_Z = 0;
     }

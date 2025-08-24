@@ -23,11 +23,8 @@ namespace MVZ2.GameContent.HeldItems
         public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)
         {
             var modelID = VanillaModelID.GetStarshardHeldItem(level.AreaDefinition.GetID());
-            if (Global.Game.GetModelMeta(modelID) == null)
-            {
-                modelID = VanillaModelID.defaultStartShardHeldItem;
-            }
-            result.SetFinalValue(modelID);
+            var id = Global.Models.ModelExists(modelID) ? modelID : VanillaModelID.defaultStartShardHeldItem;
+            result.SetFinalValue(id);
         }
         protected override bool CanUseOnEntity(Entity entity)
         {
