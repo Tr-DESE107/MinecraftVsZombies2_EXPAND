@@ -1,5 +1,6 @@
 ﻿using MVZ2Logic.Armors;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Errors;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.IZombie;
@@ -58,6 +59,10 @@ namespace MVZ2Logic.Games
         public static GridLayerDefinition GetGridLayerDefinition(this IGameContent provider, NamespaceID id)
         {
             return provider.GetDefinition<GridLayerDefinition>(LogicDefinitionTypes.GRID_LAYER, id);
+        }
+        public static EntityCounterDefinition GetEntityCounterDefinition(this IGameContent provider, NamespaceID id)
+        {
+            return provider.GetDefinition<EntityCounterDefinition>(LogicDefinitionTypes.ENTITY_COUNTER, id);
         }
         public static CommandDefinition GetCommandDefinition(this IGameContent provider, NamespaceID id)
         {

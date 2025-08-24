@@ -13,5 +13,6 @@
         public const string I_ZOMBIE_LAYOUT = "mvz2:i_zombie_layout";
         public const string COMMAND = "mvz2:command";
         public const string ARMOR_SLOT = "mvz2:armor_slot";
+        public const string ENTITY_COUNTER = "mvz2:entity_counter";
     }
 }

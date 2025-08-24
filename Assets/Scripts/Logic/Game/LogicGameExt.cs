@@ -115,10 +115,10 @@ namespace MVZ2Logic
         {
             if (counterID == null)
                 return "null";
-            var meta = game.GetEntityCounterMeta(counterID);
-            if (meta == null)
+            var def = game.GetEntityCounterDefinition(counterID);
+            if (def == null)
                 return counterID.ToString();
-            var name = meta.Name ?? LogicStrings.UNKNOWN_ENTITY_COUNTER_NAME;
+            var name = def.Name ?? LogicStrings.UNKNOWN_ENTITY_COUNTER_NAME;
             return game.GetTextParticular(name, LogicStrings.CONTEXT_ENTITY_COUNTER_NAME);
         }
         public static string GetDifficultyName(this IGame game, NamespaceID difficulty)

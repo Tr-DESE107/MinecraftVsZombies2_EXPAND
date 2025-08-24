@@ -418,9 +418,6 @@ namespace MVZ2.Managers
         IStageMeta[] IGameMetas.GetModStageMetas(string spaceName) => GetModStageMetas(spaceName);
         IShapeMeta IGameMetas.GetShapeMeta(NamespaceID id) => GetShapeMeta(id);
         IShapeMeta[] IGameMetas.GetModShapeMetas(string spaceName) => GetModShapeMetas(spaceName);
-
-        IEntityCounterMeta IGameMetas.GetEntityCounterMeta(NamespaceID id) => GetEntityCounterMeta(id);
-
         ISeedOptionMeta IGameMetas.GetSeedOptionMeta(NamespaceID id) => GetBlueprintOptionMeta(id);
         ISeedOptionMeta[] IGameMetas.GetModSeedOptionMetas(string spaceName) => GetModBlueprintOptionMetas(spaceName);
 

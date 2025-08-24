@@ -1,10 +1,9 @@
 ﻿using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic.Entities;
 
 namespace MVZ2.Metas
 {
-    public class EntityCounterMeta : IEntityCounterMeta
+    public class EntityCounterMeta
     {
         public string ID { get; private set; }
         public string Name { get; private set; }

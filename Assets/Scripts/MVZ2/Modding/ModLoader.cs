@@ -67,6 +67,9 @@ namespace MVZ2.Modding
             // 以下这这些没有相关联的定义类型，必须要手动创建。
             // 加载所有实体。
             LoadEntityMetas(mod);
+            // 加载所有实体对策。
+            LoadEntityCounterMetas(mod);
+
             // 加载所有护甲。
             LoadArmorMetas(mod);
             LoadArmorSlotMetas(mod);
@@ -152,6 +155,19 @@ namespace MVZ2.Modding
                 var blueprintID = VanillaBlueprintID.FromEntity(entityID);
                 var seedDef = new EntitySeed(blueprintID.SpaceName, blueprintID.Path, info);
                 mod.AddDefinition(seedDef);
+            }
+        }
+        private void LoadEntityCounterMetas(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (EntityCounterMeta meta in res.GetModEntityCounterMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var def = new EntityCounterDefinition(nsp, name);
+                def.CounterName = meta.Name;
+                mod.AddDefinition(def);
             }
         }
         private void LoadArmorMetas(Mod mod)

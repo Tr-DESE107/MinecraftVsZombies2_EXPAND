@@ -42,17 +42,12 @@ namespace MVZ2.Managers
         #endregion
 
         #region 元数据
-        public EntityCounterMeta GetEntityCounterMeta(NamespaceID counterID)
+        public EntityCounterMeta[] GetModEntityCounterMetas(string nsp)
         {
-            if (!NamespaceID.IsValid(counterID))
-                return null;
-            var modResource = GetModResource(counterID.SpaceName);
+            var modResource = GetModResource(nsp);
             if (modResource == null)
                 return null;
-            var list = modResource.EntityMetaList;
-            if (list == null)
-                return null;
-            return list.counters.FirstOrDefault(m => m.ID == counterID.Path);
+            return modResource.EntityMetaList.counters;
         }
         #endregion
     }
