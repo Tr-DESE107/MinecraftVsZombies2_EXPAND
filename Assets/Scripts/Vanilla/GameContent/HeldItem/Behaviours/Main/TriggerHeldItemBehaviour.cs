@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.SeedPacks;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;

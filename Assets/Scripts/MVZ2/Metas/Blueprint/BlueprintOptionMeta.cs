@@ -1,27 +1,27 @@
 ﻿using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 
 namespace MVZ2.Metas
 {
-    public class BlueprintOptionMeta : ISeedOptionMeta
+    public class BlueprintOptionMeta
     {
         public string ID { get; private set; }
         public int Cost { get; private set; }
         public string Name { get; private set; }
         public BlueprintMetaIcon Icon { get; private set; }
-        public static BlueprintOptionMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public static BlueprintOptionMeta FromXmlNode(string nsp, XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            var blueprintID = new NamespaceID(nsp, id);
             var cost = node.GetAttributeInt("cost") ?? 0;
             var name = node.GetAttribute("name");
             BlueprintMetaIcon icon = null;
             var iconNode = node["icon"];
             if (iconNode != null)
             {
-                icon = BlueprintMetaIcon.FromXmlNode(iconNode, defaultNsp);
+                icon = BlueprintMetaIcon.FromXmlNode(iconNode, defaultNsp, blueprintID);
             }
             return new BlueprintOptionMeta()
             {
@@ -34,6 +34,10 @@ namespace MVZ2.Metas
         public SpriteReference GetIcon()
         {
             return Icon?.Sprite;
+        }
+        public SpriteReference GetMobileIcon()
+        {
+            return Icon?.Mobile;
         }
         public NamespaceID GetModelID()
         {

@@ -79,7 +79,7 @@ namespace MVZ2.Metas
                     resource.ProgressBarMetaList = ProgressBarMetaList.FromXmlNode(document["bars"], defaultNsp);
                     break;
                 case "blueprints":
-                    resource.BlueprintMetaList = BlueprintMetaList.FromXmlNode(document["blueprints"], defaultNsp);
+                    resource.BlueprintMetaList = BlueprintMetaList.FromXmlNode(resource.Namespace, document["blueprints"], defaultNsp);
                     break;
                 case "spawns":
                     resource.SpawnMetaList = SpawnMetaList.FromXmlNode(document["spawns"], defaultNsp);

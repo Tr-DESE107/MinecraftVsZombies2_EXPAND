@@ -11,7 +11,6 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
-using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
@@ -32,9 +31,7 @@ namespace MVZ2.Level
         void DestroyChosenBlueprintUIAt(int index);
         bool IsChosenBlueprintCommandBlock(int index);
         string GetChosenBlueprintTooltipError(int index);
-        string GetBlueprintName(NamespaceID blueprintID, bool commandBlock);
         string GetBlueprintTooltipError(NamespaceID blueprintID, bool commandBlock);
-        string GetBlueprintTooltip(NamespaceID blueprintID, bool commandBlock);
         bool IsInteractable();
         void UnchooseBlueprint(int index);
         void Refresh(IEnumerable<NamespaceID> blueprints);
@@ -650,58 +647,6 @@ namespace MVZ2.Level
         public void DestroyChosenBlueprintUIAt(int index)
         {
             chooseUI.DestroyChosenBlueprintAt(index);
-        }
-        public string GetBlueprintName(NamespaceID blueprintID, bool commandBlock)
-        {
-            string name = string.Empty;
-            var definition = Game.GetSeedDefinition(blueprintID);
-            if (definition == null)
-                return name;
-            var seedType = definition.GetSeedType();
-            if (seedType == SeedTypes.ENTITY)
-            {
-                var customEntityMeta = Main.ResourceManager.GetEntityBlueprintMeta(blueprintID);
-                if (customEntityMeta != null && !string.IsNullOrEmpty(customEntityMeta.Name))
-                {
-                    name = Main.LanguageManager._p(LogicStrings.CONTEXT_ENTITY_NAME, customEntityMeta.Name);
-                }
-                else
-                {
-                    var entityID = definition.GetSeedEntityID();
-                    name = Main.ResourceManager.GetEntityName(entityID);
-                }
-            }
-            else if (seedType == SeedTypes.OPTION)
-            {
-                var optionID = definition.GetSeedOptionID();
-                name = Main.ResourceManager.GetSeedOptionName(optionID);
-            }
-            if (commandBlock)
-            {
-                name = Main.LanguageManager._(VanillaStrings.COMMAND_BLOCK_BLUEPRINT_NAME_TEMPLATE, name);
-            }
-            return name;
-        }
-        public string GetBlueprintTooltip(NamespaceID blueprintID, bool commandBlock)
-        {
-            var definition = Game.GetSeedDefinition(blueprintID);
-            if (definition == null)
-                return string.Empty;
-            var seedType = definition.GetSeedType();
-            if (seedType == SeedTypes.ENTITY)
-            {
-                var customEntityMeta = Main.ResourceManager.GetEntityBlueprintMeta(blueprintID);
-                if (customEntityMeta != null && !string.IsNullOrEmpty(customEntityMeta.Tooltip))
-                {
-                    return Main.LanguageManager._p(LogicStrings.CONTEXT_ENTITY_TOOLTIP, customEntityMeta.Tooltip);
-                }
-                else
-                {
-                    var entityID = definition.GetSeedEntityID();
-                    return Main.ResourceManager.GetEntityTooltip(entityID);
-                }
-            }
-            return string.Empty;
         }
         public bool IsChosenBlueprintCommandBlock(int index)
         {
@@ -1321,8 +1266,8 @@ namespace MVZ2.Level
             }
             public TooltipContent GetContent()
             {
-                var name = controller.GetBlueprintName(blueprintID, commandBlock);
-                var tooltip = controller.GetBlueprintTooltip(blueprintID, commandBlock);
+                var name = controller.Main.ResourceManager.GetBlueprintName(blueprintID, commandBlock);
+                var tooltip = controller.Main.ResourceManager.GetBlueprintTooltip(blueprintID);
                 var error = controller.GetBlueprintTooltipError(blueprintID, commandBlock);
                 return new TooltipContent()
                 {

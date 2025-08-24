@@ -49,7 +49,7 @@ namespace MVZ2.Editor
             var entitiesList = EntityMetaList.FromXmlNode(spaceName, entitiesDocument["entities"], spaceName);
             var characterList = TalkCharacterMetaList.FromXmlNode(talkcharacterDocument["characters"], spaceName);
             var artifactsList = ArtifactMetaList.FromXmlNode(artifactsDocument["artifacts"], spaceName);
-            var blueprintsList = BlueprintMetaList.FromXmlNode(blueprintsDocument["blueprints"], spaceName);
+            var blueprintsList = BlueprintMetaList.FromXmlNode(spaceName, blueprintsDocument["blueprints"], spaceName);
 
             var entitiesReference = "Entity meta file";
             var characterReference = "Character meta file";
@@ -113,7 +113,7 @@ namespace MVZ2.Editor
             }
             foreach (var option in blueprintsList.Options)
             {
-                AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", VanillaStrings.CONTEXT_OPTION_NAME);
+                AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", LogicStrings.CONTEXT_OPTION_NAME);
             }
             foreach (var entity in blueprintsList.Entities)
             {

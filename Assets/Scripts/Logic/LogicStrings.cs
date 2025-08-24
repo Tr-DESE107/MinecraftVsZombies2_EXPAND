@@ -19,6 +19,9 @@ namespace MVZ2Logic
         [TranslateMsg("制品说明-未知", CONTEXT_ARTIFACT_TOOLTIP)]
         public const string UNKNOWN_ARTIFACT_TOOLTIP = "？？？";
 
+        [TranslateMsg("蓝图选项名称-未知", CONTEXT_OPTION_NAME)]
+        public const string UNKNOWN_OPTION_NAME = "？？？";
+
         [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_UNKNOWN = "你死了！";
 
@@ -32,5 +35,6 @@ namespace MVZ2Logic
         public const string CONTEXT_ARTIFACT_NAME = "artifact.name";
         public const string CONTEXT_ARTIFACT_TOOLTIP = "artifact.tooltip";
         public const string CONTEXT_DEATH_MESSAGE = "death_message";
+        public const string CONTEXT_OPTION_NAME = "option.name";
     }
 }

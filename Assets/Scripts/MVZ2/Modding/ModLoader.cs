@@ -87,7 +87,6 @@ namespace MVZ2.Modding
             // 加载所有关卡Meta。
             LoadStages(mod);
 
-            LoadOptionBlueprints(mod);
             LoadCustomEntityBlueprints(mod);
             // 加载所有蓝图错误信息。
             LoadBlueprintErrorMetas(mod);
@@ -141,6 +140,7 @@ namespace MVZ2.Modding
                 mod.AddDefinition(def);
 
                 // 将实体作为蓝图添加到游戏中。
+                var mobileID = new NamespaceID(entityID.SpaceName, $"mobile_blueprint/{entityID.Path}");
                 var info = new EntitySeedInfo()
                 {
                     entityID = entityID,
@@ -150,7 +150,8 @@ namespace MVZ2.Modding
                     canInstantTrigger = def.CanInstantTrigger(),
                     upgrade = def.IsUpgradeBlueprint(),
                     canInstantEvoke = def.CanInstantEvoke(),
-                    model = def.GetModelID()
+                    model = def.GetModelID(),
+                    mobileIcon = new SpriteReference(mobileID)
                 };
                 var blueprintID = VanillaBlueprintID.FromEntity(entityID);
                 var seedDef = new EntitySeed(blueprintID.SpaceName, blueprintID.Path, info);
@@ -386,17 +387,6 @@ namespace MVZ2.Modding
                 mod.AddDefinition(def);
             }
         }
-        private void LoadOptionBlueprints(Mod mod)
-        {
-            var nsp = mod.Namespace;
-            foreach (var option in mod.GetDefinitions<SeedOptionDefinition>(LogicDefinitionTypes.SEED_OPTION))
-            {
-                var seedDef = new OptionSeed(nsp, option.Name, option.GetCost());
-                seedDef.SetIcon(option.GetIcon());
-                seedDef.SetModelID(option.GetModelID());
-                mod.AddDefinition(seedDef);
-            }
-        }
         private void LoadCustomEntityBlueprints(Mod mod)
         {
             var nsp = mod.Namespace;
@@ -404,6 +394,11 @@ namespace MVZ2.Modding
             {
                 if (meta == null)
                     continue;
+
+                var def = new EntitySeedDefinition(nsp, meta.ID);
+                def.BlueprintName = meta.Name;
+                def.BlueprintTooltip = meta.Tooltip;
+                mod.AddDefinition(def);
 
                 // 将实体作为蓝图添加到游戏中。
                 var info = new EntitySeedInfo()
@@ -417,6 +412,7 @@ namespace MVZ2.Modding
                     canInstantEvoke = meta.CanInstantEvoke(),
                     variant = meta.GetVariant(),
                     icon = meta.GetIcon(),
+                    mobileIcon = meta.GetMobileIcon(),
                     model = meta.GetModelID()
                 };
                 var seedDef = new EntitySeed(nsp, meta.ID, info);
@@ -531,8 +527,16 @@ namespace MVZ2.Modding
                 if (seedOptionDefinition == null)
                     continue;
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.COST, meta.Cost);
+                seedOptionDefinition.SetProperty(LogicSeedOptionProps.NAME, meta.Name);
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.ICON, meta.GetIcon());
+                seedOptionDefinition.SetProperty(LogicSeedOptionProps.MOBILE_ICON, meta.GetMobileIcon());
                 seedOptionDefinition.SetProperty(LogicSeedOptionProps.MODEL_ID, meta.GetModelID());
+
+                var seedDef = new OptionSeed(nsp, seedOptionDefinition.Name, seedOptionDefinition.GetCost());
+                seedDef.SetIcon(seedOptionDefinition.GetIcon());
+                seedDef.SetMobileIcon(seedOptionDefinition.GetMobileIcon());
+                seedDef.SetModelID(seedOptionDefinition.GetModelID());
+                mod.AddDefinition(seedDef);
             }
         }
         private void LoadArtifactProperties(Mod mod)

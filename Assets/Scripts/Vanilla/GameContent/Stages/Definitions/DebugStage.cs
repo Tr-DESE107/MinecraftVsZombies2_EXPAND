@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
+using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -47,7 +48,7 @@ namespace MVZ2.GameContent.Stages
                 VanillaContraptionID.pistenser,
                 VanillaContraptionID.totenser,
                 VanillaContraptionID.dreamCrystal,
-                VanillaContraptionID.dreamSilk,
+                VanillaBlueprintID.ufoGreen,
                 VanillaEnemyID.zombie,
                 VanillaEnemyID.ironHelmettedZombie,
             });

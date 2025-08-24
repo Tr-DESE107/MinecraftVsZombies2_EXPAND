@@ -18,17 +18,18 @@ namespace MVZ2.GameContent.Seeds
     {
         public EntitySeed(string nsp, string name, EntitySeedInfo info) : base(nsp, name)
         {
-            SetProperty(VanillaSeedProps.SEED_TYPE, SeedTypes.ENTITY);
-            SetProperty(VanillaSeedProps.SEED_ENTITY_ID, info.entityID);
+            SetProperty(LogicSeedProps.SEED_TYPE, SeedTypes.ENTITY);
+            SetProperty(LogicSeedProps.SEED_ENTITY_ID, info.entityID);
             SetProperty(EngineSeedProps.COST, (float)info.cost);
             SetProperty(EngineSeedProps.RECHARGE_ID, info.rechargeID);
-            SetProperty(VanillaSeedProps.TRIGGER_ACTIVE, info.triggerActive);
-            SetProperty(VanillaSeedProps.CAN_INSTANT_EVOKE, info.canInstantEvoke);
-            SetProperty(VanillaSeedProps.CAN_INSTANT_TRIGGER, info.canInstantTrigger);
+            SetProperty(LogicSeedProps.TRIGGER_ACTIVE, info.triggerActive);
+            SetProperty(LogicSeedProps.CAN_INSTANT_EVOKE, info.canInstantEvoke);
+            SetProperty(LogicSeedProps.CAN_INSTANT_TRIGGER, info.canInstantTrigger);
             SetProperty(LogicSeedProps.VARIANT, info.variant);
             SetProperty(LogicSeedProps.ICON, info.icon);
+            SetProperty(LogicSeedProps.MOBILE_ICON, info.mobileIcon);
             SetProperty(LogicSeedProps.MODEL_ID, info.model);
-            SetProperty(VanillaSeedProps.UPGRADE_BLUEPRINT, info.upgrade);
+            SetProperty(LogicSeedProps.UPGRADE_BLUEPRINT, info.upgrade);
             if (info.upgrade)
             {
                 AddAura(new UpgradeEndlessCostAura());
@@ -79,6 +80,7 @@ namespace MVZ2.GameContent.Seeds
         public bool canInstantEvoke;
         public int variant;
         public SpriteReference icon;
+        public SpriteReference mobileIcon;
         public NamespaceID model;
     }
 }

@@ -8,7 +8,7 @@ namespace MVZ2.Metas
         public BlueprintOptionMeta[] Options { get; private set; }
         public BlueprintEntityMeta[] Entities { get; private set; }
         public BlueprintErrorMeta[] Errors { get; private set; }
-        public static BlueprintMetaList FromXmlNode(XmlNode node, string defaultNsp)
+        public static BlueprintMetaList FromXmlNode(string nsp, XmlNode node, string defaultNsp)
         {
             var options = new List<BlueprintOptionMeta>();
             var errors = new List<BlueprintErrorMeta>();
@@ -18,7 +18,7 @@ namespace MVZ2.Metas
                 var child = node.ChildNodes[i];
                 if (child.Name == "options")
                 {
-                    LoadOptions(options, child, defaultNsp);
+                    LoadOptions(nsp, options, child, defaultNsp);
                 }
                 else if (child.Name == "errors")
                 {
@@ -26,7 +26,7 @@ namespace MVZ2.Metas
                 }
                 else if (child.Name == "entities")
                 {
-                    LoadEntities(entities, child, defaultNsp);
+                    LoadEntities(nsp, entities, child, defaultNsp);
                 }
             }
             return new BlueprintMetaList()
@@ -36,25 +36,25 @@ namespace MVZ2.Metas
                 Entities = entities.ToArray()
             };
         }
-        private static void LoadEntities(List<BlueprintEntityMeta> entities, XmlNode node, string defaultNsp)
+        private static void LoadEntities(string nsp, List<BlueprintEntityMeta> entities, XmlNode node, string defaultNsp)
         {
             for (var i = 0; i < node.ChildNodes.Count; i++)
             {
                 var child = node.ChildNodes[i];
                 if (child.Name == "entity")
                 {
-                    entities.Add(BlueprintEntityMeta.FromXmlNode(child, defaultNsp));
+                    entities.Add(BlueprintEntityMeta.FromXmlNode(nsp, child, defaultNsp));
                 }
             }
         }
-        private static void LoadOptions(List<BlueprintOptionMeta> options, XmlNode node, string defaultNsp)
+        private static void LoadOptions(string nsp, List<BlueprintOptionMeta> options, XmlNode node, string defaultNsp)
         {
             for (var i = 0; i < node.ChildNodes.Count; i++)
             {
                 var child = node.ChildNodes[i];
                 if (child.Name == "option")
                 {
-                    options.Add(BlueprintOptionMeta.FromXmlNode(child, defaultNsp));
+                    options.Add(BlueprintOptionMeta.FromXmlNode(nsp, child, defaultNsp));
                 }
             }
         }

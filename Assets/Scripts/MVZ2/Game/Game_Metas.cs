@@ -2,7 +2,6 @@ using MVZ2Logic.Commands;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
-using MVZ2Logic.SeedPacks;
 using MVZ2Logic.Spawns;
 using PVZEngine;
 
@@ -25,14 +24,6 @@ namespace MVZ2.Games
         public IShapeMeta[] GetModShapeMetas(string spaceName)
         {
             return metaProvider.GetModShapeMetas(spaceName);
-        }
-        public ISeedOptionMeta GetSeedOptionMeta(NamespaceID stageID)
-        {
-            return metaProvider.GetSeedOptionMeta(stageID);
-        }
-        public ISeedOptionMeta[] GetModSeedOptionMetas(string spaceName)
-        {
-            return metaProvider.GetModSeedOptionMetas(spaceName);
         }
         public ISpawnMeta GetSpawnMeta(NamespaceID stageID)
         {

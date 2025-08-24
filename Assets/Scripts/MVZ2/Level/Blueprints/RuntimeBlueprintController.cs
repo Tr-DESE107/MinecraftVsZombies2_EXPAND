@@ -3,6 +3,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
+using MVZ2Logic.SeedPacks;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;

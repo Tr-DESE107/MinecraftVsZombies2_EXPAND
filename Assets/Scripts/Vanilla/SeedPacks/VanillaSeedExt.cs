@@ -1,7 +1,10 @@
 ﻿using MVZ2.GameContent.Seeds;
+using MVZ2.Vanilla.Contraptions;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Definitions;
 using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
@@ -65,6 +68,21 @@ namespace MVZ2.Vanilla.SeedPacks
         {
             var blueprintDef = seedPack?.Definition;
             return blueprintDef.WillInstantEvoke(seedPack.Level);
+        }
+        public static bool WillInstantEvoke(this SeedDefinition definition, LevelEngine level)
+        {
+            if (definition == null)
+                return false;
+            if (!definition.CanInstantEvoke())
+                return false;
+            if (level.IsDay())
+            {
+                var entityID = definition.GetSeedEntityID();
+                var entityDef = level.Content.GetEntityDefinition(entityID);
+                if (entityDef.IsNocturnal())
+                    return false;
+            }
+            return true;
         }
     }
 }

@@ -68,5 +68,9 @@ namespace MVZ2Logic.Games
         {
             return provider.GetDefinition<CommandDefinition>(LogicDefinitionTypes.COMMAND, id);
         }
+        public static EntitySeedDefinition GetEntitySeedDefinition(this IGameContent provider, NamespaceID id)
+        {
+            return provider.GetDefinition<EntitySeedDefinition>(LogicDefinitionTypes.ENTITY_SEED, id);
+        }
     }
 }

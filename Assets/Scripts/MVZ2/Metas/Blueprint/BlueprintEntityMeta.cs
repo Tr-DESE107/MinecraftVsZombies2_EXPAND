@@ -15,9 +15,10 @@ namespace MVZ2.Metas
         public NamespaceID EntityID { get; private set; }
         public int Variant { get; private set; }
         public BlueprintMetaIcon Icon { get; private set; }
-        public static BlueprintEntityMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public static BlueprintEntityMeta FromXmlNode(string nsp, XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            var blueprintID = new NamespaceID(nsp, id);
             var cost = node.GetAttributeInt("cost") ?? 0;
             var recharge = node.GetAttributeNamespaceID("recharge", defaultNsp);
             var name = node.GetAttribute("name");
@@ -29,7 +30,7 @@ namespace MVZ2.Metas
             var iconNode = node["icon"];
             if (iconNode != null)
             {
-                icon = BlueprintMetaIcon.FromXmlNode(iconNode, defaultNsp);
+                icon = BlueprintMetaIcon.FromXmlNode(iconNode, defaultNsp, blueprintID);
             }
             return new BlueprintEntityMeta()
             {

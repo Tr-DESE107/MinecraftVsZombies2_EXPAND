@@ -1,0 +1,23 @@
+﻿using PVZEngine;
+using PVZEngine.SeedPacks;
+
+namespace MVZ2.Vanilla.SeedPacks
+{
+    [PropertyRegistryRegion(PropertyRegions.seed)]
+    public static class VanillaSeedProps
+    {
+        private static PropertyMeta<T> Get<T>(string name)
+        {
+            return new PropertyMeta<T>(name);
+        }
+        public static readonly PropertyMeta<bool> COMMAND_BLOCK = Get<bool>("command_block");
+        public static bool IsCommandBlock(this SeedPack seed)
+        {
+            return seed.GetProperty<bool>(COMMAND_BLOCK);
+        }
+        public static void SetCommandBlock(this SeedPack seed, bool value)
+        {
+            seed.SetProperty(COMMAND_BLOCK, value);
+        }
+    }
+}

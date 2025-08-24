@@ -4,6 +4,7 @@ using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
 
@@ -130,6 +131,66 @@ namespace MVZ2Logic
                 return difficulty.ToString();
             string name = def.Name ?? LogicStrings.DIFFICULTY_UNKNOWN;
             return game.GetTextParticular(name, LogicStrings.CONTEXT_DIFFICULTY);
+        }
+        public static string GetSeedOptionName(this IGame game, NamespaceID id)
+        {
+            if (id == null)
+                return "null";
+            var def = game.GetSeedOptionDefinition(id);
+            if (def == null)
+                return id.ToString();
+            var name = def.GetOptionName() ?? LogicStrings.UNKNOWN_OPTION_NAME;
+            return game.GetTextParticular(name, LogicStrings.CONTEXT_OPTION_NAME);
+        }
+        public static string GetBlueprintName(this IGame game, NamespaceID blueprintID)
+        {
+            string name = string.Empty;
+            var definition = game.GetSeedDefinition(blueprintID);
+            if (definition == null)
+                return name;
+            var seedType = definition.GetSeedType();
+            if (seedType == SeedTypes.ENTITY)
+            {
+                var customEntityDef = game.GetEntitySeedDefinition(blueprintID);
+                var customName = customEntityDef?.BlueprintName;
+                if (!string.IsNullOrEmpty(customName))
+                {
+                    name = game.GetTextParticular(customName, LogicStrings.CONTEXT_ENTITY_NAME);
+                }
+                else
+                {
+                    var entityID = definition.GetSeedEntityID();
+                    name = game.GetEntityName(entityID);
+                }
+            }
+            else if (seedType == SeedTypes.OPTION)
+            {
+                var optionID = definition.GetSeedOptionID();
+                name = game.GetSeedOptionName(optionID);
+            }
+            return name;
+        }
+        public static string GetBlueprintTooltip(this IGame game, NamespaceID blueprintID)
+        {
+            var definition = game.GetSeedDefinition(blueprintID);
+            if (definition == null)
+                return string.Empty;
+            var seedType = definition.GetSeedType();
+            if (seedType == SeedTypes.ENTITY)
+            {
+                var customEntityDef = game.GetEntitySeedDefinition(blueprintID);
+                var customTooltip = customEntityDef?.BlueprintTooltip;
+                if (!string.IsNullOrEmpty(customTooltip))
+                {
+                    return game.GetTextParticular(customTooltip, LogicStrings.CONTEXT_ENTITY_TOOLTIP);
+                }
+                else
+                {
+                    var entityID = definition.GetSeedEntityID();
+                    return game.GetEntityTooltip(entityID);
+                }
+            }
+            return string.Empty;
         }
     }
 }

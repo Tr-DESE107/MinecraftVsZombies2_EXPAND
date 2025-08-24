@@ -1,5 +1,4 @@
-﻿using MVZ2.Vanilla.SeedPacks;
-using MVZ2Logic.Games;
+﻿using MVZ2Logic.Games;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -12,8 +11,8 @@ namespace MVZ2.GameContent.Seeds
     {
         public OptionSeed(string nsp, string name, int cost) : base(nsp, name)
         {
-            SetProperty(VanillaSeedProps.SEED_TYPE, SeedTypes.OPTION);
-            SetProperty(VanillaSeedProps.SEED_OPTION_ID, new NamespaceID(nsp, name));
+            SetProperty(LogicSeedProps.SEED_TYPE, SeedTypes.OPTION);
+            SetProperty(LogicSeedProps.SEED_OPTION_ID, new NamespaceID(nsp, name));
             SetProperty(EngineSeedProps.COST, (float)cost);
         }
         public override void Update(SeedPack seedPack, float rechargeSpeed)

@@ -12,6 +12,7 @@ using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Models;
 using PVZEngine.SeedPacks;

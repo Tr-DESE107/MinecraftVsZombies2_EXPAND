@@ -35,15 +35,6 @@ namespace MVZ2.Managers
                 return null;
             return metalist.Options.ToArray();
         }
-        public BlueprintOptionMeta GetBlueprintOptionMeta(NamespaceID id)
-        {
-            if (id == null)
-                return null;
-            var metalist = GetBlueprintMetaList(id.SpaceName);
-            if (metalist == null)
-                return null;
-            return metalist.Options.FirstOrDefault(m => m.ID == id.Path);
-        }
         public BlueprintEntityMeta[] GetModEntityBlueprintMetas(string spaceName)
         {
             var metalist = GetBlueprintMetaList(spaceName);
@@ -51,31 +42,12 @@ namespace MVZ2.Managers
                 return null;
             return metalist.Entities.ToArray();
         }
-        public BlueprintEntityMeta GetEntityBlueprintMeta(NamespaceID id)
-        {
-            if (id == null)
-                return null;
-            var metalist = GetBlueprintMetaList(id.SpaceName);
-            if (metalist == null)
-                return null;
-            return metalist.Entities.FirstOrDefault(m => m.ID == id.Path);
-        }
         public BlueprintErrorMeta[] GetModBlueprintErrorMetas(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
             if (modResource == null)
                 return Array.Empty<BlueprintErrorMeta>();
             return modResource.BlueprintMetaList.Errors;
-        }
-        public string GetSeedOptionName(NamespaceID id)
-        {
-            if (id == null)
-                return "null";
-            var meta = GetBlueprintOptionMeta(id);
-            if (meta == null)
-                return id.ToString();
-            var name = meta.Name ?? VanillaStrings.UNKNOWN_OPTION_NAME;
-            return Main.LanguageManager._p(VanillaStrings.CONTEXT_OPTION_NAME, name);
         }
         #endregion
         public BlueprintViewData GetBlueprintViewData(SeedPack seed)
@@ -145,29 +117,25 @@ namespace MVZ2.Managers
             var definition = main.Game.GetSeedDefinition(seedID);
             return GetBlueprintViewData(definition, isEndless, isCommandBlock);
         }
+        public string GetBlueprintName(NamespaceID blueprintID, bool commandBlock)
+        {
+            string name = main.Game.GetBlueprintName(blueprintID);
+            if (commandBlock)
+            {
+                name = Global.Game.GetTextParticular(name, VanillaStrings.COMMAND_BLOCK_BLUEPRINT_NAME_TEMPLATE);
+            }
+            return name;
+        }
+        public string GetBlueprintTooltip(NamespaceID blueprintID)
+        {
+            return main.Game.GetBlueprintTooltip(blueprintID);
+        }
         public Sprite GetBlueprintIconMobile(SeedDefinition seedDef)
         {
             if (seedDef != null)
             {
-                var seedType = seedDef.GetSeedType();
-                if (seedType == SeedTypes.ENTITY)
-                {
-                    var customEntityMeta = Main.ResourceManager.GetEntityBlueprintMeta(seedDef.GetID());
-                    if (customEntityMeta != null && SpriteReference.IsValid(customEntityMeta.GetMobileIcon()))
-                    {
-                        return GetSprite(customEntityMeta.GetMobileIcon());
-                    }
-                    else
-                    {
-                        var entityID = seedDef.GetSeedEntityID();
-                        return GetSprite(entityID.SpaceName, $"mobile_blueprint/{entityID.Path}");
-                    }
-                }
-                else if (seedType == SeedTypes.OPTION)
-                {
-                    var optionID = seedDef.GetSeedOptionID();
-                    return GetSprite(optionID.SpaceName, $"mobile_blueprint/{optionID.Path}");
-                }
+                Sprite sprite = Main.GetFinalSprite(seedDef.GetMobileIcon());
+                return sprite;
             }
             return GetDefaultSprite();
         }

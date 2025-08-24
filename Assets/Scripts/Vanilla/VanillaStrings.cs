@@ -137,8 +137,6 @@ namespace MVZ2.Vanilla
         [TranslateMsg("死亡信息-我是僵尸", LogicStrings.CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES = "你失去了所有能量！";
 
-        [TranslateMsg("蓝图选项名称-未知", CONTEXT_OPTION_NAME)]
-        public const string UNKNOWN_OPTION_NAME = "？？？";
 
         [TranslateMsg("怪物说明-还没有遇到", CONTEXT_ALMANAC)]
         public const string NOT_ENCOUNTERED_YET = "（还没有遇到）";
@@ -222,7 +220,6 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ALMANAC = "almanac";
         public const string CONTEXT_ALMANAC_GROUP_NAME = "almanac.group_name";
         public const string CONTEXT_LANGUAGE_NAME = "language_name";
-        public const string CONTEXT_OPTION_NAME = "option.name";
         public const string CONTEXT_BLUEPRINT_ERROR = "blueprint.error";
         public const string CONTEXT_COMMAND_BLOCK_MODE = "option.command_block_mode";
         public const string CONTEXT_FPS_MODE = "option.fps_mode";

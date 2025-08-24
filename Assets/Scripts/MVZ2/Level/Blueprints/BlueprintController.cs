@@ -97,7 +97,7 @@ namespace MVZ2.Level
         protected abstract void OnDestroy();
         private string GetName()
         {
-            return Controller.BlueprintChoosePart.GetBlueprintName(GetSeedDefinition()?.GetID(), IsCommandBlock());
+            return Main.ResourceManager.GetBlueprintName(GetSeedDefinition()?.GetID(), IsCommandBlock());
         }
         #endregion
 
