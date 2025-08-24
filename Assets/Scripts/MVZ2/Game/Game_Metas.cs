@@ -34,14 +34,6 @@ namespace MVZ2.Games
         {
             return metaProvider.GetModSeedOptionMetas(spaceName);
         }
-        public IEntitySeedMeta GetEntitySeedMeta(NamespaceID stageID)
-        {
-            return metaProvider.GetEntitySeedMeta(stageID);
-        }
-        public IEntitySeedMeta[] GetModEntitySeedMetas(string spaceName)
-        {
-            return metaProvider.GetModEntitySeedMetas(spaceName);
-        }
         public ISpawnMeta GetSpawnMeta(NamespaceID stageID)
         {
             return metaProvider.GetSpawnMeta(stageID);

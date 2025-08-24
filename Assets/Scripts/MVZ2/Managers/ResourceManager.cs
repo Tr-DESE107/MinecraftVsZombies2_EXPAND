@@ -421,9 +421,6 @@ namespace MVZ2.Managers
         ISeedOptionMeta IGameMetas.GetSeedOptionMeta(NamespaceID id) => GetBlueprintOptionMeta(id);
         ISeedOptionMeta[] IGameMetas.GetModSeedOptionMetas(string spaceName) => GetModBlueprintOptionMetas(spaceName);
 
-        IEntitySeedMeta IGameMetas.GetEntitySeedMeta(NamespaceID id) => GetEntityBlueprintMeta(id);
-        IEntitySeedMeta[] IGameMetas.GetModEntitySeedMetas(string spaceName) => GetModEntityBlueprintMetas(spaceName);
-
         ISpawnMeta IGameMetas.GetSpawnMeta(NamespaceID id) => GetSpawnMeta(id);
 
         ISpawnMeta[] IGameMetas.GetModSpawnMetas(string spaceName) => GetModSpawnMetas(spaceName);

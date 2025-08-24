@@ -400,7 +400,7 @@ namespace MVZ2.Modding
         private void LoadCustomEntityBlueprints(Mod mod)
         {
             var nsp = mod.Namespace;
-            foreach (IEntitySeedMeta meta in res.GetModEntityBlueprintMetas(nsp))
+            foreach (var meta in res.GetModEntityBlueprintMetas(nsp))
             {
                 if (meta == null)
                     continue;

@@ -1,12 +1,11 @@
 ﻿using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic;
-using MVZ2Logic.SeedPacks;
 using PVZEngine;
 
 namespace MVZ2.Metas
 {
-    public class BlueprintEntityMeta : IEntitySeedMeta
+    public class BlueprintEntityMeta
     {
         public string ID { get; private set; }
         public int Cost { get; private set; }
