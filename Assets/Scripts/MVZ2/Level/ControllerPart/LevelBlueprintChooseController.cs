@@ -663,7 +663,7 @@ namespace MVZ2.Level
                 var customEntityMeta = Main.ResourceManager.GetEntityBlueprintMeta(blueprintID);
                 if (customEntityMeta != null && !string.IsNullOrEmpty(customEntityMeta.Name))
                 {
-                    name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_NAME, customEntityMeta.Name);
+                    name = Main.LanguageManager._p(LogicStrings.CONTEXT_ENTITY_NAME, customEntityMeta.Name);
                 }
                 else
                 {
@@ -693,7 +693,7 @@ namespace MVZ2.Level
                 var customEntityMeta = Main.ResourceManager.GetEntityBlueprintMeta(blueprintID);
                 if (customEntityMeta != null && !string.IsNullOrEmpty(customEntityMeta.Tooltip))
                 {
-                    return Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_TOOLTIP, customEntityMeta.Tooltip);
+                    return Main.LanguageManager._p(LogicStrings.CONTEXT_ENTITY_TOOLTIP, customEntityMeta.Tooltip);
                 }
                 else
                 {

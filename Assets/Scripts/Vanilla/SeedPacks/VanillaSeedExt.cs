@@ -1,5 +1,4 @@
 ﻿using MVZ2.GameContent.Seeds;
-using MVZ2.Vanilla.Game;
 using MVZ2Logic;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;

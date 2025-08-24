@@ -349,7 +349,7 @@ namespace MVZ2.Almanacs
             }
             else
             {
-                name = Main.LanguageManager._p(VanillaStrings.CONTEXT_ENTITY_NAME, VanillaStrings.UNKNOWN_ENTITY_NAME);
+                name = Main.LanguageManager._p(LogicStrings.CONTEXT_ENTITY_NAME, LogicStrings.UNKNOWN_ENTITY_NAME);
                 description = Main.LanguageManager._p(VanillaStrings.CONTEXT_ALMANAC, VanillaStrings.NOT_ENCOUNTERED_YET);
 
                 ClearEntryTags(AlmanacPageType.Enemies);

@@ -5,6 +5,7 @@ using MukioI18n;
 using MVZ2.Level.UI;
 using MVZ2.Options;
 using MVZ2.Vanilla;
+using MVZ2Logic;
 using Tools;
 using UnityEngine;
 
@@ -163,7 +164,7 @@ namespace MVZ2.Level
                 message = deathMessage;
             }
             ui.SetGameOverDialogActive(true);
-            ui.SetGameOverDialogMessage(Localization._p(VanillaStrings.CONTEXT_DEATH_MESSAGE, message));
+            ui.SetGameOverDialogMessage(Localization._p(LogicStrings.CONTEXT_DEATH_MESSAGE, message));
         }
         private async void UI_OnGameOverRetryButtonClickedCallback()
         {

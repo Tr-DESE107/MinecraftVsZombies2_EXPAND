@@ -1,96 +1,10 @@
 ﻿using System.Linq;
-using MVZ2Logic.Artifacts;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
-using PVZEngine;
 
 namespace MVZ2.Vanilla.Game
 {
     public static class VanillaGameExt
     {
-        public static string GetEntityName(this IGame game, NamespaceID entityID)
-        {
-            if (entityID == null)
-                return "null";
-            var def = game.GetEntityDefinition(entityID);
-            if (def == null)
-                return entityID.ToString();
-            var name = def.GetEntityName() ?? VanillaStrings.UNKNOWN_ENTITY_NAME;
-            return game.GetTextParticular(name, VanillaStrings.CONTEXT_ENTITY_NAME);
-        }
-        public static string GetEntityTooltip(this IGame game, NamespaceID entityID)
-        {
-            if (entityID == null)
-                return "null";
-            var def = game.GetEntityDefinition(entityID);
-            if (def == null)
-                return entityID.ToString();
-            var tooltip = def.GetEntityTooltip() ?? VanillaStrings.UNKNOWN_ENTITY_TOOLTIP;
-            return game.GetTextParticular(tooltip, VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
-        }
-
-        public static string GetEntityDeathMessage(this IGame game, NamespaceID entityID)
-        {
-            string key = VanillaStrings.DEATH_MESSAGE_UNKNOWN;
-            if (entityID != null)
-            {
-                var def = game.GetEntityDefinition(entityID);
-                var deathMessage = def?.GetDeathMessage();
-                if (deathMessage != null)
-                {
-                    key = deathMessage;
-                }
-            }
-            return game.GetTextParticular(key, VanillaStrings.CONTEXT_DEATH_MESSAGE);
-        }
-
-        #region 制品
-        public static string GetArtifactName(this IGame game, NamespaceID artifactID)
-        {
-            if (artifactID == null)
-                return "null";
-            var def = game.GetArtifactDefinition(artifactID);
-            if (def == null)
-                return artifactID.ToString();
-            var name = def.GetArtifactName() ?? VanillaStrings.UNKNOWN_ARTIFACT_NAME;
-            return game.GetTextParticular(name, VanillaStrings.CONTEXT_ARTIFACT_NAME);
-        }
-        public static string GetArtifactTooltip(this IGame game, NamespaceID artifactID)
-        {
-            if (artifactID == null)
-                return "null";
-            var def = game.GetArtifactDefinition(artifactID);
-            if (def == null)
-                return artifactID.ToString();
-            var tooltip = def.GetArtifactTooltip() ?? VanillaStrings.UNKNOWN_ARTIFACT_TOOLTIP;
-            return game.GetTextParticular(tooltip, VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
-        }
-        #endregion
-
-        public static string GetGridErrorMessage(this IGame game, NamespaceID id)
-        {
-            var def = game.GetGridErrorDefinition(id);
-            if (def == null)
-                return null;
-            return def.Message;
-        }
-        public static string GetBlueprintErrorMessage(this IGame game, NamespaceID id)
-        {
-            var def = game.GetSeedErrorDefinition(id);
-            if (def == null)
-                return null;
-            return def.Message;
-        }
-        public static string GetEntityCounterName(this IGame game, NamespaceID counterID)
-        {
-            if (counterID == null)
-                return "null";
-            var meta = game.GetEntityCounterMeta(counterID);
-            if (meta == null)
-                return counterID.ToString();
-            var name = meta.Name ?? VanillaStrings.UNKNOWN_ENTITY_COUNTER_NAME;
-            return game.GetTextParticular(name, VanillaStrings.CONTEXT_ENTITY_COUNTER_NAME);
-        }
         public static bool IsRandomChina(this IGame game)
         {
             var userName = game.GetCurrentUserName();

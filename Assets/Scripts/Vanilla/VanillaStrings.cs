@@ -1,4 +1,5 @@
 ﻿using MukioI18n;
+using MVZ2Logic;
 using PVZEngine;
 
 namespace MVZ2.Vanilla
@@ -140,31 +141,13 @@ namespace MVZ2.Vanilla
         [TranslateMsg("关卡名称，{0}为关卡名，{1}为无尽模式轮数", CONTEXT_LEVEL_NAME, selfPlural: true)]
         public const string LEVEL_NAME_ENDLESS_FLAGS_TEMPLATE = "{0} - 第{1}轮";
 
-        public const string CONTEXT_DEATH_MESSAGE = "death_message";
-        [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
-        public const string DEATH_MESSAGE_UNKNOWN = "你死了！";
-        [TranslateMsg("死亡信息-梦魇碾压墙", CONTEXT_DEATH_MESSAGE)]
+        [TranslateMsg("死亡信息-梦魇碾压墙", LogicStrings.CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_CRUSHING_WALLS = "<color=red>来到我们之中吧</color>";
-        [TranslateMsg("死亡信息-我是僵尸", CONTEXT_DEATH_MESSAGE)]
+        [TranslateMsg("死亡信息-我是僵尸", LogicStrings.CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES = "你失去了所有能量！";
-
-        [TranslateMsg("实体名称-未知", CONTEXT_ENTITY_NAME)]
-        public const string UNKNOWN_ENTITY_NAME = "？？？";
-
-        [TranslateMsg("实体对策名称-未知", CONTEXT_ENTITY_COUNTER_NAME)]
-        public const string UNKNOWN_ENTITY_COUNTER_NAME = "？？？";
 
         [TranslateMsg("蓝图选项名称-未知", CONTEXT_OPTION_NAME)]
         public const string UNKNOWN_OPTION_NAME = "？？？";
-
-        [TranslateMsg("实体说明-未知", CONTEXT_ENTITY_TOOLTIP)]
-        public const string UNKNOWN_ENTITY_TOOLTIP = "？？？";
-
-        [TranslateMsg("制品名称-未知", CONTEXT_ARTIFACT_NAME)]
-        public const string UNKNOWN_ARTIFACT_NAME = "？？？";
-
-        [TranslateMsg("制品说明-未知", CONTEXT_ARTIFACT_TOOLTIP)]
-        public const string UNKNOWN_ARTIFACT_TOOLTIP = "？？？";
 
         [TranslateMsg("怪物说明-还没有遇到", CONTEXT_ALMANAC)]
         public const string NOT_ENCOUNTERED_YET = "（还没有遇到）";
@@ -239,17 +222,12 @@ namespace MVZ2.Vanilla
         public const string CONTEXT_ARCHIVE_TAG_NAME = "archive.tagname";
         public const string CONTEXT_ADVICE = "advice";
         public const string CONTEXT_ERROR = "error";
-        public const string CONTEXT_ENTITY_NAME = "entity.name";
-        public const string CONTEXT_ENTITY_COUNTER_NAME = "entity_counter.name";
         public const string CONTEXT_CHARACTER_NAME = "character.name";
         public const string CONTEXT_MUSIC_NAME = "music.name";
         public const string CONTEXT_MUSIC_ORIGIN = "music.origin";
         public const string CONTEXT_MUSIC_SOURCE = "music.source";
         public const string CONTEXT_MUSIC_AUTHOR = "music.author";
         public const string CONTEXT_MUSIC_DESCRIPTION = "music.description";
-        public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";
-        public const string CONTEXT_ARTIFACT_NAME = "artifact.name";
-        public const string CONTEXT_ARTIFACT_TOOLTIP = "artifact.tooltip";
         public const string CONTEXT_ALMANAC = "almanac";
         public const string CONTEXT_ALMANAC_GROUP_NAME = "almanac.group_name";
         public const string CONTEXT_LANGUAGE_NAME = "language_name";

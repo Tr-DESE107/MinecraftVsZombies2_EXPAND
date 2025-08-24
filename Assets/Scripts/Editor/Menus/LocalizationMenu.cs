@@ -7,6 +7,7 @@ using MVZ2.Localization;
 using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
+using MVZ2Logic;
 using Newtonsoft.Json;
 using PVZEngine;
 using UnityEditor;
@@ -87,14 +88,14 @@ namespace MVZ2.Editor
             foreach (var meta in entitiesList.counters)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity counter {id}", VanillaStrings.CONTEXT_ENTITY_COUNTER_NAME);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity counter {id}", LogicStrings.CONTEXT_ENTITY_COUNTER_NAME);
             }
             foreach (var meta in entitiesList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
-                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Tooltip for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
-                AddTranslation(potGenerator, meta.DeathMessage, entitiesReference, $"Death message for entity {id}", VanillaStrings.CONTEXT_DEATH_MESSAGE);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity {id}", LogicStrings.CONTEXT_ENTITY_NAME);
+                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Tooltip for entity {id}", LogicStrings.CONTEXT_ENTITY_TOOLTIP);
+                AddTranslation(potGenerator, meta.DeathMessage, entitiesReference, $"Death message for entity {id}", LogicStrings.CONTEXT_DEATH_MESSAGE);
             }
             foreach (var meta in characterList.metas)
             {
@@ -104,8 +105,8 @@ namespace MVZ2.Editor
             foreach (var meta in artifactsList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, artifactsReference, $"Name for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_NAME);
-                AddTranslation(potGenerator, meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
+                AddTranslation(potGenerator, meta.Name, artifactsReference, $"Name for artifact {id}", LogicStrings.CONTEXT_ARTIFACT_NAME);
+                AddTranslation(potGenerator, meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", LogicStrings.CONTEXT_ARTIFACT_TOOLTIP);
             }
             foreach (var error in blueprintsList.Errors)
             {
@@ -117,8 +118,8 @@ namespace MVZ2.Editor
             }
             foreach (var entity in blueprintsList.Entities)
             {
-                AddTranslation(potGenerator, entity.Name, blueprintsReference, $"Name for entity blueprint {entity.ID}", VanillaStrings.CONTEXT_ENTITY_NAME);
-                AddTranslation(potGenerator, entity.Tooltip, blueprintsReference, $"Tooltip for entity blueprint {entity.ID}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
+                AddTranslation(potGenerator, entity.Name, blueprintsReference, $"Name for entity blueprint {entity.ID}", LogicStrings.CONTEXT_ENTITY_NAME);
+                AddTranslation(potGenerator, entity.Tooltip, blueprintsReference, $"Tooltip for entity blueprint {entity.ID}", LogicStrings.CONTEXT_ENTITY_TOOLTIP);
             }
             potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
             Debug.Log("Almanac Translations Updated.");
