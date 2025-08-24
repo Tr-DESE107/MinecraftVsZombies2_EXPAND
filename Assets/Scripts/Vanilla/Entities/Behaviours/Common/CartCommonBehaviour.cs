@@ -4,8 +4,9 @@ using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic;
+using MVZ2Logic.Difficulties;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -95,11 +96,11 @@ namespace MVZ2.Vanilla.Entities
             if (timer.Expired)
             {
                 var level = entity.Level;
-                var difficultyMeta = Global.Game.GetDifficultyMeta(level.Difficulty);
+                var difficultyMeta = level.Content.GetDifficultyDefinition(level.Difficulty);
                 var money = 50;
                 if (difficultyMeta != null)
                 {
-                    money = difficultyMeta.CartConvertMoney;
+                    money = difficultyMeta.GetCartConvertMoney();
                 }
                 var gemEffects = GemEffect.SpawnGemEffects(level, money, entity.Position, entity, true, 0);
                 foreach (var effect in gemEffects)

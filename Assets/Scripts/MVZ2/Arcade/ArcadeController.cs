@@ -10,6 +10,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
+using MVZ2Logic.Difficulties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
@@ -147,15 +148,16 @@ namespace MVZ2.Arcade
             Sprite clearSprite = null;
             if (Main.SaveManager.IsLevelCleared(stageID))
             {
+                var game = Main.Game;
                 var difficulty = Main.SaveManager.GetLevelDifficulty(stageID);
-                var difficultyMeta = Main.ResourceManager.GetDifficultyMeta(difficulty);
-                if (difficultyMeta == null)
+                var def = game.GetDifficultyDefinition(difficulty);
+                if (def == null)
                 {
-                    difficultyMeta = Main.ResourceManager.GetDifficultyMeta(VanillaDifficulties.normal);
+                    def = game.GetDifficultyDefinition(VanillaDifficulties.normal);
                 }
-                if (difficultyMeta != null)
+                if (def != null)
                 {
-                    var clearSpriteID = difficultyMeta.ArcadeIcon;
+                    var clearSpriteID = def.GetArcadeIcon();
                     clearSprite = Main.GetFinalSprite(clearSpriteID);
                 }
             }

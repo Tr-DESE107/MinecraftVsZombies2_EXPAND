@@ -356,7 +356,7 @@ namespace MVZ2.Options
         }
         protected string GetDifficultyText(NamespaceID id)
         {
-            return Main.ResourceManager.GetDifficultyName(id);
+            return Main.Game.GetDifficultyName(id);
         }
         protected void UpdateSliderValue(float value, string optionKey, SliderType sliderType)
         {

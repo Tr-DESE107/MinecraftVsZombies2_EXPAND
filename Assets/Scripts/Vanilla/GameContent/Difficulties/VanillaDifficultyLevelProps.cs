@@ -5,7 +5,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Difficulties
 {
     [PropertyRegistryRegion(PropertyRegions.level)]
-    public static class VanillaDifficultyProps
+    public static class VanillaDifficultyLevelProps
     {
         public static VanillaDifficultyPropertyMeta<T> Get<T>(string name, T defaultValue = default)
         {

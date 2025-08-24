@@ -1,7 +1,7 @@
 ﻿using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
-using MVZ2Logic;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Difficulties;
 using MVZ2Logic.Modding;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -30,14 +30,14 @@ namespace MVZ2.GameContent.Implements
         private void EvaluateDifficultyBuff(LevelEngine level)
         {
             var difficulty = level.Difficulty;
-            var difficultyMeta = Global.Game.GetDifficultyMeta(difficulty);
+            var difficultyDef = level.Content.GetDifficultyDefinition(difficulty);
             BuffDefinition buffDef = null;
-            if (difficultyMeta != null)
+            if (difficultyDef != null)
             {
-                var buffId = difficultyMeta.BuffID;
+                var buffId = difficultyDef.GetBuffID();
                 if (level.IsIZombie())
                 {
-                    buffId = difficultyMeta.IZombieBuffID;
+                    buffId = difficultyDef.GetIZombieBuffID();
                 }
                 buffDef = level.Content.GetBuffDefinition(buffId);
             }

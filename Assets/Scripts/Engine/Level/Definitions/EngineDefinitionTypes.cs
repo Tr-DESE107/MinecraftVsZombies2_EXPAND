@@ -15,5 +15,6 @@
         public const string STAGE = "stage";
         public const string GRID = "grid";
         public const string SPAWN = "spawn";
+        public const string DIFFICULTY = "difficulty";
     }
 }

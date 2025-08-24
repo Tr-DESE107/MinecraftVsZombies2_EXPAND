@@ -22,6 +22,10 @@ namespace MVZ2Logic
         [TranslateMsg("死亡信息-未知", CONTEXT_DEATH_MESSAGE)]
         public const string DEATH_MESSAGE_UNKNOWN = "你死了！";
 
+        [TranslateMsg("关卡难度", CONTEXT_DIFFICULTY)]
+        public const string DIFFICULTY_UNKNOWN = "未知难度";
+
+        public const string CONTEXT_DIFFICULTY = "difficulty";
         public const string CONTEXT_ENTITY_NAME = "entity.name";
         public const string CONTEXT_ENTITY_COUNTER_NAME = "entity_counter.name";
         public const string CONTEXT_ENTITY_TOOLTIP = "entity.tooltip";

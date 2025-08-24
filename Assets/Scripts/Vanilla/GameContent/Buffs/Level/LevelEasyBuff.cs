@@ -21,28 +21,28 @@ namespace MVZ2.GameContent.Buffs.Level
             AddAura(new ArmorAura());
             AddModifier(new FloatModifier(VanillaLevelProps.CONVEY_SPEED, NumberOperator.Multiply, 1.5f));
 
-            AddModifier(new FloatModifier(VanillaDifficultyProps.GUNPOWDER_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 0.66666666666f));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.GUNPOWDER_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 0.66666666666f));
 
-            AddModifier(new IntModifier(VanillaDifficultyProps.NAPSTABLOOK_PARALYSIS_TIME, NumberOperator.Add, -22));
-            AddModifier(new IntModifier(VanillaDifficultyProps.MOTHER_TERROR_EGG_COUNT, NumberOperator.Add, -1));
-            AddModifier(new IntModifier(VanillaDifficultyProps.PARASITIZED_TERROR_COUNT, NumberOperator.Add, -1));
-            AddModifier(new FloatModifier(VanillaDifficultyProps.REVERSE_SATELLITE_DAMAGE_MULTIPLIER, NumberOperator.AddMultiple, -1f));
-            AddModifier(new IntModifier(VanillaDifficultyProps.SKELETON_HORSE_JUMP_TIMES, NumberOperator.Add, -1));
-            AddModifier(new IntModifier(VanillaDifficultyProps.WICKED_HERMIT_ZOMBIE_STUN_TIME, NumberOperator.Add, 75));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.NAPSTABLOOK_PARALYSIS_TIME, NumberOperator.Add, -22));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.MOTHER_TERROR_EGG_COUNT, NumberOperator.Add, -1));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.PARASITIZED_TERROR_COUNT, NumberOperator.Add, -1));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.REVERSE_SATELLITE_DAMAGE_MULTIPLIER, NumberOperator.AddMultiple, -1f));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.SKELETON_HORSE_JUMP_TIMES, NumberOperator.Add, -1));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.WICKED_HERMIT_ZOMBIE_STUN_TIME, NumberOperator.Add, 75));
 
-            AddModifier(new BooleanModifier(VanillaDifficultyProps.FRANKENSTEIN_NO_STEEL, true));
+            AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.FRANKENSTEIN_NO_STEEL, true));
 
-            AddModifier(new IntModifier(VanillaDifficultyProps.SLENDERMAN_FATE_CHOICE_COUNT, NumberOperator.Add, 1));
-            AddModifier(new IntModifier(VanillaDifficultyProps.SLENDERMAN_MAX_FATE_TIMES, NumberOperator.Add, -1));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.SLENDERMAN_FATE_CHOICE_COUNT, NumberOperator.Add, 1));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.SLENDERMAN_MAX_FATE_TIMES, NumberOperator.Add, -1));
 
-            AddModifier(new FloatModifier(VanillaDifficultyProps.CRUSHING_WALLS_SPEED, NumberOperator.Add, -1f));
-            AddModifier(new FloatModifier(VanillaDifficultyProps.NIGHTMAREAPER_SPIN_DAMAGE, NumberOperator.Add, -10));
-            AddModifier(new IntModifier(VanillaDifficultyProps.NIGHTMAREAPER_TIMEOUT, NumberOperator.Add, 900));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.CRUSHING_WALLS_SPEED, NumberOperator.Add, -1f));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.NIGHTMAREAPER_SPIN_DAMAGE, NumberOperator.Add, -10));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.NIGHTMAREAPER_TIMEOUT, NumberOperator.Add, 900));
 
-            AddModifier(new FloatModifier(VanillaDifficultyProps.WITHER_REGENERATION, NumberOperator.Set, 0));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.WITHER_REGENERATION, NumberOperator.Set, 0));
 
-            AddModifier(new FloatModifier(VanillaDifficultyProps.STARSHARD_CARRIER_CHANCE_INCREAMENT, NumberOperator.Multiply, 2f));
-            AddModifier(new FloatModifier(VanillaDifficultyProps.REDSTONE_CARRIER_CHANCE_INCREAMENT, NumberOperator.Multiply, 2f));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.STARSHARD_CARRIER_CHANCE_INCREAMENT, NumberOperator.Multiply, 2f));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.REDSTONE_CARRIER_CHANCE_INCREAMENT, NumberOperator.Multiply, 2f));
         }
 
         public class BlueprintAura : AuraEffectDefinition

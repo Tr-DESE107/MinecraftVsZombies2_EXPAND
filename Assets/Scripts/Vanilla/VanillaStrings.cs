@@ -123,15 +123,6 @@ namespace MVZ2.Vanilla
         [TranslateMsg("游戏内文本提示")]
         public const string TOOLTIP_TRIGGER_CONTRAPTION = "触发器械";
 
-        public const string CONTEXT_DIFFICULTY = "difficulty";
-        [TranslateMsg("关卡难度", CONTEXT_DIFFICULTY)]
-        public const string DIFFICULTY_EASY = "简单";
-        [TranslateMsg("关卡难度", CONTEXT_DIFFICULTY)]
-        public const string DIFFICULTY_NORMAL = "普通";
-        [TranslateMsg("关卡难度", CONTEXT_DIFFICULTY)]
-        public const string DIFFICULTY_HARD = "困难";
-        [TranslateMsg("关卡难度", CONTEXT_DIFFICULTY)]
-        public const string DIFFICULTY_UNKNOWN = "未知难度";
 
         public const string CONTEXT_LEVEL_NAME = "levelname";
         [TranslateMsg("关卡名称", CONTEXT_LEVEL_NAME)]

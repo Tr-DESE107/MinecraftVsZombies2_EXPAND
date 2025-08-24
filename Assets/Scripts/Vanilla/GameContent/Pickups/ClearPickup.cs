@@ -3,7 +3,7 @@ using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-using MVZ2Logic;
+using MVZ2Logic.Difficulties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Entities;
@@ -69,25 +69,25 @@ namespace MVZ2.GameContent.Pickups
             pickup.Velocity = Vector3.zero;
             var level = pickup.Level;
 
-            var difficultyMeta = Global.Game.GetDifficultyMeta(level.Difficulty);
+            var difficultyMeta = level.Content.GetDifficultyDefinition(level.Difficulty);
             int money = 0;
             if (level.IsRerun)
             {
                 money = 250;
                 if (difficultyMeta != null)
                 {
-                    money = difficultyMeta.RerunClearMoney;
+                    money = difficultyMeta.GetRerunClearMoney();
                 }
             }
             else
             {
                 if (level.DropsTrophy())
                 {
-                    money = difficultyMeta.PuzzleMoney;
+                    money = difficultyMeta.GetPuzzleMoney();
                 }
                 else if (difficultyMeta != null)
                 {
-                    money = difficultyMeta.ClearMoney;
+                    money = difficultyMeta.GetClearMoney();
                 }
             }
             GemEffect.SpawnGemEffects(level, money, pickup.Position, pickup, false);

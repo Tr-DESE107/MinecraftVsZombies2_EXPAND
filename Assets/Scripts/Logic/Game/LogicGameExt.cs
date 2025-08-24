@@ -121,5 +121,15 @@ namespace MVZ2Logic
             var name = meta.Name ?? LogicStrings.UNKNOWN_ENTITY_COUNTER_NAME;
             return game.GetTextParticular(name, LogicStrings.CONTEXT_ENTITY_COUNTER_NAME);
         }
+        public static string GetDifficultyName(this IGame game, NamespaceID difficulty)
+        {
+            if (difficulty == null)
+                return "null";
+            var def = game.GetDifficultyDefinition(difficulty);
+            if (def == null)
+                return difficulty.ToString();
+            string name = def.Name ?? LogicStrings.DIFFICULTY_UNKNOWN;
+            return game.GetTextParticular(name, LogicStrings.CONTEXT_DIFFICULTY);
+        }
     }
 }

@@ -115,7 +115,7 @@ namespace MVZ2.Level
         #region 难度
         private void UpdateDifficultyName()
         {
-            var difficultyName = Resources.GetDifficultyName(level.Difficulty);
+            var difficultyName = Game.GetDifficultyName(level.Difficulty);
             var levelUI = GetUIPreset();
             levelUI.SetDifficulty(difficultyName);
         }

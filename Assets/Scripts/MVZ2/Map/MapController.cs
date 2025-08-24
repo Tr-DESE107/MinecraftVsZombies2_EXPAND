@@ -18,6 +18,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
+using MVZ2Logic.Difficulties;
 using MVZ2Logic.Level;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Talk;
@@ -381,12 +382,13 @@ namespace MVZ2.Map
             var difficulty = Main.SaveManager.GetLevelDifficulty(stageID);
             if (NamespaceID.IsValid(difficulty))
             {
-                var difficultyMeta = Main.ResourceManager.GetDifficultyMeta(difficulty);
+                var game = Main.Game;
+                var difficultyMeta = game.GetDifficultyDefinition(difficulty);
                 if (difficultyMeta != null)
                 {
-                    var back = Main.GetFinalSprite(difficultyMeta.MapButtonBorderBack);
-                    var bottom = Main.GetFinalSprite(difficultyMeta.MapButtonBorderBottom);
-                    var overlay = Main.GetFinalSprite(difficultyMeta.MapButtonBorderOverlay);
+                    var back = Main.GetFinalSprite(difficultyMeta.GetMapButtonBorderBack());
+                    var bottom = Main.GetFinalSprite(difficultyMeta.GetMapButtonBorderBottom());
+                    var overlay = Main.GetFinalSprite(difficultyMeta.GetMapButtonBorderOverlay());
                     model.SetMapButtonBorder(index, back, bottom, overlay);
                     return;
                 }

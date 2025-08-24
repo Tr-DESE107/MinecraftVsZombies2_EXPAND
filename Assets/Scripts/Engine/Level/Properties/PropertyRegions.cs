@@ -14,5 +14,6 @@
         public const string recharge = "recharge";
         public const string placement = "placement";
         public const string placeParams = "place_params";
+        public const string difficulty = "difficulty";
     }
 }

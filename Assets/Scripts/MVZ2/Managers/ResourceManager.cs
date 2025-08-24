@@ -37,7 +37,6 @@ namespace MVZ2.Managers
             achievementCacheDict.Clear();
             mainmenuViewCacheDict.Clear();
             ClearResources_Store();
-            difficultyCache.Clear();
             noteCache.Clear();
         }
         public async Task Init()
@@ -138,10 +137,6 @@ namespace MVZ2.Managers
                 mainmenuViewCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
             PostLoadMod_Store(modNamespace, modResource);
-            foreach (var meta in modResource.DifficultyMetaList.metas)
-            {
-                difficultyCache.Add(new NamespaceID(modNamespace, meta.ID));
-            }
             foreach (var meta in modResource.NoteMetaList.metas)
             {
                 noteCache.Add(new NamespaceID(modNamespace, meta.id));
@@ -422,8 +417,6 @@ namespace MVZ2.Managers
         IStageMeta IGameMetas.GetStageMeta(NamespaceID id) => GetStageMeta(id);
 
         IStageMeta[] IGameMetas.GetModStageMetas(string spaceName) => GetModStageMetas(spaceName);
-        IDifficultyMeta IGameMetas.GetDifficultyMeta(NamespaceID id) => GetDifficultyMeta(id);
-
         IShapeMeta IGameMetas.GetShapeMeta(NamespaceID id) => GetShapeMeta(id);
         IShapeMeta[] IGameMetas.GetModShapeMetas(string spaceName) => GetModShapeMetas(spaceName);
 

@@ -14,6 +14,7 @@ using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Armors;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Difficulties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Errors;
 using MVZ2Logic.Games;
@@ -76,6 +77,9 @@ namespace MVZ2.Modding
             LoadGridLayerMetas(mod);
             // 加载所有网格错误信息。
             LoadGridErrorMetas(mod);
+
+            // 加载所有难度。
+            LoadDifficultyMetas(mod);
 
             // 加载所有关卡Meta。
             LoadStages(mod);
@@ -326,6 +330,30 @@ namespace MVZ2.Modding
                 var name = meta.ID;
                 var def = new ErrorMessageDefinition(nsp, name, LogicDefinitionTypes.GRID_ERROR);
                 def.Message = meta.Message;
+                mod.AddDefinition(def);
+            }
+        }
+        private void LoadDifficultyMetas(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (DifficultyMeta meta in res.GetModDifficultyMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var def = new DifficultyDefinition(nsp, name);
+                def.SetProperty(LogicDifficultyProps.NAME, meta.Name);
+                def.SetProperty(LogicDifficultyProps.VALUE, meta.Value);
+                def.SetProperty(LogicDifficultyProps.BUFF_ID, meta.BuffID);
+                def.SetProperty(LogicDifficultyProps.I_ZOMBIE_BUFF_ID, meta.IZombieBuffID);
+                def.SetProperty(LogicDifficultyProps.CLEAR_MONEY, meta.ClearMoney);
+                def.SetProperty(LogicDifficultyProps.RERUN_CLEAR_MONEY, meta.RerunClearMoney);
+                def.SetProperty(LogicDifficultyProps.CART_CONVERT_MONEY, meta.CartConvertMoney);
+                def.SetProperty(LogicDifficultyProps.PUZZLE_MONEY, meta.PuzzleMoney);
+                def.SetProperty(LogicDifficultyProps.MAP_BUTTON_BORDER_BACK, meta.MapButtonBorderBack);
+                def.SetProperty(LogicDifficultyProps.MAP_BUTTON_BORDER_BOTTOM, meta.MapButtonBorderBottom);
+                def.SetProperty(LogicDifficultyProps.MAP_BUTTON_BORDER_OVERLAY, meta.MapButtonBorderOverlay);
+                def.SetProperty(LogicDifficultyProps.ARCADE_ICON, meta.ArcadeIcon);
                 mod.AddDefinition(def);
             }
         }

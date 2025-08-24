@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using MVZ2.IO;
 using MVZ2.Localization;
 using MVZ2.Managers;
@@ -108,7 +109,7 @@ namespace MVZ2.Options
         }
         public void CycleDifficulty()
         {
-            var difficulties = Main.ResourceManager.GetAllDifficulties();
+            var difficulties = Main.Game.GetAllDifficultyDefinitions().Select(d => d.GetID()).ToArray();
             var index = Array.IndexOf(difficulties, GetDifficulty());
             index++;
             index %= difficulties.Length;

@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public IZombieEasyBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new IntModifier(VanillaDifficultyProps.IZ_FURNACE_REDSTONE_COUNT, NumberOperator.Add, 2));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.IZ_FURNACE_REDSTONE_COUNT, NumberOperator.Add, 2));
         }
     }
 }

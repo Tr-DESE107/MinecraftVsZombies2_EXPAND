@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Difficulties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
@@ -194,10 +195,10 @@ namespace MVZ2.Saves
             var records = Main.SaveManager.GetLevelDifficultyRecords(stageID);
             return records.OrderByDescending(r =>
             {
-                var meta = Main.ResourceManager.GetDifficultyMeta(r);
+                var meta = Main.Game.GetDifficultyDefinition(r);
                 if (meta == null)
                     return int.MinValue;
-                return meta.Value;
+                return meta.GetValue();
             }).FirstOrDefault();
         }
         public bool HasLevelDifficultyRecords(NamespaceID stageID, NamespaceID difficulty)

@@ -1,12 +1,11 @@
 ﻿using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic;
-using MVZ2Logic.Level;
 using PVZEngine;
 
 namespace MVZ2.Metas
 {
-    public class DifficultyMeta : IDifficultyMeta
+    public class DifficultyMeta
     {
         public string ID { get; private set; }
         public string Name { get; private set; }

@@ -16,7 +16,6 @@ using UnityEditor.SceneManagement;
 using UnityEditor.U2D.Sprites;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.UIElements.ToolbarMenu;
 
 namespace MVZ2.Editor
 {
@@ -277,6 +276,16 @@ namespace MVZ2.Editor
                             AddTranslation(potGenerator, param.Description, reference, $"Description for parameter {param.Name} of command \"{id} {variant.Subname}\"", VanillaStrings.CONTEXT_COMMAND_PARAMETER_DESCRIPTION);
                         }
                     }
+                }
+            }
+            // 难度
+            {
+                var document = LoadMetaXmlDocument(spaceName, "difficulties.xml");
+                var list = DifficultyMetaList.FromXmlNode(document["difficulties"], spaceName);
+                var reference = "Difficulty meta file";
+                foreach (var meta in list.metas)
+                {
+                    AddTranslation(potGenerator, meta.Name, reference, $"Name for difficulty {meta.Name}", LogicStrings.CONTEXT_DIFFICULTY);
                 }
             }
 

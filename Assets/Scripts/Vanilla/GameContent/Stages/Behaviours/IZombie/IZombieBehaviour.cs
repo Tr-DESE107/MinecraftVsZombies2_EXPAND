@@ -9,6 +9,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
+using MVZ2Logic.Difficulties;
 using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
 using MVZ2Logic.Level;
@@ -87,10 +88,10 @@ namespace MVZ2.GameContent.Stages
                         {
                             int money = 250;
                             var difficulty = level.Difficulty;
-                            var difficultyMeta = Global.Game.GetDifficultyMeta(difficulty);
+                            var difficultyMeta = level.Content.GetDifficultyDefinition(difficulty);
                             if (difficultyMeta != null)
                             {
-                                money = difficultyMeta.PuzzleMoney;
+                                money = difficultyMeta.GetPuzzleMoney();
                             }
                             var x = level.GetLawnCenterX();
                             var z = level.GetLawnCenterZ();

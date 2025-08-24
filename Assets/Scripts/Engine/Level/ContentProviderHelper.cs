@@ -80,5 +80,13 @@ namespace PVZEngine
         {
             return provider.GetDefinition<SpawnDefinition>(EngineDefinitionTypes.SPAWN, defRef);
         }
+        public static DifficultyDefinition GetDifficultyDefinition(this IGameContent provider, NamespaceID defRef)
+        {
+            return provider.GetDefinition<DifficultyDefinition>(EngineDefinitionTypes.DIFFICULTY, defRef);
+        }
+        public static DifficultyDefinition[] GetAllDifficultyDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<DifficultyDefinition>(EngineDefinitionTypes.DIFFICULTY);
+        }
     }
 }
