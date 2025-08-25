@@ -23,6 +23,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.Maps;
 using MVZ2Logic.Talk;
 using PVZEngine;
+using PVZEngine.Definitions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -344,30 +345,31 @@ namespace MVZ2.Map
                 return null;
             return meta.area;
         }
-        private StageMeta GetStageMeta(NamespaceID stageID)
+        private StageDefinition GetStageDefinition(NamespaceID stageID)
         {
             if (stageID == null)
                 return null;
-            return Main.ResourceManager.GetStageMeta(stageID);
+            return Main.Game.GetStageDefinition(stageID);
         }
-        private StageMeta GetStageMeta(int index)
+        private StageDefinition GetStageDefinition(int index)
         {
             var stageID = GetStageID(index);
-            return GetStageMeta(stageID);
+            return GetStageDefinition(stageID);
         }
         private string GetStageType(int index)
         {
-            var stageMeta = GetStageMeta(index);
-            if (stageMeta == null)
+            var stageDef = GetStageDefinition(index);
+            if (stageDef == null)
                 return string.Empty;
-            return stageMeta.Type;
+            return stageDef.GetStageType();
         }
         private bool IsLevelUnlocked(NamespaceID stageID)
         {
-            var stageMeta = GetStageMeta(stageID);
-            if (stageMeta == null)
+            var stageDef = GetStageDefinition(stageID);
+            if (stageDef == null)
                 return false;
-            if (!Main.SaveManager.IsAllInvalidOrUnlocked(stageMeta.Unlocks))
+            var conditions = stageDef.GetUnlockConditions();
+            if (!conditions.IsNullOrMeetsConditions(Main.SaveManager))
                 return false;
             return true;
         }

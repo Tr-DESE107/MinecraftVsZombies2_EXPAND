@@ -8,6 +8,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Level;
 using MVZ2Logic.Talk;
 using PVZEngine;
 using PVZEngine.Level;

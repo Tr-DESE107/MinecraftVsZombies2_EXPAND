@@ -1,5 +1,6 @@
 ﻿using MVZ2.HeldItems;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Level;
 using PVZEngine.Models;
@@ -42,10 +43,10 @@ namespace MVZ2.Level
             if (model)
             {
                 model.Init(modelID, GetCamera());
-                var stageMeta = Resources.GetStageMeta(stageID);
-                if (stageMeta != null)
+                var stageDef = Game.GetStageDefinition(stageID);
+                if (stageDef != null)
                 {
-                    SetModelPreset(stageMeta.ModelPreset);
+                    SetModelPreset(stageDef.GetModelPreset());
                 }
             }
         }

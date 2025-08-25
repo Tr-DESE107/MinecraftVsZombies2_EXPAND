@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using MVZ2.Vanilla.Audios;
+﻿using MVZ2.Vanilla.Audios;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
@@ -28,7 +27,6 @@ namespace MVZ2.Vanilla.Level
         public static readonly PropertyMeta<bool> AUTO_COLLECT_STARSHARD = Get<bool>("autoCollectStarshard");
 
         public static readonly PropertyMeta<bool> NO_START_TALK_MUSIC = Get<bool>("noStartTalkMusic");
-        public static readonly PropertyMeta<IStageTalkMeta[]> TALKS = Get<IStageTalkMeta[]>("talks");
 
         public static readonly PropertyMeta<NamespaceID> CLEAR_PICKUP_MODEL = Get<NamespaceID>("clearPickupModel");
         public static readonly PropertyMeta<NamespaceID> CLEAR_PICKUP_CONTENT_ID = Get<NamespaceID>("clear_pickup_content_id");
@@ -109,17 +107,6 @@ namespace MVZ2.Vanilla.Level
         public static bool NoStartTalkMusic(this LevelEngine game)
         {
             return game.GetProperty<bool>(NO_START_TALK_MUSIC);
-        }
-        public static IStageTalkMeta[] GetTalks(this LevelEngine game)
-        {
-            return game.GetProperty<IStageTalkMeta[]>(TALKS);
-        }
-        public static IStageTalkMeta[] GetTalksOfType(this LevelEngine game, string type)
-        {
-            var talks = game.GetTalks();
-            if (talks == null)
-                return null;
-            return talks.Where(t => t.Type == type).ToArray();
         }
         public static NamespaceID GetEndNoteID(this LevelEngine game)
         {

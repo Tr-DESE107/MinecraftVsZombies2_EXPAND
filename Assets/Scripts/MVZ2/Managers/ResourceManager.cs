@@ -11,7 +11,6 @@ using MVZ2.TalkData;
 using MVZ2Logic.Commands;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
-using MVZ2Logic.Level;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -411,9 +410,6 @@ namespace MVZ2.Managers
             return await Addressables.LoadAssetAsync<T>(loc).Task;
         }
         #region 接口实现
-        IStageMeta IGameMetas.GetStageMeta(NamespaceID id) => GetStageMeta(id);
-
-        IStageMeta[] IGameMetas.GetModStageMetas(string spaceName) => GetModStageMetas(spaceName);
         IShapeMeta IGameMetas.GetShapeMeta(NamespaceID id) => GetShapeMeta(id);
         IShapeMeta[] IGameMetas.GetModShapeMetas(string spaceName) => GetModShapeMetas(spaceName);
 

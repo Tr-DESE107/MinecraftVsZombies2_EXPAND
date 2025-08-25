@@ -1,21 +1,12 @@
 using MVZ2Logic.Commands;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
-using MVZ2Logic.Level;
 using PVZEngine;
 
 namespace MVZ2.Games
 {
     public partial class Game
     {
-        public IStageMeta GetStageMeta(NamespaceID stageID)
-        {
-            return metaProvider.GetStageMeta(stageID);
-        }
-        public IStageMeta[] GetModStageMetas(string spaceName)
-        {
-            return metaProvider.GetModStageMetas(spaceName);
-        }
         public IShapeMeta GetShapeMeta(NamespaceID stageID)
         {
             return metaProvider.GetShapeMeta(stageID);

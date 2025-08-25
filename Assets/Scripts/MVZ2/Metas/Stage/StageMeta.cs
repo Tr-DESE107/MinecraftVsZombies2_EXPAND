@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic.Level;
@@ -6,13 +7,15 @@ using PVZEngine;
 
 namespace MVZ2.Metas
 {
-    public class StageMeta : IStageMeta
+    public class StageMeta
     {
         public string ID { get; private set; }
         public string Name { get; private set; }
         public int DayNumber { get; private set; }
         public string Type { get; private set; }
+        [Obsolete]
         public NamespaceID[] Unlocks { get; private set; }
+        public XMLConditionList UnlockConditions { get; private set; }
         public float StartEnergy { get; private set; }
 
         public NamespaceID MusicID { get; private set; }
@@ -46,10 +49,6 @@ namespace MVZ2.Metas
         public bool NeedBlueprints { get; private set; }
 
         public Dictionary<string, object> Properties { get; private set; }
-
-        IStageTalkMeta[] IStageMeta.Talks => Talks;
-        NamespaceID[] IStageMeta.Spawns => Spawns;
-        IConveyorPoolEntry[] IStageMeta.ConveyorPool => ConveyorPool;
         public static StageMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -57,9 +56,24 @@ namespace MVZ2.Metas
             var type = node.GetAttribute("type") ?? StageTypes.TYPE_NORMAL;
             var dayNumber = node.GetAttributeInt("dayNumber") ?? 0;
             var startEnergy = node.GetAttributeFloat("startEnergy") ?? 50;
-            var unlocks = node.GetAttributeNamespaceIDArray("unlock", defaultNsp);
             var musicID = node.GetAttributeNamespaceID("music", defaultNsp);
             var needBlueprints = node.GetAttributeBool("needBlueprints") ?? true;
+
+            var unlockNode = node["unlock"];
+            XMLConditionList unlockConditions = null;
+            if (unlockNode != null)
+            {
+                unlockConditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
+            }
+            else
+            {
+                var unlocks = node.GetAttributeNamespaceIDArray("unlock", defaultNsp);
+                var condition = new XMLCondition()
+                {
+                    Required = unlocks
+                };
+                unlockConditions = new XMLConditionList(condition);
+            }
 
             var modelNode = node["model"];
             var preset = modelNode?.GetAttribute("preset") ?? "default";
@@ -126,7 +140,7 @@ namespace MVZ2.Metas
                 DayNumber = dayNumber,
                 Type = type,
                 StartEnergy = startEnergy,
-                Unlocks = unlocks,
+                UnlockConditions = unlockConditions,
                 MusicID = musicID,
 
                 ModelPreset = preset,
