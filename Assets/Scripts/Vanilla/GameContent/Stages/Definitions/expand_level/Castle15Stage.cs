@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
-    [StageDefinition(VanillaStageNames.castle12)]
+    [StageDefinition(VanillaStageNames.castle15)]
     public partial class Castle15Stage : StageDefinition
     {
         public Castle15Stage(string nsp, string name) : base(nsp, name)

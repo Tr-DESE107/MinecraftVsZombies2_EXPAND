@@ -936,10 +936,77 @@
             <spawn id="mvz2:LeatherWitherSkeleton"/>
         </spawns>
     </stage>
-	
-	<stage id="castle_12" name="辉针城" dayNumber="12" type="boss" needBlueprints="false" unlock="mvz2:level.castle_11" music="mvz2:castle_final" >
-		<talks noStartMusic="true">
+
+	<stage id="castle_12" name="辉针城" dayNumber="12" unlock="mvz2:level.castle_11">
+		<talks>
+
+		</talks>
+		<clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:DispenShield"/>
+		<spawns flags="2">
+			<spawn id="mvz2:WitherSkeleton"/>
+			<spawn id="mvz2:LeatherWitherSkeleton"/>
+			<spawn id="mvz2:IronWitherSkeleton"/>
+			<spawn id="mvz2:mesmerizer"/>
+			<spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:NetherVanguard"/>
+			<spawn id="mvz2:RaiderSkull"/>
+			<spawn id="mvz2:Anubiskull"/>
+			<spawn id="mvz2:WitherSkeletonHorse"/>
+			<spawn id="mvz2:AssaultDullahan"/>
+		</spawns>
+	</stage>
+
+	<stage id="castle_13" name="辉针城" dayNumber="13" unlock="mvz2:level.castle_12">
+		<talks>
 			
+		</talks>
+		<clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:DispenShield"/>
+		<spawns flags="2">
+			<spawn id="mvz2:WitherSkeleton"/>
+			<spawn id="mvz2:LeatherWitherSkeleton"/>
+			<spawn id="mvz2:IronWitherSkeleton"/>
+			<spawn id="mvz2:mesmerizer"/>
+			<spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:dullahan"/>
+			<spawn id="mvz2:hell_chariot"/>
+			<spawn id="mvz2:skeleton_mage"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:NetherVanguard"/>
+			<spawn id="mvz2:AngryReverser"/>
+			<spawn id="mvz2:RaiderSkull"/>
+			<spawn id="mvz2:Anubiskull"/>
+		</spawns>
+	</stage>
+
+	<stage id="castle_14" name="辉针城" dayNumber="14" unlock="mvz2:level.castle_13">
+		<talks>
+			
+		</talks>
+		<clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:DispenShield"/>
+		<spawns flags="2">
+			<spawn id="mvz2:WitherSkeleton"/>
+			<spawn id="mvz2:LeatherWitherSkeleton"/>
+			<spawn id="mvz2:IronWitherSkeleton"/>
+			<spawn id="mvz2:mesmerizer"/>
+			<spawn id="mvz2:berserker"/>
+			<spawn id="mvz2:dullahan"/>
+			<spawn id="mvz2:hell_chariot"/>
+			<spawn id="mvz2:skeleton_mage"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:NetherVanguard"/>
+			<spawn id="mvz2:AngryReverser"/>
+			<spawn id="mvz2:RaiderSkull"/>
+			<spawn id="mvz2:Anubiskull"/>
+		</spawns>
+	</stage>
+
+	<stage id="castle_15" name="辉针城" dayNumber="15" type="boss" needBlueprints="false" unlock="mvz2:level.castle_14" music="mvz2:castle_final" >
+		<talks noStartMusic="true">
+
 		</talks>
 		<conveyor>
 			<entry id="mvz2:glowstone" count="8" minCount="0"/>
@@ -974,7 +1041,7 @@
 			<spawn id="mvz2:Anubiskull"/>
 			<spawn id="mvz2:WitherSkeletonHorse"/>
 			<spawn id="mvz2:AssaultDullahan"/>
-			
+
 		</spawns>
 		<properties>
 			<bool name="noEnergy" value="true"/>

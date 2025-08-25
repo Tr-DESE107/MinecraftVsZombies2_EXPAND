@@ -3361,11 +3361,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 446110728032684768, guid: c8cae4454a6eaa749b10e51e0a2d3674, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: -2.52
       objectReference: {fileID: 0}
     - target: {fileID: 446110728032684768, guid: c8cae4454a6eaa749b10e51e0a2d3674, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7
+      value: -1.03
       objectReference: {fileID: 0}
     - target: {fileID: 446110728032684768, guid: c8cae4454a6eaa749b10e51e0a2d3674, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3402,6 +3402,10 @@ PrefabInstance:
     - target: {fileID: 3821586918481071554, guid: c8cae4454a6eaa749b10e51e0a2d3674, type: 3}
       propertyPath: m_Name
       value: MapButton15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821586918481071554, guid: c8cae4454a6eaa749b10e51e0a2d3674, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

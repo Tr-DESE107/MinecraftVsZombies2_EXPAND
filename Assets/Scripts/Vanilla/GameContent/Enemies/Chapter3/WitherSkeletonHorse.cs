@@ -12,6 +12,18 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Models;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
+using PVZEngine;
+using PVZEngine.Callbacks;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -85,6 +97,7 @@ namespace MVZ2.GameContent.Enemies
                     entity.Stun(30);
                     entity.PlaySound(VanillaSoundID.bonk);
                 }
+                WitherAOE(entity, 10f, entity.GetFaction());
             }
             else if (entity.State == STATE_LAND)
             {
@@ -111,6 +124,21 @@ namespace MVZ2.GameContent.Enemies
             SetJumpState(entity, JUMP_STATE_NONE);
         }
         #endregion
+
+        public static void WitherAOE(Entity entity, float damage, int faction)
+        {
+            var range = 60;
+
+            entity.Explode(
+                entity.GetCenter(),
+                range,
+                faction,
+                damage,
+                new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE)
+            );
+
+
+        }
 
         #region µÐÈË»Øµ÷
         protected override bool ValidateMeleeTarget(Entity enemy, Entity target)

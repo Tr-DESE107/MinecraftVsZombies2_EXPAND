@@ -42,7 +42,10 @@ namespace MVZ2.GameContent.Stages
             WitherTransitionUpdate(level);
         }
 
-        bool SeijaSpawn = false;
+        public const string PROP_REGION = "castle15_stage_behaviour";
+        [LevelPropertyRegistry(PROP_REGION)]
+        public static readonly VanillaLevelPropertyMeta<bool> FIELD_SEIJA_SPAWNED =
+            new VanillaLevelPropertyMeta<bool>("SeijaSpawned");
 
         private void WitherTransitionUpdate(LevelEngine level)
         {
@@ -51,15 +54,15 @@ namespace MVZ2.GameContent.Stages
                 level.AddBuff<WitherTransitionBuff>();
             }
 
-            
-            if (SeijaSpawn == false)
+
+            if (!level.GetProperty<bool>(FIELD_SEIJA_SPAWNED))
             {
                 var x = VanillaLevelExt.ENEMY_RIGHT_BORDER;
                 var z = level.GetEntityLaneZ(level.GetMaxLaneCount() / 2);
                 var y = level.GetGroundY(x, z);
                 var seija = level.Spawn(VanillaBossID.seija, new Vector3(x, y, z), null);
                 Seija.StartState(seija, VanillaEntityStates.SEIJA_FRONTFLIP);
-                SeijaSpawn = true;
+                level.SetProperty(FIELD_SEIJA_SPAWNED, true);
             }
         }
         protected override void BossFightWaveUpdate(LevelEngine level)
@@ -70,29 +73,31 @@ namespace MVZ2.GameContent.Stages
 
         private void WitherFightUpdate(LevelEngine level)
         {
-            // 凋灵战斗
-            // 如果不存在Boss，或者所有Boss死亡，进入BOSS后阶段。
-            // 如果有Boss存活，不停生成怪物。
-            if (!level.EntityExists(e => e.Type == EntityTypes.BOSS && e.IsHostileEntity() && !e.IsDead))
+            // 检查特定的两个Boss是否都已死亡  
+            var witherExists = level.EntityExists(e => e.IsEntityOf(VanillaBossID.wither) && e.IsHostileEntity() && !e.IsDead);
+            var seijaExists = level.EntityExists(e => e.IsEntityOf(VanillaBossID.seija) && e.IsHostileEntity() && !e.IsDead);
+
+            // 只有当两个Boss都死亡时才进入胜利阶段  
+            if (!witherExists && !seijaExists)
             {
                 level.WaveState = VanillaLevelStates.STATE_AFTER_BOSS;
                 level.StopMusic();
-                
-                    Vector3 position;
-                    
-                        var x = level.GetLawnCenterX();
-                        var z = level.GetLawnCenterZ();
-                        var y = level.GetGroundY(x, z);
-                        position = new Vector3(x, y, z);
-                    
-                    level.Produce(VanillaPickupID.clearPickup, position, null);
-                
+
+                Vector3 position;
+                var x = level.GetLawnCenterX();
+                var z = level.GetLawnCenterZ();
+                var y = level.GetGroundY(x, z);
+                position = new Vector3(x, y, z);
+
+                level.Produce(VanillaPickupID.clearPickup, position, null);
             }
             else
             {
                 RunBossWave(level);
             }
         }
+
+       
         protected override void AfterBossWaveUpdate(LevelEngine level)
         {
             base.AfterBossWaveUpdate(level);

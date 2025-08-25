@@ -1061,7 +1061,7 @@
 
         
 
-		<zombie id="MegaZombie" name="红眼僵尸" deathMessage="脑子是好的，但不是每个人都有">
+		<zombie id="MegaZombie" name="红眼僵尸" deathMessage="脑子是好的，但不是每个人都有" unlock="mvz2:level.halloween_13">
 			<properties>
 				<int name="mvz2:cost" value="50" />
 				<float name="mvz2:maxHealth" value="3200"/>
@@ -1069,7 +1069,7 @@
 			</properties>
 		</zombie>
 
-		<zombie id="SuperMegaZombie" name="超级红眼僵尸" deathMessage="脑子是好的，但不是每个人都有">
+		<zombie id="SuperMegaZombie" name="超级红眼僵尸" deathMessage="脑子是好的，但不是每个人都有" unlock="mvz2:level.halloween_13">
 			<properties>
 				<int name="mvz2:cost" value="50" />
 				<float name="mvz2:maxHealth" value="3200"/>
@@ -1566,8 +1566,9 @@
 			</properties>
 		</witherSkeleton>
 
-		<enemy id="BerserkerHead" name="狂战士头颅" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+		<enemy id="BerserkerHead" name="爆裂头颅" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
 			<properties>
+				<float name="mvz2:maxHealth" value="300" />
 				<float name="mvz2:mass" value="-1" />
 				<float name="mvz2:speed" value="2" />
 				<id name="mvz2:shell" value="mvz2:nether" />
@@ -1636,7 +1637,7 @@
 			</properties>
 		</enemy>
 
-		<enemy id="Anubiskull" name="骷髅头王" deathMessage="全是头！" unlock="mvz2:level.castle_9">
+		<enemy id="Anubiskull" name="灵魂头王" deathMessage="全是头！" unlock="mvz2:level.castle_9">
 			<properties>
 				<bool name="mvz2:flying_enemy" value="true" />
 				<id name="mvz2:shell" value="mvz2:nether" />
