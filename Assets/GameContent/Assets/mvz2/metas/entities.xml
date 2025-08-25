@@ -1536,7 +1536,23 @@
                 <id name="mvz2:shape" value="mvz2:dullahan" />
             </properties>
         </witherSkeleton>
-        <enemy id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！"
+
+		<enemy id="WitherSkeletonHorse" name="凋零骷髅马" deathMessage="死因：死马" unlock="mvz2:level.castle_6">
+			<properties>
+				<float name="mvz2:maxHealth" value="800" />
+				<float name="mvz2:fallResistance" value="15" />
+				<id name="mvz2:shell" value="mvz2:nether" />
+				<id name="mvz2:crySound" value="mvz2:skeleton_horse_cry" />
+				<id name="mvz2:deathSound" value="mvz2:skeleton_horse_death" />
+				<id name="mvz2:shape" value="mvz2:horse" />
+				<vector3 name="mvz2:size" x="56" y="50" z="40" />
+				<vector3 name="mvz2:passengerOffset" x="10" y="20" z="-1" />
+
+				<int name="mvz2:cost" value="75" />
+			</properties>
+		</enemy>
+
+		<enemy id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！"
             unlock="mvz2:level.castle_8">
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented"/>

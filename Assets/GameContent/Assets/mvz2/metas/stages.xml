@@ -955,6 +955,7 @@
 			<entry id="mvz2:pistenser" count="12"/>
 			<entry id="mvz2:soul_furnace" count="6"/>
 			<entry id="mvz2:tnt" count="2"/>
+			<entry id="mvz2:DispenShield" count="6"/>
 		</conveyor>
 		<clear pickupModel="mvz2:entity.money_chest"/>
 		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
@@ -971,6 +972,8 @@
 			<spawn id="mvz2:AngryReverser"/>
 			<spawn id="mvz2:RaiderSkull"/>
 			<spawn id="mvz2:Anubiskull"/>
+			<spawn id="mvz2:WitherSkeletonHorse"/>
+			
 		</spawns>
 		<properties>
 			<bool name="noEnergy" value="true"/>

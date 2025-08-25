@@ -123,6 +123,7 @@
 	<model name="dullahan" type="entity" path="mvz2:enemy/castle/dullahan" width="94" height="120" xOffset="9" yOffset="-53"/>
 	<model name="hell_chariot" type="entity" path="mvz2:enemy/castle/hell_chariot" width="152" height="120" xOffset="9" yOffset="-60"/>
 	<model name="anubisand" type="entity" path="mvz2:enemy/castle/anubisand" width="52" height="88" xOffset="12" yOffset="-41"/>
+	<model name="WitherSkeletonHorse" type="entity" path="mvz2:enemy/castle/WitherSkeletonHorse" width="94" height="80" xOffset="9" yOffset="-33"/>
 
 	<model name="MonkZombie" type="entity" path="mvz2:enemy/mausoleum/MonkZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
 	<model name="LeatherMonkZombie" type="entity" path="mvz2:enemy/mausoleum/LeatherMonkZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
