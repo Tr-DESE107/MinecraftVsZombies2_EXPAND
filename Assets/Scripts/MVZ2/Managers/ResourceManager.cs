@@ -9,7 +9,6 @@ using MVZ2.Metas;
 using MVZ2.Modding;
 using MVZ2.TalkData;
 using MVZ2Logic.Commands;
-using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -18,7 +17,7 @@ using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace MVZ2.Managers
 {
-    public partial class ResourceManager : MonoBehaviour, IGameMetas
+    public partial class ResourceManager : MonoBehaviour
     {
         #region 公有方法
 

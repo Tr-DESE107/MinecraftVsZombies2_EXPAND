@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Contraptions
             var unlockedContraptions = game.GetUnlockedContraptions();
             var validContraptions = unlockedContraptions.Where(id =>
             {
-                if (!game.IsContraptionInAlmanac(id))
+                if (!Global.Almanac.IsContraptionInAlmanac(id))
                     return false;
                 var def = game.GetEntityDefinition(id);
                 if (def.IsUpgradeBlueprint())

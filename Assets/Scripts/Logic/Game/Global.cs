@@ -10,10 +10,11 @@ namespace MVZ2Logic
 {
     public static class Global
     {
-        public static void Init(IMainManager main, IGlobalModels models)
+        public static void Init(IMainManager main, IGlobalModels models, IGlobalAlmanac almanac)
         {
             Main = main;
             Models = models;
+            Almanac = almanac;
         }
         public static bool IsMobile()
         {
@@ -146,6 +147,7 @@ namespace MVZ2Logic
 
         private static IMainManager Main { get; set; }
         public static IGlobalModels Models { get; private set; }
+        public static IGlobalAlmanac Almanac { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
         private static ISceneController Scene => Main.Scene;

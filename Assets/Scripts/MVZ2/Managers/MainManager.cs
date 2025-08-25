@@ -198,8 +198,9 @@ namespace MVZ2.Managers
             Application.targetFrameRate = 60;
 
             var models = new GlobalModels(this);
-            Global.Init(this, models);
-            Game = new Game(BuiltinNamespace, LanguageManager, SaveManager, ResourceManager);
+            var almanac = new GlobalAlmanac(this);
+            Global.Init(this, models, almanac);
+            Game = new Game(BuiltinNamespace, LanguageManager, SaveManager);
         }
         private void InitSerializable()
         {

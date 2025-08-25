@@ -1,0 +1,10 @@
+using PVZEngine;
+
+namespace MVZ2Logic.Games
+{
+    public interface IGlobalAlmanac
+    {
+        bool IsContraptionInAlmanac(NamespaceID id);
+        bool IsEnemyInAlmanac(NamespaceID id);
+    }
+}

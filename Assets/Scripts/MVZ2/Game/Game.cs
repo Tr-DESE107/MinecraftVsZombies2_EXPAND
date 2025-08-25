@@ -6,12 +6,11 @@ namespace MVZ2.Games
 {
     public partial class Game : IGame
     {
-        public Game(string defaultNsp, IGameLocalization localization, IGameSaveData saveDataProvider, IGameMetas metaProvider)
+        public Game(string defaultNsp, IGameLocalization localization, IGameSaveData saveDataProvider)
         {
             DefaultNamespace = defaultNsp;
             this.localization = localization;
             this.saveDataProvider = saveDataProvider;
-            this.metaProvider = metaProvider;
         }
         public bool IsInLevel()
         {

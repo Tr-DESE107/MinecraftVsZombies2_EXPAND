@@ -3,7 +3,7 @@ using PVZEngine.Level;
 
 namespace MVZ2Logic.Games
 {
-    public interface IGame : IGameContent, IGameLocalization, IGameSaveData, IGameMetas, IGameTriggerSystem
+    public interface IGame : IGameContent, IGameLocalization, IGameSaveData, IGameTriggerSystem
     {
         bool IsInLevel();
         LevelEngine GetLevel();
