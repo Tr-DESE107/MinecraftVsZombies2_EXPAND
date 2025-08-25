@@ -1,4 +1,5 @@
-﻿using PVZEngine;
+﻿using MVZ2Logic.Games;
+using PVZEngine;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -10,10 +11,10 @@ namespace MVZ2Logic.Entities
         public static Vector3 GetArmorDisplayPosition(this Entity entity, NamespaceID slot, NamespaceID armorID)
         {
             var shapeID = entity.GetShapeID();
-            var shapeMeta = Global.Game.GetShapeMeta(shapeID);
-            if (shapeMeta != null)
+            var shapeDef = Global.Game.GetShapeDefinition(shapeID);
+            if (shapeDef != null)
             {
-                var offset = shapeMeta.GetArmorPosition(slot, armorID);
+                var offset = shapeDef.GetArmorPosition(slot, armorID);
                 offset.Scale(entity.GetFinalDisplayScale());
                 return offset + entity.Position;
             }
@@ -23,10 +24,10 @@ namespace MVZ2Logic.Entities
         public static Vector3 GetArmorDisplayScale(this Entity entity, NamespaceID slot, NamespaceID armorID)
         {
             var shapeID = entity.GetShapeID();
-            var shapeMeta = Global.Game.GetShapeMeta(shapeID);
-            if (shapeMeta != null)
+            var shapeDef = Global.Game.GetShapeDefinition(shapeID);
+            if (shapeDef != null)
             {
-                var offset = shapeMeta.GetArmorScale(slot, armorID);
+                var offset = shapeDef.GetArmorScale(slot, armorID);
                 offset.Scale(entity.GetFinalDisplayScale());
                 return offset;
             }
@@ -35,7 +36,7 @@ namespace MVZ2Logic.Entities
         public static Vector3 GetArmorOffset(this Entity entity, NamespaceID slot, NamespaceID armorID)
         {
             var shapeID = entity.GetShapeID();
-            var shapeMeta = Global.Game.GetShapeMeta(shapeID);
+            var shapeMeta = Global.Game.GetShapeDefinition(shapeID);
             if (shapeMeta != null)
             {
                 return shapeMeta.GetArmorPosition(slot, armorID);
@@ -45,10 +46,10 @@ namespace MVZ2Logic.Entities
         public static Vector3 GetArmorScale(this Entity entity, NamespaceID slot, NamespaceID armorID)
         {
             var shapeID = entity.GetShapeID();
-            var shapeMeta = Global.Game.GetShapeMeta(shapeID);
-            if (shapeMeta != null)
+            var shapeDef = Global.Game.GetShapeDefinition(shapeID);
+            if (shapeDef != null)
             {
-                return shapeMeta.GetArmorScale(slot, armorID);
+                return shapeDef.GetArmorScale(slot, armorID);
             }
             return Vector3.one;
         }

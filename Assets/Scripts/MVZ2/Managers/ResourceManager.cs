@@ -9,7 +9,6 @@ using MVZ2.Metas;
 using MVZ2.Modding;
 using MVZ2.TalkData;
 using MVZ2Logic.Commands;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
@@ -409,16 +408,11 @@ namespace MVZ2.Managers
                 return default;
             return await Addressables.LoadAssetAsync<T>(loc).Task;
         }
-        #region 接口实现
-        IShapeMeta IGameMetas.GetShapeMeta(NamespaceID id) => GetShapeMeta(id);
-        IShapeMeta[] IGameMetas.GetModShapeMetas(string spaceName) => GetModShapeMetas(spaceName);
 
         string IGameMetas.GetCommandNameByID(NamespaceID id) => GetCommandNameByID(id);
         NamespaceID IGameMetas.GetCommandIDByName(string name) => GetCommandIDByName(name);
         ICommandMeta IGameMetas.GetCommandMeta(NamespaceID id) => GetCommandMeta(id);
         NamespaceID[] IGameMetas.GetAllCommandsID() => GetAllCommandsID();
-        #endregion
-
         #endregion
         public MainManager Main => main;
         [SerializeField]

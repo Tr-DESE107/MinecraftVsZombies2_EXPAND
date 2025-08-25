@@ -1,46 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic.Entities;
+using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Metas
 {
-    public class ShapeMeta : IShapeMeta
+    public class ShapeMeta
     {
         public string ID { get; private set; }
         public ShapeArmorMeta Armors { get; private set; }
-        public Vector3 GetArmorPosition(NamespaceID slotID, NamespaceID armorID)
-        {
-            if (Armors == null)
-                return Vector3.zero;
-            return Armors.GetArmorPosition(slotID, armorID);
-        }
-        public Vector3 GetArmorScale(NamespaceID slotID, NamespaceID armorID)
-        {
-            if (Armors == null)
-                return Vector3.one;
-            return Armors.GetArmorScale(slotID, armorID);
-        }
-        public Vector3 GetArmorModelOffset(NamespaceID slotID, NamespaceID armorID)
-        {
-            if (Armors == null)
-                return Vector3.zero;
-            return Armors.GetArmorModelOffset(slotID, armorID);
-        }
-        public string GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
-        {
-            if (Armors == null)
-                return null;
-            return Armors.GetArmorModelAnchor(slotID, armorID);
-        }
-        public IEnumerable<string> GetAllArmorModelAnchors()
-        {
-            if (Armors == null)
-                return null;
-            return Armors.GetAllArmorModelAnchors();
-        }
         public static ShapeMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -60,7 +30,7 @@ namespace MVZ2.Metas
             };
         }
     }
-    public class ShapeArmorMeta
+    public class ShapeArmorMeta : IShapeDefinitionArmor
     {
         public ShapeArmorSlotMeta[] Slots { get; private set; }
         public Vector3 GetArmorPosition(NamespaceID slotID, NamespaceID armorID)

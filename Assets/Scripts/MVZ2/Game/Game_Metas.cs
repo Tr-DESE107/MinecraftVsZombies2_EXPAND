@@ -1,5 +1,4 @@
 using MVZ2Logic.Commands;
-using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using PVZEngine;
 
@@ -7,14 +6,6 @@ namespace MVZ2.Games
 {
     public partial class Game
     {
-        public IShapeMeta GetShapeMeta(NamespaceID stageID)
-        {
-            return metaProvider.GetShapeMeta(stageID);
-        }
-        public IShapeMeta[] GetModShapeMetas(string spaceName)
-        {
-            return metaProvider.GetModShapeMetas(spaceName);
-        }
         }
         public string GetCommandNameByID(NamespaceID id)
         {

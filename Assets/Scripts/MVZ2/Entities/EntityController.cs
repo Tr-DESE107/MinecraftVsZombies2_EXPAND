@@ -401,10 +401,10 @@ namespace MVZ2.Entities
         }
         public Vector3 GetArmorModelOffset(NamespaceID slotID, NamespaceID armorID)
         {
-            var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
-            if (shapeMeta != null)
+            var shapeDef = Main.Game.GetShapeDefinition(Entity.GetShapeID());
+            if (shapeDef != null)
             {
-                var offset = shapeMeta.GetArmorModelOffset(slotID, armorID);
+                var offset = shapeDef.GetArmorModelOffset(slotID, armorID);
                 offset *= Level.LawnToTransScale;
                 return offset;
             }
@@ -413,10 +413,10 @@ namespace MVZ2.Entities
         public string GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
         {
             var game = Main.Game;
-            var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
-            if (shapeMeta != null)
+            var shapeDef = Main.Game.GetShapeDefinition(Entity.GetShapeID());
+            if (shapeDef != null)
             {
-                var anchor = shapeMeta.GetArmorModelAnchor(slotID, armorID);
+                var anchor = shapeDef.GetArmorModelAnchor(slotID, armorID);
                 if (!string.IsNullOrEmpty(anchor))
                 {
                     return anchor;
@@ -473,10 +473,10 @@ namespace MVZ2.Entities
                     continue;
                 Model.ClearModelAnchor(def.Anchor);
             }
-            var shapeMeta = Main.ResourceManager.GetShapeMeta(Entity.GetShapeID());
-            if (shapeMeta != null)
+            var shapeDef = Main.Game.GetShapeDefinition(Entity.GetShapeID());
+            if (shapeDef != null)
             {
-                var anchors = shapeMeta.GetAllArmorModelAnchors();
+                var anchors = shapeDef.GetAllArmorModelAnchors();
                 foreach (var anchor in anchors)
                 {
                     Model.ClearModelAnchor(anchor);

@@ -15,5 +15,6 @@
         public const string COMMAND = "mvz2:command";
         public const string ARMOR_SLOT = "mvz2:armor_slot";
         public const string ENTITY_COUNTER = "mvz2:entity_counter";
+        public const string SHAPE = "mvz2:shape";
     }
 }
