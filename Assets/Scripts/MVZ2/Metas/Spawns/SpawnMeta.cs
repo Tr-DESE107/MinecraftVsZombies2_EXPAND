@@ -1,11 +1,10 @@
 ﻿using System.Xml;
 using MVZ2.IO;
-using MVZ2Logic.Spawns;
 using PVZEngine;
 
 namespace MVZ2.Metas
 {
-    public class SpawnMeta : ISpawnMeta
+    public class SpawnMeta
     {
         public string ID { get; private set; }
         public string Type { get; private set; }
@@ -19,8 +18,6 @@ namespace MVZ2.Metas
         public bool NoEndless { get; private set; }
         public SpawnTerrainMeta Terrain { get; private set; }
         public SpawnWeightMeta Weight { get; private set; }
-        ISpawnTerrainMeta ISpawnMeta.Terrain => Terrain;
-        ISpawnWeightMeta ISpawnMeta.Weight => Weight;
         public static SpawnMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -83,7 +80,7 @@ namespace MVZ2.Metas
             };
         }
     }
-    public class SpawnTerrainMeta : ISpawnTerrainMeta
+    public class SpawnTerrainMeta
     {
         public NamespaceID[] ExcludedAreaTags { get; private set; }
         public bool Water { get; private set; }
@@ -101,7 +98,7 @@ namespace MVZ2.Metas
             };
         }
     }
-    public class SpawnWeightMeta : ISpawnWeightMeta
+    public class SpawnWeightMeta
     {
         public int Base { get; private set; }
         public int DecreaseStart { get; private set; }

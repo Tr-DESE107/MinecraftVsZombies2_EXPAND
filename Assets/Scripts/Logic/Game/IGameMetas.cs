@@ -1,7 +1,6 @@
 ﻿using MVZ2Logic.Commands;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Level;
-using MVZ2Logic.Spawns;
 using PVZEngine;
 
 namespace MVZ2Logic.Games
@@ -12,8 +11,6 @@ namespace MVZ2Logic.Games
         public IStageMeta[] GetModStageMetas(string spaceName);
         public IShapeMeta GetShapeMeta(NamespaceID id);
         public IShapeMeta[] GetModShapeMetas(string spaceName);
-        public ISpawnMeta GetSpawnMeta(NamespaceID id);
-        public ISpawnMeta[] GetModSpawnMetas(string spaceName);
 
 
         public string GetCommandNameByID(NamespaceID id);

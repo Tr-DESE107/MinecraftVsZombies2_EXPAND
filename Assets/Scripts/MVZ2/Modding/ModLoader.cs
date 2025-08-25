@@ -21,7 +21,6 @@ using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using MVZ2Logic.SeedPacks;
-using MVZ2Logic.Spawns;
 using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Definitions;
@@ -209,7 +208,7 @@ namespace MVZ2.Modding
         private void LoadSpawnMetas(Mod mod)
         {
             var nsp = mod.Namespace;
-            foreach (ISpawnMeta meta in res.GetModSpawnMetas(nsp))
+            foreach (SpawnMeta meta in res.GetModSpawnMetas(nsp))
             {
                 if (meta == null)
                     continue;

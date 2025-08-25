@@ -12,7 +12,6 @@ using MVZ2Logic.Commands;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
-using MVZ2Logic.Spawns;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -417,9 +416,6 @@ namespace MVZ2.Managers
         IStageMeta[] IGameMetas.GetModStageMetas(string spaceName) => GetModStageMetas(spaceName);
         IShapeMeta IGameMetas.GetShapeMeta(NamespaceID id) => GetShapeMeta(id);
         IShapeMeta[] IGameMetas.GetModShapeMetas(string spaceName) => GetModShapeMetas(spaceName);
-        ISpawnMeta IGameMetas.GetSpawnMeta(NamespaceID id) => GetSpawnMeta(id);
-
-        ISpawnMeta[] IGameMetas.GetModSpawnMetas(string spaceName) => GetModSpawnMetas(spaceName);
 
         string IGameMetas.GetCommandNameByID(NamespaceID id) => GetCommandNameByID(id);
         NamespaceID IGameMetas.GetCommandIDByName(string name) => GetCommandIDByName(name);
