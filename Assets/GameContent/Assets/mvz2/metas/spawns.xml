@@ -232,6 +232,10 @@
 		<spawn level="2" minWave="5" />
 		<weight base="2000" />
 	</entry>
+	<entry id="AssaultDullahan" entity="mvz2:AssaultDullahan" >
+		<spawn level="2" minWave="5" />
+		<weight base="2000" />
+	</entry>
 	
     <!-- Mausoleum -->
     <entry id="reflective_barrier_zombie" entity="mvz2:reflective_barrier_zombie" >

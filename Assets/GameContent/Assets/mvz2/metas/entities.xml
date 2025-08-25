@@ -1552,6 +1552,35 @@
 			</properties>
 		</enemy>
 
+		<witherSkeleton id="AssaultDullahan" name="无头强袭骑士" deathMessage="真让人摸不着头脑。" unlock="mvz2:level.castle_6">
+			<properties>
+				<float name="mvz2:maxHealth" value="450" />
+				<vector3 name="mvz2:size" x="38" y="77" z="38" />
+				<id name="mvz2:shell" value="mvz2:nether" />
+				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
+				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
+				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+
+				<int name="mvz2:cost" value="175" />
+				<id name="mvz2:shape" value="mvz2:dullahan" />
+			</properties>
+		</witherSkeleton>
+
+		<enemy id="BerserkerHead" name="狂战士头颅" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+			<properties>
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:speed" value="2" />
+				<id name="mvz2:shell" value="mvz2:nether" />
+				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
+				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
+				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+				<id name="mvz2:shape" value="mvz2:dullahan_head" />
+				<vector3 name="mvz2:size" x="38" y="26" z="38" />
+
+				<int name="mvz2:cost" value="50" />
+			</properties>
+		</enemy>
+
 		<enemy id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！"
             unlock="mvz2:level.castle_8">
             <behaviours>

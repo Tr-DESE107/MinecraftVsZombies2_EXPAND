@@ -973,6 +973,7 @@
 			<spawn id="mvz2:RaiderSkull"/>
 			<spawn id="mvz2:Anubiskull"/>
 			<spawn id="mvz2:WitherSkeletonHorse"/>
+			<spawn id="mvz2:AssaultDullahan"/>
 			
 		</spawns>
 		<properties>
