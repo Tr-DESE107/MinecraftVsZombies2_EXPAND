@@ -33,14 +33,14 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 if (entity.Type == EntityTypes.ENEMY)
                 {
-                    Global.AddSaveStat(VanillaStats.CATEGORY_IZ_ENEMY_PLACE, entity.GetDefinitionID(), 1);
+                    Global.Saves.AddStat(VanillaStats.CATEGORY_IZ_ENEMY_PLACE, entity.GetDefinitionID(), 1);
                 }
             }
             else
             {
                 if (entity.Type == EntityTypes.PLANT)
                 {
-                    Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_PLACE, entity.GetDefinitionID(), 1);
+                    Global.Saves.AddStat(VanillaStats.CATEGORY_CONTRAPTION_PLACE, entity.GetDefinitionID(), 1);
                 }
             }
         }
@@ -49,24 +49,24 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var entity = param.entity;
             if (entity.Level.IsIZombie())
             {
-                Global.AddSaveStat(VanillaStats.CATEGORY_IZ_CONTRAPTION_DESTROY, entity.GetDefinitionID(), 1);
+                Global.Saves.AddStat(VanillaStats.CATEGORY_IZ_CONTRAPTION_DESTROY, entity.GetDefinitionID(), 1);
             }
             else
             {
-                Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_DESTROY, entity.GetDefinitionID(), 1);
+                Global.Saves.AddStat(VanillaStats.CATEGORY_CONTRAPTION_DESTROY, entity.GetDefinitionID(), 1);
             }
         }
         private void PostContraptionEvokeCallback(EntityCallbackParams param, CallbackResult result)
         {
             var entity = param.entity;
-            Global.AddSaveStat(VanillaStats.CATEGORY_CONTRAPTION_EVOKE, entity.GetDefinitionID(), 1);
+            Global.Saves.AddStat(VanillaStats.CATEGORY_CONTRAPTION_EVOKE, entity.GetDefinitionID(), 1);
         }
         private void PostEnemySpawnedCallback(EntityCallbackParams param, CallbackResult result)
         {
             var entity = param.entity;
             if (!entity.Level.IsIZombie())
             {
-                Global.AddSaveStat(VanillaStats.CATEGORY_ENEMY_SPAWN, entity.GetDefinitionID(), 1);
+                Global.Saves.AddStat(VanillaStats.CATEGORY_ENEMY_SPAWN, entity.GetDefinitionID(), 1);
             }
         }
         private void PostEnemyNeutralizeCallback(EntityCallbackParams param, CallbackResult result)
@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var entity = param.entity;
             if (!entity.Level.IsIZombie())
             {
-                Global.AddSaveStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, entity.GetDefinitionID(), 1);
+                Global.Saves.AddStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, entity.GetDefinitionID(), 1);
             }
         }
         private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
@@ -82,7 +82,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var entity = param.entity;
             if (entity.Level.IsIZombie())
             {
-                Global.AddSaveStat(VanillaStats.CATEGORY_IZ_ENEMY_DEATH, entity.GetDefinitionID(), 1);
+                Global.Saves.AddStat(VanillaStats.CATEGORY_IZ_ENEMY_DEATH, entity.GetDefinitionID(), 1);
             }
         }
         private void PostGameOverCallback(LevelCallbacks.PostGameOverParams param, CallbackResult result)
@@ -91,13 +91,13 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var level = param.level;
             if (level.IsIZombie())
             {
-                Global.AddSaveStat(VanillaStats.CATEGORY_IZ_GAME_OVER, level.StageID, 1);
+                Global.Saves.AddStat(VanillaStats.CATEGORY_IZ_GAME_OVER, level.StageID, 1);
             }
             else
             {
                 if (killer != null)
                 {
-                    Global.AddSaveStat(VanillaStats.CATEGORY_ENEMY_GAME_OVER, killer.GetDefinitionID(), 1);
+                    Global.Saves.AddStat(VanillaStats.CATEGORY_ENEMY_GAME_OVER, killer.GetDefinitionID(), 1);
                 }
             }
         }

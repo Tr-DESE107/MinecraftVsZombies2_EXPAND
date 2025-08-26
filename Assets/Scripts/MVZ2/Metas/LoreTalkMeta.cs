@@ -28,7 +28,7 @@ namespace MVZ2.Metas
                 Talks = metas.ToArray()
             };
         }
-        public NamespaceID[] GetLoreTalks(IGameSaveData save)
+        public NamespaceID[] GetLoreTalks(IGlobalSaveData save)
         {
             List<NamespaceID> results = new List<NamespaceID>();
             foreach (var talk in Talks)

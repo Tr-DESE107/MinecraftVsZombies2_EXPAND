@@ -126,8 +126,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
             }
             private void TryBuySeventhSlot(ITalkSystem system)
             {
-                var game = Global.Game;
-                if (game.GetMoney() >= 750)
+                var saves = Global.Saves;
+                if (saves.GetMoney() >= 750)
                 {
                     level.ShowMoney();
                     level.SetMoneyFade(false);
@@ -153,12 +153,13 @@ namespace MVZ2.GameContent.GlobalCallbacks
 
                 system.ShowDialog(title, desc, options, (index) =>
                 {
+                    var saves = Global.Saves;
                     switch (index)
                     {
                         case 0:
-                            game.AddMoney(-750);
-                            game.Unlock(VanillaUnlockID.blueprintSlot1);
-                            game.SaveToFile(); // 完成蓝图槽位交易后保存游戏。
+                            saves.AddMoney(-750);
+                            saves.Unlock(VanillaUnlockID.blueprintSlot1);
+                            saves.SaveToFile(); // 完成蓝图槽位交易后保存游戏。
                             level.UpdatePersistentLevelUnlocks();
                             system.StartSection(3);
                             level.SetMoneyFade(true);
@@ -180,30 +181,31 @@ namespace MVZ2.GameContent.GlobalCallbacks
             }
             public override void TalkAction(ITalkSystem system, string cmd, string[] parameters)
             {
+                var saves = Global.Saves;
                 switch (cmd)
                 {
                     case "goto_dream":
-                        Global.Game.Unlock(VanillaUnlockID.enteredDream);
-                        Global.Game.SetLastMapID(VanillaMapID.dream);
-                        Global.Game.SaveToFile(); // 进入梦境过渡时保存游戏
+                        saves.Unlock(VanillaUnlockID.enteredDream);
+                        saves.SetLastMapID(VanillaMapID.dream);
+                        saves.SaveToFile(); // 进入梦境过渡时保存游戏
                         Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
                         break;
                     case "show_nightmare":
                         map.SetPreset(VanillaMapPresetID.nightmare);
-                        Global.Game.Unlock(VanillaUnlockID.dreamIsNightmare);
-                        Global.Game.SaveToFile(); // 转换到噩梦世界时保存游戏
+                        saves.Unlock(VanillaUnlockID.dreamIsNightmare);
+                        saves.SaveToFile(); // 转换到噩梦世界时保存游戏
                         break;
                     case "goto_castle":
-                        Global.Game.SetLastMapID(VanillaMapID.castle);
-                        Global.Game.SaveToFile(); // 进入辉针城过渡时保存游戏
+                        saves.SetLastMapID(VanillaMapID.castle);
+                        saves.SaveToFile(); // 进入辉针城过渡时保存游戏
                         Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
                         break;
                     case "chapter_3_finish":
                         Global.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo));
                         break;
                     case "goto_mausoleum":
-                        Global.Game.SetLastMapID(VanillaMapID.mausoleum);
-                        Global.Game.SaveToFile(); // 进入大祀庙过渡时保存游戏
+                        saves.SetLastMapID(VanillaMapID.mausoleum);
+                        saves.SaveToFile(); // 进入大祀庙过渡时保存游戏
                         Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.mausoleum, VanillaAreaID.mausoleum, VanillaStageID.mausoleum1));
                         break;
                     case "chapter_4_finish":

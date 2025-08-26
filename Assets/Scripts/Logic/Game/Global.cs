@@ -10,11 +10,12 @@ namespace MVZ2Logic
 {
     public static class Global
     {
-        public static void Init(IMainManager main, IGlobalModels models, IGlobalAlmanac almanac)
+        public static void Init(GlobalParams param)
         {
-            Main = main;
-            Models = models;
-            Almanac = almanac;
+            Main = param.main;
+            Models = param.models;
+            Almanac = param.almanac;
+            Saves = param.saveData;
         }
         public static bool IsMobile()
         {
@@ -115,20 +116,6 @@ namespace MVZ2Logic
         }
         #endregion
 
-        #region 统计
-        public static long GetSaveStat(NamespaceID category, NamespaceID entry)
-        {
-            return Saves.GetSaveStat(category, entry);
-        }
-        public static void SetSaveStat(NamespaceID category, NamespaceID entry, long value)
-        {
-            Saves.SetSaveStat(category, entry, value);
-        }
-        public static void AddSaveStat(NamespaceID category, NamespaceID entry, long value)
-        {
-            SetSaveStat(category, entry, GetSaveStat(category, entry) + value);
-        }
-        #endregion
 
         #region 调试
         public static string[] GetCommandHistory()
@@ -148,14 +135,20 @@ namespace MVZ2Logic
         private static IMainManager Main { get; set; }
         public static IGlobalModels Models { get; private set; }
         public static IGlobalAlmanac Almanac { get; private set; }
+        public static IGlobalSaveData Saves { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
         private static ISceneController Scene => Main.Scene;
         private static IMusicManager Music => Main.Music;
         private static ILevelManager Level => Main.Level;
         private static IOptionsManager Options => Main.Options;
-        private static IGlobalSave Saves => Main.Saves;
-        private static IDebugManager Debugs => Main.Debugs;
+    }
+    public struct GlobalParams
+    {
+        public IMainManager main;
+        public IGlobalModels models;
+        public IGlobalAlmanac almanac;
+        public IGlobalSaveData saveData;
     }
     public interface IMainManager
     {
@@ -166,7 +159,6 @@ namespace MVZ2Logic
         IMusicManager Music { get; }
         ILevelManager Level { get; }
         IOptionsManager Options { get; }
-        IGlobalSave Saves { get; }
         IInputManager Input { get; }
         IDebugManager Debugs { get; }
     }
@@ -202,11 +194,6 @@ namespace MVZ2Logic
     {
         bool HasBloodAndGore();
         bool IsTriggerSwapped();
-    }
-    public interface IGlobalSave
-    {
-        long GetSaveStat(NamespaceID category, NamespaceID entry);
-        void SetSaveStat(NamespaceID category, NamespaceID entry, long value);
     }
     public interface IInputManager
     {

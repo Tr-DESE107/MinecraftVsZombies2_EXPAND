@@ -199,8 +199,15 @@ namespace MVZ2.Managers
 
             var models = new GlobalModels(this);
             var almanac = new GlobalAlmanac(this);
-            Global.Init(this, models, almanac);
-            Game = new Game(BuiltinNamespace, LanguageManager, SaveManager);
+            var saveData = SaveManager;
+            Global.Init(new GlobalParams()
+            {
+                main = this,
+                models = models,
+                almanac = almanac,
+                saveData = saveData
+            });
+            Game = new Game(BuiltinNamespace, LanguageManager);
         }
         private void InitSerializable()
         {
@@ -338,7 +345,6 @@ namespace MVZ2.Managers
         IMusicManager IMainManager.Music => music;
         ILevelManager IMainManager.Level => level;
         IOptionsManager IMainManager.Options => options;
-        IGlobalSave IMainManager.Saves => save;
         IInputManager IMainManager.Input => inputManager;
         IDebugManager IMainManager.Debugs => debugManager;
 

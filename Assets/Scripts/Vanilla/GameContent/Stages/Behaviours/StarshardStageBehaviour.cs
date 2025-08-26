@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Stages
         public override void PostEnemySpawned(Entity entity)
         {
             base.PostEnemySpawned(entity);
-            if (!Global.Game.IsStarshardUnlocked())
+            if (!Global.Saves.IsStarshardUnlocked())
                 return;
             if (entity.HasNoReward())
                 return;

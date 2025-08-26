@@ -19,21 +19,21 @@ namespace MVZ2.GameContent.GlobalCallbacks
         public void IsSpecialUserNameCallback(StringCallbackParams param, CallbackResult result)
         {
             var name = param.text;
-            if (Global.Game.IsRandomChinaUserName(name))
+            if (Global.Saves.IsRandomChinaUserName(name))
             {
                 result.SetValue(true);
             }
         }
         public void GetBlueprintSlotCountCallback(EmptyCallbackParams param, CallbackResult result)
         {
-            if (!Global.Game.IsRandomChina())
+            if (!Global.Saves.IsRandomChina())
                 return;
             var value = result.GetValue<int>();
             result.SetValue(value - 2);
         }
         public void GetInnateBlueprintsCallback(LogicCallbacks.GetInnateBlueprintsParams param, CallbackResult result)
         {
-            if (!Global.Game.IsRandomChina())
+            if (!Global.Saves.IsRandomChina())
                 return;
             param.list.Add(VanillaContraptionID.randomChina);
         }

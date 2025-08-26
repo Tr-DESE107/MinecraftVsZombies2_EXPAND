@@ -67,7 +67,7 @@ namespace MVZ2.GameContent.Areas
 
         private void UpdateNightmareOrDream(LevelEngine level)
         {
-            if (Global.Game.DreamIsNightmare())
+            if (Global.Saves.DreamIsNightmare())
             {
                 SetToNightmare(level);
             }

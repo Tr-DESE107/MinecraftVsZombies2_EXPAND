@@ -20,7 +20,7 @@ using UnityEngine;
 
 namespace MVZ2.Saves
 {
-    public partial class SaveManager : MonoBehaviour, IGameSaveData, IGlobalSave
+    public partial class SaveManager : MonoBehaviour, IGlobalSaveData
     {
         #region 保存
         public void SaveToFile()
@@ -371,14 +371,14 @@ namespace MVZ2.Saves
                 return null;
             return saveData.GetAllStats();
         }
-        public long GetSaveStat(NamespaceID category, NamespaceID entry)
+        public long GetStat(NamespaceID category, NamespaceID entry)
         {
             var saveData = GetModSaveData(category.SpaceName);
             if (saveData == null)
                 return 0;
             return saveData.GetStat(category.Path, entry);
         }
-        public void SetSaveStat(NamespaceID category, NamespaceID entry, long value)
+        public void SetStat(NamespaceID category, NamespaceID entry, long value)
         {
             var saveData = GetModSaveData(category.SpaceName);
             if (saveData == null)

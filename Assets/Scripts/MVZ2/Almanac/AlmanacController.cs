@@ -342,7 +342,7 @@ namespace MVZ2.Almanacs
                 name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(type), entry.name);
             }
 
-            bool encountered = Main.SaveManager.IsUnlocked(entry.encounterUnlock) || Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
+            bool encountered = Main.SaveManager.IsUnlocked(entry.encounterUnlock) || Main.SaveManager.GetStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
             if (encountered)
             {
                 UpdateEntryTags(AlmanacPageType.Enemies, type, enemyID);

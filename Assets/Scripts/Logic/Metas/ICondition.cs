@@ -4,10 +4,10 @@ namespace MVZ2Logic.Conditions
 {
     public interface IConditionList
     {
-        bool MeetsConditions(IGameSaveData save);
+        bool MeetsConditions(IGlobalSaveData save);
     }
     public interface ICondition
     {
-        bool MeetsCondition(IGameSaveData save);
+        bool MeetsCondition(IGlobalSaveData save);
     }
 }

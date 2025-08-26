@@ -72,7 +72,7 @@ namespace MVZ2.GameContent.Effects
         {
             base.PostRemove(entity);
             var level = entity.Level;
-            if (level.AreaID == VanillaAreaID.dream && !Global.Game.IsUnlocked(VanillaUnlockID.bottledBlackhole))
+            if (level.AreaID == VanillaAreaID.dream && !Global.Saves.IsUnlocked(VanillaUnlockID.bottledBlackhole))
             {
                 if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.artifactPickup) && ArtifactPickup.GetArtifactID(e) == VanillaArtifactID.bottledBlackhole))
                 {

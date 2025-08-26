@@ -15,7 +15,7 @@ namespace MVZ2.GameContent.Placements
     {
         public override NamespaceID GetPlaceError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
         {
-            if (!Global.Game.IsUnlocked(VanillaUnlockID.obsidianFirstAid))
+            if (!Global.Saves.IsUnlocked(VanillaUnlockID.obsidianFirstAid))
                 return VanillaGridStatus.notUnlocked;
             if (!entity.IsDefensive())
                 return VanillaGridStatus.firstAid;

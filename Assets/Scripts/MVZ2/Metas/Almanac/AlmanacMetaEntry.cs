@@ -136,7 +136,7 @@ namespace MVZ2.Metas
         {
             return !NamespaceID.IsValid(id);
         }
-        public string[] GetValidFlavors(IGameSaveData save)
+        public string[] GetValidFlavors(IGlobalSaveData save)
         {
             return flavors.Where(f => f.conditions == null || save.MeetsXMLConditions(f.conditions)).Select(f => f.text).ToArray();
         }

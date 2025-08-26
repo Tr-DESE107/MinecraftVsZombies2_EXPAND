@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Effects
                 if (entity.Level.EntityExists(e => e.IsHostileEntity() && e.Type == EntityTypes.ENEMY && !e.IsNotActiveEnemy() && e.GetLane() == lane && e.Position.x < rightX))
                 {
                     SetPass(entity, true);
-                    Global.AddSaveStat(VanillaStats.CATEGORY_IZ_OBSERVER_TRIGGER, entity.Level.StageID, 1);
+                    Global.Saves.AddStat(VanillaStats.CATEGORY_IZ_OBSERVER_TRIGGER, entity.Level.StageID, 1);
                     entity.Produce(VanillaPickupID.emerald);
                     entity.PlaySound(VanillaSoundID.gulp);
                 }

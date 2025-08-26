@@ -243,7 +243,7 @@ namespace MVZ2.GameContent.HeldItems
 
         private bool IsTriggerSwapped()
         {
-            return Global.Game.IsUnlocked(VanillaUnlockID.trigger) && Global.IsTriggerSwapped();
+            return Global.Saves.IsUnlocked(VanillaUnlockID.trigger) && Global.IsTriggerSwapped();
         }
         private bool IsValidPointer(PointerInteractionData pointerParams)
         {

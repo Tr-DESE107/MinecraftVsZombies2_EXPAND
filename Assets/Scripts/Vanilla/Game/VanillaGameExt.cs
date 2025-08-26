@@ -5,12 +5,12 @@ namespace MVZ2.Vanilla.Game
 {
     public static class VanillaGameExt
     {
-        public static bool IsRandomChina(this IGame game)
+        public static bool IsRandomChina(this IGlobalSaveData saves)
         {
-            var userName = game.GetCurrentUserName();
-            return game.IsRandomChinaUserName(userName);
+            var userName = saves.GetCurrentUserName();
+            return saves.IsRandomChinaUserName(userName);
         }
-        public static bool IsRandomChinaUserName(this IGame game, string name)
+        public static bool IsRandomChinaUserName(this IGlobalSaveData saves, string name)
         {
             if (string.IsNullOrEmpty(name))
                 return false;

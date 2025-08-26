@@ -1,22 +1,32 @@
-﻿using MVZ2Logic.Saves;
+using MVZ2Logic.Saves;
 using PVZEngine;
 
 namespace MVZ2Logic.Games
 {
-    public interface IGameSaveData
+    public interface IGlobalSaveData
     {
         bool IsUnlocked(NamespaceID unlockID);
         void Unlock(NamespaceID unlockID);
         void Relock(NamespaceID unlockID);
         bool IsContraptionUnlocked(NamespaceID contraptionID);
-        NamespaceID[] GetUnlockedContraptions();
         bool IsEnemyUnlocked(NamespaceID contraptionID);
-        NamespaceID[] GetUnlockedEnemies();
         bool IsArtifactUnlocked(NamespaceID id);
+        NamespaceID[] GetUnlockedContraptions();
+        NamespaceID[] GetUnlockedEnemies();
         NamespaceID[] GetUnlockedArtifacts();
-        T GetModSaveData<T>(string spaceName);
-        string GetCurrentUserName();
+
         ModSaveData GetModSaveData(string spaceName);
+        T GetModSaveData<T>(string spaceName);
+
+        string GetCurrentUserName();
+
         void SaveToFile();
+
+        long GetStat(NamespaceID category, NamespaceID entry);
+        void SetStat(NamespaceID category, NamespaceID entry, long value);
+        void AddStat(NamespaceID category, NamespaceID entry, long value)
+        {
+            SetStat(category, entry, GetStat(category, entry) + value);
+        }
     }
 }

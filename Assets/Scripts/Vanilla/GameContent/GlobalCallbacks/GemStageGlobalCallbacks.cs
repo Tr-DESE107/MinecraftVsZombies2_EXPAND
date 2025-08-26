@@ -49,10 +49,10 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var level = pickup.Level;
             if (!level.HasBehaviour<GemStageBehaviour>())
                 return;
-            if (!Global.Game.IsUnlocked(VanillaUnlockID.money))
+            if (!Global.Saves.IsUnlocked(VanillaUnlockID.money))
             {
-                Global.Game.Unlock(VanillaUnlockID.money);
-                Global.Game.SaveToFile(); // 解锁宝石后保存游戏。
+                Global.Saves.Unlock(VanillaUnlockID.money);
+                Global.Saves.SaveToFile(); // 解锁宝石后保存游戏。
                 level.SetHintArrowPointToEntity(pickup);
                 level.SetProperty(FIRST_GEM, new EntityID(pickup));
                 var adviceContext = CONTEXT_ADVICE_COLLECT_MONEY;
@@ -69,7 +69,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             if (enemy.HasNoReward())
                 return;
             bool spawnGem = false;
-            if (Global.Game.IsUnlocked(VanillaUnlockID.money))
+            if (Global.Saves.IsUnlocked(VanillaUnlockID.money))
             {
                 spawnGem = enemy.DropRNG.Next(10) < 1;
             }

@@ -53,8 +53,8 @@ namespace MVZ2.GameContent.Enemies
             {
                 if (info.Effects.HasEffect(VanillaDamageEffects.DROWN) && !entity.Level.IsIZombie())
                 {
-                    Global.Game.Unlock(VanillaUnlockID.rickrollDrown);
-                    Global.Game.SaveToFile(); // 完成成就后保存游戏。
+                    Global.Saves.Unlock(VanillaUnlockID.rickrollDrown);
+                    Global.Saves.SaveToFile(); // 完成成就后保存游戏。
                 }
             }
         }

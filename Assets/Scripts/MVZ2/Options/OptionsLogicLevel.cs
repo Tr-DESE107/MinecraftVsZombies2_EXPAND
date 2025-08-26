@@ -4,6 +4,7 @@ using MVZ2.Level;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
 
 namespace MVZ2.Options
 {
@@ -84,7 +85,7 @@ namespace MVZ2.Options
         #region 更新元素
         protected void UpdateLeaveLevelButton()
         {
-            var textKey = Main.SaveManager.IsLevelCleared(VanillaStageID.prologue) ? VanillaStrings.BACK_TO_MAP : VanillaStrings.BACK_TO_MAINMENU;
+            var textKey = Global.Saves.IsLevelCleared(VanillaStageID.prologue) ? VanillaStrings.BACK_TO_MAP : VanillaStrings.BACK_TO_MAINMENU;
             var text = Main.LanguageManager._(textKey);
             dialog.SetButtonText(TextButtonType.LeaveLevel, text);
         }

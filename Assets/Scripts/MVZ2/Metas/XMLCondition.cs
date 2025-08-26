@@ -19,7 +19,7 @@ namespace MVZ2.Metas
                 RequiredNot = requiredNot
             };
         }
-        public bool MeetsCondition(IGameSaveData save)
+        public bool MeetsCondition(IGlobalSaveData save)
         {
             if (Required != null && Required.Any(c => !save.IsUnlocked(c)))
                 return false;

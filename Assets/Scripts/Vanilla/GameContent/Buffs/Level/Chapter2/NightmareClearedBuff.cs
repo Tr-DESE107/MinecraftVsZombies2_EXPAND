@@ -60,7 +60,7 @@ namespace MVZ2.GameContent.Buffs.Level
             {
                 if (timeout == LIGHT_FADE_TIMEOUT)
                 {
-                    Global.Game.Relock(VanillaUnlockID.dreamIsNightmare);
+                    Global.Saves.Relock(VanillaUnlockID.dreamIsNightmare);
                     level.Clear();
                 }
                 // 屏幕恢复

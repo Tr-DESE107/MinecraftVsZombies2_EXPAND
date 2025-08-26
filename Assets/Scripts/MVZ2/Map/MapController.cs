@@ -84,7 +84,7 @@ namespace MVZ2.Map
                 ui.SetButtonActive(MapUI.ButtonType.Map, false);
                 ui.SetHintText(null);
             }
-            Global.Game.SaveToFile(); // 进入地图时保存游戏
+            Global.Saves.SaveToFile(); // 进入地图时保存游戏
 
             // 对话
             HideUIArrows();
@@ -114,7 +114,7 @@ namespace MVZ2.Map
             }
             UpdateUIArrows();
             Main.SaveManager.SetMapTalk(null);
-            Global.Game.SaveToFile(); // 完成进入地图对话时保存游戏
+            Global.Saves.SaveToFile(); // 完成进入地图对话时保存游戏
         }
         public void SetMapPreset(MapPreset mapPreset)
         {
@@ -687,7 +687,7 @@ namespace MVZ2.Map
             var stageID = mapMeta.endlessStage;
             if (!NamespaceID.IsValid(stageID))
                 return 0;
-            return (int)Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
+            return (int)Main.SaveManager.GetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
         }
         private void ReloadMap()
         {

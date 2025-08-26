@@ -810,10 +810,10 @@ namespace MVZ2.Vanilla.Level
         }
         public static void UpdatePersistentLevelUnlocks(this LevelEngine level)
         {
-            var game = Global.Game;
-            level.SetSeedSlotCount(game.GetBlueprintSlots());
-            level.SetStarshardSlotCount(game.GetStarshardSlots());
-            level.SetArtifactSlotCount(game.GetArtifactSlots());
+            var saves = Global.Saves;
+            level.SetSeedSlotCount(saves.GetBlueprintSlots());
+            level.SetStarshardSlotCount(saves.GetStarshardSlots());
+            level.SetArtifactSlotCount(saves.GetArtifactSlots());
         }
         public static bool ValidateGridOutOfBounds(this LevelEngine level, Vector2Int position)
         {

@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.fire));
             }
             // 忠诚
-            if (entityDef.IsLoyal() && Global.Game.IsUnlocked(VanillaUnlockID.castle1))
+            if (entityDef.IsLoyal() && Global.Saves.IsUnlocked(VanillaUnlockID.castle1))
             {
                 tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.loyal));
             }

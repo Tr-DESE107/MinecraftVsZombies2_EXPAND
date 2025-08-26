@@ -209,8 +209,8 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             if (entity.HasBuff<PunchtonAchievementBuff>() && !entity.Level.IsIZombie())
             {
-                Global.Game.Unlock(VanillaUnlockID.doubleTrouble);
-                Global.Game.SaveToFile(); // 完成成就后保存游戏。
+                Global.Saves.Unlock(VanillaUnlockID.doubleTrouble);
+                Global.Saves.SaveToFile(); // 完成成就后保存游戏。
             }
             else
             {

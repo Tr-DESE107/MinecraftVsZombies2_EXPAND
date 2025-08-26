@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Contraptions
             var level = entity.Level;
             var rng = entity.RNG;
             entity.ClearTakenGrids();
-            var unlockedContraptions = game.GetUnlockedContraptions();
+            var unlockedContraptions = Global.Saves.GetUnlockedContraptions();
             var validContraptions = unlockedContraptions.Where(id =>
             {
                 if (!Global.Almanac.IsContraptionInAlmanac(id))

@@ -59,9 +59,9 @@ namespace MVZ2.GameContent.Stages
             var level = param.level;
             if (!level.IsEndless())
                 return;
-            if (Global.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
+            if (Global.Saves.GetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID) < level.CurrentFlag)
             {
-                Global.SetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
+                Global.Saves.SetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, level.StageID, level.CurrentFlag);
             }
         }
         #region 更新关卡
@@ -130,7 +130,7 @@ namespace MVZ2.GameContent.Stages
                 }
 
                 var game = Global.Game;
-                NamespaceID[] enemies = game.GetUnlockedEnemies();
+                NamespaceID[] enemies = Global.Saves.GetUnlockedEnemies();
 
                 var areaDef = level.AreaDefinition;
                 var validEnemies = enemies

@@ -28,7 +28,7 @@ namespace MVZ2.Metas
             return new XMLConditionList(conditions.ToArray());
         }
 
-        public bool MeetsConditions(IGameSaveData save)
+        public bool MeetsConditions(IGlobalSaveData save)
         {
             return Conditions.Any(c => c.MeetsCondition(save));
         }

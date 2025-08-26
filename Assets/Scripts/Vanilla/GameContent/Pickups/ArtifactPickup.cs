@@ -27,11 +27,12 @@ namespace MVZ2.GameContent.Pickups
             base.PostCollect(pickup);
             var level = pickup.Level;
             var artifactID = GetArtifactID(pickup);
-            if (!Global.Game.IsArtifactUnlocked(artifactID))
+            var saves = Global.Saves;
+            if (!saves.IsArtifactUnlocked(artifactID))
             {
                 var unlockID = VanillaArtifactID.GetUnlockID(artifactID);
-                Global.Game.Unlock(unlockID);
-                Global.Game.SaveToFile(); // 获得制品后保存游戏。
+                saves.Unlock(unlockID);
+                saves.SaveToFile(); // 获得制品后保存游戏。
                 level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_YOU_FOUND_A_NEW_ARTIFACT, 0, 150);
             }
             level.PlaySound(pickup.GetCollectSound());

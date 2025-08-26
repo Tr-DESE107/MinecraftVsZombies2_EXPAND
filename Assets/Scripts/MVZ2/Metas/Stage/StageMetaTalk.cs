@@ -33,7 +33,7 @@ namespace MVZ2.Metas
                 RepeatCondition = repeatCondition
             };
         }
-        public bool ShouldRepeat(IGameSaveData save)
+        public bool ShouldRepeat(IGlobalSaveData save)
         {
             if (RepeatCondition == null)
                 return false;

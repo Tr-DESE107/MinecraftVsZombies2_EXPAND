@@ -31,8 +31,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 var killedByFriendlyEnemy = info.Source.IsEntitySourceOf(level, (s, def) => def.Type == EntityTypes.ENEMY && level.IsFriendlyFaction(s.Faction));
                 if (killedByFriendlyEnemy)
                 {
-                    Global.Game.Unlock(VanillaUnlockID.mesmerisedMatchup);
-                    Global.Game.SaveToFile(); // 完成成就后保存游戏。
+                    Global.Saves.Unlock(VanillaUnlockID.mesmerisedMatchup);
+                    Global.Saves.SaveToFile(); // 完成成就后保存游戏。
                 }
             }
         }
@@ -42,8 +42,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var info = param.deathInfo;
             if (entity.IsEntityOf(VanillaEnemyID.skeleton) && info.Effects.HasEffect(VanillaDamageEffects.FALL_DAMAGE) && !entity.Level.IsIZombie())
             {
-                Global.Game.Unlock(VanillaUnlockID.bonebreaker);
-                Global.Game.SaveToFile(); // 完成成就后保存游戏。
+                Global.Saves.Unlock(VanillaUnlockID.bonebreaker);
+                Global.Saves.SaveToFile(); // 完成成就后保存游戏。
             }
 
             if (entity.IsFriendlyEntity() && !entity.Level.IsIZombie())
@@ -52,15 +52,15 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 var killedByHostileContraption = info.Source.IsEntitySourceOf(level, (s, def) => def.Type == EntityTypes.PLANT && level.IsHostileFaction(s.Faction));
                 if (killedByHostileContraption)
                 {
-                    Global.Game.Unlock(VanillaUnlockID.mesmerisedMatchup);
-                    Global.Game.SaveToFile(); // 完成成就后保存游戏。
+                    Global.Saves.Unlock(VanillaUnlockID.mesmerisedMatchup);
+                    Global.Saves.SaveToFile(); // 完成成就后保存游戏。
                 }
             }
         }
         private void PostAnvilObsidianFirstAidCallback(EntityCallbackParams param, CallbackResult result)
         {
-            Global.Game.Unlock(VanillaUnlockID.reforged);
-            Global.Game.SaveToFile(); // 完成成就后保存游戏。
+            Global.Saves.Unlock(VanillaUnlockID.reforged);
+            Global.Saves.SaveToFile(); // 完成成就后保存游戏。
         }
     }
 }

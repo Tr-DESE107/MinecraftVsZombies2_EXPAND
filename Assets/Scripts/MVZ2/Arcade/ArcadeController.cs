@@ -142,7 +142,7 @@ namespace MVZ2.Arcade
             var hint = string.Empty;
             if (unlocked && stageDef.GetStageType() == StageTypes.TYPE_PUZZLE_ENDLESS)
             {
-                var flags = Main.SaveManager.GetSaveStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
+                var flags = Main.SaveManager.GetStat(VanillaStats.CATEGORY_MAX_ENDLESS_FLAGS, stageID);
                 hint = GetTranslatedString(ENDLESS_MAX_STREAKS, flags);
             }
             var icon = Main.GetFinalSprite(meta.Icon);
