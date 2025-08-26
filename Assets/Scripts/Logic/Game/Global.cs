@@ -17,30 +17,11 @@ namespace MVZ2Logic
             Almanac = param.almanac;
             Saves = param.saveData;
             Options = param.options;
+            Input = param.input;
         }
         public static bool IsMobile()
         {
             return Main.IsMobile();
-        }
-        public static Vector2 GetPointerScreenPosition()
-        {
-            if (Input.touchCount > 0)
-            {
-                return Input.GetTouch(0).position;
-            }
-            return Input.mousePosition;
-        }
-        public static bool IsPointerDown(int type, int button)
-        {
-            return Main.Input.IsPointerDown(type, button);
-        }
-        public static bool IsPointerHolding(int type, int button)
-        {
-            return Main.Input.IsPointerHolding(type, button);
-        }
-        public static bool IsPointerUp(int type, int button)
-        {
-            return Main.Input.IsPointerUp(type, button);
         }
 
         public static Coroutine StartCoroutine(IEnumerator enumerator)
@@ -127,6 +108,7 @@ namespace MVZ2Logic
         public static IGlobalAlmanac Almanac { get; private set; }
         public static IGlobalSaveData Saves { get; private set; }
         public static IGlobalOptions Options { get; private set; }
+        public static IGlobalInput Input { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
         private static ISceneController Scene => Main.Scene;
@@ -140,6 +122,7 @@ namespace MVZ2Logic
         public IGlobalAlmanac almanac;
         public IGlobalSaveData saveData;
         public IGlobalOptions options;
+        public IGlobalInput input;
     }
     public interface IMainManager
     {
@@ -149,7 +132,6 @@ namespace MVZ2Logic
         ISceneController Scene { get; }
         IMusicManager Music { get; }
         ILevelManager Level { get; }
-        IInputManager Input { get; }
         IDebugManager Debugs { get; }
     }
     public interface IGlobalModels
@@ -180,16 +162,10 @@ namespace MVZ2Logic
         void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0, LevelExitTarget exitTarget = LevelExitTarget.MapOrMainmenu);
         Coroutine GotoLevelSceneCoroutine();
     }
-    public interface IInputManager
-    {
-        bool IsPointerDown(int type, int button);
-        bool IsPointerHolding(int type, int button);
-        bool IsPointerUp(int type, int button);
     }
     public interface IDebugManager
     {
         string[] GetCommandHistory();
         void ExecuteCommand(string command);
         void ClearConsole();
-    }
 }

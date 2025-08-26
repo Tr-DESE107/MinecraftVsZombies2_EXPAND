@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
+using MVZ2Logic.Games;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace MVZ2.Managers
 {
-    public partial class InputManager : MonoBehaviour, IInputManager
+    public partial class InputManager : MonoBehaviour, IGlobalInput
     {
         #region 检测指针状态
         public static bool IsPointerDown(int type, int button) => IsPointerDown(GetPointerIdByButtonAndType(button, type));
@@ -309,15 +310,19 @@ namespace MVZ2.Managers
             };
             pointerEventCacheList.Add(cache);
         }
-        bool IInputManager.IsPointerDown(int type, int button)
+        Vector2 IGlobalInput.GetPointerScreenPosition()
+        {
+            return GetPointerPosition();
+        }
+        bool IGlobalInput.IsPointerDown(int type, int button)
         {
             return IsPointerDown(type, button);
         }
-        bool IInputManager.IsPointerHolding(int type, int button)
+        bool IGlobalInput.IsPointerHolding(int type, int button)
         {
             return IsPointerHolding(type, button);
         }
-        bool IInputManager.IsPointerUp(int type, int button)
+        bool IGlobalInput.IsPointerUp(int type, int button)
         {
             return IsPointerUp(type, button);
         }
