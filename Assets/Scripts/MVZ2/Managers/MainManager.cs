@@ -210,6 +210,7 @@ namespace MVZ2.Managers
                 input = InputManager,
                 level = LevelManager,
                 music = MusicManager,
+                gui = new GlobalGUI(this),
             });
             Game = new Game(BuiltinNamespace, LanguageManager);
         }

@@ -1,0 +1,9 @@
+using System;
+
+namespace MVZ2Logic.Games
+{
+    public interface IGlobalGUI
+    {
+        void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
+    }
+}

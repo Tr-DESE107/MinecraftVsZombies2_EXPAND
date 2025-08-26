@@ -215,7 +215,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                             var title = Global.Game.GetText(VanillaStrings.UI_GAME_CLEARED);
                             var desc = Global.Game.GetText(VanillaStrings.UI_COMING_SOON);
                             var options = new string[] { Global.Game.GetText(VanillaStrings.CONFIRM) };
-                            Global.ShowDialog(title, desc, options);
+                            Global.GUI.ShowDialog(title, desc, options);
                         }
                         Global.StartCoroutine(coroutineFunc());
                         break;

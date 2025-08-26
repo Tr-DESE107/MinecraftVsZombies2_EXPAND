@@ -19,6 +19,7 @@ namespace MVZ2Logic
             Input = param.input;
             Level = param.level;
             Music = param.music;
+            GUI = param.gui;
         }
         public static bool IsMobile()
         {
@@ -32,10 +33,6 @@ namespace MVZ2Logic
         public static void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0)
         {
             Level.InitLevel(areaId, stageId, introDelay);
-        }
-        public static void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
-        {
-            Scene.ShowDialog(title, desc, options, onSelect);
         }
 
         public static void GotoMainmenuOrMap()
@@ -100,6 +97,7 @@ namespace MVZ2Logic
         public static IGlobalInput Input { get; private set; }
         public static IGlobalLevel Level { get; private set; }
         public static IGlobalMusic Music { get; private set; }
+        public static IGlobalGUI GUI { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
         private static ISceneController Scene => Main.Scene;
@@ -114,6 +112,7 @@ namespace MVZ2Logic
         public IGlobalInput input;
         public IGlobalLevel level;
         public IGlobalMusic music;
+        public IGlobalGUI gui;
     }
     public interface IMainManager
     {
@@ -132,13 +131,12 @@ namespace MVZ2Logic
         void GotoMapOrMainmenu();
         void DisplayPage(MainScenePageType type);
         void DisplayMap(NamespaceID mapID);
+        Coroutine DisplayChapterTransitionCoroutine(NamespaceID chapterID, bool end);
+        void HideChapterTransition();
         void HidePages();
         void FadeScreenCoverColor(Color target, float duration);
         void SetScreenCoverColor(Color value);
-        void HideChapterTransition();
-        void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
         void Print(string text);
-        Coroutine DisplayChapterTransitionCoroutine(NamespaceID chapterID, bool end);
     }
     }
     public interface IDebugManager
