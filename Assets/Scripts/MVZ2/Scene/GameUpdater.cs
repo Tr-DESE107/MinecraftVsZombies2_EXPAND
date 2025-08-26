@@ -12,7 +12,7 @@ namespace MVZ2.Scenes
 
             var fixedInterval = 1 / (float)logicTicksPerSeconds;
 
-            var level = main.LevelManager.GetLevel();
+            var level = main.LevelManager.GetLevelController();
             if (timeModular > fixedInterval)
             {
                 int updateTimes = (int)(timeModular / fixedInterval);

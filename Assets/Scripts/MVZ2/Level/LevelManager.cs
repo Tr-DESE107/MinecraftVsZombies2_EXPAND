@@ -11,6 +11,7 @@ using MVZ2.Scenes;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
+using MVZ2Logic.Games;
 using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
@@ -18,11 +19,21 @@ using UnityEngine.SceneManagement;
 
 namespace MVZ2.Level
 {
-    public class LevelManager : MonoBehaviour, ILevelManager
+    public class LevelManager : MonoBehaviour, IGlobalLevel
     {
-        public LevelController GetLevel()
+        internal void SetLevelController(LevelController controller)
+        {
+            this.controller = controller;
+        }
+        public LevelController GetLevelController()
         {
             return controller;
+        }
+        public LevelEngine GetLevel()
+        {
+            if (!controller)
+                return null;
+            return controller.GetEngine();
         }
         public void InitLevel(NamespaceID areaID, NamespaceID stageID, float beginningDelay = 0, LevelExitTarget exitTarget = LevelExitTarget.MapOrMainmenu)
         {
@@ -191,7 +202,7 @@ namespace MVZ2.Level
                 var ctrl = go.GetComponent<LevelController>();
                 if (ctrl)
                 {
-                    controller = ctrl;
+                    SetLevelController(ctrl);
                     break;
                 }
             }
@@ -205,7 +216,7 @@ namespace MVZ2.Level
             }
         }
 
-        Coroutine ILevelManager.GotoLevelSceneCoroutine()
+        Coroutine IGlobalLevel.GotoLevelSceneCoroutine()
         {
             return Main.CoroutineManager.ToCoroutine(GotoLevelSceneAsync());
         }
@@ -215,7 +226,7 @@ namespace MVZ2.Level
             if (!Scene.IsSceneLoaded(sceneName))
                 return;
             await Scene.UnloadSceneAsync(sceneName);
-            controller = null;
+            SetLevelController(null);
         }
         private void UpdateCurrentEndlessFlags(NamespaceID stageID, int flags)
         {

@@ -21,7 +21,7 @@ namespace MVZ2.GameContent.HeldItems
             var button = param.button;
             if (type != PointerTypes.MOUSE || button != MouseButtons.RIGHT)
                 return;
-            var level = Global.Game.GetLevel();
+            var level = Global.Level.GetLevel();
             if (level == null || !level.IsGameRunning())
                 return;
             var heldItemDef = level.GetHeldItemDefinition();

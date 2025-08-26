@@ -103,9 +103,9 @@ namespace MVZ2.GameContent.Effects
             var screenPosition = param.screenPos;
             var button = param.button;
             var delta = param.delta;
-            if (!Global.Game.IsInLevel())
+            if (!Global.Level.IsInLevel())
                 return;
-            var level = Global.Game.GetLevel();
+            var level = Global.Level.GetLevel();
             if (!level.IsGameRunning())
                 return;
             boardsBuffer.Clear();

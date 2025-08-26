@@ -56,7 +56,6 @@ namespace MVZ2.Level
         }
         private void InitLevelEngine(LevelEngine level, Game game, NamespaceID areaID, NamespaceID stageID)
         {
-            game.SetLevel(level);
             ApplyComponents(level);
             AddLevelCallbacks(level);
 

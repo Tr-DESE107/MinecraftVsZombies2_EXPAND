@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using MVZ2.Logic.Level;
 using MVZ2Logic.Games;
 using MVZ2Logic.Scenes;
 using PVZEngine;
@@ -18,6 +17,7 @@ namespace MVZ2Logic
             Saves = param.saveData;
             Options = param.options;
             Input = param.input;
+            Level = param.level;
         }
         public static bool IsMobile()
         {
@@ -109,11 +109,11 @@ namespace MVZ2Logic
         public static IGlobalSaveData Saves { get; private set; }
         public static IGlobalOptions Options { get; private set; }
         public static IGlobalInput Input { get; private set; }
+        public static IGlobalLevel Level { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
         private static ISceneController Scene => Main.Scene;
         private static IMusicManager Music => Main.Music;
-        private static ILevelManager Level => Main.Level;
     }
     public struct GlobalParams
     {
@@ -123,6 +123,7 @@ namespace MVZ2Logic
         public IGlobalSaveData saveData;
         public IGlobalOptions options;
         public IGlobalInput input;
+        public IGlobalLevel level;
     }
     public interface IMainManager
     {
@@ -131,7 +132,6 @@ namespace MVZ2Logic
         IGame Game { get; }
         ISceneController Scene { get; }
         IMusicManager Music { get; }
-        ILevelManager Level { get; }
         IDebugManager Debugs { get; }
     }
     public interface IGlobalModels
@@ -156,11 +156,6 @@ namespace MVZ2Logic
         void StartFade(float target, float duration);
         void SetVolume(float volume);
         void Stop();
-    }
-    public interface ILevelManager
-    {
-        void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0, LevelExitTarget exitTarget = LevelExitTarget.MapOrMainmenu);
-        Coroutine GotoLevelSceneCoroutine();
     }
     }
     public interface IDebugManager

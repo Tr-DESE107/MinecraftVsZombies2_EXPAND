@@ -146,7 +146,7 @@ namespace MVZ2.Scenes
             bindingKeyIndex = -1;
             Main.OptionsManager.SetKeyBinding(id, code);
 
-            var level = Main.LevelManager.GetLevel();
+            var level = Main.LevelManager.GetLevelController();
             if (level)
             {
                 level.UpdateHotkeyTexts();

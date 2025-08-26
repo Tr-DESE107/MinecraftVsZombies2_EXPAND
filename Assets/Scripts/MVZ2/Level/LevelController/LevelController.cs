@@ -82,7 +82,7 @@ namespace MVZ2.Level
                 level.StopAllLoopSounds();
                 level.Dispose();
             }
-            Game.SetLevel(null);
+            LevelManager.SetLevelController(null);
             isDisposed = true;
         }
         public void UpdateDifficulty()

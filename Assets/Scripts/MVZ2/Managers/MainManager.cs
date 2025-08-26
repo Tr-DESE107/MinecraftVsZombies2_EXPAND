@@ -207,7 +207,8 @@ namespace MVZ2.Managers
                 almanac = almanac,
                 saveData = saveData,
                 options = OptionsManager,
-                input = InputManager
+                input = InputManager,
+                level = LevelManager,
             });
             Game = new Game(BuiltinNamespace, LanguageManager);
         }
@@ -345,7 +346,6 @@ namespace MVZ2.Managers
         public PerformanceManager PerformanceManager => performanceManager;
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
-        ILevelManager IMainManager.Level => level;
         IDebugManager IMainManager.Debugs => debugManager;
 
         private Task initTask;

@@ -348,11 +348,11 @@ namespace MVZ2.Tests
         }
         private static LevelEngine GetLevel()
         {
-            return Global.Game.GetLevel();
+            return Global.Level.GetLevel();
         }
         private static LevelController GetLevelController()
         {
-            return Main.LevelManager.GetLevel();
+            return Main.LevelManager.GetLevelController();
         }
         private static void InitLevel(LevelController level, NamespaceID areaId, NamespaceID stageId)
         {

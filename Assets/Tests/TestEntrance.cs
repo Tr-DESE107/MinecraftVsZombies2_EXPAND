@@ -1,7 +1,5 @@
 ﻿using System.Reflection;
 using System.Threading.Tasks;
-using MVZ2.GameContent.Effects;
-using MVZ2.Games;
 using MVZ2.Managers;
 using MVZ2.Modding;
 using MVZ2.Vanilla;
