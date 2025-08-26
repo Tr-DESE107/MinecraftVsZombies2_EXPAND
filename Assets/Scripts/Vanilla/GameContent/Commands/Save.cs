@@ -13,9 +13,9 @@ namespace MVZ2.GameContent.Commands
         }
         public override void Invoke(string[] parameters)
         {
-            var level = Global.Game.GetLevel();
+            var level = Global.Level.GetLevel();
             level.SaveStateData();
-            PrintLine(Global.Game.GetTextParticular(VanillaStrings.COMMAND_SAVE_SUCCESS, VanillaStrings.CONTEXT_COMMAND_OUTPUT));
+            PrintLine(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_SAVE_SUCCESS, VanillaStrings.CONTEXT_COMMAND_OUTPUT));
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿using MVZ2Logic.Commands;
+using MVZ2Logic.IZombie;
+using PVZEngine;
+
+namespace MVZ2Logic.Debugs
+{
+    [PropertyRegistryRegion(LogicPropertyRegions.command)]
+    public static class LogicCommandProps
+    {
+        private static PropertyMeta<T> Get<T>(string name)
+        {
+            return new PropertyMeta<T>(name);
+        }
+
+        #region 描述
+        public static readonly PropertyMeta<string> DESCRIPTION = Get<string>("description");
+        public static string GetDescription(this CommandDefinition def) => def.GetProperty<string>(DESCRIPTION);
+        public static void SetDescription(this CommandDefinition def, string value) => def.SetProperty(DESCRIPTION, value);
+        #endregion
+
+        #region 必须在关卡中
+        public static readonly PropertyMeta<bool> MUST_IN_LEVEL = Get<bool>("must_in_level");
+        public static bool MustInLevel(this CommandDefinition def) => def.GetProperty<bool>(MUST_IN_LEVEL);
+        #endregion
+
+        #region 变体
+        public static readonly PropertyMeta<ICommandVariantMeta[]> VARIANTS = Get<ICommandVariantMeta[]>("variants");
+        public static ICommandVariantMeta[] GetVariants(this CommandDefinition def) => def.GetProperty<ICommandVariantMeta[]>(VARIANTS);
+        #endregion
+    }
+}

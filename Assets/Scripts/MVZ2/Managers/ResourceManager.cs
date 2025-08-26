@@ -8,7 +8,6 @@ using MVZ2.IO;
 using MVZ2.Metas;
 using MVZ2.Modding;
 using MVZ2.TalkData;
-using MVZ2Logic.Commands;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -26,7 +25,6 @@ namespace MVZ2.Managers
         {
             modResources.Clear();
             spriteReferenceCacheDict.Clear();
-            commandsCacheDict.Clear();
             talksCacheDict.Clear();
             achievementCacheDict.Clear();
             mainmenuViewCacheDict.Clear();
@@ -117,10 +115,6 @@ namespace MVZ2.Managers
             foreach (var meta in modResource.ArmorMetaList.metas)
             {
                 armorsCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
-            }
-            foreach (var meta in modResource.CommandMetaList.metas)
-            {
-                commandsCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
             foreach (var meta in modResource.AchievementMetaList.metas)
             {
@@ -407,11 +401,6 @@ namespace MVZ2.Managers
                 return default;
             return await Addressables.LoadAssetAsync<T>(loc).Task;
         }
-
-        string IGameMetas.GetCommandNameByID(NamespaceID id) => GetCommandNameByID(id);
-        NamespaceID IGameMetas.GetCommandIDByName(string name) => GetCommandIDByName(name);
-        ICommandMeta IGameMetas.GetCommandMeta(NamespaceID id) => GetCommandMeta(id);
-        NamespaceID[] IGameMetas.GetAllCommandsID() => GetAllCommandsID();
         #endregion
         public MainManager Main => main;
         [SerializeField]

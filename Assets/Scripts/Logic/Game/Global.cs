@@ -17,27 +17,8 @@ namespace MVZ2Logic
             Scene = param.scene;
             Game = param.game;
             Localization = param.localization;
+            Debugs = param.debug;
         }
-        public static void Print(string text)
-        {
-            Scene.Print(text);
-        }
-
-
-        #region 调试
-        public static string[] GetCommandHistory()
-        {
-            return Debugs.GetCommandHistory();
-        }
-        public static void ExecuteCommand(string command)
-        {
-            Debugs.ExecuteCommand(command);
-        }
-        public static void ClearConsole()
-        {
-            Debugs.ClearConsole();
-        }
-        #endregion
         public static IGlobalModels Models { get; private set; }
         public static IGlobalAlmanac Almanac { get; private set; }
         public static IGlobalSaveData Saves { get; private set; }
@@ -49,6 +30,7 @@ namespace MVZ2Logic
         public static IGlobalScene Scene { get; private set; }
         public static IGlobalGame Game { get; private set; }
         public static IGlobalLocalization Localization { get; private set; }
+        public static IGlobalDebug Debugs { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
     }
     public struct GlobalParams
@@ -64,13 +46,6 @@ namespace MVZ2Logic
         public IGlobalGUI gui;
         public IGlobalScene scene;
         public IGlobalLocalization localization;
+        public IGlobalDebug debug;
     }
-        IDebugManager Debugs { get; }
-        void Print(string text);
-    }
-    public interface IDebugManager
-    {
-        string[] GetCommandHistory();
-        void ExecuteCommand(string command);
-        void ClearConsole();
 }

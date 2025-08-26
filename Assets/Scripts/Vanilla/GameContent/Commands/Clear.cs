@@ -11,7 +11,7 @@ namespace MVZ2.GameContent.Commands
         }
         public override void Invoke(string[] parameters)
         {
-            Global.ClearConsole();
+            Global.Debugs.ClearConsole();
         }
     }
 }

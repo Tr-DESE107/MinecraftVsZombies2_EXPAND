@@ -208,7 +208,8 @@ namespace MVZ2.Managers
                 gui = new GlobalGUI(this),
                 scene = Scene,
                 game = Game,
-                localization = LanguageManager
+                localization = LanguageManager,
+                debug = DebugManager
             });
         }
         private void InitSerializable()
@@ -341,7 +342,6 @@ namespace MVZ2.Managers
         public DebugManager DebugManager => debugManager;
         public MainSceneController Scene => scene;
         public PerformanceManager PerformanceManager => performanceManager;
-        IDebugManager IMainManager.Debugs => debugManager;
 
         private Task initTask;
         private TaskPipeline loadPipeline;

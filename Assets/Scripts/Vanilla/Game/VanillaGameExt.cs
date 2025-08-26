@@ -21,12 +21,12 @@ namespace MVZ2.Vanilla.Game
             "RandomChina",
             "RandmChina",
         };
-        public static bool IsDebugUser(this IGame game)
+        public static bool IsDebugUser(this IGlobalSaveData saves)
         {
-            var userName = game.GetCurrentUserName();
-            return game.IsDebugUserName(userName);
+            var userName = saves.GetCurrentUserName();
+            return saves.IsDebugUserName(userName);
         }
-        public static bool IsDebugUserName(this IGame game, string name)
+        public static bool IsDebugUserName(this IGlobalSaveData saves, string name)
         {
             if (string.IsNullOrEmpty(name))
                 return false;

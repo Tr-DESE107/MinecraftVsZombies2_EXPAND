@@ -35,6 +35,10 @@ namespace MVZ2.Level
                 return null;
             return controller.GetEngine();
         }
+        public bool IsInLevel()
+        {
+            return GetLevel() != null;
+        }
         public void InitLevel(NamespaceID areaID, NamespaceID stageID, float beginningDelay = 0, LevelExitTarget exitTarget = LevelExitTarget.MapOrMainmenu)
         {
             if (!controller)

@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Commands
         public override void Invoke(string[] parameters)
         {
             var game = Global.Game;
-            var level = Global.Game.GetLevel();
+            var level = Global.Level.GetLevel();
 
             string msg;
             string cheatNameKey;
@@ -39,7 +39,7 @@ namespace MVZ2.GameContent.Commands
                     cheatNameKey = VanillaStrings.CHEAT_NAME_STARSHARD;
                     break;
                 default:
-                    throw new ArgumentException(Global.Game.GetTextParticular(VanillaStrings.COMMAND_CHEAT_NOT_FOUND, VanillaStrings.CONTEXT_COMMAND_OUTPUT, cheatCode));
+                    throw new ArgumentException(Global.Localization.GetTextParticular(VanillaStrings.COMMAND_CHEAT_NOT_FOUND, VanillaStrings.CONTEXT_COMMAND_OUTPUT, cheatCode));
             }
 
             if (level.HasBuff(buffDefinition))
@@ -52,8 +52,8 @@ namespace MVZ2.GameContent.Commands
                 level.AddBuff(buffDefinition);
                 msg = VanillaStrings.COMMAND_CHEAT_ENABLED;
             }
-            var cheatName = Global.Game.GetTextParticular(cheatNameKey, VanillaStrings.CONTEXT_COMMAND_CHEAT_NAME);
-            PrintLine(Global.Game.GetTextParticular(msg, VanillaStrings.CONTEXT_COMMAND_OUTPUT, cheatName));
+            var cheatName = Global.Localization.GetTextParticular(cheatNameKey, VanillaStrings.CONTEXT_COMMAND_CHEAT_NAME);
+            PrintLine(Global.Localization.GetTextParticular(msg, VanillaStrings.CONTEXT_COMMAND_OUTPUT, cheatName));
         }
     }
 }

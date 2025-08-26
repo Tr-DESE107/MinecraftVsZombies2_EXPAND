@@ -14,16 +14,16 @@ namespace MVZ2.GameContent.Commands
         public override void Invoke(string[] parameters)
         {
             var count = ParseHelper.ParseInt(parameters[0]);
-            var last = Global.GetCommandHistory().FirstOrDefault(h =>
+            var last = Global.Debugs.GetCommandHistory().FirstOrDefault(h =>
             {
                 var parts = CommandUtility.SplitCommand(h);
-                return parts.Length < 1 || Global.Game.GetCommandIDByName(parts[0]) != GetID();
+                return parts.Length < 1 || Global.Debugs.GetCommandIDByName(parts[0]) != GetID();
             });
             if (string.IsNullOrEmpty(last))
                 return;
             for (int i = 0; i < count; i++)
             {
-                Global.ExecuteCommand(last);
+                Global.Debugs.ExecuteCommand(last);
             }
         }
     }

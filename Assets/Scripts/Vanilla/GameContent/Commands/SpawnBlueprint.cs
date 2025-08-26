@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Commands
         public override void Invoke(string[] parameters)
         {
             var game = Global.Game;
-            var level = Global.Game.GetLevel();
+            var level = Global.Level.GetLevel();
 
             var id = NamespaceID.Parse(parameters[1], VanillaMod.spaceName);
 

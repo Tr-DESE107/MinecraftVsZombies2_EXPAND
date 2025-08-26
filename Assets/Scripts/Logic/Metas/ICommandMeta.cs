@@ -1,20 +1,47 @@
-﻿namespace MVZ2Logic.Commands
+﻿using System;
+
+namespace MVZ2Logic.Commands
 {
-    public interface ICommandMeta
-    {
-        string GetDescription();
-        ICommandVariantMeta[] GetVariants();
-    }
     public interface ICommandVariantMeta
     {
+        string Description { get; }
+        string Subname { get; }
+        ICommandParameterMeta[] Parameters { get; }
         string GetGrammarText(string commandName);
-        string GetDescription();
-        ICommandParameterMeta[] GetParameters();
+        public int GetMaxCommandPartCount()
+        {
+            return GetCommandPartIndexOfParameter(Parameters.Length);
+        }
+        public int GetCommandPartIndexOfParameter(int parameterIndex)
+        {
+            var index = parameterIndex + 1;
+            if (HasSubname())
+            {
+                index++;
+            }
+            return index;
+        }
+        public int GetParameterIndexOfCommandPart(int partIndex)
+        {
+            var index = partIndex - 1;
+            if (HasSubname())
+            {
+                index--;
+            }
+            return index;
+        }
+        public bool HasSubname()
+        {
+            return !String.IsNullOrEmpty(Subname);
+        }
     }
     public interface ICommandParameterMeta
     {
-        string GetName();
-        string GetTypeString();
-        string GetDescription();
+        string Name { get; }
+        string Description { get; }
+        bool Optional { get; }
+        string Type { get; }
+        string IDType { get; }
+        string GetTypeName();
     }
 }

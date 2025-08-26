@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using MVZ2.IO;
@@ -9,7 +8,7 @@ using MVZ2Logic.Commands;
 
 namespace MVZ2.Metas
 {
-    public class CommandMeta : ICommandMeta
+    public class CommandMeta
     {
         public string ID { get; private set; }
         public string Description { get; private set; }
@@ -37,16 +36,13 @@ namespace MVZ2.Metas
                 Variants = variants.ToArray(),
             };
         }
-
-        public string GetDescription() => Description;
-
-        public ICommandVariantMeta[] GetVariants() => Variants;
     }
     public class CommandMetaVariant : ICommandVariantMeta
     {
         public string Subname { get; private set; }
         public string Description { get; private set; }
         public CommandMetaParam[] Parameters { get; private set; }
+        ICommandParameterMeta[] ICommandVariantMeta.Parameters => Parameters;
         public static CommandMetaVariant FromXmlNode(XmlNode node, string defaultNsp)
         {
             var subname = node.GetAttribute("subname");
@@ -93,35 +89,6 @@ namespace MVZ2.Metas
             }
             return sb.ToString();
         }
-
-        public string GetDescription() => Description;
-        public ICommandParameterMeta[] GetParameters() => Parameters;
-        public int GetMaxCommandPartCount()
-        {
-            return GetCommandPartIndexOfParameter(Parameters.Length);
-        }
-        public int GetCommandPartIndexOfParameter(int parameterIndex)
-        {
-            var index = parameterIndex + 1;
-            if (HasSubname())
-            {
-                index++;
-            }
-            return index;
-        }
-        public int GetParameterIndexOfCommandPart(int partIndex)
-        {
-            var index = partIndex - 1;
-            if (HasSubname())
-            {
-                index--;
-            }
-            return index;
-        }
-        public bool HasSubname()
-        {
-            return !String.IsNullOrEmpty(Subname);
-        }
     }
     public class CommandMetaParam : ICommandParameterMeta
     {
@@ -149,7 +116,7 @@ namespace MVZ2.Metas
 
         public string GetName() => Name;
         public string GetDescription() => Description;
-        public string GetTypeString()
+        public string GetTypeName()
         {
             switch (Type)
             {

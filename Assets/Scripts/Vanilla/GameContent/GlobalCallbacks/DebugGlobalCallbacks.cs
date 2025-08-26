@@ -4,18 +4,19 @@ using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class DebugImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class DebugGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(LogicCallbacks.IS_SPECIAL_USER_NAME, IsSpecialUserNameCallback);
         }
         public void IsSpecialUserNameCallback(StringCallbackParams param, CallbackResult result)
         {
             var name = param.text;
-            if (Global.Game.IsDebugUserName(name))
+            if (Global.Saves.IsDebugUserName(name))
             {
                 result.SetValue(true);
             }

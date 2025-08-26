@@ -14,7 +14,9 @@ using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Armors;
 using MVZ2Logic.Artifacts;
+using MVZ2Logic.Commands;
 using MVZ2Logic.Conditions;
+using MVZ2Logic.Debugs;
 using MVZ2Logic.Difficulties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.Errors;
@@ -435,6 +437,8 @@ namespace MVZ2.Modding
             LoadSeedOptionProperties(mod);
 
             LoadStageProperties(mod);
+            // 加载所有命令属性。
+            LoadCommandProperties(mod);
         }
         private void LoadAreaProperties(Mod mod)
         {
@@ -559,6 +563,23 @@ namespace MVZ2.Modding
                 {
                     stageDef.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.level, Global.BuiltinNamespace), pair.Value);
                 }
+            }
+        }
+        private void LoadCommandProperties(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (CommandMeta meta in res.GetModCommandMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var def = mod.GetCommandDefinition(new NamespaceID(nsp, name));
+                if (def == null)
+                    continue;
+                def.SetProperty(LogicCommandProps.DESCRIPTION, meta.Description);
+                def.SetProperty(LogicCommandProps.MUST_IN_LEVEL, meta.InLevel);
+                def.SetProperty<ICommandVariantMeta[]>(LogicCommandProps.VARIANTS, meta.Variants);
+                mod.AddDefinition(def);
             }
         }
         #endregion

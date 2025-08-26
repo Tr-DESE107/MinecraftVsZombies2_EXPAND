@@ -9,6 +9,8 @@ using MVZ2.Vanilla;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Command;
+using MVZ2Logic.Commands;
+using MVZ2Logic.Debugs;
 using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
 using PVZEngine;
@@ -18,13 +20,14 @@ using UnityEngine;
 
 namespace MVZ2.Managers
 {
-    public partial class DebugManager : MonoBehaviour, IDebugManager
+    public partial class DebugManager : MonoBehaviour, IGlobalDebug
     {
         public void LoadCommandParameterSuggestions()
         {
             entityIDSet.Clear();
             blueprintIDSet.Clear();
             artifactIDSet.Clear();
+            commandIDSet.Clear();
             foreach (var def in Main.Game.GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY))
             {
                 entityIDSet.Add(def.GetID().ToString());
@@ -36,6 +39,10 @@ namespace MVZ2.Managers
             foreach (var def in Main.Game.GetDefinitions<ArtifactDefinition>(LogicDefinitionTypes.ARTIFACT))
             {
                 artifactIDSet.Add(def.GetID().ToString());
+            }
+            foreach (var def in Main.Game.GetAllCommandDefinitions())
+            {
+                commandIDSet.Add(def.GetID());
             }
         }
         public bool IsConsoleActive()
@@ -84,6 +91,26 @@ namespace MVZ2.Managers
         {
             Main.Scene.ClearConsole();
         }
+        public NamespaceID GetCommandIDByName(string text)
+        {
+            if (NamespaceID.TryParse(text, Main.BuiltinNamespace, out var id))
+            {
+                return id;
+            }
+            return null;
+        }
+        public string GetCommandNameByID(NamespaceID id)
+        {
+            if (id.SpaceName == Main.BuiltinNamespace)
+            {
+                return id.Path;
+            }
+            return id.ToString();
+        }
+        public NamespaceID[] GetAllCommandsID()
+        {
+            return commandIDSet.ToArray();
+        }
 
         #region 历史
         public void SaveCommandHistory(IEnumerable<string> history)
@@ -114,16 +141,11 @@ namespace MVZ2.Managers
         }
         #endregion
 
-        private string GetCommandName(NamespaceID id)
-        {
-            return Main.ResourceManager.GetCommandNameByID(id);
-        }
-
         #region 自动补全
-        private CommandMetaVariant GetBestFitCommandVariant(CommandMetaVariant[] variants, string[] parts, bool uncompleted = false)
+        private ICommandVariantMeta GetBestFitCommandVariant(ICommandVariantMeta[] variants, string[] parts, bool uncompleted = false)
         {
             var maxFits = 0;
-            CommandMetaVariant bestVariant = null;
+            ICommandVariantMeta bestVariant = null;
             int targetCount = parts.Length;
             foreach (var variant in variants)
             {
@@ -139,7 +161,7 @@ namespace MVZ2.Managers
             }
             return bestVariant;
         }
-        private int GetCommandVariantFitPartCount(CommandMetaVariant variant, string[] parts, bool uncompleted = false)
+        private int GetCommandVariantFitPartCount(ICommandVariantMeta variant, string[] parts, bool uncompleted = false)
         {
             bool hasSubname = !string.IsNullOrEmpty(variant.Subname);
             // 实参数量大于形参，直接不通过
@@ -175,7 +197,7 @@ namespace MVZ2.Managers
             }
             return parts.Length;
         }
-        private bool FitsCommandParameter(CommandMetaParam param, string paramText)
+        private bool FitsCommandParameter(ICommandParameterMeta param, string paramText)
         {
             if (paramText == DEFAULT_VALUE_PARAMETER && param.Optional)
             {
@@ -185,8 +207,8 @@ namespace MVZ2.Managers
             {
                 case CommandMetaParam.TYPE_COMMAND:
                     {
-                        var id = Main.ResourceManager.GetCommandIDByName(paramText);
-                        return Main.ResourceManager.GetCommandMeta(id) != null;
+                        var id = GetCommandIDByName(paramText);
+                        return commandIDSet.Contains(id);
                     }
                 case CommandMetaParam.TYPE_INT:
                     {
@@ -207,7 +229,7 @@ namespace MVZ2.Managers
             }
             return false;
         }
-        private bool FitsCommandParameterID(CommandMetaParam param, NamespaceID id)
+        private bool FitsCommandParameterID(ICommandParameterMeta param, NamespaceID id)
         {
             switch (param.IDType)
             {
@@ -235,41 +257,42 @@ namespace MVZ2.Managers
             // 命令建议
             if (parts.Length == 1)
             {
-                var currentCommandName = GetCommandName(commandID);
+                var currentCommandName = GetCommandNameByID(commandID);
                 FillNameSuggestions(currentCommandName, currentSuggestions);
             }
             // 参数建议
             else
             {
-                CommandMeta meta = Main.ResourceManager.GetCommandMeta(commandID);
-                FillParameterSuggestions(meta, parts, currentSuggestions);
+                var def = Main.Game.GetCommandDefinition(commandID);
+                FillParameterSuggestions(def, parts, currentSuggestions);
             }
         }
         private void FillNameSuggestions(string currentCommandName, List<string> currentSuggestions)
         {
-            foreach (var cmd in Main.ResourceManager.GetAllCommandsID())
+            foreach (var cmd in GetAllCommandsID())
             {
-                var cmdName = GetCommandName(cmd);
+                var cmdName = GetCommandNameByID(cmd);
                 if (cmdName.StartsWith(currentCommandName, StringComparison.OrdinalIgnoreCase))
                 {
-                    var meta = Main.ResourceManager.GetCommandMeta(cmd);
+                    var meta = Main.Game.GetCommandDefinition(cmd);
                     if (meta == null)
                         continue;
-                    if (!Main.Game.IsInLevel() && meta.InLevel)
+                    if (!Main.LevelManager.IsInLevel() && meta.MustInLevel())
                         continue;
                     currentSuggestions.Add(cmdName);
                 }
             }
         }
-        private void FillParameterSuggestions(CommandMeta meta, string[] parts, List<string> currentSuggestions)
+        private void FillParameterSuggestions(CommandDefinition def, string[] parts, List<string> currentSuggestions)
         {
-            if (meta == null)
+            if (def == null)
                 return;
 
+            var variants = def.GetVariants();
             // 变体子名称
             if (parts.Length == 2)
             {
-                var subnameVariants = meta.Variants.Where(v => !string.IsNullOrEmpty(v.Subname));
+                var subnameVariants = variants.Where(v => !string.IsNullOrEmpty(v.Subname));
                 foreach (var v in subnameVariants)
                 {
                     if (v.Subname.StartsWith(parts[1]))
@@ -279,11 +302,11 @@ namespace MVZ2.Managers
                 }
             }
             // 查找目前最符合的命令变体。
-            var variant = GetBestFitCommandVariant(meta.Variants, parts, true);
+            var variant = GetBestFitCommandVariant(variants, parts, true);
 
             FillSuggestionsOfCommandVariant(variant, parts, currentSuggestions);
         }
-        private void FillSuggestionsOfCommandVariant(CommandMetaVariant variant, string[] parts, List<string> currentSuggestions)
+        private void FillSuggestionsOfCommandVariant(ICommandVariantMeta variant, string[] parts, List<string> currentSuggestions)
         {
             if (variant == null)
                 return;
@@ -293,7 +316,7 @@ namespace MVZ2.Managers
             var parameter = variant.Parameters[parameterIndex];
             FillSuggestionsOfCommandParameter(parameter, parts, currentSuggestions);
         }
-        private void FillSuggestionsOfCommandParameter(CommandMetaParam param, string[] parts, List<string> currentSuggestions)
+        private void FillSuggestionsOfCommandParameter(ICommandParameterMeta param, string[] parts, List<string> currentSuggestions)
         {
             if (param == null)
                 return;
@@ -311,16 +334,16 @@ namespace MVZ2.Managers
                 }
             }
         }
-        private IEnumerable<string> GetSuggestionsOfParameter(CommandMetaParam param)
+        private IEnumerable<string> GetSuggestionsOfParameter(ICommandParameterMeta param)
         {
             switch (param.Type)
             {
                 case CommandMetaParam.TYPE_COMMAND:
                     {
-                        var ids = Main.ResourceManager.GetAllCommandsID();
+                        var ids = GetAllCommandsID();
                         foreach (var id in ids)
                         {
-                            var name = GetCommandName(id);
+                            var name = GetCommandNameByID(id);
                             yield return name;
                         }
                     }
@@ -366,15 +389,16 @@ namespace MVZ2.Managers
             if (parts.Length == 0)
                 return;
             var commandName = parts[0];
-            var commandID = Main.ResourceManager.GetCommandIDByName(commandName);
-            var commandMeta = Main.ResourceManager.GetCommandMeta(commandID);
-            if (commandMeta == null)
+            var commandID = Main.DebugManager.GetCommandIDByName(commandName);
+            var def = Main.Game.GetCommandDefinition(commandID);
+            if (def == null)
                 return;
             // 在关卡外执行关卡命令
-            if (commandMeta.InLevel && !Global.Game.IsInLevel())
+            if (def.MustInLevel() && !Global.Level.IsInLevel())
                 throw new InvalidOperationException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_MUST_IN_LEVEL));
 
-            var variant = GetBestFitCommandVariant(commandMeta.Variants, parts);
+            var variants = def.GetVariants();
+            var variant = GetBestFitCommandVariant(variants, parts);
             // 命令变体不存在。
             if (variant == null)
                 throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_FORMAT));
@@ -427,11 +451,18 @@ namespace MVZ2.Managers
         {
             Print(text + "\n");
         }
+
+        void IGlobalDebug.Print(string message)
+        {
+            Print(message);
+        }
+
         [SerializeField]
         private string commandHistoryFileName = "commands.txt";
         private HashSet<string> entityIDSet = new HashSet<string>();
         private HashSet<string> blueprintIDSet = new HashSet<string>();
         private HashSet<string> artifactIDSet = new HashSet<string>();
+        private HashSet<NamespaceID> commandIDSet = new HashSet<NamespaceID>();
 
         public const char COMMAND_CHARACTER = CommandUtility.COMMAND_CHARACTER;
         public const string DEFAULT_VALUE_PARAMETER = CommandUtility.DEFAULT_VALUE_PARAMETER;

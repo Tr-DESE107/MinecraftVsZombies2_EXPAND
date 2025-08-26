@@ -17,13 +17,13 @@ namespace MVZ2.GameContent.Commands
         public override void Invoke(string[] parameters)
         {
             var game = Global.Game;
-            var level = Global.Game.GetLevel();
+            var level = Global.Level.GetLevel();
 
             var mode = parameters[0];
             var slot = ParseHelper.ParseInt(parameters[1]);
             if (slot < 0 || slot >= level.GetSeedSlotCount())
             {
-                var msg = Global.Game.GetTextParticular(VanillaStrings.COMMAND_BLUEPRINT_SLOT_OUT_OF_RANGE, VanillaStrings.CONTEXT_COMMAND_OUTPUT, slot.ToString());
+                var msg = Global.Localization.GetTextParticular(VanillaStrings.COMMAND_BLUEPRINT_SLOT_OUT_OF_RANGE, VanillaStrings.CONTEXT_COMMAND_OUTPUT, slot.ToString());
                 throw new ArgumentException(msg);
             }
             if (mode == "set")

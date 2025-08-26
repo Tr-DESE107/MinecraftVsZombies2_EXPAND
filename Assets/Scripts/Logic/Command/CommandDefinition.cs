@@ -10,7 +10,7 @@ namespace MVZ2Logic.IZombie
         public abstract void Invoke(string[] parameters);
         protected void Print(string text)
         {
-            Global.Print(text);
+            Global.Debugs.Print(text);
         }
         protected void PrintLine(string text = null)
         {

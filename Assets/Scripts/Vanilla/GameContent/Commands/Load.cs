@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Commands
         }
         public override async void Invoke(string[] parameters)
         {
-            var level = Global.Game.GetLevel();
+            var level = Global.Level.GetLevel();
             await level.ReloadLevel();
         }
     }
