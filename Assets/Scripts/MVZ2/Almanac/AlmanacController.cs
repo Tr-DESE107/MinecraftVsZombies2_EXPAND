@@ -315,7 +315,7 @@ namespace MVZ2.Almanacs
             var costText = GetTranslatedString(VanillaStrings.CONTEXT_ALMANAC, COST_LABEL, cost);
             var rechargeText = GetTranslatedString(VanillaStrings.CONTEXT_ALMANAC, RECHARGE_LABEL, recharge);
 
-            var page = Global.IsMobile() ? AlmanacPageType.ContraptionsMobile : AlmanacPageType.ContraptionsStandalone;
+            var page = Global.Game.IsMobile() ? AlmanacPageType.ContraptionsMobile : AlmanacPageType.ContraptionsStandalone;
             UpdateEntryTags(page, type, contraptionID);
 
             var iconInfos = GetDescriptionTagIconInfos(description);

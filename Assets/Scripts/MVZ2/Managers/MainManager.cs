@@ -22,14 +22,13 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Supporters;
 using MVZ2Logic;
-using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEditor;
 using UnityEngine;
 
 namespace MVZ2.Managers
 {
-    public class MainManager : MonoBehaviour, IMainManager
+    public class MainManager : MonoBehaviour
     {
         public async Task Initialize()
         {
@@ -196,24 +195,21 @@ namespace MVZ2.Managers
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Application.targetFrameRate = 60;
+            Game = new Game(this, LanguageManager);
 
-            var models = new GlobalModels(this);
-            var almanac = new GlobalAlmanac(this);
-            var saveData = SaveManager;
             Global.Init(new GlobalParams()
             {
-                main = this,
-                models = models,
-                almanac = almanac,
-                saveData = saveData,
+                models = new GlobalModels(this),
+                almanac = new GlobalAlmanac(this),
+                saveData = SaveManager,
                 options = OptionsManager,
                 input = InputManager,
                 level = LevelManager,
                 music = MusicManager,
                 gui = new GlobalGUI(this),
-                scene = Scene
+                scene = Scene,
+                game = Game
             });
-            Game = new Game(BuiltinNamespace, LanguageManager);
         }
         private void InitSerializable()
         {
@@ -311,8 +307,6 @@ namespace MVZ2.Managers
             }
             Debug.LogError(e.Exception);
         }
-
-        IGame IMainManager.Game => Game;
 
         [TranslateMsg("初始化任务名称")]
         public const string TASK_LOAD_RESOURCES = "加载中……";

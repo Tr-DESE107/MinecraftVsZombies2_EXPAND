@@ -188,7 +188,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                         saves.Unlock(VanillaUnlockID.enteredDream);
                         saves.SetLastMapID(VanillaMapID.dream);
                         saves.SaveToFile(); // 进入梦境过渡时保存游戏
-                        Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.dream, VanillaAreaID.dream, VanillaStageID.dream1));
                         break;
                     case "show_nightmare":
                         map.SetPreset(VanillaMapPresetID.nightmare);
@@ -198,15 +198,15 @@ namespace MVZ2.GameContent.GlobalCallbacks
                     case "goto_castle":
                         saves.SetLastMapID(VanillaMapID.castle);
                         saves.SaveToFile(); // 进入辉针城过渡时保存游戏
-                        Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.castle, VanillaAreaID.castle, VanillaStageID.castle1));
                         break;
                     case "chapter_3_finish":
-                        Global.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo));
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.castle, VanillaMapID.gensokyo));
                         break;
                     case "goto_mausoleum":
                         saves.SetLastMapID(VanillaMapID.mausoleum);
                         saves.SaveToFile(); // 进入大祀庙过渡时保存游戏
-                        Global.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.mausoleum, VanillaAreaID.mausoleum, VanillaStageID.mausoleum1));
+                        Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionTalkToLevel(VanillaChapterTransitions.mausoleum, VanillaAreaID.mausoleum, VanillaStageID.mausoleum1));
                         break;
                     case "chapter_4_finish":
                         IEnumerator coroutineFunc()
@@ -217,7 +217,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                             var options = new string[] { Global.Game.GetText(VanillaStrings.CONFIRM) };
                             Global.GUI.ShowDialog(title, desc, options);
                         }
-                        Global.StartCoroutine(coroutineFunc());
+                        Global.Game.StartCoroutine(coroutineFunc());
                         break;
                 }
             }

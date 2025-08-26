@@ -143,7 +143,7 @@ namespace MVZ2.Level
         }
         private string GetHotkeyName()
         {
-            if (Global.IsMobile() || !Main.OptionsManager.ShowHotkeyIndicators())
+            if (Global.Game.IsMobile() || !Main.OptionsManager.ShowHotkeyIndicators())
                 return string.Empty;
             var hotkey = Main.OptionsManager.GetBlueprintKeyBinding(Index);
             return hotkey != KeyCode.None ? Main.InputManager.GetKeyCodeName(hotkey) : string.Empty;

@@ -164,7 +164,7 @@ namespace MVZ2.Level
         }
         private string GetHotkeyName(NamespaceID keyID)
         {
-            if (Global.IsMobile() || !Main.OptionsManager.ShowHotkeyIndicators())
+            if (Global.Game.IsMobile() || !Main.OptionsManager.ShowHotkeyIndicators())
                 return string.Empty;
             var keycode = Main.OptionsManager.GetKeyBinding(keyID);
             return keycode != KeyCode.None ? Main.InputManager.GetKeyCodeName(keycode) : string.Empty;

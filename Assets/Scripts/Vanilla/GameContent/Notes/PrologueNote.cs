@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Notes
         {
             base.OnBack(note);
             note.SetInteractable(false);
-            Global.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.halloween, VanillaAreaID.halloween, VanillaStageID.halloween1));
+            Global.Game.StartCoroutine(VanillaChapterTransitions.TransitionToLevel(VanillaChapterTransitions.halloween, VanillaAreaID.halloween, VanillaStageID.halloween1));
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using MVZ2.Managers;
-using MVZ2Logic;
+using MVZ2Logic.Games;
 using PVZEngine;
 
 namespace MVZ2.GlobalGame
