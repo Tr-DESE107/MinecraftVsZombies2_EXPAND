@@ -137,7 +137,9 @@
         </cart>
         <pickup id="6" parent="entity">
             <behaviours>
-                <behaviour operator="add" id="mvz2:pickup_common"/>
+                <behaviour operator="add" id="mvz2:pickup_timing"/>
+                <behaviour operator="add" id="mvz2:pickup_limit_position"/>
+                <behaviour operator="add" id="mvz2:pickup_auto_collect"/>
             </behaviours>
             <properties>
                 <string name="mvz2:sortingLayer" value="Pickups" />
@@ -210,11 +212,36 @@
                 <id name="mvz2:shape" value="mvz2:small_spider" />
             </properties>
         </smallSpider>
+        <energyPickup id="6" parent="pickup">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:pickup_collect_value"/>
+                <behaviour operator="add" id="mvz2:pickup_stop_on_land"/>
+                <behaviour operator="add" id="mvz2:pickup_motion"/>
+                <behaviour operator="add" id="mvz2:pickup_vanish"/>
+            </behaviours>
+            <properties>
+                <int name="mvz2:pickup_destination" value="0" />
+                <int name="mvz2:sortingOrder" value="9999" />
+                <int name="mvz2:energyValue" value="25" />
+                <bool name="mvz2:play_random_pitch_on_collect" value="true" />
+                <id name="mvz2:collectSound" value="mvz2:points" />
+            </properties>
+        </energyPickup>
         <gem id="6" parent="pickup">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:gem"/>
+                <behaviour operator="add" id="mvz2:pickup_collect_value"/>
+                <behaviour operator="add" id="mvz2:pickup_stop_on_land"/>
+                <behaviour operator="add" id="mvz2:merge_pickup"/>
+                <behaviour operator="add" id="mvz2:pickup_motion"/>
+                <behaviour operator="add" id="mvz2:pickup_vanish"/>
+            </behaviours>
             <properties>
                 <id name="mvz2:dropSound" value="mvz2:money_fall" />
                 <id name="mvz2:collectSound" value="mvz2:coin" />
+                <bool name="mvz2:play_random_pitch_on_collect" value="true" />
                 <int name="mvz2:moneyValue" value="10" />
+                <int name="mvz2:pickup_destination" value="1" />
                 <vector3 name="mvz2:size" x="16" y="16" z="16" />
             </properties>
         </gem>
@@ -1716,57 +1743,64 @@
         </cart>
 
         <!-- Pickups -->
-        <pickup id="redstone" name="红石">
-            <behaviours>
-                <behaviour operator="add" id="mvz2:energy_pickup"/>
-            </behaviours>
+        <energyPickup id="redstone" name="红石">
+            <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:sortingOrder" value="9999" />
                 <int name="mvz2:energyValue" value="25" />
                 <id name="mvz2:collectSound" value="mvz2:points" />
             </properties>
-        </pickup>
-        <pickup id="gunpowder" name="火药">
-            <behaviours>
-                <behaviour operator="add" id="mvz2:energy_pickup"/>
+        </energyPickup>
+        <energyPickup id="gunpowder" name="火药">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:gunpowder_twinkle"/>
+                <behaviour operator="remove" id="mvz2:pickup_vanish"/>
             </behaviours>
             <properties>
                 <float name="mvz2:range" value="120" />
                 <float name="mvz2:damage" value="150" />
-                <int name="mvz2:sortingOrder" value="9999" />
                 <int name="mvz2:energyValue" value="50" />
-                <id name="mvz2:collectSound" value="mvz2:points" />
             </properties>
-        </pickup>
-        <pickup id="furious_gunpowder" name="暴怒火药">
-            <behaviours>
-                <behaviour operator="add" id="mvz2:energy_pickup"/>
-                <behaviour operator="add" id="mvz2:gunpowder"/>
+        </energyPickup>
+        <energyPickup id="furious_gunpowder" name="暴怒火药">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:gunpowder_twinkle"/>
+                <behaviour operator="remove" id="mvz2:pickup_vanish"/>
             </behaviours>
             <properties>
                 <float name="mvz2:range" value="120" />
                 <float name="mvz2:damage" value="150" />
-                <int name="mvz2:sortingOrder" value="9999" />
                 <int name="mvz2:energyValue" value="75" />
                 <int name="mvz2:maxTimeout" value="150" />
-                <id name="mvz2:collectSound" value="mvz2:points" />
             </properties>
-        </pickup>
+        </energyPickup>
         <gem id="emerald" name="绿宝石">
+            <behaviours includeSelf="false" />
             <properties>
                 <vector3 name="mvz2:shadowScale" x="0.5" y="0.5" z="0.5" />
+                <int name="mvz2:merge_pickup/merge_count" value="5" />
+                <float name="mvz2:merge_pickup/merge_range" value="80" />
+                <id name="mvz2:merge_pickup/merge_target" value="mvz2:ruby" />
             </properties>
         </gem>
         <gem id="ruby" name="红宝石">
+            <behaviours includeSelf="false" />
             <properties>
                 <int name="mvz2:moneyValue" value="50" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
+                <int name="mvz2:merge_pickup/merge_count" value="4" />
+                <float name="mvz2:merge_pickup/merge_range" value="80" />
+                <id name="mvz2:merge_pickup/merge_target" value="mvz2:sapphire" />
             </properties>
         </gem>
         <gem id="sapphire" name="蓝宝石">
+            <behaviours includeSelf="false" />
             <properties>
                 <int name="mvz2:moneyValue" value="200" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
+                <int name="mvz2:merge_pickup/merge_count" value="4" />
+                <float name="mvz2:merge_pickup/merge_range" value="80" />
+                <id name="mvz2:merge_pickup/merge_target" value="mvz2:diamond" />
             </properties>
         </gem>
         <gem id="diamond" name="钻石">
@@ -1775,10 +1809,15 @@
                 <int name="mvz2:moneyValue" value="1000" />
                 <id name="mvz2:collectSound" value="mvz2:diamond" />
                 <id name="mvz2:dropSound" null="true" />
+                <bool name="mvz2:play_random_pitch_on_collect" value="false" />
                 <vector3 name="mvz2:size" x="64" y="64" z="64" />
             </properties>
         </gem>
         <pickup id="clear_pickup" name="通关掉落物">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:pickup_collect_clear"/>
+                <behaviour operator="add" id="mvz2:pickup_stop_on_land"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:important" value="true" />
                 <id name="mvz2:collectSound" value="mvz2:tap" />
@@ -1786,12 +1825,20 @@
             </properties>
         </pickup>
         <pickup id="artifact_pickup" name="制品掉落物">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:pickup_collect_artifact"/>
+                <behaviour operator="add" id="mvz2:pickup_stop_on_land"/>
+                <behaviour operator="add" id="mvz2:pickup_with_content"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:important" value="true" />
                 <id name="mvz2:collectSound" value="mvz2:prize" />
             </properties>
         </pickup>
         <pickup id="starshard" name="星之碎片">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:pickup_collect_starshard"/>
+            </behaviours>
             <properties>
                 <int name="mvz2:sortingOrder" value="9999" />
                 <float name="mvz2:groundLimitOffset" value="-1000" />
@@ -1803,6 +1850,11 @@
             </properties>
         </pickup>
         <pickup id="blueprint_pickup" name="蓝图掉落物">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:pickup_collect_blueprint"/>
+                <behaviour operator="add" id="mvz2:pickup_stop_on_land"/>
+                <behaviour operator="add" id="mvz2:pickup_with_content"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:noCollect" value="true" />
                 <bool name="mvz2:no_pickup_stolen" value="true" />
@@ -2076,7 +2128,7 @@
             </properties>
         </projectile>
         <projectile id="hell_planet_otherworld">
-            <behaviours>
+            <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:hell_planet"/>
             </behaviours>
             <properties>
@@ -2091,7 +2143,7 @@
             </properties>
         </projectile>
         <projectile id="hell_planet_earth">
-            <behaviours>
+            <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:hell_planet"/>
             </behaviours>
             <properties>
@@ -2106,7 +2158,7 @@
             </properties>
         </projectile>
         <projectile id="hell_planet_moon">
-            <behaviours>
+            <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:hell_planet"/>
             </behaviours>
             <properties>
@@ -2582,11 +2634,13 @@
             </properties>
         </effect>
         <effect id="binary_particles">
+            <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="30" />
             </properties>
         </effect>
         <effect id="redline">
+            <behaviours includeSelf="false"/>
             <properties>
                 <string name="mvz2:sortingLayer" value="Background"/>
                 <int name="mvz2:sortingOrder" value="9999"/>
@@ -2619,12 +2673,14 @@
             </properties>
         </effect>
         <effect id="dark_hole">
+            <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:sortingOrder" value="9999"/>
                 <int name="mvz2:maxTimeout" value="15" />
             </properties>
         </effect>
         <effect id="amplified_roar">
+            <behaviours includeSelf="false"/>
             <properties>
                 <int name="mvz2:maxTimeout" value="54" />
             </properties>

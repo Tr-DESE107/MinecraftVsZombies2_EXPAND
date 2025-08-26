@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
 
@@ -25,6 +26,10 @@ namespace PVZEngine
         public static FrameTimer NewSecondTimer(float seconds)
         {
             return new FrameTimer(Ticks.FromSeconds(seconds));
+        }
+        public static bool IsSecondsInterval(this Entity entity, float seconds, float offset = 0)
+        {
+            return entity.IsTimeInterval(Ticks.FromSeconds(seconds), Ticks.FromSeconds(offset));
         }
     }
 }

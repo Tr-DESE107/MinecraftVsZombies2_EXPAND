@@ -1,0 +1,35 @@
+using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Level;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Pickups
+{
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupCollectValue)]
+    public class CollectBehaviour_Value : CollectBehaviour
+    {
+        public CollectBehaviour_Value(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override bool CanCollect(Entity pickup)
+        {
+            return true;
+        }
+        public override void PostCollect(Entity pickup)
+        {
+            base.PostCollect(pickup);
+            var moneyValue = pickup.GetMoneyValue();
+            pickup.Velocity = Vector3.zero;
+            pickup.Level.AddEnergyDelayed(pickup, pickup.GetEnergyValue());
+            pickup.Level.AddDelayedMoney(pickup, moneyValue);
+            pickup.SetGravity(0);
+            var pitch = pickup.PlayRandomPitchOnCollect() ? Random.Range(0.95f, 1.5f) : 1;
+            pickup.PlaySound(pickup.GetCollectSound(), pitch);
+            if (moneyValue > 0)
+            {
+                pickup.Level.ShowMoney();
+            }
+        }
+    }
+}

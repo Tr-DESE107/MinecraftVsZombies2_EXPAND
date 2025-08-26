@@ -1,0 +1,11 @@
+﻿using PVZEngine.Entities;
+
+namespace MVZ2.Vanilla.Pickups
+{
+    public interface ICollectBehaviour
+    {
+        bool CanAutoCollect(Entity pickup);
+        bool CanCollect(Entity pickup);
+        void PostCollect(Entity pickup);
+    }
+}

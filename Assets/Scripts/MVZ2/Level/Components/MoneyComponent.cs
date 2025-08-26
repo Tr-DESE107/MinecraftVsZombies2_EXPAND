@@ -34,6 +34,8 @@ namespace MVZ2.Level.Components
         }
         public void AddDelayedMoney(Entity entity, int value)
         {
+            if (value == 0)
+                return;
             var before = GetMoney();
             AddMoney(value);
             var added = GetMoney() - before;

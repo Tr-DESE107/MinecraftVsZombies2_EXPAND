@@ -1,0 +1,26 @@
+using MVZ2.GameContent.HeldItems;
+using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Level;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+
+namespace MVZ2.GameContent.Pickups
+{
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupCollectBlueprint)]
+    public class CollectBehaviour_Blueprint : CollectBehaviour
+    {
+        public CollectBehaviour_Blueprint(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override bool CanCollect(Entity pickup)
+        {
+            return true;
+        }
+        public override void PostCollect(Entity pickup)
+        {
+            base.PostCollect(pickup);
+            pickup.Level.SetHeldItem(VanillaHeldTypes.blueprintPickup, pickup.ID, 0);
+            pickup.PlaySound(pickup.GetCollectSound());
+        }
+    }
+}

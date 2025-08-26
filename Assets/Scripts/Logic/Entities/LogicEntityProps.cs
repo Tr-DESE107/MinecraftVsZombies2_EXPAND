@@ -73,5 +73,17 @@ namespace MVZ2Logic.Entities
             entity.SetProperty(UNLOCK, value);
         }
         #endregion
+
+        #region 解锁
+        public static readonly PropertyMeta<int> PICKUP_DESTINATION = Get<int>("pickup_destination");
+        public static int GetPickupDestination(this EntityDefinition definition)
+        {
+            return definition.GetProperty<int>(PICKUP_DESTINATION);
+        }
+        public static int GetPickupDestination(this Entity entity)
+        {
+            return entity.GetProperty<int>(PICKUP_DESTINATION);
+        }
+        #endregion
     }
 }

@@ -17,6 +17,8 @@ namespace PVZEngine.Level
         }
         public void AddEnergyDelayed(Entity source, float value)
         {
+            if (value == 0)
+                return;
             var before = Energy;
             AddEnergy(value);
             var added = Energy - before;

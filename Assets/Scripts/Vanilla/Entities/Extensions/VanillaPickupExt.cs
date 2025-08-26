@@ -1,5 +1,6 @@
 ﻿using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Pickups;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
@@ -14,22 +15,45 @@ namespace MVZ2.Vanilla.Entities
         {
             if (!CanCollect(pickup))
                 return;
-            var collectible = pickup.Definition.GetBehaviour<ICollectiblePickup>();
-            if (collectible == null)
-                return;
-            collectible.PostCollect(pickup);
+            var collectibles = pickup.Definition.GetBehaviours<ICollectBehaviour>();
+            foreach (var collectible in collectibles)
+            {
+                if (collectible.CanCollect(pickup))
+                {
+                    pickup.State = VanillaEntityStates.PICKUP_COLLECTED;
+                    if (pickup.RemoveOnCollect())
+                    {
+                        pickup.Remove();
+                    }
+                    collectible.PostCollect(pickup);
+                }
+            }
             pickup.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PICKUP_COLLECT, new EntityCallbackParams(pickup), pickup.GetDefinitionID());
         }
         public static bool CanCollect(this Entity entity)
         {
-            var collectible = entity.Definition.GetBehaviour<ICollectiblePickup>();
-            if (collectible == null)
-                return false;
-            if (!collectible.CanCollect(entity))
-                return false;
-            var result = new CallbackResult(true);
+            var collectibles = entity.Definition.GetBehaviours<ICollectBehaviour>();
+            bool canCollect = false;
+            foreach (var collectible in collectibles)
+            {
+                if (collectible.CanCollect(entity))
+                {
+                    canCollect = true;
+                    break;
+                }
+            }
+            var result = new CallbackResult(canCollect);
             entity.Level.Triggers.RunCallbackWithResult(VanillaLevelCallbacks.CAN_PICKUP_COLLECT, new EntityCallbackParams(entity), result);
             return result.GetValue<bool>();
+        }
+        public static bool CanAutoCollect(this Entity entity)
+        {
+            var collectible = entity.Definition.GetBehaviour<ICollectBehaviour>();
+            if (collectible == null)
+                return false;
+            if (!collectible.CanAutoCollect(entity))
+                return false;
+            return true;
         }
         public static bool IsCollected(this Entity entity)
         {

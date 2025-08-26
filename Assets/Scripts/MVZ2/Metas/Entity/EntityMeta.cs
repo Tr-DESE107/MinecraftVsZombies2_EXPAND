@@ -29,8 +29,12 @@ namespace MVZ2.Metas
             var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n");
 
             var behaviours = new List<NamespaceID>();
-            behaviours.Add(new NamespaceID(nsp, id));
             var behavioursNode = node["behaviours"];
+            bool includeSelfBehaviour = behavioursNode?.GetAttributeBool("includeSelf") ?? true;
+            if (includeSelfBehaviour)
+            {
+                behaviours.Add(new NamespaceID(nsp, id));
+            }
             var propertyNode = node["properties"];
             Dictionary<string, object> properties = propertyNode.ToPropertyDictionary(defaultNsp);
             if (template != null)

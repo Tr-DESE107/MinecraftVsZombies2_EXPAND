@@ -1,5 +1,5 @@
-﻿using MVZ2.Vanilla.Detections;
-using PVZEngine;
+﻿using MVZ2.GameContent.Pickups;
+using MVZ2.Vanilla.Detections;
 using PVZEngine.Entities;
 using UnityEngine;
 
@@ -7,15 +7,14 @@ namespace MVZ2.GameContent.Detections
 {
     public class GemMergeDetector : Detector
     {
-        public GemMergeDetector(float size, NamespaceID gemID)
+        public GemMergeDetector()
         {
             mask = EntityCollisionHelper.MASK_PICKUP;
             factionTarget = FactionTarget.Any;
-            this.size = size;
-            this.gemID = gemID;
         }
         protected override Bounds GetDetectionBounds(Entity self)
         {
+            var size = MergePickup.GetMergeRange(self);
             var sizeX = size;
             var sizeY = size;
             var sizeZ = size;
@@ -26,9 +25,8 @@ namespace MVZ2.GameContent.Detections
         }
         protected override bool ValidateCollider(DetectionParams param, IEntityCollider collider)
         {
+            var gemID = param.entity.GetDefinitionID();
             return collider.Entity.IsEntityOf(gemID);
         }
-        private float size;
-        private NamespaceID gemID;
     }
 }

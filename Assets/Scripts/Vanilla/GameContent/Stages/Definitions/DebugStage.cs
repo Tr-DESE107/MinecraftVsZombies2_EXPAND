@@ -2,7 +2,7 @@
 using MVZ2.GameContent.Bosses;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Enemies;
-using MVZ2.GameContent.Seeds;
+using MVZ2.GameContent.Pickups;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -41,16 +41,16 @@ namespace MVZ2.GameContent.Stages
             level.SetSeedSlotCount(10);
             level.FillSeedPacks(new NamespaceID[]
             {
-                VanillaContraptionID.lilyPad,
-                VanillaContraptionID.drivenser,
-                VanillaContraptionID.gravityPad,
-                VanillaContraptionID.vortexHopper,
-                VanillaContraptionID.pistenser,
-                VanillaContraptionID.totenser,
-                VanillaContraptionID.dreamCrystal,
-                VanillaBlueprintID.ufoGreen,
+                VanillaContraptionID.desirePot,
+                VanillaPickupID.emerald,
+                VanillaPickupID.ruby,
+                VanillaPickupID.sapphire,
+                VanillaPickupID.diamond,
+                VanillaPickupID.redstone,
+                VanillaPickupID.gunpowder,
+                VanillaPickupID.furiousGunpowder,
+                VanillaPickupID.starshard,
                 VanillaEnemyID.zombie,
-                VanillaEnemyID.ironHelmettedZombie,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

@@ -85,5 +85,10 @@ namespace MVZ2.Vanilla.Entities
         {
             pickup.SetProperty<NamespaceID>(CONTENT_ID, value);
         }
+        public static readonly PropertyMeta<bool> PLAY_RANDOM_PITCH_ON_COLLECT = Get<bool>("play_random_pitch_on_collect");
+        public static bool PlayRandomPitchOnCollect(this Entity pickup)
+        {
+            return pickup.GetProperty<bool>(PLAY_RANDOM_PITCH_ON_COLLECT);
+        }
     }
 }

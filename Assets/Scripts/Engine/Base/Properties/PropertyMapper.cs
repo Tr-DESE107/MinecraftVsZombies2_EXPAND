@@ -16,30 +16,9 @@ namespace PVZEngine
                 if (!field.IsStatic)
                     continue;
                 var fieldAttribute = field.GetCustomAttribute<PropertyRegistryAttribute>();
-                string regionName;
-                if (fieldAttribute != null)
-                {
-                    if (!string.IsNullOrEmpty(fieldAttribute.TypeName))
-                    {
-                        regionName = $"{fieldAttribute.TypeName}/{fieldAttribute.RegionName}";
-                    }
-                    else
-                    {
-                        regionName = $"{fieldAttribute.RegionName}";
-                    }
-                }
-                else if (regionAttribute != null)
-                {
-                    regionName = regionAttribute.RegionName;
-                }
-                else if (definitionAttribute != null)
-                {
-                    regionName = $"{definitionAttribute.Type}/{definitionAttribute.Name}";
-                }
-                else
-                {
+                string regionName = GetPropertyRegionName(fieldAttribute, regionAttribute, definitionAttribute);
+                if (string.IsNullOrEmpty(regionName))
                     continue;
-                }
                 if (field.GetValue(null) is not PropertyMeta meta)
                     continue;
 
@@ -98,6 +77,29 @@ namespace PVZEngine
             {
                 InitTypePropertyMaps(namespaceName, type);
             }
+        }
+        public static string GetPropertyRegionName(PropertyRegistryAttribute fieldAttribute, PropertyRegistryRegionAttribute regionAttribute, DefinitionAttribute definitionAttribute)
+        {
+            if (fieldAttribute != null)
+            {
+                if (!string.IsNullOrEmpty(fieldAttribute.TypeName))
+                {
+                    return $"{fieldAttribute.TypeName}/{fieldAttribute.RegionName}";
+                }
+                else
+                {
+                    return $"{fieldAttribute.RegionName}";
+                }
+            }
+            else if (regionAttribute != null)
+            {
+                return regionAttribute.RegionName;
+            }
+            else if (definitionAttribute != null)
+            {
+                return $"{definitionAttribute.Type}/{definitionAttribute.Name}";
+            }
+            return null;
         }
 
         public static IPropertyKey ConvertFromName(string propertyName)

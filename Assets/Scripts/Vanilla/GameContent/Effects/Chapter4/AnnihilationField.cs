@@ -74,10 +74,10 @@ namespace MVZ2.GameContent.Effects
             var level = entity.Level;
             if (level.AreaID == VanillaAreaID.dream && !Global.Saves.IsUnlocked(VanillaUnlockID.bottledBlackhole))
             {
-                if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.artifactPickup) && ArtifactPickup.GetArtifactID(e) == VanillaArtifactID.bottledBlackhole))
+                if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.artifactPickup) && e.GetPickupContentID() == VanillaArtifactID.bottledBlackhole))
                 {
-                    var lantern = level.Spawn(VanillaPickupID.artifactPickup, entity.Position, entity);
-                    ArtifactPickup.SetArtifactID(lantern, VanillaArtifactID.bottledBlackhole);
+                    var artifact = level.Spawn(VanillaPickupID.artifactPickup, entity.Position, entity);
+                    artifact.SetPickupContentID(VanillaArtifactID.bottledBlackhole);
                 }
             }
         }

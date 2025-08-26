@@ -1,0 +1,37 @@
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Pickups
+{
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.pickupCollectStarshard)]
+    public class CollectBehaviour_Starshard : CollectBehaviour
+    {
+        public CollectBehaviour_Starshard(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override bool CanAutoCollect(Entity pickup)
+        {
+            return !pickup.NoAutoCollect();
+        }
+        public override bool CanCollect(Entity pickup)
+        {
+            if (pickup.Level.GetStarshardCount() >= pickup.Level.GetStarshardSlotCount())
+            {
+                return false;
+            }
+            return base.CanCollect(pickup);
+        }
+        public override void PostCollect(Entity pickup)
+        {
+            base.PostCollect(pickup);
+            pickup.Velocity = Vector3.zero;
+            pickup.Level.AddStarshardCount(1);
+            pickup.SetGravity(0);
+            pickup.PlaySound(pickup.GetCollectSound(), 1);
+        }
+    }
+}

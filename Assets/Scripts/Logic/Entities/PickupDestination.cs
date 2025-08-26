@@ -1,0 +1,8 @@
+﻿namespace MVZ2Logic.Entities
+{
+    public static class PickupDestination
+    {
+        public const int ENERGY = 0;
+        public const int MONEY = 1;
+    }
+}
