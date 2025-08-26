@@ -1,18 +1,20 @@
 ﻿using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
 using PVZEngine;
+using PVZEngine.Base;
+using PVZEngine.Callbacks;
 
 namespace MVZ2Logic.Modding
 {
-    public interface IModLogic : IGameContent
+    public interface IModLogic
     {
         string Namespace { get; }
-        void Init(IGame game);
-        void LateInit(IGame game);
-        void PostReloadMods(IGame game);
+        void Init(IGlobalGame game);
+        void LateInit(IGlobalGame game);
+        void PostReloadMods(IGlobalGame game);
         void PostGameInit();
-        void Load();
-        void Unload();
+        ITrigger[] GetTriggers();
+        Definition[] GetDefinitions();
         ModSaveData CreateSaveData();
         ModSaveData LoadSaveData(string json);
     }

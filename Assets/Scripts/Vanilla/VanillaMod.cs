@@ -10,7 +10,7 @@ namespace MVZ2.Vanilla
         public VanillaMod() : base(spaceName)
         {
         }
-        public override void Init(IGame game)
+        public override void Init(IGlobalGame game)
         {
             base.Init(game);
             RegisterSerializableType<SerializableVanillaSaveData>();

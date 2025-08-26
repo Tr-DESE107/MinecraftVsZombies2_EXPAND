@@ -47,13 +47,13 @@ namespace MVZ2Logic
         public static IGlobalMusic Music { get; private set; }
         public static IGlobalGUI GUI { get; private set; }
         public static IGlobalScene Scene { get; private set; }
-        public static IGame Game { get; private set; }
+        public static IGlobalGame Game { get; private set; }
         public static IGlobalLocalization Localization { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
     }
     public struct GlobalParams
     {
-        public IGame game;
+        public IGlobalGame game;
         public IGlobalModels models;
         public IGlobalAlmanac almanac;
         public IGlobalSaveData saveData;

@@ -342,7 +342,7 @@ namespace MVZ2.Tests
             await entrance.Init();
             inited = true;
         }
-        private static IGame GetGame()
+        private static IGlobalGame GetGame()
         {
             return Global.Game;
         }

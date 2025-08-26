@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
 using PVZEngine;
@@ -12,19 +13,18 @@ namespace MVZ2Logic.Modding
         public Mod(string nsp)
         {
             Namespace = nsp;
-            triggers = new CallbackRegistry(Global.Game);
         }
 
         #region 初始化
-        public virtual void Init(IGame game)
+        public virtual void Init(IGlobalGame game)
         {
         }
-        public virtual void LateInit(IGame game)
+        public virtual void LateInit(IGlobalGame game)
         {
 
         }
         public virtual void PostGameInit() { }
-        public virtual void PostReloadMods(IGame game)
+        public virtual void PostReloadMods(IGlobalGame game)
         {
             foreach (var definition in definitionGroup.GetDefinitions())
             {
@@ -34,17 +34,6 @@ namespace MVZ2Logic.Modding
                     cached.CacheContents(game);
                 }
             }
-        }
-        #endregion
-
-        #region 加载&卸载
-        public void Load()
-        {
-            ApplyCallbacks();
-        }
-        public void Unload()
-        {
-            RevertCallbacks();
         }
         #endregion
 
@@ -59,7 +48,7 @@ namespace MVZ2Logic.Modding
             definitionGroup.Add(def);
             foreach (var trigger in def.GetTriggers())
             {
-                triggers.AddTrigger(trigger);
+                triggers.Add(trigger);
             }
         }
         public T GetDefinition<T>(string type, NamespaceID defRef) where T : Definition
@@ -76,25 +65,21 @@ namespace MVZ2Logic.Modding
         }
         #endregion
 
-        #region 回调
-        private void ApplyCallbacks()
-        {
-            triggers.ApplyCallbacks();
-        }
-        private void RevertCallbacks()
-        {
-            triggers.RevertCallbacks();
-        }
-        public void AddTrigger<TArgs>(CallbackType<TArgs> callbackID, Action<TArgs, CallbackResult> action, int priority = 0, object filter = null)
-        {
-            triggers.AddTrigger(new Trigger<TArgs>(callbackID, action, priority, filter));
-        }
-        #endregion
-
         #region 全局回调
         public void ApplyGlobalCallbacks(IGlobalCallbacks implements)
         {
             implements.Apply(this);
+        }
+        #endregion
+
+        #region 触发器
+        public void AddTrigger<TArgs>(CallbackType<TArgs> callbackID, Action<TArgs, CallbackResult> action, int priority = 0, object filter = null)
+        {
+            triggers.Add(new Trigger<TArgs>(callbackID, action, priority, filter));
+        }
+        public ITrigger[] GetTriggers()
+        {
+            return triggers.ToArray();
         }
         #endregion
 
@@ -115,6 +100,6 @@ namespace MVZ2Logic.Modding
 
         public string Namespace { get; }
         private DefinitionGroup definitionGroup = new DefinitionGroup();
-        protected CallbackRegistry triggers;
+        protected List<ITrigger> triggers = new List<ITrigger>();
     }
 }

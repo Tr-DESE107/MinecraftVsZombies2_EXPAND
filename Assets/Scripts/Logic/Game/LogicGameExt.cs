@@ -10,13 +10,13 @@ namespace MVZ2Logic.Games
 {
     public static class LogicGameExt
     {
-        public static bool IsSpecialUserName(this IGame game, string name)
+        public static bool IsSpecialUserName(this IGlobalGame game, string name)
         {
             var result = new CallbackResult(false);
             game.RunCallbackWithResult(LogicCallbacks.IS_SPECIAL_USER_NAME, new StringCallbackParams(name), result);
             return result.GetValue<bool>();
         }
-        public static NamespaceID[] GetInnateBlueprints(this IGame game)
+        public static NamespaceID[] GetInnateBlueprints(this IGlobalGame game)
         {
             var list = new List<NamespaceID>();
             var param = new LogicCallbacks.GetInnateBlueprintsParams()
@@ -26,7 +26,7 @@ namespace MVZ2Logic.Games
             game.RunCallback(LogicCallbacks.GET_INNATE_BLUEPRINTS, param);
             return list.ToArray();
         }
-        public static NamespaceID[] GetInnateArtifacts(this IGame game)
+        public static NamespaceID[] GetInnateArtifacts(this IGlobalGame game)
         {
             var list = new List<NamespaceID>();
             var param = new LogicCallbacks.GetInnateArtifactsParams()
@@ -37,7 +37,7 @@ namespace MVZ2Logic.Games
             return list.ToArray();
         }
 
-        public static string GetEntityName(this IGame game, NamespaceID entityID)
+        public static string GetEntityName(this IGlobalGame game, NamespaceID entityID)
         {
             if (entityID == null)
                 return "null";
@@ -47,7 +47,7 @@ namespace MVZ2Logic.Games
             var name = def.GetEntityName() ?? LogicStrings.UNKNOWN_ENTITY_NAME;
             return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_ENTITY_NAME);
         }
-        public static string GetEntityTooltip(this IGame game, NamespaceID entityID)
+        public static string GetEntityTooltip(this IGlobalGame game, NamespaceID entityID)
         {
             if (entityID == null)
                 return "null";
@@ -58,7 +58,7 @@ namespace MVZ2Logic.Games
             return Global.Localization.GetTextParticular(tooltip, LogicStrings.CONTEXT_ENTITY_TOOLTIP);
         }
 
-        public static string GetEntityDeathMessage(this IGame game, NamespaceID entityID)
+        public static string GetEntityDeathMessage(this IGlobalGame game, NamespaceID entityID)
         {
             string key = LogicStrings.DEATH_MESSAGE_UNKNOWN;
             if (entityID != null)
@@ -74,7 +74,7 @@ namespace MVZ2Logic.Games
         }
 
         #region 制品
-        public static string GetArtifactName(this IGame game, NamespaceID artifactID)
+        public static string GetArtifactName(this IGlobalGame game, NamespaceID artifactID)
         {
             if (artifactID == null)
                 return "null";
@@ -84,7 +84,7 @@ namespace MVZ2Logic.Games
             var name = def.GetArtifactName() ?? LogicStrings.UNKNOWN_ARTIFACT_NAME;
             return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_ARTIFACT_NAME);
         }
-        public static string GetArtifactTooltip(this IGame game, NamespaceID artifactID)
+        public static string GetArtifactTooltip(this IGlobalGame game, NamespaceID artifactID)
         {
             if (artifactID == null)
                 return "null";
@@ -96,21 +96,21 @@ namespace MVZ2Logic.Games
         }
         #endregion
 
-        public static string GetGridErrorMessage(this IGame game, NamespaceID id)
+        public static string GetGridErrorMessage(this IGlobalGame game, NamespaceID id)
         {
             var def = game.GetGridErrorDefinition(id);
             if (def == null)
                 return null;
             return def.Message;
         }
-        public static string GetBlueprintErrorMessage(this IGame game, NamespaceID id)
+        public static string GetBlueprintErrorMessage(this IGlobalGame game, NamespaceID id)
         {
             var def = game.GetSeedErrorDefinition(id);
             if (def == null)
                 return null;
             return def.Message;
         }
-        public static string GetEntityCounterName(this IGame game, NamespaceID counterID)
+        public static string GetEntityCounterName(this IGlobalGame game, NamespaceID counterID)
         {
             if (counterID == null)
                 return "null";
@@ -120,7 +120,7 @@ namespace MVZ2Logic.Games
             var name = def.Name ?? LogicStrings.UNKNOWN_ENTITY_COUNTER_NAME;
             return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_ENTITY_COUNTER_NAME);
         }
-        public static string GetDifficultyName(this IGame game, NamespaceID difficulty)
+        public static string GetDifficultyName(this IGlobalGame game, NamespaceID difficulty)
         {
             if (difficulty == null)
                 return "null";
@@ -130,7 +130,7 @@ namespace MVZ2Logic.Games
             string name = def.Name ?? LogicStrings.DIFFICULTY_UNKNOWN;
             return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_DIFFICULTY);
         }
-        public static string GetSeedOptionName(this IGame game, NamespaceID id)
+        public static string GetSeedOptionName(this IGlobalGame game, NamespaceID id)
         {
             if (id == null)
                 return "null";
@@ -140,7 +140,7 @@ namespace MVZ2Logic.Games
             var name = def.GetOptionName() ?? LogicStrings.UNKNOWN_OPTION_NAME;
             return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_OPTION_NAME);
         }
-        public static string GetBlueprintName(this IGame game, NamespaceID blueprintID)
+        public static string GetBlueprintName(this IGlobalGame game, NamespaceID blueprintID)
         {
             string name = string.Empty;
             var definition = game.GetSeedDefinition(blueprintID);
@@ -168,7 +168,7 @@ namespace MVZ2Logic.Games
             }
             return name;
         }
-        public static string GetBlueprintTooltip(this IGame game, NamespaceID blueprintID)
+        public static string GetBlueprintTooltip(this IGlobalGame game, NamespaceID blueprintID)
         {
             var definition = game.GetSeedDefinition(blueprintID);
             if (definition == null)

@@ -41,7 +41,7 @@ namespace MVZ2.Level
         }
         protected abstract SerializableLevelControllerPart GetSerializable();
         public virtual void LoadFromSerializable(SerializableLevelControllerPart seri) { }
-        public IGame Game => Controller.Game;
+        public IGlobalGame Game => Controller.Game;
         public ILevelUI UI => Controller.GetUI();
         public MainManager Main => MainManager.Instance;
         public LevelEngine Level => Controller.GetEngine();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MVZ2Logic.Games
 {
-    public interface IGame : IGameContent, IGameTriggerSystem
+    public interface IGlobalGame : IGameContent, IGameTriggerSystem
     {
         bool IsMobile();
         Coroutine StartCoroutine(IEnumerator coroutine);
