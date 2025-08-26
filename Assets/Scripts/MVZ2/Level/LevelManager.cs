@@ -215,11 +215,6 @@ namespace MVZ2.Level
                 await Scene.UnloadSceneAsync(oldScene);
             }
         }
-
-        Coroutine IGlobalLevel.GotoLevelSceneCoroutine()
-        {
-            return Main.CoroutineManager.ToCoroutine(GotoLevelSceneAsync());
-        }
         public async Task ExitLevelSceneAsync()
         {
             var sceneName = "Level";

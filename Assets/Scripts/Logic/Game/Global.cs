@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using MVZ2Logic.Games;
-using MVZ2Logic.Scenes;
 using PVZEngine;
 using UnityEngine;
 
@@ -20,6 +18,7 @@ namespace MVZ2Logic
             Level = param.level;
             Music = param.music;
             GUI = param.gui;
+            Scene = param.scene;
         }
         public static bool IsMobile()
         {
@@ -29,44 +28,6 @@ namespace MVZ2Logic
         public static Coroutine StartCoroutine(IEnumerator enumerator)
         {
             return Main.StartCoroutine(enumerator);
-        }
-        public static void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0)
-        {
-            Level.InitLevel(areaId, stageId, introDelay);
-        }
-
-        public static void GotoMainmenuOrMap()
-        {
-            Scene.GotoMapOrMainmenu();
-        }
-        public static IEnumerator GotoLevel()
-        {
-            yield return Level.GotoLevelSceneCoroutine();
-            Scene.HidePages();
-        }
-        public static void GotoMainmenu()
-        {
-            Scene.DisplayPage(MainScenePageType.Mainmenu);
-        }
-        public static void GotoMap(NamespaceID mapID)
-        {
-            Scene.DisplayMap(mapID);
-        }
-        public static Coroutine DisplayChapterTransition(NamespaceID chapterID, bool end = false)
-        {
-            return Scene.DisplayChapterTransitionCoroutine(chapterID, end);
-        }
-        public static void HideChapterTransition()
-        {
-            Scene.HideChapterTransition();
-        }
-        public static void SetScreenCoverColor(Color value)
-        {
-            Scene.SetScreenCoverColor(value);
-        }
-        public static void FadeScreenCoverColor(Color target, float duration)
-        {
-            Scene.FadeScreenCoverColor(target, duration);
         }
         public static void Print(string text)
         {
@@ -88,7 +49,6 @@ namespace MVZ2Logic
             Debugs.ClearConsole();
         }
         #endregion
-
         private static IMainManager Main { get; set; }
         public static IGlobalModels Models { get; private set; }
         public static IGlobalAlmanac Almanac { get; private set; }
@@ -98,9 +58,9 @@ namespace MVZ2Logic
         public static IGlobalLevel Level { get; private set; }
         public static IGlobalMusic Music { get; private set; }
         public static IGlobalGUI GUI { get; private set; }
+        public static IGlobalScene Scene { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
-        private static ISceneController Scene => Main.Scene;
     }
     public struct GlobalParams
     {
@@ -113,31 +73,20 @@ namespace MVZ2Logic
         public IGlobalLevel level;
         public IGlobalMusic music;
         public IGlobalGUI gui;
+        public IGlobalScene scene;
     }
     public interface IMainManager
     {
         bool IsMobile();
         Coroutine StartCoroutine(IEnumerator enumerator);
         IGame Game { get; }
-        ISceneController Scene { get; }
         IDebugManager Debugs { get; }
     }
     public interface IGlobalModels
     {
         bool ModelExists(NamespaceID id);
     }
-    public interface ISceneController
-    {
-        void GotoMapOrMainmenu();
-        void DisplayPage(MainScenePageType type);
-        void DisplayMap(NamespaceID mapID);
-        Coroutine DisplayChapterTransitionCoroutine(NamespaceID chapterID, bool end);
-        void HideChapterTransition();
-        void HidePages();
-        void FadeScreenCoverColor(Color target, float duration);
-        void SetScreenCoverColor(Color value);
         void Print(string text);
-    }
     }
     public interface IDebugManager
     {

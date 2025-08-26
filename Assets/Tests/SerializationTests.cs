@@ -364,9 +364,9 @@ namespace MVZ2.Tests
             level.LoadGame(seri, Main.Game, areaId, stageId);
             level.ResumeGame(9999);
         }
-        private static IEnumerator GotoLevel()
+        private static Coroutine GotoLevel()
         {
-            return Global.GotoLevel();
+            return Global.Scene.GotoLevelCoroutine();
         }
         private static MainManager Main => MainManager.Instance;
         private static bool inited = false;

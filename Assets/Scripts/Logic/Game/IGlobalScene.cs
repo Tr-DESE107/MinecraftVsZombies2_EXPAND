@@ -1,0 +1,19 @@
+using PVZEngine;
+using UnityEngine;
+
+namespace MVZ2Logic.Games
+{
+    public interface IGlobalScene
+    {
+        void GotoMapOrMainmenu();
+        void GotoMainmenu();
+        void GotoMap(NamespaceID mapID);
+        Coroutine GotoLevelCoroutine();
+        Coroutine GotoChapterTransitionCoroutine(NamespaceID chapterID, bool end);
+        void HideChapterTransition();
+        void HidePages();
+
+        void FadeScreenCoverColor(Color target, float duration);
+        void SetScreenCoverColor(Color value);
+    }
+}

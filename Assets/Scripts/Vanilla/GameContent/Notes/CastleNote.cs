@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Notes
         public override void OnBack(INote note)
         {
             base.OnBack(note);
-            Global.GotoMainmenuOrMap();
+            Global.Scene.GotoMapOrMainmenu();
         }
     }
 }

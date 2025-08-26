@@ -24,14 +24,14 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Game;
 using MVZ2.Vanilla.Saves;
-using MVZ2Logic;
+using MVZ2Logic.Games;
 using MVZ2Logic.Scenes;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Scenes
 {
-    public class MainSceneController : MonoBehaviour, ISceneController
+    public class MainSceneController : MonoBehaviour, IGlobalScene
     {
         public void Init()
         {
@@ -377,7 +377,30 @@ namespace MVZ2.Scenes
             }
         }
 
-        Coroutine ISceneController.DisplayChapterTransitionCoroutine(NamespaceID chapterID, bool end)
+        #region 关卡
+        private async Task GotoLevelSceneAsync()
+        {
+            await main.LevelManager.GotoLevelSceneAsync();
+            HidePages();
+        }
+        private Task ExitLevelSceneAsync()
+        {
+            return main.LevelManager.ExitLevelSceneAsync();
+        }
+        #endregion
+        void IGlobalScene.GotoMainmenu()
+        {
+            DisplayMainmenu();
+        }
+        void IGlobalScene.GotoMap(NamespaceID mapID)
+        {
+            DisplayMap(mapID);
+        }
+        Coroutine IGlobalScene.GotoLevelCoroutine()
+        {
+            return main.CoroutineManager.ToCoroutine(GotoLevelSceneAsync());
+        }
+        Coroutine IGlobalScene.GotoChapterTransitionCoroutine(NamespaceID chapterID, bool end)
         {
             return main.CoroutineManager.ToCoroutine(DisplayChapterTransitionAsync(chapterID, end));
         }

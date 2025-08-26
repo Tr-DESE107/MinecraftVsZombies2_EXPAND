@@ -132,8 +132,9 @@ namespace MVZ2.GameContent.Stages
             {
                 ent.Remove();
             }
-            Global.SetScreenCoverColor(Color.white);
-            Global.FadeScreenCoverColor(new Color(1, 1, 1, 0), 0.25f);
+            var scene = Global.Scene;
+            scene.SetScreenCoverColor(Color.white);
+            scene.FadeScreenCoverColor(new Color(1, 1, 1, 0), 0.25f);
             level.PlaySound(VanillaSoundID.hugeWave);
             var layoutID = GetNewLayout(level.CurrentFlag, level.GetRoundRNG());
             SetCurrentLayout(level, layoutID);
