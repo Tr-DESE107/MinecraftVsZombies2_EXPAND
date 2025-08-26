@@ -205,7 +205,8 @@ namespace MVZ2.Managers
                 main = this,
                 models = models,
                 almanac = almanac,
-                saveData = saveData
+                saveData = saveData,
+                options = OptionsManager
             });
             Game = new Game(BuiltinNamespace, LanguageManager);
         }
@@ -344,7 +345,6 @@ namespace MVZ2.Managers
         ISceneController IMainManager.Scene => scene;
         IMusicManager IMainManager.Music => music;
         ILevelManager IMainManager.Level => level;
-        IOptionsManager IMainManager.Options => options;
         IInputManager IMainManager.Input => inputManager;
         IDebugManager IMainManager.Debugs => debugManager;
 

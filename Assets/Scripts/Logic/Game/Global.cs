@@ -16,6 +16,7 @@ namespace MVZ2Logic
             Models = param.models;
             Almanac = param.almanac;
             Saves = param.saveData;
+            Options = param.options;
         }
         public static bool IsMobile()
         {
@@ -105,17 +106,6 @@ namespace MVZ2Logic
             Scene.Print(text);
         }
 
-        #region 选项
-        public static bool HasBloodAndGore()
-        {
-            return Options.HasBloodAndGore();
-        }
-        public static bool IsTriggerSwapped()
-        {
-            return Options.IsTriggerSwapped();
-        }
-        #endregion
-
 
         #region 调试
         public static string[] GetCommandHistory()
@@ -136,12 +126,12 @@ namespace MVZ2Logic
         public static IGlobalModels Models { get; private set; }
         public static IGlobalAlmanac Almanac { get; private set; }
         public static IGlobalSaveData Saves { get; private set; }
+        public static IGlobalOptions Options { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
         private static ISceneController Scene => Main.Scene;
         private static IMusicManager Music => Main.Music;
         private static ILevelManager Level => Main.Level;
-        private static IOptionsManager Options => Main.Options;
     }
     public struct GlobalParams
     {
@@ -149,6 +139,7 @@ namespace MVZ2Logic
         public IGlobalModels models;
         public IGlobalAlmanac almanac;
         public IGlobalSaveData saveData;
+        public IGlobalOptions options;
     }
     public interface IMainManager
     {
@@ -158,7 +149,6 @@ namespace MVZ2Logic
         ISceneController Scene { get; }
         IMusicManager Music { get; }
         ILevelManager Level { get; }
-        IOptionsManager Options { get; }
         IInputManager Input { get; }
         IDebugManager Debugs { get; }
     }
@@ -189,11 +179,6 @@ namespace MVZ2Logic
     {
         void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0, LevelExitTarget exitTarget = LevelExitTarget.MapOrMainmenu);
         Coroutine GotoLevelSceneCoroutine();
-    }
-    public interface IOptionsManager
-    {
-        bool HasBloodAndGore();
-        bool IsTriggerSwapped();
     }
     public interface IInputManager
     {

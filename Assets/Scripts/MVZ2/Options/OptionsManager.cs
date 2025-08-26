@@ -6,12 +6,13 @@ using MVZ2.IO;
 using MVZ2.Localization;
 using MVZ2.Managers;
 using MVZ2Logic;
+using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Options
 {
-    public partial class OptionsManager : MonoBehaviour, IOptionsManager
+    public partial class OptionsManager : MonoBehaviour, IGlobalOptions
     {
         public void InitOptions()
         {

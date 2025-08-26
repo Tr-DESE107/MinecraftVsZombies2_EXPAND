@@ -375,7 +375,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static Color GetBloodColor(this Entity entity)
         {
-            return Global.HasBloodAndGore() ? entity.GetBloodColorNormal() : entity.GetBloodColorCensored();
+            return Global.Options.HasBloodAndGore() ? entity.GetBloodColorNormal() : entity.GetBloodColorCensored();
         }
         #endregion
 

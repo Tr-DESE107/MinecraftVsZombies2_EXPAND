@@ -39,7 +39,7 @@ namespace MVZ2.Vanilla.Level
         }
         public static Color GetWaterColor(this LevelEngine game)
         {
-            return Global.HasBloodAndGore() ? game.GetWaterColorNormal() : game.GetWaterColorCensored();
+            return Global.Options.HasBloodAndGore() ? game.GetWaterColorNormal() : game.GetWaterColorCensored();
         }
 
         public static readonly PropertyMeta<float> DOOR_Z = Get<float>("doorZ");
