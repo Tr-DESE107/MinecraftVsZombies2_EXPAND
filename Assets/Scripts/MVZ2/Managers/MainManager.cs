@@ -209,6 +209,7 @@ namespace MVZ2.Managers
                 options = OptionsManager,
                 input = InputManager,
                 level = LevelManager,
+                music = MusicManager,
             });
             Game = new Game(BuiltinNamespace, LanguageManager);
         }
@@ -345,7 +346,6 @@ namespace MVZ2.Managers
         public MainSceneController Scene => scene;
         public PerformanceManager PerformanceManager => performanceManager;
         ISceneController IMainManager.Scene => scene;
-        IMusicManager IMainManager.Music => music;
         IDebugManager IMainManager.Debugs => debugManager;
 
         private Task initTask;

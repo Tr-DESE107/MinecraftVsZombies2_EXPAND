@@ -17,7 +17,7 @@ namespace MVZ2.Vanilla
         }
         public static IEnumerator TransitionToLevel(NamespaceID transition, NamespaceID areaID, NamespaceID stageID)
         {
-            Global.FadeMusic(0, 2);
+            Global.Music.StartFade(0, 2);
             Global.SetScreenCoverColor(new Color(0, 0, 0, 0));
             Global.FadeScreenCoverColor(new Color(0, 0, 0, 1), 1);
 
@@ -27,7 +27,7 @@ namespace MVZ2.Vanilla
         }
         public static IEnumerator TransitionTalkToLevel(NamespaceID transition, NamespaceID areaID, NamespaceID stageID)
         {
-            Global.StopMusic();
+            Global.Music.Stop();
             Global.SetScreenCoverColor(new Color(0, 0, 0, 1));
             Global.FadeScreenCoverColor(new Color(0, 0, 0, 0), 0.5f);
             yield return Global.DisplayChapterTransition(transition);
@@ -38,7 +38,7 @@ namespace MVZ2.Vanilla
             yield return new WaitForSeconds(2);
 
             Global.FadeScreenCoverColor(new Color(0, 0, 0, 0), 1);
-            Global.SetMusicVolume(1);
+            Global.Music.SetVolume(1);
             Global.InitLevel(areaID, stageID, 1);
             Global.HideChapterTransition();
         }
@@ -48,9 +48,9 @@ namespace MVZ2.Vanilla
             Global.FadeScreenCoverColor(new Color(0, 0, 0, 0), 0.5f);
             yield return Global.DisplayChapterTransition(transition, true);
 
-            Global.FadeMusic(0, 1);
+            Global.Music.StartFade(0, 1);
             yield return new WaitForSeconds(2);
-            Global.SetMusicVolume(1);
+            Global.Music.SetVolume(1);
             Global.SetScreenCoverColor(new Color(0, 0, 0, 1));
             Global.FadeScreenCoverColor(new Color(0, 0, 0, 0), 1);
             Global.HideChapterTransition();

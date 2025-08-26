@@ -1,0 +1,9 @@
+﻿namespace MVZ2Logic.Games
+{
+    public interface IGlobalMusic
+    {
+        void StartFade(float target, float duration);
+        void SetVolume(float volume);
+        void Stop();
+    }
+}

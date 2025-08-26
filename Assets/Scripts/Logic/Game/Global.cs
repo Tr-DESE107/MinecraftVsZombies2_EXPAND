@@ -18,6 +18,7 @@ namespace MVZ2Logic
             Options = param.options;
             Input = param.input;
             Level = param.level;
+            Music = param.music;
         }
         public static bool IsMobile()
         {
@@ -27,18 +28,6 @@ namespace MVZ2Logic
         public static Coroutine StartCoroutine(IEnumerator enumerator)
         {
             return Main.StartCoroutine(enumerator);
-        }
-        public static void FadeMusic(float target, float duration)
-        {
-            Music.StartFade(target, duration);
-        }
-        public static void SetMusicVolume(float volume)
-        {
-            Music.SetVolume(volume);
-        }
-        public static void StopMusic()
-        {
-            Music.Stop();
         }
         public static void InitLevel(NamespaceID areaId, NamespaceID stageId, float introDelay = 0)
         {
@@ -110,10 +99,10 @@ namespace MVZ2Logic
         public static IGlobalOptions Options { get; private set; }
         public static IGlobalInput Input { get; private set; }
         public static IGlobalLevel Level { get; private set; }
+        public static IGlobalMusic Music { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
         public static IGame Game => Main.Game;
         private static ISceneController Scene => Main.Scene;
-        private static IMusicManager Music => Main.Music;
     }
     public struct GlobalParams
     {
@@ -124,6 +113,7 @@ namespace MVZ2Logic
         public IGlobalOptions options;
         public IGlobalInput input;
         public IGlobalLevel level;
+        public IGlobalMusic music;
     }
     public interface IMainManager
     {
@@ -131,7 +121,6 @@ namespace MVZ2Logic
         Coroutine StartCoroutine(IEnumerator enumerator);
         IGame Game { get; }
         ISceneController Scene { get; }
-        IMusicManager Music { get; }
         IDebugManager Debugs { get; }
     }
     public interface IGlobalModels
@@ -150,12 +139,6 @@ namespace MVZ2Logic
         void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null);
         void Print(string text);
         Coroutine DisplayChapterTransitionCoroutine(NamespaceID chapterID, bool end);
-    }
-    public interface IMusicManager
-    {
-        void StartFade(float target, float duration);
-        void SetVolume(float volume);
-        void Stop();
     }
     }
     public interface IDebugManager

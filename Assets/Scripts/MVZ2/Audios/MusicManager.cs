@@ -1,13 +1,13 @@
 ﻿using MVZ2.Managers;
 using MVZ2.UI;
-using MVZ2Logic;
+using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
 using UnityEngine.Audio;
 
 namespace MVZ2.Audios
 {
-    public class MusicManager : MonoBehaviour, IMusicManager
+    public class MusicManager : MonoBehaviour, IGlobalMusic
     {
         #region 播放
         public void Play(NamespaceID id)
