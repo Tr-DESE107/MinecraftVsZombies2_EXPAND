@@ -7,92 +7,96 @@ namespace PVZEngine
 {
     public static class PropertyMapper
     {
+        public static void InitTypePropertyMaps(string namespaceName, Type type)
+        {
+            var regionAttribute = type.GetCustomAttribute<PropertyRegistryRegionAttribute>();
+            var definitionAttribute = type.GetCustomAttribute<DefinitionAttribute>();
+            foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static))
+            {
+                if (!field.IsStatic)
+                    continue;
+                var fieldAttribute = field.GetCustomAttribute<PropertyRegistryAttribute>();
+                string regionName;
+                if (fieldAttribute != null)
+                {
+                    if (!string.IsNullOrEmpty(fieldAttribute.TypeName))
+                    {
+                        regionName = $"{fieldAttribute.TypeName}/{fieldAttribute.RegionName}";
+                    }
+                    else
+                    {
+                        regionName = $"{fieldAttribute.RegionName}";
+                    }
+                }
+                else if (regionAttribute != null)
+                {
+                    regionName = regionAttribute.RegionName;
+                }
+                else if (definitionAttribute != null)
+                {
+                    regionName = $"{definitionAttribute.Type}/{definitionAttribute.Name}";
+                }
+                else
+                {
+                    continue;
+                }
+                if (field.GetValue(null) is not PropertyMeta meta)
+                    continue;
+
+                // 为Meta设置命名空间名和区域名。
+                meta.RegisterNames(namespaceName, regionName);
+
+                // 注册属性键。
+                var propertyName = meta.propertyName;
+                var propertyType = meta.propertyType;
+                var defaultValue = meta.defaultValue;
+                var obsoleteNames = meta.obsoleteNames;
+
+                var fullName = PropertyKeyHelper.CombineName(namespaceName, regionName, propertyName);
+                if (registries.TryGetKeyOfFullName(fullName, out IPropertyKey key))
+                {
+                    // 有重复名称的属性注册了
+                    Debug.LogWarning($"Duplicate property meta {meta}");
+                }
+                else
+                {
+                    // 注册一个属性键
+                    var propName = PropertyKeyHelper.CombineRegionName(regionName, propertyName);
+                    registries.GetOrRegisterPropertyKey(namespaceName, propName, out var namespaceKey, out var propertyKey);
+
+                    key = PropertyKeyHelper.FromType(namespaceKey, propertyKey, propertyType, defaultValue);
+                    registries.RegisterFullName(fullName, key);
+
+                    // 过时名称替换
+                    if (obsoleteNames != null)
+                    {
+                        foreach (var name in obsoleteNames)
+                        {
+                            var fullObsoleteName = PropertyKeyHelper.CombineName(namespaceName, regionName, name);
+                            if (registries.TryGetKeyOfFullName(fullObsoleteName, out _))
+                            {
+                                // 有重复名称的属性注册了
+                                Debug.LogWarning($"An obsolete name \"{fullObsoleteName}\" of property \"{fullName}\" conflicts with another property.");
+                                continue;
+                            }
+                            if (registries.TryGetFullNameOfObsoleteName(fullObsoleteName, out var conflictFullName))
+                            {
+                                // 有重复名称的属性注册了
+                                Debug.LogWarning($"An obsolete name \"{fullObsoleteName}\" of property \"{fullName}\" has already been registed to map \"{conflictFullName}\".");
+                                continue;
+                            }
+                            registries.RegisterObsoleteName(fullObsoleteName, fullName);
+                        }
+                    }
+                }
+                meta.SetRegisteredKey(key);
+            }
+        }
         public static void InitPropertyMaps(string namespaceName, Type[] types)
         {
             foreach (var type in types)
             {
-                var regionAttribute = type.GetCustomAttribute<PropertyRegistryRegionAttribute>();
-                var definitionAttribute = type.GetCustomAttribute<DefinitionAttribute>();
-                foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static))
-                {
-                    if (!field.IsStatic)
-                        continue;
-                    var fieldAttribute = field.GetCustomAttribute<PropertyRegistryAttribute>();
-                    string regionName;
-                    if (fieldAttribute != null)
-                    {
-                        if (!string.IsNullOrEmpty(fieldAttribute.TypeName))
-                        {
-                            regionName = $"{fieldAttribute.TypeName}/{fieldAttribute.RegionName}";
-                        }
-                        else
-                        {
-                            regionName = $"{fieldAttribute.RegionName}";
-                        }
-                    }
-                    else if (regionAttribute != null)
-                    {
-                        regionName = regionAttribute.RegionName;
-                    }
-                    else if (definitionAttribute != null)
-                    {
-                        regionName = $"{definitionAttribute.Type}/{definitionAttribute.Name}";
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                    if (field.GetValue(null) is not PropertyMeta meta)
-                        continue;
-
-                    // 为Meta设置命名空间名和区域名。
-                    meta.RegisterNames(namespaceName, regionName);
-
-                    // 注册属性键。
-                    var propertyName = meta.propertyName;
-                    var propertyType = meta.propertyType;
-                    var defaultValue = meta.defaultValue;
-                    var obsoleteNames = meta.obsoleteNames;
-
-                    var fullName = PropertyKeyHelper.CombineName(namespaceName, regionName, propertyName);
-                    if (registries.TryGetKeyOfFullName(fullName, out IPropertyKey key))
-                    {
-                        // 有重复名称的属性注册了
-                        Debug.LogWarning($"Duplicate property meta {meta}");
-                    }
-                    else
-                    {
-                        // 注册一个属性键
-                        var propName = PropertyKeyHelper.CombineRegionName(regionName, propertyName);
-                        registries.GetOrRegisterPropertyKey(namespaceName, propName, out var namespaceKey, out var propertyKey);
-
-                        key = PropertyKeyHelper.FromType(namespaceKey, propertyKey, propertyType, defaultValue);
-                        registries.RegisterFullName(fullName, key);
-
-                        // 过时名称替换
-                        if (obsoleteNames != null)
-                        {
-                            foreach (var name in obsoleteNames)
-                            {
-                                var fullObsoleteName = PropertyKeyHelper.CombineName(namespaceName, regionName, name);
-                                if (registries.TryGetKeyOfFullName(fullObsoleteName, out _))
-                                {
-                                    // 有重复名称的属性注册了
-                                    Debug.LogWarning($"An obsolete name \"{fullObsoleteName}\" of property \"{fullName}\" conflicts with another property.");
-                                    continue;
-                                }
-                                if (registries.TryGetFullNameOfObsoleteName(fullObsoleteName, out var conflictFullName))
-                                {
-                                    // 有重复名称的属性注册了
-                                    Debug.LogWarning($"An obsolete name \"{fullObsoleteName}\" of property \"{fullName}\" has already been registed to map \"{conflictFullName}\".");
-                                    continue;
-                                }
-                                registries.RegisterObsoleteName(fullObsoleteName, fullName);
-                            }
-                        }
-                    }
-                    meta.SetRegisteredKey(key);
-                }
+                InitTypePropertyMaps(namespaceName, type);
             }
         }
 

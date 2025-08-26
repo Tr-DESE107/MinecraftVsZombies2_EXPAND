@@ -59,15 +59,10 @@ namespace MVZ2.Modding
         }
         void IModManager.RegisterMod(IModLogic logic)
         {
-            logic.Init(Main.Game);
-            RegisterModLogic(logic.Namespace, logic);
-        }
-        public void RegisterModLogic(string spaceName, IModLogic modLogic)
-        {
-            var modInfo = GetModInfo(spaceName);
+            var modInfo = GetModInfo(logic.Namespace);
             if (modInfo == null)
                 return;
-            modInfo.Logic = modLogic;
+            modInfo.Logic = logic;
         }
         public ModInfo GetModInfo(string nsp)
         {

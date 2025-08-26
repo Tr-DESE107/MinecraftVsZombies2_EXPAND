@@ -210,6 +210,15 @@ namespace MVZ2Logic
             if (!BsonClassMap.IsClassMapRegistered(typeof(T)))
                 BsonClassMap.RegisterClassMap<T>();
         }
+        public static void RegisterClass(Type t)
+        {
+            if (!BsonClassMap.IsClassMapRegistered(t))
+            {
+                var map = new BsonClassMap(t);
+                map.AutoMap();
+                BsonClassMap.RegisterClassMap(map);
+            }
+        }
         public static bool isInited { get; private set; } = false;
         public static JsonWriterSettings readFriendlyWriterSettings = new JsonWriterSettings()
         {
@@ -263,4 +272,6 @@ namespace MVZ2Logic
             }
         }
     }
+
+    public delegate void SerializableRegister<T>();
 }

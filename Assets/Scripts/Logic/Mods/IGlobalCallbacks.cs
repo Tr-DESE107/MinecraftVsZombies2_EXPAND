@@ -1,0 +1,7 @@
+﻿namespace MVZ2Logic.Modding
+{
+    public interface IGlobalCallbacks
+    {
+        void Apply(Mod mod);
+    }
+}

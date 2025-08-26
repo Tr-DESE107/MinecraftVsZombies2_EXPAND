@@ -18,11 +18,12 @@ using PVZEngine.Callbacks;
 using PVZEngine.Level;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class TalkActionImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class TalkActionGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(VanillaCallbacks.TALK_ACTION, TalkAction);
         }

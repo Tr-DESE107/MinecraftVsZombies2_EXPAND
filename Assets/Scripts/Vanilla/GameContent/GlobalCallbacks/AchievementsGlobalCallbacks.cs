@@ -10,11 +10,12 @@ using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class AchievementsImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class AchievementsGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostContraptionDeathCallback, filter: EntityTypes.PLANT);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);

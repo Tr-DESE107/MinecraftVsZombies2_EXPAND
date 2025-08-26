@@ -14,11 +14,12 @@ using PVZEngine.Armors;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class AlmanacImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class AlmanacGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(LogicCallbacks.GET_ALMANAC_ENTRY_TAGS, GetAlmanacEntryTagsCallback);
         }

@@ -8,11 +8,12 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class DifficultyImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class DifficultyGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(LogicLevelCallbacks.PRE_BATTLE, PreBattleCallback);
             mod.AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);

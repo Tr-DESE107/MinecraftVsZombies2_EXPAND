@@ -1,0 +1,9 @@
+﻿using MVZ2Logic.Modding;
+
+namespace MVZ2.GameContent.GlobalCallbacks
+{
+    public abstract class VanillaGlobalCallbacks : IGlobalCallbacks
+    {
+        public abstract void Apply(Mod mod);
+    }
+}

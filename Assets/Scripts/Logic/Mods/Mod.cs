@@ -92,9 +92,24 @@ namespace MVZ2Logic.Modding
         #endregion
 
         #region 全局回调
-        protected void ImplementCallbacks(IImplements implements)
+        public void ApplyGlobalCallbacks(IGlobalCallbacks implements)
         {
-            implements.Implement(this);
+            implements.Apply(this);
+        }
+        #endregion
+
+        #region 序列化
+        protected void RegisterSerializableType<T>()
+        {
+            SerializeHelper.RegisterClass<T>();
+        }
+        protected string Serialize(object obj)
+        {
+            return SerializeHelper.ToBson(obj);
+        }
+        protected T Deserialize<T>(string json)
+        {
+            return SerializeHelper.FromBson<T>(json);
         }
         #endregion
 

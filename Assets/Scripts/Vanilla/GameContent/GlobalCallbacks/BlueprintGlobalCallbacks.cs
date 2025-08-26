@@ -7,11 +7,12 @@ using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class BlueprintImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class BlueprintGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(VanillaLevelCallbacks.POST_USE_ENTITY_BLUEPRINT, PostUseEntityBlueprintCallback);
         }

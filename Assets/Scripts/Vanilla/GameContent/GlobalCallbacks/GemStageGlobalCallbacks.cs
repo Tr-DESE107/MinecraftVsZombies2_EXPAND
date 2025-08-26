@@ -13,11 +13,12 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class GemStageImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class GemStageGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, Gem_PostPickupInitCallback, filter: EntityTypes.PICKUP);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, Gem_PostEnemyInitCallback, filter: EntityTypes.ENEMY);

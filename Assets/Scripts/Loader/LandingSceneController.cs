@@ -1,6 +1,4 @@
-using System.IO;
 using System.Reflection;
-using MVZ2.Games;
 using MVZ2.Managers;
 using MVZ2.Modding;
 using MVZ2.Vanilla;
@@ -28,8 +26,11 @@ namespace MVZ2
         {
             var mod = new VanillaMod();
             var assemblies = new Assembly[] { Assembly.GetAssembly(typeof(VanillaMod)) };
-            var modLoader = new ModLoader(MainManager.Instance);
+            var main = MainManager.Instance;
+            var game = main.Game;
+            var modLoader = new ModLoader(main);
             modLoader.Load(mod, assemblies);
+            mod.Init(game);
             manager.RegisterMod(mod);
         }
     }

@@ -10,11 +10,12 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using UnityEngine;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class EntityImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class EntityGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, PostContactGroundCallback);

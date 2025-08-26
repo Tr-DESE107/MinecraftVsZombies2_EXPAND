@@ -1,5 +1,5 @@
 ﻿using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.Implements;
+using MVZ2.GameContent.GlobalCallbacks;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Buffs
             var targetTimes = 2;
             var impFriction = 0.15f;
             var speedFactor = VanillaEnemyExt.WALK_SPEED_FACTOR;
-            var izRandomSpeed = IZombieImplements.ZOMBIE_RANDOM_SPEED;
+            var izRandomSpeed = IZombieGlobalCallbacks.ZOMBIE_RANDOM_SPEED;
             var baseSpeed = 1;
 
             var distance = spikeWidth + impWidth;

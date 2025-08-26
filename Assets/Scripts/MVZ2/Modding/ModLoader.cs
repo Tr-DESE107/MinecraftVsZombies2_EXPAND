@@ -38,32 +38,51 @@ namespace MVZ2.Modding
         }
         public void Load(Mod mod, Assembly[] assemblies)
         {
-            // 映射所有的属性值。
-            MapProperties(mod, assemblies);
+            LoadAssemblies(mod, assemblies);
 
-            LoadDefinitions(mod, assemblies);
+            LoadDefinitions(mod);
 
             LoadDefinitionProperties(mod);
         }
 
         #region 初始化
-        private void MapProperties(Mod mod, Assembly[] assemblies)
+        private void LoadAssemblies(Mod mod, Assembly[] assemblies)
         {
             var nsp = mod.Namespace;
             foreach (var assembly in assemblies)
             {
                 var types = assembly.GetTypes();
-                PropertyMapper.InitPropertyMaps(nsp, types);
+                foreach (var type in types)
+                {
+                    if (type.GetCustomAttribute<ModGlobalCallbacksAttribute>() != null && !type.IsAbstract)
+                    {
+                        var instance = Activator.CreateInstance(type);
+                        if (instance is IGlobalCallbacks globalCallbacks)
+                        {
+                            mod.ApplyGlobalCallbacks(globalCallbacks);
+                        }
+                    }
+
+                    if (type.GetCustomAttribute<DefinitionAttribute>() is DefinitionAttribute definitionAttr && !type.IsAbstract)
+                    {
+                        var name = definitionAttr.Name;
+                        var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
+                        var instance = constructor?.Invoke(new object[] { nsp, name });
+                        if (instance is Definition def)
+                        {
+                            mod.AddDefinition(def);
+                        }
+                    }
+
+                    PropertyMapper.InitTypePropertyMaps(nsp, type);
+                }
             }
         }
         #endregion
 
         #region 加载Definitions
-        private void LoadDefinitions(Mod mod, Assembly[] assemblies)
+        private void LoadDefinitions(Mod mod)
         {
-            // 加载所有代码生成定义。
-            LoadDefinitionsFromAssemblies(mod, assemblies);
-
             // 以下这这些没有相关联的定义类型，必须要手动创建。
             // 加载所有实体。
             LoadEntityMetas(mod);
@@ -90,28 +109,6 @@ namespace MVZ2.Modding
             LoadCustomEntityBlueprints(mod);
             // 加载所有蓝图错误信息。
             LoadBlueprintErrorMetas(mod);
-        }
-        private void LoadDefinitionsFromAssemblies(Mod mod, Assembly[] assemblies)
-        {
-            var nsp = mod.Namespace;
-            foreach (var assembly in assemblies)
-            {
-                var types = assembly.GetTypes();
-                foreach (var type in types)
-                {
-                    var definitionAttr = type.GetCustomAttribute<DefinitionAttribute>();
-                    if (definitionAttr == null || type.IsAbstract)
-                        continue;
-
-                    var name = definitionAttr.Name;
-                    var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
-                    var definitionObj = constructor?.Invoke(new object[] { nsp, name });
-                    if (definitionObj is Definition def)
-                    {
-                        mod.AddDefinition(def);
-                    }
-                }
-            }
         }
         private void LoadEntityMetas(Mod mod)
         {

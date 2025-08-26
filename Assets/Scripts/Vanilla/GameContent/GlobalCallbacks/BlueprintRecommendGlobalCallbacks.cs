@@ -17,11 +17,12 @@ using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class BlueprintRecommendImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class BlueprintRecommendGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(LogicLevelCallbacks.GET_BLUEPRINT_NOT_RECOMMONDED, GetBlueprintNotRecommondedCallback);
             mod.AddTrigger(LogicLevelCallbacks.GET_BLUEPRINT_WARNINGS, GetBlueprintWarningsCallback);

@@ -4,11 +4,12 @@ using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using Tools;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class CartToMoneyImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class CartToMoneyGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(LevelCallbacks.POST_LEVEL_CLEAR, PostLevelClearCallback);
         }

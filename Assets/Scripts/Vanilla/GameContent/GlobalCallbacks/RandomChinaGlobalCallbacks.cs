@@ -5,11 +5,12 @@ using MVZ2Logic.Callbacks;
 using MVZ2Logic.Modding;
 using PVZEngine.Callbacks;
 
-namespace MVZ2.GameContent.Implements
+namespace MVZ2.GameContent.GlobalCallbacks
 {
-    public class RandomChinaImplements : VanillaImplements
+    [ModGlobalCallbacks]
+    public class RandomChinaGlobalCallbacks : VanillaGlobalCallbacks
     {
-        public override void Implement(Mod mod)
+        public override void Apply(Mod mod)
         {
             mod.AddTrigger(LogicCallbacks.IS_SPECIAL_USER_NAME, IsSpecialUserNameCallback);
             mod.AddTrigger(LogicCallbacks.GET_BLUEPRINT_SLOT_COUNT, GetBlueprintSlotCountCallback);
