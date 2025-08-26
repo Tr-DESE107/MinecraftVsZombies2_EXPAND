@@ -1,5 +1,5 @@
 ﻿using System;
-using MVZ2.Games;
+using MVZ2.GlobalGames;
 using MVZ2.Level.Components;
 using MVZ2.Level.UI;
 using MVZ2Logic.Level;
@@ -48,12 +48,12 @@ namespace MVZ2.Level
             }
             return true;
         }
-        public bool LoadGame(SerializableLevelController seri, Game game, NamespaceID areaID, NamespaceID stageID)
+        public bool LoadGame(SerializableLevelController seri, GlobalGame game, NamespaceID areaID, NamespaceID stageID)
         {
             try
             {
                 rng = RandomGenerator.FromSerializable(seri.rng);
-                level = LevelEngine.Deserialize(seri.level, game, game, game, GetCollisionSystem());
+                level = LevelEngine.Deserialize(seri.level, game, game, GetCollisionSystem());
                 InitLevelEngine(level, game, areaID, stageID);
 
                 level.DeserializeComponents(seri.level);

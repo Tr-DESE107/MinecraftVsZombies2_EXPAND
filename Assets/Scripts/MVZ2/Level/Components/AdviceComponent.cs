@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using MVZ2.Vanilla;
+using MVZ2Logic;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Level;
@@ -90,8 +91,8 @@ namespace MVZ2.Level.Components
         public string GetAdvice()
         {
             if (string.IsNullOrEmpty(AdvicePluralKey))
-                return Level.Localization.GetTextParticular(AdviceKey, AdviceContext, AdviceArgs);
-            return Level.Localization.GetTextPluralParticular(AdviceKey, AdvicePluralKey, AdvicePluralNum, AdviceContext, AdviceArgs);
+                return Global.Localization.GetTextParticular(AdviceKey, AdviceContext, AdviceArgs);
+            return Global.Localization.GetTextPluralParticular(AdviceKey, AdvicePluralKey, AdvicePluralNum, AdviceContext, AdviceArgs);
         }
         public string AdviceContext { get; private set; }
         public string AdviceKey { get; private set; }

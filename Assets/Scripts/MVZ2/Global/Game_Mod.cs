@@ -2,9 +2,9 @@ using MVZ2Logic.Modding;
 using PVZEngine;
 using PVZEngine.Base;
 
-namespace MVZ2.Games
+namespace MVZ2.GlobalGames
 {
-    public partial class Game
+    public partial class GlobalGame
     {
         public T GetDefinition<T>(string type, NamespaceID id) where T : Definition
         {

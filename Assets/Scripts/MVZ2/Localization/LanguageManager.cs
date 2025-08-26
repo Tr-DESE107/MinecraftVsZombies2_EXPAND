@@ -6,12 +6,13 @@ using MukioI18n;
 using MVZ2.Managers;
 using MVZ2.Vanilla;
 using MVZ2Logic;
+using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
 
 namespace MVZ2.Localization
 {
-    public partial class LanguageManager : MonoBehaviour, IGameLocalization
+    public partial class LanguageManager : MonoBehaviour, IGlobalLocalization
     {
         public string _(string text, params object[] args)
         {
@@ -220,19 +221,19 @@ namespace MVZ2.Localization
                 return;
             Main.OptionsManager.SetLanguage(allLanguages.FirstOrDefault());
         }
-        string IGameLocalization.GetText(string textKey, params string[] args)
+        string IGlobalLocalization.GetText(string textKey, params string[] args)
         {
             return _(textKey, args);
         }
-        string IGameLocalization.GetTextParticular(string textKey, string context, params string[] args)
+        string IGlobalLocalization.GetTextParticular(string textKey, string context, params string[] args)
         {
             return _p(context, textKey, args);
         }
-        string IGameLocalization.GetTextPlural(string textKey, string textPlural, long n, params string[] args)
+        string IGlobalLocalization.GetTextPlural(string textKey, string textPlural, long n, params string[] args)
         {
             return _n(textKey, textPlural, n, args);
         }
-        string IGameLocalization.GetTextPluralParticular(string textKey, string textPlural, long n, string context, params string[] args)
+        string IGlobalLocalization.GetTextPluralParticular(string textKey, string textPlural, long n, string context, params string[] args)
         {
             return _pn(context, textKey, textPlural, n, args);
         }

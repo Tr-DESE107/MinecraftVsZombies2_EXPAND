@@ -4,13 +4,12 @@ using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
 
-namespace MVZ2.Games
+namespace MVZ2.GlobalGames
 {
-    public partial class Game : IGame
+    public partial class GlobalGame : IGame
     {
-        public Game(MainManager main, IGameLocalization localization)
+        public GlobalGame(MainManager main)
         {
-            this.localization = localization;
         }
         public bool IsMobile()
         {

@@ -45,7 +45,7 @@ namespace MVZ2Logic.Games
             if (def == null)
                 return entityID.ToString();
             var name = def.GetEntityName() ?? LogicStrings.UNKNOWN_ENTITY_NAME;
-            return game.GetTextParticular(name, LogicStrings.CONTEXT_ENTITY_NAME);
+            return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_ENTITY_NAME);
         }
         public static string GetEntityTooltip(this IGame game, NamespaceID entityID)
         {
@@ -55,7 +55,7 @@ namespace MVZ2Logic.Games
             if (def == null)
                 return entityID.ToString();
             var tooltip = def.GetEntityTooltip() ?? LogicStrings.UNKNOWN_ENTITY_TOOLTIP;
-            return game.GetTextParticular(tooltip, LogicStrings.CONTEXT_ENTITY_TOOLTIP);
+            return Global.Localization.GetTextParticular(tooltip, LogicStrings.CONTEXT_ENTITY_TOOLTIP);
         }
 
         public static string GetEntityDeathMessage(this IGame game, NamespaceID entityID)
@@ -70,7 +70,7 @@ namespace MVZ2Logic.Games
                     key = deathMessage;
                 }
             }
-            return game.GetTextParticular(key, LogicStrings.CONTEXT_DEATH_MESSAGE);
+            return Global.Localization.GetTextParticular(key, LogicStrings.CONTEXT_DEATH_MESSAGE);
         }
 
         #region 制品
@@ -82,7 +82,7 @@ namespace MVZ2Logic.Games
             if (def == null)
                 return artifactID.ToString();
             var name = def.GetArtifactName() ?? LogicStrings.UNKNOWN_ARTIFACT_NAME;
-            return game.GetTextParticular(name, LogicStrings.CONTEXT_ARTIFACT_NAME);
+            return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_ARTIFACT_NAME);
         }
         public static string GetArtifactTooltip(this IGame game, NamespaceID artifactID)
         {
@@ -92,7 +92,7 @@ namespace MVZ2Logic.Games
             if (def == null)
                 return artifactID.ToString();
             var tooltip = def.GetArtifactTooltip() ?? LogicStrings.UNKNOWN_ARTIFACT_TOOLTIP;
-            return game.GetTextParticular(tooltip, LogicStrings.CONTEXT_ARTIFACT_TOOLTIP);
+            return Global.Localization.GetTextParticular(tooltip, LogicStrings.CONTEXT_ARTIFACT_TOOLTIP);
         }
         #endregion
 
@@ -118,7 +118,7 @@ namespace MVZ2Logic.Games
             if (def == null)
                 return counterID.ToString();
             var name = def.Name ?? LogicStrings.UNKNOWN_ENTITY_COUNTER_NAME;
-            return game.GetTextParticular(name, LogicStrings.CONTEXT_ENTITY_COUNTER_NAME);
+            return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_ENTITY_COUNTER_NAME);
         }
         public static string GetDifficultyName(this IGame game, NamespaceID difficulty)
         {
@@ -128,7 +128,7 @@ namespace MVZ2Logic.Games
             if (def == null)
                 return difficulty.ToString();
             string name = def.Name ?? LogicStrings.DIFFICULTY_UNKNOWN;
-            return game.GetTextParticular(name, LogicStrings.CONTEXT_DIFFICULTY);
+            return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_DIFFICULTY);
         }
         public static string GetSeedOptionName(this IGame game, NamespaceID id)
         {
@@ -138,7 +138,7 @@ namespace MVZ2Logic.Games
             if (def == null)
                 return id.ToString();
             var name = def.GetOptionName() ?? LogicStrings.UNKNOWN_OPTION_NAME;
-            return game.GetTextParticular(name, LogicStrings.CONTEXT_OPTION_NAME);
+            return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_OPTION_NAME);
         }
         public static string GetBlueprintName(this IGame game, NamespaceID blueprintID)
         {
@@ -153,7 +153,7 @@ namespace MVZ2Logic.Games
                 var customName = customEntityDef?.BlueprintName;
                 if (!string.IsNullOrEmpty(customName))
                 {
-                    name = game.GetTextParticular(customName, LogicStrings.CONTEXT_ENTITY_NAME);
+                    name = Global.Localization.GetTextParticular(customName, LogicStrings.CONTEXT_ENTITY_NAME);
                 }
                 else
                 {
@@ -180,7 +180,7 @@ namespace MVZ2Logic.Games
                 var customTooltip = customEntityDef?.BlueprintTooltip;
                 if (!string.IsNullOrEmpty(customTooltip))
                 {
-                    return game.GetTextParticular(customTooltip, LogicStrings.CONTEXT_ENTITY_TOOLTIP);
+                    return Global.Localization.GetTextParticular(customTooltip, LogicStrings.CONTEXT_ENTITY_TOOLTIP);
                 }
                 else
                 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MVZ2.Entities;
-using MVZ2.Games;
+using MVZ2.GlobalGames;
 using MVZ2.Level.Components;
 using MVZ2.Logic.Level;
 using MVZ2.Vanilla.Audios;
@@ -24,13 +24,13 @@ namespace MVZ2.Level
     public partial class LevelController
     {
         #region 初始化
-        public void InitLevel(Game game, NamespaceID areaID, NamespaceID stageID, int seed = 0)
+        public void InitLevel(GlobalGame game, NamespaceID areaID, NamespaceID stageID, int seed = 0)
         {
             SetActive(true);
             rng = new RandomGenerator(Guid.NewGuid().GetHashCode());
 
             var collisionSystem = GetCollisionSystem();
-            level = new LevelEngine(game, game, game, collisionSystem);
+            level = new LevelEngine(game, game, collisionSystem);
             InitLevelEngine(level, game, areaID, stageID);
 
             var option = new LevelOption()
@@ -54,7 +54,7 @@ namespace MVZ2.Level
             // 光照
             UpdateLighting();
         }
-        private void InitLevelEngine(LevelEngine level, Game game, NamespaceID areaID, NamespaceID stageID)
+        private void InitLevelEngine(LevelEngine level, GlobalGame game, NamespaceID areaID, NamespaceID stageID)
         {
             ApplyComponents(level);
             AddLevelCallbacks(level);

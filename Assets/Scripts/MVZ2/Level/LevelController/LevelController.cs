@@ -2,7 +2,7 @@
 using System.Linq;
 using MVZ2.Audios;
 using MVZ2.Cameras;
-using MVZ2.Games;
+using MVZ2.GlobalGames;
 using MVZ2.Level.Components;
 using MVZ2.Localization;
 using MVZ2.Managers;
@@ -107,7 +107,7 @@ namespace MVZ2.Level
         }
 
         #region 属性字段
-        public Game Game => Main.Game;
+        public GlobalGame Game => Main.Game;
         private MainManager Main => MainManager.Instance;
         private SaveManager Saves => Main.SaveManager;
         private MusicManager Music => Main.MusicManager;

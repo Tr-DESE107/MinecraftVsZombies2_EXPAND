@@ -123,7 +123,7 @@ namespace MVZ2.Managers
             string name = main.Game.GetBlueprintName(blueprintID);
             if (commandBlock)
             {
-                name = Global.Game.GetTextParticular(name, VanillaStrings.COMMAND_BLOCK_BLUEPRINT_NAME_TEMPLATE);
+                name = Global.Localization.GetTextParticular(name, VanillaStrings.COMMAND_BLOCK_BLUEPRINT_NAME_TEMPLATE);
             }
             return name;
         }

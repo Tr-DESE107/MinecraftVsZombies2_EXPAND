@@ -1,9 +1,9 @@
 using PVZEngine;
 using PVZEngine.Callbacks;
 
-namespace MVZ2.Games
+namespace MVZ2.GlobalGames
 {
-    public partial class Game : IGameTriggerSystem, ICallbackRunner
+    public partial class GlobalGame : IGameTriggerSystem, ICallbackRunner
     {
         #region 公有方法
         public void AddTrigger(ITrigger trigger)

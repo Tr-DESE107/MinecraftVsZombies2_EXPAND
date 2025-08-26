@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MVZ2.Games;
+using MVZ2.GlobalGames;
 using MVZ2.Level;
 using MVZ2.Managers;
 using MVZ2Logic.Modding;
@@ -13,7 +13,7 @@ namespace MVZ2.Modding
 {
     public class ModManager : MonoBehaviour, IModManager
     {
-        public async Task LoadModInfos(Game game)
+        public async Task LoadModInfos(GlobalGame game)
         {
             var locator = await Addressables.InitializeAsync().Task;
             modInfos.Add(new ModInfo()
@@ -26,7 +26,7 @@ namespace MVZ2.Modding
                 ResourceLocator = locator,
             });
         }
-        public void InitModLogics(Game game)
+        public void InitModLogics(GlobalGame game)
         {
             OnRegisterMods?.Invoke(this);
 
@@ -35,7 +35,7 @@ namespace MVZ2.Modding
                 modInfo.Logic.LateInit(game);
             }
         }
-        public void LoadModLogics(Game game)
+        public void LoadModLogics(GlobalGame game)
         {
             foreach (var modInfo in modInfos)
             {
@@ -43,7 +43,7 @@ namespace MVZ2.Modding
                 game.AddMod(modInfo.Logic);
             }
         }
-        public void PostReloadMods(Game game)
+        public void PostReloadMods(GlobalGame game)
         {
             foreach (var modInfo in GetAllModInfos())
             {

@@ -2,7 +2,7 @@
 using MVZ2Logic.Games;
 using PVZEngine;
 
-namespace MVZ2.GlobalGame
+namespace MVZ2.GlobalGames
 {
     public class GlobalModels : IGlobalModels
     {

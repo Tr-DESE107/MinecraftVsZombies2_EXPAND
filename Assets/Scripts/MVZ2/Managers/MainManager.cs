@@ -9,8 +9,7 @@ using MVZ2.Audios;
 using MVZ2.Cameras;
 using MVZ2.Collisions;
 using MVZ2.Cursors;
-using MVZ2.Games;
-using MVZ2.GlobalGame;
+using MVZ2.GlobalGames;
 using MVZ2.IO;
 using MVZ2.Level;
 using MVZ2.Level.Components;
@@ -195,7 +194,7 @@ namespace MVZ2.Managers
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Application.targetFrameRate = 60;
-            Game = new Game(this, LanguageManager);
+            Game = new GlobalGame(this);
 
             Global.Init(new GlobalParams()
             {
@@ -208,7 +207,8 @@ namespace MVZ2.Managers
                 music = MusicManager,
                 gui = new GlobalGUI(this),
                 scene = Scene,
-                game = Game
+                game = Game,
+                localization = LanguageManager
             });
         }
         private void InitSerializable()
@@ -315,7 +315,7 @@ namespace MVZ2.Managers
         [TranslateMsg("值，{0}为百分数")]
         public const string VALUE_PERCENT = "{0}%";
         public static MainManager Instance { get; private set; }
-        public Game Game { get; private set; }
+        public GlobalGame Game { get; private set; }
         public string BuiltinNamespace => builtinNamespace;
         public CoroutineManager CoroutineManager => coroutine;
         public ResourceManager ResourceManager => resource;

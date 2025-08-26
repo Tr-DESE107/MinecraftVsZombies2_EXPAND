@@ -16,10 +16,9 @@ namespace PVZEngine.Level
     public partial class LevelEngine : IBuffTarget, IDisposable, IPropertyModifyTarget
     {
         #region 公有方法
-        public LevelEngine(IGameContent contentProvider, IGameLocalization translator, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
+        public LevelEngine(IGameContent contentProvider, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
         {
             Content = contentProvider;
-            Localization = translator;
             Triggers = triggers;
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             properties = new PropertyBlock(this);
@@ -297,9 +296,9 @@ namespace PVZEngine.Level
             WriteGridsToSerializable(level);
             return level;
         }
-        public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameLocalization translator, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
+        public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
         {
-            var level = new LevelEngine(provider, translator, triggers, collisionSystem);
+            var level = new LevelEngine(provider, triggers, collisionSystem);
             level.ReadProgressFromSerializable(seri);
             level.ReadRandomFromSerializable(seri);
 
@@ -376,7 +375,6 @@ namespace PVZEngine.Level
 
         #region 属性字段
         public IGameContent Content { get; private set; }
-        public IGameLocalization Localization { get; private set; }
         public NamespaceID StageID { get; private set; }
         public StageDefinition StageDefinition { get; private set; }
         public NamespaceID AreaID { get; private set; }

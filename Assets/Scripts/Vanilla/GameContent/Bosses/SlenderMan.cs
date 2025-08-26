@@ -276,8 +276,8 @@ namespace MVZ2.GameContent.Bosses
         {
             var level = entity.Level;
             level.PauseGame(100);
-            var title = Global.Game.GetText(CHOOSE_FATE_TITLE);
-            var desc = Global.Game.GetText(CHOOSE_FATE_DESCRIPTION);
+            var title = Global.Localization.GetText(CHOOSE_FATE_TITLE);
+            var desc = Global.Localization.GetText(CHOOSE_FATE_DESCRIPTION);
 
             int count = level.GetSlendermanFateChoiceCount();
             var rng = GetFateOptionRNG(entity);
@@ -431,7 +431,7 @@ namespace MVZ2.GameContent.Bosses
         {
             var index = Array.IndexOf(fateOptions, option);
             var text = fateTexts[index];
-            return Global.Game.GetText(text);
+            return Global.Localization.GetText(text);
         }
         #endregion
 

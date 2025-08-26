@@ -104,12 +104,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
             private void ShowTutorialDialog(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = game.GetText(VanillaStrings.UI_TUTORIAL);
-                var desc = game.GetText(VanillaStrings.UI_CONFIRM_TUTORIAL);
+                var title = Global.Localization.GetText(VanillaStrings.UI_TUTORIAL);
+                var desc = Global.Localization.GetText(VanillaStrings.UI_CONFIRM_TUTORIAL);
                 var options = new string[]
                 {
-                    game.GetText(VanillaStrings.YES),
-                    game.GetText(VanillaStrings.NO)
+                    Global.Localization.GetText(VanillaStrings.YES),
+                    Global.Localization.GetText(VanillaStrings.NO)
                 };
                 system.ShowDialog(title, desc, options, (index) =>
                 {
@@ -142,12 +142,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
             private void ShowSeventhSlotDialog(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = game.GetText(VanillaStrings.UI_PURCHASE);
-                var desc = game.GetText(VanillaStrings.UI_CONFIRM_BUY_7TH_SLOT);
+                var title = Global.Localization.GetText(VanillaStrings.UI_PURCHASE);
+                var desc = Global.Localization.GetText(VanillaStrings.UI_CONFIRM_BUY_7TH_SLOT);
                 var options = new string[]
                 {
-                    game.GetText(VanillaStrings.YES),
-                    game.GetText(VanillaStrings.NO)
+                    Global.Localization.GetText(VanillaStrings.YES),
+                    Global.Localization.GetText(VanillaStrings.NO)
                 };
 
 
@@ -212,9 +212,9 @@ namespace MVZ2.GameContent.GlobalCallbacks
                         IEnumerator coroutineFunc()
                         {
                             yield return VanillaChapterTransitions.TransitionEndToMap(VanillaChapterTransitions.mausoleum, VanillaMapID.gensokyo);
-                            var title = Global.Game.GetText(VanillaStrings.UI_GAME_CLEARED);
-                            var desc = Global.Game.GetText(VanillaStrings.UI_COMING_SOON);
-                            var options = new string[] { Global.Game.GetText(VanillaStrings.CONFIRM) };
+                            var title = Global.Localization.GetText(VanillaStrings.UI_GAME_CLEARED);
+                            var desc = Global.Localization.GetText(VanillaStrings.UI_COMING_SOON);
+                            var options = new string[] { Global.Localization.GetText(VanillaStrings.CONFIRM) };
                             Global.GUI.ShowDialog(title, desc, options);
                         }
                         Global.Game.StartCoroutine(coroutineFunc());
@@ -250,12 +250,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
             private void ShowTutorialDialog(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = game.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
-                var desc = game.GetText(VanillaStrings.UI_CONFIRM_TUTORIAL);
+                var title = Global.Localization.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
+                var desc = Global.Localization.GetText(VanillaStrings.UI_CONFIRM_TUTORIAL);
                 var options = new string[]
                 {
-                    game.GetText(VanillaStrings.YES),
-                    game.GetText(VanillaStrings.NO)
+                    Global.Localization.GetText(VanillaStrings.YES),
+                    Global.Localization.GetText(VanillaStrings.NO)
                 };
                 system.ShowDialog(title, desc, options, (index) =>
                 {
@@ -273,12 +273,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
             private void TryBuySeventhSlot(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = game.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
-                var desc = game.GetTextParticular(VanillaStrings.ARCHIVE_WHETHER_HAS_ENOUGH_MONEY, VanillaStrings.CONTEXT_ARCHIVE);
+                var title = Global.Localization.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
+                var desc = Global.Localization.GetTextParticular(VanillaStrings.ARCHIVE_WHETHER_HAS_ENOUGH_MONEY, VanillaStrings.CONTEXT_ARCHIVE);
                 var options = new string[]
                 {
-                    game.GetText(VanillaStrings.YES),
-                    game.GetText(VanillaStrings.NO)
+                    Global.Localization.GetText(VanillaStrings.YES),
+                    Global.Localization.GetText(VanillaStrings.NO)
                 };
 
                 system.ShowDialog(title, desc, options, (index) =>
@@ -297,12 +297,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
             private void ShowSeventhSlotDialog(ITalkSystem system)
             {
                 var game = Global.Game;
-                var title = game.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
-                var desc = game.GetText(VanillaStrings.UI_CONFIRM_BUY_7TH_SLOT);
+                var title = Global.Localization.GetTextParticular(VanillaStrings.ARCHIVE_BRANCH, VanillaStrings.CONTEXT_ARCHIVE);
+                var desc = Global.Localization.GetText(VanillaStrings.UI_CONFIRM_BUY_7TH_SLOT);
                 var options = new string[]
                 {
-                    game.GetText(VanillaStrings.YES),
-                    game.GetText(VanillaStrings.NO)
+                    Global.Localization.GetText(VanillaStrings.YES),
+                    Global.Localization.GetText(VanillaStrings.NO)
                 };
 
 

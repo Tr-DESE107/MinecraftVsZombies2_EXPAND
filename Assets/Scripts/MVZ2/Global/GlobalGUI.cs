@@ -2,7 +2,7 @@
 using MVZ2.Managers;
 using MVZ2Logic.Games;
 
-namespace MVZ2.GlobalGame
+namespace MVZ2.GlobalGames
 {
     public class GlobalGUI : IGlobalGUI
     {

@@ -16,6 +16,7 @@ namespace MVZ2Logic
             GUI = param.gui;
             Scene = param.scene;
             Game = param.game;
+            Localization = param.localization;
         }
         public static void Print(string text)
         {
@@ -47,6 +48,7 @@ namespace MVZ2Logic
         public static IGlobalGUI GUI { get; private set; }
         public static IGlobalScene Scene { get; private set; }
         public static IGame Game { get; private set; }
+        public static IGlobalLocalization Localization { get; private set; }
         public static string BuiltinNamespace => Game.DefaultNamespace;
     }
     public struct GlobalParams
@@ -61,6 +63,7 @@ namespace MVZ2Logic
         public IGlobalMusic music;
         public IGlobalGUI gui;
         public IGlobalScene scene;
+        public IGlobalLocalization localization;
     }
         IDebugManager Debugs { get; }
         void Print(string text);

@@ -113,7 +113,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                     continue;
                 var baseName = Global.Game.GetEntityName(neededBase);
                 var upgradeName = Global.Game.GetEntityName(upgradeDef.GetID());
-                results.Add(Global.Game.GetText(WARNING_MISSING_UPGRADE_BASE, baseName, upgradeName));
+                results.Add(Global.Localization.GetText(WARNING_MISSING_UPGRADE_BASE, baseName, upgradeName));
             }
             // 攻击者
             var enemyPool = level.GetEnemyPool();
@@ -135,13 +135,13 @@ namespace MVZ2.GameContent.GlobalCallbacks
                         continue;
                     missingTagsList.Add(tag);
                     var counterName = Global.Game.GetEntityCounterName(tag);
-                    results.Add(Global.Game.GetText(WARNING_MISSING_ATTACKER, counterName));
+                    results.Add(Global.Localization.GetText(WARNING_MISSING_ATTACKER, counterName));
                 }
             }
             // 生产者
             if (!chosenBlueprintEntityDefs.Any(e => e.IsProducer()) && entityDefsForChoose.Any(e => e.IsProducer()))
             {
-                results.Add(Global.Game.GetText(WARNING_MISSING_PRODUCER));
+                results.Add(Global.Localization.GetText(WARNING_MISSING_PRODUCER));
             }
             // 水生器械
             var areaTags = level.AreaDefinition.GetAreaTags();
@@ -149,7 +149,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 if (!chosenBlueprintEntityDefs.Any(e => e.GetPlacementID() == VanillaPlacementID.aquatic) && entityDefsForChoose.Any(e => e.GetPlacementID() == VanillaPlacementID.aquatic))
                 {
-                    results.Add(Global.Game.GetText(WARNING_MISSING_AQUATIC));
+                    results.Add(Global.Localization.GetText(WARNING_MISSING_AQUATIC));
                 }
             }
 
