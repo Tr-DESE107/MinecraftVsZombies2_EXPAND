@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using MVZ2.Metas;
-using MVZ2Logic;
+using MVZ2Logic.Games;
 using PVZEngine;
 using UnityEngine;
 

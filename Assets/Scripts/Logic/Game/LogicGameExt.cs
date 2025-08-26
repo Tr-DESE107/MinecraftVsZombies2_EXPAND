@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
-using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
 using MVZ2Logic.Entities;
-using MVZ2Logic.Games;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Callbacks;
 
-namespace MVZ2Logic
+namespace MVZ2Logic.Games
 {
     public static class LogicGameExt
     {

@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
+using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;

@@ -20,6 +20,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
+using MVZ2Logic.Games;
 using MVZ2Logic.Saves;
 using PVZEngine;
 using Tools.Mathematics;

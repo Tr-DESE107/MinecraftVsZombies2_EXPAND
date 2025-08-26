@@ -2,6 +2,7 @@
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
+using MVZ2Logic.Games;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Definitions;
