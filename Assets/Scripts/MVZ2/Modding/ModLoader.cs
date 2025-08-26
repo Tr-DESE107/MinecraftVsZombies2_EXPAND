@@ -52,6 +52,12 @@ namespace MVZ2.Modding
             foreach (var assembly in assemblies)
             {
                 var types = assembly.GetTypes();
+                PropertyMapper.InitPropertyMaps(nsp, types);
+            }
+
+            foreach (var assembly in assemblies)
+            {
+                var types = assembly.GetTypes();
                 foreach (var type in types)
                 {
                     if (type.GetCustomAttribute<ModGlobalCallbacksAttribute>() != null && !type.IsAbstract)
@@ -74,7 +80,6 @@ namespace MVZ2.Modding
                         }
                     }
 
-                    PropertyMapper.InitTypePropertyMaps(nsp, type);
                 }
             }
         }
@@ -318,46 +323,6 @@ namespace MVZ2.Modding
                 if (stageDef != null)
                 {
                     mod.AddDefinition(stageDef);
-
-                    stageDef.SetLevelName(meta.Name);
-                    stageDef.SetDayNumber(meta.DayNumber);
-                    stageDef.SetStartEnergy(meta.StartEnergy);
-
-                    stageDef.SetProperty(VanillaLevelProps.MUSIC_ID, meta.MusicID);
-                    stageDef.SetProperty(LogicStageProps.STAGE_TYPE, meta.Type);
-                    stageDef.SetProperty<IConditionList>(LogicStageProps.UNLOCK_CONDITIONS, meta.UnlockConditions);
-                    stageDef.SetProperty(LogicStageProps.MODEL_PRESET, meta.ModelPreset);
-
-                    stageDef.SetProperty(VanillaStageProps.NO_START_TALK_MUSIC, meta.NoStartTalkMusic);
-
-                    stageDef.SetProperty(VanillaStageProps.CLEAR_PICKUP_MODEL, meta.ClearPickupModel);
-                    stageDef.SetProperty(VanillaStageProps.CLEAR_PICKUP_CONTENT_ID, meta.ClearPickupContentID);
-                    stageDef.SetProperty(VanillaStageProps.DROPS_TROPHY, meta.DropsTrophy);
-                    stageDef.SetProperty(VanillaStageProps.END_NOTE_ID, meta.EndNote);
-
-                    stageDef.SetProperty(VanillaStageProps.START_CAMERA_POSITION, (int)meta.StartCameraPosition);
-                    stageDef.SetProperty(VanillaStageProps.START_TRANSITION, meta.StartTransition);
-
-                    stageDef.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.TotalFlags);
-                    stageDef.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.FirstWaveTime);
-                    stageDef.SetProperty(EngineStageProps.CONTINUED_FIRST_WAVE_TIME, meta.EndlessFirstWaveTime);
-                    stageDef.SetProperty(VanillaStageProps.WAVE_MAX_TIME, meta.MaxWaveTime);
-                    stageDef.SetProperty(VanillaStageProps.WAVE_ADVANCE_TIME, meta.AdvanceWaveTime);
-                    stageDef.SetProperty(VanillaStageProps.WAVE_ADVANCE_HEALTH_PERCENT, meta.AdvanceHealthPercent);
-
-                    stageDef.SetProperty(VanillaLevelProps.ENEMY_POOL, meta.Spawns);
-                    stageDef.SetProperty<IStageTalkMeta[]>(LogicStageProps.TALKS, meta.Talks);
-                    stageDef.SetProperty<IConveyorPoolEntry[]>(LogicStageProps.CONVEYOR_POOL, meta.ConveyorPool);
-
-                    stageDef.SetNeedBlueprints(meta.NeedBlueprints);
-                    stageDef.SetSpawnPointPower(meta.SpawnPointsPower);
-                    stageDef.SetSpawnPointMultiplier(meta.SpawnPointsMultiplier);
-                    stageDef.SetSpawnPointAddition(meta.SpawnPointsAddition);
-
-                    foreach (var pair in meta.Properties)
-                    {
-                        stageDef.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.level, Global.BuiltinNamespace), pair.Value);
-                    }
                 }
             }
         }
@@ -468,6 +433,8 @@ namespace MVZ2.Modding
             LoadArtifactProperties(mod);
             // 加载选项蓝图信息。
             LoadSeedOptionProperties(mod);
+
+            LoadStageProperties(mod);
         }
         private void LoadAreaProperties(Mod mod)
         {
@@ -540,6 +507,58 @@ namespace MVZ2.Modding
                 artifact.SetArtifactTooltip(meta.Tooltip);
                 artifact.SetUnlockConditions(meta.UnlockConditions);
                 artifact.SetSpriteReference(meta.Sprite);
+            }
+        }
+        private void LoadStageProperties(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (var meta in res.GetModStageMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var stageDef = mod.GetStageDefinition(new NamespaceID(nsp, name));
+                if (stageDef == null)
+                    continue;
+                stageDef.SetLevelName(meta.Name);
+                stageDef.SetDayNumber(meta.DayNumber);
+                stageDef.SetStartEnergy(meta.StartEnergy);
+
+                stageDef.SetProperty(VanillaLevelProps.MUSIC_ID, meta.MusicID);
+                stageDef.SetProperty(LogicStageProps.STAGE_TYPE, meta.Type);
+                stageDef.SetProperty<IConditionList>(LogicStageProps.UNLOCK_CONDITIONS, meta.UnlockConditions);
+                stageDef.SetProperty(LogicStageProps.MODEL_PRESET, meta.ModelPreset);
+
+                stageDef.SetProperty(VanillaStageProps.NO_START_TALK_MUSIC, meta.NoStartTalkMusic);
+
+                stageDef.SetProperty(VanillaStageProps.CLEAR_PICKUP_MODEL, meta.ClearPickupModel);
+                stageDef.SetProperty(VanillaStageProps.CLEAR_PICKUP_CONTENT_ID, meta.ClearPickupContentID);
+                stageDef.SetProperty(VanillaStageProps.DROPS_TROPHY, meta.DropsTrophy);
+                stageDef.SetProperty(VanillaStageProps.END_NOTE_ID, meta.EndNote);
+
+                stageDef.SetProperty(VanillaStageProps.START_CAMERA_POSITION, (int)meta.StartCameraPosition);
+                stageDef.SetProperty(VanillaStageProps.START_TRANSITION, meta.StartTransition);
+
+                stageDef.SetProperty(EngineStageProps.TOTAL_FLAGS, meta.TotalFlags);
+                stageDef.SetProperty(EngineStageProps.FIRST_WAVE_TIME, meta.FirstWaveTime);
+                stageDef.SetProperty(EngineStageProps.CONTINUED_FIRST_WAVE_TIME, meta.EndlessFirstWaveTime);
+                stageDef.SetProperty(VanillaStageProps.WAVE_MAX_TIME, meta.MaxWaveTime);
+                stageDef.SetProperty(VanillaStageProps.WAVE_ADVANCE_TIME, meta.AdvanceWaveTime);
+                stageDef.SetProperty(VanillaStageProps.WAVE_ADVANCE_HEALTH_PERCENT, meta.AdvanceHealthPercent);
+
+                stageDef.SetProperty(VanillaLevelProps.ENEMY_POOL, meta.Spawns);
+                stageDef.SetProperty<IStageTalkMeta[]>(LogicStageProps.TALKS, meta.Talks);
+                stageDef.SetProperty<IConveyorPoolEntry[]>(LogicStageProps.CONVEYOR_POOL, meta.ConveyorPool);
+
+                stageDef.SetNeedBlueprints(meta.NeedBlueprints);
+                stageDef.SetSpawnPointPower(meta.SpawnPointsPower);
+                stageDef.SetSpawnPointMultiplier(meta.SpawnPointsMultiplier);
+                stageDef.SetSpawnPointAddition(meta.SpawnPointsAddition);
+
+                foreach (var pair in meta.Properties)
+                {
+                    stageDef.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.level, Global.BuiltinNamespace), pair.Value);
+                }
             }
         }
         #endregion
