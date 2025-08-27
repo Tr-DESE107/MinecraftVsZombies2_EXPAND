@@ -37,5 +37,10 @@
         public const string gunpowderTwinkle = "gunpowder_twinkle";
         public const string mergePickup = "merge_pickup";
         #endregion
+
+        #region Projectiles
+        public const string projectileExplode = "projectile_explode";
+        public const string projectileExplodeMeteor = "projectile_explode_meteor";
+        #endregion
     }
 }
