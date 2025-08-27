@@ -2260,6 +2260,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8379708885606641439}
     m_Modifications:
+    - target: {fileID: 1380803828256501047, guid: 8d32025451590f143a8bd84bef4e2e7f, type: 3}
+      propertyPath: m_isRichText
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7064756397082426966, guid: 8d32025451590f143a8bd84bef4e2e7f, type: 3}
       propertyPath: m_Name
       value: InputField
@@ -2451,9 +2455,9 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
   m_ReadOnly: 0
-  m_RichText: 1
+  m_RichText: 0
   m_GlobalFontAsset: {fileID: 11400000, guid: 3271dde185726664f9327d84700c9c21, type: 2}
-  m_OnFocusSelectAll: 1
+  m_OnFocusSelectAll: 0
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
   m_isRichTextEditingAllowed: 0

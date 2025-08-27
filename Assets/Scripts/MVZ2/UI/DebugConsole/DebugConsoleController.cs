@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Managers;
 using MVZ2.UI;
+using MVZ2Logic.Command;
 using UnityEngine;
 
 namespace MVZ2.Debugs
@@ -13,6 +14,12 @@ namespace MVZ2.Debugs
             LoadCommandHistory();
             gameObject.SetActive(true);
             ui.ActivateInputField();
+            if (string.IsNullOrEmpty(ui.GetCommand()))
+            {
+                string str = CommandUtility.COMMAND_CHARACTER.ToString();
+                ui.SetCommand(str);
+                ui.MoveToCommandEnd(false);
+            }
         }
         public void Hide()
         {
@@ -76,7 +83,7 @@ namespace MVZ2.Debugs
                 Main.DebugManager.ExecuteCommand(text);
             }
             ui.SetCommand(string.Empty);
-            ui.SetCaretPosition(0);
+            ui.MoveToCommandEnd(false);
             HideAutoCompletePanel();
             ui.ActivateInputField();
         }
@@ -108,7 +115,7 @@ namespace MVZ2.Debugs
         private bool CheckSuggestionDirty()
         {
             var input = ui.GetCommand();
-            var caret = ui.GetCaretPosition();
+            var caret = ui.GetStringPosition();
             if (lastInput != input || lastCaret != caret)
             {
                 lastInput = input;
@@ -123,7 +130,7 @@ namespace MVZ2.Debugs
             string command = ui.GetCommand();
             if (!historyNavigated && (command != null && command.StartsWith(DebugManager.COMMAND_CHARACTER)))
             {
-                UpdateSuggestions(command, ui.GetCaretPosition());
+                UpdateSuggestions(command, ui.GetStringPosition());
             }
             else
             {
@@ -235,7 +242,7 @@ namespace MVZ2.Debugs
                 return;
 
             var fullText = ui.GetCommand();
-            var caretIndex = ui.GetCaretPosition();
+            var caretIndex = ui.GetStringPosition();
             var beforeText = fullText.Substring(0, caretIndex);
             var afterText = fullText.Substring(caretIndex);
 
@@ -249,7 +256,7 @@ namespace MVZ2.Debugs
             }
             completedText = DebugManager.COMMAND_CHARACTER + completedText;
             ui.SetCommand(completedText + afterText);
-            ui.SetCaretPosition(completedText.Length);
+            ui.SetStringPosition(completedText.Length);
 
             UpdateInputFieldSuggestions();
         }
@@ -302,8 +309,7 @@ namespace MVZ2.Debugs
                 command = commandHistory[historyIndex];
             }
             ui.SetCommand(command);
-            ui.SetCaretPosition(command.Length);
-            ui.ForceUpdateCommand();
+            ui.MoveToCommandEnd(false);
             historyNavigated = true;
         }
         #endregion
