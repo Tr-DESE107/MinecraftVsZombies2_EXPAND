@@ -1,6 +1,5 @@
 ﻿using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Entities;
-using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;

@@ -2,7 +2,6 @@
 using System.Xml;
 using MVZ2.IO;
 using PVZEngine;
-using UnityEngine;
 
 namespace MVZ2.Metas
 {
