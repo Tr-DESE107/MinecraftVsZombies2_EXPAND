@@ -307,11 +307,18 @@ namespace PVZEngine.Entities
             AddBuff(buff);
             return buff;
         }
+        public Buff AddBuff(NamespaceID id)
+        {
+            var buff = NewBuff(id);
+            AddBuff(buff);
+            return buff;
+        }
         public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
         public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
         public int RemoveBuffs<T>() where T : BuffDefinition => buffs.RemoveBuffs<T>();
         public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
         public bool HasBuff(BuffDefinition buff) => buffs.HasBuff(buff);
+        public bool HasBuff(NamespaceID id) => buffs.HasBuff(id);
         public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
         public Buff GetFirstBuff<T>() where T : BuffDefinition => buffs.GetFirstBuff<T>();
         public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();

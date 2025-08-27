@@ -350,9 +350,9 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 爆炸和溅射
-        public static DamageOutput[] Explode(this Entity entity, Vector3 center, float radius, int faction, float amount, DamageEffectList effects)
+        public static DamageOutput[] Explode(this Entity entity, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Predicate<IEntityCollider> filter = null)
         {
-            return entity.Level.Explode(center, radius, faction, amount, effects, entity);
+            return entity.Level.Explode(center, radius, faction, amount, effects, entity, filter);
         }
         public static DamageOutput[] ExplodeAgainstFriendly(this Entity entity, Vector3 center, float radius, int faction, float amount, DamageEffectList effects)
         {

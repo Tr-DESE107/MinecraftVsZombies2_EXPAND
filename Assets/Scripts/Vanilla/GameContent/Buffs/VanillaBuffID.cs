@@ -204,6 +204,10 @@ namespace MVZ2.GameContent.Buffs
             public const string theGiantSnake = "the_giant_snake";
             public const string theGiantPhase3 = "the_giant_phase3";
         }
+        public static class Contraption
+        {
+            public const string fireworkDispenserEvoked = "firework_dispenser_evoked";
+        }
         public static class Pickup
         {
             public const string absorbedByUFO = "absorbedByUFO";
@@ -250,6 +254,10 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID theCreaturesHeartReduceCost = Get(VanillaBuffNames.SeedPack.theCreaturesHeartReduceCost);
             public static readonly NamespaceID upgradeEndlessCost = Get(VanillaBuffNames.SeedPack.upgradeEndlessCost);
             public static readonly NamespaceID witherSkeletonSkullReduceCost = Get(VanillaBuffNames.SeedPack.witherSkeletonSkullReduceCost);
+        }
+        public static class Contraption
+        {
+            public static readonly NamespaceID fireworkDispenserEvoked = Get(VanillaBuffNames.Contraption.fireworkDispenserEvoked);
         }
         public static class Pickup
         {

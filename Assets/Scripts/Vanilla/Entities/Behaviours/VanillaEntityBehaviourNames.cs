@@ -2,11 +2,15 @@
 {
     public static class VanillaEntityBehaviourNames
     {
+        #region Contraptions
         public const string contraptionCommon = "contraption_common";
+        public const string contraptionShooterFireworkDispenser = "contraption_shooter_firework_dispenser";
+        public const string contraptionEvokeFireworkDispenser = "contraption_evoke_firework_dispenser"; 
+        #endregion
+
         public const string enemyCommon = "enemy_common";
         public const string obstacleCommon = "obstacle_common";
         public const string bossCommon = "boss_common";
-        public const string projectileCommon = "projectile_common";
         public const string cartCommon = "cart_common";
         public const string effectCommon = "effect_common";
 
@@ -39,8 +43,11 @@
         #endregion
 
         #region Projectiles
+        public const string projectileCommon = "projectile_common";
         public const string projectileExplode = "projectile_explode";
         public const string projectileExplodeMeteor = "projectile_explode_meteor";
+        public const string projectileExplodeFirework = "projectile_explode_firework";
+        public const string projectileExplodeFireworkBig = "projectile_explode_firework_big";
         #endregion
     }
 }

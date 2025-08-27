@@ -84,6 +84,7 @@ namespace MVZ2.GameContent.Effects
         public const string amplifiedRoar = "amplified_roar";
 
         public const string ufoBackground = "ufo_background";
+        public const string fireworkBlast = "firework_blast";
     }
     public static class VanillaEffectID
     {
@@ -166,6 +167,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID amplifiedRoar = Get(VanillaEffectNames.amplifiedRoar);
 
         public static readonly NamespaceID ufoBackground = Get(VanillaEffectNames.ufoBackground);
+        public static readonly NamespaceID fireworkBlast = Get(VanillaEffectNames.fireworkBlast);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

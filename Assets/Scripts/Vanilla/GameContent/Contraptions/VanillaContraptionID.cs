@@ -50,6 +50,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string repeatenser = "repeatenser";
         public const string triplenser = "triplenser";
         public const string beacon = "beacon";
+        public const string fireworkDispenser = "firework_dispenser";
 
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";
@@ -111,6 +112,7 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly NamespaceID repeatenser = Get(VanillaContraptionNames.repeatenser);
         public static readonly NamespaceID triplenser = Get(VanillaContraptionNames.triplenser);
         public static readonly NamespaceID beacon = Get(VanillaContraptionNames.beacon);
+        public static readonly NamespaceID fireworkDispenser = Get(VanillaContraptionNames.fireworkDispenser);
 
         public static readonly NamespaceID infectenser = Get(VanillaContraptionNames.infectenser);
         public static readonly NamespaceID forcePad = Get(VanillaContraptionNames.forcePad);

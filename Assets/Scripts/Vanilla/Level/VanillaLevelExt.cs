@@ -63,15 +63,17 @@ namespace MVZ2.Vanilla.Level
                 level.GameOver(GameOverTypes.ENEMY, gameOverEnemy, null);
             }
         }
-        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
+        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source, Predicate<IEntityCollider> filter = null)
         {
-            return level.Explode(center, radius, faction, amount, effects, new EntityReferenceChain(source));
+            return level.Explode(center, radius, faction, amount, effects, new EntityReferenceChain(source), filter);
         }
-        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
+        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source, Predicate<IEntityCollider> filter = null)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
             foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
             {
+                if (filter != null && !filter(entityCollider))
+                    continue;
                 var damageOutput = entityCollider.TakeDamage(amount, effects, source);
                 if (damageOutput != null)
                 {

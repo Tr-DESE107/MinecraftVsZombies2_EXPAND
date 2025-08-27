@@ -44,14 +44,14 @@ namespace MVZ2.GameContent.Stages
             {
                 VanillaContraptionID.desirePot,
                 VanillaContraptionID.beacon,
-                VanillaContraptionID.dispenser,
-                VanillaPickupID.sapphire,
-                VanillaPickupID.diamond,
-                VanillaPickupID.redstone,
-                VanillaPickupID.gunpowder,
-                VanillaProjectileID.witherSkull,
-                VanillaProjectileID.missile,
+                VanillaContraptionID.thunderDrum,
+                VanillaContraptionID.lightningOrb,
+                VanillaContraptionID.fireworkDispenser,
                 VanillaEnemyID.ghast,
+                VanillaEnemyID.dullahanHead,
+                VanillaEnemyID.anubisand,
+                VanillaEnemyID.ufo,
+                VanillaEnemyID.zombie,
             });
             level.SetArtifactSlotCount(3);
             level.ReplaceArtifacts(new NamespaceID[]

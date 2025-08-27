@@ -19,7 +19,7 @@ namespace MVZ2.Vanilla.Contraptions
     {
         public static bool CanEvoke(this Entity contraption)
         {
-            var evokable = contraption.Definition.GetBehaviour<IEvokableContraption>();
+            var evokable = contraption.Definition.GetBehaviour<IContraptionEvokeBehaviour>();
             if (evokable == null)
                 return false;
             return evokable.CanEvoke(contraption);
@@ -27,7 +27,7 @@ namespace MVZ2.Vanilla.Contraptions
         public static void Evoke(this Entity contraption)
         {
             contraption.Spawn(VanillaEffectID.evocationStar, contraption.GetCenter());
-            foreach (var evokable in contraption.Definition.GetBehaviours<IEvokableContraption>())
+            foreach (var evokable in contraption.Definition.GetBehaviours<IContraptionEvokeBehaviour>())
             {
                 evokable.Evoke(contraption);
             }

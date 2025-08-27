@@ -1,0 +1,32 @@
+﻿using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+
+namespace MVZ2.GameContent.Contraptions
+{
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.contraptionEvokeFireworkDispenser)]
+    public class ContraptionEvokeBehaviour_FireworkDispenser : ContraptionEvokeBehaviour
+    {
+        public ContraptionEvokeBehaviour_FireworkDispenser(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override bool CanEvoke(Entity entity)
+        {
+            if (entity.HasBuff(VanillaBuffID.Contraption.fireworkDispenserEvoked))
+                return false;
+            return base.CanEvoke(entity);
+        }
+        public override void Evoke(Entity entity)
+        {
+            base.Evoke(entity);
+            entity.AddBuff(VanillaBuffID.Contraption.fireworkDispenserEvoked);
+            FireworkBlast.SpawnFireworkBlast(entity, entity.GetCenter(), entity.GetRange(), entity.RNG);
+            entity.PlaySound(VanillaSoundID.fireworkLargeblast);
+            entity.PlaySound(VanillaSoundID.fireworkTwinkle);
+            entity.PlaySound(VanillaSoundID.fireworkLaunch);
+        }
+    }
+}

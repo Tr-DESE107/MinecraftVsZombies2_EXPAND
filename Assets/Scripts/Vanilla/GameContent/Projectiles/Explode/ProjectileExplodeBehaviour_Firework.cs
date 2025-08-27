@@ -1,0 +1,40 @@
+﻿using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Level;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Projectiles
+{
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.projectileExplodeFirework)]
+    public class ProjectileExplodeBehaviour_Firework : ProjectileExplodeBehaviour
+    {
+        public ProjectileExplodeBehaviour_Firework(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override void ExplodeDamage(Entity entity)
+        {
+            var range = entity.GetRange();
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE);
+            entity.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects, CanHitCollider);
+        }
+        public override void SpawnExplosionEffect(Entity entity, Vector3 position)
+        {
+            FireworkBlast.SpawnFireworkBlast(entity, entity.GetCenter(), entity.GetRange(), entity.RNG);
+        }
+        public override void PlayExplosionSound(Entity entity)
+        {
+            entity.PlaySound(VanillaSoundID.fireworkBlast);
+            entity.PlaySound(VanillaSoundID.fireworkTwinkle);
+        }
+        public static bool CanHitCollider(IEntityCollider collider)
+        {
+            return collider.Entity.GetRelativeY() >= MIN_HIT_RELATIVE_Y;
+        }
+        public const float MIN_HIT_RELATIVE_Y = 40;
+    }
+}

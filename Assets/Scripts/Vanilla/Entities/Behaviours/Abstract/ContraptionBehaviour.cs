@@ -3,7 +3,7 @@ using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities
 {
-    public abstract class ContraptionBehaviour : AIEntityBehaviour, IEvokableContraption, ITriggerableContraption
+    public abstract class ContraptionBehaviour : AIEntityBehaviour, IContraptionEvokeBehaviour, ITriggerableContraption
     {
         public ContraptionBehaviour(string nsp, string name) : base(nsp, name)
         {

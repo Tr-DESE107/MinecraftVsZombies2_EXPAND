@@ -18,6 +18,9 @@ namespace MVZ2.GameContent.Projectiles
             base.Explode(entity);
             entity.Level.ShakeScreen(10, 0, 15);
         }
-        public override NamespaceID ExplosionSoundID => VanillaSoundID.meteorLand;
+        public override void PlayExplosionSound(Entity entity)
+        {
+            entity.PlaySound(VanillaSoundID.meteorLand);
+        }
     }
 }

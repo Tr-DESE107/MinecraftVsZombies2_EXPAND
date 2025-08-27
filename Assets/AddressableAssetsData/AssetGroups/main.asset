@@ -178,6 +178,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 051030a83d1d2874b9373c5ded480da5
+    m_Address: mvz2:projectile/firework
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0560677ce3ebb444a8893193b27d43fc
     m_Address: mvz2:mainmenu/stats
     m_ReadOnly: 0
@@ -3333,6 +3340,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fa4eb018eeee64479e6ea997fc1968a
+    m_Address: mvz2:entity/contraption/firework_dispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ffd669e6a8191a468f39575216ef435
     m_Address: mvz2:ui/level/progress_bar/seija
     m_ReadOnly: 0
@@ -3487,6 +3501,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 538c7d5127bd5374092dc11853cec911
+    m_Address: mvz2:firework_twinkle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53ae426afe3ebb8438ab6c1165ed0448
     m_Address: mvz2:entity/enemies/stone_sword
     m_ReadOnly: 0
@@ -3559,6 +3580,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 557650a8124565f438c2ed2e391e0a0b
     m_Address: mvz2:coin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55aae3f35ee9e09489f0f9e961e07e0a
+    m_Address: mvz2:firework_launch
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4817,6 +4845,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75b4581f503b8f14fba304ffe0860311
+    m_Address: mvz2:firework_large_blast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 75e0ba3997470f34ab558f8f2ea6c6d2
     m_Address: mvz2:effect/thunder_cloud
     m_ReadOnly: 0
@@ -5523,6 +5558,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 849b1253b1163014fb72c028264310b4
+    m_Address: mvz2:contraption/ship/firework_dispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84a7f7624ce186d43bdfe0a7c6d53f6b
     m_Address: mvz2:entity/contraptions/giant_bowl
     m_ReadOnly: 0
@@ -5859,6 +5901,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e2905d730b40b3468f8b5ab3bb1a3f8
+    m_Address: mvz2:entity/projectiles/firework_big
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e4506b73a85267499be23c6916344ef
     m_Address: mvz2:ui/achievements/frame
     m_ReadOnly: 0
@@ -6068,6 +6117,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9222fc6f5b9c17644bccc4f2a2e8f0eb
+    m_Address: mvz2:projectile/firework_big
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9232a69e77659cf47add111d4fccbe5c
     m_Address: mvz2:wind
@@ -6348,6 +6404,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9961075f520971143aa9e624000a1d95
+    m_Address: mvz2:firework_blast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99fdfba4aeff67c43b3124c97a3a0dd7
     m_Address: mvz2:entity/pickups/redstone
@@ -8449,6 +8512,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ced04377ba2ef5c4997601c45b6ca7e7
+    m_Address: mvz2:mobile_blueprint/firework_dispenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ced932759e970e74891ad58675bf4e53
     m_Address: mvz2:level/dream/dream_sky
     m_ReadOnly: 0
@@ -9464,6 +9534,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea9e51fb7fdbc524d8798ab1b604258c
+    m_Address: mvz2:entity/projectiles/firework
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eac3297eb77eaa9469a14df4d15e1125
     m_Address: mvz2:random/crystal/crystal_place4
     m_ReadOnly: 0
@@ -9631,6 +9708,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee2ff5944958d7f4b80057bb48d16372
+    m_Address: mvz2:effect/firework_blast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee8a95d990407e34ea9ff1aa13122998
     m_Address: mvz2:entity/projectiles/bullet

@@ -1,0 +1,41 @@
+﻿using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Projectiles;
+using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Entities;
+using PVZEngine;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using UnityEngine;
+
+namespace MVZ2.GameContent.Contraptions
+{
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.contraptionShooterFireworkDispenser)]
+    public class ContraptionShooterBehaviour_FireworkDispenser : ContraptionShooterBehaviour
+    {
+        public ContraptionShooterBehaviour_FireworkDispenser(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override Entity Shoot(Entity entity)
+        {
+            var projectile = base.Shoot(entity);
+            projectile.SetRange(entity.GetRange());
+            return projectile;
+        }
+        protected override int GetTimerTime(Entity entity)
+        {
+            return Ticks.FromSeconds(TIMER_SECONDS);
+        }
+        protected override Detector GetDetector()
+        {
+            return new FireworkDispenserDetector()
+            {
+                colliderFilter = ColliderFilter
+            };
+        }
+        private bool ColliderFilter(DetectionParams self, IEntityCollider collider)
+        {
+            return ProjectileExplodeBehaviour_Firework.CanHitCollider(collider);
+        }
+        public const float TIMER_SECONDS = 3;
+    }
+}

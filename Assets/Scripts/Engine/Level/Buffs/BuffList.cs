@@ -107,6 +107,15 @@ namespace PVZEngine.Buffs
             }
             return false;
         }
+        public bool HasBuff(NamespaceID id)
+        {
+            foreach (var buff in buffs)
+            {
+                if (buff.Definition.GetID() == id)
+                    return true;
+            }
+            return false;
+        }
         public bool HasBuff(BuffDefinition buffDef)
         {
             foreach (var buff in buffs)

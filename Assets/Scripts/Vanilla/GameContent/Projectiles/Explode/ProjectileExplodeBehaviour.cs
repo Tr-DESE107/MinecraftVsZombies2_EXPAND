@@ -10,6 +10,7 @@ using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Projectiles
 {
@@ -37,13 +38,23 @@ namespace MVZ2.GameContent.Projectiles
         }
         public virtual void Explode(Entity entity)
         {
+            ExplodeDamage(entity);
+            SpawnExplosionEffect(entity, entity.GetCenter());
+            PlayExplosionSound(entity);
+        }
+        public virtual void ExplodeDamage(Entity entity)
+        {
             var range = entity.GetRange();
             var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE);
             entity.Explode(entity.Position, range, entity.GetFaction(), entity.GetDamage(), damageEffects);
-
-            Explosion.Spawn(entity, entity.GetCenter(), range);
-            entity.PlaySound(ExplosionSoundID);
         }
-        public virtual NamespaceID ExplosionSoundID => VanillaSoundID.explosion;
+        public virtual void SpawnExplosionEffect(Entity entity, Vector3 position)
+        {
+            Explosion.Spawn(entity, entity.GetCenter(), entity.GetRange());
+        }
+        public virtual void PlayExplosionSound(Entity entity)
+        {
+            entity.PlaySound(VanillaSoundID.explosion);
+        }
     }
 }

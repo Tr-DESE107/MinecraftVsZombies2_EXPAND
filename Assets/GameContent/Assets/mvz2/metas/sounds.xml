@@ -237,6 +237,18 @@
     <sound name="fire_charge">
         <sample path="mvz2:fire_charge" weight="1" />
     </sound>
+    <sound name="firework_blast">
+        <sample path="mvz2:firework_blast" weight="1" />
+    </sound>
+    <sound name="firework_large_blast">
+        <sample path="mvz2:firework_large_blast" weight="1" />
+    </sound>
+    <sound name="firework_launch">
+        <sample path="mvz2:firework_launch" weight="1" />
+    </sound>
+    <sound name="firework_twinkle">
+        <sample path="mvz2:firework_twinkle" weight="1" />
+    </sound>
     <sound name="fizz">
         <sample path="mvz2:fizz" weight="1" />
     </sound>
