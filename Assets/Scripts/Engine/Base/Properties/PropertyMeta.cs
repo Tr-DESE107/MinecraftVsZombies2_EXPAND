@@ -19,7 +19,7 @@ namespace PVZEngine
         }
         public override string ToString()
         {
-            return PropertyKeyHelper.CombineName(namespaceName, regionName, propertyName);
+            return PropertyKeyHelper.CombineFullName(namespaceName, regionName, propertyName);
         }
         public abstract void SetRegisteredKey(IPropertyKey key);
 

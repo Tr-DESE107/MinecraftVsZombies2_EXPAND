@@ -2,6 +2,7 @@
 using System.Xml;
 using MVZ2.IO;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.Metas
 {
@@ -76,13 +77,14 @@ namespace MVZ2.Metas
                 }
             }
             var behavioursNode = node["behaviours"];
-            behavioursNode.ModifyEntityBehaviours(behaviours, defaultNsp);
+            behavioursNode.ModifyEntityBehaviours(behaviours, properties, defaultNsp);
 
             var propsNode = node["properties"];
             var props = propsNode.ToPropertyDictionary(defaultNsp);
             foreach (var prop in props)
             {
-                properties[prop.Key] = prop.Value;
+                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, PropertyRegions.entity);
+                properties[fullName] = prop.Value;
             }
         }
         public static EntityMetaTemplate[] LoadTemplates(XmlNode node, string defaultNsp)

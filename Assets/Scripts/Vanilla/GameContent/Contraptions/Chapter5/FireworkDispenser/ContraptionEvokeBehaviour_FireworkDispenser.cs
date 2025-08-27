@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.Contraptions
             base.Evoke(entity);
             entity.AddBuff(VanillaBuffID.Contraption.fireworkDispenserEvoked);
             FireworkBlast.SpawnFireworkBlast(entity, entity.GetCenter(), entity.GetRange(), entity.RNG);
-            entity.PlaySound(VanillaSoundID.fireworkLargeblast);
+            entity.PlaySound(VanillaSoundID.fireworkLargeBlast);
             entity.PlaySound(VanillaSoundID.fireworkTwinkle);
             entity.PlaySound(VanillaSoundID.fireworkLaunch);
         }

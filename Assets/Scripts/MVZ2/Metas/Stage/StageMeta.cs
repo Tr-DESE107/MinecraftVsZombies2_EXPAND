@@ -132,7 +132,14 @@ namespace MVZ2.Metas
             var advanceHealthPercent = timeNode?.GetAttributeFloat("waveAdvanceHealthPercent") ?? 0.6f;
 
             var propertiesNode = node["properties"];
-            var properties = propertiesNode.ToPropertyDictionary(defaultNsp);
+            Dictionary<string, object> props = propertiesNode.ToPropertyDictionary(defaultNsp);
+            Dictionary<string, object> properties = new Dictionary<string, object>();
+            foreach (var prop in props)
+            {
+                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, PropertyRegions.level);
+                properties.Add(fullName, prop.Value);
+            }
+
             return new StageMeta()
             {
                 ID = id,

@@ -35,14 +35,22 @@ namespace MVZ2.Metas
             {
                 behaviours.Add(new NamespaceID(nsp, id));
             }
+
+
             var propertyNode = node["properties"];
-            Dictionary<string, object> properties = propertyNode.ToPropertyDictionary(defaultNsp);
+            var entityProps = propertyNode.ToPropertyDictionary(defaultNsp);
+            Dictionary<string, object> properties = new Dictionary<string, object>();
+            foreach (var prop in entityProps)
+            {
+                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, PropertyRegions.entity);
+                properties.Add(fullName, prop.Value);
+            }
+
             if (template != null)
             {
                 type = template.id;
 
                 behaviours.AddRange(template.behaviours);
-                behavioursNode.ModifyEntityBehaviours(behaviours, defaultNsp);
 
                 foreach (var prop in template.properties)
                 {
@@ -51,6 +59,9 @@ namespace MVZ2.Metas
                     properties.Add(prop.Key, prop.Value);
                 }
             }
+            behavioursNode?.ModifyEntityBehaviours(behaviours, properties, defaultNsp);
+
+
             return new EntityMeta()
             {
                 Type = type,

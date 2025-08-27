@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
+using MVZ2.GameContent.Effects;
 using MVZ2.IO;
 using PVZEngine;
+using PVZEngine.Armors;
 using PVZEngine.Level.Collisions;
 
 namespace MVZ2.Metas
@@ -41,7 +44,13 @@ namespace MVZ2.Metas
             }
 
             var propsNode = node["props"];
-            Dictionary<string, object> properties = propsNode.ToPropertyDictionary(defaultNsp);
+            Dictionary<string, object> props = propsNode.ToPropertyDictionary(defaultNsp);
+            Dictionary<string, object> properties = new Dictionary<string, object>();
+            foreach (var prop in props)
+            {
+                var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, PropertyRegions.armor);
+                properties.Add(fullName, prop.Value);
+            }
 
             return new ArmorMeta()
             {

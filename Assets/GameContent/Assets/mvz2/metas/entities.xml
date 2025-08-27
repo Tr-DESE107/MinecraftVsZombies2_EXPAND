@@ -1793,32 +1793,41 @@
             </properties>
         </energyPickup>
         <gem id="emerald" name="绿宝石">
-            <behaviours includeSelf="false" />
+            <behaviours includeSelf="false">
+                <properties behaviour="mvz2:merge_pickup">
+                    <int name="merge_count" value="5" />
+                    <float name="merge_range" value="80" />
+                    <id name="merge_target" value="mvz2:ruby" />
+                </properties>
+            </behaviours>
             <properties>
                 <vector3 name="mvz2:shadowScale" x="0.5" y="0.5" z="0.5" />
-                <int name="mvz2:merge_pickup/merge_count" value="5" />
-                <float name="mvz2:merge_pickup/merge_range" value="80" />
-                <id name="mvz2:merge_pickup/merge_target" value="mvz2:ruby" />
             </properties>
         </gem>
         <gem id="ruby" name="红宝石">
-            <behaviours includeSelf="false" />
+            <behaviours includeSelf="false">
+                <properties behaviour="mvz2:merge_pickup">
+                    <int name="merge_count" value="4" />
+                    <float name="merge_range" value="80" />
+                    <id name="merge_target" value="mvz2:sapphire" />
+                </properties>
+            </behaviours>
             <properties>
                 <int name="mvz2:moneyValue" value="50" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
-                <int name="mvz2:merge_pickup/merge_count" value="4" />
-                <float name="mvz2:merge_pickup/merge_range" value="80" />
-                <id name="mvz2:merge_pickup/merge_target" value="mvz2:sapphire" />
             </properties>
         </gem>
         <gem id="sapphire" name="蓝宝石">
-            <behaviours includeSelf="false" />
+            <behaviours includeSelf="false">
+                <properties behaviour="mvz2:merge_pickup">
+                    <int name="merge_count" value="5" />
+                    <float name="merge_range" value="80" />
+                    <id name="merge_target" value="mvz2:diamond" />
+                </properties>
+            </behaviours>
             <properties>
                 <int name="mvz2:moneyValue" value="200" />
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
-                <int name="mvz2:merge_pickup/merge_count" value="4" />
-                <float name="mvz2:merge_pickup/merge_range" value="80" />
-                <id name="mvz2:merge_pickup/merge_target" value="mvz2:diamond" />
             </properties>
         </gem>
         <gem id="diamond" name="钻石">
@@ -2226,6 +2235,9 @@
         <projectile id="firework">
             <behaviours includeSelf="false">
                 <behaviour operator="add" id="mvz2:projectile_explode_firework"/>
+                <properties behaviour="mvz2:projectile_explode_firework">
+                    <id name="blast_sound" value="mvz2:firework_blast" />
+                </properties>
             </behaviours>
             <properties>
                 <bool name="mvz2:pointToDirection" value="true" />
@@ -2239,7 +2251,10 @@
         </projectile>
         <projectile id="firework_big">
             <behaviours includeSelf="false">
-                <behaviour operator="add" id="mvz2:projectile_explode_firework_big"/>
+                <behaviour operator="add" id="mvz2:projectile_explode_firework"/>
+                <properties behaviour="mvz2:projectile_explode_firework">
+                    <id name="blast_sound" value="mvz2:firework_large_blast" />
+                </properties>
             </behaviours>
             <properties>
                 <bool name="mvz2:pointToDirection" value="true" />

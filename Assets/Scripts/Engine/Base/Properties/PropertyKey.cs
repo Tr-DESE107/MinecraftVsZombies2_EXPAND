@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static UnityEditorInternal.ReorderableList;
 
 namespace PVZEngine
 {
@@ -44,22 +45,27 @@ namespace PVZEngine
                 }
             }
         }
-        public static string CombineName(string namespaceName, string regionName, string propertyName)
+        public static string CombineFullName(string namespaceName, params string[] names)
         {
-            var laterName = CombineRegionName(regionName, propertyName);
+            var laterName = CombineRegionName(names);
             if (!string.IsNullOrEmpty(namespaceName))
             {
                 return $"{namespaceName}:{laterName}";
             }
             return laterName;
         }
-        public static string CombineRegionName(string regionName, string propertyName)
+        public static string CombineRegionName(params string[] names)
         {
-            if (!string.IsNullOrEmpty(regionName))
+            return string.Join("/", names);
+        }
+        public static string ParsePropertyFullName(string propertyName, string defaultNsp, string regionName = null)
+        {
+            var propID = NamespaceID.Parse(propertyName, defaultNsp);
+            if (string.IsNullOrEmpty(regionName))
             {
-                return $"{regionName}/{propertyName}";
+                return PropertyKeyHelper.CombineFullName(propID.SpaceName, propID.Path);
             }
-            return propertyName;
+            return PropertyKeyHelper.CombineFullName(propID.SpaceName, regionName, propID.Path);
         }
         public static IPropertyKey FromType(int namespaceKey, int propertyKey, Type propertyType, object defaultValue)
         {

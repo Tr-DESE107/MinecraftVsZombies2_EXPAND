@@ -66,12 +66,8 @@ namespace MVZ2.GameContent.Pickups
 
         private GemMergeDetector mergeDetector;
 
-        public const string PROPERTY_REGION = VanillaEntityBehaviourNames.mergePickup;
-        [PropertyRegistry(PROPERTY_REGION, EngineDefinitionTypes.ENTITY)]
         public static readonly VanillaEntityPropertyMeta<int> PROP_MERGE_COUNT = new VanillaEntityPropertyMeta<int>("merge_count");
-        [PropertyRegistry(PROPERTY_REGION, EngineDefinitionTypes.ENTITY)]
         public static readonly VanillaEntityPropertyMeta<float> PROP_MERGE_RANGE = new VanillaEntityPropertyMeta<float>("merge_range");
-        [PropertyRegistry(PROPERTY_REGION, EngineDefinitionTypes.ENTITY)]
         public static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_MERGE_TARGET = new VanillaEntityPropertyMeta<NamespaceID>("merge_target");
     }
 }

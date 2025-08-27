@@ -47,7 +47,6 @@
         public const string projectileExplode = "projectile_explode";
         public const string projectileExplodeMeteor = "projectile_explode_meteor";
         public const string projectileExplodeFirework = "projectile_explode_firework";
-        public const string projectileExplodeFireworkBig = "projectile_explode_firework_big";
         #endregion
     }
 }

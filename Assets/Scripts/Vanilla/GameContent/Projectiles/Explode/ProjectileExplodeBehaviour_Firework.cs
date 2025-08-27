@@ -2,7 +2,9 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -28,13 +30,14 @@ namespace MVZ2.GameContent.Projectiles
         }
         public override void PlayExplosionSound(Entity entity)
         {
-            entity.PlaySound(VanillaSoundID.fireworkBlast);
+            entity.PlaySound(entity.GetProperty<NamespaceID>(PROP_BLAST_SOUND));
             entity.PlaySound(VanillaSoundID.fireworkTwinkle);
         }
         public static bool CanHitCollider(IEntityCollider collider)
         {
             return collider.Entity.GetRelativeY() >= MIN_HIT_RELATIVE_Y;
         }
+        public static readonly VanillaEntityPropertyMeta<NamespaceID> PROP_BLAST_SOUND = new VanillaEntityPropertyMeta<NamespaceID>("blast_sound", VanillaSoundID.fireworkBlast);
         public const float MIN_HIT_RELATIVE_Y = 40;
     }
 }

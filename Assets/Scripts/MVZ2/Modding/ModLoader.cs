@@ -135,7 +135,7 @@ namespace MVZ2.Modding
                 // 加载实体的属性。
                 foreach (var pair in meta.Properties)
                 {
-                    def.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.entity, main.BuiltinNamespace), pair.Value);
+                    def.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
                 }
                 foreach (var behaviourID in meta.Behaviours)
                 {
@@ -188,7 +188,7 @@ namespace MVZ2.Modding
                 // 加载护甲的属性。
                 foreach (var pair in meta.Properties)
                 {
-                    def.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.armor, main.BuiltinNamespace), pair.Value);
+                    def.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
                 }
                 foreach (var behaviourID in meta.Behaviours)
                 {
@@ -561,7 +561,7 @@ namespace MVZ2.Modding
 
                 foreach (var pair in meta.Properties)
                 {
-                    stageDef.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key, PropertyRegions.level, Global.BuiltinNamespace), pair.Value);
+                    stageDef.SetPropertyObject(PropertyMapper.ConvertFromName(pair.Key), pair.Value);
                 }
             }
         }

@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -69,6 +70,8 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static FrameTimer GetShootTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_SHOOT_TIMER);
         public static void SetShootTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(PROP_SHOOT_TIMER, timer);
+        public const string PROP_REGION = "contraption_shooter";
+        [PropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_SHOOT_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ShootTimer");
         protected Detector detector;
         private const int ATTACK_INTERVAL_MIN = 40;

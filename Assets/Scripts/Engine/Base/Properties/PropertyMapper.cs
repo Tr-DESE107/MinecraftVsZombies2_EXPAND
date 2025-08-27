@@ -31,7 +31,7 @@ namespace PVZEngine
                 var defaultValue = meta.defaultValue;
                 var obsoleteNames = meta.obsoleteNames;
 
-                var fullName = PropertyKeyHelper.CombineName(namespaceName, regionName, propertyName);
+                var fullName = PropertyKeyHelper.CombineFullName(namespaceName, regionName, propertyName);
                 if (registries.TryGetKeyOfFullName(fullName, out IPropertyKey key))
                 {
                     // 有重复名称的属性注册了
@@ -51,7 +51,7 @@ namespace PVZEngine
                     {
                         foreach (var name in obsoleteNames)
                         {
-                            var fullObsoleteName = PropertyKeyHelper.CombineName(namespaceName, regionName, name);
+                            var fullObsoleteName = PropertyKeyHelper.CombineFullName(namespaceName, regionName, name);
                             if (registries.TryGetKeyOfFullName(fullObsoleteName, out _))
                             {
                                 // 有重复名称的属性注册了
@@ -82,14 +82,7 @@ namespace PVZEngine
         {
             if (fieldAttribute != null)
             {
-                if (!string.IsNullOrEmpty(fieldAttribute.TypeName))
-                {
-                    return $"{fieldAttribute.TypeName}/{fieldAttribute.RegionName}";
-                }
-                else
-                {
-                    return $"{fieldAttribute.RegionName}";
-                }
+                return PropertyKeyHelper.CombineRegionName(fieldAttribute.TypeName, fieldAttribute.RegionName);
             }
             else if (regionAttribute != null)
             {
@@ -97,7 +90,7 @@ namespace PVZEngine
             }
             else if (definitionAttribute != null)
             {
-                return $"{definitionAttribute.Type}/{definitionAttribute.Name}";
+                return PropertyKeyHelper.CombineRegionName(definitionAttribute.Type, definitionAttribute.Name);
             }
             return null;
         }
@@ -122,7 +115,7 @@ namespace PVZEngine
         public static IPropertyKey ConvertFromName(string propertyName, string regionName, string defaultNsp)
         {
             var id = NamespaceID.Parse(propertyName, defaultNsp);
-            var newName = PropertyKeyHelper.CombineName(id.SpaceName, regionName, id.Path);
+            var newName = PropertyKeyHelper.CombineFullName(id.SpaceName, regionName, id.Path);
             return ConvertFromName(newName);
         }
         public static string ConvertToFullName(IPropertyKey key)
