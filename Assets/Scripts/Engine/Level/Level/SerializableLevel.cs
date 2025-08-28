@@ -46,6 +46,7 @@ namespace PVZEngine.Level
         public SerializableConveyorSeedPack[] conveyorSeedPacks;
         public bool requireCards;
         public long currentEntityID = 1;
+        [Obsolete]
         public long currentBuffID;
         public long currentSeedPackID;
         public int conveyorSlotCount;

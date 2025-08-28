@@ -37,9 +37,7 @@ namespace PVZEngine.Entities
             TypeCollisionFlag = EntityCollisionHelper.GetTypeMask(type);
             ID = id;
             SpawnerReference = spawnerReference;
-            buffs.OnPropertyChanged += UpdateModifiedProperty;
-            buffs.OnBuffAdded += OnBuffAddedCallback;
-            buffs.OnBuffRemoved += OnBuffRemovedCallback;
+            InitBuffList();
             Cache = new EntityCache();
             properties = new PropertyBlock(this);
         }
@@ -280,56 +278,7 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 增益
-        public Buff NewBuff<T>() where T : BuffDefinition
-        {
-            return Level.CreateBuff<T>(AllocBuffID());
-        }
-        public Buff NewBuff(BuffDefinition buffDefinition)
-        {
-            return Level.CreateBuff(buffDefinition, AllocBuffID());
-        }
-        public Buff NewBuff(NamespaceID id)
-        {
-            return Level.CreateBuff(id, AllocBuffID());
-        }
-        public bool AddBuff(Buff buff)
-        {
-            if (buffs.AddBuff(buff))
-            {
-                buff.AddToTarget(this);
-                return true;
-            }
-            return false;
-        }
-        public Buff AddBuff<T>() where T : BuffDefinition
-        {
-            var buff = NewBuff<T>();
-            AddBuff(buff);
-            return buff;
-        }
-        public Buff AddBuff(NamespaceID id)
-        {
-            var buff = NewBuff(id);
-            AddBuff(buff);
-            return buff;
-        }
-        public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
-        public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
-        public int RemoveBuffs<T>() where T : BuffDefinition => buffs.RemoveBuffs<T>();
-        public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
-        public bool HasBuff(BuffDefinition buff) => buffs.HasBuff(buff);
-        public bool HasBuff(NamespaceID id) => buffs.HasBuff(id);
-        public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
-        public Buff GetFirstBuff<T>() where T : BuffDefinition => buffs.GetFirstBuff<T>();
-        public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
-        public Buff[] GetBuffs(BuffDefinition definition) => buffs.GetBuffs(definition);
-        public void GetBuffs<T>(List<Buff> results) where T : BuffDefinition => buffs.GetBuffsNonAlloc<T>(results);
-        public void GetAllBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         public BuffReference GetBuffReference(Buff buff) => new BuffReferenceEntity(ID, buff.ID);
-        private long AllocBuffID()
-        {
-            return currentBuffID++;
-        }
         #endregion
 
         #region 光环
@@ -881,7 +830,6 @@ namespace PVZEngine.Entities
             seri.isDead = IsDead;
             seri.health = Health;
             seri.isOnGround = IsOnGround;
-            seri.currentBuffID = currentBuffID;
             seri.properties = properties.ToSerializable();
             seri.buffs = buffs.ToSerializable();
             seri.children = children.ConvertAll(e => e?.ID ?? 0);
@@ -934,7 +882,6 @@ namespace PVZEngine.Entities
             IsDead = seri.isDead;
             Health = seri.health;
             IsOnGround = seri.isOnGround;
-            currentBuffID = seri.currentBuffID;
             properties = PropertyBlock.FromSerializable(seri.properties, this);
 
             children = seri.children.ConvertAll(e => Level.FindEntityByID(e));
@@ -973,9 +920,7 @@ namespace PVZEngine.Entities
 
             // 先于光环加载，不然找不到Buff
             entity.buffs = BuffList.FromSerializable(seri.buffs, level, entity);
-            entity.buffs.OnPropertyChanged += entity.UpdateModifiedProperty;
-            entity.buffs.OnBuffAdded += entity.OnBuffAddedCallback;
-            entity.buffs.OnBuffRemoved += entity.OnBuffRemovedCallback;
+            entity.InitBuffList();
             return entity;
         }
         public void LoadAuras(SerializableEntity seri)
@@ -1072,11 +1017,15 @@ namespace PVZEngine.Entities
                 list.Add(new ModifierContainerItem(this, modifier));
             }
         }
+        private void InitBuffList()
+        {
+            buffs.OnPropertyChanged += UpdateModifiedProperty;
+            buffs.OnBuffAdded += OnBuffAddedCallback;
+            buffs.OnBuffRemoved += OnBuffRemovedCallback;
+        }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
+        LevelEngine IBuffTarget.GetLevel() => Level;
         Entity IBuffTarget.GetEntity() => this;
-        Armor IBuffTarget.GetArmor() => null;
-        void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
-        Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         Entity IAuraSource.GetEntity() => this;
         LevelEngine IAuraSource.GetLevel() => Level;
         bool IAuraSource.IsValid() => Exists();
@@ -1135,6 +1084,7 @@ namespace PVZEngine.Entities
         public bool IsOnGround { get; private set; } = true;
         internal int TypeCollisionFlag { get; }
         internal EntityCache Cache { get; }
+        BuffList IBuffTarget.Buffs => buffs;
 
         private PropertyBlock properties;
         private Vector3 _position;
@@ -1144,7 +1094,6 @@ namespace PVZEngine.Entities
         #endregion
 
         private long time = 0;
-        private long currentBuffID = 1;
         private BuffList buffs = new BuffList();
         private AuraEffectList auras = new AuraEffectList();
         private List<LawnGrid> takenGrids = new List<LawnGrid>();

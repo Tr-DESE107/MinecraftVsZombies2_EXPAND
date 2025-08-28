@@ -138,6 +138,15 @@ namespace PVZEngine.Level
         }
         #endregion
 
+        public void UpdateGrids()
+        {
+            for (int i = 0; i < grids.Length; i++)
+            {
+                var grid = grids[i];
+                grid.Update();
+            }
+        }
+
         #region Íø¸ñ
         public LawnGrid GetGrid(int index)
         {

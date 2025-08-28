@@ -1,5 +1,4 @@
-﻿using MVZ2.Vanilla;
-using MVZ2Logic;
+﻿using MVZ2Logic;
 using MVZ2Logic.Command;
 using MVZ2Logic.IZombie;
 using PVZEngine;

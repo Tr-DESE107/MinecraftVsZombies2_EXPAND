@@ -47,7 +47,7 @@ namespace PVZEngine.Auras
                 if (target == null)
                     continue;
                 var buff = GetTargetBuff(target);
-                if (buff == null)
+                if (buff == null || buff.Target == null || !buff.Target.Exists())
                 {
                     buff = AddTargetBuff(target);
                 }

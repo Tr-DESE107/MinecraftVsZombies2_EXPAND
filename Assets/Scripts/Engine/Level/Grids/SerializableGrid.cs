@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PVZEngine.Buffs;
 using PVZEngine.Level;
 
 namespace PVZEngine.Grids
@@ -14,5 +15,6 @@ namespace PVZEngine.Grids
         public Dictionary<string, long> layerEntities;
         public Dictionary<string, long[]> layerEntityLists;
         public SerializablePropertyBlock properties;
+        public SerializableBuffList buffs;
     }
 }

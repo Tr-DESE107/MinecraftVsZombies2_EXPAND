@@ -11,6 +11,7 @@ namespace PVZEngine.Armors
         public NamespaceID definitionID;
         public float health;
         public NamespaceID slot;
+        [Obsolete]
         public long currentBuffID;
         public SerializableBuffList buffs;
         public SerializablePropertyBlock properties;

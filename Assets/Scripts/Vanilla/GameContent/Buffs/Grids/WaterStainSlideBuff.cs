@@ -1,0 +1,16 @@
+﻿using MVZ2.Vanilla.Grids;
+using PVZEngine.Buffs;
+using PVZEngine.Level;
+using PVZEngine.Modifiers;
+
+namespace MVZ2.GameContent.Buffs.Grids
+{
+    [BuffDefinition(VanillaBuffNames.Grid.waterStainWet)]
+    public class WaterStainWetBuff : BuffDefinition
+    {
+        public WaterStainWetBuff(string nsp, string name) : base(nsp, name)
+        {
+            AddModifier(new BooleanModifier(VanillaGridProps.IS_WET, true));
+        }
+    }
+}

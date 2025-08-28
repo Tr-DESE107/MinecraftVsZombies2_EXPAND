@@ -113,9 +113,9 @@ namespace MVZ2.GameContent.Contraptions
             detectBuffer.Clear();
             gridDetectBuffer.Clear();
             level.OverlapSphereNonAlloc(targetPosition, shockRadius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0, detectBuffer);
-            if (targetPosition.y <= level.GetGroundY(targetPosition.x, targetPosition.z) && level.IsWaterAt(targetPosition.x, targetPosition.z))
+            if (targetPosition.y <= level.GetGroundY(targetPosition.x, targetPosition.z) && level.IsConductiveAt(targetPosition.x, targetPosition.z))
             {
-                level.GetConnectedWaterGrids(targetPosition, 1, 1, gridDetectBuffer);
+                level.GetConnectedConductiveGrids(targetPosition, 1, 1, gridDetectBuffer);
                 foreach (var grid in gridDetectBuffer)
                 {
                     var column = grid.Column;

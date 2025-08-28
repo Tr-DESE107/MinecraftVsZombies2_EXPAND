@@ -1366,6 +1366,24 @@
                 <int name="mvz2:cost" value="150" />
             </properties>
         </zombie>
+        <enemy id="zombie_cloud" name="僵尸云" deathMessage="你就云吧" unlock="mvz2:level.ship_6">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:zombie_cloud_raining"/>
+            </behaviours>
+            <properties>
+                <float name="mvz2:mass" value="-2" />
+                <float name="mvz2:gravity" value="0" />
+                <float name="mvz2:cryPitch" value="0.75" />
+                <id name="mvz2:shell" value="mvz2:cloud" />
+                <id name="mvz2:crySound" value="mvz2:zombie_cry" />
+                <id name="mvz2:hitSound" value="mvz2:cloth" />
+                <id name="mvz2:deathSound" value="mvz2:zombie_death" />
+                <id name="mvz2:shape" value="mvz2:zombie_cloud" />
+                <vector3 name="mvz2:size" x="64" y="44" z="64" />
+
+                <int name="mvz2:cost" value="100" />
+            </properties>
+        </enemy>
 
         <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
             <properties>
@@ -2781,6 +2799,24 @@
                 <bool name="mvz2:isLightSource" value="true" />
                 <vector3 name="mvz2:lightRange" x="240" y="240" z="240" />
                 <color name="mvz2:lightColor" value="#FFFFFF" />
+            </properties>
+        </effect>
+        <effect id="zombie_cloud_raindrop">
+            <properties>
+                <float name="mvz2:gravity" value="1" />
+                <vector3 name="mvz2:size" x="1" y="32" z="1" />
+                <bool name="mvz2:decorative" value="false" />
+                <color name="mvz2:tint" value="#007fe3" />
+            </properties>
+        </effect>
+        <effect id="water_stain">
+            <properties>
+                <string name="mvz2:sortingLayer" value="Pool" />
+                <int name="mvz2:sortingOrder" value="100" />
+                <int name="mvz2:maxTimeout" value="600" />
+                <vector3 name="mvz2:size" x="32" y="8" z="32" />
+                <bool name="mvz2:decorative" value="false" />
+                <color name="mvz2:tint" value="#007fe3" />
             </properties>
         </effect>
     </entries>

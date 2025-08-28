@@ -132,6 +132,7 @@ namespace MVZ2.Vanilla.Grids
             return placementDef.GetSpawnError(grid, entityDef);
         }
         #endregion
+
         #region 放置实体
         public static bool CanPlaceBlueprint(this LawnGrid grid, NamespaceID seedID, out NamespaceID error)
         {
@@ -231,6 +232,17 @@ namespace MVZ2.Vanilla.Grids
         {
             var level = grid.Level;
             level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PLACE_ENTITY, new VanillaLevelCallbacks.PostPlaceEntityParams(grid, entity), entity.GetDefinitionID());
+        }
+        #endregion
+
+        #region 湿的
+        public static bool IsConductive(this LawnGrid grid)
+        {
+            if (grid.IsWater())
+                return true;
+            if (grid.IsWet())
+                return true;
+            return false;
         }
         #endregion
     }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using PVZEngine.Armors;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
@@ -117,44 +116,7 @@ namespace PVZEngine.SeedPacks
         #endregion
 
         #region 增益
-        public Buff NewBuff<T>() where T : BuffDefinition
-        {
-            return Level.CreateBuff<T>(AllocBuffID());
-        }
-        public Buff NewBuff(BuffDefinition buffDef)
-        {
-            return Level.CreateBuff(buffDef, AllocBuffID());
-        }
-        public Buff NewBuff(NamespaceID id)
-        {
-            return Level.CreateBuff(id, AllocBuffID());
-        }
-        public bool AddBuff(Buff buff)
-        {
-            if (buffs.AddBuff(buff))
-            {
-                buff.AddToTarget(this);
-                return true;
-            }
-            return false;
-        }
-        public Buff AddBuff<T>() where T : BuffDefinition
-        {
-            var buff = NewBuff<T>();
-            AddBuff(buff);
-            return buff;
-        }
-        public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
-        public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
-        public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
-        public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
-        public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
-        public void GetAllBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         public abstract BuffReference GetBuffReference(Buff buff);
-        private long AllocBuffID()
-        {
-            return currentBuffID++;
-        }
         #endregion
 
         #region 消耗
@@ -234,13 +196,11 @@ namespace PVZEngine.SeedPacks
             seri.seedID = Definition.GetID();
             seri.properties = properties.ToSerializable();
             seri.buffs = buffs.ToSerializable();
-            seri.currentBuffID = currentBuffID;
             seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
         }
         public void ApplyDeserializedProperties(LevelEngine level, SerializableSeedPack seri)
         {
             properties = PropertyBlock.FromSerializable(seri.properties, this);
-            currentBuffID = seri.currentBuffID;
             buffs = BuffList.FromSerializable(seri.buffs, level, this);
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             buffs.OnBuffAdded += OnBuffAddedCallback;
@@ -256,14 +216,12 @@ namespace PVZEngine.SeedPacks
             properties.RemoveFallbackCache(key);
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
-        void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
-        Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
+        LevelEngine IBuffTarget.GetLevel() => Level;
         Entity IBuffTarget.GetEntity() => null;
-        Armor IBuffTarget.GetArmor() => null;
+        bool IBuffTarget.Exists() => true;
         Entity IAuraSource.GetEntity() => null;
         LevelEngine IAuraSource.GetLevel() => Level;
         bool IAuraSource.IsValid() => true;
-        bool IBuffTarget.Exists() => true;
         public event Action<SeedDefinition> OnDefinitionChanged;
         public event Action<ModelInsertion> OnModelInsertionAdded;
         public event Action<ModelInsertion> OnModelInsertionRemoved;
@@ -272,8 +230,8 @@ namespace PVZEngine.SeedPacks
         public long ID { get; }
         public LevelEngine Level { get; private set; }
         public SeedDefinition Definition { get; private set; }
+        BuffList IBuffTarget.Buffs => buffs;
         private IModelInterface modelInterface;
-        protected long currentBuffID = 1;
         private PropertyBlock properties;
         protected BuffList buffs = new BuffList();
         protected AuraEffectList auras = new AuraEffectList();

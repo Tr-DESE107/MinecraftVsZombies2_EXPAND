@@ -392,6 +392,40 @@
             </slot>
         </armors>
     </shape>
+    <shape id="zombie_cloud">
+        <armors>
+            <slot id="mvz2:main">
+                <default>
+                    <position x="0" y="32" z="0"/>
+                    <scale x="1" y="1" z="1"/>
+                </default>
+            </slot>
+            <slot id="mvz2:shield">
+                <default>
+                    <position x="-60" y="114" z="0"/>
+                    <scale x="1" y="1" z="1"/>
+                </default>
+                <custom id="mvz2:reflective_barrier">
+                    <position x="-60" y="50" z="0"/>
+                    <model>
+                        <offset x="0" y="50" z="0"/>
+                    </model>
+                </custom>
+                <custom id="mvz2:skeleton_warrior_shield">
+                    <position x="-60" y="25" z="0"/>
+                    <model>
+                        <offset x="0" y="25" z="0"/>
+                    </model>
+                </custom>
+                <custom id="mvz2:umbrella_shield">
+                    <position x="-60" y="24" z="0"/>
+                    <model>
+                        <anchor value="shield_hands"/>
+                    </model>
+                </custom>
+            </slot>
+        </armors>
+    </shape>
     <shape id="block">
         <armors>
             <slot id="mvz2:main">

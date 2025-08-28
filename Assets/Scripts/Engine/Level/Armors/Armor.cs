@@ -141,42 +141,7 @@ namespace PVZEngine.Armors
         #endregion
 
         #region 增益
-        public Buff NewBuff<T>() where T : BuffDefinition
-        {
-            return Level.CreateBuff<T>(AllocBuffID());
-        }
-        public Buff NewBuff(BuffDefinition buffDef)
-        {
-            return Level.CreateBuff(buffDef, AllocBuffID());
-        }
-        public Buff NewBuff(NamespaceID id)
-        {
-            return Level.CreateBuff(id, AllocBuffID());
-        }
-        public bool AddBuff(Buff buff)
-        {
-            if (buffs.AddBuff(buff))
-            {
-                buff.AddToTarget(this);
-                return true;
-            }
-            return false;
-        }
-        public void AddBuff<T>() where T : BuffDefinition
-        {
-            AddBuff(NewBuff<T>());
-        }
-        public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
-        public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
-        public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
-        public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
-        public void GetBuffs<T>(List<Buff> results) where T : BuffDefinition => buffs.GetBuffsNonAlloc<T>(results);
-        public void GetAllBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         public BuffReference GetBuffReference(Buff buff) => new BuffReferenceArmor(Owner.ID, Slot, buff.ID);
-        private long AllocBuffID()
-        {
-            return currentBuffID++;
-        }
         #endregion
 
         #region 光环
@@ -209,7 +174,6 @@ namespace PVZEngine.Armors
             {
                 health = Health,
                 slot = Slot,
-                currentBuffID = currentBuffID,
                 definitionID = Definition.GetID(),
                 buffs = buffs.ToSerializable(),
                 properties = properties.ToSerializable(),
@@ -224,7 +188,6 @@ namespace PVZEngine.Armors
             armor.Definition = definition;
             armor.Slot = seri.slot;
             armor.Health = seri.health;
-            armor.currentBuffID = seri.currentBuffID;
             armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level, armor);
             armor.buffs.OnPropertyChanged += armor.UpdateBuffedProperty;
             armor.properties = PropertyBlock.FromSerializable(seri.properties, armor);
@@ -239,10 +202,8 @@ namespace PVZEngine.Armors
             auras.LoadFromSerializable(Level, seri.auras);
         }
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
+        LevelEngine IBuffTarget.GetLevel() => Level;
         Entity IBuffTarget.GetEntity() => Owner;
-        Armor IBuffTarget.GetArmor() => this;
-        void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
-        Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
         bool IBuffTarget.Exists() => Owner != null && Owner.Exists() && Owner.IsEquippingArmor(this);
         Entity IAuraSource.GetEntity() => Owner;
         LevelEngine IAuraSource.GetLevel() => Level;
@@ -254,7 +215,7 @@ namespace PVZEngine.Armors
         public NamespaceID Slot { get; set; }
         public ArmorDefinition Definition { get; private set; }
         public float Health { get; set; }
-        private long currentBuffID = 1;
+        BuffList IBuffTarget.Buffs => buffs;
         private BuffList buffs = new BuffList();
         private PropertyBlock properties;
         private AuraEffectList auras = new AuraEffectList();

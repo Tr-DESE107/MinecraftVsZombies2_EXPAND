@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
@@ -110,6 +109,7 @@ namespace PVZEngine.Level
             }
 
             UpdateDelayedEnergyEntities();
+            UpdateGrids();
             UpdateEntities();
             CollisionUpdate();
 
@@ -183,51 +183,7 @@ namespace PVZEngine.Level
         #endregion
 
         #region 增益
-        public bool AddBuff(Buff buff)
-        {
-            if (buffs.AddBuff(buff))
-            {
-                buff.AddToTarget(this);
-                return true;
-            }
-            return false;
-        }
-        public Buff AddBuff<T>() where T : BuffDefinition
-        {
-            var buff = CreateBuff<T>(AllocBuffID());
-            AddBuff(buff);
-            return buff;
-        }
-        public Buff AddBuff(NamespaceID buffID)
-        {
-            var buffDef = Content.GetBuffDefinition(buffID);
-            return AddBuff(buffDef);
-        }
-        public Buff AddBuff(BuffDefinition buffDef)
-        {
-            if (buffDef == null)
-                return null;
-            var buff = CreateBuff(buffDef, AllocBuffID());
-            AddBuff(buff);
-            return buff;
-        }
-        public bool RemoveBuff(Buff buff) => buffs.RemoveBuff(buff);
-        public int RemoveBuffs<T>() where T : BuffDefinition => this.buffs.RemoveBuffs<T>();
-        public int RemoveBuffs(IEnumerable<Buff> buffs) => this.buffs.RemoveBuffs(buffs);
-        public int RemoveBuffs(BuffDefinition buffDef) => this.buffs.RemoveBuffs(buffDef);
-        public bool HasBuff<T>() where T : BuffDefinition => buffs.HasBuff<T>();
-        public bool HasBuff(Buff buff) => buffs.HasBuff(buff);
-        public bool HasBuff(BuffDefinition buffDef) => buffs.HasBuff(buffDef);
-        public Buff[] GetBuffs<T>() where T : BuffDefinition => buffs.GetBuffs<T>();
-        public void GetBuffs<T>(List<Buff> results) where T : BuffDefinition => buffs.GetBuffsNonAlloc<T>(results);
-        public void GetAllBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
         public BuffReference GetBuffReference(Buff buff) => new BuffReferenceLevel(buff.ID);
-        private long AllocBuffID()
-        {
-            long id = currentBuffID;
-            currentBuffID++;
-            return id;
-        }
         public Buff CreateBuff<T>(long buffID) where T : BuffDefinition
         {
             var buffDefinition = Content.GetBuffDefinition<T>();
@@ -244,20 +200,6 @@ namespace PVZEngine.Level
                 return null;
             return new Buff(this, buffDef, buffID);
         }
-        public Buff NewBuff<T>() where T : BuffDefinition
-        {
-            return CreateBuff<T>(AllocBuffID());
-        }
-        public Buff NewBuff(NamespaceID id)
-        {
-            return CreateBuff(id, AllocBuffID());
-        }
-        public Buff NewBuff(BuffDefinition buffDef)
-        {
-            return CreateBuff(buffDef, AllocBuffID());
-        }
-
-
         #endregion
 
         #region 序列化
@@ -273,8 +215,6 @@ namespace PVZEngine.Level
                 properties = properties.ToSerializable(),
                 currentSeedPackID = currentSeedPackID,
                 collisionSystem = collisionSystem.ToSerializable(),
-
-                currentBuffID = currentBuffID,
 
                 energy = Energy,
                 delayedEnergyEntities = delayedEnergyEntities.Select(d => new SerializableDelayedEnergy() { entityId = d.Key.ID, energy = d.Value }).ToArray(),
@@ -312,7 +252,6 @@ namespace PVZEngine.Level
             level.properties = PropertyBlock.FromSerializable(seri.properties, level);
 
             level.Energy = seri.energy;
-            level.currentBuffID = seri.currentBuffID;
 
             level.CurrentWave = seri.currentWave;
             level.CurrentFlag = seri.currentFlag;
@@ -365,11 +304,8 @@ namespace PVZEngine.Level
 
         #region 私有方法
         IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
+        LevelEngine IBuffTarget.GetLevel() => this;
         Entity IBuffTarget.GetEntity() => null;
-        Armor IBuffTarget.GetArmor() => null;
-        void IBuffTarget.GetBuffs(List<Buff> results) => buffs.GetAllBuffs(results);
-        Buff IBuffTarget.GetBuff(long id) => buffs.GetBuff(id);
-        Buff IBuffTarget.NewBuff(NamespaceID id) => CreateBuff(id, AllocBuffID());
         bool IBuffTarget.Exists() => true;
         #endregion
 
@@ -383,12 +319,11 @@ namespace PVZEngine.Level
         public bool IsRerun { get; set; }
         public int TPS => Option.TPS;
         public LevelOption Option { get; private set; }
+        BuffList IBuffTarget.Buffs => buffs;
 
 
         private PropertyBlock properties;
         private BuffList buffs = new BuffList();
-
-        private long currentBuffID = 1;
 
         private List<ILevelComponent> levelComponents = new List<ILevelComponent>();
         #endregion 保存属性

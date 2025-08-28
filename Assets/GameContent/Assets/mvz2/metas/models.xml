@@ -119,6 +119,7 @@
     </model>
     <model name="cannoneer_zombie" type="entity" path="mvz2:enemy/ship/cannoneer_zombie" width="85" height="92" xOffset="22" yOffset="-41"/>
     <model name="cannonball_zombie" type="entity" path="mvz2:enemy/ship/cannonball_zombie" width="36" height="32" xOffset="0" yOffset="-16"/>
+    <model name="zombie_cloud" type="entity" path="mvz2:enemy/ship/zombie_cloud" width="86" height="44" xOffset="0" yOffset="-22"/>
 
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/shrine/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
     <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/shrine/mega_mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
@@ -284,6 +285,8 @@
     <model name="amplified_roar" type="entity" path="mvz2:effect/amplified_roar" shot="false" width="120" height="120" xOffset="0" yOffset="0"/>
     <model name="ufo_background" type="entity" path="mvz2:effect/ufo_background" width="40" height="28" xOffset="0" yOffset="-12"/>
     <model name="firework_blast" type="entity" path="mvz2:effect/firework_blast" shot="false" width="160" height="160" xOffset="0" yOffset="0"/>
+    <model name="zombie_cloud_raindrop" type="entity" path="mvz2:effect/zombie_cloud_raindrop" shot="false" width="5" height="32" xOffset="0" yOffset="0"/>
+    <model name="water_stain" type="entity" path="mvz2:effect/water_stain" shot="false" width="160" height="160" xOffset="0" yOffset="0"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

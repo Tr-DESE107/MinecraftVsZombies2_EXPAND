@@ -1,21 +1,16 @@
-﻿using System.Collections.Generic;
-using PVZEngine.Armors;
-using PVZEngine.Entities;
+﻿using PVZEngine.Entities;
+using PVZEngine.Level;
 using PVZEngine.Models;
 
 namespace PVZEngine.Buffs
 {
     public interface IBuffTarget
     {
-        Buff NewBuff(NamespaceID buffID);
-        bool AddBuff(Buff buff);
-        bool RemoveBuff(Buff buff);
-        IModelInterface GetInsertedModel(NamespaceID key);
+        BuffList Buffs { get; }
+        LevelEngine GetLevel();
         Entity GetEntity();
-        Armor GetArmor();
-        void GetBuffs(List<Buff> results);
+        IModelInterface GetInsertedModel(NamespaceID key);
         BuffReference GetBuffReference(Buff buff);
-        Buff GetBuff(long id);
         bool Exists();
     }
 }

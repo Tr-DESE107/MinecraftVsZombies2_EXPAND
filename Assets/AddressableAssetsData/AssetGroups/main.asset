@@ -45,6 +45,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 015dd19c4a87a8f40823a2f740f43a2a
+    m_Address: mvz2:enemy/ship/zombie_cloud
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01a6d95d6ca2e274e9579d9781bf522e
     m_Address: mvz2:enemy/prologue/zombie
     m_ReadOnly: 0
@@ -2717,6 +2724,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fb9e3cc152d92149914e1b4e20ea5f1
+    m_Address: mvz2:entity/enemies/zombie_cloud_particle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fd63c7920860ce4f8bc0be1188ae567
     m_Address: mvz2:entity/contraptions/gravity_pad
     m_ReadOnly: 0
@@ -3830,6 +3844,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a803ca9114b9a64ca44a3f2e48bcc8a
+    m_Address: mvz2:effect/water_stain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b197e2b4a8161c4e8f1808052883a63
     m_Address: mvz2:bones/mutant_zombie
     m_ReadOnly: 0
@@ -4557,6 +4578,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cee1e618aa7aaa4290570ca7f2eb1c8
+    m_Address: mvz2:mobile_blueprint/zombie_cloud
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d01441df27a4cc499a69f30ae8c8c45
     m_Address: mvz2:freeze
@@ -8050,6 +8078,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c49340a60ad150a4895d58f3e7e9b9ce
+    m_Address: mvz2:entity/effects/water_stain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4bdf350a8df52941b184c7cd8e2f543
     m_Address: mvz2:effect/cursed_fire_particles
     m_ReadOnly: 0
@@ -8778,6 +8813,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d51933a4e4fed9f429139b29d9bd0a0e
+    m_Address: mvz2:effect/zombie_cloud_raindrop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d52e41cedef77e246a62344b51d6c0f2
     m_Address: mvz2:wither_boss
     m_ReadOnly: 0
@@ -8983,6 +9025,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da694241d06a5a0429d9929813653171
     m_Address: mvz2:achievements/rickroll_drown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: daa11bf204159aa4ba9261b3b3bb7063
+    m_Address: mvz2:entity/enemies/zombie_cloud
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

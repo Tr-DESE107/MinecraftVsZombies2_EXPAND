@@ -47,6 +47,7 @@ namespace PVZEngine.Entities
         public bool isDead;
         public float health;
         public bool isOnGround;
+        [Obsolete]
         public long currentBuffID;
         public SerializablePropertyBlock properties;
         public SerializableBuffList buffs;

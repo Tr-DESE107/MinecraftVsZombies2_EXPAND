@@ -7,5 +7,6 @@ namespace PVZEngine.Buffs
     public class SerializableBuffList
     {
         public List<SerializableBuff> buffs;
+        public long currentBuffID;
     }
 }

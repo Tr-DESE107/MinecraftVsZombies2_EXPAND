@@ -10,7 +10,7 @@ namespace PVZEngine.Buffs
     public class BuffList : IEnumerable<Buff>
     {
         #region 增益操作
-        public bool AddBuff(Buff buff)
+        public bool AddBuff(Buff buff, IBuffTarget target)
         {
             changedPropertiesBuffer.Clear();
             if (AddBuffImplement(buff))
@@ -19,6 +19,7 @@ namespace PVZEngine.Buffs
                 {
                     OnPropertyChangedCallback(prop);
                 }
+                buff.AddToTarget(target);
                 return true;
             }
             return false;
@@ -299,7 +300,8 @@ namespace PVZEngine.Buffs
         {
             return new SerializableBuffList()
             {
-                buffs = buffs.ConvertAll(b => b.Serialize())
+                buffs = buffs.ConvertAll(b => b.Serialize()),
+                currentBuffID = currentBuffID,
             };
         }
         public static BuffList FromSerializable(SerializableBuffList serializable, LevelEngine level, IBuffTarget target)
@@ -312,6 +314,7 @@ namespace PVZEngine.Buffs
                 buff.OnPropertyChanged += buffList.OnPropertyChangedCallback;
                 buffList.buffs.Add(buff);
             }
+            buffList.currentBuffID = serializable.currentBuffID;
             buffList.UpdateModifierCaches();
             return buffList;
         }
@@ -329,6 +332,10 @@ namespace PVZEngine.Buffs
         }
         #endregion
 
+        public long AllocBuffID()
+        {
+            return currentBuffID++;
+        }
         IEnumerator<Buff> IEnumerable<Buff>.GetEnumerator()
         {
             return buffs.GetEnumerator();
@@ -343,6 +350,7 @@ namespace PVZEngine.Buffs
         public event Action<Buff> OnBuffRemoved;
         public event Action<IPropertyKey> OnPropertyChanged;
 
+        private long currentBuffID = 1;
         private List<Buff> updateBuffer = new List<Buff>();
         private List<Buff> buffs = new List<Buff>();
         private HashSet<IPropertyKey> changedPropertiesBuffer = new HashSet<IPropertyKey>();

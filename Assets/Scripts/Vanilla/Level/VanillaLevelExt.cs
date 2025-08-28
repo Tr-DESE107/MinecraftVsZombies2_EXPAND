@@ -740,13 +740,26 @@ namespace MVZ2.Vanilla.Level
             var lane = level.GetLane(z);
             return level.IsWaterGrid(column, lane);
         }
-        public static void GetConnectedWaterGrids(this LevelEngine level, Vector3 pos, int xExpand, int yExpand, HashSet<LawnGrid> results)
+        public static bool IsConductiveGrid(this LevelEngine level, int column, int lane)
+        {
+            var grid = level.GetGrid(column, lane);
+            if (grid == null)
+                return false;
+            return grid.IsConductive();
+        }
+        public static bool IsConductiveAt(this LevelEngine level, float x, float z)
+        {
+            var column = level.GetColumn(x);
+            var lane = level.GetLane(z);
+            return level.IsConductiveGrid(column, lane);
+        }
+        public static void GetConnectedConductiveGrids(this LevelEngine level, Vector3 pos, int xExpand, int yExpand, HashSet<LawnGrid> results)
         {
             var column = level.GetColumn(pos.x);
             var lane = level.GetLane(pos.z);
-            level.GetConnectedWaterGrids(column, lane, xExpand, yExpand, results);
+            level.GetConnectedConductiveGrids(column, lane, xExpand, yExpand, results);
         }
-        public static void GetConnectedWaterGrids(this LevelEngine level, int column, int lane, int xExpand, int yExpand, HashSet<LawnGrid> results)
+        public static void GetConnectedConductiveGrids(this LevelEngine level, int column, int lane, int xExpand, int yExpand, HashSet<LawnGrid> results)
         {
             for (int xOff = -xExpand; xOff <= xExpand; xOff++)
             {
@@ -755,7 +768,9 @@ namespace MVZ2.Vanilla.Level
                     var col = column + xOff;
                     var lan = lane + yOff;
                     var grid = level.GetGrid(col, lan);
-                    if (grid != null && grid.IsWater())
+                    if (grid == null)
+                        continue;
+                    if (grid.IsConductive())
                     {
                         results.Add(grid);
                     }

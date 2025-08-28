@@ -8,7 +8,11 @@
         public const string contraptionEvokeFireworkDispenser = "contraption_evoke_firework_dispenser";
         #endregion
 
+        #region Enemies
         public const string enemyCommon = "enemy_common";
+        public const string zombieCloudRaining = "zombie_cloud_raining";
+        #endregion
+
         public const string obstacleCommon = "obstacle_common";
         public const string bossCommon = "boss_common";
         public const string cartCommon = "cart_common";

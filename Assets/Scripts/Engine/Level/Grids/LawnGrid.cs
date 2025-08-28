@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace PVZEngine.Grids
 {
-    public class LawnGrid : IPropertyModifyTarget
+    public class LawnGrid : IPropertyModifyTarget, IBuffTarget
     {
         #region 公有事件
         public LawnGrid(LevelEngine level, GridDefinition definition, int lane, int column)
@@ -18,6 +20,18 @@ namespace PVZEngine.Grids
             Column = column;
             Definition = definition;
             properties = new PropertyBlock(this);
+            InitBuffList();
+        }
+        public void Update()
+        {
+            try
+            {
+                buffs.Update();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"更新地格时出现错误：{ex}");
+            }
         }
         public int GetIndex()
         {
@@ -175,6 +189,28 @@ namespace PVZEngine.Grids
         }
         #endregion
 
+        #region 增益
+        public BuffReference GetBuffReference(Buff buff)
+        {
+            return new BuffReferenceLawnGrid(GetIndex(), buff.ID);
+        }
+        private void InitBuffList()
+        {
+            buffs.OnPropertyChanged += OnBuffPropertyChangedCallback;
+            buffs.OnBuffAdded += OnBuffAddedCallback;
+            buffs.OnBuffRemoved += OnBuffRemovedCallback;
+        }
+        private void OnBuffPropertyChangedCallback(IPropertyKey name)
+        {
+            properties.UpdateModifiedProperty(name);
+        }
+        private void OnBuffAddedCallback(Buff buff)
+        {
+        }
+        private void OnBuffRemovedCallback(Buff buff)
+        {
+        }
+        #endregion
         public SerializableGrid Serialize()
         {
             return new SerializableGrid()
@@ -184,6 +220,7 @@ namespace PVZEngine.Grids
                 definitionID = Definition.GetID(),
                 layerEntityLists = layerEntities.ToDictionary(p => p.Key.ToString(), p => p.Value.Select(e => e.ID).ToArray()),
                 properties = properties.ToSerializable(),
+                buffs = buffs.ToSerializable()
             };
         }
         public static LawnGrid Deserialize(SerializableGrid seri, LevelEngine level)
@@ -195,6 +232,8 @@ namespace PVZEngine.Grids
         public void LoadFromSerializable(SerializableGrid seri, LevelEngine level)
         {
             properties = PropertyBlock.FromSerializable(seri.properties, this);
+            buffs = BuffList.FromSerializable(seri.buffs, level, this);
+            InitBuffList();
             layerEntities.Clear();
             reverseLayerEntities.Clear();
             if (seri.layerEntityLists != null)
@@ -230,6 +269,11 @@ namespace PVZEngine.Grids
                     reverseLayerEntities.Add(entity, layerHashSet);
                 }
             }
+            LoadAuras(seri);
+        }
+        public void LoadAuras(SerializableGrid seri)
+        {
+            buffs.LoadAuras(seri.buffs, Level);
         }
         #endregion 方法
 
@@ -248,7 +292,14 @@ namespace PVZEngine.Grids
         }
         #endregion
 
-        #region 接口实现
+        #region IBuffTarget实现
+        IModelInterface IBuffTarget.GetInsertedModel(NamespaceID key) => null;
+        LevelEngine IBuffTarget.GetLevel() => Level;
+        Entity IBuffTarget.GetEntity() => null;
+        bool IBuffTarget.Exists() => true;
+        #endregion
+
+        #region IPropertyModifyTarget实现
         bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object value)
         {
             if (Definition == null)
@@ -260,14 +311,15 @@ namespace PVZEngine.Grids
         }
         IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
         {
-            yield break;
+            return buffs.GetModifierPropertyNames();
         }
         PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
         {
-            return Array.Empty<PropertyModifier>();
+            return null;
         }
         void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
         {
+            buffs.GetModifierItems(name, results);
         }
         void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object beforeValue, object afterValue, bool triggersEvaluation)
         {
@@ -279,6 +331,8 @@ namespace PVZEngine.Grids
         public int Lane { get; set; }
         public int Column { get; set; }
         public GridDefinition Definition { get; set; }
+        BuffList IBuffTarget.Buffs => buffs;
+        private BuffList buffs = new BuffList();
         private Dictionary<NamespaceID, HashSet<Entity>> layerEntities = new Dictionary<NamespaceID, HashSet<Entity>>();
         private Dictionary<Entity, HashSet<NamespaceID>> reverseLayerEntities = new Dictionary<Entity, HashSet<NamespaceID>>();
         private PropertyBlock properties;

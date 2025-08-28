@@ -90,4 +90,17 @@ namespace PVZEngine.Buffs
             return level.GetConveyorSeedPackByID(seedID);
         }
     }
+    [Serializable]
+    public class BuffReferenceLawnGrid : BuffReference
+    {
+        public BuffReferenceLawnGrid(int gridIndex, long buffId) : base(buffId)
+        {
+            this.gridIndex = gridIndex;
+        }
+        public override IBuffTarget GetTarget(LevelEngine level)
+        {
+            return level.GetGrid(gridIndex);
+        }
+        public int gridIndex;
+    }
 }

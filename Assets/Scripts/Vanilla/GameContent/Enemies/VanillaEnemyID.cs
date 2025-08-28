@@ -38,6 +38,7 @@ namespace MVZ2.GameContent.Enemies
         public const string ufo = undeadFlyingObject;
         public const string cannoneerZombie = "cannoneer_zombie";
         public const string cannonballZombie = "cannonball_zombie";
+        public const string zombieCloud = "zombie_cloud";
 
         public const string mutantZombie = "mutant_zombie";
         public const string megaMutantZombie = "mega_mutant_zombie";

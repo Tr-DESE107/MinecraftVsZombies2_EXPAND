@@ -25,6 +25,11 @@ namespace MVZ2.Vanilla.Grids
         {
             return grid.GetProperty<bool>(IS_AIR);
         }
+        public static readonly PropertyMeta<bool> IS_WET = Get<bool>("is_wet");
+        public static bool IsWet(this LawnGrid grid)
+        {
+            return grid.GetProperty<bool>(IS_WET);
+        }
 
         public static bool IsLand(this LawnGrid grid)
         {
