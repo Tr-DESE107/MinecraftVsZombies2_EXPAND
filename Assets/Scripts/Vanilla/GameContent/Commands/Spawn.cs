@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Commands
             var game = Global.Game;
             var level = Global.Level.GetLevel();
 
-            var id = NamespaceID.Parse(parameters[1], VanillaMod.spaceName);
+            var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
 
             float x = level.GetEntityColumnX(Mathf.FloorToInt(level.GetMaxColumnCount() * 0.5f));
             float z = level.GetEntityLaneZ(Mathf.FloorToInt(level.GetMaxLaneCount() * 0.5f));

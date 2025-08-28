@@ -29,7 +29,7 @@ namespace MVZ2.GameContent.Commands
             if (mode == "set")
             {
                 var idParam = parameters[2];
-                var id = NamespaceID.Parse(idParam, VanillaMod.spaceName);
+                var id = NamespaceID.Parse(idParam, Global.Game.DefaultNamespace);
 
                 if (!level.IsConveyorMode())
                 {
