@@ -762,7 +762,20 @@
                 <p>它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:firework_dispenser">
+            <header>
+                <p>烟花发射器会自动轰击上方高空中的敌人。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>1发/3秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>200，只能伤害高空中的敌人</color>]]></p>
+                <p>爆炸半径：<![CDATA[<color=red>1.5格</color>]]></p>
+                <p>技能：<![CDATA[<color=red>爆炸半径永久+1格</color>]]></p>
+            </properties>
+            <flavor>
+                <p>烟花发射器很喜欢过节，尤其是那种盛大的节日——由于之前的器械扰民事件，它被禁止在平常的日子里放烟花。但是当盛大的节日到来之际，它可要好好的放个够了。</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
         <entry/>

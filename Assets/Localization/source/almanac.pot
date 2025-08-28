@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-07-31 06:17+0800\n"
+"POT-Creation-Date: 2025-08-28 01:39+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1463,6 +1463,28 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。"
+msgstr ""
+
+#. Header for contraptions mvz2:firework_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "烟花发射器会自动轰击上方高空中的敌人。"
+msgstr ""
+
+#. Properties for contraptions mvz2:firework_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1发/3秒</color>\n"
+"伤害：<color=red>200，只能伤害高空中的敌人</color>\n"
+"爆炸半径：<color=red>1.5格</color>\n"
+"技能：<color=red>爆炸半径永久+1格</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:firework_dispenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "烟花发射器很喜欢过节，尤其是那种盛大的节日——由于之前的器械扰民事件，它被禁止在平常的日子里放烟花。但是当盛大的节日到来之际，它可要好好的放个够了。"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -4159,6 +4181,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "向五个方向发射手里剑"
+msgstr ""
+
+#. Name for entity mvz2:firework_dispenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "烟花发射器"
+msgstr ""
+
+#. Tooltip for entity mvz2:firework_dispenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "轰击周围高空的敌人"
 msgstr ""
 
 #. Name for entity mvz2:infectenser
