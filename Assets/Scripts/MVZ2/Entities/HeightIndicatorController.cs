@@ -8,6 +8,10 @@ namespace MVZ2.Entities
         {
             indicatorRenderer.size = new Vector2(indicatorRenderer.size.x, value);
         }
+        public void SetColor(Color color)
+        {
+            indicatorRenderer.color = color;
+        }
         [SerializeField]
         private SpriteRenderer indicatorRenderer;
     }

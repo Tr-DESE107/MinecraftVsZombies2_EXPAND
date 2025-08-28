@@ -351,7 +351,7 @@ namespace MVZ2.Entities
         private void UpdateHeightIndicator()
         {
             var relativeY = Entity.GetRelativeY();
-            bool active = Main.OptionsManager.IsHeightIndicatorEnabled() && Entity.IsVulnerableEntity() && relativeY >= 60;
+            bool active = Main.OptionsManager.IsHeightIndicatorEnabled() && Entity.IsVulnerableEntity() && relativeY >= HEIGHT_INDICATOR_MIN_HEIGHT;
             if (heightIndicator.gameObject.activeSelf != active)
             {
                 heightIndicator.gameObject.SetActive(active);
@@ -360,6 +360,9 @@ namespace MVZ2.Entities
             {
                 heightIndicator.transform.localPosition = GetGroundLocalPosition();
                 heightIndicator.SetHeight(relativeY * Level.LawnToTransScale);
+                var t = (relativeY - HEIGHT_INDICATOR_FADE_MIN_HEIGHT) / (HEIGHT_INDICATOR_FADE_MAX_HEIGHT - HEIGHT_INDICATOR_FADE_MIN_HEIGHT);
+                var indicatorColor = Color.Lerp(HEIGHT_INDICATOR_COLOR_MIN, HEIGHT_INDICATOR_COLOR_MAX, t);
+                heightIndicator.SetColor(indicatorColor);
             }
         }
         protected float GetZOffset()
@@ -582,6 +585,12 @@ namespace MVZ2.Entities
         #endregion
 
         #region 属性字段
+        public const float HEIGHT_INDICATOR_MIN_HEIGHT = 40;
+        public const float HEIGHT_INDICATOR_FADE_MIN_HEIGHT = 300;
+        public const float HEIGHT_INDICATOR_FADE_MAX_HEIGHT = 500;
+        public static readonly Color HEIGHT_INDICATOR_COLOR_MIN = Color.white;
+        public static readonly Color HEIGHT_INDICATOR_COLOR_MAX = new Color(1,1,1,0);
+
         public static readonly Dictionary<int, float> zOffsetDict = new Dictionary<int, float>()
         {
             { EntityTypes.PLANT, 0 },
