@@ -1,0 +1,18 @@
+﻿using PVZEngine.Buffs;
+using PVZEngine.Level;
+
+namespace MVZ2.GameContent.Buffs.Level
+{
+    [BuffDefinition(VanillaBuffNames.Level.debugEnergy)]
+    public class DebugEnergyBuff : BuffDefinition
+    {
+        public DebugEnergyBuff(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override void PostUpdate(Buff buff)
+        {
+            base.PostUpdate(buff);
+            buff.Level.AddEnergy(9990);
+        }
+    }
+}

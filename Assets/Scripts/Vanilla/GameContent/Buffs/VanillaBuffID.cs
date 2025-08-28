@@ -189,6 +189,7 @@ namespace MVZ2.GameContent.Buffs
             public const string debugGodmode = "debug_godmode";
             public const string debugNoRecharge = "debug_no_recharge";
             public const string debugStarshard = "debug_starshard";
+            public const string debugEnergy = "debug_energy";
         }
         public static class Boss
         {

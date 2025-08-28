@@ -30,6 +30,10 @@ namespace MVZ2.GameContent.Commands
                     buffDefinition = game.GetBuffDefinition<DebugGodmodeBuff>();
                     cheatNameKey = VanillaStrings.CHEAT_NAME_GODMODE;
                     break;
+                case "energy":
+                    buffDefinition = game.GetBuffDefinition<DebugEnergyBuff>();
+                    cheatNameKey = VanillaStrings.CHEAT_NAME_ENERGY;
+                    break;
                 case "recharge":
                     buffDefinition = game.GetBuffDefinition<DebugNoRechargeBuff>();
                     cheatNameKey = VanillaStrings.CHEAT_NAME_RECHARGE;

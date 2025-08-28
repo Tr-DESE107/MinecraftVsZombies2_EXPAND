@@ -114,6 +114,10 @@
     </command>
     <command id="cheat" inLevel="true">
         <description>启用关卡中的作弊选项。再次使用后关闭该效果。</description>
+        <variant subname="energy">
+            <description>无限能量。</description>
+            <params/>
+        </variant>
         <variant subname="recharge">
             <description>所有蓝图无需充能。</description>
             <params/>
