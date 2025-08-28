@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-08-28 10:32+0800\n"
-"PO-Revision-Date: 2025-08-28 22:34+0800\n"
+"PO-Revision-Date: 2025-08-28 22:42+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2618,7 +2618,7 @@ msgstr "Watch out for these if you have large patches of wheat planted in your f
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。"
-msgstr "The heavy cannons of Cannoneer Zombies can help them block bullets and fire a Cannonball Zombie every once in a while."
+msgstr "The heavy cannons of Cannoneer Zombies can help them block bullets and fire a Zombie Cannonball every once in a while."
 
 #. Properties for enemies mvz2:cannoneer_zombie
 #: Almanac meta file
@@ -2645,7 +2645,7 @@ msgstr ""
 msgctxt "enemies.description"
 msgid "炮弹僵尸由炮手僵尸发射而来。它们飘浮在空中，并且会像普通的僵尸一样攻击器械。"
 msgstr ""
-"Cannonball Zombies are launched into the battlefield by Cannoneer Zombies. They levitate in the air and attack like regular zombies."
+"Zombie Cannonballs are launched into the battlefield by Cannoneer Zombies. They levitate in the air and attack like regular zombies."
 
 #. Properties for enemies mvz2:cannonball_zombie
 #: Almanac meta file
@@ -5402,7 +5402,7 @@ msgstr "Cannon execution!"
 #: Entity meta file
 msgctxt "entity.name"
 msgid "炮弹僵尸"
-msgstr "Cannonball Zombie"
+msgstr "Zombie Cannonball"
 
 #. Death message for entity mvz2:cannonball_zombie
 #: Entity meta file
