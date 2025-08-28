@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-08-28 01:39+0800\n"
+"POT-Creation-Date: 2025-08-28 10:32+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -549,6 +549,18 @@ msgstr ""
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "免疫火焰伤害，阻挡锐利物体和火焰溅射，但受到20x冲击伤害"
+msgstr ""
+
+#. Name for almanac tag enum value mvz2:cloud of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "云"
+msgstr ""
+
+#. Description for almanac tag enum value mvz2:cloud of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "受到0.5x冲击伤害"
 msgstr ""
 
 #. Header for contraptions mvz2:dispenser
@@ -2215,6 +2227,24 @@ msgctxt "enemies.description"
 msgid ""
 "没错，炮弹也是一只僵尸！\n"
 "而且特别害怕被脚踩！"
+msgstr ""
+
+#. Header for enemies mvz2:zombie_cloud
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "僵尸云飞在空中，向下降雨形成水迹，踩到水迹的敌怪会向前滑动。"
+msgstr ""
+
+#. Properties for enemies mvz2:zombie_cloud
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "生命：<color=red>200</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:zombie_cloud
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "至少这朵云没有对你竖中指。"
 msgstr ""
 
 #. Header for artifacts mvz2:almanac
@@ -4619,6 +4649,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "-1up"
+msgstr ""
+
+#. Name for entity mvz2:zombie_cloud
+#: Entity meta file
+msgctxt "entity.name"
+msgid "僵尸云"
+msgstr ""
+
+#. Death message for entity mvz2:zombie_cloud
+#: Entity meta file
+msgctxt "death_message"
+msgid "你就云吧"
 msgstr ""
 
 #. Name for entity mvz2:mutant_zombie

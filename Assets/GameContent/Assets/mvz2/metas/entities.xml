@@ -1379,6 +1379,9 @@
                 <id name="mvz2:hitSound" value="mvz2:cloth" />
                 <id name="mvz2:deathSound" value="mvz2:zombie_death" />
                 <id name="mvz2:shape" value="mvz2:zombie_cloud" />
+                <bool name="mvz2:flying_enemy" value="true" />
+                <bool name="mvz2:undead" value="false" />
+                <idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
                 <vector3 name="mvz2:size" x="64" y="44" z="64" />
 
                 <int name="mvz2:cost" value="100" />

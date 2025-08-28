@@ -1347,6 +1347,17 @@
                 <p>而且特别害怕被脚踩！</p>
             </flavor>
         </entry>
+        <entry id="mvz2:zombie_cloud">
+            <header>
+                <p>僵尸云飞在空中，向下降雨形成水迹，踩到水迹的敌怪会向前滑动。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+            </properties>
+            <flavor>
+                <p>至少这朵云没有对你竖中指。</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">
