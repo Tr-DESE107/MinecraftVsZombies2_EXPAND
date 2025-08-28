@@ -409,10 +409,18 @@ namespace MVZ2.Managers
             {
                 // 没有子名称
                 if (parts.Length < 2)
-                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_MISSING_PARAMETER, variant.Subname));
+                {
+                    var possibleSubnames = GetCommandPossibleSubnameTexts(variants);
+                    var subnameStr = string.Join(",", possibleSubnames);
+                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_MISSING_SUBNAME, subnameStr));
+                }
                 // 子名称不正确
                 if (!variant.Subname.Equals(parts[1], StringComparison.OrdinalIgnoreCase))
-                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_PARAMETER, variant.Subname));
+                {
+                    var possibleSubnames = GetCommandPossibleSubnameTexts(variants);
+                    var subnameStr = string.Join(",", possibleSubnames);
+                    throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_SUBNAME, subnameStr));
+                }
             }
             // 检测命令变体的参数是否正确。
             for (int i = 0; i < variant.Parameters.Length; i++)
@@ -450,6 +458,10 @@ namespace MVZ2.Managers
         private void PrintLine(string text)
         {
             Print(text + "\n");
+        }
+        private string[] GetCommandPossibleSubnameTexts(IEnumerable<ICommandVariantMeta> variants)
+        {
+            return variants.Select(v => v.Subname).Where(n => !string.IsNullOrEmpty(n)).ToArray();
         }
 
         void IGlobalDebug.Print(string message)

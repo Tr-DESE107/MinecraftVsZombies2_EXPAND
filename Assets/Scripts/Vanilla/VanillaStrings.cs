@@ -173,6 +173,10 @@ namespace MVZ2.Vanilla
         public const string COMMAND_INCORRECT_PARAMETER_COUNT = "参数数量错误";
         [TranslateMsg("命令输出，{0}为参数名", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_MISSING_PARAMETER = "参数{0}丢失";
+        [TranslateMsg("命令输出，{0}为有效参数列表", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_INCORRECT_SUBNAME = "参数错误，有效值为{0}";
+        [TranslateMsg("命令输出，{0}为参数名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_MISSING_SUBNAME = "参数丢失，有效值为{0}";
 
         [TranslateMsg("作弊命令名称", CONTEXT_COMMAND_CHEAT_NAME)]
         public const string CHEAT_NAME_GODMODE = "上帝模式";
