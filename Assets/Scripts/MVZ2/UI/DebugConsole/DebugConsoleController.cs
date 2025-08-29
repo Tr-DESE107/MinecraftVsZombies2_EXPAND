@@ -14,12 +14,6 @@ namespace MVZ2.Debugs
             LoadCommandHistory();
             gameObject.SetActive(true);
             ui.ActivateInputField();
-            if (string.IsNullOrEmpty(ui.GetCommand()))
-            {
-                string str = CommandUtility.COMMAND_CHARACTER.ToString();
-                ui.SetCommand(str);
-                ui.MoveToCommandEnd(false);
-            }
         }
         public void Hide()
         {
@@ -32,6 +26,15 @@ namespace MVZ2.Debugs
         public string[] GetCommandHistory()
         {
             return commandHistory.ToArray();
+        }
+        public void SetDefaultCommandPlaceholder()
+        {
+            if (string.IsNullOrEmpty(ui.GetCommand()))
+            {
+                string str = CommandUtility.COMMAND_CHARACTER.ToString();
+                ui.SetCommand(str);
+                ui.MoveToCommandEnd(false);
+            }
         }
         public void ClearConsole()
         {
