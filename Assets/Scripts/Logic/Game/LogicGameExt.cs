@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
+using MVZ2Logic.Difficulties;
 using MVZ2Logic.Entities;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
@@ -117,7 +118,7 @@ namespace MVZ2Logic.Games
             var def = game.GetEntityCounterDefinition(counterID);
             if (def == null)
                 return counterID.ToString();
-            var name = def.Name ?? LogicStrings.UNKNOWN_ENTITY_COUNTER_NAME;
+            var name = def.CounterName ?? LogicStrings.UNKNOWN_ENTITY_COUNTER_NAME;
             return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_ENTITY_COUNTER_NAME);
         }
         public static string GetDifficultyName(this IGlobalGame game, NamespaceID difficulty)
@@ -127,7 +128,7 @@ namespace MVZ2Logic.Games
             var def = game.GetDifficultyDefinition(difficulty);
             if (def == null)
                 return difficulty.ToString();
-            string name = def.Name ?? LogicStrings.DIFFICULTY_UNKNOWN;
+            string name = def.GetName() ?? LogicStrings.DIFFICULTY_UNKNOWN;
             return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_DIFFICULTY);
         }
         public static string GetSeedOptionName(this IGlobalGame game, NamespaceID id)
