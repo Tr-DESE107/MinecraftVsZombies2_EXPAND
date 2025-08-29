@@ -19,6 +19,7 @@ namespace MVZ2.Metas
         public float XOffset { get; private set; }
         public float YOffset { get; private set; }
         public AnimatorParameter[] AnimatorParameters { get; private set; }
+        public Dictionary<string, object> ModelProperties { get; private set; }
         public static ModelMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
             var name = node.GetAttribute("name");
@@ -43,6 +44,7 @@ namespace MVZ2.Metas
                     }
                 }
             }
+            var modelProperties = node["properties"].ToPropertyDictionary(defaultNsp);
             return new ModelMeta()
             {
                 Name = name,
@@ -53,7 +55,8 @@ namespace MVZ2.Metas
                 Height = height,
                 XOffset = xOffset,
                 YOffset = yOffset,
-                AnimatorParameters = animatorParameters.ToArray()
+                AnimatorParameters = animatorParameters.ToArray(),
+                ModelProperties = modelProperties,
             };
         }
         public override string ToString()

@@ -29,6 +29,10 @@ namespace MVZ2.Models
                 {
                     parameter.Apply(model);
                 }
+                foreach (var parameter in modelMeta.ModelProperties)
+                {
+                    model.SetProperty(parameter.Key, parameter.Value);
+                }
                 model.Init(id, camera, seed);
             }
             return model;

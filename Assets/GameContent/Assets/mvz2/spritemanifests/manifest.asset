@@ -393,6 +393,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 6514a857fb8b7fc4d992741ae15f66e5, type: 3}
   - name: mobile_blueprint/zombie_cloud
     sprite: {fileID: 21300000, guid: 6cee1e618aa7aaa4290570ca7f2eb1c8, type: 3}
+  - name: mobile_blueprint/zombie_cloud_snow
+    sprite: {fileID: 21300000, guid: c4e76c1f36a4c274eb3f93e48e82f1cc, type: 3}
+  - name: mobile_blueprint/zombie_cloud_thunder
+    sprite: {fileID: 21300000, guid: 067521958e94fd440bf2d5a8c1b62383, type: 3}
   - name: note/background_castle
     sprite: {fileID: 21300000, guid: cdb5a00e33b0dda46876f58eb7acc614, type: 3}
   - name: note/background_day
@@ -675,6 +679,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3e0db9919161e1f4d8204af2dba2d3d6, type: 3}
   - name: entity/effects/shine_ring
     sprite: {fileID: 21300000, guid: 0fd484fcbd2c9ed4dbad79aa98011525, type: 3}
+  - name: entity/effects/snowflake
+    sprite: {fileID: 21300000, guid: 9584835b8a325b742a157b068f72ad5d, type: 3}
   - name: entity/effects/sonic_wave
     sprite: {fileID: 21300000, guid: 68ec678f2e1fdfc4eab7a8de70fdf77c, type: 3}
   - name: entity/effects/soul
@@ -693,6 +699,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 57a43fd6f9e8d124fb3ac37bc690d4aa, type: 3}
   - name: entity/effects/water_splash
     sprite: {fileID: 21300000, guid: 9d730e080bace4646938c15cdabc88d0, type: 3}
+  - name: entity/effects/water_stain
+    sprite: {fileID: 21300000, guid: c49340a60ad150a4895d58f3e7e9b9ce, type: 3}
   - name: entity/effects/wither_soulsand
     sprite: {fileID: 21300000, guid: 0ffb8f5c07b9abc459cc588c2b0efab6, type: 3}
   - name: entity/effects/zombie_block
@@ -731,10 +739,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 53ae426afe3ebb8438ab6c1165ed0448, type: 3}
   - name: entity/enemies/ufo_spotlight
     sprite: {fileID: 21300000, guid: aff8b41543694e649bc9659d6b690072, type: 3}
-  - name: entity/enemies/zombie_cloud
-    sprite: {fileID: 21300000, guid: daa11bf204159aa4ba9261b3b3bb7063, type: 3}
-  - name: entity/enemies/zombie_cloud_particle
-    sprite: {fileID: 21300000, guid: 3fb9e3cc152d92149914e1b4e20ea5f1, type: 3}
   - name: entity/pickups/almanac_book
     sprite: {fileID: 21300000, guid: 343af9cde9d29df4eb4188060da23847, type: 3}
   - name: entity/pickups/diamond
@@ -2158,6 +2162,16 @@ MonoBehaviour:
     - {fileID: 21300004, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
     - {fileID: 21300006, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
     - {fileID: 21300008, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
+  - name: entity/enemy/zombie_cloud
+    spritesheet:
+    - {fileID: -721226712, guid: daa11bf204159aa4ba9261b3b3bb7063, type: 3}
+    - {fileID: -883932845, guid: daa11bf204159aa4ba9261b3b3bb7063, type: 3}
+    - {fileID: 1926641344, guid: daa11bf204159aa4ba9261b3b3bb7063, type: 3}
+  - name: entity/enemy/zombie_cloud_particle
+    spritesheet:
+    - {fileID: -1757602239, guid: 3fb9e3cc152d92149914e1b4e20ea5f1, type: 3}
+    - {fileID: -150382349, guid: 3fb9e3cc152d92149914e1b4e20ea5f1, type: 3}
+    - {fileID: 1723291530, guid: 3fb9e3cc152d92149914e1b4e20ea5f1, type: 3}
   - name: entity/obstacle/gargoyle_statue
     spritesheet:
     - {fileID: 1300053136, guid: 684ec7aa8b558924d9d579d222e0eac5, type: 3}

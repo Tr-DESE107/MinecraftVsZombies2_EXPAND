@@ -43,12 +43,15 @@ namespace PVZEngine.Buffs
         public static int RemoveBuffs(this IBuffTarget target, IEnumerable<Buff> buffs) => target.Buffs.RemoveBuffs(buffs);
         public static int RemoveBuffs<T>(this IBuffTarget target) where T : BuffDefinition => target.Buffs.RemoveBuffs<T>();
         public static int RemoveBuffs(this IBuffTarget target, BuffDefinition definition) => target.Buffs.RemoveBuffs(definition);
+        public static int RemoveBuffs(this IBuffTarget target, NamespaceID id) => target.Buffs.RemoveBuffs(id);
 
         public static bool HasBuff<T>(this IBuffTarget target) where T : BuffDefinition => target.Buffs.HasBuff<T>();
         public static bool HasBuff(this IBuffTarget target, BuffDefinition buff) => target.Buffs.HasBuff(buff);
         public static bool HasBuff(this IBuffTarget target, NamespaceID id) => target.Buffs.HasBuff(id);
         public static bool HasBuff(this IBuffTarget target, Buff buff) => target.Buffs.HasBuff(buff);
         public static Buff GetFirstBuff<T>(this IBuffTarget target) where T : BuffDefinition => target.Buffs.GetFirstBuff<T>();
+        public static Buff GetFirstBuff(this IBuffTarget target, BuffDefinition definition) => target.Buffs.GetFirstBuff(definition);
+        public static Buff GetFirstBuff(this IBuffTarget target, NamespaceID id) => target.Buffs.GetFirstBuff(id);
         public static Buff[] GetBuffs<T>(this IBuffTarget target) where T : BuffDefinition => target.Buffs.GetBuffs<T>();
         public static Buff[] GetBuffs(this IBuffTarget target, BuffDefinition definition) => target.Buffs.GetBuffs(definition);
         public static void GetBuffs<T>(this IBuffTarget target, List<Buff> results) where T : BuffDefinition => target.Buffs.GetBuffsNonAlloc<T>(results);

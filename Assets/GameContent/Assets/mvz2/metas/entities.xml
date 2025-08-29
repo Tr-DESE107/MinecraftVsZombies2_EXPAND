@@ -1368,7 +1368,6 @@
         </zombie>
         <enemy id="zombie_cloud" name="僵尸云" deathMessage="你就云吧" unlock="mvz2:level.ship_6">
             <behaviours>
-                <behaviour operator="add" id="mvz2:zombie_cloud_raining"/>
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-2" />
@@ -2177,6 +2176,7 @@
         <projectile id="ice_bolt">
             <properties>
                 <bool name="mvz2:pointToDirection" value="true" />
+                <bool name="mvz2:is_frost" value="true" />
                 <vector3 name="mvz2:size" x="52" y="16" z="16" />
                 <idArray name="mvz2:damageEffects" value="mvz2:ice mvz2:slow" />
             </properties>
@@ -2808,10 +2808,19 @@
         </effect>
         <effect id="zombie_cloud_raindrop">
             <properties>
+                <int name="mvz2:maxTimeout" value="90" />
                 <float name="mvz2:gravity" value="1" />
-                <vector3 name="mvz2:size" x="1" y="32" z="1" />
+                <vector3 name="mvz2:size" x="5" y="32" z="5" />
                 <bool name="mvz2:decorative" value="false" />
                 <color name="mvz2:tint" value="#007fe3" />
+            </properties>
+        </effect>
+        <effect id="zombie_cloud_snowflake">
+            <properties>
+                <int name="mvz2:maxTimeout" value="90" />
+                <float name="mvz2:gravity" value="0.5" />
+                <vector3 name="mvz2:size" x="7" y="7" z="7" />
+                <bool name="mvz2:decorative" value="false" />
             </properties>
         </effect>
         <effect id="water_stain">

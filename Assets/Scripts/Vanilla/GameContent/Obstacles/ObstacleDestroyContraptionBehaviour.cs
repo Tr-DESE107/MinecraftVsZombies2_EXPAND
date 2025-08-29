@@ -1,8 +1,9 @@
 ﻿using System.Linq;
+using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
-namespace MVZ2.Vanilla.Entities
+namespace MVZ2.GameContent.Obstacles
 {
     [EntityBehaviourDefinition(VanillaEntityBehaviourNames.obstacleDestroyContraption)]
     public class ObstacleDestroyContraptionBehaviour : EntityBehaviourDefinition

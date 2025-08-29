@@ -95,11 +95,11 @@ namespace MVZ2.Vanilla.Detections
 
         public static void OverlapGridGroundNonAlloc(this LevelEngine level, int column, int lane, int faction, int hostileMask, int friendlyMask, List<IEntityCollider> results)
         {
-            var minX = level.GetColumnX(column);
-            var minZ = level.GetLaneZ(lane);
             var sizeX = level.GetGridWidth();
             var sizeY = 200;
             var sizeZ = level.GetGridHeight();
+            var minX = level.GetColumnX(column);
+            var minZ = level.GetEntityLaneZ(lane) - sizeZ * 0.5f;
             var centerX = minX + sizeX * 0.5f;
             var centerZ = minZ + sizeZ * 0.5f;
             var centerY = level.GetGroundY(centerX, centerZ) - sizeY * 0.5f;

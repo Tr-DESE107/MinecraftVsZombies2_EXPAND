@@ -131,6 +131,7 @@ namespace MVZ2.GameContent.Buffs
         {
             public const string breakoutBoardUpgrade = "breakout_board_upgrade";
             public const string timeoutLightShrink = "timeout_light_shrink";
+            public const string waterStainFrozen = "water_stain_frozen"; 
         }
 
         public static class SeedPack
@@ -275,6 +276,10 @@ namespace MVZ2.GameContent.Buffs
         public static class Pickup
         {
             public static readonly NamespaceID absorbedByUFO = Get(VanillaBuffNames.Pickup.absorbedByUFO);
+        }
+        public static class Effect
+        {
+            public static readonly NamespaceID waterStainFrozen = Get(VanillaBuffNames.Effect.waterStainFrozen);
         }
         public static class Level
         {

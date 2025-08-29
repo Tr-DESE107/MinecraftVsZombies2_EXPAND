@@ -227,6 +227,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 067521958e94fd440bf2d5a8c1b62383
+    m_Address: mvz2:mobile_blueprint/zombie_cloud_thunder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0682ac922b1b43f4ab8a8a98cebc73c3
     m_Address: mvz2:enemy/castle/dullahan
     m_ReadOnly: 0
@@ -1073,6 +1080,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 181f1c682b3b5cd4ab6e7a554b9c9d75
+    m_Address: mvz2:effect/zombie_cloud_snowflake
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18282686495af424b9dd5236476eb0fe
     m_Address: mvz2:shapes
@@ -2725,11 +2739,11 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fb9e3cc152d92149914e1b4e20ea5f1
-    m_Address: mvz2:entity/enemies/zombie_cloud_particle
+    m_Address: mvz2:entity/enemy/zombie_cloud_particle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Sprite
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fd63c7920860ce4f8bc0be1188ae567
     m_Address: mvz2:entity/contraptions/gravity_pad
@@ -6307,6 +6321,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9584835b8a325b742a157b068f72ad5d
+    m_Address: mvz2:entity/effects/snowflake
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95a0ff4bc65b3c3489a4dd2274848c9d
     m_Address: mvz2:entity/enemy/reverse_satellite
     m_ReadOnly: 0
@@ -8092,6 +8113,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4e76c1f36a4c274eb3f93e48e82f1cc
+    m_Address: mvz2:mobile_blueprint/zombie_cloud_snow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c51d27579b9227b4989cdfd31c1799aa
     m_Address: mvz2:pick
     m_ReadOnly: 0
@@ -9031,11 +9059,11 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: daa11bf204159aa4ba9261b3b3bb7063
-    m_Address: mvz2:entity/enemies/zombie_cloud
+    m_Address: mvz2:entity/enemy/zombie_cloud
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
-    - Sprite
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dac1586e39e4041458440f57f1c2bca6
     m_Address: mvz2:ship

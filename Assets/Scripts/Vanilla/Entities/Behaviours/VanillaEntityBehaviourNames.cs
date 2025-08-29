@@ -10,7 +10,6 @@
 
         #region Enemies
         public const string enemyCommon = "enemy_common";
-        public const string zombieCloudRaining = "zombie_cloud_raining";
         #endregion
 
         #region Obstacles

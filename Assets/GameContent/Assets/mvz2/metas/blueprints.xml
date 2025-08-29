@@ -39,5 +39,12 @@
         <entity id="undead_flying_object_rainbow" cost="100" name="不死飞行物（彩）" entity="mvz2:undead_flying_object" variant="3">
             <icon model="mvz2:entity.undead_flying_object_rainbow" mobile="mvz2:mobile_blueprint/undead_flying_object_rainbow" />
         </entity>
+
+        <entity id="zombie_cloud_thunder" cost="125" name="僵尸云（雷）" entity="mvz2:zombie_cloud" variant="1">
+            <icon model="mvz2:entity.zombie_cloud_thunder" mobile="mvz2:mobile_blueprint/zombie_cloud_thunder" />
+        </entity>
+        <entity id="zombie_cloud_snow" cost="125" name="僵尸云（雪）" entity="mvz2:zombie_cloud" variant="2">
+            <icon model="mvz2:entity.zombie_cloud_snow" mobile="mvz2:mobile_blueprint/zombie_cloud_snow" />
+        </entity>
     </entities>
 </blueprints>

@@ -87,6 +87,7 @@ namespace MVZ2.GameContent.Effects
         public const string fireworkBlast = "firework_blast";
         public const string waterStain = "water_stain";
         public const string zombieCloudRaindrop = "zombie_cloud_raindrop";
+        public const string zombieCloudSnowflake = "zombie_cloud_snowflake";
     }
     public static class VanillaEffectID
     {
@@ -172,6 +173,7 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID fireworkBlast = Get(VanillaEffectNames.fireworkBlast);
         public static readonly NamespaceID waterStain = Get(VanillaEffectNames.waterStain);
         public static readonly NamespaceID zombieCloudRaindrop = Get(VanillaEffectNames.zombieCloudRaindrop);
+        public static readonly NamespaceID zombieCloudSnowflake = Get(VanillaEffectNames.zombieCloudSnowflake);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
@@ -39,16 +40,43 @@ namespace MVZ2.GameContent.Effects
             var scaleMulti = Vector3.one * t;
             entity.SetProperty(PROP_TINT_MULTIPLIER, colorMulti);
             entity.SetProperty(PROP_DISPLAY_SCALE_MULTIPLIER, scaleMulti);
+            entity.SetModelProperty("Frozen", IsStainFrozen(entity));
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
             base.PostCollision(collision, state);
             if (state == EntityCollisionHelper.STATE_EXIT)
                 return;
-            if (collision.Other.IsFire())
+            if (collision.Other.IsFrost())
             {
-                Disappear(collision.Entity);
+                var stain = collision.Entity;
+                FreezeStain(stain);
             }
+            else if (collision.Other.IsFire())
+            {
+                var stain = collision.Entity;
+                MeltStain(stain);
+                Disappear(stain);
+            }
+        }
+        public static void FreezeStain(Entity stain)
+        {
+            var buffID = VanillaBuffID.Effect.waterStainFrozen;
+            var buff = stain.GetFirstBuff(buffID);
+            if (buff == null)
+            {
+                buff = stain.AddBuff(buffID);
+            }
+            WaterStainFrozenBuff.ResetTimeout(buff);
+        }
+        public static void MeltStain(Entity stain)
+        {
+            var buffID = VanillaBuffID.Effect.waterStainFrozen;
+            stain.RemoveBuffs(buffID);
+        }
+        public static bool IsStainFrozen(Entity stain)
+        {
+            return stain.HasBuff(VanillaBuffID.Effect.waterStainFrozen);
         }
         public static Entity UpdateStain(LevelEngine level, Vector3 position, Entity spawner)
         {
@@ -131,6 +159,8 @@ namespace MVZ2.GameContent.Effects
             {
                 var source = auraEffect?.Source?.GetEntity();
                 if (source == null)
+                    return;
+                if (IsStainFrozen(source))
                     return;
                 results.Add(source.GetGrid());
             }
