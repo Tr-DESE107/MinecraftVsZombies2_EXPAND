@@ -79,6 +79,26 @@ namespace PVZEngine.Buffs
             }
             return count;
         }
+        public int RemoveBuffs(NamespaceID id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return 0;
+
+            changedPropertiesBuffer.Clear();
+            int count = 0;
+            for (int i = buffs.Count - 1; i >= 0; i--)
+            {
+                var buff = buffs[i];
+                if (buff.Definition.GetID() != id)
+                    continue;
+                count += RemoveBuffImplement(buff) ? 1 : 0;
+            }
+            foreach (var prop in changedPropertiesBuffer)
+            {
+                OnPropertyChangedCallback(prop);
+            }
+            return count;
+        }
         public int RemoveBuffs<T>() where T : BuffDefinition
         {
             changedPropertiesBuffer.Clear();
@@ -147,6 +167,28 @@ namespace PVZEngine.Buffs
             foreach (var buff in buffs)
             {
                 if (buff.Definition is T)
+                {
+                    return buff;
+                }
+            }
+            return null;
+        }
+        public Buff GetFirstBuff(BuffDefinition definition)
+        {
+            foreach (var buff in buffs)
+            {
+                if (buff.Definition == definition)
+                {
+                    return buff;
+                }
+            }
+            return null;
+        }
+        public Buff GetFirstBuff(NamespaceID id)
+        {
+            foreach (var buff in buffs)
+            {
+                if (buff.Definition.GetID() == id)
                 {
                     return buff;
                 }

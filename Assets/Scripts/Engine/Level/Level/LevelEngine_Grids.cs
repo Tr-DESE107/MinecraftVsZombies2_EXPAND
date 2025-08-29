@@ -37,9 +37,13 @@ namespace PVZEngine.Level
         {
             level.grids = grids.Select(g => g.Serialize()).ToArray();
         }
-        private void CreateGridsFromSerializable(SerializableLevel seri)
+        private void LoadGridsFromSerializable(SerializableLevel seri)
         {
-            grids = seri.grids.Select(g => LawnGrid.Deserialize(g, this)).ToArray();
+            var count = Mathf.Min(grids.Length, seri.grids.Length);
+            for (int i = 0; i < count; i++)
+            {
+                grids[i].LoadFromSerializable(seri.grids[i], this);
+            }
         }
         private void ReadGridsFromSerializable(SerializableLevel seri)
         {
@@ -47,7 +51,7 @@ namespace PVZEngine.Level
             {
                 var grid = grids[i];
                 var seriGrid = seri.grids[i];
-                grid.LoadFromSerializable(seriGrid, this);
+                grid.LoadAuras(seriGrid);
             }
         }
         #endregion

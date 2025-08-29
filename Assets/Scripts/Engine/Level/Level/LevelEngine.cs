@@ -245,7 +245,6 @@ namespace PVZEngine.Level
             level.ChangeStage(seri.stageDefinitionID);
             level.ChangeArea(seri.areaDefinitionID);
             level.InitGrids(level.AreaDefinition);
-            level.CreateGridsFromSerializable(seri);
 
             level.Difficulty = seri.difficulty;
             level.Option = LevelOption.Deserialize(seri.Option);
@@ -264,6 +263,8 @@ namespace PVZEngine.Level
             level.CreateConveyorFromSerializable(seri);
             // 加载所有实体。
             level.CreateEntitiesFromSerializable(seri);
+            // 加载所有网格。
+            level.LoadGridsFromSerializable(seri);
             // 加载所有BUFF。
             level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
             level.buffs.OnPropertyChanged += level.UpdateBuffedProperty;
@@ -276,12 +277,12 @@ namespace PVZEngine.Level
             level.ReadSeedPacksFromSerializable(seri);
             level.ReadConveyorFromSerializable(seri);
             level.ReadEntitiesFromSerializable(seri);
+            // 加载所有网格的属性，需要引用实体。
+            level.ReadGridsFromSerializable(seri);
             level.buffs.LoadAuras(seri.buffs, level);
 
             // 在实体加载后面
             level.collisionSystem.LoadFromSerializable(level, seri.collisionSystem);
-            // 加载所有网格的属性，需要引用实体。
-            level.ReadGridsFromSerializable(seri);
 
             level.delayedEnergyEntities = seri.delayedEnergyEntities.ToDictionary(d => level.FindEntityByID(d.entityId), d => d.energy);
             level.UpdateAllBuffedProperties(false);

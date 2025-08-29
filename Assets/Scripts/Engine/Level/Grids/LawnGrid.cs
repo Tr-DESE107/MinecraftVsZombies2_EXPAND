@@ -269,7 +269,6 @@ namespace PVZEngine.Grids
                     reverseLayerEntities.Add(entity, layerHashSet);
                 }
             }
-            LoadAuras(seri);
         }
         public void LoadAuras(SerializableGrid seri)
         {
