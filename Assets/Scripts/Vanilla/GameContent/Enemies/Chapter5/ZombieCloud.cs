@@ -82,6 +82,14 @@ namespace MVZ2.GameContent.Enemies
                 return;
             }
         }
+        public override void PostTakeDamage(DamageOutput output)
+        {
+            base.PostTakeDamage(output);
+            if (output.BodyResult != null && output.BodyResult.HasEffect(VanillaDamageEffects.SLOW))
+            {
+                ChangeVariant(output.Entity, VARIANT_SNOW);
+            }
+        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
