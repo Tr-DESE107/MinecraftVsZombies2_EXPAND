@@ -12,6 +12,7 @@ using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;

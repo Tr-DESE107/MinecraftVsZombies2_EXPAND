@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Artifacts

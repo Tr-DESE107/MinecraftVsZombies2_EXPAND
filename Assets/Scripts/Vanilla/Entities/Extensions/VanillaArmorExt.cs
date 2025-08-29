@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Armors;
 using PVZEngine.Armors;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 
 namespace MVZ2.Vanilla.Entities

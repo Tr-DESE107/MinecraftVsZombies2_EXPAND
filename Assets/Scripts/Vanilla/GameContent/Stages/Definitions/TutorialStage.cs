@@ -18,6 +18,7 @@ using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Armors;
+using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;

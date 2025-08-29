@@ -2,6 +2,7 @@
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;

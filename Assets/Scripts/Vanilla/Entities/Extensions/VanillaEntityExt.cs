@@ -22,6 +22,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Armors;
 using PVZEngine.Base;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;

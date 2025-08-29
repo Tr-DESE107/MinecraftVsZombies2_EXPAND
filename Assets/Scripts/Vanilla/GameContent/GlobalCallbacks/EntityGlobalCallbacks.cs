@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Shells;
 using MVZ2Logic.Modding;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;

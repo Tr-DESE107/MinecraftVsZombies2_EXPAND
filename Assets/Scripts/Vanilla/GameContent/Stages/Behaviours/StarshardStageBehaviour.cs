@@ -5,6 +5,7 @@ using MVZ2.Vanilla.Properties;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;

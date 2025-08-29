@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 

@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs.Effects;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;

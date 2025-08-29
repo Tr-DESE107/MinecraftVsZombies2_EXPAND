@@ -1,5 +1,6 @@
 ﻿using MVZ2.GameContent.Buffs;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;

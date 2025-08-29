@@ -8,6 +8,7 @@ using MVZ2Logic;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.Level;

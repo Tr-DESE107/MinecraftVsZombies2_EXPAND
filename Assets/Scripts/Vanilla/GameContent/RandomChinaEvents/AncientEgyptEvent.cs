@@ -6,6 +6,7 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using Tools;
 

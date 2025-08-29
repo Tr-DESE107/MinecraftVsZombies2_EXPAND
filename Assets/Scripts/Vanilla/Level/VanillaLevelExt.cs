@@ -21,6 +21,7 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Definitions;

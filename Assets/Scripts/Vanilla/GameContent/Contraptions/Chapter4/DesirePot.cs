@@ -12,6 +12,7 @@ using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
