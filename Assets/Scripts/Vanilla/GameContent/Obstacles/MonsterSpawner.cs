@@ -24,7 +24,6 @@ namespace MVZ2.GameContent.Obstacles
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            KillConflictContraptions(entity);
             var mainCollider = entity.GetCollider(EntityCollisionHelper.NAME_MAIN);
             if (mainCollider != null)
             {

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MVZ2.GameContent.Damages;
-using PVZEngine;
+﻿using MVZ2.GameContent.Damages;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 
@@ -32,24 +29,5 @@ namespace MVZ2.Vanilla.Entities
             }
             entity.PlayCrySound(entity.GetDeathSound());
         }
-        protected void KillConflictContraptions(Entity entity)
-        {
-            var grids = entity.GetGridsToTake();
-            foreach (var grid in grids)
-            {
-                statueTakenLayersBuffer.Clear();
-                entity.GetTakingGridLayersNonAlloc(grid, statueTakenLayersBuffer);
-                foreach (var contraption in entity.Level.FindEntities(e => e.Type == EntityTypes.PLANT && e.GetGridsToTake().Contains(grid)))
-                {
-                    entityTakenLayersBuffer.Clear();
-                    contraption.GetTakingGridLayersNonAlloc(grid, entityTakenLayersBuffer);
-                    if (!entityTakenLayersBuffer.Any(l => statueTakenLayersBuffer.Contains(l)))
-                        continue;
-                    contraption.Die();
-                }
-            }
-        }
-        private List<NamespaceID> statueTakenLayersBuffer = new List<NamespaceID>();
-        private List<NamespaceID> entityTakenLayersBuffer = new List<NamespaceID>();
     }
 }

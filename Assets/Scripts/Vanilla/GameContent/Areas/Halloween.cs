@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MVZ2.GameContent.Effects;
+﻿using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Obstacles;
 using MVZ2.Vanilla.Entities;
@@ -22,11 +20,6 @@ namespace MVZ2.GameContent.Areas
     {
         public Halloween(string nsp, string name) : base(nsp, name)
         {
-        }
-        public override void Setup(LevelEngine level)
-        {
-            base.Setup(level);
-            SetRNG(level, level.CreateRNG());
         }
         public override void PrepareForBattle(LevelEngine level)
         {
@@ -72,29 +65,14 @@ namespace MVZ2.GameContent.Areas
             if (count <= 0)
                 return;
             var statueDef = level.Content.GetEntityDefinition(VanillaObstacleID.gargoyleStatue);
-            if (statueDef == null)
-                return;
-            List<LawnGrid> valid = new List<LawnGrid>();
-            List<int> weights = new List<int>();
-
             var layersToTake = statueDef.GetGridLayersToTake();
-            for (int col = STATUE_MIN_COLUMN; col < level.GetMaxColumnCount(); col++)
-            {
-                for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
-                {
-                    var grid = level.GetGrid(col, lane);
-                    if (layersToTake.Any(l => { var e = grid.GetLayerEntity(l); return e != null && e.Type != EntityTypes.PLANT; }))
-                        continue;
-                    valid.Add(grid);
-                    weights.Add(GetStatueWeight(col));
-                }
-            }
-            count = Mathf.Clamp(count, 0, valid.Count);
-            if (count <= 0)
-                return;
-
             var rng = GetRNG(level);
-            var grids = valid.WeightedRandomTake(weights.ToArray(), count, rng);
+            if (rng == null)
+            {
+                rng = level.CreateRNG();
+                SetRNG(level, rng);
+            }
+            var grids = level.FindObstacleSpawnGrids(layersToTake, rng, count, STATUE_MIN_COLUMN, GetStatueWeight);
             foreach (var grid in grids)
             {
                 var pos = grid.GetEntityPosition();
@@ -112,9 +90,9 @@ namespace MVZ2.GameContent.Areas
             }
         }
 
-        private int GetStatueWeight(int column)
+        private float GetStatueWeight(LawnGrid grid)
         {
-            return column - STATUE_MIN_COLUMN + 1;
+            return grid.Column - STATUE_MIN_COLUMN + 1;
         }
         public static RandomGenerator GetRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(ID, PROP_RNG);
         public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetBehaviourField(ID, PROP_RNG, rng);

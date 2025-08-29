@@ -1640,6 +1640,7 @@
             <behaviours>
                 <behaviour operator="add" id="mvz2:take_grid"/>
                 <behaviour operator="add" id="mvz2:fragmented"/>
+                <behaviour operator="add" id="mvz2:obstacle_destroy_contraption"/>
             </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="1800" />
@@ -1651,6 +1652,7 @@
         <obstacle id="monster_spawner" name="刷怪笼">
             <behaviours>
                 <behaviour operator="add" id="mvz2:take_grid"/>
+                <behaviour operator="add" id="mvz2:obstacle_destroy_contraption"/>
             </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="1800" />

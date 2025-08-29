@@ -13,7 +13,11 @@
         public const string zombieCloudRaining = "zombie_cloud_raining";
         #endregion
 
+        #region Obstacles
         public const string obstacleCommon = "obstacle_common";
+        public const string obstacleDestroyContraption = "obstacle_destroy_contraption";
+        #endregion
+
         public const string bossCommon = "boss_common";
         public const string cartCommon = "cart_common";
         public const string effectCommon = "effect_common";

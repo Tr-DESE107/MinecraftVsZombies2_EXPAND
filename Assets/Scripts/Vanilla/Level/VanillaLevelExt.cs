@@ -840,5 +840,73 @@ namespace MVZ2.Vanilla.Level
                 return false;
             return true;
         }
+
+        #region 障碍物生成
+        public static LawnGrid[] FindObstacleSpawnGrids(this LevelEngine level, NamespaceID[] layersToTake, RandomGenerator rng, int count, int minColumn, Func<LawnGrid, float> weightGetter)
+        {
+            if (count <= 0 || rng == null || weightGetter == null)
+                return Array.Empty<LawnGrid>();
+            var allPossible = new HashSet<LawnGrid>();
+            var allPreferred = new HashSet<LawnGrid>();
+            level.FindAllObstacleSpawnGrids(layersToTake, minColumn, allPossible, allPreferred);
+
+            var preferredCount = Mathf.Min(allPreferred.Count, count);
+            var possibleCount = Mathf.Min(allPossible.Count, count - preferredCount);
+
+            List<LawnGrid> results = new List<LawnGrid>();
+            if (preferredCount > 0)
+            {
+                var weights = allPreferred.Select(g => weightGetter(g)).ToArray();
+                results.AddRange(allPreferred.WeightedRandomTake(weights, preferredCount, rng));
+            }
+            if (possibleCount > 0)
+            {
+                var weights = allPossible.Select(g => weightGetter(g)).ToArray();
+                results.AddRange(allPossible.WeightedRandomTake(weights, possibleCount, rng));
+            }
+            return results.ToArray();
+        }
+        private static void FindAllObstacleSpawnGrids(this LevelEngine level, NamespaceID[] layersToTake, int minColumn, HashSet<LawnGrid> possible, HashSet<LawnGrid> preferred)
+        {
+            for (int col = minColumn; col < level.GetMaxColumnCount(); col++)
+            {
+                for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
+                {
+                    var grid = level.GetGrid(col, lane);
+
+                    bool isPossible = true;
+                    bool isPrefered = true;
+                    foreach (var layer in layersToTake)
+                    {
+                        var layerEntity = grid.GetLayerEntity(layer);
+                        if (layerEntity != null)
+                        {
+                            isPrefered = false;
+                            if (layerEntity.Type != EntityTypes.PLANT)
+                            {
+                                isPossible = false;
+                            }
+                        }
+                    }
+                    if (isPossible)
+                    {
+                        possible.Add(grid);
+                    }
+                    if (isPrefered)
+                    {
+                        preferred.Add(grid);
+                    }
+                }
+            }
+        }
+        public static bool IsPossibleGridForObstacleSpawn(this LawnGrid grid, NamespaceID[] layersToTake)
+        {
+            return !layersToTake.Any(l => grid.GetLayerEntity(l) is Entity ent && ent.Type != EntityTypes.PLANT);
+        }
+        public static bool IsPreferredGridForObstacleSpawn(this LawnGrid grid, NamespaceID[] layersToTake)
+        {
+            return !layersToTake.Any(l => grid.GetLayerEntity(l) is Entity ent);
+        }
+        #endregion
     }
 }
