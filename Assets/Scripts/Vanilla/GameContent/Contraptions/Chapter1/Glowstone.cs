@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Contraptions
                 }
                 else if (target.Type == EntityTypes.PLANT && target.IsCharmed())
                 {
-                    target.RemoveCharm();
+                    target.RemoveCharm(new EntitySourceReference(entity));
                     target.PlaySound(VanillaSoundID.mindClear);
                 }
                 else if (target.IsEntityOf(VanillaProjectileID.compellingOrb) && target.IsHostile(entity))

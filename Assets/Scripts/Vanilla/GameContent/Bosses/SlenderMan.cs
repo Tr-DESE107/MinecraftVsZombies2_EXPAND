@@ -11,7 +11,6 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
@@ -379,7 +378,7 @@ namespace MVZ2.GameContent.Bosses
             var targets = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && !e.IsLoyal()).RandomTake(5, rng);
             foreach (var target in targets)
             {
-                target.Charm(boss.GetFaction());
+                target.Charm(boss.GetFaction(), boss);
             }
         }
 
@@ -424,7 +423,7 @@ namespace MVZ2.GameContent.Bosses
             var targets = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.CanDeactive());
             foreach (var contraption in targets)
             {
-                contraption.ShortCircuit(300);
+                contraption.ShortCircuit(300, new EntitySourceReference(boss));
             }
         }
         private static string GetFateOptionText(int option)

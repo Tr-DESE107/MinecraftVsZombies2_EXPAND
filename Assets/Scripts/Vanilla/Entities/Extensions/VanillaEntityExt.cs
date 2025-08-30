@@ -5,6 +5,7 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Armors;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Carts;
+using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
@@ -881,39 +882,6 @@ namespace MVZ2.Vanilla.Entities
         }
         #endregion
 
-        #region 阵营
-        public static void Charm(this Entity entity, int faction)
-        {
-            var buff = entity.GetFirstBuff<CharmBuff>();
-            if (buff == null)
-            {
-                buff = entity.AddBuff<CharmBuff>();
-            }
-            CharmBuff.SetPermanent(buff, faction);
-            buff.Update();
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, new VanillaLevelCallbacks.PostEntityCharmParams(entity, buff));
-        }
-        public static void CharmWithSource(this Entity entity, Entity source)
-        {
-            var buff = entity.GetFirstBuff<CharmBuff>();
-            if (buff == null)
-            {
-                buff = entity.AddBuff<CharmBuff>();
-            }
-            CharmBuff.SetSource(buff, source);
-            buff.Update();
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, new VanillaLevelCallbacks.PostEntityCharmParams(entity, buff));
-        }
-        public static void RemoveCharm(this Entity entity)
-        {
-            entity.RemoveBuffs<CharmBuff>();
-        }
-        public static bool IsCharmed(this Entity entity)
-        {
-            return entity.HasBuff<CharmBuff>();
-        }
-        #endregion
-
         #region 护甲
         public static Armor GetMainArmor(this Entity entity)
         {
@@ -1025,6 +993,90 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity != null && entity.IsEntityOf(VanillaPickupID.blueprintPickup);
         }
+        #endregion
+
+        #region 状态效果
+        public static void InflictWither(this Entity entity, int time, ILevelSourceReference source)
+        {
+            Buff buff = entity.GetFirstBuff<WitheredBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<WitheredBuff>();
+            }
+            buff.SetProperty(WitheredBuff.PROP_TIMEOUT, time);
+        }
+
+        public static void InflictWeakness(this Entity entity, int time, ILevelSourceReference source)
+        {
+            Buff buff = entity.GetFirstBuff<EnemyWeaknessBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<EnemyWeaknessBuff>();
+            }
+            buff.SetProperty(EnemyWeaknessBuff.PROP_TIMEOUT, time);
+        }
+
+        public static void ShortCircuit(this Entity entity, int time, ILevelSourceReference source)
+        {
+            var buff = entity.GetFirstBuff<FrankensteinShockedBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<FrankensteinShockedBuff>();
+            }
+            buff.SetProperty(FrankensteinShockedBuff.PROP_TIMEOUT, time);
+        }
+
+        public static void InflictSlow(this Entity entity, int time, ILevelSourceReference source)
+        {
+            var buff = entity.GetFirstBuff<SlowBuff>();
+            if (buff == null)
+            {
+                entity.PlaySound(VanillaSoundID.freeze);
+                buff = entity.AddBuff<SlowBuff>();
+            }
+            SlowBuff.SetTimeout(buff, time);
+        }
+
+        public static void Unfreeze(this Entity entity, ILevelSourceReference source)
+        {
+            entity.RemoveBuffs<SlowBuff>();
+        }
+
+        #region 魅惑
+        public static void Charm(this Entity entity, int faction, ILevelSourceReference source)
+        {
+            var buff = entity.GetFirstBuff<CharmBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<CharmBuff>();
+            }
+            CharmBuff.SetPermanent(buff, faction);
+            buff.Update();
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, new VanillaLevelCallbacks.PostEntityCharmParams(entity, buff, source));
+        }
+        public static void Charm(this Entity entity, int faction, Entity source) => entity.Charm(faction, new EntitySourceReference(source));
+
+        public static void CharmWithController(this Entity entity, Entity controller, ILevelSourceReference source)
+        {
+            var buff = entity.GetFirstBuff<CharmBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<CharmBuff>();
+            }
+            CharmBuff.SetController(buff, controller);
+            buff.Update();
+            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, new VanillaLevelCallbacks.PostEntityCharmParams(entity, buff, source));
+        }
+        public static void RemoveCharm(this Entity entity, ILevelSourceReference source)
+        {
+            entity.RemoveBuffs<CharmBuff>();
+        }
+        public static bool IsCharmed(this Entity entity)
+        {
+            return entity.HasBuff<CharmBuff>();
+        }
+        #endregion
+
         #endregion
 
         public static float GetRealGroundLimitY(this Entity entity)

@@ -124,11 +124,13 @@ namespace MVZ2.Vanilla.Callbacks
         {
             public Entity entity;
             public Buff buff;
+            public ILevelSourceReference source;
 
-            public PostEntityCharmParams(Entity entity, Buff buff)
+            public PostEntityCharmParams(Entity entity, Buff buff, ILevelSourceReference source)
             {
                 this.entity = entity;
                 this.buff = buff;
+                this.source = source;
             }
         }
 

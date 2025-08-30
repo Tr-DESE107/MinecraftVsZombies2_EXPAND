@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.Buffs
             buff.SetProperty(PROP_MODE, CharmModes.PERMANENT);
             buff.SetProperty(PROP_FACTION, faction);
         }
-        public static void SetSource(Buff buff, Entity source)
+        public static void SetController(Buff buff, Entity source)
         {
             buff.SetProperty(PROP_MODE, CharmModes.SOURCE);
             buff.SetProperty(PROP_SOURCE, new EntityID(source));

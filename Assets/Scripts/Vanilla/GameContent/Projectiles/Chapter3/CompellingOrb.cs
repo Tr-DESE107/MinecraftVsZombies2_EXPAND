@@ -58,7 +58,7 @@ namespace MVZ2.GameContent.Projectiles
                 target.PlaySound(VanillaSoundID.mindClear);
                 return;
             }
-            target.CharmWithSource(mesmerizer);
+            target.CharmWithController(mesmerizer, new EntitySourceReference(projectile));
             target.PlaySound(VanillaSoundID.mindControl);
         }
         public override void PostDeath(Entity entity, DeathInfo damageInfo)

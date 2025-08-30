@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Effects
                 return;
             if (other.Type != EntityTypes.ENEMY)
                 return;
-            other.InflictWeakness(150);
+            other.InflictWeakness(150, new EntitySourceReference(entity));
         }
         #endregion
 

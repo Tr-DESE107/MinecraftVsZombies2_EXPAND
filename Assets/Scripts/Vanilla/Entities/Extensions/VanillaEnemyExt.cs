@@ -1,7 +1,6 @@
 ﻿using System;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
@@ -28,15 +27,6 @@ namespace MVZ2.Vanilla.Entities
         public static void DropRewards(this Entity enemy)
         {
             enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.ENEMY_DROP_REWARDS, new EntityCallbackParams(enemy));
-        }
-        public static void InflictWeakness(this Entity enemy, int time)
-        {
-            Buff buff = enemy.GetFirstBuff<EnemyWeaknessBuff>();
-            if (buff == null)
-            {
-                buff = enemy.AddBuff<EnemyWeaknessBuff>();
-            }
-            buff.SetProperty(EnemyWeaknessBuff.PROP_TIMEOUT, time);
         }
         public static void UpdateWalkVelocity(this Entity enemy)
         {
@@ -162,19 +152,5 @@ namespace MVZ2.Vanilla.Entities
             entity.StartChangingLane(targetLane);
         }
         public const float CHANGE_LANE_THRESOLD = 1;
-        public static void Unfreeze(this Entity entity)
-        {
-            entity.RemoveBuffs<SlowBuff>();
-        }
-        public static void Slow(this Entity entity, int time)
-        {
-            var buff = entity.GetFirstBuff<SlowBuff>();
-            if (buff == null)
-            {
-                entity.PlaySound(VanillaSoundID.freeze);
-                buff = entity.AddBuff<SlowBuff>();
-            }
-            SlowBuff.SetTimeout(buff, time);
-        }
     }
 }

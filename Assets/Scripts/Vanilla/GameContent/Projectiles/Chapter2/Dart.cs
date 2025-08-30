@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Projectiles
         protected override void PostHitEntity(ProjectileHitOutput hitResult, DamageOutput damage)
         {
             base.PostHitEntity(hitResult, damage);
+            var dart = hitResult.Projectile;
             var enemy = hitResult.Other;
             if (enemy.Type != EntityTypes.ENEMY)
                 return;
@@ -23,7 +24,7 @@ namespace MVZ2.GameContent.Projectiles
                 return;
             if (enemy.GetShellID() != VanillaShellID.flesh)
                 return;
-            enemy.InflictWeakness(150);
+            enemy.InflictWeakness(150, new EntitySourceReference(dart));
         }
     }
 }

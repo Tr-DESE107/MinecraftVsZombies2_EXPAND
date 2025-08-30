@@ -1,6 +1,5 @@
 ﻿using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
@@ -13,7 +12,7 @@ namespace MVZ2.GameContent.Projectiles
     {
         public WitherSkull(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PostEntityTakeDamageCallback);
+            AddTrigger(VanillaLevelCallbacks.APPLY_DAMAGE_SPECIAL_EFFECTS, ApplyDamageEffectsCallback);
         }
         public override void Init(Entity projectile)
         {
@@ -27,7 +26,7 @@ namespace MVZ2.GameContent.Projectiles
             projectile.SetModelProperty("Source", projectile.Position);
             projectile.SetModelProperty("Dest", projectile.Position + projectile.Velocity);
         }
-        private void PostEntityTakeDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
+        private void ApplyDamageEffectsCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
         {
             var output = param.output;
             if (output == null)
@@ -46,7 +45,7 @@ namespace MVZ2.GameContent.Projectiles
             var source = output.BodyResult.Source;
             if (source != null && source.DefinitionID == GetID())
             {
-                entity.InflictWither(WITHER_TIME);
+                entity.InflictWither(WITHER_TIME, source);
             }
         }
         public const int WITHER_TIME = 900;
