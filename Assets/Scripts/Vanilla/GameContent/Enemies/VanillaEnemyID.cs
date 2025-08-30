@@ -92,6 +92,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID ufo = undeadFlyingObject;
         public static readonly NamespaceID cannoneerZombie = Get(VanillaEnemyNames.cannoneerZombie);
         public static readonly NamespaceID cannonballZombie = Get(VanillaEnemyNames.cannonballZombie);
+        public static readonly NamespaceID zombieCloud = Get(VanillaEnemyNames.zombieCloud);
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
         public static readonly NamespaceID megaMutantZombie = Get(VanillaEnemyNames.megaMutantZombie);

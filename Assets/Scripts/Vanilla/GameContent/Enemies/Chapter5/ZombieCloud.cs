@@ -1,8 +1,10 @@
-﻿using MVZ2.GameContent.Buffs.Enemies;
+﻿using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
@@ -12,6 +14,7 @@ using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using UnityEngine.Windows;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -20,6 +23,7 @@ namespace MVZ2.GameContent.Enemies
     {
         public ZombieCloud(string nsp, string name) : base(nsp, name)
         {
+            AddTrigger(VanillaLevelCallbacks.PRE_APPLY_STATUS_EFFECT, PreEntitySlowCallback, filter: VanillaBuffID.Entity.slow);
         }
         public override void Init(Entity entity)
         {
@@ -84,14 +88,6 @@ namespace MVZ2.GameContent.Enemies
                 return;
             }
         }
-        public override void PostTakeDamage(DamageOutput output)
-        {
-            base.PostTakeDamage(output);
-            if (output.BodyResult != null && output.BodyResult.HasEffect(VanillaDamageEffects.SLOW))
-            {
-                ChangeVariant(output.Entity, VARIANT_SNOW);
-            }
-        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
@@ -119,6 +115,14 @@ namespace MVZ2.GameContent.Enemies
                     return SMOKE_COLOR_SNOW;
             }
             return SMOKE_COLOR_NORMAL;
+        }
+        private void PreEntitySlowCallback(VanillaLevelCallbacks.PreApplyStatusEffectParams param, CallbackResult result)
+        {
+            var entity = param.entity;
+            if (!entity.IsEntityOf(VanillaEnemyID.zombieCloud))
+                return;
+            ChangeVariant(entity, VARIANT_SNOW);
+            result.SetFinalValue(false);
         }
         public const int VARIANT_NORMAL = 0;
         public const int VARIANT_THUNDER = 1;
