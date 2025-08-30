@@ -120,19 +120,59 @@ namespace MVZ2.Vanilla.Callbacks
                 this.heldData = heldData;
             }
         }
-        public struct PostEntityCharmParams
+        public struct PreApplyStatusEffectParams
+        {
+            public Entity entity;
+            public BuffDefinition buffDefinition;
+            public ILevelSourceReference source;
+
+            public PreApplyStatusEffectParams(Entity entity, BuffDefinition definition, ILevelSourceReference source)
+            {
+                this.entity = entity;
+                this.buffDefinition = definition;
+                this.source = source;
+            }
+        }
+        public struct PostApplyStatusEffectParams
         {
             public Entity entity;
             public Buff buff;
             public ILevelSourceReference source;
 
-            public PostEntityCharmParams(Entity entity, Buff buff, ILevelSourceReference source)
+            public PostApplyStatusEffectParams(Entity entity, Buff buff, ILevelSourceReference source)
             {
                 this.entity = entity;
                 this.buff = buff;
                 this.source = source;
             }
         }
+        public struct PreRemoveStatusEffectParams
+        {
+            public Entity entity;
+            public BuffDefinition buffDefinition;
+            public ILevelSourceReference source;
+
+            public PreRemoveStatusEffectParams(Entity entity, BuffDefinition definition, ILevelSourceReference source)
+            {
+                this.entity = entity;
+                this.buffDefinition = definition;
+                this.source = source;
+            }
+        }
+        public struct PostRemoveStatusEffectParams
+        {
+            public Entity entity;
+            public BuffDefinition buffDefinition;
+            public ILevelSourceReference source;
+
+            public PostRemoveStatusEffectParams(Entity entity, BuffDefinition definition, ILevelSourceReference source)
+            {
+                this.entity = entity;
+                this.buffDefinition = definition;
+                this.source = source;
+            }
+        }
+
 
         public struct ContraptionSacrificeValueParams
         {
@@ -207,7 +247,10 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackType<PlaceEntityParams> PRE_PLACE_ENTITY = new();
         public readonly static CallbackType<PostPlaceEntityParams> POST_PLACE_ENTITY = new();
         public readonly static CallbackType<PostUseEntityBlueprintParams> POST_USE_ENTITY_BLUEPRINT = new();
-        public readonly static CallbackType<PostEntityCharmParams> POST_ENTITY_CHARM = new();
+        public readonly static CallbackType<PreApplyStatusEffectParams> PRE_APPLY_STATUS_EFFECT = new();
+        public readonly static CallbackType<PostApplyStatusEffectParams> POST_APPLY_STATUS_EFFECT = new();
+        public readonly static CallbackType<PreRemoveStatusEffectParams> PRE_REMOVE_STATUS_EFFECT = new();
+        public readonly static CallbackType<PostRemoveStatusEffectParams> POST_REMOVE_STATUS_EFFECT = new();
 
         public readonly static CallbackType<EntityCallbackParams> POST_CONTRAPTION_TRIGGER = new();
         public readonly static CallbackType<EntityCallbackParams> POST_CONTRAPTION_EVOKE = new();

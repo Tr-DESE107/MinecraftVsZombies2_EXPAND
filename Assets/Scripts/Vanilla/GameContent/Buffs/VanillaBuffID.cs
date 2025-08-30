@@ -265,12 +265,20 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID upgradeEndlessCost = Get(VanillaBuffNames.SeedPack.upgradeEndlessCost);
             public static readonly NamespaceID witherSkeletonSkullReduceCost = Get(VanillaBuffNames.SeedPack.witherSkeletonSkullReduceCost);
         }
+        public static class Entity
+        {
+            public static readonly NamespaceID withered = Get(VanillaBuffNames.withered);
+            public static readonly NamespaceID slow = Get(VanillaBuffNames.slow);
+            public static readonly NamespaceID charm = Get(VanillaBuffNames.charm);
+        }
         public static class Contraption
         {
+            public static readonly NamespaceID frankensteinShocked = Get(VanillaBuffNames.frankensteinShocked);
             public static readonly NamespaceID fireworkDispenserEvoked = Get(VanillaBuffNames.Contraption.fireworkDispenserEvoked);
         }
         public static class Enemy
         {
+            public static readonly NamespaceID enemyWeakness = Get(VanillaBuffNames.enemyWeakness);
             public static readonly NamespaceID waterStainSlide = Get(VanillaBuffNames.Enemy.waterStainSlide);
         }
         public static class Pickup

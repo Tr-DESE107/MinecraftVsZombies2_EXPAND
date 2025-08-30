@@ -996,80 +996,132 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 状态效果
+        public static bool PreApplyStatusEffect(this Entity entity, BuffDefinition buff, ILevelSourceReference source)
+        {
+            var param = new VanillaLevelCallbacks.PreApplyStatusEffectParams(entity, buff, source);
+            var result = new CallbackResult(true);
+            entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_APPLY_STATUS_EFFECT, param, result, buff.GetID());
+            return result.GetValue<bool>();
+        }
+        public static void PostApplyStatusEffect(this Entity entity, Buff buff, ILevelSourceReference source)
+        {
+            var param = new VanillaLevelCallbacks.PostApplyStatusEffectParams(entity, buff, source);
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_APPLY_STATUS_EFFECT, param, buff.Definition.GetID());
+        }
+        public static bool PreRemoveStatusEffect(this Entity entity, BuffDefinition definition, ILevelSourceReference source)
+        {
+            var param = new VanillaLevelCallbacks.PreRemoveStatusEffectParams(entity, definition, source);
+            var result = new CallbackResult(true);
+            entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_REMOVE_STATUS_EFFECT, param, result, definition.GetID());
+            return result.GetValue<bool>();
+        }
+        public static void PostRemoveStatusEffect(this Entity entity, BuffDefinition definition, ILevelSourceReference source)
+        {
+            var param = new VanillaLevelCallbacks.PostRemoveStatusEffectParams(entity, definition, source);
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_REMOVE_STATUS_EFFECT, param, definition.GetID());
+        }
         public static void InflictWither(this Entity entity, int time, ILevelSourceReference source)
         {
-            Buff buff = entity.GetFirstBuff<WitheredBuff>();
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.withered);
+            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
             {
-                buff = entity.AddBuff<WitheredBuff>();
+                buff = entity.AddBuff(buffDefinition);
             }
             buff.SetProperty(WitheredBuff.PROP_TIMEOUT, time);
+            PostApplyStatusEffect(entity, buff, source);
         }
 
         public static void InflictWeakness(this Entity entity, int time, ILevelSourceReference source)
         {
-            Buff buff = entity.GetFirstBuff<EnemyWeaknessBuff>();
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.enemyWeakness);
+            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            Buff buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
             {
-                buff = entity.AddBuff<EnemyWeaknessBuff>();
+                buff = entity.AddBuff(buffDefinition);
             }
             buff.SetProperty(EnemyWeaknessBuff.PROP_TIMEOUT, time);
+            PostApplyStatusEffect(entity, buff, source);
         }
 
         public static void ShortCircuit(this Entity entity, int time, ILevelSourceReference source)
         {
-            var buff = entity.GetFirstBuff<FrankensteinShockedBuff>();
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Contraption.frankensteinShocked);
+            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            var buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
             {
-                buff = entity.AddBuff<FrankensteinShockedBuff>();
+                buff = entity.AddBuff(buffDefinition);
             }
             buff.SetProperty(FrankensteinShockedBuff.PROP_TIMEOUT, time);
+            PostApplyStatusEffect(entity, buff, source);
         }
 
         public static void InflictSlow(this Entity entity, int time, ILevelSourceReference source)
         {
-            var buff = entity.GetFirstBuff<SlowBuff>();
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.slow);
+            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            var buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
             {
                 entity.PlaySound(VanillaSoundID.freeze);
-                buff = entity.AddBuff<SlowBuff>();
+                buff = entity.AddBuff(buffDefinition);
             }
             SlowBuff.SetTimeout(buff, time);
+            PostApplyStatusEffect(entity, buff, source);
         }
 
         public static void Unfreeze(this Entity entity, ILevelSourceReference source)
         {
-            entity.RemoveBuffs<SlowBuff>();
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.slow);
+            if (!PreRemoveStatusEffect(entity, buffDefinition, source))
+                return;
+            entity.RemoveBuffs(buffDefinition);
+            PostRemoveStatusEffect(entity, buffDefinition, source);
         }
-
         #region 魅惑
-        public static void Charm(this Entity entity, int faction, ILevelSourceReference source)
+        public static void CharmPermanent(this Entity entity, int faction, ILevelSourceReference source)
         {
-            var buff = entity.GetFirstBuff<CharmBuff>();
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.charm);
+            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            var buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
             {
-                buff = entity.AddBuff<CharmBuff>();
+                buff = entity.AddBuff(buffDefinition);
             }
             CharmBuff.SetPermanent(buff, faction);
             buff.Update();
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, new VanillaLevelCallbacks.PostEntityCharmParams(entity, buff, source));
+            PostApplyStatusEffect(entity, buff, source);
         }
-        public static void Charm(this Entity entity, int faction, Entity source) => entity.Charm(faction, new EntitySourceReference(source));
 
         public static void CharmWithController(this Entity entity, Entity controller, ILevelSourceReference source)
         {
-            var buff = entity.GetFirstBuff<CharmBuff>();
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.charm);
+            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+                return;
+            var buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
             {
-                buff = entity.AddBuff<CharmBuff>();
+                buff = entity.AddBuff(buffDefinition);
             }
             CharmBuff.SetController(buff, controller);
             buff.Update();
-            entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_CHARM, new VanillaLevelCallbacks.PostEntityCharmParams(entity, buff, source));
+            PostApplyStatusEffect(entity, buff, source);
         }
         public static void RemoveCharm(this Entity entity, ILevelSourceReference source)
         {
-            entity.RemoveBuffs<CharmBuff>();
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.charm);
+            if (!PreRemoveStatusEffect(entity, buffDefinition, source))
+                return;
+            entity.RemoveBuffs(buffDefinition);
+            PostRemoveStatusEffect(entity, buffDefinition, source);
         }
         public static bool IsCharmed(this Entity entity)
         {

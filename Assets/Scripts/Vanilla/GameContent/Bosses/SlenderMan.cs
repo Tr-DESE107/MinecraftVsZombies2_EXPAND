@@ -378,7 +378,7 @@ namespace MVZ2.GameContent.Bosses
             var targets = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && !e.IsLoyal()).RandomTake(5, rng);
             foreach (var target in targets)
             {
-                target.Charm(boss.GetFaction(), boss);
+                target.CharmPermanent(boss.GetFaction(), new EntitySourceReference(boss));
             }
         }
 

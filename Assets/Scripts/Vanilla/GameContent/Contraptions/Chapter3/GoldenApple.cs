@@ -43,7 +43,7 @@ namespace MVZ2.GameContent.Contraptions
             if (target.IsEvoked())
             {
                 var mutant = target.Spawn(VanillaEnemyID.mutantZombie, enemy.Position);
-                mutant.Charm(target.GetFaction(), target);
+                mutant.CharmPermanent(target.GetFaction(), new EntitySourceReference(target));
                 enemy.Spawn(VanillaEffectID.mindControlLines, enemy.GetCenter());
                 enemy.Neutralize();
                 enemy.Remove();
@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Contraptions
             }
             else
             {
-                enemy.Charm(target.GetFaction(), target);
+                enemy.CharmPermanent(target.GetFaction(), new EntitySourceReference(target));
                 enemy.Spawn(VanillaEffectID.mindControlLines, enemy.GetCenter());
                 enemy.Neutralize();
                 enemy.PlaySound(VanillaSoundID.charmed);
