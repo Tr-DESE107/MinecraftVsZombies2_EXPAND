@@ -1,5 +1,6 @@
 ﻿using PVZEngine.Armors;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace PVZEngine.Damages
 {
@@ -9,10 +10,10 @@ namespace PVZEngine.Damages
         public float Amount { get; private set; }
         public Entity Entity { get; private set; }
         public Armor Armor { get; private set; }
-        public EntityReferenceChain Source { get; set; }
+        public ILevelSourceReference Source { get; set; }
         public bool ToArmor { get; private set; }
 
-        public HealInput(float amount, Entity entity, EntityReferenceChain source)
+        public HealInput(float amount, Entity entity, ILevelSourceReference source)
         {
             OriginalAmount = amount;
             Amount = amount;
@@ -20,7 +21,7 @@ namespace PVZEngine.Damages
             Source = source;
             ToArmor = false;
         }
-        public HealInput(float amount, Entity entity, Armor armor, EntityReferenceChain source)
+        public HealInput(float amount, Entity entity, Armor armor, ILevelSourceReference source)
         {
             OriginalAmount = amount;
             Amount = amount;

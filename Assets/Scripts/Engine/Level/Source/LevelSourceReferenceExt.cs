@@ -1,0 +1,14 @@
+﻿using PVZEngine.Entities;
+
+namespace PVZEngine.Level
+{
+    public static class LevelSourceReferenceExt
+    {
+        public static Entity GetEntity(this ILevelSourceReference source, LevelEngine level)
+        {
+            if (source is not EntitySourceReference entSource)
+                return null;
+            return entSource.GetEntity(level);
+        }
+    }
+}

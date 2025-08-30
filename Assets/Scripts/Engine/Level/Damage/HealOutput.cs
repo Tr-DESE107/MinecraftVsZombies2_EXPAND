@@ -1,11 +1,12 @@
 ﻿using PVZEngine.Armors;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace PVZEngine.Damages
 {
     public class HealOutput
     {
-        public EntityReferenceChain Source { get; set; }
+        public ILevelSourceReference Source { get; set; }
         public Entity Entity { get; set; }
         public float OriginalAmount { get; set; }
         public float Amount { get; set; }

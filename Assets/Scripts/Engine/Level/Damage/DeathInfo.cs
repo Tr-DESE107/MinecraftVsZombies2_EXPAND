@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace PVZEngine.Damages
 {
@@ -6,10 +7,10 @@ namespace PVZEngine.Damages
     {
         public DamageEffectList Effects { get; private set; }
         public Entity Entity { get; private set; }
-        public EntityReferenceChain Source { get; set; }
+        public ILevelSourceReference Source { get; set; }
         public BodyDamageResult Damage { get; private set; }
 
-        public DeathInfo(Entity entity, DamageEffectList effects, EntityReferenceChain source, BodyDamageResult damage)
+        public DeathInfo(Entity entity, DamageEffectList effects, ILevelSourceReference source, BodyDamageResult damage)
         {
             Effects = effects;
             Entity = entity;

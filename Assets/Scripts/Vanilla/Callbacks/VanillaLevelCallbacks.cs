@@ -7,6 +7,7 @@ using PVZEngine.Damages;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
+using PVZEngine.Level;
 using PVZEngine.SeedPacks;
 
 namespace MVZ2.Vanilla.Callbacks

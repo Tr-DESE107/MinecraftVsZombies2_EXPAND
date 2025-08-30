@@ -78,7 +78,7 @@ namespace PVZEngine.Level
             if (entityDef == null)
                 return null;
             long id = AllocEntityID();
-            var spawned = new Entity(this, id, new EntityReferenceChain(spawner), entityDef, seed);
+            var spawned = new Entity(this, id, new EntitySourceReference(spawner), entityDef, seed);
             spawned.Position = pos;
             InitEntityCollision(spawned);
             if (param != null)

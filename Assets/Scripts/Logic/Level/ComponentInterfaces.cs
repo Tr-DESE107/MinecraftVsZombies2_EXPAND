@@ -172,6 +172,7 @@ namespace MVZ2Logic.Level.Components
         Artifact[] GetArtifacts();
         bool HasArtifact(NamespaceID artifactID);
         int GetArtifactIndex(NamespaceID artifactID);
+        int GetArtifactIndex(Artifact artifact);
         Artifact GetArtifactAt(int index);
     }
 }

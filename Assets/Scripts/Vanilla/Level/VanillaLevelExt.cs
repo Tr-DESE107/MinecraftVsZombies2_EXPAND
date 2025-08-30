@@ -66,9 +66,9 @@ namespace MVZ2.Vanilla.Level
         }
         public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source, Predicate<IEntityCollider> filter = null)
         {
-            return level.Explode(center, radius, faction, amount, effects, new EntityReferenceChain(source), filter);
+            return level.Explode(center, radius, faction, amount, effects, new EntitySourceReference(source), filter);
         }
-        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source, Predicate<IEntityCollider> filter = null)
+        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference source, Predicate<IEntityCollider> filter = null)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
             foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
@@ -85,9 +85,9 @@ namespace MVZ2.Vanilla.Level
         }
         public static DamageOutput[] ExplodeAgainstFriendly(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
         {
-            return level.ExplodeAgainstFriendly(center, radius, faction, amount, effects, new EntityReferenceChain(source));
+            return level.ExplodeAgainstFriendly(center, radius, faction, amount, effects, new EntitySourceReference(source));
         }
-        public static DamageOutput[] ExplodeAgainstFriendly(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
+        public static DamageOutput[] ExplodeAgainstFriendly(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference source)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
             foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, 0, EntityCollisionHelper.MASK_VULNERABLE))
@@ -102,9 +102,9 @@ namespace MVZ2.Vanilla.Level
         }
         public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, Entity source)
         {
-            return level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, new EntityReferenceChain(source));
+            return level.SplashDamage(excludeCollider, center, radius, faction, amount, effects, new EntitySourceReference(source));
         }
-        public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, EntityReferenceChain source)
+        public static DamageOutput[] SplashDamage(this LevelEngine level, IEntityCollider excludeCollider, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference source)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
             foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))

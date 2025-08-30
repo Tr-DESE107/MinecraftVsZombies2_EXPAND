@@ -131,7 +131,7 @@ namespace MVZ2.GameContent.Buffs
         {
             public const string breakoutBoardUpgrade = "breakout_board_upgrade";
             public const string timeoutLightShrink = "timeout_light_shrink";
-            public const string waterStainFrozen = "water_stain_frozen"; 
+            public const string waterStainFrozen = "water_stain_frozen";
         }
 
         public static class SeedPack

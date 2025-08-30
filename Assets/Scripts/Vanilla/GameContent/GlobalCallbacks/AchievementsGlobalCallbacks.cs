@@ -28,7 +28,12 @@ namespace MVZ2.GameContent.GlobalCallbacks
             if (entity.IsHostileEntity() && !entity.Level.IsIZombie())
             {
                 var level = entity.Level;
-                var killedByFriendlyEnemy = info.Source.IsEntitySourceOf(level, (s, def) => def.Type == EntityTypes.ENEMY && level.IsFriendlyFaction(s.Faction));
+                var killedByFriendlyEnemy = info.Source.IsEntitySpawnedByEntity(level, (s, def) =>
+                {
+                    if (!level.IsFriendlyFaction(s.Faction))
+                        return false;
+                    return def.Type == EntityTypes.ENEMY;
+                });
                 if (killedByFriendlyEnemy)
                 {
                     Global.Saves.Unlock(VanillaUnlockID.mesmerisedMatchup);
@@ -49,7 +54,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             if (entity.IsFriendlyEntity() && !entity.Level.IsIZombie())
             {
                 var level = entity.Level;
-                var killedByHostileContraption = info.Source.IsEntitySourceOf(level, (s, def) => def.Type == EntityTypes.PLANT && level.IsHostileFaction(s.Faction));
+                var killedByHostileContraption = info.Source.IsEntitySpawnedByEntity(level, (s, def) => def.Type == EntityTypes.PLANT && level.IsHostileFaction(s.Faction));
                 if (killedByHostileContraption)
                 {
                     Global.Saves.Unlock(VanillaUnlockID.mesmerisedMatchup);

@@ -1,4 +1,5 @@
 ﻿using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace PVZEngine.Damages
@@ -13,7 +14,7 @@ namespace PVZEngine.Damages
             Effects = input.Effects;
             Source = input.Source;
         }
-        public EntityReferenceChain Source { get; set; }
+        public ILevelSourceReference Source { get; set; }
         public DamageEffectList Effects { get; set; }
         public float OriginalAmount { get; set; }
         public float Amount { get; set; }

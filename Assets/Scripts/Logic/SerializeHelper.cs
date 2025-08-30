@@ -50,7 +50,8 @@ namespace MVZ2Logic
             RegisterClass<SerializablePropertyDictionaryString>();
 
             // PVZEngine.Level
-            RegisterClass<EntityReferenceChain>();
+            RegisterClass<EntitySourceReference>();
+            RegisterClass<ArtifactSourceReference>();
             RegisterClass<EntityID>();
             RegisterClass<SerializableEntityCollider>();
             RegisterClass<SerializableBuiltinCollisionSystem>();

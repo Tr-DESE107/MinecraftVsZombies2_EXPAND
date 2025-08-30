@@ -16,11 +16,11 @@ using UnityEngine;
 
 namespace PVZEngine.Entities
 {
-    public sealed class Entity : IBuffTarget, IAuraSource, IModifierContainer, IPropertyModifyTarget
+    public sealed class Entity : IBuffTarget, IAuraSource, IModifierContainer, IPropertyModifyTarget, ILevelSourceTarget
     {
         #region 公有方法
 
-        public Entity(LevelEngine level, long id, EntityReferenceChain spawnerReference, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerReference)
+        public Entity(LevelEngine level, long id, ILevelSourceReference spawnerSource, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerSource)
         {
             Definition = definition;
             ModelID = definition.GetModelID();
@@ -30,13 +30,13 @@ namespace PVZEngine.Entities
             CreateAuraEffects();
             UpdateModifierCaches();
         }
-        private Entity(LevelEngine level, int type, long id, EntityReferenceChain spawnerReference)
+        private Entity(LevelEngine level, int type, long id, ILevelSourceReference spawnerSource)
         {
             Level = level;
             Type = type;
             TypeCollisionFlag = EntityCollisionHelper.GetTypeMask(type);
             ID = id;
-            SpawnerReference = spawnerReference;
+            SpawnerReference = spawnerSource;
             InitBuffList();
             Cache = new EntityCache();
             properties = new PropertyBlock(this);
@@ -129,13 +129,13 @@ namespace PVZEngine.Entities
 
         public void Die(Entity source = null, BodyDamageResult damage = null)
         {
-            Die(new DamageEffectList(), new EntityReferenceChain(source), damage);
+            Die(new DamageEffectList(), new EntitySourceReference(source), damage);
         }
         public void Die(DamageEffectList effects, Entity source = null, BodyDamageResult damage = null)
         {
-            Die(effects, new EntityReferenceChain(source), damage);
+            Die(effects, new EntitySourceReference(source), damage);
         }
-        public void Die(DamageEffectList effects, EntityReferenceChain source, BodyDamageResult damage = null)
+        public void Die(DamageEffectList effects, ILevelSourceReference source, BodyDamageResult damage = null)
         {
             Die(new DeathInfo(this, effects, source, damage));
         }
@@ -143,7 +143,7 @@ namespace PVZEngine.Entities
         {
             if (IsDead)
                 return;
-            info = info ?? new DeathInfo(this, new DamageEffectList(), new EntityReferenceChain(null), null);
+            info = info ?? new DeathInfo(this, new DamageEffectList(), new EntitySourceReference(null), null);
             IsDead = true;
             Definition.PostDeath(this, info);
             var param = new LevelCallbacks.PostEntityDeathParams()
@@ -799,7 +799,7 @@ namespace PVZEngine.Entities
             seri.id = ID;
             seri.time = time;
             seri.initSeed = InitSeed;
-            seri.spawnerReference = SpawnerReference;
+            seri.spawnerSource = SpawnerReference;
             seri.type = Type;
             seri.state = State;
             seri.rng = RNG.ToSerializable();
@@ -915,7 +915,7 @@ namespace PVZEngine.Entities
         }
         public static Entity CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
         {
-            var entity = new Entity(level, seri.type, seri.id, seri.spawnerReference);
+            var entity = new Entity(level, seri.type, seri.id, seri.spawnerSource);
             entity.Definition = level.Content.GetEntityDefinition(seri.definitionID);
 
             // 先于光环加载，不然找不到Buff
@@ -1050,7 +1050,7 @@ namespace PVZEngine.Entities
         public bool Removed { get; private set; }
         public EntityDefinition Definition { get; private set; }
         public NamespaceID ModelID { get; private set; }
-        public EntityReferenceChain SpawnerReference { get; private set; }
+        public ILevelSourceReference SpawnerReference { get; private set; }
         public Entity Parent { get; private set; }
         public LevelEngine Level { get; private set; }
         public Vector3 PreviousPosition { get; private set; }

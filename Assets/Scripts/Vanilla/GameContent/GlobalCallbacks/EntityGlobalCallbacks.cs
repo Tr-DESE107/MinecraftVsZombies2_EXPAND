@@ -9,6 +9,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
+using PVZEngine.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.GlobalCallbacks
@@ -20,8 +21,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
         {
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_INIT, PostEntityInitCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_CONTACT_GROUND, PostContactGroundCallback);
-            mod.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PlayHitSoundCallback);
-            mod.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, DamageEffectCallback);
+            mod.AddTrigger(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, PostDamageCallback);
+            mod.AddTrigger(VanillaLevelCallbacks.APPLY_DAMAGE_SPECIAL_EFFECTS, ApplyDamageEffectsCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, HealParticlesUpdateCallback);
             mod.AddTrigger(LevelCallbacks.POST_ENTITY_DEATH, PostEnemyDeathCallback, filter: EntityTypes.ENEMY);
             mod.AddTrigger(LevelCallbacks.POST_DESTROY_ARMOR, PostArmorDestroyCallback);
@@ -56,22 +57,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 entity.TakeDamage(fallDamage, effects, entity);
             }
         }
-        private void PlayHitSoundCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
-        {
-            var output = param.output;
-            var bodyResult = output.BodyResult;
-            var entity = output.Entity;
-            if (bodyResult != null)
-            {
-                var shellDefinition = bodyResult.ShellDefinition;
-                if (bodyResult.Effects.HasEffect(VanillaDamageEffects.SLICE) && shellDefinition.IsSliceCritical())
-                {
-                    entity.EmitBlood();
-                }
-            }
-            output.PlayHitSound();
-        }
-        private void DamageEffectCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
+        private void ApplyDamageEffectsCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
         {
             var output = param.output;
             var entity = output.Entity;
@@ -79,6 +65,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 return;
             var bodyResult = output.BodyResult;
             var armorResult = output.ArmorResult;
+            ILevelSourceReference slowSource = null;
             bool slow = false;
             bool unfreeze = false;
             if (bodyResult != null)
@@ -111,6 +98,21 @@ namespace MVZ2.GameContent.GlobalCallbacks
             {
                 entity.Slow(300);
             }
+        }
+        private void PostDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)
+        {
+            var output = param.output;
+            var entity = output.Entity;
+            var bodyResult = output.BodyResult;
+            if (bodyResult != null)
+            {
+                var shellDefinition = bodyResult.ShellDefinition;
+                if (bodyResult.Effects.HasEffect(VanillaDamageEffects.SLICE) && shellDefinition.IsSliceCritical())
+                {
+                    entity.EmitBlood();
+                }
+            }
+            output.PlayHitSound();
         }
         private void PostEnemyDeathCallback(LevelCallbacks.PostEntityDeathParams param, CallbackResult result)
         {

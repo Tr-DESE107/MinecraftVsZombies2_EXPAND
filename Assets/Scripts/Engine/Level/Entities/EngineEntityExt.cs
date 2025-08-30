@@ -79,7 +79,7 @@ namespace PVZEngine.Entities
         {
             return entity != null && entity.Exists() && !entity.IsDead;
         }
-        public static bool IsEntitySourceOf(this EntityReferenceChain reference, LevelEngine level, Func<EntityReferenceChain, EntityDefinition, bool> predicate)
+        public static bool IsEntitySpawnedByEntity(this ILevelSourceReference reference, LevelEngine level, Func<ILevelSourceReference, EntityDefinition, bool> predicate, bool trackableOnly = true)
         {
             if (reference == null)
                 return false;
@@ -91,22 +91,26 @@ namespace PVZEngine.Entities
             var source = reference;
             while (source != null)
             {
-                var defID = source.DefinitionID;
-                var entityDef = level.Content.GetEntityDefinition(defID);
-                if (entityDef != null)
+                if (source is not EntitySourceReference entitySource)
+                    break;
+                var definition = level.Content.GetEntityDefinition(entitySource.DefinitionID);
+                if (definition == null)
+                    break;
+                if (predicate(source, definition))
                 {
-                    if (predicate(source, entityDef))
-                    {
-                        return true;
-                    }
-                    if (entityDef.Type != EntityTypes.PROJECTILE && entityDef.Type != EntityTypes.EFFECT && entityDef.Type != EntityTypes.PICKUP)
-                    {
-                        break;
-                    }
+                    return true;
                 }
-                source = source.SpawnerReference;
+                if (trackableOnly && !definition.CanEntityTrackSpawnSource())
+                {
+                    break;
+                }
+                source = source.Parent;
             }
             return false;
+        }
+        public static bool CanEntityTrackSpawnSource(this EntityDefinition definition)
+        {
+            return definition.Type == EntityTypes.PROJECTILE || definition.Type == EntityTypes.EFFECT || definition.Type == EntityTypes.PICKUP;
         }
     }
     public enum FactionTarget

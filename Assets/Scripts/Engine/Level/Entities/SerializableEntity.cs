@@ -23,7 +23,9 @@ namespace PVZEngine.Entities
         public SerializableRNG dropRng;
         public NamespaceID definitionID;
         public NamespaceID modelID;
-        public EntityReferenceChain spawnerReference;
+        [Obsolete]
+        public EntitySourceReference spawnerReference;
+        public ILevelSourceReference spawnerSource;
         public Vector3 previousPosition;
         public Vector3 position;
         public Vector3 velocity;

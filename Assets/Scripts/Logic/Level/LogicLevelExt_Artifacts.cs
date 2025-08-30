@@ -53,6 +53,11 @@ namespace MVZ2Logic.Level
             var component = level.GetArtifactComponent();
             return component.GetArtifactIndex(artifactID);
         }
+        public static int GetArtifactIndex(this LevelEngine level, Artifact artifact)
+        {
+            var component = level.GetArtifactComponent();
+            return component.GetArtifactIndex(artifact);
+        }
         public static Artifact GetArtifactAt(this LevelEngine level, int index)
         {
             var component = level.GetArtifactComponent();

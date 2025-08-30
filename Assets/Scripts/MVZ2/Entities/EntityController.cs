@@ -589,7 +589,7 @@ namespace MVZ2.Entities
         public const float HEIGHT_INDICATOR_FADE_MIN_HEIGHT = 300;
         public const float HEIGHT_INDICATOR_FADE_MAX_HEIGHT = 500;
         public static readonly Color HEIGHT_INDICATOR_COLOR_MIN = Color.white;
-        public static readonly Color HEIGHT_INDICATOR_COLOR_MAX = new Color(1,1,1,0);
+        public static readonly Color HEIGHT_INDICATOR_COLOR_MAX = new Color(1, 1, 1, 0);
 
         public static readonly Dictionary<int, float> zOffsetDict = new Dictionary<int, float>()
         {

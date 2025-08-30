@@ -2,13 +2,13 @@
 
 namespace PVZEngine.Entities
 {
-    public class EntityReferenceChain
+    public class EntitySourceReference : ILevelSourceReference
     {
-        public EntityReferenceChain()
+        public EntitySourceReference()
         {
 
         }
-        public EntityReferenceChain(Entity entity)
+        public EntitySourceReference(Entity entity)
         {
             if (entity == null)
                 return;
@@ -17,9 +17,9 @@ namespace PVZEngine.Entities
             spawnerReference = entity.SpawnerReference?.Clone();
             faction = entity.Cache.Faction;
         }
-        public EntityReferenceChain Clone()
+        public EntitySourceReference Clone()
         {
-            return new EntityReferenceChain
+            return new EntitySourceReference
             {
                 id = ID,
                 definitionID = DefinitionID,
@@ -33,7 +33,7 @@ namespace PVZEngine.Entities
         }
         public override bool Equals(object obj)
         {
-            if (obj is EntityReferenceChain entityRef)
+            if (obj is EntitySourceReference entityRef)
             {
                 return ID == entityRef.ID;
             }
@@ -43,22 +43,31 @@ namespace PVZEngine.Entities
         {
             return ID.GetHashCode();
         }
-        public static bool operator ==(EntityReferenceChain lhs, EntityReferenceChain rhs)
+        public static bool operator ==(EntitySourceReference lhs, EntitySourceReference rhs)
         {
             if (lhs is null)
                 return rhs is null;
             return lhs.Equals(rhs);
         }
-        public static bool operator !=(EntityReferenceChain lhs, EntityReferenceChain rhs)
+        public static bool operator !=(EntitySourceReference lhs, EntitySourceReference rhs)
         {
             return !(lhs == rhs);
         }
-        public EntityReferenceChain SpawnerReference => spawnerReference;
+        ILevelSourceReference ILevelSourceReference.Clone()
+        {
+            return Clone();
+        }
+        ILevelSourceTarget ILevelSourceReference.GetTarget(LevelEngine level)
+        {
+            return GetEntity(level);
+        }
+        public ILevelSourceReference SpawnerReference => spawnerReference;
         public int Faction => faction;
         public NamespaceID DefinitionID => definitionID;
         public long ID => id;
+        ILevelSourceReference ILevelSourceReference.Parent => spawnerReference;
         private NamespaceID definitionID;
-        private EntityReferenceChain spawnerReference;
+        private ILevelSourceReference spawnerReference;
         private int faction = -1;
         private long id;
     }

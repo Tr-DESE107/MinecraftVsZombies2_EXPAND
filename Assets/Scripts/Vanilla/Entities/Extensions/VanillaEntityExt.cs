@@ -71,13 +71,13 @@ namespace MVZ2.Vanilla.Entities
         }
         public static DamageOutput TakeDamageNoSource(this Entity entity, float amount, DamageEffectList effects, NamespaceID armorSlot = null)
         {
-            return entity.TakeDamage(amount, effects, new EntityReferenceChain(null), armorSlot);
+            return entity.TakeDamage(amount, effects, new EntitySourceReference(null), armorSlot);
         }
         public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, Entity source, NamespaceID armorSlot = null)
         {
-            return entity.TakeDamage(amount, effects, new EntityReferenceChain(source), armorSlot);
+            return entity.TakeDamage(amount, effects, new EntitySourceReference(source), armorSlot);
         }
-        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, EntityReferenceChain source, NamespaceID armorSlot = null)
+        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, ILevelSourceReference source, NamespaceID armorSlot = null)
         {
             return TakeDamage(new DamageInput(amount, effects, entity, source, armorSlot));
         }
@@ -697,9 +697,9 @@ namespace MVZ2.Vanilla.Entities
         }
         public static HealOutput Heal(this Entity entity, float amount, Entity source)
         {
-            return entity.Heal(amount, new EntityReferenceChain(source));
+            return entity.Heal(amount, new EntitySourceReference(source));
         }
-        public static HealOutput Heal(this Entity entity, float amount, EntityReferenceChain source)
+        public static HealOutput Heal(this Entity entity, float amount, ILevelSourceReference source)
         {
             return Heal(new HealInput(amount, entity, source));
         }
