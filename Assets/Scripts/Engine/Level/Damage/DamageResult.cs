@@ -26,5 +26,9 @@ namespace PVZEngine.Damages
         {
             return Effects?.HasEffect(effect) ?? false;
         }
+        public bool IsValid()
+        {
+            return Amount > 0;
+        }
     }
 }

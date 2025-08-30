@@ -197,6 +197,7 @@ namespace MVZ2.Vanilla.Callbacks
         public readonly static CallbackType<PostBodyTakeDamageParams> POST_BODY_TAKE_DAMAGE = new();
         public readonly static CallbackType<PreArmorTakeDamageParams> PRE_ARMOR_TAKE_DAMAGE = new();
         public readonly static CallbackType<PostArmorTakeDamageParams> POST_ARMOR_TAKE_DAMAGE = new();
+        public readonly static CallbackType<PostTakeDamageParams> APPLY_DAMAGE_SPECIAL_EFFECTS = new();
         public readonly static CallbackType<PreHealParams> PRE_ENTITY_HEAL = new();
         public readonly static CallbackType<PostHealParams> POST_ENTITY_HEAL = new();
 

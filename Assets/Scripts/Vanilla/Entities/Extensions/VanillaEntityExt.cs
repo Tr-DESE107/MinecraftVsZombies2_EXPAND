@@ -93,8 +93,6 @@ namespace MVZ2.Vanilla.Entities
                 return result;
             if (!PreTakeDamage(input, result))
                 return result;
-            if (input.Amount <= 0)
-                return result;
             if (!NamespaceID.IsValid(input.ShieldTarget))
             {
                 var armor = input.Entity.GetMainArmor();
@@ -116,8 +114,11 @@ namespace MVZ2.Vanilla.Entities
                     result.ShieldTarget = input.ShieldTarget;
                 }
             }
-
-            PostTakeDamage(result);
+            ApplyDamageSpecialEffects(result);
+            if (result.IsValid())
+            {
+                PostTakeDamage(result);
+            }
             return result;
         }
 
@@ -135,6 +136,14 @@ namespace MVZ2.Vanilla.Entities
                 damageInfo.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ENTITY_TAKE_DAMAGE, param, result, entity.Type);
             }
             return result.GetValue<bool>();
+        }
+        private static void ApplyDamageSpecialEffects(DamageOutput output)
+        {
+            Entity entity = output.Entity;
+            if (entity == null)
+                return;
+            var param = new VanillaLevelCallbacks.PostTakeDamageParams(output);
+            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.APPLY_DAMAGE_SPECIAL_EFFECTS, param, entity.Type);
         }
         private static void PostTakeDamage(DamageOutput output)
         {
@@ -216,24 +225,26 @@ namespace MVZ2.Vanilla.Entities
             }
 
             // Apply Damage
-            float hpBefore = armor.Health;
             var amount = info.Amount;
             if (amount > 0)
             {
+                float hpBefore = armor.Health;
                 armor.Health -= amount;
+
+                result.Amount = amount;
+                result.SpendAmount = Mathf.Min(hpBefore, amount);
+                result.Fatal = hpBefore > 0 && armor.Health <= 0;
+                if (result.Fatal)
+                {
+                    var destroyInfo = new ArmorDestroyInfo(entity, armor, armor.Slot, info.Effects, info.Source, result);
+                    armor.Destroy(destroyInfo);
+                }
             }
-            bool fatal = hpBefore > 0 && armor.Health <= 0;
 
-            result.Amount = amount;
-            result.SpendAmount = Mathf.Min(hpBefore, amount);
-            result.Fatal = fatal;
-
-            if (fatal)
+            if (result.IsValid())
             {
-                var destroyInfo = new ArmorDestroyInfo(entity, armor, armor.Slot, info.Effects, info.Source, result);
-                armor.Destroy(destroyInfo);
+                PostArmorTakeDamage(armor, result);
             }
-            PostArmorTakeDamage(armor, result);
 
             return result;
         }
@@ -277,23 +288,25 @@ namespace MVZ2.Vanilla.Entities
             shell?.EvaluateDamage(info);
 
             // Apply Damage.
-            float hpBefore = entity.Health;
             var amount = info.Amount;
             if (amount > 0)
             {
+                float hpBefore = entity.Health;
                 entity.Health -= amount;
-            }
-            bool fatal = hpBefore > 0 && entity.Health <= 0;
 
-            result.Amount = amount;
-            result.SpendAmount = Mathf.Min(hpBefore, amount);
-            result.Fatal = fatal;
+                result.Amount = amount;
+                result.SpendAmount = Mathf.Min(hpBefore, amount);
+                result.Fatal = hpBefore > 0 && entity.Health <= 0;
+            }
 
             if (entity.Health <= 0)
             {
                 entity.Die(info.Effects, info.Source, result);
             }
-            PostBodyTakeDamage(entity, result);
+            if (result.IsValid())
+            {
+                PostBodyTakeDamage(entity, result);
+            }
 
             return result;
         }

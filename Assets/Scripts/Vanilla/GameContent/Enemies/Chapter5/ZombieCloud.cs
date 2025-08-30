@@ -72,13 +72,15 @@ namespace MVZ2.GameContent.Enemies
             if (input.HasEffect(VanillaDamageEffects.LIGHTNING))
             {
                 ChangeVariant(input.Entity, VARIANT_THUNDER);
-                result.SetFinalValue(false);
+                input.Multiply(0);
+                result.Break();
                 return;
             }
             if (input.HasEffect(VanillaDamageEffects.ICE))
             {
                 ChangeVariant(input.Entity, VARIANT_SNOW);
-                result.SetFinalValue(false);
+                input.Multiply(0);
+                result.Break();
                 return;
             }
         }

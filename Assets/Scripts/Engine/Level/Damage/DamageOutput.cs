@@ -9,6 +9,16 @@ namespace PVZEngine.Damages
         public ArmorDamageResult ArmorResult { get; set; }
         public ArmorDamageResult ShieldResult { get; set; }
         public NamespaceID ShieldTarget { get; set; }
+        public bool IsValid()
+        {
+            if (ArmorResult != null && ArmorResult.IsValid())
+                return true;
+            if (BodyResult != null && BodyResult.IsValid())
+                return true;
+            if (ShieldResult != null && ShieldResult.IsValid())
+                return true;
+            return false;
+        }
         public bool HasAnyNotFatal()
         {
             if (ArmorResult != null && ArmorResult.Fatal)
