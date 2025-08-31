@@ -27,7 +27,6 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             SetTargetPosition(entity, entity.Position);
-            entity.Timeout = entity.GetMaxTimeout();
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -56,14 +55,6 @@ namespace MVZ2.GameContent.Enemies
             entity.SetModelProperty("InAir", !onGround);
             entity.SetAnimationFloat("Range", entity.GetRange());
             entity.SetModelDamagePercent();
-            if (entity.Timeout >= 0)
-            {
-                entity.Timeout--;
-                if (entity.Timeout <= 0)
-                {
-                    entity.Die(entity);
-                }
-            }
         }
         public override void PreTakeDamage(DamageInput input, CallbackResult result)
         {

@@ -1530,6 +1530,7 @@
         <enemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？" unlock="mvz2:level.castle_9">
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented"/>
+                <behaviour operator="add" id="mvz2:timeout_death"/>
             </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
@@ -1611,6 +1612,7 @@
         <enemy id="shikaisen_staff" name="尸解仙之杖" deathMessage="？" unlock="mvz2:level.mausoleum_6">
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented"/>
+                <behaviour operator="add" id="mvz2:timeout_death"/>
             </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />

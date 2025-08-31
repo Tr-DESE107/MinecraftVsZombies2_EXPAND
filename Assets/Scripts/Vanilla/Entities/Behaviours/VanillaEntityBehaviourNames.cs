@@ -4,6 +4,8 @@ namespace MVZ2.Vanilla.Entities
 {
     public static class VanillaEntityBehaviourNames
     {
+        public const string timeoutDeath = "timeout_death";
+
         #region Contraptions
         public const string contraptionCommon = "contraption_common";
         public const string contraptionShooterFireworkDispenser = "contraption_shooter_firework_dispenser";

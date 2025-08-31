@@ -14,11 +14,6 @@ namespace MVZ2.GameContent.Enemies
         public Soulsand(string nsp, string name) : base(nsp, name)
         {
         }
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            entity.Timeout = entity.GetMaxTimeout();
-        }
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
@@ -28,14 +23,6 @@ namespace MVZ2.GameContent.Enemies
                 entity.AddFragmentTickDamage(Mathf.Abs(entity.Velocity.y));
             }
             entity.SetModelDamagePercent();
-            if (entity.Timeout >= 0)
-            {
-                entity.Timeout--;
-                if (entity.Timeout <= 0)
-                {
-                    entity.Die(entity);
-                }
-            }
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
