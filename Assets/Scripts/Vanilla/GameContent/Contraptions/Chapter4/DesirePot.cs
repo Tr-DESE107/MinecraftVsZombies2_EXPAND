@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Pickups;
 using MVZ2.GameContent.Seeds;
@@ -12,7 +12,6 @@ using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
 using MVZ2Logic.Level;
 using PVZEngine;
-using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -59,7 +58,7 @@ namespace MVZ2.GameContent.Contraptions
             var evocationTimer = GetEvocationTimer(entity);
             evocationTimer.Reset();
             entity.State = STATE_EVOKED;
-            entity.AddBuff<DesirePotHighlightBuff>();
+            WhiteFlashBuff.AddToEntity(entity, 30);
             entity.PlaySound(VanillaSoundID.arcaneIntellect);
             entity.PlaySound(VanillaSoundID.desirePotEvocation);
         }
@@ -69,7 +68,7 @@ namespace MVZ2.GameContent.Contraptions
             evocationTimer.Run();
             if (evocationTimer.Expired)
             {
-                entity.AddBuff<DesirePotHighlightBuff>();
+                WhiteFlashBuff.AddToEntity(entity, 30);
                 entity.State = STATE_IDLE;
             }
         }

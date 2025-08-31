@@ -54,7 +54,6 @@ namespace MVZ2.GameContent.Buffs
         public const string lightningOrbEvoked = "lightning_orb_evoked";
         public const string devourerInvincible = "devourer_invincible";
         public const string hellfireCursed = "hellfire_cursed";
-        public const string desirePotHighlight = "desire_pot_highlight";
         public const string imitated = "imitated";
         public const string noteBlockCharged = "note_block_charged";
         public const string hfpdUpgraded = "hfpd_upgraded";
