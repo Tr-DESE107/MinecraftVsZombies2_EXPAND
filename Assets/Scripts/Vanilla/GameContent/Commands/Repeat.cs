@@ -17,14 +17,11 @@ namespace MVZ2.GameContent.Commands
             var last = Global.Debugs.GetCommandHistory().FirstOrDefault(h =>
             {
                 var parts = CommandUtility.SplitCommand(h);
-                return parts.Length < 1 || Global.Debugs.GetCommandIDByName(parts[0]) != GetID();
+                return parts.Length >= 1 && Global.Debugs.GetCommandIDByName(parts[0]) != GetID();
             });
             if (string.IsNullOrEmpty(last))
                 return;
-            for (int i = 0; i < count; i++)
-            {
-                Global.Debugs.ExecuteCommand(last);
-            }
+            Global.Debugs.ExecuteCommand(last, count);
         }
     }
 }

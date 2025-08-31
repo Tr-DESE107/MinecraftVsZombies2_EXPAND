@@ -6,7 +6,7 @@ namespace MVZ2Logic.Games
     {
         void Print(string message);
         string[] GetCommandHistory();
-        void ExecuteCommand(string command);
+        void ExecuteCommand(string command, int times);
         void ClearConsole();
         NamespaceID[] GetAllCommandsID();
         string GetCommandNameByID(NamespaceID id);

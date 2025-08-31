@@ -286,7 +286,7 @@ namespace MVZ2.Debugs
         private void AddToHistory(string command)
         {
             // 避免添加重复的连续命令
-            if (commandHistory.Count == 0 || commandHistory.Last() != command)
+            if (commandHistory.Count == 0 || commandHistory.First() != command)
             {
                 commandHistory.Insert(0, command);
             }

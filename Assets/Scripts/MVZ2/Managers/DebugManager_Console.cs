@@ -14,6 +14,7 @@ using MVZ2Logic.Debugs;
 using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
 using PVZEngine;
+using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;
@@ -53,38 +54,58 @@ namespace MVZ2.Managers
         {
             return Main.Scene.GetCommandHistory();
         }
-        public void ExecuteCommand(string input)
+        public void ExecuteCommand(string input, int count = 1)
         {
-            PrintLine($"> {input}");
-
+            if (!PreExecuteCommand(input, out var errorMsg, out var definition, out string[] args))
+            {
+                Print($"> {input}\n");
+                PrintLine(errorMsg);
+                return;
+            }
+            for (int i = 0; i < count; i++)
+            {
+                Print($"> {input}\n");
+                try
+                {
+                    definition.Invoke(args);
+                }
+                catch (Exception ex)
+                {
+                    var msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
+                    PrintLine(msg);
+                }
+            }
+        }
+        private bool PreExecuteCommand(string input, out string msg, out CommandDefinition definition, out string[] args)
+        {
+            msg = null;
+            args = null;
+            definition = null;
             string[] parts = SplitCommand(input);
             if (parts.Length < 1)
-                return;
+                return false;
             string command = parts[0];
-            string[] args = parts.Skip(1).ToArray();
+            args = parts.Skip(1).ToArray();
 
-            CommandDefinition definition = null;
             if (NamespaceID.TryParse(command, Main.BuiltinNamespace, out var commandID))
             {
                 definition = Global.Game.GetCommandDefinition(commandID);
             }
             if (definition == null)
             {
-                var msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_NOT_FOUND, command);
-                PrintLine(msg);
-                return;
+                msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_NOT_FOUND, command);
+                return false;
             }
-
             try
             {
                 ValidateCommand(parts);
-                definition.Invoke(args);
             }
             catch (Exception ex)
             {
-                var msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
-                PrintLine(msg);
+                msg = Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, COMMAND_ERROR, ex.Message);
+                return false;
             }
+            return true;
         }
         public string[] SplitCommand(string input) => CommandUtility.SplitCommand(input);
         public void ClearConsole()
