@@ -14,7 +14,6 @@ using MVZ2Logic.Debugs;
 using MVZ2Logic.Games;
 using MVZ2Logic.IZombie;
 using PVZEngine;
-using PVZEngine.Base;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using UnityEngine;

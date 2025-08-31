@@ -122,15 +122,15 @@ namespace PVZEngine.Level
         #endregion
 
         #region 属性
-        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
+        public T? GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             return properties.GetProperty<T>(name, ignoreBuffs);
         }
-        public bool TryGetProperty<T>(PropertyKey<T> name, out T value, bool ignoreBuffs = false)
+        public bool TryGetProperty<T>(PropertyKey<T> name, out T? value, bool ignoreBuffs = false)
         {
             return properties.TryGetProperty<T>(name, out value, ignoreBuffs);
         }
-        public void SetProperty<T>(PropertyKey<T> name, T value)
+        public void SetProperty<T>(PropertyKey<T> name, T? value)
         {
             properties.SetProperty(name, value);
         }

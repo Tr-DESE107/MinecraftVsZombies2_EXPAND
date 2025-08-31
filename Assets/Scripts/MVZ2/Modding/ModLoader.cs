@@ -235,27 +235,27 @@ namespace MVZ2.Modding
                 var entityVariant = meta.EntityVariant;
                 var notInEndless = spawnLevel <= 0 || noEndless;
 
-                VanillaSpawnDefinition spawnDef = new VanillaSpawnDefinition(nsp, name);
+                VanillaSpawnDefinition spawnDef = null;
                 if (type == "entity")
                 {
                     var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
                     var inLevel = new SpawnInLevelBehaviour(spawnDef, spawnLevel, entityID, water, air);
                     var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                    spawnDef.SetBehaviours(preview, inLevel, endless);
+                    spawnDef = new VanillaSpawnDefinition(nsp, name, inLevel, preview, endless);
                 }
                 else if (name == VanillaSpawnNames.undeadFlyingObject)
                 {
                     var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
                     var inLevel = new UFOSpawnInLevelBehaviour(spawnLevel, entityVariant);
                     var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                    spawnDef.SetBehaviours(preview, inLevel, endless);
+                    spawnDef = new VanillaSpawnDefinition(nsp, name, inLevel, preview, endless);
                 }
                 else if (name == VanillaSpawnNames.undeadFlyingObjectBlitz)
                 {
                     var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
                     var inLevel = new UFOSpawnInLevelBehaviour(spawnLevel, entityVariant, 0, 1, 20);
                     var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                    spawnDef.SetBehaviours(preview, inLevel, endless);
+                    spawnDef = new VanillaSpawnDefinition(nsp, name, inLevel, preview, endless);
                 }
                 if (spawnDef == null)
                 {

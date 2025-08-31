@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using UnityEngine;
 
@@ -124,7 +125,7 @@ namespace PVZEngine
         {
             return !path.Contains(':');
         }
-        public static bool IsValid(NamespaceID id)
+        public static bool IsValid([NotNullWhen(true)] NamespaceID? id)
         {
             if (id == null)
                 return false;

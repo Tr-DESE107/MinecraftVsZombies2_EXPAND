@@ -5,7 +5,7 @@ namespace PVZEngine.Level
 {
     public class SpawnParams
     {
-        public void SetProperty<T>(PropertyKey<T> key, T value)
+        public void SetProperty<T>(PropertyKey<T> key, T? value)
         {
             properties.SetProperty(key, value);
         }

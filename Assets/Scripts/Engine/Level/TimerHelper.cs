@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using PVZEngine.Entities;
 using Tools;
 using UnityEngine;
@@ -23,6 +24,20 @@ namespace PVZEngine
         {
             timer.ResetTime(Ticks.FromSeconds(seconds));
         }
+        public static bool RunToExpiredOrNull([NotNullWhen(false)] this FrameTimer timer, float speed = 1)
+        {
+            if (timer == null)
+                return true;
+            return timer.RunToExpired(speed);
+        }
+
+        public static bool RunToExpiredAndNotNull([NotNullWhen(true)] this FrameTimer timer, float speed = 1)
+        {
+            if (timer == null)
+                return false;
+            return timer.RunToExpired(speed);
+        }
+
         public static FrameTimer NewSecondTimer(float seconds)
         {
             return new FrameTimer(Ticks.FromSeconds(seconds));

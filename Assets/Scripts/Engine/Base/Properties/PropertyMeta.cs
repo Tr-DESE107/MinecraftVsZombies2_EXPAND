@@ -32,7 +32,7 @@ namespace PVZEngine
     public class PropertyMeta<T> : PropertyMeta
     {
         private PropertyKey<T> key;
-        public PropertyMeta(string name, T defaultValue = default, params string[] obsoleteNames) : base(name, typeof(T), defaultValue, obsoleteNames)
+        public PropertyMeta(string name, T? defaultValue = default, params string[] obsoleteNames) : base(name, typeof(T), defaultValue, obsoleteNames)
         {
         }
 

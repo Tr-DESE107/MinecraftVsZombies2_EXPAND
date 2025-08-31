@@ -32,11 +32,11 @@ namespace PVZEngine.Buffs
                 Definition.PostUpdate(this);
             }
         }
-        public T GetProperty<T>(PropertyKey<T> name)
+        public T? GetProperty<T>(PropertyKey<T> name)
         {
             return propertyDict.GetProperty<T>(name);
         }
-        public void SetProperty<T>(PropertyKey<T> name, T value)
+        public void SetProperty<T>(PropertyKey<T> name, T? value)
         {
             if (propertyDict.SetProperty<T>(name, value))
             {

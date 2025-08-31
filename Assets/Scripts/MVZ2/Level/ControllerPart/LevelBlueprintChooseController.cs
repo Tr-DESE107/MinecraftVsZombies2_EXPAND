@@ -1029,12 +1029,9 @@ namespace MVZ2.Level
             isChoosingBlueprints = false;
 
             // 保存上次选择
-            var selectionBlueprints = chosen.Where(i => !i.innate).Select(i => new BlueprintSelectionItem() { id = i.id, isCommandBlock = i.isCommandBlock }).ToArray();
-            var selection = new BlueprintSelection()
-            {
-                blueprints = selectionBlueprints,
-                artifacts = chosenArtifacts.Where(e => NamespaceID.IsValid(e?.id) && !e.innate).Select(i => new ArtifactSelectionItem() { id = i.id }).ToArray()
-            };
+            var selectionBlueprints = chosen.Where(i => !i.innate).Select(i => new BlueprintSelectionItem(i.id, i.isCommandBlock)).ToArray();
+            var selectionArtifacts = chosenArtifacts.Where(e => NamespaceID.IsValid(e?.id) && !e.innate).Select(i => new ArtifactSelectionItem(i.id)).ToArray();
+            var selection = new BlueprintSelection(selectionBlueprints, selectionArtifacts);
             Main.SaveManager.SetLastSelection(selection);
             Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, new LogicLevelCallbacks.PostBlueprintSelectionParams(Level, chosen));
             Main.SaveManager.SaveToFile(); // 选卡之后保存游戏。

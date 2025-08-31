@@ -13,15 +13,15 @@ namespace PVZEngine.Level
         }
 
         #region 可修改属性
-        public void SetProperty<T>(PropertyKey<T> name, T value)
+        public void SetProperty<T>(PropertyKey<T> name, T? value)
         {
             modifiableProperties.SetProperty(name, value);
         }
-        public void SetPropertyObject(IPropertyKey name, object value)
+        public void SetPropertyObject(IPropertyKey name, object? value)
         {
             modifiableProperties.SetPropertyObject(name, value);
         }
-        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
+        public T? GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             return modifiableProperties.GetProperty<T>(name, ignoreBuffs);
         }

@@ -7,6 +7,11 @@
             Run(1);
         }
         public abstract void Run(float speed);
+        public bool RunToExpired(float speed = 1)
+        {
+            Run(speed);
+            return Expired;
+        }
         public abstract void Stop();
         public abstract void Reset();
         public float GetPassedPercentage()

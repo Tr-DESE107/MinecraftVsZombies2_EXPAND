@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Tools.Mathematics
@@ -811,6 +812,25 @@ namespace Tools.Mathematics
             return firstTime <= lastTime;
         }
         #endregion
+
+        public static void GetLessOne<TObj, TKey>(this IComparer comparer, TObj obj, ref TObj currentObj, TKey key, ref TKey currentKey)
+        {
+            if (key == null)
+                return;
+            if (currentKey != null && comparer.Compare(currentKey, key) < 0)
+                return;
+            currentObj = obj;
+            currentKey = key;
+        }
+        public static void GetGreaterOne<TObj, TKey>(this IComparer comparer, TObj obj, ref TObj currentObj, TKey key, ref TKey currentKey)
+        {
+            if (key == null)
+                return;
+            if (currentKey != null && comparer.Compare(currentKey, key) > 0)
+                return;
+            currentObj = obj;
+            currentKey = key;
+        }
     }
     public enum Axis
     {

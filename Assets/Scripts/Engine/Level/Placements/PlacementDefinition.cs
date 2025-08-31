@@ -25,11 +25,11 @@ namespace PVZEngine.Placements
             var e = spawnCondition.GetSpawnError(this, grid, entity);
             return !NamespaceID.IsValid(e);
         }
-        public NamespaceID GetSpawnError(LawnGrid grid, EntityDefinition entity)
+        public NamespaceID? GetSpawnError(LawnGrid grid, EntityDefinition entity)
         {
             return spawnCondition.GetSpawnError(this, grid, entity);
         }
-        public NamespaceID GetPlaceError(LawnGrid grid, EntityDefinition entity)
+        public NamespaceID? GetPlaceError(LawnGrid grid, EntityDefinition entity)
         {
             NamespaceID error = null;
             foreach (var method in methods)
@@ -46,7 +46,7 @@ namespace PVZEngine.Placements
             }
             return error;
         }
-        public Entity PlaceEntity(LawnGrid grid, EntityDefinition entity, PlaceParams param)
+        public Entity? PlaceEntity(LawnGrid grid, EntityDefinition entity, PlaceParams param)
         {
             foreach (var method in methods)
             {

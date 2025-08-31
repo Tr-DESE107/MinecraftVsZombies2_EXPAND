@@ -39,7 +39,7 @@ namespace PVZEngine.Armors
         }
         public void Destroy(ArmorDestroyInfo result = null)
         {
-            result = result ?? new ArmorDestroyInfo(Owner, this, Slot, new DamageEffectList(), new EntitySourceReference(null), null);
+            result = result ?? new ArmorDestroyInfo(Owner, this, Slot, new DamageEffectList(), new NullSourceReference(), null);
             Owner.DestroyArmor(Slot, result);
         }
         public void PostAdd()

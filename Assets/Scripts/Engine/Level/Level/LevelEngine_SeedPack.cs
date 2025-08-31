@@ -109,21 +109,21 @@ namespace PVZEngine.Level
         #endregion
 
         #region 获取种子包
-        public ClassicSeedPack[] GetAllSeedPacks()
+        public ClassicSeedPack?[] GetAllSeedPacks()
         {
             return seedPacks.ToArray();
         }
-        public ClassicSeedPack GetSeedPackAt(int index)
+        public ClassicSeedPack? GetSeedPackAt(int index)
         {
             if (index < 0 || index >= seedPacks.Length)
                 return null;
             return seedPacks[index];
         }
-        public ClassicSeedPack GetSeedPack(NamespaceID seedRef)
+        public ClassicSeedPack? GetSeedPack(NamespaceID seedRef)
         {
             return seedPacks.FirstOrDefault(r => r != null && r.GetDefinitionID() == seedRef);
         }
-        public ClassicSeedPack GetSeedPackByID(long id)
+        public ClassicSeedPack? GetSeedPackByID(long id)
         {
             return seedPacks.FirstOrDefault(s => s != null && s.ID == id);
         }

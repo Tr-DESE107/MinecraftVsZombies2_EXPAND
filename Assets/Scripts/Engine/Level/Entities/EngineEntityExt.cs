@@ -1,25 +1,27 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using PVZEngine.Damages;
 using PVZEngine.Level;
+using Tools;
 using UnityEngine;
 
 namespace PVZEngine.Entities
 {
     public static class EngineEntityExt
     {
-        public static void SetBehaviourField<T>(this Entity entity, NamespaceID id, PropertyKey<T> name, T value)
+        public static void SetBehaviourField<T>(this Entity entity, NamespaceID id, PropertyKey<T> name, T? value)
         {
             entity.SetProperty(name, value);
         }
-        public static T GetBehaviourField<T>(this Entity entity, NamespaceID id, PropertyKey<T> name)
+        public static T? GetBehaviourField<T>(this Entity entity, NamespaceID id, PropertyKey<T> name)
         {
             return entity.GetProperty<T>(name);
         }
-        public static void SetBehaviourField<T>(this Entity entity, PropertyKey<T> name, T value)
+        public static void SetBehaviourField<T>(this Entity entity, PropertyKey<T> name, T? value)
         {
             entity.SetProperty(name, value);
         }
-        public static T GetBehaviourField<T>(this Entity entity, PropertyKey<T> name)
+        public static T? GetBehaviourField<T>(this Entity entity, PropertyKey<T> name)
         {
             return entity.GetProperty<T>(name);
         }
@@ -75,7 +77,7 @@ namespace PVZEngine.Entities
             }
             return false;
         }
-        public static bool ExistsAndAlive(this Entity entity)
+        public static bool ExistsAndAlive([NotNullWhen(true)] this Entity entity)
         {
             return entity != null && entity.Exists() && !entity.IsDead;
         }
@@ -111,6 +113,16 @@ namespace PVZEngine.Entities
         public static bool CanEntityTrackSpawnSource(this EntityDefinition definition)
         {
             return definition.Type == EntityTypes.PROJECTILE || definition.Type == EntityTypes.EFFECT || definition.Type == EntityTypes.PICKUP;
+        }
+        public static FrameTimer GetOrCreateTimerProperty(this Entity entity, PropertyMeta<FrameTimer> property, int time)
+        {
+            var timer = entity.GetProperty<FrameTimer>(property);
+            if (timer == null)
+            {
+                timer = new FrameTimer(time);
+                entity.SetProperty(property, timer);
+            }
+            return timer;
         }
     }
     public enum FactionTarget

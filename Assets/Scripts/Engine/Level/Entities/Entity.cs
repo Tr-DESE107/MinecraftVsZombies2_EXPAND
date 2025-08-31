@@ -143,7 +143,7 @@ namespace PVZEngine.Entities
         {
             if (IsDead)
                 return;
-            info = info ?? new DeathInfo(this, new DamageEffectList(), new EntitySourceReference(null), null);
+            info = info ?? new DeathInfo(this, new DamageEffectList(), new NullSourceReference(), null);
             IsDead = true;
             Definition.PostDeath(this, info);
             var param = new LevelCallbacks.PostEntityDeathParams()
@@ -194,11 +194,11 @@ namespace PVZEngine.Entities
         #endregion 魅惑
 
         #region 增益属性
-        public T GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
+        public T? GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             return properties.GetProperty<T>(name, ignoreBuffs);
         }
-        public void SetProperty<T>(PropertyKey<T> name, T value)
+        public void SetProperty<T>(PropertyKey<T> name, T? value)
         {
             properties.SetProperty(name, value);
         }

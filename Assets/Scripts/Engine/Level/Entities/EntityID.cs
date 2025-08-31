@@ -20,7 +20,7 @@ namespace PVZEngine.Entities
             entityFound = true;
             entityCache = entity;
         }
-        public Entity GetEntity(LevelEngine game)
+        public Entity? GetEntity(LevelEngine game)
         {
             if (!entityFound)
             {
