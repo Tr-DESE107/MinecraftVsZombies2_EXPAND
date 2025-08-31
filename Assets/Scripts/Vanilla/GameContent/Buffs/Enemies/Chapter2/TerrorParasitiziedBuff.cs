@@ -15,7 +15,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.terrorParasitized)]
+    [BuffDefinition(VanillaBuffNames.Enemy.terrorParasitized)]
     public class TerrorParasitizedBuff : BuffDefinition
     {
         public TerrorParasitizedBuff(string nsp, string name) : base(nsp, name)

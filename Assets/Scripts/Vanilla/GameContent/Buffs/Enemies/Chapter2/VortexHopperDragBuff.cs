@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.vortexHopperDrag)]
+    [BuffDefinition(VanillaBuffNames.Enemy.vortexHopperDrag)]
     public class VortexHopperDragBuff : BuffDefinition
     {
         public VortexHopperDragBuff(string nsp, string name) : base(nsp, name)

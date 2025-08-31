@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.littleZombie)]
+    [BuffDefinition(VanillaBuffNames.Enemy.littleZombie)]
     public class LittleZombieBuff : BuffDefinition
     {
         public LittleZombieBuff(string nsp, string name) : base(nsp, name)

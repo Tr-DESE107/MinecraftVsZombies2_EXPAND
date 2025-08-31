@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.moonlightSensorEvoked)]
+    [BuffDefinition(VanillaBuffNames.Contraption.moonlightSensorEvoked)]
     public class MoonlightSensorEvokedBuff : BuffDefinition
     {
         public MoonlightSensorEvokedBuff(string nsp, string name) : base(nsp, name)

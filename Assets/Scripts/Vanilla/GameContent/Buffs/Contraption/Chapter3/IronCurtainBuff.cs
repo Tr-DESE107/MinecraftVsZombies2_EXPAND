@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.ironCurtain)]
+    [BuffDefinition(VanillaBuffNames.Contraption.ironCurtain)]
     public class IronCurtainBuff : BuffDefinition
     {
         public IronCurtainBuff(string nsp, string name) : base(nsp, name)

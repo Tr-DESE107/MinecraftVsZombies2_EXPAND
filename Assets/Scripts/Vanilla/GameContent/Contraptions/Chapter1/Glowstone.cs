@@ -61,10 +61,8 @@ namespace MVZ2.GameContent.Contraptions
         }
         public class GlowstoneAura : AuraEffectDefinition
         {
-            public GlowstoneAura()
+            public GlowstoneAura() : base(VanillaBuffID.Contraption.glowstoneProtected, 4)
             {
-                BuffID = VanillaBuffID.glowstoneProtected;
-                UpdateInterval = 4;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

@@ -18,7 +18,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.divineShield)]
+    [BuffDefinition(VanillaBuffNames.Entity.divineShield)]
     public class DivineShieldBuff : BuffDefinition
     {
         public DivineShieldBuff(string nsp, string name) : base(nsp, name)

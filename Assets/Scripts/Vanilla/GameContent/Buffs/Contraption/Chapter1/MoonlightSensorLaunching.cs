@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.moonlightSensorLaunching)]
+    [BuffDefinition(VanillaBuffNames.Contraption.moonlightSensorLaunching)]
     public class MoonlightSensorLaunchingBuff : BuffDefinition
     {
         public MoonlightSensorLaunchingBuff(string nsp, string name) : base(nsp, name)

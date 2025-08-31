@@ -36,10 +36,8 @@ namespace MVZ2.GameContent.Artifacts
 
         public class EvokedContraptionInvincibleAura : AuraEffectDefinition
         {
-            public EvokedContraptionInvincibleAura()
+            public EvokedContraptionInvincibleAura() : base(VanillaBuffID.Contraption.dreamKeyShield, 7)
             {
-                BuffID = VanillaBuffID.dreamKeyShield;
-                UpdateInterval = 7;
             }
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {

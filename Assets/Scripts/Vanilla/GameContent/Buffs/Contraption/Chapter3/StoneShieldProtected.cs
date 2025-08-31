@@ -6,7 +6,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.stoneShieldProtected)]
+    [BuffDefinition(VanillaBuffNames.Contraption.stoneShieldProtected)]
     public class StoneShieldProtected : BuffDefinition
     {
         public StoneShieldProtected(string nsp, string name) : base(nsp, name)

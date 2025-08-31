@@ -9,7 +9,7 @@ using Tools;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.stun)]
+    [BuffDefinition(VanillaBuffNames.Enemy.stun)]
     public class StunBuff : BuffDefinition
     {
         public StunBuff(string nsp, string name) : base(nsp, name)

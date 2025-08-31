@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.ghost)]
+    [BuffDefinition(VanillaBuffNames.Enemy.ghost)]
     public class GhostBuff : BuffDefinition
     {
         public GhostBuff(string nsp, string name) : base(nsp, name)

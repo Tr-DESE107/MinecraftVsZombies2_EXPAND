@@ -25,9 +25,8 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID ID = VanillaArtifactID.darkMatter;
         public class ProductionAura : AuraEffectDefinition
         {
-            public ProductionAura()
+            public ProductionAura() : base(VanillaBuffID.Contraption.darkMatterProduction)
             {
-                BuffID = VanillaBuffID.darkMatterProduction;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

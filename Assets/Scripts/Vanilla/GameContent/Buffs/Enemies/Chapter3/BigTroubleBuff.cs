@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.bigTrouble)]
+    [BuffDefinition(VanillaBuffNames.Enemy.bigTrouble)]
     public class BigTroubleBuff : BuffDefinition
     {
         public BigTroubleBuff(string nsp, string name) : base(nsp, name)

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.forcePadDrag)]
+    [BuffDefinition(VanillaBuffNames.Enemy.forcePadDrag)]
     public class ForcePadDragBuff : BuffDefinition
     {
         public ForcePadDragBuff(string nsp, string name) : base(nsp, name)

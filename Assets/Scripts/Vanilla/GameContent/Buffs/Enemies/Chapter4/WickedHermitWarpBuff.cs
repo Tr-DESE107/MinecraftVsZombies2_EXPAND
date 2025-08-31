@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.wickedHermitWarp)]
+    [BuffDefinition(VanillaBuffNames.Enemy.wickedHermitWarp)]
     public class WickedHermitWarpBuff : BuffDefinition
     {
         public WickedHermitWarpBuff(string nsp, string name) : base(nsp, name)

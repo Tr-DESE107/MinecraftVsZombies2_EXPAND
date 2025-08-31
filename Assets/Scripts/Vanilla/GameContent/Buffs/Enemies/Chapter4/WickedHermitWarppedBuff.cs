@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.wickedHermitWarpped)]
+    [BuffDefinition(VanillaBuffNames.Enemy.wickedHermitWarpped)]
     public class WickedHermitWarppedBuff : BuffDefinition
     {
         public WickedHermitWarppedBuff(string nsp, string name) : base(nsp, name)

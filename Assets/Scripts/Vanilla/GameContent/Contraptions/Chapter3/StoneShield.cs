@@ -52,9 +52,8 @@ namespace MVZ2.GameContent.Contraptions
         }
         public class ProtectExplosionAura : AuraEffectDefinition
         {
-            public ProtectExplosionAura()
+            public ProtectExplosionAura() : base(VanillaBuffID.Contraption.stoneShieldProtected)
             {
-                BuffID = VanillaBuffID.stoneShieldProtected;
             }
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {

@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [BuffDefinition(VanillaBuffNames.iZombieAttackBooster)]
+    [BuffDefinition(VanillaBuffNames.Enemy.iZombieAttackBooster)]
     public class IZombieAttackBoosterBuff : BuffDefinition
     {
         public IZombieAttackBoosterBuff(string nsp, string name) : base(nsp, name)

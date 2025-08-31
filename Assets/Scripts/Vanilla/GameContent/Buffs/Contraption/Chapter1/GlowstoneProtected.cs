@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.glowstoneProtected)]
+    [BuffDefinition(VanillaBuffNames.Contraption.glowstoneProtected)]
     public class GlowstoneProtected : BuffDefinition
     {
         public GlowstoneProtected(string nsp, string name) : base(nsp, name)

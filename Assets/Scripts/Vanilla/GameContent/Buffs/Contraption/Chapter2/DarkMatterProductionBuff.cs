@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.darkMatterProduction)]
+    [BuffDefinition(VanillaBuffNames.Contraption.darkMatterProduction)]
     public class DarkMatterProductionBuff : BuffDefinition
     {
         public DarkMatterProductionBuff(string nsp, string name) : base(nsp, name)

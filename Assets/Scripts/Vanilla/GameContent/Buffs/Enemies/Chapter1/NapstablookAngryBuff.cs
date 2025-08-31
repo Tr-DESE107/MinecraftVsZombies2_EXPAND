@@ -4,7 +4,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.napstablookAngry)]
+    [BuffDefinition(VanillaBuffNames.Enemy.napstablookAngry)]
     public class NapstablookAngryBuff : BuffDefinition
     {
         public NapstablookAngryBuff(string nsp, string name) : base(nsp, name)

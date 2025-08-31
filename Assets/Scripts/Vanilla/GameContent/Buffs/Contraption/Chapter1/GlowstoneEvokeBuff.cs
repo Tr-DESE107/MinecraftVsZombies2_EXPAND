@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.glowstoneEvoke)]
+    [BuffDefinition(VanillaBuffNames.Contraption.glowstoneEvoke)]
     public class GlowstoneEvokeBuff : BuffDefinition
     {
         public GlowstoneEvokeBuff(string nsp, string name) : base(nsp, name)

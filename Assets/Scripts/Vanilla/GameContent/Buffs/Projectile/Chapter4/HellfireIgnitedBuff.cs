@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Projectiles
 {
-    [BuffDefinition(VanillaBuffNames.hellfireIgnited)]
+    [BuffDefinition(VanillaBuffNames.Projectile.hellfireIgnited)]
     public class HellfireIgnitedBuff : BuffDefinition
     {
         public HellfireIgnitedBuff(string nsp, string name) : base(nsp, name)

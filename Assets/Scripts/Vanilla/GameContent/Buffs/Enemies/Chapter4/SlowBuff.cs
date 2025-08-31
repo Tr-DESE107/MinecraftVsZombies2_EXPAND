@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.slow)]
+    [BuffDefinition(VanillaBuffNames.Enemy.slow)]
     public class SlowBuff : BuffDefinition
     {
         public SlowBuff(string nsp, string name) : base(nsp, name)

@@ -6,7 +6,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.bottledBlackholeDamage)]
+    [BuffDefinition(VanillaBuffNames.Contraption.bottledBlackholeDamage)]
     public class BottledBlackholeDamageBuff : BuffDefinition
     {
         public BottledBlackholeDamageBuff(string nsp, string name) : base(nsp, name)

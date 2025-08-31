@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.paratroop)]
+    [BuffDefinition(VanillaBuffNames.Enemy.paratroop)]
     public class ParatroopBuff : BuffDefinition
     {
         public ParatroopBuff(string nsp, string name) : base(nsp, name)

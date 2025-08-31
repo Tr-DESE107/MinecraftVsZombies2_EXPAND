@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.heavyCannon)]
+    [BuffDefinition(VanillaBuffNames.Enemy.heavyCannon)]
     public class HeavyCannonBuff : BuffDefinition
     {
         public HeavyCannonBuff(string nsp, string name) : base(nsp, name)

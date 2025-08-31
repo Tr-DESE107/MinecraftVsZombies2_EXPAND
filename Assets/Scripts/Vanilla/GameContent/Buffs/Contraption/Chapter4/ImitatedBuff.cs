@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.imitated)]
+    [BuffDefinition(VanillaBuffNames.Contraption.imitated)]
     public class ImitatedBuff : BuffDefinition
     {
         public ImitatedBuff(string nsp, string name) : base(nsp, name)

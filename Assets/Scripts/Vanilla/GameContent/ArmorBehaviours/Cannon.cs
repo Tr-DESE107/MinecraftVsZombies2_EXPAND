@@ -69,7 +69,7 @@ namespace MVZ2.GameContent.Armors
 
         public class HeavyAura : AuraEffectDefinition
         {
-            public HeavyAura() : base(VanillaBuffID.heavyCannon, 4)
+            public HeavyAura() : base(VanillaBuffID.Enemy.heavyCannon, 4)
             {
             }
 

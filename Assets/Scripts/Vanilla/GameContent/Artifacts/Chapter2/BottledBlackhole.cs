@@ -25,9 +25,8 @@ namespace MVZ2.GameContent.Artifacts
         }
         public class DamageAura : AuraEffectDefinition
         {
-            public DamageAura()
+            public DamageAura() : base(VanillaBuffID.Contraption.bottledBlackholeDamage)
             {
-                BuffID = VanillaBuffID.bottledBlackholeDamage;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

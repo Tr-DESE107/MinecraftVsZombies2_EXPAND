@@ -66,10 +66,8 @@ namespace MVZ2.GameContent.Contraptions
 
         public class GravityAura : AuraEffectDefinition
         {
-            public GravityAura()
+            public GravityAura() : base(VanillaBuffID.Enemy.gravityPadGravity, 7)
             {
-                BuffID = VanillaBuffID.gravityPadGravity;
-                UpdateInterval = 7;
                 enemyDetector = new GravityPadDetector(true, AFFECT_HEIGHT);
             }
 

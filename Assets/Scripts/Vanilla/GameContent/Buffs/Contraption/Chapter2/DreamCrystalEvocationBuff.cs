@@ -10,7 +10,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.dreamCrystalEvocation)]
+    [BuffDefinition(VanillaBuffNames.Contraption.dreamCrystalEvocation)]
     public class DreamCrystalEvocationBuff : BuffDefinition
     {
         public DreamCrystalEvocationBuff(string nsp, string name) : base(nsp, name)

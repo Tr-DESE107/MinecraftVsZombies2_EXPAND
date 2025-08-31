@@ -6,7 +6,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.tntCharged)]
+    [BuffDefinition(VanillaBuffNames.Contraption.tntCharged)]
     public class TNTChargedBuff : BuffDefinition
     {
         public TNTChargedBuff(string nsp, string name) : base(nsp, name)

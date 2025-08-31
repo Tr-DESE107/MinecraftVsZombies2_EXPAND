@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.soulsandSummoned)]
+    [BuffDefinition(VanillaBuffNames.Enemy.soulsandSummoned)]
     public class SoulsandSummonedBuff : BuffDefinition
     {
         public SoulsandSummonedBuff(string nsp, string name) : base(nsp, name)

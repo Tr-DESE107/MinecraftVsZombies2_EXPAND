@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.hfpdUpgraded)]
+    [BuffDefinition(VanillaBuffNames.Contraption.hfpdUpgraded)]
     public class HFPDUpgradedBuff : BuffDefinition
     {
         public HFPDUpgradedBuff(string nsp, string name) : base(nsp, name)

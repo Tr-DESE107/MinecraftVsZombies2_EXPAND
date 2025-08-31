@@ -323,9 +323,8 @@ namespace MVZ2.GameContent.Contraptions
 
         public class DragAura : AuraEffectDefinition
         {
-            public DragAura()
+            public DragAura() : base(VanillaBuffID.Enemy.forcePadDrag)
             {
-                BuffID = VanillaBuffID.forcePadDrag;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

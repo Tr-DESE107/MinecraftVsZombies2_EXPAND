@@ -6,7 +6,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.mineTNTInvincible)]
+    [BuffDefinition(VanillaBuffNames.Contraption.mineTNTInvincible)]
     public class MagichestInvincibleBuff : BuffDefinition
     {
         public MagichestInvincibleBuff(string nsp, string name) : base(nsp, name)

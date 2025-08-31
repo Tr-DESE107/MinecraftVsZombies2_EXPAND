@@ -6,7 +6,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.spiderClimb)]
+    [BuffDefinition(VanillaBuffNames.Enemy.spiderClimb)]
     public class SpiderClimbBuff : BuffDefinition
     {
         public SpiderClimbBuff(string nsp, string name) : base(nsp, name)

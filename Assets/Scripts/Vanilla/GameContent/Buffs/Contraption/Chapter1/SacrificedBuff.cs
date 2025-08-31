@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.sacrificed)]
+    [BuffDefinition(VanillaBuffNames.Contraption.sacrificed)]
     public class SacrificedBuff : BuffDefinition
     {
         public SacrificedBuff(string nsp, string name) : base(nsp, name)

@@ -1064,7 +1064,7 @@ namespace MVZ2.Vanilla.Entities
 
         public static void InflictSlow(this Entity entity, int time, ILevelSourceReference source)
         {
-            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.slow);
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.slow);
             if (!PreApplyStatusEffect(entity, buffDefinition, source))
                 return;
             var buff = entity.GetFirstBuff(buffDefinition);
@@ -1079,7 +1079,7 @@ namespace MVZ2.Vanilla.Entities
 
         public static void Unfreeze(this Entity entity, ILevelSourceReference source)
         {
-            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.slow);
+            var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.slow);
             if (!PreRemoveStatusEffect(entity, buffDefinition, source))
                 return;
             entity.RemoveBuffs(buffDefinition);

@@ -6,7 +6,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.vortexHopperSpin)]
+    [BuffDefinition(VanillaBuffNames.Contraption.vortexHopperSpin)]
     public class VortexHopperSpinBuff : BuffDefinition
     {
         public VortexHopperSpinBuff(string nsp, string name) : base(nsp, name)

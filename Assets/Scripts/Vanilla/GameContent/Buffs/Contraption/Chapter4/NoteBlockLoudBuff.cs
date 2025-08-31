@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.noteBlockLoud)]
+    [BuffDefinition(VanillaBuffNames.Contraption.noteBlockLoud)]
     public class NoteBlockLoudBuff : BuffDefinition
     {
         public NoteBlockLoudBuff(string nsp, string name) : base(nsp, name)

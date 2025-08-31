@@ -17,7 +17,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.dreamSilk)]
+    [BuffDefinition(VanillaBuffNames.Contraption.dreamSilk)]
     public class DreamSilkBuff : BuffDefinition
     {
         public DreamSilkBuff(string nsp, string name) : base(nsp, name)

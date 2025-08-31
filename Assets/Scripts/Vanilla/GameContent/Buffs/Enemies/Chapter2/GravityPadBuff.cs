@@ -7,7 +7,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.gravityPadGravity)]
+    [BuffDefinition(VanillaBuffNames.Enemy.gravityPadGravity)]
     public class GravityPadGravityBuff : BuffDefinition
     {
         public GravityPadGravityBuff(string nsp, string name) : base(nsp, name)

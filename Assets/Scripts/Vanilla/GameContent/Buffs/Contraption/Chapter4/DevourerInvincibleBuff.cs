@@ -8,7 +8,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.devourerInvincible)]
+    [BuffDefinition(VanillaBuffNames.Contraption.devourerInvincible)]
     public class DevourerInvincibleBuff : BuffDefinition
     {
         public DevourerInvincibleBuff(string nsp, string name) : base(nsp, name)

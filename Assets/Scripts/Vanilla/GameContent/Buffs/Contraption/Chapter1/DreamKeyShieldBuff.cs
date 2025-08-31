@@ -8,7 +8,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.dreamKeyShield)]
+    [BuffDefinition(VanillaBuffNames.Contraption.dreamKeyShield)]
     public class DreamKeyShieldBuff : BuffDefinition
     {
         public DreamKeyShieldBuff(string nsp, string name) : base(nsp, name)

@@ -22,9 +22,8 @@ namespace MVZ2.GameContent.Artifacts
         }
         public class DamageAura : AuraEffectDefinition
         {
-            public DamageAura()
+            public DamageAura() : base(VanillaBuffID.Contraption.miracleMalletReplicaDamage)
             {
-                BuffID = VanillaBuffID.miracleMalletReplicaDamage;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

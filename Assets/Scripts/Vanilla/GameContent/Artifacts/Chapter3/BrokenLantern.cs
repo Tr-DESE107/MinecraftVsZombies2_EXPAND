@@ -40,10 +40,8 @@ namespace MVZ2.GameContent.Artifacts
         }
         public class Aura : AuraEffectDefinition
         {
-            public Aura()
+            public Aura() : base(VanillaBuffID.Contraption.brokenLantern, 4)
             {
-                BuffID = VanillaBuffID.brokenLantern;
-                UpdateInterval = 4;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

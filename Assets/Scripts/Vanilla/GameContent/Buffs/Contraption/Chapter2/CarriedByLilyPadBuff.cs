@@ -6,7 +6,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.carriedByLilyPad)]
+    [BuffDefinition(VanillaBuffNames.Contraption.carriedByLilyPad)]
     public class CarriedByLilyPadBuff : BuffDefinition
     {
         public CarriedByLilyPadBuff(string nsp, string name) : base(nsp, name)

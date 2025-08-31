@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Projectiles
 {
-    [BuffDefinition(VanillaBuffNames.ghastFireCharge)]
+    [BuffDefinition(VanillaBuffNames.Projectile.ghastFireCharge)]
     public class GhastFireChargeBuff : BuffDefinition
     {
         public GhastFireChargeBuff(string nsp, string name) : base(nsp, name)

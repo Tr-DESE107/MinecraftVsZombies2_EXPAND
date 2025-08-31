@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.boat)]
+    [BuffDefinition(VanillaBuffNames.Enemy.boat)]
     public class BoatBuff : BuffDefinition
     {
         public BoatBuff(string nsp, string name) : base(nsp, name)

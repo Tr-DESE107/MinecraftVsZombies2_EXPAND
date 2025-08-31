@@ -18,7 +18,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.lightningOrbEvoked)]
+    [BuffDefinition(VanillaBuffNames.Contraption.lightningOrbEvoked)]
     public class LightningOrbEvokedBuff : BuffDefinition
     {
         public LightningOrbEvokedBuff(string nsp, string name) : base(nsp, name)

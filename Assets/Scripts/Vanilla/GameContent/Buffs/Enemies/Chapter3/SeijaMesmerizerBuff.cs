@@ -5,7 +5,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.seijaMesmerizer)]
+    [BuffDefinition(VanillaBuffNames.Enemy.seijaMesmerizer)]
     public class SeijaMesmerizerBuff : BuffDefinition
     {
         public SeijaMesmerizerBuff(string nsp, string name) : base(nsp, name)

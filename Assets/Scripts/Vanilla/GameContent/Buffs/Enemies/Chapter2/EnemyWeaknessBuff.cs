@@ -9,7 +9,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.enemyWeakness)]
+    [BuffDefinition(VanillaBuffNames.Enemy.enemyWeakness)]
     public class EnemyWeaknessBuff : BuffDefinition
     {
         public EnemyWeaknessBuff(string nsp, string name) : base(nsp, name)

@@ -39,9 +39,8 @@ namespace MVZ2.GameContent.Artifacts
         }
         public class EyeOfTheGiantAura : AuraEffectDefinition
         {
-            public EyeOfTheGiantAura()
+            public EyeOfTheGiantAura() : base(VanillaBuffID.Contraption.eyeOfTheGiant)
             {
-                BuffID = VanillaBuffID.eyeOfTheGiant;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

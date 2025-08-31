@@ -9,7 +9,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.frankensteinShocked)]
+    [BuffDefinition(VanillaBuffNames.Contraption.frankensteinShocked)]
     public class FrankensteinShockedBuff : BuffDefinition
     {
         public FrankensteinShockedBuff(string nsp, string name) : base(nsp, name)

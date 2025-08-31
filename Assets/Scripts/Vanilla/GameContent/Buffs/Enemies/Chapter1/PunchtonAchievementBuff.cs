@@ -4,7 +4,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.punchtonAchievement)]
+    [BuffDefinition(VanillaBuffNames.Enemy.punchtonAchievement)]
     public class PunchtonAchievementBuff : BuffDefinition
     {
         public PunchtonAchievementBuff(string nsp, string name) : base(nsp, name)

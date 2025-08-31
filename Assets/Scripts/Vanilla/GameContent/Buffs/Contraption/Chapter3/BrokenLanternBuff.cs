@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.brokenLantern)]
+    [BuffDefinition(VanillaBuffNames.Contraption.brokenLantern)]
     public class BrokenLanternBuff : BuffDefinition
     {
         public BrokenLanternBuff(string nsp, string name) : base(nsp, name)

@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.motherTerrorLaid)]
+    [BuffDefinition(VanillaBuffNames.Enemy.motherTerrorLaid)]
     public class MotherTerrorLaidBuff : BuffDefinition
     {
         public MotherTerrorLaidBuff(string nsp, string name) : base(nsp, name)

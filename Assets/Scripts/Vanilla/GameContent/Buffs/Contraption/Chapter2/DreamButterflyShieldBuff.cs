@@ -9,7 +9,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.dreamButterflyShield)]
+    [BuffDefinition(VanillaBuffNames.Contraption.dreamButterflyShield)]
     public class DreamButterflyShieldBuff : BuffDefinition
     {
         public DreamButterflyShieldBuff(string nsp, string name) : base(nsp, name)

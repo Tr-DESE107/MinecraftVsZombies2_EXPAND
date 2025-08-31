@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.miracleMalletReplicaDamage)]
+    [BuffDefinition(VanillaBuffNames.Contraption.miracleMalletReplicaDamage)]
     public class MiracleMalletReplicaDamageBuff : BuffDefinition
     {
         public MiracleMalletReplicaDamageBuff(string nsp, string name) : base(nsp, name)

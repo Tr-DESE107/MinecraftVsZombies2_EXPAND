@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.tntIgnited)]
+    [BuffDefinition(VanillaBuffNames.Contraption.tntIgnited)]
     public class TNTIgnitedBuff : BuffDefinition
     {
         public TNTIgnitedBuff(string nsp, string name) : base(nsp, name)

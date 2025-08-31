@@ -6,7 +6,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.frankensteinTransformer)]
+    [BuffDefinition(VanillaBuffNames.Enemy.frankensteinTransformer)]
     public class FrankensteinTransformerBuff : BuffDefinition
     {
         public FrankensteinTransformerBuff(string nsp, string name) : base(nsp, name)

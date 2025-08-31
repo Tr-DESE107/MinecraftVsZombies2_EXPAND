@@ -5,7 +5,7 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
 
-namespace MVZ2.GameContent.Buffs.Contraptions
+namespace MVZ2.GameContent.Buffs.Enemies
 {
     [BuffDefinition(VanillaBuffNames.Enemy.waterStainSlide)]
     public class WaterStainSlideBuff : BuffDefinition

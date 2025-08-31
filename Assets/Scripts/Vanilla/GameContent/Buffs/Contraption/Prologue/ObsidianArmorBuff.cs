@@ -6,7 +6,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.obsidianArmor)]
+    [BuffDefinition(VanillaBuffNames.Contraption.obsidianArmor)]
     public class ObsidianArmorBuff : BuffDefinition
     {
         public ObsidianArmorBuff(string nsp, string name) : base(nsp, name)

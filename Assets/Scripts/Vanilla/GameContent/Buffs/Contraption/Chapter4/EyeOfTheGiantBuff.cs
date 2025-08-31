@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.eyeOfTheGiant)]
+    [BuffDefinition(VanillaBuffNames.Contraption.eyeOfTheGiant)]
     public class EyeOfTheGiantBuff : BuffDefinition
     {
         public EyeOfTheGiantBuff(string nsp, string name) : base(nsp, name)

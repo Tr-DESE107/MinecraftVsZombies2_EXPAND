@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.hellfireCursed)]
+    [BuffDefinition(VanillaBuffNames.Contraption.hellfireCursed)]
     public class HellfireCursedBuff : BuffDefinition
     {
         public HellfireCursedBuff(string nsp, string name) : base(nsp, name)

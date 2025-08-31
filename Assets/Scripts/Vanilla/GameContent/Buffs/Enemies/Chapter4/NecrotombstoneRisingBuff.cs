@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.necrotombstoneRising)]
+    [BuffDefinition(VanillaBuffNames.Enemy.necrotombstoneRising)]
     public class NecrotombstoneRisingBuff : BuffDefinition
     {
         public NecrotombstoneRisingBuff(string nsp, string name) : base(nsp, name)

@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [BuffDefinition(VanillaBuffNames.iZombieSkeletonWarrior)]
+    [BuffDefinition(VanillaBuffNames.Enemy.iZombieSkeletonWarrior)]
     public class IZombieSkeletonWarriorBuff : BuffDefinition
     {
         public IZombieSkeletonWarriorBuff(string nsp, string name) : base(nsp, name)

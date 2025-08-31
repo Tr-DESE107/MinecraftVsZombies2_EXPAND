@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.shikaisenRevive)]
+    [BuffDefinition(VanillaBuffNames.Enemy.shikaisenRevive)]
     public class ShikaisenReviveBuff : BuffDefinition
     {
         public ShikaisenReviveBuff(string nsp, string name) : base(nsp, name)

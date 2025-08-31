@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.nightmareComeTrue)]
+    [BuffDefinition(VanillaBuffNames.Enemy.nightmareComeTrue)]
     public class NightmareComeTrueBuff : BuffDefinition
     {
         public NightmareComeTrueBuff(string nsp, string name) : base(nsp, name)

@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.summonedByUFO)]
+    [BuffDefinition(VanillaBuffNames.Enemy.summonedByUFO)]
     public class SummonedByUFOBuff : BuffDefinition
     {
         public SummonedByUFOBuff(string nsp, string name) : base(nsp, name)

@@ -6,7 +6,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.carryingOther)]
+    [BuffDefinition(VanillaBuffNames.Contraption.carryingOther)]
     public class CarryingOtherBuff : BuffDefinition
     {
         public CarryingOtherBuff(string nsp, string name) : base(nsp, name)

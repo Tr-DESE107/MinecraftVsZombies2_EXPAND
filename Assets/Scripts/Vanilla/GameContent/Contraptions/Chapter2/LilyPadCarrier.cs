@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Contraptions
         public LilyPadCarrier(string nsp, string name) : base(nsp, name)
         {
         }
-        protected override NamespaceID GetCarrierBuffID() => VanillaBuffID.carryingOther;
-        protected override NamespaceID GetPassenagerBuffID() => VanillaBuffID.carriedByLilyPad;
+        protected override NamespaceID GetCarrierBuffID() => VanillaBuffID.Contraption.carryingOther;
+        protected override NamespaceID GetPassenagerBuffID() => VanillaBuffID.Contraption.carriedByLilyPad;
     }
 }

@@ -18,7 +18,7 @@
     <!-- Stages -->
     <buff id="tutorial_pickaxe_disable" polarity="negative" level="5" target="level" />
     <buff id="tutorial_trigger_disable" polarity="negative" level="5" target="level" />
-    <buff id="tutorial_disable" polarity="negative" level="5" target="blueprint" />
+    <buff id="tutorial_blueprint_disable" polarity="negative" level="5" target="blueprint" />
     <buff id="minigame_enemy_speed" polarity="positive" level="2" target="enemy" />
     <buff id="little_zombie" polarity="negative" level="0" target="enemy" />
     <buff id="big_trouble" polarity="positive" level="0" target="enemy" />

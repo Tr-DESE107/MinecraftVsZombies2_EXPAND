@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
-    [BuffDefinition(VanillaBuffNames.stolenByUFO)]
+    [BuffDefinition(VanillaBuffNames.Contraption.stolenByUFO)]
     public class StolenByUFOBuff : BuffDefinition
     {
         public StolenByUFOBuff(string nsp, string name) : base(nsp, name)

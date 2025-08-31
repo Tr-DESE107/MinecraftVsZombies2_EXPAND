@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.noteBlockCharged)]
+    [BuffDefinition(VanillaBuffNames.Contraption.noteBlockCharged)]
     public class NoteBlockChargedBuff : BuffDefinition
     {
         public NoteBlockChargedBuff(string nsp, string name) : base(nsp, name)
