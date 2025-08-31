@@ -100,7 +100,6 @@ namespace MVZ2.GameContent.Buffs
 
         public const string beingRiden = "being_riden";
         public const string ridingPassenger = "riding_passenger";
-        public const string passengerEnterHouse = "passenger_enter_house";
         // Obstacle
         public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
         public const string lightFadeout = "light_fadeout";
@@ -250,8 +249,6 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID eyeOfTheGiant = Get(VanillaBuffNames.eyeOfTheGiant);
         public static readonly NamespaceID bottledBlackholeDamage = Get(VanillaBuffNames.bottledBlackholeDamage);
         public static readonly NamespaceID heavyCannon = Get(VanillaBuffNames.heavyCannon);
-
-        public static readonly NamespaceID passengerEnterHouse = Get(VanillaBuffNames.passengerEnterHouse);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
