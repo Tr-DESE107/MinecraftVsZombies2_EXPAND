@@ -943,9 +943,6 @@
 		</talks>
 		<clear pickupModel="mvz2:entity.blueprint_pickup" blueprint="mvz2:DispenShield"/>
 		<spawns flags="2">
-			<spawn id="mvz2:WitherSkeleton"/>
-			<spawn id="mvz2:LeatherWitherSkeleton"/>
-			<spawn id="mvz2:IronWitherSkeleton"/>
 			<spawn id="mvz2:mesmerizer"/>
 			<spawn id="mvz2:berserker"/>
 			<spawn id="mvz2:NetherWarrior"/>
@@ -953,6 +950,7 @@
 			<spawn id="mvz2:NetherVanguard"/>
 			<spawn id="mvz2:RaiderSkull"/>
 			<spawn id="mvz2:Anubiskull"/>
+			<spawn id="mvz2:dullahan"/>
 			<spawn id="mvz2:WitherSkeletonHorse"/>
 			<spawn id="mvz2:AssaultDullahan"/>
 		</spawns>
@@ -1676,6 +1674,7 @@
 			<spawn id="mvz2:AngryReverser"/>
 			<spawn id="mvz2:shikaisen_zombie"/>
 			<spawn id="mvz2:wicked_hermit_zombie"/>
+			<spawn id="mvz2:WintherMage"/>
 
 		</spawns>
 		<properties>

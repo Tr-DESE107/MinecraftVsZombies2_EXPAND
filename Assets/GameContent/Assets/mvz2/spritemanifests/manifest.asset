@@ -231,6 +231,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a91f725ba10a5c545a6a951003948a10, type: 3}
   - name: mobile_blueprint/dispenser
     sprite: {fileID: 21300000, guid: ec64b1f344d5e534899c5676939afb2e, type: 3}
+  - name: mobile_blueprint/DispenShield
+    sprite: {fileID: 21300000, guid: 54f5475a618da3d4a9752053e92b7e1d, type: 3}
   - name: mobile_blueprint/dream_crystal
     sprite: {fileID: 21300000, guid: adecf731c88b78646a29bb745f5ada9b, type: 3}
   - name: mobile_blueprint/dream_silk
@@ -2434,6 +2436,13 @@ MonoBehaviour:
     - {fileID: -238351258, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
     - {fileID: 1356556440, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
     - {fileID: 1828943734, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+  - name: entity/enemy/WintherMage
+    spritesheet:
+    - {fileID: 1602134340, guid: 6cd4f38f05c55804dbfef3281bf43251, type: 3}
+    - {fileID: -1948636670, guid: 6cd4f38f05c55804dbfef3281bf43251, type: 3}
+    - {fileID: 46283492, guid: 6cd4f38f05c55804dbfef3281bf43251, type: 3}
+    - {fileID: -1395769867, guid: 6cd4f38f05c55804dbfef3281bf43251, type: 3}
+    - {fileID: -543750870, guid: 6cd4f38f05c55804dbfef3281bf43251, type: 3}
   - name: entity/enemy/WitherSkeletonHorse
     spritesheet:
     - {fileID: 626937010, guid: 7e8eb47bed3d1b741b1db0ad5acb7e8b, type: 3}

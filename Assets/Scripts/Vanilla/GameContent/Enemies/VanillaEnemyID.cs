@@ -61,6 +61,7 @@ namespace MVZ2.GameContent.Enemies
         public const string WitherSkeletonHorse = "WitherSkeletonHorse";
         public const string AssaultDullahan = "AssaultDullahan";
         public const string BerserkerHead = "BerserkerHead";
+        public const string WintherMage = "WintherMage";
 
         public const string reflectiveBarrierZombie = "reflective_barrier_zombie";
         public const string talismanZombie = "talisman_zombie";
@@ -153,6 +154,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID WitherSkeletonHorse = Get(VanillaEnemyNames.WitherSkeletonHorse);
         public static readonly NamespaceID AssaultDullahan = Get(VanillaEnemyNames.AssaultDullahan);
         public static readonly NamespaceID BerserkerHead = Get(VanillaEnemyNames.BerserkerHead);
+        public static readonly NamespaceID WintherMage = Get(VanillaEnemyNames.WintherMage);
 
         public static readonly NamespaceID MonkZombie = Get(VanillaEnemyNames.MonkZombie);
         public static readonly NamespaceID LeatherMonkZombie = Get(VanillaEnemyNames.LeatherMonkZombie);
