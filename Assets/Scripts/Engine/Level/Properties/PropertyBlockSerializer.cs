@@ -42,10 +42,7 @@ namespace PVZEngine.Level.BsonSerializers
                     {
                         modifiable = new SerializableModifiableProperties()
                         {
-                            properties = new SerializablePropertyDictionary()
-                            {
-                                properties = properties
-                            }
+                            properties = new SerializablePropertyDictionary(properties)
                         },
                     };
 
