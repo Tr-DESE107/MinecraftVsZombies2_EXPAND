@@ -68,6 +68,7 @@ namespace MVZ2.Editor
             "Scripts/Vanilla",
             "Scripts/Engine/Base",
             "Scripts/Engine/Level",
+            "Scripts/Tools",
         };
     }
 }

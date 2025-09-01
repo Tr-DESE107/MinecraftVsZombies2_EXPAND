@@ -541,7 +541,8 @@ namespace MVZ2.GameContent.Bosses
                 }
                 var maxEnemyCount = laneEnemyGroups.Max(g => g.Count());
                 var maxCountGroups = laneEnemyGroups.Where(g => g.Count() == maxEnemyCount);
-                var targetLaneGroup = maxCountGroups.Random(GetJumpRNG(boss));
+                var jumpRNG = GetJumpRNG(boss);
+                var targetLaneGroup = jumpRNG != null ? maxCountGroups.Random(jumpRNG) : maxCountGroups.First();
                 if (boss.IsFacingLeft())
                 {
                     var target = targetLaneGroup.OrderByDescending(e => e.GetColumn()).FirstOrDefault();
@@ -655,7 +656,8 @@ namespace MVZ2.GameContent.Bosses
                 if (targetsID.Count() <= 0)
                     return;
 
-                var contrapId = targetsID.Random(GetShockRNG(boss));
+                var rng = GetShockRNG(boss);
+                var contrapId = rng != null ? targetsID.Random(rng) : targetsID.FirstOrDefault();
 
                 bool soundPlayed = false;
                 //再次遍历可以电击的器械。
@@ -670,7 +672,7 @@ namespace MVZ2.GameContent.Bosses
                             ElectricArc.UpdateArc(e);
                         });
                     }
-                    else if (contraption.IsEntityOf(contrapId))
+                    else if (contrapId != null && contraption.IsEntityOf(contrapId))
                     {
                         contraption.ShortCircuit(150, new EntitySourceReference(boss));
                         if (!soundPlayed)

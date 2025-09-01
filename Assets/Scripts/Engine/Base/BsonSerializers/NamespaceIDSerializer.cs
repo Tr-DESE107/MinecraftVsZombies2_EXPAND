@@ -6,13 +6,13 @@ using Tools.BsonSerializers;
 
 namespace PVZEngine.BsonSerializers
 {
-    public class NamespaceIDSerializer : WrappedSerializerBase<NamespaceID?>
+    public class NamespaceIDSerializer : WrappedSerializerBase<NamespaceID>
     {
         public NamespaceIDSerializer(string defaultNsp)
         {
             this.defaultNsp = defaultNsp;
         }
-        protected override void SerializeValue(BsonSerializationContext context, BsonSerializationArgs args, NamespaceID? value)
+        protected override void SerializeValue(BsonSerializationContext context, BsonSerializationArgs args, NamespaceID value)
         {
             var writer = context.Writer;
             if (value == null)
@@ -25,7 +25,7 @@ namespace PVZEngine.BsonSerializers
             }
         }
 
-        protected override NamespaceID? DeserializeClassValue(BsonDeserializationContext context, BsonDeserializationArgs args)
+        protected override NamespaceID DeserializeClassValue(BsonDeserializationContext context, BsonDeserializationArgs args)
         {
             var reader = context.Reader;
 
@@ -37,7 +37,7 @@ namespace PVZEngine.BsonSerializers
                     {
                         return parsed;
                     }
-                    return null;
+                    return null!;
 
                 default:
                     throw CreateCannotDeserializeFromBsonTypeException(bsonType);

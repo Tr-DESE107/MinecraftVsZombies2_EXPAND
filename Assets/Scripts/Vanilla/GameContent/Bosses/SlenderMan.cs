@@ -273,7 +273,7 @@ namespace MVZ2.GameContent.Bosses
                     continue;
                 if (entityDef.Type != EntityTypes.PLANT)
                     continue;
-                var targetID = pool.Random(rng);
+                var targetID = rng == null ? VanillaContraptionID.lilyPad : pool.Random(rng);
                 Buff buff = blueprint.AddBuff<SlenderManMindSwapBuff>();
                 buff.SetProperty(SlenderManMindSwapBuff.PROP_TARGET_ID, targetID);
             }
@@ -290,7 +290,7 @@ namespace MVZ2.GameContent.Bosses
 
             int count = level.GetSlendermanFateChoiceCount();
             var rng = GetFateOptionRNG(entity);
-            var selected = fateOptions.RandomTake(count, rng).ToArray();
+            var selected = rng != null ? fateOptions.RandomTake(count, rng).ToArray() : fateOptions.Take(count).ToArray();
             var options = selected.Select(i => GetFateOptionText(i)).ToArray();
             level.ShowDialog(title, desc, options, (i) =>
             {
@@ -389,7 +389,8 @@ namespace MVZ2.GameContent.Bosses
 
             var level = boss.Level;
             var rng = GetEventRNG(boss);
-            var targets = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && !e.IsLoyal()).RandomTake(5, rng);
+            var possible = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsHostile(boss) && !e.IsLoyal());
+            var targets = rng != null ? possible.RandomTake(5, rng) : possible.Take(5);
             foreach (var target in targets)
             {
                 target.CharmPermanent(boss.GetFaction(), new EntitySourceReference(boss));
@@ -422,7 +423,8 @@ namespace MVZ2.GameContent.Bosses
             var level = boss.Level;
             level.ShakeScreen(50, 0, 30);
             var targets = level.FindEntities(e => e.Type == EntityTypes.PLANT && e.IsOnWater());
-            var randomTargets = targets.RandomTake(Mathf.CeilToInt(targets.Length * 0.5f), rng);
+            var count = Mathf.CeilToInt(targets.Length * 0.5f);
+            var randomTargets = rng != null ? targets.RandomTake(count, rng) : targets.Take(count);
             foreach (var target in randomTargets)
             {
                 target.Die(boss);
