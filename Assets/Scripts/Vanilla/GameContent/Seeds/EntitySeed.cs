@@ -40,9 +40,8 @@ namespace MVZ2.GameContent.Seeds
 
         public class UpgradeEndlessCostAura : AuraEffectDefinition
         {
-            public UpgradeEndlessCostAura()
+            public UpgradeEndlessCostAura() : base(VanillaBuffID.SeedPack.upgradeEndlessCost)
             {
-                BuffID = VanillaBuffID.SeedPack.upgradeEndlessCost;
             }
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {

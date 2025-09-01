@@ -54,8 +54,10 @@ namespace MVZ2.GameContent.Contraptions
             {
                 if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.artifactPickup) && e.GetPickupContentID() == VanillaArtifactID.brokenLantern))
                 {
-                    var lantern = level.Spawn(VanillaPickupID.artifactPickup, pos + Vector3.up * 100, entity);
-                    lantern.SetPickupContentID(VanillaArtifactID.brokenLantern);
+                    level.Spawn(VanillaPickupID.artifactPickup, pos + Vector3.up * 100, entity)?.Let(e =>
+                    {
+                        e.SetPickupContentID(VanillaArtifactID.brokenLantern);
+                    });
                 }
             }
             var anvil = entity.SpawnWithParams(VanillaContraptionID.anvil, pos);

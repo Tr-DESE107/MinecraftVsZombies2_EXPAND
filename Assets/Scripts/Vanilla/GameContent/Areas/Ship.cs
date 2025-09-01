@@ -71,8 +71,11 @@ namespace MVZ2.GameContent.Areas
                 for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
                 {
                     var grid = level.GetGrid(col, lane);
-                    valid.Add(grid);
-                    weights.Add(GetParatroopWeight(col));
+                    if (grid != null)
+                    {
+                        valid.Add(grid);
+                        weights.Add(GetParatroopWeight(col));
+                    }
                 }
             }
             count = Mathf.Clamp(count, 0, valid.Count);
@@ -88,12 +91,14 @@ namespace MVZ2.GameContent.Areas
             }
             level.PlaySound(VanillaSoundID.wind);
         }
-        public static Entity SpawnParatroopOnGrid(LevelEngine level, NamespaceID enemyID, LawnGrid grid)
+        public static Entity? SpawnParatroopOnGrid(LevelEngine level, NamespaceID enemyID, LawnGrid grid)
         {
             var position = grid.GetEntityPosition() + Vector3.up * 600;
-            var entity = level.Spawn(enemyID, position, null);
-            entity.EquipArmorTo(VanillaArmorSlots.shield, VanillaArmorID.umbrellaShield);
-            entity.AddBuff<ParatroopBuff>();
+            var entity = level.Spawn(enemyID, position, null)?.Let(e =>
+            {
+                e.EquipArmorTo(VanillaArmorSlots.shield, VanillaArmorID.umbrellaShield);
+                e.AddBuff<ParatroopBuff>();
+            });
             return entity;
         }
         private static int GetParatroopWeight(int column)

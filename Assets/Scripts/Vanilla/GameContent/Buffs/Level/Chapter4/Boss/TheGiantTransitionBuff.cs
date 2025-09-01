@@ -68,8 +68,10 @@ namespace MVZ2.GameContent.Buffs.Level
                 }
                 if (timeout == STATE_2_TIMEOUT)
                 {
-                    var giant = level.Spawn(VanillaBossID.theGiant, new Vector3(VanillaLevelExt.LEVEL_WIDTH, 0, level.GetLawnCenterZ()), null);
-                    TheGiant.SetAppear(giant);
+                    var giant = level.Spawn(VanillaBossID.theGiant, new Vector3(VanillaLevelExt.LEVEL_WIDTH, 0, level.GetLawnCenterZ()), null)?.Let(e =>
+                    {
+                        TheGiant.SetAppear(e);
+                    });
                     // 音乐。
                     level.PlayMusic(VanillaMusicID.mausoleumBoss);
                     level.SetMusicVolume(1);

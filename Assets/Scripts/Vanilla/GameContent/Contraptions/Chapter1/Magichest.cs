@@ -152,8 +152,10 @@ namespace MVZ2.GameContent.Contraptions
                                 entity.Level.Spawn(VanillaPickupID.starshard, entity.Position, entity);
                             }
                             entity.Remove();
-                            var effect = entity.Level.Spawn(VanillaEffectID.smokeCluster, entity.GetCenter(), entity);
-                            effect.SetTint(new Color(1, 0.8f, 1, 1));
+                            entity.Level.Spawn(VanillaEffectID.smokeCluster, entity.GetCenter(), entity)?.Let(e =>
+                            {
+                                e.SetTint(new Color(1, 0.8f, 1, 1));
+                            });
                         }
                         break;
                     }

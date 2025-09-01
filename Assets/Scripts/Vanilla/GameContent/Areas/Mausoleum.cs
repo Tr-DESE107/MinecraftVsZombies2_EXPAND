@@ -40,6 +40,8 @@ namespace MVZ2.GameContent.Areas
             if (count <= 0)
                 return;
             var statueDef = level.Content.GetEntityDefinition(VanillaObstacleID.monsterSpawner);
+            if (statueDef == null)
+                return;
             var layersToTake = statueDef.GetGridLayersToTake();
             var rng = GetRNG(level);
             if (rng == null)
@@ -51,14 +53,16 @@ namespace MVZ2.GameContent.Areas
             foreach (var grid in grids)
             {
                 var pos = grid.GetEntityPosition();
-                var spawner = level.Spawn(VanillaObstacleID.monsterSpawner, pos, null);
-                var entityToSpawn = GetEntityToSpawn(rng);
-                MonsterSpawner.SetEntityToSpawn(spawner, entityToSpawn);
+                level.Spawn(VanillaObstacleID.monsterSpawner, pos, null)?.Let(e =>
+                {
+                    var entityToSpawn = GetEntityToSpawn(rng);
+                    MonsterSpawner.SetEntityToSpawn(e, entityToSpawn);
 
-                var param = spawner.GetSpawnParams();
-                param.SetProperty(VanillaEntityProps.UPDATE_BEFORE_GAME, true);
-                var embers = spawner.Spawn(VanillaEffectID.spawnerAppearEmbers, spawner.GetCenter(), param);
-                spawner.PlaySound(VanillaSoundID.odd);
+                    var param = e.GetSpawnParams();
+                    param.SetProperty(VanillaEntityProps.UPDATE_BEFORE_GAME, true);
+                    e.Spawn(VanillaEffectID.spawnerAppearEmbers, e.GetCenter(), param);
+                    e.PlaySound(VanillaSoundID.odd);
+                });
             }
         }
         private NamespaceID GetEntityToSpawn(RandomGenerator rng)

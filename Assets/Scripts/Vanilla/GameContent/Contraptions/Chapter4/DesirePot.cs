@@ -99,7 +99,17 @@ namespace MVZ2.GameContent.Contraptions
                 var spawnParams = entity.GetSpawnParams();
                 spawnParams.SetProperty(VanillaPickupProps.CONTENT_ID, blueprintID);
                 spawnParams.SetProperty(BlueprintPickup.PROP_COMMAND_BLOCK, seed.IsCommandBlock());
-                var pickup = entity.Spawn(VanillaPickupID.blueprintPickup, entity.GetCenter(), spawnParams);
+                entity.Spawn(VanillaPickupID.blueprintPickup, entity.GetCenter(), spawnParams)?.Let(e =>
+                {
+                    float xSpeed = 0;
+                    if (selectedCount > 1)
+                    {
+                        xSpeed = minXSpeed + i / (float)(selectedCount - 1) * (maxXSpeed - minXSpeed);
+                    }
+                    var vel = new Vector3(xSpeed, 7, 0);
+                    e.Velocity = vel;
+                });
+
 
                 if (seed is ClassicSeedPack)
                 {
@@ -107,13 +117,6 @@ namespace MVZ2.GameContent.Contraptions
                     seed.ResetRecharge();
                 }
 
-                float xSpeed = 0;
-                if (selectedCount > 1)
-                {
-                    xSpeed = minXSpeed + i / (float)(selectedCount - 1) * (maxXSpeed - minXSpeed);
-                }
-                var vel = new Vector3(xSpeed, 7, 0);
-                pickup.Velocity = vel;
 
                 if (blueprintID == VanillaBlueprintID.FromEntity(VanillaContraptionID.desirePot))
                 {

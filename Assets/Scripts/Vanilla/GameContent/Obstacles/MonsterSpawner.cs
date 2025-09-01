@@ -89,7 +89,7 @@ namespace MVZ2.GameContent.Obstacles
                 var l = lane + offset.y;
                 var c = column + offset.x;
                 var grid = level.GetGrid(c, l);
-                if (TrySpawnEntityAt(spawner, id, grid, out var s))
+                if (grid != null && TrySpawnEntityAt(spawner, id, grid, out var s))
                 {
                     spawned = s;
                     return true;
@@ -101,7 +101,7 @@ namespace MVZ2.GameContent.Obstacles
         public static bool TrySpawnEntityAt(Entity spawner, NamespaceID id, LawnGrid grid, out Entity? spawned)
         {
             spawned = null;
-            if (grid == null || !grid.CanSpawnEntity(id))
+            if (!grid.CanSpawnEntity(id))
                 return false;
             var pos = grid.GetEntityPosition();
             spawned = spawner.SpawnWithParams(id, pos);

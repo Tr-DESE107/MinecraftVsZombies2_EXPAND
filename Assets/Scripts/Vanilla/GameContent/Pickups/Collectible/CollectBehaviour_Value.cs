@@ -27,7 +27,7 @@ namespace MVZ2.GameContent.Pickups
             pickup.Level.AddDelayedMoney(pickup, moneyValue);
             pickup.SetGravity(0);
             var pitch = pickup.PlayRandomPitchOnCollect() ? Random.Range(0.95f, 1.5f) : 1;
-            pickup.PlaySoundNullable(pickup.GetCollectSound(), pitch);
+            pickup.PlaySoundIfNotNull(pickup.GetCollectSound(), pitch);
             if (moneyValue > 0)
             {
                 pickup.Level.ShowMoney();

@@ -34,6 +34,8 @@ namespace MVZ2.GameContent.Pickups
             if (!pickup.IsBlueprintPickup())
                 return null;
             var seedID = GetBlueprintID(pickup);
+            if (seedID == null)
+                return null;
             var seedDef = pickup.Level.Content.GetSeedDefinition(seedID);
             if (seedDef == null)
                 return null;

@@ -129,11 +129,13 @@ namespace MVZ2.GameContent.Enemies
             var damageMultiplier = self.Level.GetGhastDamageMultiplier();
             param.damage = self.GetDamage() * damageMultiplier;
 
-            var bullet = self.ShootProjectile(param);
-            var buff = bullet.AddBuff<GhastFireChargeBuff>();
-            GhastFireChargeBuff.SetScaleMultiplier(buff, scale);
-            GhastFireChargeBuff.SetRangeMultiplier(buff, scale.x);
-            GhastFireChargeBuff.SetDamageMultiplier(buff, scale.x);
+            var bullet = self.ShootProjectile(param)?.Let(e =>
+            {
+                var buff = e.AddBuff<GhastFireChargeBuff>();
+                GhastFireChargeBuff.SetScaleMultiplier(buff, scale);
+                GhastFireChargeBuff.SetRangeMultiplier(buff, scale.x);
+                GhastFireChargeBuff.SetDamageMultiplier(buff, scale.x);
+            });
             self.PlaySound(VanillaSoundID.fireCharge, scale.x);
         }
         private Detector detector;

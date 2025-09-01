@@ -56,6 +56,8 @@ namespace MVZ2.GameContent.Stages
             {
                 board = SpawnBoard(level);
             }
+            if (board == null)
+                return;
             if (level.GetHeldItemType() == BuiltinHeldTypes.none)
             {
                 level.SetHeldItem(VanillaHeldTypes.breakoutBoard, board.ID, 100, true);
@@ -66,15 +68,16 @@ namespace MVZ2.GameContent.Stages
             base.OnPostEnemySpawned(entity);
             AddSpeedBuff(entity);
         }
-        private Entity SpawnBoard(LevelEngine level)
+        private Entity? SpawnBoard(LevelEngine level)
         {
             var x = level.GetEntityColumnX(1);
             var z = level.GetEntityLaneZ(2);
             var y = 32;
             var pos = new Vector3(x, y, z);
-            var board = level.Spawn(VanillaEffectID.breakoutBoard, pos, null);
-            BreakoutBoard.SpawnPearl(board);
-            return board;
+            return level.Spawn(VanillaEffectID.breakoutBoard, pos, null)?.Let(e =>
+            {
+                BreakoutBoard.SpawnPearl(e);
+            });
         }
         private void AddSpeedBuff(Entity entity)
         {

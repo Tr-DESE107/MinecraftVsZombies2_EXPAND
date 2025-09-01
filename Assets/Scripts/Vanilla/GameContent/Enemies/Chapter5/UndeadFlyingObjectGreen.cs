@@ -30,8 +30,12 @@ namespace MVZ2.GameContent.Enemies
             bool filled = false;
             foreach (var ent in level.FindEntities(e => CanStartSteal(faction, e)))
             {
-                results.Add(ent.GetGrid());
-                filled = true;
+                var grid = ent.GetGrid();
+                if (grid != null)
+                {
+                    results.Add(grid);
+                    filled = true;
+                }
             }
             if (!filled)
             {
@@ -86,17 +90,20 @@ namespace MVZ2.GameContent.Enemies
             if (timer.RunToExpiredAndNotNull())
             {
                 var grid = enemy.GetGrid();
-                var layers = grid.GetLayers();
-                var orderedLayers = VanillaGridLayers.ufoLayers;
-                foreach (var layer in orderedLayers)
+                if (grid != null)
                 {
-                    var entity = grid.GetLayerEntity(layer);
-                    if (!CanStartSteal(enemy, entity))
-                        continue;
-                    enemy.Target = entity;
-                    var buff = entity.AddBuff<StolenByUFOBuff>();
-                    buff.SetProperty(StolenByUFOBuff.PROP_UFO, new EntityID(enemy));
-                    break;
+                    var layers = grid.GetLayers();
+                    var orderedLayers = VanillaGridLayers.ufoLayers;
+                    foreach (var layer in orderedLayers)
+                    {
+                        var entity = grid.GetLayerEntity(layer);
+                        if (entity == null || !CanStartSteal(enemy, entity))
+                            continue;
+                        enemy.Target = entity;
+                        var buff = entity.AddBuff<StolenByUFOBuff>();
+                        buff.SetProperty(StolenByUFOBuff.PROP_UFO, new EntityID(enemy));
+                        break;
+                    }
                 }
                 if (!enemy.Target.ExistsAndAlive())
                 {

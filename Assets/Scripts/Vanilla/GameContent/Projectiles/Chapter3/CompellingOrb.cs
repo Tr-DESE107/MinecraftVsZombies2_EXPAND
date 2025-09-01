@@ -54,7 +54,7 @@ namespace MVZ2.GameContent.Projectiles
                 return;
             var target = hitResult.Other;
             var mesmerizer = projectile.Parent;
-            if (!CanControl(mesmerizer, target))
+            if (!mesmerizer.ExistsAndAlive() || !CanControl(mesmerizer, target))
             {
                 target.PlaySound(VanillaSoundID.mindClear);
                 return;

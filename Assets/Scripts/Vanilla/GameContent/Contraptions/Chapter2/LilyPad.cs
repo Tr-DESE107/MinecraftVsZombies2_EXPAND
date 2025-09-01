@@ -30,9 +30,11 @@ namespace MVZ2.GameContent.Contraptions
                     var grid = level.GetGrid(x, y);
                     if (grid == null || !grid.IsWater() || !grid.IsEmpty())
                         continue;
-                    var lily = level.Spawn(VanillaContraptionID.lilyPad, grid.GetEntityPosition(), entity);
-                    lily.AddBuff<LilyPadEvocationBuff>();
-                    lily.PlaySplashEffect();
+                    level.Spawn(VanillaContraptionID.lilyPad, grid.GetEntityPosition(), entity)?.Let(e =>
+                    {
+                        e.AddBuff<LilyPadEvocationBuff>();
+                        e.PlaySplashEffect();
+                    });
                 }
             }
             level.PlaySound(VanillaSoundID.water);

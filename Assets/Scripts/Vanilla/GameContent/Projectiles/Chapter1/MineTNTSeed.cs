@@ -33,12 +33,10 @@ namespace MVZ2.GameContent.Projectiles
                 var x = level.GetEntityColumnX(column);
                 var z = level.GetEntityLaneZ(lane);
                 var y = level.GetGroundY(x, z);
-                var mine = level.Spawn(VanillaContraptionID.mineTNT, new Vector3(x, y, z), entity);
-                var riseTimer = MineTNT.GetRiseTimer(mine);
-                if (riseTimer != null)
+                level.Spawn(VanillaContraptionID.mineTNT, new Vector3(x, y, z), entity)?.Let(e =>
                 {
-                    riseTimer.Frame = 31;
-                }
+                    MineTNT.GetRiseTimer(e)?.Let(timer => { timer.Frame = 31; });
+                });
             }
             entity.Remove();
         }

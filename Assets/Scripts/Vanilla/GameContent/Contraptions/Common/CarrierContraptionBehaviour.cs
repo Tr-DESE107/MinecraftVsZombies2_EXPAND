@@ -33,9 +33,8 @@ namespace MVZ2.GameContent.Contraptions
         protected abstract NamespaceID GetPassenagerBuffID();
         private class CarrierAura : AuraEffectDefinition
         {
-            public CarrierAura(NamespaceID buffID)
+            public CarrierAura(NamespaceID buffID) : base(buffID)
             {
-                BuffID = buffID;
             }
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
@@ -48,9 +47,8 @@ namespace MVZ2.GameContent.Contraptions
         }
         private class PassengerAura : AuraEffectDefinition
         {
-            public PassengerAura(NamespaceID buffID)
+            public PassengerAura(NamespaceID buffID) : base(buffID)
             {
-                BuffID = buffID;
             }
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {

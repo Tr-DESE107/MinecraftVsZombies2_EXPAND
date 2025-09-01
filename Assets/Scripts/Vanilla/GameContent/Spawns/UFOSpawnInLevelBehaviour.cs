@@ -95,10 +95,12 @@ namespace MVZ2.GameContent.Spawns
                     var y = rng.Next(UFOBackground.MIN_Y, UFOBackground.MAX_Y);
                     var pos = new Vector3(x, y, z);
                     var background = level.Spawn(VanillaEffectID.ufoBackground, pos, null);
-
-                    var velocity = UFOBackground.FLY_DIRECTION * rng.Next(UFOBackground.MIN_SPEED, UFOBackground.MAX_SPEED);
-                    background.Velocity = velocity;
-                    background.SetVariant(variant);
+                    if (background != null)
+                    {
+                        var velocity = UFOBackground.FLY_DIRECTION * rng.Next(UFOBackground.MIN_SPEED, UFOBackground.MAX_SPEED);
+                        background.Velocity = velocity;
+                        background.SetVariant(variant);
+                    }
                 }
                 var buff = level.AddBuff<UFOSpawnBuff>();
                 UFOSpawnBuff.SetVariant(buff, variant);
@@ -122,13 +124,15 @@ namespace MVZ2.GameContent.Spawns
                 var pos = grid.GetEntityPosition();
                 pos.y += UndeadFlyingObject.START_HEIGHT;
 
-                var ufo = level.Spawn(VanillaEnemyID.ufo, pos, null);
-                ufo.SetVariant(type);
-                UndeadFlyingObject.SetTargetGridX(ufo, column);
-                UndeadFlyingObject.SetTargetGridY(ufo, lane);
-                level.TriggerEnemySpawned(VanillaSpawnID.GetFromEntity(VanillaEnemyID.ufo), ufo);
-
+                level.Spawn(VanillaEnemyID.ufo, pos, null)?.Let(e =>
+                {
+                    e.SetVariant(type);
+                    UndeadFlyingObject.SetTargetGridX(e, column);
+                    UndeadFlyingObject.SetTargetGridY(e, lane);
+                    level.TriggerEnemySpawned(VanillaSpawnID.GetFromEntity(VanillaEnemyID.ufo), e);
+                });
                 totalPoints -= SpawnLevel;
+
                 buff.Remove();
             }
         }

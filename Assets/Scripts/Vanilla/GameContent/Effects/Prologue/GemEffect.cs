@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Effects
     [EntityBehaviourDefinition(VanillaEffectNames.gemEffect)]
     public class GemEffect : EffectBehaviour
     {
-        #region ���з���
+        #region 公有方法
         public GemEffect(string nsp, string name) : base(nsp, name)
         {
         }
@@ -81,31 +81,38 @@ namespace MVZ2.GameContent.Effects
             {
                 for (int i = 0; i < pair.Value; i++)
                 {
-                    var gem = SpawnGemEffect(level, pair.Key, position, spawner, mute, timeout);
-                    spawnedGems.Add(gem);
+                    SpawnGemEffect(level, pair.Key, position, spawner, mute, timeout)?.Let(e =>
+                    {
+                        spawnedGems.Add(e);
+                        var angle = startAngle + anglePerGem * currentIndex;
+                        e.Velocity = (Quaternion.Euler(0, 0, angle) * Vector3.up) * 10;
+                    });
 
-                    var angle = startAngle + anglePerGem * currentIndex;
-                    gem.Velocity = (Quaternion.Euler(0, 0, angle) * Vector3.up) * 10;
                     currentIndex++;
                 }
             }
-            // ��ʣ�µ�Ǯ����
+            // 把剩下的钱补上
             if (currentMoney > 0)
             {
                 level.AddMoney(currentMoney);
             }
             return spawnedGems.ToArray();
         }
-        public static Entity SpawnGemEffect(LevelEngine level, GemType type, Vector3 position, Entity? spawner, bool mute = false, int timeout = 0)
+        public static Entity? SpawnGemEffect(LevelEngine level, GemType type, Vector3 position, Entity? spawner, bool mute = false, int timeout = 0)
         {
-            var effect = level.Spawn(VanillaEffectID.gemEffect, position, spawner);
-            level.ShowMoney();
-            level.AddDelayedMoney(effect, gemMoneyDict[type]);
-            effect.ChangeModel(gemModelDict[type]);
-            effect.Timeout = timeout + MIN_TIMEOUT;
-            if (!mute)
+            var effect = level.Spawn(VanillaEffectID.gemEffect, position, spawner)?.Let(e =>
             {
-                effect.PlaySound(gemSoundDict[type]);
+                e.ChangeModel(gemModelDict[type]);
+                e.Timeout = timeout + MIN_TIMEOUT;
+                if (!mute)
+                {
+                    e.PlaySound(gemSoundDict[type]);
+                }
+            });
+            if (effect != null)
+            {
+                level.ShowMoney();
+                level.AddDelayedMoney(effect, gemMoneyDict[type]);
             }
             return effect;
         }

@@ -23,10 +23,8 @@ namespace MVZ2.GameContent.Artifacts
         }
         public class Aura : AuraEffectDefinition
         {
-            public Aura()
+            public Aura() : base(VanillaBuffID.Level.greedyVacuum, 15)
             {
-                BuffID = VanillaBuffID.Level.greedyVacuum;
-                UpdateInterval = 15;
             }
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {

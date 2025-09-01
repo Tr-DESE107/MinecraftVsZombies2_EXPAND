@@ -27,8 +27,10 @@ namespace MVZ2.GameContent.Effects
             base.Update(entity);
             if (entity.Timeout <= 0)
             {
-                var wither = entity.Spawn(VanillaBossID.wither, entity.Position);
-                Wither.Appear(wither);
+                var wither = entity.Spawn(VanillaBossID.wither, entity.Position)?.Let(e =>
+                {
+                    Wither.Appear(e);
+                });
             }
         }
         #endregion

@@ -30,7 +30,7 @@ namespace MVZ2.GameContent.Contraptions
                 foreach (var layer in orderedLayers)
                 {
                     var entity = grid.GetLayerEntity(layer);
-                    if (!CanSleep(entity))
+                    if (entity == null || !CanSleep(entity))
                         continue;
                     entity.AddBuff<DreamSilkBuff>();
                     break;

@@ -86,10 +86,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static DamageOutput TakeDamage(DamageInput input)
         {
-            var result = new DamageOutput()
-            {
-                Entity = input.Entity
-            };
+            var result = new DamageOutput(input.Entity);
             if (input == null)
                 return result;
             if (input.Entity.IsInvincible() || input.Entity.IsDead)
@@ -101,7 +98,7 @@ namespace MVZ2.Vanilla.Entities
                 var armor = input.Entity.GetMainArmor();
                 if (Armor.Exists(armor) && !input.Effects.HasEffect(VanillaDamageEffects.IGNORE_ARMOR))
                 {
-                    ArmoredTakeDamage(input, result);
+                    ArmoredTakeDamage(armor, input, result);
                 }
                 else
                 {
@@ -157,10 +154,9 @@ namespace MVZ2.Vanilla.Entities
             var param = new VanillaLevelCallbacks.PostTakeDamageParams(output);
             entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_ENTITY_TAKE_DAMAGE, param, entity.Type);
         }
-        private static void ArmoredTakeDamage(DamageInput info, DamageOutput result)
+        private static void ArmoredTakeDamage(Armor armor, DamageInput info, DamageOutput result)
         {
             var entity = info.Entity;
-            var armor = entity.GetMainArmor();
             var armorResult = armor.ArmorTakeDamage(info);
             result.ArmorResult = armorResult;
 
@@ -206,11 +202,7 @@ namespace MVZ2.Vanilla.Entities
 
             var entity = info.Entity;
             var shell = armor.GetShellDefinition();
-            var result = new ArmorDamageResult(info)
-            {
-                Armor = armor,
-                ShellDefinition = shell,
-            };
+            var result = new ArmorDamageResult(info, armor, shell);
 
             var damageState = armor.PreArmorTakeDamage(info, result);
             if (damageState == DamageStates.BREAK)
@@ -273,10 +265,7 @@ namespace MVZ2.Vanilla.Entities
             var entity = info.Entity;
             var shell = entity.GetShellDefinition();
 
-            var result = new BodyDamageResult(info)
-            {
-                ShellDefinition = shell,
-            };
+            var result = new BodyDamageResult(info, shell);
 
             var damageState = entity.PreBodyTakeDamage(info, result);
             if (damageState == DamageStates.BREAK)
@@ -327,7 +316,7 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.Level.IsIlluminated(entity);
         }
-        public static Entity GetIlluminationLightSource(this Entity entity)
+        public static Entity? GetIlluminationLightSource(this Entity entity)
         {
             var level = entity.Level;
             var entityID = level.GetIlluminationLightSourceID(entity);
@@ -337,7 +326,7 @@ namespace MVZ2.Vanilla.Entities
         {
             var level = entity.Level;
             var entitiesID = level.GetIlluminationLightSources(entity);
-            return entitiesID.Select(e => level.FindEntityByID(e)).ToArray();
+            return entitiesID.Select(e => level.FindEntityByID(e)).OfType<Entity>().ToArray();
         }
         #endregion
 
@@ -352,11 +341,14 @@ namespace MVZ2.Vanilla.Entities
             if (shineRing != null && shineRing.Exists())
                 return;
             shineRing = entity.Level.FindFirstEntity(e => e.IsEntityOf(VanillaEffectID.shineRing) && e.Parent == entity);
-            if (shineRing != null && shineRing.Exists())
-                return;
-            shineRing = entity.Level.Spawn(VanillaEffectID.shineRing, entity.Position, entity);
-            shineRing.SetParent(entity);
-            entity.SetProperty(PROP_SHINE_RING, new EntityID(shineRing));
+            if (shineRing == null || !shineRing.Exists())
+            {
+                shineRing = entity.Level.Spawn(VanillaEffectID.shineRing, entity.Position, entity)?.Let(e =>
+                {
+                    e.SetParent(entity);
+                    entity.SetProperty(PROP_SHINE_RING, new EntityID(e));
+                });
+            }
         }
         #endregion
 
@@ -386,7 +378,7 @@ namespace MVZ2.Vanilla.Entities
         {
             entity.Level.PlaySound(soundID, entity.Position, pitch, volume);
         }
-        public static void PlaySoundNullable(this Entity entity, NamespaceID? soundID, float pitch = 1, float volume = 1)
+        public static void PlaySoundIfNotNull(this Entity entity, NamespaceID? soundID, float pitch = 1, float volume = 1)
         {
             if (soundID == null)
                 return;
@@ -411,7 +403,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 var shell = bodyResult.ShellDefinition;
                 NamespaceID? hitSound = null;
-                if (shell.GetSpecialShellHitSound(bodyResult, false) is NamespaceID specialSound && NamespaceID.IsValid(specialSound))
+                if (shell != null && shell.GetSpecialShellHitSound(bodyResult, false) is NamespaceID specialSound && NamespaceID.IsValid(specialSound))
                 {
                     hitSound = specialSound;
                 }
@@ -489,9 +481,11 @@ namespace MVZ2.Vanilla.Entities
         }
         public static void EmitBlood(this Entity entity)
         {
-            var blood = entity.Level.Spawn(VanillaEffectID.bloodParticles, entity.GetCenter(), entity);
-            var bloodColor = entity.GetBloodColor();
-            blood.SetTint(bloodColor);
+            entity.Level.Spawn(VanillaEffectID.bloodParticles, entity.GetCenter(), entity)?.Let(e =>
+            {
+                var bloodColor = entity.GetBloodColor();
+                e.SetTint(bloodColor);
+            });
         }
         #endregion
 
@@ -687,7 +681,7 @@ namespace MVZ2.Vanilla.Entities
         #region 治疗
         public static HealOutput? HealEffects(this Entity entity, float amount, Entity? source)
         {
-            return entity.HealEffects(amount, new EntitySourceReference(source));
+            return entity.HealEffects(amount, source == null ? new NullSourceReference() : new EntitySourceReference(source));
         }
         public static HealOutput? HealEffects(this Entity entity, float amount, ILevelSourceReference source)
         {
@@ -702,7 +696,7 @@ namespace MVZ2.Vanilla.Entities
         }
         public static HealOutput? Heal(this Entity entity, float amount, Entity? source)
         {
-            return entity.Heal(amount, new EntitySourceReference(source));
+            return entity.Heal(amount, source == null ? new NullSourceReference() : new EntitySourceReference(source));
         }
         public static HealOutput? Heal(this Entity entity, float amount, ILevelSourceReference source)
         {
@@ -717,9 +711,9 @@ namespace MVZ2.Vanilla.Entities
             if (info.Amount <= 0)
                 return null;
             HealOutput result;
-            if (info.ToArmor)
+            if (info.ToArmor && info.Armor != null)
             {
-                result = ArmorHeal(info);
+                result = ArmorHeal(info.Armor, info);
             }
             else
             {
@@ -752,9 +746,8 @@ namespace MVZ2.Vanilla.Entities
             };
             entity.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENTITY_HEAL, param);
         }
-        private static HealOutput ArmorHeal(HealInput info)
+        private static HealOutput ArmorHeal(Armor armor, HealInput info)
         {
-            var armor = info.Armor;
             // Apply Healing.
             float hpBefore = armor.Health;
             var maxHealth = armor.GetMaxHealth();
@@ -763,15 +756,13 @@ namespace MVZ2.Vanilla.Entities
                 armor.Health = Mathf.Min(armor.Health + info.Amount, maxHealth);
             }
 
-            return new HealOutput()
+            return new HealOutput(armor.Owner, info.Source)
             {
                 OriginalAmount = info.OriginalAmount,
                 Amount = info.Amount,
                 RealAmount = armor.Health - hpBefore,
-                Entity = armor.Owner,
                 Armor = armor,
                 ToArmor = true,
-                Source = info.Source,
             };
         }
         private static HealOutput BodyHeal(HealInput info)
@@ -786,13 +777,11 @@ namespace MVZ2.Vanilla.Entities
                 entity.Health = Mathf.Min(entity.Health + info.Amount, maxHealth);
             }
 
-            return new HealOutput()
+            return new HealOutput(entity, info.Source)
             {
                 OriginalAmount = info.OriginalAmount,
                 Amount = info.Amount,
                 RealAmount = entity.Health - hpBefore,
-                Entity = entity,
-                Source = info.Source,
             };
         }
         #endregion
@@ -859,9 +848,11 @@ namespace MVZ2.Vanilla.Entities
             var level = entity.Level;
             var pos = entity.Position;
             pos.y = entity.GetGroundY();
-            var splash = level.Spawn(VanillaEffectID.splashParticles, pos, entity);
-            splash.SetTint(color);
-            splash.SetDisplayScale(scale);
+            level.Spawn(VanillaEffectID.splashParticles, pos, entity)?.Let(e =>
+            {
+                e.SetTint(color);
+                e.SetDisplayScale(scale);
+            });
         }
 
         public static void PlayAirSplashSound(this Entity entity)
@@ -887,7 +878,7 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 护甲
-        public static Armor GetMainArmor(this Entity entity)
+        public static Armor? GetMainArmor(this Entity entity)
         {
             return entity.GetArmorAtSlot(VanillaArmorSlots.main);
         }
@@ -915,7 +906,7 @@ namespace MVZ2.Vanilla.Entities
             }
             return false;
         }
-        public static LawnGrid GetChaseTargetGrid(this Entity entity, Entity? target, Func<Entity, Vector2Int, bool> gridValidator)
+        public static LawnGrid? GetChaseTargetGrid(this Entity entity, Entity? target, Func<Entity, Vector2Int, bool> gridValidator)
         {
             var level = entity.Level;
             var lane = entity.GetLane();
@@ -945,11 +936,11 @@ namespace MVZ2.Vanilla.Entities
             }
             return level.GetGrid(currentGrid + newTargetGridOffset) ?? entity.GetGrid();
         }
-        public static LawnGrid GetChaseTargetGrid(this Entity entity, Entity? target)
+        public static LawnGrid? GetChaseTargetGrid(this Entity entity, Entity? target)
         {
             return GetChaseTargetGrid(entity, target, (e, p) => e.Level.ValidateGridOutOfBounds(p));
         }
-        public static LawnGrid GetEvadeTargetGrid(this Entity entity, Entity target, Func<Entity, Vector2Int, bool> gridValidator)
+        public static LawnGrid? GetEvadeTargetGrid(this Entity entity, Entity target, Func<Entity, Vector2Int, bool> gridValidator)
         {
             var level = entity.Level;
             var lane = entity.GetLane();
@@ -979,7 +970,7 @@ namespace MVZ2.Vanilla.Entities
             }
             return level.GetGrid(currentGrid + newTargetGridOffset) ?? entity.GetGrid();
         }
-        public static LawnGrid GetEvadeTargetGrid(this Entity entity, Entity target)
+        public static LawnGrid? GetEvadeTargetGrid(this Entity entity, Entity target)
         {
             return GetEvadeTargetGrid(entity, target, (e, p) => e.Level.ValidateGridOutOfBounds(p));
         }
@@ -1029,7 +1020,7 @@ namespace MVZ2.Vanilla.Entities
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.withered);
             if (!PreApplyStatusEffect(entity, buffDefinition, source))
                 return;
-            Buff buff = entity.GetFirstBuff(buffDefinition);
+            Buff? buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
             {
                 buff = entity.AddBuff(buffDefinition);
@@ -1043,7 +1034,7 @@ namespace MVZ2.Vanilla.Entities
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.enemyWeakness);
             if (!PreApplyStatusEffect(entity, buffDefinition, source))
                 return;
-            Buff buff = entity.GetFirstBuff(buffDefinition);
+            Buff? buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
             {
                 buff = entity.AddBuff(buffDefinition);
@@ -1145,7 +1136,7 @@ namespace MVZ2.Vanilla.Entities
             param.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
             return param;
         }
-        public static Entity SpawnWithParams(this Entity entity, NamespaceID id, Vector3 pos)
+        public static Entity? SpawnWithParams(this Entity entity, NamespaceID id, Vector3 pos)
         {
             var param = entity.GetSpawnParams();
             return entity.Spawn(id, pos, param);

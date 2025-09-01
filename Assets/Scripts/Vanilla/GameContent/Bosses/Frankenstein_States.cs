@@ -200,10 +200,12 @@ namespace MVZ2.GameContent.Bosses
             {
                 var level = boss.Level;
                 Vector3 headPos = boss.Position + headOffset;
-                var headEffect = level.Spawn(VanillaEffectID.frankensteinHead, headPos, boss);
-                headEffect.Velocity += new Vector3(boss.GetFacingX() * 5, 1, 0);
-                headEffect.SetDisplayScale(new Vector3(-boss.GetFacingX(), 1, 1));
-                FrankensteinHead.SetSteelPhase(headEffect, IsSteelPhase(boss));
+                var headEffect = level.Spawn(VanillaEffectID.frankensteinHead, headPos, boss)?.Let(e =>
+                {
+                    e.Velocity += new Vector3(boss.GetFacingX() * 5, 1, 0);
+                    e.SetDisplayScale(new Vector3(-boss.GetFacingX(), 1, 1));
+                    FrankensteinHead.SetSteelPhase(e, IsSteelPhase(boss));
+                });
 
                 level.ShakeScreen(5, 0, 15);
                 boss.PlaySound(VanillaSoundID.explosion);
@@ -515,7 +517,7 @@ namespace MVZ2.GameContent.Bosses
                 }
             }
 
-            private LawnGrid SearchJumpPlace(Entity boss)
+            private LawnGrid? SearchJumpPlace(Entity boss)
             {
                 var level = boss.Level;
                 int maxColumn = level.GetMaxColumnCount();
@@ -662,9 +664,11 @@ namespace MVZ2.GameContent.Bosses
                     if (contraption.IsEntityOf(VanillaContraptionID.tnt))
                     {
                         TNT.Charge(contraption);
-                        var arc = level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss);
-                        ElectricArc.Connect(arc, contraption.Position);
-                        ElectricArc.UpdateArc(arc);
+                        level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss)?.Let(e =>
+                        {
+                            ElectricArc.Connect(e, contraption.Position);
+                            ElectricArc.UpdateArc(e);
+                        });
                     }
                     else if (contraption.IsEntityOf(contrapId))
                     {
@@ -674,9 +678,11 @@ namespace MVZ2.GameContent.Bosses
                             contraption.PlaySound(VanillaSoundID.powerOff);
                             soundPlayed = true;
                         }
-                        var arc = level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss);
-                        ElectricArc.Connect(arc, contraption.Position);
-                        ElectricArc.UpdateArc(arc);
+                        level.Spawn(VanillaEffectID.electricArc, boss.Position + outerArmRootOffset + Vector3.left * 100, boss)?.Let(e =>
+                        {
+                            ElectricArc.Connect(e, contraption.Position);
+                            ElectricArc.UpdateArc(e);
+                        });
                     }
                 }
                 boss.PlaySound(VanillaSoundID.teslaAttack);

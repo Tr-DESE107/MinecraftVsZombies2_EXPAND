@@ -155,7 +155,8 @@ namespace MVZ2.GameContent.Contraptions
                 devourer.Target = target;
             }
             var grid = devourer.GetChaseTargetGrid(devourer.Target);
-            SetTargetGridIndex(devourer, grid.GetIndex());
+            if (grid != null)
+                SetTargetGridIndex(devourer, grid.GetIndex());
         }
         private void StartPacmanGhost(Entity devourer)
         {
@@ -238,7 +239,7 @@ namespace MVZ2.GameContent.Contraptions
             foreach (var layer in orderedLayers)
             {
                 var entity = grid.GetLayerEntity(layer);
-                if (entity == devourer)
+                if (entity == devourer || entity == null)
                     continue;
                 if (!CanMill(entity))
                     continue;

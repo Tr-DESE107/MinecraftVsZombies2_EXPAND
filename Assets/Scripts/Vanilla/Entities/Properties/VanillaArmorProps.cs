@@ -18,12 +18,12 @@ namespace MVZ2.Vanilla.Entities
             return armor.GetProperty<bool>(NO_DISCARD);
         }
         public static readonly PropertyMeta<NamespaceID> HIT_SOUND = Get<NamespaceID>("hitSound");
-        public static NamespaceID GetHitSound(this Armor armor)
+        public static NamespaceID? GetHitSound(this Armor armor)
         {
             return armor.GetProperty<NamespaceID>(HIT_SOUND);
         }
         public static readonly PropertyMeta<NamespaceID> DEATH_SOUND = Get<NamespaceID>("deathSound");
-        public static NamespaceID GetDeathSound(this Armor armor)
+        public static NamespaceID? GetDeathSound(this Armor armor)
         {
             return armor.GetProperty<NamespaceID>(DEATH_SOUND);
         }

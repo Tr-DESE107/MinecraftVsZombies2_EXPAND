@@ -86,10 +86,10 @@ namespace MVZ2.GameContent.HeldItems
 
                         var main = protectedLayers
                             .Select(t => grid.GetLayerEntity(t))
-                            .FirstOrDefault(t => CanUseOnEntity(t));
+                            .FirstOrDefault(t => t != null && CanUseOnEntity(t));
 
                         var canUseOnProtector = protector != null && CanUseOnEntity(protector);
-                        var canUseOnMain = CanUseOnEntity(main);
+                        var canUseOnMain = main != null && CanUseOnEntity(main);
 
                         // 保护层器械和内部都可以用。
                         if (canUseOnProtector && canUseOnMain)
@@ -210,10 +210,10 @@ namespace MVZ2.GameContent.HeldItems
 
             var main = protectedLayers
                 .Select(t => grid.GetLayerEntity(t))
-                .FirstOrDefault(t => CanUseOnEntity(t));
+                .FirstOrDefault(t => t != null && CanUseOnEntity(t));
 
             var canUseOnProtector = protector != null && CanUseOnEntity(protector);
-            var canUseOnMain = CanUseOnEntity(main);
+            var canUseOnMain = main != null && CanUseOnEntity(main);
 
             Entity? entity = null;
             if (canUseOnProtector && canUseOnMain)

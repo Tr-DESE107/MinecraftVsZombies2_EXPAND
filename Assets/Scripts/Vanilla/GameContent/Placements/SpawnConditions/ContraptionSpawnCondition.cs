@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Placements
         public override NamespaceID? GetSpawnError(PlacementDefinition placement, LawnGrid grid, EntityDefinition entity)
         {
             var layersToTake = entity.GetGridLayersToTake();
-            var conflictEntities = layersToTake.Select(l => grid.GetLayerEntity(l)).Where(e => e != null);
+            var conflictEntities = layersToTake.Select(l => grid.GetLayerEntity(l)).OfType<Entity>();
             if (conflictEntities.Count() > 0)
             {
                 foreach (var ent in conflictEntities)

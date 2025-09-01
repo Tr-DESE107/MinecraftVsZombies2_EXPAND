@@ -67,6 +67,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
         private void GetShellAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
         {
             var shell = entityDef.GetShellID();
+            if (shell == null)
+                return;
             tags.Add(new AlmanacEntryTagInfo(VanillaAlmanacTagID.shell, shell.ToString()));
         }
         private void GetEnemyShellAttributeTags(EntityDefinition entityDef, List<AlmanacEntryTagInfo> tags)
@@ -161,7 +163,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
 
             // 放置类。
             var placement = def.GetPlacementID();
-            var placementDef = game.GetPlacementDefinition(placement);
+            var placementDef = placement != null ? game.GetPlacementDefinition(placement) : null;
             if (placementDef != null)
             {
                 var almanacTag = placementDef.GetAlmanacTag();

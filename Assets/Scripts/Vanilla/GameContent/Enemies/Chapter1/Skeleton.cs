@@ -66,7 +66,7 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateStateAttack(Entity enemy)
         {
             base.UpdateStateAttack(enemy);
-            RangedAttack(enemy, enemy.Target);
+            RangedAttack(enemy);
         }
         protected virtual bool CanShoot(Entity enemy)
         {
@@ -81,7 +81,7 @@ namespace MVZ2.GameContent.Enemies
         {
             return detector.ValidateTarget(entity, target);
         }
-        protected virtual void RangedAttack(Entity entity, Entity target)
+        protected virtual void RangedAttack(Entity entity)
         {
             bool bowFired = GetBowFired(entity);
             var bowPower = GetBowPower(entity);

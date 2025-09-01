@@ -120,8 +120,10 @@ namespace MVZ2.GameContent.Bosses
             base.PostDeath(entity, deathInfo);
             entity.PlaySound(VanillaSoundID.slendermanDeath);
 
-            var darkMatter = entity.Spawn(VanillaEffectID.darkMatterParticles, entity.GetCenter());
-            darkMatter.SetParent(entity);
+            entity.Spawn(VanillaEffectID.darkMatterParticles, entity.GetCenter())?.Let(e =>
+            {
+                e.SetParent(entity);
+            });
 
             entity.SetAnimationBool("IsDead", true);
             entity.Timeout = 180;
@@ -228,11 +230,12 @@ namespace MVZ2.GameContent.Bosses
                 entity.PlaySound(VanillaSoundID.nightmarePortal);
             }
         }
-        private Entity SpawnPortal(Entity boss, Vector3 position, NamespaceID enemyID)
+        private Entity? SpawnPortal(Entity boss, Vector3 position, NamespaceID enemyID)
         {
-            var portal = boss.SpawnWithParams(VanillaEffectID.nightmarePortal, position);
-            NightmarePortal.SetEnemyID(portal, enemyID);
-            return portal;
+            return boss.SpawnWithParams(VanillaEffectID.nightmarePortal, position)?.Let(e =>
+            {
+                NightmarePortal.SetEnemyID(e, enemyID);
+            });
         }
         private NamespaceID GetRandomPortalEnemyID(RandomGenerator rng)
         {
@@ -257,7 +260,9 @@ namespace MVZ2.GameContent.Bosses
             for (int i = 0; i < level.GetConveyorSeedPackCount(); i++)
             {
                 var blueprint = level.GetConveyorSeedPackAt(i);
-                var blueprintDef = blueprint?.Definition;
+                if (blueprint == null)
+                    continue;
+                var blueprintDef = blueprint.Definition;
                 if (blueprintDef == null)
                     continue;
                 if (blueprintDef.GetSeedType() != SeedTypes.ENTITY)
@@ -341,6 +346,8 @@ namespace MVZ2.GameContent.Bosses
             foreach (var contraption in contraptions)
             {
                 var placementID = contraption.Definition.GetPlacementID();
+                if (placementID == null)
+                    continue;
                 var placementDef = level.Content.GetPlacementDefinition(placementID);
                 if (placementDef == null)
                     continue;
@@ -398,8 +405,10 @@ namespace MVZ2.GameContent.Bosses
             var targets = level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.IsFriendly(boss) && !e.IsEntityOf(VanillaEnemyID.ghast));
             foreach (var enemy in targets)
             {
-                var ghast = boss.SpawnWithParams(VanillaEnemyID.ghast, enemy.Position);
-                ghast.AddBuff<NightmareComeTrueBuff>();
+                boss.SpawnWithParams(VanillaEnemyID.ghast, enemy.Position)?.Let(e =>
+                {
+                    e.AddBuff<NightmareComeTrueBuff>();
+                });
                 enemy.Remove();
             }
         }

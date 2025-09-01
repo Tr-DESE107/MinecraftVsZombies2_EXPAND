@@ -47,9 +47,11 @@ namespace MVZ2.GameContent.Buffs.Enemies
             entity.Level.FindEntitiesNonAlloc(e => e.IsEntityOf(VanillaContraptionID.desirePot), desirePotBuffer);
             foreach (var pot in desirePotBuffer)
             {
-                var lump = pot.Spawn(VanillaEffectID.desireLump, entity.GetCenter());
-                lump.SetParent(pot);
-                pot.PlaySound(VanillaSoundID.shadowCast);
+                pot.Spawn(VanillaEffectID.desireLump, entity.GetCenter())?.Let(e =>
+                {
+                    e.SetParent(pot);
+                    pot.PlaySound(VanillaSoundID.shadowCast);
+                });
             }
         }
         private void UpdateColorOffset(Buff buff)

@@ -52,7 +52,8 @@ namespace MVZ2.GameContent.Stages
             if (!level.HasNoCarts() && level.CurrentFlag <= 0)
             {
                 var cartRef = level.GetCartReference();
-                level.SpawnCarts(cartRef, VanillaLevelExt.CART_START_X, 20);
+                if (cartRef != null)
+                    level.SpawnCarts(cartRef, VanillaLevelExt.CART_START_X, 20);
             }
         }
         public override void Start(LevelEngine level)
@@ -152,7 +153,7 @@ namespace MVZ2.GameContent.Stages
         private void NextWave(LevelEngine level)
         {
             var waveTimer = GetWaveTimer(level);
-            waveTimer.ResetSeconds(level.GetWaveMaxTime());
+            waveTimer?.ResetSeconds(level.GetWaveMaxTime());
             SetWaveMaxHealth(level, 0);
             level.NextWave();
             if (level.IsFinalWave(level.CurrentWave))

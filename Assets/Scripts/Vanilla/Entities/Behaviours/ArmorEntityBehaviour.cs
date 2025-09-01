@@ -48,17 +48,19 @@ namespace MVZ2.Vanilla.Entities
 
                 var spawnParam = entity.GetSpawnParams();
                 spawnParam.SetProperty(EngineEntityProps.DISPLAY_SCALE, displayScale);
-                var effect = entity.Spawn(VanillaEffectID.brokenArmor, position, spawnParam);
-
-                var sourcePosition = result?.Source?.GetEntity(entity.Level)?.Position;
-                var moveDirection = entity.GetFacingDirection();
-                if (sourcePosition.HasValue)
+                entity.Spawn(VanillaEffectID.brokenArmor, position, spawnParam)?.Let(e =>
                 {
-                    moveDirection = (entity.Position - sourcePosition.Value).normalized;
-                }
-                effect.Velocity = moveDirection * 10;
+                    var sourcePosition = result?.Source?.GetEntity(entity.Level)?.Position;
+                    var moveDirection = entity.GetFacingDirection();
+                    if (sourcePosition.HasValue)
+                    {
+                        moveDirection = (entity.Position - sourcePosition.Value).normalized;
+                    }
+                    e.Velocity = moveDirection * 10;
 
-                effect.ChangeModel(armor.Definition.GetModelID());
+                    e.ChangeModel(armor.Definition.GetModelID());
+                });
+
             }
         }
         #endregion

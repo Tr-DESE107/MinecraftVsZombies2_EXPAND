@@ -61,9 +61,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 return;
 
             var output = param.output;
-            var bodyResult = new BodyDamageResult(input)
+            var bodyResult = new BodyDamageResult(input, Global.Game.GetShellDefinition(VanillaShellID.stone))
             {
-                ShellDefinition = Global.Game.GetShellDefinition(VanillaShellID.stone),
                 Fatal = false,
                 Amount = 0,
                 SpendAmount = input.OriginalAmount,

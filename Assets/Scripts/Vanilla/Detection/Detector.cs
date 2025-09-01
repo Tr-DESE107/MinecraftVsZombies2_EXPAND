@@ -167,12 +167,15 @@ namespace MVZ2.Vanilla.Detections
         {
             return x > VanillaLevelExt.GetAttackBorderX(false) && x < VanillaLevelExt.GetAttackBorderX(true);
         }
-        protected EntityDefinition GetEntityDefinition(LevelEngine level, NamespaceID entityID)
+        protected EntityDefinition? GetEntityDefinition(LevelEngine level, NamespaceID entityID)
         {
             if (!definitionCaches.TryGetValue(entityID, out var cache))
             {
                 cache = level.Content.GetEntityDefinition(entityID);
-                definitionCaches.Add(entityID, cache);
+                if (cache != null)
+                {
+                    definitionCaches.Add(entityID, cache);
+                }
             }
             return cache;
         }

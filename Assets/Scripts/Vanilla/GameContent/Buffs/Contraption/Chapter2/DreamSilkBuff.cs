@@ -66,8 +66,10 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 var level = buff.Level;
                 var position = contraption.GetCenter();
                 level.Spawn(VanillaPickupID.starshard, position, contraption);
-                var cluster = level.Spawn(VanillaEffectID.smokeCluster, position, contraption);
-                cluster.SetTint(new Color(1, 0.8f, 1, 1));
+                level.Spawn(VanillaEffectID.smokeCluster, position, contraption)?.Let(e =>
+                {
+                    e.SetTint(new Color(1, 0.8f, 1, 1));
+                });
                 buff.Remove();
             }
 

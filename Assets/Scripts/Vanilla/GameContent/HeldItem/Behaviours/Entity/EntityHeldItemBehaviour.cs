@@ -12,11 +12,11 @@ namespace MVZ2.GameContent.HeldItems
         protected EntityHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
-        public Entity GetEntity(LevelEngine level, IHeldItemData data)
+        public Entity? GetEntity(LevelEngine level, IHeldItemData data)
         {
             return level.FindEntityByID(data.ID);
         }
-        public Entity GetEntity(IHeldItemTarget target, IHeldItemData data)
+        public Entity? GetEntity(IHeldItemTarget target, IHeldItemData data)
         {
             return GetEntity(target.GetLevel(), data);
         }

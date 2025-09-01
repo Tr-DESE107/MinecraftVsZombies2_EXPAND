@@ -334,12 +334,13 @@ namespace MVZ2.GameContent.Bosses
             var lane = y;
             return entity.Level.GetEntityGridPosition(column, lane);
         }
-        private static Entity SpawnZombieBlock(Entity spawner, Vector3 position)
+        private static Entity? SpawnZombieBlock(Entity spawner, Vector3 position)
         {
-            var block = spawner.Spawn(VanillaEffectID.zombieBlock, position, spawner.GetSpawnParams());
-            block.SetParent(spawner);
-            AddZombieBlock(spawner, new EntityID(block));
-            return block;
+            return spawner.Spawn(VanillaEffectID.zombieBlock, position, spawner.GetSpawnParams())?.Let(e =>
+            {
+                e.SetParent(spawner);
+                AddZombieBlock(spawner, new EntityID(e));
+            });
         }
         private static bool AreAllZombieBlocksReached(Entity parent)
         {
@@ -373,13 +374,14 @@ namespace MVZ2.GameContent.Bosses
         #endregion
 
         #region 僵尸块
-        private static Entity SpawnSnakeTail(Entity spawner, Vector3 position, Entity parent)
+        private static Entity? SpawnSnakeTail(Entity spawner, Vector3 position, Entity parent)
         {
-            var tail = spawner.Spawn(VanillaBossID.theGiantSnakeTail, position, spawner.GetSpawnParams());
-            tail.SetParent(parent);
-            TheGiantSnakeTail.SetChildTail(parent, new EntityID(tail));
-            AddSnakeTail(spawner, new EntityID(tail));
-            return tail;
+            return spawner.Spawn(VanillaBossID.theGiantSnakeTail, position, spawner.GetSpawnParams())?.Let(e =>
+            {
+                e.SetParent(parent);
+                TheGiantSnakeTail.SetChildTail(parent, new EntityID(e));
+                AddSnakeTail(spawner, new EntityID(e));
+            });
         }
         private static void RemoveAllSnakeTails(Entity parent)
         {
@@ -473,9 +475,9 @@ namespace MVZ2.GameContent.Bosses
         }
         public static bool IsPacmanPanic(Entity entity)
         {
-            return IsPacmanGhost(entity.Target);
+            return entity.Target != null && IsPacmanGhost(entity.Target);
         }
-        public static Entity GetPacmanPanicDevourer(Entity entity)
+        public static Entity? GetPacmanPanicDevourer(Entity entity)
         {
             return entity.Level.FindFirstEntityWithTheLeast(IsPacmanGhost, e => (e.Position - entity.Position).sqrMagnitude);
         }

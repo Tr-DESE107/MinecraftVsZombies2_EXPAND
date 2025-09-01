@@ -182,13 +182,15 @@ namespace MVZ2.GameContent.Contraptions
             var level = entity.Level;
             for (int i = 0; i < 18; i++)
             {
-                var arc = level.Spawn(VanillaEffectID.electricArc, position, entity);
+                level.Spawn(VanillaEffectID.electricArc, position, entity)?.Let(e =>
+                {
+                    float degree = i * 20;
+                    float rad = degree * Mathf.Deg2Rad;
+                    Vector3 pos = position + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * arcLength;
+                    ElectricArc.Connect(e, pos);
+                    ElectricArc.UpdateArc(e);
+                });
 
-                float degree = i * 20;
-                float rad = degree * Mathf.Deg2Rad;
-                Vector3 pos = position + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * arcLength;
-                ElectricArc.Connect(arc, pos);
-                ElectricArc.UpdateArc(arc);
             }
         }
         private static void ChargedExplode(Entity entity)

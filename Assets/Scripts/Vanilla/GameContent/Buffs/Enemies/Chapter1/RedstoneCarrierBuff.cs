@@ -24,8 +24,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    var redstone = enemy.Level.Spawn(VanillaPickupID.redstone, enemy.Position + Vector3.up * 10, enemy);
-                    redstone.Velocity = new Vector3(redstone.RNG.Next(-1f, 1f), 2, 0);
+                    var redstone = enemy.Level.Spawn(VanillaPickupID.redstone, enemy.Position + Vector3.up * 10, enemy)?.Let(e =>
+                    {
+                        e.Velocity = new Vector3(e.RNG.Next(-1f, 1f), 2, 0);
+                    });
                 }
                 buff.Remove();
             }

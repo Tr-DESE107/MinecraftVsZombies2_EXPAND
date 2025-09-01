@@ -39,9 +39,8 @@ namespace MVZ2.GameContent.Artifacts
         }
         public class DarkAura : AuraEffectDefinition
         {
-            public DarkAura()
+            public DarkAura() : base(VanillaBuffID.Level.darkMatterDark)
             {
-                BuffID = VanillaBuffID.Level.darkMatterDark;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

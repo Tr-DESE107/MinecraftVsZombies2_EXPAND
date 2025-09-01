@@ -51,11 +51,14 @@ namespace MVZ2.GameContent.HeldItems
                 return;
             var level = target.GetLevel();
             var entity = GetEntity(level, data);
-            ForcePad.SetDragTargetLocked(entity, true);
-            ForcePad.SetDragTarget(entity, targetGrid.Target.GetEntityPosition());
-            ForcePad.SetDragTimeout(entity, 30);
+            if (entity != null)
+            {
+                ForcePad.SetDragTargetLocked(entity, true);
+                ForcePad.SetDragTarget(entity, targetGrid.Target.GetEntityPosition());
+                ForcePad.SetDragTimeout(entity, 30);
+                entity.PlaySound(VanillaSoundID.magnetic);
+            }
             level.ResetHeldItem();
-            entity.PlaySound(VanillaSoundID.magnetic);
         }
     }
 }

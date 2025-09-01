@@ -5,6 +5,7 @@
 
 using System.IO;
 using System.Linq;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -29,14 +30,14 @@ namespace MVZ2.Editor
                 {
                     if (!nullableDefined)
                     {
-                        File.WriteAllText(filePath, preprocessor + code);
+                        File.WriteAllText(filePath, preprocessor + code, Encoding.UTF8);
                     }
                 }
                 else
                 {
                     if (nullableDefined)
                     {
-                        File.WriteAllText(filePath, code.Replace(preprocessor, ""));
+                        File.WriteAllText(filePath, code.Replace(preprocessor, ""), Encoding.UTF8);
                     }
                 }
             }
@@ -46,11 +47,13 @@ namespace MVZ2.Editor
         private static void EnableNRT()
         {
             ModifyScripts(true);
+            Debug.Log("Null Reference Types enabled.");
         }
         [MenuItem("Tools/Nullable/Disable")]
         private static void DisableNRT()
         {
             ModifyScripts(false);
+            Debug.Log("Null Reference Types disabled.");
         }
         public static bool IsWhitelistFilePath(string filePath)
         {
@@ -64,6 +67,7 @@ namespace MVZ2.Editor
         {
             "Scripts/Vanilla",
             "Scripts/Engine/Base",
+            "Scripts/Engine/Level",
         };
     }
 }

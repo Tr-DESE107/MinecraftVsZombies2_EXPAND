@@ -43,12 +43,13 @@ namespace MVZ2.Vanilla.Entities
             var param = parameters.spawnParam ?? entity.GetSpawnParams();
             param.SetProperty(VanillaEntityProps.DAMAGE, parameters.damage);
             param.SetProperty(EngineEntityProps.FACTION, parameters.faction);
-            var projectile = entity.Spawn(projectileID, parameters.position, param);
-            projectile.Velocity = velocity;
-            projectile.UpdatePointTowardsDirection();
+            return entity.Spawn(projectileID, parameters.position, param)?.Let(e =>
+            {
+                e.Velocity = velocity;
+                e.UpdatePointTowardsDirection();
+                entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_SHOT, new EntityCallbackParams(e), e.GetDefinitionID());
+            });
 
-            entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_PROJECTILE_SHOT, new EntityCallbackParams(projectile), projectile.Definition.GetID());
-            return projectile;
         }
         public static ShootParams GetShootParams(this Entity entity)
         {

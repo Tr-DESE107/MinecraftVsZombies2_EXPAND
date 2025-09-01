@@ -90,7 +90,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var chosenBlueprintDefs = chosenBlueprints.Select(item => level.Content.GetSeedDefinition(item.id));
             var chosenBlueprintEntityDefs = chosenBlueprintDefs.Where(def => def.GetSeedType() == SeedTypes.ENTITY)
                 .Select(def => level.Content.GetEntityDefinition(def.GetSeedEntityID()))
-                .Where(def => def != null);
+                .OfType<EntityDefinition>();
 
             var entityDefsForChoose = blueprintsForChoose.Select(id =>
             {

@@ -87,7 +87,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.SetBehaviourField(PROP_EXPLOSION_TIMER, timer);
         }
-        public static Entity Explode(Entity entity, float range, float damage)
+        public static Entity? Explode(Entity entity, float range, float damage)
         {
             var blackholeParam = entity.GetSpawnParams();
             blackholeParam.SetProperty(VanillaEntityProps.DAMAGE, damage);
@@ -103,7 +103,7 @@ namespace MVZ2.GameContent.Contraptions
 
             return blackhole;
         }
-        public static Entity ExplodeEvoked(Entity entity, float range)
+        public static Entity? ExplodeEvoked(Entity entity, float range)
         {
             var fieldParam = entity.GetSpawnParams();
             fieldParam.SetProperty(VanillaEntityProps.RANGE, range);

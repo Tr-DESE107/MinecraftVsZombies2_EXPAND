@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Detections
         protected override Bounds GetDetectionBounds(Entity self)
         {
             var projectileDef = GetEntityDefinition(self.Level, projectileID);
-            var projectileSize = projectileDef.GetProperty<Vector3>(EngineEntityProps.SIZE);
+            var projectileSize = projectileDef?.GetProperty<Vector3>(EngineEntityProps.SIZE) ?? Vector3.one * 32;
 
             var source = self.Position;
 

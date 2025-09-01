@@ -67,6 +67,8 @@ namespace MVZ2.GameContent.Areas
             if (count <= 0)
                 return;
             var statueDef = level.Content.GetEntityDefinition(VanillaObstacleID.gargoyleStatue);
+            if (statueDef == null)
+                return;
             var layersToTake = statueDef.GetGridLayersToTake();
             var rng = GetRNG(level);
             if (rng == null)
@@ -85,8 +87,10 @@ namespace MVZ2.GameContent.Areas
         {
             foreach (var statue in level.FindEntities(VanillaObstacleID.gargoyleStatue))
             {
-                var gargoyle = level.Spawn(VanillaEnemyID.gargoyle, statue.Position, statue);
-                gargoyle.Health = gargoyle.GetMaxHealth() * statue.Health / statue.GetMaxHealth();
+                var gargoyle = level.Spawn(VanillaEnemyID.gargoyle, statue.Position, statue)?.Let(e =>
+                {
+                    e.Health = e.GetMaxHealth() * statue.Health / statue.GetMaxHealth();
+                });
                 level.Spawn(VanillaEffectID.thunderBolt, statue.Position, statue);
                 statue.Die();
             }

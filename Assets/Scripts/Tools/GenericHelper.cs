@@ -1,14 +1,18 @@
-﻿namespace Tools
+﻿#nullable enable
+
+using System.Diagnostics.CodeAnalysis;
+
+namespace Tools
 {
     public static class GenericHelper
     {
-        public static T ToGeneric<T>(this object value)
+        public static T? ToGeneric<T>(this object? value)
         {
             if (TryToGeneric<T>(value, out var result))
                 return result;
             return default;
         }
-        public static bool TryToGeneric<T>(this object value, out T result)
+        public static bool TryToGeneric<T>(this object? value, out T? result)
         {
             if (value is null)
             {
@@ -28,10 +32,10 @@
             result = default;
             return false;
         }
-        private static bool TryConvertBaseType<T>(this object value, out T result)
+        private static bool TryConvertBaseType<T>(this object value, [NotNullWhen(true)] out T? result)
         {
             var targetType = typeof(T);
-            object resultValue = null;
+            object? resultValue = null;
             if (targetType == typeof(short))
             {
                 switch (value)

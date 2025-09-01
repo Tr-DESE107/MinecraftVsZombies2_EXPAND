@@ -6,6 +6,6 @@ namespace MVZ2Logic.HeldItems
 {
     public interface IEntityHeldItemBehaviour
     {
-        Entity GetEntity(LevelEngine level, IHeldItemData id);
+        Entity? GetEntity(LevelEngine level, IHeldItemData id);
     }
 }

@@ -38,8 +38,10 @@ namespace MVZ2.GameContent.Bosses
             SetFabricCooldownTimer(boss, timer);
             SetDanmakuTimer(boss, new FrameTimer(4));
 
-            var doll = boss.Spawn(VanillaEnemyID.seijaCursedDoll, boss.Position);
-            doll.SetParent(boss);
+            boss.Spawn(VanillaEnemyID.seijaCursedDoll, boss.Position)?.Let(e =>
+            {
+                e.SetParent(boss);
+            });
         }
         protected override void UpdateAI(Entity entity)
         {

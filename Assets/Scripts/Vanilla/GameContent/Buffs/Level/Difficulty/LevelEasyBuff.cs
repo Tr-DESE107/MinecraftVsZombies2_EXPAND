@@ -49,10 +49,8 @@ namespace MVZ2.GameContent.Buffs.Level
 
         public class BlueprintAura : AuraEffectDefinition
         {
-            public BlueprintAura() : base()
+            public BlueprintAura() : base(VanillaBuffID.SeedPack.easyBlueprint, 30)
             {
-                BuffID = VanillaBuffID.SeedPack.easyBlueprint;
-                UpdateInterval = 30;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
@@ -87,7 +85,7 @@ namespace MVZ2.GameContent.Buffs.Level
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {
                 var level = auraEffect.Source.GetLevel();
-                results.AddRange(level.GetEntities(EntityTypes.ENEMY).Select(e => e.GetMainArmor()).Where(e => e != null));
+                results.AddRange(level.GetEntities(EntityTypes.ENEMY).Select(e => e.GetMainArmor()).OfType<Entity>());
             }
         }
     }

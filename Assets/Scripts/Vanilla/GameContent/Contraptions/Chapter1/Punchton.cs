@@ -98,10 +98,12 @@ namespace MVZ2.GameContent.Contraptions
                     // Spawn droken piston palm.
                     var direction = entity.GetFacingDirection();
                     var position = entity.Position + direction * extension;
-                    var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, position, entity);
-                    effect.Velocity = direction * -5;
-                    effect.SetDisplayScale(entity.GetDisplayScale());
-                    effect.ChangeModel(VanillaModelID.pistonPalm);
+                    var effect = entity.Level.Spawn(VanillaEffectID.brokenArmor, position, entity)?.Let(e =>
+                    {
+                        e.Velocity = direction * -5;
+                        e.SetDisplayScale(entity.GetDisplayScale());
+                        e.ChangeModel(VanillaModelID.pistonPalm);
+                    });
                 }
             }
             else if (entity.State == VanillaEntityStates.PUNCHTON_BROKEN)

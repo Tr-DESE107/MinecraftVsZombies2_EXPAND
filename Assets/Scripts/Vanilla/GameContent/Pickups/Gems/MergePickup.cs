@@ -37,6 +37,8 @@ namespace MVZ2.GameContent.Pickups
             if (mergeCount <= 0)
                 return;
             var mergeTarget = GetMergeTarget(entity);
+            if (mergeTarget == null)
+                return;
             var mergeDetectBuffer = new List<Entity>();
             mergeDetector.DetectEntities(entity, mergeDetectBuffer);
             if (mergeDetectBuffer.Count < mergeCount)
@@ -51,8 +53,10 @@ namespace MVZ2.GameContent.Pickups
                 if (mergeBuffer.Count >= mergeCount)
                 {
                     var targetGem = mergeBuffer[0];
-                    var merged = entity.Level.Spawn(mergeTarget, targetGem.Position, null);
-                    merged.Velocity = targetGem.Velocity;
+                    entity.Level.Spawn(mergeTarget, targetGem.Position, null)?.Let(e =>
+                    {
+                        e.Velocity = targetGem.Velocity;
+                    });
                     foreach (var mergeGem in mergeBuffer)
                     {
                         mergeGem.Remove();

@@ -39,12 +39,14 @@ namespace MVZ2.GameContent.Contraptions
             {
                 var param = entity.GetSpawnParams();
                 param.SetProperty(VanillaEntityProps.VARIANT, mageClass);
-                var mage = entity.Spawn(VanillaEnemyID.skeletonMage, pos, param);
-                mage.AddBuff<NecrotombstoneRisingBuff>();
-                mage.UpdateModel();
+                entity.Spawn(VanillaEnemyID.skeletonMage, pos, param)?.Let(e =>
+                {
+                    e.AddBuff<NecrotombstoneRisingBuff>();
+                    e.UpdateModel();
 
-                mage.PlaySound(VanillaSoundID.dirtRise);
-                mage.PlaySound(VanillaSoundID.boneWallBuild);
+                    e.PlaySound(VanillaSoundID.dirtRise);
+                    e.PlaySound(VanillaSoundID.boneWallBuild);
+                });
             }
         }
         public static FrameTimer? GetProductionTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(PROP_PRODUCTION_TIMER);
@@ -68,11 +70,13 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     var pos = entity.Position;
                     pos.y = entity.GetGroundY() - 100;
-                    var warrior = entity.SpawnWithParams(VanillaEnemyID.skeletonWarrior, pos);
-                    warrior.AddBuff<NecrotombstoneRisingBuff>();
-                    warrior.UpdateModel();
+                    entity.SpawnWithParams(VanillaEnemyID.skeletonWarrior, pos)?.Let(e =>
+                    {
+                        e.AddBuff<NecrotombstoneRisingBuff>();
+                        e.UpdateModel();
 
-                    warrior.PlaySound(VanillaSoundID.dirtRise);
+                        e.PlaySound(VanillaSoundID.dirtRise);
+                    });
 
                     productionTimer.ResetTime(SPAWN_INTERVAL);
                 }

@@ -76,8 +76,10 @@ namespace MVZ2.GameContent.Effects
                 var timer = GetStateTimer(entity);
                 if (timer.RunToExpiredAndNotNull())
                 {
-                    var smoke = entity.Level.Spawn(VanillaEffectID.smoke, entity.Position, null);
-                    smoke.SetSize(smoke.GetSize());
+                    entity.Level.Spawn(VanillaEffectID.smoke, entity.Position, null)?.Let(e =>
+                    {
+                        e.SetSize(entity.GetSize());
+                    });
                     entity.Remove();
                 }
             }

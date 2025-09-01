@@ -66,7 +66,7 @@ namespace MVZ2.GameContent.Contraptions
                 for (int y = 0; y < entity.Level.GetMaxLaneCount(); y++)
                 {
                     var grid = entity.Level.GetGrid(x, y);
-                    if (grid.CanSpawnEntity(VanillaContraptionID.mineTNT))
+                    if (grid != null && grid.CanSpawnEntity(VanillaContraptionID.mineTNT))
                     {
                         grids.Add(grid);
                     }
@@ -135,18 +135,20 @@ namespace MVZ2.GameContent.Contraptions
             self.Level.ShakeScreen(10, 0, 15);
             self.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_CONTRAPTION_DETONATE, new EntityCallbackParams(self), self.GetDefinitionID());
         }
-        private static Entity FireSeed(Entity contraption, LawnGrid grid)
+        private static Entity? FireSeed(Entity contraption, LawnGrid grid)
         {
             var level = contraption.Level;
 
-            var seed = level.Spawn(VanillaProjectileID.mineTNTSeed, contraption.Position, contraption);
+            var seed = level.Spawn(VanillaProjectileID.mineTNTSeed, contraption.Position, contraption)?.Let(e =>
+            {
+                var x = level.GetEntityColumnX(grid.Column);
+                var z = level.GetEntityLaneZ(grid.Lane);
+                var y = level.GetGroundY(x, z);
+                var target = new Vector3(x, y, z);
+                var maxY = Mathf.Max(contraption.Position.y, y) + 32;
+                e.Velocity = VanillaProjectileExt.GetLobVelocity(contraption.Position, target, maxY, e.GetGravity());
+            });
 
-            var x = level.GetEntityColumnX(grid.Column);
-            var z = level.GetEntityLaneZ(grid.Lane);
-            var y = level.GetGroundY(x, z);
-            var target = new Vector3(x, y, z);
-            var maxY = Mathf.Max(contraption.Position.y, y) + 32;
-            seed.Velocity = VanillaProjectileExt.GetLobVelocity(contraption.Position, target, maxY, seed.GetGravity());
 
             return seed;
         }

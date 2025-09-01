@@ -48,10 +48,12 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
             var pos = entity.Position + new Vector3(0, 1280, 0);
-            var meteor = entity.SpawnWithParams(VanillaEffectID.cursedMeteor, pos);
-            meteor.SetParent(entity);
-            SetMeteor(entity, new EntityID(meteor));
-            meteor.PlaySound(VanillaSoundID.bombFalling);
+            entity.SpawnWithParams(VanillaEffectID.cursedMeteor, pos)?.Let(e =>
+            {
+                e.SetParent(entity);
+                SetMeteor(entity, new EntityID(e));
+                e.PlaySound(VanillaSoundID.bombFalling);
+            });
         }
         private void UpdateIgnite(Entity hellfire)
         {

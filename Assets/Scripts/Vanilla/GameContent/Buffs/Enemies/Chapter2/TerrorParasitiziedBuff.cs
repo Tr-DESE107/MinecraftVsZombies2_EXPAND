@@ -58,8 +58,10 @@ namespace MVZ2.GameContent.Buffs.Enemies
             int count = level.GetParasitizedTerrorCount();
             for (int i = 0; i < count; i++)
             {
-                var parasite = host.SpawnWithParams(VanillaEnemyID.parasiteTerror, host.GetCenter());
-                parasite.Health = health;
+                host.SpawnWithParams(VanillaEnemyID.parasiteTerror, host.GetCenter())?.Let(e =>
+                {
+                    e.Health = health;
+                });
             }
             host.PlaySound(VanillaSoundID.bloody);
             host.EmitBlood();

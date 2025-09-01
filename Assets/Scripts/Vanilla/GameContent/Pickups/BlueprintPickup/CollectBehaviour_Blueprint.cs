@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Pickups
         {
             base.PostCollect(pickup);
             pickup.Level.SetHeldItem(VanillaHeldTypes.blueprintPickup, pickup.ID, 0);
-            pickup.PlaySoundNullable(pickup.GetCollectSound());
+            pickup.PlaySoundIfNotNull(pickup.GetCollectSound());
         }
     }
 }

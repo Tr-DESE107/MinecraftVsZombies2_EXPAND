@@ -77,10 +77,8 @@ namespace MVZ2.GameContent.Artifacts
 
         public class ReduceCostAura : AuraEffectDefinition
         {
-            public ReduceCostAura()
+            public ReduceCostAura() : base(VanillaBuffID.SeedPack.theCreaturesHeartReduceCost, 15)
             {
-                BuffID = VanillaBuffID.SeedPack.theCreaturesHeartReduceCost;
-                UpdateInterval = 15;
             }
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {

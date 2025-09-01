@@ -21,8 +21,10 @@ namespace MVZ2.GameContent.Effects
             position.y = entity.Level.GetGroundY(position.x, position.y);
             if (!entity.Level.IsAirAt(position.x, position.z) && !entity.Level.IsWaterAt(position.x, position.z))
             {
-                var stain = WaterStain.UpdateStain(entity.Level, position, entity);
-                WaterStain.FreezeStain(stain);
+                WaterStain.UpdateStain(entity.Level, position, entity)?.Let(e =>
+                {
+                    WaterStain.FreezeStain(e);
+                });
             }
             entity.Remove();
         }

@@ -60,6 +60,8 @@ namespace MVZ2.GameContent.HeldItems
 
             var level = grid.Level;
             var entity = GetEntity(level, data);
+            if (entity == null)
+                return HeldHighlight.None;
             var seedDef = GetSeedDefinition(entity);
             return grid.GetSeedHeldHighlight(seedDef);
         }
@@ -93,6 +95,8 @@ namespace MVZ2.GameContent.HeldItems
             if (pointerParams.IsInvalidReleaseAction())
                 return;
             var entity = GetEntity(target.GetLevel(), data);
+            if (entity == null)
+                return;
             var seedDef = GetSeedDefinition(entity);
             if (seedDef != null)
             {
@@ -151,7 +155,10 @@ namespace MVZ2.GameContent.HeldItems
             if (pointerParams.IsInvalidReleaseAction())
                 return;
             var entity = GetEntity(target.GetLevel(), data);
-            SetIgnoreTouchRaycast(entity, false);
+            if (entity != null)
+            {
+                SetIgnoreTouchRaycast(entity, false);
+            }
             var level = target.Level;
             if (level.CancelHeldItem())
             {
@@ -163,7 +170,10 @@ namespace MVZ2.GameContent.HeldItems
             if (pointerParams.IsInvalidReleaseAction())
                 return;
             var entity = GetEntity(target.GetLevel(), data);
-            SetIgnoreTouchRaycast(entity, false);
+            if (entity != null)
+            {
+                SetIgnoreTouchRaycast(entity, false);
+            }
             var level = target.Level;
             if (level.CancelHeldItem())
             {
@@ -173,6 +183,8 @@ namespace MVZ2.GameContent.HeldItems
         public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)
         {
             var entity = GetEntity(level, data);
+            if (entity == null)
+                return;
             var seedDef = GetSeedDefinition(entity);
             if (seedDef == null)
                 return;
@@ -205,7 +217,11 @@ namespace MVZ2.GameContent.HeldItems
         {
             var level = entity.Level;
             var blueprintPickup = GetEntity(level, data);
+            if (blueprintPickup == null)
+                return false;
             var seedEntityID = BlueprintPickup.GetSeedEntityID(blueprintPickup);
+            if (seedEntityID == null)
+                return false;
             var entityDef = level.Content.GetEntityDefinition(seedEntityID);
 
             return entityDef != null && entityDef.IsUpgradeBlueprint() && entity.CanUpgradeToContraption(entityDef);

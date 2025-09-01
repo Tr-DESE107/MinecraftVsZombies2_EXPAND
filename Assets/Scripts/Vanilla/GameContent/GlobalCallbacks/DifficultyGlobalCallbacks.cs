@@ -47,9 +47,9 @@ namespace MVZ2.GameContent.GlobalCallbacks
 
 
             var buffRef = GetDifficultyBuff(level);
-            if (buffRef != null)
+            var buff = buffRef?.GetBuff(level);
+            if (buff != null)
             {
-                var buff = buffRef.GetBuff(level);
                 if (buff.Definition == buffDef)
                 {
                     return;
@@ -58,7 +58,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             }
             if (buffDef != null)
             {
-                var buff = level.AddBuff(buffDef);
+                buff = level.AddBuff(buffDef);
                 SetDifficultyBuff(level, level.GetBuffReference(buff));
             }
         }

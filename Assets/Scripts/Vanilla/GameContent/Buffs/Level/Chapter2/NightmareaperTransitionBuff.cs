@@ -52,8 +52,10 @@ namespace MVZ2.GameContent.Buffs.Level
                 level.PlayMusic(VanillaMusicID.nightmareBoss2);
                 // Create Boss
                 Vector3 pos = new Vector3(level.GetEntityColumnX(4), 0, level.GetEntityLaneZ(2));
-                var boss = level.Spawn(VanillaBossID.nightmareaper, pos, null);
-                Nightmareaper.Appear(boss);
+                level.Spawn(VanillaBossID.nightmareaper, pos, null)?.Let(e =>
+                {
+                    Nightmareaper.Appear(e);
+                });
 
                 level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_CLICK_TO_DRAG_CRUSHING_WALLS, 100, 120);
 

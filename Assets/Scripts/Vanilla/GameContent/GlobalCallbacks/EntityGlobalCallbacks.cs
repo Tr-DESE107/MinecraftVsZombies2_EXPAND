@@ -114,7 +114,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             if (bodyResult != null)
             {
                 var shellDefinition = bodyResult.ShellDefinition;
-                if (bodyResult.Effects.HasEffect(VanillaDamageEffects.SLICE) && shellDefinition.IsSliceCritical())
+                if (bodyResult.Effects.HasEffect(VanillaDamageEffects.SLICE) && shellDefinition != null && shellDefinition.IsSliceCritical())
                 {
                     entity.EmitBlood();
                 }

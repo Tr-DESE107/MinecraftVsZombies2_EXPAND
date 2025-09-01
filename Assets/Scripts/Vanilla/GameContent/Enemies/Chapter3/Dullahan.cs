@@ -31,8 +31,10 @@ namespace MVZ2.GameContent.Enemies
             {
                 param.SetProperty(VanillaEnemyProps.PREVIEW_ENEMY, true);
             }
-            var horse = entity.Spawn(VanillaEnemyID.skeletonHorse, entity.Position, param);
-            entity.RideOn(horse);
+            entity.Spawn(VanillaEnemyID.skeletonHorse, entity.Position, param)?.Let(e =>
+            {
+                entity.RideOn(e);
+            });
             entity.SetAnimationBool("Sitting", true);
             entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
         }
@@ -106,9 +108,11 @@ namespace MVZ2.GameContent.Enemies
         {
             if (IsHeadDropped(entity))
                 return null;
-            var head = entity.SpawnWithParams(VanillaEnemyID.dullahanHead, entity.GetCenter());
-            SetHead(entity, head);
-            DullahanHead.SetBody(head, entity);
+            var head = entity.SpawnWithParams(VanillaEnemyID.dullahanHead, entity.GetCenter())?.Let(e =>
+            {
+                SetHead(entity, e);
+                DullahanHead.SetBody(e, entity);
+            });
             SetHeadDropped(entity, true);
             return head;
         }

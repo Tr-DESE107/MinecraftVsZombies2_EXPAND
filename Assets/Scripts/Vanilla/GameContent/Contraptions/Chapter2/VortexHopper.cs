@@ -103,10 +103,12 @@ namespace MVZ2.GameContent.Contraptions
             var pos = hopper.Position;
             pos.y = hopper.GetGroundY();
 
-            Entity vortex = hopper.Level.Spawn(VanillaEffectID.vortex, pos, hopper);
-            var vortexScale = hopper.GetRange() / 120;
-            vortex.SetScale(Vector3.one * vortexScale);
-            vortex.SetDisplayScale(Vector3.one * vortexScale);
+            hopper.Level.Spawn(VanillaEffectID.vortex, pos, hopper)?.Let(e =>
+            {
+                var vortexScale = hopper.GetRange() / 120;
+                e.SetScale(Vector3.one * vortexScale);
+                e.SetDisplayScale(Vector3.one * vortexScale);
+            });
         }
 
         private static void DragEnemiesNearby(Entity hopper)

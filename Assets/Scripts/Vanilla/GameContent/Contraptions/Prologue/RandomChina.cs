@@ -50,7 +50,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (!Global.Almanac.IsContraptionInAlmanac(id))
                     return false;
                 var def = game.GetEntityDefinition(id);
-                if (def.IsUpgradeBlueprint())
+                if (def == null || def.IsUpgradeBlueprint())
                     return false;
                 return grid.CanSpawnEntity(id);
             });

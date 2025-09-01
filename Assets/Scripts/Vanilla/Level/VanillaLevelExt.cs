@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.HeldItems;
@@ -51,7 +50,7 @@ namespace MVZ2.Vanilla.Level
             {
                 if (carts.Any(c => c.GetLane() == i && c.State == VanillaEntityStates.IDLE))
                     continue;
-                Entity cart = game.Spawn(cartRef, new Vector3(x - i * xInterval, 0, game.GetEntityLaneZ(i)), null);
+                game.Spawn(cartRef, new Vector3(x - i * xInterval, 0, game.GetEntityLaneZ(i)), null);
             }
         }
         public static void CheckGameOver(this LevelEngine level)
@@ -399,24 +398,25 @@ namespace MVZ2.Vanilla.Level
                 return false;
             return pool.Any(e => e == spawnID);
         }
-        public static Entity SpawnEnemyAtRandomLane(this LevelEngine level, SpawnDefinition spawnDef)
+        public static Entity? SpawnEnemyAtRandomLane(this LevelEngine level, SpawnDefinition spawnDef)
         {
             var lane = spawnDef.GetRandomSpawnLane(level);
             return level.SpawnEnemy(spawnDef, lane);
         }
-        public static Entity SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane)
+        public static Entity? SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane)
         {
             var x = level.GetEnemySpawnX();
             return level.SpawnEnemy(spawnDef, lane, x);
         }
-        public static Entity SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane, float x)
+        public static Entity? SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane, float x)
         {
             var z = level.GetEntityLaneZ(lane);
             var y = level.GetGroundY(x, z);
             var pos = new Vector3(x, y, z);
-            var enemy = level.Spawn(spawnDef.GetSpawnEntityID(), pos, null);
-            level.TriggerEnemySpawned(spawnDef.GetID(), enemy);
-            return enemy;
+            return level.Spawn(spawnDef.GetSpawnEntityID(), pos, null)?.Let(e =>
+            {
+                level.TriggerEnemySpawned(spawnDef.GetID(), e);
+            });
         }
         public static void TriggerEnemySpawned(this LevelEngine level, NamespaceID spawnID, Entity enemy)
         {
@@ -424,19 +424,18 @@ namespace MVZ2.Vanilla.Level
             level.StageDefinition.PostEnemySpawned(enemy);
             level.Triggers.RunCallback(LevelCallbacks.POST_ENEMY_SPAWNED, new EntityCallbackParams(enemy));
         }
-        public static Entity SpawnFlagZombie(this LevelEngine level)
+        public static Entity? SpawnFlagZombie(this LevelEngine level)
         {
             var lane = level.GetRandomEnemySpawnLane();
             return level.SpawnFlagZombie(lane);
         }
-        public static Entity SpawnFlagZombie(this LevelEngine level, int lane)
+        public static Entity? SpawnFlagZombie(this LevelEngine level, int lane)
         {
             var x = level.GetEnemySpawnX();
             var z = level.GetEntityLaneZ(lane);
             var y = level.GetGroundY(x, z);
             var pos = new Vector3(x, y, z);
-            var enemy = level.Spawn(VanillaEnemyID.flagZombie, pos, null);
-            return enemy;
+            return level.Spawn(VanillaEnemyID.flagZombie, pos, null);
         }
         #endregion
 
@@ -554,7 +553,7 @@ namespace MVZ2.Vanilla.Level
         #endregion
 
         #region Wave
-        public static Entity GetFirstAliveEnemy(this LevelEngine level)
+        public static Entity? GetFirstAliveEnemy(this LevelEngine level)
         {
             return level.FindFirstEntity(e => e.IsAliveEnemy());
         }
@@ -668,7 +667,9 @@ namespace MVZ2.Vanilla.Level
             if (level.CanConveySeedPack())
             {
                 var id = level.DrawConveyorSeed();
-                var seedPack = level.AddConveyorSeedPack(id ?? VanillaContraptionID.dispenser);
+                if (id == null)
+                    return null;
+                var seedPack = level.AddConveyorSeedPack(id);
                 if (seedPack != null)
                 {
                     seedPack.SetDrawnConveyorSeed(seedPack.GetDefinitionID());
@@ -874,6 +875,8 @@ namespace MVZ2.Vanilla.Level
                 for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
                 {
                     var grid = level.GetGrid(col, lane);
+                    if (grid == null)
+                        continue;
 
                     bool isPossible = true;
                     bool isPrefered = true;

@@ -35,12 +35,13 @@ namespace MVZ2.GameContent.Enemies
             entity.SetModelDamagePercent();
             entity.SetModelProperty("NoStaff", !HasStaff(entity));
         }
-        public static Entity SpawnStaff(Entity entity)
+        public static Entity? SpawnStaff(Entity entity)
         {
             var pos = entity.Position + entity.GetFacingDirection() * 30;
-            var staff = entity.Spawn(VanillaEnemyID.shikaisenStaff, pos);
-            staff.PlaySound(VanillaSoundID.wood);
-            return staff;
+            return entity.Spawn(VanillaEnemyID.shikaisenStaff, pos)?.Let(e =>
+            {
+                e.PlaySound(VanillaSoundID.wood);
+            });
         }
         public static bool HasStaff(Entity enemy) => enemy.GetBehaviourField<bool>(PROP_HAS_STAFF);
         public static void SetStaff(Entity enemy, bool value) => enemy.SetBehaviourField(PROP_HAS_STAFF, value);

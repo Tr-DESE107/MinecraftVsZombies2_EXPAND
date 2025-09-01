@@ -26,6 +26,8 @@ namespace MVZ2.GameContent.HeldItems
         public override void OnPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
             var entity = GetEntity(target, data);
+            if (entity == null)
+                return;
             if (pointerParams.IsInvalidClickButton() || pointerParams.IsInvalidReleaseAction())
                 return;
             BreakoutBoard.FirePearl(entity);

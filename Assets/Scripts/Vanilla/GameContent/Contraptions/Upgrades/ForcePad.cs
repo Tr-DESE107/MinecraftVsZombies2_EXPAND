@@ -60,10 +60,12 @@ namespace MVZ2.GameContent.Contraptions
                 for (int i = 0; i < targets.Length; i++)
                 {
                     var target = targets[i];
-                    var line = level.Spawn(VanillaEffectID.magneticLine, entity.Position, entity);
-                    line.SetParent(entity);
-                    line.Target = target;
-                    lines[i] = new EntityID(line);
+                    var line = level.Spawn(VanillaEffectID.magneticLine, entity.Position, entity)?.Let(e =>
+                    {
+                        e.SetParent(entity);
+                        e.Target = target;
+                        lines[i] = new EntityID(e);
+                    });
                 }
                 SetDraggingLines(entity, lines);
                 SetDraggingEntities(entity, targets.Select(e => new EntityID(e)).ToArray());

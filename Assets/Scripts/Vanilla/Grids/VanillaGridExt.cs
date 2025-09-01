@@ -58,7 +58,7 @@ namespace MVZ2.Vanilla.Grids
         #endregion
 
         #region 放置音效
-        public static NamespaceID GetPlaceSound(this LawnGrid grid, Entity entity)
+        public static NamespaceID? GetPlaceSound(this LawnGrid grid, Entity entity)
         {
             return grid.Definition.GetPlaceSound(entity);
         }
@@ -109,6 +109,8 @@ namespace MVZ2.Vanilla.Grids
         {
             var level = grid.Level;
             var entityDef = level.Content.GetEntityDefinition(entityID);
+            if (entityDef == null)
+                return null;
             return grid.GetEntitySpawnStatus(entityDef);
         }
         public static NamespaceID? GetEntitySpawnStatus(this LawnGrid grid, EntityDefinition entityDef)
@@ -116,6 +118,8 @@ namespace MVZ2.Vanilla.Grids
             var level = grid.Level;
             // 可放置。
             var placementID = entityDef.GetPlacementID();
+            if (placementID == null)
+                return null;
             var placementDef = level.Content.GetPlacementDefinition(placementID);
             if (placementDef == null)
                 return null;
@@ -149,6 +153,8 @@ namespace MVZ2.Vanilla.Grids
         {
             var level = grid.Level;
             var entityDef = level.Content.GetEntityDefinition(entityID);
+            if (entityDef == null)
+                return null;
             return grid.GetEntityPlaceStatus(entityDef);
         }
         public static NamespaceID? GetEntityPlaceStatus(this LawnGrid grid, EntityDefinition entityDef)
@@ -156,6 +162,8 @@ namespace MVZ2.Vanilla.Grids
             var level = grid.Level;
             // 可放置。
             var placementID = entityDef.GetPlacementID();
+            if (placementID == null)
+                return null;
             var placementDef = level.Content.GetPlacementDefinition(placementID);
             if (placementDef == null)
                 return null;
@@ -169,12 +177,16 @@ namespace MVZ2.Vanilla.Grids
         {
             var level = grid.Level;
             var entityDef = level.Content.GetEntityDefinition(entityID);
+            if (entityDef == null)
+                return null;
             return grid.PlaceEntity(entityDef, param);
         }
         public static Entity? PlaceEntity(this LawnGrid grid, EntityDefinition entityDef, PlaceParams param)
         {
             var level = grid.Level;
             var placementID = entityDef.GetPlacementID();
+            if (placementID == null)
+                return null;
             var placement = level.Content.GetPlacementDefinition(placementID);
             return grid.PlaceEntity(entityDef, placement, param);
         }
@@ -196,12 +208,12 @@ namespace MVZ2.Vanilla.Grids
             if (entityDef == null)
                 return null;
             var position = new Vector3(x, y, z) + entityDef.GetStartingPositionOffset();
-            var entity = level.Spawn(entityID, position, null, param);
-            entity.PlaySound(grid.GetPlaceSound(entity));
+            return level.Spawn(entityID, position, null, param)?.Let(e =>
+            {
+                e.PlaySoundIfNotNull(grid.GetPlaceSound(e));
 
-            grid.PostPlaceEntity(entity);
-
-            return entity;
+                grid.PostPlaceEntity(e);
+            });
         }
         private static bool PrePlaceEntity(this LawnGrid grid, NamespaceID entityID)
         {

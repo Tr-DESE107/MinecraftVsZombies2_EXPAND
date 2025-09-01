@@ -73,14 +73,19 @@ namespace MVZ2.GameContent.Contraptions
                 var position = entity.Position + Vector3.up * 5;
                 if (fireBreath == null || !fireBreath.Exists())
                 {
-                    fireBreath = entity.Level.Spawn(VanillaEffectID.fireBreath, position, entity);
-                    fireBreath.SetParent(entity);
-                    SetFireBreath(entity, fireBreath);
+                    fireBreath = entity.Level.Spawn(VanillaEffectID.fireBreath, position, entity)?.Let(e =>
+                    {
+                        e.SetParent(entity);
+                        SetFireBreath(entity, e);
+                    });
                 }
-                fireBreath.SetDamage(entity.GetDamage() * 2 / 3);
-                fireBreath.SetFlipX(entity.IsFlipX());
-                fireBreath.Position = position;
-                fireBreath.SetFaction(entity.GetFaction());
+                fireBreath?.Let(e =>
+                {
+                    e.SetDamage(entity.GetDamage() * 2 / 3);
+                    e.SetFlipX(entity.IsFlipX());
+                    e.Position = position;
+                    e.SetFaction(entity.GetFaction());
+                });
             }
             else
             {

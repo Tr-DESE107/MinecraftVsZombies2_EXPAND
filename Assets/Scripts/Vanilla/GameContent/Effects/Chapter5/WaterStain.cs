@@ -80,7 +80,7 @@ namespace MVZ2.GameContent.Effects
         {
             return stain.HasBuff(VanillaBuffID.Effect.waterStainFrozen);
         }
-        public static Entity UpdateStain(LevelEngine level, Vector3 position, Entity spawner)
+        public static Entity? UpdateStain(LevelEngine level, Vector3 position, Entity spawner)
         {
             var foundStain = FindStainAtPosition(level, position);
             if (foundStain.ExistsAndAlive())
@@ -114,7 +114,8 @@ namespace MVZ2.GameContent.Effects
         {
             var center = position;
             var def = Global.Game.GetEntityDefinition(VanillaEffectID.waterStain);
-            var size = def.GetSize() * 0.5f;
+            var size = def?.GetSize() ?? new Vector3(32, 16, 32);
+            size *= 0.5f;
             size.y = 800;
             return new Bounds(center, size);
         }
@@ -164,7 +165,10 @@ namespace MVZ2.GameContent.Effects
                     return;
                 if (IsStainFrozen(source))
                     return;
-                results.Add(source.GetGrid());
+                var grid = source.GetGrid();
+                if (grid == null)
+                    return;
+                results.Add(grid);
             }
         }
     }

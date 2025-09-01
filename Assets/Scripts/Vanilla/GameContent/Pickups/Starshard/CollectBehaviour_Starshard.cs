@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Pickups
             pickup.Velocity = Vector3.zero;
             pickup.Level.AddStarshardCount(1);
             pickup.SetGravity(0);
-            pickup.PlaySoundNullable(pickup.GetCollectSound());
+            pickup.PlaySoundIfNotNull(pickup.GetCollectSound());
         }
     }
 }

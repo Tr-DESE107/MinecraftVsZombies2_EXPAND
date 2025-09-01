@@ -122,14 +122,18 @@ namespace MVZ2.GameContent.Contraptions
             int fuel = 5;
 
             var game = Global.Game;
-            int cost = entity.GetCost();
-            var rechargeID = entity.GetRechargeID();
 
             float fuelMultiplier = 1;
-            var rechargeDef = game.GetRechargeDefinition(rechargeID);
-            if (rechargeDef != null)
+
+            int cost = entity.GetCost();
+            var rechargeID = entity.GetRechargeID();
+            if (rechargeID != null)
             {
-                fuelMultiplier = rechargeDef.GetQuality();
+                var rechargeDef = game.GetRechargeDefinition(rechargeID);
+                if (rechargeDef != null)
+                {
+                    fuelMultiplier = rechargeDef.GetQuality();
+                }
             }
 
             fuel = Mathf.CeilToInt((fuel + cost / 6f) * fuelMultiplier);

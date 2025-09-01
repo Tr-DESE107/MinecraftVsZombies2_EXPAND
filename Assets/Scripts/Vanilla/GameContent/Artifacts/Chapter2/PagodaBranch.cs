@@ -50,9 +50,8 @@ namespace MVZ2.GameContent.Artifacts
         }
         public class LevelAura : AuraEffectDefinition
         {
-            public LevelAura()
+            public LevelAura() : base(VanillaBuffID.Level.pagodaBranchLevel)
             {
-                BuffID = VanillaBuffID.Level.pagodaBranchLevel;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

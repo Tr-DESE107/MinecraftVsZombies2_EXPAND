@@ -82,7 +82,7 @@ namespace MVZ2.Vanilla.SeedPacks
             {
                 var entityID = definition.GetSeedEntityID();
                 var entityDef = level.Content.GetEntityDefinition(entityID);
-                if (entityDef.IsNocturnal())
+                if (entityDef == null || entityDef.IsNocturnal())
                     return false;
             }
             return true;

@@ -54,9 +54,13 @@ namespace MVZ2.GameContent.Artifacts
                 if (grid == null)
                     continue;
                 var pos = grid.GetEntityPosition();
-                var hoe = level.Spawn(VanillaEffectID.hoe, pos, null);
-                var smoke = level.Spawn(VanillaEffectID.smoke, pos, null);
-                smoke.SetSize(hoe.GetSize());
+                var hoe = level.Spawn(VanillaEffectID.hoe, pos, null)?.Let(e1 =>
+                {
+                    var smoke = level.Spawn(VanillaEffectID.smoke, pos, null)?.Let(e2 =>
+                    {
+                        e1.SetSize(e2.GetSize());
+                    });
+                });
                 artifact.Highlight();
                 artifact.SetInactive(true);
                 break;

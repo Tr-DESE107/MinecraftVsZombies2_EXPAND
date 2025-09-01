@@ -44,9 +44,8 @@ namespace MVZ2.GameContent.Effects
         }
         public class NightAura : AuraEffectDefinition
         {
-            public NightAura()
+            public NightAura() : base(VanillaBuffID.Level.spiritUniverseNight)
             {
-                BuffID = VanillaBuffID.Level.spiritUniverseNight;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

@@ -22,7 +22,7 @@ namespace MVZ2.GameContent.Effects
             var buff = entity.AddBuff<LightFadeoutBuff>();
             buff.SetProperty(LightFadeoutBuff.PROP_SPEED_MULTIPLIER, 3f);
         }
-        public static Entity SpawnFireworkBlast(Entity spawner, Vector3 position, float radius, Color color)
+        public static Entity? SpawnFireworkBlast(Entity spawner, Vector3 position, float radius, Color color)
         {
             var param = spawner.GetSpawnParams();
             var size = Vector3.one * (radius * 2);
@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Effects
             param.SetProperty(VanillaEntityProps.LIGHT_COLOR, color);
             return spawner.Spawn(VanillaEffectID.fireworkBlast, position, param);
         }
-        public static Entity SpawnFireworkBlast(Entity spawner, Vector3 position, float radius, RandomGenerator rng)
+        public static Entity? SpawnFireworkBlast(Entity spawner, Vector3 position, float radius, RandomGenerator rng)
         {
             var h = rng.NextFloat();
             var s = 1;

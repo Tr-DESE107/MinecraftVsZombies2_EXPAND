@@ -10,7 +10,6 @@ using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Level;
-using PVZEngine.SeedPacks;
 
 namespace MVZ2.GameContent.Buffs.SeedPacks
 {
@@ -44,7 +43,7 @@ namespace MVZ2.GameContent.Buffs.SeedPacks
         }
         private void TransformBlueprint(Buff buff)
         {
-            SeedPack seedPack = buff.GetSeedPack();
+            var seedPack = buff.GetSeedPack();
             if (seedPack == null)
                 return;
             var targetID = buff.GetProperty<NamespaceID>(PROP_TARGET_ID);

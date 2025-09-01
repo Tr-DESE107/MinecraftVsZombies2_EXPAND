@@ -37,9 +37,8 @@ namespace MVZ2.GameContent.Contraptions
             entity.PlaySound(VanillaSoundID.lightningAttack);
             var pos = entity.Position;
             pos.y += 240;
-            var cloud = entity.SpawnWithParams(VanillaEffectID.thunderCloud, pos);
-
-            CreateArc(entity, entity.Position + ARC_OFFSET, cloud.GetCenter());
+            entity.SpawnWithParams(VanillaEffectID.thunderCloud, pos);
+            CreateArc(entity, entity.Position + ARC_OFFSET, pos);
         }
         protected override void UpdateAI(Entity entity)
         {
@@ -134,11 +133,13 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static void CreateArc(Entity source, Vector3 sourcePosition, Vector3 targetPosition)
         {
-            var arc = source.Spawn(VanillaEffectID.electricArc, sourcePosition);
-            ElectricArc.Connect(arc, targetPosition);
-            ElectricArc.SetPointCount(arc, 20);
-            ElectricArc.UpdateArc(arc);
-            arc.Timeout = 30;
+            source.Spawn(VanillaEffectID.electricArc, sourcePosition)?.Let(e =>
+            {
+                ElectricArc.Connect(e, targetPosition);
+                ElectricArc.SetPointCount(e, 20);
+                ElectricArc.UpdateArc(e);
+                e.Timeout = 30;
+            });
         }
         public static FrameTimer? GetAttackTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_ATTACK_TIMER);
         public static void SetAttackTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_ATTACK_TIMER, timer);

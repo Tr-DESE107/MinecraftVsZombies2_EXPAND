@@ -93,16 +93,17 @@ namespace MVZ2.GameContent.Bosses
             var center = boss.Position + new Vector3(-50, 80, 0);
 
             level.Spawn(VanillaEffectID.gore, center, boss);
-
-            var bloodPart = level.Spawn(VanillaEffectID.bloodParticles, center, boss);
-            var bloodColor = boss.GetBloodColor();
-            bloodPart.SetTint(bloodColor);
+            level.Spawn(VanillaEffectID.bloodParticles, center, boss)?.Let(e =>
+            {
+                var bloodColor = boss.GetBloodColor();
+                e.SetTint(bloodColor);
+            });
 
             SetSteelPhase(boss, true);
         }
         private void UpdateAim(Entity boss)
         {
-            Entity target = boss.Target;
+            Entity? target = boss.Target;
             var substate = stateMachine.GetSubState(boss);
             // 内手臂，发射子弹
             Vector3 innerArmRootPosition = boss.Position + innerArmRootOffset;
@@ -130,7 +131,7 @@ namespace MVZ2.GameContent.Bosses
         {
             return missileDetector.DetectEntityWithTheMost(boss, t => Mathf.Abs(boss.Position.x - t.GetCenter().x));
         }
-        private static Entity FindPunchTarget(Entity boss)
+        private static Entity? FindPunchTarget(Entity boss)
         {
             return boss.Level.FindFirstEntity(e => IsPunchable(boss, e));
         }
@@ -142,7 +143,7 @@ namespace MVZ2.GameContent.Bosses
         {
             return gunDetector.DetectEntityWithTheLeast(boss, t => Mathf.Abs(boss.Position.x - t.GetCenter().x));
         }
-        private static Entity FindShockingTarget(Entity boss)
+        private static Entity? FindShockingTarget(Entity boss)
         {
             return boss.Level.FindFirstEntity(e => IsShockable(boss, e));
         }
@@ -179,10 +180,12 @@ namespace MVZ2.GameContent.Bosses
             {
                 float rad = i * arcAngle * Mathf.Deg2Rad;
 
-                var arc = level.Spawn(VanillaEffectID.electricArc, centerPos + Vector3.up, boss);
-                Vector3 arcTargetPos = centerPos + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * 100;
-                ElectricArc.Connect(arc, arcTargetPos);
-                ElectricArc.UpdateArc(arc);
+                level.Spawn(VanillaEffectID.electricArc, centerPos + Vector3.up, boss)?.Let(e =>
+                {
+                    Vector3 arcTargetPos = centerPos + new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad)) * 100;
+                    ElectricArc.Connect(e, arcTargetPos);
+                    ElectricArc.UpdateArc(e);
+                });
             }
 
             level.ShakeScreen(20, 0, 15);

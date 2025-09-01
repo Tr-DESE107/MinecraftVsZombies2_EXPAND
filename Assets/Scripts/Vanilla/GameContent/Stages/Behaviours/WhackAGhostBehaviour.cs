@@ -63,8 +63,10 @@ namespace MVZ2.GameContent.Stages
                 var y = level.GetGroundY(x, z);
                 var spawnParam = new SpawnParams();
                 spawnParam.SetProperty(EngineEntityProps.FACTION, level.Option.LeftFaction);
-                var napstablook = level.Spawn(VanillaEnemyID.napstablook, new Vector3(x, y, z), null, spawnParam);
-                AddSpeedBuff(napstablook);
+                level.Spawn(VanillaEnemyID.napstablook, new Vector3(x, y, z), null, spawnParam)?.Let(e =>
+                {
+                    AddSpeedBuff(e);
+                });
             }
         }
         public override void PostEnemySpawned(PVZEngine.Entities.Entity entity)

@@ -34,8 +34,10 @@ namespace MVZ2.GameContent.Enemies
             if (timer.RunToExpiredAndNotNull())
             {
                 SpawnRandomUFOs(enemy, 2);
-                var effect = enemy.Spawn(VanillaEffectID.smokeCluster, enemy.GetCenter());
-                effect.SetTint(new Color(1, 0.8f, 1, 1));
+                enemy.Spawn(VanillaEffectID.smokeCluster, enemy.GetCenter())?.Let(e =>
+                {
+                    e.SetTint(new Color(1, 0.8f, 1, 1));
+                });
                 enemy.Remove();
             }
         }
@@ -69,15 +71,16 @@ namespace MVZ2.GameContent.Enemies
                 SpawnRandomUFO(type, rainbow, targetGrid.Column, targetGrid.Lane);
             }
         }
-        public static Entity SpawnRandomUFO(int type, Entity rainbow, int column, int lane)
+        public static Entity? SpawnRandomUFO(int type, Entity rainbow, int column, int lane)
         {
             var param = rainbow.GetSpawnParams();
-            var ufo = rainbow.Spawn(VanillaEnemyID.ufo, rainbow.Position, param);
-            ufo.Position = rainbow.Position;
-            ufo.SetVariant(type);
-            UndeadFlyingObject.SetTargetGridX(ufo, column);
-            UndeadFlyingObject.SetTargetGridY(ufo, lane);
-            return ufo;
+            return rainbow.Spawn(VanillaEnemyID.ufo, rainbow.Position, param)?.Let(e =>
+            {
+                e.Position = rainbow.Position;
+                e.SetVariant(type);
+                UndeadFlyingObject.SetTargetGridX(e, column);
+                UndeadFlyingObject.SetTargetGridY(e, lane);
+            });
         }
 
         public const int STAY_TIME = 150;

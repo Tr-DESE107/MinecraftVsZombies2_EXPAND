@@ -324,22 +324,24 @@ namespace MVZ2.GameContent.Bosses
                                     var i = y + x * lanes;
                                     var lane = lanesPool.ElementAt(y);
 
-                                    var block = SpawnZombieBlock(entity, entity.Position);
-                                    if (!phase2)
+                                    var block = SpawnZombieBlock(entity, entity.Position)?.Let(e =>
                                     {
-                                        ZombieBlock.SetMode(block, ZombieBlock.MODE_FLY);
-                                    }
-                                    else
-                                    {
-                                        ZombieBlock.SetMode(block, ZombieBlock.MODE_JUMP);
-                                        var gravity = 3;
-                                        var distance = (rng.Next(2) + 1) * level.GetGridWidth();
-                                        block.SetGravity(gravity);
-                                        ZombieBlock.SetJumpDistance(block, distance);
-                                    }
-                                    ZombieBlock.SetStartGrid(block, column, lane);
-                                    ZombieBlock.SetTargetGrid(block, columnEnd, lane);
-                                    ZombieBlock.SetMoveCooldown(block, 30 + i * ZOMBIE_BLOCK_MOVE_INTERVAL);
+                                        if (!phase2)
+                                        {
+                                            ZombieBlock.SetMode(e, ZombieBlock.MODE_FLY);
+                                        }
+                                        else
+                                        {
+                                            ZombieBlock.SetMode(e, ZombieBlock.MODE_JUMP);
+                                            var gravity = 3;
+                                            var distance = (rng.Next(2) + 1) * level.GetGridWidth();
+                                            e.SetGravity(gravity);
+                                            ZombieBlock.SetJumpDistance(e, distance);
+                                        }
+                                        ZombieBlock.SetStartGrid(e, column, lane);
+                                        ZombieBlock.SetTargetGrid(e, columnEnd, lane);
+                                        ZombieBlock.SetMoveCooldown(e, 30 + i * ZOMBIE_BLOCK_MOVE_INTERVAL);
+                                    });
                                 }
                             }
                             SpawnDarkHole(entity);
@@ -702,8 +704,10 @@ namespace MVZ2.GameContent.Bosses
                                 var z = entity.Level.GetEntityLaneZ(lane);
                                 var y = entity.Level.GetGroundY(x, z);
                                 var param = entity.GetSpawnParams();
-                                var gas = entity.Spawn(VanillaEffectID.mummyGas, new Vector3(x, y, z), param);
-                                gas.Velocity = entity.GetFacingDirection() * 1;
+                                entity.Spawn(VanillaEffectID.mummyGas, new Vector3(x, y, z), param)?.Let(e =>
+                                {
+                                    e.Velocity = entity.GetFacingDirection() * 1;
+                                });
                             }
                         }
                         break;
@@ -767,11 +771,13 @@ namespace MVZ2.GameContent.Bosses
                             {
                                 var startPosition = GetZombieBlockPosition(entity, i, atLeft);
                                 var targetPosition = GetPacmanBlockPosition(entity, i, atLeft);
-                                var block = SpawnZombieBlock(entity, entity.Position);
-                                ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
-                                ZombieBlock.SetStartPosition(block, startPosition);
-                                ZombieBlock.SetTargetPosition(block, targetPosition);
-                                ZombieBlock.SetMoveCooldown(block, 30);
+                                SpawnZombieBlock(entity, entity.Position)?.Let(e =>
+                                {
+                                    ZombieBlock.SetMode(e, ZombieBlock.MODE_TRANSFORM);
+                                    ZombieBlock.SetStartPosition(e, startPosition);
+                                    ZombieBlock.SetTargetPosition(e, targetPosition);
+                                    ZombieBlock.SetMoveCooldown(e, 30);
+                                });
                             }
                             SpawnDarkHole(entity);
                             entity.Position = GetCombinePosition(entity, atLeft);
@@ -889,10 +895,12 @@ namespace MVZ2.GameContent.Bosses
                 for (int i = 0; i < PACMAN_BLOCK_COUNT; i++)
                 {
                     var targetPosition = GetZombieBlockPosition(entity, i, true);
-                    var block = SpawnZombieBlock(entity, entity.Position);
-                    ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
-                    ZombieBlock.SetStartPosition(block, entity.Position);
-                    ZombieBlock.SetTargetPosition(block, targetPosition);
+                    SpawnZombieBlock(entity, entity.Position)?.Let(e =>
+                    {
+                        ZombieBlock.SetMode(e, ZombieBlock.MODE_TRANSFORM);
+                        ZombieBlock.SetStartPosition(e, entity.Position);
+                        ZombieBlock.SetTargetPosition(e, targetPosition);
+                    });
                 }
                 SpawnDarkHole(entity);
                 SetInactive(entity, true);
@@ -927,7 +935,8 @@ namespace MVZ2.GameContent.Bosses
                 {
                     entity.Target = devourer;
                     var grid = entity.GetEvadeTargetGrid(devourer);
-                    SetTargetGridIndex(entity, grid.GetIndex());
+                    if (grid != null)
+                        SetTargetGridIndex(entity, grid.GetIndex());
                 }
                 else
                 {
@@ -935,7 +944,8 @@ namespace MVZ2.GameContent.Bosses
                     var target = pacmanDetector.DetectEntityWithTheLeast(entity, e => Vector3.SqrMagnitude(e.Position - entity.Position));
                     entity.Target = target;
                     var grid = entity.GetChaseTargetGrid(entity.Target);
-                    SetTargetGridIndex(entity, grid.GetIndex());
+                    if (grid != null)
+                        SetTargetGridIndex(entity, grid.GetIndex());
                 }
 
             }
@@ -986,11 +996,13 @@ namespace MVZ2.GameContent.Bosses
                             {
                                 var startPosition = GetZombieBlockPosition(entity, i, true);
                                 var targetPosition = GetSnakeBlockPosition(entity, i, true);
-                                var block = SpawnZombieBlock(entity, entity.Position);
-                                ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
-                                ZombieBlock.SetStartPosition(block, startPosition);
-                                ZombieBlock.SetTargetPosition(block, targetPosition);
-                                ZombieBlock.SetMoveCooldown(block, 30);
+                                SpawnZombieBlock(entity, entity.Position)?.Let(e =>
+                                {
+                                    ZombieBlock.SetMode(e, ZombieBlock.MODE_TRANSFORM);
+                                    ZombieBlock.SetStartPosition(e, startPosition);
+                                    ZombieBlock.SetTargetPosition(e, targetPosition);
+                                    ZombieBlock.SetMoveCooldown(e, 30);
+                                });
                             }
                             SpawnDarkHole(entity);
                             entity.Position = GetCombinePosition(entity, !atLeft);
@@ -1020,7 +1032,10 @@ namespace MVZ2.GameContent.Bosses
                                     }
                                     else if (i < SNAKE_COMBINE_ZOMBIE_BLOCK_COUNT)
                                     {
-                                        lastSnakeTail = SpawnSnakeTail(entity, block.Position, lastSnakeTail);
+                                        SpawnSnakeTail(entity, block.Position, lastSnakeTail)?.Let(e =>
+                                        {
+                                            lastSnakeTail = e;
+                                        });
                                     }
                                 }
                             }
@@ -1131,10 +1146,12 @@ namespace MVZ2.GameContent.Bosses
                 for (int i = 0; i < SNAKE_BLOCK_COUNT; i++)
                 {
                     var targetPosition = GetZombieBlockPosition(entity, i, atLeft);
-                    var block = SpawnZombieBlock(entity, entity.Position);
-                    ZombieBlock.SetMode(block, ZombieBlock.MODE_TRANSFORM);
-                    ZombieBlock.SetStartPosition(block, entity.Position);
-                    ZombieBlock.SetTargetPosition(block, targetPosition);
+                    SpawnZombieBlock(entity, entity.Position)?.Let(e =>
+                    {
+                        ZombieBlock.SetMode(e, ZombieBlock.MODE_TRANSFORM);
+                        ZombieBlock.SetStartPosition(e, entity.Position);
+                        ZombieBlock.SetTargetPosition(e, targetPosition);
+                    });
                 }
 
                 SpawnDarkHole(entity);
@@ -1198,7 +1215,8 @@ namespace MVZ2.GameContent.Bosses
 
                 var gridIndex = GetTargetGridIndex(entity);
                 TheGiantSnakeTail.PassTargetGrids(entity, gridIndex);
-                SetTargetGridIndex(entity, grid.GetIndex());
+                if (grid != null)
+                    SetTargetGridIndex(entity, grid.GetIndex());
 
 
             }
@@ -1213,10 +1231,11 @@ namespace MVZ2.GameContent.Bosses
                 var pos = grid.GetEntityPosition();
                 var spawnPos = pos;
                 spawnPos.y = 800;
-                var block = SpawnZombieBlock(entity, spawnPos);
-                ZombieBlock.SetMode(block, ZombieBlock.MODE_SNAKE_FOOD);
-                ZombieBlock.SetStartPosition(block, pos);
-                return block;
+                return SpawnZombieBlock(entity, spawnPos)?.Let(e =>
+                {
+                    ZombieBlock.SetMode(e, ZombieBlock.MODE_SNAKE_FOOD);
+                    ZombieBlock.SetStartPosition(e, pos);
+                });
             }
             public static bool GridHasTail(LawnGrid grid)
             {
@@ -1478,11 +1497,13 @@ namespace MVZ2.GameContent.Bosses
                         zombieParam.SetProperty(VanillaEnemyProps.HARMLESS, true);
                         zombieParam.SetProperty(VanillaEnemyProps.NO_REWARD, true);
                         zombieParam.SetProperty(VanillaEntityProps.FALL_RESISTANCE, -10000f);
-                        var zombie = entity.Spawn(VanillaEnemyID.zombie, entity.GetCenter(), zombieParam);
-                        var xSpeed = zombie.RNG.NextFloat() * 20 - 10;
-                        var ySpeed = zombie.RNG.NextFloat() * 10 + 3;
-                        var zSpeed = zombie.RNG.NextFloat() * 20 - 10;
-                        zombie.Velocity = new Vector3(xSpeed, ySpeed, zSpeed);
+                        entity.Spawn(VanillaEnemyID.zombie, entity.GetCenter(), zombieParam)?.Let(e =>
+                        {
+                            var xSpeed = e.RNG.NextFloat() * 20 - 10;
+                            var ySpeed = e.RNG.NextFloat() * 10 + 3;
+                            var zSpeed = e.RNG.NextFloat() * 20 - 10;
+                            e.Velocity = new Vector3(xSpeed, ySpeed, zSpeed);
+                        });
                         entity.Remove();
                     }
                 }

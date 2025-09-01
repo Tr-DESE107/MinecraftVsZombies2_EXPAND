@@ -26,17 +26,17 @@ namespace MVZ2.GameContent.Effects
             base.Update(entity);
             entity.SetModelProperty("Size", entity.GetScaledSize());
         }
-        public static Entity Spawn(NamespaceID id, Entity spawner, Vector3 position, Vector3 size)
+        public static Entity? Spawn(NamespaceID id, Entity spawner, Vector3 position, Vector3 size)
         {
             var param = spawner.GetSpawnParams();
             param.SetProperty(EngineEntityProps.SIZE, size);
             return spawner.Spawn(id, position, param);
         }
-        public static Entity Spawn(Entity spawner, Vector3 position, Vector3 size)
+        public static Entity? Spawn(Entity spawner, Vector3 position, Vector3 size)
         {
             return Spawn(VanillaEffectID.explosion, spawner, position, size);
         }
-        public static Entity Spawn(Entity spawner, Vector3 position, float radius)
+        public static Entity? Spawn(Entity spawner, Vector3 position, float radius)
         {
             return Spawn(spawner, position, Vector3.one * (radius * 2));
         }

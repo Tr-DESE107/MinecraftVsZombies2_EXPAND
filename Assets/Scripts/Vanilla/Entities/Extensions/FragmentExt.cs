@@ -13,33 +13,37 @@ namespace MVZ2.Vanilla.Entities
     {
         private const string PROP_REGION = "fragments";
         #region 碎片
-        public static Entity CreateFragment(this Entity entity)
+        public static Entity? CreateFragment(this Entity entity)
         {
-            var fragment = entity.Level.Spawn(VanillaEffectID.fragment, entity.Position, entity);
-            fragment.SetParent(entity);
-            Fragment.UpdateFragmentID(fragment);
-            return fragment;
+            return entity.Level.Spawn(VanillaEffectID.fragment, entity.Position, entity)?.Let(e =>
+            {
+                e.SetParent(entity);
+                Fragment.UpdateFragmentID(e);
+            });
         }
-        public static Entity CreateFragmentAndPlay(this Entity entity, NamespaceID? id = null, float emitSpeed = 500)
+        public static Entity? CreateFragmentAndPlay(this Entity entity, NamespaceID? id = null, float emitSpeed = 500)
         {
             return entity.CreateFragmentAndPlay(entity.Position, id, emitSpeed);
         }
-        public static Entity CreateFragmentAndPlay(this Entity entity, Vector3 position, NamespaceID? id = null, float emitSpeed = 500)
+        public static Entity? CreateFragmentAndPlay(this Entity entity, Vector3 position, NamespaceID? id = null, float emitSpeed = 500)
         {
-            var fragment = entity.Level.Spawn(VanillaEffectID.fragment, position, entity);
-            Fragment.SetFragmentID(fragment, id ?? entity?.GetFragmentID() ?? entity?.GetDefinitionID());
-            Fragment.AddEmitSpeed(fragment, emitSpeed);
-            return fragment;
+            return entity.Level.Spawn(VanillaEffectID.fragment, position, entity)?.Let(e =>
+            {
+                Fragment.SetFragmentID(e, id ?? entity?.GetFragmentID() ?? entity?.GetDefinitionID());
+                Fragment.AddEmitSpeed(e, emitSpeed);
+            });
         }
-        public static Entity GetOrCreateFragment(this Entity entity)
+        public static Entity? GetOrCreateFragment(this Entity entity)
         {
             var fragmentRef = entity.GetFragment();
             var fragment = fragmentRef?.GetEntity(entity.Level);
             if (fragment == null || !fragment.Exists())
             {
-                fragment = entity.CreateFragment();
-                fragmentRef = new EntityID(fragment);
-                entity.SetFragment(fragmentRef);
+                fragment = entity.CreateFragment()?.Let(e =>
+                {
+                    fragmentRef = new EntityID(fragment);
+                    entity.SetFragment(fragmentRef);
+                });
             }
             return fragment;
         }
@@ -76,10 +80,12 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 治疗粒子
-        public static Entity CreateHealParticles(this Entity entity)
+        public static Entity? CreateHealParticles(this Entity entity)
         {
-            var particles = entity.Level.Spawn(VanillaEffectID.healParticles, entity.Position, entity);
-            particles.SetParent(entity);
+            var particles = entity.Level.Spawn(VanillaEffectID.healParticles, entity.Position, entity)?.Let(e =>
+            {
+                e.SetParent(entity);
+            });
             var fragmentRef = new EntityID(particles);
             entity.SetHealParticles(fragmentRef);
             return particles;
@@ -89,12 +95,14 @@ namespace MVZ2.Vanilla.Entities
             var healing = entity.GetTickHealing();
             if (healing > 0)
             {
-                var fragment = entity.GetOrCreateHealParticles();
-                HealParticles.AddEmitSpeed(fragment, entity.GetTickHealing() * 0.4f);
+                entity.GetOrCreateHealParticles()?.Let(e =>
+                {
+                    HealParticles.AddEmitSpeed(e, entity.GetTickHealing() * 0.4f);
+                });
                 entity.SetTickHealing(0);
             }
         }
-        public static Entity GetOrCreateHealParticles(this Entity entity)
+        public static Entity? GetOrCreateHealParticles(this Entity entity)
         {
             var reference = entity.GetHealParticles();
             var particles = reference?.GetEntity(entity.Level);

@@ -47,11 +47,10 @@ namespace MVZ2.GameContent.Armors
                 timer.Reset();
 
                 var pos = owner.Position + owner.GetArmorOffset(armor.Slot, armor.Definition.GetID()) + owner.GetFacingDirection() * 20 + new Vector3(0, -12, 0);
-                var ball = owner.SpawnWithParams(VanillaEnemyID.cannonballZombie, pos);
+                owner.SpawnWithParams(VanillaEnemyID.cannonballZombie, pos);
                 var multiplier = owner.GetWeakKnockbackMultiplier();
                 owner.Velocity -= owner.GetFacingDirection() * (5 * multiplier);
-
-                ball.PlaySound(VanillaSoundID.smallExplosion);
+                owner.PlaySound(VanillaSoundID.smallExplosion);
             }
         }
         private void PostArmorDestroyCallback(LevelCallbacks.PostArmorDestroyParams param, CallbackResult result)

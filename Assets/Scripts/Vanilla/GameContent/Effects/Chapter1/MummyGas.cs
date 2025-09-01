@@ -58,8 +58,10 @@ namespace MVZ2.GameContent.Effects
             {
                 entity.PlaySound(VanillaSoundID.fire);
                 entity.Timeout = Math.Min(entity.Timeout, DISAPPEAR_TIMEOUT);
-                var burning = entity.Level.Spawn(VanillaEffectID.burningGas, entity.Position, entity);
-                burning.SetSize(entity.GetSize());
+                entity.Level.Spawn(VanillaEffectID.burningGas, entity.Position, entity)?.Let(e =>
+                {
+                    e.SetSize(entity.GetSize());
+                });
 
                 Burn(entity);
                 return;

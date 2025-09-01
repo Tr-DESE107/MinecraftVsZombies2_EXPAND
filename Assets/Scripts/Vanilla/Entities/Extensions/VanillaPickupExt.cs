@@ -61,39 +61,47 @@ namespace MVZ2.Vanilla.Entities
         {
             return entity.State == VanillaEntityStates.PICKUP_COLLECTED;
         }
-        public static Entity Produce(this Entity entity, NamespaceID pickupID, SpawnParams? param = null)
+        public static Entity? Produce(this Entity entity, NamespaceID pickupID, SpawnParams? param = null)
         {
-            return entity.Produce(entity.Level.Content.GetEntityDefinition(pickupID), param);
+            var def = entity.Level.Content.GetEntityDefinition(pickupID);
+            if (def == null)
+                return null;
+            return entity.Produce(def, param);
         }
-        public static Entity Produce(this Entity entity, EntityDefinition pickupDef, SpawnParams? param = null)
+        public static Entity? Produce(this Entity entity, EntityDefinition pickupDef, SpawnParams? param = null)
         {
             return entity.Level.Produce(pickupDef, entity.Position, entity, param);
         }
-        public static Entity Produce(this LevelEngine level, NamespaceID pickupID, Vector3 position, Entity? spawner, SpawnParams? param = null)
+        public static Entity? Produce(this LevelEngine level, NamespaceID pickupID, Vector3 position, Entity? spawner, SpawnParams? param = null)
         {
-            return level.Produce(level.Content.GetEntityDefinition(pickupID), position, spawner, param);
+            var def = level.Content.GetEntityDefinition(pickupID);
+            if (def == null)
+                return null;
+            return level.Produce(def, position, spawner, param);
         }
-        public static Entity Produce(this LevelEngine level, EntityDefinition pickupDef, Vector3 position, Entity? spawner, SpawnParams? param = null)
+        public static Entity? Produce(this LevelEngine level, EntityDefinition pickupDef, Vector3 position, Entity? spawner, SpawnParams? param = null)
         {
             float xSpeed;
             float maxSpeed = 1.6f;
-            var pickup = level.Spawn(pickupDef, position, spawner, param);
+            var pickup = level.Spawn(pickupDef, position, spawner, param)?.Let(e =>
+            {
+                var rng = e.RNG;
+                if (position.x <= VanillaLevelExt.GetBorderX(false) + 150)
+                {
+                    xSpeed = rng.Next(0, maxSpeed);
+                }
+                else if (position.x >= VanillaLevelExt.GetBorderX(true) - 150)
+                {
+                    xSpeed = rng.Next(-maxSpeed, 0);
+                }
+                else
+                {
+                    xSpeed = rng.Next(-maxSpeed, maxSpeed);
+                }
+                Vector3 dropVelocity = new Vector3(xSpeed, 7, 0);
+                e.Velocity = dropVelocity;
+            });
 
-            var rng = pickup.RNG;
-            if (position.x <= VanillaLevelExt.GetBorderX(false) + 150)
-            {
-                xSpeed = rng.Next(0, maxSpeed);
-            }
-            else if (position.x >= VanillaLevelExt.GetBorderX(true) - 150)
-            {
-                xSpeed = rng.Next(-maxSpeed, 0);
-            }
-            else
-            {
-                xSpeed = rng.Next(-maxSpeed, maxSpeed);
-            }
-            Vector3 dropVelocity = new Vector3(xSpeed, 7, 0);
-            pickup.Velocity = dropVelocity;
             return pickup;
         }
     }

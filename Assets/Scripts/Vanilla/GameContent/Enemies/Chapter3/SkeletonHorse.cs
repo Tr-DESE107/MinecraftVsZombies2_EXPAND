@@ -114,7 +114,7 @@ namespace MVZ2.GameContent.Enemies
         #endregion
 
         #region 敌人回调
-        protected override bool ValidateMeleeTarget(Entity enemy, Entity target)
+        protected override bool ValidateMeleeTarget(Entity enemy, Entity? target)
         {
             if (!base.ValidateMeleeTarget(enemy, target))
                 return false;

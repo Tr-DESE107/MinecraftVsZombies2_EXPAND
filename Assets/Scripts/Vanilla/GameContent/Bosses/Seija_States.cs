@@ -288,8 +288,10 @@ namespace MVZ2.GameContent.Bosses
                                 stateMachine.StartState(entity, STATE_BACKFLIP);
                                 var param = entity.GetSpawnParams();
                                 param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage());
-                                var bomb = entity.Spawn(VanillaProjectileID.seijaMagicBomb, entity.GetCenter(), param);
-                                bomb.Velocity = new Vector3(0, 5, 0);
+                                entity.Spawn(VanillaProjectileID.seijaMagicBomb, entity.GetCenter(), param)?.Let(e =>
+                                {
+                                    e.Velocity = new Vector3(0, 5, 0);
+                                });
                             }
                             else
                             {
@@ -359,8 +361,10 @@ namespace MVZ2.GameContent.Bosses
                             pos.y += 40;
                             var param = entity.GetSpawnParams();
                             param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage());
-                            var bomb = entity.Spawn(VanillaProjectileID.seijaMagicBomb, pos, param);
-                            bomb.Velocity = new Vector3(entity.GetFacingX() * -5, 10, 0);
+                            entity.Spawn(VanillaProjectileID.seijaMagicBomb, pos, param)?.Let(e =>
+                            {
+                                e.Velocity = new Vector3(entity.GetFacingX() * -5, 10, 0);
+                            });
                             entity.PlaySound(VanillaSoundID.fling);
                         }
                         break;
@@ -427,8 +431,10 @@ namespace MVZ2.GameContent.Bosses
                             var pos = entity.Position;
                             pos.x += entity.GetFacingX() * 80;
                             pos.y = entity.Level.GetGroundY(pos);
-                            var frame = entity.SpawnWithParams(VanillaEffectID.seijaCameraFrame, pos);
-                            frame.Velocity = new Vector3(entity.GetFacingX() * 30, 0, 0);
+                            entity.SpawnWithParams(VanillaEffectID.seijaCameraFrame, pos)?.Let(e =>
+                            {
+                                e.Velocity = new Vector3(entity.GetFacingX() * 30, 0, 0);
+                            });
                             entity.Velocity = new Vector3(entity.GetFacingX() * 10, 10, GetChangeAdjacentLaneZSpeed(entity));
                         }
                         break;

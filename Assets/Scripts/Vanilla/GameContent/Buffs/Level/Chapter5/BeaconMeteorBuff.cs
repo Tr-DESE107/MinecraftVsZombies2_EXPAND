@@ -68,7 +68,7 @@ namespace MVZ2.GameContent.Buffs.Level
                     break;
             }
         }
-        public static Entity SpawnMeteor(LevelEngine level, RandomGenerator rng, int faction, float damage)
+        public static Entity? SpawnMeteor(LevelEngine level, RandomGenerator rng, int faction, float damage)
         {
             var column = rng.Next(0, level.GetMaxColumnCount());
             var lane = rng.Next(0, level.GetMaxLaneCount());
@@ -85,9 +85,11 @@ namespace MVZ2.GameContent.Buffs.Level
             var param = new SpawnParams();
             param.SetProperty(EngineEntityProps.FACTION, faction);
             param.SetProperty(VanillaEntityProps.DAMAGE, damage);
-            var meteor = level.Spawn(VanillaProjectileID.beaconMeteor, pos, null, param);
-            meteor.Velocity = velocity;
-            meteor.PlaySound(VanillaSoundID.bombFalling);
+            var meteor = level.Spawn(VanillaProjectileID.beaconMeteor, pos, null, param)?.Let(e =>
+            {
+                e.Velocity = velocity;
+                e.PlaySound(VanillaSoundID.bombFalling);
+            });
             return meteor;
         }
         public static void SetDamage(Buff buff, float value) => buff.SetProperty(PROP_DAMAGE, value);

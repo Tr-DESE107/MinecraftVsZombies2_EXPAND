@@ -80,8 +80,10 @@ namespace MVZ2.GameContent.Stages
             var x = VanillaLevelExt.ENEMY_RIGHT_BORDER;
             var z = level.GetEntityLaneZ(level.GetMaxLaneCount() / 2);
             var y = level.GetGroundY(x, z);
-            var seija = level.Spawn(VanillaBossID.seija, new Vector3(x, y, z), null);
-            Seija.StartState(seija, VanillaEntityStates.SEIJA_FRONTFLIP);
+            level.Spawn(VanillaBossID.seija, new Vector3(x, y, z), null)?.Let(e =>
+            {
+                Seija.StartState(e, VanillaEntityStates.SEIJA_FRONTFLIP);
+            });
             level.SetNoEnergy(false);
             // 音乐。
             level.PlayMusic(VanillaMusicID.seija);
@@ -100,9 +102,10 @@ namespace MVZ2.GameContent.Stages
             if (level.GetProperty<bool>(FIELD_MESMERIZER_SPAWNED))
                 return null;
             level.SetProperty(FIELD_MESMERIZER_SPAWNED, true);
-            var entity = level.Spawn(VanillaEnemyID.mesmerizer, position, null);
-            entity.AddBuff<SeijaMesmerizerBuff>();
-            return entity;
+            return level.Spawn(VanillaEnemyID.mesmerizer, position, null)?.Let(e =>
+            {
+                e.AddBuff<SeijaMesmerizerBuff>();
+            });
         }
         private void PostGravityPadEvokeCallback(EntityCallbackParams param, CallbackResult result)
         {

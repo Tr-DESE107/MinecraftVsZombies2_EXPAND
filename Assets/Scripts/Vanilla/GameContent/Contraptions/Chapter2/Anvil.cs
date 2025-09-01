@@ -84,7 +84,7 @@ namespace MVZ2.GameContent.Contraptions
                     foreach (var layer in selfGridLayers)
                     {
                         var ent = grid.GetLayerEntity(layer);
-                        if (CanSmash(anvil, ent))
+                        if (ent != null && CanSmash(anvil, ent))
                         {
                             ent.Die(new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.SELF_DAMAGE), anvil, null);
                         }
@@ -94,8 +94,6 @@ namespace MVZ2.GameContent.Contraptions
         }
         public static bool CanSmash(Entity anvil, Entity other)
         {
-            if (anvil == null || other == null)
-                return false;
             if (other == anvil)
                 return false;
             if (!other.IsVulnerableEntity())

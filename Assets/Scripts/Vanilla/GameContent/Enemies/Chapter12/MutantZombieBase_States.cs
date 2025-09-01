@@ -16,7 +16,7 @@ namespace MVZ2.Vanilla.Enemies
 {
     public abstract partial class MutantZombieBase : EnemyBehaviour
     {
-        #region ״̬��
+        #region 状态机
         private class MutantZombieStateMachine : EntityStateMachine
         {
             public MutantZombieStateMachine()
@@ -55,7 +55,7 @@ namespace MVZ2.Vanilla.Enemies
             }
         }
 
-        #region ����
+        #region 空闲
         public class IdleState : EntityStateMachineState
         {
             public IdleState() : base(STATE_IDLE) { }
@@ -67,7 +67,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        #region ����
+        #region 行走
         public class WalkState : EntityStateMachineState
         {
             public WalkState() : base(STATE_WALK) { }
@@ -80,7 +80,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        #region ����
+        #region 攻击
         private static bool CheckAttackTarget(Entity zombie)
         {
             return attackDetector.DetectExists(zombie);
@@ -167,7 +167,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        #region Ͷ��
+        #region 投掷
         private static bool CheckThrow(Entity zombie)
         {
             if (!HasImp(zombie))
@@ -209,9 +209,11 @@ namespace MVZ2.Vanilla.Enemies
 
                                 var impPos = entity.Position + new Vector3(entity.GetFacingX() * 24, 155, 0);
                                 var impVel = new Vector3(entity.GetFacingX() * 20, 0, 0);
-                                var imp = entity.SpawnWithParams(VanillaEnemyID.imp, impPos);
-                                imp.PlaySound(VanillaSoundID.impLaugh);
-                                imp.Velocity = impVel;
+                                entity.SpawnWithParams(VanillaEnemyID.imp, impPos)?.Let(e =>
+                                {
+                                    e.PlaySound(VanillaSoundID.impLaugh);
+                                    e.Velocity = impVel;
+                                });
 
                                 subStateTimer.ResetTime(10);
                                 stateMachine.SetSubState(entity, SUBSTATE_THROWN);
@@ -230,7 +232,7 @@ namespace MVZ2.Vanilla.Enemies
             public const int SUBSTATE_THROWN = 1;
         }
         #endregion
-        #region ����
+        #region 死亡
         public class DeathState : EntityStateMachineState
         {
             public DeathState() : base(STATE_DEATH) { }
@@ -240,8 +242,10 @@ namespace MVZ2.Vanilla.Enemies
                 var subStateTimer = stateMachine.GetSubStateTimer(entity);
                 subStateTimer?.ResetTime(120);
 
-                var weapon = entity.Spawn(VanillaEffectID.mutantZombieWeapon, entity.Position + new Vector3(0, 71, 0));
-                weapon.SetModelProperty("Weapon", GetWeapon(entity));
+                entity.Spawn(VanillaEffectID.mutantZombieWeapon, entity.Position + new Vector3(0, 71, 0))?.Let(e =>
+                {
+                    e.SetModelProperty("Weapon", GetWeapon(entity));
+                });
             }
             public override void OnUpdateLogic(EntityStateMachine stateMachine, Entity entity)
             {

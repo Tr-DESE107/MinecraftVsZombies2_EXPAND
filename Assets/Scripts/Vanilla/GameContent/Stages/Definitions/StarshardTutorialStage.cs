@@ -86,8 +86,10 @@ namespace MVZ2.GameContent.Stages
                 case STATE_GREEN_ENEMY:
                     {
                         var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
-                        var enemy = level.SpawnEnemy(spawnDef, 2);
-                        enemy.AddBuff<StarshardCarrierBuff>();
+                        level.SpawnEnemy(spawnDef, 2)?.Let(e =>
+                        {
+                            e.AddBuff<StarshardCarrierBuff>();
+                        });
                     }
                     break;
                 case STATE_KILL_HELMET_ZOMBIE:

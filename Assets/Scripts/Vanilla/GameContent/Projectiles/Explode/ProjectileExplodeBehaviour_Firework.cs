@@ -32,7 +32,7 @@ namespace MVZ2.GameContent.Projectiles
         }
         public override void PlayExplosionSound(Entity entity)
         {
-            entity.PlaySoundNullable(entity.GetProperty<NamespaceID>(PROP_BLAST_SOUND));
+            entity.PlaySoundIfNotNull(entity.GetProperty<NamespaceID>(PROP_BLAST_SOUND));
             entity.PlaySound(VanillaSoundID.fireworkTwinkle);
         }
         public static bool CanHitCollider(IEntityCollider collider)

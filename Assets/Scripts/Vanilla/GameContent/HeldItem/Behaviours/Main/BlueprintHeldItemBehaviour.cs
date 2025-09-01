@@ -135,6 +135,8 @@ namespace MVZ2.GameContent.HeldItems
             var level = entity.Level;
             var seedPack = GetSeedPack(level, data);
             var seedEntityID = seedPack?.GetSeedEntityID();
+            if (seedEntityID == null)
+                return false;
             var entityDef = level.Content.GetEntityDefinition(seedEntityID);
             return entityDef != null && entityDef.IsUpgradeBlueprint() && entity.CanUpgradeToContraption(entityDef);
         }
@@ -187,7 +189,7 @@ namespace MVZ2.GameContent.HeldItems
         {
             grid.Level.RemoveConveyorSeedPackAt((int)data.ID);
         }
-        public override SeedPack GetSeedPack(LevelEngine level, IHeldItemData data)
+        public override SeedPack? GetSeedPack(LevelEngine level, IHeldItemData data)
         {
             return level.GetConveyorSeedPackAt((int)data.ID);
         }

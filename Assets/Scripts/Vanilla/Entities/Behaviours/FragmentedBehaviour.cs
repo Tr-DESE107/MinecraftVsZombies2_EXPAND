@@ -24,8 +24,10 @@ namespace MVZ2.Vanilla.Entities
         public override sealed void Update(Entity entity)
         {
             base.Update(entity);
-            var fragment = entity.GetOrCreateFragment();
-            Fragment.AddEmitSpeed(fragment, entity.GetFragmentTickDamage());
+            entity.GetOrCreateFragment()?.Let(e =>
+            {
+                Fragment.AddEmitSpeed(e, entity.GetFragmentTickDamage());
+            });
             entity.SetFragmentTickDamage(0);
         }
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
@@ -33,8 +35,10 @@ namespace MVZ2.Vanilla.Entities
             base.PostDeath(entity, damageInfo);
             if (!damageInfo.HasEffect(VanillaDamageEffects.SACRIFICE) && !damageInfo.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
             {
-                var fragment = entity.GetOrCreateFragment();
-                Fragment.AddEmitSpeed(fragment, 500);
+                entity.GetOrCreateFragment()?.Let(e =>
+                {
+                    Fragment.AddEmitSpeed(e, 500);
+                });
             }
         }
         public override void PostTakeDamage(DamageOutput result)

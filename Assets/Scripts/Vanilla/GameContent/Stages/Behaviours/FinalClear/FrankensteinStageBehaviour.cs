@@ -35,8 +35,10 @@ namespace MVZ2.GameContent.Stages
             if (targetEnemy == null || !targetEnemy.Exists())
             {
                 var position = new Vector3(VanillaLevelExt.ENEMY_RIGHT_BORDER, 0, level.GetEntityLaneZ(Mathf.FloorToInt(level.GetMaxLaneCount() * 0.5f)));
-                targetEnemy = level.Spawn(VanillaEnemyID.zombie, position, null);
-                targetEnemy.AddBuff<FrankensteinTransformerBuff>();
+                targetEnemy = level.Spawn(VanillaEnemyID.zombie, position, null)?.Let(e =>
+                {
+                    e.AddBuff<FrankensteinTransformerBuff>();
+                });
                 frankensteinTimer.ResetTime(300);
             }
 
@@ -48,12 +50,14 @@ namespace MVZ2.GameContent.Stages
             if (frankensteinTimer.Expired)
             {
                 level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
-                var frankenstein = level.Spawn(VanillaBossID.frankenstein, targetEnemy.Position, targetEnemy);
+                targetEnemy?.Run(e => level.Spawn(VanillaBossID.frankenstein, targetEnemy.Position, targetEnemy))?.Let(e =>
+                {
+                    Frankenstein.DoTransformationEffects(e);
+                });
                 foreach (var ent in level.FindEntities(e => !e.IsDead && e.HasBuff<FrankensteinTransformerBuff>()))
                 {
                     ent.Remove();
                 }
-                Frankenstein.DoTransformationEffects(frankenstein);
                 // 音乐。
                 level.PlayMusic(VanillaMusicID.halloweenBoss);
                 level.SetMusicVolume(1);

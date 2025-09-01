@@ -183,12 +183,13 @@ namespace MVZ2.GameContent.Stages
                         {
                             lane = dispensers[0].GetLane();
                         }
-                        var enemy = level.SpawnEnemy(spawnDef, lane);
-                        var armor = enemy.GetMainArmor();
-                        if (armor != null)
+                        var enemy = level.SpawnEnemy(spawnDef, lane)?.Let(e =>
                         {
-                            armor.Health = armor.GetMaxHealth() * 0.5f;
-                        }
+                            e.GetMainArmor()?.Let(a =>
+                            {
+                                a.Health = a.GetMaxHealth() * 0.5f;
+                            });
+                        });
                     }
                     break;
                 case STATE_HELMET_ZOMBIE_KILLED:

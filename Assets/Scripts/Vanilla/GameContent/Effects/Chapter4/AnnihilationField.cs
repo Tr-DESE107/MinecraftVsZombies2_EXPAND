@@ -78,8 +78,10 @@ namespace MVZ2.GameContent.Effects
             {
                 if (!level.EntityExists(e => e.IsEntityOf(VanillaPickupID.artifactPickup) && e.GetPickupContentID() == VanillaArtifactID.bottledBlackhole))
                 {
-                    var artifact = level.Spawn(VanillaPickupID.artifactPickup, entity.Position, entity);
-                    artifact.SetPickupContentID(VanillaArtifactID.bottledBlackhole);
+                    level.Spawn(VanillaPickupID.artifactPickup, entity.Position, entity)?.Let(e =>
+                    {
+                        e.SetPickupContentID(VanillaArtifactID.bottledBlackhole);
+                    });
                 }
             }
         }

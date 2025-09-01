@@ -59,8 +59,10 @@ namespace MVZ2.GameContent.Bosses
             base.PostDeath(entity, deathInfo);
 
             entity.PlaySound(VanillaSoundID.nightmareaperDeath);
-            var darkMatter = entity.Spawn(VanillaEffectID.darkMatterParticles, entity.Position);
-            darkMatter.SetParent(entity);
+            entity.Spawn(VanillaEffectID.darkMatterParticles, entity.Position)?.Let(e =>
+            {
+                e.SetParent(entity);
+            });
 
             CancelDarkness(entity.Level);
 

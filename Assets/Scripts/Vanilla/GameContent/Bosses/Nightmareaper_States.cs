@@ -230,7 +230,8 @@ namespace MVZ2.GameContent.Bosses
                         case SUBSTATE_READY_1:
                         case SUBSTATE_READY_2:
                         case SUBSTATE_READY_3:
-                            Jab(entity, entity.Target);
+                            if (entity.Target != null)
+                                Jab(entity, entity.Target);
                             stateMachine.SetSubState(entity, substate + 1);
                             substateTimer.ResetTime(9);
                             break;
@@ -260,8 +261,6 @@ namespace MVZ2.GameContent.Bosses
 
             private void Jab(Entity entity, Entity target)
             {
-                if (target == null)
-                    return;
                 Vector3 beforePos = entity.Position;
                 entity.Position = target.GetCenter() + Vector3.up * 40f;
                 entity.Velocity = Vector3.zero;
@@ -272,8 +271,10 @@ namespace MVZ2.GameContent.Bosses
                 for (float i = 0; i < magnitude; i += 16)
                 {
                     Vector3 pos = beforePos + normalized * i;
-                    var shadow = entity.Spawn(VanillaEffectID.nightmareaperShadow, pos);
-                    shadow.Timeout = Mathf.CeilToInt(i / magnitude * 30);
+                    entity.Spawn(VanillaEffectID.nightmareaperShadow, pos)?.Let(e =>
+                    {
+                        e.Timeout = Mathf.CeilToInt(i / magnitude * 30);
+                    });
                 }
                 // Jab.
                 bool jabbed = false;
@@ -448,16 +449,18 @@ namespace MVZ2.GameContent.Bosses
             private void PostSpinDamageByResult(Entity entity, DamageResult result)
             {
                 var targetShell = result.ShellDefinition;
-                if (!targetShell.BlocksSlice())
+                if (targetShell == null || !targetShell.BlocksSlice())
                     return;
                 // Create Particle.
                 Vector3 relativePos = result.GetPosition() - entity.Position;
                 Vector3 particlePos = entity.Position + relativePos.normalized * SPIN_RADIUS;
-                var sparkParticle = entity.Spawn(VanillaEffectID.sliceSpark, particlePos);
-                // Set Particle Angles.
-                float angle = Vector2.SignedAngle(Vector2.left, new Vector2(relativePos.x, relativePos.z));
-                Vector3 euler = new Vector3(0, 0, angle);
-                sparkParticle.RenderRotation = euler;
+                entity.Spawn(VanillaEffectID.sliceSpark, particlePos)?.Let(e =>
+                {
+                    // Set Particle Angles.
+                    float angle = Vector2.SignedAngle(Vector2.left, new Vector2(relativePos.x, relativePos.z));
+                    Vector3 euler = new Vector3(0, 0, angle);
+                    e.RenderRotation = euler;
+                });
 
                 // Create Sound.
                 var rng = GetSparkRNG(entity);
@@ -529,9 +532,10 @@ namespace MVZ2.GameContent.Bosses
                     {
                         var pos = position;
                         pos.y = entity.Level.GetGroundY(pos.x, pos.z);
-                        var skeleton = entity.SpawnWithParams(VanillaEnemyID.skeleton, pos);
-                        var boneParticle = entity.Spawn(VanillaEffectID.boneParticles, skeleton.GetCenter());
-
+                        var skeleton = entity.SpawnWithParams(VanillaEnemyID.skeleton, pos)?.Let(e =>
+                        {
+                            entity.Spawn(VanillaEffectID.boneParticles, e.GetCenter());
+                        });
                         entity.PlaySound(VanillaSoundID.boneWallBuild);
                     }
                     corpsePositions.Clear();

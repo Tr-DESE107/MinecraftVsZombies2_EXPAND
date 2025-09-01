@@ -44,8 +44,10 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             if (target.IsEvoked())
             {
-                var mutant = target.Spawn(VanillaEnemyID.mutantZombie, enemy.Position);
-                mutant.CharmPermanent(target.GetFaction(), new EntitySourceReference(target));
+                var mutant = target.Spawn(VanillaEnemyID.mutantZombie, enemy.Position)?.Let(e =>
+                {
+                    e.CharmPermanent(target.GetFaction(), new EntitySourceReference(target));
+                });
                 enemy.Spawn(VanillaEffectID.mindControlLines, enemy.GetCenter());
                 enemy.Neutralize();
                 enemy.Remove();

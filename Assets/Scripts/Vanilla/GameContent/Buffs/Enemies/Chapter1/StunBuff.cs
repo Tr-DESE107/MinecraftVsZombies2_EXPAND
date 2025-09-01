@@ -70,9 +70,11 @@ namespace MVZ2.GameContent.Buffs.Enemies
             var stars = starsID?.GetEntity(entity.Level);
             if (stars == null || !stars.Exists())
             {
-                stars = buff.Level.Spawn(VanillaEffectID.stunStars, StunStars.GetPosition(entity), entity);
-                stars.SetParent(entity);
-                SetStunStars(buff, new EntityID(stars));
+                stars = buff.Level.Spawn(VanillaEffectID.stunStars, StunStars.GetPosition(entity), entity)?.Let(e =>
+                {
+                    e.SetParent(entity);
+                    SetStunStars(buff, new EntityID(e));
+                });
             }
         }
         public static void SetStunTime(Buff buff, int value)

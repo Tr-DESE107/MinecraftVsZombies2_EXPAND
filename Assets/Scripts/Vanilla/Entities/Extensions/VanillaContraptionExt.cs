@@ -135,7 +135,10 @@ namespace MVZ2.Vanilla.Contraptions
         }
         public static bool CanUpgradeToContraption(this Entity contraption, EntityDefinition target)
         {
-            return contraption.IsEntityOf(target.GetUpgradeFromEntity());
+            var id = target.GetUpgradeFromEntity();
+            if (id == null)
+                return false;
+            return contraption.IsEntityOf(id);
         }
         public static Entity? UpgradeToContraption(this Entity contraption, NamespaceID target)
         {

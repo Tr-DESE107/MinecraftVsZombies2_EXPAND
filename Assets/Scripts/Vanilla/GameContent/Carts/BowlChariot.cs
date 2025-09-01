@@ -28,8 +28,10 @@ namespace MVZ2.GameContent.Carts
             param.SetProperty(EngineEntityProps.DISPLAY_SCALE, scale);
             param.SetProperty(EngineEntityProps.SCALE, scale);
             param.SetProperty(VanillaEntityProps.DAMAGE, 100f);
-            var boulder = entity.Spawn(VanillaProjectileID.boulder, entity.Position + new Vector3(0, 16, 0), param);
-            boulder.Velocity = Vector3.right * 10;
+            entity.Spawn(VanillaProjectileID.boulder, entity.Position + new Vector3(0, 16, 0), param)?.Let(e =>
+            {
+                e.Velocity = Vector3.right * 10;
+            });
         }
     }
 }

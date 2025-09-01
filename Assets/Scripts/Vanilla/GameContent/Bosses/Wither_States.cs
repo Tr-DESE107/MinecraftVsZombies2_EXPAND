@@ -666,9 +666,10 @@ namespace MVZ2.GameContent.Bosses
                                 substateTimer.ResetTime(30);
 
                                 entity.PlaySound(VanillaSoundID.witherSpawn);
-                                var bedserker = entity.SpawnWithParams(VanillaEnemyID.bedserker, entity.Position + entity.GetFacingDirection() * 80);
-
-                                Explosion.Spawn(entity, bedserker.GetCenter(), 60);
+                                entity.SpawnWithParams(VanillaEnemyID.bedserker, entity.Position + entity.GetFacingDirection() * 80)?.Let(e =>
+                                {
+                                    Explosion.Spawn(entity, e.GetCenter(), 60);
+                                });
                                 entity.PlaySound(VanillaSoundID.explosion);
                             }
                         }

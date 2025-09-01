@@ -137,12 +137,14 @@ namespace MVZ2.GameContent.Effects
             }
         }
         #endregion
-        public static Entity SpawnPearl(Entity board)
+        public static Entity? SpawnPearl(Entity board)
         {
             var level = board.Level;
-            var pearl = level.Spawn(VanillaProjectileID.breakoutPearl, board.Position + Vector3.right * 40, board);
+            var pearl = level.Spawn(VanillaProjectileID.breakoutPearl, board.Position + Vector3.right * 40, board)?.Let(e =>
+            {
+                e.SetParent(board);
+            });
             board.Target = pearl;
-            pearl.SetParent(board);
             board.State = VanillaEntityStates.BREAKOUT_PEARL_IDLE;
             return pearl;
         }

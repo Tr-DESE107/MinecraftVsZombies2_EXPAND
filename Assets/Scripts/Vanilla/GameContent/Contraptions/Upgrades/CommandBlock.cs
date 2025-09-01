@@ -103,19 +103,22 @@ namespace MVZ2.GameContent.Contraptions
                 return;
             }
             var grid = entity.GetGrid();
-            var spawnParams = entity.GetSpawnParams();
-            spawnParams.SetProperty(VanillaEntityProps.VARIANT, entity.GetVariant());
-            var spawned = grid.SpawnPlacedEntity(targetID.GetID(), spawnParams);
-            if (spawned != null)
+            if (grid != null)
             {
-                spawned.AddBuff<ImitatedBuff>();
-                if (IsTriggered(entity) && spawned.CanTrigger())
+                var spawnParams = entity.GetSpawnParams();
+                spawnParams.SetProperty(VanillaEntityProps.VARIANT, entity.GetVariant());
+                var spawned = grid.SpawnPlacedEntity(targetID.GetID(), spawnParams);
+                if (spawned != null)
                 {
-                    spawned.Trigger();
-                }
-                if (entity.IsEvoked() && spawned.CanEvoke())
-                {
-                    spawned.Evoke();
+                    spawned.AddBuff<ImitatedBuff>();
+                    if (IsTriggered(entity) && spawned.CanTrigger())
+                    {
+                        spawned.Trigger();
+                    }
+                    if (entity.IsEvoked() && spawned.CanEvoke())
+                    {
+                        spawned.Evoke();
+                    }
                 }
             }
             entity.Spawn(VanillaEffectID.binaryParticles, entity.GetCenter());
