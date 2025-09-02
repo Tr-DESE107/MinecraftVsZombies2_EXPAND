@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Pickups
         {
             base.PostContactGround(entity, velocity);
             entity.Velocity = Vector3.zero;
-            entity.Level.PlaySound(entity.GetDropSound());
+            entity.Level.PlaySoundIfNotNull(entity.GetDropSound());
         }
     }
 }

@@ -10,9 +10,11 @@ namespace PVZEngine.Level
     public partial class LevelEngine
     {
         #region 创建种子包
-        public ClassicSeedPack CreateSeedPack(NamespaceID id)
+        public ClassicSeedPack? CreateSeedPack(NamespaceID id)
         {
             var def = Content.GetSeedDefinition(id);
+            if (def == null)
+                return null;
             return new ClassicSeedPack(this, def, AllocSeedPackID());
         }
         public void InsertSeedPackAt(int index, ClassicSeedPack seed)

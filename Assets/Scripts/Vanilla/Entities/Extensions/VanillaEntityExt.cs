@@ -1018,7 +1018,7 @@ namespace MVZ2.Vanilla.Entities
         public static void InflictWither(this Entity entity, int time, ILevelSourceReference source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.withered);
-            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
                 return;
             Buff? buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
@@ -1032,7 +1032,7 @@ namespace MVZ2.Vanilla.Entities
         public static void InflictWeakness(this Entity entity, int time, ILevelSourceReference source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.enemyWeakness);
-            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
                 return;
             Buff? buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
@@ -1046,7 +1046,7 @@ namespace MVZ2.Vanilla.Entities
         public static void ShortCircuit(this Entity entity, int time, ILevelSourceReference source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Contraption.frankensteinShocked);
-            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
                 return;
             var buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
@@ -1060,7 +1060,7 @@ namespace MVZ2.Vanilla.Entities
         public static void InflictSlow(this Entity entity, int time, ILevelSourceReference source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.slow);
-            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
                 return;
             var buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
@@ -1075,7 +1075,7 @@ namespace MVZ2.Vanilla.Entities
         public static void Unfreeze(this Entity entity, ILevelSourceReference source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.slow);
-            if (!PreRemoveStatusEffect(entity, buffDefinition, source))
+            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
                 return;
             entity.RemoveBuffs(buffDefinition);
             PostRemoveStatusEffect(entity, buffDefinition, source);
@@ -1084,7 +1084,7 @@ namespace MVZ2.Vanilla.Entities
         public static void CharmPermanent(this Entity entity, int faction, ILevelSourceReference source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.charm);
-            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
                 return;
             var buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
@@ -1099,7 +1099,7 @@ namespace MVZ2.Vanilla.Entities
         public static void CharmWithController(this Entity entity, Entity controller, ILevelSourceReference source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.charm);
-            if (!PreApplyStatusEffect(entity, buffDefinition, source))
+            if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
                 return;
             var buff = entity.GetFirstBuff(buffDefinition);
             if (buff == null)
@@ -1113,7 +1113,7 @@ namespace MVZ2.Vanilla.Entities
         public static void RemoveCharm(this Entity entity, ILevelSourceReference source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.charm);
-            if (!PreRemoveStatusEffect(entity, buffDefinition, source))
+            if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
                 return;
             entity.RemoveBuffs(buffDefinition);
             PostRemoveStatusEffect(entity, buffDefinition, source);

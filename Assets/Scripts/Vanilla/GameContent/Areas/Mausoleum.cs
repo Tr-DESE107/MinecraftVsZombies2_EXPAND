@@ -73,7 +73,7 @@ namespace MVZ2.GameContent.Areas
         {
             return grid.Column - SPAWNER_MIN_COLUMN + 1;
         }
-        public static RandomGenerator GetRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(PROP_RNG);
+        public static RandomGenerator? GetRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(PROP_RNG);
         public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetBehaviourField(PROP_RNG, rng);
         public static readonly VanillaLevelPropertyMeta<RandomGenerator> PROP_RNG = new VanillaLevelPropertyMeta<RandomGenerator>("SpawnerRNG");
         public static readonly NamespaceID[] entitiesToSpawn = new NamespaceID[]

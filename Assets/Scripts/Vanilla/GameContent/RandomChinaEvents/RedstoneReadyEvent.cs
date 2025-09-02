@@ -29,8 +29,11 @@ namespace MVZ2.GameContent.RandomChinaEvents
                 float z = vertical * radius;
 
                 float y = level.GetGroundY(x, z);
-                var redstone = contraption.Spawn(VanillaPickupID.redstone, new Vector3(contraption.Position.x + x, y + 10, contraption.Position.z + z));
-                redstone.Velocity = new Vector3(x * 20f, 4f, z * 20f);
+                var pos = new Vector3(contraption.Position.x + x, y + 10, contraption.Position.z + z);
+                contraption.Spawn(VanillaPickupID.redstone, pos)?.Let(e =>
+                {
+                    e.Velocity = new Vector3(x * 20f, 4f, z * 20f);
+                });
             }
         }
         [TranslateMsg("随机瓷器事件名称", VanillaStrings.CONTEXT_RANDOM_CHINA_EVENT_NAME)]

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using PVZEngine.Auras;
+using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -187,9 +188,15 @@ namespace PVZEngine.Armors
                 auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray()
             };
         }
-        public static Armor Deserialize(SerializableArmor seri, Entity owner)
+        public static Armor? Deserialize(SerializableArmor seri, Entity owner)
         {
             var definition = owner.Level.Content.GetArmorDefinition(seri.definitionID);
+            if (definition == null)
+            {
+                var exception = new MissingDefinitionException($"Trying to deserialize an armor with missing definition {seri.definitionID}.");
+                Debug.LogException(exception);
+                return null;
+            }
             var armor = new Armor();
             armor.Owner = owner;
             armor.Definition = definition;

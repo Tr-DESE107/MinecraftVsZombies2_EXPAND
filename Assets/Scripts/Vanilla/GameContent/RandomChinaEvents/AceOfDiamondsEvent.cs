@@ -23,14 +23,18 @@ namespace MVZ2.GameContent.RandomChinaEvents
             {
                 if (pickup.IsCollected() || pickup.IsImportantPickup())
                     continue;
-                var emerald = contraption.Spawn(VanillaPickupID.emerald, pickup.Position);
-                emerald.Velocity = Vector3.up * 2f;
+                contraption.Spawn(VanillaPickupID.emerald, pickup.Position)?.Let(e =>
+                {
+                    e.Velocity = Vector3.up * 2f;
+                });
                 pickup.Remove();
             }
             foreach (var enemy in level.GetEntities(EntityTypes.ENEMY))
             {
-                var emerald = contraption.Spawn(VanillaPickupID.emerald, enemy.Position);
-                emerald.Velocity = Vector3.up * 2f;
+                contraption.Spawn(VanillaPickupID.emerald, enemy.Position)?.Let(e =>
+                {
+                    e.Velocity = Vector3.up * 2f;
+                });
                 enemy.Remove();
             }
         }

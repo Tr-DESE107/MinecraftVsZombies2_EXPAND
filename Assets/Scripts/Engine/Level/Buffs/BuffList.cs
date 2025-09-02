@@ -355,6 +355,8 @@ namespace PVZEngine.Buffs
             foreach (var seriBuff in serializable.buffs)
             {
                 var buff = Buff.Deserialize(seriBuff, level, target);
+                if (buff == null)
+                    continue;
                 buff.OnPropertyChanged += buffList.OnPropertyChangedCallback;
                 buffList.buffs.Add(buff);
             }

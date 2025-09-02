@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -225,9 +226,15 @@ namespace PVZEngine.Grids
                 buffs = buffs.ToSerializable()
             };
         }
-        public static LawnGrid Deserialize(SerializableGrid seri, LevelEngine level)
+        public static LawnGrid? Deserialize(SerializableGrid seri, LevelEngine level)
         {
             var definition = level.Content.GetGridDefinition(seri.definitionID);
+            if (definition == null)
+            {
+                var exception = new MissingDefinitionException($"Trying to deserialize a grid with missing definition {seri.definitionID}.");
+                Debug.LogException(exception);
+                return null;
+            }
             var grid = new LawnGrid(level, definition, seri.lane, seri.column);
             return grid;
         }
@@ -238,6 +245,7 @@ namespace PVZEngine.Grids
             InitBuffList();
             layerEntities.Clear();
             reverseLayerEntities.Clear();
+#pragma warning disable CS0612 // 类型或成员已过时
             if (seri.layerEntityLists != null)
             {
                 foreach (var pair in seri.layerEntityLists)
@@ -271,6 +279,7 @@ namespace PVZEngine.Grids
                     reverseLayerEntities.Add(entity, layerHashSet);
                 }
             }
+#pragma warning restore CS0612 // 类型或成员已过时
         }
         public void LoadAuras(SerializableGrid seri)
         {

@@ -83,7 +83,11 @@ namespace MVZ2.GameContent.Stages
             if (targetBosses.Length <= 0)
             {
                 level.WaveState = VanillaLevelStates.STATE_AFTER_BOSS;
-                level.PlayMusic(level.GetMusicID());
+                var musicID = level.GetMusicID();
+                if (musicID != null)
+                {
+                    level.PlayMusic(musicID);
+                }
                 level.SetMusicVolume(1);
                 level.SetProgressBarToStage();
             }

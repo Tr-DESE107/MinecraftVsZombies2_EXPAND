@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 {
                     buffId = difficultyDef.GetIZombieBuffID();
                 }
-                buffDef = level.Content.GetBuffDefinition(buffId);
+                buffDef = buffId != null ? level.Content.GetBuffDefinition(buffId) : null;
             }
 
 

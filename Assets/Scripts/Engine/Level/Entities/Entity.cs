@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Armors;
 using PVZEngine.Auras;
+using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -554,7 +555,10 @@ namespace PVZEngine.Entities
         }
         public Armor EquipArmorTo(NamespaceID slot, NamespaceID id)
         {
-            return EquipArmorTo(slot, Level.Content.GetArmorDefinition(id));
+            var definition = Level.Content.GetArmorDefinition(id);
+            if (definition == null)
+                throw new MissingDefinitionException($"Trying to create an armor with missing definition {id}");
+            return EquipArmorTo(slot, definition);
         }
         public Armor EquipArmorTo(NamespaceID slot, ArmorDefinition definition)
         {
@@ -884,6 +888,8 @@ namespace PVZEngine.Entities
                     continue;
                 var slot = NamespaceID.ParseStrict(pair.Key);
                 var armor = Armor.Deserialize(pair.Value, this);
+                if (armor == null)
+                    continue;
                 armorDict.Add(slot, armor);
             }
 
@@ -893,6 +899,7 @@ namespace PVZEngine.Entities
             properties = PropertyBlock.FromSerializable(seri.properties, this);
 
             children.AddRange(seri.children.Select(e => Level.FindEntityByID(e)).OfType<Entity>());
+#pragma warning disable CS0612 // 类型或成员已过时
             if (seri.takenGridIndexes != null)
             {
                 foreach (var index in seri.takenGridIndexes)
@@ -915,6 +922,7 @@ namespace PVZEngine.Entities
                     takenGrids.Add(grid);
                 }
             }
+#pragma warning restore CS0612 // 类型或成员已过时
             LoadAuras(seri);
 
             UpdateModifierCaches();
@@ -925,7 +933,11 @@ namespace PVZEngine.Entities
         {
             var definition = level.Content.GetEntityDefinition(seri.definitionID);
             if (definition == null)
+            {
+                var exception = new MissingDefinitionException($"Trying to deserialize an entity with missing definition {seri.definitionID}.");
+                Debug.LogException(exception);
                 return null;
+            }
             var entity = new Entity(level, seri.type, seri.id, seri.spawnerSource);
             entity.Definition = definition;
 

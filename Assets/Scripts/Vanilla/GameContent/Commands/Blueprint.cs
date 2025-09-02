@@ -36,7 +36,7 @@ namespace MVZ2.GameContent.Commands
                 if (!level.IsConveyorMode())
                 {
                     var seedPack = level.CreateSeedPack(id);
-                    seedPack.SetStartRecharge(true);
+                    seedPack?.SetStartRecharge(true);
                     level.ReplaceSeedPackAt(slot, seedPack);
                 }
             }

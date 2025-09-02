@@ -3,11 +3,13 @@
 using System;
 using System.Linq;
 using PVZEngine.Auras;
+using PVZEngine.Base;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using PVZEngine.SeedPacks;
+using UnityEngine;
 
 namespace PVZEngine.Buffs
 {
@@ -116,9 +118,15 @@ namespace PVZEngine.Buffs
                 auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray()
             };
         }
-        public static Buff Deserialize(SerializableBuff seri, LevelEngine level, IBuffTarget target)
+        public static Buff? Deserialize(SerializableBuff seri, LevelEngine level, IBuffTarget target)
         {
             var definition = level.Content.GetBuffDefinition(seri.definitionID);
+            if (definition == null)
+            {
+                var exception = new MissingDefinitionException($"Trying to deserialize a buff with missing definition {seri.definitionID}.");
+                Debug.LogException(exception);
+                return null;
+            }
             var buff = new Buff(level, definition, seri.id);
             buff.Target = target;
             buff.propertyDict = PropertyDictionary.FromSerializable(seri.propertyDict);

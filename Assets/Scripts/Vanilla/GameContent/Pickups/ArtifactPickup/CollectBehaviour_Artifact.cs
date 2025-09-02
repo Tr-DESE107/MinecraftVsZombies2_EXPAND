@@ -31,10 +31,10 @@ namespace MVZ2.GameContent.Pickups
             {
                 var unlockID = VanillaArtifactID.GetUnlockID(artifactID);
                 saves.Unlock(unlockID);
-                saves.SaveToFile(); // �����Ʒ�󱣴���Ϸ��
+                saves.SaveToFile(); // 获得制品后保存游戏。
                 level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, VanillaStrings.ADVICE_YOU_FOUND_A_NEW_ARTIFACT, 0, 150);
             }
-            level.PlaySound(pickup.GetCollectSound());
+            level.PlaySoundIfNotNull(pickup.GetCollectSound());
             level.Spawn(VanillaEffectID.starParticles, pickup.Position, pickup);
             pickup.Remove();
         }

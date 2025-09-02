@@ -71,8 +71,7 @@ namespace MVZ2.GameContent.Stages
             {
                 case STATE_CLICK_STARSHARD:
                     {
-                        var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
-                        level.SpawnEnemy(spawnDef, 2);
+                        level.SpawnEnemy(VanillaSpawnID.zombie, 2);
                         level.SetHintArrowPointToStarshard();
                     }
                     break;
@@ -85,8 +84,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_GREEN_ENEMY:
                     {
-                        var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
-                        level.SpawnEnemy(spawnDef, 2)?.Let(e =>
+                        level.SpawnEnemy(VanillaSpawnID.zombie, 2)?.Let(e =>
                         {
                             e.AddBuff<StarshardCarrierBuff>();
                         });
@@ -94,8 +92,7 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_KILL_HELMET_ZOMBIE:
                     {
-                        var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.ironHelmettedZombie);
-                        var enemy = level.SpawnEnemy(spawnDef, 2);
+                        level.SpawnEnemy(VanillaSpawnID.ironHelmettedZombie, 2);
                     }
                     break;
             }

@@ -61,15 +61,14 @@ namespace MVZ2.GameContent.HeldItems
                         // 存在保护中的目标。
                         var canUseOnProtector = CanUseOnEntity(protector);
                         var firstValidMainTarget = protectTargets.FirstOrDefault(t => CanUseOnEntity(t));
-                        var canUseOnMain = firstValidMainTarget != null;
 
                         // 可以给保护层器械使用，并且光标位置位于下方，或者内部器械不能使用。
-                        if (canUseOnProtector && (!canUseOnMain || entityTarget.PointerPosition.y < 0.5f))
+                        if (canUseOnProtector && (firstValidMainTarget == null || entityTarget.PointerPosition.y < 0.5f))
                         {
                             return HeldHighlight.Entity(entity);
                         }
                         // 主要层器械可以用。
-                        if (canUseOnMain)
+                        if (firstValidMainTarget != null)
                         {
                             return HeldHighlight.Entity(firstValidMainTarget);
                         }

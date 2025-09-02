@@ -140,6 +140,8 @@ namespace MVZ2.Vanilla.Grids
             if (seedDef.GetSeedType() == SeedTypes.ENTITY)
             {
                 var entityID = seedDef.GetSeedEntityID();
+                if (entityID == null)
+                    return false;
                 error = GetEntityPlaceStatus(grid, entityID);
                 return error == null;
             }
@@ -171,7 +173,9 @@ namespace MVZ2.Vanilla.Grids
         }
         public static Entity? PlaceEntityBlueprint(this LawnGrid grid, SeedDefinition seedDef, PlaceParams param)
         {
-            return PlaceEntity(grid, seedDef.GetSeedEntityID(), param);
+            var id = seedDef.GetSeedEntityID();
+            if (id == null) return null;
+            return PlaceEntity(grid, id, param);
         }
         public static Entity? PlaceEntity(this LawnGrid grid, NamespaceID entityID, PlaceParams param)
         {
@@ -188,6 +192,8 @@ namespace MVZ2.Vanilla.Grids
             if (placementID == null)
                 return null;
             var placement = level.Content.GetPlacementDefinition(placementID);
+            if (placement == null)
+                return null;
             return grid.PlaceEntity(entityDef, placement, param);
         }
         public static Entity? PlaceEntity(this LawnGrid grid, EntityDefinition entityDef, PlacementDefinition placement, PlaceParams param)

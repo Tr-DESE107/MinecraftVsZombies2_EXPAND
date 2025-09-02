@@ -7,7 +7,6 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
-using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using Tools;
@@ -26,10 +25,9 @@ namespace MVZ2.GameContent.RandomChinaEvents
             level.AddBuff<AncientEgyptBuff>();
             if (!level.IsAllEnemiesCleared() && !level.IsCleared)
             {
-                var spawn = level.Content.GetSpawnDefinition(VanillaSpawnID.mummy);
                 for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
                 {
-                    level.SpawnEnemy(spawn, lane);
+                    level.SpawnEnemy(VanillaSpawnID.mummy, lane);
                 }
             }
             contraption.PlaySound(VanillaSoundID.lowQualityEgypt);

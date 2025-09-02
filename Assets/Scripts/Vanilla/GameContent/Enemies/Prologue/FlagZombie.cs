@@ -5,7 +5,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -32,14 +31,11 @@ namespace MVZ2.GameContent.Enemies
             if (level.IsIZombie())
             {
                 level.PlaySound(VanillaSoundID.siren);
-                var regular = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
-                var leather = level.Content.GetSpawnDefinition(VanillaSpawnID.leatherCappedZombie);
-                var iron = level.Content.GetSpawnDefinition(VanillaSpawnID.ironHelmettedZombie);
                 for (var lane = 0; lane < entity.Level.GetMaxLaneCount(); lane++)
                 {
-                    entity.Level.SpawnEnemy(regular, lane);
-                    entity.Level.SpawnEnemy(leather, lane);
-                    entity.Level.SpawnEnemy(iron, lane);
+                    entity.Level.SpawnEnemy(VanillaSpawnID.zombie, lane);
+                    entity.Level.SpawnEnemy(VanillaSpawnID.leatherCappedZombie, lane);
+                    entity.Level.SpawnEnemy(VanillaSpawnID.ironHelmettedZombie, lane);
                 }
             }
         }

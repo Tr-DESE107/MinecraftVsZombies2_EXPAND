@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
                     if (column >= 0 && column < level.GetMaxColumnCount() && lane >= 0 && lane < level.GetMaxLaneCount())
                     {
                         var grid = level.GetGrid(column, lane);
-                        if (grid.CanSpawnEntity(VanillaContraptionID.obsidian))
+                        if (grid != null && grid.CanSpawnEntity(VanillaContraptionID.obsidian))
                         {
                             var pos = grid.GetEntityPosition();
                             contraption.SpawnWithParams(VanillaContraptionID.obsidian, pos);

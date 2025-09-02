@@ -113,7 +113,7 @@ namespace MVZ2.GameContent.HeldItems
                         return;
                     }
                 }
-                else
+                else if (error != null)
                 {
                     var message = Global.Game.GetGridErrorMessage(error);
                     if (!string.IsNullOrEmpty(message))

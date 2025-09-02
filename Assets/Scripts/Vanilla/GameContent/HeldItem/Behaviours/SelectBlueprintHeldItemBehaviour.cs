@@ -162,6 +162,8 @@ namespace MVZ2.GameContent.HeldItems
                 case SeedTypes.OPTION:
                     {
                         var optionID = blueprintDef.GetSeedOptionID();
+                        if (optionID == null)
+                            return;
                         var optionDef = level.Content.GetSeedOptionDefinition(optionID);
                         if (optionDef == null)
                             return;
@@ -210,6 +212,8 @@ namespace MVZ2.GameContent.HeldItems
                 return;
             }
             var blueprintDef = BlueprintPickup.GetSeedDefinition(pickup);
+            if (blueprintDef == null)
+                return;
             var seedType = blueprintDef.GetSeedType();
             switch (seedType)
             {
@@ -233,6 +237,8 @@ namespace MVZ2.GameContent.HeldItems
                 case SeedTypes.OPTION:
                     {
                         var optionID = blueprintDef.GetSeedOptionID();
+                        if (optionID == null)
+                            return;
                         var optionDef = level.Content.GetSeedOptionDefinition(optionID);
                         if (optionDef == null)
                             return;

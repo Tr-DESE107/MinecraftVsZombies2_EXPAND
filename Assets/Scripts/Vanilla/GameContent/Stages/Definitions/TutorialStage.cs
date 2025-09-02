@@ -85,11 +85,11 @@ namespace MVZ2.GameContent.Stages
             int lane;
             if (lanes.Count <= 0)
             {
-                lane = tutorialRNG.Next(0, maxLane);
+                lane = tutorialRNG?.Next(0, maxLane) ?? 0;
             }
             else
             {
-                lane = lanes.Random(tutorialRNG);
+                lane = tutorialRNG != null ? lanes.Random(tutorialRNG) : lanes.FirstOrDefault();
             }
             return lane;
         }
@@ -138,9 +138,8 @@ namespace MVZ2.GameContent.Stages
                     break;
                 case STATE_PLACE_DISPENSER_TO_KILL_ZOMBIE:
                     {
-                        var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
                         var lane = GetLaneWithoutDispensers(level);
-                        level.SpawnEnemy(spawnDef, lane);
+                        level.SpawnEnemy(VanillaSpawnID.zombie, lane);
                     }
                     break;
                 case STATE_ZOMBIE_KILLED:
@@ -171,19 +170,18 @@ namespace MVZ2.GameContent.Stages
                         }
 
                         int maxLane = level.GetMaxLaneCount();
-                        var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.ironHelmettedZombie);
                         var dispensers = level.FindEntities(VanillaContraptionID.dispenser);
                         int lane;
                         if (dispensers.Count() <= 0)
                         {
                             var tutorialRNG = GetTutorialRNG(level);
-                            lane = tutorialRNG.Next(0, maxLane);
+                            lane = tutorialRNG?.Next(0, maxLane) ?? 0;
                         }
                         else
                         {
                             lane = dispensers[0].GetLane();
                         }
-                        var enemy = level.SpawnEnemy(spawnDef, lane)?.Let(e =>
+                        level.SpawnEnemy(VanillaSpawnID.ironHelmettedZombie, lane)?.Let(e =>
                         {
                             e.GetMainArmor()?.Let(a =>
                             {
@@ -218,9 +216,8 @@ namespace MVZ2.GameContent.Stages
                     {
                         level.GetSeedPack(VanillaContraptionID.mineTNT)?.SetTwinkling(false);
                         level.HideHintArrow();
-                        var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.ironHelmettedZombie);
                         var lane = GetLaneWithoutDispensers(level);
-                        level.SpawnEnemy(spawnDef, lane);
+                        level.SpawnEnemy(VanillaSpawnID.ironHelmettedZombie, lane);
                     }
                     break;
                 case STATE_HOLD_PICKAXE:
@@ -404,7 +401,7 @@ namespace MVZ2.GameContent.Stages
 
         public static FrameTimer? GetTutorialTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(ID, PROP_TUTORIAL_TIMER);
         public static void SetTutorialTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(ID, PROP_TUTORIAL_TIMER, value);
-        public static RandomGenerator GetTutorialRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(ID, PROP_TUTORIAL_RNG);
+        public static RandomGenerator? GetTutorialRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(ID, PROP_TUTORIAL_RNG);
         public static void SetTutorialRNG(LevelEngine level, RandomGenerator value) => level.SetBehaviourField(ID, PROP_TUTORIAL_RNG, value);
         public static int GetTutorialState(LevelEngine level) => level.GetBehaviourField<int>(ID, PROP_STATE);
         public static void SetTutorialState(LevelEngine level, int value) => level.SetBehaviourField(ID, PROP_STATE, value);

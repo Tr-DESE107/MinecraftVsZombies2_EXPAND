@@ -38,9 +38,11 @@ namespace PVZEngine.SeedPacks
             ApplySerializableProperties(seri);
             return seri;
         }
-        public static ClassicSeedPack Deserialize(SerializableClassicSeedPack seri, LevelEngine level)
+        public static ClassicSeedPack? Deserialize(SerializableClassicSeedPack seri, LevelEngine level)
         {
             var definition = level.Content.GetSeedDefinition(seri.seedID);
+            if (definition == null)
+                return null;
             return new ClassicSeedPack(level, definition, seri.id);
         }
         #endregion

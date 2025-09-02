@@ -21,6 +21,8 @@ namespace MVZ2.GameContent.Seeds
         {
             base.Update(seedPack, rechargeSpeed);
             var optionID = seedPack.Definition.GetSeedOptionID();
+            if (optionID == null)
+                return;
             var optionDef = seedPack.Level.Content.GetSeedOptionDefinition(optionID);
             if (optionDef == null)
                 return;

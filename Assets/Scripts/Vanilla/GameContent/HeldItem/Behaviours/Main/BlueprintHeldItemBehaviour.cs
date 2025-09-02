@@ -87,10 +87,13 @@ namespace MVZ2.GameContent.HeldItems
             var grid = gridTarget.Target;
             if (!grid.CanPlaceBlueprint(seedDef.GetID(), out var error))
             {
-                var message = Global.Game.GetGridErrorMessage(error);
-                if (!string.IsNullOrEmpty(message))
+                if (error != null)
                 {
-                    level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, message, 0, 150);
+                    var message = Global.Game.GetGridErrorMessage(error);
+                    if (!string.IsNullOrEmpty(message))
+                    {
+                        level.ShowAdvice(VanillaStrings.CONTEXT_ADVICE, message, 0, 150);
+                    }
                 }
                 return;
             }

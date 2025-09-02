@@ -40,13 +40,16 @@ namespace MVZ2.GameContent.Pickups
             }
             else
             {
-                if (level.DropsTrophy())
+                if (difficultyDef != null)
                 {
-                    money = difficultyDef.GetPuzzleMoney();
-                }
-                else if (difficultyDef != null)
-                {
-                    money = difficultyDef.GetClearMoney();
+                    if (level.DropsTrophy())
+                    {
+                        money = difficultyDef.GetPuzzleMoney();
+                    }
+                    else
+                    {
+                        money = difficultyDef.GetClearMoney();
+                    }
                 }
             }
             GemEffect.SpawnGemEffects(level, money, pickup.Position, pickup, false);
@@ -54,7 +57,7 @@ namespace MVZ2.GameContent.Pickups
             level.Clear();
             level.ResetHeldItem();
             level.StopMusic();
-            level.PlaySound(pickup.GetCollectSound());
+            level.PlaySoundIfNotNull(pickup.GetCollectSound());
             level.PlaySound(pickup.Level.GetClearSound());
             level.Spawn(VanillaEffectID.starParticles, pickup.Position, pickup);
         }

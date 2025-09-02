@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using PVZEngine.Definitions;
 using PVZEngine.SeedPacks;
 
 namespace PVZEngine.Level
@@ -23,7 +22,7 @@ namespace PVZEngine.Level
         {
             if (index < 0 || index > conveyorSeedPacks.Count || index >= GetConveyorSlotCount())
                 return null;
-            SeedDefinition seedDefinition = Content.GetSeedDefinition(id);
+            var seedDefinition = Content.GetSeedDefinition(id);
             if (seedDefinition == null)
                 return null;
             var seedPack = new ConveyorSeedPack(this, seedDefinition, AllocSeedPackID());
@@ -140,7 +139,7 @@ namespace PVZEngine.Level
         {
             conveyorSlotCount = seri.conveyorSlotCount;
             conveyorSeedSpendRecord = ConveyorSeedSpendRecords.ToDeserialized(seri.conveyorSeedSpendRecord);
-            conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => ConveyorSeedPack.Deserialize(s, this)).ToList();
+            conveyorSeedPacks = seri.conveyorSeedPacks.Select(s => ConveyorSeedPack.Deserialize(s, this)).OfType<ConveyorSeedPack>().ToList();
         }
         public void ReadConveyorFromSerializable(SerializableLevel seri)
         {

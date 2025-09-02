@@ -218,6 +218,8 @@ namespace MVZ2.Vanilla.Level
             foreach (var spawnID in spawnsID)
             {
                 var spawnDefinition = level.Content.GetSpawnDefinition(spawnID);
+                if (spawnDefinition == null)
+                    continue;
                 int count = spawnDefinition.GetPreviewCount();
 
                 for (int i = 0; i < count; i++)
@@ -341,7 +343,7 @@ namespace MVZ2.Vanilla.Level
 
             // 当前的有效敌人池。
             var pool = level.GetEnemyPool();
-            var spawnDefs = pool.Select(id => level.Content.GetSpawnDefinition(id)).Where(def => def != null);
+            var spawnDefs = pool.Select(id => level.Content.GetSpawnDefinition(id)).OfType<SpawnDefinition>();
             foreach (var spawnDef in spawnDefs)
             {
                 spawnDef.PreSpawnAtWave(level, wave, ref totalPoints);
@@ -405,6 +407,14 @@ namespace MVZ2.Vanilla.Level
         }
         public static Entity? SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane)
         {
+            var x = level.GetEnemySpawnX();
+            return level.SpawnEnemy(spawnDef, lane, x);
+        }
+        public static Entity? SpawnEnemy(this LevelEngine level, NamespaceID spawnID, int lane)
+        {
+            var spawnDef = level.Content.GetSpawnDefinition(spawnID);
+            if (spawnDef == null)
+                return null;
             var x = level.GetEnemySpawnX();
             return level.SpawnEnemy(spawnDef, lane, x);
         }
@@ -628,15 +638,18 @@ namespace MVZ2.Vanilla.Level
                 if (seedPack == null)
                 {
                     seedPack = level.CreateSeedPack(blueprintID);
-                    if (level.CurrentFlag <= 0)
+                    seedPack?.Let(s =>
                     {
-                        seedPack.SetStartRecharge(true);
-                    }
-                    else
-                    {
-                        seedPack.FullRecharge();
-                    }
-                    seedPack.SetCommandBlock(commandBlock);
+                        if (level.CurrentFlag <= 0)
+                        {
+                            s.SetStartRecharge(true);
+                        }
+                        else
+                        {
+                            s.FullRecharge();
+                        }
+                        s.SetCommandBlock(commandBlock);
+                    });
                 }
                 level.ReplaceSeedPackAt(i, seedPack);
             }
@@ -652,7 +665,7 @@ namespace MVZ2.Vanilla.Level
                 if (seedPack == null)
                 {
                     seedPack = level.CreateSeedPack(id);
-                    seedPack.SetStartRecharge(true);
+                    seedPack?.SetStartRecharge(true);
                 }
                 level.ReplaceSeedPackAt(i, seedPack);
             }
@@ -685,7 +698,7 @@ namespace MVZ2.Vanilla.Level
         public static NamespaceID? DrawConveyorSeed(this LevelEngine level)
         {
             var entries = level.GetConveyorPool();
-            if (entries.Count() <= 0)
+            if (entries == null || entries.Count() <= 0)
                 return null;
             var index = level.GetConveyorRNG().WeightedRandom(entries.Select(e => Mathf.Max(e.MinCount, e.Count - level.GetSpentSeedFromConveyorPool(e.ID))).ToArray());
             var entry = entries[index];

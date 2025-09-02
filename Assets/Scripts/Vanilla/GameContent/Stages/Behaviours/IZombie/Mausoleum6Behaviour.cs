@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Stages
         }
         protected override void ReplaceBlueprints(LevelEngine level, IZombieLayoutDefinition layout)
         {
-            if (layout == null)
+            if (layout == null || layout.Blueprints == null)
                 return;
             level.FillSeedPacks(layout.Blueprints);
         }

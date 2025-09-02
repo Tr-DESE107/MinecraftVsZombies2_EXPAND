@@ -64,7 +64,7 @@ namespace MVZ2.Vanilla.SeedPacks
         }
         public static bool CanInstantTrigger(this SeedPack seedPack)
         {
-            var blueprintDef = seedPack?.Definition;
+            var blueprintDef = seedPack.Definition;
             return blueprintDef.IsTriggerActive() && blueprintDef.CanInstantTrigger();
         }
         public static bool WillInstantEvoke(this SeedPack seedPack)
@@ -81,6 +81,8 @@ namespace MVZ2.Vanilla.SeedPacks
             if (level.IsDay())
             {
                 var entityID = definition.GetSeedEntityID();
+                if (entityID == null)
+                    return false;
                 var entityDef = level.Content.GetEntityDefinition(entityID);
                 if (entityDef == null || entityDef.IsNocturnal())
                     return false;

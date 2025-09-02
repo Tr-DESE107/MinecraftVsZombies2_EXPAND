@@ -66,6 +66,7 @@ namespace MVZ2.Editor
         public static readonly string[] whitelistDirectories = new string[]
         {
             "Scripts/Vanilla",
+            "Scripts/Logic",
             "Scripts/Engine/Base",
             "Scripts/Engine/Level",
             "Scripts/Tools",

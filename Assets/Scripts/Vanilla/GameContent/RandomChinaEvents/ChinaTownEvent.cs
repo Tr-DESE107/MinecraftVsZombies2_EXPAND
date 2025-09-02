@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.RandomChinaEvents
                 for (int lane = 0; lane < level.GetMaxLaneCount(); lane++)
                 {
                     var grid = level.GetGrid(column, lane);
-                    if (grid.CanSpawnEntity(VanillaContraptionID.randomChina))
+                    if (grid != null && grid.CanSpawnEntity(VanillaContraptionID.randomChina))
                     {
                         var pos = grid.GetEntityPosition();
                         contraption.SpawnWithParams(VanillaContraptionID.randomChina, pos);

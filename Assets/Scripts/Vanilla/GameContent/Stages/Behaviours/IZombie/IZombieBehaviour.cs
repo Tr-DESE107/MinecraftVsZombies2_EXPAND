@@ -36,7 +36,10 @@ namespace MVZ2.GameContent.Stages
             var layoutID = GetNewLayout(level.CurrentFlag, level.GetRoundRNG());
             SetCurrentLayout(level, layoutID);
             var layout = level.Content.GetIZombieLayoutDefinition(layoutID);
-            GenerateMap(level, layout);
+            if (layout != null)
+            {
+                GenerateMap(level, layout);
+            }
             SetRoundTimer(level, new FrameTimer(ROUND_COOLDOWN));
         }
         public override void Start(LevelEngine level)
@@ -53,7 +56,11 @@ namespace MVZ2.GameContent.Stages
             level.WaveState = STATE_NORMAL;
 
             var layoutID = GetCurrentLayout(level);
+            if (layoutID == null)
+                return;
             var layout = level.Content.GetIZombieLayoutDefinition(layoutID);
+            if (layout == null)
+                return;
             ReplaceBlueprints(level, layout);
         }
         public override void Update(LevelEngine level)
@@ -142,8 +149,11 @@ namespace MVZ2.GameContent.Stages
             var layoutID = GetNewLayout(level.CurrentFlag, level.GetRoundRNG());
             SetCurrentLayout(level, layoutID);
             var layout = level.Content.GetIZombieLayoutDefinition(layoutID);
-            GenerateMap(level, layout);
-            ReplaceBlueprints(level, layout);
+            if (layout != null)
+            {
+                GenerateMap(level, layout);
+                ReplaceBlueprints(level, layout);
+            }
             level.WaveState = STATE_NORMAL;
 
             if (level.IsEndless())
@@ -209,7 +219,7 @@ namespace MVZ2.GameContent.Stages
                 level.GameOver(GameOverTypes.INSTANT, null, VanillaStrings.DEATH_MESSAGE_IZ_LOSE_ALL_ENEMIES);
             }
         }
-        public NamespaceID GetCurrentLayout(LevelEngine level) => level.GetBehaviourField<NamespaceID>(PROP_CURRENT_LAYOUT);
+        public NamespaceID? GetCurrentLayout(LevelEngine level) => level.GetBehaviourField<NamespaceID>(PROP_CURRENT_LAYOUT);
         public void SetCurrentLayout(LevelEngine level, NamespaceID value) => level.SetBehaviourField(PROP_CURRENT_LAYOUT, value);
         public FrameTimer? GetRoundTimer(LevelEngine level) => level.GetBehaviourField<FrameTimer>(PROP_ROUND_TIMER);
         public void SetRoundTimer(LevelEngine level, FrameTimer value) => level.SetBehaviourField(PROP_ROUND_TIMER, value);

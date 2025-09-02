@@ -173,8 +173,7 @@ namespace MVZ2.Modding
                 if (meta == null)
                     continue;
                 var name = meta.ID;
-                var def = new EntityCounterDefinition(nsp, name);
-                def.CounterName = meta.Name;
+                var def = new EntityCounterDefinition(nsp, name, meta.Name);
                 mod.AddDefinition(def);
             }
         }
@@ -208,8 +207,7 @@ namespace MVZ2.Modding
                 if (meta == null)
                     continue;
                 var name = meta.Name;
-                var def = new ArmorSlotDefinition(nsp, name);
-                def.Anchor = meta.Anchor;
+                var def = new ArmorSlotDefinition(nsp, name, meta.Anchor);
                 mod.AddDefinition(def);
             }
         }
@@ -339,8 +337,7 @@ namespace MVZ2.Modding
                 if (meta == null)
                     continue;
                 var name = meta.ID;
-                var def = new GridLayerDefinition(nsp, name);
-                def.AlmanacTag = meta.AlmanacTag;
+                var def = new GridLayerDefinition(nsp, name, meta.AlmanacTag);
                 mod.AddDefinition(def);
             }
         }
@@ -352,8 +349,7 @@ namespace MVZ2.Modding
                 if (meta == null)
                     continue;
                 var name = meta.ID;
-                var def = new ErrorMessageDefinition(nsp, name, LogicDefinitionTypes.GRID_ERROR);
-                def.Message = meta.Message;
+                var def = new ErrorMessageDefinition(nsp, name, LogicDefinitionTypes.GRID_ERROR, meta.Message);
                 mod.AddDefinition(def);
             }
         }
@@ -389,8 +385,7 @@ namespace MVZ2.Modding
                 if (meta == null)
                     continue;
                 var name = meta.ID;
-                var def = new ErrorMessageDefinition(nsp, name, LogicDefinitionTypes.SEED_ERROR);
-                def.Message = meta.Message;
+                var def = new ErrorMessageDefinition(nsp, name, LogicDefinitionTypes.SEED_ERROR, meta.Message);
                 mod.AddDefinition(def);
             }
         }
@@ -402,9 +397,7 @@ namespace MVZ2.Modding
                 if (meta == null)
                     continue;
 
-                var def = new EntitySeedDefinition(nsp, meta.ID);
-                def.BlueprintName = meta.Name;
-                def.BlueprintTooltip = meta.Tooltip;
+                var def = new EntitySeedDefinition(nsp, meta.ID, meta.Name, meta.Tooltip);
                 mod.AddDefinition(def);
 
                 // 将实体作为蓝图添加到游戏中。

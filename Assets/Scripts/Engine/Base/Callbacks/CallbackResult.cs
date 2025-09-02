@@ -9,17 +9,17 @@ namespace PVZEngine.Callbacks
         public CallbackResult()
         {
         }
-        public CallbackResult(object value)
+        public CallbackResult(object? value)
         {
             SetValue(value);
         }
         public bool IsBreakRequested { get; private set; }
         private object? value;
-        public void SetValue(object value)
+        public void SetValue(object? value)
         {
             this.value = value;
         }
-        public void SetFinalValue(object value)
+        public void SetFinalValue(object? value)
         {
             SetValue(value);
             Break();

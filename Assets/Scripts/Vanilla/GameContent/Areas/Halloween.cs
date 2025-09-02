@@ -100,7 +100,7 @@ namespace MVZ2.GameContent.Areas
         {
             return grid.Column - STATUE_MIN_COLUMN + 1;
         }
-        public static RandomGenerator GetRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(ID, PROP_RNG);
+        public static RandomGenerator? GetRNG(LevelEngine level) => level.GetBehaviourField<RandomGenerator>(ID, PROP_RNG);
         public static void SetRNG(LevelEngine level, RandomGenerator rng) => level.SetBehaviourField(ID, PROP_RNG, rng);
 
         private static readonly NamespaceID ID = VanillaAreaID.halloween;

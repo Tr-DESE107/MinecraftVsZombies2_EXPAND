@@ -99,14 +99,22 @@ namespace PVZEngine.Level
         {
             var entityDef = Content.GetEntityDefinition(entityRef);
             if (entityDef == null)
+            {
+                var exception = new MissingDefinitionException($"Trying to spawn an entity with a missing entity definition {entityRef}.");
+                Debug.LogException(exception);
                 return null;
+            }
             return Spawn(entityDef, pos, spawner, seed, param);
         }
         public Entity? Spawn(NamespaceID entityRef, Vector3 pos, Entity? spawner, SpawnParams? param = null)
         {
             var entityDef = Content.GetEntityDefinition(entityRef);
             if (entityDef == null)
+            {
+                var exception = new MissingDefinitionException($"Trying to spawn an entity with a missing entity definition {entityRef}.");
+                Debug.LogException(exception);
                 return null;
+            }
             return Spawn(entityDef, pos, spawner, param);
         }
         #endregion

@@ -1,0 +1,15 @@
+﻿using System;
+
+namespace PVZEngine.Base
+{
+    public class MissingDefinitionException : Exception
+    {
+        public MissingDefinitionException()
+        {
+        }
+
+        public MissingDefinitionException(string message) : base(message)
+        {
+        }
+    }
+}

@@ -208,7 +208,7 @@ namespace MVZ2.Level
 
         private void LoadBlueprint(int seedPackIndex, NamespaceID seedID, bool commandBlock)
         {
-            AddChosenBlueprint(seedPackIndex, new BlueprintChooseItem() { id = seedID, isCommandBlock = commandBlock });
+            AddChosenBlueprint(seedPackIndex, new BlueprintChooseItem(seedID, isCommandBlock: commandBlock));
 
             var blueprintUI = chooseUI.GetChosenBlueprintAt(seedPackIndex);
             chooseUI.RemoveChosenBlueprintAt(seedPackIndex);
@@ -550,7 +550,7 @@ namespace MVZ2.Level
                 if (i < innateBlueprints.Length)
                 {
                     // 加入固有蓝图。
-                    AddChosenBlueprint(i, new BlueprintChooseItem() { id = innateBlueprints[i], innate = true });
+                    AddChosenBlueprint(i, new BlueprintChooseItem(innateBlueprints[i], innate: true));
                 }
                 else if (i < innateBlueprints.Length + chosenBlueprintBefore.Length)
                 {

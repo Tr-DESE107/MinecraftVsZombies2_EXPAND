@@ -43,6 +43,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
             if (blueprintDef.GetSeedType() == SeedTypes.ENTITY)
             {
                 var entityID = blueprintDef.GetSeedEntityID();
+                if (entityID == null)
+                    return;
                 var entityDef = content.GetEntityDefinition(entityID);
                 if (entityDef == null)
                     return;
@@ -87,9 +89,15 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var results = param.warnings;
 
             var content = level.Content;
-            var chosenBlueprintDefs = chosenBlueprints.Select(item => level.Content.GetSeedDefinition(item.id));
+            var chosenBlueprintDefs = chosenBlueprints.Select(item => level.Content.GetSeedDefinition(item.id)).OfType<SeedDefinition>();
             var chosenBlueprintEntityDefs = chosenBlueprintDefs.Where(def => def.GetSeedType() == SeedTypes.ENTITY)
-                .Select(def => level.Content.GetEntityDefinition(def.GetSeedEntityID()))
+                .Select(def =>
+                {
+                    var entID = def.GetSeedEntityID();
+                    if (entID == null)
+                        return null;
+                    return level.Content.GetEntityDefinition(entID);
+                })
                 .OfType<EntityDefinition>();
 
             var entityDefsForChoose = blueprintsForChoose.Select(id =>
@@ -101,7 +109,10 @@ namespace MVZ2.GameContent.GlobalCallbacks
                     return null;
                 if (blueprintDef.GetSeedType() != SeedTypes.ENTITY)
                     return null;
-                return level.Content.GetEntityDefinition(blueprintDef.GetSeedEntityID());
+                var seedEntID = blueprintDef.GetSeedEntityID();
+                if (seedEntID == null)
+                    return null;
+                return level.Content.GetEntityDefinition(seedEntID);
             }).OfType<EntityDefinition>();
 
             // 升级
@@ -109,6 +120,8 @@ namespace MVZ2.GameContent.GlobalCallbacks
             foreach (var upgradeDef in upgradeBlueprints)
             {
                 var neededBase = upgradeDef.GetUpgradeFromEntity();
+                if (neededBase == null)
+                    continue;
                 if (chosenBlueprints.Any(b => b.id == neededBase))
                     continue;
                 if (!blueprintsForChoose.Contains(neededBase))

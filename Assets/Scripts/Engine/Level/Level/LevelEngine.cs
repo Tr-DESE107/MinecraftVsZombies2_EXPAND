@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
@@ -87,15 +88,33 @@ namespace PVZEngine.Level
         }
         public void ChangeStage(NamespaceID stageId)
         {
-            StageID = stageId;
-            StageDefinition = Content.GetStageDefinition(stageId);
-            properties.ClearFallbackCaches();
+            var definition = Content.GetStageDefinition(stageId);
+            if (definition != null)
+            {
+                StageID = stageId;
+                StageDefinition = definition;
+                properties.ClearFallbackCaches();
+            }
+            else
+            {
+                var exception = new MissingDefinitionException($"Trying to set a missing stage definition {stageId} to the LevelEngine.");
+                Debug.LogException(exception);
+            }
         }
         public void ChangeArea(NamespaceID areaId)
         {
-            AreaID = areaId;
-            AreaDefinition = Content.GetAreaDefinition(areaId);
-            properties.ClearFallbackCaches();
+            var definition = Content.GetAreaDefinition(areaId);
+            if (definition != null)
+            {
+                AreaID = areaId;
+                AreaDefinition = definition;
+                properties.ClearFallbackCaches();
+            }
+            else
+            {
+                var exception = new MissingDefinitionException($"Trying to set a missing area definition {areaId} to the LevelEngine.");
+                Debug.LogException(exception);
+            }
         }
         public void Update()
         {
@@ -194,6 +213,8 @@ namespace PVZEngine.Level
         public Buff CreateBuff(NamespaceID id, long buffID)
         {
             var buffDefinition = Content.GetBuffDefinition(id);
+            if (buffDefinition == null)
+                throw new MissingDefinitionException($"Trying to create a buff with missing definition {id}");
             return CreateBuff(buffDefinition, buffID);
         }
         public Buff CreateBuff(BuffDefinition buffDef, long buffID)

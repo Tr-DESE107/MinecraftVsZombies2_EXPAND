@@ -26,9 +26,11 @@ namespace PVZEngine.SeedPacks
             ApplySerializableProperties(seri);
             return seri;
         }
-        public static ConveyorSeedPack Deserialize(SerializableConveyorSeedPack seri, LevelEngine level)
+        public static ConveyorSeedPack? Deserialize(SerializableConveyorSeedPack seri, LevelEngine level)
         {
             var definition = level.Content.GetSeedDefinition(seri.seedID);
+            if (definition == null)
+                return null;
             return new ConveyorSeedPack(level, definition, seri.id);
         }
         #endregion

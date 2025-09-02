@@ -77,8 +77,8 @@ namespace MVZ2.Level
             }
             else
             {
-                var innateChooseItems = innateBlueprints.Select(i => new BlueprintChooseItem() { innate = true, id = i });
-                var contraptionChooseItems = unlockedContraptions.Take(seedSlotCount).Select(i => new BlueprintChooseItem() { id = i });
+                var innateChooseItems = innateBlueprints.Select(i => new BlueprintChooseItem(i, innate: true));
+                var contraptionChooseItems = unlockedContraptions.Take(seedSlotCount).Select(i => new BlueprintChooseItem(i));
                 var chooseItems = innateChooseItems.Concat(contraptionChooseItems);
                 level.SetupBattleBlueprints(chooseItems.ToArray());
                 Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, new LogicLevelCallbacks.PostBlueprintSelectionParams(level, chooseItems.ToArray()));

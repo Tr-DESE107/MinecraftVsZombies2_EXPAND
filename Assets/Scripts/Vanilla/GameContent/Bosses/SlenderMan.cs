@@ -260,19 +260,17 @@ namespace MVZ2.GameContent.Bosses
             for (int i = 0; i < level.GetConveyorSeedPackCount(); i++)
             {
                 var blueprint = level.GetConveyorSeedPackAt(i);
-                if (blueprint == null)
-                    continue;
+                if (blueprint == null) continue;
+
                 var blueprintDef = blueprint.Definition;
-                if (blueprintDef == null)
-                    continue;
-                if (blueprintDef.GetSeedType() != SeedTypes.ENTITY)
-                    continue;
+                if (blueprintDef == null || blueprintDef.GetSeedType() != SeedTypes.ENTITY) continue;
+
                 var entityID = blueprintDef.GetSeedEntityID();
+                if (entityID == null) continue;
+
                 var entityDef = level.Content.GetEntityDefinition(entityID);
-                if (entityDef == null)
-                    continue;
-                if (entityDef.Type != EntityTypes.PLANT)
-                    continue;
+                if (entityDef == null || entityDef.Type != EntityTypes.PLANT) continue;
+
                 var targetID = rng == null ? VanillaContraptionID.lilyPad : pool.Random(rng);
                 Buff buff = blueprint.AddBuff<SlenderManMindSwapBuff>();
                 buff.SetProperty(SlenderManMindSwapBuff.PROP_TARGET_ID, targetID);
