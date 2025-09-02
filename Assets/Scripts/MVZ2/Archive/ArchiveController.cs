@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
@@ -28,9 +28,9 @@ namespace MVZ2.Archives
                 Main.MusicManager.Play(VanillaMusicID.choosing);
         }
 
-        #region Ë½ÓĞ·½·¨
+        #region ç§æœ‰æ–¹æ³•
 
-        #region ÉúÃüÖÜÆÚ
+        #region ç”Ÿå‘½å‘¨æœŸ
         private void Awake()
         {
             ui.OnIndexReturnClick += OnIndexReturnClickCallback;
@@ -46,7 +46,7 @@ namespace MVZ2.Archives
         }
         #endregion
 
-        #region ÊÂ¼ş»Øµ÷
+        #region äº‹ä»¶å›è°ƒ
         private void OnIndexReturnClickCallback()
         {
             Hide();
@@ -245,9 +245,9 @@ namespace MVZ2.Archives
         }
         #endregion
         public event Action OnReturnClick;
-        [TranslateMsg("¶Ô»°µµ°¸ÖĞÓï¾äµÄÄ£°å£¬{0}ÎªÈËÎï£¬{1}ÎªÓï¾äÄÚÈİ")]
+        [TranslateMsg("å¯¹è¯æ¡£æ¡ˆä¸­è¯­å¥çš„æ¨¡æ¿ï¼Œ{0}ä¸ºäººç‰©ï¼Œ{1}ä¸ºè¯­å¥å†…å®¹")]
         public const string SENTENCE_TEMPLATE = "<b>[{0}]</b> {1}";
-        [TranslateMsg("¶Ô»°µµ°¸ÖĞÓï¾äµÄÄ£°å£¬{0}ÎªÇ°×ºÃèÊö£¬{1}ÎªÈËÎï£¬{2}ÎªÓï¾äÄÚÈİ")]
+        [TranslateMsg("å¯¹è¯æ¡£æ¡ˆä¸­è¯­å¥çš„æ¨¡æ¿ï¼Œ{0}ä¸ºå‰ç¼€æè¿°ï¼Œ{1}ä¸ºäººç‰©ï¼Œ{2}ä¸ºè¯­å¥å†…å®¹")]
         public const string SENTENCE_TEMPLATE_DESCRIPTION = "<color=blue>{0}</color>\n<b>[{1}]</b> {2}";
         private MainManager Main => MainManager.Instance;
         private string searchPattern;

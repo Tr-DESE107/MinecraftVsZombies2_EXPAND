@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -144,7 +144,7 @@ namespace MVZ2.Almanacs
             }
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
-        #region Ëõ·Å
+        #region ç¼©æ”¾
         private void OnZoomClickCallback(AlmanacPageType page)
         {
             if (page != AlmanacPageType.Miscs)
@@ -213,7 +213,7 @@ namespace MVZ2.Almanacs
         }
         #endregion
 
-        #region ÃèÊöÍ¼±ê
+        #region æè¿°å›¾æ ‡
         private void OnTagIconEnterCallback(AlmanacPageType page, int index)
         {
             if (tagTooltipLockedTarget == index)
@@ -611,7 +611,7 @@ namespace MVZ2.Almanacs
                 }
 
 
-                // ´æ´¢Ìæ»»ĞÅÏ¢
+                // å­˜å‚¨æ›¿æ¢ä¿¡æ¯
                 string rep = string.Empty;
                 rep += $"<link=\"{linkID}\">";
                 rep += $"<space={descriptionTagSpacing}>";
@@ -797,18 +797,18 @@ namespace MVZ2.Almanacs
             return Main.LanguageManager._p(context, text, args);
         }
         public event Action OnReturnClick;
-        [TranslateMsg("Í¼¼øÃèÊöÄ£°å£¬{0}ÎªÄÜÁ¿", VanillaStrings.CONTEXT_ALMANAC)]
-        public const string COST_LABEL = "»¨·Ñ£º<color=red>{0}</color>";
-        [TranslateMsg("Í¼¼øÃèÊöÄ£°å£¬{0}ÎªÀäÈ´Ê±¼ä", VanillaStrings.CONTEXT_ALMANAC)]
-        public const string RECHARGE_LABEL = "ÀäÈ´Ê±¼ä£º<color=red>{0}</color>";
-        [TranslateMsg("Í¼¼ø·Å´óÑ¡Ïî£¬{0}ÎªËõ·ÅµÈ¼¶", VanillaStrings.CONTEXT_ALMANAC)]
-        public const string OPTION_ZOOM_SCALE = "Ëõ·Å£º{0}";
-        [TranslateMsg("Í¼¼ø±êÇ©Ã¶¾ÙÖµµÄÃû³ÆÄ£°å£¬{0}Îª±êÇ©Ãû£¬{1}ÎªÖµÃû", VanillaStrings.CONTEXT_ALMANAC)]
-        public const string TAG_ENUM_TEMPLATE = "{0}£º{1}";
-        [TranslateMsg("Í¼¼øËõ·ÅÌáÊ¾ÎÄ±¾", VanillaStrings.CONTEXT_ALMANAC)]
-        public const string ZOOM_HINT_MOUSE = "×ó¼üÍÏ×§ÒÔÒÆ¶¯ÊÓÍ¼£»¹öÂÖÒÔËõ·ÅÊÓÍ¼";
-        [TranslateMsg("Í¼¼øËõ·ÅÌáÊ¾ÎÄ±¾", VanillaStrings.CONTEXT_ALMANAC)]
-        public const string ZOOM_HINT_TOUCH = "µ¥Ö¸ÍÏ×§ÒÔÒÆ¶¯ÊÓÍ¼£»Ë«Ö¸ÍÏ×§ÒÔËõ·ÅÊÓÍ¼";
+        [TranslateMsg("å›¾é‰´æè¿°æ¨¡æ¿ï¼Œ{0}ä¸ºèƒ½é‡", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string COST_LABEL = "èŠ±è´¹ï¼š<color=red>{0}</color>";
+        [TranslateMsg("å›¾é‰´æè¿°æ¨¡æ¿ï¼Œ{0}ä¸ºå†·å´æ—¶é—´", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string RECHARGE_LABEL = "å†·å´æ—¶é—´ï¼š<color=red>{0}</color>";
+        [TranslateMsg("å›¾é‰´æ”¾å¤§é€‰é¡¹ï¼Œ{0}ä¸ºç¼©æ”¾ç­‰çº§", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string OPTION_ZOOM_SCALE = "ç¼©æ”¾ï¼š{0}";
+        [TranslateMsg("å›¾é‰´æ ‡ç­¾æšä¸¾å€¼çš„åç§°æ¨¡æ¿ï¼Œ{0}ä¸ºæ ‡ç­¾åï¼Œ{1}ä¸ºå€¼å", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string TAG_ENUM_TEMPLATE = "{0}ï¼š{1}";
+        [TranslateMsg("å›¾é‰´ç¼©æ”¾æç¤ºæ–‡æœ¬", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string ZOOM_HINT_MOUSE = "å·¦é”®æ‹–æ‹½ä»¥ç§»åŠ¨è§†å›¾ï¼›æ»šè½®ä»¥ç¼©æ”¾è§†å›¾";
+        [TranslateMsg("å›¾é‰´ç¼©æ”¾æç¤ºæ–‡æœ¬", VanillaStrings.CONTEXT_ALMANAC)]
+        public const string ZOOM_HINT_TOUCH = "å•æŒ‡æ‹–æ‹½ä»¥ç§»åŠ¨è§†å›¾ï¼›åŒæŒ‡æ‹–æ‹½ä»¥ç¼©æ”¾è§†å›¾";
 
 
         private MainManager Main => MainManager.Instance;

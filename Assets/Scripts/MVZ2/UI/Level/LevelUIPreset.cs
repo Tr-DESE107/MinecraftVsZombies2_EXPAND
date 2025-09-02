@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using MVZ2.Models;
 using MVZ2.UI;
 using MVZ2Logic;
@@ -12,9 +12,9 @@ namespace MVZ2.Level.UI
 {
     public class LevelUIPreset : MonoBehaviour
     {
-        #region ¹«ÓĞ·½·¨
+        #region å…¬æœ‰æ–¹æ³•
 
-        #region »ù±¾
+        #region åŸºæœ¬
         public void SetActive(bool active)
         {
             gameObject.SetActive(active);
@@ -45,7 +45,7 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region ÄÜÁ¿
+        #region èƒ½é‡
         public void SetEnergyActive(bool value)
         {
             energyPanel.gameObject.SetActive(value);
@@ -60,7 +60,7 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region Ìú¸ä
+        #region é“é•
         public void SetPickaxeActive(bool visible)
         {
             pickaxeSlotObj.SetActive(visible);
@@ -87,7 +87,7 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region ´¥·¢
+        #region è§¦å‘
         public void SetTriggerActive(bool visible)
         {
             triggerSlotObj.SetActive(visible);
@@ -109,7 +109,7 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region Ç®
+        #region é’±
         public void SetMoney(string money)
         {
             moneyPanel.SetMoney(money);
@@ -128,7 +128,7 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region ĞÇÖ®ËéÆ¬
+        #region æ˜Ÿä¹‹ç¢ç‰‡
         public void SetStarshardActive(bool visible)
         {
             starshardPanelObj.SetActive(visible);
@@ -155,16 +155,16 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region ÓÒÉÏ½Ç
+        #region å³ä¸Šè§’
 
-        #region ÓÎÏ·ÄÑ¶È
+        #region æ¸¸æˆéš¾åº¦
         public void SetDifficulty(string difficulty)
         {
             difficultyText.text = difficulty;
         }
         #endregion
 
-        #region ¼ÓËÙ
+        #region åŠ é€Ÿ
         public void SetSpeedUp(bool speedUp)
         {
             speedUpEnabledObject.SetActive(speedUp);
@@ -179,16 +179,16 @@ namespace MVZ2.Level.UI
 
         #endregion
 
-        #region ¹Ø¿¨½ø¶È
+        #region å…³å¡è¿›åº¦
 
-        #region ¹Ø¿¨Ãû
+        #region å…³å¡å
         public void SetLevelName(string name)
         {
             levelNameText.text = name;
         }
         #endregion
 
-        #region ¹Ø¿¨½ø¶È
+        #region å…³å¡è¿›åº¦
         public void SetProgressBarVisible(bool visible)
         {
             progressBarRoot.SetActive(visible);
@@ -218,7 +218,7 @@ namespace MVZ2.Level.UI
 
         #endregion
 
-        #region ÌáÊ¾ÎÄ±¾
+        #region æç¤ºæ–‡æœ¬
         public void ShowHugeWaveText()
         {
             animator.SetTrigger("HugeWave");
@@ -242,7 +242,7 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region ÌáÊ¾¼ıÍ·
+        #region æç¤ºç®­å¤´
         public void SetHintArrowPointToBlueprint(int index)
         {
             var blueprint = Blueprints.GetCurrentModeBlueprint(index);
@@ -283,7 +283,7 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region ÖÆÆ·
+        #region åˆ¶å“
         public void SetArtifactCount(int count)
         {
             artifactList.updateList(count, null, obj =>
@@ -390,7 +390,7 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region Ë½ÓĞ·½·¨
+        #region ç§æœ‰æ–¹æ³•
         private void Awake()
         {
             animator.enabled = false;
@@ -432,7 +432,7 @@ namespace MVZ2.Level.UI
         }
         #endregion
 
-        #region ÊÂ¼ş
+        #region äº‹ä»¶
         public event Action<LawnArea, PointerEventData, PointerInteraction> OnRaycastReceiverPointerInteraction;
 
         public event Action<PointerEventData> OnPickaxePointerEnter;
@@ -455,7 +455,7 @@ namespace MVZ2.Level.UI
         public event Action OnSpeedUpButtonClick;
         #endregion
 
-        #region ÊôĞÔ×Ö¶Î
+        #region å±æ€§å­—æ®µ
 
         public LevelUIBlueprints Blueprints => blueprints;
         public LevelUIBlueprintChoose BlueprintChoose => blueprintChoose;
@@ -565,7 +565,7 @@ namespace MVZ2.Level.UI
         float hintArrowAngleTrigger;
         #endregion
 
-        #region ÄÚÇ¶Àà
+        #region å†…åµŒç±»
         public enum Receiver
         {
             Side,

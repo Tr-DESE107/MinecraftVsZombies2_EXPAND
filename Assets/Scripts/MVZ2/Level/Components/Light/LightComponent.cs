@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Vanilla;
@@ -23,7 +23,7 @@ namespace MVZ2.Level.Components
                 UpdateLighting();
             }
         }
-        #region ĞòÁĞ»¯
+        #region åºåˆ—åŒ–
         public override ISerializableLevelComponent ToSerializable()
         {
             return new SerializableLightComponent()
@@ -43,7 +43,7 @@ namespace MVZ2.Level.Components
         }
         #endregion
 
-        #region »ñÈ¡ĞÅÏ¢
+        #region è·å–ä¿¡æ¯
         public bool IsIlluminated(Entity entity)
         {
             foreach (var pair in lightSources)
@@ -82,14 +82,14 @@ namespace MVZ2.Level.Components
         }
         #endregion
 
-        #region ¸üĞÂ¹âÕÕ
+        #region æ›´æ–°å…‰ç…§
         private void UpdateLighting()
         {
             lightSources.Update();
         }
         #endregion
 
-        #region ÊôĞÔ×Ö¶Î
+        #region å±æ€§å­—æ®µ
         private LightSourceUpdateList lightSources;
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "lighting");
         #endregion

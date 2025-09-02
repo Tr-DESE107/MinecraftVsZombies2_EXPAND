@@ -45,7 +45,7 @@ namespace MVZ2.Arcade
             ui.OnIndexButtonClick += OnIndexButtonClickCallback;
             ui.OnItemClick += OnItemClickCallback;
         }
-        #region �¼��ص�
+        #region 事件回调
         private void OnIndexReturnClickCallback()
         {
             Hide();

@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
@@ -41,7 +41,7 @@ namespace MVZ2.Store
             var loreTalks = Main.ResourceManager.GetCurrentStoreLoreTalks();
             if (loreTalks == null)
                 return;
-            // ∂‘ª∞
+            // ÂØπËØù
             var queue = new Queue<NamespaceID>();
             foreach (var lore in loreTalks)
             {
@@ -71,7 +71,7 @@ namespace MVZ2.Store
                 Main.MusicManager.Play(preset.Music);
         }
 
-        #region …˙√¸÷‹∆⁄
+        #region ÁîüÂëΩÂë®Êúü
         private void Awake()
         {
             ui.OnReturnClick += OnReturnClickCallback;
@@ -103,7 +103,7 @@ namespace MVZ2.Store
         }
         #endregion
 
-        #region UI  ¬º˛ªÿµ˜
+        #region UI ‰∫ã‰ª∂ÂõûË∞É
         private void OnReturnClickCallback()
         {
             Hide();
@@ -162,7 +162,7 @@ namespace MVZ2.Store
                         Main.SaveManager.AddMoney(-price);
                         Main.SoundManager.Play2D(VanillaSoundID.cashRegister);
                         Main.SaveManager.Unlock(stage.Unlocks);
-                        Main.SaveManager.SaveToFile(); // π∫¬ÚŒÔ∆∑∫Û±£¥Ê”Œœ∑
+                        Main.SaveManager.SaveToFile(); // Ë¥≠‰π∞Áâ©ÂìÅÂêé‰øùÂ≠òÊ∏∏Êàè
                         UpdateMoney();
                         UpdatePage();
                     }
@@ -229,15 +229,15 @@ namespace MVZ2.Store
         }
         public event Action OnReturnClick;
 
-        [TranslateMsg("…ÃµÍ∂‘ª∞øÚ±ÍÃ‚")]
-        public const string PURCHASE = "π∫¬ÚŒÔ∆∑";
-        [TranslateMsg("…ÃµÍ∂‘ª∞øÚƒ⁄»›£¨{0}Œ™º€∏Ò", selfPlural: true)]
-        public const string PURCHASE_DESCRIPTION = "»∑∂®“‘{0:N0}µƒº€∏Ò¬Úœ¬’‚∏ˆŒÔ∆∑£ø";
-        [TranslateMsg("…ÃµÍ∂‘ª∞øÚ±ÍÃ‚")]
-        public const string INSUFFICIENT_MONEY = "Ω«Æ≤ª◊„";
-        [TranslateMsg("…ÃµÍ∂‘ª∞øÚƒ⁄»›")]
-        public const string INSUFFICIENT_MONEY_DESCRIPTION = "ƒ„√ª”–◊„πªµƒΩ«Æ£°";
-        [TranslateMsg("…ÃµÍµƒ“≥√Êº∆ ˝£¨{0}Œ™µ±«∞“≥√Ê£¨{1}Œ™◊‹“≥√Ê")]
+        [TranslateMsg("ÂïÜÂ∫óÂØπËØùÊ°ÜÊ†áÈ¢ò")]
+        public const string PURCHASE = "Ë¥≠‰π∞Áâ©ÂìÅ";
+        [TranslateMsg("ÂïÜÂ∫óÂØπËØùÊ°ÜÂÜÖÂÆπÔºå{0}‰∏∫‰ª∑Ê†º", selfPlural: true)]
+        public const string PURCHASE_DESCRIPTION = "Á°ÆÂÆö‰ª•{0:N0}ÁöÑ‰ª∑Ê†º‰π∞‰∏ãËøô‰∏™Áâ©ÂìÅÔºü";
+        [TranslateMsg("ÂïÜÂ∫óÂØπËØùÊ°ÜÊ†áÈ¢ò")]
+        public const string INSUFFICIENT_MONEY = "ÈáëÈí±‰∏çË∂≥";
+        [TranslateMsg("ÂïÜÂ∫óÂØπËØùÊ°ÜÂÜÖÂÆπ")]
+        public const string INSUFFICIENT_MONEY_DESCRIPTION = "‰Ω†Ê≤°ÊúâË∂≥Â§üÁöÑÈáëÈí±ÔºÅ";
+        [TranslateMsg("ÂïÜÂ∫óÁöÑÈ°µÈù¢ËÆ°Êï∞Ôºå{0}‰∏∫ÂΩìÂâçÈ°µÈù¢Ôºå{1}‰∏∫ÊÄªÈ°µÈù¢")]
         public const string PAGE_TEMPLATE = "{0}/{1}";
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> products = new List<NamespaceID>();

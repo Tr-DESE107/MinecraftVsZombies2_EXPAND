@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +21,9 @@ namespace MVZ2.MusicRoom
             Main.MusicManager.Stop();
         }
 
-        #region Ë½ÓÐ·½·¨
+        #region ç§æœ‰æ–¹æ³•
 
-        #region ÉúÃüÖÜÆÚ
+        #region ç”Ÿå‘½å‘¨æœŸ
         private void Awake()
         {
             ui.OnReturnClick += OnIndexReturnClickCallback;
@@ -40,7 +40,7 @@ namespace MVZ2.MusicRoom
         }
         #endregion
 
-        #region ÊÂ¼þ»Øµ÷
+        #region äº‹ä»¶å›žè°ƒ
         private void OnIndexReturnClickCallback()
         {
             Hide();
@@ -203,12 +203,12 @@ namespace MVZ2.MusicRoom
         }
         #endregion
         public event Action OnReturnClick;
-        [TranslateMsg("ÒôÀÖÊÒÖÐµÄÐÅÏ¢Ä£°å£¬{0}ÎªÒôÀÖÀ´Ô´")]
-        public const string INFORMATION_SOURCE = "À´Ô´£º{0}";
-        [TranslateMsg("ÒôÀÖÊÒÖÐµÄÐÅÏ¢Ä£°å£¬{0}ÎªÒôÀÖÔ­Çú")]
-        public const string INFORMATION_ORIGIN = "Ô­Çú£º{0}";
-        [TranslateMsg("ÒôÀÖÊÒÖÐµÄÐÅÏ¢Ä£°å£¬{0}ÎªÒôÀÖ×÷Õß")]
-        public const string INFORMATION_AUTHOR = "×÷Õß£º{0}";
+        [TranslateMsg("éŸ³ä¹å®¤ä¸­çš„ä¿¡æ¯æ¨¡æ¿ï¼Œ{0}ä¸ºéŸ³ä¹æ¥æº")]
+        public const string INFORMATION_SOURCE = "æ¥æºï¼š{0}";
+        [TranslateMsg("éŸ³ä¹å®¤ä¸­çš„ä¿¡æ¯æ¨¡æ¿ï¼Œ{0}ä¸ºéŸ³ä¹åŽŸæ›²")]
+        public const string INFORMATION_ORIGIN = "åŽŸæ›²ï¼š{0}";
+        [TranslateMsg("éŸ³ä¹å®¤ä¸­çš„ä¿¡æ¯æ¨¡æ¿ï¼Œ{0}ä¸ºéŸ³ä¹ä½œè€…")]
+        public const string INFORMATION_AUTHOR = "ä½œè€…ï¼š{0}";
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> musicList = new List<NamespaceID>();
         private NamespaceID currentMusicId;

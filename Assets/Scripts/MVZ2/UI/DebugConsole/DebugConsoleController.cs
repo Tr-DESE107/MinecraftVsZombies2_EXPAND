@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Managers;
 using MVZ2.UI;
@@ -129,7 +129,7 @@ namespace MVZ2.Debugs
         }
         private void UpdateInputFieldSuggestions()
         {
-            // ÊäÈë±ä»¯Ê±¸üÐÂ×Ô¶¯²¹È«
+            // è¾“å…¥å˜åŒ–æ—¶æ›´æ–°è‡ªåŠ¨è¡¥å…¨
             string command = ui.GetCommand();
             if (!historyNavigated && (command != null && command.StartsWith(DebugManager.COMMAND_CHARACTER)))
             {
@@ -188,7 +188,7 @@ namespace MVZ2.Debugs
             }
         }
 
-        #region ×Ô¶¯²¹È«
+        #region è‡ªåŠ¨è¡¥å…¨
         private void NavigateSuggestions(int direction)
         {
             if (currentSuggestions.Count == 0)
@@ -266,7 +266,7 @@ namespace MVZ2.Debugs
         #endregion
 
 
-        #region ÀúÊ·
+        #region åŽ†å²
 
         void SaveCommandHistory()
         {
@@ -285,13 +285,13 @@ namespace MVZ2.Debugs
         }
         private void AddToHistory(string command)
         {
-            // ±ÜÃâÌí¼ÓÖØ¸´µÄÁ¬ÐøÃüÁî
+            // é¿å…æ·»åŠ é‡å¤çš„è¿žç»­å‘½ä»¤
             if (commandHistory.Count == 0 || commandHistory.First() != command)
             {
                 commandHistory.Insert(0, command);
             }
 
-            // ÏÞÖÆÀúÊ·¼ÇÂ¼´óÐ¡
+            // é™åˆ¶åŽ†å²è®°å½•å¤§å°
             while (commandHistory.Count > maxHistorySize)
             {
                 commandHistory.RemoveAt(commandHistory.Count - 1);
