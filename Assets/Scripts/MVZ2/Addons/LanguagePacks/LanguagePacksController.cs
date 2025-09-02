@@ -252,17 +252,25 @@ namespace MVZ2.Addons
         private void UpdateLanguagePacks()
         {
             var disabled = GetDisabledReferences();
-            var disabledViewDatas = disabled.Select(p => GetLanguagePackViewData(p)).ToArray();
-            var enabledViewDatas = enabledReferences.Select(p => GetLanguagePackViewData(p)).ToArray();
+            var disabledViewDatas = disabled
+                .Select(r => Main.LanguageManager.GetLanguagePackMetadata(r))
+                .OfType<LanguagePackMetadata>()
+                .Select(p => GetLanguagePackViewData(p))
+                .ToArray();
+            var enabledViewDatas = enabledReferences
+                .Select(r => Main.LanguageManager.GetLanguagePackMetadata(r))
+                .OfType<LanguagePackMetadata>()
+                .Select(p => GetLanguagePackViewData(p))
+                .ToArray();
             ui.SetDisabledLanguagePacks(disabledViewDatas);
             ui.SetEnabledLanguagePacks(enabledViewDatas);
         }
         private void UpdateButtonInteractions()
         {
             bool selected = selectedLanguagePack != null;
-            bool isBuiltin = selected && selectedLanguagePack.IsBuiltin;
-            bool enabled = selected && enabledReferences.Contains(selectedLanguagePack);
-            int index = selected ? enabledReferences.IndexOf(selectedLanguagePack) : -1;
+            bool isBuiltin = selectedLanguagePack != null && selectedLanguagePack.IsBuiltin;
+            bool enabled = selectedLanguagePack != null && enabledReferences.Contains(selectedLanguagePack);
+            int index = selectedLanguagePack != null ? enabledReferences.IndexOf(selectedLanguagePack) : -1;
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.Delete, selected && !isBuiltin);
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.Export, selected);
             ui.SetButtonInteractable(LanguagePacksUI.Buttons.Disable, enabled && selected && !isBuiltin);
@@ -302,13 +310,12 @@ namespace MVZ2.Addons
                 return Array.IndexOf(disabled, reference);
             }
         }
-        private LanguagePackViewData GetLanguagePackViewData(LanguagePackReference reference)
+        private LanguagePackViewData GetLanguagePackViewData(LanguagePackMetadata metadata)
         {
-            var metadata = Main.LanguageManager.GetLanguagePackMetadata(reference);
             return new LanguagePackViewData()
             {
-                name = metadata.name,
-                description = metadata.description,
+                name = metadata.name ?? string.Empty,
+                description = metadata.description ?? string.Empty,
                 icon = metadata.icon,
             };
         }
@@ -325,13 +332,13 @@ namespace MVZ2.Addons
 
         public MainManager Main => MainManager.Instance;
         [SerializeField]
-        private AddonsController addons;
+        private AddonsController addons = null!;
         [SerializeField]
-        private LanguagePacksUI ui;
+        private LanguagePacksUI ui = null!;
         [SerializeField]
         private float maxRefreshInterval = 1;
         private bool overridedFile;
-        private LanguagePackReference selectedLanguagePack;
+        private LanguagePackReference? selectedLanguagePack;
         private List<LanguagePackReference> enabledReferences = new List<LanguagePackReference>();
         private List<LanguagePackReference> references = new List<LanguagePackReference>();
         private float refreshInterval;

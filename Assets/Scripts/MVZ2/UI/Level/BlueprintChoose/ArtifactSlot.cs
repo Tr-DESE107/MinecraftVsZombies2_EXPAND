@@ -22,7 +22,7 @@ namespace MVZ2.Level.UI
         {
             button.onClick.AddListener(() => OnClick?.Invoke(this));
         }
-        private void SetSprite(Sprite sprite)
+        private void SetSprite(Sprite? sprite)
         {
             image.sprite = sprite;
             image.enabled = sprite;
@@ -35,19 +35,19 @@ namespace MVZ2.Level.UI
         {
             OnPointerExit?.Invoke(this);
         }
-        public event Action<ArtifactSlot> OnClick;
-        public event Action<ArtifactSlot> OnPointerEnter;
-        public event Action<ArtifactSlot> OnPointerExit;
+        public event Action<ArtifactSlot>? OnClick;
+        public event Action<ArtifactSlot>? OnPointerEnter;
+        public event Action<ArtifactSlot>? OnPointerExit;
         [SerializeField]
-        Image image;
+        Image image = null!;
         [SerializeField]
-        Button button;
+        Button button = null!;
         [SerializeField]
-        TooltipAnchor tooltipAnchor;
+        TooltipAnchor tooltipAnchor = null!;
         ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
     }
     public struct ArtifactViewData
     {
-        public Sprite sprite;
+        public Sprite? sprite;
     }
 }

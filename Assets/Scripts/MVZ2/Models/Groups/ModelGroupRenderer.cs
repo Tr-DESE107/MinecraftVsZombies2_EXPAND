@@ -144,7 +144,7 @@ namespace MVZ2.Models
     }
     public abstract class SerializableModelGroupRenderer : SerializableModelGroup
     {
-        public SerializableParticleSystem[] particles;
-        public SerializableGraphicElement[] renderers;
+        public SerializableParticleSystem[] particles = null!;
+        public SerializableGraphicElement[] renderers = null!;
     }
 }

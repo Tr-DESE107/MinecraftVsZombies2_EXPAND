@@ -40,21 +40,21 @@ namespace MVZ2.Titlescreen
             button.onClick.AddListener(() => OnButtonClick?.Invoke());
             languageDialog.OnConfirm += (i) => OnLanguageDialogConfirmed?.Invoke(i);
         }
-        public event Action OnButtonClick;
-        public event Action<int> OnLanguageDialogConfirmed;
+        public event Action? OnButtonClick;
+        public event Action<int>? OnLanguageDialogConfirmed;
         #region 属性字段
         [SerializeField]
-        private Button button;
+        private Button button = null!;
         [SerializeField]
-        private Image buttonFillImage;
+        private Image buttonFillImage = null!;
         [SerializeField]
-        private LanguageDialog languageDialog;
+        private LanguageDialog languageDialog = null!;
         [SerializeField]
-        private GameObject languageDialogObj;
+        private GameObject languageDialogObj = null!;
         [SerializeField]
-        private TextMeshProUGUI buttonText;
+        private TextMeshProUGUI buttonText = null!;
         [SerializeField]
-        private TextMeshProUGUI versionText;
+        private TextMeshProUGUI versionText = null!;
         #endregion
     }
 }

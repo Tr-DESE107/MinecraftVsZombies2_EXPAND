@@ -190,8 +190,10 @@ namespace MVZ2.GameContent.HeldItems
                 return;
             result.SetFinalValue(seedDef.GetModelID());
         }
-        public override void OnSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
+        public override void OnSetModel(LevelEngine level, IHeldItemData data, IModelInterface? model)
         {
+            if (model == null)
+                return;
             var entity = GetEntity(level, data);
             if (entity == null)
                 return;

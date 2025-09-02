@@ -20,19 +20,19 @@ namespace MVZ2.Mainmenu
             descriptionText.text = viewData.description;
         }
         [SerializeField]
-        private Image iconImage;
+        private Image iconImage = null!;
         [SerializeField]
-        private Image notEarnedIconImage;
+        private Image notEarnedIconImage = null!;
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
         [SerializeField]
-        private GameObject earnedObj;
+        private GameObject earnedObj = null!;
         [SerializeField]
-        private TextMeshProUGUI descriptionText;
+        private TextMeshProUGUI descriptionText = null!;
     }
     public struct AchievementEntryViewData
     {
-        public Sprite icon;
+        public Sprite? icon;
         public string name;
         public bool earned;
         public string description;

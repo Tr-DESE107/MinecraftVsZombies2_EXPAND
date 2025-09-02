@@ -11,8 +11,8 @@ namespace MVZ2.Models
             spriteMask.materials = replacementMaterials;
         }
         [SerializeField]
-        private SpriteMask spriteMask;
+        private SpriteMask spriteMask = null!;
         [SerializeField]
-        private Material[] replacementMaterials;
+        private Material[] replacementMaterials = null!;
     }
 }

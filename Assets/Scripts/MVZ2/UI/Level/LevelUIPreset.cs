@@ -34,6 +34,8 @@ namespace MVZ2.Level.UI
             for (int i = 0; i < artifactList.Count; i++)
             {
                 var artifact = artifactList.getElement<ArtifactItemUI>(i);
+                if (!artifact.Exists())
+                    continue;
                 artifact.UpdateAnimator(deltaTime);
             }
             BlueprintChoose.UpdateFrame(deltaTime);
@@ -135,7 +137,7 @@ namespace MVZ2.Level.UI
         {
             starshardPanelObj.SetActive(visible);
         }
-        public void SetStarshardIcon(Sprite icon)
+        public void SetStarshardIcon(Sprite? icon)
         {
             starshardPanel.SetIconSprite(icon);
         }
@@ -248,7 +250,7 @@ namespace MVZ2.Level.UI
         public void SetHintArrowPointToBlueprint(int index)
         {
             var blueprint = Blueprints.GetCurrentModeBlueprint(index);
-            if (!blueprint)
+            if (!blueprint.Exists())
             {
                 HideHintArrow();
                 return;
@@ -301,37 +303,37 @@ namespace MVZ2.Level.UI
                 artifact.OnPointerExit -= OnArtifactPointerExitCallback;
             });
         }
-        public void SetArtifactIcon(int index, Sprite value)
+        public void SetArtifactIcon(int index, Sprite? value)
         {
             var ui = GetArtifactAt(index);
-            if (!ui) return;
+            if (!ui.Exists()) return;
             ui.SetIcon(value);
         }
         public void SetArtifactNumber(int index, string number)
         {
             var ui = GetArtifactAt(index);
-            if (!ui) return;
+            if (!ui.Exists()) return;
             ui.SetNumber(number);
         }
         public void HighlightArtifact(int index)
         {
             var ui = GetArtifactAt(index);
-            if (!ui) return;
+            if (!ui.Exists()) return;
             ui.Shine();
         }
         public void SetArtifactGrayscale(int index, bool value)
         {
             var ui = GetArtifactAt(index);
-            if (!ui) return;
+            if (!ui.Exists()) return;
             ui.SetGrayscale(value);
         }
         public void SetArtifactGlowing(int index, bool value)
         {
             var ui = GetArtifactAt(index);
-            if (!ui) return;
+            if (!ui.Exists()) return;
             ui.SetGlowing(value);
         }
-        public ArtifactItemUI GetArtifactAt(int index)
+        public ArtifactItemUI? GetArtifactAt(int index)
         {
             return artifactList.getElement<ArtifactItemUI>(index);
         }
@@ -357,10 +359,12 @@ namespace MVZ2.Level.UI
 
         public SerializableLevelUIPreset ToSerializable()
         {
-            SerializableAnimator[] artifactAnimators = new SerializableAnimator[artifactList.Count];
+            SerializableAnimator?[] artifactAnimators = new SerializableAnimator?[artifactList.Count];
             for (int i = 0; i < artifactAnimators.Length; i++)
             {
                 var artifact = artifactList.getElement<ArtifactItemUI>(i);
+                if (!artifact.Exists())
+                    continue;
                 artifactAnimators[i] = artifact.GetSerializableAnimator();
             }
             return new SerializableLevelUIPreset()
@@ -371,8 +375,6 @@ namespace MVZ2.Level.UI
         }
         public void LoadFromSerializable(SerializableLevelUIPreset serializable)
         {
-            if (serializable == null)
-                return;
             serializable.animator?.Deserialize(animator);
             if (serializable.artifactAnimators != null)
             {
@@ -381,7 +383,10 @@ namespace MVZ2.Level.UI
                     var artifact = artifactList.getElement<ArtifactItemUI>(i);
                     if (artifact == null)
                         continue;
-                    artifact.LoadFromSerializableAnimator(serializable.artifactAnimators[i]);
+                    var seriAnimator = serializable.artifactAnimators[i];
+                    if (seriAnimator == null)
+                        continue;
+                    artifact.LoadFromSerializableAnimator(seriAnimator);
                 }
             }
         }
@@ -435,26 +440,26 @@ namespace MVZ2.Level.UI
         #endregion
 
         #region 事件
-        public event Action<LawnArea, PointerEventData, PointerInteraction> OnRaycastReceiverPointerInteraction;
+        public event Action<LawnArea, PointerEventData, PointerInteraction>? OnRaycastReceiverPointerInteraction;
 
-        public event Action<PointerEventData> OnPickaxePointerEnter;
-        public event Action<PointerEventData> OnPickaxePointerExit;
-        public event Action<PointerEventData> OnPickaxePointerDown;
+        public event Action<PointerEventData>? OnPickaxePointerEnter;
+        public event Action<PointerEventData>? OnPickaxePointerExit;
+        public event Action<PointerEventData>? OnPickaxePointerDown;
 
-        public event Action<int> OnArtifactPointerEnter;
-        public event Action<int> OnArtifactPointerExit;
+        public event Action<int>? OnArtifactPointerEnter;
+        public event Action<int>? OnArtifactPointerExit;
 
-        public event Action<PointerEventData> OnStarshardPointerDown;
+        public event Action<PointerEventData>? OnStarshardPointerDown;
 
-        public event Action<PointerEventData> OnTriggerPointerEnter;
-        public event Action<PointerEventData> OnTriggerPointerExit;
-        public event Action<PointerEventData> OnTriggerPointerDown;
+        public event Action<PointerEventData>? OnTriggerPointerEnter;
+        public event Action<PointerEventData>? OnTriggerPointerExit;
+        public event Action<PointerEventData>? OnTriggerPointerDown;
 
-        public event Action<int, PointerEventData, PointerInteraction, bool> OnBlueprintPointerInteraction;
+        public event Action<int, PointerEventData, PointerInteraction, bool>? OnBlueprintPointerInteraction;
 
-        public event Action OnStartGameCalled;
-        public event Action OnMenuButtonClick;
-        public event Action OnSpeedUpButtonClick;
+        public event Action? OnStartGameCalled;
+        public event Action? OnMenuButtonClick;
+        public event Action? OnSpeedUpButtonClick;
         #endregion
 
         #region 属性字段
@@ -463,92 +468,90 @@ namespace MVZ2.Level.UI
         public LevelUIBlueprintChoose BlueprintChoose => blueprintChoose;
 
         [SerializeField]
-        Animator animator;
+        Animator animator = null!;
         [SerializeField]
-        GraphicRaycaster[] raycasters;
+        GraphicRaycaster[] raycasters = null!;
         [SerializeField]
-        CanvasGroup[] canvasGroups;
+        CanvasGroup[] canvasGroups = null!;
 
         [Header("Enabling")]
         [SerializeField]
-        GameObject pickaxeSlotObj;
+        GameObject pickaxeSlotObj = null!;
         [SerializeField]
-        GameObject starshardPanelObj;
+        GameObject starshardPanelObj = null!;
         [SerializeField]
-        GameObject triggerSlotObj;
+        GameObject triggerSlotObj = null!;
         [SerializeField]
-        GameObject triggerSlotConveyorObj;
+        GameObject triggerSlotConveyorObj = null!;
 
         [Header("Blueprints")]
         [SerializeField]
-        LevelUIBlueprints blueprints;
+        LevelUIBlueprints blueprints = null!;
         [SerializeField]
-        LevelUIBlueprintChoose blueprintChoose;
+        LevelUIBlueprintChoose blueprintChoose = null!;
 
 
         [Header("Tools")]
         [SerializeField]
-        EnergyPanel energyPanel;
+        EnergyPanel energyPanel = null!;
         [SerializeField]
-        TriggerSlot triggerSlot;
+        TriggerSlot triggerSlot = null!;
         [SerializeField]
-        TriggerSlot triggerSlotConveyor;
+        TriggerSlot triggerSlotConveyor = null!;
         [SerializeField]
-        PickaxeSlot pickaxeSlot;
+        PickaxeSlot pickaxeSlot = null!;
 
         [Header("Raycast Receivers")]
         [SerializeField]
-        LawnRaycastReceiver[] receivers;
+        LawnRaycastReceiver[] receivers = null!;
 
         [Header("CameraLimit")]
         [SerializeField]
-        LayoutElement limitRegionLayoutElement;
+        LayoutElement limitRegionLayoutElement = null!;
         [SerializeField]
         float cameraLimitWidth = 220f;
 
         [Header("Artifacts")]
         [SerializeField]
-        ElementList artifactList;
+        ElementList artifactList = null!;
 
         [Header("Bottom")]
         [SerializeField]
-        MoneyPanel moneyPanel;
+        MoneyPanel moneyPanel = null!;
         [SerializeField]
-        StarshardPanel starshardPanel;
+        StarshardPanel starshardPanel = null!;
         [SerializeField]
-        TextMeshProUGUI levelNameText;
+        TextMeshProUGUI levelNameText = null!;
         [SerializeField]
-        GameObject progressBarRoot;
+        GameObject progressBarRoot = null!;
         [SerializeField]
-        ProgressBar progressBar;
+        ProgressBar progressBar = null!;
         [SerializeField]
-        ProgressBar bossProgressBar;
+        ProgressBar bossProgressBar = null!;
 
         [Header("Right Top")]
         [SerializeField]
-        GameObject topRightObj;
+        Button speedUpButton = null!;
         [SerializeField]
-        Button speedUpButton;
+        GameObject speedUpEnabledObject = null!;
         [SerializeField]
-        GameObject speedUpEnabledObject;
+        GameObject speedUpDisabledObject = null!;
         [SerializeField]
-        GameObject speedUpDisabledObject;
+        TextMeshProUGUI speedUpHotkeyText = null!;
         [SerializeField]
-        TextMeshProUGUI speedUpHotkeyText;
+        Button menuButton = null!;
         [SerializeField]
-        Button menuButton;
-        [SerializeField]
-        TextMeshProUGUI difficultyText;
+        TextMeshProUGUI difficultyText = null!;
 
         [Header("Advice")]
         [SerializeField]
-        GameObject adviceObject;
+        GameObject adviceObject = null!;
         [SerializeField]
-        TextMeshProUGUI adviceText;
+        TextMeshProUGUI adviceText = null!;
 
         [Header("Hint Arrow")]
         [SerializeField]
-        HintArrow hintArrow;
+        HintArrow hintArrow = null!;
         [SerializeField]
         Vector2 hintArrowOffsetBlueprint;
         [SerializeField]
@@ -585,7 +588,7 @@ namespace MVZ2.Level.UI
     [Serializable]
     public class SerializableLevelUIPreset
     {
-        public SerializableAnimator animator;
-        public SerializableAnimator[] artifactAnimators;
+        public SerializableAnimator? animator;
+        public SerializableAnimator?[]? artifactAnimators;
     }
 }

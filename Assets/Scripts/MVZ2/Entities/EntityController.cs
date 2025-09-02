@@ -81,7 +81,7 @@ namespace MVZ2.Entities
         #region 模型
         public void SetModel(NamespaceID modelId)
         {
-            if (Model)
+            if (Model.Exists())
             {
                 Destroy(Model.gameObject);
                 Model.OnUpdateFrame -= OnModelUpdateFrameCallback;
@@ -90,7 +90,7 @@ namespace MVZ2.Entities
             var builder = new ModelBuilder(modelId, Level.GetCamera(), Entity.InitSeed);
             var model = builder.Build(transform);
             Model = model as EntityModel;
-            if (!Model)
+            if (!Model.Exists())
                 return;
             Model.OnUpdateFrame += OnModelUpdateFrameCallback;
             modelPropertyCache.UpdateAll(this);
@@ -110,7 +110,7 @@ namespace MVZ2.Entities
         }
         public void SetSimulationSpeed(float simulationSpeed)
         {
-            if (Model)
+            if (Model.Exists())
             {
                 Model.SetSimulationSpeed(simulationSpeed);
             }
@@ -120,7 +120,7 @@ namespace MVZ2.Entities
         #region 更新
         public void UpdateFixed()
         {
-            if (Model)
+            if (Model.Exists())
             {
                 Model.UpdateFixed();
             }
@@ -147,21 +147,21 @@ namespace MVZ2.Entities
             {
                 modelPropertyCache.SetDirtyProperty(EntityPropertyCache.PropertyName.Tint);
             }
-            if (Model)
+            if (Model.Exists())
             {
                 Model.UpdateFrame(deltaTime);
             }
         }
         public void UpdateAnimators(float deltaTime)
         {
-            if (Model)
+            if (Model.Exists())
             {
                 Model.UpdateAnimators(deltaTime);
             }
         }
         public void GetAnimatorsToUpdate(IList<Animator> results)
         {
-            if (Model)
+            if (Model.Exists())
             {
                 Model.GetAnimatorsToUpdate(results);
             }
@@ -223,12 +223,12 @@ namespace MVZ2.Entities
             return new SerializableEntityController()
             {
                 id = Entity.ID,
-                model = Model ? Model.ToSerializable() : null
+                model = Model.Exists() ? Model.ToSerializable() : null
             };
         }
         public void LoadFromSerializable(SerializableEntityController serializable)
         {
-            if (Model && serializable.model != null)
+            if (Model.Exists() && serializable.model != null)
             {
                 Model.LoadFromSerializable(serializable.model);
                 UpdateModelInsertions();
@@ -265,7 +265,7 @@ namespace MVZ2.Entities
             UpdateAnimators(0);
             UpdateFrame(0);
         }
-        private void PostPropertyChangedCallback(IPropertyKey key, object beforeValue, object afterValue)
+        private void PostPropertyChangedCallback(IPropertyKey key, object? beforeValue, object? afterValue)
         {
             modelPropertyCache.SetDirtyProperty(key);
         }
@@ -275,12 +275,12 @@ namespace MVZ2.Entities
         }
         private void OnModelInsertionAddedCallback(ModelInsertion insertion)
         {
-            if (Model)
+            if (Model.Exists())
                 Model.AddModelInsertion(insertion);
         }
         private void OnModelInsertionRemovedCallback(ModelInsertion insertion)
         {
-            if (Model)
+            if (Model.Exists())
                 Model.RemoveModelInsertion(insertion.key);
         }
         private void OnArmorEquipCallback(NamespaceID slot, Armor armor)
@@ -313,10 +313,14 @@ namespace MVZ2.Entities
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {
+            if (!Model.Exists())
+                return 0;
             return Model.SortingLayerID;
         }
         int ILevelRaycastReceiver.GetSortingOrder()
         {
+            if (!Model.Exists())
+                return 0;
             return Model.SortingOrder;
         }
         #endregion
@@ -386,7 +390,7 @@ namespace MVZ2.Entities
         #region 护甲
         private void CreateArmorModel(NamespaceID slot, Armor armor)
         {
-            if (!Model)
+            if (!Model.Exists())
                 return;
             if (armor?.Definition == null)
                 return;
@@ -398,7 +402,7 @@ namespace MVZ2.Entities
             if (string.IsNullOrEmpty(anchor))
                 return;
             var model = Model.CreateArmor(anchor, slot, modelID);
-            if (model)
+            if (model.Exists())
             {
                 var modelPosition = GetArmorModelOffset(slot, armorID);
                 model.transform.localPosition = modelPosition;
@@ -415,7 +419,7 @@ namespace MVZ2.Entities
             }
             return Vector3.zero;
         }
-        public string GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
+        public string? GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
         {
             var game = Main.Game;
             var shapeDef = Main.Game.GetShapeDefinition(Entity.GetShapeID());
@@ -435,19 +439,19 @@ namespace MVZ2.Entities
         }
         private void RemoveArmorModel(NamespaceID slot)
         {
-            if (!Model)
+            if (!Model.Exists())
                 return;
             Model.RemoveArmor(slot);
         }
         private void UpdateArmorModel(NamespaceID slot)
         {
-            if (!Model)
+            if (!Model.Exists())
                 return;
             var armor = Entity.GetArmorAtSlot(slot);
             if (armor == null)
                 return;
             var armorModel = Model.GetArmorModel(slot);
-            if (!armorModel)
+            if (!armorModel.Exists())
                 return;
             var tint = armor.GetTint();
             var colorOffset = armor.GetColorOffset();
@@ -470,6 +474,8 @@ namespace MVZ2.Entities
         }
         public void ClearAllArmorModels()
         {
+            if (!Model.Exists())
+                return;
             var game = Main.Game;
             var slots = game.GetAllArmorSlotDefinitions();
             foreach (var def in slots)
@@ -482,9 +488,12 @@ namespace MVZ2.Entities
             if (shapeDef != null)
             {
                 var anchors = shapeDef.GetAllArmorModelAnchors();
-                foreach (var anchor in anchors)
+                if (anchors != null)
                 {
-                    Model.ClearModelAnchor(anchor);
+                    foreach (var anchor in anchors)
+                    {
+                        Model.ClearModelAnchor(anchor);
+                    }
                 }
             }
         }
@@ -493,7 +502,7 @@ namespace MVZ2.Entities
         #region 模型
         private void UpdateEntityModel()
         {
-            if (!Model)
+            if (!Model.Exists())
                 return;
 
             if (Level.IsGameOver() && (Entity.Type == EntityTypes.ENEMY || Entity.Type == EntityTypes.BOSS))
@@ -504,7 +513,9 @@ namespace MVZ2.Entities
             groundPos.y = Entity.GetGroundY();
             var transGroundPos = Level.LawnToTrans(groundPos);
             Model.SetGroundY(transGroundPos.y);
-            Model.GetCenterTransform().localEulerAngles = Entity.RenderRotation;
+            var centerTransform = Model.GetCenterTransform();
+            if (centerTransform.Exists())
+                centerTransform.localEulerAngles = Entity.RenderRotation;
 
             if (modelPropertyCache.IsDirty)
             {
@@ -513,7 +524,8 @@ namespace MVZ2.Entities
         }
         private void UpdateModelInsertions()
         {
-            Model.UpdateModelInsertions(Entity.GetModelInsertions());
+            if (Model.Exists())
+                Model.UpdateModelInsertions(Entity.GetModelInsertions());
         }
         #endregion
 
@@ -562,28 +574,28 @@ namespace MVZ2.Entities
         #region View
         public void TriggerView(string name)
         {
-            if (Model)
+            if (Model.Exists())
                 Model.TriggerAnimator(name);
         }
         public void SetViewBool(string name, bool value)
         {
-            if (Model)
+            if (Model.Exists())
                 Model.SetAnimatorBool(name, value);
         }
         public void SetViewInt(string name, int value)
         {
-            if (Model)
+            if (Model.Exists())
                 Model.SetAnimatorInt(name, value);
         }
         public void SetViewFloat(string name, float value)
         {
-            if (Model)
+            if (Model.Exists())
                 Model.SetAnimatorFloat(name, value);
         }
         #endregion
 
         #region 事件
-        public event Action<EntityController, PointerEventData, PointerInteraction> OnPointerInteraction;
+        public event Action<EntityController, PointerEventData, PointerInteraction>? OnPointerInteraction;
         #endregion
 
         #region 属性字段
@@ -605,25 +617,25 @@ namespace MVZ2.Entities
             { EntityTypes.PICKUP, 7 },
         };
         public MainManager Main => MainManager.Instance;
-        public EntityModel Model { get; private set; }
+        public EntityModel? Model { get; private set; }
         public ShadowController Shadow => shadow;
-        public Entity Entity { get; private set; }
-        public LevelController Level { get; private set; }
-        private RandomGenerator rng;
+        public Entity Entity { get; private set; } = null!;
+        public LevelController Level { get; private set; } = null!;
+        private RandomGenerator rng = null!;
         private bool isHighlight;
         private bool twinkling;
-        private EntityCursorSource _cursorSource;
+        private EntityCursorSource? _cursorSource;
         private Vector3 lastPosition;
-        private IModelInterface bodyModelInterface;
+        private IModelInterface bodyModelInterface = null!;
         private EntityPropertyCache modelPropertyCache = new EntityPropertyCache();
         [SerializeField]
-        private ShadowController shadow;
+        private ShadowController shadow = null!;
         [SerializeField]
-        private HeightIndicatorController heightIndicator;
+        private HeightIndicatorController heightIndicator = null!;
         [SerializeField]
-        private TooltipAnchor tooltipAnchor;
+        private TooltipAnchor tooltipAnchor = null!;
         [SerializeField]
-        private LevelPointerInteractionHandler holdStreakHandler;
+        private LevelPointerInteractionHandler holdStreakHandler = null!;
 
         ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
 
@@ -637,22 +649,25 @@ namespace MVZ2.Entities
             {
                 var entity = entityCtrl.Entity;
                 var model = entityCtrl.Model;
-                var rendererGroup = model.RendererGroup;
-                rendererGroup.SetTint(entityCtrl.GetTint());
-                rendererGroup.SetHSV(entity.GetHSV());
-                rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
-                rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
-
-                model.transform.localScale = entity.GetFinalDisplayScale();
-                model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
-                model.SortingOrder = entity.GetSortingOrder();
-                if (model is EntityModel sprModel)
+                if (model != null)
                 {
-                    sprModel.SetLightVisible(entity.IsLightSource());
-                    sprModel.SetLightColor(entity.GetLightColor());
-                    var lightScaleLawn = entity.GetLightRange();
-                    var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;
-                    sprModel.SetLightRange(lightScale);
+                    var rendererGroup = model.RendererGroup;
+                    rendererGroup.SetTint(entityCtrl.GetTint());
+                    rendererGroup.SetHSV(entity.GetHSV());
+                    rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
+                    rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
+
+                    model.transform.localScale = entity.GetFinalDisplayScale();
+                    model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
+                    model.SortingOrder = entity.GetSortingOrder();
+                    if (model is EntityModel sprModel)
+                    {
+                        sprModel.SetLightVisible(entity.IsLightSource());
+                        sprModel.SetLightColor(entity.GetLightColor());
+                        var lightScaleLawn = entity.GetLightRange();
+                        var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;
+                        sprModel.SetLightRange(lightScale);
+                    }
                 }
 
                 ShadowHidden = entity.IsShadowHidden();
@@ -666,32 +681,52 @@ namespace MVZ2.Entities
             {
                 var entity = entityCtrl.Entity;
                 var model = entityCtrl.Model;
-                var rendererGroup = model.RendererGroup;
                 foreach (var dirtyProperty in dirtyProperties)
                 {
                     switch (dirtyProperty)
                     {
                         case PropertyName.Tint:
-                            rendererGroup.SetTint(entityCtrl.GetTint());
+                            if (model.Exists())
+                            {
+                                model.RendererGroup.SetTint(entityCtrl.GetTint());
+                            }
                             break;
                         case PropertyName.ColorOffset:
-                            rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
+                            if (model.Exists())
+                            {
+                                model.RendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
+                            }
                             break;
                         case PropertyName.HSV:
-                            rendererGroup.SetHSV(entity.GetHSV());
+                            if (model.Exists())
+                            {
+                                model.RendererGroup.SetHSV(entity.GetHSV());
+                            }
                             break;
                         case PropertyName.Grayscale:
-                            rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
+                            if (model.Exists())
+                            {
+                                model.RendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
+                            }
                             break;
                         case PropertyName.FlipX:
                         case PropertyName.DisplayScale:
-                            model.transform.localScale = entity.GetFinalDisplayScale();
+                            if (model.Exists())
+                            {
+                                model.transform.localScale = entity.GetFinalDisplayScale();
+                            }
                             break;
                         case PropertyName.SortingLayer:
-                            model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
+                            if (model.Exists())
+                            {
+                                model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
+                            }
                             break;
                         case PropertyName.SortingOrder:
-                            model.SortingOrder = entity.GetSortingOrder();
+                            if (model.Exists())
+                            {
+                                model.SortingOrder = entity.GetSortingOrder();
+                            }
                             break;
 
                         case PropertyName.ShadowHidden:
@@ -824,6 +859,6 @@ namespace MVZ2.Entities
     public class SerializableEntityController
     {
         public long id;
-        public SerializableModelData model;
+        public SerializableModelData? model;
     }
 }

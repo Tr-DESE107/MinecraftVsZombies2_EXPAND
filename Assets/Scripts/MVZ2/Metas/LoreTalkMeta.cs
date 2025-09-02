@@ -11,8 +11,13 @@ namespace MVZ2.Metas
 {
     public class LoreTalkMetaList
     {
+        public LoreTalkMetaList(LoreTalkMeta[] talks)
+        {
+            Talks = talks;
+        }
+
         public LoreTalkMeta[] Talks { get; set; }
-        public static LoreTalkMetaList FromXmlNode(XmlNode node, string defaultNsp)
+        public static LoreTalkMetaList? FromXmlNode(XmlNode node, string defaultNsp)
         {
             if (node == null)
                 return null;
@@ -22,13 +27,12 @@ namespace MVZ2.Metas
                 var child = node.ChildNodes[i];
                 if (child.Name == "talk")
                 {
-                    metas.Add(LoreTalkMeta.FromXmlNode(child, defaultNsp));
+                    var meta = LoreTalkMeta.FromXmlNode(child, defaultNsp);
+                    if (meta != null)
+                        metas.Add(meta);
                 }
             }
-            return new LoreTalkMetaList()
-            {
-                Talks = metas.ToArray()
-            };
+            return new LoreTalkMetaList(metas.ToArray());
         }
         public NamespaceID[] GetLoreTalks(IGlobalSaveData save)
         {
@@ -45,15 +49,24 @@ namespace MVZ2.Metas
     }
     public class LoreTalkMeta
     {
+        private LoreTalkMeta(NamespaceID iD)
+        {
+            ID = iD;
+        }
+
         public NamespaceID ID { get; set; }
-        public XMLConditionList Conditions { get; set; }
-        public static LoreTalkMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public XMLConditionList? Conditions { get; set; }
+        public static LoreTalkMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
-            var conditions = XMLConditionList.FromXmlNode(node["conditions"], defaultNsp);
-            return new LoreTalkMeta()
+            if (!NamespaceID.IsValid(id))
             {
-                ID = id,
+                Log.LogError($"The {nameof(id)} of a {nameof(LoreTalkMeta)} is invalid.");
+                return null;
+            }
+            var conditions = XMLConditionList.FromXmlNode(node["conditions"], defaultNsp);
+            return new LoreTalkMeta(id)
+            {
                 Conditions = conditions,
             };
         }

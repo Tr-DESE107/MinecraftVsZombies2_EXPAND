@@ -17,7 +17,7 @@ namespace MVZ2.UI
         {
             screenCoverFader.StartFade(target, duration);
         }
-        public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
+        public void ShowDialog(string title, string desc, string[] options, Action<int>? onSelect = null)
         {
             dialog.gameObject.SetActive(true);
             dialog.SetDialog(title, desc, options, (i) =>
@@ -66,14 +66,14 @@ namespace MVZ2.UI
             blackscreenImage.raycastTarget = value.a > 0;
         }
         [SerializeField]
-        private Tooltip tooltip;
+        private Tooltip tooltip = null!;
         [SerializeField]
-        private CustomDialog dialog;
+        private CustomDialog dialog = null!;
         [SerializeField]
-        private Image blackscreenImage;
+        private Image blackscreenImage = null!;
         [SerializeField]
-        private ColorFader screenCoverFader;
+        private ColorFader screenCoverFader = null!;
         [SerializeField]
-        private DebugConsoleIcon debugConsoleIcon;
+        private DebugConsoleIcon debugConsoleIcon = null!;
     }
 }

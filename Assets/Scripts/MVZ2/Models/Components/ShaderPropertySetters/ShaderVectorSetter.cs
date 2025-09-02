@@ -11,9 +11,11 @@ namespace MVZ2.Models
         public override Vector4 GetDefaultValue() => Vector4.zero;
         public override void SetProperty(Vector4 value)
         {
+            if (string.IsNullOrEmpty(propertyName))
+                return;
             Element.SetVector(propertyName, value);
         }
-        public string propertyName;
+        public string? propertyName;
         public Vector4 value;
     }
 }

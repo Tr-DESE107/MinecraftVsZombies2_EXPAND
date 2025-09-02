@@ -16,6 +16,8 @@ namespace MVZ2.GameContent.Commands
         public override void Invoke(string[] parameters)
         {
             var level = Global.Level.GetLevel();
+            if (level == null)
+                return;
 
             var id = VanillaPickupID.clearPickup;
 

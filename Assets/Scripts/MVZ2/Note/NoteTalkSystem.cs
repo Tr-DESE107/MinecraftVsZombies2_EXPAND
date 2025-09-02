@@ -14,15 +14,15 @@ namespace MVZ2.Map
         {
         }
 
-        public override IArchiveInterface GetArchive()
+        public override IArchiveInterface? GetArchive()
         {
             return null;
         }
-        public override IMapInterface GetMap()
+        public override IMapInterface? GetMap()
         {
             return null;
         }
-        public override LevelEngine GetLevel()
+        public override LevelEngine? GetLevel()
         {
             return null;
         }

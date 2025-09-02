@@ -29,7 +29,7 @@ namespace MVZ2.Archives
         {
             details.UpdateDetails(viewData);
         }
-        public void SetSimulationBackground(Sprite background)
+        public void SetSimulationBackground(Sprite? background)
         {
             simulation.SetBackground(background);
         }
@@ -43,20 +43,20 @@ namespace MVZ2.Archives
             details.OnReturnClick += () => OnDetailsReturnClick?.Invoke();
             details.OnPlayClick += () => OnDetailsPlayClick?.Invoke();
         }
-        public event Action OnIndexReturnClick;
-        public event Action<string> OnSearchEndEdit;
-        public event Action<int, bool> OnTalkTagValueChanged;
-        public event Action<int> OnTalkEntryClick;
+        public event Action? OnIndexReturnClick;
+        public event Action<string>? OnSearchEndEdit;
+        public event Action<int, bool>? OnTalkTagValueChanged;
+        public event Action<int>? OnTalkEntryClick;
 
-        public event Action OnDetailsReturnClick;
-        public event Action OnDetailsPlayClick;
+        public event Action? OnDetailsReturnClick;
+        public event Action? OnDetailsPlayClick;
 
         [SerializeField]
-        private IndexArchivePage indexUI;
+        private IndexArchivePage indexUI = null!;
         [SerializeField]
-        private DetailsArchivePage details;
+        private DetailsArchivePage details = null!;
         [SerializeField]
-        private SimulationArchivePage simulation;
+        private SimulationArchivePage simulation = null!;
         public enum Page
         {
             Index,

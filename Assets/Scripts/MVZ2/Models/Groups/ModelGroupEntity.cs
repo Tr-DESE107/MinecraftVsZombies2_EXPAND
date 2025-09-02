@@ -17,6 +17,8 @@ namespace MVZ2.Models
                 if (!element || element.ExcludedInGroup)
                     continue;
                 var group = element.Group;
+                if (!group.Exists())
+                    continue;
                 group.sortAtRoot = false;
             }
         }
@@ -27,7 +29,7 @@ namespace MVZ2.Models
                 if (!element || element.ExcludedInGroup)
                     continue;
                 var group = element.Group;
-                if (!group.sortAtRoot)
+                if (!group.Exists() || !group.sortAtRoot)
                     continue;
                 group.sortingLayerID = value;
             }
@@ -39,7 +41,7 @@ namespace MVZ2.Models
                 if (!element || element.ExcludedInGroup)
                     continue;
                 var group = element.Group;
-                if (!group.sortAtRoot)
+                if (!group.Exists() || !group.sortAtRoot)
                     continue;
                 group.sortingLayerName = value;
             }
@@ -51,7 +53,7 @@ namespace MVZ2.Models
                 if (!element || element.ExcludedInGroup)
                     continue;
                 var group = element.Group;
-                if (!group.sortAtRoot)
+                if (!group.Exists() || !group.sortAtRoot)
                     continue;
                 group.sortingOrder = value;
             }

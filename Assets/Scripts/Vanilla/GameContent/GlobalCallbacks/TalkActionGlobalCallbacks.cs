@@ -35,17 +35,17 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var cmd = param.action;
             var parameters = param.parameters;
             TalkPreset? preset = null;
-            if (system.IsInArchive())
+            if (system.GetArchive() is IArchiveInterface archive)
             {
-                preset = new ArchivePreset(system.GetArchive());
+                preset = new ArchivePreset(archive);
             }
-            else if (system.IsInMap())
+            else if (system.GetMap() is IMapInterface map)
             {
-                preset = new MapPreset(system.GetMap());
+                preset = new MapPreset(map);
             }
-            else if (system.IsInLevel())
+            else if (system.GetLevel() is LevelEngine level)
             {
-                preset = new LevelPreset(system.GetLevel());
+                preset = new LevelPreset(level);
             }
 
             if (preset != null)

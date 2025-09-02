@@ -10,21 +10,21 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 生成
-        public BuffMetaList GetBuffMetaList(string spaceName)
+        public BuffMetaList? GetBuffMetaList(string spaceName)
         {
             var modResource = GetModResource(spaceName);
             if (modResource == null)
                 return null;
             return modResource.BuffMetaList;
         }
-        public BuffMeta[] GetModBuffMetas(string spaceName)
+        public BuffMeta[]? GetModBuffMetas(string spaceName)
         {
             var metalist = GetBuffMetaList(spaceName);
             if (metalist == null)
                 return null;
             return metalist.metas.ToArray();
         }
-        public BuffMeta GetBuffMeta(NamespaceID id)
+        public BuffMeta? GetBuffMeta(NamespaceID id)
         {
             if (id == null)
                 return null;

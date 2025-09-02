@@ -19,6 +19,6 @@ namespace MVZ2.Models
             countdownText.color = Model.GetProperty<Color>("Color");
         }
         [SerializeField]
-        private TextMeshPro countdownText;
+        private TextMeshPro countdownText = null!;
     }
 }

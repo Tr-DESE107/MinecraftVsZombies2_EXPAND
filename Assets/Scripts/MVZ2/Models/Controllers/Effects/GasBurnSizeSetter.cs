@@ -27,7 +27,7 @@ namespace MVZ2.Models
             fireShape.scale = gasScale * percentage;
         }
         [SerializeField]
-        private ParticlePlayer fires;
+        private ParticlePlayer fires = null!;
         [SerializeField]
         private int expandTime = 15;
         [SerializeField]

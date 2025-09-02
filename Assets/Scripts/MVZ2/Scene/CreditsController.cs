@@ -49,6 +49,6 @@ namespace MVZ2.Scenes
         #endregion
         private MainManager main => MainManager.Instance;
         [SerializeField]
-        private CreditsPage ui;
+        private CreditsPage ui = null!;
     }
 }

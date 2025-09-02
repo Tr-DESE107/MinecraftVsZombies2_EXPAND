@@ -7,7 +7,7 @@ namespace MVZ2.UI
 {
     public abstract class Fader<T> : MonoBehaviour
     {
-        public T Value
+        public T? Value
         {
             get => _value;
             set
@@ -16,13 +16,13 @@ namespace MVZ2.UI
                 OnValueChanged?.Invoke(value);
             }
         }
-        public T StartValue { get; private set; }
-        public T EndValue { get; private set; }
+        public T? StartValue { get; private set; }
+        public T? EndValue { get; private set; }
         public float Time { get; private set; }
         public float Duration { get; private set; } = -1;
-        public event Action<T> OnValueChanged;
-        public event Action<T> OnFadeFinished;
-        private T _value;
+        public event Action<T?>? OnValueChanged;
+        public event Action<T?>? OnFadeFinished;
+        private T? _value;
         public bool IsFading()
         {
             return Duration >= 0;
@@ -39,7 +39,7 @@ namespace MVZ2.UI
             Time = 0;
             Duration = -1;
         }
-        public void SetValueWithoutNotify(T value)
+        public void SetValueWithoutNotify(T? value)
         {
             _value = value;
         }
@@ -65,6 +65,6 @@ namespace MVZ2.UI
                 }
             }
         }
-        protected abstract T LerpValue(T start, T end, float t);
+        protected abstract T? LerpValue(T? start, T? end, float t);
     }
 }

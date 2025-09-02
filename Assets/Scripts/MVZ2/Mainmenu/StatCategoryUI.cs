@@ -33,17 +33,17 @@ namespace MVZ2.Mainmenu
             expandArrowButton.onClick.AddListener(() => SetExpanded(!IsExpanded()));
         }
         [SerializeField]
-        private Transform expandArrowTransform;
+        private Transform expandArrowTransform = null!;
         [SerializeField]
-        private Button expandArrowButton;
+        private Button expandArrowButton = null!;
         [SerializeField]
-        private GameObject entriesRoot;
+        private GameObject entriesRoot = null!;
         [SerializeField]
-        private ElementList entryList;
+        private ElementList entryList = null!;
         [SerializeField]
-        private TextMeshProUGUI titleText;
+        private TextMeshProUGUI titleText = null!;
         [SerializeField]
-        private TextMeshProUGUI sumText;
+        private TextMeshProUGUI sumText = null!;
     }
     public struct StatCategoryViewData
     {

@@ -30,7 +30,7 @@ namespace MVZ2.Models
             particle.transform.eulerAngles = Vector3.forward * angle;
         }
         [SerializeField]
-        private ParticleSystem particle;
+        private ParticleSystem particle = null!;
         private Vector3 lastPosition;
         private Vector3 transVelocity;
     }

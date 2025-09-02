@@ -55,7 +55,7 @@ namespace MVZ2.Map
         public override void Hide()
         {
             base.Hide();
-            if (model)
+            if (model.Exists())
             {
                 model.OnMapButtonClick -= OnMapButtonClickCallback;
                 model.OnEndlessButtonClick -= OnEndlessButtonClickCallback;
@@ -69,22 +69,31 @@ namespace MVZ2.Map
         }
         public async void SetMap(NamespaceID mapId)
         {
-            MapID = mapId;
-            mapMeta = Main.ResourceManager.GetMapMeta(mapId);
-            if (mapMeta == null)
+            var meta = Main.ResourceManager.GetMapMeta(mapId);
+            if (meta == null)
                 return;
+            MapID = mapId;
+            mapMeta = meta;
 
             var unlockedPresets = mapMeta.presets.Where(p => p.conditions == null || Main.SaveManager.MeetsXMLConditions(p.conditions));
             MapPreset mapPreset = unlockedPresets.OrderByDescending(p => p.priority).FirstOrDefault();
             SetMapPreset(mapPreset);
 
-            Main.MusicManager.Play(mapPreset.music);
+            var music = mapPreset.music;
+            if (!NamespaceID.IsValid(music))
+            {
+                Main.MusicManager.Stop();
+            }
+            else
+            {
+                Main.MusicManager.Play(music);
+            }
             Main.SaveManager.SetLastMapID(mapId);
 
             if (mapId == VanillaMapID.gensokyo)
             {
                 ui.SetButtonActive(MapUI.ButtonType.Map, false);
-                ui.SetHintText(null);
+                ui.SetHintText(string.Empty);
             }
             Global.Saves.SaveToFile(); // 进入地图时保存游戏
 
@@ -93,7 +102,10 @@ namespace MVZ2.Map
             // 上一次地图的对话
             var mapTalk = Main.SaveManager.GetMapTalk();
             var queue = new Queue<NamespaceID>();
-            queue.Enqueue(mapTalk);
+            if (NamespaceID.IsValid(mapTalk))
+            {
+                queue.Enqueue(mapTalk);
+            }
 
             // 地图自带剧情对话
             var mapLores = mapMeta.loreTalks?.GetLoreTalks(Main.SaveManager);
@@ -120,10 +132,8 @@ namespace MVZ2.Map
         }
         public void SetMapPreset(MapPreset mapPreset)
         {
-            if (mapPreset == null)
-                return;
             var modelPrefab = Main.ResourceManager.GetMapModel(mapPreset.model);
-            if (model)
+            if (model.Exists())
             {
                 model.OnMapButtonClick -= OnMapButtonClickCallback;
                 model.OnEndlessButtonClick -= OnEndlessButtonClickCallback;
@@ -132,6 +142,8 @@ namespace MVZ2.Map
                 model.OnMapPinClick -= OnMapPinClickCallback;
                 Destroy(model.gameObject);
             }
+            if (!modelPrefab.Exists())
+                return;
 
             model = Instantiate(modelPrefab.gameObject, modelRoot).GetComponent<MapModel>();
             model.OnMapButtonClick += OnMapButtonClickCallback;
@@ -140,9 +152,9 @@ namespace MVZ2.Map
             model.OnMapNightmareBoxClick += OnMapNightmareBoxClickCallback;
             model.OnMapPinClick += OnMapPinClickCallback;
 
-            UpdateModelButtons();
-            UpdateModelElements();
-            UpdateModelEndlessFlags();
+            UpdateModelButtons(model);
+            UpdateModelElements(model);
+            UpdateModelEndlessFlags(model);
             SetCameraBackgroundColor(mapPreset.backgroundColor);
             model.SetMapKeyArrowVisible(!Main.SaveManager.IsUnlocked(VanillaUnlockID.enteredDream));
         }
@@ -216,6 +228,8 @@ namespace MVZ2.Map
         }
         private void OnOptionsDialogCloseCallback()
         {
+            if (optionsLogic == null)
+                return;
             bool needsReload = optionsLogic.NeedsReload;
             optionsLogic.OnClose -= OnOptionsDialogCloseCallback;
             optionsLogic.Dispose();
@@ -229,6 +243,8 @@ namespace MVZ2.Map
         private void OnMapButtonClickCallback(int index)
         {
             var stageID = GetStageID(index);
+            if (stageID == null)
+                return;
             var area = GetStageArea(index) ?? mapMeta.area;
             StartCoroutine(EnterLevel(area, stageID));
         }
@@ -333,29 +349,29 @@ namespace MVZ2.Map
         #endregion
 
         #region 关卡
-        private NamespaceID GetStageID(int index)
+        private NamespaceID? GetStageID(int index)
         {
             var meta = mapMeta.stages[index];
             if (meta == null)
                 return null;
             return meta.stage;
         }
-        private NamespaceID GetStageArea(int index)
+        private NamespaceID? GetStageArea(int index)
         {
             var meta = mapMeta.stages[index];
             if (meta == null)
                 return null;
             return meta.area;
         }
-        private StageDefinition GetStageDefinition(NamespaceID stageID)
+        private StageDefinition? GetStageDefinition(NamespaceID stageID)
         {
-            if (stageID == null)
-                return null;
             return Main.Game.GetStageDefinition(stageID);
         }
-        private StageDefinition GetStageDefinition(int index)
+        private StageDefinition? GetStageDefinition(int index)
         {
             var stageID = GetStageID(index);
+            if (!NamespaceID.IsValid(stageID))
+                return null;
             return GetStageDefinition(stageID);
         }
         private string GetStageType(int index)
@@ -363,7 +379,7 @@ namespace MVZ2.Map
             var stageDef = GetStageDefinition(index);
             if (stageDef == null)
                 return string.Empty;
-            return stageDef.GetStageType();
+            return stageDef.GetStageType() ?? string.Empty;
         }
         private bool IsLevelUnlocked(NamespaceID stageID)
         {
@@ -378,11 +394,15 @@ namespace MVZ2.Map
         private bool IsLevelUnlocked(int index)
         {
             var stageID = GetStageID(index);
+            if (!NamespaceID.IsValid(stageID))
+                return false;
             return IsLevelUnlocked(stageID);
         }
-        private void SetMapButtonDifficulty(int index)
+        private void SetMapButtonDifficulty(MapModel model, int index)
         {
             var stageID = GetStageID(index);
+            if (!NamespaceID.IsValid(stageID))
+                return;
             var difficulty = Main.SaveManager.GetLevelDifficulty(stageID);
             if (NamespaceID.IsValid(difficulty))
             {
@@ -402,11 +422,16 @@ namespace MVZ2.Map
         private bool IsEndlessUnlocked()
         {
             var stageID = mapMeta.endlessStage;
+            if (!NamespaceID.IsValid(stageID))
+                return false;
             return IsLevelUnlocked(stageID);
         }
         private bool IsLevelCleared(int index)
         {
-            return Main.SaveManager.IsLevelCleared(GetStageID(index));
+            var stageId = GetStageID(index);
+            if (stageId == null)
+                return false;
+            return Main.SaveManager.IsLevelCleared(stageId);
         }
         #endregion
 
@@ -561,16 +586,16 @@ namespace MVZ2.Map
         }
         #endregion
 
-        private IEnumerator EnterLevel(NamespaceID areaID, NamespaceID stageID)
+        private IEnumerator EnterLevel(NamespaceID? areaID, NamespaceID? stageID)
         {
-            if (Global.Game.GetAreaDefinition(areaID) == null)
+            if (!NamespaceID.IsValid(areaID) || Global.Game.GetAreaDefinition(areaID) == null)
             {
                 var title = Main.LanguageManager._(VanillaStrings.ERROR);
                 var desc = Main.LanguageManager._(ERROR_AREA_NOT_EXISTS, areaID);
                 Main.Scene.ShowDialogMessage(title, desc);
                 yield break;
             }
-            if (Global.Game.GetStageDefinition(stageID) == null)
+            if (!NamespaceID.IsValid(stageID) || Global.Game.GetStageDefinition(stageID) == null)
             {
                 var title = Main.LanguageManager._(VanillaStrings.ERROR);
                 var desc = Main.LanguageManager._(ERROR_STAGE_NOT_EXISTS, stageID);
@@ -597,7 +622,7 @@ namespace MVZ2.Map
             Hide();
         }
 
-        private void UpdateModelButtons()
+        private void UpdateModelButtons(MapModel model)
         {
             int unclearedMapButtonIndex = -1;
             for (int i = 0; i < model.GetMapButtonCount(); i++)
@@ -624,7 +649,7 @@ namespace MVZ2.Map
                 model.SetMapButtonInteractable(i, unlocked);
                 model.SetMapButtonColor(i, color);
                 model.SetMapButtonText(i, (i + 1).ToString());
-                SetMapButtonDifficulty(i);
+                SetMapButtonDifficulty(model, i);
             }
             var endlessColor = buttonColorEndless;
             var endlessUnlocked = IsEndlessUnlocked();
@@ -640,7 +665,7 @@ namespace MVZ2.Map
             if (unclearedMapButtonIndex >= 0)
             {
                 var unclearedMapButton = model.GetMapButton(unclearedMapButtonIndex);
-                if (unclearedMapButton)
+                if (unclearedMapButton.Exists())
                 {
                     var pos = unclearedMapButton.transform.position;
                     pos.z = mapCamera.transform.position.z;
@@ -648,7 +673,7 @@ namespace MVZ2.Map
                 }
             }
         }
-        private void UpdateModelElements()
+        private void UpdateModelElements(MapModel model)
         {
             var unlocks = model.GetMapElementUnlocks();
             for (int i = 0; i < unlocks.Length; i++)
@@ -657,7 +682,7 @@ namespace MVZ2.Map
                 model.SetMapElementUnlocked(unlock, Main.SaveManager.IsUnlocked(unlock));
             }
         }
-        private void UpdateModelEndlessFlags()
+        private void UpdateModelEndlessFlags(MapModel model)
         {
             var currentFlags = GetEndlessFlags();
             var maxFlags = GetMaxEndlessFlags();
@@ -682,6 +707,8 @@ namespace MVZ2.Map
         private int GetEndlessFlags()
         {
             var stageID = mapMeta.endlessStage;
+            if (!NamespaceID.IsValid(stageID))
+                return 0;
             return Main.SaveManager.GetCurrentEndlessFlag(stageID);
         }
         private int GetMaxEndlessFlags()
@@ -711,28 +738,28 @@ namespace MVZ2.Map
         [TranslateMsg("进入关卡的错误信息，{0}为关卡ID")]
         public const string ERROR_STAGE_NOT_EXISTS = "目标关卡{0}不存在。";
         private MainManager Main => MainManager.Instance;
-        private MapModel model;
-        private MapMeta mapMeta;
+        private MapModel? model;
+        private MapMeta mapMeta = null!;
         private bool draggingView;
         private Vector2 mapDragStartPos;
         private float cameraScaleSpeed;
-        private OptionsLogicMap optionsLogic;
+        private OptionsLogicMap? optionsLogic;
         private List<RaycastResult> raycastResultCache = new List<RaycastResult>();
         private List<TouchData> touchDatas = new List<TouchData>();
-        private ITalkSystem talkSystem;
-        public NamespaceID MapID { get; private set; }
+        private ITalkSystem talkSystem = null!;
+        public NamespaceID MapID { get; private set; } = null!;
         [SerializeField]
-        private MapUI ui;
+        private MapUI ui = null!;
         [SerializeField]
-        private TalkController talkController;
+        private TalkController talkController = null!;
         [SerializeField]
-        private GameObject raycastHitbox;
+        private GameObject raycastHitbox = null!;
         [SerializeField]
-        private Transform modelRoot;
+        private Transform modelRoot = null!;
         [SerializeField]
-        private Transform mapCameraShakeRoot;
+        private Transform mapCameraShakeRoot = null!;
         [SerializeField]
-        private Camera mapCamera;
+        private Camera mapCamera = null!;
         [SerializeField]
         private float minCameraSize = 2;
 

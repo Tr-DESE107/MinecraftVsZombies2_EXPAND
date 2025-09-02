@@ -37,7 +37,7 @@ namespace MVZ2.Talk
             RemoveCharacterAt(index);
             Destroy(chr.gameObject);
         }
-        public void SetCharacterSprite(int index, Sprite sprite)
+        public void SetCharacterSprite(int index, Sprite? sprite)
         {
             var character = GetCharacter(index);
             character.SetCharacter(sprite);
@@ -113,7 +113,7 @@ namespace MVZ2.Talk
         }
 
         #region 前景图
-        public void SetForegroundSprite(Sprite sprite)
+        public void SetForegroundSprite(Sprite? sprite)
         {
             foregroundImage.sprite = sprite;
         }
@@ -143,7 +143,7 @@ namespace MVZ2.Talk
         #endregion
 
         #region 背景图
-        public void SetBackgroundSprite(Sprite sprite)
+        public void SetBackgroundSprite(Sprite? sprite)
         {
             backgroundImage.sprite = sprite;
         }
@@ -174,7 +174,7 @@ namespace MVZ2.Talk
 
 
         #region 展示物品
-        public void ShowTalkItem(Sprite sprite)
+        public void ShowTalkItem(Sprite? sprite)
         {
             talkItem.ForceShow();
             talkItem.SetShowing(true);
@@ -259,53 +259,51 @@ namespace MVZ2.Talk
         #endregion
 
         #region 事件
-        public event Action OnClick;
-        public event Action OnSkipClick;
+        public event Action? OnClick;
+        public event Action? OnSkipClick;
         #endregion 动作
 
         #region 属性字段
         [SerializeField]
-        private Canvas canvas;
+        private GameObject characterTemplate = null!;
         [SerializeField]
-        private GameObject characterTemplate;
+        private TalkItem talkItem = null!;
         [SerializeField]
-        private TalkItem talkItem;
+        private Transform characterRoot = null!;
         [SerializeField]
-        private Transform characterRoot;
+        private SpeechBubble speechBubble = null!;
         [SerializeField]
-        private SpeechBubble speechBubble;
+        private Button skipButton = null!;
         [SerializeField]
-        private Button skipButton;
+        private RaycastReceiver raycastReceiver = null!;
         [SerializeField]
-        private RaycastReceiver raycastReceiver;
-        [SerializeField]
-        private GameObject blockerObject;
+        private GameObject blockerObject = null!;
 
         [Header("Foreground")]
         [SerializeField]
-        private CanvasGroup foregroundCanvasGroup;
+        private CanvasGroup foregroundCanvasGroup = null!;
         [SerializeField]
-        private Image foregroundImage;
+        private Image foregroundImage = null!;
         [SerializeField]
-        private FloatFader foregroundFader;
+        private FloatFader foregroundFader = null!;
         [SerializeField]
-        private Image forecolorImage;
+        private Image forecolorImage = null!;
         [SerializeField]
-        private ColorFader forecolorFader;
+        private ColorFader forecolorFader = null!;
 
         [Header("Background")]
         [SerializeField]
-        private CanvasGroup backgroundCanvasGroup;
+        private CanvasGroup backgroundCanvasGroup = null!;
         [SerializeField]
-        private Image backgroundImage;
+        private Image backgroundImage = null!;
         [SerializeField]
-        private FloatFader backgroundFader;
+        private FloatFader backgroundFader = null!;
         [SerializeField]
-        private Image backcolorImage;
+        private Image backcolorImage = null!;
         [SerializeField]
-        private ColorFader backcolorFader;
+        private ColorFader backcolorFader = null!;
         [SerializeField]
-        private Transform[] shakeRoots;
+        private Transform[] shakeRoots = null!;
         private List<TalkCharacterController> characters = new List<TalkCharacterController>();
         #endregion 属性
     }

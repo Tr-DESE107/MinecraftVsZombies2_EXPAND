@@ -41,7 +41,7 @@ namespace MVZ2.Models
             SetColor(serializable.color);
         }
         [SerializeField]
-        private SpriteRenderer lightRenderer;
+        private SpriteRenderer lightRenderer = null!;
         [SerializeField]
         private float shakeRange = 0.05f;
         private Vector2 scale;

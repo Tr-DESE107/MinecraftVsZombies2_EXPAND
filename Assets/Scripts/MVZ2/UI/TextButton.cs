@@ -11,8 +11,8 @@ namespace MVZ2.UI
         public TextMeshProUGUI Text => text;
         public Button Button => button;
         [SerializeField]
-        private TextMeshProUGUI text;
+        private TextMeshProUGUI text = null!;
         [SerializeField]
-        private Button button;
+        private Button button = null!;
     }
 }

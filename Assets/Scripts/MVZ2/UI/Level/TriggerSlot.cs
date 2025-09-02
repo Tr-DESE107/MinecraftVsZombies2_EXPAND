@@ -32,15 +32,15 @@ namespace MVZ2.Level.UI
         {
             OnPointerDown?.Invoke(eventData);
         }
-        public event Action<PointerEventData> OnPointerEnter;
-        public event Action<PointerEventData> OnPointerExit;
-        public event Action<PointerEventData> OnPointerDown;
+        public event Action<PointerEventData>? OnPointerEnter;
+        public event Action<PointerEventData>? OnPointerExit;
+        public event Action<PointerEventData>? OnPointerDown;
         [SerializeField]
-        private Animator animator;
+        private Animator animator = null!;
         [SerializeField]
-        private TooltipAnchor tooltipAnchor;
+        private TooltipAnchor tooltipAnchor = null!;
         [SerializeField]
-        private TextMeshProUGUI hotkeyText;
+        private TextMeshProUGUI hotkeyText = null!;
 
         ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
     }

@@ -61,7 +61,7 @@ namespace MVZ2.MusicRoom
             {
                 Main.MusicManager.Resume();
             }
-            else
+            else if (NamespaceID.IsValid(currentMusicId))
             {
                 Main.MusicManager.Play(currentMusicId);
                 playingSubTrack = false;
@@ -85,6 +85,8 @@ namespace MVZ2.MusicRoom
         }
         private void OnMusicBarDragCallback(float value)
         {
+            if (!NamespaceID.IsValid(currentMusicId))
+                return;
             var music = Main.MusicManager.GetCurrentMusicID();
             if (currentMusicId != music)
             {
@@ -100,7 +102,7 @@ namespace MVZ2.MusicRoom
             {
                 Main.MusicManager.Resume();
             }
-            else
+            else if (NamespaceID.IsValid(currentMusicId))
             {
                 Main.MusicManager.Play(currentMusicId);
                 playingSubTrack = false;
@@ -130,7 +132,8 @@ namespace MVZ2.MusicRoom
         }
         private void UpdateMusic()
         {
-            ui.SetPlaying(Main.MusicManager.IsPlaying(currentMusicId) && !Main.MusicManager.IsPaused);
+            var playing = NamespaceID.IsValid(currentMusicId) && Main.MusicManager.IsPlaying(currentMusicId) && !Main.MusicManager.IsPaused;
+            ui.SetPlaying(playing);
             var music = Main.MusicManager.GetCurrentMusicID();
             if (music != currentMusicId)
             {
@@ -148,8 +151,11 @@ namespace MVZ2.MusicRoom
         }
         private void DisplayMusic(int index)
         {
-            currentMusicId = musicList[index];
-            var meta = Main.ResourceManager.GetMusicMeta(currentMusicId);
+            var musicID = musicList[index];
+            var meta = Main.ResourceManager.GetMusicMeta(musicID);
+            if (meta == null)
+                return;
+            currentMusicId = musicID;
             var name = Main.ResourceManager.GetMusicName(currentMusicId);
             var infoBuilder = new StringBuilder();
             var sourceKey = meta.Source;
@@ -175,7 +181,7 @@ namespace MVZ2.MusicRoom
 
             var mainTrack = Main.ResourceManager.GetMusicClip(meta.MainTrack);
             string totalTime;
-            if (mainTrack != null)
+            if (mainTrack.Exists())
             {
                 var time = mainTrack.length;
                 totalTime = string.Format("{0:00}:{1:00}", (int)time / 60, (int)time % 60);
@@ -204,7 +210,7 @@ namespace MVZ2.MusicRoom
             return Main.LanguageManager._p(context, text, args);
         }
         #endregion
-        public event Action OnReturnClick;
+        public event Action? OnReturnClick;
         [TranslateMsg("音乐室中的信息模板，{0}为音乐来源")]
         public const string INFORMATION_SOURCE = "来源：{0}";
         [TranslateMsg("音乐室中的信息模板，{0}为音乐原曲")]
@@ -213,11 +219,11 @@ namespace MVZ2.MusicRoom
         public const string INFORMATION_AUTHOR = "作者：{0}";
         private MainManager Main => MainManager.Instance;
         private List<NamespaceID> musicList = new List<NamespaceID>();
-        private NamespaceID currentMusicId;
+        private NamespaceID? currentMusicId;
         private bool playingSubTrack;
         private float subTrackWeight;
 
         [SerializeField]
-        private MusicRoomUI ui;
+        private MusicRoomUI ui = null!;
     }
 }

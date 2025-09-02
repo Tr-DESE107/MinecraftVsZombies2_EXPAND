@@ -18,9 +18,9 @@ namespace MVZ2Logic.Games
         NamespaceID[] GetUnlockedArtifacts();
 
         ModSaveData GetModSaveData(string spaceName);
-        T GetModSaveData<T>(string spaceName);
+        T? GetModSaveData<T>(string spaceName);
 
-        string GetCurrentUserName();
+        string? GetCurrentUserName();
 
         void SaveToFile();
 

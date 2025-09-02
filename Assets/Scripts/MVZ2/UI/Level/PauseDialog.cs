@@ -16,10 +16,10 @@ namespace MVZ2.Level.UI
         {
             resumeButton.onClick.AddListener(() => OnResumeClicked?.Invoke());
         }
-        public event Action OnResumeClicked;
+        public event Action? OnResumeClicked;
         [SerializeField]
-        private Image pausedImage;
+        private Image pausedImage = null!;
         [SerializeField]
-        private Button resumeButton;
+        private Button resumeButton = null!;
     }
 }

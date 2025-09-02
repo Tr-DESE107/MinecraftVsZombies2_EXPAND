@@ -38,8 +38,12 @@ namespace MVZ2.Level.Components
             base.LoadSerializable(seri);
             if (seri is not SerializableLightComponent serializable)
                 return;
+            if (serializable.lightSources == null)
+                return;
             foreach (var info in serializable.lightSources)
             {
+                if (info == null)
+                    continue;
                 lightSources.Add(info.id, info.ToDeserialized());
             }
         }
@@ -99,6 +103,6 @@ namespace MVZ2.Level.Components
     [Serializable]
     public class SerializableLightComponent : ISerializableLevelComponent
     {
-        public SerializableLightSourceInfo[] lightSources;
+        public SerializableLightSourceInfo?[]? lightSources;
     }
 }

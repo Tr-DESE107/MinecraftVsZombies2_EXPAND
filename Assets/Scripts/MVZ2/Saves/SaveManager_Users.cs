@@ -16,7 +16,6 @@ using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic;
 using MVZ2Logic.Games;
-using MVZ2Logic.Saves;
 using PVZEngine;
 using UnityEngine;
 
@@ -27,16 +26,22 @@ namespace MVZ2.Saves
         #region 修改
         public void SetUserName(int index, string name)
         {
+            if (userDataList == null)
+                return;
             var meta = userDataList.Get(index);
             if (meta == null)
             {
                 meta = userDataList.Create(index);
             }
+            if (meta == null)
+                return;
             meta.Username = name;
             OnUserNameChanged?.Invoke(index, name);
         }
         public void SetCurrentUserIndex(int index)
         {
+            if (userDataList == null)
+                return;
             LoadUserData(index);
             userDataList.CurrentUserIndex = index;
         }
@@ -57,28 +62,34 @@ namespace MVZ2.Saves
         }
         public void DeleteUser(int index)
         {
+            if (userDataList == null)
+                return;
             userDataList.Delete(index);
             DeleteUserSaveData(index);
         }
         #endregion
 
         #region 获取
-        public UserDataItem[] GetAllUsers()
+        public UserDataItem?[] GetAllUsers()
         {
+            if (userDataList == null)
+                return Array.Empty<UserDataItem?>();
             return userDataList.GetAllUsers();
         }
         public int GetCurrentUserIndex()
         {
+            if (userDataList == null)
+                return -1;
             return userDataList.CurrentUserIndex;
         }
-        public string GetCurrentUserName()
+        public string? GetCurrentUserName()
         {
             if (userDataList == null)
                 return null;
             var index = userDataList.CurrentUserIndex;
             return GetUserName(index);
         }
-        public string GetUserName(int index)
+        public string? GetUserName(int index)
         {
             if (userDataList == null)
                 return null;
@@ -89,6 +100,8 @@ namespace MVZ2.Saves
         }
         public bool HasDuplicateUserName(string name, int indexToExcept)
         {
+            if (userDataList == null)
+                return false;
             for (int i = 0; i < userDataList.GetMaxUserCount(); i++)
             {
                 if (i == indexToExcept)
@@ -103,6 +116,8 @@ namespace MVZ2.Saves
         }
         public bool UserExists(int i)
         {
+            if (userDataList == null)
+                return false;
             return userDataList.Get(i) != null;
         }
         public int FindFreeUserIndex()
@@ -114,9 +129,9 @@ namespace MVZ2.Saves
             }
             return -1;
         }
-        public bool CanRenameUser(string userName)
+        public bool CanRenameUser(string? userName)
         {
-            return !Main.Game.IsSpecialUserName(userName);
+            return !string.IsNullOrEmpty(userName) && !Main.Game.IsSpecialUserName(userName);
         }
         public bool CanRenameUserTo(string userName)
         {
@@ -127,6 +142,8 @@ namespace MVZ2.Saves
         #region 保存
         public void SaveUserList()
         {
+            if (userDataList == null)
+                return;
             var saveDataMetaPath = GetUserListPath();
             FileHelper.ValidateDirectory(saveDataMetaPath);
             var serializable = userDataList.ToSerializable();
@@ -136,12 +153,13 @@ namespace MVZ2.Saves
         #endregion
 
         #region 读取
-        private void LoadUserList()
+        private UserDataList LoadUserList()
         {
+            UserDataList result;
             var saveDataMetaPath = GetUserListPath();
             if (!File.Exists(saveDataMetaPath))
             {
-                userDataList = new UserDataList(MAX_USER_COUNT);
+                result = new UserDataList(MAX_USER_COUNT);
             }
             else
             {
@@ -149,14 +167,15 @@ namespace MVZ2.Saves
                 {
                     var metaJson = Main.FileManager.ReadStringFile(saveDataMetaPath);
                     var serializable = SerializeHelper.FromBson<SerializableUserDataList>(metaJson);
-                    userDataList = UserDataList.FromSerializable(serializable);
+                    result = UserDataList.FromSerializable(serializable);
                 }
                 catch (Exception e)
                 {
                     Debug.LogError($"Error loading user list: {e}");
-                    userDataList = new UserDataList(MAX_USER_COUNT);
+                    result = new UserDataList(MAX_USER_COUNT);
                 }
             }
+            return result;
         }
         #endregion
 
@@ -187,7 +206,7 @@ namespace MVZ2.Saves
                 archive.CreateEntryFromFile(filePath, entryName);
             }
             var userName = GetUserName(userIndex);
-            var metadata = new UserDataPackMetadata(userName);
+            var metadata = new UserDataPackMetadata(userName ?? $"user{userIndex}");
             var seri = new SerializableUserDataPackMetadata(metadata);
             var json = SerializeHelper.ToBson(seri);
 
@@ -239,9 +258,9 @@ namespace MVZ2.Saves
             }
             SetUserName(userIndex, userName);
             SaveUserList();
-            LoadUserList();
+            userDataList = LoadUserList();
         }
-        public UserDataPackMetadata ImportUserDataPackMetadata(string sourcePath)
+        public UserDataPackMetadata? ImportUserDataPackMetadata(string sourcePath)
         {
             if (!File.Exists(sourcePath))
                 return null;
@@ -258,7 +277,7 @@ namespace MVZ2.Saves
         #endregion
 
         #region 导入旧存档
-        private UserDataList ImportOldUserList(OldUserList userList)
+        private UserDataList? ImportOldUserList(OldUserList userList)
         {
             if (userList?.usernames == null)
                 return null;
@@ -272,10 +291,13 @@ namespace MVZ2.Saves
                 if (string.IsNullOrEmpty(name))
                     continue;
                 var userItem = newUserDataList.Create(i);
-                userItem.Username = name;
-                if (newUserDataList.CurrentUserIndex < 0)
+                if (userItem != null)
                 {
-                    newUserDataList.CurrentUserIndex = i;
+                    userItem.Username = name;
+                    if (newUserDataList.CurrentUserIndex < 0)
+                    {
+                        newUserDataList.CurrentUserIndex = i;
+                    }
                 }
             }
             if (newUserDataList.CurrentUserIndex < 0)
@@ -284,12 +306,12 @@ namespace MVZ2.Saves
             }
             return newUserDataList;
         }
-        private VanillaSaveData[] ImportOldUserData(UserDataList userList, OldSaveData[] userDatas)
+        private VanillaSaveData[]? ImportOldUserData(UserDataList userList, OldSaveData[] userDatas)
         {
             if (userDatas == null)
                 return null;
 
-            ModInfo vanillaMod = null;
+            ModInfo? vanillaMod = null;
             foreach (var mod in Main.ModManager.GetAllModInfos())
             {
                 if (mod == null || mod.Logic == null)
@@ -312,7 +334,7 @@ namespace MVZ2.Saves
                 var oldData = userDatas[i];
                 if (oldData == null)
                     continue;
-                ModSaveData data = vanillaMod.Logic.CreateSaveData();
+                var data = vanillaMod.Logic?.CreateSaveData();
                 if (data is not VanillaSaveData vanilla)
                     continue;
                 ImportUserDataFromOld(vanilla, oldData);
@@ -489,7 +511,7 @@ namespace MVZ2.Saves
         }
         #endregion
 
-        public event Action<int, string> OnUserNameChanged;
+        public event Action<int, string>? OnUserNameChanged;
 
         #region 属性字段
         public const string USER_DATA_PACK_METADATA_ENTRY_NAME = "metadata.json";
@@ -529,7 +551,7 @@ namespace MVZ2.Saves
             VanillaUnlockNames.rickrollDrown,
             VanillaUnlockNames.returnToSender,
         };
-        private UserDataList userDataList;
+        private UserDataList? userDataList;
         #endregion
     }
 }

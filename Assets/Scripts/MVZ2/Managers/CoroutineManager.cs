@@ -10,7 +10,7 @@ namespace MVZ2.Managers
     {
         public Task ToTask(Coroutine coroutine)
         {
-            var tcs = new TaskCompletionSource<object>();
+            var tcs = new TaskCompletionSource<object?>();
             StartCoroutine(routine());
             IEnumerator routine()
             {
@@ -21,7 +21,7 @@ namespace MVZ2.Managers
         }
         public Task ToTask(IEnumerator enumerator)
         {
-            var tcs = new TaskCompletionSource<object>();
+            var tcs = new TaskCompletionSource<object?>();
             StartCoroutine(routine());
             IEnumerator routine()
             {
@@ -41,7 +41,7 @@ namespace MVZ2.Managers
         }
         public Task DelaySeconds(float seconds)
         {
-            var tcs = new TaskCompletionSource<object>();
+            var tcs = new TaskCompletionSource<object?>();
             StartCoroutine(routine());
             IEnumerator routine()
             {

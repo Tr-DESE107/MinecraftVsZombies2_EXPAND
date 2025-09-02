@@ -42,10 +42,10 @@ namespace MVZ2.Addons
                     break;
             }
         }
-        public event Action OnReturnClick;
+        public event Action? OnReturnClick;
         [SerializeField]
-        private AddonsUI ui;
+        private AddonsUI ui = null!;
         [SerializeField]
-        private LanguagePacksController languagePacks;
+        private LanguagePacksController languagePacks = null!;
     }
 }

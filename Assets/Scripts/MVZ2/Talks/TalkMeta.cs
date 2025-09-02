@@ -40,7 +40,9 @@ namespace MVZ2.TalkData
             for (int i = 0; i < children.Count; i++)
             {
                 var child = children[i];
-                meta.groups.Add(TalkGroup.FromXmlNode(child, defaultNsp, order, i));
+                var group = TalkGroup.FromXmlNode(child, defaultNsp, order, i);
+                if (group != null)
+                    meta.groups.Add(group);
             }
             return meta;
         }

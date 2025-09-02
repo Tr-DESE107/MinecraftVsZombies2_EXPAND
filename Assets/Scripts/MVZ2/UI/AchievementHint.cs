@@ -9,7 +9,7 @@ namespace MVZ2.UI
 {
     public class AchievementHint : MonoBehaviour
     {
-        public void UpdateAchievement(Sprite icon, string name)
+        public void UpdateAchievement(Sprite? icon, string name)
         {
             iconImage.sprite = icon;
             nameText.text = name;
@@ -22,14 +22,14 @@ namespace MVZ2.UI
         {
             button.onClick.AddListener(() => OnClick?.Invoke());
         }
-        public event Action OnClick;
+        public event Action? OnClick;
         [SerializeField]
-        private Animator animator;
+        private Animator animator = null!;
         [SerializeField]
-        private Image iconImage;
+        private Image iconImage = null!;
         [SerializeField]
-        private Button button;
+        private Button button = null!;
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
     }
 }

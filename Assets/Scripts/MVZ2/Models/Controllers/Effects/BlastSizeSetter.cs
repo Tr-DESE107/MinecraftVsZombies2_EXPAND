@@ -27,7 +27,7 @@ namespace MVZ2.Models
             player.Emit(particleCountPerVolume * volume + additionalParticleCount);
         }
         [SerializeField]
-        private ParticlePlayer player;
+        private ParticlePlayer player = null!;
         [SerializeField]
         private float particleCountPerVolume = 5;
         [SerializeField]

@@ -38,17 +38,17 @@ namespace MVZ2.Almanacs
         {
             OnCommandBlockClick?.Invoke(eventData);
         }
-        public event Action<int, PointerEventData> OnEntryClick;
-        public event Action<PointerEventData> OnCommandBlockClick;
+        public event Action<int, PointerEventData>? OnEntryClick;
+        public event Action<PointerEventData>? OnCommandBlockClick;
         [SerializeField]
-        private BlueprintDisplayer blueprintDisplayer;
+        private BlueprintDisplayer blueprintDisplayer = null!;
         [SerializeField]
-        CommandBlockSlot commandBlockSlot;
+        CommandBlockSlot commandBlockSlot = null!;
         [SerializeField]
-        private AlmanacModel entryModel;
+        private AlmanacModel entryModel = null!;
         [SerializeField]
-        private TextMeshProUGUI costText;
+        private TextMeshProUGUI costText = null!;
         [SerializeField]
-        private TextMeshProUGUI rechargeText;
+        private TextMeshProUGUI rechargeText = null!;
     }
 }

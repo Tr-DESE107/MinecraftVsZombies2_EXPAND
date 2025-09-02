@@ -45,14 +45,14 @@ namespace MVZ2.Models
         {
             get
             {
-                if (!element)
+                if (!element.Exists())
                 {
                     element = GetComponent<RendererElement>();
                 }
                 return element;
             }
         }
-        private RendererElement element;
+        private RendererElement? element;
         private bool enableTriggered = false;
     }
 }

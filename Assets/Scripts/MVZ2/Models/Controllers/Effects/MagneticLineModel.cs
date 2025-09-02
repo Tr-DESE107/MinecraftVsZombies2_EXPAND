@@ -16,6 +16,6 @@ namespace MVZ2.Models
             sourceTransform.localScale = new Vector3(distance.magnitude, 1, 1);
         }
         [SerializeField]
-        private Transform sourceTransform;
+        private Transform sourceTransform = null!;
     }
 }

@@ -10,13 +10,13 @@ namespace MVZ2.ChapterTransition
         {
             wheelRoot.eulerAngles = new Vector3(0, 0, rotation);
         }
-        public void SetTitleSprite(Sprite sprite)
+        public void SetTitleSprite(Sprite? sprite)
         {
             titleRenderer.sprite = sprite;
         }
         [SerializeField]
-        private Transform wheelRoot;
+        private Transform wheelRoot = null!;
         [SerializeField]
-        private SpriteRenderer titleRenderer;
+        private SpriteRenderer titleRenderer = null!;
     }
 }

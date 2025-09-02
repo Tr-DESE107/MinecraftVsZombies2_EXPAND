@@ -16,7 +16,7 @@ namespace MVZ2.Level
             poolRenderer.color = color;
         }
         [SerializeField]
-        private SpriteRenderer poolRenderer;
+        private SpriteRenderer poolRenderer = null!;
         [SerializeField]
         private Color normalColor;
         [SerializeField]

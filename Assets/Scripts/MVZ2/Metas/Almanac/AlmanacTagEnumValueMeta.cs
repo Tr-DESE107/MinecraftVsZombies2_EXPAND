@@ -9,23 +9,23 @@ namespace MVZ2.Metas
 {
     public class AlmanacTagEnumValueMeta
     {
-        public string name;
-        public string description;
+        public string name = string.Empty;
+        public string description = string.Empty;
 
-        public SpriteReference iconSprite;
+        public SpriteReference? iconSprite;
         public Color backgroundColor;
 
-        public object value;
+        public object? value;
         public static AlmanacTagEnumValueMeta FromXmlNode(XmlNode node, string type, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var name = node.GetAttribute("name");
-            var description = node.GetAttribute("description");
+            var name = node.GetAttribute("name") ?? string.Empty;
+            var description = node.GetAttribute("description") ?? string.Empty;
 
-            SpriteReference iconSprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
+            SpriteReference? iconSprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
             Color backgroundColor = node.GetAttributeColor("backgroundColor") ?? Color.gray;
 
-            object value = null;
+            object? value = null;
             if (node.TryGetAttributeStruct("value", type, out var propValue))
             {
                 value = propValue;

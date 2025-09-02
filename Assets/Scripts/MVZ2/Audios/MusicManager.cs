@@ -20,8 +20,10 @@ namespace MVZ2.Audios
             var mainTrack = main.ResourceManager.GetMusicClip(meta.MainTrack);
             var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack);
             musicID = id;
-            SetSourceClip(mainTrackSource, mainTrack);
-            SetSourceClip(subTrackSource, subTrack);
+            if (mainTrack.Exists())
+                SetSourceClip(mainTrackSource, mainTrack);
+            if (subTrack.Exists())
+                SetSourceClip(subTrackSource, subTrack);
             IsPaused = false;
 
             PlaySource(mainTrackSource);
@@ -35,8 +37,10 @@ namespace MVZ2.Audios
             var mainTrack = main.ResourceManager.GetMusicClip(meta.MainTrack);
             var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack);
             musicID = id;
-            SetSourceClip(mainTrackSource, mainTrack);
-            SetSourceClip(subTrackSource, subTrack);
+            if (mainTrack.Exists())
+                SetSourceClip(mainTrackSource, mainTrack);
+            if (subTrack.Exists())
+                SetSourceClip(subTrackSource, subTrack);
             IsPaused = false;
             Time = 0;
         }
@@ -88,7 +92,7 @@ namespace MVZ2.Audios
         #endregion
 
         #region 当前音乐
-        public NamespaceID GetCurrentMusicID()
+        public NamespaceID? GetCurrentMusicID()
         {
             return musicID;
         }
@@ -187,20 +191,18 @@ namespace MVZ2.Audios
             }
         }
         public bool IsPaused { get; private set; }
-        private NamespaceID musicID;
+        private NamespaceID? musicID;
         private float trackWeight;
         private bool lowQuality;
         [SerializeField]
-        private MainManager main;
+        private MainManager main = null!;
         [SerializeField]
-        private AudioMixer mixer;
+        private AudioMixer mixer = null!;
         [SerializeField]
-        private AudioMixerGroup mixerMainGroup;
+        private AudioSource mainTrackSource = null!;
         [SerializeField]
-        private AudioSource mainTrackSource;
+        private AudioSource subTrackSource = null!;
         [SerializeField]
-        private AudioSource subTrackSource;
-        [SerializeField]
-        private FloatFader volumeFader;
+        private FloatFader volumeFader = null!;
     }
 }

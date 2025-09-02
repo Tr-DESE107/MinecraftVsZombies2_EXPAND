@@ -7,11 +7,11 @@ namespace MVZ2Logic.Errors
 {
     public class GridLayerDefinition : Definition
     {
-        public GridLayerDefinition(string nsp, string name, NamespaceID almanacTag) : base(nsp, name)
+        public GridLayerDefinition(string nsp, string name, NamespaceID? almanacTag) : base(nsp, name)
         {
             AlmanacTag = almanacTag;
         }
         public sealed override string GetDefinitionType() => LogicDefinitionTypes.GRID_LAYER;
-        public NamespaceID AlmanacTag { get; set; }
+        public NamespaceID? AlmanacTag { get; set; }
     }
 }

@@ -105,10 +105,10 @@ namespace MVZ2.GameContent.Pickups
         public override NamespaceID GetModelID(NamespaceID origin)
         {
             var globalLevel = Global.Level;
-            if (!globalLevel.IsInLevel())
+            var level = globalLevel.GetLevel();
+            if (level == null)
                 return origin;
 
-            var level = globalLevel.GetLevel();
             var areaID = level.AreaID;
             var modelId = new NamespaceID(areaID.SpaceName, $"starshard.{areaID.Path}").ToModelID(EngineModelID.TYPE_ENTITY);
             return Global.Models.ModelExists(modelId) ? modelId : origin;

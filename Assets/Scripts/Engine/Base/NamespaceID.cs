@@ -14,12 +14,13 @@ namespace PVZEngine
         {
             spacename = nsp;
             path = name;
+            valid = CheckValidation();
         }
         public override int GetHashCode()
         {
             return SpaceName.GetHashCode() * 31 + Path.GetHashCode();
         }
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is NamespaceID otherRef)
             {
@@ -131,9 +132,15 @@ namespace PVZEngine
         {
             if (id is null)
                 return false;
-            if (string.IsNullOrEmpty(id.SpaceName) || string.IsNullOrEmpty(id.Path))
+            if (!id.valid)
                 return false;
-            if (!ValidateNamespace(id.SpaceName) || !ValidatePath(id.Path))
+            return true;
+        }
+        private bool CheckValidation()
+        {
+            if (string.IsNullOrEmpty(spacename) || string.IsNullOrEmpty(path))
+                return false;
+            if (!ValidateNamespace(spacename) || !ValidatePath(path))
                 return false;
             return true;
         }
@@ -160,25 +167,17 @@ namespace PVZEngine
         public string SpaceName
         {
             get => spacename;
-            set
-            {
-                spacename = value;
-                concatCache = null;
-            }
         }
         public string Path
         {
             get => path;
-            set
-            {
-                path = value;
-                concatCache = null;
-            }
         }
         [SerializeField]
         private string spacename;
         [SerializeField]
         private string path;
+        [NonSerialized]
+        private bool valid;
         private string? concatCache;
     }
 }

@@ -36,10 +36,10 @@ namespace MVZ2.Models
             {
                 seed = Guid.NewGuid().GetHashCode();
             }
+            rng = new RandomGenerator(seed);
             eventCamera = camera;
             modelComponents.Clear();
             GetComponentsInChildren<ModelComponent>(true, modelComponents);
-            rng = new RandomGenerator(seed);
             foreach (var comp in modelComponents)
             {
                 if (!comp)
@@ -160,7 +160,7 @@ namespace MVZ2.Models
             serializable.anchor = parentAnchor;
             serializable.position = transform.localPosition;
             serializable.rng = rng.ToSerializable();
-            serializable.propertyDict = propertyDict != null ? propertyDict.ToSerializable() : null;
+            serializable.propertyDict = propertyDict.ToSerializable();
             serializable.childModels = childModels.Select(c => c.ToSerializable()).ToArray();
             serializable.destroyTimeout = destroyTimeout;
             serializable.graphicGroup = GraphicGroup.ToSerializable();
@@ -169,7 +169,7 @@ namespace MVZ2.Models
         }
         public void LoadFromSerializable(SerializableModelData serializable)
         {
-            rng = RandomGenerator.FromSerializable(serializable.rng);
+            rng = serializable.rng != null ? RandomGenerator.FromSerializable(serializable.rng) : rng = new RandomGenerator(Guid.NewGuid().GetHashCode());
             destroyTimeout = serializable.destroyTimeout;
             if (serializable.propertyDict != null)
             {
@@ -179,15 +179,24 @@ namespace MVZ2.Models
                     SetProperty(name, dict.GetProperty(name));
                 }
             }
-            foreach (var seriChild in serializable.childModels)
+            if (serializable.childModels != null)
             {
-                var child = CreateChildModel(seriChild.anchor, seriChild.key, seriChild.id);
-                child.transform.localPosition = seriChild.position;
-                child.LoadFromSerializable(seriChild);
+                foreach (var seriChild in serializable.childModels)
+                {
+                    if (seriChild.anchor == null || seriChild.key == null || seriChild.id == null)
+                        continue;
+                    var child = CreateChildModel(seriChild.anchor, seriChild.key, seriChild.id);
+                    if (child.Exists())
+                    {
+                        child.transform.localPosition = seriChild.position;
+                        child.LoadFromSerializable(seriChild);
+                    }
+                }
             }
             LoadSerializable(serializable);
             // 最后再加载GraphicGroup，防止Animator在加载数据前尚未启用。
-            GraphicGroup.FromSerializable(serializable.graphicGroup);
+            if (serializable.graphicGroup != null)
+                GraphicGroup.FromSerializable(serializable.graphicGroup);
 
             insertions.Clear();
             if (serializable.insertions != null)
@@ -206,17 +215,17 @@ namespace MVZ2.Models
         #endregion
 
         #region 子模型
-        public Model CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
+        public Model? CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
         {
             var existing = GetChildModel(key);
             if (existing)
                 RemoveChildModel(key);
             var anchor = GetAnchor(anchorName);
-            if (!anchor)
+            if (!anchor.Exists())
                 return null;
             var builder = new ModelBuilder(modelID, eventCamera, 0);
             var child = builder.Build(anchor.transform);
-            if (!child)
+            if (!child.Exists())
                 return null;
             child.transform.localPosition = Vector3.zero;
             child.parentAnchor = anchorName;
@@ -228,7 +237,7 @@ namespace MVZ2.Models
         public bool RemoveChildModel(NamespaceID key)
         {
             var model = GetChildModel(key);
-            if (!model)
+            if (!model.Exists())
                 return false;
             if (model.destroyDelay <= 0)
             {
@@ -241,7 +250,7 @@ namespace MVZ2.Models
                 return true;
             }
         }
-        public Model GetChildModel(NamespaceID key)
+        public Model? GetChildModel(NamespaceID key)
         {
             foreach (var child in childModels)
             {
@@ -260,7 +269,7 @@ namespace MVZ2.Models
         public void ClearModelAnchor(string anchorName)
         {
             var anchor = GetAnchor(anchorName);
-            if (!anchor)
+            if (!anchor.Exists())
                 return;
             var childCount = anchor.transform.childCount;
             for (int i = childCount - 1; i >= 0; i--)
@@ -292,11 +301,11 @@ namespace MVZ2.Models
         #endregion
 
         #region 属性
-        public T GetProperty<T>(PropertyKeyString name)
+        public T? GetProperty<T>(PropertyKeyString name)
         {
             return propertyDict.GetProperty<T>(name);
         }
-        public void SetProperty(PropertyKeyString name, object value)
+        public void SetProperty(PropertyKeyString name, object? value)
         {
             propertyDict.SetProperty(name, value);
             foreach (var comp in modelComponents)
@@ -336,7 +345,7 @@ namespace MVZ2.Models
         #endregion
 
         #region 锚点
-        public ModelAnchor GetAnchor(string name)
+        public ModelAnchor? GetAnchor(string name)
         {
             return GraphicGroup.GetAnchor(name);
         }
@@ -344,10 +353,10 @@ namespace MVZ2.Models
         {
             return GraphicGroup.GetAllAnchors();
         }
-        public Transform GetCenterTransform()
+        public Transform? GetCenterTransform()
         {
             var anchor = GetAnchor(LogicModelHelper.ANCHOR_CENTER);
-            if (!anchor)
+            if (!anchor.Exists())
                 return null;
             return anchor.transform;
         }
@@ -393,45 +402,45 @@ namespace MVZ2.Models
         }
         #endregion
 
-        public event Action<float> OnUpdateFrame;
+        public event Action<float>? OnUpdateFrame;
 
         #region 属性字段
         public abstract ModelGroup GraphicGroup { get; }
 
-        private NamespaceID id;
-        private NamespaceID parentKey;
-        private string parentAnchor;
-        private Camera eventCamera;
+        private NamespaceID id = null!;
+        private NamespaceID? parentKey;
+        private string? parentAnchor;
+        private Camera eventCamera = null!;
 
         private int destroyTimeout;
-        private ModelParentInterface modelInterface;
-        private RandomGenerator rng;
+        private ModelParentInterface modelInterface = null!;
+        private RandomGenerator rng = null!;
         private PropertyDictionaryString propertyDict = new PropertyDictionaryString();
         private List<ModelComponent> modelComponents = new List<ModelComponent>();
         private HashSet<NamespaceID> insertions = new HashSet<NamespaceID>();
 
         // 嵌套
-        private Model parent;
+        private Model? parent;
         private List<Model> childModels = new List<Model>();
 
         // 延迟摧毁
         [SerializeField]
         private int destroyDelay;
         [SerializeField]
-        private UnityEvent onDelayedDestroy;
+        private UnityEvent onDelayedDestroy = null!;
         #endregion
     }
     public class SerializableModelData
     {
-        public string anchor;
+        public string? anchor;
         public Vector3 position;
-        public NamespaceID key;
-        public NamespaceID id;
-        public SerializableRNG rng;
-        public SerializableModelGroup graphicGroup;
-        public SerializablePropertyDictionaryString propertyDict;
-        public SerializableModelData[] childModels;
-        public NamespaceID[] insertions;
+        public NamespaceID? key;
+        public NamespaceID? id;
+        public SerializableRNG? rng;
+        public SerializableModelGroup? graphicGroup;
+        public SerializablePropertyDictionaryString? propertyDict;
+        public SerializableModelData[]? childModels;
+        public NamespaceID[]? insertions;
         public int destroyTimeout;
     }
     public class SerializableAnimator

@@ -537,7 +537,7 @@ namespace MVZ2.Options
         public const string PREFS_PARTICLE_AMOUNT = "ParticleAmount";
         public const string PREFS_SHAKE_AMOUNT = "ShakeAmount";
 
-        private Options options;
+        private Options options = null!;
         private bool languageInitialized;
 
     }

@@ -39,7 +39,7 @@ namespace MVZ2.Models
             }
         };
         [SerializeField]
-        private ParticlePlayer particles;
-        private NamespaceID lastID;
+        private ParticlePlayer particles = null!;
+        private NamespaceID? lastID;
     }
 }

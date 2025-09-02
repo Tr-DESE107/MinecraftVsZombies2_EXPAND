@@ -11,6 +11,13 @@ namespace MVZ2.Metas
     {
         public EntityCounterMeta[] counters;
         public EntityMeta[] metas;
+
+        public EntityMetaList(EntityCounterMeta[] counters, EntityMeta[] metas)
+        {
+            this.counters = counters;
+            this.metas = metas;
+        }
+
         public static EntityMetaList FromXmlNode(string nsp, XmlNode node, string defaultNsp)
         {
             var countersNode = node["counters"];
@@ -20,7 +27,8 @@ namespace MVZ2.Metas
                 for (int i = 0; i < countersNode.ChildNodes.Count; i++)
                 {
                     var meta = EntityCounterMeta.FromXmlNode(countersNode.ChildNodes[i], defaultNsp);
-                    counters.Add(meta);
+                    if (meta != null)
+                        counters.Add(meta);
                 }
             }
 
@@ -34,39 +42,40 @@ namespace MVZ2.Metas
                 for (int i = 0; i < entriesNode.ChildNodes.Count; i++)
                 {
                     var meta = EntityMeta.FromXmlNode(nsp, entriesNode.ChildNodes[i], defaultNsp, metaTemplates, i);
+                    if (meta == null)
+                        continue;
                     entries.Add(meta);
                 }
             }
-            return new EntityMetaList()
-            {
-                counters = counters.ToArray(),
-                metas = entries.ToArray(),
-            };
+            return new EntityMetaList(counters.ToArray(), entries.ToArray());
         }
     }
     public class EntityMetaTemplate
     {
-        public string name;
         public int id;
+        public string name;
         public List<NamespaceID> behaviours;
-        public Dictionary<string, object> properties;
-        private static EntityMetaTemplate LoadTemplate(XmlNode node, string defaultNsp, XmlNode rootNode)
+        public Dictionary<string, object?> properties;
+
+        public EntityMetaTemplate(int id, string name, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
         {
-            var name = node.Name;
+            this.name = name;
+            this.id = id;
+            this.behaviours = behaviours;
+            this.properties = properties;
+        }
+
+        private static EntityMetaTemplate? LoadTemplate(XmlNode node, string defaultNsp, XmlNode rootNode)
+        {
             var id = node.GetAttributeInt("id") ?? -1;
+            var name = node.Name;
             var behaviours = new List<NamespaceID>();
-            var properties = new Dictionary<string, object>();
+            var properties = new Dictionary<string, object?>();
             LoadTemplatePropertiesFromNode(node, defaultNsp, rootNode, behaviours, properties);
 
-            return new EntityMetaTemplate()
-            {
-                name = name,
-                id = id,
-                behaviours = behaviours,
-                properties = properties
-            };
+            return new EntityMetaTemplate(id, node.Name, behaviours, properties);
         }
-        private static void LoadTemplatePropertiesFromNode(XmlNode node, string defaultNsp, XmlNode rootNode, List<NamespaceID> behaviours, Dictionary<string, object> properties)
+        private static void LoadTemplatePropertiesFromNode(XmlNode node, string defaultNsp, XmlNode rootNode, List<NamespaceID> behaviours, Dictionary<string, object?> properties)
         {
             var parent = node.GetAttribute("parent");
             if (!string.IsNullOrEmpty(parent))
@@ -95,6 +104,8 @@ namespace MVZ2.Metas
             {
                 var templateNode = node.ChildNodes[i];
                 var template = EntityMetaTemplate.LoadTemplate(templateNode, defaultNsp, node);
+                if (template == null)
+                    continue;
                 templates.Add(template);
             }
             return templates.ToArray();

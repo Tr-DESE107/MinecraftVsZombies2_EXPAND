@@ -19,9 +19,9 @@ namespace MVZ2.UI
         }
 
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
         [SerializeField]
-        private ElementList entries;
+        private ElementList entries = null!;
     }
     public struct CreditsCategoryViewData
     {

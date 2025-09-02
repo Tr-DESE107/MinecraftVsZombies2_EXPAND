@@ -99,13 +99,13 @@ namespace MVZ2.Level
 
         [Header("Camera")]
         [SerializeField]
-        private GameObject cameraRoot;
+        private GameObject cameraRoot = null!;
         [SerializeField]
-        private LevelCamera levelCamera;
+        private LevelCamera levelCamera = null!;
         [SerializeField]
-        private RenderDowngrade downgradeScript;
+        private RenderDowngrade downgradeScript = null!;
         [SerializeField]
-        private AnimationCurve cameraMoveCurve;
+        private AnimationCurve cameraMoveCurve = null!;
         [SerializeField]
         private float cameraLimitX = 2.2f;
         [SerializeField]

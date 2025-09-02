@@ -79,11 +79,11 @@ namespace MVZ2.Models
             }
         }
         [SerializeField]
-        private ParticlePlayer gasLight;
+        private ParticlePlayer gasLight = null!;
         [SerializeField]
-        private ParticlePlayer gas;
+        private ParticlePlayer gas = null!;
         [SerializeField]
-        private ParticlePlayer smoke;
+        private ParticlePlayer smoke = null!;
         [SerializeField]
         private float ratePerVolume = 20;
         public const string PROP_STOPPED = "Stopped";

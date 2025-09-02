@@ -73,7 +73,7 @@ namespace MVZ2.Map
                 pair.Value.onClick.AddListener(() => OnButtonClick?.Invoke(button));
             }
         }
-        public event Action<ButtonType> OnButtonClick;
+        public event Action<ButtonType>? OnButtonClick;
 
         private Dictionary<ButtonType, Button> buttonDict = new Dictionary<ButtonType, Button>();
 
@@ -81,35 +81,35 @@ namespace MVZ2.Map
 
         [Header("General")]
         [SerializeField]
-        private Button backButton;
+        private Button backButton = null!;
         [SerializeField]
-        private Button almanacButton;
+        private Button almanacButton = null!;
         [SerializeField]
-        private Button storeButton;
+        private Button storeButton = null!;
         [SerializeField]
-        private Button mapButton;
+        private Button mapButton = null!;
         [SerializeField]
-        private Button settingButton;
+        private Button settingButton = null!;
         [SerializeField]
-        private GameObject storeButtonArrow;
+        private GameObject storeButtonArrow = null!;
         [SerializeField]
-        private GameObject mapButtonArrow;
+        private GameObject mapButtonArrow = null!;
         [SerializeField]
-        private TextMeshProUGUI hintText;
+        private TextMeshProUGUI hintText = null!;
         [SerializeField]
-        private OptionsDialog optionsDialog;
+        private OptionsDialog optionsDialog = null!;
         [SerializeField]
-        private GameObject raycastBlocker;
+        private GameObject raycastBlocker = null!;
 
         [Header("Drag")]
         [SerializeField]
-        private Camera mapCamera;
+        private Camera mapCamera = null!;
         [SerializeField]
-        private GameObject dragRoot;
+        private GameObject dragRoot = null!;
         [SerializeField]
-        private RectTransform dragRootTrans;
+        private RectTransform dragRootTrans = null!;
         [SerializeField]
-        private RectTransform dragArrowRoot;
+        private RectTransform dragArrowRoot = null!;
 
         public enum ButtonType
         {

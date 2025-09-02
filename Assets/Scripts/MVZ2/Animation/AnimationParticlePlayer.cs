@@ -19,12 +19,12 @@ namespace MVZ2.Animation
             particle.particle.Play();
         }
         [SerializeField]
-        private ParticlePair[] particles;
+        private ParticlePair[] particles = null!;
     }
     [Serializable]
     public class ParticlePair
     {
-        public string name;
-        public ParticleSystem particle;
+        public string name = null!;
+        public ParticleSystem particle = null!;
     }
 }

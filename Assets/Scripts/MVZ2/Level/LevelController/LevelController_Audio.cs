@@ -15,7 +15,10 @@ namespace MVZ2.Level
         }
         private void StartGame_Audio()
         {
-            Music.Play(level.GetMusicID());
+            var musicID = level.GetMusicID();
+            if (musicID == null)
+                return;
+            Music.Play(musicID);
             MusicTime = 0;
             MusicTrackWeight = 0;
         }
@@ -32,7 +35,7 @@ namespace MVZ2.Level
             MusicTime = seri.musicTime;
             MusicVolume = seri.musicVolume;
         }
-        public NamespaceID CurrentMusic
+        public NamespaceID? CurrentMusic
         {
             get => Music.GetCurrentMusicID();
             set
@@ -64,8 +67,8 @@ namespace MVZ2.Level
         }
         [Header("Audio")]
         [SerializeField]
-        private GameObject normalAudioListener;
+        private GameObject normalAudioListener = null!;
         [SerializeField]
-        private GameObject lowQualityAudioListener;
+        private GameObject lowQualityAudioListener = null!;
     }
 }

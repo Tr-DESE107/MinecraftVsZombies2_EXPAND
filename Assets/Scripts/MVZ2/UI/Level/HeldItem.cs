@@ -9,35 +9,35 @@ namespace MVZ2.Level.UI
     {
         public void UpdateModelFixed()
         {
-            if (model)
+            if (model.Exists())
             {
                 model.UpdateFixed();
             }
         }
         public void UpdateModelFrame(float deltaTime)
         {
-            if (model)
+            if (model.Exists())
             {
                 model.UpdateFrame(deltaTime);
             }
         }
         public void SetModelSimulationSpeed(float speed)
         {
-            if (model)
+            if (model.Exists())
             {
                 model.SetSimulationSpeed(speed);
             }
         }
         public void SetModel(ModelBuilder viewData)
         {
-            if (model)
+            if (model.Exists())
             {
                 Destroy(model.gameObject);
                 model = null;
             }
             model = viewData.Build(modelRoot);
         }
-        public Model GetModel()
+        public Model? GetModel()
         {
             return model;
         }
@@ -51,13 +51,13 @@ namespace MVZ2.Level.UI
             imbuedObj.SetActive(value);
         }
         [SerializeField]
-        private Transform modelRoot;
+        private Transform modelRoot = null!;
         [SerializeField]
-        private GameObject triggerObj;
+        private GameObject triggerObj = null!;
         [SerializeField]
-        private GameObject notTriggerObj;
+        private GameObject notTriggerObj = null!;
         [SerializeField]
-        private GameObject imbuedObj;
-        private Model model;
+        private GameObject imbuedObj = null!;
+        private Model? model;
     }
 }

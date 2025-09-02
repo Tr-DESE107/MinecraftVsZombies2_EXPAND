@@ -19,15 +19,15 @@ namespace MVZ2.UI
         {
             OnPointerExit?.Invoke(this);
         }
-        public event Action<TooltipHandler> OnPointerEnter;
-        public event Action<TooltipHandler> OnPointerExit;
+        public event Action<TooltipHandler>? OnPointerEnter;
+        public event Action<TooltipHandler>? OnPointerExit;
 
-        public ITooltipAnchor Anchor => anchor;
+        public ITooltipAnchor? Anchor => anchor;
 
-        string ITranslateComponent.Key => text;
-        string ITranslateComponent.Context => context;
-        IEnumerable<string> ITranslateComponent.Keys => null;
-        string ITranslateComponent.Comment => comment;
+        string? ITranslateComponent.Key => text;
+        string? ITranslateComponent.Context => context;
+        IEnumerable<string>? ITranslateComponent.Keys => null;
+        string? ITranslateComponent.Comment => comment;
         string ITranslateComponent.Path
         {
             get
@@ -44,10 +44,10 @@ namespace MVZ2.UI
                 return sb.ToString();
             }
         }
-        public TooltipAnchor anchor;
-        public string context;
-        public string comment;
+        public TooltipAnchor? anchor;
+        public string? context;
+        public string? comment;
         [TextArea]
-        public string text;
+        public string? text;
     }
 }

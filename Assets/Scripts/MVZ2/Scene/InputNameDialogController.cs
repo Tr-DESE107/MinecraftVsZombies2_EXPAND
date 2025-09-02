@@ -34,7 +34,7 @@ namespace MVZ2.Mainmenu.UI
             renamingUserIndex = -1;
             if (tcs == null)
                 return;
-            tcs.TrySetResult(null);
+            tcs.TrySetResult(string.Empty);
             tcs = null;
         }
         private void Awake()
@@ -50,7 +50,7 @@ namespace MVZ2.Mainmenu.UI
                 ui.SetErrorMessage(error);
                 return;
             }
-            tcs.TrySetResult(value);
+            tcs?.TrySetResult(value);
             Hide();
         }
         private void OnCancelCallback()
@@ -63,7 +63,7 @@ namespace MVZ2.Mainmenu.UI
             }
             Hide();
         }
-        private bool ValidateUserName(string name, out string message)
+        private bool ValidateUserName(string name, out string? message)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -87,10 +87,10 @@ namespace MVZ2.Mainmenu.UI
         }
         private MainManager main => MainManager.Instance;
         [SerializeField]
-        private InputNameDialog ui;
+        private InputNameDialog ui = null!;
         private InputNameType inputNameType;
         private int renamingUserIndex = -1;
-        private TaskCompletionSource<string> tcs;
+        private TaskCompletionSource<string>? tcs;
     }
     public enum InputNameType
     {

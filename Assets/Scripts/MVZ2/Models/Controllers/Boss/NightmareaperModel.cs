@@ -73,9 +73,9 @@ namespace MVZ2.Models
 
         }
         [SerializeField]
-        private Transform leftArmParent;
+        private Transform leftArmParent = null!;
         [SerializeField]
-        private Transform rightArmParent;
+        private Transform rightArmParent = null!;
 
         [SerializeField]
         private Vector2 rageRightArmDir;

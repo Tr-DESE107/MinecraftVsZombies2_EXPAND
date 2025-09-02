@@ -53,7 +53,7 @@ namespace MVZ2.Level.UI
             }
             return false;
         }
-        public override Blueprint GetBlueprintAt(int index)
+        public override Blueprint? GetBlueprintAt(int index)
         {
             return blueprints.getElement<Blueprint>(index);
         }
@@ -63,19 +63,19 @@ namespace MVZ2.Level.UI
         }
         public void SetBlueprintNormalizedPosition(int index, float position)
         {
-            Blueprint blueprint = GetBlueprintAt(index);
-            if (blueprint == null)
+            var blueprint = GetBlueprintAt(index);
+            if (!blueprint.Exists())
                 return;
             blueprint.transform.position = Vector3.LerpUnclamped(startPositionAnchor.position, endPositionAnchor.position, position / (slotCount - 1));
         }
         private int slotCount;
         [SerializeField]
-        private ElementList blueprints;
+        private ElementList blueprints = null!;
         [SerializeField]
-        private ElementList structureList;
+        private ElementList structureList = null!;
         [SerializeField]
-        private Transform startPositionAnchor;
+        private Transform startPositionAnchor = null!;
         [SerializeField]
-        private Transform endPositionAnchor;
+        private Transform endPositionAnchor = null!;
     }
 }

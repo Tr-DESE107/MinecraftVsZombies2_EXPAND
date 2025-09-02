@@ -11,16 +11,22 @@ namespace MVZ2.Metas
 {
     public class ProductMeta
     {
-        public string ID { get; private set; }
-        public SpriteReference Sprite { get; private set; }
-        public NamespaceID BlueprintID { get; private set; }
-        public NamespaceID Required { get; private set; }
+        private ProductMeta(ProductTalkMeta[] talks, ProductStageMeta[] stages)
+        {
+            Talks = talks;
+            Stages = stages;
+        }
+
+        public string ID { get; private set; } = string.Empty;
+        public SpriteReference? Sprite { get; private set; }
+        public NamespaceID? BlueprintID { get; private set; }
+        public NamespaceID? Required { get; private set; }
         public ProductTalkMeta[] Talks { get; private set; }
         public ProductStageMeta[] Stages { get; private set; }
         public int Index { get; private set; }
-        public static ProductMeta FromXmlNode(XmlNode node, string defaultNsp, int index)
+        public static ProductMeta? FromXmlNode(XmlNode node, string defaultNsp, int index)
         {
-            var id = node.GetAttribute("id");
+            var id = node.GetAttribute("id") ?? string.Empty;
             var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
             var blueprintId = node.GetAttributeNamespaceID("blueprintId", defaultNsp);
             var required = node.GetAttributeNamespaceID("required", defaultNsp);
@@ -34,7 +40,11 @@ namespace MVZ2.Metas
                     var childNode = talksNode.ChildNodes[i];
                     if (childNode.Name == "talk")
                     {
-                        talks.Add(ProductTalkMeta.FromXmlNode(childNode, defaultNsp));
+                        var meta = ProductTalkMeta.FromXmlNode(childNode, defaultNsp);
+                        if (meta != null)
+                        {
+                            talks.Add(meta);
+                        }
                     }
                 }
             }
@@ -48,18 +58,20 @@ namespace MVZ2.Metas
                     var childNode = stagesNode.ChildNodes[i];
                     if (childNode.Name == "stage")
                     {
-                        stages.Add(ProductStageMeta.FromXmlNode(childNode, defaultNsp));
+                        var meta = ProductStageMeta.FromXmlNode(childNode, defaultNsp);
+                        if (meta != null)
+                        {
+                            stages.Add(meta);
+                        }
                     }
                 }
             }
-            return new ProductMeta()
+            return new ProductMeta(talks.ToArray(), stages.ToArray())
             {
                 ID = id,
                 Sprite = sprite,
                 BlueprintID = blueprintId,
                 Required = required,
-                Talks = talks.ToArray(),
-                Stages = stages.ToArray(),
                 Index = index,
             };
         }

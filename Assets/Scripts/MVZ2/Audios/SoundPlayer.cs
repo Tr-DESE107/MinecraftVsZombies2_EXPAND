@@ -21,7 +21,7 @@ namespace MVZ2.Audios
             MainManager.Instance.SoundManager.Play(id, Vector3.zero, pitch, 0);
         }
         [SerializeField]
-        private NamespaceIDReference soundID;
+        private NamespaceIDReference soundID = null!;
         [SerializeField]
         private float pitch = 1;
     }

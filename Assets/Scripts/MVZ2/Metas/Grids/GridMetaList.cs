@@ -9,6 +9,13 @@ namespace MVZ2.Metas
     {
         public GridLayerMeta[] layers;
         public GridErrorMeta[] errors;
+
+        public GridMetaList(GridLayerMeta[] layers, GridErrorMeta[] errors)
+        {
+            this.layers = layers;
+            this.errors = errors;
+        }
+
         public static GridMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
             var layersNode = node["layers"];
@@ -20,7 +27,9 @@ namespace MVZ2.Metas
                     var child = layersNode.ChildNodes[i];
                     if (child.Name == "layer")
                     {
-                        layers.Add(GridLayerMeta.FromXmlNode(child, defaultNsp));
+                        var meta = GridLayerMeta.FromXmlNode(child, defaultNsp);
+                        if (meta != null)
+                            layers.Add(meta);
                     }
                 }
             }
@@ -33,15 +42,13 @@ namespace MVZ2.Metas
                     var child = errorsNode.ChildNodes[i];
                     if (child.Name == "error")
                     {
-                        errors.Add(GridErrorMeta.FromXmlNode(child, defaultNsp));
+                        var meta = GridErrorMeta.FromXmlNode(child, defaultNsp);
+                        if (meta != null)
+                            errors.Add(meta);
                     }
                 }
             }
-            return new GridMetaList()
-            {
-                layers = layers.ToArray(),
-                errors = errors.ToArray(),
-            };
+            return new GridMetaList(layers.ToArray(), errors.ToArray());
         }
     }
 }

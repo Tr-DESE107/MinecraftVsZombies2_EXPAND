@@ -16,8 +16,8 @@ namespace PVZEngine.Models
         void SetShaderInt(string name, int value);
         void SetShaderFloat(string name, float value);
         void SetShaderColor(string name, Color value);
-        IModelInterface CreateChildModel(string anchor, NamespaceID key, NamespaceID modelID);
+        IModelInterface? CreateChildModel(string anchor, NamespaceID key, NamespaceID modelID);
         bool RemoveChildModel(NamespaceID key);
-        IModelInterface GetChildModel(NamespaceID key);
+        IModelInterface? GetChildModel(NamespaceID key);
     }
 }

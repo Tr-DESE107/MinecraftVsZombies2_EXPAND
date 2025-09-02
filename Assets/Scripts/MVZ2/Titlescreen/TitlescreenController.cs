@@ -85,7 +85,7 @@ namespace MVZ2.Titlescreen
         private float progress;
         private float targetProgress;
         [SerializeField]
-        private TitlescreenUI ui;
+        private TitlescreenUI ui = null!;
         #endregion
     }
 }

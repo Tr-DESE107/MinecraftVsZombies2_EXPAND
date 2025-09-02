@@ -108,10 +108,10 @@ namespace MVZ2.Arcade
                 return Array.Empty<NamespaceID>();
             var arcades = idList
                 .Select(id => (id, meta: Main.ResourceManager.GetArcadeMeta(id)))
-                .Where(tuple => tuple.meta.Type == type);
+                .Where(tuple => tuple.meta != null && tuple.meta.Type == type);
             if (arcades.Count() <= 0)
                 return Array.Empty<NamespaceID>();
-            var arcadeIndexes = arcades.Select(tuple => (tuple.id, index: tuple.meta.Index));
+            var arcadeIndexes = arcades.Select(tuple => (tuple.id, index: tuple.meta?.Index ?? -1));
             var maxAlmanacIndex = arcadeIndexes.Max(tuple => tuple.index);
             var ordered = new NamespaceID[maxAlmanacIndex + 1];
             for (int i = 0; i < ordered.Length; i++)
@@ -124,12 +124,15 @@ namespace MVZ2.Arcade
         private ArcadeItemViewData GetArcadeItemViewData(NamespaceID id)
         {
             var meta = Main.ResourceManager.GetArcadeMeta(id);
-            var stageID = meta?.StageID;
+            if (meta == null)
+                return ArcadeItemViewData.Empty;
+            var stageID = meta.StageID;
+            if (stageID == null)
+                return ArcadeItemViewData.Empty;
             var stageDef = Main.Game.GetStageDefinition(stageID);
             if (stageDef == null)
-            {
                 return ArcadeItemViewData.Empty;
-            }
+
             var conditions = stageDef.GetUnlockConditions();
             bool unlocked = conditions.IsNullOrMeetsConditions(Main.SaveManager);
             string name;
@@ -149,7 +152,7 @@ namespace MVZ2.Arcade
             }
             var icon = Main.GetFinalSprite(meta.Icon);
 
-            Sprite clearSprite = null;
+            Sprite? clearSprite = null;
             if (Main.SaveManager.IsLevelCleared(stageID))
             {
                 var game = Main.Game;
@@ -205,7 +208,7 @@ namespace MVZ2.Arcade
         {
             return Main.LanguageManager._p(context, text, args);
         }
-        public event Action OnReturnClick;
+        public event Action? OnReturnClick;
 
         [TranslateMsg("未解锁的小游戏关卡名")]
         public const string LEVEL_NAME_NOT_UNLOCKED = "未解锁";
@@ -216,8 +219,6 @@ namespace MVZ2.Arcade
         private List<NamespaceID> puzzleItems = new List<NamespaceID>();
 
         [SerializeField]
-        private Camera almanacCamera;
-        [SerializeField]
-        private ArcadeUI ui;
+        private ArcadeUI ui = null!;
     }
 }

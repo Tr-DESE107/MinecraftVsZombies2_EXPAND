@@ -25,7 +25,7 @@ namespace PVZEngine
             }
             return null;
         }
-        public T? GetDefinition<T>(NamespaceID id) where T : Definition
+        public T? GetDefinition<T>(NamespaceID? id) where T : Definition
         {
             foreach (var definition in definitions)
             {

@@ -15,15 +15,15 @@ namespace MVZ2.Map
             this.map = map;
         }
 
-        public override IArchiveInterface GetArchive()
+        public override IArchiveInterface? GetArchive()
         {
             return null;
         }
-        public override IMapInterface GetMap()
+        public override IMapInterface? GetMap()
         {
             return map;
         }
-        public override LevelEngine GetLevel()
+        public override LevelEngine? GetLevel()
         {
             return null;
         }

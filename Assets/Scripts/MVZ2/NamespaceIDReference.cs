@@ -18,9 +18,9 @@ namespace MVZ2
             return cache;
         }
         [SerializeField]
-        private string spacename;
+        private string spacename = null!;
         [SerializeField]
-        private string path;
-        private NamespaceID cache;
+        private string path = null!;
+        private NamespaceID? cache;
     }
 }

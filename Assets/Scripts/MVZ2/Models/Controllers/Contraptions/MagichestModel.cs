@@ -21,9 +21,9 @@ namespace MVZ2.Models
             flashTransitor.setStartPosition(sourcePosition);
         }
         [SerializeField]
-        private Transform flashRootTransform;
+        private Transform flashRootTransform = null!;
         [SerializeField]
-        private PositionTransitor flashTransitor;
+        private PositionTransitor flashTransitor = null!;
         [SerializeField]
         private float scaleSpeed = 0.25f;
         [SerializeField]

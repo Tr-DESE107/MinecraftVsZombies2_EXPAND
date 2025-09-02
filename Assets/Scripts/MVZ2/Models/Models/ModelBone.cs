@@ -30,6 +30,6 @@ namespace MVZ2.Models
         }
         [Header("Light")]
         [SerializeField]
-        private LightController lightController;
+        private LightController lightController = null!;
     }
 }

@@ -8,6 +8,7 @@ using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
+using PVZEngine.Base;
 using PVZEngine.Level;
 using PVZEngine.Models;
 
@@ -39,6 +40,12 @@ namespace MVZ2.Level.Components
         public void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false)
         {
             var definition = Level.Content.GetHeldItemDefinition(type);
+            if (definition == null)
+            {
+                var exception = new MissingDefinitionException($"Trying to set a missing held item definition {type}.");
+                Log.LogException(exception);
+                return;
+            }
             SetHeldItem(new HeldItemData()
             {
                 Type = type,
@@ -52,11 +59,17 @@ namespace MVZ2.Level.Components
         {
             if (IsHoldingItem() && info.Priority > value.Priority)
                 return;
+            var definition = Level.Content.GetHeldItemDefinition(value.Type);
+            if (definition == null)
+            {
+                var exception = new MissingDefinitionException($"Trying to set a missing held item definition {value.Type}.");
+                Log.LogException(exception);
+                return;
+            }
 
             var before = info.Definition;
             before?.End(Level, Data);
 
-            var definition = Level.Content.GetHeldItemDefinition(value.Type);
             info.Type = value.Type;
             info.ID = value.ID;
             info.Definition = definition;
@@ -72,17 +85,24 @@ namespace MVZ2.Level.Components
             }
             Controller.UpdateEntityHeldTargetColliders(definition?.GetHeldTargetMask(Level) ?? HeldTargetFlag.None);
         }
-        public IModelInterface GetHeldItemModelInterface()
+        public IModelInterface? GetHeldItemModelInterface()
         {
             return Controller.GetHeldItemModelInterface();
         }
         public void ResetHeldItem()
         {
+            var type = BuiltinHeldTypes.none;
+            var definition = Level.Content.GetHeldItemDefinition(type);
+            if (definition == null)
+            {
+                var exception = new MissingDefinitionException($"Trying to set a missing held item definition {type}.");
+                Log.LogException(exception);
+                return;
+            }
             var before = info.Definition;
             before?.End(Level, Data);
 
-            info.Type = BuiltinHeldTypes.none;
-            var definition = Level.Content.GetHeldItemDefinition(info.Type);
+            info.Type = type;
             info.ID = 0;
             info.Definition = definition;
             info.Priority = 0;

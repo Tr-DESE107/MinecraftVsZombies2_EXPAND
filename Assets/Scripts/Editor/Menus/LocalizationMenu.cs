@@ -312,11 +312,11 @@ namespace MVZ2.Editor
                     var groupID = new NamespaceID(spaceName, group.id);
                     var groupContext = VanillaStrings.GetTalkTextContext(groupID);
                     AddTranslation(potGenerator, groupName, reference, $"Archive name for talk group {group.id}", VanillaStrings.CONTEXT_ARCHIVE);
-                    for (int i = 0; i < group.sections.Count; i++)
+                    for (int i = 0; i < group.sections.Length; i++)
                     {
                         var section = group.sections[i];
                         AddTranslation(potGenerator, section.archiveText, reference, $"Archive text for talk group {group.id}'s section {i}", VanillaStrings.CONTEXT_ARCHIVE);
-                        for (int j = 0; j < section.sentences.Count; j++)
+                        for (int j = 0; j < section.sentences.Length; j++)
                         {
                             var sentence = section.sentences[j];
                             AddTranslation(potGenerator, sentence.text, reference, $"Text for talk sentence {j} in talk group {group.id}'s section {i}", groupContext);

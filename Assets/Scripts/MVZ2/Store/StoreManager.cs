@@ -8,6 +8,7 @@ using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Saves;
 using MVZ2.Store;
+using MVZ2.Vanilla.Saves;
 using PVZEngine;
 using Tools;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace MVZ2.Almanacs
             var ordered = CompressLayout(idList, countPerRow);
             appendList.AddRange(ordered);
         }
-        public StoreChatMeta GetRandomChat(NamespaceID characterId, RandomGenerator rng)
+        public StoreChatMeta? GetRandomChat(NamespaceID characterId, RandomGenerator rng)
         {
             var characterChats = Main.ResourceManager.GetCharacterStoreChats(characterId);
             if (characterChats == null)
@@ -70,8 +71,6 @@ namespace MVZ2.Almanacs
         }
         public ProductStageMeta GetCurrentProductStage(ProductMeta productMeta)
         {
-            if (productMeta == null)
-                return null;
             for (int i = 0; i < productMeta.Stages.Length; i++)
             {
                 var stage = productMeta.Stages[i];
@@ -87,7 +86,7 @@ namespace MVZ2.Almanacs
         }
         public bool IsSoldout(ProductStageMeta stage)
         {
-            return Main.SaveManager.IsUnlocked(stage.Unlocks);
+            return Main.SaveManager.IsValidAndUnlocked(stage.Unlocks);
         }
         private NamespaceID[] GetIDListByProductOrder(IEnumerable<NamespaceID> idList)
         {

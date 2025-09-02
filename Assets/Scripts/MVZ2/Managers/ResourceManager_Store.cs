@@ -12,7 +12,7 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 商品
-        public ProductMeta GetProductMeta(NamespaceID groupID)
+        public ProductMeta? GetProductMeta(NamespaceID groupID)
         {
             if (!NamespaceID.IsValid(groupID))
                 return null;
@@ -29,7 +29,7 @@ namespace MVZ2.Managers
         #endregion
 
         #region 闲聊
-        public StoreChatMeta[] GetCharacterStoreChats(NamespaceID characterID)
+        public StoreChatMeta[]? GetCharacterStoreChats(NamespaceID characterID)
         {
             if (!NamespaceID.IsValid(characterID))
                 return null;
@@ -59,21 +59,32 @@ namespace MVZ2.Managers
         #endregion
 
         #region 预设
-        public StorePresetMeta GetStorePresetMeta(NamespaceID presetID)
+        public StorePresetMeta? GetStorePresetMeta(NamespaceID presetID)
         {
             var modResource = GetModResource(presetID.SpaceName);
-            if (modResource == null)
+            if (modResource?.StoreMetaList == null)
                 return null;
             return modResource.StoreMetaList.Presets.FirstOrDefault(p => p.ID == presetID.Path);
         }
         public StorePresetMeta[] GetAllStorePresets()
         {
-            return modResources.SelectMany(r => r.StoreMetaList.Presets).ToArray();
+            List<StorePresetMeta> list = new List<StorePresetMeta>();
+            foreach (var modResource in modResources)
+            {
+                if (modResource.StoreMetaList == null)
+                    continue;
+                list.AddRange(modResource.StoreMetaList.Presets);
+            }
+            return list.ToArray();
         }
         #endregion
 
         private void PostLoadMod_Store(string modNamespace, ModResource modResource)
         {
+            if (modResource.StoreMetaList == null)
+            {
+                return;
+            }
             foreach (var meta in modResource.StoreMetaList.Chats)
             {
                 if (!storeChats.TryGetValue(meta.Character, out var list))

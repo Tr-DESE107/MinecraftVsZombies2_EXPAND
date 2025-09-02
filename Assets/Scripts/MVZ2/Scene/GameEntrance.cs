@@ -185,8 +185,8 @@ namespace MVZ2.Scenes
         [TranslateMsg("开始游戏时读取出错，对话框的错误信息")]
         public const string ERROR_FULL_USERS_CORRUPTED = "所有存档均无法读取，文件可能已损坏。\n必须删除一个存档，并新建存档以继续游戏。";
         [SerializeField]
-        private MainManager main;
+        private MainManager main = null!;
         [SerializeField]
-        private GameObject loadingText;
+        private GameObject loadingText = null!;
     }
 }

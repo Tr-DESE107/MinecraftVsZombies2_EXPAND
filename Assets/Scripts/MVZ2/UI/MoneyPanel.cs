@@ -40,9 +40,9 @@ namespace MVZ2.UI
             canvasGroup.alpha = Mathf.Clamp01(fadeTimeout / 0.5f);
         }
         [SerializeField]
-        private CanvasGroup canvasGroup;
+        private CanvasGroup canvasGroup = null!;
         [SerializeField]
-        private TextMeshProUGUI moneyText;
+        private TextMeshProUGUI moneyText = null!;
         [SerializeField]
         private bool willFade;
         [SerializeField]

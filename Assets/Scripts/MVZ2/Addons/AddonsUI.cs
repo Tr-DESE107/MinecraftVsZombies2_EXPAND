@@ -27,15 +27,15 @@ namespace MVZ2.Addons
                 pair.Value.onClick.AddListener(() => OnButtonClick?.Invoke(pair.Key));
             }
         }
-        public event Action<Buttons> OnButtonClick;
+        public event Action<Buttons>? OnButtonClick;
         [SerializeField]
-        private Button languagePackButton;
+        private Button languagePackButton = null!;
         [SerializeField]
-        private Button returnButton;
+        private Button returnButton = null!;
         [SerializeField]
-        private GameObject indexUI;
+        private GameObject indexUI = null!;
         [SerializeField]
-        private GameObject loadingScreen;
+        private GameObject loadingScreen = null!;
         private Dictionary<Buttons, Button> buttonDict = new Dictionary<Buttons, Button>();
 
         public enum Buttons

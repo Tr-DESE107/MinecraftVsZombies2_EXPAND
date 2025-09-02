@@ -9,7 +9,7 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 元数据列表
-        public CreditMetaList GetCreditsMetaList(string nsp)
+        public CreditMetaList? GetCreditsMetaList(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
             if (modResource == null)

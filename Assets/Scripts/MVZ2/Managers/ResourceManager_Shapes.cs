@@ -10,14 +10,14 @@ namespace MVZ2.Managers
 {
     public partial class ResourceManager : MonoBehaviour
     {
-        public ShapeMetaList GetShapeMetaList(string nsp)
+        public ShapeMetaList? GetShapeMetaList(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
             if (modResource == null)
                 return null;
             return modResource.ShapeMetaList;
         }
-        public ShapeMeta GetShapeMeta(NamespaceID id)
+        public ShapeMeta? GetShapeMeta(NamespaceID id)
         {
             if (!NamespaceID.IsValid(id))
                 return null;
@@ -26,7 +26,7 @@ namespace MVZ2.Managers
                 return null;
             return list.metas.FirstOrDefault(m => m.ID == id.Path);
         }
-        public ShapeMeta[] GetModShapeMetas(string nsp)
+        public ShapeMeta[]? GetModShapeMetas(string nsp)
         {
             var metaList = GetShapeMetaList(nsp);
             if (metaList == null)

@@ -27,6 +27,8 @@ namespace Rendering
 
         public void SetSpritePercent(float percent)
         {
+            if (sprites == null)
+                return;
             SetSpriteIndex(Mathf.FloorToInt(percent * sprites.Length));
         }
 
@@ -47,7 +49,7 @@ namespace Rendering
         {
             get
             {
-                if (!image)
+                if (!image.Exists())
                 {
                     image = GetComponent<Image>();
                 }
@@ -55,8 +57,8 @@ namespace Rendering
             }
         }
         private MainManager Main => MainManager.Instance;
-        private Image image;
-        public Sprite[] sprites;
+        private Image? image;
+        public Sprite[]? sprites;
         private int beforeIndex = -1;
         [SerializeField]
         private int index = 0;

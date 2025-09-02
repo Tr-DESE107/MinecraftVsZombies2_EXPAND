@@ -35,11 +35,11 @@ namespace MVZ2.ChapterTransition
         {
             tcs?.SetResult(true);
         }
-        private TaskCompletionSource<bool> tcs;
+        private TaskCompletionSource<bool>? tcs;
         private MainManager Main => MainManager.Instance;
         [SerializeField]
-        private Animator animator;
+        private Animator animator = null!;
         [SerializeField]
-        private ChapterTransition ui;
+        private ChapterTransition ui = null!;
     }
 }

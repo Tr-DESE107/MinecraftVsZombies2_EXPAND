@@ -14,9 +14,8 @@ namespace MVZ2.Options
         }
         public SerializableOptions ToSerializable()
         {
-            return new SerializableOptions()
+            return new SerializableOptions(keyBindings.ToSerializable())
             {
-                keyBindings = keyBindings?.ToSerializable(),
                 skipAllTalks = skipAllTalks,
                 showSponsorNames = showSponsorNames,
                 blueprintWarningsDisabled = blueprintWarningsDisabled,
@@ -43,7 +42,7 @@ namespace MVZ2.Options
         }
         public bool swapTrigger;
         public bool vibration;
-        public NamespaceID difficulty;
+        public NamespaceID difficulty = null!;
         public bool bloodAndGore;
         public bool pauseOnFocusLost;
 
@@ -53,7 +52,7 @@ namespace MVZ2.Options
         public float particleAmount;
         public float shakeAmount;
 
-        public string language;
+        public string language = string.Empty;
 
         public KeyBindingOptions keyBindings;
         public bool skipAllTalks;
@@ -79,5 +78,10 @@ namespace MVZ2.Options
         public bool showHotkeyIndicators;
         public bool hdrLightingDisabled;
         public bool heightIndicatorEnabled;
+
+        public SerializableOptions(SerializableKeyBindingOptions keyBindings)
+        {
+            this.keyBindings = keyBindings;
+        }
     }
 }

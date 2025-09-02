@@ -11,8 +11,8 @@ namespace MVZ2.UI
         public TextMeshProUGUI Text => text;
         public Toggle Toggle => toggle;
         [SerializeField]
-        private TextMeshProUGUI text;
+        private TextMeshProUGUI text = null!;
         [SerializeField]
-        private Toggle toggle;
+        private Toggle toggle = null!;
     }
 }

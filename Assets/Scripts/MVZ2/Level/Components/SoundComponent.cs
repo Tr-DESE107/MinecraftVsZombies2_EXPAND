@@ -30,14 +30,14 @@ namespace MVZ2.Level.Components
         public void PlaySound(NamespaceID id, Vector3 position, float pitch = 1, float volume = 1)
         {
             var source = Main.SoundManager.Play(id, Controller.LawnToTrans(position), pitch, 1);
-            if (!source)
+            if (!source.Exists())
                 return;
             source.volume = volume;
         }
         public void PlaySound(NamespaceID id, float pitch = 1, float volume = 1)
         {
             var source = Main.SoundManager.Play(id, Vector3.zero, pitch, 0);
-            if (!source)
+            if (!source.Exists())
                 return;
             source.volume = volume;
         }
@@ -141,11 +141,14 @@ namespace MVZ2.Level.Components
             }
             var entityID = entities.FirstOrDefault();
             var entity = Level.FindEntityByID(entityID);
-            if (!IsPlayingLoopSound(id))
+            if (entity != null)
             {
-                PlayLoopSound(id);
+                if (!IsPlayingLoopSound(id))
+                {
+                    PlayLoopSound(id);
+                }
+                SetLoopSoundPosition(id, entity.Position);
             }
-            SetLoopSoundPosition(id, entity.Position);
         }
         private void UpdatePlayingLoopSounds(float deltaTime)
         {
@@ -173,10 +176,7 @@ namespace MVZ2.Level.Components
         #endregion
         public override ISerializableLevelComponent ToSerializable()
         {
-            return new SerializableSoundComponent()
-            {
-                loopSounds = loopSounds.Select(p => new SerializableLoopSoundItem(p.Key, p.Value.ToArray())).ToArray()
-            };
+            return new SerializableSoundComponent(loopSounds.Select(p => new SerializableLoopSoundItem(p.Key, p.Value.ToArray())).ToArray());
         }
         public override void LoadSerializable(ISerializableLevelComponent seri)
         {
@@ -193,6 +193,11 @@ namespace MVZ2.Level.Components
     public class SerializableSoundComponent : ISerializableLevelComponent
     {
         public SerializableLoopSoundItem[] loopSounds;
+
+        public SerializableSoundComponent(SerializableLoopSoundItem[] loopSounds)
+        {
+            this.loopSounds = loopSounds;
+        }
     }
     [Serializable]
     public class SerializableLoopSoundItem

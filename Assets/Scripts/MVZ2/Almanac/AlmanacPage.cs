@@ -16,8 +16,8 @@ namespace MVZ2.Almanacs
         {
             returnButton.onClick.AddListener(() => OnReturnClick?.Invoke());
         }
-        public event Action OnReturnClick;
+        public event Action? OnReturnClick;
         [SerializeField]
-        private Button returnButton;
+        private Button returnButton = null!;
     }
 }

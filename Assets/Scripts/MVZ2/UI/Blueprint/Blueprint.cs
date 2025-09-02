@@ -108,12 +108,18 @@ namespace MVZ2.UI
         }
         int ILevelRaycastReceiver.GetSortingLayer()
         {
-            var canvas = (transform as RectTransform).GetRootCanvas();
+            var rectTrans = transform as RectTransform;
+            var canvas = rectTrans?.GetRootCanvas();
+            if (!canvas.Exists())
+                return 0;
             return canvas.sortingLayerID;
         }
         int ILevelRaycastReceiver.GetSortingOrder()
         {
-            var canvas = (transform as RectTransform).GetRootCanvas();
+            var rectTrans = transform as RectTransform;
+            var canvas = rectTrans?.GetRootCanvas();
+            if (!canvas.Exists())
+                return 0;
             return canvas.sortingOrder;
         }
         private void CallPointerInteraction(PointerEventData eventData, PointerInteraction interaction)
@@ -124,8 +130,8 @@ namespace MVZ2.UI
                 OnSelect?.Invoke(this, eventData);
             }
         }
-        public event Action<Blueprint, PointerEventData, PointerInteraction> OnPointerInteraction;
-        public event Action<Blueprint, PointerEventData> OnSelect;
+        public event Action<Blueprint, PointerEventData, PointerInteraction>? OnPointerInteraction;
+        public event Action<Blueprint, PointerEventData>? OnSelect;
         ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
         public UIModel Model => model;
         public int Index { get; set; } = -1;
@@ -134,50 +140,50 @@ namespace MVZ2.UI
         [SerializeField]
         private PointerInteraction selectInteraction = PointerInteraction.Down;
         [SerializeField]
-        private LevelPointerInteractionHandler holdStreakHandler;
+        private LevelPointerInteractionHandler holdStreakHandler = null!;
         [SerializeField]
-        private GameObject emptyObj;
+        private GameObject emptyObj = null!;
         [SerializeField]
-        private GameObject rootObj;
+        private GameObject rootObj = null!;
         [SerializeField]
-        private GameObject[] normalPresets;
+        private GameObject[] normalPresets = null!;
         [SerializeField]
-        private GameObject[] upgradePresets;
+        private GameObject[] upgradePresets = null!;
         [SerializeField]
-        protected GameObject[] commandBlockPresets;
+        protected GameObject[] commandBlockPresets = null!;
         [SerializeField]
-        private Image iconImage;
+        private Image iconImage = null!;
         [SerializeField]
-        private Image iconImageCommandBlock;
+        private Image iconImageCommandBlock = null!;
         [SerializeField]
-        private Image twinkleImage;
+        private Image twinkleImage = null!;
         [SerializeField]
-        private TextMeshProUGUI costText;
+        private TextMeshProUGUI costText = null!;
         [SerializeField]
-        private Image rechargeImage;
+        private Image rechargeImage = null!;
         [SerializeField]
-        private Image rechargeFlashImage;
+        private Image rechargeFlashImage = null!;
         [SerializeField]
         private float rechargeFlashTime = 0.5f;
         [SerializeField]
-        private GameObject selectedObject;
+        private GameObject selectedObject = null!;
         [SerializeField]
-        private GameObject disabledObject;
+        private GameObject disabledObject = null!;
         [SerializeField]
-        private GameObject triggerCostObject;
+        private GameObject triggerCostObject = null!;
         [SerializeField]
-        private TextMeshProUGUI hotkeyText;
+        private TextMeshProUGUI hotkeyText = null!;
         [SerializeField]
-        private UIModel model;
+        private UIModel model = null!;
         [SerializeField]
-        private TooltipAnchor tooltipAnchor;
+        private TooltipAnchor tooltipAnchor = null!;
 
     }
     public struct BlueprintViewData
     {
         public bool empty;
         public string cost;
-        public Sprite icon;
+        public Sprite? icon;
         public bool triggerActive;
         public BlueprintPreset preset;
         public bool iconGrayscale;

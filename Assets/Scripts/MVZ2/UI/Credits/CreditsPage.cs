@@ -21,13 +21,13 @@ namespace MVZ2.UI
         {
             backButton.onClick.AddListener(() => OnBackButtonClick?.Invoke());
         }
-        public event Action OnBackButtonClick;
+        public event Action? OnBackButtonClick;
 
 
         [SerializeField]
-        private ElementList categories;
+        private ElementList categories = null!;
         [SerializeField]
-        private Button backButton;
+        private Button backButton = null!;
     }
 
 }

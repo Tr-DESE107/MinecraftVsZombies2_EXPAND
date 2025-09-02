@@ -10,7 +10,7 @@ namespace MVZ2.Models
         public virtual void Init() { }
         public virtual void UpdateLogic() { }
         public virtual void UpdateFrame(float deltaTime) { }
-        public virtual void OnPropertySet(string name, object value) { }
+        public virtual void OnPropertySet(string name, object? value) { }
         public virtual void OnTrigger(string name) { }
         protected Vector3 Lawn2TransPosition(Vector3 pos)
         {
@@ -46,6 +46,6 @@ namespace MVZ2.Models
             UpdateFrame(Time.deltaTime);
 #endif
         }
-        public Model Model { get; set; }
+        public Model Model { get; set; } = null!;
     }
 }

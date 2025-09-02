@@ -53,14 +53,14 @@ namespace MVZ2.Level.UI
                 }
             }
         }
-        public event Action<MovingBlueprint> OnMotionFinished;
+        public event Action<MovingBlueprint>? OnMotionFinished;
         [SerializeField]
         private bool moving;
         [SerializeField]
         private float moveSpeed;
         [SerializeField]
-        private PositionTransition transition;
+        private PositionTransition transition = null!;
         [SerializeField]
-        private Blueprint blueprint;
+        private Blueprint? blueprint;
     }
 }

@@ -8,9 +8,17 @@ namespace MVZ2.Metas
 {
     public class AlmanacMetaList
     {
-        public List<AlmanacTagMeta> tags;
-        public List<AlmanacTagEnumMeta> enums;
-        public List<AlmanacCategory> categories;
+        public AlmanacTagMeta[] tags;
+        public AlmanacTagEnumMeta[] enums;
+        public AlmanacCategory[] categories;
+
+        public AlmanacMetaList(AlmanacTagMeta[] tags, AlmanacTagEnumMeta[] enums, AlmanacCategory[] categories)
+        {
+            this.tags = tags;
+            this.enums = enums;
+            this.categories = categories;
+        }
+
         public AlmanacCategory GetCategory(string name)
         {
             return categories.FirstOrDefault(c => c.name == name);
@@ -38,12 +46,7 @@ namespace MVZ2.Metas
                     categories.Add(category);
                 }
             }
-            return new AlmanacMetaList()
-            {
-                tags = tags,
-                enums = enums,
-                categories = categories,
-            };
+            return new AlmanacMetaList(tags.ToArray(), enums.ToArray(), categories.ToArray());
         }
         private static void LoadTags(XmlNode node, string defaultNsp, List<AlmanacTagMeta> tags, List<AlmanacTagEnumMeta> enums)
         {
@@ -53,12 +56,18 @@ namespace MVZ2.Metas
                 if (childNode.Name == "tag")
                 {
                     var tag = AlmanacTagMeta.FromXmlNode(childNode, defaultNsp);
-                    tags.Add(tag);
+                    if (tag != null)
+                    {
+                        tags.Add(tag);
+                    }
                 }
                 else if (childNode.Name == "enum")
                 {
                     var enumType = AlmanacTagEnumMeta.FromXmlNode(childNode, defaultNsp);
-                    enums.Add(enumType);
+                    if (enumType != null)
+                    {
+                        enums.Add(enumType);
+                    }
                 }
             }
         }

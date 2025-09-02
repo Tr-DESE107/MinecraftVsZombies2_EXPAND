@@ -71,6 +71,8 @@ namespace MVZ2.Scenes
         #region 私有方法
         private void UpdateKeybindingItems()
         {
+            if (bindingKeys == null)
+                return;
             var viewDatas = new List<KeybindingItemViewData>();
             var conflictKeys = bindingKeys
                 .Select(k => Main.OptionsManager.GetKeyBinding(k))
@@ -82,13 +84,15 @@ namespace MVZ2.Scenes
                 var id = bindingKeys[i];
                 var keyCode = Main.OptionsManager.GetKeyBinding(id);
                 var conflict = conflictKeys.Contains(keyCode);
-                var viewData = GetKeybindingItemViewData(i, conflict);
+                var viewData = GetKeybindingItemViewData(id, i, conflict);
                 viewDatas.Add(viewData);
             }
             ui.UpdateItems(viewDatas.ToArray());
         }
         private void UpdateKeybindingItem(int index)
         {
+            if (bindingKeys == null)
+                return;
             var conflictKeys = bindingKeys
                 .Select(k => Main.OptionsManager.GetKeyBinding(k))
                 .GroupBy(k => k)
@@ -97,12 +101,11 @@ namespace MVZ2.Scenes
             var id = bindingKeys[index];
             var keyCode = Main.OptionsManager.GetKeyBinding(id);
             var conflict = conflictKeys.Contains(keyCode);
-            var viewData = GetKeybindingItemViewData(index, conflict);
+            var viewData = GetKeybindingItemViewData(id, index, conflict);
             ui.UpdateItem(index, viewData);
         }
-        private KeybindingItemViewData GetKeybindingItemViewData(int index, bool conflict)
+        private KeybindingItemViewData GetKeybindingItemViewData(NamespaceID id, int index, bool conflict)
         {
-            var id = bindingKeys[index];
             var nameKey = Main.OptionsManager.GetHotkeyNameKey(id);
             var name = Main.LanguageManager._p(VanillaStrings.CONTEXT_HOTKEY_NAME, nameKey);
 
@@ -149,7 +152,7 @@ namespace MVZ2.Scenes
             Main.OptionsManager.SetKeyBinding(id, code);
 
             var level = Main.LevelManager.GetLevelController();
-            if (level)
+            if (level.Exists())
             {
                 level.UpdateHotkeyTexts();
             }
@@ -162,8 +165,8 @@ namespace MVZ2.Scenes
         public const string RESET_KEY_BINDINGS_WARNING = "确认要重置所有按键绑定吗？";
         private MainManager Main => MainManager.Instance;
         [SerializeField]
-        private KeybindingPage ui;
-        private NamespaceID[] bindingKeys;
+        private KeybindingPage ui = null!;
+        private NamespaceID[]? bindingKeys;
         private int bindingKeyIndex;
     }
 }

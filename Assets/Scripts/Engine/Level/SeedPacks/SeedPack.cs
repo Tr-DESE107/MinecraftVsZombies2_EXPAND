@@ -166,7 +166,7 @@ namespace PVZEngine.SeedPacks
         #endregion
 
         #region 模型
-        public void SetModelInterface(IModelInterface model)
+        public void SetModelInterface(IModelInterface? model)
         {
             modelInterface = model;
         }

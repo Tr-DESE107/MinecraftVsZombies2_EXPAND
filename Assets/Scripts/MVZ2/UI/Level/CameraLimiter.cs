@@ -54,6 +54,6 @@ namespace MVZ2.Level.UI
         [SerializeField]
         protected float safeAspectMaxMobile = 1.7f;
         [SerializeField]
-        protected Camera _camera;
+        protected Camera _camera = null!;
     }
 }

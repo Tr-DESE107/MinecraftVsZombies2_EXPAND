@@ -156,7 +156,7 @@ namespace MVZ2.Level
         #region 游戏结束
         private void ShowGameOverDialog()
         {
-            string message;
+            string? message;
             if (killerID != null)
             {
                 message = Resources.GetEntityDeathMessage(killerID);
@@ -183,6 +183,8 @@ namespace MVZ2.Level
 
         [TranslateMsg("对话框内容")]
         public const string DIALOG_DESC_RESTART = "确认要重新开始关卡吗？\n本关的进度都将丢失。";
+        [TranslateMsg("对话框内容")]
+        public const string ERROR_LOAD_LEVEL_CORRUPTED = "读取关卡失败，文件可能已损坏。";
         [TranslateMsg("对话框内容，{0}为错误信息")]
         public const string ERROR_LOAD_LEVEL_EXCEPTION = "加载关卡失败，出现错误：{0}";
         [TranslateMsg("对话框内容，{0}为错误信息")]
@@ -198,7 +200,7 @@ namespace MVZ2.Level
         [TranslateMsg("对话框内容，{0}为多出的关卡标识符列表")]
         public const string ERROR_LOAD_LEVEL_IDENTIFIER_ADDITIONAL_IDENTIFIER = "多出的模组：\n{0}";
 
-        private OptionsLogicLevel optionsLogic;
+        private OptionsLogicLevel? optionsLogic;
 
         [Header("Dialogs")]
         [SerializeField]

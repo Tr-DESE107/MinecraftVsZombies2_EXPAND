@@ -21,7 +21,7 @@ namespace MVZ2Logic.Artifacts
         {
             return definition.GetProperty<SpriteReference>(SPRITE_REFERENCE);
         }
-        public static void SetSpriteReference(this ArtifactDefinition definition, SpriteReference spriteReference)
+        public static void SetSpriteReference(this ArtifactDefinition definition, SpriteReference? spriteReference)
         {
             definition.SetProperty(SPRITE_REFERENCE, spriteReference);
         }
@@ -97,7 +97,7 @@ namespace MVZ2Logic.Artifacts
         {
             return definition.GetProperty<IConditionList>(UNLOCK);
         }
-        public static void SetUnlockConditions(this ArtifactDefinition definition, IConditionList value)
+        public static void SetUnlockConditions(this ArtifactDefinition definition, IConditionList? value)
         {
             definition.SetProperty(UNLOCK, value);
         }

@@ -11,26 +11,34 @@ namespace MVZ2.Metas
 {
     public class StageMetaTalk : IStageTalkMeta
     {
-        public string Type { get; private set; }
+        public string Type { get; private set; } = string.Empty;
         public NamespaceID Value { get; private set; }
         public int StartSection { get; private set; }
-        public XMLConditionList RepeatCondition { get; private set; }
-        public static StageMetaTalk FromXmlNode(XmlNode node, string defaultNsp)
+        public XMLConditionList? RepeatCondition { get; private set; }
+        private StageMetaTalk(NamespaceID value)
         {
-            var type = node.GetAttribute("type");
+            Value = value;
+        }
+        public static StageMetaTalk? FromXmlNode(XmlNode node, string defaultNsp)
+        {
             var value = node.GetAttributeNamespaceID("value", defaultNsp);
+            if (!NamespaceID.IsValid(value))
+            {
+                Log.LogError($"The {nameof(value)} of a {nameof(StageMetaTalk)} is invalid.");
+                return null;
+            }
+            var type = node.GetAttribute("type") ?? string.Empty;
             var startSection = node.GetAttributeInt("section") ?? 0;
 
-            XMLConditionList repeatCondition = null;
+            XMLConditionList? repeatCondition = null;
             var conditionNode = node["repeat"];
             if (conditionNode != null)
             {
                 repeatCondition = XMLConditionList.FromXmlNode(conditionNode, defaultNsp);
             }
-            return new StageMetaTalk()
+            return new StageMetaTalk(value)
             {
                 Type = type,
-                Value = value,
                 StartSection = startSection,
                 RepeatCondition = repeatCondition
             };
@@ -44,5 +52,6 @@ namespace MVZ2.Metas
         public const string TYPE_START = "start";
         public const string TYPE_END = "end";
         public const string TYPE_MAP = "map";
+
     }
 }

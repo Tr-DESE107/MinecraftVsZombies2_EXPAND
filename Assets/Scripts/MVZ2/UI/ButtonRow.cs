@@ -21,8 +21,8 @@ namespace MVZ2.UI
                 button.Button.onClick.AddListener(() => OnButtonClick?.Invoke(this, buttonList.indexOf(rect)));
             });
         }
-        public event Action<ButtonRow, int> OnButtonClick;
+        public event Action<ButtonRow, int>? OnButtonClick;
         [SerializeField]
-        private ElementList buttonList;
+        private ElementList buttonList = null!;
     }
 }

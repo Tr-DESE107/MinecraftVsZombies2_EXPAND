@@ -8,24 +8,33 @@ namespace MVZ2.Metas
 {
     public class MainmenuViewMeta
     {
+        private MainmenuViewMeta(string iD)
+        {
+            ID = iD;
+        }
+
         public string ID { get; private set; }
         public int Priority { get; private set; }
-        public NamespaceID SpritesheetID { get; private set; }
-        public XMLConditionList Conditions { get; private set; }
-        public static MainmenuViewMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public NamespaceID? SpritesheetID { get; private set; }
+        public XMLConditionList? Conditions { get; private set; }
+        public static MainmenuViewMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError($"The {nameof(id)} of a {nameof(MainmenuViewMeta)} is invalid.");
+                return null;
+            }
             var priority = node.GetAttributeInt("priority") ?? 0;
             var spritesheet = node.GetAttributeNamespaceID("spritesheet", defaultNsp);
             var conditionsNode = node["conditions"];
-            XMLConditionList conditions = null;
+            XMLConditionList? conditions = null;
             if (conditionsNode != null)
             {
                 conditions = XMLConditionList.FromXmlNode(conditionsNode, defaultNsp);
             }
-            return new MainmenuViewMeta()
+            return new MainmenuViewMeta(id)
             {
-                ID = id,
                 Priority = priority,
                 SpritesheetID = spritesheet,
                 Conditions = conditions

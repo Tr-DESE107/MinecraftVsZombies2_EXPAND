@@ -31,7 +31,7 @@ namespace MVZ2.Models
             return false;
         }
         [SerializeField]
-        private string propertyName;
+        private string propertyName = null!;
         [SerializeField]
         private IntComparer comparer;
         [SerializeField]

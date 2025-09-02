@@ -7,9 +7,9 @@ namespace MVZ2.Metas
 {
     public class AlmanacCategory
     {
-        public string name;
-        public AlmanacMetaGroup[] groups;
-        public AlmanacMetaEntry[] entries;
+        public string name = string.Empty;
+        public AlmanacMetaGroup[]? groups;
+        public AlmanacMetaEntry[]? entries;
         public static AlmanacCategory FromXmlNode(XmlNode node, string defaultNsp)
         {
             var name = node.Name;
@@ -23,16 +23,22 @@ namespace MVZ2.Metas
                 {
                     case "entry":
                         var entry = AlmanacMetaEntry.FromXmlNode(childNode, defaultNsp);
-                        if (!entry.hidden)
+                        if (entry != null)
                         {
-                            entry.index = entryIndex;
-                            entryIndex++;
+                            if (!entry.hidden)
+                            {
+                                entry.index = entryIndex;
+                                entryIndex++;
+                            }
+                            entries.Add(entry);
                         }
-                        entries.Add(entry);
                         break;
                     case "group":
                         var group = AlmanacMetaGroup.FromXmlNode(childNode, defaultNsp);
-                        groups.Add(group);
+                        if (group != null)
+                        {
+                            groups.Add(group);
+                        }
                         break;
                 }
             }

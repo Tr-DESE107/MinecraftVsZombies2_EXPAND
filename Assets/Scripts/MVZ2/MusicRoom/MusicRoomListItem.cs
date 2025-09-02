@@ -27,10 +27,10 @@ namespace MVZ2.MusicRoom
                 }
             });
         }
-        public event Action<MusicRoomListItem> OnClick;
+        public event Action<MusicRoomListItem>? OnClick;
         [SerializeField]
-        private Toggle toggle;
+        private Toggle toggle = null!;
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
     }
 }

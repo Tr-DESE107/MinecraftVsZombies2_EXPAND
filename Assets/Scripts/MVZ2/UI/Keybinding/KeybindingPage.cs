@@ -30,7 +30,8 @@ namespace MVZ2.UI
         public void UpdateItem(int index, KeybindingItemViewData viewData)
         {
             var item = items.getElement<KeybindingItem>(index);
-            item.UpdateItem(viewData);
+            if (item.Exists())
+                item.UpdateItem(viewData);
         }
         private void Awake()
         {
@@ -41,17 +42,17 @@ namespace MVZ2.UI
         {
             OnItemButtonClick?.Invoke(items.indexOf(item));
         }
-        public event Action OnBackButtonClick;
-        public event Action OnResetButtonClick;
-        public event Action<int> OnItemButtonClick;
+        public event Action? OnBackButtonClick;
+        public event Action? OnResetButtonClick;
+        public event Action<int>? OnItemButtonClick;
 
 
         [SerializeField]
-        private ElementList items;
+        private ElementList items = null!;
         [SerializeField]
-        private Button backButton;
+        private Button backButton = null!;
         [SerializeField]
-        private Button resetButton;
+        private Button resetButton = null!;
     }
 
 }

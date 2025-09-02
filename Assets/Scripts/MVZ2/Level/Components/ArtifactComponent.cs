@@ -32,19 +32,19 @@ namespace MVZ2.Level.Components
         {
             return artifacts.GetSlotCount();
         }
-        public void ReplaceArtifacts(ArtifactDefinition[] artifactDef)
+        public void ReplaceArtifacts(ArtifactDefinition?[]? artifactDef)
         {
             artifacts.ReplaceArtifacts(artifactDef);
         }
-        public void ReplaceArtifact(int slot, ArtifactDefinition artifactDef)
+        public void ReplaceArtifact(int slot, ArtifactDefinition? artifactDef)
         {
             artifacts.ReplaceArtifact(slot, artifactDef);
         }
-        public void SetArtifact(int slot, Artifact artifact)
+        public void SetArtifact(int slot, Artifact? artifact)
         {
             artifacts.SetArtifact(slot, artifact);
         }
-        public Artifact[] GetArtifacts()
+        public Artifact?[] GetArtifacts()
         {
             return artifacts.GetAllArtifacts();
         }
@@ -70,7 +70,7 @@ namespace MVZ2.Level.Components
         {
             return artifacts.GetArtifactIndex(artifact);
         }
-        public Artifact GetArtifactAt(int index)
+        public Artifact? GetArtifactAt(int index)
         {
             return artifacts.GetArtifactAt(index);
         }
@@ -89,10 +89,7 @@ namespace MVZ2.Level.Components
         }
         public override ISerializableLevelComponent ToSerializable()
         {
-            return new SerializableArtifactComponent()
-            {
-                artifacts = artifacts.ToSerializable()
-            };
+            return new SerializableArtifactComponent(artifacts.ToSerializable());
         }
         public override void LoadSerializable(ISerializableLevelComponent seri)
         {
@@ -111,7 +108,7 @@ namespace MVZ2.Level.Components
             for (int i = 0; i < count; i++)
             {
                 var artifact = artifacts.GetArtifactAt(i);
-                Sprite icon = null;
+                Sprite? icon = null;
                 string text = string.Empty;
                 bool grayscale = false;
                 bool glowing = false;
@@ -149,5 +146,10 @@ namespace MVZ2.Level.Components
     public class SerializableArtifactComponent : ISerializableLevelComponent
     {
         public SerializableArtifactList artifacts;
+
+        public SerializableArtifactComponent(SerializableArtifactList artifacts)
+        {
+            this.artifacts = artifacts;
+        }
     }
 }

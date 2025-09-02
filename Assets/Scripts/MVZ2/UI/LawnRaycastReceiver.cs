@@ -38,12 +38,12 @@ namespace MVZ2.UI
         {
             return canvas.sortingOrder;
         }
-        public event Action<LawnRaycastReceiver, PointerEventData, PointerInteraction> OnPointerInteraction;
+        public event Action<LawnRaycastReceiver, PointerEventData, PointerInteraction>? OnPointerInteraction;
         [SerializeField]
-        private Canvas canvas;
+        private Canvas canvas = null!;
         [SerializeField]
         private LawnArea area;
         [SerializeField]
-        private LevelPointerInteractionHandler holdStreakHandler;
+        private LevelPointerInteractionHandler holdStreakHandler = null!;
     }
 }

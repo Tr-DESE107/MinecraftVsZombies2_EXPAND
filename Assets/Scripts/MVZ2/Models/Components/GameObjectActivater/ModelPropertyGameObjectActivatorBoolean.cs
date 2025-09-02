@@ -13,6 +13,6 @@ namespace MVZ2.Models
         [SerializeField]
         private bool whenFalse;
         [SerializeField]
-        private string propertyName;
+        private string propertyName = null!;
     }
 }

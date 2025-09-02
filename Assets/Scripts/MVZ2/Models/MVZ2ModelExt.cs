@@ -9,7 +9,7 @@ namespace MVZ2.Models
 {
     public static class MVZ2ModelExt
     {
-        public static string GetAnchorOfArmorSlot(NamespaceID slot)
+        public static string? GetAnchorOfArmorSlot(NamespaceID slot)
         {
             var game = Global.Game;
             var slotMeta = game.GetArmorSlotDefinition(slot);
@@ -17,7 +17,7 @@ namespace MVZ2.Models
                 return null;
             return slotMeta.Anchor;
         }
-        public static Model CreateArmor(this Model model, string anchor, NamespaceID slot, NamespaceID id)
+        public static Model? CreateArmor(this Model model, string anchor, NamespaceID slot, NamespaceID id)
         {
             var key = EngineArmorExt.GetModelKeyOfArmorSlot(slot);
             return model.CreateChildModel(anchor, key, id);
@@ -27,7 +27,7 @@ namespace MVZ2.Models
             var key = EngineArmorExt.GetModelKeyOfArmorSlot(slot);
             return model.RemoveChildModel(key);
         }
-        public static Model GetArmorModel(this Model model, NamespaceID slot)
+        public static Model? GetArmorModel(this Model model, NamespaceID slot)
         {
             var key = EngineArmorExt.GetModelKeyOfArmorSlot(slot);
             return model.GetChildModel(key);

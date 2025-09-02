@@ -27,14 +27,14 @@ namespace MVZ2.GlobalGames
         }
 
         #region 属性
-        public void SetProperty<T>(PropertyKey<T> name, T value) => propertyDict.SetProperty<T>(name, value);
-        public T GetProperty<T>(PropertyKey<T> name) => propertyDict.GetProperty<T>(name);
-        public bool TryGetProperty<T>(PropertyKey<T> name, out T value) => propertyDict.TryGetProperty<T>(name, out value);
+        public void SetProperty<T>(PropertyKey<T> name, T? value) => propertyDict.SetProperty<T>(name, value);
+        public T? GetProperty<T>(PropertyKey<T> name) => propertyDict.GetProperty<T>(name);
+        public bool TryGetProperty<T>(PropertyKey<T> name, out T? value) => propertyDict.TryGetProperty<T>(name, out value);
         public IPropertyKey[] GetPropertyNames() => propertyDict.GetPropertyNames();
         #endregion
 
         #region 定义
-        public T GetDefinition<T>(string type, NamespaceID id) where T : Definition
+        public T? GetDefinition<T>(string type, NamespaceID? id) where T : Definition
         {
             return definitionGroup.GetDefinition<T>(type, id);
         }

@@ -30,8 +30,8 @@ namespace MVZ2.Models
         [SerializeField]
         private Vector3 rightEnd = new Vector3(0.5f, 0.5f, 0);
         [SerializeField]
-        private Transform leftWall;
+        private Transform leftWall = null!;
         [SerializeField]
-        private Transform rightWall;
+        private Transform rightWall = null!;
     }
 }

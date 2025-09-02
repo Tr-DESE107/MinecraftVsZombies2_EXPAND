@@ -7,17 +7,17 @@ namespace MVZ2.Archives
 {
     public class SimulationArchivePage : ArchivePage
     {
-        public void SetBackground(Sprite background)
+        public void SetBackground(Sprite? background)
         {
             backgroundImage.sprite = background;
-            if (background)
+            if (background.Exists())
             {
                 backgroundRatioFitter.aspectRatio = background.rect.width / background.rect.height;
             }
         }
         [SerializeField]
-        private Image backgroundImage;
+        private Image backgroundImage = null!;
         [SerializeField]
-        private AspectRatioFitter backgroundRatioFitter;
+        private AspectRatioFitter backgroundRatioFitter = null!;
     }
 }

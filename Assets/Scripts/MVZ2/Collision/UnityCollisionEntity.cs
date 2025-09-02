@@ -135,11 +135,7 @@ namespace MVZ2.Collisions
         #region 序列化
         public SerializableUnityCollisionEntity ToSerializable()
         {
-            return new SerializableUnityCollisionEntity()
-            {
-                id = Entity.ID,
-                colliders = colliders.Select(c => c.ToSerializable()).ToArray()
-            };
+            return new SerializableUnityCollisionEntity(Entity.ID, colliders.Select(c => c.ToSerializable()).ToArray());
         }
         public void LoadFromSerializable(ISerializableCollisionEntity seri, Entity entity)
         {
@@ -161,9 +157,9 @@ namespace MVZ2.Collisions
             }
         }
         #endregion
-        public Entity Entity { get; private set; }
+        public Entity Entity { get; private set; } = null!;
         [SerializeField]
-        private Rigidbody rigid;
+        private Rigidbody rigid = null!;
         [SerializeField]
         private List<UnityEntityCollider> colliders = new List<UnityEntityCollider>();
         [SerializeField]
@@ -171,14 +167,20 @@ namespace MVZ2.Collisions
         [SerializeField]
         private Queue<UnityEntityCollider> disabledColliders = new Queue<UnityEntityCollider>();
         [SerializeField]
-        private GameObject colliderTemplate;
+        private GameObject colliderTemplate = null!;
         [SerializeField]
-        private Transform colliderRoot;
+        private Transform colliderRoot = null!;
     }
     public class SerializableUnityCollisionEntity : ISerializableCollisionEntity
     {
         public long id;
         public SerializableUnityEntityCollider[] colliders;
+
+        public SerializableUnityCollisionEntity(long id, SerializableUnityEntityCollider[] colliders)
+        {
+            this.id = id;
+            this.colliders = colliders;
+        }
 
         long ISerializableCollisionEntity.ID => id;
 

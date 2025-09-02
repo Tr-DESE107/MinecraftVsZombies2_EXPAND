@@ -11,9 +11,9 @@ namespace MVZ2.UI
     {
         public void updateList(
             int count,
-            Action<int, GameObject> onUpdate = null,
-            Action<GameObject> onCreateOrEnable = null,
-            Action<GameObject> onDestroyOrDisable = null,
+            Action<int, GameObject>? onUpdate = null,
+            Action<GameObject>? onCreateOrEnable = null,
+            Action<GameObject>? onDestroyOrDisable = null,
             bool rebuild = false)
         {
             int maxNum = Math.Max(itemList.Count, count);
@@ -115,13 +115,13 @@ namespace MVZ2.UI
         {
             return indexOf(comp.gameObject);
         }
-        public GameObject getElement(int index)
+        public GameObject? getElement(int index)
         {
             if (index < 0 || index >= itemList.Count)
                 return null;
             return itemList[index];
         }
-        public T getElement<T>(int index) where T : Component
+        public T? getElement<T>(int index) where T : Component
         {
             return getElement(index)?.GetComponent<T>();
         }
@@ -129,7 +129,7 @@ namespace MVZ2.UI
         {
             return _template;
         }
-        public T getTemplate<T>() where T : Component
+        public T? getTemplate<T>() where T : Component
         {
             return getTemplate()?.GetComponent<T>();
         }
@@ -162,9 +162,9 @@ namespace MVZ2.UI
         public int Count => itemList.Count;
         public Transform ListRoot => _listRoot;
         [SerializeField]
-        private Transform _listRoot;
+        private Transform _listRoot = null!;
         [SerializeField]
-        private GameObject _template;
+        private GameObject _template = null!;
         [SerializeField]
         private bool pooled;
         [SerializeField]

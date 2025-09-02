@@ -20,7 +20,8 @@ namespace MVZ2.Scenes
         }
         private void Awake()
         {
-            ui.OnClick += () => showTimeout = 0;
+            if (ui.Exists())
+                ui.OnClick += () => showTimeout = 0;
         }
         private void Update()
         {
@@ -28,14 +29,15 @@ namespace MVZ2.Scenes
             {
                 var achievement = achievementEarnQueue.Dequeue();
                 var meta = main.ResourceManager.GetAchievementMeta(achievement);
-                Sprite icon = null;
+                Sprite? icon = null;
                 string name = "???";
                 if (meta != null)
                 {
                     name = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, meta.Name ?? string.Empty);
                     icon = main.GetFinalSprite(meta.Icon);
                 }
-                ui.UpdateAchievement(icon, name);
+                if (ui.Exists())
+                    ui.UpdateAchievement(icon, name);
                 showTimeout = maxShowTimeout;
             }
             if (showTimeout > 0)
@@ -47,11 +49,12 @@ namespace MVZ2.Scenes
             {
                 showBlend = showBlend * (1 - showSpeed);
             }
-            ui.SetShowValue(showBlend);
+            if (ui.Exists())
+                ui.SetShowValue(showBlend);
         }
         private MainManager main => MainManager.Instance;
         [SerializeField]
-        private AchievementHint ui;
+        private AchievementHint? ui;
         [SerializeField]
         private float maxShowTimeout = 5;
         [SerializeField]

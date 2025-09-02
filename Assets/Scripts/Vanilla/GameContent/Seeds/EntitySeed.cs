@@ -74,14 +74,14 @@ namespace MVZ2.GameContent.Seeds
     {
         public NamespaceID entityID;
         public int cost;
-        public NamespaceID rechargeID;
+        public NamespaceID? rechargeID;
         public bool triggerActive;
         public bool canInstantTrigger;
         public bool upgrade;
         public bool canInstantEvoke;
         public int variant;
-        public SpriteReference icon;
-        public SpriteReference mobileIcon;
-        public NamespaceID model;
+        public SpriteReference? icon;
+        public SpriteReference? mobileIcon;
+        public NamespaceID? model;
     }
 }

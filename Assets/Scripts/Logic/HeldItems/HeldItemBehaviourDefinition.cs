@@ -37,7 +37,7 @@ namespace MVZ2Logic.HeldItems
         public virtual void OnPointerEvent(IHeldItemTarget target, IHeldItemData data, PointerInteractionData pointerParams)
         {
         }
-        public virtual void OnSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
+        public virtual void OnSetModel(LevelEngine level, IHeldItemData data, IModelInterface? model)
         {
         }
         public virtual void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)

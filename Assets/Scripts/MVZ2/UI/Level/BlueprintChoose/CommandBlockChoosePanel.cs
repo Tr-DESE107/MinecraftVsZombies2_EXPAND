@@ -15,7 +15,7 @@ namespace MVZ2.Level.UI
         {
             displayer.UpdateItems(viewDatas);
         }
-        public Blueprint GetItem(int index)
+        public Blueprint? GetItem(int index)
         {
             return displayer.GetItem(index);
         }
@@ -25,12 +25,12 @@ namespace MVZ2.Level.UI
             displayer.OnBlueprintPointerInteraction += (index, data, i) => OnBlueprintPointerInteraction?.Invoke(index, data, i);
             displayer.OnBlueprintSelect += (index, data) => OnBlueprintSelect?.Invoke(index, data);
         }
-        public event Action OnCancelButtonClick;
-        public event Action<int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
-        public event Action<int, PointerEventData> OnBlueprintSelect;
+        public event Action? OnCancelButtonClick;
+        public event Action<int, PointerEventData, PointerInteraction>? OnBlueprintPointerInteraction;
+        public event Action<int, PointerEventData>? OnBlueprintSelect;
         [SerializeField]
-        Button cancelButton;
+        Button cancelButton = null!;
         [SerializeField]
-        BlueprintDisplayer displayer;
+        BlueprintDisplayer displayer = null!;
     }
 }

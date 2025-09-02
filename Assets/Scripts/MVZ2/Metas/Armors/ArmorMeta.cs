@@ -10,13 +10,27 @@ namespace MVZ2.Metas
 {
     public class ArmorMeta
     {
+        public ArmorMeta(string id, NamespaceID[] behaviours, ColliderConstructor[] colliderConstructors, Dictionary<string, object?> properties)
+        {
+            ID = id;
+            Behaviours = behaviours;
+            ColliderConstructors = colliderConstructors;
+            Properties = properties;
+        }
+
         public string ID { get; private set; }
         public NamespaceID[] Behaviours { get; private set; }
         public ColliderConstructor[] ColliderConstructors { get; private set; }
-        public Dictionary<string, object> Properties { get; private set; }
-        public static ArmorMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public Dictionary<string, object?> Properties { get; private set; }
+        public static ArmorMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError("The ID of an ArmorMeta is invalid.");
+                return null;
+            }
 
             var behavioursNode = node["behaviours"];
             List<NamespaceID> behaviours = new List<NamespaceID>();
@@ -26,7 +40,10 @@ namespace MVZ2.Metas
                 {
                     var behaviourNode = behavioursNode.ChildNodes[i];
                     var behaviour = behaviourNode.GetAttributeNamespaceID("id", defaultNsp);
-                    behaviours.Add(behaviour);
+                    if (behaviour != null)
+                    {
+                        behaviours.Add(behaviour);
+                    }
                 }
             }
 
@@ -43,21 +60,15 @@ namespace MVZ2.Metas
             }
 
             var propsNode = node["props"];
-            Dictionary<string, object> props = propsNode.ToPropertyDictionary(defaultNsp);
-            Dictionary<string, object> properties = new Dictionary<string, object>();
+            Dictionary<string, object?> props = propsNode.ToPropertyDictionary(defaultNsp);
+            Dictionary<string, object?> properties = new Dictionary<string, object?>();
             foreach (var prop in props)
             {
                 var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, PropertyRegions.armor);
                 properties.Add(fullName, prop.Value);
             }
 
-            return new ArmorMeta()
-            {
-                ID = id,
-                Behaviours = behaviours.ToArray(),
-                ColliderConstructors = colliders.ToArray(),
-                Properties = properties
-            };
+            return new ArmorMeta(id, behaviours.ToArray(), colliders.ToArray(), properties);
         }
     }
 }

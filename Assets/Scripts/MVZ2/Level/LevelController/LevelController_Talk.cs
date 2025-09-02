@@ -30,12 +30,12 @@ namespace MVZ2.Level
         }
 
         public bool CanStartTalk(NamespaceID groupId, int section) => talkController.CanStartTalk(groupId, section);
-        public void StartTalk(NamespaceID groupId, int section, float delay = 0, Action onEnd = null) => talkController.StartTalk(groupId, section, delay, onEnd);
+        public void StartTalk(NamespaceID groupId, int section, float delay = 0, Action? onEnd = null) => talkController.StartTalk(groupId, section, delay, onEnd);
         public bool WillSkipTalk(NamespaceID groupId, int section) => talkController.WillSkipTalk(groupId, section);
-        public void SkipTalk(NamespaceID groupId, int section, Action onSkip = null) => talkController.SkipTalk(groupId, section, onSkip);
+        public void SkipTalk(NamespaceID groupId, int section, Action? onSkip = null) => talkController.SkipTalk(groupId, section, onSkip);
 
         #region 设置对话
-        private NamespaceID GetTalkIDOfType(string type)
+        private NamespaceID? GetTalkIDOfType(string type)
         {
             var talks = level.GetTalksOfType(type);
             if (talks == null)
@@ -53,7 +53,7 @@ namespace MVZ2.Level
         }
         private async Task StartLevelIntroDialog()
         {
-            NamespaceID talkID = GetTalkIDOfType(StageMetaTalk.TYPE_START);
+            var talkID = GetTalkIDOfType(StageMetaTalk.TYPE_START);
             if (!NamespaceID.IsValid(talkID))
                 return;
 
@@ -67,8 +67,7 @@ namespace MVZ2.Level
         }
         private async Task<bool> StartLevelOutroDialog()
         {
-
-            NamespaceID talkID = GetTalkIDOfType(StageMetaTalk.TYPE_END);
+            var talkID = GetTalkIDOfType(StageMetaTalk.TYPE_END);
             if (!NamespaceID.IsValid(talkID))
                 return false;
 
@@ -78,7 +77,7 @@ namespace MVZ2.Level
         }
         private void SetMapDialog()
         {
-            NamespaceID talkID = GetTalkIDOfType(StageMetaTalk.TYPE_MAP);
+            var talkID = GetTalkIDOfType(StageMetaTalk.TYPE_MAP);
             if (!NamespaceID.IsValid(talkID))
                 return;
             Saves.SetMapTalk(talkID);
@@ -94,8 +93,8 @@ namespace MVZ2.Level
 
         #region 属性字段
         [SerializeField]
-        private TalkController talkController;
-        private ITalkSystem talkSystem;
+        private TalkController talkController = null!;
+        private ITalkSystem talkSystem = null!;
         #endregion
     }
 }

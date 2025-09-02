@@ -98,7 +98,7 @@ namespace MVZ2.Models
         #endregion
 
         #region 锚点
-        public ModelAnchor GetAnchor(string name)
+        public ModelAnchor? GetAnchor(string name)
         {
             if (string.IsNullOrEmpty(name))
                 return null;
@@ -172,7 +172,7 @@ namespace MVZ2.Models
         }
         protected void SaveToSerializableGroup(SerializableModelGroup serializable)
         {
-            serializable.animators = animators?.Select(a => new SerializableAnimator(a))?.ToArray();
+            serializable.animators = animators.Select(a => new SerializableAnimator(a)).ToArray();
         }
         protected virtual void LoadFromSerializable(SerializableModelGroup serializable)
         {
@@ -207,6 +207,6 @@ namespace MVZ2.Models
     }
     public class SerializableModelGroup
     {
-        public SerializableAnimator[] animators;
+        public SerializableAnimator[] animators = null!;
     }
 }

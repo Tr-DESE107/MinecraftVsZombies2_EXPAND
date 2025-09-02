@@ -9,14 +9,14 @@ namespace MVZ2.Models
     {
         void Awake()
         {
-            if (model)
+            if (model.Exists() && NamespaceID.IsValid(modelID) && modelCamera.Exists())
             {
                 model.Init(modelID, modelCamera);
             }
         }
 
-        public Model model;
-        public NamespaceID modelID;
-        public Camera modelCamera;
+        public Model? model;
+        public NamespaceID? modelID;
+        public Camera? modelCamera;
     }
 }

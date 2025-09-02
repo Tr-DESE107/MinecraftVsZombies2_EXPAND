@@ -13,7 +13,7 @@ namespace MVZ2.Saves
                 username = Username
             };
         }
-        public static UserDataItem FromSerializable(SerializableSaveDataMeta serializable)
+        public static UserDataItem? FromSerializable(SerializableSaveDataMeta serializable)
         {
             if (serializable == null)
                 return null;
@@ -22,11 +22,11 @@ namespace MVZ2.Saves
                 Username = serializable.username
             };
         }
-        public string Username { get; set; }
+        public string? Username { get; set; }
     }
     [Serializable]
     public class SerializableSaveDataMeta
     {
-        public string username;
+        public string? username;
     }
 }

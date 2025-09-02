@@ -12,7 +12,7 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 元数据列表
-        public SoundMetaList GetSoundMetaList(string nsp)
+        public SoundMetaList? GetSoundMetaList(string nsp)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
@@ -22,7 +22,7 @@ namespace MVZ2.Managers
         #endregion
 
         #region 元数据
-        public SoundMeta GetSoundMeta(NamespaceID id)
+        public SoundMeta? GetSoundMeta(NamespaceID id)
         {
             var soundMeta = GetSoundMetaList(id.SpaceName);
             if (soundMeta == null)
@@ -32,11 +32,7 @@ namespace MVZ2.Managers
         #endregion
 
         #region 音频片段
-        public AudioClip GetSoundClip(string nsp, string path)
-        {
-            return GetSoundClip(new NamespaceID(nsp, path));
-        }
-        public AudioClip GetSoundClip(NamespaceID id)
+        public AudioClip? GetSoundClip(NamespaceID id)
         {
             return FindInMods(id, mod => mod.Sounds);
         }

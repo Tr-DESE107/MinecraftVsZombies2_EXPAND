@@ -77,7 +77,7 @@ namespace MVZ2.UI
         {
             heldItem.SetImbued(value);
         }
-        public Model GetHeldItemModel()
+        public Model? GetHeldItemModel()
         {
             return heldItem.GetModel();
         }
@@ -104,7 +104,10 @@ namespace MVZ2.UI
         public void ResetPauseDialogPosition()
         {
             var rectTrans = pauseDialogObj.transform as RectTransform;
-            rectTrans.anchoredPosition = Vector3.zero;
+            if (rectTrans.Exists())
+            {
+                rectTrans.anchoredPosition = Vector3.zero;
+            }
         }
         public void SetPauseDialogImage(Sprite sprite)
         {
@@ -136,7 +139,10 @@ namespace MVZ2.UI
         public void ResetOptionsDialogPosition()
         {
             var rectTrans = optionsDialogObj.transform as RectTransform;
-            rectTrans.anchoredPosition = Vector3.zero;
+            if (rectTrans.Exists())
+            {
+                rectTrans.anchoredPosition = Vector3.zero;
+            }
         }
         #endregion
 
@@ -175,13 +181,13 @@ namespace MVZ2.UI
             mobileUI.OnStartGameCalled += () => OnStartGameCalled?.Invoke();
         }
 
-        public event Action OnStartGameCalled;
-        public event Action OnExitLevelToNoteCalled;
-        public event Action OnPauseDialogResumeClicked;
-        public event Action OnGameOverRetryButtonClicked;
-        public event Action OnGameOverBackButtonClicked;
-        public event Action<LevelLoadedDialog.ButtonType> OnLevelLoadedDialogButtonClicked;
-        public event Action<bool> OnLevelErrorLoadingDialogButtonClicked;
+        public event Action? OnStartGameCalled;
+        public event Action? OnExitLevelToNoteCalled;
+        public event Action? OnPauseDialogResumeClicked;
+        public event Action? OnGameOverRetryButtonClicked;
+        public event Action? OnGameOverBackButtonClicked;
+        public event Action<LevelLoadedDialog.ButtonType>? OnLevelLoadedDialogButtonClicked;
+        public event Action<bool>? OnLevelErrorLoadingDialogButtonClicked;
         public OptionsDialog OptionsDialog => optionsDialog;
 
 
@@ -190,49 +196,49 @@ namespace MVZ2.UI
 
         private bool isMobile;
         [SerializeField]
-        Animator animator;
+        Animator animator = null!;
 
         [SerializeField]
-        private LevelUIPreset standaloneUI;
+        private LevelUIPreset standaloneUI = null!;
         [SerializeField]
-        private LevelUIPreset mobileUI;
+        private LevelUIPreset mobileUI = null!;
 
         [Header("Shading")]
         [SerializeField]
-        private Image blackscreenImage;
+        private Image blackscreenImage = null!;
 
         [Header("HeldItem")]
         [SerializeField]
-        HeldItem heldItem;
+        HeldItem heldItem = null!;
 
         [Header("Pause Dialog")]
         [SerializeField]
-        GameObject pauseDialogObj;
+        GameObject pauseDialogObj = null!;
         [SerializeField]
-        PauseDialog pauseDialog;
+        PauseDialog pauseDialog = null!;
 
         [Header("Game Over Dialog")]
         [SerializeField]
-        GameObject gameOverDialogObj;
+        GameObject gameOverDialogObj = null!;
         [SerializeField]
-        GameOverDialog gameOverDialog;
+        GameOverDialog gameOverDialog = null!;
 
         [Header("Options Dialog")]
         [SerializeField]
-        GameObject optionsDialogObj;
+        GameObject optionsDialogObj = null!;
         [SerializeField]
-        OptionsDialog optionsDialog;
+        OptionsDialog optionsDialog = null!;
 
         [Header("Level Loaded Dialog")]
         [SerializeField]
-        GameObject levelLoadedDialogObj;
+        GameObject levelLoadedDialogObj = null!;
         [SerializeField]
-        LevelLoadedDialog levelLoadedDialog;
+        LevelLoadedDialog levelLoadedDialog = null!;
 
         [Header("Level Error Loading Dialog")]
         [SerializeField]
-        GameObject levelErrorLoadingDialogObj;
+        GameObject levelErrorLoadingDialogObj = null!;
         [SerializeField]
-        LevelErrorLoadingDialog levelErrorLoadingDialog;
+        LevelErrorLoadingDialog levelErrorLoadingDialog = null!;
     }
 }

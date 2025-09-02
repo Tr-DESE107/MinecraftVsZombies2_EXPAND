@@ -29,23 +29,23 @@ namespace MVZ2.Level.UI
         {
             OnPointerExit?.Invoke(this);
         }
-        public event Action<ArtifactSelectItem> OnClick;
-        public event Action<ArtifactSelectItem> OnPointerEnter;
-        public event Action<ArtifactSelectItem> OnPointerExit;
+        public event Action<ArtifactSelectItem>? OnClick;
+        public event Action<ArtifactSelectItem>? OnPointerEnter;
+        public event Action<ArtifactSelectItem>? OnPointerExit;
         [SerializeField]
-        private Image iconImage;
+        private Image iconImage = null!;
         [SerializeField]
-        private GameObject selectedObj;
+        private GameObject selectedObj = null!;
         [SerializeField]
-        private Button button;
+        private Button button = null!;
         [SerializeField]
-        private TooltipAnchor tooltipAnchor;
+        private TooltipAnchor tooltipAnchor = null!;
 
         ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
     }
     public struct ArtifactSelectItemViewData
     {
-        public Sprite icon;
+        public Sprite? icon;
         public bool selected;
         public bool disabled;
     }

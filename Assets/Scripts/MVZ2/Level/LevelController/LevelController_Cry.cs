@@ -13,7 +13,7 @@ namespace MVZ2.Level
     {
         private void UpdateEnemyCry()
         {
-            Entity[] crySoundEnemies = null;
+            Entity[]? crySoundEnemies = null;
             if (level.IsTimeInterval(7))
             {
                 crySoundEnemies ??= GetCrySoundEnemies().ToArray();
@@ -31,7 +31,11 @@ namespace MVZ2.Level
                 if (enemyCount <= 0)
                     return;
                 var crySoundEnemy = crySoundEnemies.Random(rng);
-                crySoundEnemy.PlayCrySound(crySoundEnemy.GetCrySound());
+                var crySound = crySoundEnemy.GetCrySound();
+                if (crySound != null)
+                {
+                    crySoundEnemy.PlayCrySound(crySound);
+                }
             }
         }
         private IEnumerable<Entity> GetCrySoundEnemies()
@@ -49,7 +53,7 @@ namespace MVZ2.Level
         private void ReadFromSerializable_Cry(SerializableLevelController seri)
         {
             maxCryTime = seri.maxCryTime;
-            cryTimer = seri.cryTimer;
+            cryTimer = seri.cryTimer ?? cryTimer;
         }
 
         #region 属性字段

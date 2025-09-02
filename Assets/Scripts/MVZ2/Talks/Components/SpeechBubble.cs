@@ -24,9 +24,9 @@ namespace MVZ2.Talk
             talkText.text = text;
         }
         [SerializeField]
-        private Animator animator;
+        private Animator animator = null!;
         [SerializeField]
-        private TextMeshProUGUI talkText;
+        private TextMeshProUGUI talkText = null!;
     }
     public enum SpeechBubbleDirection
     {

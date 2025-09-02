@@ -25,11 +25,11 @@ namespace MVZ2.Mainmenu.UI
         {
             toggle.onValueChanged.AddListener((value) => OnValueChanged?.Invoke(this, value));
         }
-        public event Action<UserManageItem, bool> OnValueChanged;
+        public event Action<UserManageItem, bool>? OnValueChanged;
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
         [SerializeField]
-        private Toggle toggle;
+        private Toggle toggle = null!;
     }
 
 }

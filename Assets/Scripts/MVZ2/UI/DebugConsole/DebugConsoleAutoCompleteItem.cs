@@ -26,10 +26,10 @@ namespace MVZ2.UI
         {
             OnValueChanged?.Invoke(this, value);
         }
-        public event Action<DebugConsoleAutoCompleteItem, bool> OnValueChanged;
+        public event Action<DebugConsoleAutoCompleteItem, bool>? OnValueChanged;
         [SerializeField]
-        private Toggle toggle;
+        private Toggle toggle = null!;
         [SerializeField]
-        private TextMeshProUGUI text;
+        private TextMeshProUGUI text = null!;
     }
 }

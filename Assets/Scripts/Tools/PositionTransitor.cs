@@ -84,10 +84,10 @@ namespace Tools
         {
             if (isLocalMode)
             {
-                Vector3 targetPosition = targetTransform ? targetTransform.position : _targetPosition;
+                Vector3 targetPosition = targetTransform.Exists() ? targetTransform.position : _targetPosition;
                 Vector3 globalStartPosition;
                 Vector3 localStartPosition;
-                if (startTransform)
+                if (startTransform.Exists())
                 {
                     globalStartPosition = startTransform.position;
                     localStartPosition = globalToLocalPoint(startTransform.position);
@@ -104,8 +104,8 @@ namespace Tools
             }
             else
             {
-                Vector3 startPosition = startTransform ? startTransform.position : _startPosition;
-                Vector3 targetPosition = targetTransform ? targetTransform.position : _targetPosition;
+                Vector3 startPosition = startTransform.Exists() ? startTransform.position : _startPosition;
+                Vector3 targetPosition = targetTransform.Exists() ? targetTransform.position : _targetPosition;
 
                 var position = Transit(startPosition, targetPosition, time);
                 setWorldPosition(position);
@@ -166,17 +166,17 @@ namespace Tools
         #endregion
 
         #region 属性字段
-        public Transform startTransform => _startTransform;
-        public Transform targetTransform => _targetTransform;
+        public Transform? startTransform => _startTransform;
+        public Transform? targetTransform => _targetTransform;
         [Range(0, 1)]
         [SerializeField]
         public float time;
         [SerializeField]
         bool isLocalMode;
         [SerializeField]
-        Transform _startTransform;
+        Transform? _startTransform;
         [SerializeField]
-        Transform _targetTransform;
+        Transform? _targetTransform;
         [SerializeField]
         Vector3 _startPosition;
         [SerializeField]

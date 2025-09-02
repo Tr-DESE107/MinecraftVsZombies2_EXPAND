@@ -24,7 +24,7 @@ namespace PVZEngine
             }
             list.Add(definition);
         }
-        public T? GetDefinition<T>(string type, NamespaceID id) where T : Definition
+        public T? GetDefinition<T>(string type, NamespaceID? id) where T : Definition
         {
             if (!lists.TryGetValue(type, out var list))
             {

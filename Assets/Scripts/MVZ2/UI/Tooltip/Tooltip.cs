@@ -20,12 +20,15 @@ namespace MVZ2.UI
         public void SetPosition(TooltipPosition viewData)
         {
             var rectTransform = transform as RectTransform;
-            rectTransform.pivot = viewData.pivot;
-            rectTransform.position = viewData.position;
-            var rootCanvas = rectTransform.GetRootCanvasNonAlloc(canvasListCache);
-            if (rootCanvas)
+            if (rectTransform.Exists())
             {
-                rectTransform.LimitInsideScreen(rootCanvas.transform, rootTransform.rect.size);
+                rectTransform.pivot = viewData.pivot;
+                rectTransform.position = viewData.position;
+                var rootCanvas = rectTransform.GetRootCanvasNonAlloc(canvasListCache);
+                if (rootCanvas.Exists() && rootCanvas.transform is RectTransform rectTrans)
+                {
+                    rectTransform.LimitInsideScreen(rectTrans, rootTransform.rect.size);
+                }
             }
         }
         public void SetContent(TooltipContent content)
@@ -44,13 +47,13 @@ namespace MVZ2.UI
             LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
         }
         [SerializeField]
-        RectTransform rootTransform;
+        RectTransform rootTransform = null!;
         [SerializeField]
-        TextMeshProUGUI nameText;
+        TextMeshProUGUI nameText = null!;
         [SerializeField]
-        TextMeshProUGUI errorText;
+        TextMeshProUGUI errorText = null!;
         [SerializeField]
-        TextMeshProUGUI descriptionText;
+        TextMeshProUGUI descriptionText = null!;
         private List<Canvas> canvasListCache = new List<Canvas>();
     }
     public struct TooltipPosition
@@ -63,7 +66,7 @@ namespace MVZ2.UI
         public Vector2 pivot;
         public Vector2 position;
         public string name;
-        public string error;
-        public string description;
+        public string? error;
+        public string? description;
     }
 }

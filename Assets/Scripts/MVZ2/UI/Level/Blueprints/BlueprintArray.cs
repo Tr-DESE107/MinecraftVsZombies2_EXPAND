@@ -16,9 +16,9 @@ namespace MVZ2.Level.UI
         {
             return blueprints.CreateItem().GetComponent<Blueprint>();
         }
-        public override void InsertBlueprint(int index, Blueprint blueprint)
+        public override void InsertBlueprint(int index, Blueprint? blueprint)
         {
-            if (!blueprint)
+            if (!blueprint.Exists())
                 return;
             if (index < 0 || index >= blueprints.Count)
                 return;
@@ -49,7 +49,7 @@ namespace MVZ2.Level.UI
             blueprint.OnPointerInteraction -= OnBlueprintPointerInteractionCallback;
             return true;
         }
-        public override Blueprint GetBlueprintAt(int index)
+        public override Blueprint? GetBlueprintAt(int index)
         {
             return blueprints.getElement<Blueprint>(index);
         }
@@ -60,7 +60,7 @@ namespace MVZ2.Level.UI
         public void ForceAlign(int index)
         {
             var element = GetBlueprintAt(index);
-            if (!element)
+            if (!element.Exists())
                 return;
             element.transform.localPosition = GetBlueprintLocalPosition(index);
         }
@@ -85,6 +85,6 @@ namespace MVZ2.Level.UI
             return blueprints.Count;
         }
         [SerializeField]
-        private ElementArray blueprints;
+        private ElementArray blueprints = null!;
     }
 }

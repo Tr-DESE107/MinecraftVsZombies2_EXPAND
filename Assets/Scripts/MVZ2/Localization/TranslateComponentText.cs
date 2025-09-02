@@ -9,11 +9,11 @@ namespace MVZ2.Localization
 {
     public abstract class TranslateComponentText<T> : TranslateComponent<T>, ITranslateComponent where T : Component
     {
-        protected virtual string GetKeyInner() => null;
-        protected virtual IEnumerable<string> GetKeysInner() => null;
+        protected virtual string? GetKeyInner() => null;
+        protected virtual IEnumerable<string>? GetKeysInner() => null;
         public string Context => context;
         public string Comment => comment;
-        public string Key
+        public string? Key
         {
             get
             {
@@ -22,7 +22,7 @@ namespace MVZ2.Localization
                 return key;
             }
         }
-        public IEnumerable<string> Keys
+        public IEnumerable<string>? Keys
         {
             get
             {
@@ -48,10 +48,10 @@ namespace MVZ2.Localization
             }
         }
         [SerializeField]
-        private string context;
+        private string context = null!;
         [SerializeField]
-        private string comment;
-        private string key;
-        private IEnumerable<string> keys;
+        private string comment = null!;
+        private string? key;
+        private IEnumerable<string>? keys;
     }
 }

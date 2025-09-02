@@ -8,11 +8,22 @@ namespace MVZ2.Metas
 {
     public class CreditsCategoryMeta
     {
+        public CreditsCategoryMeta(string name, string[] entries)
+        {
+            Name = name;
+            Entries = entries;
+        }
+
         public string Name { get; private set; }
         public string[] Entries { get; private set; }
-        public static CreditsCategoryMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public static CreditsCategoryMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var name = node.GetAttribute("name");
+            if (string.IsNullOrEmpty(name))
+            {
+                Log.LogError($"The {nameof(name)} of a {nameof(CreditsCategoryMeta)} is invalid.");
+                return null;
+            }
 
             List<string> entries = new List<string>();
             for (int i = 0; i < node.ChildNodes.Count; i++)
@@ -23,11 +34,7 @@ namespace MVZ2.Metas
                     entries.Add(child.InnerText);
                 }
             }
-            return new CreditsCategoryMeta()
-            {
-                Name = name,
-                Entries = entries.ToArray(),
-            };
+            return new CreditsCategoryMeta(name, entries.ToArray());
         }
     }
 }

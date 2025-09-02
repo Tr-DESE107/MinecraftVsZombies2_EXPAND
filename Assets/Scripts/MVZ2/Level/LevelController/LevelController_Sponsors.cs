@@ -20,6 +20,8 @@ namespace MVZ2.Level
         private void EnginePostUseEntityBlueprintCallback(VanillaLevelCallbacks.PostUseEntityBlueprintParams param, CallbackResult callbackResult)
         {
             var entity = param.entity;
+            if (entity == null)
+                return;
             var seed = param.blueprint;
             var definition = param.definition;
             var heldData = param.heldData;
@@ -39,18 +41,22 @@ namespace MVZ2.Level
             var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.FURNACE);
             if (names.Length <= 0)
                 return;
-            var text = furnace.Spawn(VanillaEffectID.floatingText, furnace.GetCenter(), rng.Next());
-            var name = names.Random(text.RNG);
-            FloatingText.SetText(text, name);
+            furnace.Spawn(VanillaEffectID.floatingText, furnace.GetCenter(), rng.Next())?.Let(e =>
+            {
+                var name = names.Random(e.RNG);
+                FloatingText.SetText(e, name);
+            });
         }
         private void ShowMoonlightSensorSponsorName(Entity sensor)
         {
             var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Sensor.TYPE, SponsorPlans.Sensor.MOONLIGHT_SENSOR);
             if (names.Length <= 0)
                 return;
-            var text = sensor.Spawn(VanillaEffectID.floatingText, sensor.GetCenter(), rng.Next());
-            var name = names.Random(text.RNG);
-            FloatingText.SetText(text, name);
+            sensor.Spawn(VanillaEffectID.floatingText, sensor.GetCenter(), rng.Next())?.Let(e =>
+            {
+                var name = names.Random(e.RNG);
+                FloatingText.SetText(e, name);
+            });
         }
     }
 }

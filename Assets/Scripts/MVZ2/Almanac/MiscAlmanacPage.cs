@@ -25,7 +25,10 @@ namespace MVZ2.Almanacs
             obj =>
             {
                 var entry = obj.GetComponent<AlmanacEntryGroupUI>();
-                entry.OnEntryClick -= OnGroupEntryClickCallback;
+                if (entry.Exists())
+                {
+                    entry.OnEntryClick -= OnGroupEntryClickCallback;
+                }
             });
         }
         public void SetEntries(AlmanacEntryViewData[] entries)
@@ -43,10 +46,13 @@ namespace MVZ2.Almanacs
             obj =>
             {
                 var entry = obj.GetComponent<AlmanacEntry>();
-                entry.OnClick -= OnEntryClickCallback;
+                if (entry.Exists())
+                {
+                    entry.OnClick -= OnEntryClickCallback;
+                }
             });
         }
-        public void SetActiveEntry(Sprite image, string name, string description, bool sized, bool zoom)
+        public void SetActiveEntry(Sprite? image, string name, string description, bool sized, bool zoom)
         {
             entryImageRegion.gameObject.SetActive(true);
             entryModel.gameObject.SetActive(false);
@@ -56,7 +62,7 @@ namespace MVZ2.Almanacs
                 entryImageFull.enabled = false;
                 entryImageSized.sprite = image;
                 entryImageSized.enabled = image;
-                if (image)
+                if (image.Exists())
                 {
                     entryImageSized.rectTransform.sizeDelta = image.rect.size;
                 }
@@ -92,24 +98,24 @@ namespace MVZ2.Almanacs
         {
             OnEntryClick?.Invoke(entryList.indexOf(entry));
         }
-        public event Action<int, int> OnGroupEntryClick;
-        public event Action<int> OnEntryClick;
-        public event Action OnZoomClick;
+        public event Action<int, int>? OnGroupEntryClick;
+        public event Action<int>? OnEntryClick;
+        public event Action? OnZoomClick;
         [SerializeField]
-        private ElementList entryList;
+        private ElementList entryList = null!;
         [SerializeField]
-        private ElementList groupList;
+        private ElementList groupList = null!;
         [SerializeField]
-        private AlmanacModel entryModel;
+        private AlmanacModel entryModel = null!;
         [SerializeField]
-        private GameObject entryImageRegion;
+        private GameObject entryImageRegion = null!;
         [SerializeField]
-        private Image entryImageFull;
+        private Image entryImageFull = null!;
         [SerializeField]
-        private Image entryImageSized;
+        private Image entryImageSized = null!;
         [SerializeField]
-        private GameObject iconZoomButtonRoot;
+        private GameObject iconZoomButtonRoot = null!;
         [SerializeField]
-        private Button iconZoomButton;
+        private Button iconZoomButton = null!;
     }
 }

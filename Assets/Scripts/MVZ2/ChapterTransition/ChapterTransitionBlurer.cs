@@ -27,9 +27,9 @@ namespace MVZ2.ChapterTransition
                 return _propertyBlock;
             }
         }
-        private MaterialPropertyBlock _propertyBlock;
+        private MaterialPropertyBlock? _propertyBlock;
         [SerializeField]
-        private SpriteRenderer titleRenderer;
+        private SpriteRenderer titleRenderer = null!;
         [SerializeField]
         [Range(0, 1)]
         private float titleBlur;

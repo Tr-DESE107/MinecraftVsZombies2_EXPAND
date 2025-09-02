@@ -25,6 +25,7 @@ using MVZ2Logic.Errors;
 using MVZ2Logic.Games;
 using MVZ2Logic.Level;
 using MVZ2Logic.Modding;
+using MVZ2Logic.Notes;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using PVZEngine.Base;
@@ -235,27 +236,33 @@ namespace MVZ2.Modding
                 var entityVariant = meta.EntityVariant;
                 var notInEndless = spawnLevel <= 0 || noEndless;
 
-                VanillaSpawnDefinition spawnDef = null;
+                VanillaSpawnDefinition? spawnDef = null;
                 if (type == "entity")
                 {
-                    var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
-                    var inLevel = new SpawnInLevelBehaviour(spawnDef, spawnLevel, entityID, water, air);
-                    var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                    spawnDef = new VanillaSpawnDefinition(nsp, name, inLevel, preview, endless);
+                    if (NamespaceID.IsValid(entityID))
+                    {
+                        spawnDef = new VanillaSpawnDefinition(nsp, name);
+                        var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
+                        var inLevel = new SpawnInLevelBehaviour(spawnLevel, entityID, water, air);
+                        var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
+                        spawnDef.SetBehaviours(inLevel, preview, endless);
+                    }
                 }
                 else if (name == VanillaSpawnNames.undeadFlyingObject)
                 {
+                    spawnDef = new VanillaSpawnDefinition(nsp, name);
                     var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
                     var inLevel = new UFOSpawnInLevelBehaviour(spawnLevel, entityVariant);
                     var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                    spawnDef = new VanillaSpawnDefinition(nsp, name, inLevel, preview, endless);
+                    spawnDef.SetBehaviours(inLevel, preview, endless);
                 }
                 else if (name == VanillaSpawnNames.undeadFlyingObjectBlitz)
                 {
+                    spawnDef = new VanillaSpawnDefinition(nsp, name);
                     var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
                     var inLevel = new UFOSpawnInLevelBehaviour(spawnLevel, entityVariant, 0, 1, 20);
                     var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                    spawnDef = new VanillaSpawnDefinition(nsp, name, inLevel, preview, endless);
+                    spawnDef.SetBehaviours(inLevel, preview, endless);
                 }
                 if (spawnDef == null)
                 {
@@ -281,7 +288,7 @@ namespace MVZ2.Modding
             {
                 if (meta == null)
                     continue;
-                StageDefinition stageDef = null;
+                StageDefinition? stageDef = null;
                 switch (meta.Type)
                 {
                     case StageTypes.TYPE_NORMAL:
@@ -398,6 +405,9 @@ namespace MVZ2.Modding
             {
                 if (meta == null)
                     continue;
+                var entityID = meta.EntityID;
+                if (!NamespaceID.IsValid(entityID))
+                    continue;
 
                 var def = new EntitySeedDefinition(nsp, meta.ID, meta.Name, meta.Tooltip);
                 mod.AddDefinition(def);
@@ -405,14 +415,14 @@ namespace MVZ2.Modding
                 // 将实体作为蓝图添加到游戏中。
                 var info = new EntitySeedInfo()
                 {
-                    entityID = meta.GetEntityID(),
-                    cost = meta.GetCost(),
-                    rechargeID = meta.GetRechargeID(),
+                    entityID = entityID,
+                    cost = meta.Cost,
+                    rechargeID = meta.RechargeID,
                     triggerActive = meta.IsTriggerActive(),
                     canInstantTrigger = meta.CanInstantTrigger(),
                     upgrade = meta.IsUpgradeBlueprint(),
                     canInstantEvoke = meta.CanInstantEvoke(),
-                    variant = meta.GetVariant(),
+                    variant = meta.Variant,
                     icon = meta.GetIcon(),
                     mobileIcon = meta.GetMobileIcon(),
                     model = meta.GetModelID()
@@ -456,6 +466,8 @@ namespace MVZ2.Modding
             LoadStageProperties(mod);
             // 加载所有命令属性。
             LoadCommandProperties(mod);
+            // 加载所有笔记属性。
+            LoadNoteProperties(mod);
         }
         private void LoadAreaProperties(Mod mod)
         {
@@ -596,6 +608,25 @@ namespace MVZ2.Modding
                 def.SetProperty(LogicCommandProps.DESCRIPTION, meta.Description);
                 def.SetProperty(LogicCommandProps.MUST_IN_LEVEL, meta.InLevel);
                 def.SetProperty<ICommandVariantMeta[]>(LogicCommandProps.VARIANTS, meta.Variants);
+                mod.AddDefinition(def);
+            }
+        }
+        private void LoadNoteProperties(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (NoteDefinition def in mod.GetAllNoteDefinitions())
+            {
+                if (def == null)
+                    continue;
+                var id = def.GetID();
+                var meta = res.GetNoteMeta(id);
+                if (meta == null)
+                    continue;
+                def.SetProperty(LogicNoteProps.CAN_FLIP, meta.canFlip);
+                def.SetProperty(LogicNoteProps.NOTE_BACKGROUND, meta.background);
+                def.SetProperty(LogicNoteProps.NOTE_SPRITE, meta.sprite);
+                def.SetProperty(LogicNoteProps.FLIP_NOTE_SPRITE, meta.flipSprite);
+                def.SetProperty(LogicNoteProps.START_TALK, meta.startTalk);
                 mod.AddDefinition(def);
             }
         }

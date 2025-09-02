@@ -53,7 +53,7 @@ namespace MVZ2Logic.Modding
                 triggers.Add(trigger);
             }
         }
-        public T? GetDefinition<T>(string type, NamespaceID defRef) where T : Definition
+        public T? GetDefinition<T>(string type, NamespaceID? defRef) where T : Definition
         {
             return definitionGroup.GetDefinition<T>(type, defRef);
         }

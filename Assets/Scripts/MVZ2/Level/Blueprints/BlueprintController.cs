@@ -32,7 +32,8 @@ namespace MVZ2.Level
             var model = GetModel();
             if (model != null)
             {
-                model.Init(null, Controller.GetCamera());
+                // TODO 把这个蓝图的内嵌蓝图ID给它改一下
+                model.Init(null!, Controller.GetCamera());
             }
             AddCallbacks();
         }
@@ -99,7 +100,7 @@ namespace MVZ2.Level
         protected abstract void OnDestroy();
         private string GetName()
         {
-            return Main.ResourceManager.GetBlueprintName(GetSeedDefinition()?.GetID(), IsCommandBlock());
+            return Main.ResourceManager.GetBlueprintName(GetSeedDefinition().GetID(), IsCommandBlock());
         }
         #endregion
 
@@ -135,6 +136,6 @@ namespace MVZ2.Level
     }
     public class SerializableBlueprintController
     {
-        public SerializableModelData model;
+        public SerializableModelData? model;
     }
 }

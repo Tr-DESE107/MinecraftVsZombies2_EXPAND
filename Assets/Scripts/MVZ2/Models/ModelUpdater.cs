@@ -8,7 +8,7 @@ namespace MVZ2.Models
     {
         void Update()
         {
-            if (model)
+            if (model.Exists())
             {
                 var deltaTime = Time.deltaTime;
                 model.UpdateFrame(deltaTime);
@@ -17,12 +17,12 @@ namespace MVZ2.Models
         }
         private void FixedUpdate()
         {
-            if (model)
+            if (model.Exists())
             {
                 model.UpdateFixed();
             }
         }
 
-        public Model model;
+        public Model? model;
     }
 }

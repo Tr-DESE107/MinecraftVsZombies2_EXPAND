@@ -40,11 +40,11 @@ namespace MVZ2.Scenes
             achievementHint.gameObject.SetActive(true);
         }
         #region 对话框
-        public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
+        public void ShowDialog(string title, string desc, string[] options, Action<int>? onSelect = null)
         {
             ui.ShowDialog(title, desc, options, onSelect);
         }
-        public void ShowDialogMessage(string title, string desc, Action onSelect = null)
+        public void ShowDialogMessage(string title, string desc, Action? onSelect = null)
         {
             ShowDialog(title, desc, new string[]
             {
@@ -53,11 +53,11 @@ namespace MVZ2.Scenes
         }
         public Task ShowDialogMessageAsync(string title, string desc)
         {
-            var tcs = new TaskCompletionSource<object>();
+            var tcs = new TaskCompletionSource<object?>();
             ShowDialogMessage(title, desc, () => tcs.SetResult(null));
             return tcs.Task;
         }
-        public void ShowDialogSelect(string title, string desc, Action<bool> onSelect = null)
+        public void ShowDialogSelect(string title, string desc, Action<bool>? onSelect = null)
         {
             ShowDialog(title, desc, new string[]
             {
@@ -83,7 +83,7 @@ namespace MVZ2.Scenes
         {
             return inputNameDialog.ShowRename(index);
         }
-        public Task<int> ShowDeleteUserDialogAsync(IEnumerable<UserDataItem> users)
+        public Task<int> ShowDeleteUserDialogAsync(IEnumerable<UserDataItem?> users)
         {
             return deleteUserDialog.Show(users);
         }
@@ -316,7 +316,12 @@ namespace MVZ2.Scenes
         }
         public void UpdateTooltip()
         {
-            var target = tooltipSource?.GetTarget();
+            if (tooltipSource == null)
+            {
+                ui.HideTooltip();
+                return;
+            }
+            var target = tooltipSource.GetTarget();
             if (target == null || target.Anchor == null || target.Anchor.IsDisabled)
             {
                 ui.HideTooltip();
@@ -437,7 +442,7 @@ namespace MVZ2.Scenes
         }
         #endregion
 
-        private bool CanUseDebugConsole(string username)
+        private bool CanUseDebugConsole(string? username)
         {
             if (!CanPageUseDebugConsole())
                 return false;
@@ -454,54 +459,54 @@ namespace MVZ2.Scenes
         private MainManager main => MainManager.Instance;
         private Dictionary<MainScenePageType, ScenePage> pages = new Dictionary<MainScenePageType, ScenePage>();
         private MainScenePageType currentPage = MainScenePageType.None;
-        private ITooltipSource tooltipSource;
+        private ITooltipSource? tooltipSource;
 
         [SerializeField]
-        private Camera uiCamera;
+        private Camera uiCamera = null!;
         [SerializeField]
-        private MainSceneUI ui;
+        private MainSceneUI ui = null!;
         [SerializeField]
-        private SplashController splash;
+        private SplashController splash = null!;
         [SerializeField]
-        private TitlescreenController titlescreen;
+        private TitlescreenController titlescreen = null!;
         [SerializeField]
-        private MainmenuController mainmenu;
+        private MainmenuController mainmenu = null!;
         [SerializeField]
-        private NoteController note;
+        private NoteController note = null!;
         [SerializeField]
-        private MapController map;
+        private MapController map = null!;
         [SerializeField]
-        private PortalController portal;
+        private PortalController portal = null!;
         [SerializeField]
-        private ChapterTransitionController chapterTransition;
+        private ChapterTransitionController chapterTransition = null!;
         [SerializeField]
-        private AlmanacController almanac;
+        private AlmanacController almanac = null!;
         [SerializeField]
-        private StoreController store;
+        private StoreController store = null!;
         [SerializeField]
-        private ArchiveController archive;
+        private ArchiveController archive = null!;
         [SerializeField]
-        private AddonsController addons;
+        private AddonsController addons = null!;
         [SerializeField]
-        private MusicRoomController musicRoom;
+        private MusicRoomController musicRoom = null!;
         [SerializeField]
-        private ArcadeController arcade;
+        private ArcadeController arcade = null!;
         [SerializeField]
-        private KeybindingController keybinding;
+        private KeybindingController keybinding = null!;
         [SerializeField]
-        private CreditsController credits;
+        private CreditsController credits = null!;
         [SerializeField]
-        private AchievementHintController achievementHint;
+        private AchievementHintController achievementHint = null!;
         [SerializeField]
-        private PopupController popup;
+        private PopupController popup = null!;
         [SerializeField]
-        private FPSDisplayer fpsDisplayer;
+        private FPSDisplayer fpsDisplayer = null!;
         [SerializeField]
-        private DebugConsoleController debugConsole;
+        private DebugConsoleController debugConsole = null!;
         [SerializeField]
-        private InputNameDialogController inputNameDialog;
+        private InputNameDialogController inputNameDialog = null!;
         [SerializeField]
-        private DeleteUserDialogController deleteUserDialog;
+        private DeleteUserDialogController deleteUserDialog = null!;
         #endregion
     }
 }

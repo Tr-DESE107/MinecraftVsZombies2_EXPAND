@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using MVZ2.UI;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -13,12 +14,12 @@ namespace MVZ2.Level
 {
     public interface ILevelBlueprintController : ILevelControllerPart
     {
-        BlueprintController GetCurrentBlueprintControllerByIndex(int index);
+        BlueprintController? GetCurrentBlueprintControllerByIndex(int index);
         void DestroyClassicBlueprintAt(int index);
         void DestroyConveyorBlueprintAt(int index);
         float GetConveyorSpeed();
         void SetUIConveyorMode(bool conveyor);
-        ConveyorBlueprintController GetConveyorBlueprintController(int index);
+        ConveyorBlueprintController? GetConveyorBlueprintController(int index);
         void SetConveyorBlueprintUIPosition(int index, float position);
     }
     public class LevelBlueprintController : LevelControllerPart, ILevelBlueprintController
@@ -95,13 +96,13 @@ namespace MVZ2.Level
         #endregion
 
         #region 经典模式控制器
-        public ClassicBlueprintController GetClassicBlueprintController(int index)
+        public ClassicBlueprintController? GetClassicBlueprintController(int index)
         {
             if (index < 0 || index >= classicBlueprints.Length)
                 return null;
             return classicBlueprints[index];
         }
-        private ClassicBlueprintController CreateClassicSeedController(int index)
+        private ClassicBlueprintController? CreateClassicSeedController(int index)
         {
             var seed = Level.GetSeedPackAt(index);
             if (seed == null)
@@ -127,13 +128,13 @@ namespace MVZ2.Level
         #endregion
 
         #region 传送带模式控制器
-        public ConveyorBlueprintController GetConveyorBlueprintController(int index)
+        public ConveyorBlueprintController? GetConveyorBlueprintController(int index)
         {
             if (index < 0 || index >= conveyorBlueprints.Count)
                 return null;
             return conveyorBlueprints[index];
         }
-        private ConveyorBlueprintController CreateConveyorSeedController(int index)
+        private ConveyorBlueprintController? CreateConveyorSeedController(int index)
         {
             var seed = Level.GetConveyorSeedPackAt(index);
             if (seed == null)
@@ -165,7 +166,7 @@ namespace MVZ2.Level
         }
         #endregion
 
-        public BlueprintController GetCurrentBlueprintControllerByIndex(int index)
+        public BlueprintController? GetCurrentBlueprintControllerByIndex(int index)
         {
             if (Level.IsConveyorMode())
             {
@@ -216,11 +217,9 @@ namespace MVZ2.Level
 
         protected override SerializableLevelControllerPart GetSerializable()
         {
-            return new SerializableLevelBlueprintController()
-            {
-                classicBlueprints = classicBlueprints.Select(b => b == null ? null : b.ToSerializable()).ToArray(),
-                conveyorBlueprints = conveyorBlueprints.Select(b => b == null ? null : b.ToSerializable()).ToArray(),
-            };
+            var classicBlueprints = this.classicBlueprints.Select(b => b == null ? null : b.ToSerializable()).ToArray();
+            var conveyorBlueprints = this.conveyorBlueprints.Select(b => b.ToSerializable()).ToArray();
+            return new SerializableLevelBlueprintController(ID, classicBlueprints, conveyorBlueprints);
         }
         public override void LoadFromSerializable(SerializableLevelControllerPart seri)
         {
@@ -303,14 +302,20 @@ namespace MVZ2.Level
 
         [SerializeField]
         private float conveyorSpeed = 1;
-        private ClassicBlueprintController[] classicBlueprints = Array.Empty<ClassicBlueprintController>();
+        private ClassicBlueprintController?[] classicBlueprints = Array.Empty<ClassicBlueprintController>();
         private List<ConveyorBlueprintController> conveyorBlueprints = new List<ConveyorBlueprintController>();
     }
     [Serializable]
     public class SerializableLevelBlueprintController : SerializableLevelControllerPart
     {
-        public SerializableBlueprintController[] classicBlueprints;
+        public SerializableBlueprintController?[] classicBlueprints;
         public SerializableBlueprintController[] conveyorBlueprints;
+
+        public SerializableLevelBlueprintController(NamespaceID id, SerializableBlueprintController?[] classicBlueprints, SerializableBlueprintController[] conveyorBlueprints) : base(id)
+        {
+            this.classicBlueprints = classicBlueprints;
+            this.conveyorBlueprints = conveyorBlueprints;
+        }
     }
     public interface ILevelBlueprintRuntimeUI
     {

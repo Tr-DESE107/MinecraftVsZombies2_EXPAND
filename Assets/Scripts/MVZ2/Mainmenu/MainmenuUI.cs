@@ -51,7 +51,7 @@ namespace MVZ2.Mainmenu.UI
         {
             userManageDialog.SetCreateNewUserActive(active);
         }
-        public void SetWindowViewSprite(Sprite sprite)
+        public void SetWindowViewSprite(Sprite? sprite)
         {
             windowViewSpriteRenderer.sprite = sprite;
         }
@@ -114,75 +114,75 @@ namespace MVZ2.Mainmenu.UI
             stats.OnReturnClick += () => OnStatsReturnButtonClick?.Invoke();
             achievements.OnReturnClick += () => OnAchievementsReturnButtonClick?.Invoke();
         }
-        public event Action<MainmenuButtonType> OnMainmenuButtonClick;
-        public event Action OnUserManageDialogCreateNewUserButtonClick;
-        public event Action<UserManageDialog.ButtonType> OnUserManageDialogButtonClick;
-        public event Action<int> OnUserManageDialogUserSelect;
-        public event Action OnStatsReturnButtonClick;
-        public event Action OnAchievementsReturnButtonClick;
+        public event Action<MainmenuButtonType>? OnMainmenuButtonClick;
+        public event Action? OnUserManageDialogCreateNewUserButtonClick;
+        public event Action<UserManageDialog.ButtonType>? OnUserManageDialogButtonClick;
+        public event Action<int>? OnUserManageDialogUserSelect;
+        public event Action? OnStatsReturnButtonClick;
+        public event Action? OnAchievementsReturnButtonClick;
 
 
         public OptionsDialog OptionsDialog => optionsDialog;
         private Dictionary<MainmenuButtonType, MainmenuButton> mainmenuButtonDict = new Dictionary<MainmenuButtonType, MainmenuButton>();
 
         [SerializeField]
-        private GameObject rayblocker;
+        private GameObject rayblocker = null!;
         [SerializeField]
-        private StatsUI stats;
+        private StatsUI stats = null!;
         [SerializeField]
-        private AchievementsUI achievements;
+        private AchievementsUI achievements = null!;
 
         [Header("Backgrounds")]
         [SerializeField]
-        private GameObject backgroundLight;
+        private GameObject backgroundLight = null!;
         [SerializeField]
-        private GameObject backgroundDark;
+        private GameObject backgroundDark = null!;
         [SerializeField]
-        private TextMeshPro userNameText;
+        private TextMeshPro userNameText = null!;
         [SerializeField]
-        private TextMeshPro userNameGoldText;
+        private TextMeshPro userNameGoldText = null!;
         [SerializeField]
-        private TextMeshPro versionText;
+        private TextMeshPro versionText = null!;
         [SerializeField]
-        private SpriteRenderer windowViewSpriteRenderer;
+        private SpriteRenderer windowViewSpriteRenderer = null!;
 
         [Header("Dialogs")]
         [SerializeField]
-        private OptionsDialog optionsDialog;
+        private OptionsDialog optionsDialog = null!;
         [SerializeField]
-        private UserManageDialog userManageDialog;
+        private UserManageDialog userManageDialog = null!;
 
         [Header("Buttons")]
         [SerializeField]
-        private MainmenuButton adventureButton;
+        private MainmenuButton adventureButton = null!;
         [SerializeField]
-        private MainmenuButton optionsButton;
+        private MainmenuButton optionsButton = null!;
         [SerializeField]
-        private MainmenuButton helpButton;
+        private MainmenuButton helpButton = null!;
         [SerializeField]
-        private MainmenuButton userManageButton;
+        private MainmenuButton userManageButton = null!;
         [SerializeField]
-        private MainmenuButton quitButton;
+        private MainmenuButton quitButton = null!;
         [SerializeField]
-        private MainmenuButton almanacButton;
+        private MainmenuButton almanacButton = null!;
         [SerializeField]
-        private MainmenuButton storeButton;
+        private MainmenuButton storeButton = null!;
         [SerializeField]
-        private MainmenuButton moreMenuButton;
+        private MainmenuButton moreMenuButton = null!;
         [SerializeField]
-        private MainmenuButton backToMenuButton;
+        private MainmenuButton backToMenuButton = null!;
         [SerializeField]
-        private MainmenuButton archiveButton;
+        private MainmenuButton archiveButton = null!;
         [SerializeField]
-        private MainmenuButton addonsButton;
+        private MainmenuButton addonsButton = null!;
         [SerializeField]
-        private MainmenuButton statsButton;
+        private MainmenuButton statsButton = null!;
         [SerializeField]
-        private MainmenuButton achievementButton;
+        private MainmenuButton achievementButton = null!;
         [SerializeField]
-        private MainmenuButton musicRoomButton;
+        private MainmenuButton musicRoomButton = null!;
         [SerializeField]
-        private MainmenuButton arcadeButton;
+        private MainmenuButton arcadeButton = null!;
     }
     public enum MainmenuButtonType
     {

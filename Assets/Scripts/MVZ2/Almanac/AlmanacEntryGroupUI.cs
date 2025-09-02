@@ -32,11 +32,11 @@ namespace MVZ2.Almanacs
         {
             OnEntryClick?.Invoke(this, entryList.indexOf(entry));
         }
-        public Action<AlmanacEntryGroupUI, int> OnEntryClick;
+        public event Action<AlmanacEntryGroupUI, int>? OnEntryClick;
         [SerializeField]
-        private TextMeshProUGUI titleText;
+        private TextMeshProUGUI titleText = null!;
         [SerializeField]
-        private ElementList entryList;
+        private ElementList entryList = null!;
     }
     public struct AlmanacEntryGroupViewData
     {

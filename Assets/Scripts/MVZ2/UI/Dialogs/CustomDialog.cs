@@ -38,13 +38,13 @@ namespace MVZ2.UI
             var realIndex = rowIndex * countPerRow + index;
             OnOptionSelect?.Invoke(realIndex);
         }
-        private Action<int> OnOptionSelect;
+        private event Action<int>? OnOptionSelect;
         [SerializeField]
-        private TextMeshProUGUI title;
+        private TextMeshProUGUI title = null!;
         [SerializeField]
-        private TextMeshProUGUI desc;
+        private TextMeshProUGUI desc = null!;
         [SerializeField]
-        private ElementListUI buttonRowList;
+        private ElementListUI buttonRowList = null!;
         [SerializeField]
         private int countPerRow = 2;
 

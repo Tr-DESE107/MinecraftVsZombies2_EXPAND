@@ -46,7 +46,7 @@ namespace MVZ2.Level.UI
             }
             return false;
         }
-        public override Blueprint GetBlueprintAt(int index)
+        public override Blueprint? GetBlueprintAt(int index)
         {
             return blueprints.getElement<Blueprint>(index);
         }
@@ -64,6 +64,6 @@ namespace MVZ2.Level.UI
             return blueprints.Count;
         }
         [SerializeField]
-        private ElementList blueprints;
+        private ElementList blueprints = null!;
     }
 }

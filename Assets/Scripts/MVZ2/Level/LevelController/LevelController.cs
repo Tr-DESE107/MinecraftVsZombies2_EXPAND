@@ -46,15 +46,11 @@ namespace MVZ2.Level
                 controller.Init(this);
             }
         }
-        private void WriteToSerializable_Parts(SerializableLevelController seri)
-        {
-            seri.parts = parts.Select(p => p.ToSerializable()).ToArray();
-        }
         private void ReadFromSerializable_Parts(SerializableLevelController seri)
         {
             foreach (var part in parts)
             {
-                var seriPart = seri.parts.FirstOrDefault(p => p.id == part.ID);
+                var seriPart = seri.parts.FirstOrDefault(p => p != null && p.id == part.ID);
                 if (seriPart == null)
                 {
                     Debug.LogWarning($"Could not find serialized LevelControllerPart data with id {part.ID}.");
@@ -85,7 +81,6 @@ namespace MVZ2.Level
                 level.Dispose();
             }
             LevelManager.SetLevelController(null);
-            isDisposed = true;
         }
         public void UpdateDifficulty()
         {
@@ -120,11 +115,10 @@ namespace MVZ2.Level
         private MainSceneController Scene => Main.Scene;
         private OptionsManager Options => Main.OptionsManager;
         private ShakeManager Shakes => Main.ShakeManager;
-        private LevelEngine level;
-        private RandomGenerator rng;
-        private bool isDisposed;
+        private LevelEngine level = null!;
+        private RandomGenerator rng = null!;
 
-        private ILevelControllerPart[] parts;
+        private ILevelControllerPart[] parts = null!;
         #endregion
     }
 }

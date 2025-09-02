@@ -17,6 +17,6 @@ namespace MVZ2.Models
             shape.position = Vector2.up * size.y * 0.5f;
         }
         [SerializeField]
-        private ParticlePlayer particles;
+        private ParticlePlayer particles = null!;
     }
 }

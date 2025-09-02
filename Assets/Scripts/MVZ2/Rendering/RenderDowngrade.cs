@@ -14,6 +14,6 @@ namespace MVZ2.Rendering
             Graphics.Blit(lowResRT, dest);
         }
         [SerializeField]
-        private RenderTexture lowResRT;
+        private RenderTexture lowResRT = null!;
     }
 }

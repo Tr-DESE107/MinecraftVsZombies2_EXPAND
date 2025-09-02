@@ -9,67 +9,75 @@ namespace MVZ2.Metas
 {
     public class BlueprintEntityMeta
     {
+        public BlueprintEntityMeta(string id, NamespaceID entityID)
+        {
+            ID = id;
+            EntityID = entityID;
+        }
         public string ID { get; private set; }
+
+
         public int Cost { get; private set; }
-        public NamespaceID RechargeID { get; private set; }
-        public string Name { get; private set; }
-        public string Tooltip { get; private set; }
+        public NamespaceID? RechargeID { get; private set; }
+        public string Name { get; private set; } = string.Empty;
+        public string Tooltip { get; private set; } = string.Empty;
         public NamespaceID EntityID { get; private set; }
         public int Variant { get; private set; }
-        public BlueprintMetaIcon Icon { get; private set; }
-        public static BlueprintEntityMeta FromXmlNode(string nsp, XmlNode node, string defaultNsp)
+        public BlueprintMetaIcon? Icon { get; private set; }
+        public static BlueprintEntityMeta? FromXmlNode(string nsp, XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError("The ID of a BlueprintEntityMeta is invalid.");
+                return null;
+            }
+            var entityID = node.GetAttributeNamespaceID("entity", defaultNsp);
+            if (!NamespaceID.IsValid(entityID))
+            {
+                Log.LogError($"The {nameof(entityID)} of a {nameof(BlueprintEntityMeta)} is invalid.");
+                return null;
+            }
             var blueprintID = new NamespaceID(nsp, id);
             var cost = node.GetAttributeInt("cost") ?? 0;
             var recharge = node.GetAttributeNamespaceID("recharge", defaultNsp);
-            var name = node.GetAttribute("name");
-            var tooltip = node.GetAttribute("tooltip");
-            var entityID = node.GetAttributeNamespaceID("entity", defaultNsp);
+            var name = node.GetAttribute("name") ?? string.Empty;
+            var tooltip = node.GetAttribute("tooltip") ?? string.Empty;
             var variant = node.GetAttributeInt("variant") ?? 0;
 
-            BlueprintMetaIcon icon = null;
+            BlueprintMetaIcon? icon = null;
             var iconNode = node["icon"];
             if (iconNode != null)
             {
-                icon = BlueprintMetaIcon.FromXmlNode(iconNode, defaultNsp, blueprintID);
+                icon = new BlueprintMetaIcon(iconNode, defaultNsp, blueprintID);
             }
-            return new BlueprintEntityMeta()
+            return new BlueprintEntityMeta(id, entityID)
             {
-                ID = id,
                 Cost = cost,
                 RechargeID = recharge,
                 Name = name,
                 Tooltip = tooltip,
-                EntityID = entityID,
                 Variant = variant,
 
                 Icon = icon,
             };
         }
-        public SpriteReference GetIcon()
+        public SpriteReference? GetIcon()
         {
             return Icon?.Sprite;
         }
-        public SpriteReference GetMobileIcon()
+        public SpriteReference? GetMobileIcon()
         {
             return Icon?.Mobile;
         }
-        public NamespaceID GetModelID()
+        public NamespaceID? GetModelID()
         {
             return Icon?.ModelID;
         }
-
-        public int GetCost() => Cost;
-
-        public NamespaceID GetEntityID() => EntityID;
-
-        public NamespaceID GetRechargeID() => RechargeID;
 
         public bool IsTriggerActive() => false;
         public bool CanInstantTrigger() => false;
         public bool CanInstantEvoke() => false;
         public bool IsUpgradeBlueprint() => false;
-        public int GetVariant() => Variant;
     }
 }

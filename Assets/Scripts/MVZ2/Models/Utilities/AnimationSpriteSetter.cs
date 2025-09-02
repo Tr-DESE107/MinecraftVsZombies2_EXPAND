@@ -21,11 +21,15 @@ namespace MVZ2.Models
         }
         public void SetSpritePercent(float percent)
         {
+            if (sprites == null)
+                return;
             SetSpriteIndex(Mathf.FloorToInt(percent * sprites.Length));
         }
 
         public void SetSpriteIndex(int i)
         {
+            if (sprites == null)
+                return;
             index = Mathf.Clamp(i, 0, sprites.Length - 1);
             beforeIndex = index;
             Sprite sprite = sprites[index];
@@ -39,7 +43,7 @@ namespace MVZ2.Models
         {
             get
             {
-                if (!sprRenderer)
+                if (!sprRenderer.Exists())
                 {
                     sprRenderer = GetComponent<SpriteRenderer>();
                 }
@@ -47,8 +51,8 @@ namespace MVZ2.Models
             }
         }
         public MainManager Main => MainManager.Instance;
-        private SpriteRenderer sprRenderer;
-        public Sprite[] sprites;
+        private SpriteRenderer? sprRenderer;
+        public Sprite[]? sprites;
         private int beforeIndex = -1;
         [SerializeField]
         private int index = 0;

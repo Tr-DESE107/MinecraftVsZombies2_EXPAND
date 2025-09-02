@@ -12,6 +12,6 @@ namespace MVZ2.Entities
             shadowRenderer.color = new Color(col.r, col.g, col.b, value);
         }
         [SerializeField]
-        private SpriteRenderer shadowRenderer;
+        private SpriteRenderer shadowRenderer = null!;
     }
 }

@@ -35,7 +35,7 @@ namespace MVZ2.Level
                     var pos = new Vector3(x, y, z);
                     var worldPos = LawnToTrans(pos);
 
-                    Sprite sprite;
+                    Sprite? sprite;
                     if (gridMeta != null && SpriteReference.IsValid(gridMeta.Sprite))
                     {
                         sprite = Main.GetFinalSprite(gridMeta.Sprite);
@@ -68,13 +68,16 @@ namespace MVZ2.Level
         private void UI_OnGridPointerInteractionCallback(int lane, int column, PointerEventData data, PointerInteraction interaction)
         {
             var gridUI = gridLayout.GetGrid(lane, column);
-            if (gridUI && IsGameRunning())
+            if (gridUI.Exists() && IsGameRunning())
             {
                 var grid = level.GetGrid(column, lane);
-                var pointerPosition = gridUI.TransformWorld2ColliderPosition(data.pointerCurrentRaycast.worldPosition);
-                var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(data, interaction);
-                var target = new HeldItemTargetGrid(grid, pointerPosition);
-                level.DoHeldItemPointerEvent(target, pointerParams);
+                if (grid != null)
+                {
+                    var pointerPosition = gridUI.TransformWorld2ColliderPosition(data.pointerCurrentRaycast.worldPosition);
+                    var pointerParams = InputManager.GetPointerInteractionParamsFromEventData(data, interaction);
+                    var target = new HeldItemTargetGrid(grid, pointerPosition);
+                    level.DoHeldItemPointerEvent(target, pointerParams);
+                }
             }
 
 
@@ -148,7 +151,7 @@ namespace MVZ2.Level
             var grid = level.GetGrid(column, lane);
             var gridUI = gridLayout.GetGrid(lane, column);
 
-            if (gridUI)
+            if (grid != null && gridUI.Exists())
             {
                 var screenPos = Main.InputManager.GetPointerPosition(pointingGridPointerId);
                 var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPos);
@@ -182,8 +185,11 @@ namespace MVZ2.Level
                 if (l != lane)
                 {
                     var g = gridLayout.GetGrid(l, column);
-                    g.SetColor(gridColorTransparent);
-                    g.SetDisplaySection(0, 1);
+                    if (g.Exists())
+                    {
+                        g.SetColor(gridColorTransparent);
+                        g.SetDisplaySection(0, 1);
+                    }
                 }
             }
             for (int c = 0; c < level.GetMaxColumnCount(); c++)
@@ -191,8 +197,11 @@ namespace MVZ2.Level
                 if (c != column)
                 {
                     var g = gridLayout.GetGrid(lane, c);
-                    g.SetColor(gridColorTransparent);
-                    g.SetDisplaySection(0, 1);
+                    if (g.Exists())
+                    {
+                        g.SetColor(gridColorTransparent);
+                        g.SetDisplaySection(0, 1);
+                    }
                 }
             }
         }
@@ -207,9 +216,9 @@ namespace MVZ2.Level
         [SerializeField]
         private Color gridColorTransparent = new Color(1, 1, 1, 0.5f);
         [SerializeField]
-        private GridLayoutController gridLayout;
+        private GridLayoutController gridLayout = null!;
         [SerializeField]
-        private Sprite defaultGridSprite;
+        private Sprite defaultGridSprite = null!;
         #endregion
     }
 }

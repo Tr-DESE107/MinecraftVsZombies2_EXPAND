@@ -19,7 +19,10 @@ namespace MVZ2.UI
             for (int i = 0; i < pageList.count; i++)
             {
                 var element = pageList.getElement(i);
-                element.gameObject.SetActive(i == index);
+                if (element.Exists())
+                {
+                    element.gameObject.SetActive(i == index);
+                }
             }
             SetPageButtonInteractable(false, index > 0);
             SetPageButtonInteractable(true, index < maxPages - 1);
@@ -51,7 +54,7 @@ namespace MVZ2.UI
             SetCurrentPage(0);
             pageRoot.SetActive(pageCount > 1);
         }
-        public override Blueprint GetItem(int index)
+        public override Blueprint? GetItem(int index)
         {
             var pageNum = Mathf.FloorToInt(index / (float)maxCountPerPage);
             var page = pageList.getElement<BlueprintDisplayerStandalonePage>(pageNum);
@@ -75,15 +78,15 @@ namespace MVZ2.UI
         }
         [Header("Standalone")]
         [SerializeField]
-        GameObject pageRoot;
+        GameObject pageRoot = null!;
         [SerializeField]
-        TextMeshProUGUI pageText;
+        TextMeshProUGUI pageText = null!;
         [SerializeField]
-        ElementListUI pageList;
+        ElementListUI pageList = null!;
         [SerializeField]
-        Button previousPageButton;
+        Button previousPageButton = null!;
         [SerializeField]
-        Button nextPageButton;
+        Button nextPageButton = null!;
         [SerializeField]
         int maxCountPerPage = 40;
         private int currentPage;

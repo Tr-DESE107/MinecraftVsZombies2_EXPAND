@@ -9,11 +9,22 @@ namespace MVZ2.Metas
 {
     public class StoreChatGroupMeta
     {
+        public StoreChatGroupMeta(NamespaceID character, StoreChatMeta[] chats)
+        {
+            Character = character;
+            Chats = chats;
+        }
+
         public NamespaceID Character { get; private set; }
         public StoreChatMeta[] Chats { get; private set; }
-        public static StoreChatGroupMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public static StoreChatGroupMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var character = node.GetAttributeNamespaceID("character", defaultNsp);
+            if (!NamespaceID.IsValid(character))
+            {
+                Log.LogError($"The {nameof(character)} of a {nameof(StoreChatGroupMeta)} is invalid.");
+                return null;
+            }
 
             List<StoreChatMeta> chats = new List<StoreChatMeta>();
             for (int i = 0; i < node.ChildNodes.Count; i++)
@@ -24,11 +35,7 @@ namespace MVZ2.Metas
                     chats.Add(StoreChatMeta.FromXmlNode(childNode, defaultNsp));
                 }
             }
-            return new StoreChatGroupMeta()
-            {
-                Character = character,
-                Chats = chats.ToArray(),
-            };
+            return new StoreChatGroupMeta(character, chats.ToArray());
         }
     }
 }

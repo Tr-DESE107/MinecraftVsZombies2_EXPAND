@@ -9,14 +9,14 @@ namespace MVZ2.Almanacs
     {
         public void ChangeModel(ModelBuilder builder)
         {
-            if (model)
+            if (model.Exists())
             {
                 Destroy(model.gameObject);
                 model = null;
                 updater.model = null;
             }
             model = builder.Build(rootTransform);
-            if (model)
+            if (model.Exists())
             {
                 updater.model = model;
                 if (model is EntityModel spriteModel)
@@ -26,10 +26,10 @@ namespace MVZ2.Almanacs
             }
         }
         [SerializeField]
-        private Transform rootTransform;
+        private Transform rootTransform = null!;
         [SerializeField]
-        private ModelUpdater updater;
+        private ModelUpdater updater = null!;
         [SerializeField]
-        private Model model;
+        private Model? model;
     }
 }

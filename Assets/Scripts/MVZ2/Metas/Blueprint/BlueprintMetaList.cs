@@ -7,6 +7,13 @@ namespace MVZ2.Metas
 {
     public class BlueprintMetaList
     {
+        public BlueprintMetaList(BlueprintOptionMeta[] options, BlueprintEntityMeta[] entities, BlueprintErrorMeta[] errors)
+        {
+            Options = options;
+            Entities = entities;
+            Errors = errors;
+        }
+
         public BlueprintOptionMeta[] Options { get; private set; }
         public BlueprintEntityMeta[] Entities { get; private set; }
         public BlueprintErrorMeta[] Errors { get; private set; }
@@ -31,12 +38,7 @@ namespace MVZ2.Metas
                     LoadEntities(nsp, entities, child, defaultNsp);
                 }
             }
-            return new BlueprintMetaList()
-            {
-                Options = options.ToArray(),
-                Errors = errors.ToArray(),
-                Entities = entities.ToArray()
-            };
+            return new BlueprintMetaList(options.ToArray(), entities.ToArray(), errors.ToArray());
         }
         private static void LoadEntities(string nsp, List<BlueprintEntityMeta> entities, XmlNode node, string defaultNsp)
         {
@@ -45,7 +47,11 @@ namespace MVZ2.Metas
                 var child = node.ChildNodes[i];
                 if (child.Name == "entity")
                 {
-                    entities.Add(BlueprintEntityMeta.FromXmlNode(nsp, child, defaultNsp));
+                    var meta = BlueprintEntityMeta.FromXmlNode(nsp, child, defaultNsp);
+                    if (meta != null)
+                    {
+                        entities.Add(meta);
+                    }
                 }
             }
         }
@@ -56,7 +62,11 @@ namespace MVZ2.Metas
                 var child = node.ChildNodes[i];
                 if (child.Name == "option")
                 {
-                    options.Add(BlueprintOptionMeta.FromXmlNode(nsp, child, defaultNsp));
+                    var meta = BlueprintOptionMeta.FromXmlNode(nsp, child, defaultNsp);
+                    if (meta != null)
+                    {
+                        options.Add(meta);
+                    }
                 }
             }
         }
@@ -67,7 +77,11 @@ namespace MVZ2.Metas
                 var child = node.ChildNodes[i];
                 if (child.Name == "error")
                 {
-                    errors.Add(BlueprintErrorMeta.FromXmlNode(child, defaultNsp));
+                    var meta = BlueprintErrorMeta.FromXmlNode(child, defaultNsp);
+                    if (meta != null)
+                    {
+                        errors.Add(meta);
+                    }
                 }
             }
         }

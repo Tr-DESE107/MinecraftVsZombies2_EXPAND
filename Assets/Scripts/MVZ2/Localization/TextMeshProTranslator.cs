@@ -8,13 +8,15 @@ namespace MVZ2.Localization
     [RequireComponent(typeof(TextMeshPro))]
     public class TextMeshProTranslator : TranslateComponentText<TextMeshPro>
     {
-        protected override string GetKeyInner()
+        protected override string? GetKeyInner()
         {
-            return Component.text;
+            return Component?.text;
         }
         protected override void Translate(string language)
         {
             base.Translate(language);
+            if (!Component.Exists())
+                return;
             if (!string.IsNullOrEmpty(Context))
                 Component.text = lang._p(Context, Key);
             else

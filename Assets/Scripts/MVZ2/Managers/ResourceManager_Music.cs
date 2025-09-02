@@ -14,7 +14,7 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 元数据列表
-        public MusicMetaList GetMusicMetaList(string nsp)
+        public MusicMetaList? GetMusicMetaList(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
             if (modResource == null)
@@ -24,12 +24,12 @@ namespace MVZ2.Managers
         #endregion
 
         #region 元数据
-        public MusicMeta GetMusicMeta(NamespaceID music)
+        public MusicMeta? GetMusicMeta(NamespaceID music)
         {
             if (music == null)
                 return null;
             var modResource = GetModResource(music.SpaceName);
-            if (modResource == null)
+            if (modResource?.MusicMetaList == null)
                 return null;
             return modResource.MusicMetaList.metas.FirstOrDefault(m => m.ID == music.Path);
         }
@@ -38,7 +38,7 @@ namespace MVZ2.Managers
             List<NamespaceID> list = new List<NamespaceID>();
             foreach (var modResource in modResources)
             {
-                if (modResource == null)
+                if (modResource?.MusicMetaList == null)
                     continue;
                 list.AddRange(modResource.MusicMetaList.metas.Select(m => new NamespaceID(modResource.Namespace, m.ID)));
             }
@@ -47,16 +47,12 @@ namespace MVZ2.Managers
         #endregion
 
         #region 音频片段
-        public AudioClip GetMusicClip(string nsp, string path)
-        {
-            return GetMusicClip(new NamespaceID(nsp, path));
-        }
-        public AudioClip GetMusicClip(NamespaceID path)
+        public AudioClip? GetMusicClip(NamespaceID? path)
         {
             return FindInMods(path, mod => mod.Musics);
         }
         #endregion
-        public string GetMusicName(NamespaceID musicID)
+        public string GetMusicName(NamespaceID? musicID)
         {
             if (NamespaceID.IsValid(musicID))
             {

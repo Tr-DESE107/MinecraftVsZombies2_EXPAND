@@ -12,7 +12,7 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 元数据列表
-        public ArtifactMetaList GetArtifactMetaList(string nsp)
+        public ArtifactMetaList? GetArtifactMetaList(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
             if (modResource == null)

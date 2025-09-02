@@ -14,7 +14,10 @@ namespace MVZ2.GameContent.Spawns
 {
     public class VanillaSpawnDefinition : SpawnDefinition
     {
-        public VanillaSpawnDefinition(string nsp, string name, ISpawnInLevelBehaviour inLevelBehaviour, ISpawnPreviewBehaviour previewBehaviour, ISpawnEndlessBehaviour endlessBehaviour) : base(nsp, name)
+        public VanillaSpawnDefinition(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public void SetBehaviours(ISpawnInLevelBehaviour inLevelBehaviour, ISpawnPreviewBehaviour previewBehaviour, ISpawnEndlessBehaviour endlessBehaviour)
         {
             this.inLevelBehaviour = inLevelBehaviour;
             this.previewBehaviour = previewBehaviour;
@@ -23,25 +26,24 @@ namespace MVZ2.GameContent.Spawns
         protected override ISpawnPreviewBehaviour GetPreviewBehaviour() => previewBehaviour;
         protected override ISpawnInLevelBehaviour GetInLevelBehaviour() => inLevelBehaviour;
         protected override ISpawnEndlessBehaviour GetEndlessBehaviour() => endlessBehaviour;
-        private ISpawnInLevelBehaviour inLevelBehaviour;
-        private ISpawnPreviewBehaviour previewBehaviour;
-        private ISpawnEndlessBehaviour endlessBehaviour;
+        private ISpawnInLevelBehaviour inLevelBehaviour = null!;
+        private ISpawnPreviewBehaviour previewBehaviour = null!;
+        private ISpawnEndlessBehaviour endlessBehaviour = null!;
     }
     public class SpawnInLevelBehaviour : ISpawnInLevelBehaviour
     {
-        public SpawnInLevelBehaviour(SpawnDefinition definition, int spawnLevel, NamespaceID entityID, bool water, bool air)
+        public SpawnInLevelBehaviour(int spawnLevel, NamespaceID entityID, bool water, bool air)
         {
             SpawnLevel = spawnLevel;
             EntityID = entityID;
             CanSpawnAtWaterLane = water;
             CanSpawnAtAirLane = air;
-            Definition = definition;
         }
 
-        public void PreSpawnAtWave(LevelEngine level, int wave, ref float totalPoints)
+        public void PreSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, ref float totalPoints)
         {
         }
-        public int GetRandomSpawnLane(LevelEngine level)
+        public int GetRandomSpawnLane(SpawnDefinition definition, LevelEngine level)
         {
             var allLanes = level.GetAllLanes();
             var resultLanes = allLanes;
@@ -64,47 +66,50 @@ namespace MVZ2.GameContent.Spawns
             }
             return level.GetRandomEnemySpawnLane(resultLanes);
         }
-        public bool CanSpawnInLevel(LevelEngine level)
+        public bool CanSpawnInLevel(SpawnDefinition definition, LevelEngine level)
         {
-            return GetSpawnLevel(level) > 0;
+            return GetSpawnLevel(definition, level) > 0;
         }
-        public int GetWeight(LevelEngine level)
+        public int GetWeight(SpawnDefinition definition, LevelEngine level)
         {
-            var weight = Definition.GetWeightBase();
-            var decayStart = Definition.GetWeightDecayStartFlag();
-            var decayEnd = Definition.GetWeightDecayEndFlag();
-            var decay = Definition.GetWeightDecayPerFlag();
+            var weight = definition.GetWeightBase();
+            var decayStart = definition.GetWeightDecayStartFlag();
+            var decayEnd = definition.GetWeightDecayEndFlag();
+            var decay = definition.GetWeightDecayPerFlag();
 
             var decayFlags = Mathf.Clamp(level.CurrentFlag, decayStart, decayEnd) - decayStart;
             return weight - decay * decayFlags;
         }
-        public int GetSpawnLevel(LevelEngine level) => SpawnLevel;
-        public NamespaceID GetSpawnEntityID() => EntityID;
+        public int GetSpawnLevel(SpawnDefinition definition, LevelEngine level) => SpawnLevel;
+        public NamespaceID GetSpawnEntityID(SpawnDefinition definition) => EntityID;
         public int SpawnLevel { get; }
         public NamespaceID EntityID { get; }
         public bool CanSpawnAtWaterLane { get; }
         public bool CanSpawnAtAirLane { get; }
-        public SpawnDefinition Definition { get; }
     }
     public class SpawnPreviewBehaviour : ISpawnPreviewBehaviour
     {
-        public SpawnPreviewBehaviour(NamespaceID entityID, int variant)
+        public SpawnPreviewBehaviour(NamespaceID? entityID, int variant)
         {
             EntityID = entityID;
             Variant = variant;
         }
-        public Entity? SpawnPreviewEntity(LevelEngine level, Vector3 pos, SpawnParams param)
+        public Entity? SpawnPreviewEntity(SpawnDefinition definition, LevelEngine level, Vector3 pos, SpawnParams param)
         {
+            if (!NamespaceID.IsValid(EntityID))
+                return null;
             param.SetProperty(VanillaEntityProps.VARIANT, Variant);
             return level.Spawn(EntityID, pos, null, param);
         }
-        public NamespaceID[] GetCounterTags(LevelEngine level)
+        public NamespaceID[] GetCounterTags(SpawnDefinition definition, LevelEngine level)
         {
             var entityID = EntityID;
+            if (!NamespaceID.IsValid(entityID))
+                return Array.Empty<NamespaceID>();
             var entityDef = level.Content.GetEntityDefinition(entityID);
             return entityDef?.GetCounterTags() ?? Array.Empty<NamespaceID>();
         }
-        public NamespaceID EntityID { get; }
+        public NamespaceID? EntityID { get; }
         public int Variant { get; }
     }
     public class SpawnEndlessBehaviour : ISpawnEndlessBehaviour
@@ -114,7 +119,7 @@ namespace MVZ2.GameContent.Spawns
             NoEndless = noEndless;
             ExcludedAreaTags = excludedAreaTags;
         }
-        public bool CanAppearInEndless(LevelEngine level)
+        public bool CanAppearInEndless(SpawnDefinition definition, LevelEngine level)
         {
             if (NoEndless)
                 return false;

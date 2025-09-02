@@ -40,7 +40,7 @@ namespace MVZ2Logic.Games
             return list.ToArray();
         }
 
-        public static string GetEntityName(this IGlobalGame game, NamespaceID entityID)
+        public static string GetEntityName(this IGlobalGame game, NamespaceID? entityID)
         {
             if (entityID == null)
                 return "null";
@@ -50,7 +50,7 @@ namespace MVZ2Logic.Games
             var name = def.GetEntityName() ?? LogicStrings.UNKNOWN_ENTITY_NAME;
             return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_ENTITY_NAME);
         }
-        public static string GetEntityTooltip(this IGlobalGame game, NamespaceID entityID)
+        public static string GetEntityTooltip(this IGlobalGame game, NamespaceID? entityID)
         {
             if (entityID == null)
                 return "null";
@@ -61,7 +61,7 @@ namespace MVZ2Logic.Games
             return Global.Localization.GetTextParticular(tooltip, LogicStrings.CONTEXT_ENTITY_TOOLTIP);
         }
 
-        public static string GetEntityDeathMessage(this IGlobalGame game, NamespaceID entityID)
+        public static string GetEntityDeathMessage(this IGlobalGame game, NamespaceID? entityID)
         {
             string key = LogicStrings.DEATH_MESSAGE_UNKNOWN;
             if (entityID != null)
@@ -77,7 +77,7 @@ namespace MVZ2Logic.Games
         }
 
         #region 制品
-        public static string GetArtifactName(this IGlobalGame game, NamespaceID artifactID)
+        public static string GetArtifactName(this IGlobalGame game, NamespaceID? artifactID)
         {
             if (artifactID == null)
                 return "null";
@@ -87,7 +87,7 @@ namespace MVZ2Logic.Games
             var name = def.GetArtifactName() ?? LogicStrings.UNKNOWN_ARTIFACT_NAME;
             return Global.Localization.GetTextParticular(name, LogicStrings.CONTEXT_ARTIFACT_NAME);
         }
-        public static string GetArtifactTooltip(this IGlobalGame game, NamespaceID artifactID)
+        public static string GetArtifactTooltip(this IGlobalGame game, NamespaceID? artifactID)
         {
             if (artifactID == null)
                 return "null";
@@ -99,21 +99,21 @@ namespace MVZ2Logic.Games
         }
         #endregion
 
-        public static string? GetGridErrorMessage(this IGlobalGame game, NamespaceID id)
+        public static string? GetGridErrorMessage(this IGlobalGame game, NamespaceID? id)
         {
             var def = game.GetGridErrorDefinition(id);
             if (def == null)
                 return null;
             return def.Message;
         }
-        public static string? GetBlueprintErrorMessage(this IGlobalGame game, NamespaceID id)
+        public static string? GetBlueprintErrorMessage(this IGlobalGame game, NamespaceID? id)
         {
             var def = game.GetSeedErrorDefinition(id);
             if (def == null)
                 return null;
             return def.Message;
         }
-        public static string GetEntityCounterName(this IGlobalGame game, NamespaceID counterID)
+        public static string GetEntityCounterName(this IGlobalGame game, NamespaceID? counterID)
         {
             if (counterID == null)
                 return "null";

@@ -24,7 +24,7 @@ namespace MVZ2.Almanacs
         {
             indexUI.SetArtifactVisible(visible);
         }
-        public AlmanacTagIcon GetTagIcon(AlmanacPageType page, int index)
+        public AlmanacTagIcon? GetTagIcon(AlmanacPageType page, int index)
         {
             switch (page)
             {
@@ -41,7 +41,7 @@ namespace MVZ2.Almanacs
             }
             return null;
         }
-        public AlmanacTagIcon GetDescriptionIcon(AlmanacPageType page, string linkID)
+        public AlmanacTagIcon? GetDescriptionIcon(AlmanacPageType page, string linkID)
         {
             switch (page)
             {
@@ -84,11 +84,11 @@ namespace MVZ2.Almanacs
         {
             enemies.SetActiveEntry(model, name, description);
         }
-        public void SetActiveArtifactEntry(Sprite sprite, string name, string description)
+        public void SetActiveArtifactEntry(Sprite? sprite, string name, string description)
         {
             artifacts.SetActiveEntry(sprite, name, description, true, false);
         }
-        public void SetActiveMiscEntry(Sprite sprite, string name, string description, bool sized = false, bool zoom = true)
+        public void SetActiveMiscEntry(Sprite? sprite, string name, string description, bool sized = false, bool zoom = true)
         {
             miscs.SetActiveEntry(sprite, name, description, sized, zoom);
         }
@@ -206,41 +206,41 @@ namespace MVZ2.Almanacs
             zoomPage.OnReturnClick += () => OnZoomReturnClick?.Invoke();
             zoomPage.OnPageButtonClick += (v) => OnZoomPageButtonClick?.Invoke(v);
         }
-        public event Action<bool> OnReturnClick;
-        public event Action<IndexAlmanacPage.ButtonType> OnIndexButtonClick;
+        public event Action<bool>? OnReturnClick;
+        public event Action<IndexAlmanacPage.ButtonType>? OnIndexButtonClick;
 
-        public event Action<PointerEventData> OnCommandBlockClick;
-        public event Action<int, PointerEventData> OnContraptionEntryClick;
-        public event Action<AlmanacPageType, int> OnMiscEntryClick;
-        public event Action<AlmanacPageType, int, int> OnGroupEntryClick;
-        public event Action<AlmanacPageType> OnZoomClick;
+        public event Action<PointerEventData>? OnCommandBlockClick;
+        public event Action<int, PointerEventData>? OnContraptionEntryClick;
+        public event Action<AlmanacPageType, int>? OnMiscEntryClick;
+        public event Action<AlmanacPageType, int, int>? OnGroupEntryClick;
+        public event Action<AlmanacPageType>? OnZoomClick;
 
-        public event Action<AlmanacPageType, string> OnDescriptionIconEnter;
-        public event Action<AlmanacPageType, string> OnDescriptionIconExit;
-        public event Action<AlmanacPageType, string> OnDescriptionIconDown;
-        public event Action<AlmanacPageType, int> OnTagIconEnter;
-        public event Action<AlmanacPageType, int> OnTagIconExit;
-        public event Action<AlmanacPageType, int> OnTagIconDown;
+        public event Action<AlmanacPageType, string>? OnDescriptionIconEnter;
+        public event Action<AlmanacPageType, string>? OnDescriptionIconExit;
+        public event Action<AlmanacPageType, string>? OnDescriptionIconDown;
+        public event Action<AlmanacPageType, int>? OnTagIconEnter;
+        public event Action<AlmanacPageType, int>? OnTagIconExit;
+        public event Action<AlmanacPageType, int>? OnTagIconDown;
 
-        public event Action OnZoomReturnClick;
-        public event Action<bool> OnZoomPageButtonClick;
+        public event Action? OnZoomReturnClick;
+        public event Action<bool>? OnZoomPageButtonClick;
 
         private Dictionary<AlmanacPageType, AlmanacPage> almanacPages = new Dictionary<AlmanacPageType, AlmanacPage>();
 
         [SerializeField]
-        private IndexAlmanacPage indexUI;
+        private IndexAlmanacPage indexUI = null!;
         [SerializeField]
-        private ContraptionAlmanacPage standaloneContraptions;
+        private ContraptionAlmanacPage standaloneContraptions = null!;
         [SerializeField]
-        private ContraptionAlmanacPage mobileContraptions;
+        private ContraptionAlmanacPage mobileContraptions = null!;
         [SerializeField]
-        private MiscAlmanacPage enemies;
+        private MiscAlmanacPage enemies = null!;
         [SerializeField]
-        private MiscAlmanacPage artifacts;
+        private MiscAlmanacPage artifacts = null!;
         [SerializeField]
-        private MiscAlmanacPage miscs;
+        private MiscAlmanacPage miscs = null!;
         [SerializeField]
-        private AlmanacZoomPage zoomPage;
+        private AlmanacZoomPage zoomPage = null!;
     }
     public enum AlmanacPageType
     {

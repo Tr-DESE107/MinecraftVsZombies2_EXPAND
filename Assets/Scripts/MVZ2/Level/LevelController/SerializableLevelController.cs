@@ -14,15 +14,15 @@ namespace MVZ2.Level
     [BsonIgnoreExtraElements]
     public class SerializableLevelController
     {
-        public SerializableRNG rng;
+        public SerializableRNG? rng;
 
         public float levelProgress;
-        public float[] bannerProgresses;
+        public float[]? bannerProgresses;
         public float bossProgress;
-        public NamespaceID bossProgressBarStyle;
+        public NamespaceID? bossProgressBarStyle;
         public bool progressBarMode;
 
-        public NamespaceID musicID;
+        public NamespaceID? musicID;
         public float musicTime;
         public float musicVolume;
         public float musicTrackWeight;
@@ -33,19 +33,19 @@ namespace MVZ2.Level
         public bool starshardActive;
         public bool triggerActive;
 
-        public SerializableLevelControllerPart[] parts;
+        public SerializableLevelControllerPart?[]? parts;
 
         public int maxCryTime;
-        public FrameTimer cryTimer;
+        public FrameTimer? cryTimer;
         public float twinkleTime;
 
-        public SerializableEntityController[] entities;
-        public SerializableModelData model;
+        public SerializableEntityController?[]? entities;
+        public SerializableModelData? model;
         [Obsolete]
-        public SerializableAreaModelData areaModel;
+        public SerializableAreaModelData? areaModel;
 
-        public SerializableLevel level;
+        public SerializableLevel? level;
 
-        public SerializableLevelUIPreset uiPreset;
+        public SerializableLevelUIPreset? uiPreset;
     }
 }

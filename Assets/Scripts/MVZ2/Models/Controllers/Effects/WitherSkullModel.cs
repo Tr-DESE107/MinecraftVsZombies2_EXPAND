@@ -23,6 +23,6 @@ namespace MVZ2.Models
             sourceTransform.Rotate(Vector3.back, vertAngle);
         }
         [SerializeField]
-        private Transform sourceTransform;
+        private Transform sourceTransform = null!;
     }
 }

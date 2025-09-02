@@ -10,23 +10,27 @@ namespace MVZ2.UI
         public void UpdateTag(AlmanacDescriptionTagViewData viewData)
         {
             linkID = viewData.linkID;
-            icon.UpdateContainer(viewData.icon);
+            if (icon.Exists())
+                icon.UpdateContainer(viewData.icon);
         }
         public void SetScale(Vector3 size)
         {
-            icon.SetScale(size);
+            if (icon.Exists())
+                icon.SetScale(size);
         }
         private void Awake()
         {
-            icon.OnPointerEnter += _ => OnPointerEnter?.Invoke(linkID);
-            icon.OnPointerExit += _ => OnPointerExit?.Invoke(linkID);
-            icon.OnPointerDown += _ => OnPointerDown?.Invoke(linkID);
+            if (!icon.Exists())
+                return;
+            icon.OnPointerEnter += _ => OnPointerEnter?.Invoke(linkID ?? string.Empty);
+            icon.OnPointerExit += _ => OnPointerExit?.Invoke(linkID ?? string.Empty);
+            icon.OnPointerDown += _ => OnPointerDown?.Invoke(linkID ?? string.Empty);
         }
-        public event Action<string> OnPointerEnter;
-        public event Action<string> OnPointerExit;
-        public event Action<string> OnPointerDown;
-        public string linkID;
-        public AlmanacTagIcon icon;
+        public event Action<string>? OnPointerEnter;
+        public event Action<string>? OnPointerExit;
+        public event Action<string>? OnPointerDown;
+        public string? linkID;
+        public AlmanacTagIcon? icon;
     }
     public struct AlmanacDescriptionTagViewData
     {

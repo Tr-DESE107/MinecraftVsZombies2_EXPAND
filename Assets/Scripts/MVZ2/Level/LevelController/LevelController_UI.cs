@@ -57,7 +57,8 @@ namespace MVZ2.Level
         {
             // uiPreset的animator.Update会导致第一次加载该场景时，蓝图UI的子模型显示状态不正确，所以放在前面
             var uiPreset = GetUIPreset();
-            uiPreset.LoadFromSerializable(seri.uiPreset);
+            if (seri.uiPreset != null)
+                uiPreset.LoadFromSerializable(seri.uiPreset);
             uiPreset.UpdateFrame(0);
         }
         public ILevelUI GetUI()
@@ -251,9 +252,9 @@ namespace MVZ2.Level
 
         [Header("UI")]
         [SerializeField]
-        private LevelUI ui;
+        private LevelUI ui = null!;
         [SerializeField]
-        private LevelRaycaster levelRaycaster;
+        private LevelRaycaster levelRaycaster = null!;
         #endregion
     }
 }

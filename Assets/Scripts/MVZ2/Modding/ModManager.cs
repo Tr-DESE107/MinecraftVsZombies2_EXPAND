@@ -18,14 +18,12 @@ namespace MVZ2.Modding
         public async Task LoadModInfos(GlobalGame game)
         {
             var locator = await Addressables.InitializeAsync().Task;
-            modInfos.Add(new ModInfo()
+            modInfos.Add(new ModInfo(main.BuiltinNamespace, locator)
             {
-                Namespace = main.BuiltinNamespace,
                 LevelDataVersion = LevelManager.CURRENT_DATA_VERSION,
                 DisplayName = "Vanilla",
                 CatalogPath = null,
                 IsBuiltin = true,
-                ResourceLocator = locator,
             });
         }
         public void InitModLogics(GlobalGame game)
@@ -34,13 +32,15 @@ namespace MVZ2.Modding
 
             foreach (var modInfo in modInfos)
             {
-                modInfo.Logic.LateInit(game);
+                modInfo.Logic?.LateInit(game);
             }
         }
         public void LoadModLogics(GlobalGame game)
         {
             foreach (var modInfo in modInfos)
             {
+                if (modInfo.Logic == null)
+                    continue;
                 game.AddMod(modInfo.Logic);
             }
         }
@@ -48,14 +48,14 @@ namespace MVZ2.Modding
         {
             foreach (var modInfo in GetAllModInfos())
             {
-                modInfo.Logic.PostReloadMods(game);
+                modInfo.Logic?.PostReloadMods(game);
             }
         }
         public void PostGameInit()
         {
             foreach (var modInfo in GetAllModInfos())
             {
-                modInfo.Logic.PostGameInit();
+                modInfo.Logic?.PostGameInit();
             }
         }
         void IModManager.RegisterMod(IModLogic logic)
@@ -73,10 +73,10 @@ namespace MVZ2.Modding
         {
             return modInfos.ToArray();
         }
-        public static event Action<IModManager> OnRegisterMods;
+        public static event Action<IModManager>? OnRegisterMods;
         public MainManager Main => main;
         [SerializeField]
-        private MainManager main;
+        private MainManager main = null!;
         private List<ModInfo> modInfos = new List<ModInfo>();
 
     }

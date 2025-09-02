@@ -27,9 +27,9 @@ namespace MVZ2.Map
         {
             OnScroll?.Invoke(eventData);
         }
-        public event Action<PointerEventData> OnBeginDrag;
-        public event Action<PointerEventData> OnDrag;
-        public event Action<PointerEventData> OnEndDrag;
-        public event Action<PointerEventData> OnScroll;
+        public event Action<PointerEventData>? OnBeginDrag;
+        public event Action<PointerEventData>? OnDrag;
+        public event Action<PointerEventData>? OnEndDrag;
+        public event Action<PointerEventData>? OnScroll;
     }
 }

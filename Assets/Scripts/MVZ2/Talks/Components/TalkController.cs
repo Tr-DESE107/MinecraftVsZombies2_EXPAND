@@ -22,7 +22,7 @@ namespace MVZ2.Talk
         /// <summary>
         /// 开始进行对话。
         /// </summary>
-        public async void StartTalk(NamespaceID groupId, int sectionIndex, float delay = 0, Action onEnd = null)
+        public async void StartTalk(NamespaceID groupId, int sectionIndex, float delay = 0, Action? onEnd = null)
         {
             await StartTalkAsync(groupId, sectionIndex, delay);
             onEnd?.Invoke();
@@ -37,7 +37,7 @@ namespace MVZ2.Talk
                 throw new ArgumentException($"Could not find talk group with id {groupId}.");
             if (IsTalking)
                 return;
-            tcs = new TaskCompletionSource<object>();
+            tcs = new TaskCompletionSource<object?>();
             IsTalking = true;
 
             groupID = groupId;
@@ -87,7 +87,7 @@ namespace MVZ2.Talk
 
             await tcs.Task;
         }
-        public async void SkipTalk(NamespaceID groupId, int sectionIndex, Action onSkipped = null)
+        public async void SkipTalk(NamespaceID groupId, int sectionIndex, Action? onSkipped = null)
         {
             await SkipTalkAsync(groupId, sectionIndex);
             onSkipped?.Invoke();
@@ -103,8 +103,11 @@ namespace MVZ2.Talk
             }
 
             var section = Main.ResourceManager.GetTalkSection(groupId, sectionIndex);
-            await ExecuteScriptsAsync(section.startScripts);
-            await ExecuteScriptsAsync(section.skipScripts);
+            if (section != null)
+            {
+                await ExecuteScriptsAsync(section.startScripts);
+                await ExecuteScriptsAsync(section.skipScripts);
+            }
         }
         public bool CanStartTalk(NamespaceID groupId, int sectionIndex)
         {
@@ -141,13 +144,13 @@ namespace MVZ2.Talk
             if (!canClick)
                 return;
             var sentence = GetTalkSentence();
-            IEnumerable<TalkScript> scripts = sentence.clickScripts != null ? sentence.clickScripts : defaultClickScripts;
+            IEnumerable<TalkScript> scripts = sentence?.clickScripts != null ? sentence.clickScripts : defaultClickScripts;
             _ = ExecuteScriptsAsync(scripts);
         }
         private void OnSkipClickedCallback()
         {
             var section = GetTalkSection();
-            IEnumerable<TalkScript> scripts = section.skipScripts != null ? section.skipScripts : defaultSkipScripts;
+            IEnumerable<TalkScript> scripts = section?.skipScripts != null ? section.skipScripts : defaultSkipScripts;
             _ = ExecuteScriptsAsync(scripts);
         }
         #endregion
@@ -250,18 +253,6 @@ namespace MVZ2.Talk
                                     CreateCharacter(characterId, variant, side);
                                 }
                                 break;
-                            case "change":
-                                {
-                                    var characterIndex = GetCharacterIndex(ParseArgumentNamespaceID(args[1]));
-                                    if (characterIndex < 0)
-                                        break;
-                                    var targetCharacter = ParseArgumentNamespaceID(args[2]);
-                                    var variant = ParseArgumentNamespaceID(args[3]);
-
-                                    var sprite = Main.ResourceManager.GetCharacterSprite(targetCharacter, variant);
-                                    ui.SetCharacterSprite(characterIndex, sprite);
-                                }
-                                break;
                             case "variant":
                                 {
                                     var targetCharacter = ParseArgumentNamespaceID(args[1]);
@@ -271,15 +262,18 @@ namespace MVZ2.Talk
                                     var variant = ParseArgumentNamespaceID(args[2]);
 
                                     var sprite = Main.ResourceManager.GetCharacterSprite(targetCharacter, variant);
-                                    var meta = Main.ResourceManager.GetCharacterMeta(targetCharacter);
-                                    var variantMeta = meta.variants.FirstOrDefault(v => v.id == variant);
-                                    Vector2 widthExtend = Vector2.zero;
-                                    if (variantMeta != null)
+                                    if (sprite.Exists())
                                     {
-                                        widthExtend = variantMeta.widthExtend;
+                                        var meta = Main.ResourceManager.GetCharacterMeta(targetCharacter);
+                                        var variantMeta = meta?.variants?.FirstOrDefault(v => v.id == variant);
+                                        Vector2 widthExtend = Vector2.zero;
+                                        if (variantMeta != null)
+                                        {
+                                            widthExtend = variantMeta.widthExtend;
+                                        }
+                                        ui.SetCharacterSprite(characterIndex, sprite);
+                                        ui.SetCharacterWidthExtend(characterIndex, widthExtend);
                                     }
-                                    ui.SetCharacterSprite(characterIndex, sprite);
-                                    ui.SetCharacterWidthExtend(characterIndex, widthExtend);
                                 }
                                 break;
                             case "leave":
@@ -632,12 +626,16 @@ namespace MVZ2.Talk
         #endregion
 
         #region 流程控制
-        private TalkSection GetTalkSection()
+        private TalkSection? GetTalkSection()
         {
+            if (!NamespaceID.IsValid(groupID))
+                return null;
             return Main.ResourceManager.GetTalkSection(groupID, sectionIndex);
         }
-        private TalkSentence GetTalkSentence()
+        private TalkSentence? GetTalkSentence()
         {
+            if (!NamespaceID.IsValid(groupID))
+                return null;
             return Main.ResourceManager.GetTalkSentence(groupID, sectionIndex, sentenceIndex);
         }
         /// <summary>
@@ -676,6 +674,8 @@ namespace MVZ2.Talk
         {
             // 获取脚本组。
             var sentence = GetTalkSentence();
+            if (sentence == null)
+                return;
 
             if (sentence.sounds != null)
             {
@@ -689,7 +689,7 @@ namespace MVZ2.Talk
             // 执行脚本组。
             _ = ExecuteScriptsAsync(scripts);
 
-            NamespaceID speakerID = sentence.speaker;
+            NamespaceID? speakerID = sentence.speaker;
             // 对话状态。
             for (int i = 0; i < characterList.Count; i++)
             {
@@ -710,9 +710,17 @@ namespace MVZ2.Talk
                 ui.SetCharacterSprite(speakerIndex, sprite);
             }
 
-            var context = VanillaStrings.GetTalkTextContext(groupID);
             var textKey = sentence.text;
-            var bubbleText = Main.LanguageManager._p(context, textKey);
+            string bubbleText;
+            if (NamespaceID.IsValid(groupID))
+            {
+                var context = VanillaStrings.GetTalkTextContext(groupID);
+                bubbleText = Main.LanguageManager._p(context, textKey);
+            }
+            else
+            {
+                bubbleText = Main.LanguageManager._(textKey);
+            }
 
 
             string speakerName = sentence.GetSpeakerName(Main);
@@ -778,19 +786,15 @@ namespace MVZ2.Talk
         }
         #endregion
 
-        private int GetCharacterIndex(NamespaceID id)
+        private int GetCharacterIndex(NamespaceID? id)
         {
             return characterList.FindIndex(d => d.id == id);
         }
-        public void CreateCharacter(NamespaceID characterId, NamespaceID variant, CharacterSide side)
+        public void CreateCharacter(NamespaceID characterId, NamespaceID? variant, CharacterSide side)
         {
             var viewData = Main.ResourceManager.GetCharacterViewData(characterId, variant, side);
             ui.CreateCharacter(viewData);
-            characterList.Add(new CharacterData()
-            {
-                id = characterId,
-                side = side,
-            });
+            characterList.Add(new CharacterData(characterId, side));
         }
         public bool RemoveCharacter(NamespaceID characterID)
         {
@@ -849,7 +853,7 @@ namespace MVZ2.Talk
         #endregion
 
         #region 事件
-        public event Action<string, string[]> OnTalkAction;
+        public event Action<string, string[]>? OnTalkAction;
         #endregion 动作
 
         #region 属性字段
@@ -863,19 +867,11 @@ namespace MVZ2.Talk
         private readonly static TalkScript[] defaultStartScripts = new TalkScript[0];
         private readonly static TalkScript[] defaultClickScripts = new TalkScript[]
         {
-            new TalkScript()
-            {
-                function = "next",
-                arguments = Array.Empty<string>()
-            }
+            new TalkScript("next")
         };
         private readonly static TalkScript[] defaultSkipScripts = new TalkScript[]
         {
-            new TalkScript()
-            {
-                function = "end",
-                arguments = Array.Empty<string>()
-            }
+            new TalkScript("end")
         };
         private MainManager Main => MainManager.Instance;
 
@@ -883,11 +879,11 @@ namespace MVZ2.Talk
         private bool canClick = false;
         private int sectionIndex = 0;
         private int sentenceIndex = 0;
-        private NamespaceID groupID;
+        private NamespaceID? groupID;
         private List<CharacterData> characterList = new List<CharacterData>();
-        private TaskCompletionSource<object> tcs;
+        private TaskCompletionSource<object?>? tcs;
         [SerializeField]
-        private TalkUI ui;
+        private TalkUI ui = null!;
         [SerializeField]
         private bool canUnlock = true;
         #endregion 属性
@@ -896,6 +892,12 @@ namespace MVZ2.Talk
         {
             public NamespaceID id;
             public CharacterSide side;
+
+            public CharacterData(NamespaceID id, CharacterSide side)
+            {
+                this.id = id;
+                this.side = side;
+            }
         }
     }
 }

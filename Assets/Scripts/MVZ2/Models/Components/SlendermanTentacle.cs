@@ -13,6 +13,6 @@ namespace MVZ2.Models
             tentacleAnimator.SetFloat("Speed", rng.Next(0.8f, 1.25f));
         }
         [SerializeField]
-        private Animator tentacleAnimator;
+        private Animator tentacleAnimator = null!;
     }
 }

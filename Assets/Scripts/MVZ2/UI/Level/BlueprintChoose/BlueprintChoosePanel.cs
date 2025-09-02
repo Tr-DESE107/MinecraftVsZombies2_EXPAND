@@ -25,13 +25,13 @@ namespace MVZ2.Level.UI
         {
             displayer.UpdateItems(viewDatas);
         }
-        public Blueprint GetItem(int index)
+        public Blueprint? GetItem(int index)
         {
             return displayer.GetItem(index);
         }
-        public Blueprint GetCommandBlockBlueprintItem()
+        public Blueprint? GetCommandBlockBlueprintItem()
         {
-            return commandBlockSlot.GetCommandBlockBlueprint();
+            return commandBlockSlot?.GetCommandBlockBlueprint();
         }
         private void Awake()
         {
@@ -48,26 +48,26 @@ namespace MVZ2.Level.UI
         {
             OnBlueprintPointerInteraction?.Invoke(index, eventData, interaction);
         }
-        public event Action OnStartButtonClick;
-        public event Action OnViewLawnButtonClick;
-        public event Action OnCancelButtonClick;
-        public event Action OnRepickButtonClick;
-        public event Action<PointerEventData, PointerInteraction> OnCommandBlockBlueprintPointerInteraction;
-        public event Action<PointerEventData> OnCommandBlockBlueprintSelect;
-        public event Action<int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
-        public event Action<int, PointerEventData> OnBlueprintSelect;
+        public event Action? OnStartButtonClick;
+        public event Action? OnViewLawnButtonClick;
+        public event Action? OnCancelButtonClick;
+        public event Action? OnRepickButtonClick;
+        public event Action<PointerEventData, PointerInteraction>? OnCommandBlockBlueprintPointerInteraction;
+        public event Action<PointerEventData>? OnCommandBlockBlueprintSelect;
+        public event Action<int, PointerEventData, PointerInteraction>? OnBlueprintPointerInteraction;
+        public event Action<int, PointerEventData>? OnBlueprintSelect;
         [SerializeField]
-        Button startButton;
+        Button startButton = null!;
         [SerializeField]
-        Button viewLawnButton;
+        Button viewLawnButton = null!;
         [SerializeField]
-        Button cancelButton;
+        Button cancelButton = null!;
         [SerializeField]
-        Button repickButton;
+        Button repickButton = null!;
         [SerializeField]
-        BlueprintDisplayer displayer;
+        BlueprintDisplayer displayer = null!;
         [SerializeField]
-        CommandBlockSlot commandBlockSlot;
+        CommandBlockSlot commandBlockSlot = null!;
     }
     public struct BlueprintChoosePanelViewData
     {

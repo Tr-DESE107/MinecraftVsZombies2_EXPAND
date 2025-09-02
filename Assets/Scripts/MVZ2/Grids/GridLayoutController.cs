@@ -43,15 +43,15 @@ namespace MVZ2.Grids
             });
             grids = gridList.ToArray();
         }
-        public GridController GetGrid(int lane, int column)
+        public GridController? GetGrid(int lane, int column)
         {
-            return GetLane(lane).GetGrid(column);
+            return GetLane(lane)?.GetGrid(column);
         }
         public GridController[] GetGrids()
         {
             return lanes.getElements<LaneController>().SelectMany(l => l.GetGrids()).ToArray();
         }
-        public LaneController GetLane(int lane)
+        public LaneController? GetLane(int lane)
         {
             return lanes.getElement<LaneController>(lane);
         }
@@ -64,9 +64,9 @@ namespace MVZ2.Grids
             var index = lanes.indexOf(lane);
             OnPointerInteraction?.Invoke(index, column, data, interaction);
         }
-        public event Action<int, int, PointerEventData, PointerInteraction> OnPointerInteraction;
+        public event Action<int, int, PointerEventData, PointerInteraction>? OnPointerInteraction;
         [SerializeField]
-        private ElementList lanes;
-        private GridController[] grids;
+        private ElementList lanes = null!;
+        private GridController[]? grids;
     }
 }

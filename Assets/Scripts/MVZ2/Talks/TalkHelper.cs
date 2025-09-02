@@ -9,7 +9,7 @@ namespace MVZ2.Talks
 {
     public static class TalkHelper
     {
-        public static void SimpleStartTalk(this TalkController controller, NamespaceID groupId, int section, float delay = 0, Action onSkipped = null, Action onStarted = null, Action onEnd = null)
+        public static void SimpleStartTalk(this TalkController controller, NamespaceID groupId, int section, float delay = 0, Action? onSkipped = null, Action? onStarted = null, Action? onEnd = null)
         {
             if (!controller.CanStartTalk(groupId, section))
             {
@@ -30,7 +30,7 @@ namespace MVZ2.Talks
                 controller.StartTalk(groupId, section, delay, onEnd);
             }
         }
-        public static async Task<TalkResult> SimpleStartTalkAsync(this TalkController controller, NamespaceID groupId, int section, float delay = 0, Action onStarted = null)
+        public static async Task<TalkResult> SimpleStartTalkAsync(this TalkController controller, NamespaceID groupId, int section, float delay = 0, Action? onStarted = null)
         {
             if (!controller.CanStartTalk(groupId, section))
                 return TalkResult.NotStarted;

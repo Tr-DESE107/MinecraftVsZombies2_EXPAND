@@ -59,11 +59,11 @@ namespace MVZ2.Models
             return eye;
         }
         [SerializeField]
-        private Transform eyesParent;
+        private Transform eyesParent = null!;
         [SerializeField]
-        private GameObject eyePrefab;
+        private GameObject eyePrefab = null!;
         [SerializeField]
-        private RendererElement darknessRenderer;
+        private RendererElement darknessRenderer = null!;
         [SerializeField]
         private List<NightmareEye> eyes = new List<NightmareEye>();
         [SerializeField]

@@ -10,19 +10,29 @@ namespace MVZ2.Metas
 {
     public class ArtifactMeta
     {
+
         public string ID { get; private set; }
-        public string Name { get; private set; }
-        public string Tooltip { get; private set; }
+        public string Name { get; private set; } = string.Empty;
+        public string Tooltip { get; private set; } = string.Empty;
         [Obsolete]
-        public NamespaceID Unlock { get; private set; }
-        public XMLConditionList UnlockConditions { get; private set; }
-        public SpriteReference Sprite { get; private set; }
+        public NamespaceID? Unlock { get; private set; }
+        public XMLConditionList? UnlockConditions { get; private set; }
+        public SpriteReference? Sprite { get; private set; }
         public int Order { get; private set; }
-        public static ArtifactMeta FromXmlNode(XmlNode node, string defaultNsp, int order)
+        public ArtifactMeta(string id)
+        {
+            ID = id;
+        }
+        public static ArtifactMeta? FromXmlNode(XmlNode node, string defaultNsp, int order)
         {
             var id = node.GetAttribute("id");
-            var name = node.GetAttribute("name");
-            var tooltip = node.GetAttribute("tooltip");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError("The ID of an ArtifactMeta is invalid.");
+                return null;
+            }
+            var name = node.GetAttribute("name") ?? string.Empty;
+            var tooltip = node.GetAttribute("tooltip") ?? string.Empty;
             var conditions = XMLConditionList.FromXmlNode(node["unlock"], defaultNsp);
             if (conditions == null)
             {
@@ -36,9 +46,8 @@ namespace MVZ2.Metas
                 }
             }
             var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
-            return new ArtifactMeta()
+            return new ArtifactMeta(id)
             {
-                ID = id,
                 Name = name,
                 Tooltip = tooltip,
                 UnlockConditions = conditions,

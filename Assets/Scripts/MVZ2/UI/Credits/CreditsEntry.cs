@@ -13,7 +13,7 @@ namespace MVZ2.UI
         }
 
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
     }
 
 }

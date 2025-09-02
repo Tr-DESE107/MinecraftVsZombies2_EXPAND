@@ -200,12 +200,10 @@ namespace MVZ2.Collisions
         }
         public SerializableUnityEntityCollider ToSerializable()
         {
-            return new SerializableUnityEntityCollider()
+            return new SerializableUnityEntityCollider(Name, collisionList.Select(c => c.ToSerializable()).ToArray())
             {
-                name = Name,
                 enabled = Enabled,
                 armorSlot = ArmorSlot,
-                collisionList = collisionList.Select(c => c.ToSerializable()).ToArray(),
                 updateMode = (int)updateMode,
                 customSize = customSize,
                 customOffset = customOffset,
@@ -226,21 +224,21 @@ namespace MVZ2.Collisions
         }
         public void LoadCollisions(LevelEngine level, ISerializableCollisionCollider seri)
         {
-            collisionList = seri.Collisions.Select(s => EntityCollision.FromSerializable(s, level)).ToList();
+            collisionList = seri.Collisions.Select(s => EntityCollision.FromSerializable(s, level)).OfType<EntityCollision>().ToList();
         }
         #endregion
 
         public bool Enabled { get; private set; } = true;
-        public string Name { get; private set; }
-        public Entity Entity { get; private set; }
-        public NamespaceID ArmorSlot { get; private set; }
+        public string Name { get; private set; } = null!;
+        public Entity Entity { get; private set; } = null!;
+        public NamespaceID? ArmorSlot { get; private set; }
         private ColliderUpdateMode updateMode;
         private Vector3 customSize = Vector3.zero;
         private Vector3 customOffset = Vector3.zero;
         private Vector3 customPivot = Vector3.one * 0.5f;
 
         [SerializeField]
-        private BoxCollider boxCollider;
+        private BoxCollider boxCollider = null!;
         private List<ColliderCache> touchingColliders = new List<ColliderCache>();
         private List<EntityCollision> collisionList = new List<EntityCollision>();
         private ArrayBuffer<EntityCollision> collisionBuffer = new ArrayBuffer<EntityCollision>(1024);
@@ -278,16 +276,22 @@ namespace MVZ2.Collisions
     {
         public string name;
         public bool enabled;
-        public NamespaceID armorSlot;
+        public NamespaceID? armorSlot;
         public SerializableEntityCollision[] collisionList;
         public int updateMode;
         public Vector3 customSize;
         public Vector3 customOffset;
         public Vector3 customPivot;
 
+        public SerializableUnityEntityCollider(string name, SerializableEntityCollision[] collisionList)
+        {
+            this.name = name;
+            this.collisionList = collisionList;
+        }
+
         string ISerializableCollisionCollider.Name => name;
         bool ISerializableCollisionCollider.Enabled => enabled;
-        NamespaceID ISerializableCollisionCollider.ArmorSlot => armorSlot;
+        NamespaceID? ISerializableCollisionCollider.ArmorSlot => armorSlot;
         SerializableEntityCollision[] ISerializableCollisionCollider.Collisions => collisionList;
         int ISerializableCollisionCollider.UpdateMode => updateMode;
         Vector3 ISerializableCollisionCollider.CustomSize => customSize;

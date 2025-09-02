@@ -11,12 +11,22 @@ namespace MVZ2.Metas
 {
     public class ShapeMeta
     {
+        private ShapeMeta(string iD)
+        {
+            ID = iD;
+        }
+
         public string ID { get; private set; }
-        public ShapeArmorMeta Armors { get; private set; }
-        public static ShapeMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public ShapeArmorMeta? Armors { get; private set; }
+        public static ShapeMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            ShapeArmorMeta armors = null;
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError($"The {nameof(id)} of a {nameof(ShapeMeta)} is invalid.");
+                return null;
+            }
+            ShapeArmorMeta? armors = null;
             for (int i = 0; i < node.ChildNodes.Count; i++)
             {
                 var child = node.ChildNodes[i];
@@ -25,15 +35,19 @@ namespace MVZ2.Metas
                     armors = ShapeArmorMeta.FromXmlNode(child, defaultNsp);
                 }
             }
-            return new ShapeMeta()
+            return new ShapeMeta(id)
             {
-                ID = id,
                 Armors = armors
             };
         }
     }
     public class ShapeArmorMeta : IShapeDefinitionArmor
     {
+        public ShapeArmorMeta(ShapeArmorSlotMeta[] slots)
+        {
+            Slots = slots;
+        }
+
         public ShapeArmorSlotMeta[] Slots { get; private set; }
         public Vector3 GetArmorPosition(NamespaceID slotID, NamespaceID armorID)
         {
@@ -74,14 +88,14 @@ namespace MVZ2.Metas
         public string GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
         {
             if (Slots == null)
-                return null;
+                return string.Empty;
             foreach (var slot in Slots)
             {
                 if (slot.SlotID != slotID)
                     continue;
                 return slot.GetModelAnchor(armorID);
             }
-            return null;
+            return string.Empty;
         }
         public IEnumerable<string> GetAllArmorModelAnchors()
         {
@@ -106,16 +120,18 @@ namespace MVZ2.Metas
                     slots.Add(ShapeArmorSlotMeta.FromXmlNode(child, defaultNsp));
                 }
             }
-            return new ShapeArmorMeta()
-            {
-                Slots = slots.ToArray(),
-            };
+            return new ShapeArmorMeta(slots.ToArray());
         }
     }
     public class ShapeArmorSlotMeta
     {
-        public NamespaceID SlotID { get; private set; }
-        public ShapeArmorSlotMetaItem Default { get; private set; }
+        private ShapeArmorSlotMeta(ShapeArmorSlotMetaItem[] items)
+        {
+            Items = items;
+        }
+
+        public NamespaceID? SlotID { get; private set; }
+        public ShapeArmorSlotMetaItem? Default { get; private set; }
         public ShapeArmorSlotMetaItem[] Items { get; private set; }
         public Vector3 GetPosition(NamespaceID armorID)
         {
@@ -167,7 +183,7 @@ namespace MVZ2.Metas
                     return item.ModelAnchor;
                 }
             }
-            return Default?.ModelAnchor;
+            return Default?.ModelAnchor ?? string.Empty;
         }
         public IEnumerable<string> GetAllAnchors()
         {
@@ -190,7 +206,7 @@ namespace MVZ2.Metas
             var slotID = node.GetAttributeNamespaceID("id", defaultNsp);
 
             var defaultNode = node["default"];
-            ShapeArmorSlotMetaItem defaultItem = null;
+            ShapeArmorSlotMetaItem? defaultItem = null;
             if (defaultNode != null)
             {
                 defaultItem = ShapeArmorSlotMetaItem.FromXmlNode(defaultNode, defaultNsp, null);
@@ -202,36 +218,37 @@ namespace MVZ2.Metas
                 var child = node.ChildNodes[i];
                 if (child.Name == "custom")
                 {
-                    items.Add(ShapeArmorSlotMetaItem.FromXmlNode(child, defaultNsp, defaultItem));
+                    var meta = ShapeArmorSlotMetaItem.FromXmlNode(child, defaultNsp, defaultItem);
+                    if (meta != null)
+                        items.Add(meta);
                 }
             }
-            return new ShapeArmorSlotMeta()
+            return new ShapeArmorSlotMeta(items.ToArray())
             {
                 SlotID = slotID,
-                Default = defaultItem,
-                Items = items.ToArray(),
+                Default = defaultItem
             };
         }
     }
     public class ShapeArmorSlotMetaItem
     {
-        public NamespaceID ArmorID { get; private set; }
+        public NamespaceID? ArmorID { get; private set; }
         public Vector3 Position { get; private set; }
         public Vector3 Scale { get; private set; }
         public Vector3 ModelOffset { get; private set; }
-        public string ModelAnchor { get; private set; }
-        public static ShapeArmorSlotMetaItem FromXmlNode(XmlNode node, string defaultNsp, ShapeArmorSlotMetaItem defaultItem)
+        public string ModelAnchor { get; private set; } = string.Empty;
+        public static ShapeArmorSlotMetaItem? FromXmlNode(XmlNode node, string defaultNsp, ShapeArmorSlotMetaItem? defaultItem)
         {
-            var armorID = node.GetAttributeNamespaceID("id", defaultNsp);
+            var id = node.GetAttributeNamespaceID("id", defaultNsp);
             var position = node["position"]?.GetAttributeVector3() ?? defaultItem?.Position ?? Vector3.zero;
             var scale = node["scale"]?.GetAttributeVector3() ?? defaultItem?.Scale ?? Vector3.one;
             var modelNode = node["model"];
             var modelOffset = modelNode?["offset"]?.GetAttributeVector3() ?? defaultItem?.ModelOffset ?? Vector3.zero;
-            var modelAnchor = modelNode?["anchor"]?.GetAttribute("value") ?? defaultItem?.ModelAnchor;
+            var modelAnchor = modelNode?["anchor"]?.GetAttribute("value") ?? defaultItem?.ModelAnchor ?? string.Empty;
 
             return new ShapeArmorSlotMetaItem()
             {
-                ArmorID = armorID,
+                ArmorID = id,
                 Position = position,
                 Scale = scale,
                 ModelOffset = modelOffset,

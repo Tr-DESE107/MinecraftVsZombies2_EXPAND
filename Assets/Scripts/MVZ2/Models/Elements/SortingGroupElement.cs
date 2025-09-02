@@ -6,7 +6,7 @@ namespace MVZ2.Models
 {
     public class SortingGroupElement : GraphicElement
     {
-        public SortingGroup Group
+        public SortingGroup? Group
         {
             get
             {
@@ -21,7 +21,7 @@ namespace MVZ2.Models
         {
             return new SerializableSortinGroupElement();
         }
-        private SortingGroup _group;
+        private SortingGroup? _group;
 
     }
     public class SerializableSortinGroupElement : SerializableGraphicElement

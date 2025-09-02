@@ -23,15 +23,15 @@ namespace MVZ2.Addons
         {
             toggle.onValueChanged.AddListener(v => OnToggled?.Invoke(this, v));
         }
-        public event Action<LanguagePackItem, bool> OnToggled;
+        public event Action<LanguagePackItem, bool>? OnToggled;
         [SerializeField]
-        private Toggle toggle;
+        private Toggle toggle = null!;
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
         [SerializeField]
-        private TextMeshProUGUI descriptionText;
+        private TextMeshProUGUI descriptionText = null!;
         [SerializeField]
-        private Image icon;
+        private Image icon = null!;
     }
     public struct LanguagePackViewData
     {

@@ -46,7 +46,7 @@ namespace MVZ2Logic.Level
             if (component == null) return;
             component.SetArtifact(slot, artifact);
         }
-        public static Artifact[] GetArtifacts(this LevelEngine level)
+        public static Artifact?[] GetArtifacts(this LevelEngine level)
         {
             var component = level.GetArtifactComponent();
             if (component == null) return Array.Empty<Artifact>();
@@ -76,7 +76,7 @@ namespace MVZ2Logic.Level
             if (component == null) return null;
             return component.GetArtifactAt(index);
         }
-        public static void ReplaceArtifacts(this LevelEngine level, NamespaceID[]? idList)
+        public static void ReplaceArtifacts(this LevelEngine level, NamespaceID?[]? idList)
         {
             ArtifactDefinition?[]? definitions;
             if (idList == null)

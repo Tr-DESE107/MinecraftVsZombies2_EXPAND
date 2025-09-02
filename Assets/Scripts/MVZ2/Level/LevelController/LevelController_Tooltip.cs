@@ -29,9 +29,9 @@ namespace MVZ2.Level
         }
 
         #region 属性字段
-        private ITooltipSource tooltipSource;
-        private ITooltipSource pickaxeTooltipSource;
-        private ITooltipSource triggerTooltipSource;
+        private ITooltipSource? tooltipSource;
+        private ITooltipSource? pickaxeTooltipSource;
+        private ITooltipSource? triggerTooltipSource;
         #endregion
 
         private class PickaxeTooltipSource : ITooltipSource
@@ -51,7 +51,7 @@ namespace MVZ2.Level
             }
             public TooltipContent GetContent()
             {
-                string error = null;
+                string? error = null;
                 if (!controller.level.CanUsePickaxe())
                 {
                     var disableID = controller.level.GetPickaxeDisableID();
@@ -86,7 +86,7 @@ namespace MVZ2.Level
             }
             public TooltipContent GetContent()
             {
-                string error = null;
+                string? error = null;
                 if (controller.level.CanUseTrigger())
                 {
                     var disableID = controller.level.GetTriggerDisableID();

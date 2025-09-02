@@ -37,9 +37,7 @@ namespace MVZ2.Level
         public virtual void PostLevelLoad() { }
         public SerializableLevelControllerPart ToSerializable()
         {
-            var seri = GetSerializable();
-            seri.id = ID;
-            return seri;
+            return GetSerializable();
         }
         protected abstract SerializableLevelControllerPart GetSerializable();
         public virtual void LoadFromSerializable(SerializableLevelControllerPart seri) { }
@@ -47,14 +45,19 @@ namespace MVZ2.Level
         public ILevelUI UI => Controller.GetUI();
         public MainManager Main => MainManager.Instance;
         public LevelEngine Level => Controller.GetEngine();
-        public ILevelController Controller { get; private set; }
+        public ILevelController Controller { get; private set; } = null!;
         public NamespaceID ID => id.Get();
         [SerializeField]
-        private NamespaceIDReference id;
+        private NamespaceIDReference id = null!;
     }
     [Serializable]
     public abstract class SerializableLevelControllerPart
     {
         public NamespaceID id;
+
+        protected SerializableLevelControllerPart(NamespaceID id)
+        {
+            this.id = id;
+        }
     }
 }

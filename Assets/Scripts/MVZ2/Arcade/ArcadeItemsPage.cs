@@ -40,13 +40,13 @@ namespace MVZ2.Arcade
         {
             OnEntryClick?.Invoke(itemList.indexOf(item));
         }
-        public Action<int> OnEntryClick;
-        public event Action OnReturnClick;
+        public event Action<int>? OnEntryClick;
+        public event Action? OnReturnClick;
         [SerializeField]
-        private Button returnButton;
+        private Button returnButton = null!;
         [SerializeField]
-        private ElementList itemList;
+        private ElementList itemList = null!;
         [SerializeField]
-        private ScrollRect itemsScrollRect;
+        private ScrollRect itemsScrollRect = null!;
     }
 }

@@ -9,16 +9,23 @@ namespace MVZ2.Metas
     {
         public string ID { get; private set; }
         public string Name { get; private set; }
-        public static EntityCounterMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public EntityCounterMeta(string id, string name)
+        {
+            ID = id;
+            Name = name;
+        }
+
+        public static EntityCounterMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var name = node.GetAttribute("name");
-
-            return new EntityCounterMeta()
+            if (string.IsNullOrEmpty(id))
             {
-                ID = id,
-                Name = name,
-            };
+                Log.LogError($"The {nameof(id)} of an {nameof(EntityCounterMeta)} is invalid.");
+                return null;
+            }
+            var name = node.GetAttribute("name") ?? string.Empty;
+
+            return new EntityCounterMeta(id, name);
         }
     }
 }

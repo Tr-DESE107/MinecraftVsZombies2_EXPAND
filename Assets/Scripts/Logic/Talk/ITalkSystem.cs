@@ -13,9 +13,9 @@ namespace MVZ2Logic.Talk
         bool IsInArchive() => GetArchive() != null;
         bool IsInMap() => GetMap() != null;
         bool IsInLevel() => GetLevel() != null;
-        LevelEngine GetLevel();
-        IMapInterface GetMap();
-        IArchiveInterface GetArchive();
+        LevelEngine? GetLevel();
+        IMapInterface? GetMap();
+        IArchiveInterface? GetArchive();
     }
 
 }

@@ -7,6 +7,6 @@ namespace MVZ2.Level
     [BsonIgnoreExtraElements]
     public class SerializableLevelControllerHeader
     {
-        public LevelDataIdentifierList identifiers;
+        public LevelDataIdentifierList? identifiers;
     }
 }

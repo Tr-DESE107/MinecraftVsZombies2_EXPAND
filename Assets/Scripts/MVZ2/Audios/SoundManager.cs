@@ -19,11 +19,11 @@ namespace MVZ2.Audios
         {
             return soundSources.Any(s => s.SoundID == id);
         }
-        public AudioSource Play2D(NamespaceID id, float pitch = 1)
+        public AudioSource? Play2D(NamespaceID id, float pitch = 1)
         {
             return Play(id, Vector3.zero, pitch, 0);
         }
-        public AudioSource Play(NamespaceID id, Vector3 pos, float pitch = 1, float spatialBlend = 1)
+        public AudioSource? Play(NamespaceID id, Vector3 pos, float pitch = 1, float spatialBlend = 1)
         {
             if (id == null)
                 return null;
@@ -169,17 +169,17 @@ namespace MVZ2.Audios
         }
         public MainManager Main => main;
         [SerializeField]
-        private MainManager main;
+        private MainManager main = null!;
         [SerializeField]
-        private AudioMixer mixer;
+        private AudioMixer mixer = null!;
         [SerializeField]
-        private Transform soundSourceRoot;
+        private Transform soundSourceRoot = null!;
         [SerializeField]
-        private Transform loopSoundSourceRoot;
+        private Transform loopSoundSourceRoot = null!;
         [SerializeField]
-        private SoundSource soundTemplate;
+        private SoundSource soundTemplate = null!;
         [SerializeField]
-        private SoundSource loopSoundTemplate;
+        private SoundSource loopSoundTemplate = null!;
 
         [Header("AudioClips")]
         private List<SoundSource> soundSources = new List<SoundSource>();

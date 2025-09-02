@@ -14,7 +14,7 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 对话组
-        public TalkGroup GetTalkGroup(NamespaceID groupID)
+        public TalkGroup? GetTalkGroup(NamespaceID groupID)
         {
             if (!NamespaceID.IsValid(groupID))
                 return null;
@@ -35,7 +35,7 @@ namespace MVZ2.Managers
                 return false;
             if (Main.SaveManager.IsValidAndLocked(group.requires))
                 return false;
-            if (Main.SaveManager.IsUnlocked(group.requiresNot))
+            if (Main.SaveManager.IsValidAndUnlocked(group.requiresNot))
                 return false;
             var section = GetTalkSection(groupId, sectionIndex);
             if (section == null)
@@ -56,38 +56,38 @@ namespace MVZ2.Managers
         #endregion
 
         #region 对话段落
-        public TalkSection GetTalkSection(NamespaceID groupID, int sectionIndex)
+        public TalkSection? GetTalkSection(NamespaceID groupID, int sectionIndex)
         {
             var group = GetTalkGroup(groupID);
             if (group?.sections == null)
                 return null;
-            if (sectionIndex < 0 || sectionIndex >= group.sections.Count)
+            if (sectionIndex < 0 || sectionIndex >= group.sections.Length)
                 return null;
             return group.sections[sectionIndex];
         }
         #endregion
 
         #region 对话语句
-        public TalkSentence GetTalkSentence(NamespaceID groupID, int sectionIndex, int sentenceIndex)
+        public TalkSentence? GetTalkSentence(NamespaceID groupID, int sectionIndex, int sentenceIndex)
         {
             var section = GetTalkSection(groupID, sectionIndex);
             if (section?.sentences == null)
                 return null;
-            if (sentenceIndex < 0 || sentenceIndex >= section.sentences.Count)
+            if (sentenceIndex < 0 || sentenceIndex >= section.sentences.Length)
                 return null;
             return section.sentences[sentenceIndex];
         }
         #endregion
 
         #region 档案标签
-        public ArchiveMetaList GetArchiveMetaList(string nsp)
+        public ArchiveMetaList? GetArchiveMetaList(string nsp)
         {
             var modResource = GetModResource(nsp);
             if (modResource == null)
                 return null;
             return modResource.ArchiveMetaList;
         }
-        public ArchiveTagMeta GetArchiveTagMeta(NamespaceID tagID)
+        public ArchiveTagMeta? GetArchiveTagMeta(NamespaceID tagID)
         {
             var metaList = GetArchiveMetaList(tagID.SpaceName);
             if (metaList == null)

@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -20,7 +21,7 @@ namespace MVZ2.Supporters
     {
         public async Task PullSponsors(TaskProgress progress)
         {
-            SponsorInfos sponserCache = null;
+            SponsorInfos? sponserCache = null;
             try
             {
                 sponserCache = LoadSponsorsCache();
@@ -38,7 +39,6 @@ namespace MVZ2.Supporters
                     return;
                 }
                 var items = await GetAllSponsors(progress);
-                var test = items.OrderByDescending(s => s.LastPayTime).Select(s => s.User.Name).ToArray();
                 sponserCache = new SponsorInfos(items);
                 sponserCache.lastUpdateTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                 SetCurrentSponsorInfos(sponserCache);
@@ -67,20 +67,30 @@ namespace MVZ2.Supporters
             int numPerPage = 100;
             progress.SetProgress(0, "Page 1");
             var resp = await RequestSponsors(1, numPerPage);
-            sponsorList.AddRange(resp.Result.List);
+            if (resp.Result == null)
+            {
+                return Array.Empty<SponsorItem>();
+            }
+            if (resp.Result.List is SponsorItem[] items)
+            {
+                sponsorList.AddRange(items);
+            }
             var totalPage = resp.Result.TotalPage;
 
-            for (int i = 2; i <= resp.Result.TotalPage; i++)
+            for (int i = 2; i <= totalPage; i++)
             {
                 progress.SetProgress((i - 1) / (float)totalPage, $"Page {i}");
                 var obj = await RequestSponsors(i, numPerPage);
-                sponsorList.AddRange(obj.Result.List);
+                if (obj.Result?.List != null)
+                {
+                    sponsorList.AddRange(obj.Result.List);
+                }
             }
             progress.SetProgress(1, "Finished");
 
             return sponsorList.ToArray();
         }
-        private async Task<GenericResp<ItemList<SponsorItem>>> RequestSponsors(int page = 0, int numPerPage = 100, int[] targetUserID = null)
+        private async Task<GenericResp<ItemList<SponsorItem>>> RequestSponsors(int page = 0, int numPerPage = 100, int[]? targetUserID = null)
         {
             SponsorQueryParams sponsorParams = new SponsorQueryParams(page, numPerPage, targetUserID);
             var param = JsonUtility.ToJson(sponsorParams);
@@ -146,7 +156,7 @@ namespace MVZ2.Supporters
             return request;
         }
 
-        private SponsorInfos LoadSponsorsCache()
+        private SponsorInfos? LoadSponsorsCache()
         {
             var path = GetSponsorCacheFilePath();
             if (!File.Exists(path))
@@ -163,7 +173,7 @@ namespace MVZ2.Supporters
             var json = saveInfo.ToJson();
             Main.FileManager.WriteStringFile(path, json);
         }
-        private bool ShouldRepull(SponsorInfos infos)
+        private bool ShouldRepull([NotNullWhen(false)] SponsorInfos? infos)
         {
             if (infos == null)
                 return true;
@@ -184,11 +194,11 @@ namespace MVZ2.Supporters
             currentSponsors = infos;
         }
         public MainManager Main => MainManager.Instance;
-        private SponsorInfos currentSponsors;
+        private SponsorInfos? currentSponsors;
         [SerializeField]
-        private string userID;
+        private string userID = null!;
         [SerializeField]
-        private string apiToken;
+        private string apiToken = null!;
         [SerializeField]
         private string baseUrl = "https://afdian.com/api";
         [SerializeField]

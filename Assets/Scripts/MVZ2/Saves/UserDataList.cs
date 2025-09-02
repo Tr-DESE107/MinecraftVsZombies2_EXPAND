@@ -11,7 +11,7 @@ namespace MVZ2.Saves
         {
             metas = new UserDataItem[metaCount];
         }
-        public UserDataItem Create(int index)
+        public UserDataItem? Create(int index)
         {
             if (index < 0 || index >= metas.Length)
                 return null;
@@ -19,7 +19,7 @@ namespace MVZ2.Saves
             metas[index] = meta;
             return meta;
         }
-        public UserDataItem Get(int index)
+        public UserDataItem? Get(int index)
         {
             if (index < 0 || index >= metas.Length)
                 return null;
@@ -32,7 +32,7 @@ namespace MVZ2.Saves
             metas[index] = null;
             return true;
         }
-        public UserDataItem[] GetAllUsers()
+        public UserDataItem?[] GetAllUsers()
         {
             return metas.ToArray();
         }
@@ -42,11 +42,8 @@ namespace MVZ2.Saves
         }
         public SerializableUserDataList ToSerializable()
         {
-            return new SerializableUserDataList()
-            {
-                currentUserIndex = CurrentUserIndex,
-                metas = metas.Select(m => m != null ? m.ToSerializable() : null).ToArray()
-            };
+            var seriMetas = metas.Select(m => m != null ? m.ToSerializable() : null).ToArray();
+            return new SerializableUserDataList(CurrentUserIndex, seriMetas);
         }
         public static UserDataList FromSerializable(SerializableUserDataList serializable)
         {
@@ -62,12 +59,18 @@ namespace MVZ2.Saves
             return metaList;
         }
         public int CurrentUserIndex { get; set; }
-        private UserDataItem[] metas;
+        private UserDataItem?[] metas;
     }
     [Serializable]
     public class SerializableUserDataList
     {
         public int currentUserIndex;
-        public SerializableSaveDataMeta[] metas;
+        public SerializableSaveDataMeta?[] metas;
+
+        public SerializableUserDataList(int currentUserIndex, SerializableSaveDataMeta?[] metas)
+        {
+            this.currentUserIndex = currentUserIndex;
+            this.metas = metas;
+        }
     }
 }

@@ -22,11 +22,13 @@ namespace MVZ2.Level
         }
         private void WriteToSerializable_Model(SerializableLevelController seri)
         {
-            seri.model = model.ToSerializable();
+            if (model.Exists())
+                seri.model = model.ToSerializable();
         }
         private void ReadFromSerializable_Model(SerializableLevelController seri)
         {
-            model.LoadFromSerializable(seri.model);
+            if (model.Exists() && seri.model != null)
+                model.LoadFromSerializable(seri.model);
         }
 
         #region 初始化模型
@@ -46,9 +48,10 @@ namespace MVZ2.Level
             {
                 model.Init(modelID, GetCamera());
                 var stageDef = Game.GetStageDefinition(stageID);
-                if (stageDef != null)
+                var modelPreset = stageDef?.GetModelPreset();
+                if (modelPreset != null)
                 {
-                    SetModelPreset(stageDef.GetModelPreset());
+                    SetModelPreset(modelPreset);
                 }
             }
         }
@@ -57,14 +60,14 @@ namespace MVZ2.Level
         #region 修改模型
         public void SetModelPreset(string name)
         {
-            if (!model)
+            if (!model.Exists())
                 return;
             model.SetPreset(name);
         }
         #endregion
 
         #region 获取模型
-        public AreaModel GetAreaModel()
+        public AreaModel? GetAreaModel()
         {
             return model;
         }
@@ -77,37 +80,37 @@ namespace MVZ2.Level
         #region 动画
         public void TriggerModelAnimator(string name)
         {
-            if (!model)
+            if (!model.Exists())
                 return;
             model.TriggerAnimator(name);
         }
         public void SetModelAnimatorBool(string name, bool value)
         {
-            if (!model)
+            if (!model.Exists())
                 return;
             model.SetAnimatorBool(name, value);
         }
         public void SetModelAnimatorInt(string name, int value)
         {
-            if (!model)
+            if (!model.Exists())
                 return;
             model.SetAnimatorInt(name, value);
         }
         public void SetModelAnimatorFloat(string name, float value)
         {
-            if (!model)
+            if (!model.Exists())
                 return;
             model.SetAnimatorFloat(name, value);
         }
         #endregion
 
         #region 属性字段
-        private AreaModel model;
-        private IModelInterface areaModelInterface;
+        private AreaModel? model;
+        private IModelInterface areaModelInterface = null!;
 
         [Header("Model")]
         [SerializeField]
-        private Transform modelRoot;
+        private Transform modelRoot = null!;
         #endregion
     }
 }

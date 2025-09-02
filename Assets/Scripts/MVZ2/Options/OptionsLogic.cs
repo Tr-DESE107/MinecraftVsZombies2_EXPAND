@@ -311,8 +311,19 @@ namespace MVZ2.Options
         {
             if (string.IsNullOrEmpty(handler.text))
                 return;
-            var text = Main.LanguageManager._p(handler.context, handler.text);
-            Main.Scene.ShowTooltip(new SimpleTooltipSource(dialog.GetCamera(), handler, new TooltipContent() { description = text }));
+            string text;
+            if (string.IsNullOrEmpty(handler.context))
+            {
+                text = Main.LanguageManager._(handler.text);
+            }
+            else
+            {
+                text = Main.LanguageManager._p(handler.context, handler.text);
+            }
+            var camera = dialog.GetCamera();
+            if (!camera.Exists())
+                return;
+            Main.Scene.ShowTooltip(new SimpleTooltipSource(camera, handler, new TooltipContent() { description = text }));
         }
         private void OnTooltipHideCallback(TooltipHandler handler)
         {
@@ -576,7 +587,7 @@ namespace MVZ2.Options
 
         #endregion
 
-        public event Action OnClose;
+        public event Action? OnClose;
 
         public const int FASTFORWARD_STEP_COUNT = 20;
         public const float FASTFORWARD_SLIDER_START = 1;
@@ -658,7 +669,7 @@ namespace MVZ2.Options
         public bool BloodAndGore { get; private set; }
         public string Language { get; private set; }
         protected OptionsDialog dialog;
-        private string[] languageValues;
-        private Vector2Int[] resolutionValues;
+        private string[] languageValues = null!;
+        private Vector2Int[] resolutionValues = null!;
     }
 }

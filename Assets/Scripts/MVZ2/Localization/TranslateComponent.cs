@@ -24,7 +24,7 @@ namespace MVZ2.Localization
         {
             Translate(language);
         }
-        public T Component
+        public T? Component
         {
             get
             {
@@ -36,6 +36,6 @@ namespace MVZ2.Localization
             }
         }
         protected LanguageManager lang => MainManager.Instance.LanguageManager;
-        private T component;
+        private T? component;
     }
 }

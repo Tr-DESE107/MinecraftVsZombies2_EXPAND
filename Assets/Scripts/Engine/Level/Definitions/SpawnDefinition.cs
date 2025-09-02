@@ -13,23 +13,23 @@ namespace PVZEngine.Definitions
         {
         }
         #region 预览
-        public Entity? SpawnPreviewEntity(LevelEngine level, Vector3 pos, SpawnParams param) => GetPreviewBehaviour().SpawnPreviewEntity(level, pos, param);
-        public NamespaceID[] GetCounterTags(LevelEngine level) => GetPreviewBehaviour().GetCounterTags(level);
+        public Entity? SpawnPreviewEntity(LevelEngine level, Vector3 pos, SpawnParams param) => GetPreviewBehaviour().SpawnPreviewEntity(this, level, pos, param);
+        public NamespaceID[] GetCounterTags(LevelEngine level) => GetPreviewBehaviour().GetCounterTags(this, level);
         protected abstract ISpawnPreviewBehaviour GetPreviewBehaviour();
         #endregion
 
         #region 生成
-        public void PreSpawnAtWave(LevelEngine level, int wave, ref float totalPoints) => GetInLevelBehaviour().PreSpawnAtWave(level, wave, ref totalPoints);
-        public int GetWeight(LevelEngine level) => GetInLevelBehaviour().GetWeight(level);
-        public int GetSpawnLevel(LevelEngine level) => GetInLevelBehaviour().GetSpawnLevel(level);
-        public bool CanSpawnInLevel(LevelEngine level) => GetInLevelBehaviour().CanSpawnInLevel(level);
-        public int GetRandomSpawnLane(LevelEngine level) => GetInLevelBehaviour().GetRandomSpawnLane(level);
-        public NamespaceID GetSpawnEntityID() => GetInLevelBehaviour().GetSpawnEntityID();
+        public void PreSpawnAtWave(LevelEngine level, int wave, ref float totalPoints) => GetInLevelBehaviour().PreSpawnAtWave(this, level, wave, ref totalPoints);
+        public int GetWeight(LevelEngine level) => GetInLevelBehaviour().GetWeight(this, level);
+        public int GetSpawnLevel(LevelEngine level) => GetInLevelBehaviour().GetSpawnLevel(this, level);
+        public bool CanSpawnInLevel(LevelEngine level) => GetInLevelBehaviour().CanSpawnInLevel(this, level);
+        public int GetRandomSpawnLane(LevelEngine level) => GetInLevelBehaviour().GetRandomSpawnLane(this, level);
+        public NamespaceID GetSpawnEntityID() => GetInLevelBehaviour().GetSpawnEntityID(this);
         protected abstract ISpawnInLevelBehaviour GetInLevelBehaviour();
         #endregion
 
         #region 无尽
-        public bool CanAppearInEndless(LevelEngine level) => GetEndlessBehaviour().CanAppearInEndless(level);
+        public bool CanAppearInEndless(LevelEngine level) => GetEndlessBehaviour().CanAppearInEndless(this, level);
         protected abstract ISpawnEndlessBehaviour GetEndlessBehaviour();
         #endregion
 
@@ -37,20 +37,20 @@ namespace PVZEngine.Definitions
     }
     public interface ISpawnInLevelBehaviour
     {
-        void PreSpawnAtWave(LevelEngine level, int wave, ref float totalPoints);
-        NamespaceID GetSpawnEntityID();
-        int GetSpawnLevel(LevelEngine level);
-        int GetWeight(LevelEngine level);
-        bool CanSpawnInLevel(LevelEngine level);
-        int GetRandomSpawnLane(LevelEngine level);
+        void PreSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, ref float totalPoints);
+        NamespaceID GetSpawnEntityID(SpawnDefinition definition);
+        int GetSpawnLevel(SpawnDefinition definition, LevelEngine level);
+        int GetWeight(SpawnDefinition definition, LevelEngine level);
+        bool CanSpawnInLevel(SpawnDefinition definition, LevelEngine level);
+        int GetRandomSpawnLane(SpawnDefinition definition, LevelEngine level);
     }
     public interface ISpawnPreviewBehaviour
     {
-        Entity? SpawnPreviewEntity(LevelEngine level, Vector3 pos, SpawnParams param);
-        NamespaceID[] GetCounterTags(LevelEngine level);
+        Entity? SpawnPreviewEntity(SpawnDefinition definition, LevelEngine level, Vector3 pos, SpawnParams param);
+        NamespaceID[] GetCounterTags(SpawnDefinition definition, LevelEngine level);
     }
     public interface ISpawnEndlessBehaviour
     {
-        bool CanAppearInEndless(LevelEngine level);
+        bool CanAppearInEndless(SpawnDefinition definition, LevelEngine level);
     }
 }

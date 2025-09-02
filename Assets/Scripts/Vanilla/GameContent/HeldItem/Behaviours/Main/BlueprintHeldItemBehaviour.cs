@@ -121,9 +121,11 @@ namespace MVZ2.GameContent.HeldItems
                 }
             }
         }
-        public override void OnSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
+        public override void OnSetModel(LevelEngine level, IHeldItemData data, IModelInterface? model)
         {
             base.OnSetModel(level, data, model);
+            if (model == null)
+                return;
             var seedPack = GetSeedPack(level, data);
             if (seedPack == null)
                 return;

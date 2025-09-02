@@ -78,7 +78,7 @@ namespace MVZ2.Level
         }
         [Header("Collision")]
         [SerializeField]
-        private UnityCollisionSystem unityCollisionSystem;
-        private BuiltinCollisionSystem builtinCollisionSystem;
+        private UnityCollisionSystem? unityCollisionSystem;
+        private BuiltinCollisionSystem builtinCollisionSystem = null!;
     }
 }

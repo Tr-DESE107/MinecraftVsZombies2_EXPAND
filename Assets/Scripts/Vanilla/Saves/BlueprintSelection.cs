@@ -10,9 +10,9 @@ namespace MVZ2.Vanilla.Saves
     public class BlueprintSelection
     {
         public BlueprintSelectionItem[] blueprints;
-        public ArtifactSelectionItem[] artifacts;
+        public ArtifactSelectionItem?[] artifacts;
 
-        public BlueprintSelection(BlueprintSelectionItem[] blueprints, ArtifactSelectionItem[] artifacts)
+        public BlueprintSelection(BlueprintSelectionItem[] blueprints, ArtifactSelectionItem?[] artifacts)
         {
             this.blueprints = blueprints;
             this.artifacts = artifacts;
@@ -83,7 +83,7 @@ namespace MVZ2.Vanilla.Saves
         {
             return id.GetHashCode();
         }
-        public static bool operator ==(ArtifactSelectionItem lhs, ArtifactSelectionItem rhs)
+        public static bool operator ==(ArtifactSelectionItem? lhs, ArtifactSelectionItem? rhs)
         {
             if (lhs is null)
             {
@@ -95,7 +95,7 @@ namespace MVZ2.Vanilla.Saves
             }
             return lhs.id == rhs.id;
         }
-        public static bool operator !=(ArtifactSelectionItem lhs, ArtifactSelectionItem rhs)
+        public static bool operator !=(ArtifactSelectionItem? lhs, ArtifactSelectionItem? rhs)
         {
             return !(lhs == rhs);
         }

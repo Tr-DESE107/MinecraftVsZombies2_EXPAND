@@ -11,8 +11,8 @@ namespace MVZ2.UI
         public TextMeshProUGUI Text => text;
         public Slider Slider => slider;
         [SerializeField]
-        private TextMeshProUGUI text;
+        private TextMeshProUGUI text = null!;
         [SerializeField]
-        private Slider slider;
+        private Slider slider = null!;
     }
 }

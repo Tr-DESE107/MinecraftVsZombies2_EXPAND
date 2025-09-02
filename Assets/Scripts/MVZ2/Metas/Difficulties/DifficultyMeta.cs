@@ -9,27 +9,36 @@ namespace MVZ2.Metas
 {
     public class DifficultyMeta
     {
+
         public string ID { get; private set; }
-        public string Name { get; private set; }
+        public string Name { get; private set; } = string.Empty;
         public int Value { get; private set; }
-        public NamespaceID BuffID { get; private set; }
-        public NamespaceID IZombieBuffID { get; private set; }
+        public NamespaceID? BuffID { get; private set; }
+        public NamespaceID? IZombieBuffID { get; private set; }
 
         public int CartConvertMoney { get; private set; }
         public int ClearMoney { get; private set; }
         public int RerunClearMoney { get; private set; }
         public int PuzzleMoney { get; private set; }
 
-        public SpriteReference MapButtonBorderBack { get; private set; }
-        public SpriteReference MapButtonBorderBottom { get; private set; }
-        public SpriteReference MapButtonBorderOverlay { get; private set; }
-        public SpriteReference ArcadeIcon { get; private set; }
+        public SpriteReference? MapButtonBorderBack { get; private set; }
+        public SpriteReference? MapButtonBorderBottom { get; private set; }
+        public SpriteReference? MapButtonBorderOverlay { get; private set; }
+        public SpriteReference? ArcadeIcon { get; private set; }
 
-
-        public static DifficultyMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public DifficultyMeta(string id)
+        {
+            ID = id;
+        }
+        public static DifficultyMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var name = node.GetAttribute("name");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError($"The {nameof(id)} of a {nameof(DifficultyMeta)} is invalid.");
+                return null;
+            }
+            var name = node.GetAttribute("name") ?? string.Empty;
             var value = node.GetAttributeInt("value") ?? 0;
 
             var buffID = node["buff"]?.GetAttributeNamespaceID("id", defaultNsp);
@@ -48,9 +57,9 @@ namespace MVZ2.Metas
                 puzzleMoney = clearNode.GetAttributeInt("puzzleMoney") ?? 1000;
             }
 
-            SpriteReference backSprite = null;
-            SpriteReference bottomSprite = null;
-            SpriteReference overlaySprite = null;
+            SpriteReference? backSprite = null;
+            SpriteReference? bottomSprite = null;
+            SpriteReference? overlaySprite = null;
             var buttonNode = node["button"];
             if (buttonNode != null)
             {
@@ -59,16 +68,15 @@ namespace MVZ2.Metas
                 overlaySprite = buttonNode.GetAttributeSpriteReference("overlay", defaultNsp);
             }
 
-            SpriteReference arcadeIcon = null;
+            SpriteReference? arcadeIcon = null;
             var iconNode = node["icon"];
             if (iconNode != null)
             {
                 arcadeIcon = iconNode.GetAttributeSpriteReference("arcade", defaultNsp);
             }
 
-            return new DifficultyMeta()
+            return new DifficultyMeta(id)
             {
-                ID = id,
                 Name = name,
                 Value = value,
                 BuffID = buffID,

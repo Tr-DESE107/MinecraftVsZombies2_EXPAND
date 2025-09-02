@@ -20,9 +20,9 @@ namespace MVZ2.Talks
         {
             talk.StartSection(section);
         }
-        public abstract IArchiveInterface GetArchive();
-        public abstract IMapInterface GetMap();
-        public abstract LevelEngine GetLevel();
+        public abstract IArchiveInterface? GetArchive();
+        public abstract IMapInterface? GetMap();
+        public abstract LevelEngine? GetLevel();
 
         public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect)
         {

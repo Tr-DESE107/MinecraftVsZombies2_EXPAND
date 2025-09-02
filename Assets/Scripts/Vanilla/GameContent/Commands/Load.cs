@@ -15,6 +15,8 @@ namespace MVZ2.GameContent.Commands
         public override async void Invoke(string[] parameters)
         {
             var level = Global.Level.GetLevel();
+            if (level == null)
+                return;
             await level.ReloadLevel();
         }
     }

@@ -18,11 +18,16 @@ namespace MVZ2.Store
             iconImage.enabled = !viewData.isBlueprint && iconImage.sprite;
 
             blueprintRoot.SetActive(viewData.isBlueprint);
-            blueprintStandalone.gameObject.SetActive(!viewData.isBlueprintMobile);
-            blueprintMobile.gameObject.SetActive(viewData.isBlueprintMobile);
-
-            blueprintStandalone.UpdateView(viewData.blueprint);
-            blueprintMobile.UpdateView(viewData.blueprint);
+            if (blueprintStandalone.Exists())
+            {
+                blueprintStandalone.gameObject.SetActive(!viewData.isBlueprintMobile);
+                blueprintStandalone.UpdateView(viewData.blueprint);
+            }
+            if (blueprintMobile.Exists())
+            {
+                blueprintMobile.gameObject.SetActive(viewData.isBlueprintMobile);
+                blueprintMobile.UpdateView(viewData.blueprint);
+            }
 
             iconText.text = viewData.text;
             priceText.text = viewData.price;
@@ -41,30 +46,30 @@ namespace MVZ2.Store
         {
             OnPointerExit?.Invoke(this);
         }
-        public event Action<StoreProductItem> OnClick;
-        public event Action<StoreProductItem> OnPointerEnter;
-        public event Action<StoreProductItem> OnPointerExit;
+        public event Action<StoreProductItem>? OnClick;
+        public event Action<StoreProductItem>? OnPointerEnter;
+        public event Action<StoreProductItem>? OnPointerExit;
         [SerializeField]
-        private Button button;
+        private Button button = null!;
         [SerializeField]
-        private GameObject root;
+        private GameObject root = null!;
         [SerializeField]
-        private Image iconImage;
+        private Image iconImage = null!;
         [SerializeField]
-        private GameObject blueprintRoot;
+        private GameObject blueprintRoot = null!;
         [SerializeField]
-        private Blueprint blueprintStandalone;
+        private Blueprint? blueprintStandalone;
         [SerializeField]
-        private Blueprint blueprintMobile;
+        private Blueprint? blueprintMobile;
         [SerializeField]
-        private TextMeshProUGUI iconText;
+        private TextMeshProUGUI iconText = null!;
         [SerializeField]
-        private TextMeshProUGUI priceText;
+        private TextMeshProUGUI priceText = null!;
     }
     public struct ProductItemViewData
     {
         public bool empty;
-        public Sprite icon;
+        public Sprite? icon;
         public BlueprintViewData blueprint;
         public bool isBlueprint;
         public bool isBlueprintMobile;

@@ -12,21 +12,27 @@ namespace MVZ2.Metas
 {
     public class ModelMeta
     {
-        public string Name { get; private set; }
-        public string Type { get; private set; }
-        public NamespaceID Path { get; private set; }
+        public ModelMeta(AnimatorParameter[] animatorParameters, Dictionary<string, object?> modelProperties)
+        {
+            AnimatorParameters = animatorParameters;
+            ModelProperties = modelProperties;
+        }
+
+        public string Name { get; private set; } = string.Empty;
+        public string Type { get; private set; } = string.Empty;
+        public NamespaceID? Path { get; private set; }
         public bool Shot { get; private set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
         public float XOffset { get; private set; }
         public float YOffset { get; private set; }
         public AnimatorParameter[] AnimatorParameters { get; private set; }
-        public Dictionary<string, object> ModelProperties { get; private set; }
+        public Dictionary<string, object?> ModelProperties { get; private set; }
         public static ModelMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var name = node.GetAttribute("name");
-            var type = node.GetAttribute("type");
-            var path = node.GetAttribute("path");
+            var name = node.GetAttribute("name") ?? string.Empty;
+            var type = node.GetAttribute("type") ?? string.Empty;
+            var path = node.GetAttributeNamespaceID("path", defaultNsp);
             var shot = node.GetAttributeBool("shot") ?? true;
             var width = node.GetAttributeInt("width") ?? 64;
             var height = node.GetAttributeInt("height") ?? 64;
@@ -42,23 +48,25 @@ namespace MVZ2.Metas
                     for (int i = 0; i < parametersNode.ChildNodes.Count; i++)
                     {
                         var child = parametersNode.ChildNodes[i];
-                        animatorParameters.Add(AnimatorParameter.FromXmlNode(child, defaultNsp));
+                        var param = AnimatorParameter.FromXmlNode(child, defaultNsp);
+                        if (param != null)
+                        {
+                            animatorParameters.Add(param);
+                        }
                     }
                 }
             }
             var modelProperties = node["properties"].ToPropertyDictionary(defaultNsp);
-            return new ModelMeta()
+            return new ModelMeta(animatorParameters.ToArray(), modelProperties)
             {
                 Name = name,
                 Type = type,
                 Shot = shot,
-                Path = NamespaceID.Parse(path, defaultNsp),
+                Path = path,
                 Width = width,
                 Height = height,
                 XOffset = xOffset,
                 YOffset = yOffset,
-                AnimatorParameters = animatorParameters.ToArray(),
-                ModelProperties = modelProperties,
             };
         }
         public override string ToString()
@@ -68,41 +76,47 @@ namespace MVZ2.Metas
     }
     public class AnimatorParameter
     {
+        public AnimatorParameter(string name)
+        {
+            Name = name;
+        }
+
         public string Name { get; set; }
         public AnimatorControllerParameterType Type { get; set; }
         public bool BoolValue { get; set; }
         public int IntValue { get; set; }
         public float FloatValue { get; set; }
-        public static AnimatorParameter FromXmlNode(XmlNode node, string defaultNsp)
+        public static AnimatorParameter? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var typeName = node.Name;
             var name = node.GetAttribute("name");
+            if (string.IsNullOrEmpty(name))
+            {
+                Log.LogError("The Name of an AnimatorParameter is invalid.");
+                return null;
+            }
             switch (typeName)
             {
                 case "trigger":
-                    return new AnimatorParameter()
+                    return new AnimatorParameter(name)
                     {
-                        Name = name,
                         Type = AnimatorControllerParameterType.Trigger,
                     };
                 case "bool":
-                    return new AnimatorParameter()
+                    return new AnimatorParameter(name)
                     {
-                        Name = name,
                         Type = AnimatorControllerParameterType.Bool,
                         BoolValue = node.GetAttributeBool("value") ?? false
                     };
                 case "int":
-                    return new AnimatorParameter()
+                    return new AnimatorParameter(name)
                     {
-                        Name = name,
                         Type = AnimatorControllerParameterType.Int,
                         IntValue = node.GetAttributeInt("value") ?? 0
                     };
                 case "float":
-                    return new AnimatorParameter()
+                    return new AnimatorParameter(name)
                     {
-                        Name = name,
                         Type = AnimatorControllerParameterType.Float,
                         FloatValue = node.GetAttributeFloat("value") ?? 0
                     };

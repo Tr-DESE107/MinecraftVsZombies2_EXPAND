@@ -20,8 +20,11 @@ namespace MVZ2.Level
             var artifact = level.GetArtifactAt(index);
             if (artifact?.Definition == null)
                 return;
+            var artifactUI = uiPreset.GetArtifactAt(index);
+            if (!artifactUI.Exists())
+                return;
             var artifactID = artifact.Definition.GetID();
-            ShowTooltip(new ArtifactTooltipSource(this, artifactID, uiPreset.GetArtifactAt(index)));
+            ShowTooltip(new ArtifactTooltipSource(this, artifactID, artifactUI));
         }
         private void UI_OnArtifactPointerExitCallback(int index)
         {

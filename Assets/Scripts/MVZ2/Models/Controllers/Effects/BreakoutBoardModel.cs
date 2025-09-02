@@ -21,6 +21,6 @@ namespace MVZ2.Models
             countdownText.text = text;
         }
         [SerializeField]
-        private TextMeshPro countdownText;
+        private TextMeshPro countdownText = null!;
     }
 }

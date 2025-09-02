@@ -15,7 +15,7 @@ namespace MVZ2.Almanacs
             iconRoot.localPosition = (Vector3)viewData.offset;
             icon.sprite = sprite;
             icon.enabled = sprite;
-            if (sprite)
+            if (sprite.Exists())
             {
                 ratioFitter.aspectRatio = sprite.rect.width / sprite.rect.height;
             }
@@ -28,22 +28,22 @@ namespace MVZ2.Almanacs
         {
             button.onClick.AddListener(() => OnClick?.Invoke(this));
         }
-        public Action<AlmanacEntry> OnClick;
+        public event Action<AlmanacEntry>? OnClick;
         [SerializeField]
-        private GameObject rootObject;
+        private GameObject rootObject = null!;
         [SerializeField]
-        private Button button;
+        private Button button = null!;
         [SerializeField]
-        private RectTransform iconRoot;
+        private RectTransform iconRoot = null!;
         [SerializeField]
-        private Image icon;
+        private Image icon = null!;
         [SerializeField]
-        private AspectRatioFitter ratioFitter;
+        private AspectRatioFitter ratioFitter = null!;
     }
     public struct AlmanacEntryViewData
     {
         public bool empty;
-        public Sprite sprite;
+        public Sprite? sprite;
         public Vector2 offset;
         public static readonly AlmanacEntryViewData Empty = new AlmanacEntryViewData { empty = true };
     }

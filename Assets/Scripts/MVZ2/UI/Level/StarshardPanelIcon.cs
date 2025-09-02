@@ -9,7 +9,7 @@ namespace MVZ2.Level.UI
 {
     public class StarshardPanelIcon : MonoBehaviour, IPointerDownHandler
     {
-        public void SetSprite(Sprite sprite)
+        public void SetSprite(Sprite? sprite)
         {
             image.sprite = sprite;
         }
@@ -17,8 +17,8 @@ namespace MVZ2.Level.UI
         {
             OnPointerDown?.Invoke(eventData);
         }
-        public event Action<PointerEventData> OnPointerDown;
+        public event Action<PointerEventData>? OnPointerDown;
         [SerializeField]
-        private Image image;
+        private Image image = null!;
     }
 }

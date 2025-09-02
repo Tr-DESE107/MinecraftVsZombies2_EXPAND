@@ -18,7 +18,17 @@ namespace MVZ2.Level.Components
 
         public void ShowAdvice(string context, string textKey, int priority, int timeout, params string[] args)
         {
-            ShowAdvicePlural(context, textKey, null, 0, priority, timeout, args);
+            if (AdvicePriority > priority && AdviceTimeout != 0)
+                return;
+            AdviceContext = context;
+            AdviceKey = textKey;
+            AdvicePriority = priority;
+            AdviceTimeout = timeout;
+            AdviceArgs = args;
+            AdvicePluralKey = null;
+            AdvicePluralNum = 0;
+            var ui = Controller.GetUIPreset();
+            ui.ShowAdvice(GetAdvice());
         }
         public void ShowAdvicePlural(string context, string textKey, string textPlural, long pluralNum, int priority, int timeout, params string[] args)
         {
@@ -79,7 +89,7 @@ namespace MVZ2.Level.Components
             AdvicePluralNum = comp.advicePluralNum;
             AdvicePriority = comp.advicePriority;
             AdviceTimeout = comp.adviceTimeout;
-            AdviceArgs = comp.adviceArgs?.ToArray();
+            AdviceArgs = comp.adviceArgs?.ToArray() ?? Array.Empty<string>();
         }
         public override void PostLevelLoad()
         {
@@ -92,13 +102,24 @@ namespace MVZ2.Level.Components
         }
         public string GetAdvice()
         {
-            if (string.IsNullOrEmpty(AdvicePluralKey))
-                return Global.Localization.GetTextParticular(AdviceKey, AdviceContext, AdviceArgs);
-            return Global.Localization.GetTextPluralParticular(AdviceKey, AdvicePluralKey, AdvicePluralNum, AdviceContext, AdviceArgs);
+            if (string.IsNullOrEmpty(AdviceKey))
+                return string.Empty;
+            if (string.IsNullOrEmpty(AdviceContext))
+            {
+                if (string.IsNullOrEmpty(AdvicePluralKey))
+                    return Global.Localization.GetText(AdviceKey, AdviceArgs);
+                return Global.Localization.GetTextPlural(AdviceKey, AdvicePluralKey, AdvicePluralNum, AdviceArgs);
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(AdvicePluralKey))
+                    return Global.Localization.GetTextParticular(AdviceKey, AdviceContext, AdviceArgs);
+                return Global.Localization.GetTextPluralParticular(AdviceKey, AdvicePluralKey, AdvicePluralNum, AdviceContext, AdviceArgs);
+            }
         }
-        public string AdviceContext { get; private set; }
-        public string AdviceKey { get; private set; }
-        public string AdvicePluralKey { get; private set; }
+        public string? AdviceContext { get; private set; }
+        public string? AdviceKey { get; private set; }
+        public string? AdvicePluralKey { get; private set; }
         public long AdvicePluralNum { get; private set; }
         public string[] AdviceArgs { get; private set; } = Array.Empty<string>();
         public int AdvicePriority { get; private set; }
@@ -108,12 +129,12 @@ namespace MVZ2.Level.Components
     [Serializable]
     public class SerializableAdviceComponent : ISerializableLevelComponent
     {
-        public string adviceContext;
-        public string adviceKey;
-        public string advicePluralKey;
+        public string? adviceContext;
+        public string? adviceKey;
+        public string? advicePluralKey;
         public long advicePluralNum;
         public int advicePriority;
         public int adviceTimeout;
-        public string[] adviceArgs;
+        public string[]? adviceArgs;
     }
 }

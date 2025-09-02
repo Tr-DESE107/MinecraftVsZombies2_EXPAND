@@ -15,13 +15,13 @@ namespace MVZ2.Talk
         {
             animator.SetTrigger("Show");
         }
-        public void SetSprite(Sprite sprite)
+        public void SetSprite(Sprite? sprite)
         {
             iconImage.sprite = sprite;
         }
         [SerializeField]
-        private Animator animator;
+        private Animator animator = null!;
         [SerializeField]
-        private Image iconImage;
+        private Image iconImage = null!;
     }
 }

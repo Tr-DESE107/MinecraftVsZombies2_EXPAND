@@ -7,18 +7,24 @@ namespace MVZ2.Metas
     public class AreaMetaList
     {
         public AreaMeta[] metas;
+
+        public AreaMetaList(AreaMeta[] metas)
+        {
+            this.metas = metas;
+        }
+
         public static AreaMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
             var resources = new AreaMeta[node.ChildNodes.Count];
             for (int i = 0; i < resources.Length; i++)
             {
                 var meta = AreaMeta.FromXmlNode(node.ChildNodes[i], defaultNsp);
-                resources[i] = meta;
+                if (meta != null)
+                {
+                    resources[i] = meta;
+                }
             }
-            return new AreaMetaList()
-            {
-                metas = resources,
-            };
+            return new AreaMetaList(resources);
         }
     }
 }

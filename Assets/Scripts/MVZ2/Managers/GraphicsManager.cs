@@ -250,6 +250,6 @@ namespace MVZ2.Models
         private bool confirmedDepthFormat = false;
         private GraphicsFormat supportedDepthFormat = GraphicsFormat.D32_SFloat_S8_UInt;
         [SerializeField]
-        private MainManager main;
+        private MainManager main = null!;
     }
 }

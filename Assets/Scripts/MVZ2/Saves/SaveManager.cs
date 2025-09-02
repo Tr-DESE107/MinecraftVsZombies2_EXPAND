@@ -70,8 +70,8 @@ namespace MVZ2.Saves
                     Debug.LogError($"An error has occured while importing save data from old version: {e}");
                 }
             }
-            LoadUserList();
-            LoadInitialUserData();
+            userDataList = LoadUserList();
+            LoadInitialUserData(userDataList);
         }
         public void LoadUserData(int index)
         {
@@ -83,7 +83,7 @@ namespace MVZ2.Saves
             EvaluateUnlocks(true);
             CheckUserDataFix();
 
-            var userName = GetUserName(index);
+            var userName = GetUserName(index) ?? string.Empty;
             var param = new LogicCallbacks.PostUserLoadParams()
             {
                 userIndex = index,
@@ -96,7 +96,7 @@ namespace MVZ2.Saves
         {
             return status;
         }
-        private void LoadInitialUserData()
+        private void LoadInitialUserData(UserDataList userDataList)
         {
             // 预备一个所有存档的列表。
             var userIndexes = userDataList.GetAllUsers().Where(u => u != null).Select((u, i) => i).ToList();
@@ -161,7 +161,7 @@ namespace MVZ2.Saves
         {
             return modSaveDatas.FirstOrDefault(s => s.Namespace == spaceName);
         }
-        public T GetModSaveData<T>(string spaceName)
+        public T? GetModSaveData<T>(string spaceName)
         {
             foreach (var saveData in modSaveDatas)
             {
@@ -190,10 +190,8 @@ namespace MVZ2.Saves
                 return Array.Empty<NamespaceID>();
             return modSaveData.GetLevelDifficultyRecords(stageID.Path);
         }
-        public NamespaceID GetLevelDifficulty(NamespaceID stageID)
+        public NamespaceID? GetLevelDifficulty(NamespaceID stageID)
         {
-            if (!NamespaceID.IsValid(stageID))
-                return null;
             var records = Main.SaveManager.GetLevelDifficultyRecords(stageID);
             return records.OrderByDescending(r =>
             {
@@ -246,8 +244,6 @@ namespace MVZ2.Saves
         #region 修改
         public void Unlock(NamespaceID unlockId)
         {
-            if (unlockId == null)
-                return;
             var modSaveData = GetModSaveData(unlockId.SpaceName);
             if (modSaveData == null)
                 return;
@@ -366,7 +362,7 @@ namespace MVZ2.Saves
         }
 
         #region 统计
-        public UserStats GetUserStats(string nsp)
+        public UserStats? GetUserStats(string nsp)
         {
             var saveData = GetModSaveData(nsp);
             if (saveData == null)
@@ -415,7 +411,7 @@ namespace MVZ2.Saves
             var artifacts = game.GetAllArtifactDefinitions();
             foreach (var def in artifacts)
             {
-                var unlockConditions = def?.GetUnlockConditions();
+                var unlockConditions = def.GetUnlockConditions();
                 if (unlockConditions == null)
                     continue;
                 if (!unlockConditions.IsNullOrMeetsConditions(this))
@@ -483,7 +479,7 @@ namespace MVZ2.Saves
         }
         #endregion
 
-        public event Action<int, string> OnUserLoad;
+        public event Action<int, string>? OnUserLoad;
 
         #region 属性字段
         public MainManager Main => MainManager.Instance;

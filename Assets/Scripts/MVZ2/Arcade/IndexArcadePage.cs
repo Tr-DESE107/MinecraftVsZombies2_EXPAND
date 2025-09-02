@@ -18,14 +18,14 @@ namespace MVZ2.Arcade
             puzzleItem.OnClick += (item) => OnButtonClick?.Invoke(ButtonType.Puzzle);
             returnButton.onClick.AddListener(() => OnReturnClick?.Invoke());
         }
-        public event Action OnReturnClick;
-        public event Action<ButtonType> OnButtonClick;
+        public event Action? OnReturnClick;
+        public event Action<ButtonType>? OnButtonClick;
         [SerializeField]
-        private ArcadeCategoryItem minigameItem;
+        private ArcadeCategoryItem minigameItem = null!;
         [SerializeField]
-        private ArcadeCategoryItem puzzleItem;
+        private ArcadeCategoryItem puzzleItem = null!;
         [SerializeField]
-        private Button returnButton;
+        private Button returnButton = null!;
         public enum ButtonType
         {
             Minigame,

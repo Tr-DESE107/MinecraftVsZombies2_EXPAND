@@ -6,16 +6,23 @@ using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.Metas
 {
     public class AlmanacTagEnumMeta
     {
-        public string id;
-        public string type;
-        public AlmanacTagEnumValueMeta[] values;
-        public AlmanacTagEnumValueMeta FindValueByString(string valueString, string defaultNsp)
+        public AlmanacTagEnumMeta(string id)
         {
+            this.id = id;
+        }
+        public string id;
+        public string type = "int";
+        public AlmanacTagEnumValueMeta[]? values;
+        public AlmanacTagEnumValueMeta? FindValueByString(string valueString, string defaultNsp)
+        {
+            if (values == null)
+                return null;
             switch (type)
             {
                 case "int":
@@ -33,10 +40,15 @@ namespace MVZ2.Metas
             }
             return null;
         }
-        public static AlmanacTagEnumMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public static AlmanacTagEnumMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var type = node.GetAttribute("type");
+            if (string.IsNullOrEmpty(id))
+            {
+                Debug.LogError("The ID of an AlmanacTagEnumMeta is invalid.");
+                return null;
+            }
+            var type = node.GetAttribute("type") ?? "int";
 
             var values = new List<AlmanacTagEnumValueMeta>();
             for (int i = 0; i < node.ChildNodes.Count; i++)
@@ -46,9 +58,8 @@ namespace MVZ2.Metas
                 values.Add(value);
             }
 
-            return new AlmanacTagEnumMeta()
+            return new AlmanacTagEnumMeta(id)
             {
-                id = id,
                 type = type,
                 values = values.ToArray(),
             };

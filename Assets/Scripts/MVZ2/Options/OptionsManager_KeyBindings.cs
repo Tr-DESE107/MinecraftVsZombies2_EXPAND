@@ -53,7 +53,7 @@ namespace MVZ2.Options
         {
             return keyBindingMetas.Keys.ToArray();
         }
-        public KeyBindingMeta GetKeybindingMeta(NamespaceID hotkey)
+        public KeyBindingMeta? GetKeybindingMeta(NamespaceID hotkey)
         {
             if (keyBindingMetas.TryGetValue(hotkey, out var meta))
             {

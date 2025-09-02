@@ -12,7 +12,7 @@ namespace MVZ2.GlobalGames
         {
             this.main = main;
         }
-        public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
+        public void ShowDialog(string title, string desc, string[] options, Action<int>? onSelect = null)
         {
             main.Scene.ShowDialog(title, desc, options, onSelect);
         }

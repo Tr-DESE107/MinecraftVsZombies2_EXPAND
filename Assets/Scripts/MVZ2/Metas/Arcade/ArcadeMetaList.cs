@@ -8,6 +8,12 @@ namespace MVZ2.Metas
     public class ArcadeMetaList
     {
         public ArcadeMeta[] metas;
+
+        public ArcadeMetaList(ArcadeMeta[] metas)
+        {
+            this.metas = metas;
+        }
+
         public static ArcadeMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
             var resources = new ArcadeMeta[node.ChildNodes.Count];
@@ -18,12 +24,13 @@ namespace MVZ2.Metas
                 var key = childNode.Name;
                 var index = indexes.GetOrAdd(key, 0);
                 indexes[key]++;
-                resources[i] = ArcadeMeta.FromXmlNode(childNode, defaultNsp, index);
+                var meta = ArcadeMeta.FromXmlNode(childNode, defaultNsp, index);
+                if (meta != null)
+                {
+                    resources[i] = meta;
+                }
             }
-            return new ArcadeMetaList()
-            {
-                metas = resources,
-            };
+            return new ArcadeMetaList(resources);
         }
     }
 }

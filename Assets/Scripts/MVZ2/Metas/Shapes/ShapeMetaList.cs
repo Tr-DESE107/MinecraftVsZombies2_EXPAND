@@ -8,18 +8,23 @@ namespace MVZ2.Metas
     public class ShapeMetaList
     {
         public ShapeMeta[] metas;
+
+        public ShapeMetaList(ShapeMeta[] metas)
+        {
+            this.metas = metas;
+        }
+
         public static ShapeMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
             var resources = new List<ShapeMeta>();
             for (int i = 0; i < node.ChildNodes.Count; i++)
             {
                 var child = node.ChildNodes[i];
-                resources.Add(ShapeMeta.FromXmlNode(child, defaultNsp));
+                var meta = ShapeMeta.FromXmlNode(child, defaultNsp);
+                if (meta != null)
+                    resources.Add(meta);
             }
-            return new ShapeMetaList()
-            {
-                metas = resources.ToArray(),
-            };
+            return new ShapeMetaList(resources.ToArray());
         }
     }
 }

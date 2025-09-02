@@ -15,6 +15,6 @@ namespace MVZ2.Entities
             indicatorRenderer.color = color;
         }
         [SerializeField]
-        private SpriteRenderer indicatorRenderer;
+        private SpriteRenderer indicatorRenderer = null!;
     }
 }

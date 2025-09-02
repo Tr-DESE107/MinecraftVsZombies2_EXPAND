@@ -6,41 +6,47 @@ using System.Xml;
 using MVZ2.IO;
 using MVZ2Logic.Level;
 using PVZEngine;
+using UnityEngine;
 
 namespace MVZ2.Metas
 {
     public class StageMeta
     {
+        private StageMeta(string id, Dictionary<string, object?> properties)
+        {
+            ID = id;
+            Properties = properties;
+        }
         public string ID { get; private set; }
-        public string Name { get; private set; }
+        public string Name { get; private set; } = string.Empty;
         public int DayNumber { get; private set; }
-        public string Type { get; private set; }
+        public string Type { get; private set; } = StageTypes.TYPE_NORMAL;
         [Obsolete]
-        public NamespaceID[] Unlocks { get; private set; }
-        public XMLConditionList UnlockConditions { get; private set; }
+        public NamespaceID[]? Unlocks { get; private set; }
+        public XMLConditionList? UnlockConditions { get; private set; }
         public float StartEnergy { get; private set; }
 
-        public NamespaceID MusicID { get; private set; }
+        public NamespaceID? MusicID { get; private set; }
 
         public bool NoStartTalkMusic { get; private set; }
-        public StageMetaTalk[] Talks { get; private set; }
+        public StageMetaTalk[]? Talks { get; private set; }
 
-        public string ModelPreset { get; private set; }
+        public string ModelPreset { get; private set; } = "default";
 
-        public NamespaceID ClearPickupModel { get; private set; }
-        public NamespaceID ClearPickupContentID { get; private set; }
+        public NamespaceID? ClearPickupModel { get; private set; }
+        public NamespaceID? ClearPickupContentID { get; private set; }
         public bool DropsTrophy { get; private set; }
-        public NamespaceID EndNote { get; private set; }
+        public NamespaceID? EndNote { get; private set; }
 
         public LevelCameraPosition StartCameraPosition { get; private set; }
-        public string StartTransition { get; private set; }
+        public string StartTransition { get; private set; } = string.Empty;
 
         public int TotalFlags { get; private set; }
         public float SpawnPointsPower { get; private set; }
         public float SpawnPointsMultiplier { get; private set; }
         public float SpawnPointsAddition { get; private set; }
-        public NamespaceID[] Spawns { get; private set; }
-        public ConveyorPoolEntry[] ConveyorPool { get; private set; }
+        public NamespaceID[]? Spawns { get; private set; }
+        public ConveyorPoolEntry[]? ConveyorPool { get; private set; }
 
         public float FirstWaveTime { get; private set; }
         public float EndlessFirstWaveTime { get; private set; }
@@ -50,11 +56,16 @@ namespace MVZ2.Metas
 
         public bool NeedBlueprints { get; private set; }
 
-        public Dictionary<string, object> Properties { get; private set; }
-        public static StageMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public Dictionary<string, object?> Properties { get; private set; }
+        public static StageMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var name = node.GetAttribute("name");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError("The ID of a StageMeta is invalid.");
+                return null;
+            }
+            var name = node.GetAttribute("name") ?? string.Empty;
             var type = node.GetAttribute("type") ?? StageTypes.TYPE_NORMAL;
             var dayNumber = node.GetAttributeInt("dayNumber") ?? 0;
             var startEnergy = node.GetAttributeFloat("startEnergy") ?? 50;
@@ -62,7 +73,7 @@ namespace MVZ2.Metas
             var needBlueprints = node.GetAttributeBool("needBlueprints") ?? true;
 
             var unlockNode = node["unlock"];
-            XMLConditionList unlockConditions = null;
+            XMLConditionList? unlockConditions = null;
             if (unlockNode != null)
             {
                 unlockConditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
@@ -70,11 +81,14 @@ namespace MVZ2.Metas
             else
             {
                 var unlocks = node.GetAttributeNamespaceIDArray("unlock", defaultNsp);
-                var condition = new XMLCondition()
+                if (unlocks != null)
                 {
-                    Required = unlocks
-                };
-                unlockConditions = new XMLConditionList(condition);
+                    var condition = new XMLCondition()
+                    {
+                        Required = unlocks
+                    };
+                    unlockConditions = new XMLConditionList(condition);
+                }
             }
 
             var modelNode = node["model"];
@@ -91,7 +105,9 @@ namespace MVZ2.Metas
                     var child = talksNode.ChildNodes[i];
                     if (child.Name == "talk")
                     {
-                        talks.Add(StageMetaTalk.FromXmlNode(child, defaultNsp));
+                        var meta = StageMetaTalk.FromXmlNode(child, defaultNsp);
+                        if (meta != null)
+                            talks.Add(meta);
                     }
                 }
             }
@@ -105,13 +121,20 @@ namespace MVZ2.Metas
             var cameraNode = node["camera"];
             var cameraPositionStr = cameraNode?.GetAttribute("position");
             var startCameraPosition = cameraPositionDict.TryGetValue(cameraPositionStr ?? string.Empty, out var p) ? p : LevelCameraPosition.House;
-            var transition = cameraNode?.GetAttribute("transition");
+            var transition = cameraNode?.GetAttribute("transition") ?? string.Empty;
 
             var conveyorNode = node["conveyor"];
-            var conveyorPool = new ConveyorPoolEntry[conveyorNode?.ChildNodes.Count ?? 0];
-            for (int i = 0; i < conveyorPool.Length; i++)
+            ConveyorPoolEntry[]? conveyorPool = null;
+            if (conveyorNode != null)
             {
-                conveyorPool[i] = ConveyorPoolEntry.FromXmlNode(conveyorNode.ChildNodes[i], defaultNsp);
+                conveyorPool = new ConveyorPoolEntry[conveyorNode.ChildNodes.Count];
+                for (int i = 0; i < conveyorPool.Length; i++)
+                {
+                    var item = ConveyorPoolEntry.FromXmlNode(conveyorNode.ChildNodes[i], defaultNsp);
+                    if (item == null)
+                        continue;
+                    conveyorPool[i] = item;
+                }
             }
 
             var spawnNode = node["spawns"];
@@ -119,11 +142,18 @@ namespace MVZ2.Metas
             var spawnPointsPower = spawnNode?.GetAttributeFloat("pointsPower") ?? 1;
             var spawnPointsMultiplier = spawnNode?.GetAttributeFloat("pointsMultiplier") ?? 1;
             var spawnPointsAddition = spawnNode?.GetAttributeFloat("pointsAddition") ?? 0;
-            var spawns = new NamespaceID[spawnNode?.ChildNodes.Count ?? 0];
-            for (int i = 0; i < spawns.Length; i++)
+            NamespaceID[]? spawns = null;
+            if (spawnNode != null)
             {
-                var childNode = spawnNode.ChildNodes[i];
-                spawns[i] = childNode.GetAttributeNamespaceID("id", defaultNsp);
+                spawns = new NamespaceID[spawnNode.ChildNodes.Count];
+                for (int i = 0; i < spawns.Length; i++)
+                {
+                    var childNode = spawnNode.ChildNodes[i];
+                    var item = childNode.GetAttributeNamespaceID("id", defaultNsp);
+                    if (item == null)
+                        continue;
+                    spawns[i] = item;
+                }
             }
 
             var timeNode = node["time"];
@@ -134,17 +164,16 @@ namespace MVZ2.Metas
             var advanceHealthPercent = timeNode?.GetAttributeFloat("waveAdvanceHealthPercent") ?? 0.6f;
 
             var propertiesNode = node["properties"];
-            Dictionary<string, object> props = propertiesNode.ToPropertyDictionary(defaultNsp);
-            Dictionary<string, object> properties = new Dictionary<string, object>();
+            Dictionary<string, object?> props = propertiesNode.ToPropertyDictionary(defaultNsp);
+            Dictionary<string, object?> properties = new Dictionary<string, object?>();
             foreach (var prop in props)
             {
                 var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, PropertyRegions.level);
                 properties.Add(fullName, prop.Value);
             }
 
-            return new StageMeta()
+            return new StageMeta(id, properties)
             {
-                ID = id,
                 Name = name,
                 DayNumber = dayNumber,
                 Type = type,
@@ -180,9 +209,7 @@ namespace MVZ2.Metas
                 SpawnPointsMultiplier = spawnPointsMultiplier,
                 SpawnPointsAddition = spawnPointsAddition,
 
-                NeedBlueprints = needBlueprints,
-
-                Properties = properties
+                NeedBlueprints = needBlueprints
             };
         }
         public static readonly Dictionary<string, LevelCameraPosition> cameraPositionDict = new Dictionary<string, LevelCameraPosition>()
@@ -203,9 +230,14 @@ namespace MVZ2.Metas
             Count = count;
             MinCount = minCount;
         }
-        public static ConveyorPoolEntry FromXmlNode(XmlNode node, string defaultNsp)
+        public static ConveyorPoolEntry? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
+            if (!NamespaceID.IsValid(id))
+            {
+                Debug.LogError("The ID of a ConveyorPoolEntry is invalid.");
+                return null;
+            }
             var count = node.GetAttributeInt("count") ?? 1;
             var minCount = node.GetAttributeInt("minCount") ?? 1;
             return new ConveyorPoolEntry(id, count, minCount);

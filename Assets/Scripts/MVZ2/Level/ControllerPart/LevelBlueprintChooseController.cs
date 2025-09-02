@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using MukioI18n;
 using MVZ2.GameContent.Contraptions;
@@ -71,7 +72,7 @@ namespace MVZ2.Level
 
         protected override SerializableLevelControllerPart GetSerializable()
         {
-            return new SerializableLevelBlueprintChooseController()
+            return new SerializableLevelBlueprintChooseController(ID)
             {
             };
         }
@@ -145,14 +146,17 @@ namespace MVZ2.Level
         #region 蓝图移动
         private void AddChosenBlueprint(int seedPackIndex, BlueprintChooseItem item)
         {
-            chosenBlueprints.Insert(seedPackIndex, item);
             var seedID = item.id;
+            var seedDef = Game.GetSeedDefinition(seedID);
+            if (seedDef == null)
+                return;
+
+            chosenBlueprints.Insert(seedPackIndex, item);
 
             // 更新可选蓝图UI。
             UpdateBlueprintChooseItem(seedID, item.isCommandBlock);
 
             // 创造已选蓝图UI。
-            var seedDef = Game.GetSeedDefinition(seedID);
             var blueprint = chooseUI.CreateChosenBlueprint();
             chooseUI.InsertChosenBlueprint(seedPackIndex, blueprint);
             blueprint.transform.position = chooseUI.GetChosenBlueprintPosition(seedPackIndex);
@@ -175,7 +179,9 @@ namespace MVZ2.Level
 
         public void ChooseBlueprint(int index)
         {
-            var id = choosingBlueprints[index];
+            var id = choosingBlueprints?[index];
+            if (!NamespaceID.IsValid(id))
+                return;
             ChooseBlueprint(id, false);
         }
         public void ChooseCommandBlockBlueprint(NamespaceID id)
@@ -219,7 +225,7 @@ namespace MVZ2.Level
             Vector3 sourcePos;
             Vector3 targetPos = chooseUI.GetChosenBlueprintPosition(seedPackIndex);
 
-            Blueprint choosingBlueprintItem = null;
+            Blueprint? choosingBlueprintItem = null;
             if (commandBlock)
             {
                 choosingBlueprintItem = chooseUI.GetCommandBlockSlotBlueprint();
@@ -231,7 +237,7 @@ namespace MVZ2.Level
                 choosingBlueprintItem = chooseUI.GetBlueprintChooseItem(choosingIndex);
             }
 
-            if (choosingBlueprintItem)
+            if (choosingBlueprintItem.Exists())
             {
                 sourcePos = choosingBlueprintItem.transform.position;
             }
@@ -239,7 +245,10 @@ namespace MVZ2.Level
             {
                 sourcePos = targetPos;
             }
-            blueprintUI.transform.position = sourcePos;
+            if (blueprintUI.Exists())
+            {
+                blueprintUI.transform.position = sourcePos;
+            }
 
             // 加一个占位符
             var placeHolder = chooseUI.CreateChosenBlueprint();
@@ -248,14 +257,20 @@ namespace MVZ2.Level
 
             var movingBlueprint = CreateMovingBlueprint();
             movingBlueprint.transform.position = sourcePos;
-            movingBlueprint.SetBlueprint(blueprintUI);
+            if (blueprintUI.Exists())
+            {
+                movingBlueprint.SetBlueprint(blueprintUI);
+            }
             movingBlueprint.SetMotion(sourcePos, placeHolder.transform);
             movingBlueprint.OnMotionFinished += (movingBlueprint) =>
             {
                 // 移除占位符并替换为该蓝图
-                var index = chooseUI.GetChosenBlueprintIndex(placeHolder);
-                chooseUI.DestroyChosenBlueprint(placeHolder);
-                chooseUI.InsertChosenBlueprint(index, blueprintUI);
+                if (blueprintUI.Exists())
+                {
+                    var index = chooseUI.GetChosenBlueprintIndex(placeHolder);
+                    chooseUI.DestroyChosenBlueprint(placeHolder);
+                    chooseUI.InsertChosenBlueprint(index, blueprintUI);
+                }
                 RemoveMovingBlueprint(movingBlueprint);
             };
         }
@@ -266,11 +281,11 @@ namespace MVZ2.Level
 
             RemoveChosenBlueprint(index);
 
-            Vector3 sourcePos = blueprintUI.transform.position;
+            Vector3 sourcePos = blueprintUI.Exists() ? blueprintUI.transform.position : Vector3.zero;
 
             NamespaceID id = choosingItem.id;
             bool commandBlock = choosingItem.isCommandBlock;
-            Blueprint targetBlueprint = null;
+            Blueprint? targetBlueprint = null;
             if (commandBlock)
             {
                 targetBlueprint = chooseUI.GetCommandBlockSlotBlueprint();
@@ -281,11 +296,14 @@ namespace MVZ2.Level
                 targetBlueprint = chooseUI.GetBlueprintChooseItem(choosingIndex);
             }
 
-            if (targetBlueprint)
+            if (targetBlueprint.Exists())
             {
                 var movingBlueprint = CreateMovingBlueprint();
                 movingBlueprint.transform.position = sourcePos;
-                movingBlueprint.SetBlueprint(blueprintUI);
+                if (blueprintUI.Exists())
+                {
+                    movingBlueprint.SetBlueprint(blueprintUI);
+                }
                 movingBlueprint.SetMotion(sourcePos, targetBlueprint.transform);
                 movingBlueprint.OnMotionFinished += (movingBlueprint) =>
                 {
@@ -317,7 +335,8 @@ namespace MVZ2.Level
             }
             chosenBlueprints.Insert(toIndex, item);
             chosenBlueprintControllers.Insert(toIndex, controller);
-            chooseUI.InsertChosenBlueprint(toIndex, blueprint);
+            if (blueprint.Exists())
+                chooseUI.InsertChosenBlueprint(toIndex, blueprint);
 
             UpdateControllerIndexes();
         }
@@ -376,13 +395,11 @@ namespace MVZ2.Level
                 await Main.Scene.ShowDialogMessageAsync(title, desc);
             }
         }
-        public async void ReplaceChoosingArtifacts(ArtifactSelectionItem[] artifacts)
+        public async void ReplaceChoosingArtifacts(ArtifactSelectionItem?[] artifacts)
         {
-            if (artifacts == null)
-                return;
             if (ValidateReplaceArtifacts(artifacts, out var artifactMessage))
             {
-                var alignedArtifacts = artifacts.Where(i => NamespaceID.IsValid(i.id)).ToArray();
+                var alignedArtifacts = artifacts.Where(i => NamespaceID.IsValid(i?.id)).ToArray();
                 ReplaceArtifacts(alignedArtifacts);
             }
             else
@@ -392,7 +409,7 @@ namespace MVZ2.Level
                 await Main.Scene.ShowDialogMessageAsync(title, desc);
             }
         }
-        private bool ValidateReplaceBlueprints(BlueprintSelectionItem[] blueprints, out string errorMessage)
+        private bool ValidateReplaceBlueprints(BlueprintSelectionItem[] blueprints, out string? errorMessage)
         {
             if (blueprints.GroupBy(x => x).Any(g => g.Count() > 1))
             {
@@ -412,14 +429,14 @@ namespace MVZ2.Level
             errorMessage = null;
             return true;
         }
-        private bool ValidateReplaceArtifacts(ArtifactSelectionItem[] artifacts, out string errorMessage)
+        private bool ValidateReplaceArtifacts(ArtifactSelectionItem?[] artifacts, out string? errorMessage)
         {
             if (artifacts.GroupBy(x => x).Any(g => g.Count() > 1))
             {
                 errorMessage = REPLACE_ERROR_DUPLICATE_ARTIFACTS;
                 return false;
             }
-            if (artifacts.Any(item => !Main.SaveManager.IsArtifactUnlocked(item.id)))
+            if (artifacts.Any(item => item != null && !Main.SaveManager.IsArtifactUnlocked(item.id)))
             {
                 errorMessage = REPLACE_ERROR_ARTIFACT_LOCKED;
                 return false;
@@ -462,7 +479,7 @@ namespace MVZ2.Level
                 SwapChosenBlueprints(existingIndex, targetIndex);
             }
         }
-        private void ReplaceArtifacts(ArtifactSelectionItem[] artifactsID)
+        private void ReplaceArtifacts(ArtifactSelectionItem?[] artifactsID)
         {
             var slotCount = Level.GetArtifactSlotCount();
 
@@ -603,7 +620,7 @@ namespace MVZ2.Level
                     }
                 }
                 var blueprintUI = chooseUI.GetChosenBlueprintAt(i);
-                if (blueprintUI)
+                if (blueprintUI.Exists())
                 {
                     blueprintUI.UpdateView(viewData);
                     blueprintUI.SetDisabled(false);
@@ -628,7 +645,7 @@ namespace MVZ2.Level
         private void UpdateBlueprintChooseItem(int index)
         {
             var blueprintChooseItem = chooseUI.GetBlueprintChooseItem(index);
-            if (!blueprintChooseItem)
+            if (!blueprintChooseItem.Exists() || choosingBlueprints == null)
                 return;
             var id = choosingBlueprints[index];
             bool selected = chosenBlueprints.Any(i => i.id == id && !i.isCommandBlock);
@@ -640,7 +657,7 @@ namespace MVZ2.Level
         private void UpdateCommandBlockItem()
         {
             var blueprintChooseItem = chooseUI.GetCommandBlockSlotBlueprint();
-            if (!blueprintChooseItem)
+            if (!blueprintChooseItem.Exists())
                 return;
             bool selected = chosenBlueprints.Any(i => i.isCommandBlock);
             blueprintChooseItem.SetDisabled(selected);
@@ -657,7 +674,7 @@ namespace MVZ2.Level
                 return false;
             return item.isCommandBlock;
         }
-        public bool GetChosenBlueprintTooltipError(int index, out string errorMessage)
+        public bool GetChosenBlueprintTooltipError(int index, out string? errorMessage)
         {
             errorMessage = null;
             var item = chosenBlueprints[index];
@@ -678,10 +695,10 @@ namespace MVZ2.Level
             }
             return string.Empty;
         }
-        public bool GetChosenArtifactTooltipError(int index, out string errorMessage)
+        public bool GetChosenArtifactTooltipError(int index, out string? errorMessage)
         {
             errorMessage = null;
-            var item = chosenArtifacts[index];
+            var item = chosenArtifacts?[index];
             if (item == null)
                 return false;
             if (item.innate)
@@ -699,7 +716,7 @@ namespace MVZ2.Level
             }
             return string.Empty;
         }
-        public bool GetBlueprintTooltipError(NamespaceID blueprintID, out string errorMessage, bool commandBlock)
+        public bool GetBlueprintTooltipError(NamespaceID blueprintID, out string? errorMessage, bool commandBlock)
         {
             errorMessage = null;
             var level = Controller.GetEngine();
@@ -727,8 +744,10 @@ namespace MVZ2.Level
             }
             return string.Empty;
         }
-        private bool CanChooseBlueprint(NamespaceID id)
+        private bool CanChooseBlueprint(NamespaceID? id)
         {
+            if (id == null)
+                return false;
             return true;
         }
         private bool CanChooseCommandBlock()
@@ -739,7 +758,7 @@ namespace MVZ2.Level
                 return false;
             return true;
         }
-        private bool CanChooseCommandBlockBlueprint(NamespaceID id)
+        private bool CanChooseCommandBlockBlueprint([NotNullWhen(true)] NamespaceID? id)
         {
             var seedDef = Main.Game.GetSeedDefinition(id);
             if (seedDef != null && seedDef.IsUpgradeBlueprint())
@@ -770,18 +789,20 @@ namespace MVZ2.Level
             {
                 RemapChosenArtifacts(artifactCount);
             }
-
-            for (int i = 0; i < chosenArtifacts.Length; i++)
+            if (chosenArtifacts != null)
             {
-                var item = chosenArtifacts[i];
-                if (item == null)
-                    continue;
-                var sprite = GetArtifactIcon(item.id);
-                var artifactViewData = new ArtifactViewData()
+                for (int i = 0; i < chosenArtifacts.Length; i++)
                 {
-                    sprite = sprite,
-                };
-                chooseUI.UpdateArtifactSlotAt(i, artifactViewData);
+                    var item = chosenArtifacts[i];
+                    if (item == null)
+                        continue;
+                    var sprite = GetArtifactIcon(item.id);
+                    var artifactViewData = new ArtifactViewData()
+                    {
+                        sprite = sprite,
+                    };
+                    chooseUI.UpdateArtifactSlotAt(i, artifactViewData);
+                }
             }
         }
         private void OpenChooseArtifactDialog(int slotIndex)
@@ -805,6 +826,8 @@ namespace MVZ2.Level
         }
         private void ChooseArtifact(int index)
         {
+            if (choosingArtifacts == null || chosenArtifacts == null)
+                return;
             var id = choosingArtifacts[index];
             if (!CanChooseArtifact(id))
                 return;
@@ -842,7 +865,7 @@ namespace MVZ2.Level
             // 继承制品。
             if (Level.CurrentFlag > 0)
             {
-                var notInnateArtifacts = Level.GetArtifacts().Where(a => !innateArtifacts.Contains(a.Definition.GetID())).ToArray();
+                var notInnateArtifacts = Level.GetArtifacts().OfType<Artifact>().Where(a => !innateArtifacts.Contains(a.Definition.GetID())).ToArray();
                 InheritChosenArtifacts(innateCount, notInnateArtifacts);
             }
             else
@@ -850,13 +873,15 @@ namespace MVZ2.Level
                 var lastSelection = Main.SaveManager.GetLastSelection();
                 if (lastSelection != null && lastSelection.artifacts != null)
                 {
-                    var notInnateArtifacts = lastSelection.artifacts.Where(i => i != null).ToArray();
+                    var notInnateArtifacts = lastSelection.artifacts;
                     InheritLastChosenArtifacts(innateCount, notInnateArtifacts);
                 }
             }
         }
-        private void InheritChosenArtifacts(int startIndex, Artifact[] targets)
+        private void InheritChosenArtifacts(int startIndex, Artifact?[] targets)
         {
+            if (chosenArtifacts == null)
+                return;
             for (int i = 0; i < targets.Length; i++)
             {
                 var artifact = targets[i];
@@ -876,8 +901,10 @@ namespace MVZ2.Level
                 chosenArtifacts[index] = new ArtifactChooseItem(id);
             }
         }
-        private void InheritLastChosenArtifacts(int startIndex, ArtifactSelectionItem[] targets)
+        private void InheritLastChosenArtifacts(int startIndex, ArtifactSelectionItem?[] targets)
         {
+            if (chosenArtifacts == null)
+                return;
             for (int i = 0; i < targets.Length; i++)
             {
                 var artifact = targets[i];
@@ -891,7 +918,7 @@ namespace MVZ2.Level
         }
         private void RemapChosenArtifacts(int count)
         {
-            var newArray = new ArtifactChooseItem[count];
+            var newArray = new ArtifactChooseItem?[count];
             if (chosenArtifacts != null)
             {
                 var max = Mathf.Min(chosenArtifacts.Length, count);
@@ -902,22 +929,28 @@ namespace MVZ2.Level
             }
             chosenArtifacts = newArray;
         }
-        private Sprite GetArtifactIcon(NamespaceID id)
+        private Sprite? GetArtifactIcon(NamespaceID? id)
         {
-            if (id == null)
+            if (!NamespaceID.IsValid(id))
                 return null;
             var def = Game.GetArtifactDefinition(id);
+            if (def == null)
+                return null;
             return GetArtifactIcon(def);
         }
-        private Sprite GetArtifactIcon(ArtifactDefinition def)
+        private Sprite? GetArtifactIcon(ArtifactDefinition def)
         {
             if (def == null)
                 return null;
             var spriteRef = def.GetSpriteReference();
+            if (!SpriteReference.IsValid(spriteRef))
+                return null;
             return Main.GetFinalSprite(spriteRef);
         }
-        private bool CanChooseArtifact(NamespaceID id)
+        private bool CanChooseArtifact(NamespaceID? id)
         {
+            if (!NamespaceID.IsValid(id))
+                return false;
             // 如果会取消选择固有制品，则无法选择。
             if (chosenArtifacts.Any(e => e != null && e.id == id && e.innate))
                 return false;
@@ -930,9 +963,18 @@ namespace MVZ2.Level
             choosingArtifactSlotIndex = -1;
             choosingArtifacts = null;
         }
-        private void SetChosenArtifact(int index, NamespaceID id)
+        private void SetChosenArtifact(int index, NamespaceID? id)
         {
-            chosenArtifacts[index] = new ArtifactChooseItem(id);
+            if (chosenArtifacts == null)
+                return;
+            if (id == null)
+            {
+                chosenArtifacts[index] = null;
+            }
+            else
+            {
+                chosenArtifacts[index] = new ArtifactChooseItem(id);
+            }
             var sprite = GetArtifactIcon(id);
             var artifactViewData = new ArtifactViewData()
             {
@@ -952,9 +994,15 @@ namespace MVZ2.Level
             switch (interaction)
             {
                 case PointerInteraction.Enter:
-                    var id = choosingBlueprints[index];
-                    var ui = commandBlock ? chooseUI.GetCommandBlockChooseItem(index) : chooseUI.GetBlueprintChooseItem(index);
-                    Controller.ShowTooltip(new BlueprintTooltipSource(this, id, ui, commandBlock));
+                    var id = choosingBlueprints?[index];
+                    if (NamespaceID.IsValid(id))
+                    {
+                        var ui = commandBlock ? chooseUI.GetCommandBlockChooseItem(index) : chooseUI.GetBlueprintChooseItem(index);
+                        if (ui.Exists())
+                        {
+                            Controller.ShowTooltip(new BlueprintTooltipSource(this, id, ui, commandBlock));
+                        }
+                    }
                     break;
                 case PointerInteraction.Exit:
                     Controller.HideTooltip();
@@ -965,9 +1013,9 @@ namespace MVZ2.Level
         {
             if (eventData.IsMouseButNotLeft())
                 return;
+            var id = choosingBlueprints?[index];
             if (commandBlock)
             {
-                var id = choosingBlueprints[index];
                 if (!CanChooseCommandBlockBlueprint(id))
                     return;
                 ChooseCommandBlockBlueprint(id);
@@ -976,7 +1024,6 @@ namespace MVZ2.Level
             }
             else
             {
-                var id = choosingBlueprints[index];
                 if (!CanChooseBlueprint(id))
                     return;
                 ChooseBlueprint(index);
@@ -987,8 +1034,15 @@ namespace MVZ2.Level
         #region 制品选择对话框
         private void UI_OnArtifactChooseItemPointerEnterCallback(int index)
         {
-            var id = choosingArtifacts[index];
+            var id = choosingArtifacts?[index];
+            if (id == null)
+                return;
             var item = chooseUI.GetArtifactSelectItem(index);
+            if (!item.Exists())
+            {
+                Controller.HideTooltip();
+                return;
+            }
             Controller.ShowTooltip(new ArtifactTooltipSource(this, id, item));
         }
         private void UI_OnArtifactChooseItemPointerExitCallback(int index)
@@ -1032,7 +1086,7 @@ namespace MVZ2.Level
 
             // 保存上次选择
             var selectionBlueprints = chosen.Where(i => !i.innate).Select(i => new BlueprintSelectionItem(i.id, i.isCommandBlock)).ToArray();
-            var selectionArtifacts = chosenArtifacts.Where(e => NamespaceID.IsValid(e?.id) && !e.innate).Select(i => new ArtifactSelectionItem(i.id)).ToArray();
+            var selectionArtifacts = chosenArtifacts.Where(e => NamespaceID.IsValid(e?.id) && !e.innate).Select(i => i != null ? new ArtifactSelectionItem(i.id) : null).ToArray();
             var selection = new BlueprintSelection(selectionBlueprints, selectionArtifacts);
             Main.SaveManager.SetLastSelection(selection);
             Game.RunCallback(LogicLevelCallbacks.POST_BLUEPRINT_SELECTION, new LogicLevelCallbacks.PostBlueprintSelectionParams(Level, chosen));
@@ -1056,7 +1110,14 @@ namespace MVZ2.Level
             {
                 case PointerInteraction.Enter:
                     var ui = chooseUI.GetCommandBlockSlotBlueprint();
-                    Controller.ShowTooltip(new BlueprintTooltipSource(this, VanillaContraptionID.commandBlock, ui, false));
+                    if (ui.Exists())
+                    {
+                        Controller.ShowTooltip(new BlueprintTooltipSource(this, VanillaContraptionID.commandBlock, ui, false));
+                    }
+                    else
+                    {
+                        Controller.HideTooltip();
+                    }
                     break;
                 case PointerInteraction.Exit:
                     Controller.HideTooltip();
@@ -1073,7 +1134,7 @@ namespace MVZ2.Level
             bool previousValid = previous != null && !previous.isCommandBlock && CanChooseCommandBlockBlueprint(previous.id);
             if (previousValid && Main.OptionsManager.GetCommandBlockMode() == CommandBlockModes.PREVIOUS)
             {
-                ChooseCommandBlockBlueprint(previous.id);
+                ChooseCommandBlockBlueprint(previous!.id);
             }
             else
             {
@@ -1144,6 +1205,8 @@ namespace MVZ2.Level
         private void UI_OnArtifactSlotPointerEnterCallback(int index)
         {
             var ui = chooseUI.GetArtifactSlotAt(index);
+            if (!ui.Exists())
+                return;
             Controller.ShowTooltip(new ArtifactSlotTooltipSource(this, index, ui));
         }
         private void UI_OnArtifactSlotPointerExitCallback(int index)
@@ -1152,7 +1215,7 @@ namespace MVZ2.Level
         }
         private void UI_OnArtifactSlotClickCallback(int index)
         {
-            var item = chosenArtifacts[index];
+            var item = chosenArtifacts?[index];
             if (item != null && item.innate)
                 return;
             OpenChooseArtifactDialog(index);
@@ -1228,13 +1291,13 @@ namespace MVZ2.Level
         private bool isChoosingBlueprints;
         private PanelFlags panelFlags = PanelFlags.None;
         private List<BlueprintChooseItem> chosenBlueprints = new List<BlueprintChooseItem>();
-        private NamespaceID[] choosingBlueprints;
+        private NamespaceID[]? choosingBlueprints;
         private List<ChosenBlueprintController> chosenBlueprintControllers = new List<ChosenBlueprintController>();
         private List<MovingBlueprint> movingBlueprints = new List<MovingBlueprint>();
 
-        private ArtifactChooseItem[] chosenArtifacts;
+        private ArtifactChooseItem?[]? chosenArtifacts;
         private int choosingArtifactSlotIndex;
-        private NamespaceID[] choosingArtifacts;
+        private NamespaceID[]? choosingArtifacts;
 
         private bool isViewingLawn;
         private bool viewLawnFinished;
@@ -1330,7 +1393,7 @@ namespace MVZ2.Level
             }
             public TooltipContent GetContent()
             {
-                var artifact = controller.chosenArtifacts[index];
+                var artifact = controller.chosenArtifacts?[index];
                 var artifactID = artifact?.id;
                 if (NamespaceID.IsValid(artifactID))
                 {
@@ -1362,5 +1425,8 @@ namespace MVZ2.Level
     [Serializable]
     public class SerializableLevelBlueprintChooseController : SerializableLevelControllerPart
     {
+        public SerializableLevelBlueprintChooseController(NamespaceID id) : base(id)
+        {
+        }
     }
 }

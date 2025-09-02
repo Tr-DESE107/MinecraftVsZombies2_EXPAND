@@ -14,7 +14,7 @@ namespace MVZ2.Models
             particles.Emit(modified);
         }
         [SerializeField]
-        private ParticlePlayer particles;
+        private ParticlePlayer particles = null!;
         [SerializeField]
         private float emitSpeedMultiplier = 0.1f;
     }

@@ -10,6 +10,6 @@ namespace MVZ2.Map
         {
             gameObject.SetActive(value);
         }
-        public NamespaceIDReference unlock;
+        public NamespaceIDReference? unlock;
     }
 }

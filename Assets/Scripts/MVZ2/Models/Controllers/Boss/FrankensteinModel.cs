@@ -25,8 +25,8 @@ namespace MVZ2.Models
             shellCaseSoundPlayer.Play2D();
         }
         [SerializeField]
-        private ParticlePlayer shellCaseParticle;
+        private ParticlePlayer shellCaseParticle = null!;
         [SerializeField]
-        private SoundPlayer shellCaseSoundPlayer;
+        private SoundPlayer shellCaseSoundPlayer = null!;
     }
 }

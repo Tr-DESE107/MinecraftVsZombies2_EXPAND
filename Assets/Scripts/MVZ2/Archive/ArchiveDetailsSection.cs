@@ -13,9 +13,9 @@ namespace MVZ2.Archives
             talksText.text = viewData.talks;
         }
         [SerializeField]
-        private TextMeshProUGUI descriptionText;
+        private TextMeshProUGUI descriptionText = null!;
         [SerializeField]
-        private TextMeshProUGUI talksText;
+        private TextMeshProUGUI talksText = null!;
     }
     public struct ArchiveDetailsSectionViewData
     {

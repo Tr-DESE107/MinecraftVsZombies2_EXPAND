@@ -99,13 +99,13 @@ namespace MVZ2.Models
         public ModelGroupEntity RendererGroup => group;
         [Header("Entity")]
         [SerializeField]
-        private SortingGroup sortingGroup;
+        private SortingGroup sortingGroup = null!;
         [SerializeField]
-        private Collider2D modelCollider;
+        private Collider2D modelCollider = null!;
         [SerializeField]
-        private ModelGroupEntity group;
+        private ModelGroupEntity group = null!;
         [SerializeField]
-        private ModelBone bone;
+        private ModelBone bone = null!;
     }
     public class SerializableSpriteModelData : SerializableModelData
     {

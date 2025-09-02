@@ -9,39 +9,47 @@ namespace MVZ2.Metas
 {
     public class BlueprintOptionMeta
     {
+        public BlueprintOptionMeta(string id)
+        {
+            ID = id;
+        }
         public string ID { get; private set; }
         public int Cost { get; private set; }
-        public string Name { get; private set; }
-        public BlueprintMetaIcon Icon { get; private set; }
-        public static BlueprintOptionMeta FromXmlNode(string nsp, XmlNode node, string defaultNsp)
+        public string Name { get; private set; } = string.Empty;
+        public BlueprintMetaIcon? Icon { get; private set; }
+        public static BlueprintOptionMeta? FromXmlNode(string nsp, XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError("The ID of a BlueprintOptionMeta is invalid.");
+                return null;
+            }
             var blueprintID = new NamespaceID(nsp, id);
             var cost = node.GetAttributeInt("cost") ?? 0;
-            var name = node.GetAttribute("name");
-            BlueprintMetaIcon icon = null;
+            var name = node.GetAttribute("name") ?? string.Empty;
+            BlueprintMetaIcon? icon = null;
             var iconNode = node["icon"];
             if (iconNode != null)
             {
-                icon = BlueprintMetaIcon.FromXmlNode(iconNode, defaultNsp, blueprintID);
+                icon = new BlueprintMetaIcon(iconNode, defaultNsp, blueprintID);
             }
-            return new BlueprintOptionMeta()
+            return new BlueprintOptionMeta(id)
             {
-                ID = id,
-                Cost = cost,
                 Name = name,
+                Cost = cost,
                 Icon = icon
             };
         }
-        public SpriteReference GetIcon()
+        public SpriteReference? GetIcon()
         {
             return Icon?.Sprite;
         }
-        public SpriteReference GetMobileIcon()
+        public SpriteReference? GetMobileIcon()
         {
             return Icon?.Mobile;
         }
-        public NamespaceID GetModelID()
+        public NamespaceID? GetModelID()
         {
             return Icon?.ModelID;
         }

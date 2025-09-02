@@ -13,7 +13,7 @@ namespace MVZ2.Models
         public void LoadFromSerializable(SerializableImageElement serializable)
         {
         }
-        public Image Image
+        public Image? Image
         {
             get
             {
@@ -24,7 +24,7 @@ namespace MVZ2.Models
                 return _image;
             }
         }
-        private Image _image;
+        private Image? _image;
     }
     public class SerializableImageElement : SerializableGraphicElement
     {

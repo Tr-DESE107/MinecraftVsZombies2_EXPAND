@@ -41,6 +41,6 @@ namespace MVZ2.Options
     [Serializable]
     public class SerializableKeyBindingOptions
     {
-        public Dictionary<NamespaceID, int> bindings;
+        public Dictionary<NamespaceID, int>? bindings;
     }
 }

@@ -61,11 +61,11 @@ namespace MVZ2.Managers
             return false;
 #endif
         }
-        public TaskPipeline GetLoadPipeline()
+        public TaskPipeline? GetLoadPipeline()
         {
             return loadPipeline;
         }
-        public Task GetInitTask()
+        public Task? GetInitTask()
         {
             return initTask;
         }
@@ -97,18 +97,18 @@ namespace MVZ2.Managers
         }
 
         #region 贴图
-        public Sprite GetFinalSprite(SpriteReference spriteRef)
+        public Sprite? GetFinalSprite(SpriteReference? spriteRef)
         {
             if (!SpriteReference.IsValid(spriteRef))
                 return null;
             if (!OptionsManager.HasBloodAndGore())
             {
-                var id = spriteRef.id;
+                var id = spriteRef.ID;
                 var censoredId = new NamespaceID(id.SpaceName, $"{id.Path}_censored");
                 SpriteReference censoredRef;
-                if (spriteRef.isSheet)
+                if (spriteRef.IsSheet)
                 {
-                    censoredRef = new SpriteReference(censoredId, spriteRef.index);
+                    censoredRef = new SpriteReference(censoredId, spriteRef.Index);
                 }
                 else
                 {
@@ -127,16 +127,16 @@ namespace MVZ2.Managers
                 return sprite;
             return GetFinalSprite(spriteID) ?? sprite;
         }
-        public Sprite GetFinalSprite(SpriteReference spriteRef, string language)
+        public Sprite? GetFinalSprite(SpriteReference spriteRef, string language)
         {
             if (!OptionsManager.HasBloodAndGore())
             {
-                var id = spriteRef.id;
+                var id = spriteRef.ID;
                 var censoredId = new NamespaceID(id.SpaceName, $"{id.Path}_censored");
                 SpriteReference censoredRef;
-                if (spriteRef.isSheet)
+                if (spriteRef.IsSheet)
                 {
-                    censoredRef = new SpriteReference(censoredId, spriteRef.index);
+                    censoredRef = new SpriteReference(censoredId, spriteRef.Index);
                 }
                 else
                 {
@@ -317,8 +317,8 @@ namespace MVZ2.Managers
         public const string TASK_LOAD_SPONSORS = "获取赞助者列表……";
         [TranslateMsg("值，{0}为百分数")]
         public const string VALUE_PERCENT = "{0}%";
-        public static MainManager Instance { get; private set; }
-        public GlobalGame Game { get; private set; }
+        public static MainManager Instance { get; private set; } = null!;
+        public GlobalGame Game { get; private set; } = null!;
         public string BuiltinNamespace => builtinNamespace;
         public CoroutineManager CoroutineManager => coroutine;
         public ResourceManager ResourceManager => resource;
@@ -345,8 +345,8 @@ namespace MVZ2.Managers
         public MainSceneController Scene => scene;
         public PerformanceManager PerformanceManager => performanceManager;
 
-        private Task initTask;
-        private TaskPipeline loadPipeline;
+        private Task? initTask;
+        private TaskPipeline? loadPipeline;
         [SerializeField]
         private string builtinNamespace = "mvz2";
         [SerializeField]
@@ -354,53 +354,53 @@ namespace MVZ2.Managers
         [SerializeField]
         private bool fastMode;
         [SerializeField]
-        private CoroutineManager coroutine;
+        private CoroutineManager coroutine = null!;
         [SerializeField]
-        private ResourceManager resource;
+        private ResourceManager resource = null!;
         [SerializeField]
-        private ModelManager model;
+        private ModelManager model = null!;
         [SerializeField]
-        private SoundManager sound;
+        private SoundManager sound = null!;
         [SerializeField]
-        private MusicManager music;
+        private MusicManager music = null!;
         [SerializeField]
-        private LevelManager level;
+        private LevelManager level = null!;
         [SerializeField]
-        private LanguageManager lang;
+        private LanguageManager lang = null!;
         [SerializeField]
-        private SaveManager save;
+        private SaveManager save = null!;
         [SerializeField]
-        private ModManager mod;
+        private ModManager mod = null!;
         [SerializeField]
-        private CursorManager cursor;
+        private CursorManager cursor = null!;
         [SerializeField]
-        private ShakeManager shake;
+        private ShakeManager shake = null!;
         [SerializeField]
-        private FileManager file;
+        private FileManager file = null!;
         [SerializeField]
-        private FontManager fontManager;
+        private FontManager fontManager = null!;
         [SerializeField]
-        private OptionsManager options;
+        private OptionsManager options = null!;
         [SerializeField]
-        private ResolutionManager resolution;
+        private ResolutionManager resolution = null!;
         [SerializeField]
-        private SceneLoadingManager sceneLoadingManager;
+        private SceneLoadingManager sceneLoadingManager = null!;
         [SerializeField]
-        private AlmanacManager almanacManager;
+        private AlmanacManager almanacManager = null!;
         [SerializeField]
-        private StoreManager storeManager;
+        private StoreManager storeManager = null!;
         [SerializeField]
-        private InputManager inputManager;
+        private InputManager inputManager = null!;
         [SerializeField]
-        private SponsorManager sponsorManager;
+        private SponsorManager sponsorManager = null!;
         [SerializeField]
-        private GraphicsManager graphicsManager;
+        private GraphicsManager graphicsManager = null!;
         [SerializeField]
-        private DebugManager debugManager;
+        private DebugManager debugManager = null!;
         [SerializeField]
-        private PerformanceManager performanceManager;
+        private PerformanceManager performanceManager = null!;
         [SerializeField]
-        private MainSceneController scene;
+        private MainSceneController scene = null!;
         public enum PlatformMode
         {
             Default,
@@ -450,7 +450,7 @@ namespace MVZ2.Managers
                 return string.Empty;
             return task.GetName();
         }
-        public string GetCurrentProgressName()
+        public string? GetCurrentProgressName()
         {
             var task = GetCurrentTask();
             if (task == null)
@@ -465,7 +465,7 @@ namespace MVZ2.Managers
             }
             return 1;
         }
-        private PipelineTask GetCurrentTask()
+        private PipelineTask? GetCurrentTask()
         {
             if (currentTaskIndex < 0 || currentTaskIndex >= tasks.Count)
                 return null;
@@ -493,13 +493,15 @@ namespace MVZ2.Managers
         }
         public Task Run()
         {
-            return action?.Invoke(progress);
+            if (action == null)
+                return Task.CompletedTask;
+            return action.Invoke(progress);
         }
         public string GetName()
         {
             return name;
         }
-        public string GetProgressName()
+        public string? GetProgressName()
         {
             return progress.GetCurrentTaskName();
         }
@@ -544,7 +546,7 @@ namespace MVZ2.Managers
             SetProgress(progress);
             SetCurrentTaskName(taskName);
         }
-        public string GetCurrentTaskName()
+        public string? GetCurrentTaskName()
         {
             if (children.Count > 0)
             {
@@ -571,7 +573,7 @@ namespace MVZ2.Managers
             this.taskName = name;
         }
         private float progress;
-        private string taskName;
+        private string? taskName;
         private List<TaskProgress> children = new List<TaskProgress>();
     }
 }

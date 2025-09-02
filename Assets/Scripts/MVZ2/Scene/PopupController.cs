@@ -13,8 +13,8 @@ namespace MVZ2.Scenes
             popupText.text = text;
         }
         [SerializeField]
-        private Animator animator;
+        private Animator animator = null!;
         [SerializeField]
-        private TextMeshProUGUI popupText;
+        private TextMeshProUGUI popupText = null!;
     }
 }

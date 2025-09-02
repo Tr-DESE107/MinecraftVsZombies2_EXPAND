@@ -12,7 +12,7 @@ namespace MVZ2.Vanilla.Game
             var userName = saves.GetCurrentUserName();
             return saves.IsRandomChinaUserName(userName);
         }
-        public static bool IsRandomChinaUserName(this IGlobalSaveData saves, string name)
+        public static bool IsRandomChinaUserName(this IGlobalSaveData saves, string? name)
         {
             if (string.IsNullOrEmpty(name))
                 return false;
@@ -28,7 +28,7 @@ namespace MVZ2.Vanilla.Game
             var userName = saves.GetCurrentUserName();
             return saves.IsDebugUserName(userName);
         }
-        public static bool IsDebugUserName(this IGlobalSaveData saves, string name)
+        public static bool IsDebugUserName(this IGlobalSaveData saves, string? name)
         {
             if (string.IsNullOrEmpty(name))
                 return false;

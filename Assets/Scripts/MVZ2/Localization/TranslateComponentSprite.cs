@@ -6,8 +6,8 @@ namespace MVZ2.Localization
 {
     public abstract class TranslateComponentSprite<T> : TranslateComponent<T> where T : Component
     {
-        protected virtual Sprite GetKeyInner() => null;
-        public Sprite Key
+        protected virtual Sprite? GetKeyInner() => null;
+        public Sprite? Key
         {
             get
             {
@@ -16,12 +16,12 @@ namespace MVZ2.Localization
                 return key;
             }
         }
-        private Sprite key;
+        private Sprite? key;
     }
     public abstract class TranslateComponentSpriteMultiple<T> : TranslateComponent<T> where T : Component
     {
-        protected virtual Sprite[] GetKeysInner() => null;
-        public Sprite[] Keys
+        protected virtual Sprite[]? GetKeysInner() => null;
+        public Sprite[]? Keys
         {
             get
             {
@@ -30,6 +30,6 @@ namespace MVZ2.Localization
                 return keys;
             }
         }
-        private Sprite[] keys;
+        private Sprite[]? keys;
     }
 }

@@ -11,7 +11,7 @@ namespace MVZ2.UI
 {
     public class OptionsDialog : Dialog
     {
-        public Camera GetCamera()
+        public Camera? GetCamera()
         {
             return canvasCamera;
         }
@@ -186,10 +186,14 @@ namespace MVZ2.UI
             }
 
 
-            var rootCanvas = (transform as RectTransform).GetRootCanvas();
-            if (rootCanvas)
+            var rectTrans = transform as RectTransform;
+            if (rectTrans.Exists())
             {
-                canvasCamera = rootCanvas.worldCamera;
+                var rootCanvas = rectTrans.GetRootCanvas();
+                if (rootCanvas.Exists())
+                {
+                    canvasCamera = rootCanvas.worldCamera;
+                }
             }
         }
         private void OnTooltipHandlerPointerEnterCallback(TooltipHandler handler)
@@ -219,12 +223,12 @@ namespace MVZ2.UI
         }
 
 
-        public event Action<SliderType, float> OnSliderValueChanged;
-        public event Action<DropdownType, int> OnDropdownValueChanged;
-        public event Action<ButtonType> OnButtonClick;
-        public event Action<ToggleType, bool> OnToggleValueChanged;
-        public event Action<TooltipHandler> OnTooltipShow;
-        public event Action<TooltipHandler> OnTooltipHide;
+        public event Action<SliderType, float>? OnSliderValueChanged;
+        public event Action<DropdownType, int>? OnDropdownValueChanged;
+        public event Action<ButtonType>? OnButtonClick;
+        public event Action<ToggleType, bool>? OnToggleValueChanged;
+        public event Action<TooltipHandler>? OnTooltipShow;
+        public event Action<TooltipHandler>? OnTooltipHide;
 
         private Dictionary<SliderType, TextSlider> sliderDict = new Dictionary<SliderType, TextSlider>();
         private Dictionary<DropdownType, TMP_Dropdown> dropdownDict = new Dictionary<DropdownType, TMP_Dropdown>();
@@ -233,95 +237,95 @@ namespace MVZ2.UI
         private Dictionary<ButtonType, Button> buttonDict = new Dictionary<ButtonType, Button>();
         private Dictionary<ToggleType, LabeledToggle> toggleDict = new Dictionary<ToggleType, LabeledToggle>();
 
-        private Camera canvasCamera;
+        private Camera? canvasCamera;
 
         [Header("Pages")]
         [SerializeField]
-        private GameObject mainPage;
+        private GameObject mainPage = null!;
         [SerializeField]
-        private GameObject morePage;
+        private GameObject morePage = null!;
 
         [Header("Main Elements")]
         [SerializeField]
-        private TextSlider musicSlider;
+        private TextSlider musicSlider = null!;
         [SerializeField]
-        private TextSlider soundSlider;
+        private TextSlider soundSlider = null!;
         [SerializeField]
-        private TextSlider fastForwardSlider;
+        private TextSlider fastForwardSlider = null!;
 
         [SerializeField]
-        private LabeledToggle swapTriggerToggle;
+        private LabeledToggle swapTriggerToggle = null!;
         [SerializeField]
-        private LabeledToggle pauseOnFocusLostToggle;
+        private LabeledToggle pauseOnFocusLostToggle = null!;
 
         [SerializeField]
-        private TextButton diffcultyButton;
+        private TextButton diffcultyButton = null!;
         [SerializeField]
-        private Button restartButton;
+        private Button restartButton = null!;
 
         [SerializeField]
-        private Button moreOptionsButton;
+        private Button moreOptionsButton = null!;
         [SerializeField]
-        private TextButton leaveLevelButton;
+        private TextButton leaveLevelButton = null!;
 
         [SerializeField]
-        private Button backButton;
+        private Button backButton = null!;
 
         [Header("More Elements")]
         [SerializeField]
-        private Button moreBackButton;
+        private Button moreBackButton = null!;
         [SerializeField]
-        private Transform[] moreElementLines;
+        private Transform[] moreElementLines = null!;
 
         [Header("General")]
         [SerializeField]
-        private GameObject languageDropdownPair;
+        private GameObject languageDropdownPair = null!;
         [SerializeField]
-        private TMP_Dropdown languageDropdown;
+        private TMP_Dropdown languageDropdown = null!;
         [SerializeField]
-        private LabeledToggle vibrationToggle;
+        private LabeledToggle vibrationToggle = null!;
         [SerializeField]
-        private LabeledToggle skipAllTalksToggle;
+        private LabeledToggle skipAllTalksToggle = null!;
         [SerializeField]
-        private LabeledToggle chooseWarningsToggle;
+        private LabeledToggle chooseWarningsToggle = null!;
         [SerializeField]
-        private TextButton commandBlockModeButton;
+        private TextButton commandBlockModeButton = null!;
 
         [Header("Display")]
         [SerializeField]
-        private TextSlider particlesSlider;
+        private TextSlider particlesSlider = null!;
         [SerializeField]
-        private TextSlider shakeSlider;
+        private TextSlider shakeSlider = null!;
         [SerializeField]
-        private TextSlider animationFrequencySlider;
+        private TextSlider animationFrequencySlider = null!;
         [SerializeField]
-        private GameObject resolutionDropdownPair;
+        private GameObject resolutionDropdownPair = null!;
         [SerializeField]
-        private TMP_Dropdown resolutionDropdown;
+        private TMP_Dropdown resolutionDropdown = null!;
         [SerializeField]
-        private LabeledToggle fullscreenToggle;
+        private LabeledToggle fullscreenToggle = null!;
         [SerializeField]
-        private LabeledToggle bloodAndGoreToggle;
+        private LabeledToggle bloodAndGoreToggle = null!;
         [SerializeField]
-        private LabeledToggle heightIndicatorToggle;
+        private LabeledToggle heightIndicatorToggle = null!;
         [SerializeField]
-        private LabeledToggle hdrToggle;
+        private LabeledToggle hdrToggle = null!;
         [SerializeField]
-        private TextButton showFPSButton;
+        private TextButton showFPSButton = null!;
 
         [Header("Controls")]
         [SerializeField]
-        private LabeledToggle showHotkeysToggle;
+        private LabeledToggle showHotkeysToggle = null!;
         [SerializeField]
-        private TextButton keybindingButton;
+        private TextButton keybindingButton = null!;
 
         [Header("Misc")]
         [SerializeField]
-        private LabeledToggle showSponsorNamesToggle;
+        private LabeledToggle showSponsorNamesToggle = null!;
         [SerializeField]
-        private TextButton creditsButton;
+        private TextButton creditsButton = null!;
         [SerializeField]
-        private Button exportLogFilesButton;
+        private Button exportLogFilesButton = null!;
         public enum Page
         {
             Main,

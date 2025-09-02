@@ -80,7 +80,7 @@ namespace MVZ2.Localization
         }
 
         #region 导入
-        public string GetImportKey(string sourcePath)
+        public string? GetImportKey(string sourcePath)
         {
             if (!File.Exists(sourcePath))
                 return null;
@@ -168,7 +168,7 @@ namespace MVZ2.Localization
         #endregion
 
         #region 语言包引用/元数据
-        public LanguagePackMetadata GetLanguagePackMetadata(LanguagePackReference reference)
+        public LanguagePackMetadata? GetLanguagePackMetadata(LanguagePackReference reference)
         {
             if (languagePackMetadatas.TryGetValue(reference, out var metadata))
             {
@@ -211,7 +211,8 @@ namespace MVZ2.Localization
             try
             {
                 var metadata = await reference.LoadMetadata(this);
-                languagePackMetadatas.Add(reference, metadata);
+                if (metadata != null)
+                    languagePackMetadatas.Add(reference, metadata);
             }
             catch (Exception e)
             {
@@ -244,12 +245,15 @@ namespace MVZ2.Localization
                     using var reader = new StreamReader(stream);
                     var json = reader.ReadToEnd();
                     var packList = JsonConvert.DeserializeObject<EnabledLanguagePackList>(json);
-                    foreach (var key in packList.enabled)
+                    if (packList != null)
                     {
-                        var reference = languagePackMetadatas.Keys.FirstOrDefault(r => r.GetKey() == key);
-                        if (reference != null)
+                        foreach (var key in packList.enabled)
                         {
-                            enabledLanguagePacks.Add(reference);
+                            var reference = languagePackMetadatas.Keys.FirstOrDefault(r => r.GetKey() == key);
+                            if (reference != null)
+                            {
+                                enabledLanguagePacks.Add(reference);
+                            }
                         }
                     }
                 }
@@ -354,17 +358,17 @@ namespace MVZ2.Localization
         #endregion
 
         #region 加载Zip元数据
-        public LanguagePackMetadata ReadLanguagePackMetadataZip(string key, string path)
+        public LanguagePackMetadata? ReadLanguagePackMetadataZip(string key, string path)
         {
             using var stream = File.Open(path, FileMode.Open);
             return ReadLanguagePackMetadataZip(key, stream);
         }
-        public LanguagePackMetadata ReadLanguagePackMetadataZip(string key, byte[] bytes)
+        public LanguagePackMetadata? ReadLanguagePackMetadataZip(string key, byte[] bytes)
         {
             using var memory = new MemoryStream(bytes);
             return ReadLanguagePackMetadataZip(key, memory);
         }
-        public LanguagePackMetadata ReadLanguagePackMetadataZip(string key, Stream stream)
+        public LanguagePackMetadata? ReadLanguagePackMetadataZip(string key, Stream stream)
         {
             try
             {
@@ -376,13 +380,15 @@ namespace MVZ2.Localization
 
                 var json = metadataEntry.ReadString(Encoding.UTF8);
                 var metadata = JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
-
-                var iconEntry = archive.GetEntry(ICON_FILENAME);
-                if (iconEntry != null)
+                if (metadata != null)
                 {
-                    var bytes = iconEntry.ReadBytes();
-                    var texture = SpriteHelper.LoadTextureFromBytes(bytes);
-                    metadata.icon = Main.ResourceManager.CreateSprite(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(texture.width * 0.5f, texture.height * 0.5f), key, "language_pack_icon");
+                    var iconEntry = archive.GetEntry(ICON_FILENAME);
+                    if (iconEntry != null)
+                    {
+                        var bytes = iconEntry.ReadBytes();
+                        var texture = SpriteHelper.LoadTextureFromBytes(bytes);
+                        metadata.icon = Main.ResourceManager.CreateSprite(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(texture.width * 0.5f, texture.height * 0.5f), key, "language_pack_icon");
+                    }
                 }
                 return metadata;
             }
@@ -395,17 +401,17 @@ namespace MVZ2.Localization
         #endregion
 
         #region 加载Zip语言包
-        public LanguagePack ReadLanguagePackZip(string key, string path)
+        public LanguagePack? ReadLanguagePackZip(string key, string path)
         {
             using var stream = File.Open(path, FileMode.Open);
             return ReadLanguagePackZip(key, stream);
         }
-        public LanguagePack ReadLanguagePackZip(string key, byte[] bytes)
+        public LanguagePack? ReadLanguagePackZip(string key, byte[] bytes)
         {
             using var memory = new MemoryStream(bytes);
             return ReadLanguagePackZip(key, memory);
         }
-        public LanguagePack ReadLanguagePackZip(string key, Stream stream)
+        public LanguagePack? ReadLanguagePackZip(string key, Stream stream)
         {
             try
             {
@@ -440,29 +446,38 @@ namespace MVZ2.Localization
                         {
                             var manifestJson = entry.ReadString(Encoding.UTF8);
                             var manifest = JsonConvert.DeserializeObject<LocalizedSpriteManifest>(manifestJson);
-                            foreach (var localizedSprite in manifest.sprites)
+                            if (manifest != null)
                             {
-                                var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "sprites", localizedSprite.texture);
-                                var textureEntry = entries.FirstOrDefault(e => e.FullName.Replace("\\", "/") == texturePath.Replace("\\", "/"));
+                                if (manifest.sprites != null)
+                                {
+                                    foreach (var localizedSprite in manifest.sprites)
+                                    {
+                                        var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "sprites", localizedSprite.texture);
+                                        var textureEntry = entries.FirstOrDefault(e => e.FullName.Replace("\\", "/") == texturePath.Replace("\\", "/"));
 
-                                if (textureEntry == null)
-                                    continue;
-                                var resID = new NamespaceID(nsp, localizedSprite.name);
-                                var bytes = textureEntry.ReadBytes();
-                                var sprite = ReadEntryToSprite(resID, bytes, localizedSprite, key);
-                                asset.Sprites.Add(resID, sprite);
-                            }
-                            foreach (var localizedSpritesheet in manifest.spritesheets)
-                            {
-                                var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "spritesheets", localizedSpritesheet.texture);
-                                var textureEntry = entries.FirstOrDefault(e => e.FullName.Replace("\\", "/") == texturePath.Replace("\\", "/"));
+                                        if (textureEntry == null || string.IsNullOrEmpty(localizedSprite.name))
+                                            continue;
+                                        var resID = new NamespaceID(nsp, localizedSprite.name);
+                                        var bytes = textureEntry.ReadBytes();
+                                        var sprite = ReadEntryToSprite(resID, bytes, localizedSprite, key);
+                                        asset.Sprites.Add(resID, sprite);
+                                    }
+                                }
+                                if (manifest.spritesheets != null)
+                                {
+                                    foreach (var localizedSpritesheet in manifest.spritesheets)
+                                    {
+                                        var texturePath = Path.Combine(splitedPaths[0], splitedPaths[1], splitedPaths[2], "spritesheets", localizedSpritesheet.texture);
+                                        var textureEntry = entries.FirstOrDefault(e => e.FullName.Replace("\\", "/") == texturePath.Replace("\\", "/"));
 
-                                if (textureEntry == null)
-                                    continue;
-                                var resID = new NamespaceID(nsp, localizedSpritesheet.name);
-                                var bytes = textureEntry.ReadBytes();
-                                var spritesheet = ReadEntryToSpriteSheet(resID, bytes, localizedSpritesheet, key);
-                                asset.SpriteSheets.Add(resID, spritesheet);
+                                        if (textureEntry == null || string.IsNullOrEmpty(localizedSpritesheet.name))
+                                            continue;
+                                        var resID = new NamespaceID(nsp, localizedSpritesheet.name);
+                                        var bytes = textureEntry.ReadBytes();
+                                        var spritesheet = ReadEntryToSpriteSheet(resID, bytes, localizedSpritesheet, key);
+                                        asset.SpriteSheets.Add(resID, spritesheet);
+                                    }
+                                }
                             }
                         }
                     }
@@ -478,7 +493,7 @@ namespace MVZ2.Localization
         #endregion
 
         #region 加载文件夹元数据
-        public LanguagePackMetadata ReadLanguagePackMetadataDirectory(string key, string path)
+        public LanguagePackMetadata? ReadLanguagePackMetadataDirectory(string key, string path)
         {
             var metadataPath = Path.Combine(path, METADATA_FILENAME);
             if (!File.Exists(metadataPath))
@@ -489,19 +504,20 @@ namespace MVZ2.Localization
                 using var metadataReader = new StreamReader(metadataStream);
                 var json = metadataReader.ReadToEnd();
                 var metadata = JsonConvert.DeserializeObject<LanguagePackMetadata>(json);
-
-                var iconPath = Path.Combine(path, ICON_FILENAME);
-                if (File.Exists(iconPath))
+                if (metadata != null)
                 {
-                    using var textureStream = File.Open(iconPath, FileMode.Open);
-                    using var textureMemory = new MemoryStream();
-                    textureStream.CopyTo(textureMemory);
-                    var bytes = textureMemory.ToArray();
+                    var iconPath = Path.Combine(path, ICON_FILENAME);
+                    if (File.Exists(iconPath))
+                    {
+                        using var textureStream = File.Open(iconPath, FileMode.Open);
+                        using var textureMemory = new MemoryStream();
+                        textureStream.CopyTo(textureMemory);
+                        var bytes = textureMemory.ToArray();
 
-                    var texture = SpriteHelper.LoadTextureFromBytes(bytes);
-                    metadata.icon = Main.ResourceManager.CreateSprite(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(texture.width * 0.5f, texture.height * 0.5f), key, "language_pack_icon");
+                        var texture = SpriteHelper.LoadTextureFromBytes(bytes);
+                        metadata.icon = Main.ResourceManager.CreateSprite(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(texture.width * 0.5f, texture.height * 0.5f), key, "language_pack_icon");
+                    }
                 }
-
                 return metadata;
             }
             catch (Exception e)
@@ -513,7 +529,7 @@ namespace MVZ2.Localization
         #endregion
 
         #region 加载文件夹语言包
-        public LanguagePack ReadLanguagePackDirectory(string key, string path)
+        public LanguagePack? ReadLanguagePackDirectory(string key, string path)
         {
             try
             {
@@ -564,33 +580,42 @@ namespace MVZ2.Localization
                 var manifestJson = manifestReader.ReadToEnd();
 
                 var manifest = JsonConvert.DeserializeObject<LocalizedSpriteManifest>(manifestJson);
-                foreach (var localizedSprite in manifest.sprites)
+                if (manifest != null)
                 {
-                    var texturePath = Path.Combine(dir, "sprites", localizedSprite.texture).Replace("/", "\\");
+                    if (manifest.sprites != null)
+                    {
+                        foreach (var localizedSprite in manifest.sprites)
+                        {
+                            var texturePath = Path.Combine(dir, "sprites", localizedSprite.texture).Replace("/", "\\");
 
-                    if (!File.Exists(texturePath))
-                        continue;
-                    var resID = new NamespaceID(nsp, localizedSprite.name);
-                    using var spriteStream = File.Open(texturePath, FileMode.Open);
-                    using var spriteMemory = new MemoryStream();
-                    spriteStream.CopyTo(spriteMemory);
+                            if (!File.Exists(texturePath) || string.IsNullOrEmpty(localizedSprite.name))
+                                continue;
+                            var resID = new NamespaceID(nsp, localizedSprite.name);
+                            using var spriteStream = File.Open(texturePath, FileMode.Open);
+                            using var spriteMemory = new MemoryStream();
+                            spriteStream.CopyTo(spriteMemory);
 
-                    var sprite = ReadEntryToSprite(resID, spriteMemory.ToArray(), localizedSprite, key);
-                    asset.Sprites.Add(resID, sprite);
-                }
-                foreach (var localizedSpritesheet in manifest.spritesheets)
-                {
-                    var texturePath = Path.Combine(dir, "spritesheets", localizedSpritesheet.texture).Replace("/", "\\");
+                            var sprite = ReadEntryToSprite(resID, spriteMemory.ToArray(), localizedSprite, key);
+                            asset.Sprites.Add(resID, sprite);
+                        }
+                    }
+                    if (manifest.spritesheets != null)
+                    {
+                        foreach (var localizedSpritesheet in manifest.spritesheets)
+                        {
+                            var texturePath = Path.Combine(dir, "spritesheets", localizedSpritesheet.texture).Replace("/", "\\");
 
-                    if (!File.Exists(texturePath))
-                        continue;
-                    var resID = new NamespaceID(nsp, localizedSpritesheet.name);
-                    using var spriteStream = File.Open(texturePath, FileMode.Open);
-                    using var spriteMemory = new MemoryStream();
-                    spriteStream.CopyTo(spriteMemory);
+                            if (!File.Exists(texturePath) || string.IsNullOrEmpty(localizedSpritesheet.name))
+                                continue;
+                            var resID = new NamespaceID(nsp, localizedSpritesheet.name);
+                            using var spriteStream = File.Open(texturePath, FileMode.Open);
+                            using var spriteMemory = new MemoryStream();
+                            spriteStream.CopyTo(spriteMemory);
 
-                    var spritesheet = ReadEntryToSpriteSheet(resID, spriteMemory.ToArray(), localizedSpritesheet, key);
-                    asset.SpriteSheets.Add(resID, spritesheet);
+                            var spritesheet = ReadEntryToSpriteSheet(resID, spriteMemory.ToArray(), localizedSpritesheet, key);
+                            asset.SpriteSheets.Add(resID, spritesheet);
+                        }
+                    }
                 }
             }
         }
@@ -627,7 +652,7 @@ namespace MVZ2.Localization
             {
                 var texture2D = SpriteHelper.LoadTextureFromBytes(bytes);
                 (Rect rect, Vector2 pivot)[] spriteInfos;
-                if (meta != null)
+                if (meta?.slices != null)
                 {
                     spriteInfos = new (Rect rect, Vector2 pivot)[meta.slices.Length];
                     for (int i = 0; i < spriteInfos.Length; i++)
@@ -725,12 +750,12 @@ namespace MVZ2.Localization
             {
                 return "builtin";
             }
-            public override async Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager)
+            public override async Task<LanguagePackMetadata?> LoadMetadata(LanguageManager manager)
             {
                 var bytes = await manager.LoadBuiltinBytes();
                 return manager.ReadLanguagePackMetadataZip(GetKey(), bytes);
             }
-            public override async Task<LanguagePack> LoadLanguagePack(LanguageManager manager)
+            public override async Task<LanguagePack?> LoadLanguagePack(LanguageManager manager)
             {
                 var bytes = await manager.LoadBuiltinBytes();
                 return manager.ReadLanguagePackZip(GetKey(), bytes);
@@ -772,7 +797,7 @@ namespace MVZ2.Localization
             {
                 return Path.GetFileName(path);
             }
-            public override Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager)
+            public override Task<LanguagePackMetadata?> LoadMetadata(LanguageManager manager)
             {
                 if (isDirectory)
                 {
@@ -780,7 +805,7 @@ namespace MVZ2.Localization
                 }
                 return Task.FromResult(manager.ReadLanguagePackMetadataZip(GetKey(), path));
             }
-            public override Task<LanguagePack> LoadLanguagePack(LanguageManager manager)
+            public override Task<LanguagePack?> LoadLanguagePack(LanguageManager manager)
             {
                 if (isDirectory)
                 {
@@ -793,8 +818,8 @@ namespace MVZ2.Localization
     public abstract class LanguagePackReference
     {
         public virtual bool IsBuiltin => false;
-        public abstract Task<LanguagePackMetadata> LoadMetadata(LanguageManager manager);
-        public abstract Task<LanguagePack> LoadLanguagePack(LanguageManager manager);
+        public abstract Task<LanguagePackMetadata?> LoadMetadata(LanguageManager manager);
+        public abstract Task<LanguagePack?> LoadLanguagePack(LanguageManager manager);
         public abstract string GetKey();
         public abstract string GetFileName();
         public override string ToString()

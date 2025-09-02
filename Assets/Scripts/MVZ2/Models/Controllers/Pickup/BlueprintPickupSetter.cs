@@ -40,14 +40,14 @@ namespace MVZ2.Models
             colliderMobile.SetActive(isMobile);
         }
         [SerializeField]
-        private GameObject colliderStandalone;
+        private GameObject colliderStandalone = null!;
         [SerializeField]
-        private GameObject colliderMobile;
+        private GameObject colliderMobile = null!;
         [SerializeField]
-        private BlueprintSprite blueprintSpriteStandalone;
+        private BlueprintSprite blueprintSpriteStandalone = null!;
         [SerializeField]
-        private BlueprintSprite blueprintSpriteMobile;
-        private NamespaceID lastID;
+        private BlueprintSprite blueprintSpriteMobile = null!;
+        private NamespaceID? lastID;
         private bool lastCommandBlock;
     }
 }

@@ -27,12 +27,12 @@ namespace MVZ2.Mainmenu.UI
             userList.OnUserSelect += (index) => OnUserSelect?.Invoke(index);
             userList.SetCreateNewUserActive(false);
         }
-        public event Action<int> OnUserSelect;
-        public event Action OnDeleteButtonClick;
+        public event Action<int>? OnUserSelect;
+        public event Action? OnDeleteButtonClick;
 
         [SerializeField]
-        private UserManageList userList;
+        private UserManageList userList = null!;
         [SerializeField]
-        private Button deleteButton;
+        private Button deleteButton = null!;
     }
 }

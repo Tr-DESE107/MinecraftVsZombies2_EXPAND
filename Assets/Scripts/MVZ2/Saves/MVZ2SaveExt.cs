@@ -7,7 +7,7 @@ namespace MVZ2.Saves
 {
     public static class MVZ2SaveExt
     {
-        public static bool IsNullOrMeetsConditions(this IConditionList conditions, IGlobalSaveData save)
+        public static bool IsNullOrMeetsConditions(this IConditionList? conditions, IGlobalSaveData save)
         {
             return conditions == null || conditions.MeetsConditions(save);
         }

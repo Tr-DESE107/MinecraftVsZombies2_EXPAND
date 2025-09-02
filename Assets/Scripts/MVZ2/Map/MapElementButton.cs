@@ -23,10 +23,10 @@ namespace MVZ2.Map
         {
             arrow.SetActive(visible);
         }
-        public event Action<NamespaceID> OnClick;
+        public event Action<NamespaceID>? OnClick;
         [SerializeField]
-        private NamespaceIDReference id;
+        private NamespaceIDReference id = null!;
         [SerializeField]
-        private GameObject arrow;
+        private GameObject arrow = null!;
     }
 }

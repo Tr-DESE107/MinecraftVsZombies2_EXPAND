@@ -21,6 +21,8 @@ namespace MVZ2.GameContent.Commands
         {
             var game = Global.Game;
             var level = Global.Level.GetLevel();
+            if (level == null)
+                return;
 
             var id = NamespaceID.Parse(parameters[1], Global.Game.DefaultNamespace);
 

@@ -23,8 +23,8 @@ namespace MVZ2.Scenes
             fpsText.text = text;
         }
         [SerializeField]
-        private RectTransform rectTransform;
+        private RectTransform rectTransform = null!;
         [SerializeField]
-        private TextMeshProUGUI fpsText;
+        private TextMeshProUGUI fpsText = null!;
     }
 }

@@ -11,7 +11,7 @@ namespace MVZ2.HeldItems
         {
             this.level = level;
         }
-        protected override Model GetModel()
+        protected override Model? GetModel()
         {
             return level.GetHeldItemModel();
         }

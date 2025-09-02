@@ -11,6 +11,6 @@ namespace MVZ2.Models
             return Model.GetProperty<bool>(propertyName) ? 1 : 0;
         }
         [SerializeField]
-        private string propertyName;
+        private string propertyName = null!;
     }
 }

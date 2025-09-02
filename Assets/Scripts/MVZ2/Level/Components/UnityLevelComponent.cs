@@ -45,8 +45,8 @@ namespace MVZ2.Level.Components
         public LevelEngine Level => Controller.GetEngine();
         public LevelController Controller => levelController;
         [SerializeField]
-        private LevelController levelController;
+        private LevelController levelController = null!;
         [SerializeField]
-        private NamespaceIDReference id;
+        private NamespaceIDReference id = null!;
     }
 }

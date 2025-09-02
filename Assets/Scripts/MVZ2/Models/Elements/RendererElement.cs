@@ -10,44 +10,52 @@ namespace MVZ2.Models
     {
         public void SetInt(string name, int value)
         {
-            var propertyBlock = PropertyBlock;
+            intProperties[name] = value;
             var renderer = Renderer;
+            if (!renderer.Exists())
+                return;
+            var propertyBlock = PropertyBlock;
             propertyBlock.Clear();
             renderer.GetPropertyBlock(propertyBlock);
             propertyBlock.SetInt(name, value);
             renderer.SetPropertyBlock(propertyBlock);
-            intProperties[name] = value;
         }
         public void SetFloat(string name, float value)
         {
-            var propertyBlock = PropertyBlock;
+            floatProperties[name] = value;
             var renderer = Renderer;
+            if (!renderer.Exists())
+                return;
+            var propertyBlock = PropertyBlock;
             propertyBlock.Clear();
             renderer.GetPropertyBlock(propertyBlock);
             propertyBlock.SetFloat(name, value);
             renderer.SetPropertyBlock(propertyBlock);
-            floatProperties[name] = value;
         }
 
         public void SetColor(string name, Color value)
         {
-            var propertyBlock = PropertyBlock;
+            colorProperties[name] = value;
             var renderer = Renderer;
+            if (!renderer.Exists())
+                return;
+            var propertyBlock = PropertyBlock;
             propertyBlock.Clear();
             renderer.GetPropertyBlock(propertyBlock);
             propertyBlock.SetColor(name, value);
             renderer.SetPropertyBlock(propertyBlock);
-            colorProperties[name] = value;
         }
         public void SetVector(string name, Vector4 value)
         {
-            var propertyBlock = PropertyBlock;
+            vectorProperties[name] = value;
             var renderer = Renderer;
+            if (!renderer.Exists())
+                return;
+            var propertyBlock = PropertyBlock;
             propertyBlock.Clear();
             renderer.GetPropertyBlock(propertyBlock);
             propertyBlock.SetVector(name, value);
             renderer.SetPropertyBlock(propertyBlock);
-            vectorProperties[name] = value;
         }
 
         public override SerializableGraphicElement ToSerializable()
@@ -72,28 +80,46 @@ namespace MVZ2.Models
             var propertyBlock = PropertyBlock;
             var renderer = Renderer;
             propertyBlock.Clear();
-            renderer.GetPropertyBlock(propertyBlock);
-            foreach (var prop in rendererElement.intProperties)
+            if (renderer.Exists())
             {
-                propertyBlock.SetInt(prop.Key, prop.Value);
-                intProperties[prop.Key] = prop.Value;
+                renderer.GetPropertyBlock(propertyBlock);
             }
-            foreach (var prop in rendererElement.floatProperties)
+            if (rendererElement.intProperties != null)
             {
-                propertyBlock.SetFloat(prop.Key, prop.Value);
-                floatProperties[prop.Key] = prop.Value;
+                foreach (var prop in rendererElement.intProperties)
+                {
+                    propertyBlock.SetInt(prop.Key, prop.Value);
+                    intProperties[prop.Key] = prop.Value;
+                }
             }
-            foreach (var prop in rendererElement.colorProperties)
+            if (rendererElement.floatProperties != null)
             {
-                propertyBlock.SetColor(prop.Key, prop.Value);
-                colorProperties[prop.Key] = prop.Value;
+                foreach (var prop in rendererElement.floatProperties)
+                {
+                    propertyBlock.SetFloat(prop.Key, prop.Value);
+                    floatProperties[prop.Key] = prop.Value;
+                }
             }
-            foreach (var prop in rendererElement.vectorProperties)
+            if (rendererElement.colorProperties != null)
             {
-                propertyBlock.SetVector(prop.Key, prop.Value);
-                vectorProperties[prop.Key] = prop.Value;
+                foreach (var prop in rendererElement.colorProperties)
+                {
+                    propertyBlock.SetColor(prop.Key, prop.Value);
+                    colorProperties[prop.Key] = prop.Value;
+                }
             }
-            renderer.SetPropertyBlock(propertyBlock);
+            if (rendererElement.vectorProperties != null)
+            {
+                foreach (var prop in rendererElement.vectorProperties)
+                {
+                    propertyBlock.SetVector(prop.Key, prop.Value);
+                    vectorProperties[prop.Key] = prop.Value;
+                }
+            }
+            if (renderer.Exists())
+            {
+                renderer.SetPropertyBlock(propertyBlock);
+            }
         }
         public MaterialPropertyBlock PropertyBlock
         {
@@ -106,7 +132,7 @@ namespace MVZ2.Models
                 return propertyBlock;
             }
         }
-        public Renderer Renderer
+        public Renderer? Renderer
         {
             get
             {
@@ -117,18 +143,18 @@ namespace MVZ2.Models
                 return _renderer;
             }
         }
-        private MaterialPropertyBlock propertyBlock;
+        private MaterialPropertyBlock propertyBlock = null!;
         private Dictionary<string, float> floatProperties = new Dictionary<string, float>();
         private Dictionary<string, int> intProperties = new Dictionary<string, int>();
         private Dictionary<string, Color> colorProperties = new Dictionary<string, Color>();
         private Dictionary<string, Vector4> vectorProperties = new Dictionary<string, Vector4>();
-        private Renderer _renderer;
+        private Renderer? _renderer;
     }
     public class SerializableRendererElement : SerializableGraphicElement
     {
-        public Dictionary<string, float> floatProperties;
-        public Dictionary<string, int> intProperties;
-        public Dictionary<string, Color> colorProperties;
-        public Dictionary<string, Vector4> vectorProperties;
+        public Dictionary<string, float>? floatProperties;
+        public Dictionary<string, int>? intProperties;
+        public Dictionary<string, Color>? colorProperties;
+        public Dictionary<string, Vector4>? vectorProperties;
     }
 }

@@ -7,8 +7,15 @@ namespace MVZ2.Metas
 {
     public class StoreMetaList
     {
+        private StoreMetaList(StorePresetMeta[] presets, StoreChatGroupMeta[] chats, ProductMeta[] products)
+        {
+            Presets = presets;
+            Chats = chats;
+            Products = products;
+        }
+
         public StorePresetMeta[] Presets { get; private set; }
-        public LoreTalkMetaList LoreTalks { get; private set; }
+        public LoreTalkMetaList? LoreTalks { get; private set; }
         public StoreChatGroupMeta[] Chats { get; private set; }
         public ProductMeta[] Products { get; private set; }
         public static StoreMetaList FromXmlNode(XmlNode node, string defaultNsp)
@@ -22,11 +29,18 @@ namespace MVZ2.Metas
                     var child = presetsNode.ChildNodes[i];
                     if (child.Name == "preset")
                     {
-                        presets.Add(StorePresetMeta.FromXmlNode(child, defaultNsp));
+                        var meta = StorePresetMeta.FromXmlNode(child, defaultNsp);
+                        if (meta != null)
+                            presets.Add(meta);
                     }
                 }
             }
-            var loreTalks = LoreTalkMetaList.FromXmlNode(node["talks"], defaultNsp);
+            var talksNode = node["talks"];
+            LoreTalkMetaList? loreTalks = null;
+            if (talksNode != null)
+            {
+                loreTalks = LoreTalkMetaList.FromXmlNode(node["talks"], defaultNsp);
+            }
 
             var chatsNode = node["chats"];
             var chats = new List<StoreChatGroupMeta>();
@@ -37,7 +51,9 @@ namespace MVZ2.Metas
                     var child = chatsNode.ChildNodes[i];
                     if (child.Name == "group")
                     {
-                        chats.Add(StoreChatGroupMeta.FromXmlNode(child, defaultNsp));
+                        var meta = StoreChatGroupMeta.FromXmlNode(child, defaultNsp);
+                        if (meta != null)
+                            chats.Add(meta);
                     }
                 }
             }
@@ -50,16 +66,15 @@ namespace MVZ2.Metas
                     var child = productsNode.ChildNodes[i];
                     if (child.Name == "product")
                     {
-                        products.Add(ProductMeta.FromXmlNode(child, defaultNsp, i));
+                        var meta = ProductMeta.FromXmlNode(child, defaultNsp, i);
+                        if (meta != null)
+                            products.Add(meta);
                     }
                 }
             }
-            return new StoreMetaList()
+            return new StoreMetaList(presets.ToArray(), chats.ToArray(), products.ToArray())
             {
-                Presets = presets.ToArray(),
-                LoreTalks = loreTalks,
-                Chats = chats.ToArray(),
-                Products = products.ToArray()
+                LoreTalks = loreTalks
             };
         }
     }

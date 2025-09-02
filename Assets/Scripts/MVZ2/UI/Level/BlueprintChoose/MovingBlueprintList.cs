@@ -23,8 +23,8 @@ namespace MVZ2.Level.UI
             Destroy(blueprint.gameObject);
         }
         [SerializeField]
-        private MovingBlueprint movingBlueprintTemplate;
+        private MovingBlueprint movingBlueprintTemplate = null!;
         [SerializeField]
-        private Transform movingBlueprintRoot;
+        private Transform movingBlueprintRoot = null!;
     }
 }

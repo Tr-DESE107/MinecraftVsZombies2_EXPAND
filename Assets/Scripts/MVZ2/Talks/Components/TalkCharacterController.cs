@@ -45,10 +45,10 @@ namespace MVZ2.Talk
         {
             disappearSpeed = value;
         }
-        public void SetCharacter(Sprite spr)
+        public void SetCharacter(Sprite? spr)
         {
             image.sprite = spr;
-            if (spr)
+            if (spr.Exists())
                 imageRectTransform.pivot = spr.pivot / spr.rect.size;
         }
         public void SetWidthExtend(Vector2 widthExtend)
@@ -99,11 +99,11 @@ namespace MVZ2.Talk
         private float disappearBlend;
         private float blendValue = 0;
         [SerializeField]
-        private Animator _animator;
+        private Animator _animator = null!;
         [SerializeField]
-        private Image image;
+        private Image image = null!;
         [SerializeField]
-        private RectTransform imageRectTransform;
+        private RectTransform imageRectTransform = null!;
         [SerializeField]
         private float idleBlendFactor = 0.2f;
         [SerializeField]
@@ -122,7 +122,7 @@ namespace MVZ2.Talk
     public struct TalkCharacterViewData
     {
         public string name;
-        public Sprite sprite;
+        public Sprite? sprite;
         public Vector2 widthExtend;
         public CharacterSide side;
     }

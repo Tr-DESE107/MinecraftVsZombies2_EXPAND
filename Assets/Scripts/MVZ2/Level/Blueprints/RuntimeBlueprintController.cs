@@ -77,7 +77,7 @@ namespace MVZ2.Level
         {
             return CanPick(out _);
         }
-        public bool CanPick(out string errorMessage)
+        public bool CanPick(out string? errorMessage)
         {
             return SeedPack.CanPick(out errorMessage);
         }

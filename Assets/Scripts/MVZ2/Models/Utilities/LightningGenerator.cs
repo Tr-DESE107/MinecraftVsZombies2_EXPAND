@@ -66,7 +66,7 @@ namespace MVZ2.Models
             }
         }
         [SerializeField]
-        private LineRenderer lineRenderer;
+        private LineRenderer lineRenderer = null!;
         public float amplitude = 0.2f;
     }
 }

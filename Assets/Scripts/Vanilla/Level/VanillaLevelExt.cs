@@ -405,6 +405,14 @@ namespace MVZ2.Vanilla.Level
             var lane = spawnDef.GetRandomSpawnLane(level);
             return level.SpawnEnemy(spawnDef, lane);
         }
+        public static Entity? SpawnEnemyAtRandomLane(this LevelEngine level, NamespaceID spawnID)
+        {
+            var spawnDef = level.Content.GetSpawnDefinition(spawnID);
+            if (spawnDef == null)
+                return null;
+            var x = level.GetEnemySpawnX();
+            return level.SpawnEnemyAtRandomLane(spawnDef);
+        }
         public static Entity? SpawnEnemy(this LevelEngine level, SpawnDefinition spawnDef, int lane)
         {
             var x = level.GetEnemySpawnX();

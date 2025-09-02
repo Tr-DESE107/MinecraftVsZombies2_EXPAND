@@ -56,7 +56,7 @@ namespace MVZ2.Managers
         [Header("动态调整设置")]
         [SerializeField] private float fpsCheckInterval = 1f;    // 性能检测间隔（秒）
 
-        [SerializeField] private PerformanceData animatorBatchData;
+        [SerializeField] private PerformanceData animatorBatchData = null!;
     }
     [Serializable]
     public class PerformanceData

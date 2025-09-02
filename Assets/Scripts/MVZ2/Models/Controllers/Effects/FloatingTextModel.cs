@@ -14,6 +14,6 @@ namespace MVZ2.Models
             text.color = Model.GetProperty<Color>("Color");
         }
         [SerializeField]
-        private TextMeshPro text;
+        private TextMeshPro text = null!;
     }
 }

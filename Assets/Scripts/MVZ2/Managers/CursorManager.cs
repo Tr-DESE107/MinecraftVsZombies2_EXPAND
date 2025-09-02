@@ -128,7 +128,7 @@ namespace MVZ2.Cursors
             Enabled = enabled;
             OnEnableChanged?.Invoke(enabled);
         }
-        public event Action<bool> OnEnableChanged;
+        public event Action<bool>? OnEnableChanged;
         public bool Enabled { get; private set; } = true;
         public abstract CursorType CursorType { get; }
         public abstract int Priority { get; }

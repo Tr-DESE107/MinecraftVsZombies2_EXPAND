@@ -26,7 +26,7 @@ namespace MVZ2.Models
             }
         }
         [SerializeField]
-        private SpriteRenderer iconRenderer;
-        private NamespaceID entityID;
+        private SpriteRenderer iconRenderer = null!;
+        private NamespaceID? entityID;
     }
 }

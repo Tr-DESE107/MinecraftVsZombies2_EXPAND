@@ -10,7 +10,7 @@ namespace MVZ2.UI
     public abstract class BlueprintDisplayer : MonoBehaviour
     {
         public abstract void UpdateItems(ChoosingBlueprintViewData[] viewDatas);
-        public abstract Blueprint GetItem(int index);
+        public abstract Blueprint? GetItem(int index);
         protected void CallBlueprintPointerInteraction(int index, PointerEventData eventData, PointerInteraction interaction)
         {
             OnBlueprintPointerInteraction?.Invoke(index, eventData, interaction);
@@ -19,8 +19,8 @@ namespace MVZ2.UI
         {
             OnBlueprintSelect?.Invoke(index, eventData);
         }
-        public event Action<int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
-        public event Action<int, PointerEventData> OnBlueprintSelect;
+        public event Action<int, PointerEventData, PointerInteraction>? OnBlueprintPointerInteraction;
+        public event Action<int, PointerEventData>? OnBlueprintSelect;
     }
     public struct ChoosingBlueprintViewData
     {

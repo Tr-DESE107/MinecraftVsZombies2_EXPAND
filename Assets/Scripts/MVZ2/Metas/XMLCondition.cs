@@ -29,7 +29,7 @@ namespace MVZ2.Metas
                 return false;
             return true;
         }
-        public NamespaceID[] Required { get; set; }
-        public NamespaceID[] RequiredNot { get; set; }
+        public NamespaceID[]? Required { get; set; }
+        public NamespaceID[]? RequiredNot { get; set; }
     }
 }

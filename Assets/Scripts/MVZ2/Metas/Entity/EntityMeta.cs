@@ -6,29 +6,46 @@ using System.Xml;
 using MVZ2.IO;
 using PVZEngine;
 using PVZEngine.Entities;
+using UnityEngine;
 
 namespace MVZ2.Metas
 {
     public class EntityMeta
     {
+        private EntityMeta(string iD, string name, string deathMessage, string tooltip, NamespaceID? unlock, NamespaceID[] behaviours, Dictionary<string, object?> properties)
+        {
+            ID = iD;
+            Name = name;
+            DeathMessage = deathMessage;
+            Tooltip = tooltip;
+            Unlock = unlock;
+            Behaviours = behaviours;
+            Properties = properties;
+        }
+
         public int Type { get; private set; }
         public string ID { get; private set; }
         public string Name { get; private set; }
         public string DeathMessage { get; private set; }
         public string Tooltip { get; private set; }
-        public NamespaceID Unlock { get; private set; }
+        public NamespaceID? Unlock { get; private set; }
         public int Order { get; private set; }
         public NamespaceID[] Behaviours { get; private set; }
-        public Dictionary<string, object> Properties { get; private set; }
-        public static EntityMeta FromXmlNode(string nsp, XmlNode node, string defaultNsp, IEnumerable<EntityMetaTemplate> templates, int order)
+        public Dictionary<string, object?> Properties { get; private set; }
+        public static EntityMeta? FromXmlNode(string nsp, XmlNode node, string defaultNsp, IEnumerable<EntityMetaTemplate> templates, int order)
         {
+            var id = node.GetAttribute("id");
+            if (string.IsNullOrEmpty(id))
+            {
+                Debug.LogError("The ID of a SpawnMeta is empty.");
+                return null;
+            }
             var type = EntityTypes.EFFECT;
             var template = templates.FirstOrDefault(t => t.name == node.Name);
-            var id = node.GetAttribute("id");
-            var name = node.GetAttribute("name");
-            var deathMessage = node.GetAttribute("deathMessage")?.Replace("\\n", "\n");
+            var name = node.GetAttribute("name") ?? string.Empty;
+            var deathMessage = node.GetAttribute("deathMessage")?.Replace("\\n", "\n") ?? string.Empty;
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-            var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n");
+            var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n") ?? string.Empty;
 
             var behaviours = new List<NamespaceID>();
             var behavioursNode = node["behaviours"];
@@ -41,7 +58,7 @@ namespace MVZ2.Metas
 
             var propertyNode = node["properties"];
             var entityProps = propertyNode.ToPropertyDictionary(defaultNsp);
-            Dictionary<string, object> properties = new Dictionary<string, object>();
+            Dictionary<string, object?> properties = new Dictionary<string, object?>();
             foreach (var prop in entityProps)
             {
                 var fullName = PropertyKeyHelper.ParsePropertyFullName(prop.Key, defaultNsp, PropertyRegions.entity);
@@ -64,16 +81,9 @@ namespace MVZ2.Metas
             behavioursNode?.ModifyEntityBehaviours(behaviours, properties, defaultNsp);
 
 
-            return new EntityMeta()
+            return new EntityMeta(id, name, deathMessage, tooltip, unlock, behaviours.ToArray(), properties)
             {
                 Type = type,
-                ID = id,
-                Name = name,
-                DeathMessage = deathMessage,
-                Tooltip = tooltip,
-                Unlock = unlock,
-                Behaviours = behaviours.ToArray(),
-                Properties = properties,
                 Order = order,
             };
         }
@@ -83,26 +93,33 @@ namespace MVZ2.Metas
     {
         public BehaviourOperator Operator { get; private set; }
         public NamespaceID ID { get; private set; }
-        public static EntityBehaviourItem FromXmlNode(XmlNode node, string defaultNsp)
+        public EntityBehaviourItem(BehaviourOperator @operator, NamespaceID iD)
         {
+            Operator = @operator;
+            ID = iD;
+        }
+        public static EntityBehaviourItem? FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            var id = node.GetAttributeNamespaceID("id", defaultNsp);
+            if (!NamespaceID.IsValid(id))
+            {
+                Debug.LogError($"The {nameof(id)} attribute of an EntityBehaviour node is invalid.");
+                return null;
+            }
             var opStr = node.GetAttribute("operator");
             var op = BehaviourOperator.Add;
             if (!string.IsNullOrEmpty(opStr) && operatorDict.TryGetValue(opStr, out var o))
             {
                 op = o;
             }
-            var id = node.GetAttributeNamespaceID("id", defaultNsp);
-            return new EntityBehaviourItem()
-            {
-                Operator = op,
-                ID = id
-            };
+            return new EntityBehaviourItem(op, id);
         }
         private static Dictionary<string, BehaviourOperator> operatorDict = new Dictionary<string, BehaviourOperator>()
         {
             { "add", BehaviourOperator.Add },
             { "remove", BehaviourOperator.Remove },
         };
+
     }
     public enum BehaviourOperator
     {

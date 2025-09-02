@@ -13,12 +13,22 @@ namespace MVZ2.Metas
     public class CommandMeta
     {
         public string ID { get; private set; }
-        public string Description { get; private set; }
+        public string Description { get; private set; } = string.Empty;
         public bool InLevel { get; private set; }
         public CommandMetaVariant[] Variants { get; private set; }
-        public static CommandMeta FromXmlNode(XmlNode node, string defaultNsp)
+        private CommandMeta(string id, CommandMetaVariant[] variants)
+        {
+            ID = id;
+            Variants = variants;
+        }
+        public static CommandMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError("The ID of a CommandMeta is invalid.");
+                return null;
+            }
             var inLevel = node.GetAttributeBool("inLevel") ?? false;
             var description = node["description"]?.InnerText ?? string.Empty;
             var variants = new List<CommandMetaVariant>();
@@ -30,24 +40,26 @@ namespace MVZ2.Metas
                     variants.Add(CommandMetaVariant.FromXmlNode(childNode, defaultNsp));
                 }
             }
-            return new CommandMeta()
+            return new CommandMeta(id, variants.ToArray())
             {
-                ID = id,
                 InLevel = inLevel,
                 Description = description,
-                Variants = variants.ToArray(),
             };
         }
     }
     public class CommandMetaVariant : ICommandVariantMeta
     {
-        public string Subname { get; private set; }
-        public string Description { get; private set; }
+        public string Subname { get; private set; } = string.Empty;
+        public string Description { get; private set; } = string.Empty;
         public CommandMetaParam[] Parameters { get; private set; }
         ICommandParameterMeta[] ICommandVariantMeta.Parameters => Parameters;
+        private CommandMetaVariant(CommandMetaParam[] parameters)
+        {
+            Parameters = parameters;
+        }
         public static CommandMetaVariant FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var subname = node.GetAttribute("subname");
+            var subname = node.GetAttribute("subname") ?? string.Empty;
 
             var description = node["description"]?.InnerText ?? string.Empty;
 
@@ -61,11 +73,10 @@ namespace MVZ2.Metas
                     paramList.Add(CommandMetaParam.FromXmlNode(childNode, defaultNsp));
                 }
             }
-            return new CommandMetaVariant()
+            return new CommandMetaVariant(paramList.ToArray())
             {
                 Subname = subname,
-                Description = description,
-                Parameters = paramList.ToArray()
+                Description = description
             };
         }
 
@@ -94,16 +105,16 @@ namespace MVZ2.Metas
     }
     public class CommandMetaParam : ICommandParameterMeta
     {
-        public string Name { get; private set; }
-        public string Type { get; private set; }
-        public string IDType { get; private set; }
+        public string Name { get; private set; } = string.Empty;
+        public string Type { get; private set; } = string.Empty;
+        public string IDType { get; private set; } = string.Empty;
         public bool Optional { get; private set; }
-        public string Description { get; private set; }
+        public string Description { get; private set; } = string.Empty;
         public static CommandMetaParam FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var name = node.GetAttribute("name");
-            var type = node.GetAttribute("type");
-            var idType = node.GetAttribute("idType");
+            var name = node.GetAttribute("name") ?? string.Empty;
+            var type = node.GetAttribute("type") ?? string.Empty;
+            var idType = node.GetAttribute("idType") ?? string.Empty;
             var optional = node.GetAttributeBool("optional") ?? false;
             var description = node.InnerText;
             return new CommandMetaParam()

@@ -27,7 +27,7 @@ namespace MVZ2.UI
         {
             return isConveyor;
         }
-        public Blueprint GetCurrentModeBlueprint(int index)
+        public Blueprint? GetCurrentModeBlueprint(int index)
         {
             return isConveyor ? GetConveyorBlueprintAt(index) : GetClassicBlueprintAt(index);
         }
@@ -87,7 +87,7 @@ namespace MVZ2.UI
         {
             blueprints.DestroyBlueprintAt(index);
         }
-        public Blueprint GetClassicBlueprintAt(int index)
+        public Blueprint? GetClassicBlueprintAt(int index)
         {
             return blueprints.GetBlueprintAt(index);
         }
@@ -122,7 +122,7 @@ namespace MVZ2.UI
         {
             conveyor.DestroyBlueprintAt(index);
         }
-        public Blueprint GetConveyorBlueprintAt(int index)
+        public Blueprint? GetConveyorBlueprintAt(int index)
         {
             return conveyor.GetBlueprintAt(index);
         }
@@ -140,21 +140,21 @@ namespace MVZ2.UI
         }
         #endregion
 
-        public event Action<int, PointerEventData, PointerInteraction, bool> OnBlueprintPointerInteraction;
+        public event Action<int, PointerEventData, PointerInteraction, bool>? OnBlueprintPointerInteraction;
 
         private bool isConveyor;
         [SerializeField]
-        GameObject blueprintClassicEnabledObj;
+        GameObject blueprintClassicEnabledObj = null!;
         [SerializeField]
-        GameObject blueprintConveyorEnabledObj;
+        GameObject blueprintConveyorEnabledObj = null!;
         [SerializeField]
-        GameObject[] blueprintClassicModeObjects;
+        GameObject[] blueprintClassicModeObjects = null!;
         [SerializeField]
-        GameObject[] blueprintConveyorModeObjects;
+        GameObject[] blueprintConveyorModeObjects = null!;
 
         [Header("Sorting")]
         [SerializeField]
-        Canvas[] blueprintSortingCanvases;
+        Canvas[] blueprintSortingCanvases = null!;
         [SerializeField]
         SortingLayerPicker battleSortingLayer;
         [SerializeField]
@@ -162,8 +162,8 @@ namespace MVZ2.UI
 
         [Header("Blueprints")]
         [SerializeField]
-        BlueprintArray blueprints;
+        BlueprintArray blueprints = null!;
         [SerializeField]
-        Conveyor conveyor;
+        Conveyor conveyor = null!;
     }
 }

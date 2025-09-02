@@ -703,7 +703,7 @@ namespace PVZEngine.Entities
         public bool IsFacingLeft() => this.FaceLeftAtDefault() != (Cache.GetFinalScale().x < 0);
 
         #region 模型
-        public void SetModelInterface(IModelInterface model)
+        public void SetModelInterface(IModelInterface? model)
         {
             modelInterface = model;
         }

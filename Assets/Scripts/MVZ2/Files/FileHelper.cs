@@ -27,17 +27,17 @@ namespace MVZ2.IO
         {
             stream.Write(bytes, 0, bytes.Length);
         }
-        public static Task<string> OpenExternalFile(string[] extensions, Action<string> importAction)
+        public static Task<string?> OpenExternalFile(string[] extensions, Action<string> importAction)
         {
 #if UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN || UNITY_STANDALONE_LINUX || UNITY_EDITOR
             var selectedPathes = StandaloneFileBrowser.OpenFilePanel("", "", extensions.Select(e => new ExtensionFilter(string.Empty, extensions)).ToArray(), false);
             if (selectedPathes.Length == 0)
-                return Task.FromResult<string>(null);
+                return Task.FromResult<string?>(null);
             var importPath = selectedPathes[0];
             importAction?.Invoke(importPath);
-            return Task.FromResult<string>(importPath);
+            return Task.FromResult<string?>(importPath);
 #elif UNITY_IOS || UNITY_ANDROID
-            var t = new TaskCompletionSource<string>();
+            var t = new TaskCompletionSource<string?>();
             var fileTypes = extensions.Select(e => NativeFilePicker.ConvertExtensionToFileType(e)).ToArray();
             NativeFilePicker.PickFile(path => {
                 if (!string.IsNullOrEmpty(path))
@@ -48,10 +48,10 @@ namespace MVZ2.IO
             }, fileTypes);
             return t.Task;
 #else
-            return Task.FromResult<string>(null);
+            return Task.FromResult<string?>(null);
 #endif
         }
-        public static async Task<string> SaveExternalFile(string defaultName, string[] extensions, Action<string> saveAction)
+        public static async Task<string?> SaveExternalFile(string defaultName, string[] extensions, Action<string> saveAction)
         {
 #if UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN || UNITY_STANDALONE_LINUX || UNITY_EDITOR
             var exportPath = StandaloneFileBrowser.SaveFilePanel("", "", defaultName, extensions.Select(e => new ExtensionFilter(string.Empty, e)).ToArray());
@@ -75,7 +75,7 @@ namespace MVZ2.IO
                 return null;
             }
 
-            var t = new TaskCompletionSource<string>();
+            var t = new TaskCompletionSource<string?>();
             NativeFilePicker.ExportFile(tempPath, success => t.SetResult(success ? fileName : null));
             var exportPath = await t.Task;
             File.Delete(tempPath); // 清理临时文件

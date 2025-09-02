@@ -9,5 +9,11 @@ namespace MVZ2.TalkData
     {
         public NamespaceID variant;
         public Sprite sprite;
+
+        public CharacterVariantSprite(NamespaceID variant, Sprite sprite)
+        {
+            this.variant = variant;
+            this.sprite = sprite;
+        }
     }
 }

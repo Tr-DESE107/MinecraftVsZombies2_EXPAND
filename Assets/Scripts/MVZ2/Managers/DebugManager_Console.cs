@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using MukioI18n;
@@ -57,7 +58,7 @@ namespace MVZ2.Managers
         }
         public void ExecuteCommand(string input, int count = 1)
         {
-            if (!PreExecuteCommand(input, out var errorMsg, out var definition, out string[] args))
+            if (!PreExecuteCommand(input, out var errorMsg, out var definition, out string[]? args))
             {
                 Print($"> {input}\n");
                 PrintLine(errorMsg);
@@ -77,9 +78,9 @@ namespace MVZ2.Managers
                 }
             }
         }
-        private bool PreExecuteCommand(string input, out string msg, out CommandDefinition definition, out string[] args)
+        private bool PreExecuteCommand(string input, out string msg, [NotNullWhen(true)] out CommandDefinition? definition, [NotNullWhen(true)] out string[]? args)
         {
-            msg = null;
+            msg = string.Empty;
             args = null;
             definition = null;
             string[] parts = SplitCommand(input);
@@ -113,7 +114,7 @@ namespace MVZ2.Managers
         {
             Main.Scene.ClearConsole();
         }
-        public NamespaceID GetCommandIDByName(string text)
+        public NamespaceID? GetCommandIDByName(string text)
         {
             if (NamespaceID.TryParse(text, Main.BuiltinNamespace, out var id))
             {
@@ -164,10 +165,10 @@ namespace MVZ2.Managers
         #endregion
 
         #region 自动补全
-        private ICommandVariantMeta GetBestFitCommandVariant(ICommandVariantMeta[] variants, string[] parts, bool uncompleted = false)
+        private ICommandVariantMeta? GetBestFitCommandVariant(ICommandVariantMeta[] variants, string[] parts, bool uncompleted = false)
         {
             var maxFits = 0;
-            ICommandVariantMeta bestVariant = null;
+            ICommandVariantMeta? bestVariant = null;
             int targetCount = parts.Length;
             foreach (var variant in variants)
             {
@@ -230,7 +231,7 @@ namespace MVZ2.Managers
                 case CommandMetaParam.TYPE_COMMAND:
                     {
                         var id = GetCommandIDByName(paramText);
-                        return commandIDSet.Contains(id);
+                        return NamespaceID.IsValid(id) && commandIDSet.Contains(id);
                     }
                 case CommandMetaParam.TYPE_INT:
                     {
@@ -286,7 +287,8 @@ namespace MVZ2.Managers
             else
             {
                 var def = Main.Game.GetCommandDefinition(commandID);
-                FillParameterSuggestions(def, parts, currentSuggestions);
+                if (def != null)
+                    FillParameterSuggestions(def, parts, currentSuggestions);
             }
         }
         private void FillNameSuggestions(string currentCommandName, List<string> currentSuggestions)
@@ -311,6 +313,9 @@ namespace MVZ2.Managers
                 return;
 
             var variants = def.GetVariants();
+            if (variants == null)
+                return;
+
             // 变体子名称
             if (parts.Length == 2)
             {
@@ -326,6 +331,8 @@ namespace MVZ2.Managers
             // 查找目前最符合的命令变体。
             var variant = GetBestFitCommandVariant(variants, parts, true);
 
+            if (variant == null)
+                return;
             FillSuggestionsOfCommandVariant(variant, parts, currentSuggestions);
         }
         private void FillSuggestionsOfCommandVariant(ICommandVariantMeta variant, string[] parts, List<string> currentSuggestions)
@@ -412,6 +419,8 @@ namespace MVZ2.Managers
                 return;
             var commandName = parts[0];
             var commandID = Main.DebugManager.GetCommandIDByName(commandName);
+            if (!NamespaceID.IsValid(commandID))
+                return;
             var def = Main.Game.GetCommandDefinition(commandID);
             if (def == null)
                 return;
@@ -420,6 +429,8 @@ namespace MVZ2.Managers
                 throw new InvalidOperationException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_MUST_IN_LEVEL));
 
             var variants = def.GetVariants();
+            if (variants == null)
+                throw new ArgumentException(Main.LanguageManager._p(VanillaStrings.CONTEXT_COMMAND_OUTPUT, VanillaStrings.COMMAND_INCORRECT_FORMAT));
             var variant = GetBestFitCommandVariant(variants, parts);
             // 命令变体不存在。
             if (variant == null)

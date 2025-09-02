@@ -25,8 +25,8 @@ namespace MVZ2.Level
         public ILevelBlueprintController BlueprintController => blueprintController;
         public ILevelBlueprintChooseController BlueprintChoosePart => blueprintChooseController;
         [SerializeField]
-        LevelBlueprintController blueprintController;
+        LevelBlueprintController blueprintController = null!;
         [SerializeField]
-        LevelBlueprintChooseController blueprintChooseController;
+        LevelBlueprintChooseController blueprintChooseController = null!;
     }
 }

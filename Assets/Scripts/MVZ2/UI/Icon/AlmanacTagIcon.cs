@@ -43,17 +43,17 @@ namespace MVZ2.UI
             OnPointerDown?.Invoke(this);
         }
         ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
-        public event Action<AlmanacTagIcon> OnPointerEnter;
-        public event Action<AlmanacTagIcon> OnPointerExit;
-        public event Action<AlmanacTagIcon> OnPointerDown;
+        public event Action<AlmanacTagIcon>? OnPointerEnter;
+        public event Action<AlmanacTagIcon>? OnPointerExit;
+        public event Action<AlmanacTagIcon>? OnPointerDown;
         [SerializeField]
-        private TooltipAnchor tooltipAnchor;
+        private TooltipAnchor tooltipAnchor = null!;
         [SerializeField]
-        private AlmanacTagIconLayer backgroundLayer;
+        private AlmanacTagIconLayer backgroundLayer = null!;
         [SerializeField]
-        private AlmanacTagIconLayer mainLayer;
+        private AlmanacTagIconLayer mainLayer = null!;
         [SerializeField]
-        private AlmanacTagIconLayer markLayer;
+        private AlmanacTagIconLayer markLayer = null!;
     }
     public struct AlmanacTagIconViewData
     {

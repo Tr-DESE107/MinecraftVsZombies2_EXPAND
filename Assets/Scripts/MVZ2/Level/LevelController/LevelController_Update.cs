@@ -54,7 +54,7 @@ namespace MVZ2.Level
         private void UpdateLogicGameOver()
         {
             var killerCtrl = killerEntity;
-            if (killerCtrl)
+            if (killerCtrl.Exists())
             {
                 var killerEnt = killerCtrl.Entity;
                 var pos = killerEnt.Position;
@@ -244,7 +244,7 @@ namespace MVZ2.Level
         }
         private void UpdateFrameModel(float deltaTime, float gameSpeed)
         {
-            if (model)
+            if (model.Exists())
             {
                 var uiSimulationSpeed = IsGamePaused() ? 0 : gameSpeed;
                 var uiDeltaTime = deltaTime * uiSimulationSpeed;

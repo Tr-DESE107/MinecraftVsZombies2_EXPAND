@@ -18,9 +18,9 @@ namespace MVZ2.Models
             }
         }
         [SerializeField]
-        private GameObject normalObject;
+        private GameObject normalObject = null!;
         [SerializeField]
-        private GameObject darkObject;
+        private GameObject darkObject = null!;
         private bool isDark = false;
     }
 }

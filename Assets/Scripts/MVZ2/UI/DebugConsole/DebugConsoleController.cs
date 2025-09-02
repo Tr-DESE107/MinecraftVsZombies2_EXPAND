@@ -326,7 +326,7 @@ namespace MVZ2.Debugs
         private int suggestionIndex;
         private bool isAutoCompleteActive;
 
-        private string lastInput;
+        private string? lastInput;
         private int lastCaret = -1;
         private bool historyNavigated;
         [SerializeField]
@@ -334,6 +334,6 @@ namespace MVZ2.Debugs
         [SerializeField]
         private int maxHistorySize = 100;
         [SerializeField]
-        private DebugConsoleUI ui;
+        private DebugConsoleUI ui = null!;
     }
 }

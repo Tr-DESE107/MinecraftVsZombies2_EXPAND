@@ -2,13 +2,13 @@
 
 using MVZ2.Managers;
 using MVZ2.Map;
-using MVZ2.Metas;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Talks;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2Logic;
+using MVZ2Logic.Entities;
 using MVZ2Logic.Games;
 using MVZ2Logic.Notes;
 using MVZ2Logic.Talk;
@@ -21,14 +21,16 @@ namespace MVZ2.Note
     {
         public async void SetNote(NamespaceID id)
         {
-            meta = main.ResourceManager.GetNoteMeta(id);
-            definition = main.Game.GetNoteDefinition(id);
+            var def = main.Game.GetNoteDefinition(id);
+            if (def == null)
+                return;
+            definition = def;
             isFlipped = false;
-            ui.SetNoteSprite(main.GetFinalSprite(meta.sprite));
-            ui.SetBackground(main.GetFinalSprite(meta.background));
-            ui.SetCanFlip(meta.canFlip);
+            ui.SetNoteSprite(main.GetFinalSprite(def.GetNoteSprite()));
+            ui.SetBackground(main.GetFinalSprite(def.GetNoteBackground()));
+            ui.SetCanFlip(def.CanFlip());
             ui.SetFlipAtLeft(isFlipped);
-            var startTalk = meta.startTalk ?? new NamespaceID(id.SpaceName, $"{id.Path}_note");
+            var startTalk = def.GetStartTalk() ?? new NamespaceID(id.SpaceName, $"{id.Path}_note");
             await talkController.SimpleStartTalkAsync(startTalk, 0, 3, () => SetInteractable(false));
             SetInteractable(true);
         }
@@ -55,7 +57,7 @@ namespace MVZ2.Note
         {
             isFlipped = !isFlipped;
             main.SoundManager.Play2D(VanillaSoundID.paper);
-            var sprRef = isFlipped ? meta.flipSprite : meta.sprite;
+            var sprRef = isFlipped ? definition.GetFlipNoteSprite() : definition.GetNoteSprite();
             ui.SetNoteSprite(main.GetFinalSprite(sprRef));
             ui.SetFlipAtLeft(isFlipped);
         }
@@ -71,14 +73,13 @@ namespace MVZ2.Note
 
         #region 属性字段
         private MainManager main => MainManager.Instance;
-        private NoteMeta meta;
-        private NoteDefinition definition;
-        private ITalkSystem talkSystem;
+        private NoteDefinition definition = null!;
+        private ITalkSystem talkSystem = null!;
         private bool isFlipped;
         [SerializeField]
-        private TalkController talkController;
+        private TalkController talkController = null!;
         [SerializeField]
-        private NoteUI ui;
+        private NoteUI ui = null!;
         #endregion
     }
 }

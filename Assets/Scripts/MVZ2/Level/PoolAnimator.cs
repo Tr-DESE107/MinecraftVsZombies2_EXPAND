@@ -21,9 +21,9 @@ namespace MVZ2.Level
             }
         }
         [SerializeField]
-        private Animator animator;
+        private Animator animator = null!;
         [SerializeField]
-        private RendererElement poolElement;
+        private RendererElement poolElement = null!;
         [Range(0, 1)]
         [SerializeField]
         private float warpTime;

@@ -8,21 +8,23 @@ namespace MVZ2.Models
 {
     public class ModelBuilder : IModelBuilder
     {
-        public ModelBuilder(NamespaceID id, Camera camera, int seed = 0)
+        public ModelBuilder(NamespaceID? id, Camera camera, int seed = 0)
         {
             this.id = id;
             this.camera = camera;
             this.seed = 0;
             mainManager = MainManager.Instance;
         }
-        public Model Build(Transform parent)
+        public Model? Build(Transform parent)
         {
             var res = mainManager.ResourceManager;
+            if (id == null)
+                return null;
             var modelMeta = res.GetModelMeta(id);
-            if (modelMeta == null)
+            if (modelMeta == null || modelMeta.Path == null)
                 return null;
             var prefab = res.GetModel(modelMeta.Path);
-            if (prefab == null)
+            if (!prefab.Exists())
                 return null;
             var model = GameObject.Instantiate(prefab, parent).GetComponent<Model>();
             if (model)
@@ -39,13 +41,13 @@ namespace MVZ2.Models
             }
             return model;
         }
-        public NamespaceID id;
+        public NamespaceID? id;
         public Camera camera;
         public int seed;
         private MainManager mainManager;
     }
     public interface IModelBuilder
     {
-        public Model Build(Transform parent);
+        public Model? Build(Transform parent);
     }
 }

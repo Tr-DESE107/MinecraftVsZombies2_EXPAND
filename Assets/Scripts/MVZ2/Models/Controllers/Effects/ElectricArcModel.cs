@@ -61,11 +61,11 @@ namespace MVZ2.Models
             }
         }
         [SerializeField]
-        private LightningGenerator[] lightnings;
+        private LightningGenerator[] lightnings = null!;
         [SerializeField]
-        private Transform sourceTransform;
+        private Transform sourceTransform = null!;
         [SerializeField]
-        private Transform destTransform;
+        private Transform destTransform = null!;
         [SerializeField]
         private float arcShiver = 0.03f;
         [SerializeField]

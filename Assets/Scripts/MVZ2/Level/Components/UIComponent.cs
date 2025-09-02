@@ -108,7 +108,7 @@ namespace MVZ2.Level.Components
         {
             Controller.SetUIAndInputDisabled(disabled);
         }
-        public void ShowDialog(string title, string desc, string[] options, Action<int> onSelect = null)
+        public void ShowDialog(string title, string desc, string[] options, Action<int>? onSelect = null)
         {
             Main.Scene.ShowDialog(title, desc, options, onSelect);
         }

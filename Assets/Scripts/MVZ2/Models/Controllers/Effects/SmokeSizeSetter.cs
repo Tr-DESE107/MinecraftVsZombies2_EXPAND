@@ -25,7 +25,7 @@ namespace MVZ2.Models
             particles.Emit(100 * volume);
         }
         [SerializeField]
-        private ParticlePlayer particles;
+        private ParticlePlayer particles = null!;
         public const string PROP_EMITTED = "Emitted";
     }
 }

@@ -16,7 +16,7 @@ namespace MVZ2.Level
             sky.SetFloat("_WarpTime", warpTime);
         }
         [SerializeField]
-        private RendererElement sky;
+        private RendererElement sky = null!;
         [Range(0, 1)]
         [SerializeField]
         private float warpTime;

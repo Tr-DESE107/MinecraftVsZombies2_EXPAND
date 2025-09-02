@@ -20,11 +20,11 @@ namespace MVZ2.Mainmenu.UI
         {
             confirmButton.onClick.AddListener(() => OnConfirm?.Invoke(dropdown.value));
         }
-        public event Action<int> OnConfirm;
+        public event Action<int>? OnConfirm;
 
         [SerializeField]
-        private TMP_Dropdown dropdown;
+        private TMP_Dropdown dropdown = null!;
         [SerializeField]
-        private Button confirmButton;
+        private Button confirmButton = null!;
     }
 }

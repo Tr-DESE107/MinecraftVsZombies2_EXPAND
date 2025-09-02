@@ -8,18 +8,25 @@ namespace MVZ2.Metas
 {
     public class ProductTalkMeta
     {
+        private ProductTalkMeta(NamespaceID character, string text)
+        {
+            Character = character;
+            Text = text;
+        }
+
         public NamespaceID Character { get; private set; }
         public string Text { get; private set; }
-        public static ProductTalkMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public static ProductTalkMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var character = node.GetAttributeNamespaceID("character", defaultNsp);
+            if (!NamespaceID.IsValid(character))
+            {
+                Log.LogError($"The {nameof(character)} of a {nameof(ProductTalkMeta)} is invalid.");
+                return null;
+            }
             var text = node.InnerText;
 
-            return new ProductTalkMeta()
-            {
-                Character = character,
-                Text = text
-            };
+            return new ProductTalkMeta(character, text);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace MVZ2.Map
         {
             buttonText.text = text;
         }
-        public void SetBorderSprite(Sprite back, Sprite bottom, Sprite overlay)
+        public void SetBorderSprite(Sprite? back, Sprite? bottom, Sprite? overlay)
         {
             defaultBorder.SetActive(false);
             customBorder.SetActive(true);
@@ -78,22 +78,22 @@ namespace MVZ2.Map
         {
             animator.SetBool("Pressed", isPointerEnter && isPointerDown);
         }
-        public event Action OnClick;
+        public event Action? OnClick;
         private bool isPointerEnter;
         private bool isPointerDown;
         [SerializeField]
-        private SpriteRenderer buttonRenderer;
+        private SpriteRenderer buttonRenderer = null!;
         [SerializeField]
-        private TextMeshPro buttonText;
+        private TextMeshPro buttonText = null!;
         [SerializeField]
-        private GameObject defaultBorder;
+        private GameObject defaultBorder = null!;
         [SerializeField]
-        private GameObject customBorder;
+        private GameObject customBorder = null!;
         [SerializeField]
-        private SpriteRenderer borderBack;
+        private SpriteRenderer borderBack = null!;
         [SerializeField]
-        private SpriteRenderer borderBottom;
+        private SpriteRenderer borderBottom = null!;
         [SerializeField]
-        private SpriteRenderer borderOverlay;
+        private SpriteRenderer borderOverlay = null!;
     }
 }

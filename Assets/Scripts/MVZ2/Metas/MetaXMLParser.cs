@@ -105,7 +105,7 @@ namespace MVZ2.Metas
         }
         public static ColliderConstructor LoadColliderConstructor(this XmlNode node)
         {
-            var name = node.GetAttribute("name");
+            var name = node.GetAttribute("name") ?? string.Empty;
             var sizeNode = node["size"];
             var size = Vector3.zero;
             if (sizeNode != null)

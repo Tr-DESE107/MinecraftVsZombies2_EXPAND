@@ -6,7 +6,7 @@ namespace MVZ2.Models
 {
     public class NyanCatModel : ModelComponent
     {
-        public override void OnPropertySet(string name, object value)
+        public override void OnPropertySet(string name, object? value)
         {
             base.OnPropertySet(name, value);
             if (name == "Nyaightmare")
@@ -21,8 +21,8 @@ namespace MVZ2.Models
             nyaightmareRoot.SetActive(nyaightmare);
         }
         [SerializeField]
-        private GameObject nyanCatRoot;
+        private GameObject nyanCatRoot = null!;
         [SerializeField]
-        private GameObject nyaightmareRoot;
+        private GameObject nyaightmareRoot = null!;
     }
 }

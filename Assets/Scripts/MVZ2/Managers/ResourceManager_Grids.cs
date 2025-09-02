@@ -12,7 +12,7 @@ namespace MVZ2.Managers
         public GridLayerMeta[] GetModGridLayerMetas(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
-            if (modResource == null)
+            if (modResource?.GridMetaList == null)
                 return Array.Empty<GridLayerMeta>();
             return modResource.GridMetaList.layers;
         }
@@ -22,7 +22,7 @@ namespace MVZ2.Managers
         public GridErrorMeta[] GetModGridErrorMetas(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
-            if (modResource == null)
+            if (modResource?.GridMetaList == null)
                 return Array.Empty<GridErrorMeta>();
             return modResource.GridMetaList.errors;
         }

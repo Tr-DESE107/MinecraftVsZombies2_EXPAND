@@ -9,14 +9,15 @@ namespace MVZ2.Localization
     [RequireComponent(typeof(Image))]
     public class ImageTranslator : TranslateComponentSprite<Image>
     {
-        protected override Sprite GetKeyInner()
+        protected override Sprite? GetKeyInner()
         {
-            return Component.sprite;
+            return Component?.sprite;
         }
         protected override void Translate(string language)
         {
             base.Translate(language);
-            Component.sprite = MainManager.Instance.GetFinalSprite(Key, language);
+            if (Component.Exists() && Key.Exists())
+                Component.sprite = MainManager.Instance.GetFinalSprite(Key, language);
         }
     }
 }

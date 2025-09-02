@@ -12,7 +12,7 @@ namespace MVZ2.Managers
         public StageMeta[] GetModStageMetas(string spaceName)
         {
             var modResource = GetModResource(spaceName);
-            if (modResource == null)
+            if (modResource?.StageMetaList == null)
                 return Array.Empty<StageMeta>();
             return modResource.StageMetaList.metas.ToArray();
         }

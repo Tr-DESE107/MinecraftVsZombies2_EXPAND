@@ -9,13 +9,23 @@ namespace MVZ2.Metas
     public class StatCategoryMeta
     {
         public string ID { get; private set; }
-        public string Name { get; private set; }
+        public string Name { get; private set; } = string.Empty;
         public StatCategoryType Type { get; private set; }
         public StatOperation Operation { get; private set; }
-        public static StatCategoryMeta FromXmlNode(XmlNode node, string defaultNsp)
+
+        public StatCategoryMeta(string iD)
+        {
+            ID = iD;
+        }
+        public static StatCategoryMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var name = node.GetAttribute("name");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError($"The {nameof(id)} of a {nameof(StatCategoryMeta)} is invalid.");
+                return null;
+            }
+            var name = node.GetAttribute("name") ?? string.Empty;
             var typeStr = node.GetAttribute("type");
             StatCategoryType type = StatCategoryType.Entity;
             if (!string.IsNullOrEmpty(typeStr) && typeDict.TryGetValue(typeStr, out var value))
@@ -28,9 +38,8 @@ namespace MVZ2.Metas
             {
                 operation = opValue;
             }
-            return new StatCategoryMeta()
+            return new StatCategoryMeta(id)
             {
-                ID = id,
                 Name = name,
                 Type = type,
                 Operation = operation

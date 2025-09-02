@@ -79,10 +79,10 @@ namespace MVZ2.UI
         }
         public CursorType cursorType = CursorType.Point;
         [SerializeField]
-        private Selectable trackSelectable;
+        private Selectable trackSelectable = null!;
         private bool isHovered;
         private bool interactable = true;
-        private HandlerCursorSource _cursorSource;
+        private HandlerCursorSource? _cursorSource;
     }
     public class HandlerCursorSource : CursorSource
     {

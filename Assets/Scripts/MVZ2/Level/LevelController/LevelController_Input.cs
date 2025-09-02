@@ -13,7 +13,6 @@ using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Entities;
 using PVZEngine.SeedPacks;
 using UnityEngine;
@@ -165,7 +164,7 @@ namespace MVZ2.Level
         }
         private void OnBlueprintKey(int i, bool conveyor, int key)
         {
-            SeedPack seedPack = conveyor ? level.GetConveyorSeedPackAt(i) : level.GetSeedPackAt(i);
+            SeedPack? seedPack = conveyor ? level.GetConveyorSeedPackAt(i) : level.GetSeedPackAt(i);
             if (seedPack == null)
                 return;
             var target = new HeldItemTargetBlueprint(level, i, conveyor);
@@ -235,10 +234,9 @@ namespace MVZ2.Level
         }
         private void OnPerformanceTestKey()
         {
-            var spawnDef = level.Content.GetSpawnDefinition(VanillaSpawnID.zombie);
             for (int i = 0; i < 50; i++)
             {
-                level.SpawnEnemyAtRandomLane(spawnDef);
+                level.SpawnEnemyAtRandomLane(VanillaSpawnID.zombie);
             }
         }
         private void OnFastKillBossKey()

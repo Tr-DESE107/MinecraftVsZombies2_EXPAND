@@ -30,7 +30,7 @@ namespace MVZ2.Level.UI
                 return;
             animator.SetBool("Grayscale", grayscale);
         }
-        public void SetIcon(Sprite sprite)
+        public void SetIcon(Sprite? sprite)
         {
             foreach (var icon in iconImages)
             {
@@ -65,17 +65,17 @@ namespace MVZ2.Level.UI
         {
             OnPointerExit?.Invoke(this);
         }
-        public Action<ArtifactItemUI> OnPointerEnter;
-        public Action<ArtifactItemUI> OnPointerExit;
+        public event Action<ArtifactItemUI>? OnPointerEnter;
+        public event Action<ArtifactItemUI>? OnPointerExit;
 
         [SerializeField]
-        private Animator animator;
+        private Animator animator = null!;
         [SerializeField]
-        private Image[] iconImages;
+        private Image[] iconImages = null!;
         [SerializeField]
-        private TextMeshProUGUI numText;
+        private TextMeshProUGUI numText = null!;
         [SerializeField]
-        private TooltipAnchor tooltipAnchor;
+        private TooltipAnchor tooltipAnchor = null!;
         ITooltipAnchor ITooltipTarget.Anchor => tooltipAnchor;
     }
 }

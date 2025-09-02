@@ -31,7 +31,7 @@ namespace MVZ2.Level.UI
                 item.OnPointerExit -= OnItemPointerExitCallback;
             });
         }
-        public ArtifactSelectItem GetArtifactSelectItem(int index)
+        public ArtifactSelectItem? GetArtifactSelectItem(int index)
         {
             return artifactList.getElement<ArtifactSelectItem>(index);
         }
@@ -51,13 +51,13 @@ namespace MVZ2.Level.UI
         {
             OnItemPointerExit?.Invoke(artifactList.indexOf(item));
         }
-        public event Action<int> OnItemClicked;
-        public event Action<int> OnItemPointerEnter;
-        public event Action<int> OnItemPointerExit;
-        public event Action OnBackButtonClicked;
+        public event Action<int>? OnItemClicked;
+        public event Action<int>? OnItemPointerEnter;
+        public event Action<int>? OnItemPointerExit;
+        public event Action? OnBackButtonClicked;
         [SerializeField]
-        private ElementList artifactList;
+        private ElementList artifactList = null!;
         [SerializeField]
-        private Button backButton;
+        private Button backButton = null!;
     }
 }

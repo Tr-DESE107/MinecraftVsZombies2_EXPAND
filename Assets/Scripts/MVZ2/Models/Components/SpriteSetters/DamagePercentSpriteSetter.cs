@@ -8,6 +8,8 @@ namespace MVZ2.Models
     {
         public override int GetIndex()
         {
+            if (sprites == null)
+                return 0;
             var percent = Model.GetProperty<float>("DamagePercent");
             var count = sprites.Length;
             return Mathf.FloorToInt(percent * count);

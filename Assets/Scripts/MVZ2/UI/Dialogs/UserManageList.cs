@@ -50,13 +50,13 @@ namespace MVZ2.Mainmenu.UI
             if (value)
                 OnUserSelect?.Invoke(userList.indexOf(item));
         }
-        public event Action<int> OnUserSelect;
-        public event Action OnCreateNewUserButtonClick;
+        public event Action<int>? OnUserSelect;
+        public event Action? OnCreateNewUserButtonClick;
 
         [SerializeField]
-        private ElementListUI userList;
+        private ElementListUI userList = null!;
         [SerializeField]
-        private Button createNewUserButton;
+        private Button createNewUserButton = null!;
     }
     public struct UserNameItemViewData
     {

@@ -7,6 +7,11 @@ namespace MVZ2.Metas
 {
     public class MainmenuViewMetaList
     {
+        public MainmenuViewMetaList(MainmenuViewMeta[] metas)
+        {
+            Metas = metas;
+        }
+
         public MainmenuViewMeta[] Metas { get; private set; }
         public static MainmenuViewMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -16,13 +21,12 @@ namespace MVZ2.Metas
                 var child = node.ChildNodes[i];
                 if (child.Name == "view")
                 {
-                    tags.Add(MainmenuViewMeta.FromXmlNode(child, defaultNsp));
+                    var meta = MainmenuViewMeta.FromXmlNode(child, defaultNsp);
+                    if (meta != null)
+                        tags.Add(meta);
                 }
             }
-            return new MainmenuViewMetaList()
-            {
-                Metas = tags.ToArray()
-            };
+            return new MainmenuViewMetaList(tags.ToArray());
         }
     }
 }

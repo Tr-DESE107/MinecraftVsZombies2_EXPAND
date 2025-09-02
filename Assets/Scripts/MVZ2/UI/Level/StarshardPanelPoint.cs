@@ -12,8 +12,8 @@ namespace MVZ2.Level.UI
             highlightGameObject.SetActive(highlight);
         }
         [SerializeField]
-        private GameObject darkGameObject;
+        private GameObject darkGameObject = null!;
         [SerializeField]
-        private GameObject highlightGameObject;
+        private GameObject highlightGameObject = null!;
     }
 }

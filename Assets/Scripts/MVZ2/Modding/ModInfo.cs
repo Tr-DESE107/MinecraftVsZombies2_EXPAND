@@ -7,12 +7,18 @@ namespace MVZ2.Modding
 {
     public class ModInfo
     {
+        public ModInfo(string nsp, IResourceLocator locator)
+        {
+            Namespace = nsp;
+            ResourceLocator = locator;
+        }
+
         public string Namespace { get; set; }
         public int LevelDataVersion { get; set; }
-        public string DisplayName { get; set; }
+        public string DisplayName { get; set; } = string.Empty;
         public bool IsBuiltin { get; set; }
         public IResourceLocator ResourceLocator { get; set; }
-        public string CatalogPath { get; set; }
-        public IModLogic Logic { get; set; }
+        public string? CatalogPath { get; set; }
+        public IModLogic? Logic { get; set; }
     }
 }

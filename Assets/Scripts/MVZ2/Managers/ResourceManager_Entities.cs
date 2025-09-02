@@ -12,7 +12,7 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 元数据列表
-        public EntityMetaList GetEntityMetaList(string nsp)
+        public EntityMetaList? GetEntityMetaList(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
             if (modResource == null)
@@ -47,8 +47,8 @@ namespace MVZ2.Managers
         public EntityCounterMeta[] GetModEntityCounterMetas(string nsp)
         {
             var modResource = GetModResource(nsp);
-            if (modResource == null)
-                return null;
+            if (modResource?.EntityMetaList == null)
+                return Array.Empty<EntityCounterMeta>();
             return modResource.EntityMetaList.counters;
         }
         #endregion

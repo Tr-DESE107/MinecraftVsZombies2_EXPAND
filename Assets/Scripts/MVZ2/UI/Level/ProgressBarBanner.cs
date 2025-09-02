@@ -13,7 +13,7 @@ namespace MVZ2.Level.UI
             pole.sizeDelta = sizeDelta;
         }
         [SerializeField]
-        private RectTransform pole;
+        private RectTransform pole = null!;
         [SerializeField]
         private float startY;
         [SerializeField]

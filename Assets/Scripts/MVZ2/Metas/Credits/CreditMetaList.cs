@@ -8,6 +8,12 @@ namespace MVZ2.Metas
     public class CreditMetaList
     {
         public CreditsCategoryMeta[] categories;
+
+        public CreditMetaList(CreditsCategoryMeta[] categories)
+        {
+            this.categories = categories;
+        }
+
         public static CreditMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
             List<CreditsCategoryMeta> categories = new List<CreditsCategoryMeta>();
@@ -16,13 +22,12 @@ namespace MVZ2.Metas
                 var child = node.ChildNodes[i];
                 if (child.Name == "category")
                 {
-                    categories.Add(CreditsCategoryMeta.FromXmlNode(child, defaultNsp));
+                    var meta = CreditsCategoryMeta.FromXmlNode(child, defaultNsp);
+                    if (meta != null)
+                        categories.Add(meta);
                 }
             }
-            return new CreditMetaList()
-            {
-                categories = categories.ToArray()
-            };
+            return new CreditMetaList(categories.ToArray());
         }
     }
 }

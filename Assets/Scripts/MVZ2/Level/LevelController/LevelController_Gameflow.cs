@@ -206,20 +206,23 @@ namespace MVZ2.Level
         #endregion
 
         #region 游戏结束
-        public void GameOver(Entity killer)
+        public void GameOver(Entity? killer)
         {
-            killerID = killer.GetDefinitionID();
-            killerEntity = GetEntityController(killer);
+            if (killer != null)
+            {
+                killerID = killer.GetDefinitionID();
+                killerEntity = GetEntityController(killer);
+            }
             SetGameOver();
             StartCoroutine(GameOverByEnemyTransition());
         }
-        public void GameOver(string deathMessage)
+        public void GameOver(string? deathMessage)
         {
             this.deathMessage = deathMessage;
             SetGameOver();
             StartCoroutine(GameOverNoEnemyTransition());
         }
-        public void GameOverInstantly(string deathMessage)
+        public void GameOverInstantly(string? deathMessage)
         {
             this.deathMessage = deathMessage;
             SetGameOver();
@@ -232,7 +235,7 @@ namespace MVZ2.Level
             level.PlaySound(VanillaSoundID.loseMusic);
             level.HideAdvice();
 
-            model.SetAnimatorBool("GameOver", true);
+            SetModelAnimatorBool("GameOver", true);
 
             ClearPointingGrid();
             SetUIVisibleState(VisibleState.Nothing);
@@ -305,7 +308,7 @@ namespace MVZ2.Level
         #endregion
 
         #region 事件回调
-        private void OnEngineGameOverCallback(int type, Entity killer, string message)
+        private void OnEngineGameOverCallback(int type, Entity? killer, string? message)
         {
             switch (type)
             {
@@ -335,7 +338,14 @@ namespace MVZ2.Level
         }
         private async void OnUIExitLevelToNoteCalledCallback()
         {
-            await ExitLevelToNote(exitTargetNoteID);
+            if (exitTargetNoteID == null)
+            {
+                await ExitLevel();
+            }
+            else
+            {
+                await ExitLevelToNote(exitTargetNoteID);
+            }
         }
         private void PostWaveFinishedCallback(LevelCallbacks.PostWaveParams param, CallbackResult result)
         {
@@ -357,13 +367,13 @@ namespace MVZ2.Level
         #region 属性字段
         private bool isGameStarted;
         private bool isGameOver;
-        private NamespaceID killerID;
-        private EntityController killerEntity;
-        private string deathMessage;
-        private NamespaceID exitTargetNoteID;
+        private NamespaceID? killerID;
+        private EntityController? killerEntity;
+        private string? deathMessage;
+        private NamespaceID? exitTargetNoteID;
         private LevelExitTarget exitTarget;
-        private NamespaceID startAreaID;
-        private NamespaceID startStageID;
+        private NamespaceID startAreaID = null!;
+        private NamespaceID startStageID = null!;
         #endregion
     }
 }

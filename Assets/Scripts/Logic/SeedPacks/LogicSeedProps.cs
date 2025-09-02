@@ -22,7 +22,7 @@ namespace MVZ2Logic.SeedPacks
         {
             return seed.GetProperty<SpriteReference>(ICON);
         }
-        public static void SetIcon(this SeedDefinition seed, SpriteReference value)
+        public static void SetIcon(this SeedDefinition seed, SpriteReference? value)
         {
             seed.SetProperty(ICON, value);
         }
@@ -37,7 +37,7 @@ namespace MVZ2Logic.SeedPacks
         {
             return seed.GetProperty<SpriteReference>(MOBILE_ICON);
         }
-        public static void SetMobileIcon(this SeedDefinition seed, SpriteReference value)
+        public static void SetMobileIcon(this SeedDefinition seed, SpriteReference? value)
         {
             seed.SetProperty(MOBILE_ICON, value);
         }
@@ -52,7 +52,7 @@ namespace MVZ2Logic.SeedPacks
         {
             return seed.GetProperty<NamespaceID>(MODEL_ID);
         }
-        public static void SetModelID(this SeedDefinition seed, NamespaceID value)
+        public static void SetModelID(this SeedDefinition seed, NamespaceID? value)
         {
             seed.SetProperty(MODEL_ID, value);
         }

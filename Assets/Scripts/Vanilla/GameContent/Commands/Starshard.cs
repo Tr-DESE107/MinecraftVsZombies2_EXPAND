@@ -16,6 +16,8 @@ namespace MVZ2.GameContent.Commands
         {
             var game = Global.Game;
             var level = Global.Level.GetLevel();
+            if (level == null)
+                return;
 
             var mode = parameters[0];
             var amount = ParseHelper.ParseInt(parameters[1]);

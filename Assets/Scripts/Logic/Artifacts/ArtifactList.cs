@@ -31,7 +31,7 @@ namespace MVZ2Logic.Artifacts
         {
             return artifacts.Length;
         }
-        public void ReplaceArtifacts(ArtifactDefinition[] definitions)
+        public void ReplaceArtifacts(ArtifactDefinition?[]? definitions)
         {
             if (definitions == null)
             {
@@ -86,10 +86,16 @@ namespace MVZ2Logic.Artifacts
                 }
             }
         }
-        public void ReplaceArtifact(int slot, ArtifactDefinition definition)
+        public void ReplaceArtifact(int slot, ArtifactDefinition? definition)
         {
-            var newArtifact = new Artifact(Level, definition);
-            SetArtifact(slot, newArtifact);
+            if (definition == null)
+            {
+                SetArtifact(slot, null);
+            }
+            else
+            {
+                SetArtifact(slot, new Artifact(Level, definition));
+            }
         }
         public void SetArtifact(int slot, Artifact? newArtifact)
         {

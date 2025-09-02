@@ -8,16 +8,23 @@ namespace MVZ2.Metas
 {
     public class FragmentMeta
     {
-        public string Name { get; private set; }
-        public Gradient Gradient { get; private set; }
-        public static FragmentMeta FromXmlNode(XmlNode node)
+        public FragmentMeta(string iD, Gradient? gradient)
+        {
+            ID = iD;
+            Gradient = gradient;
+        }
+
+        public string ID { get; private set; }
+        public Gradient? Gradient { get; private set; }
+        public static FragmentMeta? FromXmlNode(XmlNode node)
         {
             var name = node.GetAttribute("name");
-            return new FragmentMeta()
+            if (string.IsNullOrEmpty(name))
             {
-                Name = name,
-                Gradient = node.ToGradient()
-            };
+                Log.LogError($"The {nameof(name)} of a {nameof(FragmentMeta)} is invalid.");
+                return null;
+            }
+            return new FragmentMeta(name, node.ToGradient());
         }
     }
 }

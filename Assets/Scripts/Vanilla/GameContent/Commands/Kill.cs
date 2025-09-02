@@ -17,6 +17,8 @@ namespace MVZ2.GameContent.Commands
         {
             var game = Global.Game;
             var level = Global.Level.GetLevel();
+            if (level == null)
+                return;
             Entity[] entities;
             if (parameters.Length <= 0)
             {

@@ -9,7 +9,7 @@ namespace MVZ2.Models
 {
     public class ModelManager : MonoBehaviour
     {
-        public Sprite ShotIcon(NamespaceID id, int width, int height, Vector2 modelOffset, string name = null)
+        public Sprite? ShotIcon(NamespaceID id, int width, int height, Vector2 modelOffset, string? name = null)
         {
             var pictureName = name ?? "ModelIcon";
             //激活摄像机与灯光
@@ -18,7 +18,7 @@ namespace MVZ2.Models
             //设置模型
             var builder = new ModelBuilder(id, modelShotCamera);
             var modelInstance = builder.Build(modelShotPositionTransform);
-            if (!modelInstance)
+            if (!modelInstance.Exists())
             {
                 Debug.LogWarning($"Prefab of model {id} is missing!");
                 return null;
@@ -85,12 +85,12 @@ namespace MVZ2.Models
         }
         public MainManager Main => main;
         [SerializeField]
-        private MainManager main;
+        private MainManager main = null!;
         [SerializeField]
-        private Transform modelShotRoot;
+        private Transform modelShotRoot = null!;
         [SerializeField]
-        private Transform modelShotPositionTransform;
+        private Transform modelShotPositionTransform = null!;
         [SerializeField]
-        private Camera modelShotCamera;
+        private Camera modelShotCamera = null!;
     }
 }

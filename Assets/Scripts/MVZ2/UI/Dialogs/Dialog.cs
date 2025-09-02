@@ -11,6 +11,6 @@ namespace MVZ2.UI
             dialogTransform.anchoredPosition = Vector2.zero;
         }
         [SerializeField]
-        private RectTransform dialogTransform;
+        private RectTransform dialogTransform = null!;
     }
 }

@@ -13,9 +13,9 @@ namespace MVZ2.Mainmenu
             countText.text = viewData.count.ToString();
         }
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
         [SerializeField]
-        private TextMeshProUGUI countText;
+        private TextMeshProUGUI countText = null!;
     }
     public struct StatEntryViewData
     {

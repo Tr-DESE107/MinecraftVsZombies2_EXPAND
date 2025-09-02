@@ -10,6 +10,7 @@ using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
 using MVZ2.Vanilla.Saves;
+using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Games;
 using PVZEngine;
@@ -42,13 +43,30 @@ namespace MVZ2.Almanacs
         {
             var nsp = Main.BuiltinNamespace;
             var metaList = Main.ResourceManager.GetAlmanacMetaList(nsp);
+            if (metaList == null)
+                return;
             var category = metaList.GetCategory(VanillaAlmanacCategories.MISC);
-            var groups = category.groups.Select(g => new AlmanacEntryGroup()
+
+            if (category.groups != null)
             {
-                name = g.name,
-                entries = g.entries.Where(e => Main.SaveManager.IsInvalidOrUnlocked(e.unlock)).Select(e => e.id).ToArray()
-            }).Where(g => g != null && g.entries.Count() > 0);
-            appendList.AddRange(groups);
+                foreach (var group in category.groups)
+                {
+                    var groupEntries = new NamespaceID?[group.entries.Length];
+                    for (int i = 0; i < groupEntries.Length; i++)
+                    {
+                        var entry = group.entries[i];
+                        if (!Main.SaveManager.IsInvalidOrUnlocked(entry.unlock))
+                            continue;
+                        var id = entry.id;
+                        groupEntries[i] = id;
+                    }
+                    var g = new AlmanacEntryGroup(group.name, groupEntries);
+                    if (g.entries.Length > 0)
+                    {
+                        appendList.Add(g);
+                    }
+                }
+            }
         }
         private NamespaceID[] GetIDListByAlmanacOrder(IEnumerable<NamespaceID> idList, string category)
         {
@@ -111,13 +129,20 @@ namespace MVZ2.Almanacs
                 return AlmanacEntryViewData.Empty;
 
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, id);
-            Sprite icon = GetEntryThumbnailSprite(entry);
+            Sprite? icon = null;
             Vector2 offset = Vector2.zero;
+            if (entry != null)
+            {
+                icon = GetEntryThumbnailSprite(entry);
+            }
             if (!icon)
             {
                 var blueprintID = VanillaBlueprintID.FromEntity(id);
                 var blueprintDef = Main.Game.GetSeedDefinition(blueprintID);
-                icon = Main.ResourceManager.GetBlueprintIconMobile(blueprintDef);
+                if (blueprintDef != null)
+                {
+                    icon = Main.ResourceManager.GetBlueprintIconMobile(blueprintDef);
+                }
                 offset = new Vector2(20, 0);
             }
             return new AlmanacEntryViewData() { sprite = icon, offset = offset };
@@ -131,20 +156,18 @@ namespace MVZ2.Almanacs
                 return AlmanacEntryViewData.Empty;
 
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.ARTIFACTS, id);
-            Sprite icon = GetEntryThumbnailSprite(entry);
-            if (!icon)
-            {
-                var spriteRef = def.GetSpriteReference();
-                icon = Main.GetFinalSprite(spriteRef);
-            }
+            Sprite? icon = GetArtifactThumbnail(entry, def);
             return new AlmanacEntryViewData() { sprite = icon };
         }
-        public AlmanacEntryViewData GetMiscEntryViewData(NamespaceID id)
+        public AlmanacEntryViewData GetMiscEntryViewData(NamespaceID? id)
         {
             if (!NamespaceID.IsValid(id))
                 return AlmanacEntryViewData.Empty;
 
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.MISC, id);
+            if (entry == null)
+                return AlmanacEntryViewData.Empty;
+
             return new AlmanacEntryViewData() { sprite = GetEntryThumbnailSprite(entry) };
         }
         public AlmanacEntryGroupViewData GetMiscGroupViewData(AlmanacEntryGroup group)
@@ -158,42 +181,69 @@ namespace MVZ2.Almanacs
         #endregion
 
         #region 缩略图
-        public Sprite GetEntryThumbnailSprite(AlmanacMetaEntry entry)
+        public Sprite? GetEntryThumbnailSprite(AlmanacMetaEntry entry)
         {
-            Sprite sprite = GetPictureThumbnailSprite(entry?.thumbnail);
-            if (!sprite)
-            {
-                sprite = GetPictureThumbnailSprite(entry?.picture);
-            }
+            Sprite? sprite = null;
+            if (entry.thumbnail != null)
+                sprite = GetPictureThumbnailSprite(entry.thumbnail);
+            if (sprite)
+                return sprite;
+
+            if (entry.picture != null)
+                sprite = GetPictureThumbnailSprite(entry.picture);
             return sprite;
         }
-        public Sprite GetPictureThumbnailSprite(AlmanacPicture picture)
+        public Sprite? GetPictureThumbnailSprite(AlmanacPicture picture)
         {
             if (picture == null)
                 return null;
-            Sprite sprite = Main.ResourceManager.GetModelIcon(picture.model);
-            if (!sprite)
-            {
-                sprite = GetPictureSprite(picture);
-            }
+            Sprite? sprite = null;
+
+            if (picture.model != null)
+                sprite = Main.ResourceManager.GetModelIcon(picture.model);
+            if (sprite)
+                return sprite;
+
+            sprite = GetPictureSprite(picture);
             return sprite;
         }
         #endregion
 
         #region 图片
-        public Sprite GetEntryPictureSprite(AlmanacMetaEntry entry)
+        public Sprite? GetArtifactThumbnail(AlmanacMetaEntry? entry, ArtifactDefinition def)
         {
-            return GetPictureSprite(entry?.picture);
+            Sprite? icon = null;
+            if (entry != null)
+            {
+                icon = GetEntryThumbnailSprite(entry);
+            }
+            if (icon)
+                return icon;
+
+            var spriteRef = def.GetSpriteReference();
+            if (SpriteReference.IsValid(spriteRef))
+            {
+                icon = Main.GetFinalSprite(spriteRef);
+            }
+            return icon;
         }
-        public Sprite GetPictureSprite(AlmanacPicture picture)
+        public Sprite? GetEntryPictureSprite(AlmanacMetaEntry entry)
+        {
+            return GetPictureSprite(entry.picture);
+        }
+        public Sprite? GetPictureSprite(AlmanacPicture? picture)
         {
             if (picture == null)
                 return null;
-            Sprite sprite = Main.GetFinalSprite(picture.sprite);
-            if (!sprite)
-            {
+            Sprite? sprite = null;
+            if (picture.sprite != null)
+                sprite = Main.GetFinalSprite(picture.sprite);
+
+            if (sprite)
+                return sprite;
+
+            if (picture.character != null)
                 sprite = Main.ResourceManager.GetCharacterSprite(picture.character);
-            }
             return sprite;
         }
         #endregion
@@ -211,7 +261,12 @@ namespace MVZ2.Almanacs
     }
     public class AlmanacEntryGroup
     {
+        public AlmanacEntryGroup(string name, NamespaceID?[] entries)
+        {
+            this.name = name;
+            this.entries = entries;
+        }
         public string name;
-        public NamespaceID[] entries;
+        public NamespaceID?[] entries;
     }
 }

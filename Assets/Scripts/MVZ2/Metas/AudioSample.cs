@@ -11,8 +11,19 @@ namespace MVZ2.Metas
         public NamespaceID path;
         public float weight;
 
-        public static AudioSample FromXmlNode(XmlNode node, string defaultNsp)
+        public AudioSample(NamespaceID path, float weight)
         {
+            this.path = path;
+            this.weight = weight;
+        }
+
+        public static AudioSample? FromXmlNode(XmlNode node, string defaultNsp)
+        {
+            if (!NamespaceID.TryParse(node.Attributes["path"].Value, defaultNsp, out var path))
+            {
+                Log.LogError($"The {nameof(path)} of an {nameof(AudioSample)} is invalid.");
+                return null;
+            }
             float weight = 1;
             var weightAttribute = node.Attributes["weight"];
             if (weightAttribute != null)
@@ -22,11 +33,7 @@ namespace MVZ2.Metas
                     weight = floatValue;
                 }
             }
-            return new AudioSample()
-            {
-                path = NamespaceID.Parse(node.Attributes["path"].Value, defaultNsp),
-                weight = weight,
-            };
+            return new AudioSample(path, weight);
         }
     }
 }

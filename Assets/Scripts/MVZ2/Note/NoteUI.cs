@@ -9,11 +9,11 @@ namespace MVZ2.Note
 {
     public class NoteUI : MonoBehaviour
     {
-        public void SetNoteSprite(Sprite sprite)
+        public void SetNoteSprite(Sprite? sprite)
         {
             noteImage.sprite = sprite;
         }
-        public void SetBackground(Sprite sprite)
+        public void SetBackground(Sprite? sprite)
         {
             backgroundImage.sprite = sprite;
         }
@@ -48,21 +48,21 @@ namespace MVZ2.Note
         {
             OnButtonClick?.Invoke();
         }
-        public event Action OnButtonClick;
-        public event Action OnNoteFlipClick;
+        public event Action? OnButtonClick;
+        public event Action? OnNoteFlipClick;
         #region 属性字段
         [SerializeField]
-        private Image noteImage;
+        private Image noteImage = null!;
         [SerializeField]
-        private Image backgroundImage;
+        private Image backgroundImage = null!;
         [SerializeField]
-        private GameObject flipObj;
+        private GameObject flipObj = null!;
         [SerializeField]
-        private Button flipButtonLeft;
+        private Button flipButtonLeft = null!;
         [SerializeField]
-        private Button flipButtonRight;
+        private Button flipButtonRight = null!;
         [SerializeField]
-        private TextButton button;
+        private TextButton button = null!;
         #endregion
     }
 }

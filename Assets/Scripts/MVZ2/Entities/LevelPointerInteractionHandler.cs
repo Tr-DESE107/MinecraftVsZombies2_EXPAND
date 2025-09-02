@@ -101,7 +101,7 @@ namespace MVZ2
         #endregion
 
         #region 事件
-        public event Action<LevelPointerInteractionHandler, PointerEventData, PointerInteraction> OnPointerInteraction;
+        public event Action<LevelPointerInteractionHandler, PointerEventData, PointerInteraction>? OnPointerInteraction;
         #endregion
 
         #region 属性字段

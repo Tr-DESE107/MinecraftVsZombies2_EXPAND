@@ -6,7 +6,7 @@ namespace MVZ2.Models
 {
     public class StarshardRotationSetter : ModelComponent
     {
-        public override void OnPropertySet(string name, object value)
+        public override void OnPropertySet(string name, object? value)
         {
             base.OnPropertySet(name, value);
             if (value is not Vector3 vector3)
@@ -22,8 +22,8 @@ namespace MVZ2.Models
             }
         }
         [SerializeField]
-        private Transform ringRoot1;
+        private Transform ringRoot1 = null!;
         [SerializeField]
-        private Transform ringRoot2;
+        private Transform ringRoot2 = null!;
     }
 }

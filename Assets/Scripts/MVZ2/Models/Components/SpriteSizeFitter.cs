@@ -12,6 +12,8 @@ namespace MVZ2.Models
         {
             base.UpdateFrame(deltaTime);
             var renderer = Renderer;
+            if (!renderer.Exists())
+                return;
             var spr = renderer.sprite;
             if (!spr)
                 return;
@@ -27,7 +29,7 @@ namespace MVZ2.Models
             }
             renderer.transform.localScale = Vector3.one * scale;
         }
-        public SpriteRenderer Renderer
+        public SpriteRenderer? Renderer
         {
             get
             {
@@ -38,7 +40,7 @@ namespace MVZ2.Models
                 return _sprRenderer;
             }
         }
-        private SpriteRenderer _sprRenderer;
+        private SpriteRenderer? _sprRenderer;
         [SerializeField]
         private SpriteFitMode mode = SpriteFitMode.SmallerThanSize;
         [SerializeField]

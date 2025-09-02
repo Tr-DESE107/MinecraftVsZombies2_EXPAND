@@ -21,10 +21,10 @@ namespace MVZ2.Mainmenu
         {
             backButton.onClick.AddListener(() => OnReturnClick?.Invoke());
         }
-        public event Action OnReturnClick;
+        public event Action? OnReturnClick;
         [SerializeField]
-        private ElementList entryList;
+        private ElementList entryList = null!;
         [SerializeField]
-        private Button backButton;
+        private Button backButton = null!;
     }
 }

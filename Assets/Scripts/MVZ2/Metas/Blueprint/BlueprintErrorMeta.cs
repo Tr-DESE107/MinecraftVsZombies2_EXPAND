@@ -7,17 +7,24 @@ namespace MVZ2.Metas
 {
     public class BlueprintErrorMeta
     {
+        public BlueprintErrorMeta(string id, string message)
+        {
+            ID = id;
+            Message = message;
+        }
+
         public string ID { get; private set; }
         public string Message { get; private set; }
-        public static BlueprintErrorMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public static BlueprintErrorMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var message = node.GetAttribute("message");
-            return new BlueprintErrorMeta()
+            if (string.IsNullOrEmpty(id))
             {
-                ID = id,
-                Message = message,
-            };
+                Log.LogError("The ID of a BlueprintErrorMeta is invalid.");
+                return null;
+            }
+            var message = node.GetAttribute("message") ?? string.Empty;
+            return new BlueprintErrorMeta(id, message);
         }
     }
 }

@@ -63,13 +63,18 @@ namespace MVZ2.Store
         }
         public void SetPreset(StorePresetMeta preset)
         {
-            characterId = preset.Character;
             var backgroundSprite = Main.GetFinalSprite(preset.Background);
-
-            var viewData = Main.ResourceManager.GetCharacterViewData(characterId, null, CharacterSide.Left);
-            ui.SetCharacter(viewData);
             ui.SetBackground(backgroundSprite);
-            if (!Main.MusicManager.IsPlaying(preset.Music))
+
+            var character = preset.Character;
+            if (character != null)
+            {
+                characterId = character;
+                var viewData = Main.ResourceManager.GetCharacterViewData(characterId, null, CharacterSide.Left);
+                ui.SetCharacter(viewData);
+            }
+
+            if (preset.Music != null && !Main.MusicManager.IsPlaying(preset.Music))
                 Main.MusicManager.Play(preset.Music);
         }
 
@@ -132,6 +137,8 @@ namespace MVZ2.Store
             if (!NamespaceID.IsValid(product))
                 return;
             var productMeta = Main.ResourceManager.GetProductMeta(product);
+            if (productMeta == null)
+                return;
             var textKey = productMeta.GetMessage(characterId);
             var message = GetTranslatedString(VanillaStrings.CONTEXT_STORE_TALK, textKey);
             pointingProduct = true;
@@ -148,6 +155,8 @@ namespace MVZ2.Store
             if (!NamespaceID.IsValid(product))
                 return;
             var productMeta = Main.ResourceManager.GetProductMeta(product);
+            if (productMeta == null)
+                return;
             var stage = Main.StoreManager.GetCurrentProductStage(productMeta);
             if (Main.StoreManager.IsSoldout(stage))
                 return;
@@ -159,7 +168,7 @@ namespace MVZ2.Store
                 var desc = Main.LanguageManager._n(PURCHASE_DESCRIPTION, price, price);
                 Main.Scene.ShowDialogSelect(title, desc, (purchase) =>
                 {
-                    if (purchase)
+                    if (purchase && NamespaceID.IsValid(stage.Unlocks))
                     {
                         Main.SaveManager.AddMoney(-price);
                         Main.SoundManager.Play2D(VanillaSoundID.cashRegister);
@@ -206,13 +215,15 @@ namespace MVZ2.Store
                 return;
             var message = GetTranslatedString(VanillaStrings.CONTEXT_STORE_TALK, chat.Text);
             ui.ShowTalk(message);
-            Main.SoundManager.Play2D(chat.Sound);
+            var soundID = chat.Sound;
+            if (NamespaceID.IsValid(soundID))
+                Main.SoundManager.Play2D(soundID);
         }
         private void UpdateMoney()
         {
             ui.SetMoney(Main.SaveManager.GetMoney().ToString("N0"));
         }
-        private NamespaceID GetCurrentProduct(int index)
+        private NamespaceID? GetCurrentProduct(int index)
         {
             var i = page * productsPerPage + index;
             if (i < 0 || i >= products.Count)
@@ -229,7 +240,7 @@ namespace MVZ2.Store
                 return string.Empty;
             return Main.LanguageManager._p(context, text, args);
         }
-        public event Action OnReturnClick;
+        public event Action? OnReturnClick;
 
         [TranslateMsg("商店对话框标题")]
         public const string PURCHASE = "购买物品";
@@ -247,18 +258,18 @@ namespace MVZ2.Store
         private const float MAX_CHAT_FADE_TIMEOUT = 5;
         private float chatTimeout;
         private float chatFadeTimeout;
-        private NamespaceID characterId;
+        private NamespaceID characterId = null!;
         private bool pointingProduct;
         private int page;
-        private RandomGenerator chatRNG;
+        private RandomGenerator chatRNG = null!;
 
 
         [SerializeField]
-        private Transform cameraShakeRoot;
+        private Transform cameraShakeRoot = null!;
         [SerializeField]
-        private StoreUI ui;
+        private StoreUI ui = null!;
         [SerializeField]
-        private TalkController talkController;
+        private TalkController talkController = null!;
         [SerializeField]
         private int productsPerRow = 4;
         [SerializeField]

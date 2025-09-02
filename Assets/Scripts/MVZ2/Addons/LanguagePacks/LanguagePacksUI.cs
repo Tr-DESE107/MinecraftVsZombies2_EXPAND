@@ -16,7 +16,7 @@ namespace MVZ2.Addons
         }
         public void SelectItemUI(bool enabled, int index)
         {
-            LanguagePackItem item;
+            LanguagePackItem? item;
             if (enabled)
             {
                 item = enabledLanguagePacks.getElement<LanguagePackItem>(index);
@@ -25,7 +25,8 @@ namespace MVZ2.Addons
             {
                 item = disabledLanguagePacks.getElement<LanguagePackItem>(index);
             }
-            item.SetToggled(true);
+            if (item.Exists())
+                item.SetToggled(true);
         }
         public void SetDisabledLanguagePacks(LanguagePackViewData[] viewDatas)
         {
@@ -94,30 +95,30 @@ namespace MVZ2.Addons
         {
             OnPackItemToggled?.Invoke(true, enabledLanguagePacks.indexOf(item), value);
         }
-        public event Action<bool, int, bool> OnPackItemToggled;
-        public event Action<Buttons> OnButtonClick;
+        public event Action<bool, int, bool>? OnPackItemToggled;
+        public event Action<Buttons>? OnButtonClick;
         [SerializeField]
-        private ToggleGroup toggleGroup;
+        private ToggleGroup toggleGroup = null!;
         [SerializeField]
-        private ElementList disabledLanguagePacks;
+        private ElementList disabledLanguagePacks = null!;
         [SerializeField]
-        private ElementList enabledLanguagePacks;
+        private ElementList enabledLanguagePacks = null!;
         [SerializeField]
-        private Button disableButton;
+        private Button disableButton = null!;
         [SerializeField]
-        private Button enableButton;
+        private Button enableButton = null!;
         [SerializeField]
-        private Button moveUpButton;
+        private Button moveUpButton = null!;
         [SerializeField]
-        private Button moveDownButton;
+        private Button moveDownButton = null!;
         [SerializeField]
-        private Button importButton;
+        private Button importButton = null!;
         [SerializeField]
-        private Button exportButton;
+        private Button exportButton = null!;
         [SerializeField]
-        private Button deleteButton;
+        private Button deleteButton = null!;
         [SerializeField]
-        private Button returnButton;
+        private Button returnButton = null!;
         private Dictionary<Buttons, Button> buttonDict = new Dictionary<Buttons, Button>();
 
         public enum Buttons

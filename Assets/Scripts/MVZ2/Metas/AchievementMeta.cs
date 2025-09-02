@@ -9,21 +9,30 @@ namespace MVZ2.Metas
 {
     public class AchievementMeta
     {
+        public AchievementMeta(string id)
+        {
+            ID = id;
+        }
+
         public string ID { get; private set; }
-        public string Name { get; private set; }
-        public string Description { get; private set; }
-        public SpriteReference Icon { get; private set; }
-        public NamespaceID Unlock { get; private set; }
-        public static AchievementMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public string Name { get; private set; } = string.Empty;
+        public string Description { get; private set; } = string.Empty;
+        public SpriteReference? Icon { get; private set; }
+        public NamespaceID? Unlock { get; private set; }
+        public static AchievementMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var name = node.GetAttribute("name");
-            var description = node.GetAttribute("description");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError("The ID of an AchievementMeta is invalid.");
+                return null;
+            }
+            var name = node.GetAttribute("name") ?? string.Empty;
+            var description = node.GetAttribute("description") ?? string.Empty;
             var icon = node.GetAttributeSpriteReference("icon", defaultNsp);
             var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-            return new AchievementMeta()
+            return new AchievementMeta(id)
             {
-                ID = id,
                 Name = name,
                 Description = description,
                 Icon = icon,

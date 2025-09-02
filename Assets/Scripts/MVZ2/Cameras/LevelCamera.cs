@@ -81,9 +81,9 @@ namespace MVZ2.Cameras
         }
         public Camera Camera => _camera;
         [SerializeField]
-        private Transform _viewportTransform;
+        private Transform _viewportTransform = null!;
         [SerializeField]
-        private Camera _camera;
+        private Camera _camera = null!;
         [SerializeField]
         private Vector2 cameraAnchor;
         [SerializeField]

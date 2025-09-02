@@ -24,7 +24,7 @@ namespace MVZ2.Models
             }
         }
         [SerializeField]
-        private SpriteRenderer artifactSprite;
-        private NamespaceID lastID;
+        private SpriteRenderer artifactSprite = null!;
+        private NamespaceID? lastID;
     }
 }

@@ -36,9 +36,9 @@ namespace MVZ2.Models
         public ModelGroupUI ImageGroup => group;
         [Header("Image")]
         [SerializeField]
-        private Canvas canvas;
+        private Canvas canvas = null!;
         [SerializeField]
-        private ModelGroupUI group;
+        private ModelGroupUI group = null!;
     }
     public class SerializableUIModelData : SerializableModelData
     {

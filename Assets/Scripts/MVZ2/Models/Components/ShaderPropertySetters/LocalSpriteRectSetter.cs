@@ -30,7 +30,7 @@ namespace MVZ2.Models
         {
             Element.SetVector("_LocalRect", value);
         }
-        private Sprite lastSprite;
+        private Sprite? lastSprite;
         private Vector4 currentValue;
         private Vector4 defaultValue = new Vector4(0, 0, 1, 1);
     }

@@ -17,6 +17,6 @@ namespace MVZ2.Models
             shieldRoot.localScale = size;
         }
         [SerializeField]
-        private Transform shieldRoot;
+        private Transform shieldRoot = null!;
     }
 }

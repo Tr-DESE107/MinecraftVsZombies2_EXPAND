@@ -14,7 +14,7 @@ namespace MVZ2.Models
             pupilTransform.localPosition = direction * moveDistance;
         }
         [SerializeField]
-        private Transform pupilTransform;
+        private Transform pupilTransform = null!;
         [SerializeField]
         private float moveDistance = 1;
     }

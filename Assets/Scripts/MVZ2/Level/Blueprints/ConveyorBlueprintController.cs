@@ -33,7 +33,10 @@ namespace MVZ2.Level
             if (index > 0)
             {
                 var prevSeed = Controller.BlueprintController.GetConveyorBlueprintController(index - 1);
-                minPosition = prevSeed.Position + 1;
+                if (prevSeed != null)
+                {
+                    minPosition = prevSeed.Position + 1;
+                }
             }
             Position = Mathf.Max(Position, minPosition);
         }

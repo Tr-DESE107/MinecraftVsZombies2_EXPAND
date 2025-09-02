@@ -12,7 +12,7 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 元数据列表
-        public ArmorMetaList GetArmorMetaList(string nsp)
+        public ArmorMetaList? GetArmorMetaList(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
             if (modResource == null)
@@ -36,11 +36,11 @@ namespace MVZ2.Managers
         #endregion
 
         #region 元数据
-        public ArmorSlotMeta GetArmorSlotMeta(NamespaceID armorID)
+        public ArmorSlotMeta? GetArmorSlotMeta(NamespaceID armorID)
         {
             return armorSlotsCacheDict.TryGetValue(armorID, out var meta) ? meta : null;
         }
-        public ArmorMeta GetArmorMeta(NamespaceID armorID)
+        public ArmorMeta? GetArmorMeta(NamespaceID armorID)
         {
             return armorsCacheDict.TryGetValue(armorID, out var meta) ? meta : null;
         }

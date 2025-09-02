@@ -12,6 +12,6 @@ namespace MVZ2.UI
         {
             OnPointerDown?.Invoke(eventData);
         }
-        public event Action<PointerEventData> OnPointerDown;
+        public event Action<PointerEventData>? OnPointerDown;
     }
 }

@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using MukioI18n;
@@ -16,31 +17,31 @@ namespace MVZ2.Localization
 {
     public partial class LanguageManager : MonoBehaviour, IGlobalLocalization
     {
-        public string _(string text, params object[] args)
+        public string _(string? text, params object?[] args)
         {
             return GetLocalizedString(text, GetCurrentLanguage(), args);
         }
-        public string _p(string context, string text, params object[] args)
+        public string _p(string context, string? text, params object?[] args)
         {
             return GetLocalizedStringParticular(context, text, GetCurrentLanguage(), args);
         }
-        public string _n(string text, string textPlural, long n, params object[] args)
+        public string _n(string text, string textPlural, long n, params object?[] args)
         {
             return GetLocalizedStringPlural(text, textPlural, n, GetCurrentLanguage(), args);
         }
-        public string _n(string text, long n, params object[] args)
+        public string _n(string text, long n, params object?[] args)
         {
             return _n(text, text, n, args);
         }
-        public string _pn(string context, string text, string textPlural, long n, params object[] args)
+        public string _pn(string context, string text, string textPlural, long n, params object?[] args)
         {
             return GetLocalizedStringParticularPlural(context, text, textPlural, n, GetCurrentLanguage(), args);
         }
-        public string _pn(string context, string text, long n, params object[] args)
+        public string _pn(string context, string text, long n, params object?[] args)
         {
             return _pn(context, text, text, n, args);
         }
-        public string GetLocalizedString(string text, string language, params object[] args)
+        public string GetLocalizedString(string? text, string language, params object?[] args)
         {
             if (string.IsNullOrEmpty(text))
                 return string.Empty;
@@ -48,7 +49,7 @@ namespace MVZ2.Localization
                 return str;
             return string.Format(text, args);
         }
-        public bool TryGetLocalizedString(string text, string language, out string translated, params object[] args)
+        public bool TryGetLocalizedString(string text, string language, [NotNullWhen(true)] out string? translated, params object?[] args)
         {
             foreach (var languagePack in loadedLanguagePacks)
             {
@@ -63,7 +64,7 @@ namespace MVZ2.Localization
             translated = null;
             return false;
         }
-        public string GetLocalizedStringParticular(string context, string text, string language, params object[] args)
+        public string GetLocalizedStringParticular(string context, string? text, string language, params object?[] args)
         {
             if (string.IsNullOrEmpty(text))
                 return string.Empty;
@@ -71,7 +72,7 @@ namespace MVZ2.Localization
                 return str;
             return string.Format(text, args);
         }
-        public bool TryGetLocalizedStringParticular(string context, string text, string language, out string translated, params object[] args)
+        public bool TryGetLocalizedStringParticular(string context, string text, string language, [NotNullWhen(true)] out string? translated, params object?[] args)
         {
             foreach (var languagePack in loadedLanguagePacks)
             {
@@ -86,7 +87,7 @@ namespace MVZ2.Localization
             translated = null;
             return false;
         }
-        public string GetLocalizedStringPlural(string text, string textPlural, long n, string language, params object[] args)
+        public string GetLocalizedStringPlural(string text, string textPlural, long n, string language, params object?[] args)
         {
             if (string.IsNullOrEmpty(text))
                 return string.Empty;
@@ -94,7 +95,7 @@ namespace MVZ2.Localization
                 return str;
             return string.Format(n > 1 ? text : textPlural, args);
         }
-        public bool TryGetLocalizedStringPlural(string text, string textPlural, long n, string language, out string translated, params object[] args)
+        public bool TryGetLocalizedStringPlural(string text, string textPlural, long n, string language, [NotNullWhen(true)] out string? translated, params object?[] args)
         {
             foreach (var languagePack in loadedLanguagePacks)
             {
@@ -109,7 +110,7 @@ namespace MVZ2.Localization
             translated = null;
             return false;
         }
-        public string GetLocalizedStringParticularPlural(string context, string text, string textPlural, long n, string language, params object[] args)
+        public string GetLocalizedStringParticularPlural(string context, string text, string textPlural, long n, string language, params object?[] args)
         {
             if (string.IsNullOrEmpty(text))
                 return string.Empty;
@@ -117,7 +118,7 @@ namespace MVZ2.Localization
                 return str;
             return string.Format(n > 1 ? text : textPlural, args);
         }
-        public bool TryGetLocalizedStringParticularPlural(string context, string text, string textPlural, long n, string language, out string translated, params object[] args)
+        public bool TryGetLocalizedStringParticularPlural(string context, string text, string textPlural, long n, string language, [NotNullWhen(true)] out string? translated, params object?[] args)
         {
             foreach (var languagePack in loadedLanguagePacks)
             {
@@ -152,29 +153,29 @@ namespace MVZ2.Localization
         {
             return GetLocalizedSprite(sprite, GetCurrentLanguage());
         }
-        public Sprite GetCurrentLanguageSprite(SpriteReference spriteRef)
+        public Sprite? GetCurrentLanguageSprite(SpriteReference spriteRef)
         {
             return GetLocalizedSprite(spriteRef, GetCurrentLanguage());
         }
         public Sprite GetLocalizedSprite(Sprite sprite, string language)
         {
             var spriteID = main.ResourceManager.GetSpriteReference(sprite);
+            if (!SpriteReference.IsValid(spriteID))
+                return sprite;
             return GetLocalizedSprite(spriteID, language) ?? sprite;
         }
-        public Sprite GetLocalizedSprite(SpriteReference spriteRef, string language)
+        public Sprite? GetLocalizedSprite(SpriteReference spriteRef, string language)
         {
-            if (spriteRef == null)
-                return null;
-            if (spriteRef.isSheet)
+            if (spriteRef.IsSheet)
             {
-                var sheet = GetLocalizedSpriteSheet(spriteRef.id, language);
-                if (sheet == null || spriteRef.index < 0 || spriteRef.index >= sheet.Length)
+                var sheet = GetLocalizedSpriteSheet(spriteRef.ID, language);
+                if (sheet == null || spriteRef.Index < 0 || spriteRef.Index >= sheet.Length)
                     return null;
-                return sheet[spriteRef.index];
+                return sheet[spriteRef.Index];
             }
-            return GetLocalizedSprite(spriteRef.id, language);
+            return GetLocalizedSprite(spriteRef.ID, language);
         }
-        public Sprite GetLocalizedSprite(NamespaceID spriteID, string language)
+        public Sprite? GetLocalizedSprite(NamespaceID spriteID, string language)
         {
             foreach (var languagePack in loadedLanguagePacks)
             {
@@ -185,7 +186,7 @@ namespace MVZ2.Localization
             }
             return null;
         }
-        public Sprite[] GetLocalizedSpriteSheet(NamespaceID spriteID, string language)
+        public Sprite[]? GetLocalizedSpriteSheet(NamespaceID spriteID, string language)
         {
             foreach (var languagePack in loadedLanguagePacks)
             {
@@ -239,7 +240,7 @@ namespace MVZ2.Localization
         {
             return _pn(context, textKey, textPlural, n, args);
         }
-        public event Action<string> OnLanguageChanged;
+        public event Action<string>? OnLanguageChanged;
         public MainManager Main => main;
         public const string CN = "zh-Hans";
         public const string EN = "en-US";
@@ -250,7 +251,7 @@ namespace MVZ2.Localization
 
         private List<string> allLanguages = new List<string>() { SOURCE_LANGUAGE };
         [SerializeField]
-        private MainManager main;
+        private MainManager main = null!;
         [SerializeField]
         private DebugLanguage debugLanguage;
     }

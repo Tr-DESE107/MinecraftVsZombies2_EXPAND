@@ -7,6 +7,11 @@ namespace MVZ2.Metas
 {
     public class ArchiveMetaList
     {
+        private ArchiveMetaList(ArchiveTagMeta[] tags)
+        {
+            Tags = tags;
+        }
+
         public ArchiveTagMeta[] Tags { get; private set; }
         public static ArchiveMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -19,14 +24,15 @@ namespace MVZ2.Metas
                     var child = tagsNode.ChildNodes[i];
                     if (child.Name == "tag")
                     {
-                        tags.Add(ArchiveTagMeta.FromXmlNode(child, defaultNsp));
+                        var meta = ArchiveTagMeta.FromXmlNode(child, defaultNsp);
+                        if (meta != null)
+                        {
+                            tags.Add(meta);
+                        }
                     }
                 }
             }
-            return new ArchiveMetaList()
-            {
-                Tags = tags.ToArray()
-            };
+            return new ArchiveMetaList(tags.ToArray());
         }
     }
 }

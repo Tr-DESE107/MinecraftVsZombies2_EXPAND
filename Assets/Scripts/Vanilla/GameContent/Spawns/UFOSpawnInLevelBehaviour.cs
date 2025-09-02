@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Spawns
             MaxCount = maxCount;
         }
 
-        public void PreSpawnAtWave(LevelEngine level, int wave, ref float totalPoints)
+        public void PreSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, ref float totalPoints)
         {
             if (wave <= MinWave)
                 return;
@@ -136,14 +136,14 @@ namespace MVZ2.GameContent.Spawns
                 buff.Remove();
             }
         }
-        public int GetRandomSpawnLane(LevelEngine level)
+        public int GetRandomSpawnLane(SpawnDefinition definition, LevelEngine level)
         {
             return level.GetRandomEnemySpawnLane();
         }
-        public bool CanSpawnInLevel(LevelEngine level) => false;
-        public int GetWeight(LevelEngine level) => 0;
-        public int GetSpawnLevel(LevelEngine level) => SpawnLevel;
-        public NamespaceID GetSpawnEntityID() => VanillaEnemyID.ufo;
+        public bool CanSpawnInLevel(SpawnDefinition definition, LevelEngine level) => false;
+        public int GetWeight(SpawnDefinition definition, LevelEngine level) => 0;
+        public int GetSpawnLevel(SpawnDefinition definition, LevelEngine level) => SpawnLevel;
+        public NamespaceID GetSpawnEntityID(SpawnDefinition definition) => VanillaEnemyID.ufo;
         public int SpawnLevel { get; }
         public int Variant { get; }
         public int MinWave { get; }

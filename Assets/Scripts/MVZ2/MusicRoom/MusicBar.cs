@@ -12,7 +12,7 @@ namespace MVZ2.MusicRoom
         {
             OnPointerUp?.Invoke();
         }
-        public event Action OnPointerUp;
+        public event Action? OnPointerUp;
 
     }
 }

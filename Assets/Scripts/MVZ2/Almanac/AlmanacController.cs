@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -141,7 +142,12 @@ namespace MVZ2.Almanacs
             switch (page)
             {
                 case AlmanacPageType.Miscs:
-                    SetActiveMiscEntry(miscGroups[groupIndex].entries[entryIndex]);
+                    var group = miscGroups[groupIndex];
+                    var entry = group.entries[entryIndex];
+                    if (entry != null)
+                    {
+                        SetActiveMiscEntry(entry);
+                    }
                     break;
             }
             Main.SoundManager.Play2D(VanillaSoundID.tap);
@@ -152,12 +158,16 @@ namespace MVZ2.Almanacs
             if (page != AlmanacPageType.Miscs)
                 return;
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.MISC, activeMiscEntryID);
-            var sprite = Main.AlmanacManager.GetEntryPictureSprite(entry);
-            if (sprite)
+            Sprite? sprite = null;
+            if (entry != null)
+            {
+                sprite = Main.AlmanacManager.GetEntryPictureSprite(entry);
+            }
+            if (sprite.Exists())
             {
                 bool canSwitchPage = false;
-                var picture = entry.picture;
-                var characterID = picture.character;
+                var picture = entry?.picture;
+                var characterID = picture?.character;
                 var characterMeta = Main.ResourceManager.GetCharacterMeta(characterID);
                 if (characterMeta != null)
                 {
@@ -188,7 +198,7 @@ namespace MVZ2.Almanacs
             var picture = entry?.picture;
             if (picture == null)
                 return;
-            var characterID = picture.character;
+            var characterID = picture?.character;
             var characterMeta = Main.ResourceManager.GetCharacterMeta(characterID);
             var offset = next ? 1 : -1;
             if (characterMeta != null)
@@ -197,20 +207,27 @@ namespace MVZ2.Almanacs
                 if (variants.Count <= 0)
                     return;
                 int cycleCount = 0;
+                Sprite? sprite = null;
                 do
                 {
                     zoomIndex = MathTool.CycleOffset(zoomIndex, offset, variants.Count);
-                    cycleCount++;
-                    if (cycleCount >= variants.Count)
+                    var variant = variants[zoomIndex];
+                    if (Main.SaveManager.IsInvalidOrUnlocked(variant.unlock))
                     {
-                        break;
+                        sprite = Main.ResourceManager.GetCharacterSprite(characterID, variant.id);
+                        if (sprite.Exists())
+                        {
+                            break;
+                        }
                     }
+                    cycleCount++;
                 }
-                while (!Main.SaveManager.IsInvalidOrUnlocked(variants[zoomIndex].unlock));
+                while (cycleCount < variants.Count);
 
-                var variant = variants[zoomIndex];
-                var sprite = Main.ResourceManager.GetCharacterSprite(characterID, variant.id);
-                ui.SetZoomSprite(sprite);
+                if (sprite != null)
+                {
+                    ui.SetZoomSprite(sprite);
+                }
             }
         }
         #endregion
@@ -221,6 +238,8 @@ namespace MVZ2.Almanacs
             if (tagTooltipLockedTarget == index)
                 return;
             var icon = ui.GetTagIcon(page, index);
+            if (!icon.Exists())
+                return;
             var tagInfo = GetEntryTagIconInfo(index);
             var viewData = GetTagTooltipViewData(tagInfo.tagID, tagInfo.enumValue);
             Main.Scene.ShowTooltip(new SimpleTooltipSource(almanacCamera, icon, viewData));
@@ -245,6 +264,8 @@ namespace MVZ2.Almanacs
             if (descriptionTagTooltipLockedTarget == linkID)
                 return;
             var icon = ui.GetDescriptionIcon(page, linkID);
+            if (!icon.Exists())
+                return;
             if (!TryParseLinkID(linkID, out var index, out var tagID, out var enumValueID))
                 return;
             var viewData = GetTagTooltipViewData(tagID, enumValueID);
@@ -262,7 +283,14 @@ namespace MVZ2.Almanacs
         {
             if (Main.InputManager.GetActivePointerType() != PointerTypes.TOUCH)
                 return;
-            LockTooltipDescription(descriptionTagTooltipLockedTarget == linkID ? null : linkID);
+            if (descriptionTagTooltipLockedTarget == linkID)
+            {
+                UnlockTooltip();
+            }
+            else
+            {
+                LockTooltipDescription(linkID);
+            }
             Main.SoundManager.Play2D(VanillaSoundID.tap);
         }
         #endregion
@@ -286,7 +314,9 @@ namespace MVZ2.Almanacs
         private void ViewMisc()
         {
             ui.DisplayPage(AlmanacPageType.Miscs);
-            SetActiveMiscEntry(miscGroups.FirstOrDefault()?.entries?.FirstOrDefault(e => e != null));
+            var entry = miscGroups.FirstOrDefault()?.entries?.FirstOrDefault(e => e != null);
+            if (entry != null)
+                SetActiveMiscEntry(entry);
         }
         private void SetActiveContraptionEntry(NamespaceID contraptionID)
         {
@@ -296,7 +326,7 @@ namespace MVZ2.Almanacs
 
             GetEntityAlmanacInfos(contraptionID, type, out var model, out var name, out var description);
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, contraptionID);
-            if (!string.IsNullOrEmpty(entry.name))
+            if (!string.IsNullOrEmpty(entry?.name))
             {
                 name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(type), entry.name);
             }
@@ -339,12 +369,12 @@ namespace MVZ2.Almanacs
             activeEnemyEntryID = enemyID;
             GetEntityAlmanacInfos(enemyID, type, out var model, out var name, out var description);
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, enemyID);
-            if (!string.IsNullOrEmpty(entry.name))
+            if (!string.IsNullOrEmpty(entry?.name))
             {
                 name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(type), entry.name);
             }
 
-            bool encountered = Main.SaveManager.IsUnlocked(entry.encounterUnlock) || Main.SaveManager.GetStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
+            bool encountered = Main.SaveManager.IsValidAndUnlocked(entry?.encounterUnlock) || Main.SaveManager.GetStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
             if (encountered)
             {
                 UpdateEntryTags(AlmanacPageType.Enemies, type, enemyID);
@@ -388,8 +418,6 @@ namespace MVZ2.Almanacs
         }
         private void SetActiveMiscEntry(NamespaceID miscID)
         {
-            if (!NamespaceID.IsValid(miscID))
-                return;
             var entry = Main.ResourceManager.GetAlmanacMetaEntry(VanillaAlmanacCategories.MISC, miscID);
             if (entry == null)
                 return;
@@ -427,7 +455,7 @@ namespace MVZ2.Almanacs
                 }
                 else
                 {
-                    Sprite sprite = Main.AlmanacManager.GetEntryPictureSprite(entry);
+                    Sprite? sprite = Main.AlmanacManager.GetEntryPictureSprite(entry);
                     var spriteSized = entry.pictureFixedSize;
                     var zoom = entry.pictureZoom;
 
@@ -437,14 +465,14 @@ namespace MVZ2.Almanacs
             ui.UpdateMiscDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
         }
-        private void GetEntityAlmanacInfos(NamespaceID entityID, string almanacCategory, out NamespaceID model, out string name, out string description)
+        private void GetEntityAlmanacInfos(NamespaceID entityID, string almanacCategory, out NamespaceID? model, out string name, out string description)
         {
             model = null;
-            name = null;
-            description = null;
-            if (!NamespaceID.IsValid(entityID))
-                return;
+            name = string.Empty;
+            description = string.Empty;
             var definition = Main.Game.GetEntityDefinition(entityID);
+            if (definition == null)
+                return;
             bool nocturnal = definition.IsNocturnal();
             var placement = definition.GetPlacementID();
 
@@ -455,11 +483,11 @@ namespace MVZ2.Almanacs
                 return;
             model = definition.GetModelID();
         }
-        private void GetArtifactAlmanacInfos(NamespaceID entityID, string almanacCategory, out Sprite sprite, out string name, out string description)
+        private void GetArtifactAlmanacInfos(NamespaceID entityID, string almanacCategory, out Sprite? sprite, out string name, out string description)
         {
             sprite = null;
-            name = null;
-            description = null;
+            name = string.Empty;
+            description = string.Empty;
             if (!NamespaceID.IsValid(entityID))
                 return;
             name = Main.ResourceManager.GetArtifactName(entityID);
@@ -470,6 +498,8 @@ namespace MVZ2.Almanacs
             if (definition == null)
                 return;
             var spriteReference = definition.GetSpriteReference();
+            if (spriteReference == null)
+                return;
             sprite = Main.GetFinalSprite(spriteReference);
         }
         private string GetAlmanacDescription(NamespaceID almanacID, string almanacCategory)
@@ -496,11 +526,11 @@ namespace MVZ2.Almanacs
         }
 
         #region Description Tag
-        private bool TryParseLinkID(string linkID, out int index, out NamespaceID tagID, out string enumValue)
+        private bool TryParseLinkID(string linkID, out int index, [NotNullWhen(true)] out NamespaceID? tagID, out string enumValue)
         {
             index = -1;
             tagID = null;
-            enumValue = null;
+            enumValue = string.Empty;
             var indexStart = linkID.IndexOf('[');
             var indexEnd = linkID.IndexOf(']');
             if (indexStart < 0 || indexEnd < 0)
@@ -538,7 +568,7 @@ namespace MVZ2.Almanacs
         }
         private TooltipContent GetTagTooltipViewData(NamespaceID tagID, string enumValue)
         {
-            AlmanacTagMeta tagMeta = Main.ResourceManager.GetAlmanacTagMeta(tagID);
+            AlmanacTagMeta? tagMeta = Main.ResourceManager.GetAlmanacTagMeta(tagID);
             if (tagMeta == null)
                 return default;
             string name = string.Empty;
@@ -585,10 +615,10 @@ namespace MVZ2.Almanacs
                 var tagIDStr = match.Groups[1].Value;
                 if (!NamespaceID.TryParse(tagIDStr, defaultNsp, out var tagID))
                     continue;
-                AlmanacTagMeta tagMeta = Main.ResourceManager.GetAlmanacTagMeta(tagID);
+                AlmanacTagMeta? tagMeta = Main.ResourceManager.GetAlmanacTagMeta(tagID);
                 if (tagMeta == null)
                     continue;
-                string enumValue = null;
+                string enumValue = string.Empty;
                 if (match.Groups.Count > 3 && match.Groups[3].Success)
                 {
                     enumValue = match.Groups[3].Value;
@@ -607,7 +637,7 @@ namespace MVZ2.Almanacs
                 var backgroundSprite = Main.GetFinalSprite(backgroundSpriteRef);
                 var markSprite = Main.GetFinalSprite(markSpriteRef);
                 var size = new Vector2(32, 32);
-                if (backgroundSprite)
+                if (backgroundSprite.Exists())
                 {
                     size = backgroundSprite.rect.size;
                 }
@@ -704,7 +734,7 @@ namespace MVZ2.Almanacs
         private AlmanacTagIconViewData GetTagIconViewData(AlmanacEntryTagInfo info)
         {
             var tagID = info.tagID;
-            AlmanacTagMeta tagMeta = Main.ResourceManager.GetAlmanacTagMeta(tagID);
+            AlmanacTagMeta? tagMeta = Main.ResourceManager.GetAlmanacTagMeta(tagID);
             if (tagMeta == null)
                 return default;
             GetTagMetaViewProperties(tagMeta, info.enumValue, out var iconSpriteRef, out var backgroundSpriteRef, out var backgroundColor, out var markSpriteRef);
@@ -720,7 +750,7 @@ namespace MVZ2.Almanacs
                 mark = new AlmanacTagIconLayerViewData() { sprite = markSprite, tint = Color.white },
             };
         }
-        private void GetTagMetaViewProperties(AlmanacTagMeta tagMeta, string enumValue, out SpriteReference iconSpriteRef, out SpriteReference backgroundSpriteRef, out Color backgroundColor, out SpriteReference markSpriteRef)
+        private void GetTagMetaViewProperties(AlmanacTagMeta tagMeta, string enumValue, out SpriteReference? iconSpriteRef, out SpriteReference? backgroundSpriteRef, out Color backgroundColor, out SpriteReference? markSpriteRef)
         {
             var defaultNsp = Main.BuiltinNamespace;
             iconSpriteRef = tagMeta.iconSprite;
@@ -729,8 +759,8 @@ namespace MVZ2.Almanacs
             markSpriteRef = tagMeta.markSprite;
             if (NamespaceID.IsValid(tagMeta.enumType))
             {
-                AlmanacTagEnumMeta tagEnumMeta = Main.ResourceManager.GetAlmanacTagEnumMeta(tagMeta.enumType);
-                AlmanacTagEnumValueMeta valueMeta = tagEnumMeta?.FindValueByString(enumValue, defaultNsp);
+                AlmanacTagEnumMeta? tagEnumMeta = Main.ResourceManager.GetAlmanacTagEnumMeta(tagMeta.enumType);
+                AlmanacTagEnumValueMeta? valueMeta = tagEnumMeta?.FindValueByString(enumValue, defaultNsp);
                 if (valueMeta != null)
                 {
                     iconSpriteRef = valueMeta.iconSprite;
@@ -743,7 +773,7 @@ namespace MVZ2.Almanacs
         private void LockTooltipEntryTag(int entryTagIndex)
         {
             tagTooltipLockedTarget = entryTagIndex;
-            descriptionTagTooltipLockedTarget = null;
+            descriptionTagTooltipLockedTarget = string.Empty;
         }
         private void LockTooltipDescription(string descriptionTagLinkID)
         {
@@ -753,7 +783,7 @@ namespace MVZ2.Almanacs
         private void UnlockTooltip()
         {
             tagTooltipLockedTarget = -1;
-            descriptionTagTooltipLockedTarget = null;
+            descriptionTagTooltipLockedTarget = string.Empty;
         }
         private void UnlockAndHideTooltip()
         {
@@ -792,13 +822,11 @@ namespace MVZ2.Almanacs
             var miscViewDatas = miscGroups.Select(c => Main.AlmanacManager.GetMiscGroupViewData(c)).ToArray();
             ui.SetMiscGroups(miscViewDatas);
         }
-        private string GetTranslatedString(string context, string text, params object[] args)
+        private string GetTranslatedString(string context, string? text, params object[] args)
         {
-            if (string.IsNullOrEmpty(text))
-                return string.Empty;
             return Main.LanguageManager._p(context, text, args);
         }
-        public event Action OnReturnClick;
+        public event Action? OnReturnClick;
         [TranslateMsg("图鉴描述模板，{0}为能量", VanillaStrings.CONTEXT_ALMANAC)]
         public const string COST_LABEL = "花费：<color=red>{0}</color>";
         [TranslateMsg("图鉴描述模板，{0}为冷却时间", VanillaStrings.CONTEXT_ALMANAC)]
@@ -819,17 +847,17 @@ namespace MVZ2.Almanacs
         private List<NamespaceID> artifactEntries = new List<NamespaceID>();
         private List<AlmanacEntryGroup> miscGroups = new List<AlmanacEntryGroup>();
         private List<AlmanacEntryTagInfo> currentTags = new List<AlmanacEntryTagInfo>();
-        private NamespaceID activeEnemyEntryID;
-        private NamespaceID activeArtifactEntryID;
-        private NamespaceID activeMiscEntryID;
+        private NamespaceID? activeEnemyEntryID;
+        private NamespaceID? activeArtifactEntryID;
+        private NamespaceID? activeMiscEntryID;
         private int tagTooltipLockedTarget;
-        private string descriptionTagTooltipLockedTarget;
+        private string? descriptionTagTooltipLockedTarget;
         private int zoomIndex;
 
         [SerializeField]
-        private Camera almanacCamera;
+        private Camera almanacCamera = null!;
         [SerializeField]
-        private AlmanacUI ui;
+        private AlmanacUI ui = null!;
         [SerializeField]
         private float descriptionTagSpacing = 2;
     }

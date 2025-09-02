@@ -19,14 +19,14 @@ namespace MVZ2.UI
         {
             button.onClick.AddListener(() => OnKeyButtonClick?.Invoke(this));
         }
-        public event Action<KeybindingItem> OnKeyButtonClick;
+        public event Action<KeybindingItem>? OnKeyButtonClick;
 
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
         [SerializeField]
-        private Button button;
+        private Button button = null!;
         [SerializeField]
-        private TextMeshProUGUI keyText;
+        private TextMeshProUGUI keyText = null!;
     }
     public struct KeybindingItemViewData
     {

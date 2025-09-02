@@ -20,7 +20,7 @@ namespace MVZ2.Audios
         {
             volumeFader.OnValueChanged += v => audioSource.volume = v;
         }
-        public NamespaceID SoundID { get; set; }
+        public NamespaceID SoundID { get; set; } = null!;
         public AudioSource AudioSource => audioSource;
         public float Intensity { get; set; }
         public float Volume
@@ -34,8 +34,8 @@ namespace MVZ2.Audios
             set => audioSource.pitch = value;
         }
         [SerializeField]
-        private AudioSource audioSource;
+        private AudioSource audioSource = null!;
         [SerializeField]
-        private FloatFader volumeFader;
+        private FloatFader volumeFader = null!;
     }
 }

@@ -11,7 +11,7 @@ namespace MVZ2.Level
     [DisallowMultipleComponent]
     public class AreaModel : Model
     {
-        public void SetPreset(string name)
+        public void SetPreset(string? name)
         {
             bool hasActive = false;
             foreach (var preset in presets)
@@ -63,18 +63,18 @@ namespace MVZ2.Level
 
         public override ModelGroup GraphicGroup => RendererGroup;
         public ModelGroupArea RendererGroup => group;
-        private string currentPreset;
+        private string? currentPreset;
         [Header("Area")]
         [SerializeField]
-        private ModelGroupArea group;
+        private ModelGroupArea group = null!;
         [SerializeField]
         private List<AreaModelPreset> presets = new List<AreaModelPreset>();
     }
     [Serializable]
     public class SerializableAreaModelData : SerializableModelData
     {
-        public string currentPreset;
+        public string? currentPreset;
         [Obsolete]
-        public SerializableModelUpdateGroup updateGroup;
+        public SerializableModelUpdateGroup? updateGroup;
     }
 }

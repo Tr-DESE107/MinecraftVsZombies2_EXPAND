@@ -28,8 +28,8 @@ namespace MVZ2.Models
             platform.SetRightPosition(camera, progress, shake);
         }
         [SerializeField]
-        private CrushingWallsModelPlatform standalone;
+        private CrushingWallsModelPlatform standalone = null!;
         [SerializeField]
-        private CrushingWallsModelPlatform mobile;
+        private CrushingWallsModelPlatform mobile = null!;
     }
 }

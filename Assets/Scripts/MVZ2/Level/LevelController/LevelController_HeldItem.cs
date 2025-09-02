@@ -29,14 +29,14 @@ namespace MVZ2.Level
             var definition = data.Definition;
 
             // 设置图标。
-            var modelID = definition?.GetModelID(level, data);
+            var modelID = definition.GetModelID(level, data);
             SetHeldItemModel(modelID, definition, data);
 
             // 显示触发器图标。
             UpdateHeldItemIcons(definition, data);
 
             // 设置射线检测。
-            UpdateHeldItemRaycaster(definition, data);
+            UpdateHeldItemRaycaster(definition, data, definition.GetRadius(level, data));
 
             // 设置光标。
             UpdateHeldItemCursor(data.Type, modelID);
@@ -44,11 +44,11 @@ namespace MVZ2.Level
             // 更新网格。
             UpdateGridHighlight();
         }
-        public Model GetHeldItemModel()
+        public Model? GetHeldItemModel()
         {
             return ui.GetHeldItemModel();
         }
-        public IModelInterface GetHeldItemModelInterface()
+        public IModelInterface? GetHeldItemModelInterface()
         {
             return heldItemModelInterface;
         }
@@ -72,7 +72,7 @@ namespace MVZ2.Level
             }
             ui.SetHeldItemPosition(heldItemPosition);
         }
-        private void SetHeldItemModel(NamespaceID modelID, HeldItemDefinition definition, IHeldItemData data)
+        private void SetHeldItemModel(NamespaceID? modelID, HeldItemDefinition definition, IHeldItemData data)
         {
             var viewData = new ModelBuilder(modelID, GetCamera());
             ui.SetHeldItemModel(viewData);
@@ -89,15 +89,18 @@ namespace MVZ2.Level
             if (data.Type == VanillaHeldTypes.blueprintPickup)
             {
                 var blueprintPickup = level.GetHoldingEntity(data);
-                var seedDef = BlueprintPickup.GetSeedDefinition(blueprintPickup);
-                if (seedDef.IsTriggerActive() && seedDef.CanInstantTrigger())
+                if (blueprintPickup != null)
                 {
-                    triggerVisible = true;
+                    var seedDef = BlueprintPickup.GetSeedDefinition(blueprintPickup);
+                    if (seedDef != null && seedDef.IsTriggerActive() && seedDef.CanInstantTrigger())
+                    {
+                        triggerVisible = true;
+                    }
                 }
             }
             else
             {
-                SeedPack blueprint = definition?.GetSeedPack(level, data);
+                SeedPack? blueprint = definition.GetSeedPack(level, data);
                 if (blueprint != null && blueprint.IsTriggerActive() && blueprint.CanInstantTrigger())
                 {
                     triggerVisible = true;
@@ -106,7 +109,7 @@ namespace MVZ2.Level
             ui.SetHeldItemTrigger(triggerVisible, data.InstantTrigger);
             ui.SetHeldItemImbued(data.InstantEvoke);
         }
-        private void UpdateHeldItemRaycaster(HeldItemDefinition definition, IHeldItemData data)
+        private void UpdateHeldItemRaycaster(HeldItemDefinition definition, IHeldItemData data, float radius)
         {
             // 设置射线检测图层。
             List<int> layers = new List<int>();
@@ -121,10 +124,10 @@ namespace MVZ2.Level
             levelRaycaster.eventMask = layerMask;
 
             // 设置射线检测半径。
-            var radius = (definition?.GetRadius(level, data) ?? 0) * LawnToTransScale;
+            var transRadius = radius * LawnToTransScale;
             levelRaycaster.SetHeldItem(definition, data, radius);
         }
-        private void UpdateHeldItemCursor(NamespaceID heldType, NamespaceID modelID)
+        private void UpdateHeldItemCursor(NamespaceID heldType, NamespaceID? modelID)
         {
             bool isHeldItemNone = heldType == BuiltinHeldTypes.none || !NamespaceID.IsValid(modelID);
             if (isHeldItemNone)
@@ -196,8 +199,8 @@ namespace MVZ2.Level
         }
 
         #region 属性字段
-        private IModelInterface heldItemModelInterface;
-        private CursorSource heldItemCursorSource;
+        private IModelInterface? heldItemModelInterface;
+        private CursorSource? heldItemCursorSource;
         #endregion
 
     }

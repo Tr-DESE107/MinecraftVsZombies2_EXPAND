@@ -14,11 +14,11 @@ namespace MVZ2.UI
             image.color = viewData.tint;
         }
         [SerializeField]
-        private Image image;
+        private Image image = null!;
     }
     public struct AlmanacTagIconLayerViewData
     {
-        public Sprite sprite;
+        public Sprite? sprite;
         public Color tint;
     }
 }

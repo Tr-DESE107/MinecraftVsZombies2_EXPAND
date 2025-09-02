@@ -200,7 +200,7 @@ namespace MVZ2.Managers
             }
             return KeyCode.None;
         }
-        public KeyCodeInfo GetKeyCodeInfo(KeyCode keycode)
+        public KeyCodeInfo? GetKeyCodeInfo(KeyCode keycode)
         {
             if (keyInfos.TryGetValue(keycode, out var info))
             {

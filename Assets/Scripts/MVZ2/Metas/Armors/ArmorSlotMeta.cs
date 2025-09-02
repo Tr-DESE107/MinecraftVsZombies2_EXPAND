@@ -7,17 +7,19 @@ namespace MVZ2.Metas
 {
     public class ArmorSlotMeta
     {
+        public ArmorSlotMeta(string name, string anchor)
+        {
+            Name = name;
+            Anchor = anchor;
+        }
+
         public string Name { get; private set; }
         public string Anchor { get; private set; }
         public static ArmorSlotMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var name = node.GetAttribute("name");
-            var anchor = node.GetAttribute("anchor");
-            return new ArmorSlotMeta()
-            {
-                Name = name,
-                Anchor = anchor
-            };
+            var name = node.GetAttribute("name") ?? string.Empty;
+            var anchor = node.GetAttribute("anchor") ?? string.Empty;
+            return new ArmorSlotMeta(name, anchor);
         }
     }
 }

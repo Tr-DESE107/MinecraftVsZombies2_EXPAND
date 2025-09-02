@@ -32,29 +32,29 @@ namespace MVZ2.Arcade
         {
             button.onClick.AddListener(() => OnClick?.Invoke(this));
         }
-        public Action<ArcadeItem> OnClick;
+        public event Action<ArcadeItem>? OnClick;
         [SerializeField]
-        private GameObject rootObject;
+        private GameObject rootObject = null!;
         [SerializeField]
-        private Button button;
+        private Button button = null!;
         [SerializeField]
-        private Image icon;
+        private Image icon = null!;
         [SerializeField]
-        private Image lockedIcon;
+        private Image lockedIcon = null!;
         [SerializeField]
-        private Image clearSprite;
+        private Image clearSprite = null!;
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
         [SerializeField]
-        private TextMeshProUGUI hintText;
+        private TextMeshProUGUI hintText = null!;
     }
     public struct ArcadeItemViewData
     {
         public bool empty;
-        public Sprite sprite;
+        public Sprite? sprite;
         public string hint;
         public string name;
-        public Sprite clearSprite;
+        public Sprite? clearSprite;
         public bool unlocked;
         public static readonly ArcadeItemViewData Empty = new ArcadeItemViewData { empty = true };
     }

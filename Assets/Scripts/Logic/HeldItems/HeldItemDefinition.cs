@@ -113,7 +113,7 @@ namespace MVZ2Logic.HeldItems
                 }
             }
         }
-        public void PostSetModel(LevelEngine level, IHeldItemData data, IModelInterface model)
+        public void PostSetModel(LevelEngine level, IHeldItemData data, IModelInterface? model)
         {
             foreach (var behaviour in GetBehaviours())
             {

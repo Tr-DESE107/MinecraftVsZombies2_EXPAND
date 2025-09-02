@@ -23,19 +23,19 @@ namespace MVZ2.Level
 {
     public class LevelManager : MonoBehaviour, IGlobalLevel
     {
-        internal void SetLevelController(LevelController controller)
+        internal void SetLevelController(LevelController? controller)
         {
             this.controller = controller;
         }
-        public LevelController GetLevelController()
+        public LevelController? GetLevelController()
         {
             return controller;
         }
-        public LevelEngine GetLevel()
+        public LevelEngine? GetLevel()
         {
             if (!controller)
                 return null;
-            return controller.GetEngine();
+            return controller?.GetEngine();
         }
         public bool IsInLevel()
         {
@@ -43,7 +43,7 @@ namespace MVZ2.Level
         }
         public void InitLevel(NamespaceID areaID, NamespaceID stageID, float beginningDelay = 0, LevelExitTarget exitTarget = LevelExitTarget.MapOrMainmenu)
         {
-            if (!controller)
+            if (!controller.Exists())
                 return;
             Main.SaveManager.SaveToFile(); // 关卡开始时保存游戏
             controller.SetStartStage(areaID, stageID);
@@ -61,7 +61,7 @@ namespace MVZ2.Level
         #region 关卡存读
         public void SaveLevel()
         {
-            if (!controller)
+            if (!controller.Exists())
                 return;
             var stageID = controller.GetStartStageID();
             var path = GetLevelStatePath(stageID);
@@ -86,7 +86,7 @@ namespace MVZ2.Level
         }
         public void LoadLevel(NamespaceID areaID, NamespaceID stageID)
         {
-            if (!controller)
+            if (!controller.Exists())
                 return;
             if (!HasLevelState(stageID))
                 return;
@@ -161,7 +161,7 @@ namespace MVZ2.Level
         }
         public string GetStageName(LevelEngine level)
         {
-            string name = level?.GetLevelName();
+            var name = level.GetLevelName();
             if (string.IsNullOrEmpty(name))
                 name = VanillaStrings.LEVEL_NAME_UNKNOWN;
             var levelName = Main.LanguageManager._p(VanillaStrings.CONTEXT_LEVEL_NAME, name);
@@ -179,7 +179,7 @@ namespace MVZ2.Level
         #endregion
         public Vector3 LawnToTrans(Vector3 pos)
         {
-            if (controller)
+            if (controller.Exists())
             {
                 return controller.LawnToTrans(pos);
             }
@@ -188,7 +188,7 @@ namespace MVZ2.Level
         }
         public Vector3 TransToLawn(Vector3 pos)
         {
-            if (controller)
+            if (controller.Exists())
             {
                 return controller.TransToLawn(pos);
             }
@@ -212,7 +212,7 @@ namespace MVZ2.Level
                     break;
                 }
             }
-            if (controller)
+            if (controller.Exists())
             {
                 controller.SetActive(false);
             }
@@ -243,10 +243,10 @@ namespace MVZ2.Level
         public MainManager Main => main;
         public SceneLoadingManager Scene => main.SceneManager;
         [SerializeField]
-        private MainManager main;
+        private MainManager main = null!;
         [SerializeField]
         private float transToLawnScale = 100;
-        private LevelController controller;
+        private LevelController? controller;
     }
     public struct LevelDataIdentifierCompareResult
     {
@@ -267,7 +267,7 @@ namespace MVZ2.Level
         {
             this.identifiers.AddRange(identifiers);
         }
-        public LevelDataIdentifierCompareResult Compare(LevelDataIdentifierList other)
+        public LevelDataIdentifierCompareResult Compare(LevelDataIdentifierList? other)
         {
             if (other == null)
             {

@@ -26,7 +26,7 @@ namespace MVZ2.Level
         }
         private void WriteToSerializable_ProgressBar(SerializableLevelController seri)
         {
-            seri.bannerProgresses = bannerProgresses?.ToArray();
+            seri.bannerProgresses = bannerProgresses.ToArray();
             seri.levelProgress = levelProgress;
             seri.bossProgress = bossProgress;
             seri.progressBarMode = progressBarMode;
@@ -34,7 +34,7 @@ namespace MVZ2.Level
         }
         private void ReadFromSerializable_ProgressBar(SerializableLevelController seri)
         {
-            bannerProgresses = seri.bannerProgresses?.ToArray();
+            bannerProgresses = seri.bannerProgresses.ToArray();
             levelProgress = seri.levelProgress;
             bossProgress = seri.bossProgress;
             progressBarMode = seri.progressBarMode;
@@ -127,12 +127,13 @@ namespace MVZ2.Level
             var ui = GetUIPreset();
             ui.SetProgressBarVisible(level.LevelProgressVisible);
             ui.SetLevelProgress(levelProgress);
-            ui.SetBannerProgresses(bannerProgresses);
+            if (bannerProgresses != null)
+                ui.SetBannerProgresses(bannerProgresses);
             ui.SetBossProgress(bossProgress);
         }
         private void RefreshProgressBar()
         {
-            if (progressBarMode)
+            if (progressBarMode && NamespaceID.IsValid(bossProgressBarStyle))
             {
                 SetProgressToBoss(bossProgressBarStyle);
             }
@@ -145,10 +146,10 @@ namespace MVZ2.Level
 
         #region 属性字段
         private float levelProgress;
-        private float[] bannerProgresses;
+        private float[]? bannerProgresses;
         private float bossProgress;
         private bool progressBarMode;
-        private NamespaceID bossProgressBarStyle;
+        private NamespaceID? bossProgressBarStyle;
         #endregion
     }
 }

@@ -63,17 +63,17 @@ namespace MVZ2.Archives
         {
             OnTalkClick?.Invoke(talksList.indexOf(item));
         }
-        public event Action<int, bool> OnTagValueChanged;
-        public event Action<int> OnTalkClick;
-        public event Action<string> OnSearchEndEdit;
-        public event Action OnReturnClick;
+        public event Action<int, bool>? OnTagValueChanged;
+        public event Action<int>? OnTalkClick;
+        public event Action<string>? OnSearchEndEdit;
+        public event Action? OnReturnClick;
         [SerializeField]
-        private Button returnButton;
+        private Button returnButton = null!;
         [SerializeField]
-        private TMP_InputField searchInputField;
+        private TMP_InputField searchInputField = null!;
         [SerializeField]
-        private ElementList tagsList;
+        private ElementList tagsList = null!;
         [SerializeField]
-        private ElementList talksList;
+        private ElementList talksList = null!;
     }
 }

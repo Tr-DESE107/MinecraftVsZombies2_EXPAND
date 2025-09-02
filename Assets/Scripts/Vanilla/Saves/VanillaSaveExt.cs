@@ -63,7 +63,7 @@ namespace MVZ2.Vanilla.Saves
                 return 0;
             return saveData.GetMoney();
         }
-        public static void SetMapTalk(this IGlobalSaveData save, NamespaceID value)
+        public static void SetMapTalk(this IGlobalSaveData save, NamespaceID? value)
         {
             var saveData = save.GetVanillaSaveData();
             if (saveData == null)
@@ -139,15 +139,19 @@ namespace MVZ2.Vanilla.Saves
         {
             return save.IsContraptionUnlocked(VanillaContraptionID.commandBlock);
         }
-        public static bool IsValidAndLocked(this IGlobalSaveData save, NamespaceID unlockId)
+        public static bool IsValidAndLocked(this IGlobalSaveData save, NamespaceID? unlockId)
         {
             return NamespaceID.IsValid(unlockId) && !save.IsUnlocked(unlockId);
         }
-        public static bool IsInvalidOrUnlocked(this IGlobalSaveData save, NamespaceID unlockId)
+        public static bool IsInvalidOrUnlocked(this IGlobalSaveData save, NamespaceID? unlockId)
         {
             return !save.IsValidAndLocked(unlockId);
         }
-        public static bool IsAllInvalidOrUnlocked(this IGlobalSaveData save, IEnumerable<NamespaceID> unlocks)
+        public static bool IsValidAndUnlocked(this IGlobalSaveData save, NamespaceID? unlockId)
+        {
+            return NamespaceID.IsValid(unlockId) && save.IsUnlocked(unlockId);
+        }
+        public static bool IsAllInvalidOrUnlocked(this IGlobalSaveData save, IEnumerable<NamespaceID>? unlocks)
         {
             if (unlocks == null || unlocks.Count() <= 0)
                 return true;

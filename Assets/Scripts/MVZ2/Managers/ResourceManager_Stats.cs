@@ -9,14 +9,14 @@ namespace MVZ2.Managers
 {
     public partial class ResourceManager : MonoBehaviour
     {
-        public StatMetaList GetStatMetaList(string spaceName)
+        public StatMetaList? GetStatMetaList(string spaceName)
         {
             var modResource = GetModResource(spaceName);
             if (modResource == null)
                 return null;
             return modResource.StatMetaList;
         }
-        public StatCategoryMeta GetStatCategoryMeta(NamespaceID categoryID)
+        public StatCategoryMeta? GetStatCategoryMeta(NamespaceID categoryID)
         {
             if (categoryID == null)
                 return null;

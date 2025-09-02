@@ -32,7 +32,7 @@ namespace MVZ2.UI
                 page.OnSelect -= OnSelectCallback;
             });
         }
-        public override Blueprint GetItem(int index)
+        public override Blueprint? GetItem(int index)
         {
             return blueprintList.getElement<Blueprint>(index);
         }
@@ -60,8 +60,8 @@ namespace MVZ2.UI
         }
         [Header("Mobile")]
         [SerializeField]
-        ScrollRect scrollRect;
+        ScrollRect scrollRect = null!;
         [SerializeField]
-        ElementListUI blueprintList;
+        ElementListUI blueprintList = null!;
     }
 }

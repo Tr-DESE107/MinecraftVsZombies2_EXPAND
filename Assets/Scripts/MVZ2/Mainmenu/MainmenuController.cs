@@ -57,7 +57,7 @@ namespace MVZ2.Mainmenu
                 main.MusicManager.Play(VanillaMusicID.mainmenu);
             }
             ui.SetVersion(Application.version);
-            var name = main.SaveManager.GetCurrentUserName();
+            var name = main.SaveManager.GetCurrentUserName() ?? string.Empty;
             bool isSpecialName = main.Game.IsSpecialUserName(name);
             ui.SetUserName(name);
             ui.SetUserNameColor(isSpecialName ? Color.red : Color.black);
@@ -269,7 +269,7 @@ namespace MVZ2.Mainmenu
         }
         private async void OnUserManageCreateNewUserButtonClickCallback()
         {
-            string result = await main.Scene.ShowInputNameDialogAsync(InputNameType.CreateNewUser);
+            string? result = await main.Scene.ShowInputNameDialogAsync(InputNameType.CreateNewUser);
             if (!string.IsNullOrEmpty(result))
             {
                 main.SaveManager.CreateNewUser(result);
@@ -292,7 +292,7 @@ namespace MVZ2.Mainmenu
                             main.Scene.ShowDialogMessage(title, desc);
                             break;
                         }
-                        string result = await main.Scene.ShowInputNameDialogRenameAsync(userIndex);
+                        string? result = await main.Scene.ShowInputNameDialogRenameAsync(userIndex);
                         if (!string.IsNullOrEmpty(result))
                         {
                             RenameUser(userIndex, result);
@@ -340,7 +340,7 @@ namespace MVZ2.Mainmenu
                             break;
                         var userName = main.SaveManager.GetUserName(userIndex);
                         bool success = false;
-                        var fileName = userName;
+                        var fileName = userName ?? $"user{userIndex}";
                         foreach (var chr in Path.GetInvalidFileNameChars())
                         {
                             fileName = fileName.Replace(chr, '_');
@@ -389,7 +389,7 @@ namespace MVZ2.Mainmenu
                 if (!File.Exists(path))
                     return;
 
-                UserDataPackMetadata metadata;
+                UserDataPackMetadata? metadata;
                 try
                 {
                     metadata = main.SaveManager.ImportUserDataPackMetadata(path);
@@ -594,7 +594,7 @@ namespace MVZ2.Mainmenu
         }
         private int GetSelectedUserIndex()
         {
-            return managingUserIndexes[selectedUserArrayIndex];
+            return managingUserIndexes?[selectedUserArrayIndex] ?? -1;
         }
         private void RefreshUserManageDialog()
         {
@@ -607,8 +607,8 @@ namespace MVZ2.Mainmenu
             var names = new UserNameItemViewData[managingUserIndexes.Length];
             for (int i = 0; i < names.Length; i++)
             {
-                var name = main.SaveManager.GetUserName(managingUserIndexes[i]);
-                var isSpecialName = main.Game.IsSpecialUserName(name);
+                var name = main.SaveManager.GetUserName(managingUserIndexes[i]) ?? string.Empty;
+                var isSpecialName = !string.IsNullOrEmpty(name) && main.Game.IsSpecialUserName(name);
                 names[i] = new UserNameItemViewData()
                 {
                     name = name,
@@ -630,14 +630,14 @@ namespace MVZ2.Mainmenu
             bool hasEmptySlot = !IsUserFull();
             ui.SetUserManageCreateNewUserActive(hasEmptySlot);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Rename, selected);
-            ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Delete, selected && managingUserIndexes.Length >= 2);
+            ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Delete, selected && managingUserIndexes != null && managingUserIndexes.Length >= 2);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Switch, selected && GetSelectedUserIndex() != main.SaveManager.GetCurrentUserIndex());
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Import, hasEmptySlot);
             ui.SetUserManageButtonInteractable(UserManageDialog.ButtonType.Export, selected);
         }
         private bool IsUserFull()
         {
-            return managingUserIndexes.Length >= SaveManager.MAX_USER_COUNT;
+            return managingUserIndexes != null && managingUserIndexes.Length >= SaveManager.MAX_USER_COUNT;
         }
         #endregion
 
@@ -657,13 +657,13 @@ namespace MVZ2.Mainmenu
             var saves = main.SaveManager;
             var resources = main.ResourceManager;
             var viewsID = resources.GetAllMainmenuViews();
-            var metas = viewsID.Select(id => resources.GetMainmenuViewMeta(id)).Where(m => m != null);
+            var metas = viewsID.Select(id => resources.GetMainmenuViewMeta(id)).OfType<MainmenuViewMeta>();
             var ordered = metas.OrderByDescending(m => m.Priority);
-            Sprite sprite = null;
+            Sprite? sprite = null;
             int sheetIndex = isDark ? 1 : 0;
             foreach (var meta in ordered)
             {
-                if (meta.Conditions == null || saves.MeetsXMLConditions(meta.Conditions))
+                if (meta.Conditions.IsNullOrMeetsConditions(saves) && NamespaceID.IsValid(meta.SpritesheetID))
                 {
                     var spriteRef = new SpriteReference(meta.SpritesheetID, sheetIndex);
                     if (SpriteReference.IsValid(spriteRef))
@@ -682,11 +682,11 @@ namespace MVZ2.Mainmenu
             main.SaveManager.UpdatePlayTime();
 
             var nsp = main.BuiltinNamespace;
-            UserStats stats = main.SaveManager.GetUserStats(nsp);
+            UserStats? stats = main.SaveManager.GetUserStats(nsp);
 
-            var playTimeText = GetPlayTimeText(stats.PlayTimeMilliseconds);
+            var playTimeText = GetPlayTimeText(stats?.PlayTimeMilliseconds ?? 0);
 
-            var categories = stats.GetAllCategories();
+            var categories = stats?.GetAllCategories() ?? Array.Empty<UserStatCategory>();
             var categoriesViewData = GetCategoriesViewData(nsp, categories);
             var viewData = new StatsViewData()
             {
@@ -757,27 +757,35 @@ namespace MVZ2.Mainmenu
         {
             var nsp = main.BuiltinNamespace;
             var metas = main.ResourceManager.GetModAchievementMetas(nsp);
-            var viewDatas = new AchievementEntryViewData[metas.Length];
-            for (int i = 0; i < viewDatas.Length; i++)
+            AchievementEntryViewData[] viewDatas;
+            if (metas != null)
             {
-                var meta = metas[i];
-                if (meta == null)
-                    continue;
-                var iconRef = meta.Icon;
-                var metaName = meta.Name;
-                var metaDescription = meta.Description;
-
-                var icon = main.GetFinalSprite(iconRef);
-                var name = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaName);
-                var earned = main.SaveManager.IsAchievementEarned(new NamespaceID(nsp, meta.ID));
-                var description = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaDescription);
-                viewDatas[i] = new AchievementEntryViewData()
+                viewDatas = new AchievementEntryViewData[metas.Length];
+                for (int i = 0; i < viewDatas.Length; i++)
                 {
-                    icon = icon,
-                    name = name,
-                    earned = earned,
-                    description = description
-                };
+                    var meta = metas[i];
+                    if (meta == null)
+                        continue;
+                    var iconRef = meta.Icon;
+                    var metaName = meta.Name;
+                    var metaDescription = meta.Description;
+
+                    var icon = main.GetFinalSprite(iconRef);
+                    var name = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaName);
+                    var earned = main.SaveManager.IsAchievementEarned(new NamespaceID(nsp, meta.ID));
+                    var description = main.LanguageManager._p(VanillaStrings.CONTEXT_ACHIEVEMENT, metaDescription);
+                    viewDatas[i] = new AchievementEntryViewData()
+                    {
+                        icon = icon,
+                        name = name,
+                        earned = earned,
+                        description = description
+                    };
+                }
+            }
+            else
+            {
+                viewDatas = Array.Empty<AchievementEntryViewData>();
             }
             ui.UpdateAchievements(viewDatas);
         }
@@ -807,9 +815,9 @@ namespace MVZ2.Mainmenu
         private Dictionary<MainmenuButtonType, Action> mainmenuActionDict = new Dictionary<MainmenuButtonType, Action>();
         private MainManager main => MainManager.Instance;
         [SerializeField]
-        private MainmenuUI ui;
+        private MainmenuUI ui = null!;
         [SerializeField]
-        private Animator animator;
+        private Animator animator = null!;
         [SerializeField]
         private float transitionTime = 1;
         [SerializeField]
@@ -821,8 +829,8 @@ namespace MVZ2.Mainmenu
         [SerializeField]
         private Vector2 achievementsBlend = new Vector2(1, -1);
 
-        private OptionsLogicMainmenu optionsLogic;
-        private int[] managingUserIndexes;
+        private OptionsLogicMainmenu? optionsLogic;
+        private int[]? managingUserIndexes;
         private int selectedUserArrayIndex = -1;
         private bool isDark;
 

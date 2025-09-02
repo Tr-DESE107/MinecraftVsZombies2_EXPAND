@@ -21,7 +21,7 @@ namespace MVZ2.Scenes
                 updateTimes = Mathf.Min(updateTimes, maxUpdateTimePerFrame);
                 for (int i = 0; i < updateTimes; i++)
                 {
-                    if (level)
+                    if (level.Exists())
                     {
                         level.UpdateLogic();
                     }
@@ -30,14 +30,14 @@ namespace MVZ2.Scenes
                 timeModular %= fixedInterval;
             }
             var updateDeltaTime = Mathf.Min(fixedInterval * maxUpdateTimePerFrame, deltaTime);
-            if (level)
+            if (level.Exists())
             {
                 Physics2D.SyncTransforms();
                 level.UpdateFrame(updateDeltaTime);
             }
         }
         [SerializeField]
-        private MainManager main;
+        private MainManager main = null!;
         [SerializeField]
         private int logicTicksPerSeconds = 30;
         [SerializeField]

@@ -17,8 +17,6 @@ namespace MVZ2.Saves
         }
         public static UserDataPackMetadata FromSerializable(SerializableUserDataPackMetadata seri)
         {
-            if (seri == null)
-                return null;
             return new UserDataPackMetadata(seri.username);
         }
         public string username;

@@ -11,34 +11,45 @@ namespace MVZ2.Metas
     public class AlmanacTagMeta
     {
         public string id;
-        public string name;
-        public string description;
+        public string name = string.Empty;
+        public string description = string.Empty;
         public int priority;
-        public NamespaceID enumType;
+        public NamespaceID? enumType;
 
-        public SpriteReference iconSprite;
+        public SpriteReference? iconSprite;
 
-        public SpriteReference backgroundSprite;
+        public SpriteReference? backgroundSprite;
         public Color backgroundColor;
 
-        public SpriteReference markSprite;
-        public static AlmanacTagMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public SpriteReference? markSprite;
+
+        public AlmanacTagMeta(string id)
+        {
+            this.id = id;
+        }
+
+        public static AlmanacTagMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
-            var name = node.GetAttribute("name");
-            var description = node.GetAttribute("description");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError("The ID of an AlmanacTagMeta is invalid.");
+                return null;
+            }
+            var name = node.GetAttribute("name") ?? string.Empty;
+            var description = node.GetAttribute("description") ?? string.Empty;
             var priority = node.GetAttributeInt("priority") ?? 0;
             var enumType = node.GetAttributeNamespaceID("enum", defaultNsp);
 
             var iconNode = node["icon"];
-            SpriteReference iconSprite = null;
+            SpriteReference? iconSprite = null;
             if (iconNode != null)
             {
                 iconSprite = iconNode.GetAttributeSpriteReference("sprite", defaultNsp);
             }
 
             var backgroundNode = node["background"];
-            SpriteReference backgroundSprite = null;
+            SpriteReference? backgroundSprite = null;
             Color backgroundColor = Color.gray;
             if (backgroundNode != null)
             {
@@ -47,15 +58,14 @@ namespace MVZ2.Metas
             }
 
             var markNode = node["mark"];
-            SpriteReference markSprite = null;
+            SpriteReference? markSprite = null;
             if (markNode != null)
             {
                 markSprite = markNode.GetAttributeSpriteReference("sprite", defaultNsp);
             }
 
-            return new AlmanacTagMeta()
+            return new AlmanacTagMeta(id)
             {
-                id = id,
                 name = name,
                 description = description,
                 priority = priority,

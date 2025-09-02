@@ -12,19 +12,27 @@ namespace MVZ2.Metas
         public string ID { get; private set; }
         public int Polarity { get; private set; }
         public int Level { get; private set; }
-        public static BuffMeta FromXmlNode(XmlNode node, string defaultNsp)
+        public BuffMeta(string iD)
+        {
+            ID = iD;
+        }
+        public static BuffMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
+            if (string.IsNullOrEmpty(id))
+            {
+                Log.LogError("The ID of a BuffMeta is invalid");
+                return null;
+            }
             var polarity = GetPolarity(node.GetAttribute("polarity"));
             var level = node.GetAttributeInt("level") ?? 9;
-            return new BuffMeta()
+            return new BuffMeta(id)
             {
-                ID = id,
                 Polarity = polarity,
                 Level = level,
             };
         }
-        private static int GetPolarity(string str)
+        private static int GetPolarity(string? str)
         {
             if (!string.IsNullOrEmpty(str))
             {
@@ -45,5 +53,6 @@ namespace MVZ2.Metas
             { "negative", BuffPolarity.NEGATIVE },
             { "mixed", BuffPolarity.MIXED },
         };
+
     }
 }

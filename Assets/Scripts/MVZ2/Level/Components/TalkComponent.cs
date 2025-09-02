@@ -17,7 +17,7 @@ namespace MVZ2.Level.Components
         {
             return Controller.CanStartTalk(id, section);
         }
-        public void StartTalk(NamespaceID id, int section, float delay = 1, Action onEnd = null)
+        public void StartTalk(NamespaceID id, int section, float delay = 1, Action? onEnd = null)
         {
             Controller.StartTalk(id, section, delay, onEnd);
         }
@@ -25,7 +25,7 @@ namespace MVZ2.Level.Components
         {
             return Controller.WillSkipTalk(id, section);
         }
-        public void SkipTalk(NamespaceID id, int section, Action onSkipped = null)
+        public void SkipTalk(NamespaceID id, int section, Action? onSkipped = null)
         {
             Controller.SkipTalk(id, section, onSkipped);
         }

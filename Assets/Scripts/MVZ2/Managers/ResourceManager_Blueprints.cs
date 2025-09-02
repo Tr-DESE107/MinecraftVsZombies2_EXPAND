@@ -24,7 +24,7 @@ namespace MVZ2.Managers
     public partial class ResourceManager : MonoBehaviour
     {
         #region 选项
-        public BlueprintMetaList GetBlueprintMetaList(string spaceName)
+        public BlueprintMetaList? GetBlueprintMetaList(string spaceName)
         {
             var modResource = GetModResource(spaceName);
             if (modResource == null)
@@ -35,20 +35,20 @@ namespace MVZ2.Managers
         {
             var metalist = GetBlueprintMetaList(spaceName);
             if (metalist == null)
-                return null;
+                return Array.Empty<BlueprintOptionMeta>();
             return metalist.Options.ToArray();
         }
         public BlueprintEntityMeta[] GetModEntityBlueprintMetas(string spaceName)
         {
             var metalist = GetBlueprintMetaList(spaceName);
             if (metalist == null)
-                return null;
+                return Array.Empty<BlueprintEntityMeta>();
             return metalist.Entities.ToArray();
         }
         public BlueprintErrorMeta[] GetModBlueprintErrorMetas(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
-            if (modResource == null)
+            if (modResource?.BlueprintMetaList == null)
                 return Array.Empty<BlueprintErrorMeta>();
             return modResource.BlueprintMetaList.Errors;
         }
@@ -63,17 +63,6 @@ namespace MVZ2.Managers
         }
         public BlueprintViewData GetBlueprintViewData(SeedDefinition seedDef, bool isEndless, bool isCommandBlock = false)
         {
-            if (seedDef == null)
-            {
-                return new BlueprintViewData()
-                {
-                    icon = GetDefaultSprite(),
-                    cost = "0",
-                    triggerActive = false,
-                    preset = isCommandBlock ? BlueprintPreset.CommandBlock : BlueprintPreset.Normal,
-                    iconGrayscale = isCommandBlock,
-                };
-            }
             var sprite = GetBlueprintIcon(seedDef);
             string costStr = string.Empty;
 
@@ -106,19 +95,28 @@ namespace MVZ2.Managers
                 iconGrayscale = isCommandBlock
             };
         }
-        public BlueprintViewData GetBlueprintViewData(NamespaceID seedID, bool isEndless, bool isCommandBlock = false)
+        public BlueprintViewData GetBlueprintViewData(NamespaceID? seedID, bool isEndless, bool isCommandBlock = false)
         {
-            if (!NamespaceID.IsValid(seedID))
+            if (NamespaceID.IsValid(seedID))
             {
-                return new BlueprintViewData()
+                var definition = main.Game.GetSeedDefinition(seedID);
+                if (definition != null)
                 {
-                    triggerActive = false,
-                    cost = "0",
-                    icon = GetDefaultSprite()
-                };
+                    return GetBlueprintViewData(definition, isEndless, isCommandBlock);
+                }
             }
-            var definition = main.Game.GetSeedDefinition(seedID);
-            return GetBlueprintViewData(definition, isEndless, isCommandBlock);
+            return GetDefaultBlueprintViewData(isCommandBlock);
+        }
+        public BlueprintViewData GetDefaultBlueprintViewData(bool isCommandBlock = false)
+        {
+            return new BlueprintViewData()
+            {
+                triggerActive = false,
+                cost = "0",
+                icon = GetDefaultSprite(),
+                preset = isCommandBlock ? BlueprintPreset.CommandBlock : BlueprintPreset.Normal,
+                iconGrayscale = isCommandBlock,
+            };
         }
         public string GetBlueprintName(NamespaceID blueprintID, bool commandBlock)
         {
@@ -133,29 +131,39 @@ namespace MVZ2.Managers
         {
             return main.Game.GetBlueprintTooltip(blueprintID);
         }
-        public Sprite GetBlueprintIconMobile(SeedDefinition seedDef)
+        public Sprite? GetBlueprintIconMobile(SeedDefinition seedDef)
         {
             if (seedDef != null)
             {
-                Sprite sprite = Main.GetFinalSprite(seedDef.GetMobileIcon());
+                var sprRef = seedDef.GetMobileIcon();
+                if (sprRef == null)
+                    return null;
+                return Main.GetFinalSprite(sprRef);
+            }
+            return GetDefaultSprite();
+        }
+        public Sprite? GetBlueprintIconStandalone(SeedDefinition seedDef)
+        {
+            if (seedDef != null)
+            {
+                Sprite? sprite = null;
+
+                var iconRef = seedDef.GetIcon();
+                if (iconRef != null)
+                    sprite = Main.GetFinalSprite(iconRef);
+
+                if (sprite)
+                    return sprite;
+
+                var seedModelIcon = seedDef.GetModelID();
+                if (seedModelIcon != null)
+                    sprite = GetModelIcon(seedModelIcon);
+
                 return sprite;
             }
             return GetDefaultSprite();
         }
-        public Sprite GetBlueprintIconStandalone(SeedDefinition seedDef)
-        {
-            if (seedDef != null)
-            {
-                Sprite sprite = Main.GetFinalSprite(seedDef.GetIcon());
-                if (!sprite)
-                {
-                    sprite = GetModelIcon(seedDef.GetModelID());
-                }
-                return sprite;
-            }
-            return GetDefaultSprite();
-        }
-        public Sprite GetBlueprintIcon(SeedDefinition seedDef)
+        public Sprite? GetBlueprintIcon(SeedDefinition seedDef)
         {
             return Main.IsMobile() ? GetBlueprintIconMobile(seedDef) : GetBlueprintIconStandalone(seedDef);
         }

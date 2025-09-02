@@ -84,7 +84,8 @@ namespace MVZ2.Archives
         }
         private void OnDetailsPlayClickCallback()
         {
-            PlayTalk(viewingTalkID);
+            if (NamespaceID.IsValid(viewingTalkID))
+                PlayTalk(viewingTalkID);
         }
         private void OnTalkActionCallback(string cmd, params string[] parameters)
         {
@@ -103,7 +104,7 @@ namespace MVZ2.Archives
             var desc = Main.LanguageManager._p(VanillaStrings.CONTEXT_ARCHIVE, VanillaStrings.ARCHIVE_REPLAY);
             Main.Scene.ShowDialogSelect(title, desc, (value) =>
             {
-                if (value)
+                if (value && NamespaceID.IsValid(viewingTalkID))
                 {
                     PlayTalk(viewingTalkID);
                 }
@@ -122,18 +123,19 @@ namespace MVZ2.Archives
             var talks = Main.ResourceManager.GetAllTalkGroupsID();
             var talkGroups = talks
                 .Select(id => (id, Main.ResourceManager.GetTalkGroup(id)))
-                .OrderBy(g => g.Item2.documentOrder)
-                .ThenBy(g => g.Item2.groupOrder);
+                .Where(tuple => tuple.Item2?.archive != null);
 
             var filteredTalks = talkGroups.Where(tuple =>
             {
-                var unlockID = tuple.Item2?.archive?.unlock;
+                var unlockID = tuple.Item2!.archive!.unlock;
                 return Main.SaveManager.IsInvalidOrUnlocked(unlockID);
-            });
+            })
+                .OrderBy(g => g.Item2!.documentOrder)
+                .ThenBy(g => g.Item2!.groupOrder); ;
             talksList.AddRange(filteredTalks.Select(g => g.Item1));
 
             tagsList.Clear();
-            var tags = filteredTalks.SelectMany(g => g.Item2.tags).Distinct();
+            var tags = filteredTalks.SelectMany(g => g.Item2!.tags).Distinct();
             var orderedTags = tags.OrderBy((t) => Main.ResourceManager.GetArchiveTagMeta(t)?.Priority ?? 0);
             tagsList.AddRange(orderedTags);
 
@@ -146,7 +148,7 @@ namespace MVZ2.Archives
         private void UpdateDetails(NamespaceID groupID)
         {
             var group = Main.ResourceManager.GetTalkGroup(groupID);
-            if (group == null)
+            if (group == null || group.archive == null)
                 return;
             var name = GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, group.archive.name);
             var backgroundRef = group.archive.background;
@@ -155,7 +157,7 @@ namespace MVZ2.Archives
             var music = Main.ResourceManager.GetMusicName(musicID);
             var tags = string.Join(", ", group.tags.Select(t => Main.ResourceManager.GetArchiveTagName(t)));
             var sections = group.sections;
-            var sectionsViewData = new ArchiveDetailsSectionViewData[sections.Count];
+            var sectionsViewData = new ArchiveDetailsSectionViewData[sections.Length];
             for (int i = 0; i < sectionsViewData.Length; i++)
             {
                 var section = sections[i];
@@ -185,7 +187,7 @@ namespace MVZ2.Archives
             {
                 name = name,
                 background = background,
-                segments = sections.Count.ToString(),
+                segments = sections.Length.ToString(),
                 music = music,
                 tags = tags,
                 sections = sectionsViewData
@@ -198,6 +200,8 @@ namespace MVZ2.Archives
             var talkGroups = talksList.Where(t =>
             {
                 var group = Main.ResourceManager.GetTalkGroup(t);
+                if (group == null || group.archive == null)
+                    return false;
                 var name = GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, group.archive.name);
                 var selectedTags = selectedTagIndexes.Select(i => tagsList[i]);
                 return (string.IsNullOrEmpty(searchPattern) || name.Contains(searchPattern)) && (selectedTags.Count() <= 0 || selectedTags.Any(t => group.tags.Contains(t)));
@@ -206,20 +210,22 @@ namespace MVZ2.Archives
             ui.SetIndexTalks(filteredTalks.Select(t =>
             {
                 var group = Main.ResourceManager.GetTalkGroup(t);
+                if (group == null || group.archive == null)
+                    return t.ToString();
                 return GetTranslatedString(VanillaStrings.CONTEXT_ARCHIVE, group.archive.name);
             }).ToArray());
         }
         private void PlayTalk(NamespaceID groupID)
         {
             var group = Main.ResourceManager.GetTalkGroup(groupID);
-            if (group == null)
+            if (group == null || group.archive == null)
                 return;
             var backgroundRef = group.archive.background;
             var background = Main.GetFinalSprite(backgroundRef);
             var musicID = group.archive.music;
             ui.SetSimulationBackground(background);
             ui.DisplayPage(ArchiveUI.Page.Simulation);
-            simulationTalk.StartTalk(viewingTalkID, 0, onEnd: ShowReplayDialog);
+            simulationTalk.StartTalk(groupID, 0, onEnd: ShowReplayDialog);
             Main.MusicManager.StopFade();
             Main.MusicManager.SetVolume(1);
             if (NamespaceID.IsValid(musicID))
@@ -239,32 +245,32 @@ namespace MVZ2.Archives
             Main.MusicManager.SetVolume(1);
             ui.DisplayPage(ArchiveUI.Page.Details);
         }
-        private string GetTranslatedString(string context, string text, params object[] args)
+        private string GetTranslatedString(string context, string? text, params object[] args)
         {
             if (string.IsNullOrEmpty(text))
                 return string.Empty;
             return Main.LanguageManager._p(context, text, args);
         }
         #endregion
-        public event Action OnReturnClick;
+        public event Action? OnReturnClick;
         [TranslateMsg("对话档案中语句的模板，{0}为人物，{1}为语句内容")]
         public const string SENTENCE_TEMPLATE = "<b>[{0}]</b> {1}";
         [TranslateMsg("对话档案中语句的模板，{0}为前缀描述，{1}为人物，{2}为语句内容")]
         public const string SENTENCE_TEMPLATE_DESCRIPTION = "<color=blue>{0}</color>\n<b>[{1}]</b> {2}";
         private MainManager Main => MainManager.Instance;
-        private string searchPattern;
+        private string? searchPattern;
         private List<int> selectedTagIndexes = new List<int>();
         private List<NamespaceID> tagsList = new List<NamespaceID>();
         private List<NamespaceID> talksList = new List<NamespaceID>();
         private List<NamespaceID> filteredTalks = new List<NamespaceID>();
 
-        private NamespaceID viewingTalkID;
+        private NamespaceID? viewingTalkID;
 
-        private ITalkSystem talkSystem;
+        private ITalkSystem talkSystem = null!;
 
         [SerializeField]
-        private ArchiveUI ui;
+        private ArchiveUI ui = null!;
         [SerializeField]
-        private TalkController simulationTalk;
+        private TalkController simulationTalk = null!;
     }
 }

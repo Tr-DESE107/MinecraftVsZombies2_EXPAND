@@ -32,17 +32,13 @@ namespace MVZ2.Level
             level.OnEntitySpawn += OnEngineEntitySpawnCallback;
             level.OnEntityRemove += OnEngineEntityRemoveCallback;
         }
-        private void WriteToSerializable_Entities(SerializableLevelController seri)
-        {
-            seri.entities = entities.Select(e => e.ToSerializable()).ToArray();
-        }
         private void ReadFromSerializable_Entities(SerializableLevelController seri)
         {
             foreach (var entity in level.GetEntities())
             {
                 var controller = CreateControllerForEntity(entity);
 
-                var seriEntity = seri.entities.FirstOrDefault(e => e.id == entity.ID);
+                var seriEntity = seri.entities.FirstOrDefault(e => e != null && e.id == entity.ID);
                 if (seriEntity == null)
                     throw new SerializationException($"Could not find entity data with id {entity.ID} in the level state data.");
                 controller.LoadFromSerializable(seriEntity);
@@ -172,14 +168,14 @@ namespace MVZ2.Level
         #endregion
 
         #region 高亮
-        private void SetHoveredEntity(EntityController entity)
+        private void SetHoveredEntity(EntityController? entity)
         {
             hoveredEntity = entity;
             UpdateEntityHighlight();
         }
         private void UpdateEntityHighlight()
         {
-            if (!hoveredEntity || hoveredEntity.GetHoveredPointerCount() <= 0)
+            if (!hoveredEntity.Exists() || hoveredEntity.GetHoveredPointerCount() <= 0)
             {
                 SetHighlightedEntity(null);
                 return;
@@ -201,14 +197,14 @@ namespace MVZ2.Level
                 }
             }
         }
-        private void SetHighlightedEntity(EntityController entity)
+        private void SetHighlightedEntity(EntityController? entity)
         {
-            if (highlightedEntity)
+            if (highlightedEntity.Exists())
             {
                 highlightedEntity.SetHighlight(false);
             }
             highlightedEntity = entity;
-            if (highlightedEntity)
+            if (highlightedEntity.Exists())
             {
                 highlightedEntity.SetHighlight(true);
             }
@@ -244,18 +240,18 @@ namespace MVZ2.Level
         [TranslateMsg("实体提示", LogicStrings.CONTEXT_ENTITY_TOOLTIP)]
         public const string VIEW_IN_ALMANAC = "在图鉴中查看";
 
-        private ObjectPool<EntityController> entityControllerPool;
+        private ObjectPool<EntityController> entityControllerPool = null!;
         private List<EntityController> entities = new List<EntityController>();
-        private EntityController hoveredEntity;
-        private EntityController highlightedEntity;
+        private EntityController? hoveredEntity;
+        private EntityController? highlightedEntity;
         private List<Animator> entityAnimatorBuffer = new List<Animator>();
         private int currentEntityAnimatorIndex = 0;
 
         [Header("Entities")]
         [SerializeField]
-        private EntityController entityTemplate;
+        private EntityController entityTemplate = null!;
         [SerializeField]
-        private Transform entitiesRoot;
+        private Transform entitiesRoot = null!;
         #endregion
 
         private class EntityTooltipSource : ITooltipSource

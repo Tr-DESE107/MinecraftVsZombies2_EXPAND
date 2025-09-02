@@ -23,13 +23,13 @@ namespace MVZ2.Level.UI
             retryButton.onClick.AddListener(() => OnRetryButtonClicked?.Invoke());
             backButton.onClick.AddListener(() => OnBackButtonClicked?.Invoke());
         }
-        public event Action OnRetryButtonClicked;
-        public event Action OnBackButtonClicked;
+        public event Action? OnRetryButtonClicked;
+        public event Action? OnBackButtonClicked;
         [SerializeField]
-        private TextMeshProUGUI messageText;
+        private TextMeshProUGUI messageText = null!;
         [SerializeField]
-        private Button retryButton;
+        private Button retryButton = null!;
         [SerializeField]
-        private Button backButton;
+        private Button backButton = null!;
     }
 }

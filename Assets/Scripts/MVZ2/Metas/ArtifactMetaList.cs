@@ -7,18 +7,24 @@ namespace MVZ2.Metas
     public class ArtifactMetaList
     {
         public ArtifactMeta[] metas;
+
+        public ArtifactMetaList(ArtifactMeta[] metas)
+        {
+            this.metas = metas;
+        }
+
         public static ArtifactMetaList FromXmlNode(XmlNode node, string defaultNsp)
         {
             var metas = new ArtifactMeta[node.ChildNodes.Count];
             for (int i = 0; i < metas.Length; i++)
             {
                 var meta = ArtifactMeta.FromXmlNode(node.ChildNodes[i], defaultNsp, i);
-                metas[i] = meta;
+                if (meta != null)
+                {
+                    metas[i] = meta;
+                }
             }
-            return new ArtifactMetaList()
-            {
-                metas = metas,
-            };
+            return new ArtifactMetaList(metas);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace MVZ2.Level.UI
                 blueprint.OnSelect -= OnBlueprintSelectCallback;
             });
         }
-        public Blueprint GetItem(int index)
+        public Blueprint? GetItem(int index)
         {
             return blueprintList.getElement<Blueprint>(index);
         }
@@ -45,9 +45,9 @@ namespace MVZ2.Level.UI
         {
             OnBlueprintSelect?.Invoke(this, blueprintList.indexOf(blueprint), eventData);
         }
-        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData, PointerInteraction> OnBlueprintPointerInteraction;
-        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData> OnBlueprintSelect;
+        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData, PointerInteraction>? OnBlueprintPointerInteraction;
+        public event Action<BlueprintDisplayerStandalonePage, int, PointerEventData>? OnBlueprintSelect;
         [SerializeField]
-        ElementListUI blueprintList;
+        ElementListUI blueprintList = null!;
     }
 }

@@ -24,13 +24,16 @@ namespace MVZ2.UI
             if (!dragging)
                 return;
             var rootCanvas = dragTarget.GetRootCanvasNonAlloc(canvasListCache);
-            if (rootCanvas == null)
+            if (!rootCanvas.Exists())
                 return;
 
             var worldPos = rootCanvas.worldCamera.ScreenToWorldPoint(eventData.position);
             dragTarget.position = worldPos - dragTargetOffset;
 
-            dragTarget.LimitInsideScreen(rootCanvas.transform);
+            if (rootCanvas.transform is RectTransform rectTrans)
+            {
+                dragTarget.LimitInsideScreen(rectTrans);
+            }
         }
         void IEndDragHandler.OnEndDrag(PointerEventData eventData)
         {
@@ -38,7 +41,7 @@ namespace MVZ2.UI
         }
         public bool Dragging => dragging;
         [SerializeField]
-        private RectTransform dragTarget;
+        private RectTransform dragTarget = null!;
         private bool dragging;
         private Vector3 dragTargetOffset;
         private List<Canvas> canvasListCache = new List<Canvas>();

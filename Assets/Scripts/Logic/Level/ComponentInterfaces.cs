@@ -30,7 +30,7 @@ namespace MVZ2Logic.Level.Components
         void SetHeldItem(IHeldItemData data);
         void ResetHeldItem();
         bool CancelHeldItem();
-        IModelInterface GetHeldItemModelInterface();
+        IModelInterface? GetHeldItemModelInterface();
         IHeldItemData Data { get; }
     }
     public interface ILogicComponent : ILevelComponent
@@ -171,10 +171,10 @@ namespace MVZ2Logic.Level.Components
         void ReplaceArtifacts(ArtifactDefinition?[]? definitions);
         void ReplaceArtifact(int slot, ArtifactDefinition? definition);
         void SetArtifact(int slot, Artifact? artifact);
-        Artifact[] GetArtifacts();
+        Artifact?[] GetArtifacts();
         bool HasArtifact(NamespaceID artifactID);
         int GetArtifactIndex(NamespaceID artifactID);
         int GetArtifactIndex(Artifact artifact);
-        Artifact GetArtifactAt(int index);
+        Artifact? GetArtifactAt(int index);
     }
 }

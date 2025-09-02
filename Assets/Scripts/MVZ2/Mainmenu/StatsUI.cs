@@ -24,13 +24,13 @@ namespace MVZ2.Mainmenu
         {
             backButton.onClick.AddListener(() => OnReturnClick?.Invoke());
         }
-        public event Action OnReturnClick;
+        public event Action? OnReturnClick;
         [SerializeField]
-        private TextMeshProUGUI playTimeText;
+        private TextMeshProUGUI playTimeText = null!;
         [SerializeField]
-        private ElementList categoryList;
+        private ElementList categoryList = null!;
         [SerializeField]
-        private Button backButton;
+        private Button backButton = null!;
     }
     public struct StatsViewData
     {

@@ -110,26 +110,38 @@ namespace MVZ2.Managers
             await LoadInitModSoundClips(modNamespace);
             await LoadInitSpriteManifests(modNamespace);
 
-            foreach (var meta in modResource.ArmorMetaList.slots)
+            if (modResource.ArmorMetaList != null)
             {
-                armorSlotsCacheDict.Add(new NamespaceID(modNamespace, meta.Name), meta);
+                foreach (var meta in modResource.ArmorMetaList.slots)
+                {
+                    armorSlotsCacheDict.Add(new NamespaceID(modNamespace, meta.Name), meta);
+                }
+                foreach (var meta in modResource.ArmorMetaList.metas)
+                {
+                    armorsCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
+                }
             }
-            foreach (var meta in modResource.ArmorMetaList.metas)
+            if (modResource.AchievementMetaList != null)
             {
-                armorsCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
+                foreach (var meta in modResource.AchievementMetaList.metas)
+                {
+                    achievementCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
+                }
             }
-            foreach (var meta in modResource.AchievementMetaList.metas)
+            if (modResource.MainmenuViewMetaList != null)
             {
-                achievementCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
-            }
-            foreach (var meta in modResource.MainmenuViewMetaList.Metas)
-            {
-                mainmenuViewCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
+                foreach (var meta in modResource.MainmenuViewMetaList.Metas)
+                {
+                    mainmenuViewCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
+                }
             }
             PostLoadMod_Store(modNamespace, modResource);
-            foreach (var meta in modResource.NoteMetaList.metas)
+            if (modResource.NoteMetaList != null)
             {
-                noteCache.Add(new NamespaceID(modNamespace, meta.id));
+                foreach (var meta in modResource.NoteMetaList.metas)
+                {
+                    noteCache.Add(new NamespaceID(modNamespace, meta.id));
+                }
             }
             foreach (var pair in modResource.TalkMetas)
             {
@@ -138,9 +150,12 @@ namespace MVZ2.Managers
                     talksCacheDict.Add(new NamespaceID(modNamespace, group.id), group);
                 }
             }
-            foreach (var meta in modResource.ArcadeMetaList.metas)
+            if (modResource.ArcadeMetaList != null)
             {
-                arcadeCache.Add(new NamespaceID(modNamespace, meta.ID));
+                foreach (var meta in modResource.ArcadeMetaList.metas)
+                {
+                    arcadeCache.Add(new NamespaceID(modNamespace, meta.ID));
+                }
             }
         }
         private async Task LoadModResourcesMain(string modNamespace, ModResource modResource, TaskProgress progress)
@@ -243,7 +258,7 @@ namespace MVZ2.Managers
                 LoadSingleMetaList(modResource, resID, resource);
             }
         }
-        private IList<IResourceLocation> GetLabeledResourceLocations<T>(string modNamespace, string label)
+        private IList<IResourceLocation>? GetLabeledResourceLocations<T>(string modNamespace, string label)
         {
             var locator = Main.ModManager.GetModInfo(modNamespace).ResourceLocator;
             var t = typeof(T);
@@ -255,7 +270,7 @@ namespace MVZ2.Managers
                 return null;
             return locs;
         }
-        private IList<IResourceLocation> GetLabeledResourceLocations<T>(string modNamespace, Addressables.MergeMode mergeMode, params string[] labels)
+        private IList<IResourceLocation>? GetLabeledResourceLocations<T>(string modNamespace, Addressables.MergeMode mergeMode, params string[] labels)
         {
             var locator = Main.ModManager.GetModInfo(modNamespace).ResourceLocator;
             var t = typeof(T);
@@ -297,7 +312,7 @@ namespace MVZ2.Managers
         {
             return LoadResourcesByLocations<T>(locations, null);
         }
-        private async Task<(NamespaceID key, T resource)[]> LoadResourcesByLocations<T>(IList<IResourceLocation> locations, TaskProgress progress)
+        private async Task<(NamespaceID key, T resource)[]> LoadResourcesByLocations<T>(IList<IResourceLocation>? locations, TaskProgress? progress)
         {
             if (locations == null)
                 return Array.Empty<(NamespaceID key, T resource)>();
@@ -348,12 +363,12 @@ namespace MVZ2.Managers
             progress?.SetProgress(1, "Finished");
             return loaded.ToArray();
         }
-        private Task<(NamespaceID key, T resource)[]> LoadLabeledResources<T>(string modNamespace, string label, TaskProgress progress)
+        private Task<(NamespaceID key, T resource)[]> LoadLabeledResources<T>(string modNamespace, string label, TaskProgress? progress)
         {
             var locs = GetLabeledResourceLocations<T>(modNamespace, label);
             return LoadResourcesByLocations<T>(locs, progress);
         }
-        private Task<(NamespaceID key, T resource)[]> LoadLabeledResources<T>(string modNamespace, Addressables.MergeMode mergeMode, TaskProgress progress, params string[] labels)
+        private Task<(NamespaceID key, T resource)[]> LoadLabeledResources<T>(string modNamespace, Addressables.MergeMode mergeMode, TaskProgress? progress, params string[] labels)
         {
             var locs = GetLabeledResourceLocations<T>(modNamespace, mergeMode, labels);
             return LoadResourcesByLocations<T>(locs, progress);
@@ -366,19 +381,19 @@ namespace MVZ2.Managers
         {
             return LoadLabeledResources<T>(modNamespace, mergeMode, null, labels);
         }
-        private async Task<T> LoadModResource<T>(NamespaceID id, ResourceType resourceType)
+        private async Task<T?> LoadModResource<T>(NamespaceID id, ResourceType resourceType)
         {
             if (id == null)
                 return default;
             return await LoadModResource<T>(id.SpaceName, id.Path, resourceType);
         }
-        private async Task<T> LoadModResource<T>(string nsp, string path, ResourceType resourceType)
+        private async Task<T?> LoadModResource<T>(string nsp, string path, ResourceType resourceType)
         {
             var modResource = GetModResource(nsp);
             var locator = Main.ModManager.GetModInfo(nsp).ResourceLocator;
             return await LoadAddressableResource<T>(locator, path);
         }
-        private T FindInMods<T>(NamespaceID id, Func<ModResource, Dictionary<string, T>> dictionaryGetter)
+        private T? FindInMods<T>(NamespaceID? id, Func<ModResource, Dictionary<string, T>> dictionaryGetter)
         {
             if (id == null)
                 return default;
@@ -394,7 +409,7 @@ namespace MVZ2.Managers
             }
             return default;
         }
-        private async Task<T> LoadAddressableResource<T>(IResourceLocator locator, string key)
+        private async Task<T?> LoadAddressableResource<T>(IResourceLocator locator, string key)
         {
             if (!locator.Locate(key, typeof(T), out var locs))
                 return default;
@@ -406,7 +421,7 @@ namespace MVZ2.Managers
         #endregion
         public MainManager Main => main;
         [SerializeField]
-        private MainManager main;
+        private MainManager main = null!;
         private List<ModResource> modResources = new List<ModResource>();
     }
     public class ResourceLocationEqualityComparer : IEqualityComparer<IResourceLocation>

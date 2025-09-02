@@ -12,7 +12,7 @@ namespace MVZ2.Managers
         public CommandMeta[] GetModCommandMetas(string nsp)
         {
             var modResource = main.ResourceManager.GetModResource(nsp);
-            if (modResource == null)
+            if (modResource?.CommandMetaList == null)
                 return Array.Empty<CommandMeta>();
             return modResource.CommandMetaList.metas.ToArray();
         }

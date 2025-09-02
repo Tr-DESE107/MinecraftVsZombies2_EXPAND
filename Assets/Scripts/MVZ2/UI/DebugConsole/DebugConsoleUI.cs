@@ -57,7 +57,10 @@ namespace MVZ2.UI
             var substring = inputField.text.Substring(0, index);
             var size = inputField.textComponent.GetPreferredValues(substring);
             var rectTransform = autoCompletePanel.transform as RectTransform;
-            rectTransform.anchoredPosition = Vector2.right * (size.x + inputField.textComponent.rectTransform.anchoredPosition.x);
+            if (rectTransform.Exists())
+            {
+                rectTransform.anchoredPosition = Vector2.right * (size.x + inputField.textComponent.rectTransform.anchoredPosition.x);
+            }
         }
         public void SetAutoCompleteSelections(string[] autoComplete)
         {
@@ -83,7 +86,9 @@ namespace MVZ2.UI
             if (autoCompleteSelection != null && index >= 0)
             {
                 autoCompleteScroll.verticalNormalizedPosition = 1 - index / (float)autoCompleteSelection.Count;
-                autoCompleteSelection.getElement<DebugConsoleAutoCompleteItem>(index).SetIsOn(true);
+                var item = autoCompleteSelection.getElement<DebugConsoleAutoCompleteItem>(index);
+                if (item.Exists())
+                    item.SetIsOn(true);
             }
         }
         private void OnAutoCompleteItemValueChangedCallback(DebugConsoleAutoCompleteItem item, bool value)
@@ -104,35 +109,35 @@ namespace MVZ2.UI
             inputField.onDeselect.AddListener((text) => OnInputFieldFocus?.Invoke(false));
             inputField.onValueChanged.AddListener((text) => OnInputFieldValueChanged?.Invoke(text));
         }
-        public event Action OnCloseClick;
-        public event Action<bool> OnArrowButtonClick;
-        public event Action<string> OnSubmit;
-        public event Action<string> OnInputFieldValueChanged;
-        public event Action<bool> OnInputFieldFocus;
-        public event Action<int> OnAutoCompleteItemClick;
+        public event Action? OnCloseClick;
+        public event Action<bool>? OnArrowButtonClick;
+        public event Action<string>? OnSubmit;
+        public event Action<string>? OnInputFieldValueChanged;
+        public event Action<bool>? OnInputFieldFocus;
+        public event Action<int>? OnAutoCompleteItemClick;
         [SerializeField]
-        private Button closeButton;
+        private Button closeButton = null!;
         [SerializeField]
-        private Button submitButton;
+        private Button submitButton = null!;
         [SerializeField]
-        private Button upButton;
+        private Button upButton = null!;
         [SerializeField]
-        private Button downButton;
+        private Button downButton = null!;
         [SerializeField]
-        private DebugConsoleInputField inputField;
+        private DebugConsoleInputField inputField = null!;
 
         [Header("Output")]
         [SerializeField]
-        private TextMeshProUGUI outputText;
+        private TextMeshProUGUI outputText = null!;
         [SerializeField]
-        private ScrollRect outputScroll;
+        private ScrollRect outputScroll = null!;
 
         [Header("Auto Complete")]
         [SerializeField]
-        private GameObject autoCompletePanel;
+        private GameObject autoCompletePanel = null!;
         [SerializeField]
-        private ScrollRect autoCompleteScroll;
+        private ScrollRect autoCompleteScroll = null!;
         [SerializeField]
-        private ElementList autoCompleteSelection;
+        private ElementList autoCompleteSelection = null!;
     }
 }

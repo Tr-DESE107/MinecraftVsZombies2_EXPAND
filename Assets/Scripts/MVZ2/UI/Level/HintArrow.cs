@@ -39,7 +39,7 @@ namespace MVZ2.UI
         [SerializeField]
         private bool updatesPosition = true;
         [SerializeField]
-        private Transform targetTransform;
+        private Transform targetTransform = null!;
         [SerializeField]
         private Vector2 targetOffset;
     }

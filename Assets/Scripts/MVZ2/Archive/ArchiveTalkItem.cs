@@ -17,10 +17,10 @@ namespace MVZ2.Archives
         {
             button.onClick.AddListener(() => OnClick?.Invoke(this));
         }
-        public event Action<ArchiveTalkItem> OnClick;
+        public event Action<ArchiveTalkItem>? OnClick;
         [SerializeField]
-        private Button button;
+        private Button button = null!;
         [SerializeField]
-        private TextMeshProUGUI nameText;
+        private TextMeshProUGUI nameText = null!;
     }
 }

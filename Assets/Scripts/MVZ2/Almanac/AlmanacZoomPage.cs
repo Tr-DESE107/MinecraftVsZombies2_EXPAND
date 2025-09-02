@@ -38,19 +38,19 @@ namespace MVZ2.Almanacs
             prevButton.onClick.AddListener(() => OnPageButtonClick?.Invoke(false));
             nextButton.onClick.AddListener(() => OnPageButtonClick?.Invoke(true));
         }
-        public Action OnReturnClick;
-        public Action<bool> OnPageButtonClick;
+        public event Action? OnReturnClick;
+        public event Action<bool>? OnPageButtonClick;
         [SerializeField]
-        private TextMeshProUGUI hintText;
+        private TextMeshProUGUI hintText = null!;
         [SerializeField]
-        private Image image;
+        private Image image = null!;
         [SerializeField]
-        private PanZoomController panZoomController;
+        private PanZoomController panZoomController = null!;
         [SerializeField]
-        private Button prevButton;
+        private Button prevButton = null!;
         [SerializeField]
-        private Button nextButton;
+        private Button nextButton = null!;
         [SerializeField]
-        private Button returnButton;
+        private Button returnButton = null!;
     }
 }

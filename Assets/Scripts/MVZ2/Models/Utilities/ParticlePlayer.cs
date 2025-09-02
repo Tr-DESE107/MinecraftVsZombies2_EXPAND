@@ -47,7 +47,7 @@ namespace MVZ2.Models
         }
         private void Update()
         {
-            if (particlesToEmit > 0 && particles.main.simulationSpeed > 0)
+            if (particlesToEmit > 0 && Particles.main.simulationSpeed > 0)
             {
                 Particles.Emit(particlesToEmit);
                 particlesToEmit = 0;
@@ -119,13 +119,13 @@ namespace MVZ2.Models
         {
             get
             {
-                if (!particles)
+                if (!particles.Exists())
                     particles = GetComponent<ParticleSystem>();
                 return particles;
             }
         }
-        public event Action<ParticlePlayer, GameObject> OnParticleCollisionEvent;
-        private ParticleSystem particles;
+        public event Action<ParticlePlayer, GameObject>? OnParticleCollisionEvent;
+        private ParticleSystem? particles;
         [SerializeField]
         private float minAmount = 0;
         private float emitModular = 0;

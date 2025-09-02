@@ -34,9 +34,9 @@ namespace MVZ2.GameContent.Effects
             var type = param.type;
             var phase = param.phase;
             var screenPosition = param.screenPos;
-            if (!Global.Level.IsInLevel())
-                return;
             var level = Global.Level.GetLevel();
+            if (level == null)
+                return;
             if (!level.IsGameRunning())
                 return;
             foreach (var wall in level.FindEntities(VanillaEffectID.crushingWalls))
