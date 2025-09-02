@@ -30,6 +30,9 @@ namespace MVZ2.GameContent.Contraptions
 
             var buff = entity.AddBuff<ExplosionProtection>();
             buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
+
+            var buff2 = entity.AddBuff<WitherProtection>();
+            buff2.SetProperty(WitherProtection.PROP_Protection_Level, 0.8f);
         }
         protected override void UpdateAI(Entity entity)
         {

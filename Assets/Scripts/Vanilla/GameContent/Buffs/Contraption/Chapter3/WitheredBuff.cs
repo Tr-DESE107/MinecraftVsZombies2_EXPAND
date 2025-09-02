@@ -45,8 +45,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 // 持续伤害（无视护甲 & 静音）
                 entity.TakeDamage(WITHER_DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.MUTE, VanillaDamageEffects.WITHER), entity);
 
-                // 当生命值小于等于 1 → 爆炸
-                if (entity.Health <= 1)
+                // 当生命值小于等于 10 → 爆炸
+                if (entity.Health <= 10)
                 {
                     Explode(entity);
                     entity.Remove();
@@ -118,7 +118,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
 
             // 检查是否来自带有 WITHER 标记的爆炸
             //if (result.BodyResult.Effects.HasEffect(VanillaDamageEffects.LIGHTNING))
-            if (output.BodyResult.Effects.HasEffect(VanillaDamageEffects.WITHER))
+            if (output.BodyResult.Effects.HasEffect(VanillaDamageEffects.WITHER) && output.BodyResult.Effects.HasEffect(VanillaDamageEffects.EXPLOSION))
             {
                 // 给目标附加 Withered 效果  
                 entity.InflictWither(WITHER_TIME);

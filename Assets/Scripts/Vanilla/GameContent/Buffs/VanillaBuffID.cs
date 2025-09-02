@@ -26,6 +26,7 @@ namespace MVZ2.GameContent.Buffs
         public const string WitherHeartShieldResistanceBuff = "WitherHeartShieldResistanceBuff";
         public const string NightmareMaskEvade = "NightmareMaskEvade";
         public const string ExplosionProtection = "ExplosionProtection";
+        public const string WitherProtection = "WitherProtection";
         
 
         // Contraption
@@ -249,6 +250,7 @@ namespace MVZ2.GameContent.Buffs
         public static readonly NamespaceID WitherHeartShieldResistanceBuff = Get(VanillaBuffNames.WitherHeartShieldResistanceBuff);
         public static readonly NamespaceID NightmareMaskEvade = Get(VanillaBuffNames.NightmareMaskEvade);
         public static readonly NamespaceID ExplosionProtection = Get(VanillaBuffNames.ExplosionProtection);
+        public static readonly NamespaceID WitherProtection = Get(VanillaBuffNames.WitherProtection);
 
         public static readonly NamespaceID passengerEnterHouse = Get(VanillaBuffNames.passengerEnterHouse);
         private static NamespaceID Get(string name)
