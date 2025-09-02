@@ -1428,7 +1428,7 @@
         </enemy>
 
 
-        <witherSkeleton id="mesmerizer" name="反逆者" deathMessage="服从凋灵吧" unlock="mvz2:level.castle_1">
+        <witherSkeleton id="mesmerizer" name="反逆者" deathMessage="服从于凋灵吧" unlock="mvz2:level.castle_1">
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:mesmerizer_crown" />
                 <float name="mvz2:range" value="800" />
@@ -1445,7 +1445,25 @@
             </properties>
         </witherSkeleton>
 
-		<enemy id="AngryReverser" name="愤怒的反逆者" deathMessage="服从扎赉特吧" unlock="mvz2:level.castle_9">
+		<enemy id="AngryReverser" name="愤怒的反逆者" deathMessage="服从于心灵部门吧" unlock="mvz2:level.castle_9">
+			<properties>
+				<id name="mvz2:starting_armor" value="mvz2:AngryReverserCrown" />
+				<float name="mvz2:range" value="800" />
+				<vector3 name="mvz2:shotOffset" x="30" y="96" z="0" />
+				<vector3 name="mvz2:shotVelocity" x="0" y="0" z="0" />
+				<id name="mvz2:shell" value="mvz2:nether" />
+				<id name="mvz2:projectileId" value="mvz2:compelling_orb" />
+				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
+				<id name="mvz2:hitSound" value="mvz2:bone_hit" />
+				<id name="mvz2:deathSound" value="mvz2:wither_skeleton_death" />
+				<float name="mvz2:maxHealth" value="600" />
+
+				<int name="mvz2:cost" value="125" />
+				<int name="mvz2:waterInteraction" value="2" />
+			</properties>
+		</enemy>
+
+		<enemy id="KingofReverser" name="反逆者之王" deathMessage="服从于扎赉特吧" unlock="mvz2:level.castle_9">
 			<properties>
 				<id name="mvz2:starting_armor" value="mvz2:AngryReverserCrown" />
 				<float name="mvz2:range" value="800" />

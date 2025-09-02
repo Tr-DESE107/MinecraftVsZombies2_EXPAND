@@ -112,6 +112,7 @@
 	<model name="FlagWitherSkeleton" type="entity" path="mvz2:enemy/castle/FlagWitherSkeleton" width="64" height="96" xOffset="10" yOffset="-44"/>
 
 	<model name="AngryReverser" type="entity" path="mvz2:enemy/castle/AngryReverser" width="64" height="116" xOffset="10" yOffset="-44"/>
+	<model name="KingofReverser" type="entity" path="mvz2:enemy/castle/KingofReverser" width="64" height="116" xOffset="10" yOffset="-44"/>
 	<model name="NetherWarrior" type="entity" path="mvz2:enemy/castle/NetherWarrior" width="64" height="96" xOffset="16" yOffset="-44"/>
 	<model name="NetherVanguard" type="entity" path="mvz2:enemy/castle/NetherVanguard" width="64" height="96" xOffset="16" yOffset="-44"/>
 	<model name="NetherArcher" type="entity" path="mvz2:enemy/castle/NetherArcher" width="64" height="96" xOffset="10" yOffset="-64"/>

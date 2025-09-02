@@ -2169,6 +2169,14 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 264445295, guid: 58c6512707afe544a8fe8f1c6738e909, type: 3}
     - {fileID: -625061782, guid: 58c6512707afe544a8fe8f1c6738e909, type: 3}
+  - name: entity/enemy/KingofReverser
+    spritesheet:
+    - {fileID: 1764816815, guid: 2a199a01abf97e24799713ea789db115, type: 3}
+    - {fileID: -1441241689, guid: 2a199a01abf97e24799713ea789db115, type: 3}
+    - {fileID: 854717448, guid: 2a199a01abf97e24799713ea789db115, type: 3}
+    - {fileID: 2046352019, guid: 2a199a01abf97e24799713ea789db115, type: 3}
+    - {fileID: 539093106, guid: 2a199a01abf97e24799713ea789db115, type: 3}
+    - {fileID: 1826828161, guid: 2a199a01abf97e24799713ea789db115, type: 3}
   - name: entity/enemy/KingSkeleton
     spritesheet:
     - {fileID: 1602015279, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
