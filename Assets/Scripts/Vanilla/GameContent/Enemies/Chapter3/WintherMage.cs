@@ -197,25 +197,36 @@ namespace MVZ2.GameContent.Enemies
         /// </summary>
         private void Shoot(Entity enemy)
         {
+            if (shoot_times != 4)
+            {
+                var param = enemy.GetShootParams();
+                param.damage = enemy.GetDamage() * 1.4f;          // 攻击伤害
+                param.projectileID = VanillaProjectileID.witherSkull; // 投射物：凋零头颅
+                param.soundID = VanillaSoundID.fire;           // 音效：火焰
+                enemy.ShootProjectile(param);
 
+                // 计数：连续射击次数
+                shoot_times += 1;
+            }
+            // 每 4 次射击 → 召唤一次陨石
+            if (shoot_times >= 4)
+            {
+                var target = FindTarget(enemy);
+                if (target != null)
+                {
+                    var pos = target.GetCenter() + new Vector3(0, 1280, 0); // 陨石从高空砸下
+                    var meteor = enemy.SpawnWithParams(VanillaEffectID.cursedMeteor, pos);
+                    meteor.SetParent(enemy);
 
-            //var param = enemy.GetShootParams();
-            //param.damage = enemy.GetDamage()
-            //param.projectileID = VanillaProjectileID.witherSkull;
-            //param.soundID = VanillaSoundID.fire;
-            //enemy.ShootProjectile(param);
-
-            var pos = enemy.Position + new Vector3(0, 1280, 0);
-            var meteor = enemy.SpawnWithParams(VanillaEffectID.cursedMeteor, pos);
-            meteor.SetParent(enemy);
-            
-            meteor.PlaySound(VanillaSoundID.bombFalling);
-
+                    meteor.PlaySound(VanillaSoundID.bombFalling);
+                }
+                shoot_times = 0;
+            }
         }
 
         // ==== 行为字段（存放于 Entity 上） ====
 
-        
+
 
         public static void SetStateTimer(Entity enemy, FrameTimer value) => enemy.SetBehaviourField(PROP_STATE_TIMER, value);
         public static FrameTimer GetStateTimer(Entity enemy) => enemy.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
@@ -257,6 +268,8 @@ namespace MVZ2.GameContent.Enemies
 
         private Detector detector; // 目标检测器
 
+        private int shoot_times = 0;
+
         // ==== 常量：攻击阶段 ====
 
         public const int ATTACK_STATE_CAST = 0;    // 施法阶段
@@ -267,13 +280,15 @@ namespace MVZ2.GameContent.Enemies
 
         public const int ATTACK_CAST_TIME = 5;     // 施法时间
         public const int ATTACK_FIRE_TIME = 5;     // 发射持续时间
-        public const int ATTACK_RESTORE_TIME = 20; // 冷却时间
+        public const int ATTACK_RESTORE_TIME = 60; // 冷却时间
 
         // ==== 常量：职业 ====
 
         public const int CLASS_WINTHER = 0;      // 火焰法师
         //public const int CLASS_FROST = 1;     // 冰霜法师
         //public const int CLASS_LIGHTNING = 2; // 闪电法师
+
+        
 
         // ==== 实体字段（存储在 Entity 内部） ====
 
