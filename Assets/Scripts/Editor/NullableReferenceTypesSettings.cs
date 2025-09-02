@@ -21,7 +21,14 @@ namespace MVZ2.Editor
                 if (!IsWhitelistFilePath(filePath))
                     continue;
 
-                string code = File.ReadAllText(filePath);
+                var encoding = Encoding.Default;
+                string code;
+                using (var reader = new StreamReader(filePath, Encoding.Default, true))
+                {
+                    // 读取一个字符以触发编码检测
+                    code = reader.ReadToEnd();
+                    encoding = reader.CurrentEncoding;
+                }
 
                 bool nullableDefined = code.Contains(Preprocessor);
 
@@ -65,6 +72,7 @@ namespace MVZ2.Editor
         }
         public static readonly string[] whitelistDirectories = new string[]
         {
+            "Scripts/MVZ2",
             "Scripts/Vanilla",
             "Scripts/Logic",
             "Scripts/Engine/Base",
