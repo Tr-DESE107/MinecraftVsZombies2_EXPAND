@@ -3062,7 +3062,7 @@
         </effect>
         <effect id="cursed_meteor">
             <properties>
-                <float name="mvz2:gravity" value="5" />
+				<float name="mvz2:gravity" value="5" />
                 <float name="mvz2:range" value="40" />
                 <float name="mvz2:damage" value="1800" />
                 <bool name="mvz2:decorative" value="false" />

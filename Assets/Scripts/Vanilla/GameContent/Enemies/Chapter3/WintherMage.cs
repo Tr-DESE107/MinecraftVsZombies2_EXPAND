@@ -25,6 +25,25 @@ using PVZEngine;
 using MVZ2.Vanilla.Level;
 using MVZ2.GameContent.Damages;
 using PVZEngine.Damages;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Models;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Models;
+using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Models;
+using PVZEngine.Buffs;
+using PVZEngine.Damages;
+using PVZEngine.Level;
+using MVZ2.Vanilla.Audios;
+using MVZ2Logic.Level;
+using PVZEngine.Entities;
+using UnityEngine;
+using MVZ2.GameContent.Difficulties;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Level;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Contraptions;
+using PVZEngine.Callbacks;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -200,7 +219,7 @@ namespace MVZ2.GameContent.Enemies
             if (shoot_times != 4)
             {
                 var param = enemy.GetShootParams();
-                param.damage = enemy.GetDamage() * 1.4f;          // 攻击伤害
+                param.damage = enemy.GetDamage() * 4f;          // 攻击伤害
                 param.projectileID = VanillaProjectileID.witherSkull; // 投射物：凋零头颅
                 param.soundID = VanillaSoundID.fire;           // 音效：火焰
                 enemy.ShootProjectile(param);
@@ -280,7 +299,7 @@ namespace MVZ2.GameContent.Enemies
 
         public const int ATTACK_CAST_TIME = 5;     // 施法时间
         public const int ATTACK_FIRE_TIME = 5;     // 发射持续时间
-        public const int ATTACK_RESTORE_TIME = 60; // 冷却时间
+        public const int ATTACK_RESTORE_TIME = 90; // 冷却时间
 
         // ==== 常量：职业 ====
 

@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Contraptions
             SetLastShootHealth(entity, entity.Health);
 
             var buff = entity.AddBuff<ExplosionProtection>();
-            buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 1f);
+            buff.SetProperty(ExplosionProtection.PROP_Protection_Level, 0.8f);
         }
 
         protected override void UpdateLogic(Entity contraption)
