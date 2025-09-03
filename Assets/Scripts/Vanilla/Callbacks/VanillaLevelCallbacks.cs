@@ -3,6 +3,7 @@
 using MVZ2.HeldItems;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
+using PVZEngine.Armors;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -39,11 +40,13 @@ namespace MVZ2.Vanilla.Callbacks
         public struct PreArmorTakeDamageParams
         {
             public DamageInput input;
+            public Armor armor;
             public ArmorDamageResult result;
 
-            public PreArmorTakeDamageParams(DamageInput input, ArmorDamageResult result)
+            public PreArmorTakeDamageParams(DamageInput input, Armor armor, ArmorDamageResult result)
             {
                 this.input = input;
+                this.armor = armor;
                 this.result = result;
             }
         }

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-08-28 10:32+0800\n"
-"PO-Revision-Date: 2025-08-28 22:42+0800\n"
+"POT-Creation-Date: 2025-09-03 10:13+0800\n"
+"PO-Revision-Date: 2025-09-03 22:15+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -568,6 +568,18 @@ msgstr "Cloud"
 msgctxt "almanac_tag_enum.description"
 msgid "受到0.5x冲击伤害"
 msgstr "Takes 0.5x impact damage"
+
+#. Name for almanac tag enum value mvz2:lightning of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "闪电"
+msgstr "Lightning"
+
+#. Description for almanac tag enum value mvz2:lightning of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "吸收闪电伤害"
+msgstr "Absorbs lightning damage"
 
 #. Header for contraptions mvz2:dispenser
 #: Almanac meta file
@@ -6159,6 +6171,18 @@ msgstr "Undead Flying Object (Blue)"
 msgctxt "entity.name"
 msgid "不死飞行物（彩）"
 msgstr "Undead Flying Object (Rainbow)"
+
+#. Name for entity blueprint zombie_cloud_thunder
+#: Blueprints meta file
+msgctxt "entity.name"
+msgid "僵尸云（雷）"
+msgstr "Zombie Cloud (Thunder)"
+
+#. Name for entity blueprint zombie_cloud_snow
+#: Blueprints meta file
+msgctxt "entity.name"
+msgid "僵尸云（雪）"
+msgstr "Zombie Cloud (Snow)"
 
 #~ msgctxt "enemies.description"
 #~ msgid "炮弹僵尸由炮手僵尸发射而来。"

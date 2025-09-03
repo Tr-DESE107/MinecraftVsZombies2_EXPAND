@@ -185,7 +185,7 @@ namespace MVZ2.Vanilla.Entities
             var callbackResult = new CallbackResult(DamageStates.CONTINUE);
             if (!callbackResult.IsBreakRequested)
             {
-                var param = new VanillaLevelCallbacks.PreArmorTakeDamageParams(input, result);
+                var param = new VanillaLevelCallbacks.PreArmorTakeDamageParams(input, armor, result);
                 input.Entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_ARMOR_TAKE_DAMAGE, param, callbackResult, armor.Definition.GetID());
             }
             return callbackResult.GetValue<int>();
@@ -694,6 +694,17 @@ namespace MVZ2.Vanilla.Entities
             }
             return result;
         }
+        public static HealOutput? HealEffects(this Armor armor, float amount, ILevelSourceReference? source)
+        {
+            var result = armor.HealSourced(amount, source);
+            if (result == null)
+                return null;
+            if (result.RealAmount >= 0)
+            {
+                armor.Owner.AddTickHealing(result.RealAmount);
+            }
+            return result;
+        }
         public static HealOutput? Heal(this Entity entity, float amount, Entity? source)
         {
             return entity.HealSourced(amount, source == null ? null : new EntitySourceReference(source));
@@ -701,6 +712,10 @@ namespace MVZ2.Vanilla.Entities
         public static HealOutput? HealSourced(this Entity entity, float amount, ILevelSourceReference? source)
         {
             return Heal(new HealInput(amount, entity, source));
+        }
+        public static HealOutput? HealSourced(this Armor armor, float amount, ILevelSourceReference? source)
+        {
+            return Heal(new HealInput(amount, armor.Owner, armor, source));
         }
         public static HealOutput? Heal(HealInput info)
         {

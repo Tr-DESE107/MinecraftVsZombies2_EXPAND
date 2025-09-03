@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-08-28 10:32+0800\n"
+"POT-Creation-Date: 2025-09-03 10:13+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -561,6 +561,18 @@ msgstr ""
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "受到0.5x冲击伤害"
+msgstr ""
+
+#. Name for almanac tag enum value mvz2:lightning of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.name"
+msgid "闪电"
+msgstr ""
+
+#. Description for almanac tag enum value mvz2:lightning of enum shell
+#: Almanac meta file
+msgctxt "almanac_tag_enum.description"
+msgid "吸收闪电伤害"
 msgstr ""
 
 #. Header for contraptions mvz2:dispenser
@@ -5399,5 +5411,17 @@ msgstr ""
 #: Blueprints meta file
 msgctxt "entity.name"
 msgid "不死飞行物（彩）"
+msgstr ""
+
+#. Name for entity blueprint zombie_cloud_thunder
+#: Blueprints meta file
+msgctxt "entity.name"
+msgid "僵尸云（雷）"
+msgstr ""
+
+#. Name for entity blueprint zombie_cloud_snow
+#: Blueprints meta file
+msgctxt "entity.name"
+msgid "僵尸云（雪）"
 msgstr ""
 

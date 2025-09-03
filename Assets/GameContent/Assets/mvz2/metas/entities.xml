@@ -692,7 +692,7 @@
                 <float name="mvz2:maxHealth" value="3000" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <id name="mvz2:placement" value="mvz2:suspension" />
-                <id name="mvz2:shell" value="mvz2:metal" />
+                <id name="mvz2:shell" value="mvz2:lightning" />
                 <id name="mvz2:hitSound" value="mvz2:energy_shield_hit" />
                 <id name="mvz2:placeSound" value="mvz2:energy_shield" />
                 <id name="mvz2:deathSound" value="mvz2:tesla_destroy" />

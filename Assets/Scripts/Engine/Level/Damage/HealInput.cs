@@ -23,7 +23,7 @@ namespace PVZEngine.Damages
             Source = source;
             ToArmor = false;
         }
-        public HealInput(float amount, Entity entity, Armor armor, ILevelSourceReference source)
+        public HealInput(float amount, Entity entity, Armor armor, ILevelSourceReference? source)
         {
             OriginalAmount = amount;
             Amount = amount;
