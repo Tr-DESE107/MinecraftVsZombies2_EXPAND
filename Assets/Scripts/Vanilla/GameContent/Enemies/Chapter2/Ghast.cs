@@ -85,7 +85,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.Source.DefinitionID == VanillaProjectileID.fireCharge && !entity.Level.IsIZombie())
+            if (info.Source?.DefinitionID == VanillaProjectileID.fireCharge && !entity.Level.IsIZombie())
             {
                 Global.Saves.Unlock(VanillaUnlockID.returnToSender);
                 Global.Saves.SaveToFile(); // 完成成就后保存游戏。

@@ -27,10 +27,13 @@ namespace MVZ2.GameContent.GlobalCallbacks
         {
             var entity = param.entity;
             var info = param.deathInfo;
+            var source = info.Source;
+            if (source == null)
+                return;
             if (entity.IsHostileEntity() && !entity.Level.IsIZombie())
             {
                 var level = entity.Level;
-                var killedByFriendlyEnemy = info.Source.IsEntitySpawnedByEntity(level, (s, def) =>
+                var killedByFriendlyEnemy = source.IsEntitySpawnedByEntity(level, (s, def) =>
                 {
                     if (!level.IsFriendlyFaction(s.Faction))
                         return false;
@@ -53,14 +56,18 @@ namespace MVZ2.GameContent.GlobalCallbacks
                 Global.Saves.SaveToFile(); // 完成成就后保存游戏。
             }
 
-            if (entity.IsFriendlyEntity() && !entity.Level.IsIZombie())
+            var source = info.Source;
+            if (source != null)
             {
-                var level = entity.Level;
-                var killedByHostileContraption = info.Source.IsEntitySpawnedByEntity(level, (s, def) => def.Type == EntityTypes.PLANT && level.IsHostileFaction(s.Faction));
-                if (killedByHostileContraption)
+                if (entity.IsFriendlyEntity() && !entity.Level.IsIZombie())
                 {
-                    Global.Saves.Unlock(VanillaUnlockID.mesmerisedMatchup);
-                    Global.Saves.SaveToFile(); // 完成成就后保存游戏。
+                    var level = entity.Level;
+                    var killedByHostileContraption = source.IsEntitySpawnedByEntity(level, (s, def) => def.Type == EntityTypes.PLANT && level.IsHostileFaction(s.Faction));
+                    if (killedByHostileContraption)
+                    {
+                        Global.Saves.Unlock(VanillaUnlockID.mesmerisedMatchup);
+                        Global.Saves.SaveToFile(); // 完成成就后保存游戏。
+                    }
                 }
             }
         }

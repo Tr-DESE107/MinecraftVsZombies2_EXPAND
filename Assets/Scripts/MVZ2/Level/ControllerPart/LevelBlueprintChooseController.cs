@@ -72,8 +72,9 @@ namespace MVZ2.Level
 
         protected override SerializableLevelControllerPart GetSerializable()
         {
-            return new SerializableLevelBlueprintChooseController(ID)
+            return new SerializableLevelBlueprintChooseController()
             {
+                id = ID
             };
         }
         public override void LoadFromSerializable(SerializableLevelControllerPart seri)
@@ -1425,8 +1426,5 @@ namespace MVZ2.Level
     [Serializable]
     public class SerializableLevelBlueprintChooseController : SerializableLevelControllerPart
     {
-        public SerializableLevelBlueprintChooseController(NamespaceID id) : base(id)
-        {
-        }
     }
 }

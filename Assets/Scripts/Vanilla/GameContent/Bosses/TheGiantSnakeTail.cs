@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.Bosses
                 var oldEffects = damageInfo.Effects.GetEffects();
                 var newEffects = oldEffects.Union(transferDamageExtraEffects);
                 var effects = new DamageEffectList(newEffects.ToArray());
-                parent.TakeDamage(damageInfo.Amount, effects, damageInfo.Source, damageInfo.ShieldTarget);
+                parent.TakeDamageSourced(damageInfo.Amount, effects, damageInfo.Source, damageInfo.ShieldTarget);
                 self.DamageBlink();
                 result.SetFinalValue(false);
             }

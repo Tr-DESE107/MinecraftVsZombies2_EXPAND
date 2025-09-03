@@ -200,8 +200,10 @@ namespace MVZ2.Collisions
         }
         public SerializableUnityEntityCollider ToSerializable()
         {
-            return new SerializableUnityEntityCollider(Name, collisionList.Select(c => c.ToSerializable()).ToArray())
+            return new SerializableUnityEntityCollider()
             {
+                name = Name,
+                collisionList = collisionList.Select(c => c.ToSerializable()).ToArray(),
                 enabled = Enabled,
                 armorSlot = ArmorSlot,
                 updateMode = (int)updateMode,
@@ -212,6 +214,10 @@ namespace MVZ2.Collisions
         }
         public void LoadFromSerializable(ISerializableCollisionCollider seri, Entity entity)
         {
+            if (string.IsNullOrEmpty(seri.Name))
+            {
+                throw MissingSerializeDataException.Property<UnityEntityCollider>(nameof(Name));
+            }
             Entity = entity;
             Name = seri.Name;
             ArmorSlot = seri.ArmorSlot;
@@ -224,7 +230,19 @@ namespace MVZ2.Collisions
         }
         public void LoadCollisions(LevelEngine level, ISerializableCollisionCollider seri)
         {
-            collisionList = seri.Collisions.Select(s => EntityCollision.FromSerializable(s, level)).OfType<EntityCollision>().ToList();
+            collisionList = new List<EntityCollision>();
+            if (seri.Collisions != null)
+            {
+                foreach (var seriCollision in seri.Collisions)
+                {
+                    if (seriCollision == null)
+                        continue;
+                    var collision = EntityCollision.FromSerializable(seriCollision, level);
+                    if (collision == null)
+                        continue;
+                    collisionList.Add(collision);
+                }
+            }
         }
         #endregion
 
@@ -274,25 +292,19 @@ namespace MVZ2.Collisions
     }
     public class SerializableUnityEntityCollider : ISerializableCollisionCollider
     {
-        public string name;
+        public string? name;
         public bool enabled;
         public NamespaceID? armorSlot;
-        public SerializableEntityCollision[] collisionList;
+        public SerializableEntityCollision?[]? collisionList;
         public int updateMode;
         public Vector3 customSize;
         public Vector3 customOffset;
         public Vector3 customPivot;
 
-        public SerializableUnityEntityCollider(string name, SerializableEntityCollision[] collisionList)
-        {
-            this.name = name;
-            this.collisionList = collisionList;
-        }
-
-        string ISerializableCollisionCollider.Name => name;
+        string? ISerializableCollisionCollider.Name => name;
         bool ISerializableCollisionCollider.Enabled => enabled;
         NamespaceID? ISerializableCollisionCollider.ArmorSlot => armorSlot;
-        SerializableEntityCollision[] ISerializableCollisionCollider.Collisions => collisionList;
+        SerializableEntityCollision?[]? ISerializableCollisionCollider.Collisions => collisionList;
         int ISerializableCollisionCollider.UpdateMode => updateMode;
         Vector3 ISerializableCollisionCollider.CustomSize => customSize;
         Vector3 ISerializableCollisionCollider.CustomOffset => customOffset;

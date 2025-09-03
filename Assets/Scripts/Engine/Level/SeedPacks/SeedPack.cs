@@ -207,8 +207,10 @@ namespace PVZEngine.SeedPacks
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             buffs.OnBuffAdded += OnBuffAddedCallback;
             buffs.OnBuffRemoved += OnBuffRemovedCallback;
-            buffs.LoadAuras(seri.buffs, level);
-            auras.LoadFromSerializable(level, seri.auras);
+            if (seri.buffs != null)
+                buffs.LoadAuras(seri.buffs, level);
+            if (seri.auras != null)
+                auras.LoadFromSerializable(level, seri.auras);
             UpdateAllBuffedProperties(false);
         }
         #endregion

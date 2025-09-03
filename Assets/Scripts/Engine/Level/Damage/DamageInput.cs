@@ -12,9 +12,9 @@ namespace PVZEngine.Damages
         public DamageEffectList Effects { get; private set; }
         public Entity Entity { get; private set; }
         public NamespaceID? ShieldTarget { get; private set; }
-        public ILevelSourceReference Source { get; set; }
+        public ILevelSourceReference? Source { get; set; }
 
-        public DamageInput(float amount, DamageEffectList effects, Entity entity, ILevelSourceReference source, NamespaceID? shieldTarget = null)
+        public DamageInput(float amount, DamageEffectList effects, Entity entity, ILevelSourceReference? source, NamespaceID? shieldTarget = null)
         {
             OriginalAmount = amount;
             Amount = amount;

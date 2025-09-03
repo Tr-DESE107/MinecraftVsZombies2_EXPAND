@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Artifacts
             var artifact = level.GetArtifact(ID);
             if (artifact == null)
                 return;
-            contraption.HealEffects(contraption.GetMaxHealth(), new ArtifactSourceReference(artifact));
+            contraption.HealEffectsSourced(contraption.GetMaxHealth(), new ArtifactSourceReference(artifact));
             artifact.Highlight();
         }
         public static readonly NamespaceID ID = VanillaArtifactID.dreamKey;

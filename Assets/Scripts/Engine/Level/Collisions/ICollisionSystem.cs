@@ -33,20 +33,20 @@ namespace PVZEngine.Level.Collisions
     }
     public interface ISerializableCollisionSystem
     {
-        ISerializableCollisionEntity[] Entities { get; }
-        ISerializableCollisionEntity[] EntityTrash { get; }
+        ISerializableCollisionEntity?[]? Entities { get; }
+        ISerializableCollisionEntity?[]? EntityTrash { get; }
     }
     public interface ISerializableCollisionEntity
     {
         long ID { get; }
-        ISerializableCollisionCollider[] Colliders { get; }
+        ISerializableCollisionCollider?[]? Colliders { get; }
     }
     public interface ISerializableCollisionCollider
     {
-        string Name { get; }
+        string? Name { get; }
         bool Enabled { get; }
         NamespaceID? ArmorSlot { get; }
-        SerializableEntityCollision[] Collisions { get; }
+        SerializableEntityCollision?[]? Collisions { get; }
         int UpdateMode { get; }
         Vector3 CustomSize { get; }
         Vector3 CustomOffset { get; }

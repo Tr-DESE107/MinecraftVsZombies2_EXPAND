@@ -62,7 +62,7 @@ namespace MVZ2.Metas
                 {
                     var meta = MapStageMeta.FromXmlNode(stagesNode.ChildNodes[i], defaultNsp);
                     if (meta != null)
-                        stages[i] = meta;
+                        stages.Add(meta);
                 }
             }
             return new MapMeta(id, presets.ToArray(), stages.ToArray())

@@ -56,13 +56,13 @@ namespace PVZEngine.Level
         public void ReadRandomFromSerializable(SerializableLevel seri)
         {
             Seed = seri.seed;
-            levelRandom = RandomGenerator.FromSerializable(seri.levelRandom);
-            entityRandom = RandomGenerator.FromSerializable(seri.entityRandom);
-            effectRandom = RandomGenerator.FromSerializable(seri.effectRandom);
-            roundRandom = RandomGenerator.FromSerializable(seri.roundRandom);
-            spawnRandom = RandomGenerator.FromSerializable(seri.spawnRandom);
-            conveyorRandom = RandomGenerator.FromSerializable(seri.conveyorRandom);
-            miscRandom = RandomGenerator.FromSerializable(seri.miscRandom);
+            levelRandom = seri.levelRandom != null ? RandomGenerator.FromSerializable(seri.levelRandom) : new RandomGenerator(Seed);
+            entityRandom = seri.entityRandom != null ? RandomGenerator.FromSerializable(seri.entityRandom) : new RandomGenerator(Seed);
+            effectRandom = seri.effectRandom != null ? RandomGenerator.FromSerializable(seri.effectRandom) : new RandomGenerator(Seed);
+            roundRandom = seri.roundRandom != null ? RandomGenerator.FromSerializable(seri.roundRandom) : new RandomGenerator(Seed);
+            spawnRandom = seri.spawnRandom != null ? RandomGenerator.FromSerializable(seri.spawnRandom) : new RandomGenerator(Seed);
+            conveyorRandom = seri.conveyorRandom != null ? RandomGenerator.FromSerializable(seri.conveyorRandom) : new RandomGenerator(Seed);
+            miscRandom = seri.miscRandom != null ? RandomGenerator.FromSerializable(seri.miscRandom) : new RandomGenerator(Seed);
         }
         public int Seed { get; private set; }
         private RandomGenerator levelRandom = null!;

@@ -10,13 +10,13 @@ namespace PVZEngine.Armors
     [Serializable]
     public class SerializableArmor
     {
-        public NamespaceID definitionID = null!;
+        public NamespaceID? definitionID;
         public float health;
-        public NamespaceID slot = null!;
+        public NamespaceID? slot;
         [Obsolete]
         public long currentBuffID;
-        public SerializableBuffList buffs = null!;
-        public SerializablePropertyBlock properties = null!;
-        public SerializableAuraEffect[] auras = null!;
+        public SerializableBuffList? buffs;
+        public SerializablePropertyBlock? properties;
+        public SerializableAuraEffect[]? auras;
     }
 }

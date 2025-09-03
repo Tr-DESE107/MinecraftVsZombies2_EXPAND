@@ -165,6 +165,8 @@ namespace MVZ2.Models
                         break;
                     var animator = animators[i];
                     var data = serializable.animators[i];
+                    if (data == null)
+                        continue;
                     data.Deserialize(animator);
                 }
             }
@@ -207,6 +209,6 @@ namespace MVZ2.Models
     }
     public class SerializableModelGroup
     {
-        public SerializableAnimator[] animators = null!;
+        public SerializableAnimator?[]? animators;
     }
 }

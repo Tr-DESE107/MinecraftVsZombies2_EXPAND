@@ -6,7 +6,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using MVZ2.UI;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -219,7 +218,12 @@ namespace MVZ2.Level
         {
             var classicBlueprints = this.classicBlueprints.Select(b => b == null ? null : b.ToSerializable()).ToArray();
             var conveyorBlueprints = this.conveyorBlueprints.Select(b => b.ToSerializable()).ToArray();
-            return new SerializableLevelBlueprintController(ID, classicBlueprints, conveyorBlueprints);
+            return new SerializableLevelBlueprintController()
+            {
+                id = ID,
+                classicBlueprints = classicBlueprints,
+                conveyorBlueprints = conveyorBlueprints
+            };
         }
         public override void LoadFromSerializable(SerializableLevelControllerPart seri)
         {
@@ -228,29 +232,35 @@ namespace MVZ2.Level
             UpdateUIClassicBlueprintCount();
             var seedPacks = Level.GetAllSeedPacks();
             classicBlueprints = new ClassicBlueprintController[seedPacks.Length];
-            for (int i = 0; i < seedPacks.Length; i++)
+            if (serializable.classicBlueprints != null)
             {
-                var controller = CreateClassicSeedController(i);
-                if (controller == null)
-                    continue;
-                var seriSeed = serializable.classicBlueprints[i];
-                if (seriSeed == null)
-                    throw new SerializationException($"Could not find classic blueprint data at index {i} in the level state data.");
-                controller.LoadFromSerializable(seriSeed);
-                controller.UpdateFrame(0);
+                for (int i = 0; i < seedPacks.Length; i++)
+                {
+                    var controller = CreateClassicSeedController(i);
+                    if (controller == null)
+                        continue;
+                    var seriSeed = serializable.classicBlueprints[i];
+                    if (seriSeed == null)
+                        throw new SerializationException($"Could not find classic blueprint data at index {i} in the level state data.");
+                    controller.LoadFromSerializable(seriSeed);
+                    controller.UpdateFrame(0);
+                }
             }
             UpdateUIConveyorBlueprintCount();
             var conveyorSeedPacks = Level.GetAllConveyorSeedPacks();
-            for (int i = 0; i < conveyorSeedPacks.Length; i++)
+            if (serializable.conveyorBlueprints != null)
             {
-                var controller = CreateConveyorSeedController(i);
-                if (controller == null)
-                    continue;
-                var seriSeed = serializable.conveyorBlueprints[i];
-                if (seriSeed == null)
-                    throw new SerializationException($"Could not find conveyor blueprint data at index {i} in the level state data.");
-                controller.LoadFromSerializable(seriSeed);
-                controller.UpdateFrame(0);
+                for (int i = 0; i < conveyorSeedPacks.Length; i++)
+                {
+                    var controller = CreateConveyorSeedController(i);
+                    if (controller == null)
+                        continue;
+                    var seriSeed = serializable.conveyorBlueprints[i];
+                    if (seriSeed == null)
+                        throw new SerializationException($"Could not find conveyor blueprint data at index {i} in the level state data.");
+                    controller.LoadFromSerializable(seriSeed);
+                    controller.UpdateFrame(0);
+                }
             }
         }
 
@@ -308,14 +318,8 @@ namespace MVZ2.Level
     [Serializable]
     public class SerializableLevelBlueprintController : SerializableLevelControllerPart
     {
-        public SerializableBlueprintController?[] classicBlueprints;
-        public SerializableBlueprintController[] conveyorBlueprints;
-
-        public SerializableLevelBlueprintController(NamespaceID id, SerializableBlueprintController?[] classicBlueprints, SerializableBlueprintController[] conveyorBlueprints) : base(id)
-        {
-            this.classicBlueprints = classicBlueprints;
-            this.conveyorBlueprints = conveyorBlueprints;
-        }
+        public SerializableBlueprintController?[]? classicBlueprints;
+        public SerializableBlueprintController?[]? conveyorBlueprints;
     }
     public interface ILevelBlueprintRuntimeUI
     {

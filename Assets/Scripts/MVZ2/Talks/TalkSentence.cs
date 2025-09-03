@@ -89,7 +89,7 @@ namespace MVZ2.TalkData
                 }
             }
 
-            return new TalkSentence(text, sounds.ToArray(), startScripts ?? Array.Empty<TalkScript>(), clickScripts ?? Array.Empty<TalkScript>())
+            return new TalkSentence(text, sounds ?? Array.Empty<NamespaceID>(), startScripts ?? Array.Empty<TalkScript>(), clickScripts ?? Array.Empty<TalkScript>())
             {
                 speaker = speaker,
                 speakerName = speakerName,

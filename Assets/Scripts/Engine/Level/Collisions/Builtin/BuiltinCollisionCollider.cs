@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PVZEngine.Base;
 using PVZEngine.Level;
 using PVZEngine.Level.Collisions;
 using Tools.Mathematics;
@@ -178,9 +179,10 @@ namespace PVZEngine.Entities
         }
         public SerializableEntityCollider ToSerializable()
         {
-            var collisionList = this.collisionList.Select(c => c.ToSerializable()).ToArray();
-            var seri = new SerializableEntityCollider(Name, collisionList)
+            var seri = new SerializableEntityCollider()
             {
+                name = Name,
+                collisionList = collisionList.Select(c => c.ToSerializable()).ToArray(),
                 enabled = Enabled,
                 armorSlot = ArmorSlot,
             };
@@ -199,6 +201,10 @@ namespace PVZEngine.Entities
         }
         public static BuiltinCollisionCollider FromSerializable(ISerializableCollisionCollider seri, Entity entity)
         {
+            if (string.IsNullOrEmpty(seri.Name))
+            {
+                throw MissingSerializeDataException.Property<BuiltinCollisionCollider>(nameof(Name));
+            }
             var collider = new BuiltinCollisionCollider(entity, seri.Name);
             collider.SetEnabled(seri.Enabled);
             collider.ArmorSlot = seri.ArmorSlot;
@@ -219,9 +225,20 @@ namespace PVZEngine.Entities
             collider.ReevaluateBounds();
             return collider;
         }
-        public void LoadCollisions(LevelEngine level, ISerializableCollisionCollider seri)
+        public void LoadCollisions(LevelEngine level, ISerializableCollisionCollider? seri)
         {
-            collisionList = seri.Collisions.Select(s => EntityCollision.FromSerializable(s, level)).OfType<EntityCollision>().ToList();
+            if (seri == null || seri.Collisions == null)
+                return;
+            collisionList = new List<EntityCollision>();
+            foreach (var seriCollision in seri.Collisions)
+            {
+                if (seriCollision == null)
+                    continue;
+                var collision = EntityCollision.FromSerializable(seriCollision, level);
+                if (collision == null)
+                    continue;
+                collisionList.Add(collision);
+            }
         }
         #endregion
 

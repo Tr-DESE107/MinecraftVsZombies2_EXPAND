@@ -30,7 +30,11 @@ namespace MVZ2.Level.Components
         {
             return new SerializableLightComponent()
             {
-                lightSources = lightSources.Select(pair => new SerializableLightSourceInfo(pair.Key, pair.Value)).ToArray()
+                lightSources = lightSources.Select(pair => new SerializableLightSourceInfo()
+                {
+                    id = pair.Key,
+                    illuminatingEntities = pair.Value.illuminatingEntities.ToArray()
+                }).ToArray()
             };
         }
         public override void LoadSerializable(ISerializableLevelComponent seri)
@@ -44,7 +48,7 @@ namespace MVZ2.Level.Components
             {
                 if (info == null)
                     continue;
-                lightSources.Add(info.id, info.ToDeserialized());
+                lightSources.Add(info.id, LightSourceInfo.Deserialize(info));
             }
         }
         #endregion

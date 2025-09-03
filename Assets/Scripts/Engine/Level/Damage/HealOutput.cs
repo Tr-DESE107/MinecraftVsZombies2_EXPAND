@@ -8,13 +8,13 @@ namespace PVZEngine.Damages
 {
     public class HealOutput
     {
-        public HealOutput(Entity entity, ILevelSourceReference source)
+        public HealOutput(Entity entity, ILevelSourceReference? source)
         {
             Source = source;
             Entity = entity;
         }
 
-        public ILevelSourceReference Source { get; set; }
+        public ILevelSourceReference? Source { get; set; }
         public Entity Entity { get; set; }
         public float OriginalAmount { get; set; }
         public float Amount { get; set; }

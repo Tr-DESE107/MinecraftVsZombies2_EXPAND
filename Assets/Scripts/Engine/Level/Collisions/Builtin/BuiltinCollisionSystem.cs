@@ -359,6 +359,8 @@ namespace PVZEngine.Level.Collisions
             {
                 foreach (var seriEnt in seri.Entities)
                 {
+                    if (seriEnt == null)
+                        continue;
                     var entity = CreateCollisionEntity();
                     entity.LoadFromSerializable(level, seriEnt);
                     entities.Add(seriEnt.ID, entity);
@@ -368,6 +370,8 @@ namespace PVZEngine.Level.Collisions
             {
                 foreach (var seriEnt in seri.EntityTrash)
                 {
+                    if (seriEnt == null)
+                        continue;
                     var entity = CreateCollisionEntity();
                     entity.LoadFromSerializable(level, seriEnt);
                     entityTrash.Add(seriEnt.ID, entity);
@@ -377,6 +381,8 @@ namespace PVZEngine.Level.Collisions
             {
                 foreach (var seriEnt in seri.Entities)
                 {
+                    if (seriEnt == null)
+                        continue;
                     var entity = entities[seriEnt.ID];
                     entity.LoadCollisions(level, seriEnt);
                 }
@@ -385,6 +391,8 @@ namespace PVZEngine.Level.Collisions
             {
                 foreach (var seriEnt in seri.EntityTrash)
                 {
+                    if (seriEnt == null)
+                        continue;
                     var entity = entityTrash[seriEnt.ID];
                     entity.LoadCollisions(level, seriEnt);
                 }
@@ -407,10 +415,10 @@ namespace PVZEngine.Level.Collisions
     }
     public class SerializableBuiltinCollisionSystem : ISerializableCollisionSystem
     {
-        public SerializableBuiltinCollisionSystemEntity[] entities = null!;
-        public SerializableBuiltinCollisionSystemEntity[] entityTrash = null!;
-        ISerializableCollisionEntity[] ISerializableCollisionSystem.Entities => entities;
-        ISerializableCollisionEntity[] ISerializableCollisionSystem.EntityTrash => entityTrash;
+        public SerializableBuiltinCollisionSystemEntity?[]? entities;
+        public SerializableBuiltinCollisionSystemEntity?[]? entityTrash;
+        ISerializableCollisionEntity?[]? ISerializableCollisionSystem.Entities => entities;
+        ISerializableCollisionEntity?[]? ISerializableCollisionSystem.EntityTrash => entityTrash;
     }
     public class ColliderComparer : IComparer<BuiltinCollisionCollider>
     {

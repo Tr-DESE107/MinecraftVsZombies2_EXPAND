@@ -23,7 +23,7 @@ namespace PVZEngine.Entities
     {
         #region 公有方法
 
-        public Entity(LevelEngine level, long id, ILevelSourceReference spawnerSource, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerSource)
+        public Entity(LevelEngine level, long id, ILevelSourceReference? spawnerSource, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerSource)
         {
             Definition = definition;
             ModelID = definition.GetModelID();
@@ -33,7 +33,7 @@ namespace PVZEngine.Entities
             CreateAuraEffects();
             UpdateModifierCaches();
         }
-        private Entity(LevelEngine level, int type, long id, ILevelSourceReference spawnerSource)
+        private Entity(LevelEngine level, int type, long id, ILevelSourceReference? spawnerSource)
         {
             Definition = null!;
             ModelID = null!;
@@ -141,9 +141,9 @@ namespace PVZEngine.Entities
         }
         public void Die(DamageEffectList effects, Entity? source = null, BodyDamageResult? damage = null)
         {
-            Die(effects, source == null ? new NullSourceReference() : new EntitySourceReference(source), damage);
+            Die(effects, source == null ? null : new EntitySourceReference(source), damage);
         }
-        public void Die(DamageEffectList effects, ILevelSourceReference source, BodyDamageResult? damage = null)
+        public void Die(DamageEffectList effects, ILevelSourceReference? source, BodyDamageResult? damage = null)
         {
             Die(new DeathInfo(this, effects, source, damage));
         }
@@ -151,7 +151,7 @@ namespace PVZEngine.Entities
         {
             if (IsDead)
                 return;
-            info = info ?? new DeathInfo(this, new DamageEffectList(), new NullSourceReference(), null);
+            info = info ?? new DeathInfo(this, new DamageEffectList(), null, null);
             IsDead = true;
             Definition.PostDeath(this, info);
             var param = new LevelCallbacks.PostEntityDeathParams()
@@ -864,12 +864,12 @@ namespace PVZEngine.Entities
         {
             time = seri.time;
             InitSeed = seri.initSeed;
-            RNG = RandomGenerator.FromSerializable(seri.rng);
-            DropRNG = RandomGenerator.FromSerializable(seri.dropRng);
+            RNG = seri.rng != null ? RandomGenerator.FromSerializable(seri.rng) : new RandomGenerator(InitSeed);
+            DropRNG = seri.dropRng != null ? RandomGenerator.FromSerializable(seri.dropRng) : new RandomGenerator(InitSeed);
             State = seri.state;
             Target = Level.FindEntityByID(seri.target);
 
-            ModelID = seri.modelID;
+            ModelID = seri.modelID ?? Definition.GetID();
             Parent = Level.FindEntityByID(seri.parent);
             PreviousPosition = seri.previousPosition;
             Position = seri.position;
@@ -882,15 +882,18 @@ namespace PVZEngine.Entities
 
             // 护甲
             armorDict.Clear();
-            foreach (var pair in seri.armors)
+            if (seri.armors != null)
             {
-                if (pair.Value == null)
-                    continue;
-                var slot = NamespaceID.ParseStrict(pair.Key);
-                var armor = Armor.Deserialize(pair.Value, this);
-                if (armor == null)
-                    continue;
-                armorDict.Add(slot, armor);
+                foreach (var pair in seri.armors)
+                {
+                    if (pair.Value == null)
+                        continue;
+                    var slot = NamespaceID.ParseStrict(pair.Key);
+                    var armor = Armor.Deserialize(pair.Value, this);
+                    if (armor == null)
+                        continue;
+                    armorDict.Add(slot, armor);
+                }
             }
 
             IsDead = seri.isDead;
@@ -948,15 +951,17 @@ namespace PVZEngine.Entities
         }
         public void LoadAuras(SerializableEntity seri)
         {
-            buffs.LoadAuras(seri.buffs, Level);
+            if (seri.buffs != null)
+                buffs.LoadAuras(seri.buffs, Level);
 
             CreateAuraEffects();
-            auras.LoadFromSerializable(Level, seri.auras);
+            if (seri.auras != null)
+                auras.LoadFromSerializable(Level, seri.auras);
 
             foreach (var pair in armorDict)
             {
                 var armor = pair.Value;
-                if (armor == null)
+                if (armor == null || seri.armors == null)
                     continue;
                 var seriArmor = seri.armors.Values.FirstOrDefault(a => a.slot == pair.Key);
                 if (seriArmor == null)
@@ -1073,7 +1078,7 @@ namespace PVZEngine.Entities
         public bool Removed { get; private set; }
         public EntityDefinition Definition { get; private set; }
         public NamespaceID ModelID { get; private set; }
-        public ILevelSourceReference SpawnerReference { get; private set; }
+        public ILevelSourceReference? SpawnerReference { get; private set; }
         public Entity? Parent { get; private set; }
         public LevelEngine Level { get; private set; }
         public Vector3 PreviousPosition { get; private set; }

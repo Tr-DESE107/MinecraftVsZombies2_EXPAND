@@ -14,8 +14,9 @@ namespace MVZ2.Options
         }
         public SerializableOptions ToSerializable()
         {
-            return new SerializableOptions(keyBindings.ToSerializable())
+            return new SerializableOptions()
             {
+                keyBindings = keyBindings.ToSerializable(),
                 skipAllTalks = skipAllTalks,
                 showSponsorNames = showSponsorNames,
                 blueprintWarningsDisabled = blueprintWarningsDisabled,
@@ -30,7 +31,8 @@ namespace MVZ2.Options
         {
             if (options == null)
                 return;
-            keyBindings.LoadFromSerializable(options.keyBindings);
+            if (options.keyBindings != null)
+                keyBindings.LoadFromSerializable(options.keyBindings);
             skipAllTalks = options.skipAllTalks;
             showSponsorNames = options.showSponsorNames;
             blueprintWarningsDisabled = options.blueprintWarningsDisabled;
@@ -69,7 +71,7 @@ namespace MVZ2.Options
     [BsonIgnoreExtraElements]
     public class SerializableOptions
     {
-        public SerializableKeyBindingOptions keyBindings;
+        public SerializableKeyBindingOptions? keyBindings;
         public bool skipAllTalks;
         public bool showSponsorNames;
         public bool blueprintWarningsDisabled;
@@ -78,10 +80,5 @@ namespace MVZ2.Options
         public bool showHotkeyIndicators;
         public bool hdrLightingDisabled;
         public bool heightIndicatorEnabled;
-
-        public SerializableOptions(SerializableKeyBindingOptions keyBindings)
-        {
-            this.keyBindings = keyBindings;
-        }
     }
 }

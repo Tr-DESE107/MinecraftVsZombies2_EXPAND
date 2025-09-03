@@ -112,8 +112,11 @@ namespace PVZEngine.Level.Collisions
 
         public SerializableBuiltinCollisionSystemEntity ToSerializable()
         {
-            var colliders = this.colliders.ConvertAll(c => c.ToSerializable()).ToArray();
-            return new SerializableBuiltinCollisionSystemEntity(entity.ID, colliders);
+            return new SerializableBuiltinCollisionSystemEntity()
+            {
+                id = entity.ID,
+                colliders = colliders.ConvertAll(c => c.ToSerializable()).ToArray()
+            };
         }
         public void LoadFromSerializable(LevelEngine level, ISerializableCollisionEntity seri)
         {
@@ -121,20 +124,27 @@ namespace PVZEngine.Level.Collisions
             if (ent == null)
                 return;
             entity = ent;
-            foreach (var seriCollider in seri.Colliders)
+            if (seri.Colliders != null)
             {
-                var collider = BuiltinCollisionCollider.FromSerializable(seriCollider, ent);
-                AddCollider(collider);
+                foreach (var seriCollider in seri.Colliders)
+                {
+                    if (seriCollider == null)
+                        continue;
+                    var collider = BuiltinCollisionCollider.FromSerializable(seriCollider, ent);
+                    AddCollider(collider);
+                }
             }
         }
         public void LoadCollisions(LevelEngine level, ISerializableCollisionEntity seri)
         {
-            if (seri == null)
+            if (seri == null || seri.Colliders == null)
                 return;
             for (int i = 0; i < colliders.Count; i++)
             {
-                var collider = colliders[i];
                 var seriCollider = seri.Colliders[i];
+                if (seriCollider == null)
+                    continue;
+                var collider = colliders[i];
                 collider.LoadCollisions(level, seriCollider);
             }
         }
@@ -150,15 +160,9 @@ namespace PVZEngine.Level.Collisions
     public class SerializableBuiltinCollisionSystemEntity : ISerializableCollisionEntity
     {
         public long id;
-        public SerializableEntityCollider[] colliders;
-
-        public SerializableBuiltinCollisionSystemEntity(long id, SerializableEntityCollider[] colliders)
-        {
-            this.id = id;
-            this.colliders = colliders;
-        }
+        public SerializableEntityCollider?[]? colliders;
 
         long ISerializableCollisionEntity.ID => id;
-        ISerializableCollisionCollider[] ISerializableCollisionEntity.Colliders => colliders;
+        ISerializableCollisionCollider?[]? ISerializableCollisionEntity.Colliders => colliders;
     }
 }

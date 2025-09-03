@@ -74,13 +74,13 @@ namespace MVZ2.Vanilla.Entities
         }
         public static DamageOutput TakeDamageNoSource(this Entity entity, float amount, DamageEffectList effects, NamespaceID? armorSlot = null)
         {
-            return entity.TakeDamage(amount, effects, new NullSourceReference(), armorSlot);
+            return entity.TakeDamageSourced(amount, effects, null, armorSlot);
         }
         public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, Entity source, NamespaceID? armorSlot = null)
         {
-            return entity.TakeDamage(amount, effects, new EntitySourceReference(source), armorSlot);
+            return entity.TakeDamageSourced(amount, effects, new EntitySourceReference(source), armorSlot);
         }
-        public static DamageOutput TakeDamage(this Entity entity, float amount, DamageEffectList effects, ILevelSourceReference source, NamespaceID? armorSlot = null)
+        public static DamageOutput TakeDamageSourced(this Entity entity, float amount, DamageEffectList effects, ILevelSourceReference? source, NamespaceID? armorSlot = null)
         {
             return TakeDamage(new DamageInput(amount, effects, entity, source, armorSlot));
         }
@@ -681,11 +681,11 @@ namespace MVZ2.Vanilla.Entities
         #region 治疗
         public static HealOutput? HealEffects(this Entity entity, float amount, Entity? source)
         {
-            return entity.HealEffects(amount, source == null ? new NullSourceReference() : new EntitySourceReference(source));
+            return entity.HealEffectsSourced(amount, source == null ? null : new EntitySourceReference(source));
         }
-        public static HealOutput? HealEffects(this Entity entity, float amount, ILevelSourceReference source)
+        public static HealOutput? HealEffectsSourced(this Entity entity, float amount, ILevelSourceReference? source)
         {
-            var result = entity.Heal(amount, source);
+            var result = entity.HealSourced(amount, source);
             if (result == null)
                 return null;
             if (result.RealAmount >= 0)
@@ -696,9 +696,9 @@ namespace MVZ2.Vanilla.Entities
         }
         public static HealOutput? Heal(this Entity entity, float amount, Entity? source)
         {
-            return entity.Heal(amount, source == null ? new NullSourceReference() : new EntitySourceReference(source));
+            return entity.HealSourced(amount, source == null ? null : new EntitySourceReference(source));
         }
-        public static HealOutput? Heal(this Entity entity, float amount, ILevelSourceReference source)
+        public static HealOutput? HealSourced(this Entity entity, float amount, ILevelSourceReference? source)
         {
             return Heal(new HealInput(amount, entity, source));
         }
@@ -991,31 +991,31 @@ namespace MVZ2.Vanilla.Entities
         #endregion
 
         #region 状态效果
-        public static bool PreApplyStatusEffect(this Entity entity, BuffDefinition buff, ILevelSourceReference source)
+        public static bool PreApplyStatusEffect(this Entity entity, BuffDefinition buff, ILevelSourceReference? source)
         {
             var param = new VanillaLevelCallbacks.PreApplyStatusEffectParams(entity, buff, source);
             var result = new CallbackResult(true);
             entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_APPLY_STATUS_EFFECT, param, result, buff.GetID());
             return result.GetValue<bool>();
         }
-        public static void PostApplyStatusEffect(this Entity entity, Buff buff, ILevelSourceReference source)
+        public static void PostApplyStatusEffect(this Entity entity, Buff buff, ILevelSourceReference? source)
         {
             var param = new VanillaLevelCallbacks.PostApplyStatusEffectParams(entity, buff, source);
             entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_APPLY_STATUS_EFFECT, param, buff.Definition.GetID());
         }
-        public static bool PreRemoveStatusEffect(this Entity entity, BuffDefinition definition, ILevelSourceReference source)
+        public static bool PreRemoveStatusEffect(this Entity entity, BuffDefinition definition, ILevelSourceReference? source)
         {
             var param = new VanillaLevelCallbacks.PreRemoveStatusEffectParams(entity, definition, source);
             var result = new CallbackResult(true);
             entity.Level.Triggers.RunCallbackWithResultFiltered(VanillaLevelCallbacks.PRE_REMOVE_STATUS_EFFECT, param, result, definition.GetID());
             return result.GetValue<bool>();
         }
-        public static void PostRemoveStatusEffect(this Entity entity, BuffDefinition definition, ILevelSourceReference source)
+        public static void PostRemoveStatusEffect(this Entity entity, BuffDefinition definition, ILevelSourceReference? source)
         {
             var param = new VanillaLevelCallbacks.PostRemoveStatusEffectParams(entity, definition, source);
             entity.Level.Triggers.RunCallbackFiltered(VanillaLevelCallbacks.POST_REMOVE_STATUS_EFFECT, param, definition.GetID());
         }
-        public static void InflictWither(this Entity entity, int time, ILevelSourceReference source)
+        public static void InflictWither(this Entity entity, int time, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.withered);
             if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
@@ -1029,7 +1029,7 @@ namespace MVZ2.Vanilla.Entities
             PostApplyStatusEffect(entity, buff, source);
         }
 
-        public static void InflictWeakness(this Entity entity, int time, ILevelSourceReference source)
+        public static void InflictWeakness(this Entity entity, int time, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.enemyWeakness);
             if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
@@ -1043,7 +1043,7 @@ namespace MVZ2.Vanilla.Entities
             PostApplyStatusEffect(entity, buff, source);
         }
 
-        public static void ShortCircuit(this Entity entity, int time, ILevelSourceReference source)
+        public static void ShortCircuit(this Entity entity, int time, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Contraption.frankensteinShocked);
             if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
@@ -1057,7 +1057,7 @@ namespace MVZ2.Vanilla.Entities
             PostApplyStatusEffect(entity, buff, source);
         }
 
-        public static void InflictSlow(this Entity entity, int time, ILevelSourceReference source)
+        public static void InflictSlow(this Entity entity, int time, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.slow);
             if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
@@ -1072,7 +1072,7 @@ namespace MVZ2.Vanilla.Entities
             PostApplyStatusEffect(entity, buff, source);
         }
 
-        public static void Unfreeze(this Entity entity, ILevelSourceReference source)
+        public static void Unfreeze(this Entity entity, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Enemy.slow);
             if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))
@@ -1081,7 +1081,7 @@ namespace MVZ2.Vanilla.Entities
             PostRemoveStatusEffect(entity, buffDefinition, source);
         }
         #region 魅惑
-        public static void CharmPermanent(this Entity entity, int faction, ILevelSourceReference source)
+        public static void CharmPermanent(this Entity entity, int faction, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.charm);
             if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
@@ -1096,7 +1096,7 @@ namespace MVZ2.Vanilla.Entities
             PostApplyStatusEffect(entity, buff, source);
         }
 
-        public static void CharmWithController(this Entity entity, Entity controller, ILevelSourceReference source)
+        public static void CharmWithController(this Entity entity, Entity controller, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.charm);
             if (buffDefinition == null || !PreApplyStatusEffect(entity, buffDefinition, source))
@@ -1110,7 +1110,7 @@ namespace MVZ2.Vanilla.Entities
             buff.Update();
             PostApplyStatusEffect(entity, buff, source);
         }
-        public static void RemoveCharm(this Entity entity, ILevelSourceReference source)
+        public static void RemoveCharm(this Entity entity, ILevelSourceReference? source)
         {
             var buffDefinition = entity.Level.Content.GetBuffDefinition(VanillaBuffID.Entity.charm);
             if (buffDefinition == null || !PreRemoveStatusEffect(entity, buffDefinition, source))

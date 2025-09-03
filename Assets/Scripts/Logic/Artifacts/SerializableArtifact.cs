@@ -10,9 +10,9 @@ namespace MVZ2Logic.Artifacts
     [Serializable]
     public class SerializableArtifact
     {
-        public NamespaceID definitionID = null!;
-        public SerializableRNG rng = null!;
-        public SerializablePropertyDictionary propertyDict = null!;
-        public SerializableAuraEffect[] auras = null!;
+        public NamespaceID? definitionID;
+        public SerializableRNG? rng;
+        public SerializablePropertyDictionary? propertyDict;
+        public SerializableAuraEffect[]? auras;
     }
 }

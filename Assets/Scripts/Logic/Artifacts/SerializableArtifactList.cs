@@ -7,6 +7,6 @@ namespace MVZ2Logic.Artifacts
     [Serializable]
     public class SerializableArtifactList
     {
-        public SerializableArtifact?[] artifacts = null!;
+        public SerializableArtifact?[]? artifacts;
     }
 }

@@ -31,8 +31,6 @@ namespace MVZ2.Options
         }
         public void LoadFromSerializable(SerializableKeyBindingOptions seri)
         {
-            if (seri == null)
-                return;
             bindings = seri.bindings.ToDictionary(p => p.Key, p => (KeyCode)p.Value);
         }
 

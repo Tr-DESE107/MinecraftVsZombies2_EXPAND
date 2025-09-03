@@ -94,7 +94,8 @@ namespace MVZ2Logic.Artifacts
             }
             var artifact = new Artifact(level, definition, rng);
             artifact.propertyDict = PropertyDictionary.FromSerializable(seri.propertyDict);
-            artifact.auras.LoadFromSerializable(level, seri.auras);
+            if (seri.auras != null)
+                artifact.auras.LoadFromSerializable(level, seri.auras);
             return artifact;
         }
         private static RandomGenerator CreateRNG(LevelEngine level)

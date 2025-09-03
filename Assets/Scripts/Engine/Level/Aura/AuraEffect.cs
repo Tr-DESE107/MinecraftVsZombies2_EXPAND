@@ -83,17 +83,20 @@ namespace PVZEngine.Auras
         {
             if (serializable == null)
                 return;
-            updateTimer = serializable.updateTimer;
+            updateTimer = serializable.updateTimer ?? updateTimer;
             buffCaches.Clear();
-            foreach (var seriBuff in serializable.buffs)
+            if (serializable.buffs != null)
             {
-                var entity = seriBuff.GetTarget(level);
-                if (entity == null)
-                    continue;
-                var buff = seriBuff.GetBuff(level);
-                if (buff == null)
-                    continue;
-                buffCaches.Add(entity, buff);
+                foreach (var seriBuff in serializable.buffs)
+                {
+                    var entity = seriBuff.GetTarget(level);
+                    if (entity == null)
+                        continue;
+                    var buff = seriBuff.GetBuff(level);
+                    if (buff == null)
+                        continue;
+                    buffCaches.Add(entity, buff);
+                }
             }
         }
         private Buff AddTargetBuff(IBuffTarget target)

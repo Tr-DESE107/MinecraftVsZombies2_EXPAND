@@ -7,25 +7,20 @@ namespace PVZEngine.Entities
 {
     public class SerializableEntityCollider : ISerializableCollisionCollider
     {
-        public SerializableEntityCollider(string name, SerializableEntityCollision[] collisionList)
-        {
-            this.name = name;
-            this.collisionList = collisionList;
-        }
-        public string name;
+        public string? name;
         public bool enabled;
         public NamespaceID? armorSlot;
-        public SerializableEntityCollision[] collisionList;
+        public SerializableEntityCollision?[]? collisionList;
         public int updateMode;
         public Vector3 customSize;
         public Vector3 customOffset;
         public Vector3 customPivot;
 
 
-        string ISerializableCollisionCollider.Name => name;
+        string? ISerializableCollisionCollider.Name => name;
         bool ISerializableCollisionCollider.Enabled => enabled;
         NamespaceID? ISerializableCollisionCollider.ArmorSlot => armorSlot;
-        SerializableEntityCollision[] ISerializableCollisionCollider.Collisions => collisionList;
+        SerializableEntityCollision?[]? ISerializableCollisionCollider.Collisions => collisionList;
         int ISerializableCollisionCollider.UpdateMode => updateMode;
         Vector3 ISerializableCollisionCollider.CustomSize => customSize;
         Vector3 ISerializableCollisionCollider.CustomOffset => customOffset;

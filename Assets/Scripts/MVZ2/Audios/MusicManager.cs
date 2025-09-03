@@ -20,10 +20,8 @@ namespace MVZ2.Audios
             var mainTrack = main.ResourceManager.GetMusicClip(meta.MainTrack);
             var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack);
             musicID = id;
-            if (mainTrack.Exists())
-                SetSourceClip(mainTrackSource, mainTrack);
-            if (subTrack.Exists())
-                SetSourceClip(subTrackSource, subTrack);
+            SetSourceClip(mainTrackSource, mainTrack);
+            SetSourceClip(subTrackSource, subTrack);
             IsPaused = false;
 
             PlaySource(mainTrackSource);
@@ -37,17 +35,16 @@ namespace MVZ2.Audios
             var mainTrack = main.ResourceManager.GetMusicClip(meta.MainTrack);
             var subTrack = main.ResourceManager.GetMusicClip(meta.SubTrack);
             musicID = id;
-            if (mainTrack.Exists())
-                SetSourceClip(mainTrackSource, mainTrack);
-            if (subTrack.Exists())
-                SetSourceClip(subTrackSource, subTrack);
+            SetSourceClip(mainTrackSource, mainTrack);
+            SetSourceClip(subTrackSource, subTrack);
             IsPaused = false;
             Time = 0;
         }
-        private void SetSourceClip(AudioSource source, AudioClip clip)
+        private void SetSourceClip(AudioSource source, AudioClip? clip)
         {
+            bool clipValid = clip.Exists();
             source.clip = clip;
-            source.gameObject.SetActive(clip);
+            source.gameObject.SetActive(clipValid);
             UpdateTrackWeight();
         }
         private void PlaySource(AudioSource source)

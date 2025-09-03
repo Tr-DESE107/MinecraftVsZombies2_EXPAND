@@ -14,7 +14,7 @@ namespace MVZ2.Level.Components
     {
         public ArtifactComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
-            artifacts = new ArtifactList(level, 3);
+            artifacts = new ArtifactList(level, ARTIFACT_COUNT);
             artifacts.OnArtifactHighlighted += OnArtifactHighlighted;
         }
         public override void OnStart()
@@ -89,13 +89,16 @@ namespace MVZ2.Level.Components
         }
         public override ISerializableLevelComponent ToSerializable()
         {
-            return new SerializableArtifactComponent(artifacts.ToSerializable());
+            return new SerializableArtifactComponent()
+            {
+                artifacts = artifacts.ToSerializable()
+            };
         }
         public override void LoadSerializable(ISerializableLevelComponent seri)
         {
             if (seri is not SerializableArtifactComponent comp)
                 return;
-            artifacts = ArtifactList.FromSerializable(comp.artifacts, Level);
+            artifacts = comp.artifacts != null ? ArtifactList.FromSerializable(comp.artifacts, Level) : new ArtifactList(Level, ARTIFACT_COUNT);
             artifacts.OnArtifactHighlighted += OnArtifactHighlighted;
             var uiPreset = Controller.GetUIPreset();
             uiPreset.SetArtifactCount(artifacts.GetSlotCount());
@@ -140,16 +143,12 @@ namespace MVZ2.Level.Components
             uiPreset.HighlightArtifact(index);
         }
         private ArtifactList artifacts;
+        public const int ARTIFACT_COUNT = 3;
         public static readonly NamespaceID componentID = new NamespaceID(VanillaMod.spaceName, "artifact");
     }
     [Serializable]
     public class SerializableArtifactComponent : ISerializableLevelComponent
     {
-        public SerializableArtifactList artifacts;
-
-        public SerializableArtifactComponent(SerializableArtifactList artifacts)
-        {
-            this.artifacts = artifacts;
-        }
+        public SerializableArtifactList? artifacts;
     }
 }

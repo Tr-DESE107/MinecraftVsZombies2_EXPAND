@@ -132,7 +132,7 @@ namespace MVZ2Logic.Saves
         protected abstract SerializableModSaveData CreateSerializable();
         protected void LoadFromSerializable(SerializableModSaveData serializable)
         {
-            stats = UserStats.FromSerializable(serializable.stats);
+            stats = serializable.stats != null ? UserStats.FromSerializable(serializable.stats) : stats;
             endlessRecords = serializable.endlessRecords?.Select(i => EndlessRecord.FromSerializable(i))?.ToList() ?? new List<EndlessRecord>();
             levelDifficultyRecords = serializable.levelDifficultyRecords.Select(r => LevelDifficultyRecord.FromSerializable(r)).ToList();
             unlocks = serializable.unlocks.ToHashSet();
@@ -146,12 +146,12 @@ namespace MVZ2Logic.Saves
     public abstract class SerializableModSaveData
     {
         public int version;
-        public string spaceName = null!;
-        public SerializableUserStats stats = null!;
-        public SerializableEndlessRecord[] endlessRecords = null!;
-        public SerializableLevelDifficultyRecord[] levelDifficultyRecords = null!;
-        public string[] unlocks = null!;
+        public string? spaceName;
+        public SerializableUserStats? stats;
+        public SerializableEndlessRecord[]? endlessRecords;
+        public SerializableLevelDifficultyRecord[]? levelDifficultyRecords;
+        public string[]? unlocks;
         [Obsolete]
-        public object[] mapPresetConfigs = null!;
+        public object[]? mapPresetConfigs;
     }
 }

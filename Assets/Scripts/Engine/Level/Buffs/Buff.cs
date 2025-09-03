@@ -134,6 +134,8 @@ namespace PVZEngine.Buffs
         }
         public void LoadAuras(SerializableBuff seri, LevelEngine level)
         {
+            if (seri.auras == null)
+                return;
             auras.LoadFromSerializable(level, seri.auras);
         }
         LevelEngine IAuraSource.GetLevel() { return Level; }

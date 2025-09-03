@@ -259,6 +259,11 @@ namespace PVZEngine.Level
         }
         public static LevelEngine Deserialize(SerializableLevel seri, IGameContent provider, IGameTriggerSystem triggers, ICollisionSystem collisionSystem)
         {
+            if (!NamespaceID.IsValid(seri.stageDefinitionID)) throw MissingSerializeDataException.Property<SerializableLevel>(nameof(seri.stageDefinitionID));
+            if (!NamespaceID.IsValid(seri.areaDefinitionID)) throw MissingSerializeDataException.Property<SerializableLevel>(nameof(seri.areaDefinitionID));
+            if (!NamespaceID.IsValid(seri.difficulty)) throw MissingSerializeDataException.Property<SerializableLevel>(nameof(seri.difficulty));
+            if (seri.Option == null) throw MissingSerializeDataException.Property<SerializableLevel>(nameof(seri.Option));
+
             var level = new LevelEngine(provider, triggers, collisionSystem);
             level.ReadProgressFromSerializable(seri);
             level.ReadRandomFromSerializable(seri);
@@ -300,18 +305,23 @@ namespace PVZEngine.Level
             level.ReadEntitiesFromSerializable(seri);
             // 加载所有网格的属性，需要引用实体。
             level.ReadGridsFromSerializable(seri);
-            level.buffs.LoadAuras(seri.buffs, level);
+            if (seri.buffs != null)
+                level.buffs.LoadAuras(seri.buffs, level);
 
             // 在实体加载后面
-            level.collisionSystem.LoadFromSerializable(level, seri.collisionSystem);
+            if (seri.collisionSystem != null)
+                level.collisionSystem.LoadFromSerializable(level, seri.collisionSystem);
 
             level.delayedEnergyEntities.Clear();
-            foreach (var item in seri.delayedEnergyEntities)
+            if (seri.delayedEnergyEntities != null)
             {
-                var key = level.FindEntityByID(item.entityId);
-                if (key == null)
-                    continue;
-                level.delayedEnergyEntities.Add(key, item.energy);
+                foreach (var item in seri.delayedEnergyEntities)
+                {
+                    var key = level.FindEntityByID(item.entityId);
+                    if (key == null)
+                        continue;
+                    level.delayedEnergyEntities.Add(key, item.energy);
+                }
             }
             level.UpdateAllBuffedProperties(false);
 
@@ -319,6 +329,8 @@ namespace PVZEngine.Level
         }
         public void DeserializeComponents(SerializableLevel seri)
         {
+            if (seri.components == null)
+                return;
             foreach (var seriComp in seri.components)
             {
                 var comp = levelComponents.FirstOrDefault(c => c.GetID().ToString() == seriComp.Key);

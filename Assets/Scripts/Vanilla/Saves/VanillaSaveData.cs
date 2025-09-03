@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using MVZ2Logic.Saves;
 using PVZEngine;
+using PVZEngine.Base;
 
 namespace MVZ2.Vanilla.Saves
 {
@@ -23,15 +24,20 @@ namespace MVZ2.Vanilla.Saves
                 lastSelection = LastSelection,
             };
         }
-        public void LoadSerializable(SerializableVanillaSaveData serializable)
+        public static VanillaSaveData DeserializeFrom(SerializableVanillaSaveData seri)
         {
-            LoadFromSerializable(serializable);
-            LastMapID = serializable.lastMapID;
-            MapTalkID = serializable.mapTalkID;
-            money = serializable.money;
-            LastSelection = serializable.lastSelection;
+            if (string.IsNullOrEmpty(seri.spaceName))
+            {
+                throw MissingSerializeDataException.Property<SerializableVanillaSaveData>(nameof(seri.spaceName));
+            }
+            var saveData = new VanillaSaveData(seri.spaceName);
+            saveData.LoadFromSerializable(seri);
+            saveData.LastMapID = seri.lastMapID;
+            saveData.MapTalkID = seri.mapTalkID;
+            saveData.money = seri.money;
+            saveData.LastSelection = seri.lastSelection;
+            return saveData;
         }
-
         public int GetMoney()
         {
             return money;
@@ -80,12 +86,6 @@ namespace MVZ2.Vanilla.Saves
     [Serializable]
     public class SerializableVanillaSaveData : SerializableModSaveData
     {
-        public VanillaSaveData Deserialize()
-        {
-            var saveData = new VanillaSaveData(spaceName);
-            saveData.LoadSerializable(this);
-            return saveData;
-        }
         public NamespaceID? lastMapID;
         public NamespaceID? mapTalkID;
         public int money;

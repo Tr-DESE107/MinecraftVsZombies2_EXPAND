@@ -125,8 +125,8 @@ namespace PVZEngine.Level
         {
             levelTime = seri.levelTime;
             IsCleared = seri.isCleared;
-            spawnedLanes = seri.spawnedLanes;
-            spawnedID = seri.spawnedID;
+            spawnedLanes = seri.spawnedLanes ?? spawnedLanes;
+            spawnedID = seri.spawnedID ?? spawnedID;
         }
         #endregion
 

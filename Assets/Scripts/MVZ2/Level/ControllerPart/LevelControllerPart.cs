@@ -53,11 +53,6 @@ namespace MVZ2.Level
     [Serializable]
     public abstract class SerializableLevelControllerPart
     {
-        public NamespaceID id;
-
-        protected SerializableLevelControllerPart(NamespaceID id)
-        {
-            this.id = id;
-        }
+        public NamespaceID? id;
     }
 }

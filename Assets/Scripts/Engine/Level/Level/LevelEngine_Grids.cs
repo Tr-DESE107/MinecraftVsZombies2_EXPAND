@@ -51,6 +51,8 @@ namespace PVZEngine.Level
         }
         private void LoadGridsFromSerializable(SerializableLevel seri)
         {
+            if (seri.grids == null)
+                return;
             var count = Mathf.Min(grids.Length, seri.grids.Length);
             for (int i = 0; i < count; i++)
             {
@@ -59,6 +61,8 @@ namespace PVZEngine.Level
         }
         private void ReadGridsFromSerializable(SerializableLevel seri)
         {
+            if (seri.grids == null)
+                return;
             for (int i = 0; i < grids.Length; i++)
             {
                 var grid = grids[i];

@@ -38,14 +38,29 @@ namespace PVZEngine.Level
         }
         public SerializableConveyorSeedSpendRecords ToSerializable()
         {
-            var entries = this.entries.Select(e => e.ToSerializable()).ToArray();
-            return new SerializableConveyorSeedSpendRecords(entries);
+            return new SerializableConveyorSeedSpendRecords()
+            {
+                entries = entries.Select(e => e.ToSerializable()).ToArray()
+            };
         }
-        public static ConveyorSeedSpendRecords ToDeserialized(SerializableConveyorSeedSpendRecords seri)
+        public static ConveyorSeedSpendRecords ToDeserialized(SerializableConveyorSeedSpendRecords? seri)
         {
+            var entries = new List<ConveyorSeedSendRecordEntry>();
+            if (seri != null && seri.entries != null)
+            {
+                foreach (var seriEntry in seri.entries)
+                {
+                    if (seriEntry == null)
+                        continue;
+                    var entry = ConveyorSeedSendRecordEntry.ToDeserialized(seriEntry);
+                    if (entry == null)
+                        continue;
+                    entries.Add(entry);
+                }
+            }
             return new ConveyorSeedSpendRecords()
             {
-                entries = seri.entries.Select(e => ConveyorSeedSendRecordEntry.ToDeserialized(e)).ToList()
+                entries = entries
             };
         }
         private List<ConveyorSeedSendRecordEntry> entries = new List<ConveyorSeedSendRecordEntry>();
@@ -58,10 +73,16 @@ namespace PVZEngine.Level
         }
         public SerializableConveyorSeedSendRecordEntry ToSerializable()
         {
-            return new SerializableConveyorSeedSendRecordEntry(id, spend);
+            return new SerializableConveyorSeedSendRecordEntry()
+            {
+                id = id,
+                spend = spend
+            };
         }
-        public static ConveyorSeedSendRecordEntry ToDeserialized(SerializableConveyorSeedSendRecordEntry seri)
+        public static ConveyorSeedSendRecordEntry? ToDeserialized(SerializableConveyorSeedSendRecordEntry? seri)
         {
+            if (seri == null || !NamespaceID.IsValid(seri.id))
+                return null;
             return new ConveyorSeedSendRecordEntry(seri.id)
             {
                 spend = seri.spend

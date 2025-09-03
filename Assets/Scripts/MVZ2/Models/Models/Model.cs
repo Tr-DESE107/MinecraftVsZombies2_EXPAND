@@ -183,7 +183,7 @@ namespace MVZ2.Models
             {
                 foreach (var seriChild in serializable.childModels)
                 {
-                    if (seriChild.anchor == null || seriChild.key == null || seriChild.id == null)
+                    if (seriChild == null || seriChild.anchor == null || seriChild.key == null || seriChild.id == null)
                         continue;
                     var child = CreateChildModel(seriChild.anchor, seriChild.key, seriChild.id);
                     if (child.Exists())
@@ -203,6 +203,8 @@ namespace MVZ2.Models
             {
                 foreach (var key in serializable.insertions)
                 {
+                    if (!NamespaceID.IsValid(key))
+                        continue;
                     insertions.Add(key);
                 }
             }
@@ -439,17 +441,17 @@ namespace MVZ2.Models
         public SerializableRNG? rng;
         public SerializableModelGroup? graphicGroup;
         public SerializablePropertyDictionaryString? propertyDict;
-        public SerializableModelData[]? childModels;
-        public NamespaceID[]? insertions;
+        public SerializableModelData?[]? childModels;
+        public NamespaceID?[]? insertions;
         public int destroyTimeout;
     }
     public class SerializableAnimator
     {
-        public SerializableAnimatorPlayingData[] playingDatas;
-        public List<string> triggerParameters = new List<string>();
-        public Dictionary<string, bool> boolParameters = new Dictionary<string, bool>();
-        public Dictionary<string, int> intParameters = new Dictionary<string, int>();
-        public Dictionary<string, float> floatParameters = new Dictionary<string, float>();
+        public SerializableAnimatorPlayingData?[]? playingDatas;
+        public List<string?>? triggerParameters = new List<string?>();
+        public Dictionary<string, bool>? boolParameters = new Dictionary<string, bool>();
+        public Dictionary<string, int>? intParameters = new Dictionary<string, int>();
+        public Dictionary<string, float>? floatParameters = new Dictionary<string, float>();
 
         public SerializableAnimator(Animator animator)
         {
@@ -506,53 +508,73 @@ namespace MVZ2.Models
         }
         public void Deserialize(Animator animator)
         {
-            int layerCount = playingDatas.Length;
-
-            foreach (var pair in floatParameters)
+            if (triggerParameters != null)
             {
-                animator.SetFloat(pair.Key, pair.Value);
-            }
-            foreach (var pair in boolParameters)
-            {
-                animator.SetBool(pair.Key, pair.Value);
-            }
-            foreach (var pair in intParameters)
-            {
-                animator.SetInteger(pair.Key, pair.Value);
-            }
-            foreach (string trigger in triggerParameters)
-            {
-                animator.SetTrigger(trigger);
-            }
-
-            for (int i = 0; i < layerCount; i++)
-            {
-                SerializableAnimatorPlayingData playingData = playingDatas[i];
-                int currentNameHash = playingData.currentHash;
-                float currentNormalizedTime = playingData.currentTime;
-
-                animator.Play(currentNameHash, i, currentNormalizedTime);
-            }
-
-            for (int i = 0; i < layerCount; i++)
-            {
-                SerializableAnimatorPlayingData playingData = playingDatas[i];
-                int nextFullPathHash = playingData.nextHash;
-                if (nextFullPathHash != 0)
+                foreach (string? trigger in triggerParameters)
                 {
-                    float nextNormalizedTime = playingData.nextNormalizedTime;
-                    float nextLength = playingData.nextLength;
+                    if (string.IsNullOrEmpty(trigger))
+                        continue;
+                    animator.SetTrigger(trigger);
+                }
+            }
+            if (boolParameters != null)
+            {
+                foreach (var pair in boolParameters)
+                {
+                    animator.SetBool(pair.Key, pair.Value);
+                }
+            }
+            if (intParameters != null)
+            {
+                foreach (var pair in intParameters)
+                {
+                    animator.SetInteger(pair.Key, pair.Value);
+                }
+            }
+            if (floatParameters != null)
+            {
+                foreach (var pair in floatParameters)
+                {
+                    animator.SetFloat(pair.Key, pair.Value);
+                }
+            }
 
-                    var transitionDurationUnit = (DurationUnit)playingData.transitionDurationUnit;
-                    float transitionDuration = playingData.transitionDuration;
-                    float transitionNormalizedTime = playingData.transitionTime;
-                    if (transitionDurationUnit == DurationUnit.Fixed)
+            if (playingDatas != null)
+            {
+                int layerCount = playingDatas.Length;
+                for (int i = 0; i < layerCount; i++)
+                {
+                    var playingData = playingDatas[i];
+                    if (playingData == null)
+                        continue;
+                    int currentNameHash = playingData.currentHash;
+                    float currentNormalizedTime = playingData.currentTime;
+
+                    animator.Play(currentNameHash, i, currentNormalizedTime);
+                }
+
+                for (int i = 0; i < layerCount; i++)
+                {
+                    var playingData = playingDatas[i];
+                    if (playingData == null)
+                        continue;
+                    int nextFullPathHash = playingData.nextHash;
+                    if (nextFullPathHash != 0)
                     {
-                        animator.CrossFadeInFixedTime(nextFullPathHash, transitionDuration, i, nextLength, transitionNormalizedTime);
-                    }
-                    else
-                    {
-                        animator.CrossFade(nextFullPathHash, transitionDuration, i, nextNormalizedTime, transitionNormalizedTime);
+                        float nextNormalizedTime = playingData.nextNormalizedTime;
+                        float nextLength = playingData.nextLength;
+
+                        var transitionDurationUnit = (DurationUnit)playingData.transitionDurationUnit;
+                        float transitionDuration = playingData.transitionDuration;
+                        float transitionNormalizedTime = playingData.transitionTime;
+                        if (transitionDurationUnit == DurationUnit.Fixed)
+                        {
+                            animator.CrossFadeInFixedTime(nextFullPathHash, transitionDuration, i, nextLength, transitionNormalizedTime);
+                        }
+                        else
+                        {
+                            animator.CrossFade(nextFullPathHash, transitionDuration, i, nextNormalizedTime, transitionNormalizedTime);
+                        }
                     }
                 }
             }

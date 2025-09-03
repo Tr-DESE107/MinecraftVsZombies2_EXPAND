@@ -21,13 +21,13 @@ namespace PVZEngine.Entities
         public long target;
         public long parent;
         public int initSeed;
-        public SerializableRNG rng = null!;
-        public SerializableRNG dropRng = null!;
-        public NamespaceID definitionID = null!;
-        public NamespaceID modelID = null!;
+        public SerializableRNG? rng;
+        public SerializableRNG? dropRng;
+        public NamespaceID? definitionID;
+        public NamespaceID? modelID;
         [Obsolete]
-        public EntitySourceReference spawnerReference = null!;
-        public ILevelSourceReference spawnerSource = null!;
+        public EntitySourceReference? spawnerReference;
+        public ILevelSourceReference? spawnerSource;
         public Vector3 previousPosition;
         public Vector3 position;
         public Vector3 velocity;
@@ -36,7 +36,7 @@ namespace PVZEngine.Entities
         public int collisionMaskFriendly;
         public Vector3 renderRotation;
         public Vector3 renderScale;
-        public Dictionary<string, int> takenConveyorSeeds = null!;
+        public Dictionary<string, int>? takenConveyorSeeds;
         public int timeout;
 
         #region 影子
@@ -46,28 +46,28 @@ namespace PVZEngine.Entities
         public Vector3 shadowOffset;
         #endregion
 
-        public Dictionary<string, SerializableArmor> armors = null!;
+        public Dictionary<string, SerializableArmor>? armors;
 
         public bool isDead;
         public float health;
         public bool isOnGround;
         [Obsolete]
         public long currentBuffID;
-        public SerializablePropertyBlock properties = null!;
-        public SerializableBuffList buffs = null!;
-        public List<long> children = null!;
+        public SerializablePropertyBlock? properties;
+        public SerializableBuffList? buffs;
+        public List<long>? children;
         [Obsolete]
-        public List<TakenGridInfo> takenGrids = null!;
-        public List<int> takenGridIndexes = null!;
+        public List<TakenGridInfo>? takenGrids;
+        public List<int>? takenGridIndexes;
 
-        public SerializableAuraEffect[] auras = null!;
+        public SerializableAuraEffect[]? auras;
 
         [Serializable]
         [Obsolete]
         public class TakenGridInfo
         {
             public int grid;
-            public NamespaceID[] layers = null!;
+            public NamespaceID[]? layers;
         }
     }
 }

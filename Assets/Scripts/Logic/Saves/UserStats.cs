@@ -44,7 +44,15 @@ namespace MVZ2Logic.Saves
         {
             var stats = new UserStats();
             if (serializable.categories != null)
-                stats.categories.AddRange(serializable.categories.Select(e => UserStatCategory.FromSerializable(e)));
+            {
+                foreach (var seriCategory in serializable.categories)
+                {
+                    if (seriCategory == null)
+                        continue;
+                    var category = UserStatCategory.FromSerializable(seriCategory);
+                    stats.categories.Add(category);
+                }
+            }
 
             stats.PlayTimeMilliseconds = serializable.playTimeMilliseconds;
 
@@ -71,10 +79,10 @@ namespace MVZ2Logic.Saves
     [BsonIgnoreExtraElements]
     public class SerializableUserStats
     {
-        public SerializableUserStatCategory[] categories = null!;
+        public SerializableUserStatCategory?[]? categories;
         public long playTimeMilliseconds;
         [Obsolete]
         [BsonIgnoreIfNull]
-        public SerializableUserStatEntry[] entries = null!;
+        public SerializableUserStatEntry?[]? entries;
     }
 }

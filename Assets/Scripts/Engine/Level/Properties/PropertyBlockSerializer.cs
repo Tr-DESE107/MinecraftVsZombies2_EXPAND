@@ -14,11 +14,14 @@ namespace PVZEngine.Level.BsonSerializers
         {
             var writer = context.Writer;
             writer.WriteStartDocument();
-            foreach (var pair in value.modifiable.properties.properties)
+            if (value.modifiable?.properties != null)
             {
-                var key = pair.Key;
-                writer.WriteName(key);
-                BsonSerializer.Serialize(writer, typeof(object), pair.Value);
+                foreach (var pair in value.modifiable.properties.properties)
+                {
+                    var key = pair.Key;
+                    writer.WriteName(key);
+                    BsonSerializer.Serialize(writer, typeof(object), pair.Value);
+                }
             }
             writer.WriteEndDocument();
         }
@@ -44,7 +47,10 @@ namespace PVZEngine.Level.BsonSerializers
                     {
                         properties = new SerializablePropertyDictionary(properties)
                     };
-                    return new SerializablePropertyBlock(modifiable);
+                    return new SerializablePropertyBlock()
+                    {
+                        modifiable = modifiable
+                    };
 
                 default:
                     throw CreateCannotDeserializeFromBsonTypeException(bsonType);

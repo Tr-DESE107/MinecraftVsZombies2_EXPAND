@@ -126,9 +126,9 @@ namespace MVZ2.Vanilla.Callbacks
         {
             public Entity entity;
             public BuffDefinition buffDefinition;
-            public ILevelSourceReference source;
+            public ILevelSourceReference? source;
 
-            public PreApplyStatusEffectParams(Entity entity, BuffDefinition definition, ILevelSourceReference source)
+            public PreApplyStatusEffectParams(Entity entity, BuffDefinition definition, ILevelSourceReference? source)
             {
                 this.entity = entity;
                 this.buffDefinition = definition;
@@ -139,9 +139,9 @@ namespace MVZ2.Vanilla.Callbacks
         {
             public Entity entity;
             public Buff buff;
-            public ILevelSourceReference source;
+            public ILevelSourceReference? source;
 
-            public PostApplyStatusEffectParams(Entity entity, Buff buff, ILevelSourceReference source)
+            public PostApplyStatusEffectParams(Entity entity, Buff buff, ILevelSourceReference? source)
             {
                 this.entity = entity;
                 this.buff = buff;
@@ -152,9 +152,9 @@ namespace MVZ2.Vanilla.Callbacks
         {
             public Entity entity;
             public BuffDefinition buffDefinition;
-            public ILevelSourceReference source;
+            public ILevelSourceReference? source;
 
-            public PreRemoveStatusEffectParams(Entity entity, BuffDefinition definition, ILevelSourceReference source)
+            public PreRemoveStatusEffectParams(Entity entity, BuffDefinition definition, ILevelSourceReference? source)
             {
                 this.entity = entity;
                 this.buffDefinition = definition;
@@ -165,9 +165,9 @@ namespace MVZ2.Vanilla.Callbacks
         {
             public Entity entity;
             public BuffDefinition buffDefinition;
-            public ILevelSourceReference source;
+            public ILevelSourceReference? source;
 
-            public PostRemoveStatusEffectParams(Entity entity, BuffDefinition definition, ILevelSourceReference source)
+            public PostRemoveStatusEffectParams(Entity entity, BuffDefinition definition, ILevelSourceReference? source)
             {
                 this.entity = entity;
                 this.buffDefinition = definition;

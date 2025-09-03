@@ -70,7 +70,7 @@ namespace MVZ2.Models
             base.LoadFromSerializable(serializable);
             if (serializable is not SerializableModelGroupRenderer rendererUnit)
                 return;
-            if (renderers != null)
+            if (renderers != null && rendererUnit.renderers != null)
             {
                 for (int i = 0; i < renderers.Count; i++)
                 {
@@ -78,10 +78,12 @@ namespace MVZ2.Models
                         break;
                     var element = renderers[i];
                     var data = rendererUnit.renderers[i];
+                    if (data == null)
+                        continue;
                     element.LoadFromSerializable(data);
                 }
             }
-            if (particles != null)
+            if (particles != null && rendererUnit.particles != null)
             {
                 for (int i = 0; i < particles.Count; i++)
                 {
@@ -89,6 +91,8 @@ namespace MVZ2.Models
                         break;
                     var particle = particles[i];
                     var data = rendererUnit.particles[i];
+                    if (data == null)
+                        continue;
                     particle.LoadFromSerializable(data);
                 }
             }
@@ -144,7 +148,7 @@ namespace MVZ2.Models
     }
     public abstract class SerializableModelGroupRenderer : SerializableModelGroup
     {
-        public SerializableParticleSystem[] particles = null!;
-        public SerializableGraphicElement[] renderers = null!;
+        public SerializableParticleSystem?[]? particles;
+        public SerializableGraphicElement?[]? renderers;
     }
 }

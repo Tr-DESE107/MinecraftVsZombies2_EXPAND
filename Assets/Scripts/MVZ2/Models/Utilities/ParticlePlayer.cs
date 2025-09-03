@@ -137,7 +137,7 @@ namespace MVZ2.Models
         public int state;
         public int seed;
         public float time;
-        public SerializableParticle[] particles;
+        public SerializableParticle?[]? particles;
         public SerializableParticleSystem(ParticleSystem particleSystem)
         {
             seed = (int)particleSystem.randomSeed;
@@ -153,14 +153,19 @@ namespace MVZ2.Models
             particleSystem.randomSeed = (uint)seed;
             particleSystem.time = time;
 
-            int count = particles.Length;
-            var parts = new ParticleSystem.Particle[count];
-            for (int i = 0; i < count; i++)
+            if (particles != null)
             {
-                var particleData = particles[i];
-                parts[i] = particleData.Deserialize();
+                int count = particles.Length;
+                var parts = new ParticleSystem.Particle[count];
+                for (int i = 0; i < count; i++)
+                {
+                    var particleData = particles[i];
+                    if (particleData == null)
+                        continue;
+                    parts[i] = particleData.Deserialize();
+                }
+                particleSystem.SetParticles(parts);
             }
-            particleSystem.SetParticles(parts);
             SetState((ParticleState)state, particleSystem);
         }
         private ParticleState GetState(ParticleSystem particleSystem)

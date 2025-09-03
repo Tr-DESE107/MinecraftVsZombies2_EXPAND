@@ -57,12 +57,14 @@ namespace PVZEngine.Level
         public void ClearFallbackCaches() => modifiableProperties.ClearFallbackCaches();
         public SerializablePropertyBlock ToSerializable()
         {
-            return new SerializablePropertyBlock(modifiableProperties.ToSerializable());
+            return new SerializablePropertyBlock()
+            {
+                modifiable = modifiableProperties.ToSerializable()
+            };
         }
-        public static PropertyBlock FromSerializable(SerializablePropertyBlock seri, IPropertyModifyTarget container)
+        public static PropertyBlock FromSerializable(SerializablePropertyBlock? seri, IPropertyModifyTarget container)
         {
-            var block = new PropertyBlock(ModifiableProperties.FromSerializable(seri.modifiable, container));
-            return block;
+            return new PropertyBlock(ModifiableProperties.FromSerializable(seri?.modifiable, container));
         }
 
         private ModifiableProperties modifiableProperties;
@@ -70,11 +72,6 @@ namespace PVZEngine.Level
     [Serializable]
     public class SerializablePropertyBlock
     {
-        public SerializableModifiableProperties modifiable;
-
-        public SerializablePropertyBlock(SerializableModifiableProperties modifiable)
-        {
-            this.modifiable = modifiable;
-        }
+        public SerializableModifiableProperties? modifiable;
     }
 }

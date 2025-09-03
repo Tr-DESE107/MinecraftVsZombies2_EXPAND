@@ -99,11 +99,11 @@ namespace MVZ2.GameContent.GlobalCallbacks
             }
             if (unfreeze)
             {
-                entity.Unfreeze(unfreezeSource ?? new NullSourceReference());
+                entity.Unfreeze(unfreezeSource);
             }
             else if (slow)
             {
-                entity.InflictSlow(300, slowSource ?? new NullSourceReference());
+                entity.InflictSlow(300, slowSource);
             }
         }
         private void PostDamageCallback(VanillaLevelCallbacks.PostTakeDamageParams param, CallbackResult callbackResult)

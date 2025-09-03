@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using PVZEngine.Base;
 
 namespace MVZ2.Saves
 {
@@ -43,10 +44,18 @@ namespace MVZ2.Saves
         public SerializableUserDataList ToSerializable()
         {
             var seriMetas = metas.Select(m => m != null ? m.ToSerializable() : null).ToArray();
-            return new SerializableUserDataList(CurrentUserIndex, seriMetas);
+            return new SerializableUserDataList()
+            {
+                currentUserIndex = CurrentUserIndex,
+                metas = seriMetas
+            };
         }
         public static UserDataList FromSerializable(SerializableUserDataList serializable)
         {
+            if (serializable.metas == null)
+            {
+                throw MissingSerializeDataException.Property<SerializableUserDataList>("metas");
+            }
             var metaList = new UserDataList(serializable.metas.Length);
             metaList.CurrentUserIndex = Math.Clamp(serializable.currentUserIndex, 0, serializable.metas.Length - 1);
             for (int i = 0; i < metaList.metas.Length; i++)
@@ -65,12 +74,6 @@ namespace MVZ2.Saves
     public class SerializableUserDataList
     {
         public int currentUserIndex;
-        public SerializableSaveDataMeta?[] metas;
-
-        public SerializableUserDataList(int currentUserIndex, SerializableSaveDataMeta?[] metas)
-        {
-            this.currentUserIndex = currentUserIndex;
-            this.metas = metas;
-        }
+        public SerializableSaveDataMeta?[]? metas;
     }
 }

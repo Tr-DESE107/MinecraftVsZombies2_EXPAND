@@ -205,9 +205,9 @@ namespace MVZ2.Saves
                 entryName = entryName.Replace("\\", "/");
                 archive.CreateEntryFromFile(filePath, entryName);
             }
-            var userName = GetUserName(userIndex);
-            var metadata = new UserDataPackMetadata(userName ?? $"user{userIndex}");
-            var seri = new SerializableUserDataPackMetadata(metadata);
+            var userName = GetUserName(userIndex) ?? $"user{userIndex}";
+            var metadata = new UserDataPackMetadata(userName);
+            var seri = metadata.ToSerializable();
             var json = SerializeHelper.ToBson(seri);
 
             var metadataEntry = archive.CreateEntry(USER_DATA_PACK_METADATA_ENTRY_NAME);

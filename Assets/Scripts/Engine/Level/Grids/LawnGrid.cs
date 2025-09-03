@@ -283,7 +283,8 @@ namespace PVZEngine.Grids
         }
         public void LoadAuras(SerializableGrid seri)
         {
-            buffs.LoadAuras(seri.buffs, Level);
+            if (seri.buffs != null)
+                buffs.LoadAuras(seri.buffs, Level);
         }
         #endregion 方法
 

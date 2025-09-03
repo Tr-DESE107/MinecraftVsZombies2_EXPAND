@@ -7,23 +7,12 @@ namespace PVZEngine.Level
     [Serializable]
     public class SerializableConveyorSeedSpendRecords
     {
-        public SerializableConveyorSeedSendRecordEntry[] entries;
-
-        public SerializableConveyorSeedSpendRecords(SerializableConveyorSeedSendRecordEntry[] entries)
-        {
-            this.entries = entries;
-        }
+        public SerializableConveyorSeedSendRecordEntry?[]? entries;
     }
     [Serializable]
     public class SerializableConveyorSeedSendRecordEntry
     {
-        public NamespaceID id;
+        public NamespaceID? id;
         public int spend;
-
-        public SerializableConveyorSeedSendRecordEntry(NamespaceID id, int spend)
-        {
-            this.id = id;
-            this.spend = spend;
-        }
     }
 }

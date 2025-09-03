@@ -9,8 +9,8 @@ namespace PVZEngine.Buffs
     public class SerializableBuff
     {
         public long id;
-        public NamespaceID definitionID = null!;
-        public SerializablePropertyDictionary propertyDict = null!;
-        public SerializableAuraEffect[] auras = null!;
+        public NamespaceID? definitionID;
+        public SerializablePropertyDictionary? propertyDict;
+        public SerializableAuraEffect[]? auras;
     }
 }

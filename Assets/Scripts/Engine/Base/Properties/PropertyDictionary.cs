@@ -89,11 +89,11 @@ namespace PVZEngine
             }
             return new SerializablePropertyDictionary(properties);
         }
-        public static PropertyDictionary FromSerializable(SerializablePropertyDictionary seri)
+        public static PropertyDictionary FromSerializable(SerializablePropertyDictionary? seri)
         {
             var dict = new PropertyDictionary();
             dict.propertyDict.Clear();
-            if (seri.properties != null)
+            if (seri != null && seri.properties != null)
             {
                 foreach (var pair in seri.properties)
                 {

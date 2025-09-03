@@ -10,7 +10,7 @@ namespace PVZEngine.Auras
     public class SerializableAuraEffect
     {
         public int id;
-        public FrameTimer updateTimer = null!;
-        public BuffReference[] buffs = null!;
+        public FrameTimer? updateTimer;
+        public BuffReference[]? buffs;
     }
 }

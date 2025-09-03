@@ -9,10 +9,10 @@ namespace PVZEngine.Damages
     {
         public DamageEffectList Effects { get; private set; }
         public Entity Entity { get; private set; }
-        public ILevelSourceReference Source { get; set; }
+        public ILevelSourceReference? Source { get; set; }
         public BodyDamageResult? Damage { get; private set; }
 
-        public DeathInfo(Entity entity, DamageEffectList effects, ILevelSourceReference source, BodyDamageResult? damage = null)
+        public DeathInfo(Entity entity, DamageEffectList effects, ILevelSourceReference? source, BodyDamageResult? damage = null)
         {
             Effects = effects;
             Entity = entity;

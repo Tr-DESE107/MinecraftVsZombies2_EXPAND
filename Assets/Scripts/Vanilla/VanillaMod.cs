@@ -26,7 +26,7 @@ namespace MVZ2.Vanilla
         public override ModSaveData LoadSaveData(string json)
         {
             var serializable = Deserialize<SerializableVanillaSaveData>(json);
-            return serializable.Deserialize();
+            return VanillaSaveData.DeserializeFrom(serializable);
         }
         #endregion
 

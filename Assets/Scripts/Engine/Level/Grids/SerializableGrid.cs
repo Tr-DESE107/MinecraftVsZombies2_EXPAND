@@ -12,11 +12,11 @@ namespace PVZEngine.Grids
     {
         public int lane;
         public int column;
-        public NamespaceID definitionID = null!;
+        public NamespaceID? definitionID;
         [Obsolete]
-        public Dictionary<string, long> layerEntities = null!;
-        public Dictionary<string, long[]> layerEntityLists = null!;
-        public SerializablePropertyBlock properties = null!;
-        public SerializableBuffList buffs = null!;
+        public Dictionary<string, long>? layerEntities;
+        public Dictionary<string, long[]>? layerEntityLists;
+        public SerializablePropertyBlock? properties;
+        public SerializableBuffList? buffs;
     }
 }

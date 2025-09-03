@@ -25,46 +25,46 @@ namespace PVZEngine.Level
         public int seed;
         public long levelTime;
         public bool isCleared;
-        public NamespaceID stageDefinitionID = null!;
-        public NamespaceID areaDefinitionID = null!;
-        public NamespaceID difficulty = null!;
-        public SerializableLevelOption Option = null!;
-        public SerializableRNG levelRandom = null!;
-        public SerializableRNG entityRandom = null!;
-        public SerializableRNG effectRandom = null!;
-        public SerializableRNG roundRandom = null!;
-        public SerializableRNG spawnRandom = null!;
-        public SerializableRNG conveyorRandom = null!;
-        public SerializableRNG debugRandom = null!;
-        public SerializableRNG miscRandom = null!;
+        public NamespaceID? stageDefinitionID;
+        public NamespaceID? areaDefinitionID;
+        public NamespaceID? difficulty;
+        public SerializableLevelOption? Option;
+        public SerializableRNG? levelRandom;
+        public SerializableRNG? entityRandom;
+        public SerializableRNG? effectRandom;
+        public SerializableRNG? roundRandom;
+        public SerializableRNG? spawnRandom;
+        public SerializableRNG? conveyorRandom;
+        public SerializableRNG? debugRandom;
+        public SerializableRNG? miscRandom;
 
-        public SerializablePropertyBlock properties = null!;
+        public SerializablePropertyBlock? properties;
 
-        public SerializableGrid[] grids = null!;
-        public SerializableClassicSeedPack?[] seedPacks = null!;
-        public SerializableConveyorSeedPack[] conveyorSeedPacks = null!;
+        public SerializableGrid[]? grids;
+        public SerializableClassicSeedPack?[]? seedPacks;
+        public SerializableConveyorSeedPack[]? conveyorSeedPacks;
         public bool requireCards;
         public long currentEntityID = 1;
         [Obsolete]
         public long currentBuffID;
         public long currentSeedPackID;
         public int conveyorSlotCount;
-        public SerializableConveyorSeedSpendRecords conveyorSeedSpendRecord = null!;
-        public List<SerializableEntity> entities = null!;
-        public List<SerializableEntity> entityTrash = null!;
+        public SerializableConveyorSeedSpendRecords? conveyorSeedSpendRecord;
+        public List<SerializableEntity>? entities;
+        public List<SerializableEntity>? entityTrash;
         public float energy;
-        public SerializableDelayedEnergy[] delayedEnergyEntities = null!;
+        public SerializableDelayedEnergy[]? delayedEnergyEntities;
         public int currentWave;
         public int currentFlag;
         public int waveState;
         public bool levelProgressVisible;
-        public List<int> spawnedLanes = null!;
-        public List<NamespaceID> spawnedID = null!;
-        public ISerializableCollisionSystem collisionSystem = null!;
+        public List<int>? spawnedLanes;
+        public List<NamespaceID>? spawnedID;
+        public ISerializableCollisionSystem? collisionSystem;
 
-        public SerializableBuffList buffs = null!;
+        public SerializableBuffList? buffs;
 
-        public Dictionary<string, ISerializableLevelComponent> components = null!;
+        public Dictionary<string, ISerializableLevelComponent>? components;
     }
     [Serializable]
     public class SerializableDelayedEnergy

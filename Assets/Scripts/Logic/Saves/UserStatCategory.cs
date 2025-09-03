@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine;
+using PVZEngine.Base;
 
 namespace MVZ2Logic.Saves
 {
@@ -50,12 +51,29 @@ namespace MVZ2Logic.Saves
         public SerializableUserStatCategory ToSerializable()
         {
             var entries = this.entries.Select(e => e.ToSerializable()).ToArray();
-            return new SerializableUserStatCategory(Name, entries);
+            return new SerializableUserStatCategory()
+            {
+                name = Name,
+                entries = entries
+            };
         }
         public static UserStatCategory FromSerializable(SerializableUserStatCategory serializable)
         {
+            if (string.IsNullOrEmpty(serializable.name))
+            {
+                throw MissingSerializeDataException.Property<UserStatCategory>(nameof(Name));
+            }
             var stats = new UserStatCategory(serializable.name);
-            stats.entries.AddRange(serializable.entries.Select(e => UserStatEntry.FromSerializable(e)));
+            if (serializable.entries != null)
+            {
+                foreach (var seriEntry in serializable.entries)
+                {
+                    if (seriEntry == null)
+                        continue;
+                    var entry = UserStatEntry.FromSerializable(seriEntry);
+                    stats.entries.Add(entry);
+                }
+            }
             return stats;
         }
         private NamespaceID[] GetAllEntriesID()
@@ -78,13 +96,7 @@ namespace MVZ2Logic.Saves
     [Serializable]
     public class SerializableUserStatCategory
     {
-        public string name;
-        public SerializableUserStatEntry[] entries;
-
-        public SerializableUserStatCategory(string name, SerializableUserStatEntry[] entries)
-        {
-            this.name = name;
-            this.entries = entries;
-        }
+        public string? name;
+        public SerializableUserStatEntry?[]? entries;
     }
 }

@@ -17,7 +17,7 @@ namespace PVZEngine.Damages
             Source = input.Source;
             ShellDefinition = shell;
         }
-        public ILevelSourceReference Source { get; set; }
+        public ILevelSourceReference? Source { get; set; }
         public DamageEffectList Effects { get; set; }
         public float OriginalAmount { get; set; }
         public float Amount { get; set; }

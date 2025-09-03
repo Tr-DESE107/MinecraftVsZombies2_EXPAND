@@ -184,7 +184,7 @@ namespace PVZEngine.Level
                 properties = properties.ToSerializable()
             };
         }
-        public static ModifiableProperties FromSerializable(SerializableModifiableProperties seri, IPropertyModifyTarget container)
+        public static ModifiableProperties FromSerializable(SerializableModifiableProperties? seri, IPropertyModifyTarget container)
         {
             var block = new ModifiableProperties(container);
             if (seri != null)
@@ -206,6 +206,6 @@ namespace PVZEngine.Level
     [Serializable]
     public class SerializableModifiableProperties
     {
-        public SerializablePropertyDictionary properties = null!;
+        public SerializablePropertyDictionary? properties;
     }
 }

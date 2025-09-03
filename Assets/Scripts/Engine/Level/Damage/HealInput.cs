@@ -12,10 +12,10 @@ namespace PVZEngine.Damages
         public float Amount { get; private set; }
         public Entity Entity { get; private set; }
         public Armor? Armor { get; private set; }
-        public ILevelSourceReference Source { get; set; }
+        public ILevelSourceReference? Source { get; set; }
         public bool ToArmor { get; private set; }
 
-        public HealInput(float amount, Entity entity, ILevelSourceReference source)
+        public HealInput(float amount, Entity entity, ILevelSourceReference? source)
         {
             OriginalAmount = amount;
             Amount = amount;

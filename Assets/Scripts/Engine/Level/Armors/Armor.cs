@@ -47,7 +47,7 @@ namespace PVZEngine.Armors
         }
         public void Destroy(ArmorDestroyInfo? result = null)
         {
-            result = result ?? new ArmorDestroyInfo(Owner, this, Slot, new DamageEffectList(), new NullSourceReference(), null);
+            result = result ?? new ArmorDestroyInfo(Owner, this, Slot, new DamageEffectList(), null, null);
             Owner.DestroyArmor(Slot, result);
         }
         public void PostAdd()
@@ -197,6 +197,10 @@ namespace PVZEngine.Armors
                 Debug.LogException(exception);
                 return null;
             }
+            if (!NamespaceID.IsValid(seri.slot))
+            {
+                throw MissingSerializeDataException.Property<SerializableArmor>(nameof(seri.slot));
+            }
             var armor = new Armor();
             armor.Owner = owner;
             armor.Definition = definition;
@@ -210,10 +214,12 @@ namespace PVZEngine.Armors
         }
         public void LoadAuras(SerializableArmor seri)
         {
-            buffs.LoadAuras(seri.buffs, Level);
+            if (seri.buffs != null)
+                buffs.LoadAuras(seri.buffs, Level);
 
             CreateAuraEffects();
-            auras.LoadFromSerializable(Level, seri.auras);
+            if (seri.auras != null)
+                auras.LoadFromSerializable(Level, seri.auras);
         }
         IModelInterface? IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         LevelEngine IBuffTarget.GetLevel() => Level;

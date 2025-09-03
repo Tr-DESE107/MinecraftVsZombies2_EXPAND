@@ -13,7 +13,7 @@ namespace PVZEngine.Entities
             this.parent = parent;
             this.faction = faction;
         }
-        public EntitySourceReference(Entity entity) : this(entity.ID, entity.Definition.GetID(), entity.SpawnerReference.Clone(), entity.Cache.Faction)
+        public EntitySourceReference(Entity entity) : this(entity.ID, entity.Definition.GetID(), entity.SpawnerReference?.Clone(), entity.Cache.Faction)
         {
         }
         public EntitySourceReference Clone()

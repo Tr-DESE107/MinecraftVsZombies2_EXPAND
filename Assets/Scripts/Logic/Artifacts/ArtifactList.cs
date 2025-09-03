@@ -172,6 +172,10 @@ namespace MVZ2Logic.Artifacts
         }
         public static ArtifactList FromSerializable(SerializableArtifactList serializable, LevelEngine level)
         {
+            if (serializable.artifacts == null)
+            {
+                return new ArtifactList(level, 0);
+            }
             var artifactList = new ArtifactList(level, serializable.artifacts.Length);
             for (int i = 0; i < artifactList.artifacts.Length; i++)
             {

@@ -24,10 +24,10 @@ namespace PVZEngine.Entities
         }
         public static EntityCollision? FromSerializable(SerializableEntityCollision serializable, LevelEngine level)
         {
-            var collider1 = serializable.collider.GetCollider(level);
+            var collider1 = serializable.collider?.GetCollider(level);
             if (collider1 == null)
                 return null;
-            var collider2 = serializable.otherCollider.GetCollider(level);
+            var collider2 = serializable.otherCollider?.GetCollider(level);
             if (collider2 == null)
                 return null;
             return new EntityCollision(collider1, collider2)
@@ -46,8 +46,8 @@ namespace PVZEngine.Entities
     [Serializable]
     public class SerializableEntityCollision
     {
-        public EntityColliderReference collider = null!;
-        public EntityColliderReference otherCollider = null!;
+        public EntityColliderReference? collider;
+        public EntityColliderReference? otherCollider;
         public Vector3 seperation;
     }
     [Serializable]

@@ -2,6 +2,7 @@
 
 using System;
 using PVZEngine;
+using PVZEngine.Base;
 
 namespace MVZ2Logic.Saves
 {
@@ -13,10 +14,18 @@ namespace MVZ2Logic.Saves
         }
         public SerializableUserStatEntry ToSerializable()
         {
-            return new SerializableUserStatEntry(ID, Value);
+            return new SerializableUserStatEntry()
+            {
+                id = ID,
+                value = Value
+            };
         }
         public static UserStatEntry FromSerializable(SerializableUserStatEntry serializable)
         {
+            if (!NamespaceID.IsValid(serializable.id))
+            {
+                throw MissingSerializeDataException.Property<UserStatEntry>(nameof(ID));
+            }
             return new UserStatEntry(serializable.id)
             {
                 Value = serializable.value
@@ -28,13 +37,7 @@ namespace MVZ2Logic.Saves
     [Serializable]
     public class SerializableUserStatEntry
     {
-        public NamespaceID id;
+        public NamespaceID? id;
         public long value;
-
-        public SerializableUserStatEntry(NamespaceID id, long value)
-        {
-            this.id = id;
-            this.value = value;
-        }
     }
 }

@@ -135,23 +135,37 @@ namespace MVZ2.Collisions
         #region 序列化
         public SerializableUnityCollisionEntity ToSerializable()
         {
-            return new SerializableUnityCollisionEntity(Entity.ID, colliders.Select(c => c.ToSerializable()).ToArray());
+            var colliders = this.colliders.Select(c => c.ToSerializable()).ToArray();
+            return new SerializableUnityCollisionEntity()
+            {
+                id = Entity.ID,
+                colliders = colliders
+            };
         }
         public void LoadFromSerializable(ISerializableCollisionEntity seri, Entity entity)
         {
             Entity = entity;
-            foreach (var extraCollider in seri.Colliders)
+            if (seri.Colliders != null)
             {
-                var collider = CreateCollider(extraCollider.Name);
-                collider.LoadFromSerializable(extraCollider, entity);
+                foreach (var extraCollider in seri.Colliders)
+                {
+                    if (extraCollider == null || string.IsNullOrEmpty(extraCollider.Name))
+                        continue;
+                    var collider = CreateCollider(extraCollider.Name);
+                    collider.LoadFromSerializable(extraCollider, entity);
+                }
             }
             UpdateEntity();
         }
         public void LoadCollisions(LevelEngine level, ISerializableCollisionEntity seri)
         {
+            if (seri.Colliders == null)
+                return;
             for (int i = 0; i < colliders.Count; i++)
             {
                 var colliderSeri = seri.Colliders[i];
+                if (colliderSeri == null)
+                    continue;
                 var collider = colliders[i];
                 collider.LoadCollisions(level, colliderSeri);
             }
@@ -174,16 +188,8 @@ namespace MVZ2.Collisions
     public class SerializableUnityCollisionEntity : ISerializableCollisionEntity
     {
         public long id;
-        public SerializableUnityEntityCollider[] colliders;
-
-        public SerializableUnityCollisionEntity(long id, SerializableUnityEntityCollider[] colliders)
-        {
-            this.id = id;
-            this.colliders = colliders;
-        }
-
+        public SerializableUnityEntityCollider?[]? colliders;
         long ISerializableCollisionEntity.ID => id;
-
-        ISerializableCollisionCollider[] ISerializableCollisionEntity.Colliders => colliders;
+        ISerializableCollisionCollider?[]? ISerializableCollisionEntity.Colliders => colliders;
     }
 }

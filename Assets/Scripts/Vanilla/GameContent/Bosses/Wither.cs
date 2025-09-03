@@ -145,7 +145,7 @@ namespace MVZ2.GameContent.Bosses
             {
                 var source = result.BodyResult.Source;
                 var effects = result.BodyResult.Effects;
-                var sourceEnt = source.GetEntity(entity.Level);
+                var sourceEnt = source?.GetEntity(entity.Level);
                 if (sourceEnt != null && sourceEnt.IsEntityOf(VanillaEnemyID.bedserker) && effects.HasEffect(VanillaDamageEffects.EXPLOSION))
                 {
                     Stun(entity);

@@ -43,32 +43,44 @@ namespace PVZEngine.Level
         private void CreateEntitiesFromSerializable(SerializableLevel seri)
         {
             currentEntityID = seri.currentEntityID;
-            foreach (var ent in seri.entities)
+            if (seri.entities != null)
             {
-                var entity = Entity.CreateDeserializingEntity(ent, this);
-                if (entity != null)
-                    entities.Add(ent.id, entity);
+                foreach (var ent in seri.entities)
+                {
+                    var entity = Entity.CreateDeserializingEntity(ent, this);
+                    if (entity != null)
+                        entities.Add(ent.id, entity);
+                }
             }
-            foreach (var ent in seri.entityTrash)
+            if (seri.entityTrash != null)
             {
-                var entity = Entity.CreateDeserializingEntity(ent, this);
-                if (entity != null)
-                    entityTrash.Add(ent.id, entity);
+                foreach (var ent in seri.entityTrash)
+                {
+                    var entity = Entity.CreateDeserializingEntity(ent, this);
+                    if (entity != null)
+                        entityTrash.Add(ent.id, entity);
+                }
             }
         }
         private void ReadEntitiesFromSerializable(SerializableLevel seri)
         {
-            for (int i = 0; i < entities.Count; i++)
+            if (seri.entities != null)
             {
-                var seriEnt = seri.entities[i];
-                var id = seriEnt.id;
-                entities[id].ApplyDeserialize(seriEnt);
+                for (int i = 0; i < entities.Count; i++)
+                {
+                    var seriEnt = seri.entities[i];
+                    var id = seriEnt.id;
+                    entities[id].ApplyDeserialize(seriEnt);
+                }
             }
-            for (int i = 0; i < entityTrash.Count; i++)
+            if (seri.entityTrash != null)
             {
-                var seriEnt = seri.entityTrash[i];
-                var id = seriEnt.id;
-                entityTrash[id].ApplyDeserialize(seriEnt);
+                for (int i = 0; i < entityTrash.Count; i++)
+                {
+                    var seriEnt = seri.entityTrash[i];
+                    var id = seriEnt.id;
+                    entityTrash[id].ApplyDeserialize(seriEnt);
+                }
             }
         }
         #region 生成
@@ -78,10 +90,9 @@ namespace PVZEngine.Level
             currentEntityID++;
             return id;
         }
-        public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity? spawner, int seed, SpawnParams? param = null)
+        public Entity SpawnSourced(EntityDefinition entityDef, Vector3 pos, ILevelSourceReference? source, int seed, SpawnParams? param = null)
         {
             long id = AllocEntityID();
-            ILevelSourceReference source = spawner == null ? new NullSourceReference() : new EntitySourceReference(spawner);
             var spawned = new Entity(this, id, source, entityDef, seed);
             spawned.Position = pos;
             InitEntityCollision(spawned);
@@ -93,6 +104,11 @@ namespace PVZEngine.Level
             OnEntitySpawn?.Invoke(spawned);
             spawned.Init();
             return spawned;
+        }
+        public Entity? SpawnSourced(EntityDefinition entityDef, Vector3 pos, ILevelSourceReference? source, SpawnParams? param = null) => SpawnSourced(entityDef, pos, source, NewEntitySeed(), param);
+        public Entity Spawn(EntityDefinition entityDef, Vector3 pos, Entity? spawner, int seed, SpawnParams? param = null)
+        {
+            return SpawnSourced(entityDef, pos, spawner == null ? null : new EntitySourceReference(spawner), seed, param);
         }
         public Entity? Spawn(EntityDefinition entityDef, Vector3 pos, Entity? spawner, SpawnParams? param = null) => Spawn(entityDef, pos, spawner, NewEntitySeed(), param);
         public Entity? Spawn(NamespaceID entityRef, Vector3 pos, Entity? spawner, int seed, SpawnParams? param = null)
@@ -116,6 +132,17 @@ namespace PVZEngine.Level
                 return null;
             }
             return Spawn(entityDef, pos, spawner, param);
+        }
+        public Entity? SpawnSourced(NamespaceID entityRef, Vector3 pos, ILevelSourceReference? source, SpawnParams? param = null)
+        {
+            var entityDef = Content.GetEntityDefinition(entityRef);
+            if (entityDef == null)
+            {
+                var exception = new MissingDefinitionException($"Trying to spawn an entity with a missing entity definition {entityRef}.");
+                Debug.LogException(exception);
+                return null;
+            }
+            return SpawnSourced(entityDef, pos, source, param);
         }
         #endregion
 

@@ -10,11 +10,11 @@ namespace PVZEngine.SeedPacks
     public abstract class SerializableSeedPack
     {
         public long id;
-        public NamespaceID seedID = null!;
+        public NamespaceID? seedID;
         public long currentBuffID;
-        public SerializableBuffList buffs = null!;
-        public SerializablePropertyBlock properties = null!;
-        public SerializableAuraEffect[] auras = null!;
+        public SerializableBuffList? buffs;
+        public SerializablePropertyBlock? properties;
+        public SerializableAuraEffect[]? auras;
     }
     [Serializable]
     public class SerializableClassicSeedPack : SerializableSeedPack

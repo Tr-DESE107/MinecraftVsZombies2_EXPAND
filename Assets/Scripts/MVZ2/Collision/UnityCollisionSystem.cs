@@ -226,7 +226,11 @@ namespace MVZ2.Collisions
         {
             var ents = entities.Values.Where(e => e && e.Entity != null).Select(e => e.ToSerializable()).ToArray();
             var trash = entityTrash.Values.Where(e => e && e.Entity != null).Select(e => e.ToSerializable()).ToArray();
-            return new SerializableUnityCollisionSystem(ents, trash);
+            return new SerializableUnityCollisionSystem()
+            {
+                entities = ents,
+                entityTrash = trash
+            };
         }
         public void LoadFromSerializable(LevelEngine level, ISerializableCollisionSystem seri)
         {
@@ -235,6 +239,8 @@ namespace MVZ2.Collisions
             {
                 foreach (var seriEnt in seri.Entities)
                 {
+                    if (seriEnt == null)
+                        continue;
                     var ent = level.FindEntityByID(seriEnt.ID);
                     if (ent == null)
                         continue;
@@ -248,6 +254,8 @@ namespace MVZ2.Collisions
             {
                 foreach (var seriEnt in seri.EntityTrash)
                 {
+                    if (seriEnt == null)
+                        continue;
                     var ent = level.FindEntityByID(seriEnt.ID);
                     if (ent == null)
                         continue;
@@ -264,7 +272,7 @@ namespace MVZ2.Collisions
                 for (int i = 0; i < seri.Entities.Length; i++)
                 {
                     var ent = entities[i];
-                    ISerializableCollisionEntity seriEnt = seri.Entities[i];
+                    var seriEnt = seri.Entities[i];
                     if (seriEnt == null)
                         continue;
                     ent.LoadCollisions(level, seriEnt);
@@ -275,7 +283,7 @@ namespace MVZ2.Collisions
                 for (int i = 0; i < seri.EntityTrash.Length; i++)
                 {
                     var ent = entityTrash[i];
-                    ISerializableCollisionEntity seriEnt = seri.EntityTrash[i];
+                    var seriEnt = seri.EntityTrash[i];
                     if (seriEnt == null)
                         continue;
                     ent.LoadCollisions(level, seriEnt);
@@ -304,17 +312,10 @@ namespace MVZ2.Collisions
     }
     public class SerializableUnityCollisionSystem : ISerializableCollisionSystem
     {
-        public SerializableUnityCollisionEntity[] entities;
-        public SerializableUnityCollisionEntity[] entityTrash;
+        public SerializableUnityCollisionEntity?[]? entities;
+        public SerializableUnityCollisionEntity?[]? entityTrash;
+        ISerializableCollisionEntity?[]? ISerializableCollisionSystem.Entities => entities;
 
-        public SerializableUnityCollisionSystem(SerializableUnityCollisionEntity[] entities, SerializableUnityCollisionEntity[] entityTrash)
-        {
-            this.entities = entities;
-            this.entityTrash = entityTrash;
-        }
-
-        ISerializableCollisionEntity[] ISerializableCollisionSystem.Entities => entities;
-
-        ISerializableCollisionEntity[] ISerializableCollisionSystem.EntityTrash => entityTrash;
+        ISerializableCollisionEntity?[]? ISerializableCollisionSystem.EntityTrash => entityTrash;
     }
 }

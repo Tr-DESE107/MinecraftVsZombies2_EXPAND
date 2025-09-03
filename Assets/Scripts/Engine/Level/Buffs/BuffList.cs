@@ -348,17 +348,23 @@ namespace PVZEngine.Buffs
                 currentBuffID = currentBuffID,
             };
         }
-        public static BuffList FromSerializable(SerializableBuffList serializable, LevelEngine level, IBuffTarget target)
+        public static BuffList FromSerializable(SerializableBuffList? serializable, LevelEngine level, IBuffTarget target)
         {
             var buffList = new BuffList();
 
-            foreach (var seriBuff in serializable.buffs)
+            if (serializable == null)
+                return buffList;
+
+            if (serializable.buffs != null)
             {
-                var buff = Buff.Deserialize(seriBuff, level, target);
-                if (buff == null)
-                    continue;
-                buff.OnPropertyChanged += buffList.OnPropertyChangedCallback;
-                buffList.buffs.Add(buff);
+                foreach (var seriBuff in serializable.buffs)
+                {
+                    var buff = Buff.Deserialize(seriBuff, level, target);
+                    if (buff == null)
+                        continue;
+                    buff.OnPropertyChanged += buffList.OnPropertyChangedCallback;
+                    buffList.buffs.Add(buff);
+                }
             }
             buffList.currentBuffID = serializable.currentBuffID;
             buffList.UpdateModifierCaches();

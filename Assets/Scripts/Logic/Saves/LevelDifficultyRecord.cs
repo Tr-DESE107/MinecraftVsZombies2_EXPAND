@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using PVZEngine;
+using PVZEngine.Base;
 
 namespace MVZ2Logic.Saves
 {
@@ -31,13 +32,31 @@ namespace MVZ2Logic.Saves
         }
         public SerializableLevelDifficultyRecord ToSerializable()
         {
-            return new SerializableLevelDifficultyRecord(ID, difficulties.ToArray());
+            return new SerializableLevelDifficultyRecord()
+            {
+                id = ID,
+                difficulties = difficulties.ToArray(),
+            };
         }
         public static LevelDifficultyRecord FromSerializable(SerializableLevelDifficultyRecord serializable)
         {
+            if (string.IsNullOrEmpty(serializable.id))
+            {
+                throw MissingSerializeDataException.Property<LevelDifficultyRecord>(nameof(ID));
+            }
+            var difficulties = new HashSet<NamespaceID>();
+            if (serializable.difficulties != null)
+            {
+                foreach (var diff in serializable.difficulties)
+                {
+                    if (diff == null)
+                        continue;
+                    difficulties.Add(diff);
+                }
+            }
             return new LevelDifficultyRecord(serializable.id)
             {
-                difficulties = serializable.difficulties.ToHashSet()
+                difficulties = difficulties
             };
         }
         public string ID { get; private set; }
@@ -46,13 +65,7 @@ namespace MVZ2Logic.Saves
     [Serializable]
     public class SerializableLevelDifficultyRecord
     {
-        public string id;
-        public NamespaceID[] difficulties;
-
-        public SerializableLevelDifficultyRecord(string id, NamespaceID[] difficulties)
-        {
-            this.id = id;
-            this.difficulties = difficulties;
-        }
+        public string? id;
+        public NamespaceID?[]? difficulties;
     }
 }
