@@ -19,6 +19,7 @@ namespace MVZ2.GameContent.Armors
         public const string nether_helmet = "nether_helmet";
         public const string netherite_ingot_helmet = "netherite_ingot_helmet";
         public const string AngryReverserCrown = "AngryReverserCrown";
+        public const string KingofReverserCrown = "KingofReverserCrown";
 
         public const string reflectiveBarrier = "reflective_barrier";
         public const string wickedHermitHat = "wicked_hermit_hat";
@@ -44,6 +45,7 @@ namespace MVZ2.GameContent.Armors
         public static readonly NamespaceID nether_helmet = Get(VanillaArmorNames.nether_helmet);
         public static readonly NamespaceID netherite_ingot_helmet = Get(VanillaArmorNames.netherite_ingot_helmet);
         public static readonly NamespaceID AngryReverserCrown = Get(VanillaArmorNames.AngryReverserCrown);
+        public static readonly NamespaceID KingofReverserCrown = Get(VanillaArmorNames.KingofReverserCrown);
 
         public static readonly NamespaceID reflectiveBarrier = Get(VanillaArmorNames.reflectiveBarrier);
         public static readonly NamespaceID wickedHermitHat = Get(VanillaArmorNames.wickedHermitHat);

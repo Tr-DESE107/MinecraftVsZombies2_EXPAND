@@ -61,6 +61,12 @@
 				<float name="mvz2:maxHealth" value="1200" />
 			</props>
 		</entry>
+		<entry id="KingofReverserCrown">
+			<props>
+				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:maxHealth" value="1500" />
+			</props>
+		</entry>
         <entry id="berserker_helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:stone" />

@@ -196,28 +196,57 @@ namespace MVZ2.GameContent.Enemies
         private void BuildBoneWalls(Entity entity)
         {
             var level = entity.Level;
-            int startLine = -1;
-            int endLine = 1;
-            var lane = entity.GetLane();
-            if (lane == 0)
-            {
-                endLine = 0;
-            }
-            if (lane == level.GetMaxLaneCount() - 1)
-            {
-                startLine = 0;
-            }
+            //int startLine = -1;
+            //int endLine = 1;
+            //var lane = entity.GetLane();
+            //if (lane == 0)
+            //{
+            //    endLine = 0;
+            //}
+            //if (lane == level.GetMaxLaneCount() - 1)
+            //{
+            //    startLine = 0;
+            //}
 
-            for (int i = startLine; i <= endLine; i++)
-            {
+            //for (int i = startLine; i <= endLine; i++)
+            //{
                 var x = entity.Position.x + level.GetGridWidth() * 1.5f * entity.GetFacingX();
-                var z = entity.Position.z + level.GetGridHeight() * i * 1f;
+                var z = entity.Position.z ;
                 var y = level.GetGroundY(x, z);
                 Vector3 wallPos = new Vector3(x, y, z);
-                entity.SpawnWithParams(VanillaEnemyID.MeleeSkeleton, wallPos);
-            }
+
+            var randomID = GetRandomSkeletonID(entity.RNG);
+
+            entity.SpawnWithParams(randomID, wallPos);
+            //}
         }
         #endregion
+
+
+        public NamespaceID GetRandomSkeletonID(RandomGenerator rng)
+        {
+            var index = rng.WeightedRandom(RandomSkeletonWeights);
+            return RandomSkeleton[index];
+        }
+
+        private static NamespaceID[] RandomSkeleton = new NamespaceID[]
+        {
+            //怪物出怪
+            VanillaEnemyID.WitherSkeleton,
+            VanillaEnemyID.NetherWarrior,
+            VanillaEnemyID.NetherArcher,
+            VanillaEnemyID.BerserkerHead,
+
+        };
+
+        private static int[] RandomSkeletonWeights = new int[]
+        {
+            10,
+            2,
+            2,
+            5
+        };
+
 
         #region 属性存取器
         public static void SetCasting(Entity entity, bool timer) => entity.SetBehaviourField(ID, PROP_CASTING, timer);
