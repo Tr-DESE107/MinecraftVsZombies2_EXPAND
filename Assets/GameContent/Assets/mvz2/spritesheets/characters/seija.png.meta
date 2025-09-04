@@ -3,7 +3,7 @@ guid: 1723b13d8d44a654a8424dc59197b0aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -127,8 +127,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 560
+        y: 19
+        width: 548
         height: 1280
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -147,9 +147,9 @@ TextureImporter:
       name: seija_1
       rect:
         serializedVersion: 2
-        x: 576
-        y: 720
-        width: 560
+        x: 551
+        y: 707
+        width: 548
         height: 592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -168,9 +168,9 @@ TextureImporter:
       name: seija_2
       rect:
         serializedVersion: 2
-        x: 1728
+        x: 1653
         y: 384
-        width: 496
+        width: 548
         height: 320
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -189,9 +189,9 @@ TextureImporter:
       name: seija_3
       rect:
         serializedVersion: 2
-        x: 576
+        x: 551
         y: 0
-        width: 560
+        width: 548
         height: 704
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -210,9 +210,9 @@ TextureImporter:
       name: seija_4
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 1102
         y: 0
-        width: 560
+        width: 548
         height: 704
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -231,9 +231,9 @@ TextureImporter:
       name: seija_5
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 1024
-        width: 496
+        x: 1102
+        y: 1011
+        width: 548
         height: 288
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -252,9 +252,9 @@ TextureImporter:
       name: seija_6
       rect:
         serializedVersion: 2
-        x: 1664
-        y: 1024
-        width: 496
+        x: 1653
+        y: 1011
+        width: 548
         height: 288
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -273,9 +273,9 @@ TextureImporter:
       name: seija_7
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 720
-        width: 496
+        x: 1102
+        y: 707
+        width: 548
         height: 288
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -294,9 +294,9 @@ TextureImporter:
       name: seija_8
       rect:
         serializedVersion: 2
-        x: 1664
-        y: 720
-        width: 496
+        x: 1653
+        y: 707
+        width: 548
         height: 288
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
