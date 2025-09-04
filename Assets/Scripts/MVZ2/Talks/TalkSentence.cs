@@ -89,7 +89,7 @@ namespace MVZ2.TalkData
                 }
             }
 
-            return new TalkSentence(text, sounds ?? Array.Empty<NamespaceID>(), startScripts ?? Array.Empty<TalkScript>(), clickScripts ?? Array.Empty<TalkScript>())
+            return new TalkSentence(text, sounds ?? Array.Empty<NamespaceID>(), startScripts ?? GetDefaultStartScripts(), clickScripts ?? GetDefaultClickScripts())
             {
                 speaker = speaker,
                 speakerName = speakerName,
@@ -109,5 +109,10 @@ namespace MVZ2.TalkData
             }
 
         }
+        private static TalkScript[] GetDefaultStartScripts() => Array.Empty<TalkScript>();
+        private static TalkScript[] GetDefaultClickScripts() => new TalkScript[]
+        {
+            new TalkScript("next")
+        };
     }
 }

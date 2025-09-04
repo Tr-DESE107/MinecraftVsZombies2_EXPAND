@@ -67,7 +67,7 @@ namespace MVZ2.TalkData
             var canAutoSkip = node.GetAttributeBool("canAutoSkip") ?? true;
 
             var startScripts = TalkScript.ParseArray(node.GetAttribute("onStart")) ?? Array.Empty<TalkScript>();
-            var skipScripts = TalkScript.ParseArray(node.GetAttribute("onSkip")) ?? Array.Empty<TalkScript>();
+            var skipScripts = TalkScript.ParseArray(node.GetAttribute("onSkip")) ?? GetDefaultSkipScripts();
 
             var textNode = node["text"];
             string archiveText = string.Empty;
@@ -108,5 +108,10 @@ namespace MVZ2.TalkData
                 archiveText = archiveText,
             };
         }
+        private static TalkScript[] GetDefaultStartScripts() => Array.Empty<TalkScript>();
+        private static TalkScript[] GetDefaultSkipScripts() => new TalkScript[]
+        {
+            new TalkScript("end")
+        };
     }
 }

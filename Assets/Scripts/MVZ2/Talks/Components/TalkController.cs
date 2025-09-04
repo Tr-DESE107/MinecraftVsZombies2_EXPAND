@@ -144,14 +144,22 @@ namespace MVZ2.Talk
             if (!canClick)
                 return;
             var sentence = GetTalkSentence();
-            IEnumerable<TalkScript> scripts = sentence?.clickScripts != null ? sentence.clickScripts : defaultClickScripts;
-            _ = ExecuteScriptsAsync(scripts);
+            if (sentence == null)
+            {
+                NextSentence();
+                return;
+            }
+            _ = ExecuteScriptsAsync(sentence.clickScripts);
         }
         private void OnSkipClickedCallback()
         {
             var section = GetTalkSection();
-            IEnumerable<TalkScript> scripts = section?.skipScripts != null ? section.skipScripts : defaultSkipScripts;
-            _ = ExecuteScriptsAsync(scripts);
+            if (section == null)
+            {
+                EndTalk();
+                return;
+            }
+            _ = ExecuteScriptsAsync(section.skipScripts);
         }
         #endregion
 
@@ -685,9 +693,8 @@ namespace MVZ2.Talk
                 }
             }
 
-            IEnumerable<TalkScript> scripts = sentence.startScripts != null ? sentence.startScripts : defaultStartScripts;
             // 执行脚本组。
-            _ = ExecuteScriptsAsync(scripts);
+            _ = ExecuteScriptsAsync(sentence.startScripts);
 
             NamespaceID? speakerID = sentence.speaker;
             // 对话状态。
@@ -864,15 +871,6 @@ namespace MVZ2.Talk
         public bool IsRunningScripts { get; private set; }
         public bool IsTalking { get; private set; }
         public readonly static NamespaceID DEFAULT_VARIANT_ID = new NamespaceID("mvz2", "normal");
-        private readonly static TalkScript[] defaultStartScripts = new TalkScript[0];
-        private readonly static TalkScript[] defaultClickScripts = new TalkScript[]
-        {
-            new TalkScript("next")
-        };
-        private readonly static TalkScript[] defaultSkipScripts = new TalkScript[]
-        {
-            new TalkScript("end")
-        };
         private MainManager Main => MainManager.Instance;
 
         private bool showingTalkItem = false;
