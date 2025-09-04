@@ -2263,6 +2263,37 @@ MonoBehaviour:
   - name: entity/enemy/necromancerhead
     spritesheet:
     - {fileID: 21300000, guid: acfb07ddb9ad00744b4b7b50233231da, type: 3}
+  - name: entity/enemy/NetherTroopCarrier
+    spritesheet:
+    - {fileID: 1118078179, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -938091766, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: 1997653401, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: 1478713533, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -251746682, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -790040289, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: 1253072847, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -1094068129, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -1101389898, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -2128824013, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -1188052246, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: 464215519, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -1745557601, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -569877082, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -533749678, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -768854715, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: 1058423239, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: 1557119757, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -2132962032, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -164244448, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -364319688, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -1401783576, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -2003033369, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: 1555235540, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -1982833564, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -773116313, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -1366362653, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -1532742466, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
+    - {fileID: -37555541, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
   - name: entity/enemy/nether_archer
     spritesheet:
     - {fileID: -1127412069, guid: 92a790a86f5d19946a5dc8efe8b47c38, type: 3}

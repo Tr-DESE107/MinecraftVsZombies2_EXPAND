@@ -521,6 +521,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c12cacf988b8624c9195538212b8046
+    m_Address: mvz2:armor/KingofReverserCrown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c4364390af09764bb2a42d59f0deee7
     m_Address: mvz2:arcade/iz/puzzle_mineclear
     m_ReadOnly: 0
@@ -1048,6 +1055,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16a5d5b9d17ccb14bbd97dd03a234894
     m_Address: mvz2:entity/contraptions/dream_rainbow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16c3700de5b354d449d9c740a94c829f
+    m_Address: mvz2:entity/armor/KingofReverserCrown
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1900,6 +1914,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a199a01abf97e24799713ea789db115
+    m_Address: mvz2:entity/enemy/KingofReverser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a4207e3942d55b42bc64e450611fc1c
     m_Address: mvz2:entity/enemy/Hemperor
     m_ReadOnly: 0
@@ -2724,6 +2745,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b514fad3b9b8fd49aa628ea1cc401a1
+    m_Address: mvz2:enemy/castle/AssaultDullahan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b69e29138f5dca40863736310abcdc4
     m_Address: mvz2:boss/wither
     m_ReadOnly: 0
@@ -2968,6 +2996,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4005d2d1b48255743a72fa819ab6074a
+    m_Address: mvz2:enemy/castle/BerserkerHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 401ca0bfd92ce274a9ca8b1c10c04cf0
     m_Address: mvz2:enemy/halloween/FlagSkeleton
@@ -3906,6 +3941,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54f5475a618da3d4a9752053e92b7e1d
+    m_Address: mvz2:mobile_blueprint/DispenShield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 55737eb3a28fbe442b0e134036882f07
     m_Address: mvz2:held/sword
@@ -4984,6 +5026,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cd4f38f05c55804dbfef3281bf43251
+    m_Address: mvz2:entity/enemy/WintherMage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d01441df27a4cc499a69f30ae8c8c45
     m_Address: mvz2:freeze
@@ -7462,6 +7511,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a608c188c848eb04790a06a77e83e46b
+    m_Address: mvz2:enemy/castle/KingofReverser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a62d2d86c3da6164fb85ab8fef46149f
     m_Address: mvz2:ui/level/mobile/card_mobile
     m_ReadOnly: 0
@@ -8693,6 +8749,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4ae58b609a3ebf40a18ffe33777e65b
+    m_Address: mvz2:enemy/castle/WintherMage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4bdf350a8df52941b184c7cd8e2f543
     m_Address: mvz2:effect/cursed_fire_particles
@@ -11051,6 +11114,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9f585d00bd0e1d4aadd7940c664f912
+    m_Address: mvz2:entity/enemy/dullahan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9f740f9b1248114bbb7d3e4726e5922
     m_Address: mvz2:evocation

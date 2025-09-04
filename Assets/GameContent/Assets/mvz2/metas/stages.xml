@@ -957,7 +957,7 @@
 			
 		</talks>
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:DispenShield"/>
-		<spawns flags="2">
+		<spawns flags="3">
 			<spawn id="mvz2:IronWitherSkeleton"/>
 			<spawn id="mvz2:mesmerizer"/>
 			<spawn id="mvz2:berserker"/>
@@ -979,7 +979,7 @@
 			
 		</talks>
 		<clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:wither_skeleton_skull"/>
-		<spawns flags="2">
+		<spawns flags="3">
 			<spawn id="mvz2:WitherSkeletonHorse"/>
 			<spawn id="mvz2:mesmerizer"/>
 			<spawn id="mvz2:berserker"/>
@@ -1032,6 +1032,8 @@
 			<spawn id="mvz2:Anubiskull"/>
 			<spawn id="mvz2:WitherSkeletonHorse"/>
 			<spawn id="mvz2:AssaultDullahan"/>
+			<spawn id="mvz2:KingofReverser"/>
+			<spawn id="mvz2:WintherMage"/>
 
 		</spawns>
 		<properties>
