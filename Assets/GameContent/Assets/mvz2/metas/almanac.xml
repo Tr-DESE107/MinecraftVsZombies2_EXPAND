@@ -1807,6 +1807,26 @@
 			</flavor>
 		</entry>
 
+		<entry id="mvz2:NetherTroopCarrier">
+			<header>
+				<p>快速冲入战场，并碾碎途中器械，每受到一定伤害释放一个怪物，爆炸后释放大量怪物。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>6000，低于1000时每秒失去60生命</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1.8</color>]]></p>
+				<p>碾压伤害：<![CDATA[<color=red>10000000</color>]]></p>
+				<p>弱点：<![CDATA[<color=red>尖刺方块</color>]]></p>
+				<p>受伤召唤：<![CDATA[<color=red>奇袭者头颅、下界弓箭手、狂战士、反逆者、下界战士、无头骑士</color>]]></p>
+				<p>亡语召唤：<![CDATA[<color=red>灵魂头王、下界冲锋者、愤怒的反逆者</color>]]></p>
+			</properties>
+			<flavor>
+				<p>该载具很明显普通的下界战车不一样，引擎和运兵舱似乎都经过了特殊的改装，似乎不是史蒂芬爷所为。</p>
+				<p>库尔咒对该载具表示疑惑。</p>
+				<p/>
+				<p><![CDATA[<color=white>在不起眼的地方上刻着一行小字：米罗威尼特</color>]]></p>
+			</flavor>
+		</entry>
+
 		<entry id="mvz2:bedserker">
 			<header>
 				<p>床战士能够制造惊天动地的大爆炸。</p>
@@ -1883,9 +1903,10 @@
 			</properties>
 			<flavor>
 				<p>首先先记住他们叫凋灵巫师，不叫凋零法师。</p>
-				<p>凋灵巫师能够使用独特的凋灵巫术，</p>
+				<p>凋灵巫师能够使用独特的凋灵巫术，包括召唤凋灵头颅、召唤地狱火陨石，单论个体而言他并没有太大的威胁，他最致命也最拿手的好戏是：“凋零”效果。</p>
+				<p>凋零效果会不断榨取实体的生命，并在实体病入膏肓时引爆实体，被引爆的实体还会接着传播凋零效果，若不做出干涉，如疫病一样的凋零效果会将所到之处变为真正的地狱。</p>
 				<p/>
-				<p><![CDATA[<color=grey>——这段话信息来源不明，而我仍能在■■■看到他们。</color>]]></p>
+				<p><![CDATA[<color=grey>他们是凋灵骷髅。</color>]]></p>
 			</flavor>
 		</entry>
 

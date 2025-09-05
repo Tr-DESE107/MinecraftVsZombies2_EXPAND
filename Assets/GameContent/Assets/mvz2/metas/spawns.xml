@@ -142,11 +142,7 @@
         <spawn level="3" minWave="5"/>
         <weight base="2000" />
     </entry>
-	<entry id="HostMutant" entity="mvz2:HostMutant" >
-		<spawn level="10"/>
-		<terrain water="true"/>
-		<weight base="1000" />
-	</entry>
+	
 	
     <!-- Castle -->
 	<entry id="WitherSkeleton" entity="mvz2:WitherSkeleton" >
@@ -205,7 +201,7 @@
 
 
 	<entry id="NetherWarrior" entity="mvz2:NetherWarrior" >
-		<spawn level="3" />
+		<spawn level="2" />
 		<weight base="2000" />
 	</entry>
 	<entry id="NetherArcher" entity="mvz2:NetherArcher" >
@@ -226,6 +222,7 @@
 	</entry>
 	<entry id="Anubiskull" entity="mvz2:Anubiskull" >
 		<spawn level="3" />
+		<terrain water="true" air="true"/>
 		<weight base="1350" />
 	</entry>
 	<entry id="WitherSkeletonHorse" entity="mvz2:WitherSkeletonHorse" >
@@ -246,6 +243,10 @@
 	</entry>
 	<entry id="KingofReverser" entity="mvz2:KingofReverser" >
 		<spawn level="2" minWave="5" />
+		<weight base="2000" />
+	</entry>
+	<entry id="NetherTroopCarrier" entity="mvz2:NetherTroopCarrier" >
+		<spawn level="6" minWave="10" />
 		<weight base="2000" />
 	</entry>
 	
@@ -297,11 +298,6 @@
 
 
 	<!-- Ship -->
-	<entry id="HeavyGutant" entity="mvz2:HeavyGutant" >
-		<spawn level="10"/>
-		<terrain water="true"/>
-		<weight base="1500" />
-	</entry>
 	
 	<entry id="Endermite" entity="mvz2:Endermite" >
 		<spawn level="3"/>
@@ -309,13 +305,26 @@
 	</entry>
 	
     <entry id="mutant_zombie" entity="mvz2:mutant_zombie" >
-        <spawn level="10" minWave="15"/>
+        <spawn level="10" minWave="8"/>
         <terrain water="true"/>
         <weight base="1500" />
     </entry>
     <entry id="mega_mutant_zombie" entity="mvz2:mega_mutant_zombie" >
-        <spawn level="10" minWave="15"/>
+        <spawn level="10" minWave="10"/>
         <terrain water="true"/>
-        <weight base="1000" />
+        <weight base="1200" />
     </entry>
+
+	<entry id="HostMutant" entity="mvz2:HostMutant" >
+		<spawn level="10" minWave="12"/>
+		<terrain water="true"/>
+		<weight base="900" />
+	</entry>
+
+	<entry id="HeavyGutant" entity="mvz2:HeavyGutant" >
+		<spawn level="10"/>
+		<terrain water="true"/>
+		<weight base="1600" />
+	</entry>
+
 </spawns>

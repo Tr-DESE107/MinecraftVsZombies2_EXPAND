@@ -876,7 +876,6 @@
             <spawn id="mvz2:mesmerizer"/>
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
-            <spawn id="mvz2:hell_chariot"/>
             <spawn id="mvz2:skeleton_mage"/>
 			<spawn id="mvz2:NetherWarrior"/>
 			<spawn id="mvz2:NetherArcher"/>
@@ -884,6 +883,7 @@
 			<spawn id="mvz2:AngryReverser"/>
 			<spawn id="mvz2:RaiderSkull"/>
 			<spawn id="mvz2:Anubiskull"/>
+			<spawn id="mvz2:NetherTroopCarrier"/>
         </spawns>
     </stage>
     <stage id="castle_11" name="辉针城" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.castle_10" music="mvz2:castle_final" >
@@ -1602,7 +1602,7 @@
 
 	<stage id="MutantCrisis" name="巨人危机" type="minigame" music="mvz2:minigame">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="1">
+		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="10">
 			
 			<spawn id="mvz2:mutant_zombie"/>
 			<spawn id="mvz2:mega_mutant_zombie"/>

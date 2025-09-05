@@ -45,8 +45,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
                 // 持续伤害（无视护甲 & 静音）
                 entity.TakeDamage(WITHER_DAMAGE, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.MUTE, VanillaDamageEffects.WITHER), entity);
 
-                // 当生命值小于等于 10 → 爆炸
-                if (entity.Health <= 10)
+                // 当生命值小于等于 30 → 爆炸
+                if (entity.Health <= 30)
                 {
                     Explode(entity);
                     entity.Remove();

@@ -66,6 +66,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01521753285ac654189928e17b81a748
+    m_Address: mvz2:enemy/castle/NetherTroopCarrier
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01a6d95d6ca2e274e9579d9781bf522e
     m_Address: mvz2:enemy/prologue/zombie
     m_ReadOnly: 0
@@ -7933,6 +7940,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b05d578e666fa614c871c4984041189f
     m_Address: mvz2:entity/enemy/spider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0d9f0ab5921b454fa6c717e1c7e0737
+    m_Address: mvz2:entity/enemy/NetherTroopCarrier
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

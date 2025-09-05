@@ -477,7 +477,7 @@
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <id name="mvz2:placement" value="mvz2:drivenser" />
 
-                <int name="mvz2:cost" value="175" />
+                <int name="mvz2:cost" value="150" />
                 <id name="mvz2:rechargeId" value="mvz2:medium" />
             </properties>
         </dispenser>
@@ -646,7 +646,7 @@
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
 
                 <int name="mvz2:cost" value="75" />
-                <id name="mvz2:rechargeId" value="mvz2:long" />
+                <id name="mvz2:rechargeId" value="mvz2:medium" />
             </properties>
         </contraption>
         <contraption id="thunder_drum" name="雷鼓" tooltip="触发后震退敌人" unlock="mvz2:level.castle_7">
@@ -926,6 +926,27 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
+
+		<dispenser id="CopperDropper" name="铜制投掷器" tooltip="（需要石制投掷器）\n投出反弹并产生绿宝石的金球"
+            unlock="mvz2:contraption.CopperDropper">
+			<properties>
+				<id name="mvz2:projectileId" value="mvz2:golden_ball" />
+				<id name="mvz2:shootSound" value="mvz2:click" />
+				<id name="mvz2:shell" value="mvz2:metal" />
+
+				<float name="mvz2:damage" value="60" />
+				<bool name="mvz2:upgradeBlueprint" value="true" />
+				<id name="mvz2:upgradeFrom" value="mvz2:wooden_dropper" />
+				<id name="mvz2:placement" value="mvz2:upgrade" />
+				<idArray name="mvz2:counter_for" value="mvz2:low_enemy" />
+
+				<vector3 name="mvz2:shotOffset" x="25" y="3" z="0" />
+				<vector3 name="mvz2:size" x="32" y="32" z="32" />
+
+				<int name="mvz2:cost" value="275" />
+				<id name="mvz2:rechargeId" value="mvz2:very_long" />
+			</properties>
+		</dispenser>
 		
 		<contraption id="Eviltombstone" name="邪灵墓碑" tooltip="召唤友方下界战士"
             unlock="mvz2:contraption.Eviltombstone">
@@ -1689,6 +1710,33 @@
 				<int name="mvz2:cost" value="75" />
 			</properties>
 		</humanoid>
+
+		<enemy id="NetherTroopCarrier" name="下界运兵车" deathMessage="你被塞进车厢里做成了zip"
+            unlock="mvz2:level.castle_10">
+			<behaviours>
+				<behaviour operator="add" id="mvz2:fragmented"/>
+			</behaviours>
+			<properties>
+				<float name="mvz2:mass" value="2" />
+				<float name="mvz2:maxHealth" value="6000" />
+				<id name="mvz2:fragmentId" value="mvz2:hell_chariot" />
+				<id name="mvz2:shell" value="mvz2:stone" />
+				<id name="mvz2:shape" value="mvz2:hell_chariot" />
+				<id name="mvz2:crySound" value="mvz2:wither_skeleton_cry" />
+				<id name="mvz2:deathSound" value="mvz2:large_explosion" />
+				<int name="mvz2:vehicleInteraction" value="2" />
+				<bool name="mvz2:canDeactive" value="false" />
+				<bool name="mvz2:undead" value="false" />
+				<vector3 name="mvz2:size" x="130" y="85" z="40" />
+				<vector3 name="mvz2:shadowScale" x="3" y="1" z="1" />
+				<idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
+				<int name="mvz2:waterInteraction" value="2" />
+				<int name="mvz2:airInteraction" value="2" />
+				<float name="mvz2:speed" value="1.8" />
+
+				<int name="mvz2:cost" value="300" />
+			</properties>
+		</enemy>
 
 		<!-- mausoleum Enemies -->
 
