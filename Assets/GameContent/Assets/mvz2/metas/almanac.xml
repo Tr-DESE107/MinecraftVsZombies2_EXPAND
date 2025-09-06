@@ -1047,6 +1047,29 @@
         </entry>
         <entry/>
 
+		<entry/>
+		<entry/>
+		<entry/>
+		<entry/>
+
+		<entry id="mvz2:CopperDropper">
+				<tags>
+					<tag id="mvz2:placement_golden_dropper"/>
+				</tags>
+				<header>
+					<p>铜制投掷器向敌人发射金球，金球在击中敌人后有概率产生绿宝石，并在敌人间反弹。</p>
+				</header>
+				<properties>
+					<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+					<p>伤害：<![CDATA[<color=red>60，每次反弹后减半</color>]]></p>
+					<p>宝石概率：<![CDATA[<color=red>25%</color>]]></p>
+					<p>技能：<![CDATA[<color=red>立即喷射30发金球</color>]]></p>
+				</properties>
+				<flavor>
+					<p>它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！</p>
+				</flavor>
+		</entry>
+
         <entry id="mvz2:command_block" hidden="true">
             <header>
                 <p>命令方块允许你同时携带两份同样的蓝图，分别计算充能时间。</p>

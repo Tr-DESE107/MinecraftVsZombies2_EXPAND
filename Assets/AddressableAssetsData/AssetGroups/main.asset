@@ -227,6 +227,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0619923c92bbc6046b85e68acb7317a1
+    m_Address: mvz2:entity/projectiles/CopperBall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0647dca389a10684db3237b158058da6
     m_Address: mvz2:soul_sand4
     m_ReadOnly: 0
@@ -3276,6 +3283,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - MapModel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45ab5cdfafa51bb40889877ca01a8253
+    m_Address: mvz2:contraption/upgrade/CopperDropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45bd5e18c8a90ab47ab4eb0c7f131186
     m_Address: mvz2:entity/zombie/zombie_cry1
@@ -9114,6 +9128,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb9206e7898044c42b1f727f243a7140
+    m_Address: mvz2:entity/contraptions/CopperDropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cbe2117cde68d914493afb8f0aaa9bb0
     m_Address: mvz2:map/dream/nightmare_censored
     m_ReadOnly: 0
@@ -11233,6 +11254,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd3410dae4085c14fb0d05d712fa3596
+    m_Address: mvz2:projectile/CopperBall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd39fe758a297d8448167d0de18eceff
     m_Address: mvz2:mind_control
