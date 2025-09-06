@@ -1836,7 +1836,7 @@
 
 		<entry id="mvz2:NetherTroopCarrier">
 			<header>
-				<p>快速冲入战场，并碾碎途中器械，每受到一定伤害释放一个怪物，爆炸后释放大量怪物。</p>
+				<p>下界运兵车能够快速冲入战场并碾碎途中器械，每受到一定伤害释放一个怪物，爆炸后释放大量怪物。</p>
 			</header>
 			<properties>
 				<p>生命：<![CDATA[<color=red>6000，低于1000时每秒失去60生命</color>]]></p>

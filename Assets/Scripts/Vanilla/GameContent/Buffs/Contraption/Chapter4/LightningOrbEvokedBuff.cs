@@ -15,6 +15,15 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
+using MVZ2.GameContent.Buffs.Contraptions;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
+using MVZ2Logic.Level;
+using PVZEngine;
+using PVZEngine.Callbacks;
+using PVZEngine.Entities;
+using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
@@ -107,9 +116,19 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         private void PreProjectileHitCallback(VanillaLevelCallbacks.PreProjectileHitParams param, CallbackResult result)
         {
             var hit = param.hit;
-            var projectile = hit.Projectile;
             var damage = param.damage;
             var entity = hit.Other; // 命中的对象
+
+            // 如果伤害目标是护盾，就直接退出
+            if (NamespaceID.IsValid(damage.ShieldTarget))
+                return;
+
+            var orb = hit.Other;
+            // 确认命中的实体确实是 LightningOrb
+            if (!orb.HasBuff<LightningOrbEvokedBuff>())
+                return;
+
+            var projectile = hit.Projectile;
 
             foreach (var buff in entity.GetBuffs<LightningOrbEvokedBuff>())
             {
@@ -117,8 +136,10 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 entity.HealEffects(damage.Amount, entity);
                 AddTakenDamage(buff, damage.Amount);
                 result.SetFinalValue(false); // 阻止原始命中
+
+                projectile.Remove();
             }
-            projectile.Remove();
+            
         }
 
 

@@ -115,6 +115,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02f3e232b88c3ba448492f7765a910f9
+    m_Address: mvz2:mobile_blueprint/CopperDropper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 031db6b738540f14aae3f26d4d1daff6
     m_Address: mvz2:final_item
     m_ReadOnly: 0

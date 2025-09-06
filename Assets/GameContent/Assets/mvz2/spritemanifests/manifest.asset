@@ -221,6 +221,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2be33464724166c4fa3a121643edceb8, type: 3}
   - name: mobile_blueprint/command_block
     sprite: {fileID: 21300000, guid: c5e0b87d540b275409a8860725de7933, type: 3}
+  - name: mobile_blueprint/CopperDropper
+    sprite: {fileID: 21300000, guid: 02f3e232b88c3ba448492f7765a910f9, type: 3}
   - name: mobile_blueprint/cuerzor
     sprite: {fileID: 21300000, guid: 013ddabfa9a7ad4498ce65e138a6adea, type: 3}
   - name: mobile_blueprint/desire_pot
