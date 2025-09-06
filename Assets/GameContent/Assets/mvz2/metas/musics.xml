@@ -29,7 +29,7 @@
         <track main="mvz2:halloween"/>
         <source>书虫大冒险</source>
         <description>
-            <p>万圣夜关卡的音乐。</p>
+            <p>永夜沼泽关卡的音乐。</p>
             <p>出自宝开之前的另一款佳作《书虫大冒险》，制作十分精良，可惜人气实在太低，并且由于强绑定英文而无法走向世界。</p>
             <p>实在是太可惜了。</p>
         </description>
@@ -38,7 +38,7 @@
         <track main="mvz2:halloween_map"/>
         <source>书虫大冒险</source>
         <description>
-            <p>万圣夜地图的音乐。</p>
+            <p>永夜沼泽地图的音乐。</p>
             <p>那么这系列音乐原来使用在什么地方呢？</p>
             <p>《书虫大冒险》的主角Lex是一只书虫，负责管理大图书馆中的书籍。它先后穿梭于希腊神话、埃及神话，以及欧洲鬼怪故事这三本书中。</p>
             <p>而这首音乐则来自于第三本书——欧洲鬼怪故事中。其游戏内的名称即为《莱克死灵之书》，是Lex的名字和《死灵之书》的组合词。</p>
@@ -56,8 +56,8 @@
         <track main="mvz2:ultimate_battle"/>
         <source>植物大战僵尸</source>
         <description>
-            <p>万圣夜最终关的音乐。</p>
-            <p>原来是大部分传送带关卡都会播放的音乐，在这里只用于万圣夜。</p>
+            <p>永夜沼泽最终关的音乐。</p>
+            <p>原来是大部分传送带关卡都会播放的音乐，在这里只用于永夜沼泽。</p>
         </description>
     </music>
     <music id="halloween_boss" name="莱克死灵之书-首领">
@@ -71,6 +71,16 @@
             <p>呵呵，你可否想到自己？史蒂夫？</p>
         </description>
     </music>
+	<music id="thread" name="thread(沉思)">
+		<track main="mvz2:thread"/>
+		<source>暮色森林</source>
+		<description>
+			<p>永夜沼泽拓展关的音乐。</p>
+			<p>EXPAND gms2版本的永夜沼泽分波音乐也选用了这首曲子。</p>
+			<p>初听没什么意思，听着听着就听出了韵味，我脑中也不时会响起这首曲子。</p>
+			<p>听上去像是一个神秘的法师在他的花园中闲庭漫步，思考着符文与法术。</p>
+		</description>
+	</music>
 
     <music id="dream_level" name="破碎的童话-关卡">
         <track main="mvz2:dream_level"/>
@@ -252,6 +262,15 @@
             <p>因为老大哥在看着我。</p>
         </description>
     </music>
+	<music id="Dungeon" name="Dungeon" unlock="mvz2:level.castle_12">
+		<track main="mvz2:Dungeon"/>
+		<source>泰拉瑞亚</source>
+		<description>
+			<p>辉针城拓展关的音乐。</p>
+			<p>相当刺激和有意思的歌，敲击的鼓点仿佛是骷髅们用肋骨制成的，愤怒的骷髅一波一波的袭来，地牢的探险旅程充满着惊奇。</p>
+			<p>有趣的是，这歌曾是gms2旧版辉针城关卡的配乐，现在在EXPAND里重现天日，令人欣喜</p>
+		</description>
+	</music>
 
     <music id="mausoleum_map" name="游魂的夜樱" unlock="mvz2:level.mausoleum_1">
         <track main="mvz2:mausoleum_map"/>

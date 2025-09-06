@@ -933,6 +933,7 @@
 				<id name="mvz2:projectileId" value="mvz2:CopperBall" />
 				<id name="mvz2:shootSound" value="mvz2:click" />
 				<id name="mvz2:shell" value="mvz2:metal" />
+				<float name="mvz2:attackSpeed" value="1.5"/>
 
 				<float name="mvz2:damage" value="40" />
 				<bool name="mvz2:upgradeBlueprint" value="true" />

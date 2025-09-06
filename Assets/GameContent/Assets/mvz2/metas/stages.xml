@@ -299,7 +299,7 @@
         </properties>
     </stage>
 
-	<stage id="halloween_12" name="万圣夜" dayNumber="12" unlock="mvz2:level.halloween_11" >
+	<stage id="halloween_12" name="万圣夜" dayNumber="12" unlock="mvz2:level.halloween_11" music="mvz2:thread">
 
 
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:RedStoneOre"/>
@@ -320,7 +320,7 @@
 			<integer name="statueCount" value="10" />
 		</properties>
 	</stage>
-	<stage id="halloween_13" name="万圣夜" dayNumber="13" unlock="mvz2:level.halloween_12" >
+	<stage id="halloween_13" name="万圣夜" dayNumber="13" unlock="mvz2:level.halloween_12" music="mvz2:thread">
 
 
 		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:GlowingObsidian"/>
@@ -343,7 +343,7 @@
 			<integer name="statueCount" value="10" />
 		</properties>
 	</stage>
-	<stage id="halloween_14" name="万圣夜" dayNumber="14" unlock="mvz2:level.halloween_13" >
+	<stage id="halloween_14" name="万圣夜" dayNumber="14" unlock="mvz2:level.halloween_13" music="mvz2:thread">
 		<clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:ShrunkenHead"/>
 		<spawns flags="2" >
 			<spawn id="mvz2:zombie"/>
@@ -933,7 +933,7 @@
         </spawns>
     </stage>
 
-	<stage id="castle_12" name="辉针城" dayNumber="12" unlock="mvz2:level.castle_11">
+	<stage id="castle_12" name="辉针城" dayNumber="12" unlock="mvz2:level.castle_11" music="mvz2:Dungeon">
 		<talks>
 
 		</talks>
@@ -952,7 +952,7 @@
 		</spawns>
 	</stage>
 
-	<stage id="castle_13" name="辉针城" dayNumber="13" unlock="mvz2:level.castle_12">
+	<stage id="castle_13" name="辉针城" dayNumber="13" unlock="mvz2:level.castle_12" music="mvz2:Dungeon">
 		<talks>
 			
 		</talks>
@@ -974,7 +974,7 @@
 		</spawns>
 	</stage>
 
-	<stage id="castle_14" name="辉针城" dayNumber="14" unlock="mvz2:level.castle_13">
+	<stage id="castle_14" name="辉针城" dayNumber="14" unlock="mvz2:level.castle_13" music="mvz2:Dungeon">
 		<talks>
 			
 		</talks>
@@ -1005,7 +1005,7 @@
 			<entry id="mvz2:spike_block" count="5"/>
 			<entry id="mvz2:stone_dropper" count="8"/>
 			<entry id="mvz2:stone_shield" count="15"/>
-			<entry id="mvz2:golden_apple" count="3"/>
+			<entry id="mvz2:golden_apple" count="5"/>
 			<entry id="mvz2:thunder_drum" count="3"/>
 			<entry id="mvz2:tesla_coil" count="8"/>
 			<entry id="mvz2:giant_bowl" count="2"/>
@@ -1014,6 +1014,7 @@
 			<entry id="mvz2:soul_furnace" count="6"/>
 			<entry id="mvz2:tnt" count="2"/>
 			<entry id="mvz2:DispenShield" count="6"/>
+			<entry id="mvz2:CopperDropper" count="1"/>
 		</conveyor>
 		<clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:WitherHeartShield"/>
 		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >

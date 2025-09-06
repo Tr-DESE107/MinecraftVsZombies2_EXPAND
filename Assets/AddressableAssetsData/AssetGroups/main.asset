@@ -5202,6 +5202,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7092bf26fdd8dde4c83e745585362896
+    m_Address: mvz2:Dungeon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Music
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 709ed95515e99394794608a94dd8d725
     m_Address: mvz2:entity/wither/damage3
     m_ReadOnly: 0
