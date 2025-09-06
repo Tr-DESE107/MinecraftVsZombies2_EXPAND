@@ -956,7 +956,7 @@
 		<talks>
 			
 		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:DispenShield"/>
+		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:CopperDropper"/>
 		<spawns flags="3">
 			<spawn id="mvz2:IronWitherSkeleton"/>
 			<spawn id="mvz2:mesmerizer"/>

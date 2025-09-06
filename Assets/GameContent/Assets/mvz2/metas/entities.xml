@@ -928,7 +928,7 @@
         </dispenser>
 
 		<dispenser id="CopperDropper" name="铜制投掷器" tooltip="（需要石制投掷器）\n投出反弹并产生绿宝石的金球"
-            unlock="mvz2:level.castle_11">
+            unlock="mvz2:level.castle_13">
 			<properties>
 				<id name="mvz2:projectileId" value="mvz2:CopperBall" />
 				<id name="mvz2:shootSound" value="mvz2:click" />

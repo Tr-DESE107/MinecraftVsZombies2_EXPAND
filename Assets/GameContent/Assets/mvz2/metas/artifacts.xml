@@ -71,7 +71,7 @@
             <condition required="mvz2:level.castle_11"/>
         </unlock>
     </artifact>
-    <artifact id="wither_skeleton_skull" name="凋灵骷髅头" tooltip="×75%蓝图消耗，但新放下的器械的最大耐久×75%" sprite="mvz2:artifacts/wither_skeleton_skull" >
+    <artifact id="wither_skeleton_skull" name="凋灵骷髅头" tooltip="×80%蓝图消耗，但新放下的器械的最大耐久×60%" sprite="mvz2:artifacts/wither_skeleton_skull" >
         <unlock>
             <condition required="mvz2:level.castle_14"/>
         </unlock>

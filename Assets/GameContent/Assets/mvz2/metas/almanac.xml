@@ -25,6 +25,10 @@
             <icon sprite="mvz2:ui/almanac/placement_tags_upgrade_new[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
         </tag>
+		<tag id="placement_stone_dropper" name="升级器械：石制投掷器" description="必须放置在石制投掷器上" priority="0" >
+			<icon sprite="mvz2:ui/almanac/Expand_attribute[3]" />
+			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
+		</tag>
 		<tag id="placement_necrotombstone" name="升级器械：死灵墓碑" description="必须放置在死灵墓碑上" priority="0" >
 			<icon sprite="mvz2:ui/almanac/Expand_attribute[0]" />
 			<background sprite="mvz2:ui/almanac/tag_backgrounds[0]" color="#ff00ff" />
@@ -636,7 +640,7 @@
             <properties>
                 <p>耐久：<![CDATA[<color=red>5000</color>]]></p>
                 <p>特点：<![CDATA[<color=red>吸收敌弹，并恢复100耐久</color>]]></p>
-                <p>技能：<![CDATA[<color=red>在5秒内吸收所有伤害并治疗自己，之后将这些伤害返还给所有敌人（最高1800）</color>]]></p>
+                <p>技能：<![CDATA[<color=red>在5秒内吸收所有远程射弹伤害并治疗自己，之后将这些伤害返还给所有敌人（最高900）</color>]]></p>
             </properties>
             <flavor>
                 <p>它就是音符盒的邻居。</p>
@@ -1054,7 +1058,7 @@
 
 		<entry id="mvz2:CopperDropper">
 				<tags>
-					<tag id="mvz2:placement_golden_dropper"/>
+					<tag id="mvz2:placement_stone_dropper"/>
 				</tags>
 				<header>
 					<p>铜制投掷器向敌人发射概率眩晕的铜球和击退敌人的铜矿球，铜球在击中敌人后有概率产生铜锭，并在敌人间反弹。</p>
