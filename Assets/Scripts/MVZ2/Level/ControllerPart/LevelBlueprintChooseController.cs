@@ -867,7 +867,7 @@ namespace MVZ2.Level
             chosenArtifacts = new ArtifactChooseItem[artifactCount];
 
             // 获取固有制品。
-            var innateArtifacts = Main.Game.GetInnateArtifacts();
+            var innateArtifacts = Main.Game.GetInnateArtifacts() ?? Array.Empty<NamespaceID>();
             var innateCount = innateArtifacts.Length;
             for (int i = 0; i < innateCount; i++)
             {
@@ -876,20 +876,36 @@ namespace MVZ2.Level
                 chosenArtifacts[i] = new ArtifactChooseItem(innateArtifacts[i], true);
             }
 
-            // 继承制品。
-            if (Level.CurrentFlag > 0)
+            try
             {
-                var notInnateArtifacts = Level.GetArtifacts().Where(a => !innateArtifacts.Contains(a.Definition.GetID())).ToArray();
-                InheritChosenArtifacts(innateCount, notInnateArtifacts);
-            }
-            else
-            {
-                var lastSelection = Main.SaveManager.GetLastSelection();
-                if (lastSelection != null && lastSelection.artifacts != null)
+                // 继承制品。
+                if (Level.CurrentFlag > 0)
                 {
-                    var notInnateArtifacts = lastSelection.artifacts.Where(i => i != null).ToArray();
-                    InheritLastChosenArtifacts(innateCount, notInnateArtifacts);
+                    var artifacts = Level.GetArtifacts() ?? Array.Empty<Artifact>();
+
+                    var notInnateArtifacts = artifacts
+                        .Where(a => a != null && a.Definition != null)
+                        .Where(a => !innateArtifacts.Contains(a.Definition.GetID()))
+                        .ToArray();
+
+                    InheritChosenArtifacts(innateCount, notInnateArtifacts);
                 }
+                else
+                {
+                    var lastSelection = Main.SaveManager.GetLastSelection();
+                    if (lastSelection != null && lastSelection.artifacts != null)
+                    {
+                        var notInnateArtifacts = lastSelection.artifacts
+                            .Where(i => i != null)
+                            .ToArray();
+
+                        InheritLastChosenArtifacts(innateCount, notInnateArtifacts);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[InheritArtifacts] 遇到异常: {ex}");
             }
         }
         private void InheritChosenArtifacts(int startIndex, Artifact[] targets)

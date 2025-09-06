@@ -66,7 +66,7 @@
 		<weight base="3500" />
 	</entry>
     <entry id="ghost" entity="mvz2:ghost" >
-        <spawn level="2" minWave="5" />
+        <spawn level="2" minWave="4" />
         <terrain excludedTags="mvz2:day" water="true"/>
         <weight base="2000" />
     </entry>
@@ -113,7 +113,7 @@
 		<terrain water="true"/>
 		<weight base="3000" />
 	</entry>
-	<entry id="SpiderQueen" entity="mvz2:SpiderQueen" >
+	<entry id="SpiderQueen" entity="mvz2:SpiderQueen" noEndless="true" >
 		<spawn level="2" />
 		<weight base="2000" />
 	</entry>
@@ -221,7 +221,7 @@
 		<weight base="2000" />
 	</entry>
 	<entry id="Anubiskull" entity="mvz2:Anubiskull" >
-		<spawn level="3" />
+		<spawn level="3" minWave="5" />
 		<terrain water="true" air="true"/>
 		<weight base="1350" />
 	</entry>

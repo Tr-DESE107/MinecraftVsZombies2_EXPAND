@@ -74,7 +74,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
 
         public static void Explode(Entity entity)
         {
-            var range = entity.GetRange();
+            var range = 60;
 
             // 播放音效 & 生成爆炸特效
             entity.PlaySound(VanillaSoundID.explosion);
@@ -108,7 +108,8 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (!entity.Level.WitherSkullWithersTarget())
                 return;
 
-            
+            if (entity.Type == EntityTypes.BOSS)
+                return;
 
             // 是否有伤害结果
             if (output.BodyResult == null)
