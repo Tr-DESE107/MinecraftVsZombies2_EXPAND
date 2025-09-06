@@ -934,7 +934,7 @@
 				<id name="mvz2:shootSound" value="mvz2:click" />
 				<id name="mvz2:shell" value="mvz2:metal" />
 
-				<float name="mvz2:damage" value="60" />
+				<float name="mvz2:damage" value="40" />
 				<bool name="mvz2:upgradeBlueprint" value="true" />
 				<id name="mvz2:upgradeFrom" value="mvz2:stone_dropper" />
 				<id name="mvz2:placement" value="mvz2:upgrade" />
@@ -943,7 +943,7 @@
 				<vector3 name="mvz2:shotOffset" x="25" y="3" z="0" />
 				<vector3 name="mvz2:size" x="32" y="32" z="32" />
 
-				<int name="mvz2:cost" value="275" />
+				<int name="mvz2:cost" value="375" />
 				<id name="mvz2:rechargeId" value="mvz2:very_long" />
 			</properties>
 		</dispenser>
@@ -2352,6 +2352,18 @@
 				<int name="mvz2:sortingOrder" value="9999" />
 				<int name="mvz2:energyValue" value="25" />
 				<id name="mvz2:collectSound" value="mvz2:points" />
+				<vector3 name="mvz2:shadowScale" x="0.75" y="0.75" z="0.75" />
+			</properties>
+		</pickup>
+		<pickup id="CopperNugget" name="铜粒">
+			<behaviours>
+				<behaviour operator="add" id="mvz2:energy_pickup"/>
+			</behaviours>
+			<properties>
+				<int name="mvz2:sortingOrder" value="9999" />
+				<int name="mvz2:energyValue" value="1" />
+				<id name="mvz2:collectSound" value="mvz2:points" />
+				<vector3 name="mvz2:shadowScale" x="0.25" y="0.25" z="0.25" />
 			</properties>
 		</pickup>
         <pickup id="gunpowder" name="火药">
@@ -2645,6 +2657,14 @@
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
             </properties>
         </projectile>
+		<projectile id="CopperOreBall">
+			<properties>
+				<bool name="mvz2:killOnGround" value="false" />
+				<bool name="mvz2:rolls" value="true" />
+				<float name="mvz2:gravity" value="1" />
+				<vector3 name="mvz2:size" x="48" y="48" z="48" />
+			</properties>
+		</projectile>
         <projectile id="golden_ball">
             <properties>
                 <bool name="mvz2:killOnGround" value="false" />

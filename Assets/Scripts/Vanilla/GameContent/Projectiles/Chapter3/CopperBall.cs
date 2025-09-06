@@ -24,11 +24,17 @@ namespace MVZ2.GameContent.Projectiles
         {
             base.PostHitEntity(hitResult, damage);
             var projectile = hitResult.Projectile;
-            if (projectile.RNG.Next(100) < 25)
+            if (projectile.RNG.Next(500) < 25)
             {
                 projectile.Produce(VanillaPickupID.CopperIngot);
             }
 
+            if (projectile.RNG.Next(100) > 75)
+            {
+                var enemy = hitResult.Other;
+                enemy.Stun(30);
+            }
+            
             var dmg = projectile.GetDamage();
             dmg *= 0.5f;
             projectile.SetDamage(dmg);

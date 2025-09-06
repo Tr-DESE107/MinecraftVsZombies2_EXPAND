@@ -191,7 +191,8 @@
 
     <!-- Pickups -->
     <model name="redstone" type="entity" path="mvz2:pickup/redstone" width="64" height="64" xOffset="0" yOffset="-16"/>
-    <model name="CopperIngot" type="entity" path="mvz2:pickup/CopperIngot" width="64" height="64" xOffset="0" yOffset="-16"/>
+    <model name="CopperIngot" type="entity" path="mvz2:pickup/CopperIngot" width="48" height="48" xOffset="0" yOffset="-16"/>
+    <model name="CopperNugget" type="entity" path="mvz2:pickup/CopperNugget" width="32" height="32" xOffset="0" yOffset="-16"/>
     <model name="gunpowder" type="entity" path="mvz2:pickup/gunpowder" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="furious_gunpowder" type="entity" path="mvz2:pickup/furious_gunpowder" width="64" height="64" xOffset="0" yOffset="-16"/>
     <model name="emerald" type="entity" path="mvz2:pickup/emerald" width="32" height="32" xOffset="0" yOffset="-16"/>
@@ -322,6 +323,7 @@
 
     <model name="cobble" type="entity" path="mvz2:projectile/cobble" width="12" height="12" xOffset="0" yOffset="-6"/>
     <model name="boulder" type="entity" path="mvz2:projectile/boulder" width="48" height="48" xOffset="0" yOffset="-24"/>
+    <model name="CopperOreBall" type="entity" path="mvz2:projectile/CopperOreBall" width="48" height="48" xOffset="0" yOffset="-24"/>
     <model name="golden_ball" type="entity" path="mvz2:projectile/golden_ball" width="24" height="24" xOffset="0" yOffset="-12"/>
     <model name="CopperBall" type="entity" path="mvz2:projectile/CopperBall" width="24" height="24" xOffset="0" yOffset="-12"/>
     <model name="diamond_caltrop" type="entity" path="mvz2:projectile/diamond_caltrop" width="16" height="16" xOffset="0" yOffset="-8"/>

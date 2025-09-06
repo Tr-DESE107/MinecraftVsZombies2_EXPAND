@@ -819,6 +819,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 343af9cde9d29df4eb4188060da23847, type: 3}
   - name: entity/pickups/CopperIngot
     sprite: {fileID: 21300000, guid: 7a12f8da98b31a34baa6e0b61727364f, type: 3}
+  - name: entity/pickups/CopperNugget
+    sprite: {fileID: 21300000, guid: a07bf50bdcd5dd947afe5c722bfaa91a, type: 3}
   - name: entity/pickups/diamond
     sprite: {fileID: 21300000, guid: 842c7ddcc4687ac43bd7fd5d478c0b7f, type: 3}
   - name: entity/pickups/ender_chest
@@ -853,6 +855,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: f1e4625420d356e4eb58b79513629607, type: 3}
   - name: entity/projectiles/CopperBall
     sprite: {fileID: 21300000, guid: 0619923c92bbc6046b85e68acb7317a1, type: 3}
+  - name: entity/projectiles/CopperOreBall
+    sprite: {fileID: 21300000, guid: 384e89f7b6b8ff04c8554b5851e27a2d, type: 3}
   - name: entity/projectiles/crossbow_bolt
     sprite: {fileID: 21300000, guid: 838820327528a4d439a51f03582183f9, type: 3}
   - name: entity/projectiles/cursed_fireball

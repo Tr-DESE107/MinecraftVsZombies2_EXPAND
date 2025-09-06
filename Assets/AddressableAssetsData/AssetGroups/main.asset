@@ -2633,6 +2633,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 384e89f7b6b8ff04c8554b5851e27a2d
+    m_Address: mvz2:entity/projectiles/CopperOreBall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 384fe1c3128c2f44c8e1de62692d6358
     m_Address: mvz2:entity/projectiles/RedKnife
     m_ReadOnly: 0
@@ -5565,6 +5572,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79bcc45aea9a716458fee6ef9353b9bb
+    m_Address: mvz2:pickup/CopperNugget
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79c213f193d22154cb2676ca7a908066
     m_Address: mvz2:pickup/starshards/dream
     m_ReadOnly: 0
@@ -5592,6 +5606,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a12f8da98b31a34baa6e0b61727364f
+    m_Address: mvz2:entity/pickups/CopperIngot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a3b8d97209e0b4429c62e23f1046a6c
     m_Address: mvz2:arcade
@@ -7338,6 +7359,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a06de87c0a73e074abeebac969e592ec
     m_Address: mvz2:mobile_blueprint/mega_mutant_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a07bf50bdcd5dd947afe5c722bfaa91a
+    m_Address: mvz2:entity/pickups/CopperNugget
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10444,6 +10472,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebe13d0431995b94baf89657696a48b0
+    m_Address: mvz2:pickup/CopperIngot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ec212abe3448fae468e8a869c194bb7c
     m_Address: mvz2:entity/contraption/totenser
     m_ReadOnly: 0
@@ -10758,6 +10793,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f202003830d899b47b368733dd65980d
+    m_Address: mvz2:projectile/CopperOreBall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f24e02b7e9159cb4ebd603ab477f2152
     m_Address: mvz2:mobile_blueprint/high_frequency_pulse_dispenser
