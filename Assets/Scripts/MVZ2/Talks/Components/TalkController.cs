@@ -792,7 +792,18 @@ namespace MVZ2.Talk
             }
         }
         #endregion
-
+        public void ExampleMethod(int i)
+        {
+            if (i != 0)
+            {
+                return;
+            }
+            // 当 i 为 0 时，下面的条件 i != 0 将始终为 false
+            if (i != 0) // 这里应该触发 CA1508 警告
+            {
+                // 死代码
+            }
+        }
         private int GetCharacterIndex(NamespaceID? id)
         {
             return characterList.FindIndex(d => d.id == id);

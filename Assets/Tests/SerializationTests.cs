@@ -22,7 +22,7 @@ using UnityEngine.TestTools;
 namespace MVZ2.Tests
 {
     using LevelEngine = PVZEngine.Level.LevelEngine;
-    public class SerializationTests
+    public static class SerializationTests
     {
         [UnityTest]
         public static IEnumerator EntityReferenceTest()

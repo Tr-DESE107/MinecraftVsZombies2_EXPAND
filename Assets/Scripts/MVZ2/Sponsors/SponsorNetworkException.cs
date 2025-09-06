@@ -7,5 +7,13 @@ namespace MVZ2.Supporters
     class SponsorNetworkException : Exception
     {
         public SponsorNetworkException(string message) : base(message) { }
+
+        public SponsorNetworkException() : base()
+        {
+        }
+
+        public SponsorNetworkException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
     }
 }

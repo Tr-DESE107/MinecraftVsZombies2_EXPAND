@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace MVZ2.Editor
 {
-    public class ModelMenu
+    public static class ModelMenu
     {
         public static void UpdateModelElements()
         {

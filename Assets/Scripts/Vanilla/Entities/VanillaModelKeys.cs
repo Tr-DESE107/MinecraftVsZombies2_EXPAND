@@ -4,7 +4,7 @@ using PVZEngine;
 
 namespace MVZ2.Vanilla.Models
 {
-    public class VanillaModelKeys
+    public static class VanillaModelKeys
     {
         public static readonly NamespaceID shortCircuit = Get("short_circuit");
         public static readonly NamespaceID staticParticles = Get("static_particles");

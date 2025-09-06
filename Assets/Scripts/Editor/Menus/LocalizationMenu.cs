@@ -19,7 +19,7 @@ using UnityEngine.SceneManagement;
 
 namespace MVZ2.Editor
 {
-    public class LocalizationMenu
+    public static class LocalizationMenu
     {
         public static void CompressLanguagePack()
         {

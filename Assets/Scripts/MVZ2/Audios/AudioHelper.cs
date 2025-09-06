@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MVZ2.Audios
 {
-    public class AudioHelper
+    public static class AudioHelper
     {
         public static float PercentageToDbA(float p)
         {

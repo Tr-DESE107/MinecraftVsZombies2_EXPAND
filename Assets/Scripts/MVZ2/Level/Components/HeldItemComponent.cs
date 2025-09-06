@@ -79,11 +79,8 @@ namespace MVZ2.Level.Components
             info.InstantEvoke = value.InstantEvoke;
             Controller.SetHeldItemUI(info);
 
-            if (definition != null)
-            {
-                definition.Begin(Level, Data);
-            }
-            Controller.UpdateEntityHeldTargetColliders(definition?.GetHeldTargetMask(Level) ?? HeldTargetFlag.None);
+            definition.Begin(Level, Data);
+            Controller.UpdateEntityHeldTargetColliders(definition.GetHeldTargetMask(Level));
         }
         public IModelInterface? GetHeldItemModelInterface()
         {
@@ -111,7 +108,7 @@ namespace MVZ2.Level.Components
             info.InstantEvoke = false;
             Controller.SetHeldItemUI(info);
 
-            Controller.UpdateEntityHeldTargetColliders(definition?.GetHeldTargetMask(Level) ?? HeldTargetFlag.None);
+            Controller.UpdateEntityHeldTargetColliders(definition.GetHeldTargetMask(Level));
         }
         public bool CancelHeldItem()
         {

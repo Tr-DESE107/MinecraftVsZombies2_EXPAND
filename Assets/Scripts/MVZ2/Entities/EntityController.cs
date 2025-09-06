@@ -660,14 +660,11 @@ namespace MVZ2.Entities
                     model.transform.localScale = entity.GetFinalDisplayScale();
                     model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
                     model.SortingOrder = entity.GetSortingOrder();
-                    if (model is EntityModel sprModel)
-                    {
-                        sprModel.SetLightVisible(entity.IsLightSource());
-                        sprModel.SetLightColor(entity.GetLightColor());
-                        var lightScaleLawn = entity.GetLightRange();
-                        var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;
-                        sprModel.SetLightRange(lightScale);
-                    }
+                    model.SetLightVisible(entity.IsLightSource());
+                    model.SetLightColor(entity.GetLightColor());
+                    var lightScaleLawn = entity.GetLightRange();
+                    var lightScale = new Vector2(lightScaleLawn.x, Mathf.Max(lightScaleLawn.y, lightScaleLawn.z)) * entityCtrl.Level.LawnToTransScale;
+                    model.SetLightRange(lightScale);
                 }
 
                 ShadowHidden = entity.IsShadowHidden();

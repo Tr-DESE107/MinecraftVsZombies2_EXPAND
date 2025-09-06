@@ -214,7 +214,7 @@ namespace MVZ2.GameContent.Bosses
                         if (substateTimer.Expired)
                         {
                             stateMachine.SetSubState(entity, SUBSTATE_ROTATE_2);
-                            substateTimer?.ResetTime(30);
+                            substateTimer.ResetTime(30);
                         }
                         break;
                     case SUBSTATE_ROTATE_2:
@@ -259,7 +259,7 @@ namespace MVZ2.GameContent.Bosses
                         if (substateTimer.Expired)
                         {
                             stateMachine.SetSubState(entity, SUBSTATE_HAMMERED);
-                            substateTimer?.ResetTime(8);
+                            substateTimer.ResetTime(8);
                             smashDetectBuffer.Clear();
                             hammerSmashDetector.DetectMultiple(entity, smashDetectBuffer);
                             if (smashDetectBuffer.Count > 0)
@@ -355,7 +355,7 @@ namespace MVZ2.GameContent.Bosses
                         if (substateTimer.Expired)
                         {
                             stateMachine.SetSubState(entity, SUBSTATE_BOMB_THROWN);
-                            substateTimer?.ResetTime(30);
+                            substateTimer.ResetTime(30);
 
                             var pos = entity.Position;
                             pos.y += 40;

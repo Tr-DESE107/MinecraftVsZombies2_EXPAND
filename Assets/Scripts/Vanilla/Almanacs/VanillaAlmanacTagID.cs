@@ -4,7 +4,7 @@ using PVZEngine;
 
 namespace MVZ2.Vanilla.Almanacs
 {
-    public class VanillaAlmanacTagID
+    public static class VanillaAlmanacTagID
     {
         public static readonly NamespaceID placementBuried = Get("placement_buried");
         public static readonly NamespaceID placementLand = Get("placement_land");

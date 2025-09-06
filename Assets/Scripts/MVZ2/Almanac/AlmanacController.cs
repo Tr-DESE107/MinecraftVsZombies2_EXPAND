@@ -198,7 +198,7 @@ namespace MVZ2.Almanacs
             var picture = entry?.picture;
             if (picture == null)
                 return;
-            var characterID = picture?.character;
+            var characterID = picture.character;
             var characterMeta = Main.ResourceManager.GetCharacterMeta(characterID);
             var offset = next ? 1 : -1;
             if (characterMeta != null)
@@ -473,14 +473,9 @@ namespace MVZ2.Almanacs
             var definition = Main.Game.GetEntityDefinition(entityID);
             if (definition == null)
                 return;
-            bool nocturnal = definition.IsNocturnal();
-            var placement = definition.GetPlacementID();
-
             name = Main.ResourceManager.GetEntityName(entityID);
             description = GetAlmanacDescription(entityID, almanacCategory);
 
-            if (definition == null)
-                return;
             model = definition.GetModelID();
         }
         private void GetArtifactAlmanacInfos(NamespaceID entityID, string almanacCategory, out Sprite? sprite, out string name, out string description)

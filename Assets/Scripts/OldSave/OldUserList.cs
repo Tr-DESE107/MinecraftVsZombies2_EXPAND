@@ -30,7 +30,7 @@ namespace MVZ2.OldSaves
         private static string ReadString(Stream fileStream, int length, Encoding encoding)
         {
             byte[] nameBytes = new byte[length];
-            fileStream.Read(nameBytes, 0, length);
+            var count = fileStream.Read(nameBytes, 0, length);
             return encoding.GetString(nameBytes);
         }
     }

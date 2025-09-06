@@ -102,7 +102,7 @@ namespace MVZ2Logic
             if (lhs is null)
                 return rhs is null;
             if (rhs is null)
-                return lhs is null;
+                return false;
             return lhs.Equals(rhs);
         }
         public static bool operator !=(SpriteReference? lhs, SpriteReference? rhs)

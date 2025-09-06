@@ -13,6 +13,11 @@ namespace PVZEngine.Base
         public MissingSerializeDataException(string message) : base(message)
         {
         }
+
+        public MissingSerializeDataException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
         public static MissingSerializeDataException Property<T>(string propertyName)
         {
             var fullName = $"{nameof(T)}.{propertyName}";

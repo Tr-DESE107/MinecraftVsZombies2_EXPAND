@@ -414,6 +414,14 @@ namespace MVZ2.Managers
         {
 
         }
+
+        public DuplicateInstanceException() : base()
+        {
+        }
+
+        public DuplicateInstanceException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
     }
     public class TaskPipeline
     {

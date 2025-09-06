@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MVZ2.EditorTests
 {
-    public class SerializationTests
+    public static class SerializationTests
     {
         [Test]
         public static void RNGTest()

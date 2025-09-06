@@ -16,7 +16,7 @@ namespace MVZ2.Level
             Entity[]? crySoundEnemies = null;
             if (level.IsTimeInterval(7))
             {
-                crySoundEnemies ??= GetCrySoundEnemies().ToArray();
+                crySoundEnemies = GetCrySoundEnemies().ToArray();
                 var enemyCount = crySoundEnemies.Length;
                 float t = Mathf.Clamp01((float)(enemyCount - MinEnemyCryCount) / (MaxEnemyCryCount - MinEnemyCryCount));
                 maxCryTime = (int)Mathf.Lerp(MaxCryInterval, MinCryInterval, t);

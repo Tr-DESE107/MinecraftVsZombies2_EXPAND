@@ -13,5 +13,9 @@ namespace PVZEngine.Base
         public MissingDefinitionException(string message) : base(message)
         {
         }
+
+        public MissingDefinitionException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
     }
 }

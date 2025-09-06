@@ -414,6 +414,14 @@ namespace PVZEngine.Buffs
         public MultipleValueModifierException(string message) : base(message)
         {
         }
+
+        public MultipleValueModifierException() : base()
+        {
+        }
+
+        public MultipleValueModifierException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
     }
     public struct PropertyCalculateResult
     {
