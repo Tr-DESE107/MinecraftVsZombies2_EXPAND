@@ -1746,13 +1746,6 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 256cebb51887cb04689ed89324c503e6
-    m_Address: mvz2:enemy/castle/AngryReverser
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Model
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2574e617cf0030645966d0a257f50050
     m_Address: mvz2:ui/effect/crushing_wall_left
     m_ReadOnly: 0
@@ -2578,7 +2571,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 374395b45140e824b8e4b9e06c1b75dd
-    m_Address: mvz2:entity/enemy/Reverser_pro
+    m_Address: mvz2:entity/enemy/AngryReverser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -2870,6 +2863,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cc0a0aca3594e844bf9fd162f83c8dd
+    m_Address: mvz2:enemy/castle/AngryReverser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3cc2a4067785bbb479556fa02098483e
     m_Address: mvz2:archive/mausoleum_note
@@ -4648,6 +4648,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 629fe0f23b035054aabed926b94d2021
+    m_Address: mvz2:entity/armor/mesmerizer_crown1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62ae9a026747aea4f83506787af8d75a
     m_Address: mvz2:entity/projectiles/spike
@@ -6776,6 +6783,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 928b53fcdda64324b94b714d74e61e1b
+    m_Address: mvz2:entity/armor/AngryReverserCrown1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 929188726a89307428375033add05e0d
     m_Address: mvz2:random/grass1
     m_ReadOnly: 0
@@ -8511,6 +8525,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bba68c57ca664564887be8c1ec4b37d7
+    m_Address: mvz2:entity/armor/KingofReverserCrown1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbbfd6a4e3820bb4c9fafefc9a604b80
     m_Address: mvz2:icons/divine_shield

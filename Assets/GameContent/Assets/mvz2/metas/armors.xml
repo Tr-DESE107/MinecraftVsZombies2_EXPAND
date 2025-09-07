@@ -50,18 +50,27 @@
 			</props>
 		</entry>
         <entry id="mesmerizer_crown">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3"/>
+			</behaviours>
             <props>
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <float name="mvz2:maxHealth" value="300" />
             </props>
         </entry>
 		<entry id="AngryReverserCrown">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3"/>
+			</behaviours>
 			<props>
 				<id name="mvz2:shell" value="mvz2:metal" />
 				<float name="mvz2:maxHealth" value="1200" />
 			</props>
 		</entry>
 		<entry id="KingofReverserCrown">
+			<behaviours>
+				<behaviour id="mvz2:damage_state_3"/>
+			</behaviours>
 			<props>
 				<id name="mvz2:shell" value="mvz2:metal" />
 				<float name="mvz2:maxHealth" value="1500" />

@@ -571,6 +571,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 113f8d660acfe7748849e3d20cb3575e, type: 3}
   - name: entity/armor/AngryReverserCrown
     sprite: {fileID: 21300000, guid: 13fdf8cd7b2072849ae490ee21624f1f, type: 3}
+  - name: entity/armor/AngryReverserCrown1
+    sprite: {fileID: 21300000, guid: 928b53fcdda64324b94b714d74e61e1b, type: 3}
   - name: entity/armor/bedserker_helmet
     sprite: {fileID: 21300000, guid: e44b0e9757080bf4dbf0ae5b2420e15c, type: 3}
   - name: entity/armor/berserker_helmet
@@ -579,8 +581,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 58755531f1cc59b4ab7563c5bedf58b2, type: 3}
   - name: entity/armor/KingofReverserCrown
     sprite: {fileID: 21300000, guid: 16c3700de5b354d449d9c740a94c829f, type: 3}
+  - name: entity/armor/KingofReverserCrown1
+    sprite: {fileID: 21300000, guid: bba68c57ca664564887be8c1ec4b37d7, type: 3}
   - name: entity/armor/mesmerizer_crown
     sprite: {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
+  - name: entity/armor/mesmerizer_crown1
+    sprite: {fileID: 21300000, guid: 629fe0f23b035054aabed926b94d2021, type: 3}
   - name: entity/armor/wicked_hermit_hat
     sprite: {fileID: 21300000, guid: 97bbf718dcb8d714cbce072750f648a2, type: 3}
   - name: entity/boss/gun_fire
@@ -2028,6 +2034,14 @@ MonoBehaviour:
     - {fileID: 1815208976, guid: 93e2f9e0bfa5b694baa6f369a01161b8, type: 3}
     - {fileID: 894312570, guid: 93e2f9e0bfa5b694baa6f369a01161b8, type: 3}
     - {fileID: 1446467554, guid: 93e2f9e0bfa5b694baa6f369a01161b8, type: 3}
+  - name: entity/enemy/AngryReverser
+    spritesheet:
+    - {fileID: 1845857506, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
+    - {fileID: 1461832065, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
+    - {fileID: 1205679468, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
+    - {fileID: 195996433, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
+    - {fileID: -804860303, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
+    - {fileID: 862771601, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
   - name: entity/enemy/anubisand
     spritesheet:
     - {fileID: 728664072, guid: bb9cb8c96cd65034d97163c167129eb9, type: 3}
@@ -2364,14 +2378,6 @@ MonoBehaviour:
   - name: entity/enemy/ReverserBody1
     spritesheet:
     - {fileID: 21300000, guid: f93254b2bdb08be49a7e75dd050b27ed, type: 3}
-  - name: entity/enemy/Reverser_pro
-    spritesheet:
-    - {fileID: 1845857506, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
-    - {fileID: 1461832065, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
-    - {fileID: 1205679468, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
-    - {fileID: 195996433, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
-    - {fileID: -804860303, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
-    - {fileID: 862771601, guid: 374395b45140e824b8e4b9e06c1b75dd, type: 3}
   - name: entity/enemy/reverse_satellite
     spritesheet:
     - {fileID: 1053308388, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}

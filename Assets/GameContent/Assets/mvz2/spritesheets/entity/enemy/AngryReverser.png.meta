@@ -3,7 +3,7 @@ guid: 374395b45140e824b8e4b9e06c1b75dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Reverser_pro_0
+      name: AngryReverser_0
       rect:
         serializedVersion: 2
         x: 2
@@ -144,7 +144,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reverser_pro_1
+      name: AngryReverser_1
       rect:
         serializedVersion: 2
         x: 76
@@ -165,7 +165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reverser_pro_2
+      name: AngryReverser_2
       rect:
         serializedVersion: 2
         x: 50
@@ -186,7 +186,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reverser_pro_3
+      name: AngryReverser_3
       rect:
         serializedVersion: 2
         x: 2
@@ -207,7 +207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reverser_pro_4
+      name: AngryReverser_4
       rect:
         serializedVersion: 2
         x: 40
@@ -228,7 +228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reverser_pro_5
+      name: AngryReverser_5
       rect:
         serializedVersion: 2
         x: 54
