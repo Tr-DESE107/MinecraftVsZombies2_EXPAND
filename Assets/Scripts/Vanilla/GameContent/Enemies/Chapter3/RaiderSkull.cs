@@ -28,12 +28,12 @@ namespace MVZ2.GameContent.Enemies
         {
             if (CanFly(enemy))
             {
-                var fly = enemy.AddBuff<FlyBuff>();
+                var fly = enemy.GetFirstBuff<FlyBuff>();
                 fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 500f);
             }
             else
             {
-                var fly = enemy.AddBuff<FlyBuff>();
+                var fly = enemy.GetFirstBuff<FlyBuff>();
                 fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 20f);
             }
 

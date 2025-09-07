@@ -783,7 +783,7 @@
                 <int name="mvz2:airInteraction" value="0" />
 
                 <int name="mvz2:cost" value="75" />
-                <id name="mvz2:rechargeId" value="mvz2:short" />
+                <id name="mvz2:rechargeId" value="mvz2:medium" />
             </properties>
         </contraption>
         <contraption id="hellfire" name="地狱火" tooltip="点燃穿过的箭矢" unlock="mvz2:level.mausoleum_6">
