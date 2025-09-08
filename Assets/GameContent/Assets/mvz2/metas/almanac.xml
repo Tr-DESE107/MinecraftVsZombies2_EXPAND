@@ -1681,6 +1681,20 @@
 				<p><![CDATA[<color=grey>扎赉特作古后，他遗留的军队大部分被凋灵帝国所收编，归属至下界骑士团的战斗序列中，后来，他们多了个催眠者的名字。</color>]]></p>
             </flavor>
         </entry>
+		<entry id="mvz2:NetherArcher">
+			<header>
+				<p>下界弓箭手能够发射出带火焰的箭矢。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>400+400</color>]]></p>
+				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+			</properties>
+			<flavor>
+				<p>下界弓箭手有着天赋异禀的射击能力。他们自被选中后就被恩布勒姆·安娜设下了咒焰，也因此驾驭了掌握咒焰的能力。</p>
+				<p>咒焰不会怜悯任何一个战士，它会在使用者的体内，一直燃烧，一直燃烧。燃烧至如同生命尽头的那道光般耀眼，然后熄灭。</p>
+			</flavor>
+		</entry>
+		
         <entry id="mvz2:berserker">
             <header>
                 <p>狂战士在死亡时会产生猛烈的爆炸。</p>
@@ -1699,17 +1713,17 @@
             </flavor>
         </entry>
 
-		<entry id="mvz2:NetherArcher">
+		<entry id="mvz2:dullahan_head">
 			<header>
-				<p>下界弓箭手能够发射出带火焰的箭矢。</p>
+				<p>凋零骷髅头能够在空中迅速飘动。</p>
 			</header>
 			<properties>
-				<p>生命：<![CDATA[<color=red>400+400</color>]]></p>
-				<p>速度：<![CDATA[<color=red>1</color>]]></p>
+				<p>生命：<![CDATA[<color=red>200</color>]]></p>
+				<p>速度：<![CDATA[<color=red>2</color>]]></p>
 			</properties>
 			<flavor>
-				<p>下界弓箭手有着天赋异禀的射击能力。他们自被选中后就被恩布勒姆·安娜设下了咒焰，也因此驾驭了掌握咒焰的能力。</p>
-				<p>咒焰不会怜悯任何一个战士，它会在使用者的体内，一直燃烧，一直燃烧。燃烧至如同生命尽头的那道光般耀眼，然后熄灭。</p>
+				<p>想成为一名合格的无头骑士，光割下自己的头颅仍远远不够。这些淘汰者们没能通过库尔·咒的考验，这辈子也与他们的战马无缘了。</p>
+				<p>尽管如此，长期的训练也使他们的头颅操纵技巧异于常人，在战场上仍然不能小觑。</p>
 			</flavor>
 		</entry>
 		
@@ -1888,6 +1902,12 @@
 		</entry>
 
 		<entry id="mvz2:AssaultDullahan">
+			<tags>
+				<tag id="mvz2:shell_head" value="mvz2:nether" />
+				<tag id="mvz2:shell_horse" value="mvz2:nether" />
+				<tag id="mvz2:mass_head" value="-1" />
+				<tag id="mvz2:mass_horse" value="0" />
+			</tags>
 			<header>
 				<p>无头强袭骑士能够在短时间内冲垮你的阵型。</p>
 			</header>

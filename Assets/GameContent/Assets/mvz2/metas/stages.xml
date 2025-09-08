@@ -768,6 +768,7 @@
 			<spawn id="mvz2:NetherWarrior"/>
 			<spawn id="mvz2:necromancer"/>
 			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:dullahan_head"/>
         </spawns>
     </stage>
     <stage id="castle_6" name="辉针城" dayNumber="6" needBlueprints="false" type="minigame" unlock="mvz2:level.castle_5" music="mvz2:minigame">
@@ -791,6 +792,7 @@
 			<spawn id="mvz2:berserker"/>
 			<spawn id="mvz2:mummy"/>
 			<spawn id="mvz2:ghast"/>
+			<spawn id="mvz2:dullahan_head"/>
             
         </spawns>
         <properties>
@@ -815,6 +817,7 @@
 			<spawn id="mvz2:NetherWarrior"/>
 			<spawn id="mvz2:NetherArcher"/>
 			<spawn id="mvz2:RaiderSkull"/>
+			<spawn id="mvz2:dullahan_head"/>
         </spawns>
     </stage>
     <stage id="castle_8" name="辉针城" dayNumber="8" unlock="mvz2:level.castle_7">
@@ -970,6 +973,7 @@
 			<spawn id="mvz2:Anubiskull"/>
 			<spawn id="mvz2:WintherMage"/>
 			<spawn id="mvz2:BerserkerHead"/>
+			<spawn id="mvz2:dullahan_head"/>
 			
 		</spawns>
 	</stage>
@@ -992,6 +996,7 @@
 			<spawn id="mvz2:RaiderSkull"/>
 			<spawn id="mvz2:Anubiskull"/>
 			<spawn id="mvz2:KingofReverser"/>
+			<spawn id="mvz2:dullahan_head"/>
 		</spawns>
 	</stage>
 
@@ -1035,6 +1040,7 @@
 			<spawn id="mvz2:AssaultDullahan"/>
 			<spawn id="mvz2:KingofReverser"/>
 			<spawn id="mvz2:WintherMage"/>
+			<spawn id="mvz2:dullahan_head"/>
 
 		</spawns>
 		<properties>
