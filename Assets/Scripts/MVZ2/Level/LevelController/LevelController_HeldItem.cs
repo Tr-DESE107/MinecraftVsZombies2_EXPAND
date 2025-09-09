@@ -125,7 +125,7 @@ namespace MVZ2.Level
 
             // 设置射线检测半径。
             var transRadius = radius * LawnToTransScale;
-            levelRaycaster.SetHeldItem(definition, data, radius);
+            levelRaycaster.SetHeldItem(definition, data, transRadius);
         }
         private void UpdateHeldItemCursor(NamespaceID heldType, NamespaceID? modelID)
         {
