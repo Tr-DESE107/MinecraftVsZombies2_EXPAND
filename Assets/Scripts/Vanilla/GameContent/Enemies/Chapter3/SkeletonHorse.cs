@@ -66,14 +66,17 @@ namespace MVZ2.GameContent.Enemies
 
                 entity.UpdateWalkVelocity();
 
-                var soundTime = GetGallopSoundTime(entity);
-                soundTime--;
-                if (soundTime <= 0)
+                var soundTimer = GetGallopSoundTimer(entity);
+                if (soundTimer == null)
                 {
-                    soundTime = GALLOP_SOUND_INTERVAL;
+                    soundTimer = new FrameTimer(GALLOP_SOUND_INTERVAL);
+                    SetGallopSoundTimer(entity, soundTimer);
+                }
+                if (soundTimer.RunToExpired(entity.GetSpeed() * 0.5f))
+                {
+                    soundTimer.Reset();
                     entity.PlaySound(VanillaSoundID.horseGallop);
                 }
-                SetGallopSoundTime(entity, soundTime);
             }
             else if (entity.State == STATE_JUMP)
             {
@@ -156,12 +159,12 @@ namespace MVZ2.GameContent.Enemies
         public static void SetGallopTime(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_GALLOP_TIME, value);
         public static void AddGallopTime(Entity entity, int value) => SetGallopTime(entity, GetGallopTime(entity) + value);
 
-        public static int GetGallopSoundTime(Entity entity) => entity.GetBehaviourField<int>(ID, FIELD_GALLOP_SOUND_TIME);
-        public static void SetGallopSoundTime(Entity entity, int value) => entity.SetBehaviourField(ID, FIELD_GALLOP_SOUND_TIME, value);
+        public static FrameTimer? GetGallopSoundTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, FIELD_GALLOP_SOUND_TIMER);
+        public static void SetGallopSoundTimer(Entity entity, FrameTimer? value) => entity.SetBehaviourField(ID, FIELD_GALLOP_SOUND_TIMER, value);
         #endregion
 
         public static readonly VanillaEntityPropertyMeta<int> FIELD_GALLOP_TIME = new VanillaEntityPropertyMeta<int>("GallopTime");
-        public static readonly VanillaEntityPropertyMeta<int> FIELD_GALLOP_SOUND_TIME = new VanillaEntityPropertyMeta<int>("GallopSoundTime");
+        public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_GALLOP_SOUND_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("GallopSoundTimer");
         public static readonly VanillaEntityPropertyMeta<int> FIELD_JUMP_STATE = new VanillaEntityPropertyMeta<int>("JumpState");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_LAND_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("LandTimer");
         public static readonly VanillaEntityPropertyMeta<float> PROP_SPEED_MULTIPLIER = new VanillaEntityPropertyMeta<float>("SpeedMultiplier");
