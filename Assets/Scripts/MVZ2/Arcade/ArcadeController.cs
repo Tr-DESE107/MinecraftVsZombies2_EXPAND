@@ -11,6 +11,7 @@ using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Saves;
 using MVZ2.Vanilla.Stats;
 using MVZ2Logic.Difficulties;
@@ -138,7 +139,7 @@ namespace MVZ2.Arcade
             string name;
             if (unlocked)
             {
-                name = GetTranslatedStringParticular(VanillaStrings.CONTEXT_LEVEL_NAME, stageDef.Name);
+                name = GetTranslatedStringParticular(VanillaStrings.CONTEXT_LEVEL_NAME, stageDef.GetLevelName());
             }
             else
             {
@@ -204,7 +205,7 @@ namespace MVZ2.Arcade
         {
             return Main.LanguageManager._(text, args);
         }
-        private string GetTranslatedStringParticular(string context, string text, params object[] args)
+        private string GetTranslatedStringParticular(string context, string? text, params object[] args)
         {
             return Main.LanguageManager._p(context, text, args);
         }
