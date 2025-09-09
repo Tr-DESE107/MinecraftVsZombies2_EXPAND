@@ -37,7 +37,7 @@ namespace MVZ2.Metas
             var id = node.GetAttribute("id");
             if (string.IsNullOrEmpty(id))
             {
-                Debug.LogError("The ID of a SpawnMeta is empty.");
+                Debug.LogError("The ID of an EntityMeta is empty.");
                 return null;
             }
             var type = EntityTypes.EFFECT;

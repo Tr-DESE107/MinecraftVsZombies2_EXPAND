@@ -99,6 +99,8 @@ namespace MVZ2.Modding
             LoadEntityMetas(mod);
             // 加载所有实体对策。
             LoadEntityCounterMetas(mod);
+            // 加载所有实体形状。
+            LoadEntityShapes(mod);
 
             // 加载所有护甲。
             LoadArmorMetas(mod);
@@ -177,6 +179,19 @@ namespace MVZ2.Modding
                     continue;
                 var name = meta.ID;
                 var def = new EntityCounterDefinition(nsp, name, meta.Name);
+                mod.AddDefinition(def);
+            }
+        }
+        private void LoadEntityShapes(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (ShapeMeta meta in res.GetModShapeMetas(nsp))
+            {
+                if (meta == null)
+                    continue;
+                var name = meta.ID;
+                var def = new ShapeDefinition(nsp, name);
+                def.Armors = meta.Armors;
                 mod.AddDefinition(def);
             }
         }

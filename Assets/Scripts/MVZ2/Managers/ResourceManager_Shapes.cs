@@ -26,7 +26,7 @@ namespace MVZ2.Managers
                 return null;
             return list.metas.FirstOrDefault(m => m.ID == id.Path);
         }
-        public ShapeMeta[]? GetModShapeMetas(string nsp)
+        public ShapeMeta[] GetModShapeMetas(string nsp)
         {
             var metaList = GetShapeMetaList(nsp);
             if (metaList == null)
