@@ -321,7 +321,7 @@ namespace MVZ2.Debugs
 
         public MainManager Main => MainManager.Instance;
         private List<string> commandHistory = new List<string>();
-        private int historyIndex;
+        private int historyIndex = -1;
         private List<string> currentSuggestions = new List<string>();
         private int suggestionIndex;
         private bool isAutoCompleteActive;
