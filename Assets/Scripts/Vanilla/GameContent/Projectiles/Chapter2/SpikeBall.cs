@@ -35,7 +35,7 @@ namespace MVZ2.GameContent.Projectiles
             entity.Spawn(VanillaEffectID.giantSpike, position, param)?.Let(e =>
             {
                 e.PlaySound(VanillaSoundID.giantSpike);
-                foreach (Entity target in entity.Level.FindEntities(e => IsEnemyAndInRange(e, e)))
+                foreach (Entity target in entity.Level.FindEntities(e => IsEnemyAndInRange(entity, e)))
                 {
                     target.TakeDamage(e.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR), e);
                 }
