@@ -3,6 +3,8 @@
 using System.Collections.Generic;
 using System.Xml;
 using MVZ2.IO;
+using MVZ2.Vanilla.Entities;
+using MVZ2Logic;
 using MVZ2Logic.SeedPacks;
 using PVZEngine;
 using UnityEngine;
@@ -43,212 +45,136 @@ namespace MVZ2.Metas
     }
     public class ShapeArmorMeta : IShapeDefinitionArmor
     {
-        public ShapeArmorMeta(ShapeArmorSlotMeta[] slots)
+        public ShapeArmorMeta(ShapeArmorMetaItem[] slots)
         {
-            Slots = slots;
+            Items = slots;
         }
 
-        public ShapeArmorSlotMeta[] Slots { get; private set; }
+        public ShapeArmorMetaItem[] Items { get; private set; }
         public Vector3 GetArmorPosition(NamespaceID slotID, NamespaceID armorID)
         {
-            if (Slots == null)
+            var item = GetItem(armorID, slotID);
+            if (item == null)
                 return Vector3.zero;
-            foreach (var slot in Slots)
-            {
-                if (slot.SlotID != slotID)
-                    continue;
-                return slot.GetPosition(armorID);
-            }
-            return Vector3.zero;
+            return item.Position;
         }
         public Vector3 GetArmorScale(NamespaceID slotID, NamespaceID armorID)
         {
-            if (Slots == null)
+            var item = GetItem(armorID, slotID);
+            if (item == null)
                 return Vector3.one;
-            foreach (var slot in Slots)
-            {
-                if (slot.SlotID != slotID)
-                    continue;
-                return slot.GetScale(armorID);
-            }
-            return Vector3.one;
+            return item.Scale;
         }
         public Vector3 GetArmorModelOffset(NamespaceID slotID, NamespaceID armorID)
         {
-            if (Slots == null)
+            var item = GetItem(armorID, slotID);
+            if (item == null)
                 return Vector3.zero;
-            foreach (var slot in Slots)
-            {
-                if (slot.SlotID != slotID)
-                    continue;
-                return slot.GetModelOffset(armorID);
-            }
-            return Vector3.zero;
+            return item.ModelOffset;
         }
         public string GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
         {
-            if (Slots == null)
+            var item = GetItem(armorID, slotID);
+            if (item == null)
                 return string.Empty;
-            foreach (var slot in Slots)
-            {
-                if (slot.SlotID != slotID)
-                    continue;
-                return slot.GetModelAnchor(armorID);
-            }
-            return string.Empty;
+            return item.ModelAnchor;
         }
         public IEnumerable<string> GetAllArmorModelAnchors()
         {
-            if (Slots == null)
+            if (Items == null)
                 yield break;
-            foreach (var slot in Slots)
+            foreach (var slot in Items)
             {
-                foreach (var anchor in slot.GetAllAnchors())
+                yield return slot.ModelAnchor;
+            }
+        }
+        private ShapeArmorMetaItem? GetItem(NamespaceID armorID, NamespaceID slot)
+        {
+            if (Items == null)
+                return null;
+            var armorDefinition = Global.Game.GetArmorDefinition(armorID);
+            var type = armorDefinition?.GetArmorType();
+
+            ShapeArmorMetaItem? typeAndSlotItem = null;
+            ShapeArmorMetaItem? typeItem = null;
+            ShapeArmorMetaItem? slotItem = null;
+            foreach (var item in Items)
+            {
+                if (item.ArmorID == armorID)
                 {
-                    yield return anchor;
+                    return item;
+                }
+                if (NamespaceID.IsValid(item.ArmorSlot))
+                {
+                    if (NamespaceID.IsValid(item.ArmorType))
+                    {
+                        if (item.ArmorSlot == slot && item.ArmorType == type)
+                        {
+                            typeAndSlotItem = item;
+                        }
+                    }
+                    else
+                    {
+                        if (item.ArmorSlot == slot)
+                        {
+                            slotItem = item;
+                        }
+                    }
+                }
+                else
+                {
+                    if (NamespaceID.IsValid(item.ArmorType))
+                    {
+                        if (item.ArmorType == type)
+                        {
+                            typeItem = item;
+                        }
+                    }
                 }
             }
+            return typeAndSlotItem ?? slotItem ?? typeItem;
         }
         public static ShapeArmorMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
-            var slots = new List<ShapeArmorSlotMeta>();
+            var items = new List<ShapeArmorMetaItem>();
             for (int i = 0; i < node.ChildNodes.Count; i++)
             {
                 var child = node.ChildNodes[i];
-                if (child.Name == "slot")
+                if (child.Name == "armor")
                 {
-                    slots.Add(ShapeArmorSlotMeta.FromXmlNode(child, defaultNsp));
+                    var item = ShapeArmorMetaItem.FromXmlNode(child, defaultNsp);
+                    if (item != null)
+                        items.Add(item);
                 }
             }
-            return new ShapeArmorMeta(slots.ToArray());
+            return new ShapeArmorMeta(items.ToArray());
         }
     }
-    public class ShapeArmorSlotMeta
-    {
-        private ShapeArmorSlotMeta(ShapeArmorSlotMetaItem[] items)
-        {
-            Items = items;
-        }
-
-        public NamespaceID? SlotID { get; private set; }
-        public ShapeArmorSlotMetaItem? Default { get; private set; }
-        public ShapeArmorSlotMetaItem[] Items { get; private set; }
-        public Vector3 GetPosition(NamespaceID armorID)
-        {
-            if (Items != null)
-            {
-                foreach (var item in Items)
-                {
-                    if (item.ArmorID != armorID)
-                        continue;
-                    return item.Position;
-                }
-            }
-            return Default?.Position ?? Vector3.zero;
-        }
-        public Vector3 GetScale(NamespaceID armorID)
-        {
-            if (Items != null)
-            {
-                foreach (var item in Items)
-                {
-                    if (item.ArmorID != armorID)
-                        continue;
-                    return item.Scale;
-                }
-            }
-            return Default?.Scale ?? Vector3.one;
-        }
-        public Vector3 GetModelOffset(NamespaceID armorID)
-        {
-            if (Items != null)
-            {
-                foreach (var item in Items)
-                {
-                    if (item.ArmorID != armorID)
-                        continue;
-                    return item.ModelOffset;
-                }
-            }
-            return Default?.ModelOffset ?? Vector3.zero;
-        }
-        public string GetModelAnchor(NamespaceID armorID)
-        {
-            if (Items != null)
-            {
-                foreach (var item in Items)
-                {
-                    if (item.ArmorID != armorID)
-                        continue;
-                    return item.ModelAnchor;
-                }
-            }
-            return Default?.ModelAnchor ?? string.Empty;
-        }
-        public IEnumerable<string> GetAllAnchors()
-        {
-            if (Items != null)
-            {
-                if (!string.IsNullOrEmpty(Default?.ModelAnchor))
-                {
-                    yield return Default.ModelAnchor;
-                }
-                foreach (var item in Items)
-                {
-                    if (string.IsNullOrEmpty(item?.ModelAnchor))
-                        continue;
-                    yield return item.ModelAnchor;
-                }
-            }
-        }
-        public static ShapeArmorSlotMeta FromXmlNode(XmlNode node, string defaultNsp)
-        {
-            var slotID = node.GetAttributeNamespaceID("id", defaultNsp);
-
-            var defaultNode = node["default"];
-            ShapeArmorSlotMetaItem? defaultItem = null;
-            if (defaultNode != null)
-            {
-                defaultItem = ShapeArmorSlotMetaItem.FromXmlNode(defaultNode, defaultNsp, null);
-            }
-
-            var items = new List<ShapeArmorSlotMetaItem>();
-            for (int i = 0; i < node.ChildNodes.Count; i++)
-            {
-                var child = node.ChildNodes[i];
-                if (child.Name == "custom")
-                {
-                    var meta = ShapeArmorSlotMetaItem.FromXmlNode(child, defaultNsp, defaultItem);
-                    if (meta != null)
-                        items.Add(meta);
-                }
-            }
-            return new ShapeArmorSlotMeta(items.ToArray())
-            {
-                SlotID = slotID,
-                Default = defaultItem
-            };
-        }
-    }
-    public class ShapeArmorSlotMetaItem
+    public class ShapeArmorMetaItem
     {
         public NamespaceID? ArmorID { get; private set; }
+        public NamespaceID? ArmorType { get; private set; }
+        public NamespaceID? ArmorSlot { get; private set; }
         public Vector3 Position { get; private set; }
         public Vector3 Scale { get; private set; }
         public Vector3 ModelOffset { get; private set; }
         public string ModelAnchor { get; private set; } = string.Empty;
-        public static ShapeArmorSlotMetaItem? FromXmlNode(XmlNode node, string defaultNsp, ShapeArmorSlotMetaItem? defaultItem)
+        public static ShapeArmorMetaItem? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
-            var position = node["position"]?.GetAttributeVector3() ?? defaultItem?.Position ?? Vector3.zero;
-            var scale = node["scale"]?.GetAttributeVector3() ?? defaultItem?.Scale ?? Vector3.one;
+            var type = node.GetAttributeNamespaceID("type", defaultNsp);
+            var slot = node.GetAttributeNamespaceID("slot", defaultNsp);
+            var position = node["position"]?.GetAttributeVector3() ?? Vector3.zero;
+            var scale = node["scale"]?.GetAttributeVector3() ?? Vector3.one;
             var modelNode = node["model"];
-            var modelOffset = modelNode?["offset"]?.GetAttributeVector3() ?? defaultItem?.ModelOffset ?? Vector3.zero;
-            var modelAnchor = modelNode?["anchor"]?.GetAttribute("value") ?? defaultItem?.ModelAnchor ?? string.Empty;
+            var modelOffset = modelNode?["offset"]?.GetAttributeVector3() ?? Vector3.zero;
+            var modelAnchor = modelNode?["anchor"]?.GetAttribute("value") ?? string.Empty;
 
-            return new ShapeArmorSlotMetaItem()
+            return new ShapeArmorMetaItem()
             {
                 ArmorID = id,
+                ArmorType = type,
+                ArmorSlot = slot,
                 Position = position,
                 Scale = scale,
                 ModelOffset = modelOffset,

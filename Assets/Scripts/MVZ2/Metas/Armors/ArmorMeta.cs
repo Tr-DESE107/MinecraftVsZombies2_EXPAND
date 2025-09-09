@@ -19,6 +19,7 @@ namespace MVZ2.Metas
         }
 
         public string ID { get; private set; }
+        public NamespaceID? Type { get; private set; }
         public NamespaceID[] Behaviours { get; private set; }
         public ColliderConstructor[] ColliderConstructors { get; private set; }
         public Dictionary<string, object?> Properties { get; private set; }
@@ -31,6 +32,8 @@ namespace MVZ2.Metas
                 Log.LogError("The ID of an ArmorMeta is invalid.");
                 return null;
             }
+
+            var type = node.GetAttributeNamespaceID("type", defaultNsp);
 
             var behavioursNode = node["behaviours"];
             List<NamespaceID> behaviours = new List<NamespaceID>();
@@ -68,7 +71,10 @@ namespace MVZ2.Metas
                 properties.Add(fullName, prop.Value);
             }
 
-            return new ArmorMeta(id, behaviours.ToArray(), colliders.ToArray(), properties);
+            return new ArmorMeta(id, behaviours.ToArray(), colliders.ToArray(), properties)
+            {
+                Type = type
+            };
         }
     }
 }

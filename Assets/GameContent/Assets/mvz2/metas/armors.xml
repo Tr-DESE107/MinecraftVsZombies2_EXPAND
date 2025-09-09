@@ -4,7 +4,7 @@
         <slot name="shield" anchor="shield" />
     </slots>
     <entries>
-        <entry id="leather_cap">
+        <entry id="leather_cap" type="mvz2:helmet">
             <behaviours>
                 <behaviour id="mvz2:damage_state_3"/>
             </behaviours>
@@ -13,7 +13,7 @@
                 <float name="mvz2:maxHealth" value="370" />
             </props>
         </entry>
-        <entry id="iron_helmet">
+        <entry id="iron_helmet" type="mvz2:helmet">
             <behaviours>
                 <behaviour id="mvz2:damage_state_3"/>
             </behaviours>
@@ -22,31 +22,31 @@
                 <float name="mvz2:maxHealth" value="1110" />
             </props>
         </entry>
-        <entry id="mesmerizer_crown">
+        <entry id="mesmerizer_crown" type="mvz2:helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:metal" />
                 <float name="mvz2:maxHealth" value="100" />
             </props>
         </entry>
-        <entry id="berserker_helmet">
+        <entry id="berserker_helmet" type="mvz2:helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:stone" />
                 <float name="mvz2:maxHealth" value="100" />
             </props>
         </entry>
-        <entry id="bedserker_helmet">
+        <entry id="bedserker_helmet" type="mvz2:helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:stone" />
                 <float name="mvz2:maxHealth" value="10000" />
             </props>
         </entry>
-        <entry id="wicked_hermit_hat">
+        <entry id="wicked_hermit_hat" type="mvz2:helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:leather" />
                 <float name="mvz2:maxHealth" value="50" />
             </props>
         </entry>
-        <entry id="skeleton_warrior_helmet">
+        <entry id="skeleton_warrior_helmet" type="mvz2:helmet">
             <behaviours>
                 <behaviour id="mvz2:damage_state_3"/>
             </behaviours>
@@ -55,7 +55,7 @@
                 <float name="mvz2:maxHealth" value="300" />
             </props>
         </entry>
-        <entry id="emperor_crown">
+        <entry id="emperor_crown" type="mvz2:helmet">
             <props>
                 <id name="mvz2:shell" value="mvz2:wood" />
                 <float name="mvz2:maxHealth" value="50" />
@@ -63,7 +63,7 @@
         </entry>
 
         <!-- Shields -->
-        <entry id="reflective_barrier">
+        <entry id="reflective_barrier" type="mvz2:large_shield">
             <behaviours>
                 <behaviour id="mvz2:damage_state_3"/>
                 <behaviour id="mvz2:reflective_barrier"/>
@@ -83,7 +83,7 @@
                 <id name="mvz2:deathSound" value="mvz2:glass_break" />
             </props>
         </entry>
-        <entry id="skeleton_warrior_shield">
+        <entry id="skeleton_warrior_shield" type="mvz2:small_shield">
             <colliders>
                 <collider name="main" >
                     <offset x="0" y="0" z="0"/>
@@ -96,16 +96,16 @@
                 <float name="mvz2:maxHealth" value="200" />
             </props>
         </entry>
-        <entry id="umbrella_shield">
+        <entry id="umbrella_shield" type="mvz2:handheld">
             <behaviours>
                 <behaviour id="mvz2:damage_state_3"/>
                 <behaviour id="mvz2:umbrella_shield"/>
             </behaviours>
             <colliders>
                 <collider name="main" >
-                    <offset x="-27" y="0" z="0"/>
+                    <offset x="-6" y="0" z="0"/>
                     <size x="42" y="86" z="21"/>
-                    <pivot x="0.5" y="0.5" z="0.5"/>
+                    <pivot x="1" y="0.5" z="0.5"/>
                 </collider>
             </colliders>
             <props>
@@ -114,14 +114,14 @@
                 <id name="mvz2:hitSound" value="mvz2:leather_hit" />
             </props>
         </entry>
-        <entry id="cannon">
+        <entry id="cannon" type="mvz2:handheld">
             <behaviours>
                 <behaviour id="mvz2:damage_state_3"/>
                 <behaviour id="mvz2:cannon"/>
             </behaviours>
             <colliders>
                 <collider name="main" >
-                    <offset x="-5" y="0" z="0"/>
+                    <offset x="-5" y="-7" z="0"/>
                     <size x="61" y="36" z="18"/>
                     <pivot x="0.5" y="0.5" z="0.5"/>
                 </collider>

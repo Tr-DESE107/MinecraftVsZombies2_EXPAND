@@ -18,6 +18,7 @@ namespace MVZ2.GameContent.Armors
         public const string skeletonWarriorShield = "skeleton_warrior_shield";
         public const string emperorCrown = "emperor_crown";
         public const string umbrellaShield = "umbrella_shield";
+        public const string cannon = "cannon";
     }
     public static class VanillaArmorID
     {
@@ -32,6 +33,7 @@ namespace MVZ2.GameContent.Armors
         public static readonly NamespaceID skeletonWarriorShield = Get(VanillaArmorNames.skeletonWarriorShield);
         public static readonly NamespaceID emperorCrown = Get(VanillaArmorNames.emperorCrown);
         public static readonly NamespaceID umbrellaShield = Get(VanillaArmorNames.umbrellaShield);
+        public static readonly NamespaceID cannon = Get(VanillaArmorNames.cannon);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
