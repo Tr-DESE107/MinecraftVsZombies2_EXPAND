@@ -99,6 +99,7 @@
 
 	<model name="HostZombie" type="entity" path="mvz2:enemy/dream/HostZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
 	<model name="BloodlustHostZombie" type="entity" path="mvz2:enemy/dream/BloodlustHostZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
+	<model name="EnragedHostZombie" type="entity" path="mvz2:enemy/dream/EnragedHostZombie" width="64" height="96" xOffset="10" yOffset="-44"/>
 	<model name="SpiderQueen" type="entity" path="mvz2:enemy/dream/SpiderQueen" width="108" height="108" xOffset="0" yOffset="-48"/>
 	<model name="HostMutant" type="entity" path="mvz2:enemy/dream/HostMutant" width="200" height="180" xOffset="0" yOffset="-90"/>
 	<model name="HostIMP" type="entity" path="mvz2:enemy/dream/HostIMP" width="48" height="56" xOffset="0" yOffset="-28"/>

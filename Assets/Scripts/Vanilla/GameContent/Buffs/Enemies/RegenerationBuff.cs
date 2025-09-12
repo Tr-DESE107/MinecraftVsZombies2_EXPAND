@@ -7,6 +7,17 @@ using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Models;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Models;
+using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Models;
+using PVZEngine.Buffs;
+using PVZEngine.Damages;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -28,8 +39,14 @@ namespace MVZ2.GameContent.Buffs.Enemies
             {
                 // 恢复一定量生命
                 float heal = buff.GetProperty<float>(PROP_HEAL_AMOUNT);
-
-                entity.Heal(heal, entity);
+                if (heal >= 0f)
+                {
+                    entity.Heal(heal, entity);
+                }
+                else if (heal < 0f)
+                {
+                    entity.TakeDamage(heal * -1, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.NO_DAMAGE_BLINK, VanillaDamageEffects.IGNORE_ARMOR), entity);
+                }
             }
 
             // Buff倒计时逻辑

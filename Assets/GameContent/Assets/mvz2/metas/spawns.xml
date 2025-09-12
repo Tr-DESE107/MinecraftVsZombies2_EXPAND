@@ -38,7 +38,6 @@
 		<terrain water="true"/>
 		<weight base="4000" decreaseStart="5" decreaseEnd="25" decreasePerFlag="180" />
 	</entry>
-
 	
 	<!-- Halloween -->
     <entry id="skeleton" entity="mvz2:skeleton" >
@@ -109,6 +108,11 @@
 		<weight base="4000" />
 	</entry>
 	<entry id="BloodlustHostZombie" entity="mvz2:BloodlustHostZombie" >
+		<spawn level="4" />
+		<terrain water="true"/>
+		<weight base="3000" />
+	</entry>
+	<entry id="EnragedHostZombie" entity="mvz2:EnragedHostZombie" >
 		<spawn level="4" />
 		<terrain water="true"/>
 		<weight base="3000" />

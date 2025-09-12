@@ -19,7 +19,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.InflictRegenerationBuff(4, 60000);
+            entity.InflictRegenerationBuff(4f, 60000);
         }
         protected override void UpdateLogic(Entity entity)
         {

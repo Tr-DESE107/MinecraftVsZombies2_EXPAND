@@ -1143,6 +1143,15 @@
                 <float name="mvz2:speed" value="0.6"/>
             </properties>
         </enemy>
+		<enemy id="EnragedHostZombie" name="狂暴宿主僵尸" deathMessage="生化危机" unlock="mvz2:level.dream_12">
+			<properties>
+				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:waterInteraction" value="2"/>
+				<float name="mvz2:maxHealth" value="2000"/>
+				<float name="mvz2:damage" value="300"/>
+				<float name="mvz2:speed" value="1.5"/>
+			</properties>
+		</enemy>
         <enemy id="MeleeSkeleton" name="骷髅仆从" deathMessage="起来!饥寒交迫的人民!" unlock="mvz2:level.halloween_8" >
             <properties>
                 <int name="mvz2:cost" value="300" />

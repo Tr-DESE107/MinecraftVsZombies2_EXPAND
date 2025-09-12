@@ -2082,6 +2082,13 @@ MonoBehaviour:
     - {fileID: 174426161, guid: 40bc86920be37bc4cb2b15d875a1b62c, type: 3}
     - {fileID: -760182462, guid: 40bc86920be37bc4cb2b15d875a1b62c, type: 3}
     - {fileID: -2122488040, guid: 40bc86920be37bc4cb2b15d875a1b62c, type: 3}
+  - name: entity/enemy/BloodlustHostZombie
+    spritesheet:
+    - {fileID: -1378508140, guid: 5da060fd0c18d944a99a8898f32280b2, type: 3}
+    - {fileID: -344575301, guid: 5da060fd0c18d944a99a8898f32280b2, type: 3}
+    - {fileID: -603466652, guid: 5da060fd0c18d944a99a8898f32280b2, type: 3}
+    - {fileID: -458630725, guid: 5da060fd0c18d944a99a8898f32280b2, type: 3}
+    - {fileID: 1231807659, guid: 5da060fd0c18d944a99a8898f32280b2, type: 3}
   - name: entity/enemy/boat
     spritesheet:
     - {fileID: 21300000, guid: 8ee7e3c6233a6be4191bfd80ff87e80e, type: 3}
@@ -2123,6 +2130,13 @@ MonoBehaviour:
   - name: entity/enemy/endermite
     spritesheet:
     - {fileID: 21300000, guid: 62946c4ec1c56824b9e5ae35201dc267, type: 3}
+  - name: entity/enemy/EnragedHostZombie
+    spritesheet:
+    - {fileID: 303600107, guid: 75610e8daf86e8c41ad89c76cd4e7e17, type: 3}
+    - {fileID: 1805045787, guid: 75610e8daf86e8c41ad89c76cd4e7e17, type: 3}
+    - {fileID: -1711733211, guid: 75610e8daf86e8c41ad89c76cd4e7e17, type: 3}
+    - {fileID: 792431162, guid: 75610e8daf86e8c41ad89c76cd4e7e17, type: 3}
+    - {fileID: 136721130, guid: 75610e8daf86e8c41ad89c76cd4e7e17, type: 3}
   - name: entity/enemy/evil_mage
     spritesheet:
     - {fileID: 1447938660, guid: f54f9459361d9c341858ca8a6962f5a3, type: 3}

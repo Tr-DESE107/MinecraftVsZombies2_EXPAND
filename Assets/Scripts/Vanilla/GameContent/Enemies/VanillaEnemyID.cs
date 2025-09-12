@@ -34,6 +34,7 @@ namespace MVZ2.GameContent.Enemies
         public const string SpiderQueen = "SpiderQueen";
         public const string HostMutant = "HostMutant";
         public const string HostIMP = "HostIMP";
+        public const string EnragedHostZombie = "EnragedHostZombie";
 
         public const string spider = "spider";
         public const string caveSpider = "cave_spider";
@@ -129,6 +130,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID SpiderQueen = Get(VanillaEnemyNames.SpiderQueen);
         public static readonly NamespaceID HostMutant = Get(VanillaEnemyNames.HostMutant);
         public static readonly NamespaceID HostIMP = Get(VanillaEnemyNames.HostIMP);
+        public static readonly NamespaceID EnragedHostZombie = Get(VanillaEnemyNames.EnragedHostZombie);
 
         public static readonly NamespaceID spider = Get(VanillaEnemyNames.spider);
         public static readonly NamespaceID caveSpider = Get(VanillaEnemyNames.caveSpider);
