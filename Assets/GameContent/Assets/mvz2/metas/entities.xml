@@ -696,7 +696,7 @@
             </properties>
         </contraption>
 
-		<dispenser id="DispenShield" name="发射器护罩" tooltip="发射箭矢并保护内部的器械" unlock="mvz2:level.castle_4">
+		<dispenser id="DispenShield" name="发射器护罩" tooltip="发射箭矢并保护内部的器械" unlock="mvz2:level.castle_12">
 			<properties>
 				<bool name="mvz2:canDeactive" value="false" />
 				<float name="mvz2:maxHealth" value="900" />
