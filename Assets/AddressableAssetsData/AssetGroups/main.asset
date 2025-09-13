@@ -2291,6 +2291,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31a2ed62f5e848b4ba2a5fe086f96e72
+    m_Address: mvz2:entity/enemy/mega_mutant_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31d9bab9e0866384faddc3f3fd0790a6
     m_Address: mvz2:shock
     m_ReadOnly: 0
@@ -4146,7 +4153,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58c6512707afe544a8fe8f1c6738e909
-    m_Address: mvz2:entity/enemy/HostMutant
+    m_Address: mvz2:entity/enemy/HostMutant2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7853,6 +7860,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abbc33df2cd585342a1278ffb2b9f4b8
+    m_Address: mvz2:entity/enemy/HostMutant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: abe1b195af5098c42b830d8fb53dd263
     m_Address: mvz2:bones/ui

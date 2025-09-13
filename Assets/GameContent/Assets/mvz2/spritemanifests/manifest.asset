@@ -2209,6 +2209,25 @@ MonoBehaviour:
     - {fileID: -1773254207, guid: 2a4207e3942d55b42bc64e450611fc1c, type: 3}
   - name: entity/enemy/HostMutant
     spritesheet:
+    - {fileID: 1954274013, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -576353305, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -1592700679, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: 1382881645, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: 1827107668, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -1669461082, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: 984855509, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -266353420, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -871291460, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: 1766098522, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -971178084, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -1173104429, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -489567102, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -2130796412, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: 2296462, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -659174282, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+    - {fileID: -687468427, guid: abbc33df2cd585342a1278ffb2b9f4b8, type: 3}
+  - name: entity/enemy/HostMutant2
+    spritesheet:
     - {fileID: 264445295, guid: 58c6512707afe544a8fe8f1c6738e909, type: 3}
     - {fileID: -625061782, guid: 58c6512707afe544a8fe8f1c6738e909, type: 3}
   - name: entity/enemy/KingofReverser
@@ -2234,6 +2253,24 @@ MonoBehaviour:
     - {fileID: -994561436, guid: 948c5ad7c0a10bc4fad381b36a5d60d7, type: 3}
     - {fileID: -1694732556, guid: 948c5ad7c0a10bc4fad381b36a5d60d7, type: 3}
     - {fileID: 527946774, guid: 948c5ad7c0a10bc4fad381b36a5d60d7, type: 3}
+  - name: entity/enemy/mega_mutant_zombie
+    spritesheet:
+    - {fileID: 522358767, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: 1400989210, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: 1962124217, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: -290395121, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: -1135793251, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: -29888201, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: -1805889184, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: -1276521750, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: 994651556, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: -710100271, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: 1840338549, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: -1482291316, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: 1628495851, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: -2119216257, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: -347395102, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+    - {fileID: 541493817, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
   - name: entity/enemy/MonkZombie
     spritesheet:
     - {fileID: -2077321725, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
