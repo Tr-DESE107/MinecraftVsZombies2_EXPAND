@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2066691186517868084
 Transform:
   m_ObjectHideFlags: 0
@@ -226,15 +226,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6493261172300748371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9733804c13f33934d9d161b4c7ebce22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 368372763, guid: babb5d02ad003f04386275ffa8ddfc64, type: 3}
-  - {fileID: -600053634, guid: babb5d02ad003f04386275ffa8ddfc64, type: 3}
-  - {fileID: 1553506495, guid: babb5d02ad003f04386275ffa8ddfc64, type: 3}
   index: 0
 --- !u!1001 &365700990031803542
 PrefabInstance:
@@ -927,6 +925,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1602134340, guid: 6cd4f38f05c55804dbfef3281bf43251, type: 3}
+    - target: {fileID: 1071947238367511846, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4004740022502594316, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2
@@ -996,9 +998,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -543750870, guid: 6cd4f38f05c55804dbfef3281bf43251, type: 3}
     - target: {fileID: 7930137177310988872, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930137177310988872, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1948636670, guid: 6cd4f38f05c55804dbfef3281bf43251, type: 3}
+    - target: {fileID: 7930137177310988872, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8957368472843999730, guid: 6f3e5c2859c6f054e8a645a5a27e25a2, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
