@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e79a71af8e1a608428bbe953db26c4d2
+guid: 4b5e3ee846ba9404896b4aa729309dad
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,97 +110,55 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_0
+      name: ZalatClone_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 39
+        y: 57
         width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4edd4eee08e36014a95218a0c55ff5e6
-      internalID: -1856297382
+      spriteID: bb6483ee3d6bb1c4a87af26681a5189a
+      internalID: -1939232218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_1
+      name: ZalatClone_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 77
+        y: 57
         width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c07621902fae944b908592d20251265
-      internalID: 835594114
+      spriteID: c3f33e4ecd042f04c8f9375d70db3efe
+      internalID: -1304254101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_2
+      name: ZalatClone_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 976adfe85a40f714095ff5a0cd2080ed
-      internalID: -1360795252
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EXPAND_EnemyCategory_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: caeb4bfaea2cccc4688ae8da4575417a
-      internalID: 430786344
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EXPAND_EnemyCategory_4
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 4
         y: 32
-        width: 32
-        height: 32
+        width: 10
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38d957bd9c17d9e4fb3e7e1c574c3c8e
-      internalID: -238938272
+      spriteID: 2592db0dcf5663e409c0eb1ab006b59e
+      internalID: -2104668931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_5
+      name: ZalatClone_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
+        x: 18
+        y: 30
+        width: 16
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,83 +187,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 857b128cb00ce244ebb131e56a6cf771
-      internalID: -1085360653
+      spriteID: 2c997d11bd7584c43a05ec07b131178a
+      internalID: 1146906957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_6
+      name: ZalatClone_4
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 38
+        y: 18
+        width: 8
+        height: 34
+      alignment: 9
+      pivot: {x: 0.375, y: 0.9117647}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 731ab1f463093844696d1d94a5cbf754
-      internalID: -800444581
+      spriteID: 215dfc470ecc357489093da21bd635a9
+      internalID: -786286877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_7
+      name: ZalatClone_5
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 52
+        y: 18
+        width: 15
+        height: 35
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da8083c522f7fd647800723304b1ac4c
-      internalID: 1982421251
+      spriteID: 58fc4e6341f0606498d6ebcb5afd0303
+      internalID: -1093991459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_8
+      name: ZalatClone_6
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 73
+        y: 41
+        width: 39
+        height: 13
+      alignment: 9
+      pivot: {x: 0.9230769, y: 0.375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 241f96126d791b14186e3edbff949c21
-      internalID: 353226520
+      spriteID: 8aedea79f9753f6479e01ee875a0d06f
+      internalID: -159822501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_9
+      name: ZalatClone_7
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
+        x: 8
+        y: 18
+        width: 13
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,62 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a47322f29046c0e4284c3667f11de438
-      internalID: -295397042
+      spriteID: 1cc592be31a07de4fab5df9b01f51e43
+      internalID: -1179606843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_10
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64cffc410cd1d0448957c486a56bad2a
-      internalID: -518348772
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EXPAND_EnemyCategory_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7439c0b9965b52c4fa4e0153c2240399
-      internalID: 1596443505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EXPAND_EnemyCategory_12
+      name: ZalatClone_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 30
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,71 +292,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca44e901a9302064fa2599f14628ab63
-      internalID: -1924353111
+      spriteID: 7ba59baa50ba27b4e93cc19ca1e94fcb
+      internalID: -1288191022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_13
+      name: ZalatClone_9
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 118
+        y: 10
+        width: 13
+        height: 42
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e107f4a6bef067445bf36afd54be388e
-      internalID: 1457824713
+      spriteID: 94fdb1c37866e934ab7160c63097b4ff
+      internalID: 457501939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_14
+      name: ZalatClone_10
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 95
+        y: 1
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba148373479ca3e4d8b842e3fa31f519
-      internalID: 1064927941
+      spriteID: b20ca3a48f2381a4c9b622e9b31447e2
+      internalID: -1663799120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EXPAND_EnemyCategory_15
+      name: ZalatClone_11
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 73
+        y: 1
+        width: 19
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd522c75d5d7bcb428ea57e1d62803e5
-      internalID: 36846174
+      spriteID: 7c3b09a1557265e4495be2a7ca7cf7d4
+      internalID: -1293593642
       vertices: []
       indices: 
       edges: []
@@ -456,22 +372,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EXPAND_EnemyCategory_0: -1856297382
-      EXPAND_EnemyCategory_1: -800444581
-      EXPAND_EnemyCategory_10: -1085360653
-      EXPAND_EnemyCategory_11: 1596443505
-      EXPAND_EnemyCategory_12: -1924353111
-      EXPAND_EnemyCategory_13: 1457824713
-      EXPAND_EnemyCategory_14: 1064927941
-      EXPAND_EnemyCategory_15: 36846174
-      EXPAND_EnemyCategory_2: 1982421251
-      EXPAND_EnemyCategory_3: 835594114
-      EXPAND_EnemyCategory_4: -1360795252
-      EXPAND_EnemyCategory_5: 430786344
-      EXPAND_EnemyCategory_6: 353226520
-      EXPAND_EnemyCategory_7: -295397042
-      EXPAND_EnemyCategory_8: -238938272
-      EXPAND_EnemyCategory_9: -518348772
+      ZaratClone_0: 457501939
+      ZaratClone_1: -1939232218
+      ZaratClone_10: -1179606843
+      ZaratClone_11: -1288191022
+      ZaratClone_2: -1304254101
+      ZaratClone_3: -1663799120
+      ZaratClone_4: -1293593642
+      ZaratClone_5: -2104668931
+      ZaratClone_6: 1146906957
+      ZaratClone_7: -786286877
+      ZaratClone_8: -1093991459
+      ZaratClone_9: -159822501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

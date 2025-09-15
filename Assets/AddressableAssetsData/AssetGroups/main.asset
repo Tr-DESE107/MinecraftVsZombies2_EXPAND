@@ -2214,6 +2214,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ef3025eca7007943b1a959a47ba8c6e
+    m_Address: mvz2:entity/enemy/KingofReverserWand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ef60f7a077178f429877e76ff61731a
     m_Address: mvz2:mausoleum_boss
     m_ReadOnly: 0
@@ -3634,6 +3641,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b5e3ee846ba9404896b4aa729309dad
+    m_Address: mvz2:entity/enemy/ZalatClone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b61b6a8f9cd754419a8862656f249c1
     m_Address: mvz2:entity/contraption/silvenser
     m_ReadOnly: 0
@@ -3724,6 +3738,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e5fdd7740d936b4c906164e9941c37f
+    m_Address: mvz2:enemy/EXPAND/Husk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e864b8c475a1ea43babf97b5de8c9a0
     m_Address: mvz2:note/background_day
@@ -5285,6 +5306,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 726a4f9a95e028c4fbdf2f52183acded
+    m_Address: mvz2:entity/enemy/Husk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 729f6cb40a51da2449f5a7e7b4ead347
     m_Address: mvz2:enemy/mausoleum/shikaisen_zombie
@@ -7680,7 +7708,7 @@ MonoBehaviour:
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7b657bef639dc54dba8f816b2a7510e
-    m_Address: mvz2:mobile_blueprint/Zarat
+    m_Address: mvz2:mobile_blueprint/Zalat
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

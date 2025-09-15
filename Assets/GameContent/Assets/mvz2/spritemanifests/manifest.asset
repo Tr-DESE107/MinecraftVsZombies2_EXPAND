@@ -445,7 +445,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 91cdcadcb4b1a2e4289f7b75f72be433, type: 3}
   - name: mobile_blueprint/wooden_dropper
     sprite: {fileID: 21300000, guid: 98ceb6465d489164ab22b423d1a3d218, type: 3}
-  - name: mobile_blueprint/Zarat
+  - name: mobile_blueprint/Zalat
     sprite: {fileID: 21300000, guid: a7b657bef639dc54dba8f816b2a7510e, type: 3}
   - name: mobile_blueprint/zombie
     sprite: {fileID: 21300000, guid: 6514a857fb8b7fc4d992741ae15f66e5, type: 3}
@@ -2230,6 +2230,13 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 264445295, guid: 58c6512707afe544a8fe8f1c6738e909, type: 3}
     - {fileID: -625061782, guid: 58c6512707afe544a8fe8f1c6738e909, type: 3}
+  - name: entity/enemy/Husk
+    spritesheet:
+    - {fileID: -598811263, guid: 726a4f9a95e028c4fbdf2f52183acded, type: 3}
+    - {fileID: -61769266, guid: 726a4f9a95e028c4fbdf2f52183acded, type: 3}
+    - {fileID: -341237559, guid: 726a4f9a95e028c4fbdf2f52183acded, type: 3}
+    - {fileID: 1273760893, guid: 726a4f9a95e028c4fbdf2f52183acded, type: 3}
+    - {fileID: -381921186, guid: 726a4f9a95e028c4fbdf2f52183acded, type: 3}
   - name: entity/enemy/KingofReverser
     spritesheet:
     - {fileID: 1764816815, guid: 2a199a01abf97e24799713ea789db115, type: 3}
@@ -2238,6 +2245,9 @@ MonoBehaviour:
     - {fileID: 2046352019, guid: 2a199a01abf97e24799713ea789db115, type: 3}
     - {fileID: 539093106, guid: 2a199a01abf97e24799713ea789db115, type: 3}
     - {fileID: 1826828161, guid: 2a199a01abf97e24799713ea789db115, type: 3}
+  - name: entity/enemy/KingofReverserWand
+    spritesheet:
+    - {fileID: 21300000, guid: 2ef3025eca7007943b1a959a47ba8c6e, type: 3}
   - name: entity/enemy/KingSkeleton
     spritesheet:
     - {fileID: 1602015279, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
@@ -2575,6 +2585,20 @@ MonoBehaviour:
     - {fileID: 21300004, guid: 2223b622235c77b41858ab56433232a5, type: 3}
     - {fileID: 21300006, guid: 2223b622235c77b41858ab56433232a5, type: 3}
     - {fileID: 21300008, guid: 2223b622235c77b41858ab56433232a5, type: 3}
+  - name: entity/enemy/ZalatClone
+    spritesheet:
+    - {fileID: -1939232218, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: -1304254101, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: -2104668931, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: 1146906957, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: -786286877, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: -1093991459, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: -159822501, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: -1179606843, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: -1288191022, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: 457501939, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: -1663799120, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
+    - {fileID: -1293593642, guid: 4b5e3ee846ba9404896b4aa729309dad, type: 3}
   - name: entity/enemy/zombie
     spritesheet:
     - {fileID: 21300000, guid: 1bf54b349ebb4ae48b1cee1197c7c2ae, type: 3}
@@ -2694,12 +2718,16 @@ MonoBehaviour:
     - {fileID: 430786344, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
     - {fileID: -238938272, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
     - {fileID: -1085360653, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: -773119044, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 661618413, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 1174712118, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 869447777, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 2079419674, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
-    - {fileID: 1239007083, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -800444581, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1982421251, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 353226520, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -295397042, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -518348772, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1596443505, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: -1924353111, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1457824713, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 1064927941, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
+    - {fileID: 36846174, guid: e79a71af8e1a608428bbe953db26c4d2, type: 3}
   - name: ui/almanac/grid_layer_tags
     spritesheet:
     - {fileID: 1321867714, guid: f4743b7a556142b4db02b61d15e9da06, type: 3}
