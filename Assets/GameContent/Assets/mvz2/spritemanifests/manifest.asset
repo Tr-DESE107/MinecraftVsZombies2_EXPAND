@@ -2281,6 +2281,13 @@ MonoBehaviour:
     - {fileID: -2119216257, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
     - {fileID: -347395102, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
     - {fileID: 541493817, guid: 31a2ed62f5e848b4ba2a5fe086f96e72, type: 3}
+  - name: entity/enemy/MindAdept
+    spritesheet:
+    - {fileID: 1530240111, guid: de6983021191a2540a472d662b0fffde, type: 3}
+    - {fileID: -286953757, guid: de6983021191a2540a472d662b0fffde, type: 3}
+    - {fileID: -896746972, guid: de6983021191a2540a472d662b0fffde, type: 3}
+    - {fileID: 294246357, guid: de6983021191a2540a472d662b0fffde, type: 3}
+    - {fileID: 782296745, guid: de6983021191a2540a472d662b0fffde, type: 3}
   - name: entity/enemy/MonkZombie
     spritesheet:
     - {fileID: -2077321725, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
@@ -2354,7 +2361,6 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 1118078179, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: -938091766, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
-    - {fileID: 1997653401, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: 1478713533, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: -251746682, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: -790040289, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
@@ -2365,7 +2371,6 @@ MonoBehaviour:
     - {fileID: -1188052246, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: 464215519, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: -1745557601, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
-    - {fileID: -569877082, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: -533749678, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: -768854715, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: 1058423239, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
@@ -2378,7 +2383,6 @@ MonoBehaviour:
     - {fileID: 1555235540, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: -1982833564, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: -773116313, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
-    - {fileID: -1366362653, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: -1532742466, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
     - {fileID: -37555541, guid: b0d9f0ab5921b454fa6c717e1c7e0737, type: 3}
   - name: entity/enemy/nether_archer
@@ -2556,6 +2560,9 @@ MonoBehaviour:
     - {fileID: -238351258, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
     - {fileID: 1356556440, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
     - {fileID: 1828943734, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}
+  - name: entity/enemy/WintherHeadwear
+    spritesheet:
+    - {fileID: 21300000, guid: 814e7d18a782a814082fba56dfa17f38, type: 3}
   - name: entity/enemy/WintherMage
     spritesheet:
     - {fileID: 1602134340, guid: 6cd4f38f05c55804dbfef3281bf43251, type: 3}
