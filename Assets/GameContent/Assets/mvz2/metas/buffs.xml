@@ -1,184 +1,184 @@
 <buffs>
     <!-- Difficulties -->
-    <buff id="level_hard" polarity="negative" level="5" target="level" />
-    <buff id="level_easy" polarity="positive" level="5" target="level" />
-    <buff id="i_zombie_hard" polarity="negative" level="5" target="level" />
-    <buff id="i_zombie_easy" polarity="positive" level="5" target="level" />
-    <buff id="easy_armor" polarity="negative" level="5" target="armor" />
-    <buff id="easy_contraption" polarity="positive" level="5" target="contraption" />
-    <buff id="easy_blueprint" polarity="positive" level="5" target="blueprint" />
-    <buff id="hard_enemy" polarity="positive" level="5" target="enemy" />
+    <buff id="level_hard" polarity="negative" level="5000" target="level" />
+    <buff id="level_easy" polarity="positive" level="5000" target="level" />
+    <buff id="i_zombie_hard" polarity="negative" level="5000" target="level" />
+    <buff id="i_zombie_easy" polarity="positive" level="5000" target="level" />
+    <buff id="easy_armor" polarity="negative" level="5000" target="armor" />
+    <buff id="easy_contraption" polarity="positive" level="5000" target="contraption" />
+    <buff id="easy_blueprint" polarity="positive" level="5000" target="blueprint" />
+    <buff id="hard_enemy" polarity="positive" level="5000" target="enemy" />
 
     <!-- Debug -->
-    <buff id="debug_energy" polarity="none" level="5" target="level" />
-    <buff id="debug_godmode" polarity="none" level="5" target="level" />
-    <buff id="debug_no_recharge" polarity="none" level="5" target="level" />
-    <buff id="debug_starshard" polarity="none" level="5" target="level" />
+    <buff id="debug_energy" polarity="none" level="5000" target="level" />
+    <buff id="debug_godmode" polarity="none" level="5000" target="level" />
+    <buff id="debug_no_recharge" polarity="none" level="5000" target="level" />
+    <buff id="debug_starshard" polarity="none" level="5000" target="level" />
 
     <!-- Stages -->
-    <buff id="tutorial_pickaxe_disable" polarity="negative" level="5" target="level" />
-    <buff id="tutorial_trigger_disable" polarity="negative" level="5" target="level" />
-    <buff id="tutorial_blueprint_disable" polarity="negative" level="5" target="blueprint" />
-    <buff id="minigame_enemy_speed" polarity="positive" level="2" target="enemy" />
+    <buff id="tutorial_pickaxe_disable" polarity="negative" level="5000" target="level" />
+    <buff id="tutorial_trigger_disable" polarity="negative" level="5000" target="level" />
+    <buff id="tutorial_blueprint_disable" polarity="negative" level="5000" target="blueprint" />
+    <buff id="minigame_enemy_speed" polarity="positive" level="2000" target="enemy" />
     <buff id="little_zombie" polarity="negative" level="0" target="enemy" />
     <buff id="big_trouble" polarity="positive" level="0" target="enemy" />
     <buff id="little_zombie_armor" polarity="negative" level="0" target="armor" />
     <buff id="big_trouble_armor" polarity="positive" level="0" target="armor" />
-    <buff id="upgrade_endless_cost" polarity="negative" level="3" target="blueprint" />
-    <buff id="i_zombie_imp" polarity="mixed" level="2" target="enemy" />
-    <buff id="i_zombie_attack_booster" polarity="positive" level="3" target="enemy" />
-    <buff id="i_zombie_skeleton_warrior" polarity="positive" level="2" target="enemy" />
-    <buff id="i_zombie_skeleton_warrior_armor" polarity="positive" level="2" target="armor" />
+    <buff id="upgrade_endless_cost" polarity="negative" level="3000" target="blueprint" />
+    <buff id="i_zombie_imp" polarity="mixed" level="2000" target="enemy" />
+    <buff id="i_zombie_attack_booster" polarity="positive" level="3000" target="enemy" />
+    <buff id="i_zombie_skeleton_warrior" polarity="positive" level="2000" target="enemy" />
+    <buff id="i_zombie_skeleton_warrior_armor" polarity="positive" level="2000" target="armor" />
 
     <!-- Core -->
-    <buff id="gem_carrier" polarity="none" level="2" target="enemy" />
-    <buff id="change_lane" polarity="none" level="3" target="entity" />
-    <buff id="damage_color" polarity="none" level="5" target="entity" />
-    <buff id="entity_physics" polarity="none" level="5" target="entity" />
-    <buff id="faction" polarity="none" level="5" target="entity" />
-    <buff id="temporary_update_before_game" polarity="none" level="5" target="entity" />
-    <buff id="armor_damage_color" polarity="none" level="5" target="armor" />
-    <buff id="random_enemy_speed" polarity="none" level="2" target="enemy" />
+    <buff id="gem_carrier" polarity="none" level="2000" target="enemy" />
+    <buff id="change_lane" polarity="none" level="3000" target="entity" />
+    <buff id="damage_color" polarity="none" level="5000" target="entity" />
+    <buff id="entity_physics" polarity="none" level="5000" target="entity" />
+    <buff id="faction" polarity="none" level="5000" target="entity" />
+    <buff id="temporary_update_before_game" polarity="none" level="5000" target="entity" />
+    <buff id="armor_damage_color" polarity="none" level="5000" target="armor" />
+    <buff id="random_enemy_speed" polarity="none" level="2000" target="enemy" />
 
     <!-- Prologue -->
-    <buff id="production_color" polarity="none" level="5" target="contraption" />
-    <buff id="mine_tnt_invincible" polarity="positive" level="4" target="contraption" />
-    <buff id="obsidian_armor" polarity="positive" level="1" target="contraption" />
-    <buff id="cart_fade_in" polarity="none" level="4" target="cart" />
+    <buff id="production_color" polarity="none" level="5000" target="contraption" />
+    <buff id="mine_tnt_invincible" polarity="positive" level="4000" target="contraption" />
+    <buff id="obsidian_armor" polarity="positive" level="1000" target="contraption" />
+    <buff id="cart_fade_in" polarity="none" level="4000" target="cart" />
 
     <!-- Chapter 1 -->
-    <buff id="thunder" polarity="none" level="3" target="level" />
-    <buff id="starshard_carrier" polarity="none" level="1" target="enemy" />
-    <buff id="redstone_carrier" polarity="none" level="2" target="enemy" />
-    <buff id="frankenstein_transformer" polarity="none" level="5" target="enemy" />
-    <buff id="the_creatures_heart_reduce_cost" polarity="positive" level="2" target="blueprint" />
+    <buff id="thunder" polarity="none" level="3000" target="level" />
+    <buff id="starshard_carrier" polarity="none" level="1000" target="enemy" />
+    <buff id="redstone_carrier" polarity="none" level="2000" target="enemy" />
+    <buff id="frankenstein_transformer" polarity="none" level="5000" target="enemy" />
+    <buff id="the_creatures_heart_reduce_cost" polarity="positive" level="2000" target="blueprint" />
     <buff id="dream_key_shield" polarity="positive" level="0" target="contraption" />
-    <buff id="light_fadeout" polarity="none" level="5" target="entity" />
-    <buff id="moonlight_sensor_launching" polarity="negative" level="3" target="contraption" />
-    <buff id="moonlight_sensor_evoked" polarity="positive" level="1" target="contraption" />
-    <buff id="glowstone_evoke" polarity="positive" level="1" target="contraption" />
+    <buff id="light_fadeout" polarity="none" level="5000" target="entity" />
+    <buff id="moonlight_sensor_launching" polarity="negative" level="3000" target="contraption" />
+    <buff id="moonlight_sensor_evoked" polarity="positive" level="1000" target="contraption" />
+    <buff id="glowstone_evoke" polarity="positive" level="1000" target="contraption" />
     <buff id="stun" polarity="negative" level="0" target="entity" />
-    <buff id="glowstone_protected" polarity="positive" level="3" target="contraption" />
-    <buff id="punchton_achievement" polarity="none" level="5" target="enemy" />
-    <buff id="tnt_ignited" polarity="none" level="3" target="contraption" />
-    <buff id="tnt_charged" polarity="positive" level="1" target="contraption" />
-    <buff id="sacrificed" polarity="none" level="5" target="contraption" />
-    <buff id="projectile_wait" polarity="none" level="1" target="projectile" />
-    <buff id="magichest_invincible" polarity="positive" level="3" target="contraption" />
-    <buff id="ghost" polarity="none" level="3" target="enemy" />
-    <buff id="napstablook_angry" polarity="none" level="3" target="enemy" />
+    <buff id="glowstone_protected" polarity="positive" level="3000" target="contraption" />
+    <buff id="punchton_achievement" polarity="none" level="5000" target="enemy" />
+    <buff id="tnt_ignited" polarity="none" level="3000" target="contraption" />
+    <buff id="tnt_charged" polarity="positive" level="1000" target="contraption" />
+    <buff id="sacrificed" polarity="none" level="5000" target="contraption" />
+    <buff id="projectile_wait" polarity="none" level="1000" target="projectile" />
+    <buff id="magichest_invincible" polarity="positive" level="3000" target="contraption" />
+    <buff id="ghost" polarity="none" level="3000" target="enemy" />
+    <buff id="napstablook_angry" polarity="none" level="3000" target="enemy" />
     <buff id="sword_paralyzed" polarity="negative" level="0" target="level" />
-    <buff id="frankenstein_stage" polarity="none" level="4" target="level" />
-    <buff id="frankenstein_transforming" polarity="none" level="5" target="boss" />
+    <buff id="frankenstein_stage" polarity="none" level="4000" target="level" />
+    <buff id="frankenstein_transforming" polarity="none" level="5000" target="boss" />
     <buff id="frankenstein_shocked" polarity="negative" level="0" target="contraption" />
-    <buff id="frankenstein_steel" polarity="positive" level="4" target="boss" />
+    <buff id="frankenstein_steel" polarity="positive" level="4000" target="boss" />
 
     <!-- Chapter 2 -->
     <buff id="tainted_sun" polarity="negative" level="0" target="level" />
-    <buff id="nightmare_level" polarity="none" level="4" target="level" />
-    <buff id="breakout_board_upgrade" polarity="positive" level="3" target="effect" />
-    <buff id="pagoda_branch_level" polarity="negative" level="2" target="level" />
-    <buff id="dark_matter_production" polarity="positive" level="2" target="contraption" />
-    <buff id="dark_matter_dark" polarity="negative" level="1" target="level" />
+    <buff id="nightmare_level" polarity="none" level="4000" target="level" />
+    <buff id="breakout_board_upgrade" polarity="positive" level="3000" target="effect" />
+    <buff id="pagoda_branch_level" polarity="negative" level="2000" target="level" />
+    <buff id="dark_matter_production" polarity="positive" level="2000" target="contraption" />
+    <buff id="dark_matter_dark" polarity="negative" level="1000" target="level" />
     <buff id="dream_butterfly_shield" polarity="positive" level="0" target="contraption" />
-    <buff id="bottled_blackhole_damage" polarity="positive" level="2" target="contraption" />
-    <buff id="in_water" polarity="none" level="5" target="entity" />
-    <buff id="white_flash" polarity="none" level="4" target="entity" />
-    <buff id="nocturnal" polarity="negative" level="4" target="contraption" />
-    <buff id="carried_by_lily_pad" polarity="none" level="5" target="contraption" />
-    <buff id="carrying_other" polarity="none" level="5" target="contraption" />
-    <buff id="lily_pad_evocation" polarity="none" level="4" target="contraption" />
-    <buff id="gravity_pad_gravity" polarity="negative" level="3" target="enemy" />
-    <buff id="vortex_hopper_drag" polarity="negative" level="5" target="enemy" />
-    <buff id="vortex_hopper_spin" polarity="none" level="4" target="contraption" />
-    <buff id="vortex_hopper_evoked" polarity="positive" level="1" target="contraption" />
+    <buff id="bottled_blackhole_damage" polarity="positive" level="2000" target="contraption" />
+    <buff id="in_water" polarity="none" level="5000" target="entity" />
+    <buff id="white_flash" polarity="none" level="4000" target="entity" />
+    <buff id="nocturnal" polarity="negative" level="4000" target="contraption" />
+    <buff id="carried_by_lily_pad" polarity="none" level="5000" target="contraption" />
+    <buff id="carrying_other" polarity="none" level="5000" target="contraption" />
+    <buff id="lily_pad_evocation" polarity="none" level="4000" target="contraption" />
+    <buff id="gravity_pad_gravity" polarity="negative" level="3000" target="enemy" />
+    <buff id="vortex_hopper_drag" polarity="negative" level="5000" target="enemy" />
+    <buff id="vortex_hopper_spin" polarity="none" level="4000" target="contraption" />
+    <buff id="vortex_hopper_evoked" polarity="positive" level="1000" target="contraption" />
     <buff id="enemy_weakness" polarity="negative" level="0" target="enemy" />
-    <buff id="dream_crystal_evocation" polarity="positive" level="1" target="contraption" />
+    <buff id="dream_crystal_evocation" polarity="positive" level="1000" target="contraption" />
     <buff id="dream_silk" polarity="mixed" level="0" target="contraption" />
     <buff id="parabot" polarity="negative" level="0" target="entity" />
-    <buff id="force_pad_drag" polarity="negative" level="5" target="enemy" />
-    <buff id="projectile_knockback" polarity="positive" level="1" target="projectile" />
-    <buff id="boat" polarity="none" level="4" target="enemy" />
-    <buff id="spider_climb" polarity="none" level="4" target="enemy" />
-    <buff id="fly" polarity="none" level="4" target="enemy" />
-    <buff id="ghast_fire_charge" polarity="none" level="4" target="projectile" />
-    <buff id="mother_terror_laid" polarity="negative" level="3" target="enemy" />
+    <buff id="force_pad_drag" polarity="negative" level="5000" target="enemy" />
+    <buff id="projectile_knockback" polarity="positive" level="1000" target="projectile" />
+    <buff id="boat" polarity="none" level="4000" target="enemy" />
+    <buff id="spider_climb" polarity="none" level="4000" target="enemy" />
+    <buff id="fly" polarity="none" level="4000" target="enemy" />
+    <buff id="ghast_fire_charge" polarity="none" level="4000" target="projectile" />
+    <buff id="mother_terror_laid" polarity="negative" level="3000" target="enemy" />
     <buff id="terror_parasitized" polarity="mixed" level="0" target="enemy" />
-    <buff id="slenderman_transition" polarity="none" level="5" target="level" />
-    <buff id="slenderman_mind_swap" polarity="mixed" level="1" target="blueprint" />
+    <buff id="slenderman_transition" polarity="none" level="5000" target="level" />
+    <buff id="slenderman_mind_swap" polarity="mixed" level="1000" target="blueprint" />
     <buff id="nightmare_decrepify" polarity="negative" level="0" target="level" />
-    <buff id="nightmare_come_true" polarity="positive" level="2" target="enemy" />
-    <buff id="nightmareaper_transition" polarity="none" level="5" target="level" />
+    <buff id="nightmare_come_true" polarity="positive" level="2000" target="enemy" />
+    <buff id="nightmareaper_transition" polarity="none" level="5000" target="level" />
     <buff id="nightmareaper_darkness" polarity="negative" level="0" target="level" />
-    <buff id="nightmareaper_enraged" polarity="positive" level="5" target="boss" />
-    <buff id="nightmareaper_fall" polarity="none" level="5" target="boss" />
-    <buff id="nightmare_cleared" polarity="none" level="5" target="level" />
+    <buff id="nightmareaper_enraged" polarity="positive" level="5000" target="boss" />
+    <buff id="nightmareaper_fall" polarity="none" level="5000" target="boss" />
+    <buff id="nightmare_cleared" polarity="none" level="5000" target="level" />
 
     <!-- Chapter 3 -->
-    <buff id="seija_auto_collect" polarity="none" level="5" target="level" />
-    <buff id="inverted_mirror" polarity="negative" level="3" target="projectile" />
-    <buff id="miracle_mallet_replica_damage" polarity="positive" level="2" target="contraption" />
-    <buff id="wither_skeleton_skull_reduce_cost" polarity="positive" level="2" target="blueprint" />
-    <buff id="wither_skeleton_skull_reduce_health" polarity="negative" level="2" target="contraption" />
-    <buff id="broken_lantern" polarity="mixed" level="2" target="contraption" />
+    <buff id="seija_auto_collect" polarity="none" level="5000" target="level" />
+    <buff id="inverted_mirror" polarity="negative" level="3000" target="projectile" />
+    <buff id="miracle_mallet_replica_damage" polarity="positive" level="2000" target="contraption" />
+    <buff id="wither_skeleton_skull_reduce_cost" polarity="positive" level="2000" target="blueprint" />
+    <buff id="wither_skeleton_skull_reduce_health" polarity="negative" level="2000" target="contraption" />
+    <buff id="broken_lantern" polarity="mixed" level="2000" target="contraption" />
     <buff id="charm" polarity="negative" level="0" target="entity" />
-    <buff id="seija_mesmerizer" polarity="none" level="5" target="enemy" />
-    <buff id="stone_shield_protected" polarity="positive" level="5" target="contraption" />
+    <buff id="seija_mesmerizer" polarity="none" level="5000" target="enemy" />
+    <buff id="stone_shield_protected" polarity="positive" level="5000" target="contraption" />
     <buff id="iron_curtain" polarity="positive" level="0" target="contraption" />
-    <buff id="reverse_satellite" polarity="negative" level="4" target="level" />
-    <buff id="being_riden" polarity="none" level="5" target="enemy" />
-    <buff id="riding_passenger" polarity="none" level="5" target="enemy" />
-    <buff id="soulsand_summoned" polarity="none" level="4" target="enemy" />
-    <buff id="seija_fabric" polarity="positive" level="5" target="boss" />
-    <buff id="seija_gap" polarity="positive" level="5" target="boss" />
-    <buff id="wither_transition" polarity="none" level="5" target="level" />
-    <buff id="wither_cleared" polarity="none" level="5" target="level" />
+    <buff id="reverse_satellite" polarity="negative" level="4000" target="level" />
+    <buff id="being_riden" polarity="none" level="5000" target="enemy" />
+    <buff id="riding_passenger" polarity="none" level="5000" target="enemy" />
+    <buff id="soulsand_summoned" polarity="none" level="4000" target="enemy" />
+    <buff id="seija_fabric" polarity="positive" level="5000" target="boss" />
+    <buff id="seija_gap" polarity="positive" level="5000" target="boss" />
+    <buff id="wither_transition" polarity="none" level="5000" target="level" />
+    <buff id="wither_cleared" polarity="none" level="5000" target="level" />
     <buff id="withered" polarity="negative" level="0" target="entity" />
 
     <!-- Chapter 4 -->
-    <buff id="delayed_spawner_trigger" polarity="none" level="4" target="level" />
-    <buff id="spirit_universe_night" polarity="none" level="4" target="level" />
-    <buff id="greedy_vacuum" polarity="none" level="2" target="level" />
-    <buff id="eye_of_the_giant" polarity="mixed" level="2" target="contraption" />
-    <buff id="note_block_loud" polarity="positive" level="1" target="contraption" />
-    <buff id="lightning_orb_evoked" polarity="positive" level="1" target="contraption" />
-    <buff id="imitated" polarity="none" level="3" target="contraption" />
-    <buff id="hellfire_cursed" polarity="positive" level="1" target="contraption" />
-    <buff id="hellfire_ignited" polarity="positive" level="1" target="projectile" />
-    <buff id="devourer_invincible" polarity="positive" level="4" target="contraption" />
-    <buff id="necrotombstone_rising" polarity="none" level="5" target="enemy" />
-    <buff id="wicked_hermit_warp" polarity="none" level="4" target="enemy" />
-    <buff id="wicked_hermit_warpped" polarity="none" level="4" target="enemy" />
-    <buff id="shikaisen_revive" polarity="positive" level="3" target="enemy" />
+    <buff id="delayed_spawner_trigger" polarity="none" level="4000" target="level" />
+    <buff id="spirit_universe_night" polarity="none" level="4000" target="level" />
+    <buff id="greedy_vacuum" polarity="none" level="2000" target="level" />
+    <buff id="eye_of_the_giant" polarity="mixed" level="2000" target="contraption" />
+    <buff id="note_block_loud" polarity="positive" level="1000" target="contraption" />
+    <buff id="lightning_orb_evoked" polarity="positive" level="1000" target="contraption" />
+    <buff id="imitated" polarity="none" level="3000" target="contraption" />
+    <buff id="hellfire_cursed" polarity="positive" level="1000" target="contraption" />
+    <buff id="hellfire_ignited" polarity="positive" level="1000" target="projectile" />
+    <buff id="devourer_invincible" polarity="positive" level="4000" target="contraption" />
+    <buff id="necrotombstone_rising" polarity="none" level="5000" target="enemy" />
+    <buff id="wicked_hermit_warp" polarity="none" level="4000" target="enemy" />
+    <buff id="wicked_hermit_warpped" polarity="none" level="4000" target="enemy" />
+    <buff id="shikaisen_revive" polarity="positive" level="3000" target="enemy" />
     <buff id="slow" polarity="negative" level="0" target="enemy" />
     <buff id="divine_shield" polarity="positive" level="0" target="entity" />
-    <buff id="the_giant_transition" polarity="none" level="5" target="level" />
-    <buff id="the_giant_inactive" polarity="none" level="5" target="boss" />
+    <buff id="the_giant_transition" polarity="none" level="5000" target="level" />
+    <buff id="the_giant_inactive" polarity="none" level="5000" target="boss" />
     <buff id="note_block_charged" polarity="positive" level="0" target="contraption" />
-    <buff id="the_giant_pacman" polarity="none" level="5" target="boss" />
-    <buff id="the_giant_pacman_killed" polarity="none" level="5" target="boss" />
-    <buff id="the_giant_snake" polarity="none" level="5" target="boss" />
-    <buff id="the_giant_phase3" polarity="negative" level="2" target="boss" />
-    <buff id="the_giant_cleared" polarity="none" level="5" target="level" />
+    <buff id="the_giant_pacman" polarity="none" level="5000" target="boss" />
+    <buff id="the_giant_pacman_killed" polarity="none" level="5000" target="boss" />
+    <buff id="the_giant_snake" polarity="none" level="5000" target="boss" />
+    <buff id="the_giant_phase3" polarity="negative" level="2000" target="boss" />
+    <buff id="the_giant_cleared" polarity="none" level="5000" target="level" />
 
     <!-- Chapter 5 -->
-    <buff id="ufo_spawn" polarity="negative" level="5" target="level" />
-    <buff id="above_cloud" polarity="none" level="5" target="entity" />
-    <buff id="beacon_meteor" polarity="positive" level="1" target="level" />
-    <buff id="firework_dispenser_evoked" polarity="positive" level="1" target="contraption" />
-    <buff id="hfpd_upgraded" polarity="positive" level="1" target="contraption" />
-    <buff id="paratroop" polarity="positive" level="3" target="enemy" />
-    <buff id="stolen_by_ufo" polarity="negative" level="5" target="contraption" />
-    <buff id="summoned_by_ufo" polarity="none" level="5" target="enemy" />
-    <buff id="absorbed_by_ufo" polarity="negative" level="5" target="pickup" />
-    <buff id="ufo_blue_absorb" polarity="positive" level="3" target="enemy" />
-    <buff id="heavy_cannon" polarity="negative" level="2" target="enemy" />
-    <buff id="water_stain_frozen" polarity="mixed" level="1" target="effect" />
-    <buff id="water_stain_wet" polarity="mixed" level="5" target="grid" />
-    <buff id="water_stain_slide" polarity="positive" level="4" target="enemy" />
+    <buff id="ufo_spawn" polarity="negative" level="5000" target="level" />
+    <buff id="above_cloud" polarity="none" level="5000" target="entity" />
+    <buff id="beacon_meteor" polarity="positive" level="1000" target="level" />
+    <buff id="firework_dispenser_evoked" polarity="positive" level="1000" target="contraption" />
+    <buff id="hfpd_upgraded" polarity="positive" level="1000" target="contraption" />
+    <buff id="paratroop" polarity="positive" level="3000" target="enemy" />
+    <buff id="stolen_by_ufo" polarity="negative" level="5000" target="contraption" />
+    <buff id="summoned_by_ufo" polarity="none" level="5000" target="enemy" />
+    <buff id="absorbed_by_ufo" polarity="negative" level="5000" target="pickup" />
+    <buff id="ufo_blue_absorb" polarity="positive" level="3000" target="enemy" />
+    <buff id="heavy_cannon" polarity="negative" level="2000" target="enemy" />
+    <buff id="water_stain_frozen" polarity="mixed" level="1000" target="effect" />
+    <buff id="water_stain_wet" polarity="mixed" level="5000" target="grid" />
+    <buff id="water_stain_slide" polarity="positive" level="4000" target="enemy" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />
-    <buff id="worldwide_celebration" polarity="positive" level="2" target="entity" />
+    <buff id="worldwide_celebration" polarity="positive" level="2000" target="entity" />
     <buff id="ancient_egypt" polarity="negative" level="0" target="level" />
 </buffs>
