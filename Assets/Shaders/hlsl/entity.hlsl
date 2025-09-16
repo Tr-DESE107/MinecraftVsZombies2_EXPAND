@@ -67,16 +67,7 @@ half4 _ColorOffset;
 float3 _HSVOffset;
 int _Grayscale;
 half3 _GrayscaleFactor;
-int _PixelSnap;
 #endif
-
-float4 PixelSnap(float4 pos)
-{
-    float2 hpc = _ScreenParams.xy * 0.5;
-    float2 unit = hpc / pos.w;
-    pos.xy = ceil(pos.xy * unit + 0.25) / unit;
-    return pos;
-}
 
 v2f_entity EntityVert(appdata_entity v)
 {
@@ -85,11 +76,6 @@ v2f_entity EntityVert(appdata_entity v)
     UNITY_TRANSFER_INSTANCE_ID(v, o);
     
     o.vertex = UnityObjectToClipPos(v.vertex);
-    if (_PixelSnap)
-    {
-        o.vertex = PixelSnap(o.vertex);
-    }
-        
     o.uv = TRANSFORM_TEX(v.uv, _MainTex);
     o.color = v.color;
                             

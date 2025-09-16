@@ -27,6 +27,7 @@ namespace MVZ2.Metas
         public float XOffset { get; private set; }
         public float YOffset { get; private set; }
         public AnimatorParameter[] AnimatorParameters { get; private set; }
+        public bool UpdateAnimatorOnShot { get; private set; }
         public Dictionary<string, object?> ModelProperties { get; private set; }
         public static ModelMeta FromXmlNode(XmlNode node, string defaultNsp)
         {
@@ -39,9 +40,11 @@ namespace MVZ2.Metas
             var xOffset = node.GetAttributeFloat("xOffset") ?? 0;
             var yOffset = node.GetAttributeFloat("yOffset") ?? 0;
             var animatorParameters = new List<AnimatorParameter>();
+            bool updateAnimatorOnShot = false;
             var animatorNode = node["animator"];
             if (animatorNode != null)
             {
+                updateAnimatorOnShot = animatorNode.GetAttributeBool("updateOnShot") ?? updateAnimatorOnShot;
                 var parametersNode = animatorNode["parameters"];
                 if (parametersNode != null)
                 {
@@ -67,6 +70,7 @@ namespace MVZ2.Metas
                 Height = height,
                 XOffset = xOffset,
                 YOffset = yOffset,
+                UpdateAnimatorOnShot = updateAnimatorOnShot
             };
         }
         public override string ToString()

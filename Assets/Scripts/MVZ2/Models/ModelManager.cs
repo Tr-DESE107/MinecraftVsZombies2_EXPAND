@@ -24,7 +24,13 @@ namespace MVZ2.Models
                 return null;
             }
             modelInstance.transform.localPosition = Vector3.zero;
-            modelInstance.UpdateAnimators(0);
+            AlignAllChildrenSpriteRenderers(modelInstance);
+
+            var modelMeta = Main.ResourceManager.GetModelMeta(id);
+            if (modelMeta != null && modelMeta.UpdateAnimatorOnShot)
+            {
+                modelInstance.UpdateAnimators(0);
+            }
             modelInstance.UpdateFrame(0);
 
 
@@ -82,6 +88,26 @@ namespace MVZ2.Models
             Sprite sprite = main.ResourceManager.CreateSprite(texture, new Rect(0, 0, width, height), Vector2.one * 0.5f, pictureName, "modelIcon");
 
             return sprite;
+        }
+        private void AlignAllChildrenSpriteRenderers(Model model)
+        {
+            var renderers = model.GetComponentsInChildren<SpriteRenderer>();
+            foreach (var renderer in renderers)
+            {
+                var spr = renderer.sprite;
+                if (!spr)
+                    continue;
+                var sprSize = spr.rect.size;
+                var pivot = spr.pivot;
+                var pixelsPerUnit = spr.pixelsPerUnit;
+                var position = renderer.transform.position;
+                var scale = renderer.transform.lossyScale;
+                var offset = (Vector3)Vector2.Scale(pivot / pixelsPerUnit, scale);
+                var minCorner = position - offset;
+                var flooredMinCorner = new Vector3(Mathf.Round(minCorner.x * pixelsPerUnit) / pixelsPerUnit, Mathf.Round(minCorner.y * pixelsPerUnit) / pixelsPerUnit, minCorner.z);
+                var finalOffset = flooredMinCorner - minCorner;
+                renderer.transform.position += finalOffset;
+            }
         }
         public MainManager Main => main;
         [SerializeField]
