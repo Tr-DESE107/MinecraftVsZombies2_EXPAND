@@ -819,19 +819,21 @@ namespace Tools.Mathematics
         {
             if (key == null)
                 return;
-            if (currentKey != null && comparer.Compare(currentKey, key) < 0)
-                return;
-            currentObj = obj;
-            currentKey = key;
+            if (currentKey == null || currentObj == null || comparer.Compare(currentKey, key) >= 0)
+            {
+                currentObj = obj;
+                currentKey = key;
+            }
         }
         public static void GetGreaterOne<TObj, TKey>(this IComparer comparer, TObj obj, ref TObj currentObj, TKey key, ref TKey currentKey)
         {
             if (key == null)
                 return;
-            if (currentKey != null && comparer.Compare(currentKey, key) > 0)
-                return;
-            currentObj = obj;
-            currentKey = key;
+            if (currentKey == null || currentObj == null || comparer.Compare(currentKey, key) <= 0)
+            {
+                currentObj = obj;
+                currentKey = key;
+            }
         }
     }
     public enum Axis
