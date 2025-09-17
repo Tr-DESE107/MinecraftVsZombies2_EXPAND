@@ -32,12 +32,12 @@ namespace MVZ2.GameContent.Projectiles
             position.y = entity.GetGroundY();
             var param = entity.GetSpawnParams();
             param.SetProperty(VanillaEntityProps.DAMAGE, entity.GetDamage());
-            entity.Spawn(VanillaEffectID.giantSpike, position, param)?.Let(e =>
+            entity.Spawn(VanillaEffectID.giantSpike, position, param)?.Let(spike =>
             {
-                e.PlaySound(VanillaSoundID.giantSpike);
-                foreach (Entity target in entity.Level.FindEntities(e => IsEnemyAndInRange(entity, e)))
+                spike.PlaySound(VanillaSoundID.giantSpike);
+                foreach (Entity target in entity.Level.FindEntities(enemy => IsEnemyAndInRange(spike, enemy)))
                 {
-                    target.TakeDamage(e.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR), e);
+                    target.TakeDamage(spike.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR), spike);
                 }
             });
             entity.Remove();
