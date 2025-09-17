@@ -50,10 +50,6 @@ namespace MVZ2.Metas
             var behaviours = new List<NamespaceID>();
             var behavioursNode = node["behaviours"];
             bool includeSelfBehaviour = behavioursNode?.GetAttributeBool("includeSelf") ?? true;
-            if (includeSelfBehaviour)
-            {
-                behaviours.Add(new NamespaceID(nsp, id));
-            }
 
 
             var propertyNode = node["properties"];
@@ -79,6 +75,10 @@ namespace MVZ2.Metas
                 }
             }
             behavioursNode?.ModifyEntityBehaviours(behaviours, properties, defaultNsp);
+            if (includeSelfBehaviour)
+            {
+                behaviours.Add(new NamespaceID(nsp, id));
+            }
 
 
             return new EntityMeta(id, name, deathMessage, tooltip, unlock, behaviours.ToArray(), properties)
