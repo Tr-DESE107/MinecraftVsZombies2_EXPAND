@@ -72,7 +72,7 @@
                 <collider name="main" >
                     <offset x="0" y="0" z="0"/>
                     <size x="5" y="100" z="20"/>
-                    <pivot x="0.5" y="0.5" z="0.5"/>
+                    <pivot x="1" y="0.5" z="0.5"/>
                 </collider>
             </colliders>
             <props>

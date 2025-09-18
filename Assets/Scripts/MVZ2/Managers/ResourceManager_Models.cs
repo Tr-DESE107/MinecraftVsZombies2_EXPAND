@@ -42,6 +42,19 @@ namespace MVZ2.Managers
         }
         #endregion
 
+
+        #region 元数据
+        public ModelArmorConfigMeta? GetModelArmorConfigMeta(NamespaceID id)
+        {
+            if (!NamespaceID.IsValid(id))
+                return null;
+            var meta = GetModelMetaList(id.SpaceName);
+            if (meta == null)
+                return null;
+            return meta.armorConfigs.FirstOrDefault(c => c.ID == id.Path);
+        }
+        #endregion
+
         #region 模型
         public Model? GetModel(string nsp, string path)
         {

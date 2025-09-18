@@ -24,24 +24,6 @@ namespace MVZ2Logic.SeedPacks
                 return Vector3.one;
             return Armors.GetArmorScale(slotID, armorID);
         }
-        public Vector3 GetArmorModelOffset(NamespaceID slotID, NamespaceID armorID)
-        {
-            if (Armors == null)
-                return Vector3.zero;
-            return Armors.GetArmorModelOffset(slotID, armorID);
-        }
-        public string? GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
-        {
-            if (Armors == null)
-                return null;
-            return Armors.GetArmorModelAnchor(slotID, armorID);
-        }
-        public IEnumerable<string>? GetAllArmorModelAnchors()
-        {
-            if (Armors == null)
-                return null;
-            return Armors.GetAllArmorModelAnchors();
-        }
         public sealed override string GetDefinitionType() => LogicDefinitionTypes.SHAPE;
         public IShapeDefinitionArmor? Armors { get; set; }
     }
@@ -49,8 +31,5 @@ namespace MVZ2Logic.SeedPacks
     {
         Vector3 GetArmorPosition(NamespaceID slotID, NamespaceID armorID);
         Vector3 GetArmorScale(NamespaceID slotID, NamespaceID armorID);
-        Vector3 GetArmorModelOffset(NamespaceID slotID, NamespaceID armorID);
-        string GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID);
-        IEnumerable<string> GetAllArmorModelAnchors();
     }
 }
