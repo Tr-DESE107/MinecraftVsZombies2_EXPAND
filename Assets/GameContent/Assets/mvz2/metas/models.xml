@@ -240,6 +240,7 @@
     <model name="burning_gas" type="entity" path="mvz2:effect/burning_gas" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="magic_stars" type="entity" path="mvz2:effect/magic_stars" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="bone_particles" type="entity" path="mvz2:effect/bone_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="wither_bone_particles" type="entity" path="mvz2:effect/wither_bone_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="blood_particles" type="entity" path="mvz2:effect/blood_particles" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="smoke_cluster" type="entity" path="mvz2:effect/smoke_cluster" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="rain" type="entity" path="mvz2:effect/rain" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>

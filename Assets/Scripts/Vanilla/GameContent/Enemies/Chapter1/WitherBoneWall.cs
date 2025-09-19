@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Enemies
             base.PostDeath(entity, info);
             if (info.HasEffect(VanillaDamageEffects.REMOVE_ON_DEATH))
                 return;
-            entity.Level.Spawn(VanillaEffectID.boneParticles, entity.GetCenter(), entity);
+            entity.Level.Spawn(VanillaEffectID.wither_bone_particles, entity.GetCenter(), entity);
             entity.Remove();
         }
 

@@ -2420,6 +2420,18 @@ MonoBehaviour:
     - {fileID: -938367861, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: 516429795, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: -1181326684, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
+  - name: entity/enemy/PhaseSpider
+    spritesheet:
+    - {fileID: -216073948, guid: bcd84c9f2a5e9694798c2f077f298a5d, type: 3}
+    - {fileID: -1031733927, guid: bcd84c9f2a5e9694798c2f077f298a5d, type: 3}
+    - {fileID: -1339357647, guid: bcd84c9f2a5e9694798c2f077f298a5d, type: 3}
+    - {fileID: 1336777607, guid: bcd84c9f2a5e9694798c2f077f298a5d, type: 3}
+  - name: entity/enemy/PhaseSpider_death
+    spritesheet:
+    - {fileID: -1095959534, guid: f681e55e70c51fb4497ea6393646387a, type: 3}
+    - {fileID: -1539263756, guid: f681e55e70c51fb4497ea6393646387a, type: 3}
+    - {fileID: -42161522, guid: f681e55e70c51fb4497ea6393646387a, type: 3}
+    - {fileID: 2130875584, guid: f681e55e70c51fb4497ea6393646387a, type: 3}
   - name: entity/enemy/Red_MonkZombie
     spritesheet:
     - {fileID: 195686219, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}

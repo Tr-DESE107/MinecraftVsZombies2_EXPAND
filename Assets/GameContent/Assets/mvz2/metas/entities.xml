@@ -2895,6 +2895,11 @@
                 <int name="mvz2:maxTimeout" value="30" />
             </properties>
         </effect>
+		<effect id="wither_bone_particles">
+			<properties>
+				<int name="mvz2:maxTimeout" value="30" />
+			</properties>
+		</effect>
         <effect id="blood_particles">
             <properties>
                 <int name="mvz2:maxTimeout" value="30" />

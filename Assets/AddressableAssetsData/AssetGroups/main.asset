@@ -640,6 +640,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e158ba1eb12c3b40bbe5fe0a20e51fc
+    m_Address: mvz2:enemy/EXPAND/MindAdept
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e24ce64aa375814381a78f43c3e8689
     m_Address: mvz2:entity/skeleton/skeleton_cry3
     m_ReadOnly: 0
@@ -1256,6 +1263,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1afb714c8631903449e3bd7738685e8c
+    m_Address: mvz2:enemy/dream/PhaseSpider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1affba9129ab411489955b3026819333
     m_Address: mvz2:random/netherrack/break5
     m_ReadOnly: 0
@@ -1297,6 +1311,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c31ad92f0a3aae4394ea97bf94bac44
+    m_Address: mvz2:enemy/EXPAND/ZalatClone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c63d6c9c1c1b2346847a4534bad10bd
     m_Address: mvz2:random/crystal/crystal_place2
@@ -6132,6 +6153,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 814e7d18a782a814082fba56dfa17f38
+    m_Address: mvz2:entity/enemy/WintherHeadwear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8232e349821c7af46bf3bb99ffabf9d9
     m_Address: mvz2:pop
     m_ReadOnly: 0
@@ -8631,6 +8659,13 @@ MonoBehaviour:
     - Main
     - Music
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcd84c9f2a5e9694798c2f077f298a5d
+    m_Address: mvz2:entity/enemy/PhaseSpider
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bcfc05a1485efab44af77eace3394a6f
     m_Address: mvz2:contraption/prologue/random_china
     m_ReadOnly: 0
@@ -10038,6 +10073,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de6983021191a2540a472d662b0fffde
+    m_Address: mvz2:entity/enemy/MindAdept
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de6b0433a1c4ece4bb335cdc66630b49
     m_Address: mvz2:entity/pickup/ruby
     m_ReadOnly: 0
@@ -10787,6 +10829,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f06cd4c1b545fc749b9b2b8629d00202
+    m_Address: mvz2:effect/wither_bone_particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0868a1c34ff49d46967deee9863b838
     m_Address: mvz2:entity/projectiles/note
     m_ReadOnly: 0
@@ -11101,6 +11150,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f681e55e70c51fb4497ea6393646387a
+    m_Address: mvz2:entity/enemy/PhaseSpider_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f685daf19b1faeb4dbcba727a304e6d4
     m_Address: mvz2:entity/ghast/ghast6
