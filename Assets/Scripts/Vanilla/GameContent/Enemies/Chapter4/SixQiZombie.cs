@@ -2,6 +2,9 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using MVZ2.Vanilla.Level;
+using MVZ2.GameContent.Damages;
+using PVZEngine.Damages;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -20,6 +23,32 @@ namespace MVZ2.GameContent.Enemies
                 entity.AddBuff<SixQiResistanceBuff>();
             }
             
+        }
+        protected override void UpdateLogic(Entity entity)
+        {
+            base.UpdateLogic(entity);
+            entity.SetModelDamagePercent();
+
+            if (entity.State == VanillaEntityStates.ATTACK)
+            {
+                SixQiAOE(entity, 3.34f, entity.GetFaction());
+            }
+        }
+
+        public static void SixQiAOE(Entity entity, float damage, int faction)
+        {
+
+            var range = 20;
+
+            entity.Explode(
+                entity.GetCenter(),
+                range,
+                faction,
+                damage,
+                new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.VOID)
+            );
+
+
         }
 
     }

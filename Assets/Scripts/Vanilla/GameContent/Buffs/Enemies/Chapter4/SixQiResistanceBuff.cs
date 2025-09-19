@@ -4,6 +4,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using MVZ2.Vanilla.Entities;
 using PVZEngine.Level;
+using MVZ2.GameContent.Damages;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -40,6 +41,11 @@ namespace MVZ2.GameContent.Buffs.Enemies
             entity.GetBuffs<SixQiResistanceBuff>(buffBuffer);
             if (buffBuffer.Count == 0)
                 return;
+
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.VOID))
+            {
+                damageInfo.Multiply(65535f); 
+            }
 
             // 应用固定减伤倍率，减伤99%
             damageInfo.Multiply(0.01f);

@@ -1820,7 +1820,7 @@
 				<float name="mvz2:mass" value="-1" />
 				<int name="mvz2:cost" value="300" />
 				<float name="mvz2:maxHealth" value="1236" />
-				<float name="mvz2:damage" value="200"/>
+				<float name="mvz2:damage" value="100"/>
 				<float name="mvz2:speed" value="0.75"/>
 			</properties>
 		</zombie>
