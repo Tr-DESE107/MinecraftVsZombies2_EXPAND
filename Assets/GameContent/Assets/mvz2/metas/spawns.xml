@@ -144,6 +144,12 @@
         <spawn level="4" minWave="10" />
         <weight base="1500" />
     </entry>
+    <entry id="zombie_cloud" >
+        <entity id="mvz2:zombie_cloud"/>
+        <spawn level="3" minWave="10" />
+        <terrain water="true" air="true"/>
+        <weight base="2000" />
+    </entry>
     
     <entry id="mutant_zombie" >
         <entity id="mvz2:mutant_zombie"/>
