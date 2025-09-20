@@ -120,6 +120,7 @@ namespace PVZEngine.Entities
                 }
                 takenConveyorSeeds.Clear();
                 auras.PostRemove();
+                buffs.RemoveAuras();
                 Definition.PostRemove(this);
                 var param = new EntityCallbackParams()
                 {

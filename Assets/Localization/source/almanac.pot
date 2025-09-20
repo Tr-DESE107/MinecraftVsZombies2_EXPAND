@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-09-03 10:13+0800\n"
+"POT-Creation-Date: 2025-09-20 07:48+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1509,6 +1509,27 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "烟花发射器很喜欢过节，尤其是那种盛大的节日——由于之前的器械扰民事件，它被禁止在平常的日子里放烟花。但是当盛大的节日到来之际，它可要好好的放个够了。"
+msgstr ""
+
+#. Header for contraptions mvz2:wooden_fan
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "木风扇在触发后会将一整行内的敌怪吹回原地。如果敌怪较轻，还会直接将其吹出战场。"
+msgstr ""
+
+#. Properties for contraptions mvz2:wooden_fan
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"特点：<color=red>可以直接吹飞空中或者较轻的敌怪，但对地面上较重的敌怪没有效果</color>\n"
+"范围：<color=red>一整行</color>\n"
+"技能：<color=red>改为吹动整个战场的敌怪</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:wooden_fan
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "这东西哪有那么重量级，都被你们吹到天上去了！"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -4235,6 +4256,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "轰击周围高空的敌人"
+msgstr ""
+
+#. Name for entity mvz2:wooden_fan
+#: Entity meta file
+msgctxt "entity.name"
+msgid "木风扇"
+msgstr ""
+
+#. Tooltip for entity mvz2:wooden_fan
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "吹动一整行的敌人"
 msgstr ""
 
 #. Name for entity mvz2:infectenser

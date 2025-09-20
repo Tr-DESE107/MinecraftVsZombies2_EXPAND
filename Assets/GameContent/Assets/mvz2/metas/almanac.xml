@@ -778,7 +778,19 @@
                 <p>烟花发射器很喜欢过节，尤其是那种盛大的节日——由于之前的器械扰民事件，它被禁止在平常的日子里放烟花。但是当盛大的节日到来之际，它可要好好的放个够了。</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:wooden_fan">
+            <header>
+                <p>木风扇在触发后会将一整行内的敌怪吹回原地。如果敌怪较轻，还会直接将其吹出战场。</p>
+            </header>
+            <properties>
+                <p>特点：<![CDATA[<color=red>可以直接吹飞空中或者较轻的敌怪，但对地面上较重的敌怪没有效果</color>]]></p>
+                <p>范围：<![CDATA[<color=red>一整行</color>]]></p>
+                <p>技能：<![CDATA[<color=red>改为吹动整个战场的敌怪</color>]]></p>
+            </properties>
+            <flavor>
+                <p>这东西哪有那么重量级，都被你们吹到天上去了！</p>
+            </flavor>
+        </entry>
         <entry/>
         <entry/>
 

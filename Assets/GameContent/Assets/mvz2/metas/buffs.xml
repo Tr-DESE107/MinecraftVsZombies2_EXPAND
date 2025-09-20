@@ -176,6 +176,8 @@
     <buff id="water_stain_frozen" polarity="mixed" level="1000" target="effect" />
     <buff id="water_stain_wet" polarity="mixed" level="5000" target="grid" />
     <buff id="water_stain_slide" polarity="positive" level="4000" target="enemy" />
+    <buff id="blown_by_wooden_fan" polarity="negative" level="4000" target="enemy" />
+    <buff id="wooden_fan_blow" polarity="positive" level="3000" target="contraption" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />

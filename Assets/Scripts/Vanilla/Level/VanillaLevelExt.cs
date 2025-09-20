@@ -559,7 +559,7 @@ namespace MVZ2.Vanilla.Level
         public const float ATTACK_RIGHT_BORDER = RIGHT_BORDER;
 
         public const float ENEMY_LEFT_BORDER = LEFT_BORDER - 60;
-        public const float ENEMY_RIGHT_BORDER = RIGHT_BORDER + 60;
+        public const float ENEMY_RIGHT_BORDER = RIGHT_BORDER + 30;
 
 
         public const float PROJECTILE_LEFT_BORDER = LEFT_BORDER - 40;

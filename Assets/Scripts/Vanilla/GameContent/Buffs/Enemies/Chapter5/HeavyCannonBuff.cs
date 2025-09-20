@@ -13,6 +13,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public HeavyCannonBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 0.5f));
+            AddModifier(new FloatModifier(VanillaEntityProps.MASS, NumberOperator.Add, 1));
         }
     }
 }

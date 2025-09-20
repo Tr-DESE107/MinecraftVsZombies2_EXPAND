@@ -53,6 +53,7 @@ namespace PVZEngine.SeedPacks
         public void PostRemove(LevelEngine level)
         {
             auras.PostRemove();
+            buffs.RemoveAuras();
         }
 
         #region 事件回调

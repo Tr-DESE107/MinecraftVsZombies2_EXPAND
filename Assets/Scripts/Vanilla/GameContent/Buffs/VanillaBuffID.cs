@@ -169,6 +169,7 @@ namespace MVZ2.GameContent.Buffs
             public const string fireworkDispenserEvoked = "firework_dispenser_evoked";
             public const string hfpdUpgraded = "hfpd_upgraded";
             public const string stolenByUFO = "stolen_by_ufo";
+            public const string woodenFanBlow = "wooden_fan_blow";
         }
         public static class Enemy
         {
@@ -227,6 +228,7 @@ namespace MVZ2.GameContent.Buffs
             public const string ufoBlueAbsorb = "ufo_blue_absorb";
             public const string heavyCannon = "heavy_cannon";
             public const string waterStainSlide = "water_stain_slide";
+            public const string blownByWoodenFan = "blown_by_wooden_fan";
         }
         public static class Obstacle
         {
@@ -470,6 +472,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID fireworkDispenserEvoked = Get(VanillaBuffNames.Contraption.fireworkDispenserEvoked);
             public static readonly NamespaceID hfpdUpgraded = Get(VanillaBuffNames.Contraption.hfpdUpgraded);
             public static readonly NamespaceID stolenByUFO = Get(VanillaBuffNames.Contraption.stolenByUFO);
+            public static readonly NamespaceID woodenFanBlow = Get(VanillaBuffNames.Contraption.woodenFanBlow);
         }
         public static class Enemy
         {
@@ -528,6 +531,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID ufoBlueAbsorb = Get(VanillaBuffNames.Enemy.ufoBlueAbsorb);
             public static readonly NamespaceID heavyCannon = Get(VanillaBuffNames.Enemy.heavyCannon);
             public static readonly NamespaceID waterStainSlide = Get(VanillaBuffNames.Enemy.waterStainSlide);
+            public static readonly NamespaceID blownByWoodenFan = Get(VanillaBuffNames.Enemy.blownByWoodenFan);
         }
         public static class Obstacle
         {

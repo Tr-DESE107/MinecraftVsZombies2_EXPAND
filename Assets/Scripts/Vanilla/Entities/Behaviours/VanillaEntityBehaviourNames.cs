@@ -5,6 +5,7 @@ namespace MVZ2.Vanilla.Entities
     public static class VanillaEntityBehaviourNames
     {
         public const string timeoutDeath = "timeout_death";
+        public const string timeoutRemove = "timeout_remove";
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";
@@ -23,7 +24,7 @@ namespace MVZ2.Vanilla.Entities
 
         public const string bossCommon = "boss_common";
         public const string cartCommon = "cart_common";
-        public const string effectCommon = "effect_common";
+
 
         public const string armorEntity = "armor_entity";
         public const string fragmented = "fragmented";

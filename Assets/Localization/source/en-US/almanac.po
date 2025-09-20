@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-09-03 10:13+0800\n"
-"PO-Revision-Date: 2025-09-03 22:15+0800\n"
+"POT-Creation-Date: 2025-09-20 07:48+0800\n"
+"PO-Revision-Date: 2025-09-20 20:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1764,6 +1764,33 @@ msgstr ""
 "Firework Dispenser is quite fond of festivals, especially grand ones. Due to previous noise complaints involving some contraptions, it "
 "is prohibited from setting off fireworks on ordinary days. But when major holidays arrive—it’s time to let loose and set off fireworks "
 "to its heart’s content."
+
+#. Header for contraptions mvz2:wooden_fan
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "木风扇在触发后会将一整行内的敌怪吹回原地。如果敌怪较轻，还会直接将其吹出战场。"
+msgstr ""
+"When triggered, Wooden Fans blow away and push back enemy monsters in their lane. If the enemy monsters are very light, they will be "
+"directly blown out of the battlefield."
+
+#. Properties for contraptions mvz2:wooden_fan
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"特点：<color=red>可以直接吹飞空中或者较轻的敌怪，但对地面上较重的敌怪没有效果</color>\n"
+"范围：<color=red>一整行</color>\n"
+"技能：<color=red>改为吹动整个战场的敌怪</color>"
+msgstr ""
+"Special: <color=red>Directly blow away airborne and very light enemies, but has no effect against heavy and very heavy enemies on the "
+"ground</color>\n"
+"Range: <color=red>One entire row</color>\n"
+"Evocation: <color=red>Blow away all enemy monsters on the battlefield</color>"
+
+#. Flavor for contraptions mvz2:wooden_fan
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "这东西哪有那么重量级，都被你们吹到天上去了！"
+msgstr "Its real name is George."
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -4983,6 +5010,18 @@ msgstr "Firework Dispenser"
 msgctxt "entity.tooltip"
 msgid "轰击周围高空的敌人"
 msgstr "Blow up nearby flying enemies"
+
+#. Name for entity mvz2:wooden_fan
+#: Entity meta file
+msgctxt "entity.name"
+msgid "木风扇"
+msgstr "Wooden Fan"
+
+#. Tooltip for entity mvz2:wooden_fan
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "吹动一整行的敌人"
+msgstr "Blow away an entire lane of enemies"
 
 #. Name for entity mvz2:infectenser
 #: Entity meta file

@@ -3214,6 +3214,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a2d45b88f244f34b89fbde87c9353a5
+    m_Address: mvz2:entity/contraption/wooden_fan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a34d2e0337c5e24196eb44240e1b00c
     m_Address: mvz2:level/dream/nightmare_ground
     m_ReadOnly: 0
@@ -4693,6 +4700,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f3e5c2859c6f054e8a645a5a27e25a2
     m_Address: mvz2:bones/skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f6eb6d6c17bc334c92fc44eb01e11d9
+    m_Address: mvz2:contraption/ship/wooden_fan
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6594,6 +6608,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c86be841bc5ff3419f07abe2e92bf63
+    m_Address: mvz2:blow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9cb472c3c1348464db552f84dadec941
     m_Address: mvz2:stats
     m_ReadOnly: 0
@@ -7170,6 +7191,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: abe1b195af5098c42b830d8fb53dd263
     m_Address: mvz2:bones/ui
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abeafbcef254ab9459b388096e7d18a0
+    m_Address: mvz2:effect/wind_speedline
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -10250,6 +10278,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f771d42a2d0c8f94986cc56fa505e972
     m_Address: mvz2:map/ship/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f79c654b2f8fb7246a6a8a3e9f3c6ba6
+    m_Address: mvz2:mobile_blueprint/wooden_fan
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
