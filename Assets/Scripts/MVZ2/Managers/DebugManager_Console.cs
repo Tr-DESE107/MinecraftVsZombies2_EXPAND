@@ -31,6 +31,8 @@ namespace MVZ2.Managers
             blueprintIDSet.Clear();
             artifactIDSet.Clear();
             commandIDSet.Clear();
+            armorIDSet.Clear();
+            armorSlotIDSet.Clear();
             foreach (var def in Main.Game.GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY))
             {
                 entityIDSet.Add(def.GetID().ToString());
@@ -46,6 +48,14 @@ namespace MVZ2.Managers
             foreach (var def in Main.Game.GetAllCommandDefinitions())
             {
                 commandIDSet.Add(def.GetID());
+            }
+            foreach (var def in Main.Game.GetAllArmorDefinitions())
+            {
+                armorIDSet.Add(def.GetID().ToString());
+            }
+            foreach (var def in Main.Game.GetAllArmorSlotDefinitions())
+            {
+                armorSlotIDSet.Add(def.GetID().ToString());
             }
         }
         public bool IsConsoleActive()
@@ -268,6 +278,14 @@ namespace MVZ2.Managers
                     {
                         return Main.Game.GetArtifactDefinition(id) != null;
                     }
+                case CommandMetaParam.ID_TYPE_ARMOR:
+                    {
+                        return Main.Game.GetArmorDefinition(id) != null;
+                    }
+                case CommandMetaParam.ID_TYPE_ARMOR_SLOT:
+                    {
+                        return Main.Game.GetArmorSlotDefinition(id) != null;
+                    }
             }
             return false;
         }
@@ -405,6 +423,22 @@ namespace MVZ2.Managers
                                     }
                                 }
                                 break;
+                            case CommandMetaParam.ID_TYPE_ARMOR:
+                                {
+                                    foreach (var sug in armorIDSet)
+                                    {
+                                        yield return sug;
+                                    }
+                                }
+                                break;
+                            case CommandMetaParam.ID_TYPE_ARMOR_SLOT:
+                                {
+                                    foreach (var sug in armorSlotIDSet)
+                                    {
+                                        yield return sug;
+                                    }
+                                }
+                                break;
                         }
                     }
                     break;
@@ -507,6 +541,8 @@ namespace MVZ2.Managers
         private HashSet<string> entityIDSet = new HashSet<string>();
         private HashSet<string> blueprintIDSet = new HashSet<string>();
         private HashSet<string> artifactIDSet = new HashSet<string>();
+        private HashSet<string> armorIDSet = new HashSet<string>();
+        private HashSet<string> armorSlotIDSet = new HashSet<string>();
         private HashSet<NamespaceID> commandIDSet = new HashSet<NamespaceID>();
 
         public const char COMMAND_CHARACTER = CommandUtility.COMMAND_CHARACTER;

@@ -154,5 +154,7 @@ namespace MVZ2.Metas
         public const string ID_TYPE_ENTITY = "entity";
         public const string ID_TYPE_BLUEPRINT = "blueprint";
         public const string ID_TYPE_ARTIFACT = "artifact";
+        public const string ID_TYPE_ARMOR = "armor";
+        public const string ID_TYPE_ARMOR_SLOT = "armor_slot";
     }
 }

@@ -22,6 +22,7 @@ namespace MVZ2.GameContent.Commands
         public const string save = "save";
         public const string load = "load";
         public const string artifact = "artifact";
+        public const string test = "test";
     }
     public static class VanillaCommandID
     {
