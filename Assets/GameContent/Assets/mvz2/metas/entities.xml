@@ -865,6 +865,7 @@
                 <id name="mvz2:fragmentId" value="mvz2:wooden_dropper" />
                 <bool name="mvz2:triggerActive" value="true" />
                 <bool name="mvz2:instantTrigger" value="true" />
+                <bool name="mvz2:canDeactive" value="false" />
 
                 <int name="mvz2:cost" value="100" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />

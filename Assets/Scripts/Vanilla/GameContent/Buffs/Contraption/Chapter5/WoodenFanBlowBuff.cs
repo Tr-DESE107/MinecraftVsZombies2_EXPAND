@@ -9,6 +9,7 @@ using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Contraptions
 {
@@ -28,6 +29,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                 factionTarget = FactionTarget.Any,
             };
             AddAura(new Aura());
+            AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));
         }
         public override void PostUpdate(Buff buff)
         {
