@@ -25,17 +25,19 @@ namespace MVZ2.Models
         private static void OnInitailize()
         {
             Shader.SetGlobalColor("_LightBackground", Color.white);
+            Shader.SetGlobalColor("_BackgroundTint", Color.white);
             Shader.SetGlobalColor("_LightGlobal", Color.white);
         }
 #endif
-        public void SetLighting(Color background, Color global)
+        public void SetLighting(Color background, Color backgroundTint, Color global)
         {
             Shader.SetGlobalColor("_LightBackground", background);
+            Shader.SetGlobalColor("_BackgroundTint", backgroundTint);
             Shader.SetGlobalColor("_LightGlobal", global);
         }
         public void ResetLighting()
         {
-            SetLighting(Color.white, Color.white);
+            SetLighting(Color.white, Color.white, Color.white);
         }
         public GraphicsFormat GetSupportedColorFormat()
         {
