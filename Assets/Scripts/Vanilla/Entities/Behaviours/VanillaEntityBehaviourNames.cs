@@ -60,5 +60,11 @@ namespace MVZ2.Vanilla.Entities
         public const string projectileExplodeMeteor = "projectile_explode_meteor";
         public const string projectileExplodeFirework = "projectile_explode_firework";
         #endregion
+
+        #region Effects
+        public const string gas = "gas";
+        public const string gasBlown = "gas_blown";
+        public const string waterStainBlown = "water_stain_blown";
+        #endregion
     }
 }

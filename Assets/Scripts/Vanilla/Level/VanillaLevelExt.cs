@@ -543,9 +543,12 @@ namespace MVZ2.Vanilla.Level
         public const float MAX_PREVIEW_X = 1300;
         public const float MIN_PREVIEW_Y = 50;
         public const float MAX_PREVIEW_Y = 450;
+
         public const float GRID_SIZE = 80;
         public const float LAWN_HEIGHT = 600;
         public const float LEVEL_WIDTH = 1400;
+        public const float LEVEL_LEFTMOST = 0;
+        public const float LEVEL_RIGHTMOST = LEVEL_LEFTMOST + LEVEL_WIDTH;
         public const float CART_START_X = 150;
         public const float CART_TARGET_X = LEFT_BORDER;
         public const float SCREEN_WIDTH = 800;
@@ -553,6 +556,7 @@ namespace MVZ2.Vanilla.Level
         public const float LEFT_BORDER = 220;
         public const float RIGHT_BORDER = LEFT_BORDER + SCREEN_WIDTH;
         public const float LAWN_CENTER_X = (LEFT_BORDER + RIGHT_BORDER) * 0.5f;
+
         public const float PICKUP_LEFT_BORDER = LEFT_BORDER + 50;
         public const float PICKUP_RIGHT_BORDER = RIGHT_BORDER - 50;
         public const float ATTACK_LEFT_BORDER = LEFT_BORDER;

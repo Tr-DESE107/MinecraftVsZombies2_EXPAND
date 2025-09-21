@@ -53,16 +53,16 @@ namespace MVZ2.GameContent.Buffs.Contraptions
             }
             else if (mass <= VanillaMass.MEDIUM)
             {
-                var velocity = entity.Velocity;
+                var pos = entity.Position;
                 if (toLeft)
                 {
-                    velocity.x -= KNOCKBACK_SPEED;
+                    pos.x -= KNOCKBACK_SPEED;
                 }
                 else
                 {
-                    velocity.x += KNOCKBACK_SPEED;
+                    pos.x += KNOCKBACK_SPEED;
                 }
-                entity.Velocity = velocity;
+                entity.Position = pos;
             }
         }
         public static float GetBlowMass(Entity entity)
@@ -78,6 +78,6 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         public static void SetSourceID(Buff buff, long value) => buff.SetProperty(PROP_SOURCE_ID, value);
         public static readonly VanillaBuffPropertyMeta<long> PROP_SOURCE_ID = new VanillaBuffPropertyMeta<long>("source_id");
         public const float BLOW_AWAY_SPEED = 40f;
-        public const float KNOCKBACK_SPEED = 0.75f;
+        public const float KNOCKBACK_SPEED = 3f;
     }
 }
