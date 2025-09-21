@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-09-20 07:48+0800\n"
+"POT-Creation-Date: 2025-09-21 02:51+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1408,7 +1408,7 @@ msgid ""
 "爆炸半径：<color=red>1.5格</color>\n"
 "生产时间：<color=red>36秒</color>\n"
 "提供能量：<color=red>50</color>\n"
-"技能：<color=red>改为生成暴怒火药，提供75能量，但是会更快爆炸</color>"
+"技能：<color=red>改为生成暴怒火药，提供100能量，但是会更快爆炸</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:gunpowder_barrel

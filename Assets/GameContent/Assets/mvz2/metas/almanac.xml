@@ -713,7 +713,7 @@
                 <p>爆炸半径：<![CDATA[<color=red>1.5格</color>]]></p>
                 <p>生产时间：<![CDATA[<color=red>36秒</color>]]></p>
                 <p>提供能量：<![CDATA[<color=red>50</color>]]></p>
-                <p>技能：<![CDATA[<color=red>改为生成暴怒火药，提供75能量，但是会更快爆炸</color>]]></p>
+                <p>技能：<![CDATA[<color=red>改为生成暴怒火药，提供100能量，但是会更快爆炸</color>]]></p>
             </properties>
             <flavor>
                 <p>众所周知，最早的黑火药由三种材料制作：</p>
