@@ -20,11 +20,12 @@ namespace MVZ2Logic.Saves
                 value = Value
             };
         }
-        public static UserStatEntry FromSerializable(SerializableUserStatEntry serializable)
+        public static UserStatEntry? FromSerializable(SerializableUserStatEntry serializable)
         {
             if (!NamespaceID.IsValid(serializable.id))
             {
-                throw MissingSerializeDataException.Property<UserStatEntry>(nameof(ID));
+                Log.LogException(MissingSerializeDataException.Property<UserStatEntry>(nameof(serializable.id)));
+                return null;
             }
             return new UserStatEntry(serializable.id)
             {

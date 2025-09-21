@@ -19,11 +19,12 @@ namespace MVZ2.Saves
                 username = username
             };
         }
-        public static UserDataPackMetadata FromSerializable(SerializableUserDataPackMetadata seri)
+        public static UserDataPackMetadata? FromSerializable(SerializableUserDataPackMetadata seri)
         {
             if (string.IsNullOrEmpty(seri.username))
             {
-                throw MissingSerializeDataException.Property<UserDataPackMetadata>(nameof(username));
+                Log.LogException(MissingSerializeDataException.Property<UserDataPackMetadata>(nameof(username)));
+                return null;
             }
             return new UserDataPackMetadata(seri.username);
         }

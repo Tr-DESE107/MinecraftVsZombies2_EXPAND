@@ -50,6 +50,8 @@ namespace MVZ2Logic.Saves
                     if (seriCategory == null)
                         continue;
                     var category = UserStatCategory.FromSerializable(seriCategory);
+                    if (category == null)
+                        continue;
                     stats.categories.Add(category);
                 }
             }

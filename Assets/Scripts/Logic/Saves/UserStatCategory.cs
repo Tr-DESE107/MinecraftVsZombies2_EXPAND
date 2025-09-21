@@ -57,11 +57,12 @@ namespace MVZ2Logic.Saves
                 entries = entries
             };
         }
-        public static UserStatCategory FromSerializable(SerializableUserStatCategory serializable)
+        public static UserStatCategory? FromSerializable(SerializableUserStatCategory serializable)
         {
             if (string.IsNullOrEmpty(serializable.name))
             {
-                throw MissingSerializeDataException.Property<UserStatCategory>(nameof(Name));
+                Log.LogException(MissingSerializeDataException.Property<UserStatCategory>(nameof(Name)));
+                return null;
             }
             var stats = new UserStatCategory(serializable.name);
             if (serializable.entries != null)
@@ -71,7 +72,10 @@ namespace MVZ2Logic.Saves
                     if (seriEntry == null)
                         continue;
                     var entry = UserStatEntry.FromSerializable(seriEntry);
-                    stats.entries.Add(entry);
+                    if (entry != null)
+                    {
+                        stats.entries.Add(entry);
+                    }
                 }
             }
             return stats;
