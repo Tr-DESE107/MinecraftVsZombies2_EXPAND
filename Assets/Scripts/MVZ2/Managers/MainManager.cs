@@ -196,6 +196,7 @@ namespace MVZ2.Managers
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
             Application.targetFrameRate = 60;
+            Input.simulateMouseWithTouches = false;
             Game = new GlobalGame(this);
 
             Global.Init(new GlobalParams()
