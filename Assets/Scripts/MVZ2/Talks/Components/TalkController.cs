@@ -109,10 +109,6 @@ namespace MVZ2.Talk
                 await ExecuteScriptsAsync(section.skipScripts);
             }
         }
-        public bool CanStartTalk(NamespaceID groupId, int sectionIndex)
-        {
-            return Main.ResourceManager.CanStartTalk(groupId, sectionIndex);
-        }
         public bool WillSkipTalk(NamespaceID groupId, int sectionIndex)
         {
             return Main.ResourceManager.WillSkipTalk(groupId, sectionIndex);

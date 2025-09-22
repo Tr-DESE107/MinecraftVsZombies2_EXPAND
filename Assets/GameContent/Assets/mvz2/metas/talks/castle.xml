@@ -414,7 +414,7 @@
       </sentences>
     </section>
   </group>
-  <group id="castle_6_map" requiresNot="mvz2:kourindou_visited_castle" tags="mvz2:castle;mvz2:map">
+  <group id="castle_6_map" tags="mvz2:castle;mvz2:map">
     <archive name="辉针城第6天地图" music="mvz2:castle_map" background="mvz2:misc/castle" unlock="mvz2:level.castle_6" />
     <section>
       <characters>
@@ -432,7 +432,7 @@
       </sentences>
     </section>
   </group>
-  <group id="kourindou_visit_castle" requiresNot="mvz2:kourindou_visited_castle" tags="mvz2:castle;mvz2:store">
+  <group id="kourindou_visit_castle" tags="mvz2:castle;mvz2:store">
     <archive name="访问香霖堂-辉针城" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited_castle" />
     <section onSkip="music volume 1;music play mvz2:gensokyo_map;unlock mvz2:kourindou_visited_castle;item hide;end">
       <characters>

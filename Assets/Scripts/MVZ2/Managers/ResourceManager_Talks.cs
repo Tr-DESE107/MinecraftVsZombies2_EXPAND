@@ -5,7 +5,6 @@ using System.Linq;
 using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Saves;
 using PVZEngine;
 using UnityEngine;
 
@@ -30,13 +29,6 @@ namespace MVZ2.Managers
         }
         public bool CanStartTalk(NamespaceID groupId, int sectionIndex)
         {
-            var group = GetTalkGroup(groupId);
-            if (group == null)
-                return false;
-            if (Main.SaveManager.IsValidAndLocked(group.requires))
-                return false;
-            if (Main.SaveManager.IsValidAndUnlocked(group.requiresNot))
-                return false;
             var section = GetTalkSection(groupId, sectionIndex);
             if (section == null)
                 return false;

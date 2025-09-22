@@ -56,6 +56,9 @@
         </unlock>
         <talks>
             <talk type="start" value="mvz2:starshard_tutorial">
+                <conditions>
+                    <condition requiredNot="mvz2:starshard"/>
+                </conditions>
                 <repeat>
                     <condition requiredNot="mvz2:starshard"/>
                 </repeat>
@@ -162,11 +165,18 @@
         </unlock>
         <talks>
             <talk type="start" value="mvz2:trigger_tutorial">
+                <conditions>
+                    <condition requiredNot="mvz2:trigger"/>
+                </conditions>
                 <repeat>
                     <condition requiredNot="mvz2:trigger"/>
                 </repeat>
             </talk>
-            <talk type="start" value="mvz2:halloween_7"/>
+            <talk type="start" value="mvz2:halloween_7">
+                <conditions>
+                    <condition required="mvz2:trigger"/>
+                </conditions>
+            </talk>
             <talk type="end" value="mvz2:halloween_7_over"/>
             <talk type="map" value="mvz2:halloween_7_map"/>
         </talks>
@@ -191,6 +201,9 @@
         </unlock>
         <talks>
             <talk type="start" value="mvz2:seventh_slot">
+                <conditions>
+                    <condition requiredNot="mvz2:blueprint_slot.1 mvz2:level.dream_5"/>
+                </conditions>
                 <repeat>
                     <condition requiredNot="mvz2:blueprint_slot.1 mvz2:level.dream_5"/>
                 </repeat>
@@ -632,7 +645,11 @@
         <talks>
             <talk type="start" value="mvz2:castle_6"/>
             <talk type="end" value="mvz2:castle_6_over"/>
-            <talk type="map" value="mvz2:castle_6_map"/>
+            <talk type="map" value="mvz2:castle_6_map">
+                <conditions>
+                    <condition requiredNot="mvz2:kourindou_visited_castle"/>
+                </conditions>
+            </talk>
         </talks>
         <conveyor>
             <entry id="mvz2:wooden_dropper" count="20"/>

@@ -53,7 +53,7 @@
       </sentences>
     </section>
   </group>
-  <group id="starshard_tutorial" requiresNot="mvz2:starshard" tags="mvz2:halloween;mvz2:tutorial">
+  <group id="starshard_tutorial" tags="mvz2:halloween;mvz2:tutorial">
     <archive name="星之碎片教程" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:starshard" />
     <section onStart="action prepare_starshard_tutorial" onSkip="action start_starshard_tutorial;end">
       <text>开始段落</text>
@@ -299,7 +299,7 @@
       </sentences>
     </section>
   </group>
-  <group id="trigger_tutorial" requiresNot="mvz2:trigger" tags="mvz2:halloween;mvz2:tutorial">
+  <group id="trigger_tutorial" tags="mvz2:halloween;mvz2:tutorial">
     <archive name="触发教程" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:trigger" />
     <section onSkip="action start_trigger_tutorial;end">
       <characters>
@@ -311,7 +311,7 @@
       </sentences>
     </section>
   </group>
-  <group id="halloween_7" requires="mvz2:trigger" tags="mvz2:halloween;mvz2:intro">
+  <group id="halloween_7" tags="mvz2:halloween;mvz2:intro">
     <archive name="万圣夜第7天入场" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:level.halloween_7" />
     <section>
       <characters>
@@ -356,7 +356,7 @@
       </sentences>
     </section>
   </group>
-  <group id="seventh_slot" requiresNot="mvz2:blueprint_slot.1" tags="mvz2:halloween;mvz2:special">
+  <group id="seventh_slot" tags="mvz2:halloween;mvz2:special">
     <archive name="蓝图槽位交易" music="mvz2:mainmenu" background="mvz2:misc/eternal_night_swamp" unlock="mvz2:blueprint_slot.1" />
     <section canAutoSkip="false" onSkip="action try_buy_seventh_slot">
       <text>开始段落</text>

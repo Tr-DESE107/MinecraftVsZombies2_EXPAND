@@ -29,7 +29,6 @@ namespace MVZ2.Level
             talkSystem = new LevelTalkSystem(level, talkController);
         }
 
-        public bool CanStartTalk(NamespaceID groupId, int section) => talkController.CanStartTalk(groupId, section);
         public void StartTalk(NamespaceID groupId, int section, float delay = 0, Action? onEnd = null) => talkController.StartTalk(groupId, section, delay, onEnd);
         public bool WillSkipTalk(NamespaceID groupId, int section) => talkController.WillSkipTalk(groupId, section);
         public void SkipTalk(NamespaceID groupId, int section, Action? onSkip = null) => talkController.SkipTalk(groupId, section, onSkip);
@@ -45,7 +44,7 @@ namespace MVZ2.Level
             {
                 if (level.IsRerun && !startTalk.ShouldRepeat(Main.SaveManager))
                     continue;
-                if (!Main.ResourceManager.CanStartTalk(startTalk.Value, startTalk.StartSection))
+                if (!startTalk.CanStartTalk(Main.SaveManager) || !Main.ResourceManager.CanStartTalk(startTalk.Value, startTalk.StartSection))
                     continue;
                 return startTalk.Value;
             }

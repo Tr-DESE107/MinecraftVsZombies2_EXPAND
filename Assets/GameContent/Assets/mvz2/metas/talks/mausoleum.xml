@@ -503,7 +503,7 @@
       </sentences>
     </section>
   </group>
-  <group id="kourindou_visit_mausoleum_2" requiresNot="mvz2:kourindou_visited_mausoleum_2" tags="mvz2:mausoleum;mvz2:store">
+  <group id="kourindou_visit_mausoleum_2" tags="mvz2:mausoleum;mvz2:store">
     <archive name="访问香霖堂-梦殿大祀庙" music="mvz2:gensokyo_map" background="mvz2:store/background_kourindou" unlock="mvz2:kourindou_visited_mausoleum_2" />
     <section onSkip="unlock mvz2:kourindou_visited_mausoleum_2;end">
       <characters>
