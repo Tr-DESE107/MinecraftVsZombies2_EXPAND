@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using MukioI18n;
 using MVZ2.Managers;
+using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Saves;
 using PVZEngine;
 using UnityEngine;
 
@@ -118,8 +118,8 @@ namespace MVZ2.MusicRoom
             var unlockedMusic = musics.Where(t =>
             {
                 var meta = Main.ResourceManager.GetMusicMeta(t);
-                var unlockID = meta?.Unlock;
-                return Main.SaveManager.IsInvalidOrUnlocked(unlockID);
+                var unlockConditions = meta?.UnlockConditions;
+                return unlockConditions.IsNullOrMeetsConditions(Main.SaveManager);
             });
             musicList.AddRange(unlockedMusic);
 

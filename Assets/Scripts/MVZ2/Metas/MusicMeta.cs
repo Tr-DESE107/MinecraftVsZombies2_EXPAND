@@ -17,7 +17,7 @@ namespace MVZ2.Metas
         public string Name { get; private set; } = string.Empty;
         public NamespaceID? MainTrack { get; private set; }
         public NamespaceID? SubTrack { get; private set; }
-        public NamespaceID? Unlock { get; private set; }
+        public XMLConditionList? UnlockConditions { get; private set; }
         public string Source { get; private set; } = string.Empty;
         public string Origin { get; private set; } = string.Empty;
         public string Author { get; private set; } = string.Empty;
@@ -31,7 +31,22 @@ namespace MVZ2.Metas
                 return null;
             }
             var name = node.GetAttribute("name") ?? string.Empty;
-            var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+
+            XMLConditionList? unlockConditions = null;
+            var unlockNode = node["unlock"];
+            if (unlockNode != null)
+            {
+                unlockConditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
+            }
+            else
+            {
+                var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+                if (NamespaceID.IsValid(unlock))
+                {
+                    unlockConditions = XMLConditionList.FromSingle(unlock);
+                }
+            }
+
             NamespaceID? mainTrack = null;
             NamespaceID? subTrack = null;
             var trackNode = node["track"];
@@ -54,7 +69,7 @@ namespace MVZ2.Metas
                 Name = name,
                 MainTrack = mainTrack,
                 SubTrack = subTrack,
-                Unlock = unlock,
+                UnlockConditions = unlockConditions,
                 Source = source,
                 Origin = origin,
                 Author = author,
