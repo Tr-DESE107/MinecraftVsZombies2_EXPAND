@@ -1514,7 +1514,10 @@
         </humanoid>
 
         <!-- Chapter 5 -->
-        <enemy id="undead_flying_object" name="不死飞行物" deathMessage="被抓走了！" unlock="mvz2:level.ship_1" >
+        <enemy id="undead_flying_object" name="不死飞行物" deathMessage="被抓走了！" >
+            <unlock>
+                <condition required="mvz2:level.ship_1"/>
+            </unlock>
             <properties>
                 <id name="mvz2:modelId" value="mvz2:entity.undead_flying_object_red" />
                 <float name="mvz2:maxHealth" value="100" />

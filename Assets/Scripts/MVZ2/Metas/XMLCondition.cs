@@ -11,6 +11,19 @@ namespace MVZ2.Metas
 {
     public class XMLCondition : ICondition
     {
+        public XmlNode ToXmlNode(string name, XmlDocument document)
+        {
+            XmlNode node = document.CreateElement(name);
+            if (Required != null && Required.Length > 0)
+            {
+                node.CreateAttribute("required", string.Join(' ', Required.Select(e => e.ToString())));
+            }
+            if (RequiredNot != null && RequiredNot.Length > 0)
+            {
+                node.CreateAttribute("requiredNot", string.Join(' ', RequiredNot.Select(e => e.ToString())));
+            }
+            return node;
+        }
         public static XMLCondition FromXmlNode(XmlNode node, string defaultNsp)
         {
             var required = node.GetAttributeNamespaceIDArray("required", defaultNsp);

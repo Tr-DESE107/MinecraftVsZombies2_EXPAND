@@ -15,6 +15,16 @@ namespace MVZ2.Metas
         {
             Conditions = conditions;
         }
+        public XmlNode ToXmlNode(string name, XmlDocument document)
+        {
+            XmlNode node = document.CreateElement(name);
+            foreach (var condition in Conditions)
+            {
+                var conditionNode = condition.ToXmlNode("condition", document);
+                node.AppendChild(conditionNode);
+            }
+            return node;
+        }
         public static XMLConditionList FromXmlNode(XmlNode node, string defaultNsp)
         {
             List<XMLCondition> conditions = new List<XMLCondition>();

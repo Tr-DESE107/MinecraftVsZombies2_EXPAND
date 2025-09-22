@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using MukioI18n;
 using MVZ2.Managers;
+using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.Talk;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Archives;
 using MVZ2Logic.Talk;
@@ -127,8 +127,8 @@ namespace MVZ2.Archives
 
             var filteredTalks = talkGroups.Where(tuple =>
             {
-                var unlockID = tuple.Item2!.archive!.unlock;
-                return Main.SaveManager.IsInvalidOrUnlocked(unlockID);
+                var unlockConditions = tuple.Item2!.archive!.unlockConditions;
+                return unlockConditions.IsNullOrMeetsConditions(Main.SaveManager);
             })
                 .OrderBy(g => g.Item2!.documentOrder)
                 .ThenBy(g => g.Item2!.groupOrder); ;
