@@ -89,13 +89,13 @@
         <spawn level="4" minWave="5" />
         <weight base="2000" />
     </entry>
-    <entry id="skeleton_horse" >
-        <entity id="mvz2:skeleton_horse" noEndless="true"/>
+    <entry id="skeleton_horse" noEndless="true">
+        <entity id="mvz2:skeleton_horse"/>
         <spawn level="2" minWave="5" />
         <weight base="3000" />
     </entry>
-    <entry id="dullahan_head" >
-        <entity id="mvz2:dullahan_head" noEndless="true"/>
+    <entry id="dullahan_head" noEndless="true">
+        <entity id="mvz2:dullahan_head" />
         <spawn level="2" minWave="5" />
         <weight base="2500" />
     </entry>
