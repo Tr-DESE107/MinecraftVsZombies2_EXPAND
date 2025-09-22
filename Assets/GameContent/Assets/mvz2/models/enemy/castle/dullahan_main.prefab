@@ -832,6 +832,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bone
       objectReference: {fileID: 0}
+    - target: {fileID: 185854852402863367, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1641065907, guid: f9f585d00bd0e1d4aadd7940c664f912, type: 3}
     - target: {fileID: 556267802216356680, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -840,6 +844,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -345992927, guid: f9f585d00bd0e1d4aadd7940c664f912, type: 3}
+    - target: {fileID: 1178506708058041567, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1735853608790412312, guid: 7ffd1cb9090e03640a99c54a18de2d01, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
