@@ -164,7 +164,7 @@
         </projectile>
         <effect id="8" parent="entity">
             <behaviours>
-                <behaviour operator="add" id="mvz2:effect_common"/>
+                <behaviour operator="add" id="mvz2:timeout_remove"/>
             </behaviours>
             <properties>
                 <int name="mvz2:maxTimeout" value="-1" />
@@ -930,12 +930,29 @@
                 <vector3 name="mvz2:shotOffset" x="0" y="48" z="0" />
                 <id name="mvz2:shootSound" value="mvz2:firework_launch" />
                 <id name="mvz2:projectileId" value="mvz2:firework" />
+                <idArray name="mvz2:counter_for" value="mvz2:flying_enemy" />
 
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
                 <int name="mvz2:cost" value="100" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
+        <dispenser id="wooden_fan" name="木风扇" tooltip="吹动一整行的敌人" unlock="mvz2:level.ship_7">
+            <properties>
+                <id name="mvz2:shell" value="mvz2:wood" />
+                <id name="mvz2:placeSound" value="mvz2:wood" />
+                <id name="mvz2:deathSound" value="mvz2:wood" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+                <idArray name="mvz2:counter_for" value="mvz2:flying_enemy" />
+                <id name="mvz2:fragmentId" value="mvz2:wooden_dropper" />
+                <bool name="mvz2:triggerActive" value="true" />
+                <bool name="mvz2:instantTrigger" value="true" />
+                <bool name="mvz2:canDeactive" value="false" />
+
+                <int name="mvz2:cost" value="100" />
+                <id name="mvz2:rechargeId" value="mvz2:short" />
+            </properties>
+        </dispenser>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人"
@@ -1930,7 +1947,7 @@
                 <float name="mvz2:speed" value="2" />
                 <bool name="mvz2:noReward" value="true" />
                 <id name="mvz2:shell" value="mvz2:metal" />
-                <id name="mvz2:shape" value="mvz2:dullahan_head" />
+                <id name="mvz2:shape" value="mvz2:cannonball" />
                 <vector3 name="mvz2:size" x="38" y="26" z="38" />
 
                 <int name="mvz2:cost" value="150" />
@@ -2524,7 +2541,7 @@
             <properties>
                 <float name="mvz2:range" value="120" />
                 <float name="mvz2:damage" value="150" />
-                <int name="mvz2:energyValue" value="75" />
+                <int name="mvz2:energyValue" value="100" />
                 <int name="mvz2:maxTimeout" value="150" />
             </properties>
         </energyPickup>
@@ -3144,6 +3161,10 @@
             </properties>
         </effect>
         <effect id="mummy_gas">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:gas"/>
+                <behaviour operator="add" id="mvz2:gas_blown"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:decorative" value="false" />
                 <int name="mvz2:maxTimeout" value="270" />
@@ -3263,6 +3284,10 @@
             </properties>
         </effect>
         <effect id="weakness_gas">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:gas"/>
+                <behaviour operator="add" id="mvz2:gas_blown"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:decorative" value="false" />
                 <float name="mvz2:gravity" value="1" />
@@ -3590,6 +3615,9 @@
             </properties>
         </effect>
         <effect id="water_stain">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:water_stain_blown"/>
+            </behaviours>
             <properties>
                 <string name="mvz2:sortingLayer" value="Pool" />
                 <int name="mvz2:sortingOrder" value="100" />
@@ -3597,6 +3625,12 @@
                 <vector3 name="mvz2:size" x="32" y="8" z="32" />
                 <bool name="mvz2:decorative" value="false" />
                 <color name="mvz2:tint" value="#007fe3" />
+            </properties>
+        </effect>
+        <effect id="wind_speedline">
+            <properties>
+                <int name="mvz2:maxTimeout" value="90" />
+                <vector3 name="mvz2:size" x="720" y="160" z="80" />
             </properties>
         </effect>
     </entries>

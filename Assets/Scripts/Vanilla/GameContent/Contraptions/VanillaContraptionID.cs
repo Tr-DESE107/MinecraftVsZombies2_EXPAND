@@ -59,6 +59,7 @@ namespace MVZ2.GameContent.Contraptions
         public const string triplenser = "triplenser";
         public const string beacon = "beacon";
         public const string fireworkDispenser = "firework_dispenser";
+        public const string woodenFan = "wooden_fan";
 
         public const string infectenser = "infectenser";
         public const string forcePad = "force_pad";

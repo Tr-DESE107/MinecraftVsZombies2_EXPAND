@@ -3,7 +3,6 @@
 using System;
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
 using PVZEngine.Callbacks;
@@ -43,7 +42,7 @@ namespace MVZ2.Vanilla.Entities
                 projectile.Die();
                 return;
             }
-            if (projectile.WillDestroyOutsideLawn() && IsOutsideView(projectile))
+            if (projectile.WillDestroyOutsideLawn() && projectile.IsProjectileOutsideView())
             {
                 projectile.Remove();
                 return;
@@ -98,17 +97,6 @@ namespace MVZ2.Vanilla.Entities
                 entity.PlaySplashSound();
             }
             entity.Remove();
-        }
-        public virtual bool IsOutsideView(Entity proj)
-        {
-            var bounds = proj.GetBounds();
-            var position = proj.Position;
-            return bounds.max.x < VanillaLevelExt.PROJECTILE_LEFT_BORDER ||
-                bounds.min.x > VanillaLevelExt.PROJECTILE_RIGHT_BORDER ||
-                position.z > VanillaLevelExt.PROJECTILE_UP_BORDER ||
-                position.z < VanillaLevelExt.PROJECTILE_DOWN_BORDER ||
-                position.y > VanillaLevelExt.PROJECTILE_TOP_BORDER ||
-                position.y < VanillaLevelExt.PROJECTILE_BOTTOM_BORDER;
         }
         private void UnitCollide(EntityCollision collision)
         {

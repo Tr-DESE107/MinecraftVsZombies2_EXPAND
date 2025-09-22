@@ -133,8 +133,26 @@ namespace MVZ2Logic.Saves
         protected void LoadFromSerializable(SerializableModSaveData serializable)
         {
             stats = serializable.stats != null ? UserStats.FromSerializable(serializable.stats) : stats;
-            endlessRecords = serializable.endlessRecords?.Select(i => EndlessRecord.FromSerializable(i))?.ToList() ?? new List<EndlessRecord>();
-            levelDifficultyRecords = serializable.levelDifficultyRecords.Select(r => LevelDifficultyRecord.FromSerializable(r)).ToList();
+            endlessRecords.Clear();
+            if (serializable.endlessRecords != null)
+            {
+                foreach (var seriRecord in serializable.endlessRecords)
+                {
+                    var record = EndlessRecord.FromSerializable(seriRecord);
+                    if (record != null)
+                        endlessRecords.Add(record);
+                }
+            }
+            levelDifficultyRecords.Clear();
+            if (serializable.levelDifficultyRecords != null)
+            {
+                foreach (var seriRecord in serializable.levelDifficultyRecords)
+                {
+                    var record = LevelDifficultyRecord.FromSerializable(seriRecord);
+                    if (record != null)
+                        levelDifficultyRecords.Add(record);
+                }
+            }
             unlocks = serializable.unlocks.ToHashSet();
         }
         public string Namespace { get; private set; }

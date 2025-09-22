@@ -38,11 +38,12 @@ namespace MVZ2Logic.Saves
                 difficulties = difficulties.ToArray(),
             };
         }
-        public static LevelDifficultyRecord FromSerializable(SerializableLevelDifficultyRecord serializable)
+        public static LevelDifficultyRecord? FromSerializable(SerializableLevelDifficultyRecord serializable)
         {
             if (string.IsNullOrEmpty(serializable.id))
             {
-                throw MissingSerializeDataException.Property<LevelDifficultyRecord>(nameof(ID));
+                Log.LogException(MissingSerializeDataException.Property<LevelDifficultyRecord>(nameof(ID)));
+                return null;
             }
             var difficulties = new HashSet<NamespaceID>();
             if (serializable.difficulties != null)

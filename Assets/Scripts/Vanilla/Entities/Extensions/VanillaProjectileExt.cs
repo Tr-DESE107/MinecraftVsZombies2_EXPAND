@@ -2,6 +2,7 @@
 
 using System;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
@@ -194,6 +195,20 @@ namespace MVZ2.Vanilla.Entities
             z = (target.z - source.z) / maxTime;
             return new Vector3(x, y, z);
         }
+
+        #region 出屏幕
+        public static bool IsProjectileOutsideView(this Entity proj)
+        {
+            var bounds = proj.GetBounds();
+            var position = proj.Position;
+            return bounds.max.x < VanillaLevelExt.PROJECTILE_LEFT_BORDER ||
+                bounds.min.x > VanillaLevelExt.PROJECTILE_RIGHT_BORDER ||
+                position.z > VanillaLevelExt.PROJECTILE_UP_BORDER ||
+                position.z < VanillaLevelExt.PROJECTILE_DOWN_BORDER ||
+                position.y > VanillaLevelExt.PROJECTILE_TOP_BORDER ||
+                position.y < VanillaLevelExt.PROJECTILE_BOTTOM_BORDER;
+        }
+        #endregion
     }
     public struct ShootParams
     {

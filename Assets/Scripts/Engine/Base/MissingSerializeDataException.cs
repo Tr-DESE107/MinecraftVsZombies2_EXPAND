@@ -20,7 +20,7 @@ namespace PVZEngine.Base
 
         public static MissingSerializeDataException Property<T>(string propertyName)
         {
-            var fullName = $"{nameof(T)}.{propertyName}";
+            var fullName = $"{typeof(T).Name}.{propertyName}";
             return new MissingSerializeDataException($"Missing serialization property {fullName}.");
         }
     }

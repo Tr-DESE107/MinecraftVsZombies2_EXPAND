@@ -204,4 +204,19 @@
             </params>
         </variant>
     </command>
+    <command id="test" inLevel="true">
+        <description>进行某些测试。</description>
+        <variant subname="armor">
+            <description>生成一排带有特定头盔的不同怪物。</description>
+            <params>
+                <param name="id" type="id" idType="armor">盔甲ID。</param>
+            </params>
+        </variant>
+        <variant subname="shield">
+            <description>生成一排带有特定盾牌的不同怪物。</description>
+            <params>
+                <param name="id" type="id" idType="armor">盔甲ID。</param>
+            </params>
+        </variant>
+    </command>
 </commands>

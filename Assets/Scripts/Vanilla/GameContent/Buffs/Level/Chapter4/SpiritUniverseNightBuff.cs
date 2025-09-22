@@ -14,13 +14,12 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public SpiritUniverseNightBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(ColorModifier.Multiply(VanillaAreaProps.BACKGROUND_LIGHT, PROP_BACKGROUND_LIGHT_MULTIPLIER));
+            AddModifier(ColorModifier.Multiply(VanillaAreaProps.BACKGROUND_TINT, PROP_BACKGROUND_TINT_MULTIPLIER));
         }
         public static void SetBackgroundLightMultiplier(Buff buff, Color color)
         {
-            buff.SetProperty<Color>(PROP_BACKGROUND_LIGHT_MULTIPLIER, color);
+            buff.SetProperty<Color>(PROP_BACKGROUND_TINT_MULTIPLIER, color);
         }
-        public const int MAX_TIMEOUT = 60;
-        public static readonly VanillaBuffPropertyMeta<Color> PROP_BACKGROUND_LIGHT_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("background_light_multiplier");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_BACKGROUND_TINT_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("background_tint_multiplier");
     }
 }

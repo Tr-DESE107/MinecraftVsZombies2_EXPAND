@@ -98,7 +98,7 @@ namespace PVZEngine.Buffs
             {
                 modifier.PostRemove(this, Target);
             }
-            auras.PostRemove();
+            RemoveAuras();
             Definition.PostRemove(this);
             Target = null;
         }
@@ -137,6 +137,10 @@ namespace PVZEngine.Buffs
             if (seri.auras == null)
                 return;
             auras.LoadFromSerializable(level, seri.auras);
+        }
+        public void RemoveAuras()
+        {
+            auras.PostRemove();
         }
         LevelEngine IAuraSource.GetLevel() { return Level; }
         bool IAuraSource.IsValid() => Target != null && Target.Exists();

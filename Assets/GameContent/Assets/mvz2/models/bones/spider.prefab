@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 767993068814483248, guid: 6ed2e02a48bad234e85635be19c1ff73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 767993068814483248, guid: 6ed2e02a48bad234e85635be19c1ff73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1290436961219046808, guid: 6ed2e02a48bad234e85635be19c1ff73, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -50,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4618101104240777616, guid: 6ed2e02a48bad234e85635be19c1ff73, type: 3}
       propertyPath: m_Name
-      value: spider_base
+      value: spider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

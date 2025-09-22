@@ -47,11 +47,11 @@ namespace MVZ2.Vanilla.Entities
         {
             base.Update(entity);
             bool remove = false;
-            if (!entity.IsFacingLeft() && IsOutsideRight(entity))
+            if (!entity.IsFacingLeft() && entity.IsEnemyOutsideRight())
             {
                 remove = true;
             }
-            else if ((entity.Level.IsIZombie() || entity.Level.IsCleared || entity.Level.IsGodMode()) && IsOutsideLeft(entity))
+            else if ((entity.Level.IsIZombie() || entity.Level.IsCleared || entity.Level.IsGodMode()) && entity.IsEnemyOutsideLeft())
             {
                 remove = true;
             }
@@ -64,15 +64,14 @@ namespace MVZ2.Vanilla.Entities
 
             if (entity.IsFacingLeft())
             {
-                Vector3 pos = entity.Position;
-                if (pos.x > VanillaLevelExt.GetEnemyRightBorderX())
+                if (entity.IsEnemyOutsideRight())
                 {
-                    pos.x = Mathf.Min(pos.x, VanillaLevelExt.GetEnemyRightBorderX());
+                    entity.LimitEnemyFromRight();
+
                     var vel = entity.Velocity;
                     vel.x = Mathf.Min(vel.x, 0);
                     entity.Velocity = vel;
                 }
-                entity.Position = pos;
             }
 
             if (entity.IsOnGround && !entity.NoAlignToLane())
@@ -112,18 +111,6 @@ namespace MVZ2.Vanilla.Entities
             }
             entity.DamageBlink();
             entity.PlayDeathSound();
-        }
-        protected virtual bool IsOutsideLeft(Entity enemy)
-        {
-            var bounds = enemy.GetBounds();
-            var position = enemy.Position;
-            return bounds.max.x < VanillaLevelExt.ENEMY_LEFT_BORDER;
-        }
-        protected virtual bool IsOutsideRight(Entity enemy)
-        {
-            var bounds = enemy.GetBounds();
-            var position = enemy.Position;
-            return bounds.min.x > VanillaLevelExt.ENEMY_RIGHT_BORDER;
         }
     }
 }

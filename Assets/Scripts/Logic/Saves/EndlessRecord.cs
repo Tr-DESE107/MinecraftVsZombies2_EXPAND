@@ -27,11 +27,12 @@ namespace MVZ2Logic.Saves
                 currentFlag = currentFlag
             };
         }
-        public static EndlessRecord FromSerializable(SerializableEndlessRecord serializable)
+        public static EndlessRecord? FromSerializable(SerializableEndlessRecord serializable)
         {
             if (string.IsNullOrEmpty(serializable.id))
             {
-                throw MissingSerializeDataException.Property<SerializableEndlessRecord>(nameof(serializable.id));
+                Log.LogException(MissingSerializeDataException.Property<SerializableEndlessRecord>(nameof(serializable.id)));
+                return null;
             }
             return new EndlessRecord(serializable.id)
             {

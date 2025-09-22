@@ -26,6 +26,7 @@ namespace MVZ2.Metas
         public int Height { get; private set; }
         public float XOffset { get; private set; }
         public float YOffset { get; private set; }
+        public NamespaceID? ArmorConfigID { get; private set; }
         public AnimatorParameter[] AnimatorParameters { get; private set; }
         public bool UpdateAnimatorOnShot { get; private set; }
         public Dictionary<string, object?> ModelProperties { get; private set; }
@@ -39,6 +40,17 @@ namespace MVZ2.Metas
             var height = node.GetAttributeInt("height") ?? 64;
             var xOffset = node.GetAttributeFloat("xOffset") ?? 0;
             var yOffset = node.GetAttributeFloat("yOffset") ?? 0;
+
+            NamespaceID? armorConfigID = null;
+            var armorConfigNode = node["armorconfig"];
+            if (armorConfigNode != null)
+            {
+                if (NamespaceID.TryParse(armorConfigNode.InnerText, defaultNsp, out var parsed))
+                {
+                    armorConfigID = parsed;
+                }
+            }
+
             var animatorParameters = new List<AnimatorParameter>();
             bool updateAnimatorOnShot = false;
             var animatorNode = node["animator"];
@@ -70,6 +82,7 @@ namespace MVZ2.Metas
                 Height = height,
                 XOffset = xOffset,
                 YOffset = yOffset,
+                ArmorConfigID = armorConfigID,
                 UpdateAnimatorOnShot = updateAnimatorOnShot
             };
         }

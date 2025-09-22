@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddTrigger(LevelCallbacks.POST_ENTITY_UPDATE, PostUpdateCallback, filter: EntityTypes.ENEMY);
             AddModifier(new FloatModifier(EngineEntityProps.FRICTION, NumberOperator.Multiply, 0.01f));
+            AddModifier(new FloatModifier(VanillaEntityProps.BLOW_MASS_OFFSET, NumberOperator.Add, -1));
         }
         private void PostUpdateCallback(EntityCallbackParams param, CallbackResult result)
         {

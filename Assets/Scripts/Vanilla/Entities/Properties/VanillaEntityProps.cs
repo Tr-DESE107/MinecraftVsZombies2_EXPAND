@@ -37,6 +37,22 @@ namespace MVZ2.Vanilla.Entities
         public static float GetWeakKnockbackMultiplier(this Entity entity) => entity.GetKnockbackMultiplier(1);
         public static float GetStrongKnockbackMultiplier(this Entity entity) => entity.GetKnockbackMultiplier(0.5f);
 
+        #region 吹动质量
+        public static readonly PropertyMeta<float> BLOW_MASS_OFFSET = Get<float>("blow_mass_offset");
+        public static void SetBlowMassOffset(this Entity entity, float value)
+        {
+            entity.SetProperty(BLOW_MASS_OFFSET, value);
+        }
+        public static float GetBlowMassOffset(this EntityDefinition definition)
+        {
+            return definition.GetProperty<float>(BLOW_MASS_OFFSET);
+        }
+        public static float GetBlowMassOffset(this Entity entity)
+        {
+            return entity.GetProperty<float>(BLOW_MASS_OFFSET);
+        }
+        #endregion
+
         #region 射击
         public static readonly PropertyMeta<float> RANGE = Get<float>("range");
         public static readonly PropertyMeta<Vector3> SHOT_VELOCITY = Get<Vector3>("shotVelocity");

@@ -65,29 +65,6 @@ namespace MVZ2.Metas
                 return Vector3.one;
             return item.Scale;
         }
-        public Vector3 GetArmorModelOffset(NamespaceID slotID, NamespaceID armorID)
-        {
-            var item = GetItem(armorID, slotID);
-            if (item == null)
-                return Vector3.zero;
-            return item.ModelOffset;
-        }
-        public string GetArmorModelAnchor(NamespaceID slotID, NamespaceID armorID)
-        {
-            var item = GetItem(armorID, slotID);
-            if (item == null)
-                return string.Empty;
-            return item.ModelAnchor;
-        }
-        public IEnumerable<string> GetAllArmorModelAnchors()
-        {
-            if (Items == null)
-                yield break;
-            foreach (var slot in Items)
-            {
-                yield return slot.ModelAnchor;
-            }
-        }
         private ShapeArmorMetaItem? GetItem(NamespaceID armorID, NamespaceID slot)
         {
             if (Items == null)
@@ -157,8 +134,6 @@ namespace MVZ2.Metas
         public NamespaceID? ArmorSlot { get; private set; }
         public Vector3 Position { get; private set; }
         public Vector3 Scale { get; private set; }
-        public Vector3 ModelOffset { get; private set; }
-        public string ModelAnchor { get; private set; } = string.Empty;
         public static ShapeArmorMetaItem? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttributeNamespaceID("id", defaultNsp);
@@ -166,9 +141,6 @@ namespace MVZ2.Metas
             var slot = node.GetAttributeNamespaceID("slot", defaultNsp);
             var position = node["position"]?.GetAttributeVector3() ?? Vector3.zero;
             var scale = node["scale"]?.GetAttributeVector3() ?? Vector3.one;
-            var modelNode = node["model"];
-            var modelOffset = modelNode?["offset"]?.GetAttributeVector3() ?? Vector3.zero;
-            var modelAnchor = modelNode?["anchor"]?.GetAttribute("value") ?? string.Empty;
 
             return new ShapeArmorMetaItem()
             {
@@ -177,8 +149,6 @@ namespace MVZ2.Metas
                 ArmorSlot = slot,
                 Position = position,
                 Scale = scale,
-                ModelOffset = modelOffset,
-                ModelAnchor = modelAnchor
             };
         }
     }

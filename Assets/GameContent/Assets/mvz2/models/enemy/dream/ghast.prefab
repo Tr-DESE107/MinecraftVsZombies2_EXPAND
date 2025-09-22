@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6c2a484f1902d3b4b86b574194516de5, type: 2}
+    - target: {fileID: 4138671549975201338, guid: 584e79fe44685f84a8a704cd25757e57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 4490777508289085232, guid: 584e79fe44685f84a8a704cd25757e57, type: 3}
       propertyPath: m_Name
       value: Armors
@@ -463,10 +467,6 @@ PrefabInstance:
     - target: {fileID: 7992972849899676487, guid: 584e79fe44685f84a8a704cd25757e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8641384447958971873, guid: 584e79fe44685f84a8a704cd25757e57, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

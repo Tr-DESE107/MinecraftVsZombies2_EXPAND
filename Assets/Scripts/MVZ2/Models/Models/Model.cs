@@ -27,6 +27,10 @@ namespace MVZ2.Models
         public virtual void UpdateElements()
         {
         }
+        public NamespaceID GetID()
+        {
+            return id;
+        }
 
         #region 生命周期
         public virtual void Init(NamespaceID id, Camera camera, int seed = 0)

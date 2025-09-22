@@ -10,17 +10,15 @@ namespace MVZ2.Level
         private void UpdateLighting()
         {
             var background = Color.white;
+            var backgroundTint = Color.white;
             var global = Color.white;
             if (level != null)
             {
                 background = level.GetBackgroundLight();
+                backgroundTint = level.GetBackgroundTint();
                 global = Color.Lerp(Color.white, level.GetGlobalLight(), darknessFactor);
             }
-            SetLighting(background, global);
-        }
-        private void SetLighting(Color background, Color global)
-        {
-            Main.GraphicsManager.SetLighting(background, global);
+            Main.GraphicsManager.SetLighting(background, backgroundTint, global);
         }
 
         #region 属性字段

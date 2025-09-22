@@ -11,9 +11,9 @@ namespace MVZ2.Vanilla.Level
     [PropertyRegistryRegion(PropertyRegions.level)]
     public static class VanillaAreaProps
     {
-        private static PropertyMeta<T> Get<T>(string name)
+        private static PropertyMeta<T> Get<T>(string name, T? defaultValue = default)
         {
-            return new PropertyMeta<T>(name);
+            return new PropertyMeta<T>(name, defaultValue);
         }
         public static readonly PropertyMeta<NamespaceID> MODEL_ID = Get<NamespaceID>("modelID");
         public static NamespaceID? GetModelID(this LevelEngine game)
@@ -45,8 +45,8 @@ namespace MVZ2.Vanilla.Level
         }
 
         public static readonly PropertyMeta<float> DOOR_Z = Get<float>("doorZ");
-        public static readonly PropertyMeta<Color> BACKGROUND_LIGHT = Get<Color>("backgroundLight");
-        public static readonly PropertyMeta<Color> GLOBAL_LIGHT = Get<Color>("globalLight");
+        public static readonly PropertyMeta<Color> BACKGROUND_LIGHT = Get<Color>("backgroundLight", Color.white);
+        public static readonly PropertyMeta<Color> GLOBAL_LIGHT = Get<Color>("globalLight", Color.white);
 
         public static float GetDoorZ(this LevelEngine game)
         {
@@ -59,6 +59,11 @@ namespace MVZ2.Vanilla.Level
         public static Color GetGlobalLight(this LevelEngine level)
         {
             return level.GetProperty<Color>(GLOBAL_LIGHT);
+        }
+        public static readonly PropertyMeta<Color> BACKGROUND_TINT = Get<Color>("background_tint", Color.white);
+        public static Color GetBackgroundTint(this LevelEngine level)
+        {
+            return level.GetProperty<Color>(BACKGROUND_TINT);
         }
     }
 }

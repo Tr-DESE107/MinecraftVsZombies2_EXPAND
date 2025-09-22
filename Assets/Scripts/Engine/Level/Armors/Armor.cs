@@ -57,6 +57,7 @@ namespace PVZEngine.Armors
         public void PostRemove()
         {
             auras.PostRemove();
+            buffs.RemoveAuras();
         }
         public IEnumerable<ColliderConstructor> GetColliderConstructors(Entity entity, NamespaceID slot)
         {

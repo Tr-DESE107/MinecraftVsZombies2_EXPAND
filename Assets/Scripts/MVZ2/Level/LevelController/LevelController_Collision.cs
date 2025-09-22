@@ -66,8 +66,13 @@ namespace MVZ2.Level
         private void DrawHitbox(Hitbox hitbox)
         {
             Bounds bounds = hitbox.GetBounds();
-            var size = bounds.size * 0.01f;
-            var center = bounds.center * 0.01f;
+            var size = bounds.size * LawnToTransScale;
+            var center = bounds.center;
+            if (alignHitboxGizmosZ)
+            {
+                center.y += hitbox.GetPosition().z;
+            }
+            center *= LawnToTransScale;
             Gizmos.DrawWireCube(center, size);
         }
 
@@ -80,5 +85,7 @@ namespace MVZ2.Level
         [SerializeField]
         private UnityCollisionSystem? unityCollisionSystem;
         private BuiltinCollisionSystem builtinCollisionSystem = null!;
+        [SerializeField]
+        private bool alignHitboxGizmosZ = true;
     }
 }

@@ -5,6 +5,7 @@ namespace MVZ2.Vanilla.Entities
     public static class VanillaEntityBehaviourNames
     {
         public const string timeoutDeath = "timeout_death";
+        public const string timeoutRemove = "timeout_remove";
 
         #region Contraptions
         public const string contraptionCommon = "contraption_common";
@@ -23,7 +24,7 @@ namespace MVZ2.Vanilla.Entities
 
         public const string bossCommon = "boss_common";
         public const string cartCommon = "cart_common";
-        public const string effectCommon = "effect_common";
+
 
         public const string armorEntity = "armor_entity";
         public const string fragmented = "fragmented";
@@ -58,6 +59,12 @@ namespace MVZ2.Vanilla.Entities
         public const string projectileExplode = "projectile_explode";
         public const string projectileExplodeMeteor = "projectile_explode_meteor";
         public const string projectileExplodeFirework = "projectile_explode_firework";
+        #endregion
+
+        #region Effects
+        public const string gas = "gas";
+        public const string gasBlown = "gas_blown";
+        public const string waterStainBlown = "water_stain_blown";
         #endregion
     }
 }

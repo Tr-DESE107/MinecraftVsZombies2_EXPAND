@@ -4,6 +4,7 @@ using System;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
@@ -154,6 +155,30 @@ namespace MVZ2.Vanilla.Entities
             }
             entity.StartChangingLane(targetLane);
         }
+
+        #region 地图限制
+        public static bool IsEnemyOutsideLeft(this Entity entity, float margin = 0)
+        {
+            var bounds = entity.GetBounds();
+            return bounds.max.x < VanillaLevelExt.ENEMY_LEFT_BORDER + margin;
+        }
+        public static bool IsEnemyOutsideRight(this Entity entity, float margin = 0)
+        {
+            var bounds = entity.GetBounds();
+            return bounds.min.x > VanillaLevelExt.ENEMY_RIGHT_BORDER - margin;
+        }
+        public static void LimitEnemyFromRight(this Entity entity, float margin = 0)
+        {
+            var bounds = entity.GetBounds();
+            var target = VanillaLevelExt.ENEMY_RIGHT_BORDER - margin;
+            var different = bounds.min.x - target;
+
+            Vector3 pos = entity.Position;
+            pos.x -= different;
+            entity.Position = pos;
+        }
+        #endregion
+
         public const float CHANGE_LANE_THRESOLD = 1;
     }
 }

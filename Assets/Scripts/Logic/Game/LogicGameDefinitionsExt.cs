@@ -86,5 +86,9 @@ namespace MVZ2Logic.Games
         {
             return provider.GetDefinition<ShapeDefinition>(LogicDefinitionTypes.SHAPE, id);
         }
+        public static ShapeDefinition[] GetAllShapeDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<ShapeDefinition>(LogicDefinitionTypes.SHAPE);
+        }
     }
 }

@@ -5,6 +5,7 @@ float4 _LightMapST;
 int _LightStarted;
 float4 _LightGlobal;
 float4 _LightBackground;
+float4 _BackgroundTint;
 int _BackgroundLit;
 int _SpotLit;
 int _HDRDisabled;
@@ -86,6 +87,10 @@ float4 ApplyLight(float4 col, float2 lightUV)
         colLin.rgb *= lightLin.rgb * saturate(lightLin.a);
         colLin.rgb = saturate(colLin.rgb);
         col = ToGamma(colLin);
+        if (_BackgroundLit)
+        {
+            col *= _BackgroundTint;
+        }
     }
     return col;
 }

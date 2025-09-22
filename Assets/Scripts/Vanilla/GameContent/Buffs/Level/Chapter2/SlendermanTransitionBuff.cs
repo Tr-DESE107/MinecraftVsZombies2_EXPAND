@@ -21,14 +21,14 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public SlendermanTransitionBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(ColorModifier.Multiply(VanillaAreaProps.BACKGROUND_LIGHT, PROP_LIGHT_MULTIPLIER));
+            AddModifier(ColorModifier.Multiply(VanillaAreaProps.BACKGROUND_TINT, PROP_BACKGROUND_TINT));
             AddModifier(new BooleanModifier(LogicLevelProps.PAUSE_DISABLED, true));
         }
         public override void PostAdd(Buff buff)
         {
             base.PostAdd(buff);
             buff.SetProperty(PROP_TIMEOUT, MAX_TIMEOUT);
-            buff.SetProperty(PROP_LIGHT_MULTIPLIER, Color.white);
+            buff.SetProperty(PROP_BACKGROUND_TINT, Color.white);
         }
         public override void PostUpdate(Buff buff)
         {
@@ -76,7 +76,7 @@ namespace MVZ2.GameContent.Buffs.Level
                 buff.Remove();
             }
 
-            var multiplier = buff.GetProperty<Color>(PROP_LIGHT_MULTIPLIER);
+            var multiplier = buff.GetProperty<Color>(PROP_BACKGROUND_TINT);
             var lightSpeed = -LIGHT_SPEED;
             if (timeout < FADEOUT_TIMEOUT)
             {
@@ -85,10 +85,10 @@ namespace MVZ2.GameContent.Buffs.Level
             multiplier.r = Mathf.Clamp01(multiplier.r + lightSpeed);
             multiplier.g = Mathf.Clamp01(multiplier.g + lightSpeed);
             multiplier.b = Mathf.Clamp01(multiplier.b + lightSpeed);
-            buff.SetProperty(PROP_LIGHT_MULTIPLIER, multiplier);
+            buff.SetProperty(PROP_BACKGROUND_TINT, multiplier);
         }
         public static readonly VanillaBuffPropertyMeta<int> PROP_TIMEOUT = new VanillaBuffPropertyMeta<int>("Timeout");
-        public static readonly VanillaBuffPropertyMeta<Color> PROP_LIGHT_MULTIPLIER = new VanillaBuffPropertyMeta<Color>("LightMultiplier");
+        public static readonly VanillaBuffPropertyMeta<Color> PROP_BACKGROUND_TINT = new VanillaBuffPropertyMeta<Color>("background_tint");
         public const float LIGHT_SPEED = 0.07f;
         public const int MAX_TIMEOUT = CREATE_DARKNESS_TIMEOUT + 90;
         public const int CREATE_DARKNESS_TIMEOUT = FADEOUT_TIMEOUT + 165;

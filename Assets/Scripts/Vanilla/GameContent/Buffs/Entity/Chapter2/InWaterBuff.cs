@@ -21,6 +21,7 @@ namespace MVZ2.GameContent.Buffs
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.AddMultiple, PROP_GRAVITY_ADDITION, VanillaModifierPriorities.WATER_GRAVITY));
             AddModifier(new FloatModifier(EngineEntityProps.FRICTION, NumberOperator.Add, 0.15f));
             AddModifier(new FloatModifier(EngineEntityProps.GROUND_LIMIT_OFFSET, NumberOperator.Add, -100f));
+            AddModifier(new FloatModifier(VanillaEntityProps.BLOW_MASS_OFFSET, NumberOperator.Add, 1));
         }
         public override void PostUpdate(Buff buff)
         {

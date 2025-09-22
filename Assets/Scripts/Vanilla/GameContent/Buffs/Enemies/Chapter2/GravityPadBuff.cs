@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
         {
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Add, 2, VanillaModifierPriorities.GRAVITY_PAD));
             AddModifier(new FloatModifier(VanillaEnemyProps.SPEED, NumberOperator.Multiply, 0.5f));
+            AddModifier(new FloatModifier(VanillaEntityProps.BLOW_MASS_OFFSET, NumberOperator.Add, 2));
         }
     }
 }

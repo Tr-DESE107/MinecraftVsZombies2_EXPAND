@@ -1,0 +1,19 @@
+﻿using MVZ2.GameContent.Effects;
+using PVZEngine.Entities;
+using PVZEngine.Level;
+
+namespace MVZ2.Vanilla.Entities
+{
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.gasBlown)]
+    public class GasBlownBehaviour : EntityBehaviourDefinition, IBeBlownBehaviour
+    {
+        public GasBlownBehaviour(string nsp, string name) : base(nsp, name)
+        {
+        }
+
+        public void BeBlown(Entity entity, Entity source)
+        {
+            GasBehaviour.Disappear(entity);
+        }
+    }
+}

@@ -1,83 +1,67 @@
 <shapes>
     <shape id="humanoid">
         <armors>
-            <armor slot="mvz2:shield" type="mvz2:large_shield">
-                <position x="-35" y="50" z="0"/>
-                <model>
-                    <offset x="0" y="-7" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:small_shield">
-                <position x="-40" y="48" z="0"/>
-                <model>
-                    <offset x="0" y="-4" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-28" y="57" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
-            </armor>
             <armor slot="mvz2:main">
                 <position x="0" y="80" z="0"/>
             </armor>
             <armor slot="mvz2:shield">
-                <position x="-28" y="57" z="0"/>
+                <position x="-28" y="50" z="0"/>
             </armor>
         </armors>
     </shape>
+    <shape id="wither_skeleton">
+        <armors>
+            <armor slot="mvz2:main">
+                <position x="0" y="96" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-34" y="60" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+        </armors>
+    </shape>
+    <shape id="dullahan">
+        <armors>
+            <armor slot="mvz2:main">
+                <position x="0" y="77" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-34" y="60" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+        </armors>
+    </shape>
+    <shape id="imp">
+        <armors>
+            <armor slot="mvz2:main">
+                <position x="0" y="48" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-14" y="25" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+            </armor>
+        </armors>
+    </shape>
+
+
+
     <shape id="spider">
         <armors>
-            <armor slot="mvz2:shield" type="mvz2:large_shield">
-                <position x="-58" y="50" z="0"/>
-                <model>
-                    <offset x="0" y="50" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:small_shield">
-                <position x="-58" y="30" z="0"/>
-                <model>
-                    <offset x="0" y="30" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-45" y="30" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
-            </armor>
             <armor slot="mvz2:main">
                 <position x="-30" y="38" z="0"/>
             </armor>
             <armor slot="mvz2:shield">
                 <position x="-58" y="30" z="0"/>
             </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-45" y="30" z="0"/>
+            </armor>
         </armors>
     </shape>
     <shape id="small_spider">
         <armors>
-            <armor slot="mvz2:shield" type="mvz2:large_shield">
-                <position x="-29" y="25" z="0"/>
-                <scale x="0.5" y="0.5" z="0.5"/>
-                <model>
-                    <offset x="0" y="50" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:small_shield">
-                <position x="-29" y="15" z="0"/>
-                <scale x="0.5" y="0.5" z="0.5"/>
-                <model>
-                    <offset x="0" y="30" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-22.5" y="15" z="0"/>
-                <scale x="0.5" y="0.5" z="0.5"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
-            </armor>
             <armor slot="mvz2:main">
                 <position x="-15" y="18" z="0"/>
                 <scale x="0.5" y="0.5" z="0.5"/>
@@ -86,8 +70,14 @@
                 <position x="-29" y="15" z="0"/>
                 <scale x="0.5" y="0.5" z="0.5"/>
             </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-22.5" y="15" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+            </armor>
         </armors>
     </shape>
+
+
     <shape id="ghast">
         <armors>
             <armor slot="mvz2:main">
@@ -99,75 +89,6 @@
             </armor>
             <armor slot="mvz2:shield" type="mvz2:handheld">
                 <position x="-25" y="30" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
-            </armor>
-        </armors>
-    </shape>
-    <shape id="wither_skeleton">
-        <armors>
-            <armor slot="mvz2:main">
-                <position x="0" y="96" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-            </armor>
-            <armor slot="mvz2:shield">
-                <position x="-34" y="68" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:large_shield">
-                <position x="-42" y="60" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-                <model>
-                    <offset x="0" y="-7" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:small_shield">
-                <position x="-48" y="58" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-                <model>
-                    <offset x="0" y="-4" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-34" y="68" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
-            </armor>
-        </armors>
-    </shape>
-    <shape id="dullahan">
-        <armors>
-            <armor slot="mvz2:main">
-                <position x="0" y="77" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-            </armor>
-            <armor slot="mvz2:shield">
-                <position x="-34" y="68" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:large_shield">
-                <position x="-42" y="60" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-                <model>
-                    <offset x="0" y="-7" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:small_shield">
-                <position x="-48" y="58" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-                <model>
-                    <offset x="0" y="-4" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-34" y="68" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
             </armor>
         </armors>
     </shape>
@@ -179,12 +100,6 @@
             </armor>
             <armor slot="mvz2:shield">
                 <position x="-64" y="48" z="0"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-64" y="48" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
             </armor>
         </armors>
     </shape>
@@ -198,13 +113,6 @@
                 <position x="-24" y="52.8" z="0"/>
                 <scale x="1.2" y="1.2" z="1.2"/>
             </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-24" y="52.8" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
-            </armor>
         </armors>
     </shape>
     <shape id="mutant_zombie">
@@ -214,45 +122,10 @@
                 <scale x="2" y="2" z="2"/>
             </armor>
             <armor slot="mvz2:shield">
-                <position x="-50" y="78" z="0"/>
+                <position x="-42" y="78" z="0"/>
             </armor>
             <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-40" y="78" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
-            </armor>
-        </armors>
-    </shape>
-    <shape id="imp">
-        <armors>
-            <armor slot="mvz2:main">
-                <position x="0" y="48" z="0"/>
-            </armor>
-            <armor slot="mvz2:shield">
-                <position x="-14" y="28.5" z="0"/>
-                <scale x="0.5" y="0.5" z="0.5"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:large_shield">
-                <position x="-17.5" y="25" z="0"/>
-                <scale x="0.5" y="0.5" z="0.5"/>
-                <model>
-                    <offset x="0" y="-3.5" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:small_shield">
-                <position x="-20" y="24" z="0"/>
-                <scale x="0.5" y="0.5" z="0.5"/>
-                <model>
-                    <offset x="-2" y="-2" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-14" y="28.5" z="0"/>
-                <scale x="0.5" y="0.5" z="0.5"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
+                <position x="-30" y="78" z="0"/>
             </armor>
         </armors>
     </shape>
@@ -262,13 +135,7 @@
                 <position x="0" y="80" z="0"/>
             </armor>
             <armor slot="mvz2:shield">
-                <position x="-45" y="40" z="0"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-45" y="40" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
+                <position x="-42" y="40" z="0"/>
             </armor>
         </armors>
     </shape>
@@ -278,13 +145,7 @@
                 <position x="0" y="80" z="0"/>
             </armor>
             <armor slot="mvz2:shield">
-                <position x="-24" y="40" z="0"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-24" y="40" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
+                <position x="-24" y="44" z="0"/>
             </armor>
         </armors>
     </shape>
@@ -294,13 +155,7 @@
                 <position x="0" y="56" z="0"/>
             </armor>
             <armor slot="mvz2:shield">
-                <position x="-35" y="40" z="0"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-35" y="40" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
+                <position x="-26" y="40" z="0"/>
             </armor>
         </armors>
     </shape>
@@ -310,13 +165,7 @@
                 <position x="38" y="58" z="0"/>
             </armor>
             <armor slot="mvz2:shield">
-                <position x="-64" y="50" z="0"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-64" y="50" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
+                <position x="-54" y="50" z="0"/>
             </armor>
         </armors>
     </shape>
@@ -327,29 +176,8 @@
                 <scale x="1.2" y="1.2" z="1.2"/>
             </armor>
             <armor slot="mvz2:shield">
-                <position x="-36" y="68" z="0"/>
+                <position x="-24" y="13.2" z="0"/>
                 <scale x="1.2" y="1.2" z="1.2"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:large_shield">
-                <position x="-36" y="50" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-                <model>
-                    <offset x="0" y="50" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:small_shield">
-                <position x="-36" y="15" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-                <model>
-                    <offset x="0" y="15" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-36" y="14" z="0"/>
-                <scale x="1.2" y="1.2" z="1.2"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
             </armor>
         </armors>
     </shape>
@@ -359,25 +187,7 @@
                 <position x="0" y="32" z="0"/>
             </armor>
             <armor slot="mvz2:shield">
-                <position x="-60" y="114" z="0"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:large_shield">
-                <position x="-60" y="50" z="0"/>
-                <model>
-                    <offset x="0" y="50" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:small_shield">
-                <position x="-60" y="25" z="0"/>
-                <model>
-                    <offset x="0" y="25" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-60" y="24" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
+                <position x="-35" y="22" z="0"/>
             </armor>
         </armors>
     </shape>
@@ -390,18 +200,6 @@
             <armor slot="mvz2:shield">
                 <position x="-30" y="24" z="0"/>
             </armor>
-            <armor slot="mvz2:shield" type="mvz2:large_shield">
-                <position x="-30" y="50" z="0"/>
-                <model>
-                    <offset x="0" y="24" z="0"/>
-                </model>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-30" y="24" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
-            </armor>
         </armors>
     </shape>
     <shape id="doll">
@@ -411,15 +209,8 @@
                 <scale x="0.5" y="0.5" z="0.5"/>
             </armor>
             <armor slot="mvz2:shield">
-                <position x="-20" y="14" z="0"/>
+                <position x="-16" y="14" z="0"/>
                 <scale x="0.5" y="0.5" z="0.5"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-20" y="14" z="0"/>
-                <scale x="0.5" y="0.5" z="0.5"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
             </armor>
         </armors>
     </shape>
@@ -431,14 +222,6 @@
             </armor>
             <armor slot="mvz2:shield">
                 <position x="-20" y="24" z="0"/>
-                <scale x="1" y="1" z="1"/>
-            </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-20" y="24" z="0"/>
-                <scale x="1" y="1" z="1"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
             </armor>
         </armors>
     </shape>
@@ -448,13 +231,17 @@
                 <position x="0" y="16" z="0"/>
             </armor>
             <armor slot="mvz2:shield">
-                <position x="-32" y="28" z="0"/>
+                <position x="-40" y="24" z="0"/>
             </armor>
-            <armor slot="mvz2:shield" type="mvz2:handheld">
-                <position x="-32" y="28" z="0"/>
-                <model>
-                    <anchor value="shield_hands"/>
-                </model>
+        </armors>
+    </shape>
+    <shape id="cannonball">
+        <armors>
+            <armor slot="mvz2:main">
+                <position x="0" y="16" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-20" y="16" z="0"/>
             </armor>
         </armors>
     </shape>

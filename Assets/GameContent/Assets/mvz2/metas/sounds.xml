@@ -27,6 +27,9 @@
     <sound name="bloody">
         <sample path="mvz2:bloody" weight="1" />
     </sound>
+    <sound name="blow">
+        <sample path="mvz2:blow" weight="1" />
+    </sound>
     <sound name="biohazard">
         <sample path="mvz2:biohazard" weight="1" />
     </sound>

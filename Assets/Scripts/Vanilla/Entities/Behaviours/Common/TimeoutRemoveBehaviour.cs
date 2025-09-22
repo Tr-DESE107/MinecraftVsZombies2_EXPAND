@@ -5,10 +5,10 @@ using PVZEngine.Level;
 
 namespace MVZ2.Vanilla.Entities
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.effectCommon)]
-    public class EffectCommonBehaviour : EntityBehaviourDefinition
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.timeoutRemove)]
+    public class TimeoutRemoveBehaviour : EntityBehaviourDefinition
     {
-        public EffectCommonBehaviour(string nsp, string name) : base(nsp, name)
+        public TimeoutRemoveBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
         public override void Init(Entity entity)
