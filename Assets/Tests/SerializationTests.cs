@@ -22,7 +22,7 @@ using UnityEngine.TestTools;
 namespace MVZ2.Tests
 {
     using LevelEngine = PVZEngine.Level.LevelEngine;
-    public class SerializationTests
+    public static class SerializationTests
     {
         [UnityTest]
         public static IEnumerator EntityReferenceTest()
@@ -342,17 +342,17 @@ namespace MVZ2.Tests
             await entrance.Init();
             inited = true;
         }
-        private static IGame GetGame()
+        private static IGlobalGame GetGame()
         {
             return Global.Game;
         }
         private static LevelEngine GetLevel()
         {
-            return Global.Game.GetLevel();
+            return Global.Level.GetLevel();
         }
         private static LevelController GetLevelController()
         {
-            return Main.LevelManager.GetLevel();
+            return Main.LevelManager.GetLevelController();
         }
         private static void InitLevel(LevelController level, NamespaceID areaId, NamespaceID stageId)
         {
@@ -364,9 +364,9 @@ namespace MVZ2.Tests
             level.LoadGame(seri, Main.Game, areaId, stageId);
             level.ResumeGame(9999);
         }
-        private static IEnumerator GotoLevel()
+        private static Coroutine GotoLevel()
         {
-            return Global.GotoLevel();
+            return Global.Scene.GotoLevelCoroutine();
         }
         private static MainManager Main => MainManager.Instance;
         private static bool inited = false;

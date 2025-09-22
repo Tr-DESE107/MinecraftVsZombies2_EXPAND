@@ -6,13 +6,11 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
 using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Corropoison)]  // 注意这里是你的 Corropoison 的 Buff名字
+    [BuffDefinition(VanillaBuffNames.Entity.Corropoison)]  // 注意这里是你的 Corropoison 的 Buff名字
     public class CorropoisonBuff : BuffDefinition
     {
         public CorropoisonBuff(string nsp, string name) : base(nsp, name)

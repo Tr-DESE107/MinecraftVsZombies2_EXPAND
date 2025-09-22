@@ -1,10 +1,10 @@
+using MVZ2.GameContent.Armors;
+using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Entities;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
-using MVZ2.GameContent.Armors;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Artifacts
             base.PostUpdate(artifact);
 
             // 如果有artifact提供deltaTime就用，没有则用固定时间模拟
-            float deltaTime = UnityEngine.Time.deltaTime; 
+            float deltaTime = UnityEngine.Time.deltaTime;
 
             timer += deltaTime;
 
@@ -40,13 +40,13 @@ namespace MVZ2.GameContent.Artifacts
         private void DoEffect(Artifact artifact)
         {
             var level = artifact.Level;
-            
+
             foreach (var enemy in level.FindEntities(e => e.Type == EntityTypes.ENEMY && e.ExistsAndAlive()))
             {
-                
+
                 bool hostile = enemy.IsHostile(0);
                 if (!hostile)
-                    {
+                {
                     enemy.EquipMainArmor(VanillaArmorID.bone_helmet);
                     enemy.PlaySound(VanillaSoundID.armorUp);
                 }

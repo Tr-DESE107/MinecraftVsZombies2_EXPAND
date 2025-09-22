@@ -272,7 +272,7 @@
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">双头发射器登场！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">双向发射器登场！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_extra_long1">它能够像发射器一样向前发射箭矢，并且还可以同时向后方发射双倍的箭矢！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">当心你的背后！</sentence>
       </sentences>

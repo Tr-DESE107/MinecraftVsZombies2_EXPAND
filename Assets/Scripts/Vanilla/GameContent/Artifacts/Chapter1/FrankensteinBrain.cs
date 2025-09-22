@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Buffs.Armors;
 using MVZ2.GameContent.Buffs.SeedPacks;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
@@ -12,7 +13,6 @@ using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Entities;
 using PVZEngine.SeedPacks;
-using MVZ2.GameContent.Buffs.Armors;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -94,10 +94,8 @@ namespace MVZ2.GameContent.Artifacts
 
         public class BlueprintAura : AuraEffectDefinition
         {
-            public BlueprintAura() : base()
+            public BlueprintAura() : base(VanillaBuffID.SeedPack.FrankensteinBrainBuff, 30)
             {
-                BuffID = VanillaBuffID.SeedPack.FrankensteinBrainBuff;
-                UpdateInterval = 30;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
@@ -109,10 +107,8 @@ namespace MVZ2.GameContent.Artifacts
 
         public class ReduceCostAura : AuraEffectDefinition
         {
-            public ReduceCostAura()
+            public ReduceCostAura() : base(VanillaBuffID.SeedPack.theCreaturesHeartReduceCost, 15)
             {
-                BuffID = VanillaBuffID.SeedPack.theCreaturesHeartReduceCost;
-                UpdateInterval = 15;
             }
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)
             {

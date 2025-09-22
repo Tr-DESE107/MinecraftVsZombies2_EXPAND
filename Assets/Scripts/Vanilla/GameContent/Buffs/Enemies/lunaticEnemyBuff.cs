@@ -5,7 +5,7 @@ using PVZEngine.Modifiers;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.lunaticEnemy)]
+    [BuffDefinition(VanillaBuffNames.Enemy.lunaticEnemy)]
     public class lunaticEnemyBuff : BuffDefinition
     {
         public lunaticEnemyBuff(string nsp, string name) : base(nsp, name)

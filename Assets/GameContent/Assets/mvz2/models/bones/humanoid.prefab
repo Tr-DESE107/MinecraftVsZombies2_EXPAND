@@ -920,7 +920,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 55
   m_SortAtRoot: 0
 --- !u!114 &3341091830806160741
 MonoBehaviour:

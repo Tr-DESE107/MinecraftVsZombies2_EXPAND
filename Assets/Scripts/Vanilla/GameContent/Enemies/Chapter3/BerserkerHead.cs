@@ -1,17 +1,18 @@
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
+using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using MVZ2.GameContent.Effects;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
@@ -21,7 +22,7 @@ namespace MVZ2.GameContent.Enemies
     {
         public BerserkerHead(string nsp, string name) : base(nsp, name)
         {
-            AddTrigger(VanillaLevelCallbacks.POST_ENTITY_CHARM, PostEntityCharmCallback);
+            AddTrigger(VanillaLevelCallbacks.POST_APPLY_STATUS_EFFECT, PostEntityCharmCallback, filter: VanillaBuffID.Entity.charm);
         }
         public override void Init(Entity entity)
         {
@@ -37,7 +38,7 @@ namespace MVZ2.GameContent.Enemies
                 input.Multiply(3);
             }
         }
-        private void PostEntityCharmCallback(VanillaLevelCallbacks.PostEntityCharmParams param, CallbackResult result)
+        private void PostEntityCharmCallback(VanillaLevelCallbacks.PostApplyStatusEffectParams param, CallbackResult result)
         {
             var entity = param.entity;
             var buff = param.buff;

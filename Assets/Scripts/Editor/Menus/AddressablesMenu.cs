@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MVZ2.Editor
 {
-    public class AddressablesMenu
+    public static class AddressablesMenu
     {
         public static void UpdateAddressables()
         {

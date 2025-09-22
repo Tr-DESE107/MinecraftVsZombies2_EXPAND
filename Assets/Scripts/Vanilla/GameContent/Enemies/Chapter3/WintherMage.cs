@@ -1,15 +1,15 @@
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
-using MVZ2.GameContent.Effects;
-using MVZ2Logic.Level;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Enemies
@@ -271,10 +271,10 @@ namespace MVZ2.GameContent.Enemies
         // ==== 常量：职业 ====
 
         public const int CLASS_WINTHER = 0;      // 火焰法师
-        //public const int CLASS_FROST = 1;     // 冰霜法师
-        //public const int CLASS_LIGHTNING = 2; // 闪电法师
+                                                 //public const int CLASS_FROST = 1;     // 冰霜法师
+                                                 //public const int CLASS_LIGHTNING = 2; // 闪电法师
 
-        
+
 
         // ==== 实体字段（存储在 Entity 内部） ====
 

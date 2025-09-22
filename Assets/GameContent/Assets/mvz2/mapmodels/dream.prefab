@@ -48,6 +48,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3332338785299356077, guid: 10a783cde4776d342bee9862789deb16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
     - target: {fileID: 3146854895338399448, guid: 10a783cde4776d342bee9862789deb16, type: 3}
       propertyPath: mapButtons.Array.size
       value: 12

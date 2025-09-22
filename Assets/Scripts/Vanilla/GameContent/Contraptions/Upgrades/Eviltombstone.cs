@@ -4,28 +4,12 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using Tools;
-using PVZEngine.Damages;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
-using MVZ2Logic;
-using MVZ2Logic.Artifacts;
-using MVZ2Logic.Level;
-using PVZEngine.Callbacks;
-using PVZEngine.Entities;
-using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Enemies;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Level;
 using PVZEngine;
+using PVZEngine.Buffs;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Contraptions
 {
@@ -50,8 +34,8 @@ namespace MVZ2.GameContent.Contraptions
             base.OnEvoke(entity);
             var pos = entity.Position;
             pos.y = entity.GetGroundY() - 100;
-            
-                var arc = entity.SpawnWithParams(VanillaEnemyID.NetherArcher, pos);
+
+            var arc = entity.SpawnWithParams(VanillaEnemyID.NetherArcher, pos);
 
             arc.AddBuff<NecrotombstoneRisingBuff>();
             arc.UpdateModel();
@@ -96,7 +80,7 @@ namespace MVZ2.GameContent.Contraptions
 
                     var randomID = GetRandomSkeletonID(entity.RNG);
                     var spawnParam = entity.GetSpawnParams();
-                    
+
 
                     var pos = entity.Position;
                     pos.y = entity.GetGroundY() - 100;

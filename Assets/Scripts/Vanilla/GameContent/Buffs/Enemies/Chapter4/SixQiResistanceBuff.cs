@@ -1,10 +1,9 @@
 using System.Collections.Generic;
+using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using MVZ2.Vanilla.Entities;
 using PVZEngine.Level;
-using MVZ2.GameContent.Damages;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -13,7 +12,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     /// 只提供伤害减免效果，且当怪物处于攻击状态时不减伤
     /// 不包含任何视觉幽灵化表现
     /// </summary>
-    [BuffDefinition(VanillaBuffNames.SixQiResistanceBuff)]
+    [BuffDefinition(VanillaBuffNames.Enemy.SixQiResistanceBuff)]
     public class SixQiResistanceBuff : BuffDefinition
     {
         public SixQiResistanceBuff(string nsp, string name) : base(nsp, name)
@@ -44,7 +43,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
 
             if (damageInfo.Effects.HasEffect(VanillaDamageEffects.VOID))
             {
-                damageInfo.Multiply(65535f); 
+                damageInfo.Multiply(65535f);
             }
 
             // 应用固定减伤倍率，减伤99%

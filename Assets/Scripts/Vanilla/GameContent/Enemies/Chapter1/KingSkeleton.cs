@@ -1,4 +1,3 @@
-using MVZ2.GameContent.Armors;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
@@ -23,7 +22,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             SetStateTimer(entity, new FrameTimer(CAST_COOLDOWN));
-            
+
         }
         protected override int GetActionState(Entity enemy)
         {

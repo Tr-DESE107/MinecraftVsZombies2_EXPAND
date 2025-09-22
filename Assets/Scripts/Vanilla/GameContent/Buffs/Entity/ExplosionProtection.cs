@@ -7,7 +7,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [BuffDefinition(VanillaBuffNames.ExplosionProtection)]
+    [BuffDefinition(VanillaBuffNames.Entity.ExplosionProtection)]
     public class ExplosionProtection : BuffDefinition
     {
         public ExplosionProtection(string nsp, string name) : base(nsp, name)

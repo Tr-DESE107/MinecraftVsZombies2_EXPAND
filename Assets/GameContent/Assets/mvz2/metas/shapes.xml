@@ -1,459 +1,461 @@
 <shapes>
     <shape id="humanoid">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="80" z="0"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-28" y="57" z="0"/>
-                </default>
-                <custom id="mvz2:reflective_barrier">
-                    <position x="-35" y="50" z="0"/>
-                    <model>
-                        <offset x="0" y="-7" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:skeleton_warrior_shield">
-                    <position x="-40" y="48" z="0"/>
-                    <model>
-                        <offset x="0" y="-4" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:shield" type="mvz2:large_shield">
+                <position x="-35" y="50" z="0"/>
+                <model>
+                    <offset x="0" y="-7" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:small_shield">
+                <position x="-40" y="48" z="0"/>
+                <model>
+                    <offset x="0" y="-4" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-28" y="57" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:main">
+                <position x="0" y="80" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-28" y="57" z="0"/>
+            </armor>
         </armors>
     </shape>
     <shape id="spider">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="-30" y="38" z="0"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-58" y="30" z="0"/>
-                </default>
-                <custom id="mvz2:reflective_barrier">
-                    <position x="-58" y="50" z="0"/>
-                    <model>
-                        <offset x="0" y="50" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:skeleton_warrior_shield">
-                    <position x="-58" y="30" z="0"/>
-                    <model>
-                        <offset x="0" y="30" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:umbrella_shield">
-                    <position x="-45" y="30" z="0"/>
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:shield" type="mvz2:large_shield">
+                <position x="-58" y="50" z="0"/>
+                <model>
+                    <offset x="0" y="50" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:small_shield">
+                <position x="-58" y="30" z="0"/>
+                <model>
+                    <offset x="0" y="30" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-45" y="30" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:main">
+                <position x="-30" y="38" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-58" y="30" z="0"/>
+            </armor>
         </armors>
     </shape>
     <shape id="small_spider">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="-15" y="18" z="0"/>
-                    <scale x="0.5" y="0.5" z="0.5"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-29" y="15" z="0"/>
-                    <scale x="0.5" y="0.5" z="0.5"/>
-                </default>
-                <custom id="mvz2:reflective_barrier">
-                    <position x="-29" y="25" z="0"/>
-                    <model>
-                        <offset x="0" y="50" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:skeleton_warrior_shield">
-                    <position x="-29" y="15" z="0"/>
-                    <model>
-                        <offset x="0" y="30" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:umbrella_shield">
-                    <position x="-22.5" y="15" z="0"/>
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:shield" type="mvz2:large_shield">
+                <position x="-29" y="25" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+                <model>
+                    <offset x="0" y="50" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:small_shield">
+                <position x="-29" y="15" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+                <model>
+                    <offset x="0" y="30" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-22.5" y="15" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:main">
+                <position x="-15" y="18" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-29" y="15" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+            </armor>
         </armors>
     </shape>
     <shape id="ghast">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="47" z="0"/>
-                    <scale x="2" y="2" z="2"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-35" y="30" z="0"/>
-                </default>
-                <custom id="mvz2:umbrella_shield">
-                    <position x="-25" y="15" z="0"/>
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="0" y="47" z="0"/>
+                <scale x="2" y="2" z="2"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-35" y="30" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-25" y="30" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="wither_skeleton">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="96" z="0"/>
-                    <scale x="1.2" y="1.2" z="1.2"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-34" y="68" z="0"/>
-                    <scale x="1.2" y="1.2" z="1.2"/>
-                </default>
-                <custom id="mvz2:reflective_barrier">
-                    <position x="-42" y="60" z="0"/>
-                    <model>
-                        <offset x="0" y="-7" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:skeleton_warrior_shield">
-                    <position x="-48" y="58" z="0"/>
-                    <model>
-                        <offset x="0" y="-4" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="0" y="96" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-34" y="68" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:large_shield">
+                <position x="-42" y="60" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+                <model>
+                    <offset x="0" y="-7" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:small_shield">
+                <position x="-48" y="58" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+                <model>
+                    <offset x="0" y="-4" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-34" y="68" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="dullahan">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="77" z="0"/>
-                    <scale x="1.2" y="1.2" z="1.2"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-34" y="68" z="0"/>
-                    <scale x="1.2" y="1.2" z="1.2"/>
-                </default>
-                <custom id="mvz2:reflective_barrier">
-                    <position x="-42" y="60" z="0"/>
-                    <model>
-                        <offset x="0" y="-7" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:skeleton_warrior_shield">
-                    <position x="-48" y="58" z="0"/>
-                    <model>
-                        <offset x="0" y="-4" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="0" y="77" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-34" y="68" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:large_shield">
+                <position x="-42" y="60" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+                <model>
+                    <offset x="0" y="-7" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:small_shield">
+                <position x="-48" y="58" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+                <model>
+                    <offset x="0" y="-4" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-34" y="68" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="hell_chariot">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="14" y="95.2" z="0"/>
-                    <scale x="1.2" y="1.2" z="1.2"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-64" y="48" z="0"/>
-                </default>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="14" y="95.2" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-64" y="48" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-64" y="48" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="anubisand">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="-4.2" y="96" z="0"/>
-                    <scale x="1.2" y="1.2" z="1.2"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-24" y="52.8" z="0"/>
-                    <scale x="1.2" y="1.2" z="1.2"/>
-                </default>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="-4.2" y="96" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-24" y="52.8" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-24" y="52.8" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="mutant_zombie">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="-11" y="159" z="0"/>
-                    <scale x="2" y="2" z="2"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-50" y="78" z="0"/>
-                </default>
-                <custom id="mvz2:umbrella_shield">
-                    <position x="-40" y="78" z="0"/>
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="-11" y="159" z="0"/>
+                <scale x="2" y="2" z="2"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-50" y="78" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-40" y="78" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="imp">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="48" z="0"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-14" y="28.5" z="0"/>
-                    <scale x="0.5" y="0.5" z="0.5"/>
-                </default>
-                <custom id="mvz2:reflective_barrier">
-                    <position x="-17.5" y="25" z="0"/>
-                    <model>
-                        <offset x="0" y="-3..5" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:skeleton_warrior_shield">
-                    <position x="-20" y="24" z="0"/>
-                    <model>
-                        <offset x="-2" y="-2" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="0" y="48" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-14" y="28.5" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:large_shield">
+                <position x="-17.5" y="25" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+                <model>
+                    <offset x="0" y="-3.5" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:small_shield">
+                <position x="-20" y="24" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+                <model>
+                    <offset x="-2" y="-2" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-14" y="28.5" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="bone_wall">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="80" z="0"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-45" y="40" z="0"/>
-                </default>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="0" y="80" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-45" y="40" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-45" y="40" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="napstablook">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="80" z="0"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-24" y="40" z="0"/>
-                </default>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="0" y="80" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-24" y="40" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-24" y="40" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="satellite">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="56" z="0"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-35" y="40" z="0"/>
-                </default>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="0" y="56" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-35" y="40" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-35" y="40" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="horse">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="38" y="58" z="0"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-64" y="50" z="0"/>
-                </default>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="38" y="58" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-64" y="50" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-64" y="50" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="dullahan_head">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="19.2" z="0"/>
-                    <scale x="1.2" y="1.2" z="1.2"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-36" y="68" z="0"/>
-                    <scale x="1.2" y="1.2" z="1.2"/>
-                </default>
-                <custom id="mvz2:reflective_barrier">
-                    <position x="-36" y="50" z="0"/>
-                    <model>
-                        <offset x="0" y="50" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:skeleton_warrior_shield">
-                    <position x="-36" y="15" z="0"/>
-                    <model>
-                        <offset x="0" y="15" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:umbrella_shield">
-                    <position x="-36" y="14" z="0"/>
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="0" y="19.2" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-36" y="68" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:large_shield">
+                <position x="-36" y="50" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+                <model>
+                    <offset x="0" y="50" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:small_shield">
+                <position x="-36" y="15" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+                <model>
+                    <offset x="0" y="15" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-36" y="14" z="0"/>
+                <scale x="1.2" y="1.2" z="1.2"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
+        </armors>
+    </shape>
+    <shape id="zombie_cloud">
+        <armors>
+            <armor slot="mvz2:main">
+                <position x="0" y="32" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-60" y="114" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:large_shield">
+                <position x="-60" y="50" z="0"/>
+                <model>
+                    <offset x="0" y="50" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:small_shield">
+                <position x="-60" y="25" z="0"/>
+                <model>
+                    <offset x="0" y="25" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-60" y="24" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="block">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="41.5" z="0"/>
-                    <scale x="1.5" y="1.5" z="1.5"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-30" y="24" z="0"/>
-                    <scale x="1" y="1" z="1"/>
-                </default>
-                <custom id="mvz2:reflective_barrier">
-                    <position x="-30" y="50" z="0"/>
-                    <model>
-                        <offset x="0" y="24" z="0"/>
-                    </model>
-                </custom>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="0" y="41.5" z="0"/>
+                <scale x="1.5" y="1.5" z="1.5"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-30" y="24" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:large_shield">
+                <position x="-30" y="50" z="0"/>
+                <model>
+                    <offset x="0" y="24" z="0"/>
+                </model>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-30" y="24" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="doll">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="0" y="25" z="0"/>
-                    <scale x="0.5" y="0.5" z="0.5"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-20" y="14" z="0"/>
-                    <scale x="0.5" y="0.5" z="0.5"/>
-                </default>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="0" y="25" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-20" y="14" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-20" y="14" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
     <shape id="staff">
         <armors>
-            <slot id="mvz2:main">
-                <default>
-                    <position x="5" y="54" z="0"/>
-                    <scale x="0.5" y="0.5" z="0.5"/>
-                </default>
-            </slot>
-            <slot id="mvz2:shield">
-                <default>
-                    <position x="-20" y="24" z="0"/>
-                    <scale x="1" y="1" z="1"/>
-                </default>
-                <custom id="mvz2:umbrella_shield">
-                    <model>
-                        <anchor value="shield_hands"/>
-                    </model>
-                </custom>
-            </slot>
+            <armor slot="mvz2:main">
+                <position x="5" y="54" z="0"/>
+                <scale x="0.5" y="0.5" z="0.5"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-20" y="24" z="0"/>
+                <scale x="1" y="1" z="1"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-20" y="24" z="0"/>
+                <scale x="1" y="1" z="1"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
+        </armors>
+    </shape>
+    <shape id="ufo">
+        <armors>
+            <armor slot="mvz2:main">
+                <position x="0" y="16" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-32" y="28" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-32" y="28" z="0"/>
+                <model>
+                    <anchor value="shield_hands"/>
+                </model>
+            </armor>
         </armors>
     </shape>
 </shapes>

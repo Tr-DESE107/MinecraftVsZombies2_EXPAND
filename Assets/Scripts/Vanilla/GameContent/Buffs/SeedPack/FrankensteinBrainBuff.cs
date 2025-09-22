@@ -10,7 +10,7 @@ namespace MVZ2.GameContent.Buffs.SeedPacks
         public FrankensteinBrainBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new FloatModifier(EngineSeedProps.RECHARGE_SPEED, NumberOperator.Multiply, 0.75f));
-            
+
         }
     }
 }

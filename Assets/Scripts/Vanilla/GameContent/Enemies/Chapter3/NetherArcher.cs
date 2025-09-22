@@ -1,16 +1,17 @@
+using MVZ2.GameContent.Buffs.Projectiles;
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
+using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Buffs;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
-using MVZ2.GameContent.Projectiles;
-using MVZ2.GameContent.Buffs.Projectiles;
-using MVZ2.GameContent.Damages;
-using PVZEngine.Damages;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -94,10 +95,10 @@ namespace MVZ2.GameContent.Enemies
                 {
                     bowPower = BOW_POWER_MAX;
                     SetBowFired(entity, true);
-                    
-                    if (entity.Health <= entity.GetMaxHealth()/ 2)
+
+                    if (entity.Health <= entity.GetMaxHealth() / 2)
                     {
-                        
+
                         var param = entity.GetShootParams();
                         param.projectileID = VanillaProjectileID.arrow;
 

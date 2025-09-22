@@ -1,11 +1,8 @@
+using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
-using MVZ2Logic.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Entities;
-using MVZ2.GameContent.Buffs.Enemies;
 
 namespace MVZ2.GameContent.Artifacts
 {
@@ -42,7 +39,7 @@ namespace MVZ2.GameContent.Artifacts
         {
             var level = artifact.Level;
 
-            foreach (var entity in level.FindEntities(e =>  e.ExistsAndAlive() && (e.Type == EntityTypes.ENEMY || e.Type == EntityTypes.PLANT)))
+            foreach (var entity in level.FindEntities(e => e.ExistsAndAlive() && (e.Type == EntityTypes.ENEMY || e.Type == EntityTypes.PLANT)))
             {
                 bool hostile = entity.IsHostile(0);
                 if (!hostile)
@@ -51,7 +48,7 @@ namespace MVZ2.GameContent.Artifacts
                     if (buff == null)
                     {
                         entity.AddBuff<DivineShieldBuff>();
-                        
+
                     }
 
 

@@ -374,7 +374,7 @@
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onClick="action create_seventh_slot_form">只要750$，怎么样？</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onClick="action create_seventh_slot_form">只要$750，怎么样？</sentence>
       </sentences>
     </section>
     <section>
@@ -383,7 +383,7 @@
         <character id="mvz2:crazy_villager" side="left" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">需要750$，但你的钱不够啊！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">需要$750，但你的钱不够啊！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end">在你攒到足够的钱之后，再回这个关卡吧！</sentence>
       </sentences>
     </section>

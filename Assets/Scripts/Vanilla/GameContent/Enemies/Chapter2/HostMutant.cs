@@ -1,4 +1,3 @@
-using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
@@ -14,7 +13,7 @@ namespace MVZ2.Vanilla.Enemies
     [EntityBehaviourDefinition(VanillaEnemyNames.HostMutant)]
     public class HostMutant : MutantZombieBase
     {
-        public HostMutant(string nsp, string name) : base(nsp, name) 
+        public HostMutant(string nsp, string name) : base(nsp, name)
         {
             SetImpID(VanillaEnemyID.HostIMP);
         }
@@ -24,7 +23,7 @@ namespace MVZ2.Vanilla.Enemies
             base.Init(entity);
 
             // 添加持续回血 Buff
-            entity.InflictRegenerationBuff(1f, 60000);
+            entity.InflictRegenerationBuff(1f, 60000, new EntitySourceReference(entity));
 
             // 初始化记录血量（用于掉血检测）
             SetLastTriggerHealth(entity, entity.Health);

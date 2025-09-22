@@ -57,9 +57,8 @@ namespace MVZ2.GameContent.Artifacts
         // 光环定义类：NightmareMaskAura
         public class NightmareMaskAura : AuraEffectDefinition
         {
-            public NightmareMaskAura()
+            public NightmareMaskAura() : base(VanillaBuffID.Enemy.NightmareMaskEvade)
             {
-                BuffID = VanillaBuffID.NightmareMaskEvade; // 设置光环对应的 Buff ID（逻辑效果由 buff 决定）
             }
 
             // 定义光环影响的目标实体

@@ -5,7 +5,46 @@
         <error id="tutorial" message="无法使用"/>
         <error id="decrepify" message="受到衰老诅咒！"/>
     </errors>
-    <option id="return_pearl" cost="25" name="返回弹珠" icon="mvz2:options/return_pearl" />
-    <option id="lengthen_board" cost="125" name="增长挡板" icon="mvz2:options/lengthen_board" />
-    <option id="add_pearl" cost="50" name="增加弹珠" icon="mvz2:options/add_pearl" />
+    <options>
+        <option id="return_pearl" cost="25" name="返回弹珠" >
+            <icon sprite="mvz2:options/return_pearl" />
+        </option>
+        <option id="lengthen_board" cost="125" name="增长挡板" >
+            <icon sprite="mvz2:options/lengthen_board" />
+        </option>
+        <option id="add_pearl" cost="50" name="增加弹珠" >
+            <icon sprite="mvz2:options/add_pearl" />
+        </option>
+    </options>
+    <entities>
+        <entity id="skeleton_mage_fire" cost="75" name="骷髅法师（火）" entity="mvz2:skeleton_mage" variant="1">
+            <icon model="mvz2:entity.skeleton_mage_fire" mobile="mvz2:mobile_blueprint/skeleton_mage_fire" />
+        </entity>
+        <entity id="skeleton_mage_frost" cost="75" name="骷髅法师（冰）" entity="mvz2:skeleton_mage" variant="2">
+            <icon model="mvz2:entity.skeleton_mage_frost" mobile="mvz2:mobile_blueprint/skeleton_mage_frost" />
+        </entity>
+        <entity id="skeleton_mage_lightning" cost="75" name="骷髅法师（电）" entity="mvz2:skeleton_mage" variant="3">
+            <icon model="mvz2:entity.skeleton_mage_lightning" mobile="mvz2:mobile_blueprint/skeleton_mage_lightning" />
+        </entity>
+
+        <entity id="undead_flying_object_red" cost="75" name="不死飞行物（红）" entity="mvz2:undead_flying_object" variant="0">
+            <icon model="mvz2:entity.undead_flying_object_red" mobile="mvz2:mobile_blueprint/undead_flying_object_red" />
+        </entity>
+        <entity id="undead_flying_object_green" cost="150" name="不死飞行物（绿）" entity="mvz2:undead_flying_object" variant="1">
+            <icon model="mvz2:entity.undead_flying_object_green" mobile="mvz2:mobile_blueprint/undead_flying_object_green" />
+        </entity>
+        <entity id="undead_flying_object_blue" cost="25" name="不死飞行物（蓝）" entity="mvz2:undead_flying_object" variant="2">
+            <icon model="mvz2:entity.undead_flying_object_blue" mobile="mvz2:mobile_blueprint/undead_flying_object_blue" />
+        </entity>
+        <entity id="undead_flying_object_rainbow" cost="100" name="不死飞行物（彩）" entity="mvz2:undead_flying_object" variant="3">
+            <icon model="mvz2:entity.undead_flying_object_rainbow" mobile="mvz2:mobile_blueprint/undead_flying_object_rainbow" />
+        </entity>
+
+        <entity id="zombie_cloud_thunder" cost="125" name="僵尸云（雷）" entity="mvz2:zombie_cloud" variant="1">
+            <icon model="mvz2:entity.zombie_cloud_thunder" mobile="mvz2:mobile_blueprint/zombie_cloud_thunder" />
+        </entity>
+        <entity id="zombie_cloud_snow" cost="125" name="僵尸云（雪）" entity="mvz2:zombie_cloud" variant="2">
+            <icon model="mvz2:entity.zombie_cloud_snow" mobile="mvz2:mobile_blueprint/zombie_cloud_snow" />
+        </entity>
+    </entities>
 </blueprints>

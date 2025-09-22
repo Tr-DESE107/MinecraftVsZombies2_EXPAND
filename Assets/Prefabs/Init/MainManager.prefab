@@ -633,6 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49dc7bd85c6a8434d883fd900ec811a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandHistoryFileName: commands.txt
 --- !u!1 &4106032869569924434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a104dbdeb98380043a1f05e821c60858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyHoldTimeThresold: 0.5
 --- !u!1 &7928476788693094385
 GameObject:
   m_ObjectHideFlags: 0

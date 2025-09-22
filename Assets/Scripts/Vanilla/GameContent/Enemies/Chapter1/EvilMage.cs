@@ -1,4 +1,3 @@
-using MVZ2.GameContent.Armors;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;

@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Prefabs/Models/Obsolete/Armor.meta
-guid: 7043654b5ff06ce4189e864d397ab2ef
-========
 guid: 3b3a42d20e32ec04287e4487f318bd01
->>>>>>>> f0622a7b3 (更新场景模型。将过时的模型移位。):Assets/Prefabs/Models/Obsolete/contraption.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

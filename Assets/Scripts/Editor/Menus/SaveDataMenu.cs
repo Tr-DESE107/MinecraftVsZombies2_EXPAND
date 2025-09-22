@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MVZ2.Editor
 {
-    public class SaveDataMenu
+    public static class SaveDataMenu
     {
         public static void DecompressSaveData()
         {

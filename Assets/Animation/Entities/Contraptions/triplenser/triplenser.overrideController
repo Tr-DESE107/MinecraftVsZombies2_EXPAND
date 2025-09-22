@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: triplenser
+  m_Controller: {fileID: 9100000, guid: 52a5bfbab5a5c31459ac4f5776975168, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 8efefac9bfda7204fa5e681ebece2bd5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e76e6918b2860264a8dda45cc2b218a9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6cfbe646a11a9544285a43058bb9c176, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: add3a4ec5af79a24f996e5dadaca2243, type: 2}

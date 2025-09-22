@@ -1,12 +1,3 @@
-using MVZ2.GameContent.Models;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Models;
-using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Models;
-using PVZEngine.Buffs;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using UnityEngine;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla.Entities;
@@ -15,13 +6,11 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
-using PVZEngine.Entities;
 using PVZEngine.Level;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
-    [BuffDefinition(VanillaBuffNames.Regeneration)]  // 注意这里是你的 Regeneration 的 Buff名字
+    [BuffDefinition(VanillaBuffNames.Entity.Regeneration)]  // 注意这里是你的 Regeneration 的 Buff名字
     public class RegenerationBuff : BuffDefinition
     {
         public RegenerationBuff(string nsp, string name) : base(nsp, name)

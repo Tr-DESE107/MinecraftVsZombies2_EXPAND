@@ -1,4 +1,3 @@
-using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Enemies;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -15,7 +14,7 @@ namespace MVZ2.GameContent.Enemies
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            
+
         }
 
     }

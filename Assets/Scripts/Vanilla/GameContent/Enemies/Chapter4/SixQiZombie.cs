@@ -1,10 +1,11 @@
 using MVZ2.GameContent.Buffs.Enemies;
+using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Level;
+using PVZEngine.Buffs;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using MVZ2.Vanilla.Level;
-using MVZ2.GameContent.Damages;
-using PVZEngine.Damages;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -22,7 +23,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 entity.AddBuff<SixQiResistanceBuff>();
             }
-            
+
         }
         protected override void UpdateLogic(Entity entity)
         {

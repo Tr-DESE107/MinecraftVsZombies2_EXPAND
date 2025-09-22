@@ -1,16 +1,10 @@
 using System.Collections.Generic;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using MVZ2.Vanilla.Entities;
-using PVZEngine.Level;
-using MVZ2.Vanilla.Audios;
-using MVZ2Logic.Level;
-using MVZ2.Vanilla.Entities;
-using PVZEngine.Buffs;
 using PVZEngine.Level;
 using PVZEngine.Modifiers;
-using MVZ2.GameContent.Artifacts;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -18,7 +12,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     /// NightmareMaskEvadeBuff：
     /// 只提供伤害减免效果，且当怪物处于攻击状态时不减伤
     /// </summary>
-    [BuffDefinition(VanillaBuffNames.NightmareMaskEvade)]
+    [BuffDefinition(VanillaBuffNames.Enemy.NightmareMaskEvade)]
     public class NightmareMaskEvadeBuff : BuffDefinition
     {
         public NightmareMaskEvadeBuff(string nsp, string name) : base(nsp, name)
@@ -43,7 +37,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
 
 
 
-            
+
 
 
             // 获取该实体身上所有NightmareMaskEvadeBuff实例
@@ -57,7 +51,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
             if (entity.RNG.Next(3) == 0 && hostile)
             {
                 damageInfo.Multiply(0f);
-                
+
                 return;
 
             }

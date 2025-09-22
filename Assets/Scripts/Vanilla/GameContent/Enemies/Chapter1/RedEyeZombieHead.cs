@@ -1,5 +1,6 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Enemies;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 

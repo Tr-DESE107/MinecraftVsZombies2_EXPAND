@@ -1,28 +1,12 @@
+using System.Linq;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Definitions;
 using PVZEngine.Level;
 using UnityEngine;
-using System.Linq;
-using MukioI18n;
-using MVZ2.GameContent.Buffs.Level;
-using MVZ2.GameContent.Buffs.SeedPacks;
-using MVZ2.GameContent.Contraptions;
-using MVZ2.GameContent.HeldItems;
-using MVZ2.GameContent.Talk;
-using MVZ2.Vanilla;
-using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Properties;
-using MVZ2Logic;
-using MVZ2Logic.Level;
-using PVZEngine;
-using PVZEngine.Definitions;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using Tools;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -54,7 +38,7 @@ namespace MVZ2.GameContent.Stages
 
             var allContraptions = new NamespaceID[]
             {
-        
+
         VanillaContraptionID.gravityPad,
         VanillaContraptionID.totenser,
         VanillaContraptionID.drivenser,
@@ -73,7 +57,7 @@ namespace MVZ2.GameContent.Stages
         VanillaContraptionID.RedStoneOre
             };
 
-            int Num = 16; 
+            int Num = 16;
 
             var rand = new System.Random();
 

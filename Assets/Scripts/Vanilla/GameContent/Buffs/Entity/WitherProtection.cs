@@ -7,7 +7,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Buffs
 {
-    [BuffDefinition(VanillaBuffNames.WitherProtection)]
+    [BuffDefinition(VanillaBuffNames.Enemy.WitherProtection)]
     public class WitherProtection : BuffDefinition
     {
         public WitherProtection(string nsp, string name) : base(nsp, name)

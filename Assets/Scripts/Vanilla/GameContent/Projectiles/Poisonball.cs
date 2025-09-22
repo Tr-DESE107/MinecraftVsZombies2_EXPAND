@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Projectiles
             var enemy = hitResult.Other;
             if (enemy.Type != EntityTypes.ENEMY)
                 return;
-            enemy.InflictCorropoisonBuff(1f, 150);
+            enemy.InflictCorropoisonBuff(1f, 150, new EntitySourceReference(hitResult.Projectile));
         }
     }
 }

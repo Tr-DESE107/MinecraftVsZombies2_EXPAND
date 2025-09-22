@@ -320,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listRoot: {fileID: 5233583052717642070}
   _template: {fileID: 895196458506430293}
+  pooled: 0
   itemList: []
 --- !u!1001 &1402827768574214931
 PrefabInstance:

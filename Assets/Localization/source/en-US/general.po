@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-07-04 03:30+0800\n"
-"PO-Revision-Date: 2025-07-09 14:32+0800\n"
+"POT-Creation-Date: 2025-07-09 02:29+0800\n"
+"PO-Revision-Date: 2025-09-22 16:59+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -19,8 +19,11 @@ msgstr ""
 
 #. 初始界面的作者标识
 #: /MainGame/MainScene/Init/Splash/Canvas/Creator
-msgid "Cuerzor制作"
-msgstr "Made by Cuerzor"
+msgid ""
+"<color=yellow>Cuerzor</color>制作\n"
+"<color=yellow>EXPAND</color>由<color=yellow>新概念论士/DESE107</color>修改&制"
+"作"
+msgstr ""
 
 #. 菜单对话框的标题
 #: /MainGame/MainScene/Init/Titlescreen/Canvas/LanguageDialog/Dialog/TitleArea/Title
@@ -703,39 +706,39 @@ msgctxt "advice.collect_money"
 msgid "收集宝石来获得更酷的道具吧！"
 msgstr "Collect gems to purchase COOL stuff!"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:485
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:486
 msgid "选择你的命运"
 msgstr "Choose your fate"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:487
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:488
 msgid "选吧。"
 msgstr "Choose."
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:489
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:490
 msgid "潘多拉的魔盒"
 msgstr "Pandora's Box"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:491
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:492
 msgid "尸潮"
 msgstr "Biohazard"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:493
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:494
 msgid "衰老"
 msgstr "Decrepify"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:495
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:496
 msgid "疯狂"
 msgstr "Insanity"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:497
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:498
 msgid "成真"
 msgstr "Come True"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:499
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:500
 msgid "深潜者"
 msgstr "The Lurker"
 
-#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:501
+#: Scripts\Vanilla\GameContent\Bosses\SlenderMan.cs:502
 msgid "黑太阳"
 msgstr "The Black Sun"
 
@@ -1175,24 +1178,32 @@ msgid "确认要重置所有按键绑定吗？"
 msgstr "Are you sure to reset all key bindings?"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:532
+#, fuzzy
+#| msgid "交换触发"
 msgid "交换触发：{0}"
-msgstr "Swap Trigger: {0}"
+msgstr "Swap Trigger"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:534
+#, fuzzy
+#| msgid "屏幕震动：{0}"
 msgid "全屏：{0}"
-msgstr "Full Screen: {0}"
+msgstr "Screen Shake: {0}"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:536
+#, fuzzy
+#| msgid "设备震动"
 msgid "设备震动：{0}"
-msgstr "Vibration: {0}"
+msgstr "Vibration"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:538
 msgid "难度：{0}"
 msgstr "Difficulty: {0}"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:540
+#, fuzzy
+#| msgid "后台暂停"
 msgid "后台暂停：{0}"
-msgstr "Pause on Focus Lost: {0}"
+msgstr "Pause on Focus Lost"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:544
 msgid "音乐音量：{0}"
@@ -1211,20 +1222,28 @@ msgid "动画频率：{0}"
 msgstr "Animation Frequency: {0}"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:553
+#, fuzzy
+#| msgid "血与碎块"
 msgid "血与碎块：{0}"
-msgstr "Blood and Gore: {0}"
+msgstr "Blood and Gore"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:556
+#, fuzzy
+#| msgid "跳过对话"
 msgid "跳过对话：{0}"
-msgstr "Skip dialogues: {0}"
+msgstr "Skip dialogues"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:558
+#, fuzzy
+#| msgid "赞助者名称"
 msgid "赞助者名称：{0}"
-msgstr "Sponsor Names: {0}"
+msgstr "Sponsor Names"
 
 #: Scripts\MVZ2\Options\OptionsLogic.cs:560
+#, fuzzy
+#| msgid "选卡警告"
 msgid "选卡警告：{0}"
-msgstr "Blueprint Warnings: {0}"
+msgstr "Blueprint Warnings"
 
 # 命令方块蓝图名，{0}为原名称
 #: Scripts\MVZ2\Options\OptionsLogic.cs:562
@@ -1238,8 +1257,10 @@ msgstr "Show FPS: {0}"
 
 # 选项，{0}为是否开启
 #: Scripts\MVZ2\Options\OptionsLogic.cs:566
+#, fuzzy
+#| msgid "显示快捷键"
 msgid "显示快捷键：{0}"
-msgstr "Show Hot Keys: {0}"
+msgstr "Show Hot Keys"
 
 # 命令方块模式
 #: Scripts\MVZ2\Options\OptionsLogic.cs:569
@@ -2424,34 +2445,34 @@ msgstr ""
 "Best Streak:\n"
 "{0}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:749
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:781
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:751
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:783
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:753
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:785
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr "Scale: {0}"
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:755
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:787
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr "{0}: {1}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:757
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:789
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr "Hold left mouse and drag to move; Scroll to scale"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:759
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:791
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr "Drag with one finger to move; Touch with two fingers to scale"
@@ -3614,7 +3635,7 @@ msgid ""
 "令人恐惧，而又怀念的回忆。"
 msgstr ""
 "The theme of The Giant.\n"
-"The 2 versions are \"Shadow Devil\" (from Mega Man X5) and \"Dr. Willy Stage "
+"The 2 versions are \"Shadow Devil\" (from Mega Man X5) and \"Dr. Wily Stage "
 "Boss\" (from Mega Man).\n"
 "These serve as the themes for the bosses \"Shadow Devil\" and \"Yellow "
 "Devil\", respectively.\n"
@@ -4377,6 +4398,543 @@ msgstr "新概念论士"
 msgctxt "staff_name"
 msgid "正邪の老鼠"
 msgstr "正邪の老鼠"
+
+#~ msgid "Cuerzor制作"
+#~ msgstr "Made by Cuerzor"
+
+#~ msgid "游玩时长"
+#~ msgstr "Playtime"
+
+#~ msgctxt "option.tooltip"
+#~ msgid "背景音乐音量。"
+#~ msgstr "The volume of background music."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "音效音量。"
+#~ msgstr "The volume of sound effects."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "关卡中开启加速时，游戏速度的倍率。"
+#~ msgstr "Game speed multiplier when fast-forward is enabled in levels."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "是否交换两个触发器械的方法。若启用，则放置器械后默认会立即将其触发。"
+#~ msgstr ""
+#~ "Option to swap the two methods of triggering contraptions. If enabled, "
+#~ "the contraption will be instantly triggered by default upon placing down."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "是否在游戏失去焦点后暂停游戏。"
+#~ msgstr "Option to pause the game when it loses focus."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "（仅限移动端）是否在屏幕震动时震动设备。"
+#~ msgstr "(Mobile only) Option to vibrate device during screen shakes."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "是否自动跳过所有剧情对话。"
+#~ msgstr "Option to automatically skip story dialogues."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "是否在蓝图选择完毕后，根据当前情况提出警告。"
+#~ msgstr ""
+#~ "Option to display warnings after selecting blueprints based on the "
+#~ "current situation."
+
+#~ msgctxt "option.tooltip"
+#~ msgid ""
+#~ "选择命令方块蓝图的模式。\n"
+#~ "手动：手动选择模仿的器械。\n"
+#~ "前位：自动模仿上一个选择的器械。"
+#~ msgstr ""
+#~ "Selection mode for Command Block.\n"
+#~ "Manual: Manually select the blueprint to imitate.\n"
+#~ "Previous: Automatically imitate the last selected blueprint."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "粒子效果数量。"
+#~ msgstr "Particle effect quantity."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "屏幕震动幅度。"
+#~ msgstr "Screen shake intensity."
+
+#~ msgctxt "option.tooltip"
+#~ msgid ""
+#~ "关卡中实体动画的更新速率。降低该值可能会提升性能，但会使实体动画效果变差。"
+#~ msgstr ""
+#~ "Update rate of entity animations in levels. Lowering this may improve "
+#~ "performance but will reduce entity animation quality."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "是否全屏。"
+#~ msgstr "Option to enable fullscreen mode."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "是否启用游戏中的血腥表现。"
+#~ msgstr "Option to enable blood and gore effects in the game."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "是否在关卡中的实体位置较高时，显示实体距离地面的高度。"
+#~ msgstr ""
+#~ "Option to display entities' height above ground when their position is "
+#~ "elevated in a level."
+
+#~ msgctxt "option.tooltip"
+#~ msgid ""
+#~ "是否开启HDR光照。这会让关卡中的光能够提升场景贴图的亮度，但可能会使这些光"
+#~ "变得较为刺眼。"
+#~ msgstr ""
+#~ "Option to enable HDR lighting. This allows lights in levels to brighten "
+#~ "scene textures but may make them appear overly bright."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "是否显示游戏帧率。"
+#~ msgstr "Option to display FPS."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "是否在关卡中显示界面对应的快捷键。"
+#~ msgstr "Option to display the corresponding hotkeys for the UI in a level."
+
+#~ msgctxt "option.tooltip"
+#~ msgid "在关卡中放置特定器械时，是否随机显示赞助了对应方案的赞助者的名称。"
+#~ msgstr ""
+#~ "When placing specific contraptions in a level, option to randomly display "
+#~ "the names of sponsors who supported the corresponding tier."
+
+# 命令输出，{0}为命令名
+#~ msgctxt "command.output"
+#~ msgid "未找到命令{0}！"
+#~ msgstr "Command {0} not found!"
+
+#~ msgctxt "command.output"
+#~ msgid "/{0} - {1}"
+#~ msgstr "/{0} - {1}"
+
+# 命令输出-help
+#~ msgctxt "command.output"
+#~ msgid "有关某个命令的详细信息，请输入\"/help <命令名>\""
+#~ msgstr ""
+#~ "For more information about a command, please enter '/help <command name>'"
+
+# 命令输出-help，{0}为参数名，{1}为参数类型，{2}为参数描述
+#~ msgctxt "command.output"
+#~ msgid "{0}: [{1}] {2}"
+#~ msgstr "{0}: [{1}] {2}"
+
+# 命令输出-blueprint，{0}为参数
+#~ msgctxt "command.output"
+#~ msgid "蓝图槽位参数{0}超出范围"
+#~ msgstr "The parameter of blueprint slot {0} is out of its range."
+
+# 命令输出-cheat，{0}为参数
+#~ msgctxt "command.output"
+#~ msgid "未找到作弊命令{0}"
+#~ msgstr "Cheat {0} not found"
+
+# 命令输出-cheat，{0}为作弊命令名
+#~ msgctxt "command.output"
+#~ msgid "已启用{0}"
+#~ msgstr "Enabled {0}"
+
+# 命令输出-cheat，{0}为作弊命令名
+#~ msgctxt "command.output"
+#~ msgid "已禁用{0}"
+#~ msgstr "Disabled {0}"
+
+# 命令输出-save
+#~ msgctxt "command.output"
+#~ msgid "已保存关卡状态"
+#~ msgstr "Level state has been successfully saved"
+
+#~ msgctxt "command.output"
+#~ msgid "命令格式错误"
+#~ msgstr "Wrong command format"
+
+# 命令输出
+#~ msgctxt "command.output"
+#~ msgid "该命令只能在关卡中被调用"
+#~ msgstr "This command can only be called in a level."
+
+#~ msgctxt "command.output"
+#~ msgid "参数{0}格式错误"
+#~ msgstr "Incorrect format of parameter {0}"
+
+# 命令输出
+#~ msgctxt "command.output"
+#~ msgid "参数数量错误"
+#~ msgstr "Incorrect parameter count"
+
+# 命令输出，{0}为参数名
+#~ msgctxt "command.output"
+#~ msgid "参数{0}丢失"
+#~ msgstr "Missing parameter {0}"
+
+# 命令输出，{0}为有效参数列表
+#~ msgctxt "command.output"
+#~ msgid "参数错误，有效值为{0}"
+#~ msgstr "Incorrect parameter, valid values are {0}"
+
+# 命令输出，{0}为参数名
+#~ msgctxt "command.output"
+#~ msgid "参数丢失，有效值为{0}"
+#~ msgstr "Missing parameter, valid values are {0}"
+
+# 作弊命令名称
+#~ msgctxt "command.cheat_name"
+#~ msgid "上帝模式"
+#~ msgstr "Godmode"
+
+# 作弊命令名称
+#~ msgctxt "command.cheat_name"
+#~ msgid "无限能量"
+#~ msgstr "Infinite Energy"
+
+# 作弊命令名称
+#~ msgctxt "command.cheat_name"
+#~ msgid "立即充能"
+#~ msgstr "Instant Recharge"
+
+#~ msgctxt "command.cheat_name"
+#~ msgid "无限星之碎片"
+#~ msgstr "Infinite Starshards"
+
+# 命令参数类型
+#~ msgctxt "command_parameter.type"
+#~ msgid "真值"
+#~ msgstr "Boolean"
+
+# 命令参数类型
+#~ msgctxt "command_parameter.type"
+#~ msgid "整数"
+#~ msgstr "Integer"
+
+# 命令参数类型
+#~ msgctxt "command_parameter.type"
+#~ msgid "实数"
+#~ msgstr "Real"
+
+# 按键名
+#~ msgctxt "command_parameter.type"
+#~ msgid "ID"
+#~ msgstr "ID"
+
+# 命令参数类型
+#~ msgctxt "command_parameter.type"
+#~ msgid "命令"
+#~ msgstr "Command"
+
+#~ msgctxt "command_parameter.type"
+#~ msgid "未知"
+#~ msgstr "Unknown"
+
+#~ msgid "全屏"
+#~ msgstr "Full Screen"
+
+#~ msgid "HDR光照"
+#~ msgstr "HDR Lighting"
+
+#~ msgid "高度指示器"
+#~ msgstr "Height Indicator"
+
+#~ msgctxt "hotkey.name"
+#~ msgid "控制台"
+#~ msgstr "Console"
+
+# 进入关卡的错误信息，{0}为地点ID
+#~ msgid "目标地点{0}不存在。"
+#~ msgstr "Target area {0} does not exist."
+
+# 进入关卡的错误信息，{0}为关卡ID
+#~ msgid "目标关卡{0}不存在。"
+#~ msgstr "Target stage {0} does not exist."
+
+#~ msgctxt "command.output"
+#~ msgid "<color=red>命令不存在：{0}</color>"
+#~ msgstr "<color=red>Command not found: {0}</color>"
+
+#~ msgctxt "command.output"
+#~ msgid "<color=red>错误：{0}</color>"
+#~ msgstr "<color=red>Error: {0}</color>"
+
+#~ msgctxt "command.description"
+#~ msgid "显示帮助界面。"
+#~ msgstr "Displays the command list."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "显示帮助界面。"
+#~ msgstr "Displays the command list."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "查询命令的作用。"
+#~ msgstr "Query the function of a command."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "命令名。"
+#~ msgstr "Command name."
+
+#~ msgctxt "command.description"
+#~ msgid "生成一个实体。"
+#~ msgstr "Spawns an entity."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "生成一个实体。默认位置为场地中心。"
+#~ msgstr ""
+#~ "Spawns an entity. The default location is the center of the battlefield."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "要生成的实体ID。"
+#~ msgstr "The ID of the entity to spawn."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "可选。要生成的实体位置的X值。"
+#~ msgstr "Optional. The X position where the entity is spawned at."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "可选。要生成的实体位置的Y值。"
+#~ msgstr "Optional. The Y position where the entity is spawned at."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "可选。要生成的实体位置的Z值。"
+#~ msgstr "Optional. The Z position where the entity is spawned at."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "在指定的地格位置生成实体。默认位置为场地中心。"
+#~ msgstr ""
+#~ "Spawns an entity on a certain grid. The default location is the center of "
+#~ "the battlefield."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "可选。实体所在列。0代表最左侧一列，向右递增。"
+#~ msgstr ""
+#~ "Optional. The column where the entity is spawned at. 0 represents the "
+#~ "leftmost column, increasing to the right."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "可选。实体所在行。0代表最上方一行，向下递增。"
+#~ msgstr ""
+#~ "Optional. The lane where the entity is spawned at. 0 represents the "
+#~ "topmost lane, increasing to the bottom."
+
+#~ msgctxt "command.description"
+#~ msgid "杀死实体。"
+#~ msgstr "Kills entities."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "杀死所有怪物。"
+#~ msgstr "Kills all enemies."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "杀死所有器械。"
+#~ msgstr "Kills all contraptions."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "杀死所有障碍物。"
+#~ msgstr "Kills all obstacles."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "杀死所有头目。"
+#~ msgstr "Kills all bosses."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "杀死所有实体。"
+#~ msgstr "Kills all entities."
+
+#~ msgctxt "command.description"
+#~ msgid "调整蓝图。"
+#~ msgstr "Adjusts blueprints."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "将某槽位的蓝图替换为指定ID的蓝图。"
+#~ msgstr ""
+#~ "Replace the blueprint of a certain slot with the blueprint of the "
+#~ "specified ID."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "蓝图槽位，0代表第一个槽位，1代表第二个槽位，依此类推。"
+#~ msgstr ""
+#~ "Blueprint slot, 0 represents the first slot, 1 represents the second "
+#~ "slot, and so on."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "蓝图ID。"
+#~ msgstr "The ID of the blueprint."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "移除指定槽位的蓝图。"
+#~ msgstr "Removes the blueprint of a certain slot."
+
+#~ msgctxt "command.description"
+#~ msgid "调整当前能量。"
+#~ msgstr "Adjusts the current energy."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "设置当前能量。"
+#~ msgstr "Sets the current energy."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "能量。"
+#~ msgstr "Energy."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "增加或减少当前能量。"
+#~ msgstr "Increases or decreases the current energy."
+
+#~ msgctxt "command.description"
+#~ msgid "调整当前星之碎片数量。"
+#~ msgstr "Adjusts the current starshard amount."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "设置当前星之碎片数量。"
+#~ msgstr "Sets the current starshard amount."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "星之碎片数量。"
+#~ msgstr "Starshard count."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "增加或减少当前星之碎片数量。"
+#~ msgstr "Increases or decreases the current starshard amount."
+
+#~ msgctxt "command.description"
+#~ msgid "立即充能所有蓝图。"
+#~ msgstr "Instantly recharges all blueprints."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "立即充能所有蓝图。"
+#~ msgstr "Instantly recharges all blueprints."
+
+#~ msgctxt "command.description"
+#~ msgid "启用关卡中的作弊选项。再次使用后关闭该效果。"
+#~ msgstr "Enables a cheat option in the level. Reenter to disable."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "无限能量。"
+#~ msgstr "Infinite energy."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "所有蓝图无需充能。"
+#~ msgstr "All blueprints no longer need to be recharged."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "无限星之碎片。"
+#~ msgstr "Infinite starshards."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "不会游戏结束。"
+#~ msgstr "Won't game over."
+
+#~ msgctxt "command.description"
+#~ msgid "重复上一条指令。"
+#~ msgstr "Repeat the last command."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "重复上一条指令。"
+#~ msgstr "Repeat the last command."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "次数。"
+#~ msgstr "Times."
+
+#~ msgctxt "command.description"
+#~ msgid "清屏。"
+#~ msgstr "Clears the console."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "清屏。"
+#~ msgstr "Clear the console."
+
+#~ msgctxt "command.description"
+#~ msgid "生成一个通关掉落物。"
+#~ msgstr "Spawns a pickup to clear the level."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "生成一个通关掉落物。"
+#~ msgstr "Spawns a pickup to clear the stage."
+
+#~ msgctxt "command.description"
+#~ msgid "保存当前关卡的进度。"
+#~ msgstr "Saves the current state of this level."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "保存当前关卡的进度。"
+#~ msgstr "Saves the current state of this level."
+
+#~ msgctxt "command.description"
+#~ msgid "重新读取当前关卡的进度。"
+#~ msgstr "Reloads the state of this level."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "重新读取当前关卡的进度。"
+#~ msgstr "Reloads the state of this level."
+
+#~ msgctxt "command.description"
+#~ msgid "生成指定蓝图掉落物。"
+#~ msgstr "Spawns a certain blueprint pickup."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "生成指定蓝图掉落物。默认位置为场地中心。"
+#~ msgstr ""
+#~ "Spawns a blueprint pickup. The default location is the center of the "
+#~ "battlefield."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "要生成的蓝图掉落物的对应实体ID。"
+#~ msgstr "The ID of the blueprint pickup to spawn."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "可选。要生成的掉落物位置的X值。"
+#~ msgstr "Optional. The X position where the pickup is spawned at."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "可选。要生成的掉落物位置的Y值。"
+#~ msgstr "Optional. The Y position where the pickup is spawned at."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "可选。要生成的掉落物位置的Z值。"
+#~ msgstr "Optional. The Z position where the pickup is spawned at."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "在指定的地格位置生成指定蓝图掉落物。默认位置为场地中心。"
+#~ msgstr ""
+#~ "Spawns a blueprint pickup on a certain grid. The default location is the "
+#~ "center of the battlefield."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "可选。掉落物所在列。0代表最左侧一列，向右递增。"
+#~ msgstr ""
+#~ "Optional. The column where the pickup is spawned at. 0 represents the "
+#~ "leftmost column, increasing to the right."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "可选。掉落物所在行。0代表最上方一行，向下递增。"
+#~ msgstr ""
+#~ "Optional. The lane where the pickup is spawned at. 0 represents the "
+#~ "topmost lane, increasing to the bottom."
+
+#~ msgctxt "command.description"
+#~ msgid "调整制品。"
+#~ msgstr "Adjusts artifacts."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "将某槽位的制品替换为指定ID的制品。"
+#~ msgstr ""
+#~ "Replace the artifact of a certain slot with the artifact of the specified "
+#~ "ID."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "制品槽位，0代表第一个槽位，1代表第二个槽位，依此类推。"
+#~ msgstr ""
+#~ "Artifact slot, 0 represents the first slot, 1 represents the second slot, "
+#~ "and so on."
+
+#~ msgctxt "command_parameter.description"
+#~ msgid "制品ID。"
+#~ msgstr "The ID of the artifact."
+
+#~ msgctxt "command_variant.description"
+#~ msgid "移除指定槽位的制品。"
+#~ msgstr "Removes the artifact of a certain slot."
 
 # 固有蓝图的提示
 #~ msgid "基本"

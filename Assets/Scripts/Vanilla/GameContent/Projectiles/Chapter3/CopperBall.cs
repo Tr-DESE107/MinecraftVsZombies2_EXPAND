@@ -34,7 +34,7 @@ namespace MVZ2.GameContent.Projectiles
                 var enemy = hitResult.Other;
                 enemy.Stun(30);
             }
-            
+
             var dmg = projectile.GetDamage();
             dmg *= 0.5f;
             projectile.SetDamage(dmg);

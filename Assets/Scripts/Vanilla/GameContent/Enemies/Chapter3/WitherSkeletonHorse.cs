@@ -1,3 +1,4 @@
+using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.Vanilla.Audios;
@@ -12,7 +13,6 @@ using PVZEngine.Level;
 using PVZEngine.Modifiers;
 using Tools;
 using UnityEngine;
-using MVZ2.GameContent.Damages;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.Init(entity);
             SetLandTimer(entity, new FrameTimer(15));
-            int jumpTimes = entity.Level.GetSkeletonHorseJumpTimes()+1;
+            int jumpTimes = entity.Level.GetSkeletonHorseJumpTimes() + 1;
             SetGallopTime(entity, jumpTimes);
         }
         public override void PostContactGround(Entity entity, Vector3 velocity)

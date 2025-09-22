@@ -17,38 +17,36 @@ namespace MVZ2.GameContent.Buffs.Level
             AddModifier(new BooleanModifier(VanillaLevelProps.NO_CARTS, true));
             AddModifier(new FloatModifier(VanillaLevelProps.SPAWN_POINTS_POWER, NumberOperator.AddMultiple, 0.5f));
 
-            AddModifier(new IntModifier(VanillaDifficultyProps.REDSTONE_ORE_DROP_COUNT, NumberOperator.Add, -4));
-            AddModifier(new FloatModifier(VanillaDifficultyProps.GHOST_TAKEN_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 0));
-            AddModifier(new IntModifier(VanillaDifficultyProps.NAPSTABLOOK_PARALYSIS_TIME, NumberOperator.Set, 120));
-            AddModifier(new FloatModifier(VanillaDifficultyProps.GHAST_DAMAGE_MULTIPLIER, NumberOperator.AddMultiple, 1f));
-            AddModifier(new IntModifier(VanillaDifficultyProps.MOTHER_TERROR_EGG_COUNT, NumberOperator.Add, 2));
-            AddModifier(new IntModifier(VanillaDifficultyProps.PARASITIZED_TERROR_COUNT, NumberOperator.Add, 1));
-            AddModifier(new FloatModifier(VanillaDifficultyProps.REVERSE_SATELLITE_DAMAGE_MULTIPLIER, NumberOperator.AddMultiple, 1f));
-            AddModifier(new IntModifier(VanillaDifficultyProps.SKELETON_HORSE_JUMP_TIMES, NumberOperator.Add, 1));
-            AddModifier(new IntModifier(VanillaDifficultyProps.WICKED_HERMIT_ZOMBIE_STUN_TIME, NumberOperator.Add, -150));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.REDSTONE_ORE_DROP_COUNT, NumberOperator.Add, -4));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.GHOST_TAKEN_DAMAGE_MULTIPLIER, NumberOperator.Multiply, 0));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.NAPSTABLOOK_PARALYSIS_TIME, NumberOperator.Set, 120));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.GHAST_DAMAGE_MULTIPLIER, NumberOperator.AddMultiple, 1f));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.MOTHER_TERROR_EGG_COUNT, NumberOperator.Add, 2));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.PARASITIZED_TERROR_COUNT, NumberOperator.Add, 1));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.REVERSE_SATELLITE_DAMAGE_MULTIPLIER, NumberOperator.AddMultiple, 1f));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.SKELETON_HORSE_JUMP_TIMES, NumberOperator.Add, 1));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.WICKED_HERMIT_ZOMBIE_STUN_TIME, NumberOperator.Add, -150));
 
-            AddModifier(new BooleanModifier(VanillaDifficultyProps.FRANKENSTEIN_INSTANT_STEEL, true));
-            AddModifier(new FloatModifier(VanillaDifficultyProps.FRANKENSTEIN_SPEED, NumberOperator.Multiply, 2));
+            AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.FRANKENSTEIN_INSTANT_STEEL, true));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.FRANKENSTEIN_SPEED, NumberOperator.Multiply, 2));
 
-            AddModifier(new BooleanModifier(VanillaDifficultyProps.SLENDERMAN_MIND_SWAP_ZOMBIES, true));
-            AddModifier(new IntModifier(VanillaDifficultyProps.SLENDERMAN_FATE_CHOICE_COUNT, NumberOperator.Add, -1));
-            AddModifier(new IntModifier(VanillaDifficultyProps.SLENDERMAN_MAX_FATE_TIMES, NumberOperator.Add, 1));
+            AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.SLENDERMAN_MIND_SWAP_ZOMBIES, true));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.SLENDERMAN_FATE_CHOICE_COUNT, NumberOperator.Add, -1));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.SLENDERMAN_MAX_FATE_TIMES, NumberOperator.Add, 1));
 
-            AddModifier(new FloatModifier(VanillaDifficultyProps.CRUSHING_WALLS_SPEED, NumberOperator.Add, 2f));
-            AddModifier(new FloatModifier(VanillaDifficultyProps.NIGHTMAREAPER_SPIN_DAMAGE, NumberOperator.Add, 10));
-            AddModifier(new IntModifier(VanillaDifficultyProps.NIGHTMAREAPER_TIMEOUT, NumberOperator.Add, -1500));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.CRUSHING_WALLS_SPEED, NumberOperator.Add, 2f));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.NIGHTMAREAPER_SPIN_DAMAGE, NumberOperator.Add, 10));
+            AddModifier(new IntModifier(VanillaDifficultyLevelProps.NIGHTMAREAPER_TIMEOUT, NumberOperator.Add, -1500));
 
-            AddModifier(new BooleanModifier(VanillaDifficultyProps.WITHER_SKULL_WITHERS_TARGET, true));
-            AddModifier(new BooleanModifier(VanillaDifficultyProps.THE_GIANT_IS_MALLEABLE, true));
+            AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.WITHER_SKULL_WITHERS_TARGET, true));
+            AddModifier(new BooleanModifier(VanillaDifficultyLevelProps.THE_GIANT_IS_MALLEABLE, true));
             AddAura(new EnemyAura());
         }
 
         public class EnemyAura : AuraEffectDefinition
         {
-            public EnemyAura() : base()
+            public EnemyAura() : base(VanillaBuffID.Enemy.lunaticEnemy, 30)
             {
-                BuffID = VanillaBuffID.lunaticEnemy;
-                UpdateInterval = 30;
             }
 
             public override void GetAuraTargets(AuraEffect auraEffect, List<IBuffTarget> results)

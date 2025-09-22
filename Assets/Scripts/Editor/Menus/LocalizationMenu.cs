@@ -7,6 +7,7 @@ using MVZ2.Localization;
 using MVZ2.Metas;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
+using MVZ2Logic;
 using Newtonsoft.Json;
 using PVZEngine;
 using UnityEditor;
@@ -18,7 +19,7 @@ using UnityEngine.SceneManagement;
 
 namespace MVZ2.Editor
 {
-    public class LocalizationMenu
+    public static class LocalizationMenu
     {
         public static void CompressLanguagePack()
         {
@@ -45,10 +46,10 @@ namespace MVZ2.Editor
             var blueprintsDocument = LoadMetaXmlDocument(spaceName, "blueprints.xml");
 
             var almanacEntryList = AlmanacMetaList.FromXmlNode(almanacDocument["almanac"], spaceName);
-            var entitiesList = EntityMetaList.FromXmlNode(entitiesDocument["entities"], spaceName);
+            var entitiesList = EntityMetaList.FromXmlNode(spaceName, entitiesDocument["entities"], spaceName);
             var characterList = TalkCharacterMetaList.FromXmlNode(talkcharacterDocument["characters"], spaceName);
             var artifactsList = ArtifactMetaList.FromXmlNode(artifactsDocument["artifacts"], spaceName);
-            var blueprintsList = BlueprintMetaList.FromXmlNode(blueprintsDocument["blueprints"], spaceName);
+            var blueprintsList = BlueprintMetaList.FromXmlNode(spaceName, blueprintsDocument["blueprints"], spaceName);
 
             var entitiesReference = "Entity meta file";
             var characterReference = "Character meta file";
@@ -86,14 +87,14 @@ namespace MVZ2.Editor
             foreach (var meta in entitiesList.counters)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity counter {id}", VanillaStrings.CONTEXT_ENTITY_COUNTER_NAME);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity counter {id}", LogicStrings.CONTEXT_ENTITY_COUNTER_NAME);
             }
             foreach (var meta in entitiesList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity {id}", VanillaStrings.CONTEXT_ENTITY_NAME);
-                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Tooltip for entity {id}", VanillaStrings.CONTEXT_ENTITY_TOOLTIP);
-                AddTranslation(potGenerator, meta.DeathMessage, entitiesReference, $"Death message for entity {id}", VanillaStrings.CONTEXT_DEATH_MESSAGE);
+                AddTranslation(potGenerator, meta.Name, entitiesReference, $"Name for entity {id}", LogicStrings.CONTEXT_ENTITY_NAME);
+                AddTranslation(potGenerator, meta.Tooltip, entitiesReference, $"Tooltip for entity {id}", LogicStrings.CONTEXT_ENTITY_TOOLTIP);
+                AddTranslation(potGenerator, meta.DeathMessage, entitiesReference, $"Death message for entity {id}", LogicStrings.CONTEXT_DEATH_MESSAGE);
             }
             foreach (var meta in characterList.metas)
             {
@@ -103,8 +104,8 @@ namespace MVZ2.Editor
             foreach (var meta in artifactsList.metas)
             {
                 var id = new NamespaceID(spaceName, meta.ID);
-                AddTranslation(potGenerator, meta.Name, artifactsReference, $"Name for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_NAME);
-                AddTranslation(potGenerator, meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", VanillaStrings.CONTEXT_ARTIFACT_TOOLTIP);
+                AddTranslation(potGenerator, meta.Name, artifactsReference, $"Name for artifact {id}", LogicStrings.CONTEXT_ARTIFACT_NAME);
+                AddTranslation(potGenerator, meta.Tooltip, artifactsReference, $"Tooltip for artifact {id}", LogicStrings.CONTEXT_ARTIFACT_TOOLTIP);
             }
             foreach (var error in blueprintsList.Errors)
             {
@@ -112,7 +113,12 @@ namespace MVZ2.Editor
             }
             foreach (var option in blueprintsList.Options)
             {
-                AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", VanillaStrings.CONTEXT_OPTION_NAME);
+                AddTranslation(potGenerator, option.Name, blueprintsReference, $"Name for blueprint option {option.ID}", LogicStrings.CONTEXT_OPTION_NAME);
+            }
+            foreach (var entity in blueprintsList.Entities)
+            {
+                AddTranslation(potGenerator, entity.Name, blueprintsReference, $"Name for entity blueprint {entity.ID}", LogicStrings.CONTEXT_ENTITY_NAME);
+                AddTranslation(potGenerator, entity.Tooltip, blueprintsReference, $"Tooltip for entity blueprint {entity.ID}", LogicStrings.CONTEXT_ENTITY_TOOLTIP);
             }
             potGenerator.WriteOut(GetPoTemplatePath("almanac.pot"));
             Debug.Log("Almanac Translations Updated.");
@@ -252,6 +258,36 @@ namespace MVZ2.Editor
                     }
                 }
             }
+            // 命令
+            {
+                var document = LoadMetaXmlDocument(spaceName, "commands.xml");
+                var metaList = CommandMetaList.FromXmlNode(document["commands"], spaceName);
+                var reference = "Commands meta file";
+                foreach (var meta in metaList.metas)
+                {
+                    var id = new NamespaceID(spaceName, meta.ID);
+                    AddTranslation(potGenerator, meta.Description, reference, $"Description for command \"{id}\"", VanillaStrings.CONTEXT_COMMAND_DESCRIPTION);
+
+                    foreach (var variant in meta.Variants)
+                    {
+                        AddTranslation(potGenerator, variant.Description, reference, $"Description for command variant \"{id} {variant.Subname}\"", VanillaStrings.CONTEXT_COMMAND_VARIANT_DESCRIPTION);
+                        foreach (var param in variant.Parameters)
+                        {
+                            AddTranslation(potGenerator, param.Description, reference, $"Description for parameter {param.Name} of command \"{id} {variant.Subname}\"", VanillaStrings.CONTEXT_COMMAND_PARAMETER_DESCRIPTION);
+                        }
+                    }
+                }
+            }
+            // 难度
+            {
+                var document = LoadMetaXmlDocument(spaceName, "difficulties.xml");
+                var list = DifficultyMetaList.FromXmlNode(document["difficulties"], spaceName);
+                var reference = "Difficulty meta file";
+                foreach (var meta in list.metas)
+                {
+                    AddTranslation(potGenerator, meta.Name, reference, $"Name for difficulty {meta.Name}", LogicStrings.CONTEXT_DIFFICULTY);
+                }
+            }
 
             potGenerator.WriteOut(GetPoTemplatePath("general.pot"));
             Debug.Log("Script Translations Updated.");
@@ -276,11 +312,11 @@ namespace MVZ2.Editor
                     var groupID = new NamespaceID(spaceName, group.id);
                     var groupContext = VanillaStrings.GetTalkTextContext(groupID);
                     AddTranslation(potGenerator, groupName, reference, $"Archive name for talk group {group.id}", VanillaStrings.CONTEXT_ARCHIVE);
-                    for (int i = 0; i < group.sections.Count; i++)
+                    for (int i = 0; i < group.sections.Length; i++)
                     {
                         var section = group.sections[i];
                         AddTranslation(potGenerator, section.archiveText, reference, $"Archive text for talk group {group.id}'s section {i}", VanillaStrings.CONTEXT_ARCHIVE);
-                        for (int j = 0; j < section.sentences.Count; j++)
+                        for (int j = 0; j < section.sentences.Length; j++)
                         {
                             var sentence = section.sentences[j];
                             AddTranslation(potGenerator, sentence.text, reference, $"Text for talk sentence {j} in talk group {group.id}'s section {i}", groupContext);
@@ -449,7 +485,7 @@ namespace MVZ2.Editor
         {
             if (cp == null)
                 return;
-            if (cp.Key != null)
+            if (!string.IsNullOrEmpty(cp.Key))
             {
                 PotTranslate translate = new PotTranslate(cp.Key, cp.Path, cp.Comment, cp.Context);
                 pot.AddString(translate);

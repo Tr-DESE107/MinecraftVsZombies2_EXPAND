@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using MVZ2.Vanilla.Entities;
 using PVZEngine.Level;
-using PVZEngine.Buffs;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -13,7 +12,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     /// 只提供伤害减免效果，且当怪物处于攻击状态时不减伤
     /// 不包含任何视觉幽灵化表现
     /// </summary>
-    [BuffDefinition(VanillaBuffNames.WitherHeartShieldResistanceBuff)]
+    [BuffDefinition(VanillaBuffNames.Enemy.WitherHeartShieldResistanceBuff)]
     public class WitherHeartShieldResistanceBuff : BuffDefinition
     {
         public WitherHeartShieldResistanceBuff(string nsp, string name) : base(nsp, name)

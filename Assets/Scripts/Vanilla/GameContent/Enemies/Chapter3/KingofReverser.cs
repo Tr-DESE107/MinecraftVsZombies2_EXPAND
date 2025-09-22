@@ -210,10 +210,10 @@ namespace MVZ2.GameContent.Enemies
 
             //for (int i = startLine; i <= endLine; i++)
             //{
-                var x = entity.Position.x + level.GetGridWidth() * 1.5f * entity.GetFacingX();
-                var z = entity.Position.z ;
-                var y = level.GetGroundY(x, z);
-                Vector3 wallPos = new Vector3(x, y, z);
+            var x = entity.Position.x + level.GetGridWidth() * 1.5f * entity.GetFacingX();
+            var z = entity.Position.z;
+            var y = level.GetGroundY(x, z);
+            Vector3 wallPos = new Vector3(x, y, z);
 
             var randomID = GetRandomSkeletonID(entity.RNG);
 

@@ -1,6 +1,7 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 
@@ -23,7 +24,7 @@ namespace MVZ2.GameContent.Enemies
                 fly.SetProperty(FlyBuff.PROP_TARGET_HEIGHT, 1f);
             }
 
-            entity.InflictRegenerationBuff(1.5f, 60000);
+            entity.InflictRegenerationBuff(1.5f, 60000, new EntitySourceReference(entity));
         }
     }
 }

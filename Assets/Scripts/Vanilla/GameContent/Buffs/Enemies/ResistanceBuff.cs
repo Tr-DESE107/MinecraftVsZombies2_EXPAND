@@ -1,30 +1,16 @@
 using System.Collections.Generic;
-using MVZ2.GameContent.Damages;
-using MVZ2.Vanilla.Callbacks;
-using PVZEngine.Buffs;
-using PVZEngine.Callbacks;
-using PVZEngine.Entities;
-using System.Collections.Generic;
-using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Difficulties;
-using MVZ2.GameContent.Stages;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
-using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Modifiers;
-using UnityEngine;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
     /// <summary>
     /// ResistanceBuff：只提供伤害减免效果，不包含任何视觉幽灵化表现
     /// </summary>
-    [BuffDefinition(VanillaBuffNames.Resistance)]
+    [BuffDefinition(VanillaBuffNames.Entity.Resistance)]
     public class ResistanceBuff : BuffDefinition
     {
         public ResistanceBuff(string nsp, string name) : base(nsp, name)

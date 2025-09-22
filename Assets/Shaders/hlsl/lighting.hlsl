@@ -7,6 +7,7 @@ float4 _LightGlobal;
 float4 _LightBackground;
 int _BackgroundLit;
 int _SpotLit;
+int _HDRDisabled;
 
 
 float2 GetLightUV(float4 vertex)
@@ -49,6 +50,10 @@ float4 GetLight(float2 lightUV)
     {
         float4 spot = GetSpotLight(lightUV);
         light += spot;
+    }
+    if (_HDRDisabled)
+    {
+        light = saturate(light);
     }
     return light;
 }

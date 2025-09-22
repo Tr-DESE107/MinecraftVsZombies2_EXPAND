@@ -1,12 +1,11 @@
 using MVZ2.GameContent.Armors;
-using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using MVZ2.GameContent.Damages;
-using PVZEngine.Damages;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -37,12 +36,12 @@ namespace MVZ2.GameContent.Enemies
             {
                 WitherAOE(entity, 1.5f, entity.GetFaction());
             }
-            
+
         }
 
         public static void WitherAOE(Entity entity, float damage, int faction)
         {
-            
+
             var range = 80;
             entity.Explode(
                 entity.GetCenter(),
@@ -52,7 +51,7 @@ namespace MVZ2.GameContent.Enemies
                 new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN, VanillaDamageEffects.MUTE, VanillaDamageEffects.WITHER)
             );
 
-            
+
         }
 
     }

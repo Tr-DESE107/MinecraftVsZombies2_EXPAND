@@ -57,9 +57,8 @@ namespace MVZ2.GameContent.Artifacts
         // 光环定义类：WitherHeartShieldAura
         public class WitherHeartShieldAura : AuraEffectDefinition
         {
-            public WitherHeartShieldAura()
+            public WitherHeartShieldAura() : base(VanillaBuffID.Enemy.WitherHeartShieldResistanceBuff)
             {
-                BuffID = VanillaBuffID.WitherHeartShieldResistanceBuff; // 设置光环对应的 Buff ID（逻辑效果由 buff 决定）
             }
 
             // 定义光环影响的目标实体（所有器械植物）

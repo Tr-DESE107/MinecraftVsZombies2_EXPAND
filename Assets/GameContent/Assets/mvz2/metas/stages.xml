@@ -32,24 +32,30 @@
     </stage>
 
     <!-- Halloween -->
-    <stage id="halloween_1" name="万圣夜" dayNumber="1" unlock="mvz2:level.prologue">
+    <stage id="halloween_1" name="万圣夜" dayNumber="1" >
+        <unlock>
+            <condition required="mvz2:level.prologue"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:halloween_1"/>
             <talk type="end" value="mvz2:halloween_1_over"/>
             <talk type="map" value="mvz2:halloween_1_map"/>
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:small_dispenser"/>
-        <spawns flags="1" firstWaveTime="1800">
+        <spawns flags="1">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:SkeletonHead"/>
         </spawns>
+        <time firstWave="60"/>
     </stage>
     <stage id="starshard_tutorial" name="教程关" type="special">
         <camera transition="to_lawn"/>
     </stage>
-    
-    <stage id="halloween_2" name="万圣夜" dayNumber="2" unlock="mvz2:level.halloween_1">
+    <stage id="halloween_2" name="万圣夜" dayNumber="2" >
+        <unlock>
+            <condition required="mvz2:level.halloween_1"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:starshard_tutorial">
                 <repeat>
@@ -71,8 +77,10 @@
             <integer name="statueCount" value="3" />
         </properties>
     </stage>
-    
-    <stage id="halloween_3" name="万圣夜" dayNumber="3" unlock="mvz2:level.halloween_2">
+    <stage id="halloween_3" name="万圣夜" dayNumber="3" >
+        <unlock>
+            <condition required="mvz2:level.halloween_2"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:halloween_3"/>
             <talk type="end" value="mvz2:halloween_3_over"/>
@@ -90,8 +98,10 @@
             <integer name="statueCount" value="4" />
         </properties>
     </stage>
-    
-    <stage id="halloween_4" name="万圣夜" dayNumber="4" unlock="mvz2:level.halloween_3">
+    <stage id="halloween_4" name="万圣夜" dayNumber="4" >
+        <unlock>
+            <condition required="mvz2:level.halloween_3"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:halloween_4"/>
             <talk type="end" value="mvz2:halloween_4_over"/>
@@ -109,8 +119,10 @@
             <integer name="statueCount" value="5" />
         </properties>
     </stage>
-    
-    <stage id="halloween_5" name="万圣夜" dayNumber="5" unlock="mvz2:level.halloween_4" >
+    <stage id="halloween_5" name="万圣夜" dayNumber="5" >
+        <unlock>
+            <condition required="mvz2:level.halloween_4"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:halloween_5"/>
             <talk type="end" value="mvz2:halloween_5_over"/>
@@ -129,8 +141,10 @@
             <integer name="statueCount" value="6" />
         </properties>
     </stage>
-    
-    <stage id="halloween_6" name="万圣夜" dayNumber="6" needBlueprints="false" startEnergy="0" type="minigame" unlock="mvz2:level.halloween_5" music="mvz2:minigame" >
+    <stage id="halloween_6" name="万圣夜" dayNumber="6" needBlueprints="false" startEnergy="0" type="minigame" music="mvz2:minigame" >
+        <unlock>
+            <condition required="mvz2:level.halloween_5"/>
+        </unlock>
         <model preset="cloudy" />
         <talks>
             <talk type="start" value="mvz2:halloween_6"/>
@@ -139,20 +153,23 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:tnt"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+        <spawns flags="2" pointsMultiplier="2" pointsAddition="1" >
             <spawn id="mvz2:ghost"/>
             <spawn id="mvz2:skeleton"/>
             <spawn id="mvz2:SkeletonHead"/>
             <spawn id="mvz2:skeleton_horse"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <color name="globalLight" value="#7F7F7F"/>
             <bool name="noEnergy" value="true"/>
             <bool name="autoCollectAll" value="true"/>
         </properties>
     </stage>
-    
-    <stage id="halloween_7" name="万圣夜" dayNumber="7" unlock="mvz2:level.halloween_6" >
+    <stage id="halloween_7" name="万圣夜" dayNumber="7" >
+        <unlock>
+            <condition required="mvz2:level.halloween_6"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:trigger_tutorial">
                 <repeat>
@@ -179,8 +196,10 @@
     <stage id="trigger_tutorial" name="教程关" type="special">
         <camera transition="to_lawn"/>
     </stage>
-    
-    <stage id="halloween_8" name="万圣夜" dayNumber="8" unlock="mvz2:level.halloween_7" >
+    <stage id="halloween_8" name="万圣夜" dayNumber="8" >
+        <unlock>
+            <condition required="mvz2:level.halloween_7"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:seventh_slot">
                 <repeat>
@@ -204,8 +223,10 @@
             <integer name="statueCount" value="8" />
         </properties>
     </stage>
-    
-    <stage id="halloween_9" name="万圣夜" dayNumber="9" unlock="mvz2:level.halloween_8" >
+    <stage id="halloween_9" name="万圣夜" dayNumber="9" >
+        <unlock>
+            <condition required="mvz2:level.halloween_8"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:halloween_9"/>
             <talk type="end" value="mvz2:halloween_9_over"/>
@@ -226,8 +247,10 @@
             <integer name="statueCount" value="9" />
         </properties>
     </stage>
-    
-    <stage id="halloween_10" name="万圣夜" dayNumber="10" unlock="mvz2:level.halloween_9" >
+    <stage id="halloween_10" name="万圣夜" dayNumber="10" >
+        <unlock>
+            <condition required="mvz2:level.halloween_9"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:halloween_10"/>
             <talk type="end" value="mvz2:halloween_10_over"/>
@@ -250,8 +273,10 @@
             <integer name="statueCount" value="10" />
         </properties>
     </stage>
-    
-    <stage id="halloween_11" name="万圣夜" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.halloween_10" music="mvz2:ultimate_battle" >
+    <stage id="halloween_11" name="万圣夜" dayNumber="11" type="boss" needBlueprints="false" music="mvz2:ultimate_battle" >
+        <unlock>
+            <condition required="mvz2:level.halloween_10"/>
+        </unlock>
         <model preset="cloudy" />
         <talks>
             <talk type="start" value="mvz2:halloween_11"/>
@@ -269,7 +294,7 @@
             <entry id="mvz2:magichest" count="3"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.dream_key"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+        <spawns flags="2" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:ZombieHead"/>
             <spawn id="mvz2:leather_capped_zombie"/>
@@ -283,12 +308,16 @@
             <!-- <spawn id="mvz2:石棺僵尸"/> -->
             <!-- <spawn id="mvz2:狼人"/> -->
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="noEnergy" value="true"/>
             <integer name="statueCount" value="10" />
         </properties>
     </stage>
-    <stage id="halloween_endless" name="万圣夜无尽" type="endless" unlock="mvz2:level.halloween_11" >
+    <stage id="halloween_endless" name="万圣夜无尽" type="endless" >
+        <unlock>
+            <condition required="mvz2:level.halloween_11"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.money_chest"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
@@ -298,113 +327,111 @@
             <integer name="statueCount" value="2" />
         </properties>
     </stage>
-
-	<stage id="halloween_12" name="万圣夜" dayNumber="12" unlock="mvz2:level.halloween_11" music="mvz2:thread">
-
-
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:RedStoneOre"/>
-		<spawns flags="2" >
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:iron_helmetted_zombie"/>
-			<spawn id="mvz2:skeleton"/>
-			<spawn id="mvz2:ghost"/>
-			<spawn id="mvz2:mummy"/>
-			<spawn id="mvz2:necromancer"/>
-			<spawn id="mvz2:skeleton_horse"/>
-			<spawn id="mvz2:KingSkeleton"/>
-			<!-- <spawn id="mvz2:石棺僵尸"/> -->
-			<!-- <spawn id="mvz2:狼人"/> -->
-		</spawns>
-		<properties>
-			<integer name="statueCount" value="10" />
-		</properties>
-	</stage>
-	<stage id="halloween_13" name="万圣夜" dayNumber="13" unlock="mvz2:level.halloween_12" music="mvz2:thread">
-
-
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:GlowingObsidian"/>
-		<spawns flags="2" pointsMultiplier="2.1" pointsAddition="2" >
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:iron_helmetted_zombie"/>
-			<spawn id="mvz2:skeleton"/>
-			<spawn id="mvz2:ghost"/>
-			<spawn id="mvz2:mummy"/>
-			<spawn id="mvz2:necromancer"/>
-			<spawn id="mvz2:skeleton_horse"/>
-			<spawn id="mvz2:MegaZombie"/>
-			<spawn id="mvz2:RedEyeZombieHead"/>
-			<spawn id="mvz2:SuperMegaZombie"/>
-			<!-- <spawn id="mvz2:石棺僵尸"/> -->
-			<!-- <spawn id="mvz2:狼人"/> -->
-		</spawns>
-		<properties>
-			<integer name="statueCount" value="10" />
-		</properties>
-	</stage>
-	<stage id="halloween_14" name="万圣夜" dayNumber="14" unlock="mvz2:level.halloween_13" music="mvz2:thread">
-		<clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:ShrunkenHead"/>
-		<spawns flags="2" >
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:KingSkeleton"/>
-			<spawn id="mvz2:SuperMegaZombie"/>
-			<spawn id="mvz2:EvilMage"/>
-			<spawn id="mvz2:skeleton"/>
-			<spawn id="mvz2:ghost"/>
-			<spawn id="mvz2:mummy"/>
-			<spawn id="mvz2:necromancer"/>
-			<spawn id="mvz2:skeleton_horse"/>
-			<!-- <spawn id="mvz2:石棺僵尸"/> -->
-			<!-- <spawn id="mvz2:狼人"/> -->
-		</spawns>
-		<properties>
-			<integer name="statueCount" value="10" />
-		</properties>
-	</stage>
-	<stage id="halloween_15" name="万圣夜" dayNumber="15" type="boss" needBlueprints="false" unlock="mvz2:level.halloween_14" music="mvz2:ultimate_battle" >
-		<model preset="cloudy" />
-		
-		<conveyor>
-			<entry id="mvz2:obsidian" count="8"/>
-			<entry id="mvz2:GlowingObsidian" count="8"/>
-			<entry id="mvz2:Poisonser" count="5"/>
-			<entry id="mvz2:glowstone" count="5"/>
-			<entry id="mvz2:punchton" count="5"/>
-			<entry id="mvz2:tnt" count="5"/>
-			<entry id="mvz2:soul_furnace" count="4"/>
-			<entry id="mvz2:silvenser" count="8"/>
-			<entry id="mvz2:magichest" count="3"/>
-		</conveyor>
-		<clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:FrankensteinBrain"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:ZombieHead"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:iron_helmetted_zombie"/>
-			<spawn id="mvz2:skeleton"/>
-			<spawn id="mvz2:SkeletonHead"/>
-			<spawn id="mvz2:ghost"/>
-			<spawn id="mvz2:mummy"/>
-			<spawn id="mvz2:necromancer"/>
-			<spawn id="mvz2:skeleton_horse"/>
-			<spawn id="mvz2:MegaZombie"/>
-			<spawn id="mvz2:RedEyeZombieHead"/>
-			<spawn id="mvz2:KingSkeleton"/>
-			<spawn id="mvz2:SuperMegaZombie"/>
-			<spawn id="mvz2:EvilMage"/>
-			<!-- <spawn id="mvz2:石棺僵尸"/> -->
-			<!-- <spawn id="mvz2:狼人"/> -->
-		</spawns>
-		<properties>
-			<bool name="noEnergy" value="true"/>
-			<integer name="statueCount" value="10" />
-		</properties>
-	</stage>
+    <stage id="halloween_12" name="万圣夜" dayNumber="12" unlock="mvz2:level.halloween_11" music="mvz2:thread">
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:RedStoneOre"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:skeleton"/>
+            <spawn id="mvz2:ghost"/>
+            <spawn id="mvz2:mummy"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:skeleton_horse"/>
+            <spawn id="mvz2:KingSkeleton"/>
+            <!-- <spawn id="mvz2:石棺僵尸"/> -->
+            <!-- <spawn id="mvz2:狼人"/> -->
+        </spawns>
+        <properties>
+            <integer name="statueCount" value="10" />
+        </properties>
+    </stage>
+    <stage id="halloween_13" name="万圣夜" dayNumber="13" unlock="mvz2:level.halloween_12" music="mvz2:thread">
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:GlowingObsidian"/>
+        <spawns flags="2" pointsMultiplier="2.1" pointsAddition="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:skeleton"/>
+            <spawn id="mvz2:ghost"/>
+            <spawn id="mvz2:mummy"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:skeleton_horse"/>
+            <spawn id="mvz2:MegaZombie"/>
+            <spawn id="mvz2:RedEyeZombieHead"/>
+            <spawn id="mvz2:SuperMegaZombie"/>
+            <!-- <spawn id="mvz2:石棺僵尸"/> -->
+            <!-- <spawn id="mvz2:狼人"/> -->
+        </spawns>
+        <properties>
+            <integer name="statueCount" value="10" />
+        </properties>
+    </stage>
+    <stage id="halloween_14" name="万圣夜" dayNumber="14" unlock="mvz2:level.halloween_13" music="mvz2:thread">
+        <clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:ShrunkenHead"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:KingSkeleton"/>
+            <spawn id="mvz2:SuperMegaZombie"/>
+            <spawn id="mvz2:EvilMage"/>
+            <spawn id="mvz2:skeleton"/>
+            <spawn id="mvz2:ghost"/>
+            <spawn id="mvz2:mummy"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:skeleton_horse"/>
+            <!-- <spawn id="mvz2:石棺僵尸"/> -->
+            <!-- <spawn id="mvz2:狼人"/> -->
+        </spawns>
+        <properties>
+            <integer name="statueCount" value="10" />
+        </properties>
+    </stage>
+    <stage id="halloween_15" name="万圣夜" dayNumber="15" type="boss" needBlueprints="false" unlock="mvz2:level.halloween_14" music="mvz2:ultimate_battle" >
+        <model preset="cloudy" />
+        
+        <conveyor>
+            <entry id="mvz2:obsidian" count="8"/>
+            <entry id="mvz2:GlowingObsidian" count="8"/>
+            <entry id="mvz2:Poisonser" count="5"/>
+            <entry id="mvz2:glowstone" count="5"/>
+            <entry id="mvz2:punchton" count="5"/>
+            <entry id="mvz2:tnt" count="5"/>
+            <entry id="mvz2:soul_furnace" count="4"/>
+            <entry id="mvz2:silvenser" count="8"/>
+            <entry id="mvz2:magichest" count="3"/>
+        </conveyor>
+        <clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:FrankensteinBrain"/>
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:ZombieHead"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:skeleton"/>
+            <spawn id="mvz2:SkeletonHead"/>
+            <spawn id="mvz2:ghost"/>
+            <spawn id="mvz2:mummy"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:skeleton_horse"/>
+            <spawn id="mvz2:MegaZombie"/>
+            <spawn id="mvz2:RedEyeZombieHead"/>
+            <spawn id="mvz2:KingSkeleton"/>
+            <spawn id="mvz2:SuperMegaZombie"/>
+            <spawn id="mvz2:EvilMage"/>
+            <!-- <spawn id="mvz2:石棺僵尸"/> -->
+            <!-- <spawn id="mvz2:狼人"/> -->
+        </spawns>
+        <properties>
+            <bool name="noEnergy" value="true"/>
+            <integer name="statueCount" value="10" />
+        </properties>
+    </stage>
     
     
     <!-- Dream -->
-    <stage id="dream_1" name="梦境世界" dayNumber="1" unlock="mvz2:entered_dream">
+    <stage id="dream_1" name="梦境世界" dayNumber="1" >
+        <unlock>
+            <condition required="mvz2:entered_dream"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:dream_1"/>
             <talk type="end" value="mvz2:dream_1_over"/>
@@ -419,8 +446,10 @@
             
         </spawns>
     </stage>
-    
-    <stage id="dream_2" name="梦境世界" dayNumber="2" unlock="mvz2:level.dream_1">
+    <stage id="dream_2" name="梦境世界" dayNumber="2" >
+        <unlock>
+            <condition required="mvz2:level.dream_1"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:dream_2"/>
             <talk type="end" value="mvz2:dream_2_over"/>
@@ -436,8 +465,10 @@
             <spawn id="mvz2:HostZombie"/>
         </spawns>
     </stage>
-    
-    <stage id="dream_3" name="梦境世界" dayNumber="3" unlock="mvz2:level.dream_2">
+    <stage id="dream_3" name="梦境世界" dayNumber="3" >
+        <unlock>
+            <condition required="mvz2:level.dream_2"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:dream_3"/>
             <talk type="end" value="mvz2:dream_3_over"/>
@@ -455,8 +486,10 @@
             <!-- <spawn id="mvz2:溺尸"/> -->
         </spawns>
     </stage>
-    
-    <stage id="dream_4" name="梦境世界" dayNumber="4" unlock="mvz2:level.dream_3">
+    <stage id="dream_4" name="梦境世界" dayNumber="4" >
+        <unlock>
+            <condition required="mvz2:level.dream_3"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:dream_4"/>
             <talk type="end" value="mvz2:dream_4_over"/>
@@ -473,8 +506,10 @@
             <spawn id="mvz2:skeleton_horse"/>
         </spawns>
     </stage>
-    
-    <stage id="dream_5" name="梦境世界" dayNumber="5" unlock="mvz2:level.dream_4">
+    <stage id="dream_5" name="梦境世界" dayNumber="5" >
+        <unlock>
+            <condition required="mvz2:level.dream_4"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:dream_5"/>
             <talk type="end" value="mvz2:dream_5_over"/>
@@ -492,11 +527,13 @@
             <spawn id="mvz2:ZombieHead"/>
             <spawn id="mvz2:necromancer"/>
             <spawn id="mvz2:cave_spider"/>
-			
+            
         </spawns>
     </stage>
-    
-    <stage id="dream_6" name="梦境世界" dayNumber="6" needBlueprints="false" type="minigame" unlock="mvz2:level.dream_5" music="mvz2:minigame">
+    <stage id="dream_6" name="梦境世界" dayNumber="6" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.dream_5"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:dream_6"/>
             <talk type="end" value="mvz2:dream_6_over"/>
@@ -504,7 +541,7 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:pistenser"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30">
+        <spawns flags="2">
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
             <spawn id="mvz2:skeleton"/>
@@ -515,17 +552,20 @@
             <spawn id="mvz2:necromancer"/>
             <spawn id="mvz2:skeleton_horse"/>
             <!-- <spawn id="mvz2:水生蜘蛛"/> -->
-			
+            
             <!-- <spawn id="mvz2:恐怖寄生虫"/> -->
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
             <bool name="noEnergy" value="true"/>
             <bool name="autoCollectAll" value="true"/>
         </properties>
     </stage>
-    
-    <stage id="dream_7" name="梦境世界" dayNumber="7" unlock="mvz2:level.dream_6" >
+    <stage id="dream_7" name="梦境世界" dayNumber="7" >
+        <unlock>
+            <condition required="mvz2:level.dream_6"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:dream_7"/>
             <talk type="end" value="mvz2:dream_7_over"/>
@@ -542,8 +582,10 @@
             <spawn id="mvz2:ZombieHead"/>
         </spawns>
     </stage>
-    
-    <stage id="dream_8" name="梦境世界" dayNumber="8" unlock="mvz2:level.dream_7" >
+    <stage id="dream_8" name="梦境世界" dayNumber="8" >
+        <unlock>
+            <condition required="mvz2:level.dream_7"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:dream_8"/>
             <talk type="end" value="mvz2:dream_8_over"/>
@@ -554,7 +596,7 @@
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:spider"/>
             <!-- <spawn id="mvz2:水生蜘蛛"/> -->
-			<spawn id="mvz2:cave_spider"/>
+            <spawn id="mvz2:cave_spider"/>
             <spawn id="mvz2:ghast"/>
             <spawn id="mvz2:skeleton_horse"/>
             <spawn id="mvz2:mummy"/>
@@ -564,8 +606,10 @@
             <!-- <spawn id="mvz2:石棺僵尸"/> -->
         </spawns>
     </stage>
-    
-    <stage id="dream_9" name="梦境世界" dayNumber="9" unlock="mvz2:level.dream_8" >
+    <stage id="dream_9" name="梦境世界" dayNumber="9" >
+        <unlock>
+            <condition required="mvz2:level.dream_8"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:dream_9"/>
             <talk type="end" value="mvz2:dream_9_over"/>
@@ -583,8 +627,10 @@
             <spawn id="mvz2:necromancer"/>
         </spawns>
     </stage>
-    
-    <stage id="dream_10" name="梦境世界" dayNumber="10" unlock="mvz2:level.dream_9" >
+    <stage id="dream_10" name="梦境世界" dayNumber="10" >
+        <unlock>
+            <condition required="mvz2:level.dream_9"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:dream_10"/>
             <talk type="end" value="mvz2:dream_10_over"/>
@@ -599,14 +645,16 @@
             <spawn id="mvz2:ghast"/>
             <spawn id="mvz2:mother_terror"/>
             <!-- <spawn id="mvz2:水生蜘蛛"/> -->
-			<spawn id="mvz2:cave_spider"/>
+            <spawn id="mvz2:cave_spider"/>
             <spawn id="mvz2:anubisand"/>
             <spawn id="mvz2:ghost"/>
             <spawn id="mvz2:BloodlustHostZombie"/>
         </spawns>
     </stage>
-    
-    <stage id="dream_11" name="梦境世界" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.dream_10" music="mvz2:nightmare_final" >
+    <stage id="dream_11" name="梦境世界" dayNumber="11" type="boss" needBlueprints="false" music="mvz2:nightmare_final" >
+        <unlock>
+            <condition required="mvz2:level.dream_10"/>
+        </unlock>
         <talks noStartMusic="true">
             <talk type="start" value="mvz2:dream_11"/>
             <talk type="end" value="mvz2:dream_11_over"/>
@@ -623,6 +671,53 @@
             <entry id="mvz2:dream_silk" count="1"/>
             <entry id="mvz2:glowstone" count="4"/>
             
+        </conveyor>
+        <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" pointsMultiplier="3" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:iron_helmetted_zombie"/>
+            <spawn id="mvz2:spider"/>
+            <spawn id="mvz2:cave_spider"/>
+            <spawn id="mvz2:ghast"/>
+            <spawn id="mvz2:mother_terror"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:skeleton"/>
+            <spawn id="mvz2:HostMutant"/>
+            <spawn id="mvz2:HostZombie"/>
+            <spawn id="mvz2:BloodlustHostZombie"/>
+        </spawns>
+        <time firstWave="0.33333"/>
+        <properties>
+            <bool name="noEnergy" value="true"/>
+        </properties>
+    </stage>
+    <stage id="dream_endless" name="梦境世界无尽" type="endless" >
+        <unlock>
+            <condition required="mvz2:level.dream_11"/>
+        </unlock>
+        <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+        </spawns>
+    </stage>
+
+    <stage id="dream_12" name="梦境世界" dayNumber="12" type="boss" needBlueprints="false" unlock="mvz2:level.dream_11" music="mvz2:nightmare_final" >
+        <talks noStartMusic="true">
+            
+        </talks>
+        <conveyor>
+            <entry id="mvz2:lily_pad" count="16"/>
+            <entry id="mvz2:drivenser" count="30"/>
+            <entry id="mvz2:gravity_pad" count="3"/>
+            <entry id="mvz2:vortex_hopper" count="3"/>
+            <entry id="mvz2:pistenser" count="12"/>
+            <entry id="mvz2:totenser" count="12"/>
+            <entry id="mvz2:dream_crystal" count="6"/>
+            <entry id="mvz2:dream_silk" count="1"/>
+            <entry id="mvz2:glowstone" count="4"/>
+
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
         <spawns flags="2" firstWaveTime="10" pointsMultiplier="3" >
@@ -643,52 +738,12 @@
             <bool name="noEnergy" value="true"/>
         </properties>
     </stage>
-    <stage id="dream_endless" name="梦境世界无尽" type="endless" unlock="mvz2:level.dream_11" >
-        <clear pickupModel="mvz2:entity.money_chest"/>
-        <spawns flags="2" >
-            <spawn id="mvz2:zombie"/>
-            <spawn id="mvz2:leather_capped_zombie"/>
-        </spawns>
-    </stage>
-
-	<stage id="dream_12" name="梦境世界" dayNumber="12" type="boss" needBlueprints="false" unlock="mvz2:level.dream_11" music="mvz2:nightmare_final" >
-		<talks noStartMusic="true">
-			
-		</talks>
-		<conveyor>
-			<entry id="mvz2:lily_pad" count="16"/>
-			<entry id="mvz2:drivenser" count="30"/>
-			<entry id="mvz2:gravity_pad" count="3"/>
-			<entry id="mvz2:vortex_hopper" count="3"/>
-			<entry id="mvz2:pistenser" count="12"/>
-			<entry id="mvz2:totenser" count="12"/>
-			<entry id="mvz2:dream_crystal" count="6"/>
-			<entry id="mvz2:dream_silk" count="1"/>
-			<entry id="mvz2:glowstone" count="4"/>
-
-		</conveyor>
-		<clear pickupModel="mvz2:entity.money_chest"/>
-		<spawns flags="2" firstWaveTime="10" pointsMultiplier="3" >
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:iron_helmetted_zombie"/>
-			<spawn id="mvz2:spider"/>
-			<spawn id="mvz2:cave_spider"/>
-			<spawn id="mvz2:ghast"/>
-			<spawn id="mvz2:mother_terror"/>
-			<spawn id="mvz2:necromancer"/>
-			<spawn id="mvz2:skeleton"/>
-			<spawn id="mvz2:HostMutant"/>
-			<spawn id="mvz2:HostZombie"/>
-			<spawn id="mvz2:BloodlustHostZombie"/>
-		</spawns>
-		<properties>
-			<bool name="noEnergy" value="true"/>
-		</properties>
-	</stage>
 
     <!-- Castle -->
-    <stage id="castle_1" name="辉针城" dayNumber="1" unlock="mvz2:entered_castle">
+    <stage id="castle_1" name="辉针城" dayNumber="1" >
+        <unlock>
+            <condition required="mvz2:entered_castle"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:castle_1"/>
             <talk type="end" value="mvz2:castle_1_over"/>
@@ -696,15 +751,18 @@
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:wooden_dropper"/>
         <spawns flags="1">
-			<spawn id="mvz2:spider"/>
+            <spawn id="mvz2:spider"/>
             <spawn id="mvz2:WitherSkeleton"/>
             <spawn id="mvz2:LeatherWitherSkeleton"/>
             <spawn id="mvz2:IronWitherSkeleton"/>
             <spawn id="mvz2:NetherWarrior"/>
-			
+            
         </spawns>
     </stage>
-    <stage id="castle_2" name="辉针城" dayNumber="2" unlock="mvz2:level.castle_1">
+    <stage id="castle_2" name="辉针城" dayNumber="2" >
+        <unlock>
+            <condition required="mvz2:level.castle_1"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:castle_2"/>
             <talk type="end" value="mvz2:castle_2_over"/>
@@ -716,10 +774,13 @@
             <spawn id="mvz2:LeatherWitherSkeleton"/>
             <spawn id="mvz2:IronWitherSkeleton"/>
             <spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherWarrior"/>
         </spawns>
     </stage>
-    <stage id="castle_3" name="辉针城" dayNumber="3" unlock="mvz2:level.castle_2">
+    <stage id="castle_3" name="辉针城" dayNumber="3" >
+        <unlock>
+            <condition required="mvz2:level.castle_2"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:castle_3"/>
             <talk type="end" value="mvz2:castle_3_over"/>
@@ -731,12 +792,15 @@
             <spawn id="mvz2:LeatherWitherSkeleton"/>
             <spawn id="mvz2:IronWitherSkeleton"/>
             <spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:ghast"/>
-			<spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:ghast"/>
+            <spawn id="mvz2:NetherArcher"/>
         </spawns>
     </stage>
-    <stage id="castle_4" name="辉针城" dayNumber="4" unlock="mvz2:level.castle_3">
+    <stage id="castle_4" name="辉针城" dayNumber="4" >
+        <unlock>
+            <condition required="mvz2:level.castle_3"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:castle_4"/>
             <talk type="end" value="mvz2:castle_4_over"/>
@@ -749,10 +813,13 @@
             <spawn id="mvz2:IronWitherSkeleton"/>
             <spawn id="mvz2:mesmerizer"/>
             <spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:necromancer"/>
         </spawns>
     </stage>
-    <stage id="castle_5" name="辉针城" dayNumber="5" unlock="mvz2:level.castle_4">
+    <stage id="castle_5" name="辉针城" dayNumber="5" >
+        <unlock>
+            <condition required="mvz2:level.castle_4"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:castle_5"/>
             <talk type="end" value="mvz2:castle_5_over"/>
@@ -765,13 +832,16 @@
             <spawn id="mvz2:IronWitherSkeleton"/>
             <spawn id="mvz2:mesmerizer"/>
             <spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:necromancer"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:dullahan_head"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:dullahan_head"/>
         </spawns>
     </stage>
-    <stage id="castle_6" name="辉针城" dayNumber="6" needBlueprints="false" type="minigame" unlock="mvz2:level.castle_5" music="mvz2:minigame">
+    <stage id="castle_6" name="辉针城" dayNumber="6" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.castle_5"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:castle_6"/>
             <talk type="end" value="mvz2:castle_6_over"/>
@@ -785,22 +855,26 @@
             <entry id="mvz2:stone_dropper" count="8"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:golden_apple"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
-			<spawn id="mvz2:WitherSkeleton"/>
-			<spawn id="mvz2:LeatherWitherSkeleton"/>
-			<spawn id="mvz2:IronWitherSkeleton"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:mummy"/>
-			<spawn id="mvz2:ghast"/>
-			<spawn id="mvz2:dullahan_head"/>
+        <spawns flags="2" pointsMultiplier="4" pointsAddition="3">
+            <spawn id="mvz2:WitherSkeleton"/>
+            <spawn id="mvz2:LeatherWitherSkeleton"/>
+            <spawn id="mvz2:IronWitherSkeleton"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:mummy"/>
+            <spawn id="mvz2:ghast"/>
+            <spawn id="mvz2:dullahan_head"/>
             
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
             <bool name="noEnergy" value="true"/>
         </properties>
     </stage>
-    <stage id="castle_7" name="辉针城" dayNumber="7" type="special" unlock="mvz2:kourindou_visited_castle">
+    <stage id="castle_7" name="辉针城" dayNumber="7" type="special" >
+        <unlock>
+            <condition required="mvz2:kourindou_visited_castle"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:castle_7"/>
             <talk type="end" value="mvz2:castle_7_over"/>
@@ -814,13 +888,16 @@
             <spawn id="mvz2:mesmerizer"/>
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:RaiderSkull"/>
-			<spawn id="mvz2:dullahan_head"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:RaiderSkull"/>
+            <spawn id="mvz2:dullahan_head"/>
         </spawns>
     </stage>
-    <stage id="castle_8" name="辉针城" dayNumber="8" unlock="mvz2:level.castle_7">
+    <stage id="castle_8" name="辉针城" dayNumber="8" >
+        <unlock>
+            <condition required="mvz2:level.castle_7"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:castle_8"/>
             <talk type="end" value="mvz2:castle_8_over"/>
@@ -834,14 +911,17 @@
             <spawn id="mvz2:mesmerizer"/>
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:NetherVanguard"/>
-			<spawn id="mvz2:RaiderSkull"/>
-			<spawn id="mvz2:Anubiskull"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:NetherVanguard"/>
+            <spawn id="mvz2:RaiderSkull"/>
+            <spawn id="mvz2:Anubiskull"/>
         </spawns>
     </stage>
-    <stage id="castle_9" name="辉针城" dayNumber="9" unlock="mvz2:level.castle_8">
+    <stage id="castle_9" name="辉针城" dayNumber="9" >
+        <unlock>
+            <condition required="mvz2:level.castle_8"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:castle_9"/>
             <talk type="end" value="mvz2:castle_9_over"/>
@@ -857,15 +937,18 @@
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
             <spawn id="mvz2:hell_chariot"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:NetherVanguard"/>
-			<spawn id="mvz2:AngryReverser"/>
-			<spawn id="mvz2:RaiderSkull"/>
-			<spawn id="mvz2:Anubiskull"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:NetherVanguard"/>
+            <spawn id="mvz2:AngryReverser"/>
+            <spawn id="mvz2:RaiderSkull"/>
+            <spawn id="mvz2:Anubiskull"/>
         </spawns>
     </stage>
-    <stage id="castle_10" name="辉针城" dayNumber="10" unlock="mvz2:level.castle_9">
+    <stage id="castle_10" name="辉针城" dayNumber="10" >
+        <unlock>
+            <condition required="mvz2:level.castle_9"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:castle_10"/>
             <talk type="end" value="mvz2:castle_10_over"/>
@@ -880,16 +963,19 @@
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
             <spawn id="mvz2:skeleton_mage"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:NetherVanguard"/>
-			<spawn id="mvz2:AngryReverser"/>
-			<spawn id="mvz2:RaiderSkull"/>
-			<spawn id="mvz2:Anubiskull"/>
-			<spawn id="mvz2:NetherTroopCarrier"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:NetherVanguard"/>
+            <spawn id="mvz2:AngryReverser"/>
+            <spawn id="mvz2:RaiderSkull"/>
+            <spawn id="mvz2:Anubiskull"/>
+            <spawn id="mvz2:NetherTroopCarrier"/>
         </spawns>
     </stage>
-    <stage id="castle_11" name="辉针城" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.castle_10" music="mvz2:castle_final" >
+    <stage id="castle_11" name="辉针城" dayNumber="11" type="boss" needBlueprints="false" music="mvz2:castle_final" >
+        <unlock>
+            <condition required="mvz2:level.castle_10"/>
+        </unlock>
         <talks noStartMusic="true">
             <talk type="start" value="mvz2:castle_11"/>
             <talk type="end" value="mvz2:castle_11_over"/>
@@ -907,9 +993,125 @@
             <entry id="mvz2:giant_bowl" count="1"/>
             <entry id="mvz2:pistenser" count="12"/>
             <entry id="mvz2:soul_furnace" count="6"/>
-			<entry id="mvz2:tnt" count="2"/>
+            <entry id="mvz2:tnt" count="2"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" pointsMultiplier="3" >
+            <spawn id="mvz2:WitherSkeleton"/>
+            <spawn id="mvz2:LeatherWitherSkeleton"/>
+            <spawn id="mvz2:IronWitherSkeleton"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:dullahan"/>
+            <spawn id="mvz2:hell_chariot"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:NetherVanguard"/>
+            <spawn id="mvz2:AngryReverser"/>
+            <spawn id="mvz2:RaiderSkull"/>
+        </spawns>
+        <time firstWave="1"/>
+        <properties>
+            <bool name="noEnergy" value="true"/>
+        </properties>
+    </stage>
+    <stage id="castle_endless" name="辉针城无尽" type="endless" >
+        <unlock>
+            <condition required="mvz2:level.castle_11"/>
+        </unlock>
+        <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:WitherSkeleton"/>
+            <spawn id="mvz2:LeatherWitherSkeleton"/>
+        </spawns>
+    </stage>
+
+    <stage id="castle_12" name="辉针城" dayNumber="12" unlock="mvz2:level.castle_11" music="mvz2:Dungeon">
+        <talks>
+
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:DispenShield"/>
+        <spawns flags="2"  pointsAddition="3">
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:NetherVanguard"/>
+            <spawn id="mvz2:RaiderSkull"/>
+            <spawn id="mvz2:Anubiskull"/>
+            <spawn id="mvz2:dullahan"/>
+            <spawn id="mvz2:WitherSkeletonHorse"/>
+            <spawn id="mvz2:AssaultDullahan"/>
+        </spawns>
+    </stage>
+
+    <stage id="castle_13" name="辉针城" dayNumber="13" unlock="mvz2:level.castle_12" music="mvz2:Dungeon">
+        <talks>
+            
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:CopperDropper"/>
+        <spawns flags="3" pointsAddition="3">
+            <spawn id="mvz2:IronWitherSkeleton"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:dullahan"/>
+            <spawn id="mvz2:hell_chariot"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:NetherVanguard"/>
+            <spawn id="mvz2:RaiderSkull"/>
+            <spawn id="mvz2:Anubiskull"/>
+            <spawn id="mvz2:WintherMage"/>
+            <spawn id="mvz2:BerserkerHead"/>
+            <spawn id="mvz2:dullahan_head"/>
+            
+        </spawns>
+    </stage>
+
+    <stage id="castle_14" name="辉针城" dayNumber="14" unlock="mvz2:level.castle_13" music="mvz2:Dungeon">
+        <talks>
+            
+        </talks>
+        <clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:wither_skeleton_skull"/>
+        <spawns flags="3" pointsAddition="3">
+            <spawn id="mvz2:WitherSkeletonHorse"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:dullahan"/>
+            <spawn id="mvz2:hell_chariot"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:NetherVanguard"/>
+            <spawn id="mvz2:AngryReverser"/>
+            <spawn id="mvz2:RaiderSkull"/>
+            <spawn id="mvz2:Anubiskull"/>
+            <spawn id="mvz2:KingofReverser"/>
+            <spawn id="mvz2:dullahan_head"/>
+        </spawns>
+    </stage>
+
+    <stage id="castle_15" name="辉针城" dayNumber="15" type="boss" needBlueprints="false" unlock="mvz2:level.castle_14" music="mvz2:castle_final" >
+        <talks noStartMusic="true">
+
+        </talks>
+        <conveyor>
+            <entry id="mvz2:glowstone" count="8" minCount="0"/>
+            <entry id="mvz2:GlowingObsidian" count="5"/>
+            <entry id="mvz2:spike_block" count="5"/>
+            <entry id="mvz2:stone_dropper" count="8"/>
+            <entry id="mvz2:stone_shield" count="15"/>
+            <entry id="mvz2:golden_apple" count="5"/>
+            <entry id="mvz2:thunder_drum" count="3"/>
+            <entry id="mvz2:tesla_coil" count="8"/>
+            <entry id="mvz2:giant_bowl" count="2"/>
+            <entry id="mvz2:magichest" count="1"/>
+            <entry id="mvz2:pistenser" count="12"/>
+            <entry id="mvz2:soul_furnace" count="6"/>
+            <entry id="mvz2:tnt" count="2"/>
+            <entry id="mvz2:DispenShield" count="6"/>
+            <entry id="mvz2:CopperDropper" count="1"/>
+        </conveyor>
+        <clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:WitherHeartShield"/>
         <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
             <spawn id="mvz2:WitherSkeleton"/>
             <spawn id="mvz2:LeatherWitherSkeleton"/>
@@ -918,408 +1120,340 @@
             <spawn id="mvz2:berserker"/>
             <spawn id="mvz2:dullahan"/>
             <spawn id="mvz2:hell_chariot"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:NetherVanguard"/>
-			<spawn id="mvz2:AngryReverser"/>
-			<spawn id="mvz2:RaiderSkull"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:NetherVanguard"/>
+            <spawn id="mvz2:AngryReverser"/>
+            <spawn id="mvz2:RaiderSkull"/>
+            <spawn id="mvz2:Anubiskull"/>
+            <spawn id="mvz2:WitherSkeletonHorse"/>
+            <spawn id="mvz2:AssaultDullahan"/>
+            <spawn id="mvz2:KingofReverser"/>
+            <spawn id="mvz2:WintherMage"/>
+            <spawn id="mvz2:dullahan_head"/>
+
         </spawns>
         <properties>
             <bool name="noEnergy" value="true"/>
         </properties>
     </stage>
-    <stage id="castle_endless" name="辉针城无尽" type="endless" unlock="mvz2:level.castle_11" >
-        <clear pickupModel="mvz2:entity.money_chest"/>
-        <spawns flags="2" >
-            <spawn id="mvz2:WitherSkeleton"/>
-            <spawn id="mvz2:LeatherWitherSkeleton"/>
-        </spawns>
-    </stage>
-
-	<stage id="castle_12" name="辉针城" dayNumber="12" unlock="mvz2:level.castle_11" music="mvz2:Dungeon">
-		<talks>
-
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:DispenShield"/>
-		<spawns flags="2"  pointsAddition="3">
-			<spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:NetherVanguard"/>
-			<spawn id="mvz2:RaiderSkull"/>
-			<spawn id="mvz2:Anubiskull"/>
-			<spawn id="mvz2:dullahan"/>
-			<spawn id="mvz2:WitherSkeletonHorse"/>
-			<spawn id="mvz2:AssaultDullahan"/>
-		</spawns>
-	</stage>
-
-	<stage id="castle_13" name="辉针城" dayNumber="13" unlock="mvz2:level.castle_12" music="mvz2:Dungeon">
-		<talks>
-			
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:CopperDropper"/>
-		<spawns flags="3" pointsAddition="3">
-			<spawn id="mvz2:IronWitherSkeleton"/>
-			<spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:dullahan"/>
-			<spawn id="mvz2:hell_chariot"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:NetherVanguard"/>
-			<spawn id="mvz2:RaiderSkull"/>
-			<spawn id="mvz2:Anubiskull"/>
-			<spawn id="mvz2:WintherMage"/>
-			<spawn id="mvz2:BerserkerHead"/>
-			<spawn id="mvz2:dullahan_head"/>
-			
-		</spawns>
-	</stage>
-
-	<stage id="castle_14" name="辉针城" dayNumber="14" unlock="mvz2:level.castle_13" music="mvz2:Dungeon">
-		<talks>
-			
-		</talks>
-		<clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:wither_skeleton_skull"/>
-		<spawns flags="3" pointsAddition="3">
-			<spawn id="mvz2:WitherSkeletonHorse"/>
-			<spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:dullahan"/>
-			<spawn id="mvz2:hell_chariot"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:NetherVanguard"/>
-			<spawn id="mvz2:AngryReverser"/>
-			<spawn id="mvz2:RaiderSkull"/>
-			<spawn id="mvz2:Anubiskull"/>
-			<spawn id="mvz2:KingofReverser"/>
-			<spawn id="mvz2:dullahan_head"/>
-		</spawns>
-	</stage>
-
-	<stage id="castle_15" name="辉针城" dayNumber="15" type="boss" needBlueprints="false" unlock="mvz2:level.castle_14" music="mvz2:castle_final" >
-		<talks noStartMusic="true">
-
-		</talks>
-		<conveyor>
-			<entry id="mvz2:glowstone" count="8" minCount="0"/>
-			<entry id="mvz2:GlowingObsidian" count="5"/>
-			<entry id="mvz2:spike_block" count="5"/>
-			<entry id="mvz2:stone_dropper" count="8"/>
-			<entry id="mvz2:stone_shield" count="15"/>
-			<entry id="mvz2:golden_apple" count="5"/>
-			<entry id="mvz2:thunder_drum" count="3"/>
-			<entry id="mvz2:tesla_coil" count="8"/>
-			<entry id="mvz2:giant_bowl" count="2"/>
-			<entry id="mvz2:magichest" count="1"/>
-			<entry id="mvz2:pistenser" count="12"/>
-			<entry id="mvz2:soul_furnace" count="6"/>
-			<entry id="mvz2:tnt" count="2"/>
-			<entry id="mvz2:DispenShield" count="6"/>
-			<entry id="mvz2:CopperDropper" count="1"/>
-		</conveyor>
-		<clear pickupModel="mvz2:entity.artifact_pickup" pickupContentID="mvz2:WitherHeartShield"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
-			<spawn id="mvz2:WitherSkeleton"/>
-			<spawn id="mvz2:LeatherWitherSkeleton"/>
-			<spawn id="mvz2:IronWitherSkeleton"/>
-			<spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:dullahan"/>
-			<spawn id="mvz2:hell_chariot"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:NetherVanguard"/>
-			<spawn id="mvz2:AngryReverser"/>
-			<spawn id="mvz2:RaiderSkull"/>
-			<spawn id="mvz2:Anubiskull"/>
-			<spawn id="mvz2:WitherSkeletonHorse"/>
-			<spawn id="mvz2:AssaultDullahan"/>
-			<spawn id="mvz2:KingofReverser"/>
-			<spawn id="mvz2:WintherMage"/>
-			<spawn id="mvz2:dullahan_head"/>
-
-		</spawns>
-		<properties>
-			<bool name="noEnergy" value="true"/>
-		</properties>
-	</stage>
 
     <!-- Mausoleum -->
-	<stage id="mausoleum_1" name="梦殿大祀庙" dayNumber="1" unlock="mvz2:entered_mausoleum">
-		<talks>
-			<talk type="start" value="mvz2:mausoleum_1"/>
-			<talk type="end" value="mvz2:mausoleum_1_over"/>
-			<talk type="map" value="mvz2:mausoleum_1_map"/>
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:note_block"/>
-		<spawns flags="1">
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-		</spawns>
-	</stage>
-	<stage id="mausoleum_2" name="梦殿大祀庙" dayNumber="2" unlock="mvz2:level.mausoleum_1">
-		<talks>
-			<talk type="start" value="mvz2:mausoleum_2"/>
-			<talk type="end" value="mvz2:mausoleum_2_over"/>
-			<talk type="map" value="mvz2:mausoleum_2_map"/>
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:lightning_orb"/>
-		<spawns flags="1">
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-		</spawns>
-		<properties>
-			<integer name="spawnerCount" value="1" />
-		</properties>
-	</stage>
-	<stage id="mausoleum_3" name="梦殿大祀庙" dayNumber="3" unlock="mvz2:level.mausoleum_2">
-		<talks>
-			<talk type="start" value="mvz2:mausoleum_3"/>
-			<talk type="end" value="mvz2:mausoleum_3_over"/>
-			<talk type="map" value="mvz2:mausoleum_3_map"/>
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:splitenser"/>
-		<spawns flags="2">
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-			<spawn id="mvz2:skeleton"/>
-			<spawn id="mvz2:berserker"/>
-		</spawns>
-		<properties>
-			<integer name="spawnerCount" value="2" />
-		</properties>
-	</stage>
-	<stage id="mausoleum_4" name="梦殿大祀庙" dayNumber="4" unlock="mvz2:level.mausoleum_3">
-		<talks>
-			<talk type="start" value="mvz2:mausoleum_4"/>
-			<talk type="end" value="mvz2:mausoleum_4_over"/>
-			<talk type="map" value="mvz2:mausoleum_4_map"/>
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:devourer"/>
-		<spawns flags="2">
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:mummy"/>
-			<spawn id="mvz2:NetherArcher"/>
-		</spawns>
-		<properties>
-			<integer name="spawnerCount" value="3" />
-		</properties>
-	</stage>
-	<stage id="mausoleum_5" name="梦殿大祀庙" dayNumber="5" unlock="mvz2:level.mausoleum_4">
-		<talks>
-			<talk type="start" value="mvz2:mausoleum_5"/>
-			<talk type="end" value="mvz2:mausoleum_5_over"/>
-			<talk type="map" value="mvz2:mausoleum_5_map"/>
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:command_block"/>
-		<spawns flags="2">
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:spider"/>
-			<spawn id="mvz2:NetherArcher"/>
-		</spawns>
-		<properties>
-			<integer name="spawnerCount" value="4" />
-		</properties>
-	</stage>
-	<stage id="mausoleum_6" name="梦殿大祀庙" dayNumber="6" needBlueprints="false" type="puzzle" startEnergy="150" unlock="mvz2:kourindou_visited_mausoleum_2" music="mvz2:puzzle" >
-		<talks>
-			<talk type="start" value="mvz2:mausoleum_6"/>
-			<talk type="end" value="mvz2:mausoleum_6_over"/>
-			<talk type="map" value="mvz2:mausoleum_6_map"/>
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:hellfire"/>
-		<camera position="lawn" transition="instant"/>
-		<properties>
-			<bool name="autoCollectEnergy" value="true"/>
-			<bool name="autoCollectMoney" value="true"/>
-		</properties>
-	</stage>
-	<stage id="mausoleum_7" name="梦殿大祀庙" dayNumber="7" unlock="mvz2:level.mausoleum_6">
-		<talks>
-			<talk type="start" value="mvz2:mausoleum_7"/>
-			<talk type="end" value="mvz2:mausoleum_7_over"/>
-			<talk type="map" value="mvz2:mausoleum_7_map"/>
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:necrotombstone"/>
-		<spawns flags="2">
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:shikaisen_zombie"/>
-			<spawn id="mvz2:ghast"/>
-		</spawns>
-		<properties>
-			<integer name="spawnerCount" value="5" />
-		</properties>
-	</stage>
-	<stage id="mausoleum_8" name="梦殿大祀庙" dayNumber="8" unlock="mvz2:level.mausoleum_7">
-		<talks>
-			<talk type="start" value="mvz2:mausoleum_8"/>
-			<talk type="end" value="mvz2:mausoleum_8_over"/>
-			<talk type="map" value="mvz2:mausoleum_8_map"/>
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:black_hole_bomb"/>
-		<spawns flags="3">
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-			<spawn id="mvz2:ghost"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:shikaisen_zombie"/>
-			<spawn id="mvz2:necromancer"/>
-		</spawns>
-		<properties>
-			<integer name="spawnerCount" value="6" />
-		</properties>
-	</stage>
-	<stage id="mausoleum_9" name="梦殿大祀庙" dayNumber="9" unlock="mvz2:level.mausoleum_8">
-		<talks>
-			<talk type="start" value="mvz2:mausoleum_9"/>
-			<talk type="end" value="mvz2:mausoleum_9_over"/>
-			<talk type="map" value="mvz2:mausoleum_9_map"/>
-		</talks>
-		<clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:desire_pot"/>
-		<spawns flags="2">
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:shikaisen_zombie"/>
-			<spawn id="mvz2:emperor_zombie"/>
-			<spawn id="mvz2:SixQiZombie"/>
-		</spawns>
-		<properties>
-			<integer name="spawnerCount" value="7" />
-		</properties>
-	</stage>
-	<stage id="mausoleum_10" name="梦殿大祀庙" dayNumber="10" unlock="mvz2:level.mausoleum_9">
-		<talks>
-			<talk type="start" value="mvz2:mausoleum_10"/>
-			<talk type="end" value="mvz2:zombie_scroll"/>
-			<talk type="map" value="mvz2:mausoleum_10_map"/>
-		</talks>
-		<clear pickupModel="mvz2:entity.zombie_scroll" note="mvz2:mausoleum"/>
-		<spawns flags="3">
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:shikaisen_zombie"/>
-			<spawn id="mvz2:emperor_zombie"/>
-			<spawn id="mvz2:SixQiZombie"/>
-		</spawns>
-		<properties>
-			<integer name="spawnerCount" value="8" />
-		</properties>
-	</stage>
-	<stage id="mausoleum_11" name="梦殿大祀庙" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.mausoleum_10" music="mvz2:mausoleum_final" >
-		<talks noStartMusic="true">
-			<talk type="start" value="mvz2:mausoleum_11"/>
-			<talk type="end" value="mvz2:mausoleum_11_over"/>
-			<talk type="map" value="mvz2:mausoleum_11_map"/>
-		</talks>
-		<conveyor>
-			<entry id="mvz2:note_block" count="2"/>
-			<entry id="mvz2:lightning_orb" count="6"/>
-			<entry id="mvz2:splitenser" count="8"/>
-			<entry id="mvz2:devourer" count="2" minCount="0"/>
-			<entry id="mvz2:hellfire" count="4"/>
-			<entry id="mvz2:necrotombstone" count="4"/>
-			<entry id="mvz2:black_hole_bomb" count="1"/>
-			<entry id="mvz2:desire_pot" count="2" minCount="0"/>
-		</conveyor>
-		<clear pickupModel="mvz2:entity.money_chest"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:shikaisen_zombie"/>
-			<spawn id="mvz2:emperor_zombie"/>
-		</spawns>
-		<properties>
-			<bool name="noEnergy" value="true"/>
-			<integer name="spawnerCount" value="8" />
-		</properties>
-	</stage>
-	<stage id="mausoleum_endless" name="梦殿大祀庙无尽" type="endless" unlock="mvz2:level.mausoleum_11" >
-		<clear pickupModel="mvz2:entity.money_chest"/>
-		<spawns flags="2" >
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-		</spawns>
-		<properties>
-			<integer name="spawnerCount" value="1" />
-		</properties>
-	</stage>
-	<stage id="mausoleum_12" name="梦殿大祀庙" dayNumber="12" type="boss" needBlueprints="false" unlock="mvz2:level.mausoleum_11" music="mvz2:mausoleum_final" >
-		<talks noStartMusic="true">
-			
-		</talks>
-		<conveyor>
-			<entry id="mvz2:note_block" count="2"/>
-			<entry id="mvz2:lightning_orb" count="6"/>
-			<entry id="mvz2:splitenser" count="8"/>
-			<entry id="mvz2:devourer" count="2" minCount="0"/>
-			<entry id="mvz2:hellfire" count="4"/>
-			<entry id="mvz2:necrotombstone" count="4"/>
-			<entry id="mvz2:black_hole_bomb" count="1"/>
-			<entry id="mvz2:desire_pot" count="2" minCount="0"/>
-		</conveyor>
-		<clear pickupModel="mvz2:entity.money_chest"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
-			<spawn id="mvz2:MonkZombie"/>
-			<spawn id="mvz2:LeatherMonkZombie"/>
-			<spawn id="mvz2:IronMonkZombie"/>
-			<spawn id="mvz2:reflective_barrier_zombie"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:shikaisen_zombie"/>
-			<spawn id="mvz2:emperor_zombie"/>
-		</spawns>
-		<properties>
-			<bool name="noEnergy" value="true"/>
-			<integer name="spawnerCount" value="8" />
-		</properties>
-	</stage>
+    <stage id="mausoleum_1" name="梦殿大祀庙" dayNumber="1" >
+        <unlock>
+            <condition required="mvz2:entered_mausoleum"/>
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_1"/>
+            <talk type="end" value="mvz2:mausoleum_1_over"/>
+            <talk type="map" value="mvz2:mausoleum_1_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:note_block"/>
+        <spawns flags="1">
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+        </spawns>
+    </stage>
+    <stage id="mausoleum_2" name="梦殿大祀庙" dayNumber="2" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_1"/>
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_2"/>
+            <talk type="end" value="mvz2:mausoleum_2_over"/>
+            <talk type="map" value="mvz2:mausoleum_2_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:lightning_orb"/>
+        <spawns flags="1">
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="1" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_3" name="梦殿大祀庙" dayNumber="3" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_2"/>
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_3"/>
+            <talk type="end" value="mvz2:mausoleum_3_over"/>
+            <talk type="map" value="mvz2:mausoleum_3_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:splitenser"/>
+        <spawns flags="2">
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:skeleton"/>
+            <spawn id="mvz2:berserker"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="2" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_4" name="梦殿大祀庙" dayNumber="4" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_3"/>
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_4"/>
+            <talk type="end" value="mvz2:mausoleum_4_over"/>
+            <talk type="map" value="mvz2:mausoleum_4_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:devourer"/>
+        <spawns flags="2">
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:mummy"/>
+            <spawn id="mvz2:NetherArcher"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="3" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_5" name="梦殿大祀庙" dayNumber="5" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_4"/>
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_5"/>
+            <talk type="end" value="mvz2:mausoleum_5_over"/>
+            <talk type="map" value="mvz2:mausoleum_5_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:command_block"/>
+        <spawns flags="2">
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:spider"/>
+            <spawn id="mvz2:NetherArcher"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="4" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_6" name="梦殿大祀庙" dayNumber="6" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
+        <unlock>
+            <condition required="mvz2:kourindou_visited_mausoleum_2"/>
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_6"/>
+            <talk type="end" value="mvz2:mausoleum_6_over"/>
+            <talk type="map" value="mvz2:mausoleum_6_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:hellfire"/>
+        <camera position="lawn" transition="instant"/>
+        <properties>
+            <bool name="autoCollectEnergy" value="true"/>
+            <bool name="autoCollectMoney" value="true"/>
+        </properties>
+    </stage>
+    <stage id="mausoleum_7" name="梦殿大祀庙" dayNumber="7" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_6"/>
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_7"/>
+            <talk type="end" value="mvz2:mausoleum_7_over"/>
+            <talk type="map" value="mvz2:mausoleum_7_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:necrotombstone"/>
+        <spawns flags="2">
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+            <spawn id="mvz2:ghast"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="5" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_8" name="梦殿大祀庙" dayNumber="8" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_7"/>
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_8"/>
+            <talk type="end" value="mvz2:mausoleum_8_over"/>
+            <talk type="map" value="mvz2:mausoleum_8_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:black_hole_bomb"/>
+        <spawns flags="3">
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+            <spawn id="mvz2:ghost"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+            <spawn id="mvz2:necromancer"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="6" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_9" name="梦殿大祀庙" dayNumber="9" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_8"/>
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_9"/>
+            <talk type="end" value="mvz2:mausoleum_9_over"/>
+            <talk type="map" value="mvz2:mausoleum_9_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:desire_pot"/>
+        <spawns flags="2">
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+            <spawn id="mvz2:emperor_zombie"/>
+            <spawn id="mvz2:SixQiZombie"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="7" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_10" name="梦殿大祀庙" dayNumber="10" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_9"/>
+        </unlock>
+        <talks>
+            <talk type="start" value="mvz2:mausoleum_10"/>
+            <talk type="end" value="mvz2:zombie_scroll"/>
+            <talk type="map" value="mvz2:mausoleum_10_map"/>
+        </talks>
+        <clear pickupModel="mvz2:entity.zombie_scroll" note="mvz2:mausoleum"/>
+        <spawns flags="3">
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+            <spawn id="mvz2:emperor_zombie"/>
+            <spawn id="mvz2:SixQiZombie"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="8" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_11" name="梦殿大祀庙" dayNumber="11" type="boss" needBlueprints="false" music="mvz2:mausoleum_final" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_10"/>
+        </unlock>
+        <talks noStartMusic="true">
+            <talk type="start" value="mvz2:mausoleum_11"/>
+            <talk type="end" value="mvz2:mausoleum_11_over"/>
+            <talk type="map" value="mvz2:mausoleum_11_map"/>
+        </talks>
+        <conveyor>
+            <entry id="mvz2:note_block" count="2"/>
+            <entry id="mvz2:lightning_orb" count="6"/>
+            <entry id="mvz2:splitenser" count="8"/>
+            <entry id="mvz2:devourer" count="2" minCount="0"/>
+            <entry id="mvz2:hellfire" count="4"/>
+            <entry id="mvz2:necrotombstone" count="4"/>
+            <entry id="mvz2:black_hole_bomb" count="1"/>
+            <entry id="mvz2:desire_pot" count="2" minCount="0"/>
+        </conveyor>
+        <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" pointsMultiplier="3" >
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+            <spawn id="mvz2:emperor_zombie"/>
+        </spawns>
+        <time firstWave="1"/>
+        <properties>
+            <bool name="noEnergy" value="true"/>
+            <integer name="spawnerCount" value="8" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_endless" name="梦殿大祀庙无尽" type="endless" >
+        <unlock>
+            <condition required="mvz2:level.mausoleum_11"/>
+        </unlock>
+        <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" >
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+        </spawns>
+        <properties>
+            <integer name="spawnerCount" value="1" />
+        </properties>
+    </stage>
+    <stage id="mausoleum_12" name="梦殿大祀庙" dayNumber="12" type="boss" needBlueprints="false" unlock="mvz2:level.mausoleum_11" music="mvz2:mausoleum_final" >
+        <talks noStartMusic="true">
+            
+        </talks>
+        <conveyor>
+            <entry id="mvz2:note_block" count="2"/>
+            <entry id="mvz2:lightning_orb" count="6"/>
+            <entry id="mvz2:splitenser" count="8"/>
+            <entry id="mvz2:devourer" count="2" minCount="0"/>
+            <entry id="mvz2:hellfire" count="4"/>
+            <entry id="mvz2:necrotombstone" count="4"/>
+            <entry id="mvz2:black_hole_bomb" count="1"/>
+            <entry id="mvz2:desire_pot" count="2" minCount="0"/>
+        </conveyor>
+        <clear pickupModel="mvz2:entity.money_chest"/>
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+            <spawn id="mvz2:MonkZombie"/>
+            <spawn id="mvz2:LeatherMonkZombie"/>
+            <spawn id="mvz2:IronMonkZombie"/>
+            <spawn id="mvz2:reflective_barrier_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+            <spawn id="mvz2:emperor_zombie"/>
+        </spawns>
+        <properties>
+            <bool name="noEnergy" value="true"/>
+            <integer name="spawnerCount" value="8" />
+        </properties>
+    </stage>
 
 
-	<!-- Chapter 5 -->
-    <stage id="ship_1" name="圣辇船" dayNumber="1" unlock="mvz2:entered_ship">
+    <!-- Chapter 5 -->
+    <stage id="ship_1" name="圣辇船" dayNumber="1" >
+        <unlock>
+            <condition required="mvz2:entered_ship"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_1"/>
             <talk type="end" value="mvz2:ship_1_over"/>
             <talk type="map" value="mvz2:ship_1_map"/>
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:gunpowder_barrel"/>
-        <spawns flags="1" firstWaveTime="1800">
+        <spawns flags="1">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
         </spawns>
+        <time firstWave="60"/>
     </stage>
-    <stage id="ship_2" name="圣辇船" dayNumber="2" unlock="mvz2:level.ship_1">
+    <stage id="ship_2" name="圣辇船" dayNumber="2" >
+        <unlock>
+            <condition required="mvz2:level.ship_1"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_2" />
             <talk type="end" value="mvz2:ship_2_over"/>
@@ -1333,7 +1467,10 @@
             <spawn id="mvz2:undead_flying_object"/>
         </spawns>
     </stage>
-    <stage id="ship_3" name="圣辇船" dayNumber="3" unlock="mvz2:level.ship_2">
+    <stage id="ship_3" name="圣辇船" dayNumber="3" >
+        <unlock>
+            <condition required="mvz2:level.ship_2"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_3"/>
             <talk type="end" value="mvz2:ship_3_over"/>
@@ -1348,14 +1485,17 @@
             <spawn id="mvz2:ghast"/>
         </spawns>
     </stage>
-    <stage id="ship_4" name="圣辇船" dayNumber="4" unlock="mvz2:level.ship_3">
+    <stage id="ship_4" name="圣辇船" dayNumber="4" >
+        <unlock>
+            <condition required="mvz2:level.ship_3"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_4"/>
             <talk type="end" value="mvz2:ship_4_over"/>
             <talk type="map" value="mvz2:ship_4_map"/>
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:beacon"/>
-        <spawns flags="3" >
+        <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -1363,14 +1503,17 @@
             <spawn id="mvz2:cannoneer_zombie"/>
         </spawns>
     </stage>
-    <stage id="ship_5" name="圣辇船" dayNumber="5" unlock="mvz2:level.ship_4" >
+    <stage id="ship_5" name="圣辇船" dayNumber="5" >
+        <unlock>
+            <condition required="mvz2:level.ship_4"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_5"/>
             <talk type="end" value="mvz2:ship_5_over"/>
             <talk type="map" value="mvz2:ship_5_map"/>
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:high_frequency_pulse_dispenser"/>
-        <spawns flags="2" >
+        <spawns flags="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -1379,25 +1522,41 @@
             <spawn id="mvz2:reflective_barrier_zombie"/>
         </spawns>
     </stage>
-    <stage id="ship_6" name="圣辇船" dayNumber="6" needBlueprints="false" type="minigame" unlock="mvz2:level.ship_5" music="mvz2:minigame" >
+    <stage id="ship_6" name="圣辇船" dayNumber="6" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.ship_5"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_6"/>
             <talk type="end" value="mvz2:ship_6_over"/>
             <talk type="map" value="mvz2:ship_6_map"/>
         </talks>
+        <conveyor>
+            <entry id="mvz2:beacon" count="20"/>
+            <entry id="mvz2:lightning_orb" count="5"/>
+            <entry id="mvz2:magichest" count="3" minCount="0"/>
+        </conveyor>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:firework_dispenser"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+        <spawns flags="2" pointsMultiplier="2" pointsAddition="1">
+            <spawn id="mvz2:undead_flying_object_blitz"/>
             <spawn id="mvz2:undead_flying_object"/>
         </spawns>
+        <time firstWave="1" waveMax="15" waveAdvance="5"/>
+        <properties>
+            <bool name="noEnergy" value="true"/>
+        </properties>
     </stage>
-    <stage id="ship_7" name="圣辇船" dayNumber="7" unlock="mvz2:level.ship_6" >
+    <stage id="ship_7" name="圣辇船" dayNumber="7" >
+        <unlock>
+            <condition required="mvz2:level.ship_6"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_7"/>
             <talk type="end" value="mvz2:ship_7_over"/>
             <talk type="map" value="mvz2:ship_7_map"/>
         </talks>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:wooden_fan"/>
-        <spawns flags="3" >
+        <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -1406,7 +1565,10 @@
             <spawn id="mvz2:zombie_cloud"/>
         </spawns>
     </stage>
-    <stage id="ship_8" name="圣辇船" dayNumber="8" unlock="mvz2:level.ship_7" >
+    <stage id="ship_8" name="圣辇船" dayNumber="8" >
+        <unlock>
+            <condition required="mvz2:level.ship_7"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_8"/>
             <talk type="end" value="mvz2:ship_8_over"/>
@@ -1423,7 +1585,10 @@
             <spawn id="mvz2:mummy"/>
         </spawns>
     </stage>
-    <stage id="ship_9" name="圣辇船" dayNumber="9" unlock="mvz2:level.ship_8" >
+    <stage id="ship_9" name="圣辇船" dayNumber="9" >
+        <unlock>
+            <condition required="mvz2:level.ship_8"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_9"/>
             <talk type="end" value="mvz2:ship_9_over"/>
@@ -1441,7 +1606,10 @@
             <spawn id="mvz2:reflective_barrier_zombie"/>
         </spawns>
     </stage>
-    <stage id="ship_10" name="圣辇船" dayNumber="10" unlock="mvz2:level.ship_9" >
+    <stage id="ship_10" name="圣辇船" dayNumber="10" >
+        <unlock>
+            <condition required="mvz2:level.ship_9"/>
+        </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_10"/>
             <talk type="end" value="mvz2:ship_10_over"/>
@@ -1458,7 +1626,10 @@
             <spawn id="mvz2:pop_captain"/>
         </spawns>
     </stage>
-    <stage id="ship_11" name="圣辇船" dayNumber="11" type="boss" needBlueprints="false" unlock="mvz2:level.ship_10" music="mvz2:ultimate_battle" >
+    <stage id="ship_11" name="圣辇船" dayNumber="11" type="boss" needBlueprints="false" music="mvz2:ultimate_battle" >
+        <unlock>
+            <condition required="mvz2:level.ship_10"/>
+        </unlock>
         <model preset="cloudy" />
         <talks>
             <talk type="start" value="mvz2:ship_11"/>
@@ -1475,7 +1646,7 @@
             <entry id="mvz2:magichest" count="3"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.dream_key"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" >
+        <spawns flags="2" pointsMultiplier="3" >
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
@@ -1484,11 +1655,15 @@
             <spawn id="mvz2:mummy"/>
             <spawn id="mvz2:necromancer"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="noEnergy" value="true"/>
         </properties>
     </stage>
-    <stage id="ship_endless" name="圣辇船无尽" type="endless" unlock="mvz2:level.ship_11" >
+    <stage id="ship_endless" name="圣辇船无尽" type="endless" >
+        <unlock>
+            <condition required="mvz2:level.ship_11"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.money_chest"/>
         <spawns flags="2" >
             <spawn id="mvz2:zombie"/>
@@ -1502,27 +1677,32 @@
         <model preset="cloudy" />
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="2" >
+        <spawns flags="2" pointsMultiplier="3" pointsAddition="2" >
             <spawn id="mvz2:ghost"/>
             <spawn id="mvz2:skeleton_horse"/>
             <spawn id="mvz2:dullahan_head"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <color name="globalLight" value="#7F7F7F"/>
             <bool name="noEnergy" value="true"/>
             <bool name="autoCollectAll" value="true"/>
         </properties>
     </stage>
-    <stage id="breakout" name="打砖块" needBlueprints="false" type="minigame" unlock="mvz2:level.mausoleum_9" music="mvz2:minigame">
+    <stage id="breakout" name="打砖块" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <unlock>
+            <condition required="mvz2:level.mausoleum_9"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
-        <spawns flags="2" firstWaveTime="30">
+        <spawns flags="2">
             <spawn id="mvz2:zombie"/>
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
             <spawn id="mvz2:necromancer"/>
             <spawn id="mvz2:emperor_zombie"/>
         </spawns>
+        <time firstWave="1"/>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
             <bool name="noEnergy" value="true"/>
@@ -1535,21 +1715,21 @@
             <entry id="mvz2:pistenser" count="10"/>
             <entry id="mvz2:obsidian" count="10"/>
             <entry id="mvz2:tnt" count="6"/>
-			<entry id="mvz2:stone_dropper" count="8"/>
-			<entry id="mvz2:golden_apple" count="8"/>
-			
+            <entry id="mvz2:stone_dropper" count="8"/>
+            <entry id="mvz2:golden_apple" count="8"/>
+            
         </conveyor>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-        <spawns flags="2" firstWaveTime="30" pointsMultiplier="4" pointsAddition="3">
-			<spawn id="mvz2:WitherSkeleton"/>
-			<spawn id="mvz2:LeatherWitherSkeleton"/>
-			<spawn id="mvz2:IronWitherSkeleton"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:ghast"/>
-			<spawn id="mvz2:dullahan"/>
-			<spawn id="mvz2:spider"/>
-			<spawn id="mvz2:HostZombie"/>
-			<spawn id="mvz2:HostMutant"/>
+        <spawns flags="2" pointsMultiplier="4" pointsAddition="3">
+            <spawn id="mvz2:WitherSkeleton"/>
+            <spawn id="mvz2:LeatherWitherSkeleton"/>
+            <spawn id="mvz2:IronWitherSkeleton"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:ghast"/>
+            <spawn id="mvz2:dullahan"/>
+            <spawn id="mvz2:spider"/>
+            <spawn id="mvz2:HostZombie"/>
+            <spawn id="mvz2:HostMutant"/>
         </spawns>
         <properties>
             <bool name="ignoreHugeWaveEvent" value="true"/>
@@ -1557,158 +1737,159 @@
         </properties>
     </stage>
 
-	<stage id="a_tooth_for_a_tooth" name="以牙还牙" needBlueprints="false" type="minigame" music="mvz2:minigame">
-		<conveyor>
-			<entry id="mvz2:golden_apple" count="4"/>
-			<entry id="mvz2:magichest" count="1"/>
-		</conveyor>
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="1">
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:mummy"/>
-			<spawn id="mvz2:mutant_zombie"/>
-			<spawn id="mvz2:hell_chariot"/>
-			<spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:AngryReverser"/>
-			<spawn id="mvz2:necromancer"/>
-		</spawns>
-		<properties>
-			<bool name="ignoreHugeWaveEvent" value="true"/>
-			<bool name="noEnergy" value="true"/>
-		</properties>
-	</stage>
+    <stage id="a_tooth_for_a_tooth" name="以牙还牙" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <conveyor>
+            <entry id="mvz2:golden_apple" count="4"/>
+            <entry id="mvz2:magichest" count="1"/>
+        </conveyor>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="1">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:mummy"/>
+            <spawn id="mvz2:mutant_zombie"/>
+            <spawn id="mvz2:hell_chariot"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:AngryReverser"/>
+            <spawn id="mvz2:necromancer"/>
+        </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true"/>
+            <bool name="noEnergy" value="true"/>
+        </properties>
+    </stage>
 
-	<stage id="Do_Magic_Tricks" name="变魔术" needBlueprints="false" type="minigame" music="mvz2:minigame">
-		<conveyor>
-			<entry id="mvz2:giant_bowl" count="5"/>
-			<entry id="mvz2:magichest" count="10"/>
-			<entry id="mvz2:dream_crystal" count="5"/>
-			<entry id="mvz2:lightning_orb" count="3"/>
-			
-		</conveyor>
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="1">
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:KingSkeleton"/>
-			<spawn id="mvz2:necromancer"/>
-			<spawn id="mvz2:skeleton_horse"/>
-			<spawn id="mvz2:ghast"/>
-			<spawn id="mvz2:AngryReverser"/>
-			<spawn id="mvz2:HostMutant"/>
-			<spawn id="mvz2:mutant_zombie"/>
-		</spawns>
-		<properties>
-			<bool name="ignoreHugeWaveEvent" value="true"/>
-			<bool name="noEnergy" value="true"/>
-		</properties>
-	</stage>
+    <stage id="Do_Magic_Tricks" name="变魔术" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <conveyor>
+            <entry id="mvz2:giant_bowl" count="5"/>
+            <entry id="mvz2:magichest" count="10"/>
+            <entry id="mvz2:dream_crystal" count="5"/>
+            <entry id="mvz2:lightning_orb" count="3"/>
+            
+        </conveyor>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="3" pointsAddition="1">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:KingSkeleton"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:skeleton_horse"/>
+            <spawn id="mvz2:ghast"/>
+            <spawn id="mvz2:AngryReverser"/>
+            <spawn id="mvz2:HostMutant"/>
+            <spawn id="mvz2:mutant_zombie"/>
+        </spawns>
+        <time firstWave="1"/>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true"/>
+            <bool name="noEnergy" value="true"/>
+        </properties>
+    </stage>
 
-	<stage id="MutantCrisis" name="巨人危机" type="minigame" music="mvz2:minigame">
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="10">
-			
-			<spawn id="mvz2:mutant_zombie"/>
-			<spawn id="mvz2:mega_mutant_zombie"/>
-			<spawn id="mvz2:HostMutant"/>
-			<spawn id="mvz2:HeavyGutant"/>
-			
-		</spawns>
-		<properties>
-			<bool name="ignoreHugeWaveEvent" value="true"/>
-		</properties>
-	</stage>
+    <stage id="MutantCrisis" name="巨人危机" type="minigame" music="mvz2:minigame">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="10">
+            
+            <spawn id="mvz2:mutant_zombie"/>
+            <spawn id="mvz2:mega_mutant_zombie"/>
+            <spawn id="mvz2:HostMutant"/>
+            <spawn id="mvz2:HeavyGutant"/>
+            
+        </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true"/>
+        </properties>
+    </stage>
 
-	<stage id="ContraptionDevourer" name="器械吞噬者" needBlueprints="false" type="minigame" music="mvz2:minigame">
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="150" >
+    <stage id="ContraptionDevourer" name="器械吞噬者" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" firstWaveTime="150" >
 
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:ZombieHead"/>
-			<spawn id="mvz2:KingSkeleton"/>
-			<spawn id="mvz2:dullahan"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:ghast"/>
-			<spawn id="mvz2:skeleton"/>
-		</spawns>
-		<properties>
-			<bool name="ignoreHugeWaveEvent" value="true"/>
-		</properties>
-	</stage>
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:ZombieHead"/>
+            <spawn id="mvz2:KingSkeleton"/>
+            <spawn id="mvz2:dullahan"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:ghast"/>
+            <spawn id="mvz2:skeleton"/>
+        </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true"/>
+        </properties>
+    </stage>
 
-	<stage id="RandomChinaAndPot" name="随机瓷器与欲望壶" needBlueprints="false" type="minigame" music="mvz2:minigame">
-		<conveyor>
-			<entry id="mvz2:random_china" count="10"/>
-			<entry id="mvz2:desire_pot" count="5"/>
+    <stage id="RandomChinaAndPot" name="随机瓷器与欲望壶" needBlueprints="false" type="minigame" music="mvz2:minigame">
+        <conveyor>
+            <entry id="mvz2:random_china" count="10"/>
+            <entry id="mvz2:desire_pot" count="5"/>
 
-		</conveyor>
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1">
-			<spawn id="mvz2:zombie"/>
-			<spawn id="mvz2:leather_capped_zombie"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:KingSkeleton"/>
-			<spawn id="mvz2:necromancer"/>
-			<spawn id="mvz2:skeleton_horse"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:mesmerizer"/>
-			<spawn id="mvz2:NetherArcher"/>
-			<spawn id="mvz2:mutant_zombie"/>
-		</spawns>
-		<properties>
-			<bool name="ignoreHugeWaveEvent" value="true"/>
-			<bool name="noEnergy" value="true"/>
-		</properties>
-	</stage>
+        </conveyor>
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1">
+            <spawn id="mvz2:zombie"/>
+            <spawn id="mvz2:leather_capped_zombie"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:KingSkeleton"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:skeleton_horse"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:mesmerizer"/>
+            <spawn id="mvz2:NetherArcher"/>
+            <spawn id="mvz2:mutant_zombie"/>
+        </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true"/>
+            <bool name="noEnergy" value="true"/>
+        </properties>
+    </stage>
 
-	<stage id="PerformanceArt" name="行为艺术" type="minigame" music="mvz2:minigame">
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<spawns flags="2" firstWaveTime="600">
+    <stage id="PerformanceArt" name="行为艺术" type="minigame" music="mvz2:minigame">
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <spawns flags="2" firstWaveTime="600">
 
-			<spawn id="mvz2:necromancer"/>
-			<spawn id="mvz2:KingSkeleton"/>
-			<spawn id="mvz2:EvilMage"/>
-			<spawn id="mvz2:skeleton_mage"/>
-			<spawn id="mvz2:AngryReverser"/>
-			<spawn id="mvz2:shikaisen_zombie"/>
-			<spawn id="mvz2:wicked_hermit_zombie"/>
-			<spawn id="mvz2:WintherMage"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:KingSkeleton"/>
+            <spawn id="mvz2:EvilMage"/>
+            <spawn id="mvz2:skeleton_mage"/>
+            <spawn id="mvz2:AngryReverser"/>
+            <spawn id="mvz2:shikaisen_zombie"/>
+            <spawn id="mvz2:wicked_hermit_zombie"/>
+            <spawn id="mvz2:WintherMage"/>
 
-		</spawns>
-		<properties>
-			<bool name="ignoreHugeWaveEvent" value="true"/>
-		</properties>
-	</stage>
+        </spawns>
+        <properties>
+            <bool name="ignoreHugeWaveEvent" value="true"/>
+        </properties>
+    </stage>
 
-	<stage id="WhackASkeleton" name="锤骷髅" needBlueprints="false" type="minigame" startEnergy="0" music="mvz2:minigame" >
-		<model preset="cloudy" />
-		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
-		<camera position="lawn" transition="instant"/>
-		<spawns flags="3" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
-			<spawn id="mvz2:ghost"/>
-			<spawn id="mvz2:skeleton_horse"/>
-			<spawn id="mvz2:dullahan_head"/>
-			<spawn id="mvz2:necromancer"/>
-			<spawn id="mvz2:AngryReverser"/>
-			<spawn id="mvz2:berserker"/>
-			<spawn id="mvz2:NetherWarrior"/>
-			<spawn id="mvz2:NetherArcher"/>
-		</spawns>
-		<properties>
-			
-			<bool name="noEnergy" value="true"/>
-			<bool name="autoCollectAll" value="true"/>
+    <stage id="WhackASkeleton" name="锤骷髅" needBlueprints="false" type="minigame" startEnergy="0" music="mvz2:minigame" >
+        <model preset="cloudy" />
+        <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
+        <camera position="lawn" transition="instant"/>
+        <spawns flags="3" firstWaveTime="30" pointsMultiplier="2" pointsAddition="1" >
+            <spawn id="mvz2:ghost"/>
+            <spawn id="mvz2:skeleton_horse"/>
+            <spawn id="mvz2:dullahan_head"/>
+            <spawn id="mvz2:necromancer"/>
+            <spawn id="mvz2:AngryReverser"/>
+            <spawn id="mvz2:berserker"/>
+            <spawn id="mvz2:NetherWarrior"/>
+            <spawn id="mvz2:NetherArcher"/>
+        </spawns>
+        <properties>
+            
+            <bool name="noEnergy" value="true"/>
+            <bool name="autoCollectAll" value="true"/>
 
-			<integer name="spawnerCount" value="8" />
-		</properties>
-		
-	</stage>
+            <integer name="spawnerCount" value="8" />
+        </properties>
+        
+    </stage>
 
-	<!-- Puzzles -->
+    <!-- Puzzles -->
     <stage id="puzzle_i_zombie" name="我是僵尸" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
@@ -1717,7 +1898,10 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_i_skeleton" name="我是骷髅" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_i_zombie" >
+    <stage id="puzzle_i_skeleton" name="我是骷髅" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
+        <unlock>
+            <condition required="mvz2:level.puzzle_i_zombie"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -1725,7 +1909,10 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_can_you_pass_it" name="你能穿过它吗？" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_i_skeleton" >
+    <stage id="puzzle_can_you_pass_it" name="你能穿过它吗？" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
+        <unlock>
+            <condition required="mvz2:level.puzzle_i_skeleton"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -1733,7 +1920,10 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_absolute_defense" name="绝对防御" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_can_you_pass_it mvz2:level.mausoleum_11" >
+    <stage id="puzzle_absolute_defense" name="绝对防御" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
+        <unlock>
+            <condition required="mvz2:level.puzzle_can_you_pass_it mvz2:level.mausoleum_11"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -1741,7 +1931,10 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_dead_balloon" name="死亡热气球" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_absolute_defense" >
+    <stage id="puzzle_dead_balloon" name="死亡热气球" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
+        <unlock>
+            <condition required="mvz2:level.puzzle_absolute_defense"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -1749,7 +1942,10 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_unbreakable" name="牢不可破" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_dead_balloon" >
+    <stage id="puzzle_unbreakable" name="牢不可破" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
+        <unlock>
+            <condition required="mvz2:level.puzzle_dead_balloon"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -1757,7 +1953,10 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_mineclear" name="扫雷" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_unbreakable" >
+    <stage id="puzzle_mineclear" name="扫雷" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
+        <unlock>
+            <condition required="mvz2:level.puzzle_unbreakable"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -1765,7 +1964,10 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_fire_in_the_hole" name="火在洞里" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_mineclear" >
+    <stage id="puzzle_fire_in_the_hole" name="火在洞里" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
+        <unlock>
+            <condition required="mvz2:level.puzzle_mineclear"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -1773,7 +1975,10 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_all_your_observes_are_belong_to_us" name="你们的侦测所有是被属于我们" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_fire_in_the_hole" >
+    <stage id="puzzle_all_your_observes_are_belong_to_us" name="你们的侦测所有是被属于我们" needBlueprints="false" type="puzzle" startEnergy="150" music="mvz2:puzzle" >
+        <unlock>
+            <condition required="mvz2:level.puzzle_fire_in_the_hole"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>
@@ -1781,7 +1986,10 @@
             <bool name="autoCollectMoney" value="true"/>
         </properties>
     </stage>
-    <stage id="puzzle_i_zombie_endless" name="我是僵尸无尽" needBlueprints="false" type="puzzle_endless" startEnergy="150" music="mvz2:puzzle" unlock="mvz2:level.puzzle_all_your_observes_are_belong_to_us" >
+    <stage id="puzzle_i_zombie_endless" name="我是僵尸无尽" needBlueprints="false" type="puzzle_endless" startEnergy="150" music="mvz2:puzzle" >
+        <unlock>
+            <condition required="mvz2:level.puzzle_all_your_observes_are_belong_to_us"/>
+        </unlock>
         <clear pickupModel="mvz2:entity.trophy" trophy="true"/>
         <camera position="lawn" transition="instant"/>
         <properties>

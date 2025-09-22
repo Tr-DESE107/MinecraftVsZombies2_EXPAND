@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
+using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using Tools;
@@ -47,7 +48,7 @@ namespace MVZ2.GameContent.Enemies
 
                 var white = enemy.SpawnWithParams(VanillaEnemyID.SkeletonHead, positionW + offset);
                 white.AddBuff<SoulsandSummonedBuff>();
-                
+
 
                 enemy.PlaySound(VanillaSoundID.cave);
             }
