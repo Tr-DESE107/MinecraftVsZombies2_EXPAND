@@ -1319,7 +1319,7 @@
         </entry>
 
 
-        <entry id="mvz2:undead_flying_object" name="不死飞行物" encounterUnlock="mvz2:level.ship_2">
+        <entry id="mvz2:undead_flying_object" name="不死飞行物">
             <header>
                 <p>不死飞行物从空中来袭并对你进行干扰。在那之后它们就会离开。</p>
             </header>
@@ -1646,7 +1646,10 @@
     <misc>
         <!-- Bosses -->
         <group id="mvz2:bosses" name="头目" order="100">
-            <entry id="mvz2:frankenstein" name="科学怪人的怪物" unlock="mvz2:level.halloween_11">
+            <entry id="mvz2:frankenstein" name="科学怪人的怪物" >
+                <unlock>
+                    <condition required="mvz2:level.halloween_11"/>
+                </unlock>
                 <picture sprite="mvz2:misc/frankenstein"/>
                 <header>
                     <p>尸块组成的怪物，科幻小说中的杀人魔。</p>
@@ -1660,7 +1663,10 @@
                     <p>她的过去与你无关。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_boss" name="梦魇" unlock="mvz2:level.dream_11">
+            <entry id="mvz2:nightmare_boss" name="梦魇" >
+                <unlock>
+                    <condition required="mvz2:level.dream_11"/>
+                </unlock>
                 <picture sprite="mvz2:misc/nightmare_art"/>
                 <header>
                     <p>梦魇是具有蒙骗感官和腐蚀能力的恐怖魔物，具有无数的化身。</p>
@@ -1678,7 +1684,10 @@
                     <p>骑士离开王宫，骑上自己的马，便准备出发了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:wither" name="凋灵" unlock="mvz2:level.castle_11">
+            <entry id="mvz2:wither" name="凋灵" >
+                <unlock>
+                    <condition required="mvz2:level.castle_11"/>
+                </unlock>
                 <picture sprite="mvz2:misc/wither"/>
                 <header>
                     <p>凋灵代表着死亡和枯萎，它会抹除一切生命的迹象。</p>
@@ -1699,7 +1708,10 @@
                     <p>骑士握着手中的护身符。黑色的骷髅头中，闪烁着白色的，诡异的光。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:the_giant" name="巨人" unlock="mvz2:level.mausoleum_11">
+            <entry id="mvz2:the_giant" name="巨人" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_11"/>
+                </unlock>
                 <picture sprite="mvz2:misc/giant_in_mausoleum[4]"/>
                 <header>
                     <p>巨人是众多僵尸的集合体，它吞噬、吞噬，要吃掉一切。</p>
@@ -1778,7 +1790,10 @@
                     <p>南瓜中的永恒火焰无法被水浇灭，被风吹灭或者被其他化学反应影响。如果你想藏身的话最好把它扔了——这玩意真的关不掉。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:napstablook" name="小幽灵" unlock="mvz2:level.halloween_6">
+            <entry id="mvz2:napstablook" name="小幽灵" >
+                <unlock>
+                    <condition required="mvz2:level.halloween_6"/>
+                </unlock>
                 <picture model="mvz2:entity.napstablook"/>
                 <header>
                     <p>小幽灵会在你使用铁剑击中它时生气，然后麻痹你的剑。</p>
@@ -1787,7 +1802,10 @@
                     <p>只是个路过的幽灵而已。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nyan_cat" name="彩虹猫" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:nyan_cat" name="彩虹猫" >
+                <unlock>
+                    <condition required="mvz2:level.dream_1"/>
+                </unlock>
                 <picture model="mvz2:entity.nyan_cat"/>
                 <header>
                     <p>彩虹猫能萌死任何接触到的敌人。</p>
@@ -1796,7 +1814,10 @@
                     <p>NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nyaightmare" name="噩梦猫" unlock="mvz2:level.dream_7">
+            <entry id="mvz2:nyaightmare" name="噩梦猫" >
+                <unlock>
+                    <condition required="mvz2:level.dream_7"/>
+                </unlock>
                 <picture model="mvz2:entity.nyaightmare"/>
                 <header>
                     <p>噩梦猫会刺死任何它所恨的人。</p>
@@ -1805,7 +1826,10 @@
                     <p>“我恨你。”</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:bowl_chariot" name="碗车" unlock="mvz2:level.castle_1">
+            <entry id="mvz2:bowl_chariot" name="碗车" >
+                <unlock>
+                    <condition required="mvz2:level.castle_1"/>
+                </unlock>
                 <picture model="mvz2:entity.bowl_chariot"/>
                 <header>
                     <p>碗车在碰到敌人后会冲锋，并把碗里的巨石掉出来二次打击敌人。</p>
@@ -1814,7 +1838,10 @@
                     <p>之前的小人族剩下的部分防御工事，不过巨石的效果对凋灵骷髅们没什么作用就是了——甚至还不如直接用车撞死它们。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:reverse_satellite" name="反则卫星" unlock="mvz2:level.castle_1">
+            <entry id="mvz2:reverse_satellite" name="反则卫星" >
+                <unlock>
+                    <condition required="mvz2:level.castle_1"/>
+                </unlock>
                 <picture model="mvz2:entity.reverse_satellite"/>
                 <tags>
                     <tag id="mvz2:shell" value="mvz2:metal"/>
@@ -1833,7 +1860,10 @@
                     <p>……甚至还可以影响人们的认知？</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:ballista" name="小型弩车" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:ballista" name="小型弩车" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_1"/>
+                </unlock>
                 <picture model="mvz2:entity.ballista"/>
                 <header>
                     <p>小型弩车在碰到敌人后会发射致命弩箭，并向前冲锋碾压敌人。</p>
@@ -1845,7 +1875,10 @@
                     <p>你别问为什么能直接压死还要发射弩箭，不然这就不叫“画蛇添足”了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:monster_spawner" name="刷怪笼" unlock="mvz2:level.mausoleum_2">
+            <entry id="mvz2:monster_spawner" name="刷怪笼" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_2"/>
+                </unlock>
                 <picture model="mvz2:entity.monster_spawner"/>
                 <tags>
                     <tag id="mvz2:grid_layer_main"/>
@@ -1887,7 +1920,10 @@
                     <p>只需要知道她常和灵魂与恐惧作伴就可以了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:doremy" name="哆来咪·苏伊特" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:doremy" name="哆来咪·苏伊特" >
+                <unlock>
+                    <condition required="mvz2:level.dream_1"/>
+                </unlock>
                 <picture character="mvz2:doremy"/>
                 <header>
                     <p>哆来咪·苏伊特是梦境世界的管理者，管理着人们的梦境。</p>
@@ -1900,7 +1936,10 @@
                     <p>被真身前来的史蒂夫和村民两人吓了一跳，但似乎从史蒂夫身上看到了一些有趣的梦。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:tokiko" name="朱鹭子" unlock="mvz2:kourindou_visited">
+            <entry id="mvz2:tokiko" name="朱鹭子" >
+                <unlock>
+                    <condition required="mvz2:kourindou_visited"/>
+                </unlock>
                 <picture character="mvz2:tokiko"/>
                 <header>
                     <p>常在香霖堂附近活动的读书妖怪，在霖之助失踪后成为了香霖堂的店主。</p>
@@ -1915,7 +1954,10 @@
                     <p>所以不要随便抢别人的书哦。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:seija" name="鬼人 正邪" unlock="mvz2:level.castle_1">
+            <entry id="mvz2:seija" name="鬼人 正邪" >
+                <unlock>
+                    <condition required="mvz2:level.castle_1"/>
+                </unlock>
                 <picture character="mvz2:seija"/>
                 <header>
                     <p>一名天邪鬼，曾利用了针妙丸，妄图使用万宝槌的力量颠覆幻想乡的强弱规则。</p>
@@ -1930,7 +1972,10 @@
                     <p>如今她在四处游荡，成了个不受任何人欢迎的家伙。然而，天邪鬼对“逆转”的那种渴望，似乎也并不会轻易被熄灭就是了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:shinmyoumaru" name="少名 针妙丸" unlock="mvz2:level.castle_2">
+            <entry id="mvz2:shinmyoumaru" name="少名 针妙丸" >
+                <unlock>
+                    <condition required="mvz2:level.castle_2"/>
+                </unlock>
                 <picture character="mvz2:shinmyoumaru"/>
                 <header>
                     <p>一寸法师的后代，辉针城的城主，如今小人族的领导者。</p>
@@ -1946,7 +1991,10 @@
                     <p>不过，至少在她这一代，这些教训是再也忘不掉的了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:futo" name="物部 布都" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:futo" name="物部 布都" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_1"/>
+                </unlock>
                 <picture character="mvz2:futo"/>
                 <header>
                     <p>日本古代大氏族物部氏的后人，丰聪耳神子的手下。</p>
@@ -1960,7 +2008,10 @@
                     <p>后来也被时代的浪潮推动，开始慢慢习惯现代的生活了，变成了一位看起来稍微有点傻傻的女孩。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:marisa" name="雾雨 魔理沙" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:marisa" name="雾雨 魔理沙" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_1"/>
+                </unlock>
                 <picture character="mvz2:marisa"/>
                 <header>
                     <p>一位普通的魔法使，也是森近 霖之助曾经的好友。</p>
@@ -1974,7 +2025,10 @@
                     <p>随后她为霖之助立了衣冠冢，隔三岔五就会去纪念一次。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:miko" name="丰聪耳 神子" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:miko" name="丰聪耳 神子" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_1"/>
+                </unlock>
                 <picture character="mvz2:miko"/>
                 <header>
                     <p>日本千年前的大圣人，后来通过尸解法成为了尸解仙，来到了幻想乡。</p>
@@ -1989,7 +2043,10 @@
                     <p>而这次，她们两者达成合作，一起抵御来自幻想乡外的巨物威胁。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:seiga" name="霍 青娥" unlock="mvz2:level.mausoleum_3">
+            <entry id="mvz2:seiga" name="霍 青娥" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_3"/>
+                </unlock>
                 <picture character="mvz2:seiga"/>
                 <header>
                     <p>一名使用邪术的邪仙。</p>
@@ -2005,7 +2062,10 @@
                     <p>据说，她也可以使用许多邪术，包括使用灵符来操纵僵尸。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:mysterious_hologram" name="神秘影像" unlock="mvz2:level.mausoleum_11">
+            <entry id="mvz2:mysterious_hologram" name="神秘影像" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_11"/>
+                </unlock>
                 <picture character="mvz2:hologram"/>
                 <header>
                     <p>出现在被僵尸包围的香霖堂的神秘影像，它对史蒂夫发出了威胁。</p>
@@ -2043,7 +2103,10 @@
                     </flavor>
                 </flavors>
             </entry>
-            <entry id="mvz2:dream_world" name="梦境世界" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:dream_world" name="梦境世界" >
+                <unlock>
+                    <condition required="mvz2:level.dream_1"/>
+                </unlock>
                 <picture sprite="mvz2:misc/dream"/>
                 <header>
                     <p>梦境世界是由哆来咪管理的，所有人的梦境所处的地方。</p>
@@ -2056,7 +2119,10 @@
                     <p>这里和宇宙相通，某些宇宙中的天体在这里可能会产生奇特的反应。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_world" name="噩梦世界" unlock="mvz2:level.dream_7">
+            <entry id="mvz2:nightmare_world" name="噩梦世界" >
+                <unlock>
+                    <condition required="mvz2:level.dream_7"/>
+                </unlock>
                 <picture sprite="mvz2:misc/nightmare"/>
                 <header>
                     <p>噩梦世界是被梦魇所腐化的梦境世界。</p>
@@ -2065,7 +2131,10 @@
                     <p>哆来咪曾经在几个月前在梦境世界目击到一只黑马，那就是伪装起来的梦魇。然后，梦魇开始了它的腐化，欺骗梦境所有人的眼睛，直到它诅咒哆来咪。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:shining_needle_castle" name="辉针城" unlock="mvz2:level.castle_1">
+            <entry id="mvz2:shining_needle_castle" name="辉针城" >
+                <unlock>
+                    <condition required="mvz2:level.castle_1"/>
+                </unlock>
                 <picture sprite="mvz2:misc/castle"/>
                 <header>
                     <p>辉针城是小人族们的城池，在一年前遭到了凋灵骷髅们的入侵。</p>
@@ -2080,7 +2149,10 @@
                     <p>顺带一提，天花板——哦不，地板上好像有什么东西在微微发光。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:hall_of_dreams_great_mausoleum" name="梦殿大祀庙" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:hall_of_dreams_great_mausoleum" name="梦殿大祀庙" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_1"/>
+                </unlock>
                 <picture sprite="mvz2:misc/mausoleum"/>
                 <header>
                     <p>物部 布都和丰聪耳 神子曾复活于幻想乡的地点。</p>
@@ -2110,7 +2182,10 @@
                     <p>当我离开不属于我的那片土地时，我在一片朦胧中看到了它变成彩虹色的糖果，这与那些星星十分相似，但我仍不能确定这到底是什么。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：清明梦" unlock="mvz2:level.dream_1">
+            <entry id="mvz2:starshard.lucid_dream" name="星之碎片：清明梦" >
+                <unlock>
+                    <condition required="mvz2:level.dream_1"/>
+                </unlock>
                 <picture model="mvz2:entity.starshard.dream"/>
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
@@ -2125,7 +2200,10 @@
                     <p>我睁开眼睛，发现自己正在一片粉色花朵的树环绕的空地上。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:starshard.miracle_mallet" name="星之碎片：万宝槌" unlock="mvz2:level.castle_1">
+            <entry id="mvz2:starshard.miracle_mallet" name="星之碎片：万宝槌" >
+                <unlock>
+                    <condition required="mvz2:level.castle_1"/>
+                </unlock>
                 <picture model="mvz2:entity.starshard.castle"/>
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
@@ -2143,7 +2221,10 @@
                     <p>……如果真的有能实现这些愿望的东西，那才真的有鬼了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:starshard.shinrei" name="星之碎片：小神灵" unlock="mvz2:level.mausoleum_1">
+            <entry id="mvz2:starshard.shinrei" name="星之碎片：小神灵" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_1"/>
+                </unlock>
                 <picture model="mvz2:entity.starshard.mausoleum"/>
                 <header>
                     <p><![CDATA[星之碎片会<b>激发</b>你的器械，触发它们的技能，爆发出器械真正的潜力。]]></p>
@@ -2163,7 +2244,10 @@
         </group>
         <!-- Important Items -->
         <group id="mvz2:important" name="重要物品" order="600">
-            <entry id="mvz2:ender_chest" name="末影箱" unlock="mvz2:level.dream_5">
+            <entry id="mvz2:ender_chest" name="末影箱" >
+                <unlock>
+                    <condition required="mvz2:level.dream_5"/>
+                </unlock>
                 <picture model="mvz2:entity.ender_chest"/>
                 <header>
                     <p>末影箱可以将村民的存货取出来，并让他重新开张商店。</p>
@@ -2173,7 +2257,10 @@
                     <p>“梦里。”</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:nightmare_box" name="梦魇魔盒" unlock="mvz2:level.dream_11">
+            <entry id="mvz2:nightmare_box" name="梦魇魔盒" >
+                <unlock>
+                    <condition required="mvz2:level.dream_11"/>
+                </unlock>
                 <picture sprite="mvz2:map/dream/nightmare_box" fixedSize="true" zoom="false"/>
                 <header>
                     <p>梦魇魔盒是将梦魇的黑魔法收集起来制作而成，并可以使梦境世界变成噩梦世界的容器。</p>
@@ -2182,7 +2269,10 @@
                     <p>梦魇魔盒中不再包含任何有害魔力，它所能做的只有将梦境世界投影成为噩梦世界了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:gensokyo_map" name="幻想乡地图" unlock="mvz2:entered_gensokyo">
+            <entry id="mvz2:gensokyo_map" name="幻想乡地图" >
+                <unlock>
+                    <condition required="mvz2:entered_gensokyo"/>
+                </unlock>
                 <picture sprite="mvz2:map/gensokyo/map"/>
                 <header>
                     <p>坑爹村民绘制的幻想乡地图。</p>
@@ -2192,7 +2282,10 @@
                     <p>能用这张地图的也是神人了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:obsidian_first_aid" name="黑曜石修复术" unlock="mvz2:obsidian_first_aid">
+            <entry id="mvz2:obsidian_first_aid" name="黑曜石修复术" >
+                <unlock>
+                    <condition required="mvz2:obsidian_first_aid"/>
+                </unlock>
                 <picture sprite="mvz2:products/obsidian_first_aid" fixedSize="true" zoom="false"/>
                 <header>
                     <p>用于修复防御性器械的技术。</p>
@@ -2209,7 +2302,10 @@
         </group>
         <!-- Lore -->
         <group id="mvz2:lore" name="剧情" order="700">
-            <entry id="mvz2:blurred_note" name="模糊的字条" unlock="mvz2:level.dream_10">
+            <entry id="mvz2:blurred_note" name="模糊的字条" >
+                <unlock>
+                    <condition required="mvz2:level.dream_10"/>
+                </unlock>
                 <picture sprite="mvz2:note/dream"/>
                 <header>
                     <p>梦境世界捡到的一张纸条，因为身处梦境的原因，无法查看其内容。</p>
@@ -2229,7 +2325,10 @@
                     </flavor>
                 </flavors>
             </entry>
-            <entry id="mvz2:grave_in_dream" name="梦境中的坟墓" unlock="mvz2:level.dream_11">
+            <entry id="mvz2:grave_in_dream" name="梦境中的坟墓" >
+                <unlock>
+                    <condition required="mvz2:level.dream_11"/>
+                </unlock>
                 <picture sprite="mvz2:misc/grave_in_dream" fixedSize="true" zoom="false"/>
                 <header>
                     <p>哆来咪提到史蒂夫曾在梦中看到过一座坟墓，而且是史蒂夫很小时候就已经见过的墓。</p>
@@ -2240,7 +2339,10 @@
                     <p>似乎，这个谜就要从这场冒险中解开了。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:explosion_before_3_years" name="三年前的爆炸" unlock="mvz2:level.castle_4">
+            <entry id="mvz2:explosion_before_3_years" name="三年前的爆炸" >
+                <unlock>
+                    <condition required="mvz2:level.castle_4"/>
+                </unlock>
                 <picture sprite="mvz2:misc/explosion_before_3_years"/>
                 <header>
                     <p>在三年前，幻想乡内曾经发生过一起巨大的爆炸。</p>
@@ -2250,7 +2352,10 @@
                     <p>后来辉针城内产生的凋灵骷髅可能也是这件事所导致的。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:two_travelers" name="两位旅人" unlock="mvz2:level.mausoleum_4">
+            <entry id="mvz2:two_travelers" name="两位旅人" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_4"/>
+                </unlock>
                 <picture sprite="mvz2:misc/two_travelers"/>
                 <header>
                     <p>在四年前，曾有两个旅人来到幻想乡。</p>
@@ -2261,7 +2366,10 @@
                     <p>但是，不久之后，异变就发生了。并且他们两个再也没有出现在幻想乡过。</p>
                 </flavor>
             </entry>
-            <entry id="mvz2:murder" name="凶杀" unlock="mvz2:level.mausoleum_7">
+            <entry id="mvz2:murder" name="凶杀" >
+                <unlock>
+                    <condition required="mvz2:level.mausoleum_7"/>
+                </unlock>
                 <picture sprite="mvz2:misc/murder"/>
                 <header>
                     <p>三年前，幻想乡中发生过一场凶杀案。</p>

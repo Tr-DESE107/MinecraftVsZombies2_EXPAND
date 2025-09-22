@@ -316,7 +316,7 @@ namespace MVZ2.Almanacs
             if (entry != null)
                 SetActiveMiscEntry(entry);
         }
-        private void SetActiveContraptionEntry(NamespaceID contraptionID)
+        private void SetActiveContraptionEntry(NamespaceID? contraptionID)
         {
             if (!NamespaceID.IsValid(contraptionID))
                 return;
@@ -358,21 +358,24 @@ namespace MVZ2.Almanacs
             ui.UpdateContraptionDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
         }
-        private void SetActiveEnemyEntry(NamespaceID enemyID)
+        private void SetActiveEnemyEntry(NamespaceID? enemyID)
         {
             if (!NamespaceID.IsValid(enemyID))
                 return;
             const string type = VanillaAlmanacCategories.ENEMIES;
+            var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, enemyID);
+            if (entry == null)
+                return;
 
             activeEnemyEntryID = enemyID;
             GetEntityAlmanacInfos(enemyID, type, out var model, out var name, out var description);
-            var entry = Main.ResourceManager.GetAlmanacMetaEntry(type, enemyID);
-            if (!string.IsNullOrEmpty(entry?.name))
+            if (!string.IsNullOrEmpty(entry.name))
             {
                 name = GetTranslatedString(VanillaStrings.GetAlmanacNameContext(type), entry.name);
             }
 
-            bool encountered = Main.SaveManager.IsValidAndUnlocked(entry?.encounterUnlock) || Main.SaveManager.GetStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
+            var encounterCondition = entry.encounterUnlock;
+            bool encountered = (encounterCondition != null && encounterCondition.MeetsConditions(Main.SaveManager)) || Main.SaveManager.GetStat(VanillaStats.CATEGORY_ENEMY_NEUTRALIZE, enemyID) > 0;
             if (encountered)
             {
                 UpdateEntryTags(AlmanacPageType.Enemies, type, enemyID);
@@ -395,7 +398,7 @@ namespace MVZ2.Almanacs
             ui.UpdateEnemyDescriptionIcons(iconStacks);
             UnlockAndHideTooltip();
         }
-        private void SetActiveArtifactEntry(NamespaceID artifactID)
+        private void SetActiveArtifactEntry(NamespaceID? artifactID)
         {
             if (!NamespaceID.IsValid(artifactID))
                 return;
@@ -835,9 +838,9 @@ namespace MVZ2.Almanacs
 
 
         private MainManager Main => MainManager.Instance;
-        private List<NamespaceID> contraptionEntries = new List<NamespaceID>();
-        private List<NamespaceID> enemyEntries = new List<NamespaceID>();
-        private List<NamespaceID> artifactEntries = new List<NamespaceID>();
+        private List<NamespaceID?> contraptionEntries = new List<NamespaceID?>();
+        private List<NamespaceID?> enemyEntries = new List<NamespaceID?>();
+        private List<NamespaceID?> artifactEntries = new List<NamespaceID?>();
         private List<AlmanacEntryGroup> miscGroups = new List<AlmanacEntryGroup>();
         private List<AlmanacEntryTagInfo> currentTags = new List<AlmanacEntryTagInfo>();
         private NamespaceID? activeEnemyEntryID;

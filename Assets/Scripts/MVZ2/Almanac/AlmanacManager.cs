@@ -6,10 +6,10 @@ using System.Linq;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Managers;
 using MVZ2.Metas;
+using MVZ2.Saves;
 using MVZ2.UI;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Almanacs;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Games;
@@ -21,19 +21,19 @@ namespace MVZ2.Almanacs
     public class AlmanacManager : MonoBehaviour
     {
         #region 获取图鉴项列表
-        public void GetOrderedBlueprints(IEnumerable<NamespaceID> blueprints, List<NamespaceID> appendList)
+        public void GetOrderedBlueprints(IEnumerable<NamespaceID> blueprints, List<NamespaceID?> appendList)
         {
             var idList = GetIDListByAlmanacOrder(blueprints, VanillaAlmanacCategories.CONTRAPTIONS);
             var ordered = CompressLayout(idList, GetBlueprintCountPerRow());
             appendList.AddRange(ordered);
         }
-        public void GetOrderedEnemies(IEnumerable<NamespaceID> enemiesID, List<NamespaceID> appendList)
+        public void GetOrderedEnemies(IEnumerable<NamespaceID> enemiesID, List<NamespaceID?> appendList)
         {
             var idList = GetIDListByAlmanacOrder(enemiesID, VanillaAlmanacCategories.ENEMIES);
             var ordered = CompressLayout(idList, GetEnemyCountPerRow());
             appendList.AddRange(ordered);
         }
-        public void GetOrderedArtifacts(IEnumerable<NamespaceID> artifactID, List<NamespaceID> appendList)
+        public void GetOrderedArtifacts(IEnumerable<NamespaceID> artifactID, List<NamespaceID?> appendList)
         {
             var idList = GetIDListByAlmanacOrder(artifactID, VanillaAlmanacCategories.ARTIFACTS);
             var ordered = CompressLayout(idList, GetMiscCountPerRow());
@@ -55,13 +55,16 @@ namespace MVZ2.Almanacs
                     for (int i = 0; i < groupEntries.Length; i++)
                     {
                         var entry = group.entries[i];
-                        if (!Main.SaveManager.IsInvalidOrUnlocked(entry.unlock))
-                            continue;
                         var id = entry.id;
+                        if (!NamespaceID.IsValid(id))
+                            continue;
+                        if (!entry.unlock.IsNullOrMeetsConditions(Main.SaveManager))
+                            continue;
                         groupEntries[i] = id;
                     }
-                    var g = new AlmanacEntryGroup(group.name, groupEntries);
-                    if (g.entries.Length > 0)
+                    var compressedEntries = CompressLayout(groupEntries, miscCountPerRow).ToArray();
+                    var g = new AlmanacEntryGroup(group.name, compressedEntries);
+                    if (g.entries.Any(e => NamespaceID.IsValid(e)))
                     {
                         appendList.Add(g);
                     }
@@ -82,7 +85,7 @@ namespace MVZ2.Almanacs
             }
             return ordered;
         }
-        private IEnumerable<NamespaceID> CompressLayout(IEnumerable<NamespaceID> idList, int countPerRow)
+        private IEnumerable<NamespaceID?> CompressLayout(IEnumerable<NamespaceID?> idList, int countPerRow)
         {
             var groups = idList
                 .Select((v, i) => (v, i))
@@ -107,7 +110,7 @@ namespace MVZ2.Almanacs
         #endregion
 
         #region 获取图鉴项显示信息
-        public ChoosingBlueprintViewData GetChoosingBlueprintViewData(NamespaceID id, bool isEndless)
+        public ChoosingBlueprintViewData GetChoosingBlueprintViewData(NamespaceID? id, bool isEndless)
         {
             if (!NamespaceID.IsValid(id))
                 return ChoosingBlueprintViewData.Empty;
@@ -120,7 +123,7 @@ namespace MVZ2.Almanacs
                 disabled = false
             };
         }
-        public AlmanacEntryViewData GetEnemyEntryViewData(NamespaceID id)
+        public AlmanacEntryViewData GetEnemyEntryViewData(NamespaceID? id)
         {
             if (!NamespaceID.IsValid(id))
                 return AlmanacEntryViewData.Empty;
@@ -147,7 +150,7 @@ namespace MVZ2.Almanacs
             }
             return new AlmanacEntryViewData() { sprite = icon, offset = offset };
         }
-        public AlmanacEntryViewData GetArtifactEntryViewData(NamespaceID id)
+        public AlmanacEntryViewData GetArtifactEntryViewData(NamespaceID? id)
         {
             if (!NamespaceID.IsValid(id))
                 return AlmanacEntryViewData.Empty;
