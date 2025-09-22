@@ -83,11 +83,7 @@ namespace MVZ2.Metas
                 var unlocks = node.GetAttributeNamespaceIDArray("unlock", defaultNsp);
                 if (unlocks != null)
                 {
-                    var condition = new XMLCondition()
-                    {
-                        Required = unlocks
-                    };
-                    unlockConditions = new XMLConditionList(condition);
+                    var condition = XMLConditionList.FromMultiple(unlocks);
                 }
             }
 

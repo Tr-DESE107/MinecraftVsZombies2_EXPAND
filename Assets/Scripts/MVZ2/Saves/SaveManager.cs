@@ -429,7 +429,7 @@ namespace MVZ2.Saves
                 var meta = resourceManager.GetProductMeta(id);
                 if (meta == null)
                     continue;
-                if (this.IsValidAndLocked(meta.Required))
+                if (!meta.UnlockConditions.IsNullOrMeetsConditions(this))
                     continue;
                 unlockedProductsCache.Add(id);
             }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using MVZ2Logic.Conditions;
 using MVZ2Logic.Games;
+using PVZEngine;
 
 namespace MVZ2.Metas
 {
@@ -28,6 +29,14 @@ namespace MVZ2.Metas
             return new XMLConditionList(conditions.ToArray());
         }
 
+        public static XMLConditionList FromSingle(NamespaceID id)
+        {
+            return new XMLConditionList(XMLCondition.FromSingle(id));
+        }
+        public static XMLConditionList FromMultiple(NamespaceID[] ids)
+        {
+            return new XMLConditionList(XMLCondition.FromMultiple(ids));
+        }
         public bool MeetsConditions(IGlobalSaveData save)
         {
             return Conditions.Any(c => c.MeetsCondition(save));

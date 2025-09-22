@@ -21,6 +21,20 @@ namespace MVZ2.Metas
                 RequiredNot = requiredNot
             };
         }
+        public static XMLCondition FromSingle(NamespaceID id)
+        {
+            return new XMLCondition()
+            {
+                Required = new NamespaceID[] { id },
+            };
+        }
+        public static XMLCondition FromMultiple(NamespaceID[] id)
+        {
+            return new XMLCondition()
+            {
+                Required = id,
+            };
+        }
         public bool MeetsCondition(IGlobalSaveData save)
         {
             if (Required != null && Required.Any(c => !save.IsUnlocked(c)))

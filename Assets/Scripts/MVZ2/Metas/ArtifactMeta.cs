@@ -39,10 +39,7 @@ namespace MVZ2.Metas
                 var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
                 if (NamespaceID.IsValid(unlock))
                 {
-                    conditions = new XMLConditionList(new XMLCondition()
-                    {
-                        Required = new NamespaceID[] { unlock }
-                    });
+                    conditions = XMLConditionList.FromSingle(unlock);
                 }
             }
             var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
