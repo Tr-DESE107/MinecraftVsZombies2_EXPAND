@@ -215,12 +215,16 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 99d1b89d493fa1f46be7439e333af766, type: 3}
   - name: mobile_blueprint/anvil
     sprite: {fileID: 21300000, guid: 07fea5983538e114e87a25057c32b6c2, type: 3}
+  - name: mobile_blueprint/AssaultDullahan
+    sprite: {fileID: 21300000, guid: ee5bd16036d662849b423ed4c594401d, type: 3}
   - name: mobile_blueprint/beacon
     sprite: {fileID: 21300000, guid: af016291e3e050b418ac40e349963a65, type: 3}
   - name: mobile_blueprint/bedserker
     sprite: {fileID: 21300000, guid: 10f0a75a79063264f8e9d4e7413c683f, type: 3}
   - name: mobile_blueprint/berserker
     sprite: {fileID: 21300000, guid: 02d02d3206dc8484c8e80a0aa53c8725, type: 3}
+  - name: mobile_blueprint/BerserkerHead
+    sprite: {fileID: 21300000, guid: cce9a437828e56d4c8505b0fc625f107, type: 3}
   - name: mobile_blueprint/black_hole_bomb
     sprite: {fileID: 21300000, guid: a947efd639075f8479b747319d6fad58, type: 3}
   - name: mobile_blueprint/cannonball_zombie
@@ -255,16 +259,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8866a258ae8eb3e458f9c444ebdba22c, type: 3}
   - name: mobile_blueprint/dullahan_head
     sprite: {fileID: 21300000, guid: 9e859336bcdaf054593a5dc4ca4b79ae, type: 3}
-  - name: mobile_blueprint/dullahan_pro
-    sprite: {fileID: 21300000, guid: ee5bd16036d662849b423ed4c594401d, type: 3}
   - name: mobile_blueprint/emperor_zombie
     sprite: {fileID: 21300000, guid: d018395fbcf32f44c92a79b061e11d83, type: 3}
   - name: mobile_blueprint/error_block
     sprite: {fileID: 21300000, guid: 4a95d1fe4c3e9f342a64658402ac3669, type: 3}
+  - name: mobile_blueprint/EvilMage
+    sprite: {fileID: 21300000, guid: 59b32a49b17a365419ee9603447b56df, type: 3}
   - name: mobile_blueprint/Eviltombstone
     sprite: {fileID: 21300000, guid: 28d615d4432f6624aaa56f1d26ba8883, type: 3}
-  - name: mobile_blueprint/evil_mage
-    sprite: {fileID: 21300000, guid: 59b32a49b17a365419ee9603447b56df, type: 3}
   - name: mobile_blueprint/firework_dispenser
     sprite: {fileID: 21300000, guid: ced04377ba2ef5c4997601c45b6ca7e7, type: 3}
   - name: mobile_blueprint/fire_mage
@@ -303,6 +305,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: b9be44ffa4015754eaf65066f0522ab8, type: 3}
   - name: mobile_blueprint/high_frequency_pulse_dispenser
     sprite: {fileID: 21300000, guid: f24e02b7e9159cb4ebd603ab477f2152, type: 3}
+  - name: mobile_blueprint/HostHead
+    sprite: {fileID: 21300000, guid: a3df683af025d3e43a240497f95d57be, type: 3}
   - name: mobile_blueprint/HostIMP
     sprite: {fileID: 21300000, guid: c6b8237adf683e1498d48fb92319923f, type: 3}
   - name: mobile_blueprint/HostMutant
@@ -357,9 +361,9 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8a0fa8e6a83d14c4581f8cee8ce07eed, type: 3}
   - name: mobile_blueprint/necrotombstone
     sprite: {fileID: 21300000, guid: d1bf852fe2722b54e9735417e907a23c, type: 3}
-  - name: mobile_blueprint/nether_leader
+  - name: mobile_blueprint/NetherVanguard
     sprite: {fileID: 21300000, guid: 680fd9e7f1496014bbd8d418fe66de65, type: 3}
-  - name: mobile_blueprint/nether_warrior
+  - name: mobile_blueprint/NetherWarrior
     sprite: {fileID: 21300000, guid: f62acd64afd733642b5dc62cd234b346, type: 3}
   - name: mobile_blueprint/nightmareaper
     sprite: {fileID: 21300000, guid: dfe9b9c4204e8234d86ec16eb408a6da, type: 3}
@@ -377,10 +381,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a830dd92c72591848834371853163210, type: 3}
   - name: mobile_blueprint/punchton
     sprite: {fileID: 21300000, guid: 1d8a7cdd4327da14ea5a749df090984d, type: 3}
-  - name: mobile_blueprint/raider_head
+  - name: mobile_blueprint/RaiderSkull
     sprite: {fileID: 21300000, guid: 679ba871c15282d4d995e64c33711c8b, type: 3}
   - name: mobile_blueprint/random_china
     sprite: {fileID: 21300000, guid: 739dc404e782a0c4dae8390f142f0cc5, type: 3}
+  - name: mobile_blueprint/RedEyeZombieHead
+    sprite: {fileID: 21300000, guid: 15a358538fbfd554e9e63bd0b4e6a010, type: 3}
   - name: mobile_blueprint/RedStoneOre
     sprite: {fileID: 21300000, guid: 4636813f95e48414586d4c1a1aab13f3, type: 3}
   - name: mobile_blueprint/reflective_barrier_zombie
@@ -405,10 +411,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3c7cacc742c9f154e80d19b1b5b133c2, type: 3}
   - name: mobile_blueprint/skeleton
     sprite: {fileID: 21300000, guid: f8d0d1426f88a6b4bb83eb101121870e, type: 3}
+  - name: mobile_blueprint/SkeletonHead
+    sprite: {fileID: 21300000, guid: 08b46c851dcc8fa48a4c963b55e17733, type: 3}
+  - name: mobile_blueprint/SkeletonKing
+    sprite: {fileID: 21300000, guid: c739a0e8065c7794eab33b1e0e3f511f, type: 3}
   - name: mobile_blueprint/skeleton_horse
     sprite: {fileID: 21300000, guid: 6423a491a15f75342ad5caf161cf634d, type: 3}
-  - name: mobile_blueprint/skeleton_king
-    sprite: {fileID: 21300000, guid: c739a0e8065c7794eab33b1e0e3f511f, type: 3}
   - name: mobile_blueprint/skeleton_mage
     sprite: {fileID: 21300000, guid: ae918595844e8b446a1aca7d71291b61, type: 3}
   - name: mobile_blueprint/skeleton_mage_fire
@@ -471,9 +479,9 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8bfd3910470132e4a94c08e6054dcebc, type: 3}
   - name: mobile_blueprint/wither
     sprite: {fileID: 21300000, guid: 7e0654a046a25aa49a4938aded15c81b, type: 3}
-  - name: mobile_blueprint/wither_mage
+  - name: mobile_blueprint/WitherMage
     sprite: {fileID: 21300000, guid: c142e877b67436e4aa3729a973dd63bd, type: 3}
-  - name: mobile_blueprint/wither_skeleton_horse
+  - name: mobile_blueprint/WitherSkeletonHorse
     sprite: {fileID: 21300000, guid: 91cdcadcb4b1a2e4289f7b75f72be433, type: 3}
   - name: mobile_blueprint/wooden_dropper
     sprite: {fileID: 21300000, guid: 98ceb6465d489164ab22b423d1a3d218, type: 3}
@@ -481,6 +489,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a7b657bef639dc54dba8f816b2a7510e, type: 3}
   - name: mobile_blueprint/zombie
     sprite: {fileID: 21300000, guid: 6514a857fb8b7fc4d992741ae15f66e5, type: 3}
+  - name: mobile_blueprint/ZombieHead
+    sprite: {fileID: 21300000, guid: acdd6963fa843514b8ebd890b7aa20ce, type: 3}
   - name: mobile_blueprint/zombie_cloud
     sprite: {fileID: 21300000, guid: 6cee1e618aa7aaa4290570ca7f2eb1c8, type: 3}
   - name: mobile_blueprint/zombie_cloud_snow
