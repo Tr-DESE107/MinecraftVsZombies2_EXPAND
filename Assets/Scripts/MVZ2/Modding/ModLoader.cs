@@ -139,7 +139,7 @@ namespace MVZ2.Modding
                 def.SetProperty(LogicEntityProps.NAME, meta.Name);
                 def.SetProperty(LogicEntityProps.DEATH_MESSAGE, meta.DeathMessage);
                 def.SetProperty(LogicEntityProps.TOOLTIP, meta.Tooltip);
-                def.SetProperty(LogicEntityProps.UNLOCK, meta.Unlock);
+                def.SetProperty<IConditionList>(LogicEntityProps.UNLOCK, meta.Unlock);
                 // 加载实体的属性。
                 foreach (var pair in meta.Properties)
                 {

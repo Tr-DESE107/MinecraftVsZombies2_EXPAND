@@ -294,8 +294,10 @@
         </contraption>
 
         <!-- Halloween Contraptions -->
-        <dispenser id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球"
-            unlock="mvz2:level.halloween_1">
+        <dispenser id="small_dispenser" name="小型发射器" tooltip="发射短距离雪球">
+            <unlock>
+                <condition required="mvz2:level.halloween_1"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:nocturnal" value="true" />
 
@@ -310,8 +312,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
-        <contraption id="moonlight_sensor" name="月光传感器" tooltip="自动提供能量，一段时间后提升生产量"
-            unlock="mvz2:level.halloween_2">
+        <contraption id="moonlight_sensor" name="月光传感器" tooltip="自动提供能量，一段时间后提升生产量">
+            <unlock>
+                <condition required="mvz2:level.halloween_2"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:producer" value="true" />
 
@@ -323,7 +327,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <contraption id="glowstone" name="荧石" tooltip="照亮周围范围" unlock="mvz2:level.halloween_3">
+        <contraption id="glowstone" name="荧石" tooltip="照亮周围范围" >
+            <unlock>
+                <condition required="mvz2:level.halloween_3"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
@@ -338,8 +345,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="punchton" name="冲击活塞" tooltip="冲击前方敌人，需要时间再次准备"
-            unlock="mvz2:level.halloween_4">
+        <contraption id="punchton" name="冲击活塞" tooltip="冲击前方敌人，需要时间再次准备">
+            <unlock>
+                <condition required="mvz2:level.halloween_4"/>
+            </unlock>
             <properties>
                 <float name="mvz2:damage" value="100" />
                 <float name="mvz2:range" value="120" />
@@ -350,7 +359,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <contraption id="tnt" name="TNT" tooltip="触发后炸飞周围敌人" unlock="mvz2:level.halloween_6">
+        <contraption id="tnt" name="TNT" tooltip="触发后炸飞周围敌人" >
+            <unlock>
+                <condition required="mvz2:level.halloween_6"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <float name="mvz2:damage" value="1800" />
@@ -367,8 +379,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
-        <contraption id="soul_furnace" name="灵魂熔炉" tooltip="发射火球，但需要献祭前方的器械作为燃料"
-            unlock="mvz2:level.halloween_7">
+        <contraption id="soul_furnace" name="灵魂熔炉" tooltip="发射火球，但需要献祭前方的器械作为燃料">
+            <unlock>
+                <condition required="mvz2:level.halloween_7"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:nocturnal" value="true" />
 
@@ -389,7 +403,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <dispenser id="silvenser" name="银质发射器" tooltip="射出穿透肉体的飞刀" unlock="mvz2:level.halloween_8">
+        <dispenser id="silvenser" name="银质发射器" tooltip="射出穿透肉体的飞刀" >
+            <unlock>
+                <condition required="mvz2:level.halloween_8"/>
+            </unlock>
             <properties>
                 <float name="mvz2:damage" value="15" />
                 <id name="mvz2:projectileId" value="mvz2:knife" />
@@ -399,7 +416,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
-        <contraption id="magichest" name="魔术箱" tooltip="将一个怪物变为星之碎片" unlock="mvz2:level.halloween_9">
+        <contraption id="magichest" name="魔术箱" tooltip="将一个怪物变为星之碎片" >
+            <unlock>
+                <condition required="mvz2:level.halloween_9"/>
+            </unlock>
             <properties>
                 <float name="mvz2:range" value="120" />
                 <bool name="mvz2:loyal" value="true" />
@@ -414,7 +434,10 @@
         </contraption>
 
         <!-- Dream Contraptions -->
-        <contraption id="lily_pad" name="睡莲" tooltip="允许在水上放置器械" unlock="mvz2:level.dream_1">
+        <contraption id="lily_pad" name="睡莲" tooltip="允许在水上放置器械" >
+            <unlock>
+                <condition required="mvz2:level.dream_1"/>
+            </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:lily_pad_carrier"/>
             </behaviours>
@@ -438,8 +461,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <dispenser id="drivenser" name="驱动发射器" tooltip="能够堆叠放置，堆叠后子弹数量增加"
-            unlock="mvz2:level.dream_2">
+        <dispenser id="drivenser" name="驱动发射器" tooltip="能够堆叠放置，堆叠后子弹数量增加">
+            <unlock>
+                <condition required="mvz2:level.dream_2"/>
+            </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <id name="mvz2:placement" value="mvz2:drivenser" />
@@ -448,7 +473,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
-        <contraption id="gravity_pad" name="重力板" tooltip="增强上方物体的重力" unlock="mvz2:level.dream_3">
+        <contraption id="gravity_pad" name="重力板" tooltip="增强上方物体的重力" >
+            <unlock>
+                <condition required="mvz2:level.dream_3"/>
+            </unlock>
 
             <properties>
                 <bool name="mvz2:shadowHidden" value="true" />
@@ -465,7 +493,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <contraption id="vortex_hopper" name="漩涡漏斗" tooltip="把附近的僵尸拉入水底" unlock="mvz2:level.dream_4">
+        <contraption id="vortex_hopper" name="漩涡漏斗" tooltip="把附近的僵尸拉入水底" >
+            <unlock>
+                <condition required="mvz2:level.dream_4"/>
+            </unlock>
 
             <properties>
                 <bool name="mvz2:isFloor" value="true" />
@@ -482,7 +513,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <dispenser id="pistenser" name="活塞发射器" tooltip="能够伸长自己来攻击空中敌人" unlock="mvz2:level.dream_6">
+        <dispenser id="pistenser" name="活塞发射器" tooltip="能够伸长自己来攻击空中敌人" >
+            <unlock>
+                <condition required="mvz2:level.dream_6"/>
+            </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:dispenser" />
                 <id name="mvz2:projectileId" value="mvz2:spike" />
@@ -492,7 +526,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
-        <dispenser id="totenser" name="图腾发射器" tooltip="发射虚弱的飞镖并灼烧前方的僵尸" unlock="mvz2:level.dream_7">
+        <dispenser id="totenser" name="图腾发射器" tooltip="发射虚弱的飞镖并灼烧前方的僵尸" >
+            <unlock>
+                <condition required="mvz2:level.dream_7"/>
+            </unlock>
             <properties>
                 <float name="mvz2:damage" value="15" />
                 <id name="mvz2:projectileId" value="mvz2:dart" />
@@ -502,7 +539,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
-        <contraption id="dream_crystal" name="梦境结晶" tooltip="能够自我修复的障碍墙" unlock="mvz2:level.dream_8">
+        <contraption id="dream_crystal" name="梦境结晶" tooltip="能够自我修复的障碍墙" >
+            <unlock>
+                <condition required="mvz2:level.dream_8"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
@@ -516,8 +556,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="dream_silk" name="美梦丝" tooltip="让一个器械睡着，醒来后生成一个星之碎片"
-            unlock="mvz2:level.dream_9">
+        <contraption id="dream_silk" name="美梦丝" tooltip="让一个器械睡着，醒来后生成一个星之碎片">
+            <unlock>
+                <condition required="mvz2:level.dream_9"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:cannotDig" value="true" />
                 <bool name="mvz2:invisible" value="true" />
@@ -545,7 +587,10 @@
         </contraption>
 
         <!-- Castle Contraptions -->
-        <dispenser id="wooden_dropper" name="木制投掷器" tooltip="投出木制小球" unlock="mvz2:level.castle_1">
+        <dispenser id="wooden_dropper" name="木制投掷器" tooltip="投出木制小球" >
+            <unlock>
+                <condition required="mvz2:level.castle_1"/>
+            </unlock>
             <properties>
                 <id name="mvz2:projectileId" value="mvz2:wooden_ball" />
                 <id name="mvz2:shootSound" value="mvz2:click" />
@@ -560,7 +605,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
-        <contraption id="spike_block" name="尖刺方块" tooltip="扎伤上面的敌人" unlock="mvz2:level.castle_2">
+        <contraption id="spike_block" name="尖刺方块" tooltip="扎伤上面的敌人" >
+            <unlock>
+                <condition required="mvz2:level.castle_2"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <float name="mvz2:damage" value="20" />
@@ -577,7 +625,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <dispenser id="stone_dropper" name="石制投掷器" tooltip="投出石子或巨石" unlock="mvz2:level.castle_3">
+        <dispenser id="stone_dropper" name="石制投掷器" tooltip="投出石子或巨石" >
+            <unlock>
+                <condition required="mvz2:level.castle_3"/>
+            </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <id name="mvz2:projectileId" value="mvz2:cobble" />
@@ -591,7 +642,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
-        <contraption id="stone_shield" name="石护罩" tooltip="保护内部的器械" unlock="mvz2:level.castle_4">
+        <contraption id="stone_shield" name="石护罩" tooltip="保护内部的器械" >
+            <unlock>
+                <condition required="mvz2:level.castle_4"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <float name="mvz2:maxHealth" value="4000" />
@@ -604,7 +658,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="golden_apple" name="金苹果" tooltip="魅惑攻击它的敌人" unlock="mvz2:level.castle_6">
+        <contraption id="golden_apple" name="金苹果" tooltip="魅惑攻击它的敌人" >
+            <unlock>
+                <condition required="mvz2:level.castle_6"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:nocturnal" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
@@ -617,7 +674,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="thunder_drum" name="雷鼓" tooltip="触发后震退敌人" unlock="mvz2:level.castle_7">
+        <contraption id="thunder_drum" name="雷鼓" tooltip="触发后震退敌人" >
+            <unlock>
+                <condition required="mvz2:level.castle_7"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
@@ -632,7 +692,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="tesla_coil" name="磁暴线圈" tooltip="电击大范围内的敌人" unlock="mvz2:level.castle_8">
+        <contraption id="tesla_coil" name="磁暴线圈" tooltip="电击大范围内的敌人" >
+            <unlock>
+                <condition required="mvz2:level.castle_8"/>
+            </unlock>
             <properties>
                 <float name="mvz2:range" value="200" />
                 <float name="mvz2:damage" value="80" />
@@ -651,7 +714,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="giant_bowl" name="巨碗" tooltip="生产并储存星之碎片" unlock="mvz2:level.castle_9">
+        <contraption id="giant_bowl" name="巨碗" tooltip="生产并储存星之碎片" >
+            <unlock>
+                <condition required="mvz2:level.castle_9"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
@@ -664,7 +730,10 @@
         </contraption>
 
         <!-- Mausoleum Contraptions -->
-        <contraption id="note_block" name="音符盒" tooltip="发射反弹的音符" unlock="mvz2:level.mausoleum_1">
+        <contraption id="note_block" name="音符盒" tooltip="发射反弹的音符" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_1"/>
+            </unlock>
             <properties>
                 <id name="mvz2:projectileId" value="mvz2:note" />
                 <id name="mvz2:shootSound" null="true" />
@@ -682,8 +751,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="lightning_orb" name="闪电之珠" tooltip="阻碍敌人前进，并吸收子弹来治疗自己"
-            unlock="mvz2:level.mausoleum_2">
+        <contraption id="lightning_orb" name="闪电之珠" tooltip="阻碍敌人前进，并吸收子弹来治疗自己">
+            <unlock>
+                <condition required="mvz2:level.mausoleum_2"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
@@ -709,14 +780,19 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <dispenser id="splitenser" name="双向发射器" tooltip="向前后双方射出箭" unlock="mvz2:level.mausoleum_3">
+        <dispenser id="splitenser" name="双向发射器" tooltip="向前后双方射出箭" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_3"/>
+            </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:dispenser" />
                 <int name="mvz2:cost" value="125" />
             </properties>
         </dispenser>
-        <contraption id="devourer" name="吞噬者" tooltip="移除刷怪笼，或将器械变回蓝图掉落物"
-            unlock="mvz2:level.mausoleum_4">
+        <contraption id="devourer" name="吞噬者" tooltip="移除刷怪笼，或将器械变回蓝图掉落物">
+            <unlock>
+                <condition required="mvz2:level.mausoleum_4"/>
+            </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
                 <bool name="mvz2:canDeactive" value="false" />
@@ -732,7 +808,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <contraption id="hellfire" name="地狱火" tooltip="点燃穿过的箭矢" unlock="mvz2:level.mausoleum_6">
+        <contraption id="hellfire" name="地狱火" tooltip="点燃穿过的箭矢" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_6"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:isFire" value="true" />
@@ -750,8 +829,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <contraption id="necrotombstone" name="死灵墓碑" tooltip="召唤友方骷髅战士"
-            unlock="mvz2:level.mausoleum_7">
+        <contraption id="necrotombstone" name="死灵墓碑" tooltip="召唤友方骷髅战士">
+            <unlock>
+                <condition required="mvz2:level.mausoleum_7"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:nocturnal" value="true" />
                 <id name="mvz2:fragmentId" value="mvz2:furnace" />
@@ -763,7 +844,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="black_hole_bomb" name="黑洞炸弹" tooltip="触发后产生引力黑洞" unlock="mvz2:level.mausoleum_8">
+        <contraption id="black_hole_bomb" name="黑洞炸弹" tooltip="触发后产生引力黑洞" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_8"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <float name="mvz2:range" value="120" />
@@ -778,7 +862,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
-        <contraption id="desire_pot" name="欲望壶" tooltip="复制敌人身上的星之碎片" unlock="mvz2:level.mausoleum_9">
+        <contraption id="desire_pot" name="欲望壶" tooltip="复制敌人身上的星之碎片" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_9"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
@@ -791,7 +878,10 @@
         </contraption>
         
         <!-- Ship Contraptions -->
-        <contraption id="gunpowder_barrel" name="火药桶" tooltip="提供大量能量，但有爆炸的风险" unlock="mvz2:level.ship_1">
+        <contraption id="gunpowder_barrel" name="火药桶" tooltip="提供大量能量，但有爆炸的风险" >
+            <unlock>
+                <condition required="mvz2:level.ship_1"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:producer" value="true" />
                 <float name="mvz2:range" value="120" />
@@ -807,18 +897,27 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <dispenser id="repeatenser" name="连射发射器" tooltip="一次射出两支箭矢" unlock="mvz2:level.ship_2">
+        <dispenser id="repeatenser" name="连射发射器" tooltip="一次射出两支箭矢" >
+            <unlock>
+                <condition required="mvz2:level.ship_2"/>
+            </unlock>
             <properties>
                 <int name="mvz2:cost" value="200" />
             </properties>
         </dispenser>
-        <dispenser id="triplenser" name="三头发射器" tooltip="一次射出三行的箭矢" unlock="mvz2:level.ship_3">
+        <dispenser id="triplenser" name="三头发射器" tooltip="一次射出三行的箭矢" >
+            <unlock>
+                <condition required="mvz2:level.ship_3"/>
+            </unlock>
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:dispenser" />
                 <int name="mvz2:cost" value="300" />
             </properties>
         </dispenser>
-        <dispenser id="beacon" name="信标" tooltip="向五个方向发射手里剑" unlock="mvz2:level.ship_4">
+        <dispenser id="beacon" name="信标" tooltip="向五个方向发射手里剑" >
+            <unlock>
+                <condition required="mvz2:level.ship_4"/>
+            </unlock>
             <properties>
                 <float name="mvz2:damage" value="20" />
                 <float name="mvz2:range" value="800" />
@@ -836,7 +935,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
-        <contraption id="firework_dispenser" name="烟花发射器" tooltip="轰击周围高空的敌人" unlock="mvz2:level.ship_6">
+        <contraption id="firework_dispenser" name="烟花发射器" tooltip="轰击周围高空的敌人" >
+            <unlock>
+                <condition required="mvz2:level.ship_6"/>
+            </unlock>
             <behaviours>
                 <behaviour id="mvz2:contraption_shooter_firework_dispenser" />
                 <behaviour id="mvz2:contraption_evoke_firework_dispenser" />
@@ -855,7 +957,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <dispenser id="wooden_fan" name="木风扇" tooltip="吹动一整行的敌人" unlock="mvz2:level.ship_7">
+        <dispenser id="wooden_fan" name="木风扇" tooltip="吹动一整行的敌人" >
+            <unlock>
+                <condition required="mvz2:level.ship_7"/>
+            </unlock>
             <properties>
                 <id name="mvz2:shell" value="mvz2:wood" />
                 <id name="mvz2:placeSound" value="mvz2:wood" />
@@ -873,8 +978,10 @@
         </dispenser>
 
         <!-- Upgrade Contraptions -->
-        <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人"
-            unlock="mvz2:contraption.infectenser">
+        <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人">
+            <unlock>
+                <condition required="mvz2:contraption.infectenser"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:nocturnal" value="true" />
                 <bool name="mvz2:upgradeBlueprint" value="true" />
@@ -891,8 +998,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
-        <contraption id="force_pad" name="传动力板" tooltip="（需要重力板）\n改变上方物体的力"
-            unlock="mvz2:contraption.force_pad">
+        <contraption id="force_pad" name="传动力板" tooltip="（需要重力板）\n改变上方物体的力">
+            <unlock>
+                <condition required="mvz2:contraption.force_pad"/>
+            </unlock>
 
             <properties>
                 <bool name="mvz2:upgradeBlueprint" value="true" />
@@ -912,8 +1021,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
-        <dispenser id="golden_dropper" name="金制投掷器" tooltip="（需要木制投掷器）\n投出反弹并产生绿宝石的金球"
-            unlock="mvz2:contraption.golden_dropper">
+        <dispenser id="golden_dropper" name="金制投掷器" tooltip="（需要木制投掷器）\n投出反弹并产生绿宝石的金球">
+            <unlock>
+                <condition required="mvz2:contraption.golden_dropper"/>
+            </unlock>
             <properties>
                 <id name="mvz2:projectileId" value="mvz2:golden_ball" />
                 <id name="mvz2:shootSound" value="mvz2:click" />
@@ -932,7 +1043,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
-        <dispenser id="high_frequency_pulse_dispenser" name="高频脉冲发射器" tooltip="（需要连射发射器）\n一次射出四支箭矢" unlock="mvz2:level.ship_5">
+        <dispenser id="high_frequency_pulse_dispenser" name="高频脉冲发射器" tooltip="（需要连射发射器）\n一次射出四支箭矢" >
+            <unlock>
+                <condition required="mvz2:level.ship_5"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:upgradeBlueprint" value="true" />
                 <id name="mvz2:upgradeFrom" value="mvz2:repeatenser" />
@@ -943,8 +1057,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
-        <contraption id="diamond_spikes" name="钻石尖刺" tooltip="（需要尖刺方块）\n更快扎伤上面的敌人，并具有更高耐久"
-            unlock="mvz2:level.castle_5">
+        <contraption id="diamond_spikes" name="钻石尖刺" tooltip="（需要尖刺方块）\n更快扎伤上面的敌人，并具有更高耐久">
+            <unlock>
+                <condition required="mvz2:level.castle_5"/>
+            </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="5400" />
                 <float name="mvz2:damage" value="20" />
@@ -969,7 +1085,10 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
-        <contraption id="command_block" name="命令方块" tooltip="模仿一个器械" unlock="mvz2:level.mausoleum_5">
+        <contraption id="command_block" name="命令方块" tooltip="模仿一个器械" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_5"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
@@ -982,7 +1101,10 @@
         </contraption>
 
         <!-- Token Contraptions -->
-        <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" unlock="mvz2:level.dream_3">
+        <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" >
+            <unlock>
+                <condition required="mvz2:level.dream_3"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:instantEvoke" value="false" />
                 <bool name="mvz2:canDeactive" value="false" />
@@ -1044,7 +1166,10 @@
         </zombie>
 
         <!-- Halloween Enemies -->
-        <humanoid id="skeleton" name="骷髅" deathMessage="被射成刺猬了！" unlock="mvz2:level.halloween_1">
+        <humanoid id="skeleton" name="骷髅" deathMessage="被射成刺猬了！" >
+            <unlock>
+                <condition required="mvz2:level.halloween_1"/>
+            </unlock>
             <properties>
                 <float name="mvz2:range" value="800" />
                 <vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
@@ -1073,7 +1198,10 @@
                 <int name="mvz2:cost" value="100" />
             </properties>
         </humanoid>
-        <humanoid id="ghost" name="幽灵" deathMessage="现在有伴了。" unlock="mvz2:level.halloween_3">
+        <humanoid id="ghost" name="幽灵" deathMessage="现在有伴了。" >
+            <unlock>
+                <condition required="mvz2:level.halloween_3"/>
+            </unlock>
             <properties>
                 <float name="mvz2:friction" value="0.05" />
                 <float name="mvz2:mass" value="-2" />
@@ -1088,7 +1216,10 @@
                 <int name="mvz2:airInteraction" value="3" />
             </properties>
         </humanoid>
-        <humanoid id="mummy" name="木乃伊" deathMessage="裹成个粽子。" unlock="mvz2:level.halloween_6">
+        <humanoid id="mummy" name="木乃伊" deathMessage="裹成个粽子。" >
+            <unlock>
+                <condition required="mvz2:level.halloween_6"/>
+            </unlock>
             <properties>
                 <id name="mvz2:shell" value="mvz2:grass" />
                 <id name="mvz2:hitSound" value="mvz2:splat" />
@@ -1100,8 +1231,10 @@
                 <int name="mvz2:cost" value="75" />
             </properties>
         </humanoid>
-        <humanoid id="necromancer" name="死灵法师" deathMessage="你挂了\n死亡带走了12450金币和经验值"
-            unlock="mvz2:level.halloween_8">
+        <humanoid id="necromancer" name="死灵法师" deathMessage="你挂了\n死亡带走了12450金币和经验值">
+            <unlock>
+                <condition required="mvz2:level.halloween_8"/>
+            </unlock>
             <properties>
                 <id name="mvz2:shell" value="mvz2:bone" />
                 <id name="mvz2:crySound" value="mvz2:skeleton_cry" />
@@ -1112,7 +1245,10 @@
         </humanoid>
 
         <!-- Dream Enemies -->
-        <spider id="spider" name="蜘蛛" deathMessage="我的蜘蛛感应又有反应了。" unlock="mvz2:level.dream_1">
+        <spider id="spider" name="蜘蛛" deathMessage="我的蜘蛛感应又有反应了。" >
+            <unlock>
+                <condition required="mvz2:level.dream_1"/>
+            </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="160" />
                 <float name="mvz2:maxAttackHeight" value="30" />
@@ -1131,8 +1267,10 @@
                 <int name="mvz2:cost" value="75" />
             </properties>
         </spider>
-        <smallSpider id="cave_spider" name="洞穴蜘蛛" deathMessage="你有蜂蜜瓶还是牛奶桶呢？都没有。"
-            unlock="mvz2:level.dream_3">
+        <smallSpider id="cave_spider" name="洞穴蜘蛛" deathMessage="你有蜂蜜瓶还是牛奶桶呢？都没有。">
+            <unlock>
+                <condition required="mvz2:level.dream_3"/>
+            </unlock>
             <properties>
                 <float name="mvz2:mass" value="-1" />
                 <float name="mvz2:maxHealth" value="120" />
@@ -1155,7 +1293,10 @@
                 <int name="mvz2:waterInteraction" value="3" />
             </properties>
         </smallSpider>
-        <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" unlock="mvz2:level.dream_6">
+        <enemy id="ghast" name="恶魂" deathMessage="快拿棒球棒！" >
+            <unlock>
+                <condition required="mvz2:level.dream_6"/>
+            </unlock>
             <properties>
                 <float name="mvz2:mass" value="-2" />
                 <bool name="mvz2:undead" value="false" />
@@ -1178,7 +1319,10 @@
                 <int name="mvz2:airInteraction" value="3" />
             </properties>
         </enemy>
-        <spider id="mother_terror" name="恐怖之母" deathMessage="生异形啊" unlock="mvz2:level.dream_8">
+        <spider id="mother_terror" name="恐怖之母" deathMessage="生异形啊" >
+            <unlock>
+                <condition required="mvz2:level.dream_8"/>
+            </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="200" />
                 <float name="mvz2:maxAttackHeight" value="30" />
@@ -1198,8 +1342,10 @@
                 <int name="mvz2:cost" value="175" />
             </properties>
         </spider>
-        <smallSpider id="parasite_terror" name="恐怖寄生虫" deathMessage="恐怖寄生虫 已消灭世界上的所有……"
-            unlock="mvz2:level.dream_9">
+        <smallSpider id="parasite_terror" name="恐怖寄生虫" deathMessage="恐怖寄生虫 已消灭世界上的所有……">
+            <unlock>
+                <condition required="mvz2:level.dream_9"/>
+            </unlock>
             <properties>
                 <float name="mvz2:mass" value="-1" />
                 <float name="mvz2:maxHealth" value="50" />
@@ -1225,7 +1371,10 @@
         </smallSpider>
 
         <!-- Castle Enemies -->
-        <witherSkeleton id="mesmerizer" name="催眠者" deathMessage="服从凋灵吧" unlock="mvz2:level.castle_1">
+        <witherSkeleton id="mesmerizer" name="催眠者" deathMessage="服从凋灵吧" >
+            <unlock>
+                <condition required="mvz2:level.castle_1"/>
+            </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:mesmerizer_crown" />
                 <float name="mvz2:range" value="800" />
@@ -1241,7 +1390,10 @@
                 <int name="mvz2:cost" value="125" />
             </properties>
         </witherSkeleton>
-        <witherSkeleton id="berserker" name="狂战士" deathMessage="爆！" unlock="mvz2:level.castle_3">
+        <witherSkeleton id="berserker" name="狂战士" deathMessage="爆！" >
+            <unlock>
+                <condition required="mvz2:level.castle_3"/>
+            </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:berserker_helmet" />
                 <float name="mvz2:range" value="80" />
@@ -1255,7 +1407,10 @@
                 <int name="mvz2:cost" value="150" />
             </properties>
         </witherSkeleton>
-        <witherSkeleton id="dullahan" name="无头骑士" deathMessage="真让人摸不着头脑。" unlock="mvz2:level.castle_6">
+        <witherSkeleton id="dullahan" name="无头骑士" deathMessage="真让人摸不着头脑。" >
+            <unlock>
+                <condition required="mvz2:level.castle_6"/>
+            </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="300" />
                 <vector3 name="mvz2:size" x="38" y="77" z="38" />
@@ -1268,8 +1423,10 @@
                 <id name="mvz2:shape" value="mvz2:dullahan" />
             </properties>
         </witherSkeleton>
-        <enemy id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！"
-            unlock="mvz2:level.castle_8">
+        <enemy id="hell_chariot" name="地狱战车" deathMessage="我们所做的一切，就是为了跟着那该死的火车，史蒂夫！">
+            <unlock>
+                <condition required="mvz2:level.castle_8"/>
+            </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented"/>
             </behaviours>
@@ -1293,7 +1450,10 @@
                 <int name="mvz2:cost" value="300" />
             </properties>
         </enemy>
-        <enemy id="anubisand" name="灵魂沙王" deathMessage="别把头埋在沙子里！" unlock="mvz2:level.castle_9">
+        <enemy id="anubisand" name="灵魂沙王" deathMessage="别把头埋在沙子里！" >
+            <unlock>
+                <condition required="mvz2:level.castle_9"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:flying_enemy" value="true" />
                 <vector3 name="mvz2:size" x="38" y="103" z="38" />
@@ -1309,32 +1469,44 @@
         </enemy>
 
 
-        <zombie id="reflective_barrier_zombie" name="反射壁僵尸" deathMessage="我反弹你的反弹"
-            unlock="mvz2:level.mausoleum_1">
+        <zombie id="reflective_barrier_zombie" name="反射壁僵尸" deathMessage="我反弹你的反弹">
+            <unlock>
+                <condition required="mvz2:level.mausoleum_1"/>
+            </unlock>
             <properties>
                 <id name="mvz2:starting_shield" value="mvz2:reflective_barrier" />
                 <int name="mvz2:cost" value="100" />
             </properties>
         </zombie>
-        <humanoid id="talisman_zombie" name="灵符僵尸" deathMessage="好吃" unlock="mvz2:level.mausoleum_3">
+        <humanoid id="talisman_zombie" name="灵符僵尸" deathMessage="好吃" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_3"/>
+            </unlock>
             <properties>
                 <int name="mvz2:cost" value="75" />
             </properties>
         </humanoid>
-        <humanoid id="wicked_hermit_zombie" name="邪仙僵尸" deathMessage="省得找个铲子来挖坟了。"
-            unlock="mvz2:level.mausoleum_3">
+        <humanoid id="wicked_hermit_zombie" name="邪仙僵尸" deathMessage="省得找个铲子来挖坟了。">
+            <unlock>
+                <condition required="mvz2:level.mausoleum_3"/>
+            </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:wicked_hermit_hat" />
                 <int name="mvz2:cost" value="150" />
             </properties>
         </humanoid>
-        <humanoid id="shikaisen_zombie" name="尸解仙僵尸" deathMessage="那我怎么没复活？"
-            unlock="mvz2:level.mausoleum_6">
+        <humanoid id="shikaisen_zombie" name="尸解仙僵尸" deathMessage="那我怎么没复活？">
+            <unlock>
+                <condition required="mvz2:level.mausoleum_6"/>
+            </unlock>
             <properties>
                 <int name="mvz2:cost" value="125" />
             </properties>
         </humanoid>
-        <humanoid id="emperor_zombie" name="皇帝僵尸" deathMessage="中道崩殂" unlock="mvz2:level.mausoleum_8">
+        <humanoid id="emperor_zombie" name="皇帝僵尸" deathMessage="中道崩殂" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_8"/>
+            </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:emperor_crown" />
                 <int name="mvz2:cost" value="100" />
@@ -1364,13 +1536,19 @@
                 <int name="mvz2:cost" value="150" />
             </properties>
         </enemy>
-        <zombie id="cannoneer_zombie" name="炮手僵尸" deathMessage="炮决！" unlock="mvz2:level.ship_3">
+        <zombie id="cannoneer_zombie" name="炮手僵尸" deathMessage="炮决！" >
+            <unlock>
+                <condition required="mvz2:level.ship_3"/>
+            </unlock>
             <properties>
                 <id name="mvz2:starting_shield" value="mvz2:cannon" />
                 <int name="mvz2:cost" value="150" />
             </properties>
         </zombie>
-        <zombie id="cannonball_zombie" name="炮弹僵尸" deathMessage="-1up" unlock="mvz2:level.ship_4">
+        <zombie id="cannonball_zombie" name="炮弹僵尸" deathMessage="-1up" >
+            <unlock>
+                <condition required="mvz2:level.ship_4"/>
+            </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="100" />
                 <float name="mvz2:mass" value="-1" />
@@ -1383,7 +1561,10 @@
                 <int name="mvz2:cost" value="150" />
             </properties>
         </zombie>
-        <enemy id="zombie_cloud" name="僵尸云" deathMessage="你就云吧" unlock="mvz2:level.ship_6">
+        <enemy id="zombie_cloud" name="僵尸云" deathMessage="你就云吧" >
+            <unlock>
+                <condition required="mvz2:level.ship_6"/>
+            </unlock>
             <behaviours>
             </behaviours>
             <properties>
@@ -1404,7 +1585,10 @@
             </properties>
         </enemy>
 
-        <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" unlock="mvz2:level.shrine_8">
+        <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" >
+            <unlock>
+                <condition required="mvz2:level.shrine_8"/>
+            </unlock>
             <properties>
                 <float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="3000" />
@@ -1425,8 +1609,10 @@
                 <int name="mvz2:waterInteraction" value="3" />
             </properties>
         </enemy>
-        <enemy id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？"
-            unlock="mvz2:level.shrine_8">
+        <enemy id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？">
+            <unlock>
+                <condition required="mvz2:level.shrine_8"/>
+            </unlock>
             <properties>
                 <float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="6000" />
@@ -1461,7 +1647,10 @@
         </enemy>
 
         <!-- Token Enemies-->
-        <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">
+        <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" >
+            <unlock>
+                <condition required="mvz2:level.halloween_8"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
@@ -1480,8 +1669,10 @@
                 <int name="mvz2:cost" value="25" />
             </properties>
         </enemy>
-        <enemy id="napstablook" name="小幽灵" deathMessage="抱歉……我不是有意这么做的……"
-            unlock="mvz2:level.halloween_6">
+        <enemy id="napstablook" name="小幽灵" deathMessage="抱歉……我不是有意这么做的……">
+            <unlock>
+                <condition required="mvz2:level.halloween_6"/>
+            </unlock>
             <properties>
                 <float name="mvz2:mass" value="-2" />
                 <bool name="mvz2:harmless" value="true" />
@@ -1499,7 +1690,10 @@
                 <int name="mvz2:cost" value="0" />
             </properties>
         </enemy>
-        <enemy id="reverse_satellite" name="反则卫星" deathMessage="？" unlock="mvz2:level.castle_1">
+        <enemy id="reverse_satellite" name="反则卫星" deathMessage="？" >
+            <unlock>
+                <condition required="mvz2:level.castle_1"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
@@ -1516,7 +1710,10 @@
                 <int name="mvz2:cost" value="25" />
             </properties>
         </enemy>
-        <enemy id="skeleton_horse" name="骷髅马" deathMessage="死因：死马" unlock="mvz2:level.castle_6">
+        <enemy id="skeleton_horse" name="骷髅马" deathMessage="死因：死马" >
+            <unlock>
+                <condition required="mvz2:level.castle_6"/>
+            </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="400" />
                 <float name="mvz2:fallResistance" value="15" />
@@ -1530,7 +1727,10 @@
                 <int name="mvz2:cost" value="75" />
             </properties>
         </enemy>
-        <enemy id="dullahan_head" name="无头骑士的头" deathMessage="吾头在否？！" unlock="mvz2:level.castle_6">
+        <enemy id="dullahan_head" name="无头骑士的头" deathMessage="吾头在否？！" >
+            <unlock>
+                <condition required="mvz2:level.castle_6"/>
+            </unlock>
             <properties>
                 <float name="mvz2:mass" value="-1" />
                 <float name="mvz2:speed" value="2" />
@@ -1544,7 +1744,10 @@
                 <int name="mvz2:cost" value="50" />
             </properties>
         </enemy>
-        <enemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？" unlock="mvz2:level.castle_9">
+        <enemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？" >
+            <unlock>
+                <condition required="mvz2:level.castle_9"/>
+            </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented"/>
                 <behaviour operator="add" id="mvz2:timeout_death"/>
@@ -1568,7 +1771,10 @@
                 <int name="mvz2:cost" value="25" />
             </properties>
         </enemy>
-        <enemy id="seija_cursed_doll" name="正邪的诅咒人偶" deathMessage="？" unlock="mvz2:level.castle_7">
+        <enemy id="seija_cursed_doll" name="正邪的诅咒人偶" deathMessage="？" >
+            <unlock>
+                <condition required="mvz2:level.castle_7"/>
+            </unlock>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
@@ -1586,7 +1792,10 @@
                 <int name="mvz2:cost" value="25" />
             </properties>
         </enemy>
-        <witherSkeleton id="bedserker" name="床战士" deathMessage="晚安" unlock="mvz2:level.castle_11">
+        <witherSkeleton id="bedserker" name="床战士" deathMessage="晚安" >
+            <unlock>
+                <condition required="mvz2:level.castle_11"/>
+            </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:bedserker_helmet" />
                 <float name="mvz2:range" value="80" />
@@ -1600,7 +1809,10 @@
                 <int name="mvz2:cost" value="1000" />
             </properties>
         </witherSkeleton>
-        <humanoid id="skeleton_warrior" name="骷髅战士" deathMessage="骸死我了" unlock="mvz2:level.mausoleum_7">
+        <humanoid id="skeleton_warrior" name="骷髅战士" deathMessage="骸死我了" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_7"/>
+            </unlock>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:skeleton_warrior_helmet" />
                 <id name="mvz2:starting_shield" value="mvz2:skeleton_warrior_shield" />
@@ -1612,7 +1824,10 @@
                 <int name="mvz2:cost" value="175" />
             </properties>
         </humanoid>
-        <humanoid id="skeleton_mage" name="骷髅法师" deathMessage="骸死我了" unlock="mvz2:level.mausoleum_7">
+        <humanoid id="skeleton_mage" name="骷髅法师" deathMessage="骸死我了" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_7"/>
+            </unlock>
             <properties>
                 <float name="mvz2:range" value="800" />
                 <vector3 name="mvz2:shotOffset" x="10" y="54" z="0" />
@@ -1626,7 +1841,10 @@
                 <int name="mvz2:cost" value="75" />
             </properties>
         </humanoid>
-        <enemy id="shikaisen_staff" name="尸解仙之杖" deathMessage="？" unlock="mvz2:level.mausoleum_6">
+        <enemy id="shikaisen_staff" name="尸解仙之杖" deathMessage="？" >
+            <unlock>
+                <condition required="mvz2:level.mausoleum_6"/>
+            </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented"/>
                 <behaviour operator="add" id="mvz2:timeout_death"/>

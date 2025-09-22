@@ -444,7 +444,8 @@ namespace MVZ2.Saves
             {
                 if (def == null)
                     continue;
-                if (this.IsValidAndLocked(def.GetEntityUnlock()))
+                var unlockConditions = def.GetEntityUnlock();
+                if (!unlockConditions.IsNullOrMeetsConditions(Main.SaveManager))
                     continue;
                 var id = def.GetID();
                 if (def.Type == EntityTypes.PLANT)
