@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: c1afef2c73814b74cbc538bc674b5f42, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - DEPTH_TEST
   - ETC1_EXTERNAL_ALPHA
   - HSV_TINT
   m_InvalidKeywords:

@@ -1,7 +1,6 @@
 #include "UnityCG.cginc"
 
 sampler2D _LightMapSpot;
-float4 _LightMapST;
 int _LightStarted;
 float4 _LightGlobal;
 float4 _LightBackground;
@@ -11,13 +10,6 @@ int _SpotLit;
 int _HDRDisabled;
 
 
-float2 GetLightUV(float4 vertex)
-{
-    // 将模型空间坐标转换到世界空间
-    float2 worldPos = mul(unity_ObjectToWorld, vertex);
-    worldPos.y += 2.1;
-    return (worldPos.xy + _LightMapST.zw) / _LightMapST.xy;
-}
 float4 ToLinear(float4 col)
 {
     return pow(col, 2.2);

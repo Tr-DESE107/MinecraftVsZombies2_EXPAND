@@ -3,9 +3,6 @@
     Properties
     {
         _MainTex("Diffuse", 2D) = "white" {}
-		_ZWrite("Z Write", Int) = 0
-        [Enum(UnityEngine.Rendering.CompareFunction)]
-		_ZTest("Z Test", Int) = 4
 
 		[Header(Color)]
 		[Space(10)]
@@ -37,6 +34,8 @@
 		[Toggle(HSV_TINT)]
 		_HSVTint("HSVTint", Int) = 0
 		_HSVOffset("HSV Offset", Vector) = (0,0,0,0)
+        
+        _LevelMapST ("Level Map ST", Vector) = (14, 10.2, 0, 0)
 
 		[Header(Lighting)]
 		[Toggle(LIT)]
@@ -45,7 +44,12 @@
 		[Toggle] _BackgroundLit("Lit by Background", Int) = 0
 		[Toggle] _SpotLit("Lit by Spot", Int) = 1
         _LightMapSpot("Light Map Spot", 2D) = "black" {}
-        _LightMapST ("Light Map ST", Vector) = (14, 10.2, 0, 0)
+        
+		[Header(DepthTest)]
+		[Toggle(DEPTH_TEST)]
+		_DepthTestEnabled("Depth Test Enabled", Int) = 1
+        _DepthMap("Depth Map Spot", 2D) = "black" {}
+        _DepthOffset("Depth Offset", Float) = 100
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
         
@@ -66,8 +70,8 @@
 
         Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
         Cull Off
-        ZWrite [_ZWrite]
-        ZTest [_ZTest]
+        ZWrite Off
+        ZTest Always
 
         Pass
         {
@@ -78,10 +82,11 @@
             #pragma vertex EntityVert
             #pragma fragment EntityFrag
             #pragma multi_compile_instancing
-            #pragma multi_compile _ BURN_ON
-            #pragma multi_compile _ HSV_TINT
-            #pragma multi_compile _ CIRCLE_TILED
-            #pragma multi_compile _ LIT
+            #pragma shader_feature _ BURN_ON
+            #pragma shader_feature _ HSV_TINT
+            #pragma shader_feature _ CIRCLE_TILED
+            #pragma shader_feature _ LIT
+            #pragma shader_feature _ DEPTH_TEST
             ENDHLSL
         }
     }

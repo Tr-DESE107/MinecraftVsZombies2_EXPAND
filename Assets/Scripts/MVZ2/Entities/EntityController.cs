@@ -673,6 +673,7 @@ namespace MVZ2.Entities
                     rendererGroup.SetHSV(entity.GetHSV());
                     rendererGroup.SetColorOffset(entityCtrl.GetColorOffset());
                     rendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
+                    rendererGroup.SetShaderInt("_DepthTest", entity.IsDepthTest() ? 1 : 0);
 
                     model.transform.localScale = entity.GetFinalDisplayScale();
                     model.SortingLayerID = SortingLayer.NameToID(entity.GetSortingLayer());
@@ -721,6 +722,12 @@ namespace MVZ2.Entities
                             if (model.Exists())
                             {
                                 model.RendererGroup.SetShaderInt("_Grayscale", entity.IsGrayscale() ? 1 : 0);
+                            }
+                            break;
+                        case PropertyName.DepthTest:
+                            if (model.Exists())
+                            {
+                                model.SetShaderIntRecursive("_DepthTest", entity.IsDepthTest() ? 1 : 0);
                             }
                             break;
                         case PropertyName.FlipX:
@@ -813,6 +820,7 @@ namespace MVZ2.Entities
                 { EngineEntityProps.COLOR_OFFSET, PropertyName.ColorOffset },
                 { VanillaEntityProps.HSV, PropertyName.HSV },
                 { VanillaEntityProps.GRAYSCALE, PropertyName.Grayscale },
+                { VanillaEntityProps.DEPTH_TEST, PropertyName.DepthTest },
                 { EngineEntityProps.FLIP_X, PropertyName.FlipX },
                 { EngineEntityProps.DISPLAY_SCALE, PropertyName.DisplayScale },
                 { VanillaEntityProps.SORTING_LAYER, PropertyName.SortingLayer },
@@ -833,6 +841,7 @@ namespace MVZ2.Entities
                 ColorOffset,
                 HSV,
                 Grayscale,
+                DepthTest,
                 FlipX,
                 DisplayScale,
                 SortingLayer,

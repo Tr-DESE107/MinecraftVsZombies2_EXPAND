@@ -1,5 +1,6 @@
 #include "lighting.hlsl"
             
+#include "level.hlsl"
             
 struct Attributes
 {
@@ -36,7 +37,7 @@ Varyings ShadowVertex(Attributes v)
     UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
     o.vertex = UnityObjectToClipPos(v.vertex);
-    o.lightUV = GetLightUV(v.vertex);
+    o.lightUV = GetLevelUV(v.vertex);
 
     o.uv = TRANSFORM_TEX(v.uv, _MainTex);
     o.color = v.color * _Color * _RendererColor;

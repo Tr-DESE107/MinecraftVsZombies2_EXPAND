@@ -345,6 +345,43 @@ namespace MVZ2.Models
         {
             GraphicGroup.SetShaderColor(name, value);
         }
+        public void SetShaderVector(string name, Vector4 value)
+        {
+            GraphicGroup.SetShaderVector(name, value);
+        }
+        public void SetShaderIntRecursive(string name, int value)
+        {
+            SetShaderInt(name, value);
+            foreach (var child in childModels)
+            {
+                child.SetShaderIntRecursive(name, value);
+            }
+        }
+
+        public void SetShaderFloatRecursive(string name, float value)
+        {
+            SetShaderFloat(name, value);
+            foreach (var child in childModels)
+            {
+                child.SetShaderFloatRecursive(name, value);
+            }
+        }
+        public void SetShaderColorRecursive(string name, Color value)
+        {
+            SetShaderColor(name, value);
+            foreach (var child in childModels)
+            {
+                child.SetShaderColorRecursive(name, value);
+            }
+        }
+        public void SetShaderVectorRecursive(string name, Vector4 value)
+        {
+            SetShaderVector(name, value);
+            foreach (var child in childModels)
+            {
+                child.SetShaderVectorRecursive(name, value);
+            }
+        }
         #endregion
 
         #region 模型单元

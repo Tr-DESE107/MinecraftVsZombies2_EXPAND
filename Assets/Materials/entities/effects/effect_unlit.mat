@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: e82d9ec6ebe1f274ba315b54034ffa48, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - DEPTH_TEST
   - ETC1_EXTERNAL_ALPHA
   m_InvalidKeywords:
   - COLORED_ON

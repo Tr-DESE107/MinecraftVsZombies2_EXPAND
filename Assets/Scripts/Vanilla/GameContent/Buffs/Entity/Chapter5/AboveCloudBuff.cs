@@ -24,6 +24,7 @@ namespace MVZ2.GameContent.Buffs
             AddModifier(new FloatModifier(EngineEntityProps.GROUND_LIMIT_OFFSET, NumberOperator.Add, PROP_GROUND_LIMIT_OFFSET));
             AddModifier(new FloatModifier(VanillaEntityProps.SHADOW_ALPHA, NumberOperator.Multiply, PROP_SHADOW_ALPHA));
             AddModifier(new BooleanModifier(VanillaEnemyProps.HARMLESS, PROP_FALLING));
+            AddModifier(new BooleanModifier(VanillaEntityProps.DEPTH_TEST, true));
         }
         public override void PostAdd(Buff buff)
         {

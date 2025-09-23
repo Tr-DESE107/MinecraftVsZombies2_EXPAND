@@ -1,6 +1,13 @@
 #include "UnityCG.cginc"
+
+#include "level.hlsl"
+
 #if LIT
 #include "lighting.hlsl"
+#endif
+
+#if DEPTH_TEST
+#include "depth_test.hlsl"
 #endif
         
 #if BURN_ON
@@ -39,16 +46,14 @@ struct appdata_entity
 struct v2f_entity
 {
     float4 vertex : SV_POSITION;
+    float4 world : TEXCOORD1;
+    float2 levelUV : TEXCOORD2;
     float4 color : COLOR;
     float2 uv : TEXCOORD0;
     UNITY_VERTEX_INPUT_INSTANCE_ID 
 
     #if BURN_ON
-    float2 noiseUV : TEXCOORD1;
-    #endif
-
-    #if LIT
-    float2 lightUV : TEXCOORD2;
+    float2 noiseUV : TEXCOORD3;
     #endif
 };
 sampler2D _MainTex;
@@ -75,16 +80,14 @@ v2f_entity EntityVert(appdata_entity v)
     UNITY_SETUP_INSTANCE_ID(v);
     UNITY_TRANSFER_INSTANCE_ID(v, o);
     
+    o.levelUV = GetLevelUV(v.vertex);
+    o.world = mul(unity_ObjectToWorld, v.vertex);
     o.vertex = UnityObjectToClipPos(v.vertex);
     o.uv = TRANSFORM_TEX(v.uv, _MainTex);
     o.color = v.color;
                             
 #if BURN_ON
     o.noiseUV = TRANSFORM_TEX(v.uv, _BurnNoise);
-#endif      
-    
-#if LIT
-    o.lightUV = GetLightUV(v.vertex);
 #endif
     
     return o;
@@ -114,7 +117,7 @@ half4 EntityFrag(v2f_entity i) : SV_Target
 #endif
     
 #if LIT
-    col = ApplyLight(col, i.lightUV);
+    col = ApplyLight(col, i.levelUV);
 #endif
 
 #if BURN_ON
@@ -127,6 +130,10 @@ half4 EntityFrag(v2f_entity i) : SV_Target
 #else
 half4 EntityFrag(v2f_entity i) : SV_Target
 {
+#if DEPTH_TEST
+    ClipDepth(i.world, i.levelUV);
+#endif
+    
     half4 col = tex2D(_MainTex, i.uv);
     col = Tint(col, i.color);
     if (_Grayscale > 0)
@@ -145,8 +152,9 @@ half4 EntityFrag(v2f_entity i) : SV_Target
 #endif
     
 #if LIT
-    col = ApplyLight(col, i.lightUV);
+    col = ApplyLight(col, i.levelUV);
 #endif
+    
 
 #if BURN_ON
     col = Burn(col, i.noiseUV, i.uv);

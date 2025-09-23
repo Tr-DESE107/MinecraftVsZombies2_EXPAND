@@ -16,7 +16,13 @@ Shader "MinecraftVSZombies2/Legacy/Model"
 		[Toggle] _BackgroundLit("Lit by Background", Int) = 0
 		[Toggle] _SpotLit("Lit by Spot", Int) = 1
         _LightMapSpot("Light Map Spot", 2D) = "black" {}
-        _LightMapST ("Light Map ST", Vector) = (14, 10.2, 0, 0)
+        _LevelMapST ("Level Map ST", Vector) = (14, 10.2, 0, 0)
+
+		[Header(DepthTest)]
+		[Toggle(DEPTH_TEST)]
+		_DepthTestEnabled("Depth Test Enabled", Int) = 1
+        _DepthMap("Depth Map Spot", 2D) = "black" {}
+        _DepthOffset("Depth Offset", Float) = 100
     }
 
     SubShader

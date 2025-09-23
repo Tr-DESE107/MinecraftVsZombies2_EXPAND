@@ -8,7 +8,6 @@ using MVZ2.IO;
 using MVZ2.Managers;
 using MVZ2.OldSave;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using MVZ2Logic.Callbacks;
