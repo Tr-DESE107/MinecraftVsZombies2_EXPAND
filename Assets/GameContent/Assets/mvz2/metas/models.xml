@@ -6,9 +6,7 @@
     <model name="obsidian" type="entity" path="mvz2:contraption/prologue/obsidian" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="mine_tnt" type="entity" path="mvz2:contraption/prologue/mine_tnt" width="64" height="64" xOffset="0" yOffset="-28"/>
 
-	<model name="GlowingObsidian" type="entity" path="mvz2:contraption/EXPAND/GlowingObsidian" width="64" height="64" xOffset="0" yOffset="-28"/>
-	<model name="RedStoneOre" type="entity" path="mvz2:contraption/EXPAND/RedStoneOre" width="64" height="64" xOffset="0" yOffset="-28"/>
-	<model name="DispenShield" type="entity" path="mvz2:contraption/EXPAND/DispenShield" width="80" height="64" xOffset="0" yOffset="-28"/>
+	
 
     <model name="small_dispenser" type="entity" path="mvz2:contraption/halloween/small_dispenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="moonlight_sensor" type="entity" path="mvz2:contraption/halloween/moonlight_sensor" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -58,17 +56,26 @@
     <model name="infectenser" type="entity" path="mvz2:contraption/upgrade/infectenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="force_pad" type="entity" path="mvz2:contraption/upgrade/force_pad" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="golden_dropper" type="entity" path="mvz2:contraption/upgrade/golden_dropper" width="64" height="64" xOffset="0" yOffset="-28"/>
-	<model name="Eviltombstone" type="entity" path="mvz2:contraption/upgrade/Eviltombstone" width="64" height="64" xOffset="0" yOffset="-28"/>
+	
     <model name="high_frequency_pulse_dispenser" type="entity" path="mvz2:contraption/upgrade/high_frequency_pulse_dispenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="diamond_spikes" type="entity" path="mvz2:contraption/upgrade/diamond_spikes" width="64" height="64" xOffset="0" yOffset="-28"/>
 
-	<model name="CopperDropper" type="entity" path="mvz2:contraption/upgrade/CopperDropper" width="64" height="64" xOffset="0" yOffset="-28"/>
+	
 
 	<model name="command_block" type="entity" path="mvz2:contraption/upgrade/command_block" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="anvil" type="entity" path="mvz2:contraption/dream/anvil" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="random_china" type="entity" path="mvz2:contraption/prologue/random_china" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="error_block" type="entity" path="mvz2:contraption/upgrade/error_block" width="64" height="64" xOffset="0" yOffset="-28"/>
+	
+	<!--EXPAND Contraption-->
+	<model name="GlowingObsidian" type="entity" path="mvz2:contraption/EXPAND/GlowingObsidian" width="64" height="64" xOffset="0" yOffset="-28"/>
+	<model name="RedStoneOre" type="entity" path="mvz2:contraption/EXPAND/RedStoneOre" width="64" height="64" xOffset="0" yOffset="-28"/>
+	<model name="DispenShield" type="entity" path="mvz2:contraption/EXPAND/DispenShield" width="80" height="64" xOffset="0" yOffset="-28"/>
+	<model name="Eradicator" type="entity" path="mvz2:contraption/EXPAND/Eradicator" width="64" height="64" xOffset="0" yOffset="-28"/>
+	
+	<model name="Eviltombstone" type="entity" path="mvz2:contraption/upgrade/Eviltombstone" width="64" height="64" xOffset="0" yOffset="-28"/>
+	<model name="CopperDropper" type="entity" path="mvz2:contraption/upgrade/CopperDropper" width="64" height="64" xOffset="0" yOffset="-28"/>
 
 	<!-- Enemies -->
 	<model name="zombie" type="entity" path="mvz2:enemy/prologue/zombie" width="64" height="96" xOffset="10" yOffset="-44">

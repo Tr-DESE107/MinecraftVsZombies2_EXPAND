@@ -949,7 +949,23 @@
             </flavor>
         </entry>
 
-        <entry id="mvz2:GlowingObsidian">
+		<entry id="mvz2:Eradicator">
+			<header>
+				<p>发射器是你的第一道防线，它们发射箭来保卫你的房子。</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>300</color>]]></p>
+				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
+				<p>特点：<![CDATA[<color=red>1/7概率发射紫箭</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>普通箭矢20，紫箭80</color>]]></p>
+				<p>技能：<![CDATA[<color=red>快速发射60支箭矢</color>]]></p>
+			</properties>
+			<flavor>
+				<p>“有人问我为什么我能不需要红石就能发射箭，还有人问我为什么我能发射无数的箭。”发射器顿了一顿，“第一，我的栅栏连着一个脉冲，第二，我内部的弓附有耐久450和无限I。啥？你问我为啥会说话？”</p>
+			</flavor>
+		</entry>
+
+		<entry id="mvz2:GlowingObsidian">
             <header>
                 <p>发光的黑曜石的强力装甲能够抵御敌人的攻击，在死亡时会爆炸。</p>
             </header>
@@ -965,6 +981,8 @@
                 <p>有说法认为他们能够像普通的器械黑曜石那样发射弹幕反击敌人，不知道是不是真的。</p>
             </flavor>
         </entry>
+		
+		
 
 		<entry id="mvz2:DispenShield">
 			<header>

@@ -873,7 +873,7 @@
         </contraption>
         
         <!-- Ship Contraptions -->
-        <contraption id="gunpowder_barrel" name="火药桶" tooltip="提供大量能量，但有爆炸的风险" unlock="mvz2:level.ship_1">
+        <contraption id="gunpowder_barrel" name="火药桶" tooltip="提供大量能量，但有爆炸的风险" unlock="mvz2:level.mausoleum_9">
             <properties>
                 <bool name="mvz2:producer" value="true" />
                 <float name="mvz2:range" value="120" />
@@ -889,18 +889,18 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <dispenser id="repeatenser" name="连射发射器" tooltip="一次射出两支箭矢" unlock="mvz2:level.ship_2">
+        <dispenser id="repeatenser" name="连射发射器" tooltip="一次射出两支箭矢" unlock="mvz2:level.mausoleum_9">
             <properties>
                 <int name="mvz2:cost" value="200" />
             </properties>
         </dispenser>
-        <dispenser id="triplenser" name="三头发射器" tooltip="一次射出三行的箭矢" unlock="mvz2:level.ship_3">
+        <dispenser id="triplenser" name="三头发射器" tooltip="一次射出三行的箭矢" unlock="mvz2:level.mausoleum_9">
             <properties>
                 <id name="mvz2:fragmentId" value="mvz2:dispenser" />
                 <int name="mvz2:cost" value="300" />
             </properties>
         </dispenser>
-        <dispenser id="beacon" name="信标" tooltip="向五个方向发射手里剑" unlock="mvz2:level.ship_4">
+        <dispenser id="beacon" name="信标" tooltip="向五个方向发射手里剑" unlock="mvz2:level.mausoleum_9">
             <properties>
                 <float name="mvz2:damage" value="20" />
                 <float name="mvz2:range" value="800" />
@@ -918,7 +918,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
-        <contraption id="firework_dispenser" name="烟花发射器" tooltip="轰击周围高空的敌人" unlock="mvz2:level.ship_6">
+        <contraption id="firework_dispenser" name="烟花发射器" tooltip="轰击周围高空的敌人" unlock="mvz2:level.mausoleum_9">
             <behaviours>
                 <behaviour id="mvz2:contraption_shooter_firework_dispenser" />
                 <behaviour id="mvz2:contraption_evoke_firework_dispenser" />
@@ -937,7 +937,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <dispenser id="wooden_fan" name="木风扇" tooltip="吹动一整行的敌人" unlock="mvz2:level.ship_7">
+        <dispenser id="wooden_fan" name="木风扇" tooltip="吹动一整行的敌人" unlock="mvz2:level.mausoleum_9">
             <properties>
                 <id name="mvz2:shell" value="mvz2:wood" />
                 <id name="mvz2:placeSound" value="mvz2:wood" />
@@ -1053,7 +1053,7 @@
 			</properties>
 		</contraption>
 		
-        <dispenser id="high_frequency_pulse_dispenser" name="高频脉冲发射器" tooltip="（需要连射发射器）\n一次射出四支箭矢" unlock="mvz2:level.ship_5">
+        <dispenser id="high_frequency_pulse_dispenser" name="高频脉冲发射器" tooltip="（需要连射发射器）\n一次射出四支箭矢" unlock="mvz2:level.mausoleum_9">
             <properties>
                 <bool name="mvz2:upgradeBlueprint" value="true" />
                 <id name="mvz2:upgradeFrom" value="mvz2:repeatenser" />
@@ -1140,6 +1140,18 @@
                 <id name="mvz2:rechargeId" value="mvz2:none" />
             </properties>
         </contraption>
+
+        <!--EXPAND Contraption-->
+		<dispenser id="Eradicator" name="根除者" tooltip="射出穿透肉体的飞刀" unlock="mvz2:level.halloween_8">
+			<properties>
+				<float name="mvz2:damage" value="25" />
+				<id name="mvz2:projectileId" value="mvz2:knife" />
+				<id name="mvz2:shell" value="mvz2:metal" />
+
+				<int name="mvz2:cost" value="150" />
+				<id name="mvz2:rechargeId" value="mvz2:short" />
+			</properties>
+		</dispenser>
 
         <!-- Enemies -->
         <zombie id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
