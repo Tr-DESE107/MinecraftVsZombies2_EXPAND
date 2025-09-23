@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  excludedInGroup: 0
+  excludedInGroup: 1
 --- !u!1 &1283092967615476353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,33 +1658,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6851802056000943596}
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
-      propertyPath: renderers.Array.data[1]
+      propertyPath: renderers.Array.data[0]
       value: 
       objectReference: {fileID: 4500118957396097738}
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
-      propertyPath: renderers.Array.data[2]
+      propertyPath: renderers.Array.data[1]
       value: 
       objectReference: {fileID: 7074698428547118798}
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
-      propertyPath: renderers.Array.data[3]
+      propertyPath: renderers.Array.data[2]
       value: 
       objectReference: {fileID: 6509311007738377109}
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
-      propertyPath: renderers.Array.data[4]
+      propertyPath: renderers.Array.data[3]
       value: 
       objectReference: {fileID: 2200684019550108903}
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
-      propertyPath: renderers.Array.data[5]
+      propertyPath: renderers.Array.data[4]
       value: 
       objectReference: {fileID: 3293996086125109418}
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
-      propertyPath: renderers.Array.data[6]
+      propertyPath: renderers.Array.data[5]
       value: 
       objectReference: {fileID: 5605299239242122617}
     - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
-      propertyPath: renderers.Array.data[7]
+      propertyPath: renderers.Array.data[6]
       value: 
       objectReference: {fileID: 7355843777794361103}
+    - target: {fileID: 3234477955047591329, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
+      propertyPath: renderers.Array.data[7]
+      value: 
+      objectReference: {fileID: 4963891443868342510}
     - target: {fileID: 5671797193147986414, guid: dec9834b166bdab458046cd2f53dece8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
