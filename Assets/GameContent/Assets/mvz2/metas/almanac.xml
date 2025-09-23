@@ -926,6 +926,23 @@
 				<p>那为什么发射器护罩的星之碎片能力和小型发射器一模一样？恐怕那晚小型发射器也喝醉了。</p>
 			</flavor>
 		</entry>
+
+		
+		
+		<!-- EXPAND 2 -->
+		<entry id="mvz2:Eradicator">
+			<header>
+				<p>根除者能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh"/>]]>血肉之躯的飞刀。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>蓝色飞刀25，红色飞刀50，飞刀对肉体伤害*2</color>]]></p>
+				<p>特点：<![CDATA[<color=red>1/7概率发射红色飞刀，蓝色飞刀可以穿透多个敌人，但无法穿透硬物</color>]]></p>
+				<p>技能：<![CDATA[<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>]]></p>
+			</properties>
+			<flavor>
+				<p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
+			</flavor>
+		</entry>
 		
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">

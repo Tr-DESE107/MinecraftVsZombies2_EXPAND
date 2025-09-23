@@ -1054,6 +1054,19 @@
                 <id name="mvz2:rechargeId" value="mvz2:none" />
             </properties>
         </contraption>
+		
+		<!--EXPAND C1-->
+		<dispenser id="Eradicator" name="根除者" tooltip="射出穿透肉体的飞刀" unlock="mvz2:level.halloween_8">
+			<properties>
+				<float name="mvz2:damage" value="25" />
+				<id name="mvz2:projectileId" value="mvz2:knife" />
+				<id name="mvz2:shell" value="mvz2:metal" />
+
+				<int name="mvz2:cost" value="150" />
+				<id name="mvz2:rechargeId" value="mvz2:short" />
+			</properties>
+		</dispenser>
+		
 
         <!-- Enemies -->
         <zombie id="zombie" name="僵尸" deathMessage="脑子是好的，但不是每个人都有">
