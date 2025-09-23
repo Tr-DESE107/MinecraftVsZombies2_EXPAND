@@ -392,7 +392,7 @@ namespace MVZ2.Saves
             var meta = resourceManager.GetAchievementMeta(achievementID);
             if (meta == null)
                 return false;
-            return this.IsInvalidOrUnlocked(meta.Unlock);
+            return meta.Unlock.IsNullOrMeetsConditions(this);
         }
         #endregion
 

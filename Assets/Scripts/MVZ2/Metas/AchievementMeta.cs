@@ -18,7 +18,7 @@ namespace MVZ2.Metas
         public string Name { get; private set; } = string.Empty;
         public string Description { get; private set; } = string.Empty;
         public SpriteReference? Icon { get; private set; }
-        public NamespaceID? Unlock { get; private set; }
+        public XMLConditionList? Unlock { get; private set; }
         public static AchievementMeta? FromXmlNode(XmlNode node, string defaultNsp)
         {
             var id = node.GetAttribute("id");
@@ -30,7 +30,7 @@ namespace MVZ2.Metas
             var name = node.GetAttribute("name") ?? string.Empty;
             var description = node.GetAttribute("description") ?? string.Empty;
             var icon = node.GetAttributeSpriteReference("icon", defaultNsp);
-            var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
+            var unlock = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
             return new AchievementMeta(id)
             {
                 Name = name,
