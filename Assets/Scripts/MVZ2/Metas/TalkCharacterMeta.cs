@@ -78,7 +78,7 @@ namespace MVZ2.Metas
     {
         public NamespaceID id;
         public NamespaceID? parent;
-        public NamespaceID? unlock;
+        public XMLConditionList? unlock;
         public int? width;
         public int? height;
         public float? pivotX;
@@ -102,7 +102,6 @@ namespace MVZ2.Metas
             }
             var variant = new TalkCharacterVariantTemplate(id);
             variant.parent = node.GetAttributeNamespaceID("parent", defaultNsp);
-            variant.unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
 
             variant.width = node.GetAttributeInt("width");
             variant.height = node.GetAttributeInt("height");
@@ -111,11 +110,16 @@ namespace MVZ2.Metas
             variant.pivotX = node.GetAttributeFloat("pivotX");
             variant.pivotY = node.GetAttributeFloat("pivotY");
 
+            variant.unlock = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
+
             var variantChildNodes = node.ChildNodes;
             for (int i = 0; i < variantChildNodes.Count; i++)
             {
                 var child = variantChildNodes[i];
-                variant.layers.Add(TalkCharacterLayer.FromXmlNode(child, defaultNsp));
+                if (child.Name == "layer")
+                {
+                    variant.layers.Add(TalkCharacterLayer.FromXmlNode(child, defaultNsp));
+                }
             }
             return variant;
         }
@@ -153,7 +157,7 @@ namespace MVZ2.Metas
     public class TalkCharacterVariant
     {
         public NamespaceID id;
-        public NamespaceID? unlock;
+        public XMLConditionList? unlock;
         public int width;
         public int height;
         public float pivotX = 0.5f;

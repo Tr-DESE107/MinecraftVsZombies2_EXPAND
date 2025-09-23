@@ -30,23 +30,7 @@ namespace MVZ2.Metas
             var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
             var blueprintId = node.GetAttributeNamespaceID("blueprintId", defaultNsp);
 
-            XMLConditionList? unlockConditions = null;
-            var unlockNode = node["unlock"];
-            if (unlockNode != null)
-            {
-                unlockConditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
-            }
-            else
-            {
-                if (unlockConditions == null)
-                {
-                    var required = node.GetAttributeNamespaceID("required", defaultNsp);
-                    if (NamespaceID.IsValid(required))
-                    {
-                        unlockConditions = XMLConditionList.FromSingle(required);
-                    }
-                }
-            }
+            XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "required", defaultNsp);
 
             List<ProductTalkMeta> talks = new List<ProductTalkMeta>();
             var talksNode = node["talks"];

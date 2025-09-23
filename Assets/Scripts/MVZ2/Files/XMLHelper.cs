@@ -245,6 +245,43 @@ namespace MVZ2.IO
             }
             return properties;
         }
+        public static XMLConditionList? GetUnlockConditionsOrObsolete(this XmlNode node, string childNodeName, string fallbackAttributeName, string defaultNsp)
+        {
+            XMLConditionList? conditions = null;
+            var unlockNode = node[childNodeName];
+            if (unlockNode != null)
+            {
+                conditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
+            }
+            else
+            {
+                var unlock = node.GetAttributeNamespaceID(fallbackAttributeName, defaultNsp);
+                if (NamespaceID.IsValid(unlock))
+                {
+                    conditions = XMLConditionList.FromSingle(unlock);
+                }
+            }
+            return conditions;
+        }
+        public static XMLConditionList? GetUnlockConditionsOrObsoleteArray(this XmlNode node, string childNodeName, string fallbackAttributeName, string defaultNsp)
+        {
+            XMLConditionList? conditions = null;
+            var unlockNode = node[childNodeName];
+            if (unlockNode != null)
+            {
+                conditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
+            }
+            else
+            {
+                var unlock = node.GetAttributeNamespaceIDArray(fallbackAttributeName, defaultNsp);
+                if (unlock != null)
+                {
+                    conditions = XMLConditionList.FromMultiple(unlock);
+                }
+            }
+            return conditions;
+        }
+
         public static bool TryGetAttributeStruct(this XmlNode node, string name, string type, out object? propValue)
         {
             propValue = null;

@@ -72,20 +72,7 @@ namespace MVZ2.Metas
             var musicID = node.GetAttributeNamespaceID("music", defaultNsp);
             var needBlueprints = node.GetAttributeBool("needBlueprints") ?? true;
 
-            var unlockNode = node["unlock"];
-            XMLConditionList? unlockConditions = null;
-            if (unlockNode != null)
-            {
-                unlockConditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
-            }
-            else
-            {
-                var unlocks = node.GetAttributeNamespaceIDArray("unlock", defaultNsp);
-                if (unlocks != null)
-                {
-                    var condition = XMLConditionList.FromMultiple(unlocks);
-                }
-            }
+            XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsoleteArray("unlock", "unlock", defaultNsp);
 
             var modelNode = node["model"];
             var preset = modelNode?.GetAttribute("preset") ?? "default";

@@ -35,20 +35,7 @@ namespace MVZ2.TalkData
             var background = node.GetAttributeSpriteReference("background", defaultNsp);
             var music = node.GetAttributeNamespaceID("music", defaultNsp);
 
-            XMLConditionList? unlockConditions = null;
-            var unlockNode = node["unlock"];
-            if (unlockNode != null)
-            {
-                unlockConditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
-            }
-            else
-            {
-                var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-                if (NamespaceID.IsValid(unlock))
-                {
-                    unlockConditions = XMLConditionList.FromSingle(unlock);
-                }
-            }
+            XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
             return new TalkGroupArchiveInfo()
             {
                 name = name,

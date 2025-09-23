@@ -33,15 +33,7 @@ namespace MVZ2.Metas
             }
             var name = node.GetAttribute("name") ?? string.Empty;
             var tooltip = node.GetAttribute("tooltip") ?? string.Empty;
-            var conditions = XMLConditionList.FromXmlNode(node["unlock"], defaultNsp);
-            if (conditions == null)
-            {
-                var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-                if (NamespaceID.IsValid(unlock))
-                {
-                    conditions = XMLConditionList.FromSingle(unlock);
-                }
-            }
+            var conditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
             var sprite = node.GetAttributeSpriteReference("sprite", defaultNsp);
             return new ArtifactMeta(id)
             {

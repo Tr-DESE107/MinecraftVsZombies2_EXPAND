@@ -53,36 +53,9 @@ namespace MVZ2.Metas
             var name = node.GetAttribute("name") ?? string.Empty;
 
             // 遇到条件
-            XMLConditionList? encounterConditions = null;
-            var encounterUnlockNode = node["encounter"];
-            if (encounterUnlockNode != null)
-            {
-                encounterConditions = XMLConditionList.FromXmlNode(encounterUnlockNode, defaultNsp);
-            }
-            else
-            {
-                var unlock = node.GetAttributeNamespaceID("encounterUnlock", defaultNsp);
-                if (NamespaceID.IsValid(unlock))
-                {
-                    encounterConditions = XMLConditionList.FromSingle(unlock);
-                }
-            }
-
+            XMLConditionList? encounterConditions = node.GetUnlockConditionsOrObsolete("encounter", "encounterUnlock", defaultNsp);
             // 解锁条件
-            XMLConditionList? unlockConditions = null;
-            var unlockNode = node["unlock"];
-            if (unlockNode != null)
-            {
-                unlockConditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
-            }
-            else
-            {
-                var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-                if (NamespaceID.IsValid(unlock))
-                {
-                    unlockConditions = XMLConditionList.FromSingle(unlock);
-                }
-            }
+            XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
 
 
             var hidden = node.GetAttributeBool("hidden") ?? false;

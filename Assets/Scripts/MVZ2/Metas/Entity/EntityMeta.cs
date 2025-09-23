@@ -47,19 +47,7 @@ namespace MVZ2.Metas
             var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n") ?? string.Empty;
 
             XMLConditionList? unlockConditions = null;
-            var unlockNode = node["unlock"];
-            if (unlockNode != null)
-            {
-                unlockConditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
-            }
-            else
-            {
-                var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-                if (NamespaceID.IsValid(unlock))
-                {
-                    unlockConditions = XMLConditionList.FromSingle(unlock);
-                }
-            }
+            var unlockNode = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
 
             var behaviours = new List<NamespaceID>();
             var behavioursNode = node["behaviours"];

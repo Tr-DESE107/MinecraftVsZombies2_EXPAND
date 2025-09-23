@@ -32,20 +32,7 @@ namespace MVZ2.Metas
             }
             var name = node.GetAttribute("name") ?? string.Empty;
 
-            XMLConditionList? unlockConditions = null;
-            var unlockNode = node["unlock"];
-            if (unlockNode != null)
-            {
-                unlockConditions = XMLConditionList.FromXmlNode(unlockNode, defaultNsp);
-            }
-            else
-            {
-                var unlock = node.GetAttributeNamespaceID("unlock", defaultNsp);
-                if (NamespaceID.IsValid(unlock))
-                {
-                    unlockConditions = XMLConditionList.FromSingle(unlock);
-                }
-            }
+            XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
 
             NamespaceID? mainTrack = null;
             NamespaceID? subTrack = null;

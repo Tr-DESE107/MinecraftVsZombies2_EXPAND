@@ -11,6 +11,7 @@ using MVZ2.GameContent.Contraptions;
 using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Models;
+using MVZ2.Saves;
 using MVZ2.Scenes;
 using MVZ2.UI;
 using MVZ2.Vanilla;
@@ -169,7 +170,7 @@ namespace MVZ2.Almanacs
                 var characterMeta = Main.ResourceManager.GetCharacterMeta(characterID);
                 if (characterMeta != null)
                 {
-                    var unlockedVariants = characterMeta.variants.Where(v => Main.SaveManager.IsInvalidOrUnlocked(v.unlock));
+                    var unlockedVariants = characterMeta.variants.Where(v => v.unlock.IsNullOrMeetsConditions(Main.SaveManager));
                     if (unlockedVariants.Count() > 1)
                     {
                         canSwitchPage = true;
@@ -210,7 +211,7 @@ namespace MVZ2.Almanacs
                 {
                     zoomIndex = MathTool.CycleOffset(zoomIndex, offset, variants.Count);
                     var variant = variants[zoomIndex];
-                    if (Main.SaveManager.IsInvalidOrUnlocked(variant.unlock))
+                    if (variant.unlock.IsNullOrMeetsConditions(Main.SaveManager))
                     {
                         sprite = Main.ResourceManager.GetCharacterSprite(characterID, variant.id);
                         if (sprite.Exists())
