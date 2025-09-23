@@ -1436,7 +1436,8 @@
     <!-- Chapter 5 -->
     <stage id="ship_1" name="圣辇船" dayNumber="1" >
         <unlock>
-            <condition required="mvz2:entered_ship"/>
+			<!--<condition required="mvz2:entered_ship"/>-->
+			<condition required="mvz2:level.mausoleum_11"/>
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_1"/>
@@ -1452,7 +1453,7 @@
     </stage>
     <stage id="ship_2" name="圣辇船" dayNumber="2" >
         <unlock>
-            <condition required="mvz2:level.ship_1"/>
+			<condition required="mvz2:level.mausoleum_11"/>
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_2" />
@@ -1469,7 +1470,7 @@
     </stage>
     <stage id="ship_3" name="圣辇船" dayNumber="3" >
         <unlock>
-            <condition required="mvz2:level.ship_2"/>
+			<condition required="mvz2:level.mausoleum_11"/>
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_3"/>
@@ -1487,7 +1488,7 @@
     </stage>
     <stage id="ship_4" name="圣辇船" dayNumber="4" >
         <unlock>
-            <condition required="mvz2:level.ship_3"/>
+			<condition required="mvz2:level.mausoleum_11"/>
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_4"/>
@@ -1505,7 +1506,7 @@
     </stage>
     <stage id="ship_5" name="圣辇船" dayNumber="5" >
         <unlock>
-            <condition required="mvz2:level.ship_4"/>
+			<condition required="mvz2:level.mausoleum_11"/>
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_5"/>
@@ -1520,11 +1521,13 @@
             <spawn id="mvz2:undead_flying_object"/>
             <spawn id="mvz2:cannoneer_zombie"/>
             <spawn id="mvz2:reflective_barrier_zombie"/>
+			<spawn id="mvz2:emperor_zombie"/>
+			<spawn id="mvz2:SixQiZombie"/>
         </spawns>
     </stage>
     <stage id="ship_6" name="圣辇船" dayNumber="6" needBlueprints="false" type="minigame" music="mvz2:minigame">
         <unlock>
-            <condition required="mvz2:level.ship_5"/>
+			<condition required="mvz2:level.mausoleum_11"/>
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_6"/>
@@ -1535,11 +1538,17 @@
             <entry id="mvz2:beacon" count="20"/>
             <entry id="mvz2:lightning_orb" count="5"/>
             <entry id="mvz2:magichest" count="3" minCount="0"/>
+            <entry id="mvz2:firework_dispenser" count="7"/>
+            <entry id="mvz2:wooden_fan" count="10"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:firework_dispenser"/>
-        <spawns flags="2" pointsMultiplier="2" pointsAddition="1">
+        <spawns flags="3" pointsMultiplier="2" pointsAddition="1">
             <spawn id="mvz2:undead_flying_object_blitz"/>
             <spawn id="mvz2:undead_flying_object"/>
+            <spawn id="mvz2:ghast"/>
+            <spawn id="mvz2:anubisand"/>
+            <spawn id="mvz2:Anubiskull"/>
+            <spawn id="mvz2:RaiderSkull"/>
         </spawns>
         <time firstWave="1" waveMax="15" waveAdvance="5"/>
         <properties>
@@ -1548,7 +1557,7 @@
     </stage>
     <stage id="ship_7" name="圣辇船" dayNumber="7" >
         <unlock>
-            <condition required="mvz2:level.ship_6"/>
+			<condition required="mvz2:level.mausoleum_11"/>
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_7"/>
@@ -1563,11 +1572,13 @@
             <spawn id="mvz2:undead_flying_object"/>
             <spawn id="mvz2:cannoneer_zombie"/>
             <spawn id="mvz2:zombie_cloud"/>
+			<spawn id="mvz2:Anubiskull"/>
+			<spawn id="mvz2:RaiderSkull"/>
         </spawns>
     </stage>
     <stage id="ship_8" name="圣辇船" dayNumber="8" >
         <unlock>
-            <condition required="mvz2:level.ship_7"/>
+			<condition required="mvz2:level.mausoleum_11"/>
         </unlock>
         <talks>
             <talk type="start" value="mvz2:ship_8"/>
@@ -1583,6 +1594,10 @@
             <spawn id="mvz2:cannoneer_zombie"/>
             <spawn id="mvz2:zombie_cloud"/>
             <spawn id="mvz2:mummy"/>
+			<spawn id="mvz2:NetherWarrior"/>
+			<spawn id="mvz2:NetherArcher"/>
+			<spawn id="mvz2:NetherVanguard"/>
+			<spawn id="mvz2:AngryReverser"/>
         </spawns>
     </stage>
     <stage id="ship_9" name="圣辇船" dayNumber="9" >
