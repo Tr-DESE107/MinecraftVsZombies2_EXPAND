@@ -171,6 +171,7 @@ namespace MVZ2.GameContent.Buffs
             public const string stolenByUFO = "stolen_by_ufo";
             public const string woodenFanBlow = "wooden_fan_blow";
             public const string elasticCloudBounceCooldown = "elastic_cloud_bounce_cooldown";
+            public const string elasticCloudEvocation = "elastic_cloud_evocation";
         }
         public static class Enemy
         {
@@ -475,6 +476,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID stolenByUFO = Get(VanillaBuffNames.Contraption.stolenByUFO);
             public static readonly NamespaceID woodenFanBlow = Get(VanillaBuffNames.Contraption.woodenFanBlow);
             public static readonly NamespaceID elasticCloudBounceCooldown = Get(VanillaBuffNames.Contraption.elasticCloudBounceCooldown);
+            public static readonly NamespaceID elasticCloudEvocation = Get(VanillaBuffNames.Contraption.elasticCloudEvocation);
         }
         public static class Enemy
         {

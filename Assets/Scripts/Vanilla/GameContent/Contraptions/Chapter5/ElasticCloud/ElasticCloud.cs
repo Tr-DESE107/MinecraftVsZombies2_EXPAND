@@ -35,7 +35,6 @@ namespace MVZ2.GameContent.Contraptions
             var other = collision.Other;
             if (other.Type != EntityTypes.ENEMY || !cloud.IsHostile(other))
                 return;
-
             TryBounceEnemy(cloud, other);
         }
         public override void PreTakeDamage(DamageInput input, CallbackResult result)

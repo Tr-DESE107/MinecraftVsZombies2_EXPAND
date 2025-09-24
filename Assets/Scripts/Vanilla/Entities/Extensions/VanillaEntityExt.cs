@@ -1141,6 +1141,18 @@ namespace MVZ2.Vanilla.Entities
 
         #endregion
 
+        #region 强力冲击
+        public static void ApplyStrongImpact(this Entity target)
+        {
+            var passenger = target.GetRideablePassenger();
+            if (passenger != null)
+            {
+                passenger.Stun(90);
+                target.GetOffHorse();
+            }
+        }
+        #endregion
+
         public static float GetRealGroundLimitY(this Entity entity)
         {
             return entity.GetGroundLimitOffset() + entity.GetGroundY();

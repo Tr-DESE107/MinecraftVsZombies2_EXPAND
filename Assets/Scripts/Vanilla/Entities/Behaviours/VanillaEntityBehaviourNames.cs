@@ -13,6 +13,7 @@ namespace MVZ2.Vanilla.Entities
         public const string contraptionShooterFireworkDispenser = "contraption_shooter_firework_dispenser";
         public const string contraptionEvokeFireworkDispenser = "contraption_evoke_firework_dispenser";
         public const string elasticCloud_Projectile = "elastic_cloud/projectile";
+        public const string elasticCloud_Evocation = "elastic_cloud/evocation";
         #endregion
 
         #region Enemies

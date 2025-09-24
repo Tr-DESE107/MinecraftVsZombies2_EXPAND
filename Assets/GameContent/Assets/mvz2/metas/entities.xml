@@ -987,6 +987,7 @@
             <behaviours>
                 <behaviour id="mvz2:model_damage_percent" />
                 <behaviour id="mvz2:elastic_cloud/projectile" />
+                <behaviour id="mvz2:elastic_cloud/evocation" />
             </behaviours>
             <properties>
                 <id name="mvz2:shell" value="mvz2:cloud" />

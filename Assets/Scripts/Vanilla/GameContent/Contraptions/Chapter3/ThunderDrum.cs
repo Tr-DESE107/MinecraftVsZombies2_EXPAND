@@ -126,12 +126,7 @@ namespace MVZ2.GameContent.Contraptions
                     target.RandomChangeAdjacentLane(self.RNG);
                 }
 
-                var passenger = target.GetRideablePassenger();
-                if (passenger != null)
-                {
-                    passenger.Stun(90);
-                    target.GetOffHorse();
-                }
+                target.ApplyStrongImpact();
             }
             self.Level.ShakeScreen(15, 0, 30);
             self.PlaySound(VanillaSoundID.lightningAttack);
