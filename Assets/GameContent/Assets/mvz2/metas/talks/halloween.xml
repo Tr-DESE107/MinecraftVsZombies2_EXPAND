@@ -229,7 +229,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2">这个是冲击活塞！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">它能够击退前方的敌人一大格距离！并且重创脆弱的石头或者其他东西！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">它能够击退前方的怪物一大格距离！并且重创脆弱的石头或者其他东西！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">不过，在它击退之后会坏掉，需要一段时间来维修自己！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">冲散它们的阵型吧！</sentence>
       </sentences>
@@ -273,7 +273,7 @@
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">真的！这是……我的图鉴！</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">谢谢……不过，你们应该比我更需要这个图鉴吧。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short1">嗯？</sentence>
-        <sentence speaker="mvz2:orant" sounds="mvz2:talk">……这个图鉴会自动记录遇到的所有器械、敌人，是个非常方便的东西。</sentence>
+        <sentence speaker="mvz2:orant" sounds="mvz2:talk">……这个图鉴会自动记录遇到的所有器械、怪物，是个非常方便的东西。</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">如果是你们的话，应该能发挥它最大的作用。</sentence>
         <sentence speaker="mvz2:orant" sounds="mvz2:talk">同时为了表达对你们的感谢，这本图鉴就送你们吧。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3" onClick="end">哦，是吗？那我们就收下吧！</sentence>
@@ -540,7 +540,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">有没有想起三个月亮的疯狂？</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">魔术箱！它会吃掉前方的一个敌人，然后自己变成一个星之碎片！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">魔术箱！它会吃掉前方的一个怪物，然后自己变成一个星之碎片！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onClick="end">谁渴望来一场华丽的表演？</sentence>
       </sentences>
     </section>

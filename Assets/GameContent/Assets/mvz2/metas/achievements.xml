@@ -4,7 +4,7 @@
             <condition required="mvz2:achievement.ghost_buster"/>
         </unlock>
     </achievement>
-    <achievement id="double_trouble" name="活塞递推" description="使用冲击活塞将一个敌人推到另一个冲击活塞面前。" icon="mvz2:achievements/double_trouble">
+    <achievement id="double_trouble" name="活塞递推" description="使用冲击活塞将一个怪物推到另一个冲击活塞面前。" icon="mvz2:achievements/double_trouble">
         <unlock>
             <condition required="mvz2:achievement.double_trouble"/>
         </unlock>

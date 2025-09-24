@@ -4,7 +4,7 @@
             <condition required="mvz2:level.halloween_5"/>
         </unlock>
     </artifact>
-    <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌人" sprite="mvz2:artifacts/hoe" >
+    <artifact id="hoe" name="锄头" tooltip="消灭每场战斗的第一个敌方怪物" sprite="mvz2:artifacts/hoe" >
         <unlock>
             <condition required="mvz2:artifact.hoe"/>
         </unlock>
@@ -25,7 +25,7 @@
             <condition required="mvz2:level.dream_2"/>
         </unlock>
     </artifact>
-    <artifact id="pagoda_branch" name="槐树树枝" tooltip="战斗开始时获得2个星之碎片，但敌人数量+200%" sprite="mvz2:artifacts/pagoda_branch" >
+    <artifact id="pagoda_branch" name="槐树树枝" tooltip="战斗开始时获得2个星之碎片，但怪物数量+200%" sprite="mvz2:artifacts/pagoda_branch" >
         <unlock>
             <condition required="mvz2:artifact.pagoda_branch"/>
         </unlock>

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-09-21 02:52+0800\n"
+"POT-Creation-Date: 2025-09-24 08:11+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -932,7 +932,7 @@ msgstr ""
 # 无尽模式的提示
 #: Scripts\Vanilla\VanillaStrings.cs:29
 msgctxt "advice"
-msgid "更多的敌人要来了！"
+msgid "更多的怪物要来了！"
 msgstr ""
 
 # 预览战场的提示
@@ -1355,14 +1355,14 @@ msgid "点击以开始！"
 msgstr ""
 
 # 前景图生效时的对话模板，{0}为讨论者，{1}为文本
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:878
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:874
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 msgstr ""
 
 # 跳过对话时的提示，{0}为对话名称
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:880
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:876
 msgid "已跳过对话\"{0}\""
 msgstr ""
 
@@ -2586,12 +2586,12 @@ msgid "Menu"
 msgstr ""
 
 # 初始化任务名称
-#: Scripts\MVZ2\Managers\MainManager.cs:316
+#: Scripts\MVZ2\Managers\MainManager.cs:317
 msgid "获取赞助者列表……"
 msgstr ""
 
 # 值，{0}为百分数
-#: Scripts\MVZ2\Managers\MainManager.cs:318
+#: Scripts\MVZ2\Managers\MainManager.cs:319
 msgid "{0}%"
 msgstr ""
 
@@ -2657,27 +2657,27 @@ msgid "{0}x{1}"
 msgstr ""
 
 # 对话框内容
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1278
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1282
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1282
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1286
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1284
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1288
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1286
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1290
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 
 # 重选蓝图的验证错误信息
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1288
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1292
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 
@@ -2767,37 +2767,37 @@ msgid ""
 msgstr ""
 
 # 图鉴描述模板，{0}为能量
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:823
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:827
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴描述模板，{0}为冷却时间
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:825
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:829
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr ""
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:827
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:831
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr ""
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:829
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:833
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:831
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:835
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr ""
 
 # 图鉴缩放提示文本
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:833
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:837
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr ""
@@ -3057,19 +3057,19 @@ msgstr ""
 #. Name for stat category mvz2:enemy_spawn
 #: Stats meta file
 msgctxt "stat_category"
-msgid "敌人生成"
+msgid "怪物生成"
 msgstr ""
 
 #. Name for stat category mvz2:enemy_neutralize
 #: Stats meta file
 msgctxt "stat_category"
-msgid "消灭敌人"
+msgid "消灭怪物"
 msgstr ""
 
 #. Name for stat category mvz2:enemy_gameover
 #: Stats meta file
 msgctxt "stat_category"
-msgid "被敌人击杀"
+msgid "被怪物击杀"
 msgstr ""
 
 #. Name for stat category mvz2:max_endless_flags
@@ -3129,7 +3129,7 @@ msgstr ""
 #. Description for achievement mvz2:double_trouble
 #: Achievements meta file
 msgctxt "achievement"
-msgid "使用冲击活塞将一个敌人推到另一个冲击活塞面前。"
+msgid "使用冲击活塞将一个怪物推到另一个冲击活塞面前。"
 msgstr ""
 
 #. Name for achievement mvz2:rickroll_drown
@@ -4253,7 +4253,7 @@ msgstr ""
 #. Store item description of mvz2:pagoda_branch by character mvz2:crazy_villager
 #: Store meta file
 msgctxt "store_talk"
-msgid "产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2倍多的敌人！"
+msgid "产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2倍多的怪物！"
 msgstr ""
 
 #. Store item description of mvz2:pagoda_branch by character mvz2:tokiko

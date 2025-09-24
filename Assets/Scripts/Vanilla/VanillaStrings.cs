@@ -27,7 +27,7 @@ namespace MVZ2.Vanilla
         [TranslateMsg("无尽模式的提示", CONTEXT_ADVICE)]
         public const string ADVICE_ENDLESS_HINT = "你能存活多少轮？";
         [TranslateMsg("无尽模式的提示", CONTEXT_ADVICE)]
-        public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的敌人要来了！";
+        public const string ADVICE_MORE_ENEMIES_APPROACHING = "更多的怪物要来了！";
         [TranslateMsg("预览战场的提示", CONTEXT_ADVICE)]
         public const string ADVICE_CLICK_TO_CONTINUE = "点击以继续";
         [TranslateMsg("欲望壶技能的提示，{0}为受到的总伤害", CONTEXT_ADVICE, selfPlural: true)]

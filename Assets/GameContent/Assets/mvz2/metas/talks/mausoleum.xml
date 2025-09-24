@@ -134,7 +134,7 @@
       <sentences>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">布都，你们到了？</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">很好，史蒂夫先生，我们现在需要你的帮助。</sentence>
-        <sentence speaker="mvz2:steve" sounds="mvz2:talk">详细内容我从布都那里听说了，要清除这里的敌人，保证封印能够正常巩固不受干扰，是吧。</sentence>
+        <sentence speaker="mvz2:steve" sounds="mvz2:talk">详细内容我从布都那里听说了，要清除这里的怪物，保证封印能够正常巩固不受干扰，是吧。</sentence>
         <sentence speaker="mvz2:miko" sounds="mvz2:talk">是的。</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3" onClick="end">那么，眼前的这些僵尸，就交给我的邻居了，加油吧！</sentence>
       </sentences>
@@ -216,7 +216,7 @@
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">啊，似乎出现了新的敌人，一种手持魔法障壁的僵尸。</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">啊，似乎出现了新的怪物，一种手持魔法障壁的僵尸。</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">此种障壁吾曾见过，乃是回声障壁，可反弹射弹。</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:talk">原来是能够反弹子弹的僵尸啊，多谢你提醒我。</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">不必多礼。不过，其实看着汝战斗，吾有很多地方都看不懂。比如——</sentence>
@@ -246,7 +246,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是闪电之珠！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它能够阻挡敌人的前进，并且免疫对方的子弹！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">它能够阻挡怪物的前进，并且免疫对方的子弹！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">并且，当敌人的子弹击中它时，它反而可以利用它恢复自己的耐久！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">这可是高阶的法术器械！</sentence>
       </sentences>
@@ -810,7 +810,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">啊！看来我回来的正是时候！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这是黑洞炸弹，它在引爆后会炸出一个小型黑洞，吸引周围的敌人！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">这是黑洞炸弹，它在引爆后会炸出一个小型黑洞，吸引周围的怪物！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">并且，能持续对范围内的敌人造成伤害！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short2" onClick="end">集中火力对付他们吧！</sentence>
       </sentences>
@@ -903,7 +903,7 @@
         <character id="mvz2:steve" side="self" />
       </characters>
       <sentences>
-        <sentence speaker="mvz2:futo" sounds="mvz2:talk">看，那边有一种新的敌人！</sentence>
+        <sentence speaker="mvz2:futo" sounds="mvz2:talk">看，那边有一种新的怪物！</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk">穿着锦绣华丽，简直如同古代中国的皇帝一般！</sentence>
         <sentence speaker="mvz2:steve" sounds="mvz2:dialog_weird">呃……中国是什么地方？</sentence>
         <sentence speaker="mvz2:futo" sounds="mvz2:talk" variant="mvz2:daze">一个庞大的文明古国，拥有众多的——呃。</sentence>

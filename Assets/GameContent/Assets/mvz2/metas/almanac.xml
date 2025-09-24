@@ -101,11 +101,11 @@
             <icon sprite="mvz2:ui/almanac/attribute_tags[1]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#283593" />
         </tag>
-        <tag id="defensive" name="防御性" description="阻挡敌人用的器械" priority="4000" >
+        <tag id="defensive" name="防御性" description="阻挡怪物用的器械" priority="4000" >
             <icon sprite="mvz2:ui/almanac/attribute_tags[2]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#78909c" />
         </tag>
-        <tag id="floor_contraption" name="地面器械" description="不会被一般敌人发现" priority="4000" >
+        <tag id="floor_contraption" name="地面器械" description="不会被一般怪物发现" priority="4000" >
             <icon sprite="mvz2:ui/almanac/attribute_tags[3]" />
             <background sprite="mvz2:ui/almanac/tag_backgrounds[2]" color="#946a2d" />
         </tag>
@@ -240,7 +240,7 @@
         </entry>
         <entry id="mvz2:mine_tnt">
             <header>
-                <p>地雷TNT在一定时间的准备后能够炸飞接近的敌人。</p>
+                <p>地雷TNT在一定时间的准备后能够炸飞接近的敌方怪物。</p>
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>300</color>]]></p>
@@ -287,7 +287,7 @@
             </header>
             <properties>
                 <p>照明半径：<![CDATA[<color=red>1.5格</color>]]></p>
-                <p>技能：<![CDATA[<color=red>眩晕所有敌人5秒，清除器械的精神控制状态</color>]]></p>
+                <p>技能：<![CDATA[<color=red>眩晕所有敌方怪物5秒，清除器械的精神控制状态</color>]]></p>
             </properties>
             <flavor>
                 <p>上帝说：要有光，所以诞生了火把。上帝说：要有固态光，所以诞生了荧石。上帝说：要有可开关的固态光，所以诞生了红石灯。上帝说：好吧我编不下去了。</p>
@@ -295,7 +295,7 @@
         </entry>
         <entry id="mvz2:punchton">
             <header>
-                <p>冲击活塞能够击退前方的敌人并击碎<![CDATA[<tag id="mvz2:shell" enum="mvz2:stone"/>]]>石制品，但之后需要一定时间来修复自身。</p>
+                <p>冲击活塞能够击退前方的敌方怪物并击碎<![CDATA[<tag id="mvz2:shell" enum="mvz2:stone"/>]]>石制品，但之后需要一定时间来修复自身。</p>
             </header>
             <properties>
                 <p>伤害：<![CDATA[<color=red>100（无视护甲）</color>]]></p>
@@ -386,10 +386,10 @@
         </entry>
         <entry id="mvz2:gravity_pad">
             <header>
-                <p>重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。</p>
+                <p>重力板能够降低上方子弹的高度并能让它上面的敌方怪物无法跳跃。</p>
             </header>
             <properties>
-                <p>技能：<![CDATA[<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进</color>]]></p>
+                <p>技能：<![CDATA[<color=red>铁砧从天而降，砸伤敌人并阻挡怪物们前进</color>]]></p>
             </properties>
             <flavor>
                 <p>从前重力方块坐在一个苹果树下，突然一个苹果掉到了它头上，然后它就扁了——那是个金苹果。</p>
@@ -400,7 +400,7 @@
                 <p>漩涡漏斗在旋转时会把接近它的所有僵尸拖入水底。</p>
             </header>
             <properties>
-                <p>技能：<![CDATA[<color=red>将更大范围的敌人拉入水底</color>]]></p>
+                <p>技能：<![CDATA[<color=red>将更大范围的敌方怪物拉入水底</color>]]></p>
             </properties>
             <flavor>
                 <p>他无聊的时候经常把自己当陀螺抽。</p>
@@ -493,7 +493,7 @@
         </entry>
         <entry id="mvz2:stone_dropper">
             <header>
-                <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。</p>
+                <p>石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌方怪物并分裂的巨石。</p>
             </header>
             <properties>
                 <p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
@@ -521,10 +521,10 @@
         </entry>
         <entry id="mvz2:golden_apple">
             <header>
-                <p>金苹果可以魅惑一个近战攻击它的敌怪，使其为你而战。</p>
+                <p>金苹果可以魅惑一个近战攻击它的敌方怪物，使其为你而战。</p>
             </header>
             <properties>
-                <p>技能：<![CDATA[<color=red>发出彩色炫光，被魅惑的敌怪变为突变僵尸</color>]]></p>
+                <p>技能：<![CDATA[<color=red>发出彩色炫光，被魅惑的敌方怪物变为突变僵尸</color>]]></p>
             </properties>
             <flavor>
                 <p>金苹果对于砸伤重力方块这件事情感到很抱歉，所以它赔了重力方块自己的一块金皮。</p>
@@ -533,11 +533,11 @@
         </entry>
         <entry id="mvz2:thunder_drum">
             <header>
-                <p>雷鼓在触发后会震飞所有地面上的敌怪，使其后退并换行。之后进入破损状态，需要时间修复。</p>
+                <p>雷鼓在触发后会震飞所有地面上的敌方怪物，使其后退并换行。之后进入破损状态，需要时间修复。</p>
             </header>
             <properties>
                 <p>修复时间：<![CDATA[<color=red>60秒</color>]]></p>
-                <p>技能：<![CDATA[<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>]]></p>
+                <p>技能：<![CDATA[<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命的伤害</color>]]></p>
             </properties>
             <flavor>
                 <p><![CDATA[<rotate="-20">别乱震啊卧槽！</rotate>]]></p>
@@ -673,7 +673,7 @@
         </entry>
         <entry id="black_hole_bomb">
             <header>
-                <p>黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。</p>
+                <p>黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌方怪物和子弹。</p>
             </header>
             <properties>
                 <p>持续时间：<![CDATA[<color=red>8秒</color>]]></p>
@@ -689,7 +689,7 @@
         </entry>
         <entry id="desire_pot">
             <header>
-                <p>欲望壶会从敌人身上复制其携带的星之碎片，每个欲望壶最多复制三个。</p>
+                <p>欲望壶会从怪物身上复制其携带的星之碎片，每个欲望壶最多复制三个。</p>
             </header>
             <properties>
                 <p>技能：<![CDATA[<color=red>将最后方的两张充能完毕的的蓝图复制为掉落物，然后重置它们的充能</color>]]></p>
@@ -780,12 +780,12 @@
         </entry>
         <entry id="mvz2:wooden_fan">
             <header>
-                <p>木风扇在触发后会将一整行内的敌怪吹回原地。如果敌怪较轻，还会直接将其吹出战场。</p>
+                <p>木风扇在触发后会将一整行内的敌方怪物吹回原地。如果怪物较轻，还会直接将其吹出战场。</p>
             </header>
             <properties>
-                <p>特点：<![CDATA[<color=red>可以直接吹飞空中或者较轻的敌怪，但对地面上较重的敌怪没有效果</color>]]></p>
+                <p>特点：<![CDATA[<color=red>可以直接吹飞空中或者较轻的怪物，但对地面上较重的怪物没有效果</color>]]></p>
                 <p>范围：<![CDATA[<color=red>一整行</color>]]></p>
-                <p>技能：<![CDATA[<color=red>改为吹动整个战场的敌怪</color>]]></p>
+                <p>技能：<![CDATA[<color=red>改为吹动整个战场的怪物</color>]]></p>
             </properties>
             <flavor>
                 <p>这东西哪有那么重量级，都被你们吹到天上去了！</p>
@@ -891,7 +891,7 @@
             <properties>
                 <p>上下方向：<![CDATA[<color=red>转移物体</color>]]></p>
                 <p>前后方向：<![CDATA[<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>]]></p>
-                <p>技能：<![CDATA[<color=red>将周围的敌怪移动到一个指定的位置</color>]]></p>
+                <p>技能：<![CDATA[<color=red>将周围的敌方怪物移动到一个指定的位置</color>]]></p>
             </properties>
             <flavor>
                 <p>和别人想的不同，传动力板不喜欢强迫别人做事情，他认为每个人都应该顺着自己的意愿来，每个人做什么都是他自己的自由。不过有的时候，他也会迫使某些人做出改变，这就由不得他了。</p>
@@ -1362,7 +1362,7 @@
         </entry>
         <entry id="mvz2:zombie_cloud">
             <header>
-                <p>僵尸云飞在空中，向下降雨形成水迹，踩到水迹的敌怪会向前滑动。</p>
+                <p>僵尸云飞在空中，向下降雨形成水迹，踩到水迹的怪物会向前滑动。</p>
             </header>
             <properties>
                 <p>生命：<![CDATA[<color=red>200</color>]]></p>
@@ -1566,7 +1566,7 @@
                 <p>青娥赠送的一叠符箓，据说可以控制僵尸。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>敌怪死亡并倒下时，有10%的概率复活并变为友方</color>]]></p>
+                <p>效果：<![CDATA[<color=red>敌方怪物死亡并倒下时，有10%的概率复活并变为友方</color>]]></p>
             </properties>
             <flavor>
                 <p>“这是我们之间的秘密哦……”</p>
@@ -1885,7 +1885,7 @@
                     <tag id="mvz2:grid_layer_carrier"/>
                 </tags>
                 <header>
-                    <p>刷怪笼会在一大波僵尸来临时召唤一只其内部的敌人。</p>
+                    <p>刷怪笼会在一大波僵尸来临时召唤一只其内部的怪物。</p>
                 </header>
                 <flavor>
                     <p>我的水桶、告示牌和灵魂沙呢？</p>

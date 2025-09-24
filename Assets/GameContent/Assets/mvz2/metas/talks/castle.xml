@@ -156,7 +156,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">这是尖刺方块！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能对走在它上面的敌人造成伤害！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">它能对走在它上面的怪物造成伤害！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">还能破坏敌人的车辆！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">让战场上洒满钉子吧！</sentence>
       </sentences>
@@ -252,7 +252,7 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">这个是石制投掷器！它能弹射出微小的石子！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">不过，有时候它也能射出能击退敌人并且分裂的巨石！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long3">不过，有时候它也能射出能击退怪物并且分裂的巨石！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1" onClick="end">在洞穴中，你最好当心脚下的踏板！</sentence>
       </sentences>
     </section>
@@ -472,8 +472,8 @@
       </characters>
       <sentences>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long1">这是金苹果！不过它可不是用来回血的！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">实际上它是一个魅惑果实，能魅惑第一个攻击它的敌人！</sentence>
-        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">然后！这个敌人就会为你作战！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_long2">实际上它是一个魅惑果实，能魅惑第一个攻击它的怪物！</sentence>
+        <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_short3">然后！这个怪物就会为你作战！</sentence>
         <sentence speaker="mvz2:crazy_villager" sounds="mvz2:villager_scream1" onClick="end">不过，要注意它也是只能在晚上用的！</sentence>
       </sentences>
     </section>

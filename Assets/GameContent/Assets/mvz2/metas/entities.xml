@@ -1,7 +1,7 @@
 <entities>
     <counters>
-        <counter id="low_enemy" name="低矮敌人" />
-        <counter id="flying_enemy" name="飞行敌人" />
+        <counter id="low_enemy" name="低矮怪物" />
+        <counter id="flying_enemy" name="飞行怪物" />
     </counters>
     <templates>
         <entity>
@@ -265,7 +265,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <contraption id="obsidian" name="黑曜石" tooltip="阻碍敌人的前进，并保护背后的其他器械">
+        <contraption id="obsidian" name="黑曜石" tooltip="阻碍怪物的前进，并保护背后的其他器械">
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
@@ -665,7 +665,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="golden_apple" name="金苹果" tooltip="魅惑攻击它的敌人" >
+        <contraption id="golden_apple" name="金苹果" tooltip="魅惑攻击它的怪物" >
             <unlock>
                 <condition required="mvz2:level.castle_6"/>
             </unlock>
@@ -681,7 +681,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="thunder_drum" name="雷鼓" tooltip="触发后震退敌人" >
+        <contraption id="thunder_drum" name="雷鼓" tooltip="触发后震退怪物" >
             <unlock>
                 <condition required="mvz2:level.castle_7"/>
             </unlock>
@@ -758,7 +758,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="lightning_orb" name="闪电之珠" tooltip="阻碍敌人前进，并吸收子弹来治疗自己">
+        <contraption id="lightning_orb" name="闪电之珠" tooltip="阻碍怪物前进，并吸收子弹来治疗自己">
             <unlock>
                 <condition required="mvz2:level.mausoleum_2"/>
             </unlock>
@@ -869,7 +869,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
-        <contraption id="desire_pot" name="欲望壶" tooltip="复制敌人身上的星之碎片" >
+        <contraption id="desire_pot" name="欲望壶" tooltip="复制怪物身上的星之碎片" >
             <unlock>
                 <condition required="mvz2:level.mausoleum_9"/>
             </unlock>
@@ -964,7 +964,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <contraption id="wooden_fan" name="木风扇" tooltip="吹动一整行的敌怪" >
+        <contraption id="wooden_fan" name="木风扇" tooltip="吹动一整行的怪物" >
             <unlock>
                 <condition required="mvz2:level.ship_7"/>
             </unlock>
@@ -1111,7 +1111,7 @@
         </contraption>
 
         <!-- Token Contraptions -->
-        <contraption id="anvil" name="铁砧" tooltip="阻碍敌人的前进" >
+        <contraption id="anvil" name="铁砧" tooltip="阻碍怪物的前进" >
             <unlock>
                 <condition required="mvz2:level.dream_3"/>
             </unlock>

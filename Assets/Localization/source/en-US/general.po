@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-09-21 02:52+0800\n"
-"PO-Revision-Date: 2025-09-21 14:53+0800\n"
+"POT-Creation-Date: 2025-09-24 08:11+0800\n"
+"PO-Revision-Date: 2025-09-24 20:21+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -936,8 +936,8 @@ msgstr "How many flags can you survive?"
 
 #: Scripts\Vanilla\VanillaStrings.cs:29
 msgctxt "advice"
-msgid "更多的敌人要来了！"
-msgstr "More enemies approaching!"
+msgid "更多的怪物要来了！"
+msgstr "More monsters approaching!"
 
 #: Scripts\Vanilla\VanillaStrings.cs:31
 msgctxt "advice"
@@ -1327,7 +1327,7 @@ msgstr "Version {0}"
 msgid "点击以开始！"
 msgstr "Click to start!"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:878
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:874
 msgid ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
@@ -1335,7 +1335,7 @@ msgstr ""
 "<color=blue>[{0}]</color>\n"
 "{1}"
 
-#: Scripts\MVZ2\Talks\Components\TalkController.cs:880
+#: Scripts\MVZ2\Talks\Components\TalkController.cs:876
 msgid "已跳过对话\"{0}\""
 msgstr "Dialogue skipped: {0}"
 
@@ -2528,11 +2528,11 @@ msgctxt "key.name"
 msgid "Menu"
 msgstr "Menu"
 
-#: Scripts\MVZ2\Managers\MainManager.cs:316
+#: Scripts\MVZ2\Managers\MainManager.cs:317
 msgid "获取赞助者列表……"
 msgstr "Getting Sponsors..."
 
-#: Scripts\MVZ2\Managers\MainManager.cs:318
+#: Scripts\MVZ2\Managers\MainManager.cs:319
 msgid "{0}%"
 msgstr "{0}%"
 
@@ -2594,27 +2594,27 @@ msgstr "English (United States)"
 msgid "{0}x{1}"
 msgstr "{0}x{1}"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1278
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1282
 msgid "你没有携带满蓝图，确认要继续吗？"
 msgstr "Are you sure to continue without filling up the contraption slots?"
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1282
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1286
 msgid "上一次选择的蓝图中包含多个相同的器械。"
 msgstr ""
 "The blueprints selected last time contained multiple identical contraptions."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1284
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1288
 msgid "上一次选择的蓝图中包含未解锁的器械。"
 msgstr ""
 "The blueprints selected last time contained contraptions that are not "
 "unlocked yet."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1286
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1290
 msgid "上一次选择的制品中包含多个相同的制品。"
 msgstr ""
 "The artifacts selected last time contained multiple identical artifacts."
 
-#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1288
+#: Scripts\MVZ2\Level\ControllerPart\LevelBlueprintChooseController.cs:1292
 msgid "上一次选择的制品中包含未解锁的制品。"
 msgstr ""
 "The artifacts selected last time contained artifacts that are not unlocked "
@@ -2714,34 +2714,34 @@ msgstr ""
 "Best Streak:\n"
 "{0}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:823
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:827
 msgctxt "almanac"
 msgid "花费：<color=red>{0}</color>"
 msgstr "Cost: <color=red>{0}</color>"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:825
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:829
 msgctxt "almanac"
 msgid "冷却时间：<color=red>{0}</color>"
 msgstr "Recharge: <color=red>{0}</color>"
 
 # 图鉴放大选项，{0}为缩放等级
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:827
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:831
 msgctxt "almanac"
 msgid "缩放：{0}"
 msgstr "Scale: {0}"
 
 # 图鉴标签枚举值的名称模板，{0}为标签名，{1}为值名
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:829
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:833
 msgctxt "almanac"
 msgid "{0}：{1}"
 msgstr "{0}: {1}"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:831
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:835
 msgctxt "almanac"
 msgid "左键拖拽以移动视图；滚轮以缩放视图"
 msgstr "Hold left mouse and drag to move; Scroll to scale"
 
-#: Scripts\MVZ2\Almanac\AlmanacController.cs:833
+#: Scripts\MVZ2\Almanac\AlmanacController.cs:837
 msgctxt "almanac"
 msgid "单指拖拽以移动视图；双指拖拽以缩放视图"
 msgstr "Drag with one finger to move; Touch with two fingers to scale"
@@ -2992,20 +2992,20 @@ msgstr "Evoked contraptions"
 #. Name for stat category mvz2:enemy_spawn
 #: Stats meta file
 msgctxt "stat_category"
-msgid "敌人生成"
-msgstr "Spawned enemies"
+msgid "怪物生成"
+msgstr "Spawned monsters"
 
 #. Name for stat category mvz2:enemy_neutralize
 #: Stats meta file
 msgctxt "stat_category"
-msgid "消灭敌人"
-msgstr "Neutralized enemies"
+msgid "消灭怪物"
+msgstr "Neutralized monsters"
 
 #. Name for stat category mvz2:enemy_gameover
 #: Stats meta file
 msgctxt "stat_category"
-msgid "被敌人击杀"
-msgstr "Killed by enemies"
+msgid "被怪物击杀"
+msgstr "Killed by monsters"
 
 #. Name for stat category mvz2:max_endless_flags
 #: Stats meta file
@@ -3064,8 +3064,8 @@ msgstr "Double Trouble"
 #. Description for achievement mvz2:double_trouble
 #: Achievements meta file
 msgctxt "achievement"
-msgid "使用冲击活塞将一个敌人推到另一个冲击活塞面前。"
-msgstr "Push an enemy using a Punchton to the front of another Punchton."
+msgid "使用冲击活塞将一个怪物推到另一个冲击活塞面前。"
+msgstr "Push a monster using a Punchton to the front of another Punchton."
 
 #. Name for achievement mvz2:rickroll_drown
 #: Achievements meta file
@@ -4452,10 +4452,10 @@ msgstr ""
 msgctxt "store_talk"
 msgid ""
 "产自梦境世界的槐树的树枝！你在开始战斗时额外获得2个星之碎片，但是会出现额外2"
-"倍多的敌人！"
+"倍多的怪物！"
 msgstr ""
 "The branch of a pagoda tree from the Dream World! It gives you 2 starshards "
-"to start with in every battle, but there will be 2 more times the enemies!"
+"to start with in every battle, but there will be 2 more times the monsters!"
 
 #. Store item description of mvz2:pagoda_branch by character mvz2:tokiko
 #: Store meta file
@@ -5155,6 +5155,18 @@ msgstr "NORMAL"
 msgctxt "difficulty"
 msgid "困难"
 msgstr "HARD"
+
+#~ msgctxt "stat_category"
+#~ msgid "敌人生成"
+#~ msgstr "Spawned enemies"
+
+#~ msgctxt "stat_category"
+#~ msgid "消灭敌人"
+#~ msgstr "Neutralized enemies"
+
+#~ msgctxt "stat_category"
+#~ msgid "被敌人击杀"
+#~ msgstr "Killed by enemies"
 
 # 固有蓝图的提示
 #~ msgid "基本"

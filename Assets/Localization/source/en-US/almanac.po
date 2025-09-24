@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-09-21 02:51+0800\n"
-"PO-Revision-Date: 2025-09-21 14:51+0800\n"
+"POT-Creation-Date: 2025-09-24 08:12+0800\n"
+"PO-Revision-Date: 2025-09-24 20:20+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -260,8 +260,8 @@ msgstr "Defensive"
 #. Description for almanac tag defensive
 #: Almanac meta file
 msgctxt "almanac_tag.description"
-msgid "阻挡敌人用的器械"
-msgstr "Contraption used for blocking enemies"
+msgid "阻挡怪物用的器械"
+msgstr "Contraption used for blocking monsters"
 
 #. Name for almanac tag floor_contraption
 #: Almanac meta file
@@ -272,8 +272,8 @@ msgstr "Floor Contraption"
 #. Description for almanac tag floor_contraption
 #: Almanac meta file
 msgctxt "almanac_tag.description"
-msgid "不会被一般敌人发现"
-msgstr "Undiscovered by regular enemies"
+msgid "不会被一般怪物发现"
+msgstr "Undiscovered by regular monsters"
 
 #. Name for almanac tag low
 #: Almanac meta file
@@ -718,8 +718,8 @@ msgstr ""
 #. Header for contraptions mvz2:mine_tnt
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "地雷TNT在一定时间的准备后能够炸飞接近的敌人。"
-msgstr "Mine TNTs blow up nearby enemies, but they need a while to arm themselves."
+msgid "地雷TNT在一定时间的准备后能够炸飞接近的敌方怪物。"
+msgstr "Mine TNTs blow up nearby enemy monsters, but they need a while to arm themselves."
 
 #. Properties for contraptions mvz2:mine_tnt
 #: Almanac meta file
@@ -800,10 +800,10 @@ msgstr "The light of Glowstones can clear fog and reveal ghosts."
 msgctxt "contraptions.description"
 msgid ""
 "照明半径：<color=red>1.5格</color>\n"
-"技能：<color=red>眩晕所有敌人5秒，清除器械的精神控制状态</color>"
+"技能：<color=red>眩晕所有敌方怪物5秒，清除器械的精神控制状态</color>"
 msgstr ""
 "Radius: <color=red>1.5 grids</color>\n"
-"Evocation: <color=red>Stun all enemies for 5 seconds, remove the mind control status from all contraptions</color>"
+"Evocation: <color=red>Stun all enemy monsters for 5 seconds, remove the mind control status from all contraptions</color>"
 
 #. Flavor for contraptions mvz2:glowstone
 #: Almanac meta file
@@ -819,10 +819,10 @@ msgstr ""
 #. Header for contraptions mvz2:punchton
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "冲击活塞能够击退前方的敌人并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>石制品，但之后需要一定时间来修复自身。"
+msgid "冲击活塞能够击退前方的敌方怪物并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>石制品，但之后需要一定时间来修复自身。"
 msgstr ""
-"Punchtons can knock back enemies and crush <tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>hard objects, but they need time to repair "
-"themselves after that."
+"Punchtons can knock back enemy monsters and crush <tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>hard objects, but they need time to "
+"repair themselves after that."
 
 #. Properties for contraptions mvz2:punchton
 #: Almanac meta file
@@ -997,14 +997,14 @@ msgstr ""
 #. Header for contraptions mvz2:gravity_pad
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。"
-msgstr "Gravity Pads can lower the height of medium height objects above it, and make enemies on it unable to climb or jump."
+msgid "重力板能够降低上方子弹的高度并能让它上面的敌方怪物无法跳跃。"
+msgstr "Gravity Pads can lower the height of medium height objects above it, and make enemy monsters on it unable to climb or jump."
 
 #. Properties for contraptions mvz2:gravity_pad
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进</color>"
-msgstr "Evocation: <color=red>Anvil falls from the sky, crushes enemies and stops them</color>"
+msgid "技能：<color=red>铁砧从天而降，砸伤敌人并阻挡怪物们前进</color>"
+msgstr "Evocation: <color=red>Anvil falls from the sky, crushes enemy monsters and stops them</color>"
 
 #. Flavor for contraptions mvz2:gravity_pad
 #: Almanac meta file
@@ -1023,8 +1023,8 @@ msgstr "Vortex Hoppers drag all enemies close to it underwater when spinning."
 #. Properties for contraptions mvz2:vortex_hopper
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>将更大范围的敌人拉入水底</color>"
-msgstr "Evocation: <color=red>Drag enemies in a wider range underwater</color>"
+msgid "技能：<color=red>将更大范围的敌方怪物拉入水底</color>"
+msgstr "Evocation: <color=red>Drag enemy monsters in a wider range underwater</color>"
 
 #. Flavor for contraptions mvz2:vortex_hopper
 #: Almanac meta file
@@ -1205,8 +1205,8 @@ msgstr ""
 #. Header for contraptions mvz2:stone_dropper
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。"
-msgstr "Stone Dropper fires tiny cobbles, or sometimes boulders which can knock back enemies and break apart."
+msgid "石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌方怪物并分裂的巨石。"
+msgstr "Stone Dropper fires tiny cobbles, or sometimes boulders which can knock back enemy monsters and break apart."
 
 #. Properties for contraptions mvz2:stone_dropper
 #: Almanac meta file
@@ -1261,13 +1261,13 @@ msgstr ""
 #. Header for contraptions mvz2:golden_apple
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "金苹果可以魅惑一个近战攻击它的敌怪，使其为你而战。"
+msgid "金苹果可以魅惑一个近战攻击它的敌方怪物，使其为你而战。"
 msgstr "Golden Apples can hypnotise an enemy monster that attacks it, making it fight for you."
 
 #. Properties for contraptions mvz2:golden_apple
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>发出彩色炫光，被魅惑的敌怪变为突变僵尸</color>"
+msgid "技能：<color=red>发出彩色炫光，被魅惑的敌方怪物变为突变僵尸</color>"
 msgstr "Evocation: <color=red>Radiates colorful light, the hypnotised enemy monster transforms into a mutant zombie</color>"
 
 #. Flavor for contraptions mvz2:golden_apple
@@ -1283,7 +1283,7 @@ msgstr ""
 #. Header for contraptions mvz2:thunder_drum
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "雷鼓在触发后会震飞所有地面上的敌怪，使其后退并换行。之后进入破损状态，需要时间修复。"
+msgid "雷鼓在触发后会震飞所有地面上的敌方怪物，使其后退并换行。之后进入破损状态，需要时间修复。"
 msgstr ""
 "Thunder Drums, when triggered, knock all enemy monsters on the ground into the air, knocking them back and changing their lanes. "
 "Afterwards the drums break and need time to repair themselves."
@@ -1293,11 +1293,11 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "修复时间：<color=red>60秒</color>\n"
-"技能：<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>"
+"技能：<color=red>引发4秒地震，对所有地面上的敌方怪物造成总共25%最大生命的伤害</color>"
 msgstr ""
 "Repair time：<color=red>60 seconds</color>\n"
-"Evocation: <color=red>Makes a earthquake for 4 seconds, dealing a total damage of 25% maximum health to all enemy monsters on the "
-"ground</color>"
+"Evocation: <color=red>Makes a earthquake for 4 seconds, dealing a total damage of 25% maximum health to all enemies on the ground</"
+"color>"
 
 #. Flavor for contraptions mvz2:thunder_drum
 #: Almanac meta file
@@ -1553,7 +1553,7 @@ msgstr ""
 #. Header for contraptions mvz2:black_hole_bomb
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。"
+msgid "黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌方怪物和子弹。"
 msgstr "Black Hole Bombs create tiny black holes after being triggered, absorbing all nearby enemy monsters and projectiles."
 
 #. Properties for contraptions mvz2:black_hole_bomb
@@ -1585,8 +1585,8 @@ msgstr ""
 #. Header for contraptions mvz2:desire_pot
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "欲望壶会从敌人身上复制其携带的星之碎片，每个欲望壶最多复制三个。"
-msgstr "Desire Pots duplicate the starshards carried by enemies. Every pot can duplicate up to 3 starshards."
+msgid "欲望壶会从怪物身上复制其携带的星之碎片，每个欲望壶最多复制三个。"
+msgstr "Desire Pots duplicate the starshards carried by monsters. Every pot can duplicate up to 3 starshards."
 
 #. Properties for contraptions mvz2:desire_pot
 #: Almanac meta file
@@ -1768,7 +1768,7 @@ msgstr ""
 #. Header for contraptions mvz2:wooden_fan
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "木风扇在触发后会将一整行内的敌怪吹回原地。如果敌怪较轻，还会直接将其吹出战场。"
+msgid "木风扇在触发后会将一整行内的敌方怪物吹回原地。如果怪物较轻，还会直接将其吹出战场。"
 msgstr ""
 "When triggered, Wooden Fans blow away and push back enemy monsters in their lane. If the enemy monsters are very light, they will be "
 "directly blown out of the battlefield."
@@ -1777,12 +1777,12 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"特点：<color=red>可以直接吹飞空中或者较轻的敌怪，但对地面上较重的敌怪没有效果</color>\n"
+"特点：<color=red>可以直接吹飞空中或者较轻的怪物，但对地面上较重的怪物没有效果</color>\n"
 "范围：<color=red>一整行</color>\n"
-"技能：<color=red>改为吹动整个战场的敌怪</color>"
+"技能：<color=red>改为吹动整个战场的怪物</color>"
 msgstr ""
-"Special: <color=red>Directly blow away airborne and very light enemies, but has no effect against heavy and very heavy enemies on the "
-"ground</color>\n"
+"Special: <color=red>Directly blow away airborne and very light monsters, but has no effect against heavy and very heavy monsters on "
+"the ground</color>\n"
 "Range: <color=red>One entire row</color>\n"
 "Evocation: <color=red>Blow away all enemy monsters on the battlefield</color>"
 
@@ -1832,7 +1832,7 @@ msgctxt "contraptions.description"
 msgid ""
 "上下方向：<color=red>转移物体</color>\n"
 "前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>\n"
-"技能：<color=red>将周围的敌怪移动到一个指定的位置</color>"
+"技能：<color=red>将周围的敌方怪物移动到一个指定的位置</color>"
 msgstr ""
 "Up/Down: <color=red>Change objects' lanes.</color>\n"
 "Front/Back: <color=red>Make projectiles turn back, or speed-boosted and have knockback effect.</color>\n"
@@ -2709,9 +2709,9 @@ msgstr ""
 #. Header for enemies mvz2:zombie_cloud
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "僵尸云飞在空中，向下降雨形成水迹，踩到水迹的敌怪会向前滑动。"
+msgid "僵尸云飞在空中，向下降雨形成水迹，踩到水迹的怪物会向前滑动。"
 msgstr ""
-"Zombie Cloud floats in the sky, releasing rain that creates puddles on the ground. Enemies stepping on these puddles will slide "
+"Zombie Cloud floats in the sky, releasing rain that creates puddles on the ground. Monsters stepping on these puddles will slide "
 "forward."
 
 #. Properties for enemies mvz2:zombie_cloud
@@ -3060,7 +3060,7 @@ msgstr "A stack of talismans gifted by Seiga, which is said to be able to contro
 #. Properties for artifacts mvz2:manipulative_talismans
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>敌怪死亡并倒下时，有10%的概率复活并变为友方</color>"
+msgid "效果：<color=red>敌方怪物死亡并倒下时，有10%的概率复活并变为友方</color>"
 msgstr "Effect: <color=red>Enemy monsters have 10% chance to be revived as friendly ones when they die and faint</color>"
 
 #. Flavor for artifacts mvz2:manipulative_talismans
@@ -3660,8 +3660,8 @@ msgstr "Monster Spawner"
 #. Header for misc mvz2:monster_spawner
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "刷怪笼会在一大波僵尸来临时召唤一只其内部的敌人。"
-msgstr "Spawner will summon an enemy inside it when a huge wave of monsters is approaching."
+msgid "刷怪笼会在一大波僵尸来临时召唤一只其内部的怪物。"
+msgstr "Spawner will summon a monster inside it when a huge wave of monsters is approaching."
 
 #. Flavor for misc mvz2:monster_spawner
 #: Almanac meta file
@@ -4510,14 +4510,14 @@ msgstr "The details are still unknown."
 #. Name for entity counter mvz2:low_enemy
 #: Entity meta file
 msgctxt "entity_counter.name"
-msgid "低矮敌人"
-msgstr "low enemies"
+msgid "低矮怪物"
+msgstr "low monsters"
 
 #. Name for entity counter mvz2:flying_enemy
 #: Entity meta file
 msgctxt "entity_counter.name"
-msgid "飞行敌人"
-msgstr "flying enemies"
+msgid "飞行怪物"
+msgstr "flying monsters"
 
 #. Name for entity mvz2:dispenser
 #: Entity meta file
@@ -4552,7 +4552,7 @@ msgstr "Obsidian"
 #. Tooltip for entity mvz2:obsidian
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "阻碍敌人的前进，并保护背后的其他器械"
+msgid "阻碍怪物的前进，并保护背后的其他器械"
 msgstr "Protect your other contraptions"
 
 #. Name for entity mvz2:mine_tnt
@@ -4816,8 +4816,8 @@ msgstr "Golden Apple"
 #. Tooltip for entity mvz2:golden_apple
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "魅惑攻击它的敌人"
-msgstr "Charms the enemy that attacks it"
+msgid "魅惑攻击它的怪物"
+msgstr "Charms the monster that attacks it"
 
 #. Name for entity mvz2:thunder_drum
 #: Entity meta file
@@ -4828,8 +4828,8 @@ msgstr "Thunder Drum"
 #. Tooltip for entity mvz2:thunder_drum
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "触发后震退敌人"
-msgstr "Knock back enemies on triggered"
+msgid "触发后震退怪物"
+msgstr "Knock back monsters on triggered"
 
 #. Name for entity mvz2:tesla_coil
 #: Entity meta file
@@ -4876,8 +4876,8 @@ msgstr "Lightning Orb"
 #. Tooltip for entity mvz2:lightning_orb
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "阻碍敌人前进，并吸收子弹来治疗自己"
-msgstr "Blocks enemies and absorb projectiles"
+msgid "阻碍怪物前进，并吸收子弹来治疗自己"
+msgstr "Blocks monsters and absorb projectiles"
 
 #. Name for entity mvz2:splitenser
 #: Entity meta file
@@ -4948,8 +4948,8 @@ msgstr "Desire Pot"
 #. Tooltip for entity mvz2:desire_pot
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "复制敌人身上的星之碎片"
-msgstr "Duplicate starshards carried by enemies"
+msgid "复制怪物身上的星之碎片"
+msgstr "Duplicate starshards carried by monsters"
 
 #. Name for entity mvz2:gunpowder_barrel
 #: Entity meta file
@@ -5020,8 +5020,8 @@ msgstr "Wooden Fan"
 #. Tooltip for entity mvz2:wooden_fan
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "吹动一整行的敌人"
-msgstr "Blow away an entire lane of enemies"
+msgid "吹动一整行的怪物"
+msgstr "Blow away an entire lane of monsters"
 
 #. Name for entity mvz2:infectenser
 #: Entity meta file
@@ -5124,7 +5124,7 @@ msgstr "Anvil"
 #. Tooltip for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "阻碍敌人的前进"
+msgid "阻碍怪物的前进"
 msgstr "Protect your other contraptions"
 
 #. Name for entity mvz2:random_china
@@ -5872,8 +5872,8 @@ msgstr "Hoe"
 #. Tooltip for artifact mvz2:hoe
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "消灭每场战斗的第一个敌人"
-msgstr "Kills the first enemy of every battle"
+msgid "消灭每场战斗的第一个敌方怪物"
+msgstr "Kills the first enemy monster of every battle"
 
 #. Name for artifact mvz2:dream_key
 #: Artifact meta file
@@ -5920,8 +5920,8 @@ msgstr "Pagoda Branch"
 #. Tooltip for artifact mvz2:pagoda_branch
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "战斗开始时获得2个星之碎片，但敌人数量+200%"
-msgstr "+2 starshards at start, but +200% amount of spawned enemies"
+msgid "战斗开始时获得2个星之碎片，但怪物数量+200%"
+msgstr "+2 starshards at start, but +200% amount of spawned monsters"
 
 #. Name for artifact mvz2:dream_butterfly
 #: Artifact meta file
@@ -6222,6 +6222,18 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "entity_counter.name"
+#~ msgid "低矮敌人"
+#~ msgstr "low enemies"
+
+#~ msgctxt "entity_counter.name"
+#~ msgid "飞行敌人"
+#~ msgstr "flying enemies"
+
+#~ msgctxt "entity.tooltip"
+#~ msgid "阻碍敌人的前进"
+#~ msgstr "Protect your other contraptions"
 
 #~ msgctxt "enemies.description"
 #~ msgid "炮弹僵尸由炮手僵尸发射而来。"

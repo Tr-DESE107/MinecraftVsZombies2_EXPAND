@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-09-21 02:51+0800\n"
+"POT-Creation-Date: 2025-09-24 08:12+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -254,7 +254,7 @@ msgstr ""
 #. Description for almanac tag defensive
 #: Almanac meta file
 msgctxt "almanac_tag.description"
-msgid "阻挡敌人用的器械"
+msgid "阻挡怪物用的器械"
 msgstr ""
 
 #. Name for almanac tag floor_contraption
@@ -266,7 +266,7 @@ msgstr ""
 #. Description for almanac tag floor_contraption
 #: Almanac meta file
 msgctxt "almanac_tag.description"
-msgid "不会被一般敌人发现"
+msgid "不会被一般怪物发现"
 msgstr ""
 
 #. Name for almanac tag low
@@ -670,7 +670,7 @@ msgstr ""
 #. Header for contraptions mvz2:mine_tnt
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "地雷TNT在一定时间的准备后能够炸飞接近的敌人。"
+msgid "地雷TNT在一定时间的准备后能够炸飞接近的敌方怪物。"
 msgstr ""
 
 #. Properties for contraptions mvz2:mine_tnt
@@ -741,7 +741,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "照明半径：<color=red>1.5格</color>\n"
-"技能：<color=red>眩晕所有敌人5秒，清除器械的精神控制状态</color>"
+"技能：<color=red>眩晕所有敌方怪物5秒，清除器械的精神控制状态</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:glowstone
@@ -753,7 +753,7 @@ msgstr ""
 #. Header for contraptions mvz2:punchton
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "冲击活塞能够击退前方的敌人并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>石制品，但之后需要一定时间来修复自身。"
+msgid "冲击活塞能够击退前方的敌方怪物并击碎<tag id=\"mvz2:shell\" enum=\"mvz2:stone\"/>石制品，但之后需要一定时间来修复自身。"
 msgstr ""
 
 #. Properties for contraptions mvz2:punchton
@@ -899,13 +899,13 @@ msgstr ""
 #. Header for contraptions mvz2:gravity_pad
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "重力板能够降低上方子弹的高度并能让它上面的敌人无法跳跃。"
+msgid "重力板能够降低上方子弹的高度并能让它上面的敌方怪物无法跳跃。"
 msgstr ""
 
 #. Properties for contraptions mvz2:gravity_pad
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>铁砧从天而降，砸伤敌人并阻挡它们前进</color>"
+msgid "技能：<color=red>铁砧从天而降，砸伤敌人并阻挡怪物们前进</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:gravity_pad
@@ -923,7 +923,7 @@ msgstr ""
 #. Properties for contraptions mvz2:vortex_hopper
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>将更大范围的敌人拉入水底</color>"
+msgid "技能：<color=red>将更大范围的敌方怪物拉入水底</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:vortex_hopper
@@ -1070,7 +1070,7 @@ msgstr ""
 #. Header for contraptions mvz2:stone_dropper
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌人并分裂的巨石。"
+msgid "石制投掷器向敌人发射小型卵石，偶尔会发射能击退敌方怪物并分裂的巨石。"
 msgstr ""
 
 #. Properties for contraptions mvz2:stone_dropper
@@ -1115,13 +1115,13 @@ msgstr ""
 #. Header for contraptions mvz2:golden_apple
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "金苹果可以魅惑一个近战攻击它的敌怪，使其为你而战。"
+msgid "金苹果可以魅惑一个近战攻击它的敌方怪物，使其为你而战。"
 msgstr ""
 
 #. Properties for contraptions mvz2:golden_apple
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "技能：<color=red>发出彩色炫光，被魅惑的敌怪变为突变僵尸</color>"
+msgid "技能：<color=red>发出彩色炫光，被魅惑的敌方怪物变为突变僵尸</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:golden_apple
@@ -1135,7 +1135,7 @@ msgstr ""
 #. Header for contraptions mvz2:thunder_drum
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "雷鼓在触发后会震飞所有地面上的敌怪，使其后退并换行。之后进入破损状态，需要时间修复。"
+msgid "雷鼓在触发后会震飞所有地面上的敌方怪物，使其后退并换行。之后进入破损状态，需要时间修复。"
 msgstr ""
 
 #. Properties for contraptions mvz2:thunder_drum
@@ -1143,7 +1143,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "修复时间：<color=red>60秒</color>\n"
-"技能：<color=red>引发4秒地震，对所有地面上的敌怪造成总共25%最大生命的伤害</color>"
+"技能：<color=red>引发4秒地震，对所有地面上的敌方怪物造成总共25%最大生命的伤害</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:thunder_drum
@@ -1349,7 +1349,7 @@ msgstr ""
 #. Header for contraptions mvz2:black_hole_bomb
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌怪和子弹。"
+msgid "黑洞炸弹在触发后会产生小型黑洞，吸引周围所有的敌方怪物和子弹。"
 msgstr ""
 
 #. Properties for contraptions mvz2:black_hole_bomb
@@ -1374,7 +1374,7 @@ msgstr ""
 #. Header for contraptions mvz2:desire_pot
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "欲望壶会从敌人身上复制其携带的星之碎片，每个欲望壶最多复制三个。"
+msgid "欲望壶会从怪物身上复制其携带的星之碎片，每个欲望壶最多复制三个。"
 msgstr ""
 
 #. Properties for contraptions mvz2:desire_pot
@@ -1514,16 +1514,16 @@ msgstr ""
 #. Header for contraptions mvz2:wooden_fan
 #: Almanac meta file
 msgctxt "contraptions.description"
-msgid "木风扇在触发后会将一整行内的敌怪吹回原地。如果敌怪较轻，还会直接将其吹出战场。"
+msgid "木风扇在触发后会将一整行内的敌方怪物吹回原地。如果怪物较轻，还会直接将其吹出战场。"
 msgstr ""
 
 #. Properties for contraptions mvz2:wooden_fan
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid ""
-"特点：<color=red>可以直接吹飞空中或者较轻的敌怪，但对地面上较重的敌怪没有效果</color>\n"
+"特点：<color=red>可以直接吹飞空中或者较轻的怪物，但对地面上较重的怪物没有效果</color>\n"
 "范围：<color=red>一整行</color>\n"
-"技能：<color=red>改为吹动整个战场的敌怪</color>"
+"技能：<color=red>改为吹动整个战场的怪物</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:wooden_fan
@@ -1565,7 +1565,7 @@ msgctxt "contraptions.description"
 msgid ""
 "上下方向：<color=red>转移物体</color>\n"
 "前后方向：<color=red>使子弹掉头，或使子弹加速并带有击退效果。移动上方的怪物</color>\n"
-"技能：<color=red>将周围的敌怪移动到一个指定的位置</color>"
+"技能：<color=red>将周围的敌方怪物移动到一个指定的位置</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:force_pad
@@ -2265,7 +2265,7 @@ msgstr ""
 #. Header for enemies mvz2:zombie_cloud
 #: Almanac meta file
 msgctxt "enemies.description"
-msgid "僵尸云飞在空中，向下降雨形成水迹，踩到水迹的敌怪会向前滑动。"
+msgid "僵尸云飞在空中，向下降雨形成水迹，踩到水迹的怪物会向前滑动。"
 msgstr ""
 
 #. Properties for enemies mvz2:zombie_cloud
@@ -2571,7 +2571,7 @@ msgstr ""
 #. Properties for artifacts mvz2:manipulative_talismans
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>敌怪死亡并倒下时，有10%的概率复活并变为友方</color>"
+msgid "效果：<color=red>敌方怪物死亡并倒下时，有10%的概率复活并变为友方</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:manipulative_talismans
@@ -3053,7 +3053,7 @@ msgstr ""
 #. Header for misc mvz2:monster_spawner
 #: Almanac meta file
 msgctxt "misc.description"
-msgid "刷怪笼会在一大波僵尸来临时召唤一只其内部的敌人。"
+msgid "刷怪笼会在一大波僵尸来临时召唤一只其内部的怪物。"
 msgstr ""
 
 #. Flavor for misc mvz2:monster_spawner
@@ -3757,13 +3757,13 @@ msgstr ""
 #. Name for entity counter mvz2:low_enemy
 #: Entity meta file
 msgctxt "entity_counter.name"
-msgid "低矮敌人"
+msgid "低矮怪物"
 msgstr ""
 
 #. Name for entity counter mvz2:flying_enemy
 #: Entity meta file
 msgctxt "entity_counter.name"
-msgid "飞行敌人"
+msgid "飞行怪物"
 msgstr ""
 
 #. Name for entity mvz2:dispenser
@@ -3799,7 +3799,7 @@ msgstr ""
 #. Tooltip for entity mvz2:obsidian
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "阻碍敌人的前进，并保护背后的其他器械"
+msgid "阻碍怪物的前进，并保护背后的其他器械"
 msgstr ""
 
 #. Name for entity mvz2:mine_tnt
@@ -4063,7 +4063,7 @@ msgstr ""
 #. Tooltip for entity mvz2:golden_apple
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "魅惑攻击它的敌人"
+msgid "魅惑攻击它的怪物"
 msgstr ""
 
 #. Name for entity mvz2:thunder_drum
@@ -4075,7 +4075,7 @@ msgstr ""
 #. Tooltip for entity mvz2:thunder_drum
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "触发后震退敌人"
+msgid "触发后震退怪物"
 msgstr ""
 
 #. Name for entity mvz2:tesla_coil
@@ -4123,7 +4123,7 @@ msgstr ""
 #. Tooltip for entity mvz2:lightning_orb
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "阻碍敌人前进，并吸收子弹来治疗自己"
+msgid "阻碍怪物前进，并吸收子弹来治疗自己"
 msgstr ""
 
 #. Name for entity mvz2:splitenser
@@ -4195,7 +4195,7 @@ msgstr ""
 #. Tooltip for entity mvz2:desire_pot
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "复制敌人身上的星之碎片"
+msgid "复制怪物身上的星之碎片"
 msgstr ""
 
 #. Name for entity mvz2:gunpowder_barrel
@@ -4267,7 +4267,7 @@ msgstr ""
 #. Tooltip for entity mvz2:wooden_fan
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "吹动一整行的敌人"
+msgid "吹动一整行的怪物"
 msgstr ""
 
 #. Name for entity mvz2:infectenser
@@ -4361,7 +4361,7 @@ msgstr ""
 #. Tooltip for entity mvz2:anvil
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "阻碍敌人的前进"
+msgid "阻碍怪物的前进"
 msgstr ""
 
 #. Name for entity mvz2:random_china
@@ -5107,7 +5107,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:hoe
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "消灭每场战斗的第一个敌人"
+msgid "消灭每场战斗的第一个敌方怪物"
 msgstr ""
 
 #. Name for artifact mvz2:dream_key
@@ -5155,7 +5155,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:pagoda_branch
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "战斗开始时获得2个星之碎片，但敌人数量+200%"
+msgid "战斗开始时获得2个星之碎片，但怪物数量+200%"
 msgstr ""
 
 #. Name for artifact mvz2:dream_butterfly
