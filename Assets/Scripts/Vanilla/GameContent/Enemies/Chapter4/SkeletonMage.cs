@@ -37,7 +37,6 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
             entity.SetAnimationInt("Variant", entity.GetVariant());
         }
         protected override int GetActionState(Entity enemy)

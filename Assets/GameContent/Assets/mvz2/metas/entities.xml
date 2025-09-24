@@ -56,6 +56,7 @@
         <enemy id="2" parent="entity">
             <behaviours>
                 <behaviour operator="add" id="mvz2:enemy_common"/>
+                <behaviour operator="add" id="mvz2:model_damage_percent"/>
             </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="200" />
@@ -543,6 +544,9 @@
             <unlock>
                 <condition required="mvz2:level.dream_8"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:model_damage_percent"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
@@ -646,6 +650,9 @@
             <unlock>
                 <condition required="mvz2:level.castle_4"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:model_damage_percent"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <float name="mvz2:maxHealth" value="4000" />
@@ -957,7 +964,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </contraption>
-        <dispenser id="wooden_fan" name="木风扇" tooltip="吹动一整行的敌人" >
+        <contraption id="wooden_fan" name="木风扇" tooltip="吹动一整行的敌怪" >
             <unlock>
                 <condition required="mvz2:level.ship_7"/>
             </unlock>
@@ -975,7 +982,7 @@
                 <int name="mvz2:cost" value="100" />
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
-        </dispenser>
+        </contraption>
 
         <!-- Upgrade Contraptions -->
         <dispenser id="infectenser" name="传染发射器" tooltip="（需要小型发射器）\n发射在敌人之间传播的寄生机器人">
@@ -1061,6 +1068,9 @@
             <unlock>
                 <condition required="mvz2:level.castle_5"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:model_damage_percent"/>
+            </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="5400" />
                 <float name="mvz2:damage" value="20" />
@@ -1105,6 +1115,9 @@
             <unlock>
                 <condition required="mvz2:level.dream_3"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:model_damage_percent"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:instantEvoke" value="false" />
                 <bool name="mvz2:canDeactive" value="false" />
@@ -1118,6 +1131,9 @@
             </properties>
         </contraption>
         <contraption id="random_china" name="随机瓷器" tooltip="被摧毁后生成随机器械">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:model_damage_percent"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
@@ -1880,6 +1896,7 @@
                 <behaviour operator="add" id="mvz2:take_grid"/>
                 <behaviour operator="add" id="mvz2:fragmented"/>
                 <behaviour operator="add" id="mvz2:obstacle_destroy_contraption"/>
+                <behaviour operator="add" id="mvz2:model_damage_percent"/>
             </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="1800" />

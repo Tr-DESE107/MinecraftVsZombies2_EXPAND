@@ -54,7 +54,6 @@ namespace MVZ2.GameContent.Enemies
 
             entity.SetModelProperty("InAir", !onGround);
             entity.SetAnimationFloat("Range", entity.GetRange());
-            entity.SetModelDamagePercent();
         }
         public override void PreTakeDamage(DamageInput input, CallbackResult result)
         {

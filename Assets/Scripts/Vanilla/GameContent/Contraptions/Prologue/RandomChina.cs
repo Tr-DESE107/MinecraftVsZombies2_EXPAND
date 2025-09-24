@@ -24,11 +24,6 @@ namespace MVZ2.GameContent.Contraptions
         public RandomChina(string nsp, string name) : base(nsp, name)
         {
         }
-        protected override void UpdateLogic(Entity contraption)
-        {
-            base.UpdateLogic(contraption);
-            contraption.SetModelDamagePercent();
-        }
 
         public override void PostDeath(Entity entity, DeathInfo damageInfo)
         {

@@ -27,12 +27,6 @@ namespace MVZ2.GameContent.Contraptions
                 factionTarget = FactionTarget.Friendly
             };
         }
-        protected override void UpdateLogic(Entity contraption)
-        {
-            base.UpdateLogic(contraption);
-            contraption.SetModelDamagePercent();
-        }
-
         protected override void OnEvoke(Entity contraption)
         {
             base.OnEvoke(contraption);

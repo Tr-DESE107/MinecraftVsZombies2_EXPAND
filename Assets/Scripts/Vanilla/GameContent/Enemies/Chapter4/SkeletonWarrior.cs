@@ -29,10 +29,5 @@ namespace MVZ2.GameContent.Enemies
                 shield?.AddBuff<IZombieSkeletonWarriorArmorBuff>();
             }
         }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
-        }
     }
 }

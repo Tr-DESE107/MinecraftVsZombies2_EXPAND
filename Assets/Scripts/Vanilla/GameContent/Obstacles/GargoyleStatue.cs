@@ -29,10 +29,5 @@ namespace MVZ2.GameContent.Obstacles
             base.PostDeath(entity, damageInfo);
             entity.Remove();
         }
-        public override void Update(Entity entity)
-        {
-            base.Update(entity);
-            entity.SetModelDamagePercent();
-        }
     }
 }

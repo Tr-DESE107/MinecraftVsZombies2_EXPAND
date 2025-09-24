@@ -25,11 +25,6 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             SetMoveTimer(entity, new FrameTimer(MOVE_INTERVAL));
         }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
-        }
         protected override void WalkUpdate(Entity enemy)
         {
             var timer = GetMoveTimer(enemy);

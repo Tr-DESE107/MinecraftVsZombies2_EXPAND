@@ -73,11 +73,6 @@ namespace MVZ2.GameContent.Enemies
             }
             return state;
         }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
-        }
         public static void SetWarpped(Entity entity, bool value)
         {
             entity.SetBehaviourField(PROP_WARPPED, value);

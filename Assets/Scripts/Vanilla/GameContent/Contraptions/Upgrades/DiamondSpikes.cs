@@ -40,11 +40,6 @@ namespace MVZ2.GameContent.Contraptions
             }
             entity.PlaySound(VanillaSoundID.fling);
         }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
-        }
         public const int MAX_CALTROPS = 100;
         public override NamespaceID SpikeParticleID => VanillaEffectID.diamondSpikeParticles;
         public override int AttackCooldown => 15;

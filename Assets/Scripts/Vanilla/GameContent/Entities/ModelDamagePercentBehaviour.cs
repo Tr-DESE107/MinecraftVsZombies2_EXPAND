@@ -1,0 +1,18 @@
+﻿using PVZEngine.Entities;
+using PVZEngine.Level;
+
+namespace MVZ2.Vanilla.Entities
+{
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.modelDamagePercent)]
+    public class ModelDamagePercentBehaviour : EntityBehaviourDefinition
+    {
+        public ModelDamagePercentBehaviour(string nsp, string name) : base(nsp, name)
+        {
+        }
+        public override void Update(Entity entity)
+        {
+            base.Update(entity);
+            entity.SetModelDamagePercent();
+        }
+    }
+}

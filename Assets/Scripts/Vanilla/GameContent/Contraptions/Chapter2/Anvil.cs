@@ -28,11 +28,6 @@ namespace MVZ2.GameContent.Contraptions
             entity.CollisionMaskFriendly |= EntityCollisionHelper.MASK_PLANT | EntityCollisionHelper.MASK_ENEMY | EntityCollisionHelper.MASK_OBSTACLE | EntityCollisionHelper.MASK_BOSS;
             entity.CollisionMaskHostile |= EntityCollisionHelper.MASK_PLANT | EntityCollisionHelper.MASK_ENEMY | EntityCollisionHelper.MASK_OBSTACLE | EntityCollisionHelper.MASK_BOSS;
         }
-        protected override void UpdateLogic(Entity contraption)
-        {
-            base.UpdateLogic(contraption);
-            contraption.SetModelDamagePercent();
-        }
         public override void PostCollision(EntityCollision collision, int state)
         {
             base.PostCollision(collision, state);

@@ -32,7 +32,6 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
             entity.SetModelProperty("NoStaff", !HasStaff(entity));
         }
         public static Entity? SpawnStaff(Entity entity)

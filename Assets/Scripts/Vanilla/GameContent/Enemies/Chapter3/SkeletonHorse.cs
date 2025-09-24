@@ -101,12 +101,6 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
         }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            // 设置血量状态。
-            entity.SetModelDamagePercent();
-        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);

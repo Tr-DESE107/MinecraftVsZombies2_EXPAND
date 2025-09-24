@@ -6,7 +6,6 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
 using MVZ2.Vanilla.Enemies;
-using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using PVZEngine.Buffs;
@@ -37,7 +36,6 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
             entity.SetModelProperty("HasBoat", entity.HasBuff<BoatBuff>());
         }
         public override void PostDeath(Entity entity, DeathInfo info)

@@ -95,7 +95,6 @@ namespace MVZ2.GameContent.Enemies
             var hasHorse = horse.ExistsAndAlive();
             entity.SetAnimationBool("Sitting", hasHorse);
             entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
-            entity.SetModelDamagePercent();
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {

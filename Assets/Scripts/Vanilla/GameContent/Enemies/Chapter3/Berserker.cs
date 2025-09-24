@@ -19,11 +19,6 @@ namespace MVZ2.GameContent.Enemies
         public Berserker(string nsp, string name) : base(nsp, name)
         {
         }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
-        }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);

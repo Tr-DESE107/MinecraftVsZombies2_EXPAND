@@ -39,11 +39,6 @@ namespace MVZ2.GameContent.Enemies
             }
             return state;
         }
-        protected override void UpdateLogic(Entity entity)
-        {
-            base.UpdateLogic(entity);
-            entity.SetModelDamagePercent();
-        }
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);

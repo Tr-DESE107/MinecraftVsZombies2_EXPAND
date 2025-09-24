@@ -76,8 +76,6 @@ namespace MVZ2.GameContent.Enemies
                     entity.RemoveBuffs<SpiderClimbBuff>();
                 }
             }
-            // 设置血量状态。
-            entity.SetModelDamagePercent();
         }
         public override void PostCollision(EntityCollision collision, int state)
         {
