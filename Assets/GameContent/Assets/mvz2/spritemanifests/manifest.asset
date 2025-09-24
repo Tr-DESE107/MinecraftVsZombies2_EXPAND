@@ -221,6 +221,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8866a258ae8eb3e458f9c444ebdba22c, type: 3}
   - name: mobile_blueprint/dullahan_head
     sprite: {fileID: 21300000, guid: 9e859336bcdaf054593a5dc4ca4b79ae, type: 3}
+  - name: mobile_blueprint/elastic_cloud
+    sprite: {fileID: 21300000, guid: 22f0f8968ce066b4daa774bc72595ce1, type: 3}
   - name: mobile_blueprint/emperor_zombie
     sprite: {fileID: 21300000, guid: d018395fbcf32f44c92a79b061e11d83, type: 3}
   - name: mobile_blueprint/error_block
@@ -895,8 +897,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7513cd2470186434dac756e22275249b, type: 3}
   - name: level/ship/ship_back
     sprite: {fileID: 21300000, guid: 0d763afc8cc9cb644953bb63087e098a, type: 3}
-  - name: level/ship/ship_fore
-    sprite: {fileID: 21300000, guid: 662e52d9c6cc3e446ae341b425b857bf, type: 3}
+  - name: level/ship/ship_depth
+    sprite: {fileID: 21300000, guid: 7bf9c6f0c642bdd42af1ea3a5cb5bdbc, type: 3}
   - name: level/ship/sky
     sprite: {fileID: 21300000, guid: 13f4669be302ba24296364d49d0b1219, type: 3}
   - name: map/castle/map
@@ -1555,6 +1557,11 @@ MonoBehaviour:
     - {fileID: 320034190, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
     - {fileID: 1628297157, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
     - {fileID: 789365403, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
+  - name: entity/contraption/elastic_cloud
+    spritesheet:
+    - {fileID: -551871915, guid: 52dd30b9122fbb9419354452c8af0a1f, type: 3}
+    - {fileID: 400119026, guid: 52dd30b9122fbb9419354452c8af0a1f, type: 3}
+    - {fileID: -1076557092, guid: 52dd30b9122fbb9419354452c8af0a1f, type: 3}
   - name: entity/contraption/firework_dispenser
     spritesheet:
     - {fileID: 1738491610, guid: 4fa4eb018eeee64479e6ea997fc1968a, type: 3}

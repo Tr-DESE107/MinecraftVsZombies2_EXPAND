@@ -212,6 +212,12 @@ namespace PVZEngine.Buffs
             GetBuffsNonAlloc(definition, list);
             return list.ToArray();
         }
+        public Buff[] GetBuffs(NamespaceID id)
+        {
+            var list = new List<Buff>();
+            GetBuffsNonAlloc(id, list);
+            return list.ToArray();
+        }
         public void GetBuffsNonAlloc<T>(List<Buff> results) where T : BuffDefinition
         {
             foreach (var buff in buffs)
@@ -227,6 +233,16 @@ namespace PVZEngine.Buffs
             foreach (var buff in buffs)
             {
                 if (buff.Definition == definition)
+                {
+                    results.Add(buff);
+                }
+            }
+        }
+        public void GetBuffsNonAlloc(NamespaceID id, List<Buff> results)
+        {
+            foreach (var buff in buffs)
+            {
+                if (buff.Definition.GetID() == id)
                 {
                     results.Add(buff);
                 }

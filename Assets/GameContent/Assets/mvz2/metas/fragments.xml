@@ -206,6 +206,11 @@
             <key hex="#FFFFFF" time="1"/>
         </colorKeys>
     </fragment>
+    <fragment name="elastic_cloud">
+        <colorKeys>
+            <key hex="#C881C9" time="1"/>
+        </colorKeys>
+    </fragment>
     <fragment name="infectenser">
         <colorKeys>
             <key hex="#FF0000" time="0.2"/>

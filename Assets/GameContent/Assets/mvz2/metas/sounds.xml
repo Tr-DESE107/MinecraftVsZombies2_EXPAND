@@ -33,6 +33,9 @@
     <sound name="biohazard">
         <sample path="mvz2:biohazard" weight="1" />
     </sound>
+    <sound name="boing">
+        <sample path="mvz2:boing" weight="1" />
+    </sound>
     <sound name="bomb_falling">
         <sample path="mvz2:bomb_falling" weight="1" />
     </sound>

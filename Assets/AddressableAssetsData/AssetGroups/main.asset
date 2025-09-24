@@ -1501,6 +1501,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22f0f8968ce066b4daa774bc72595ce1
+    m_Address: mvz2:mobile_blueprint/elastic_cloud
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 233204fa76832aa469a18c6784597383
     m_Address: mvz2:bomb_falling
     m_ReadOnly: 0
@@ -3515,6 +3522,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52dd30b9122fbb9419354452c8af0a1f
+    m_Address: mvz2:entity/contraption/elastic_cloud
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53000fe10b2b2114a9d2a2a204f7c143
     m_Address: mvz2:ui/level/pause_image_loss
     m_ReadOnly: 0
@@ -5187,6 +5201,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bf9c6f0c642bdd42af1ea3a5cb5bdbc
+    m_Address: mvz2:level/ship/ship_depth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c03474b42896f044b99de674b6f9ea0
     m_Address: mvz2:pickup/dream_key
     m_ReadOnly: 0
@@ -6719,6 +6740,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fd348792cb250d419f2ac5c7effec83
+    m_Address: mvz2:contraption/ship/elastic_cloud
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ff472ab3deed244c8552a2bd5d7c949
     m_Address: mvz2:entity/contraptions/wooden_dropper
@@ -9480,6 +9508,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e5f55c79902a78144ad75fe40e59c592
     m_Address: mvz2:meteor_land
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6089201204881d4a879044241dd8cf8
+    m_Address: mvz2:boing
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
