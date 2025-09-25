@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-09-25 12:27+0800\n"
+"POT-Creation-Date: 2025-09-25 12:36+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2469,7 +2469,7 @@ msgstr ""
 #. Properties for artifacts mvz2:bottled_blackhole
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "效果：<color=red>每有一个蓝图空位，器械+15%伤害</color>"
+msgid "效果：<color=red>每有一个蓝图空位，器械+10%伤害</color>"
 msgstr ""
 
 #. Flavor for artifacts mvz2:bottled_blackhole
@@ -5224,7 +5224,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:bottled_blackhole
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "每有一个蓝图空位，+15%器械伤害"
+msgid "每有一个蓝图空位，+10%器械伤害"
 msgstr ""
 
 #. Name for artifact mvz2:smart_phone

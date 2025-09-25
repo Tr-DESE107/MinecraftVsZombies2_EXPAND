@@ -1490,7 +1490,7 @@
                 <p>被装入瓶子中的一个小型黑洞。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>每有一个蓝图空位，器械+15%伤害</color>]]></p>
+                <p>效果：<![CDATA[<color=red>每有一个蓝图空位，器械+10%伤害</color>]]></p>
             </properties>
             <flavor>
                 <p>瓶中的火焰，强化你的攻击；</p>

@@ -46,6 +46,6 @@ namespace MVZ2.GameContent.Artifacts
                 BottledBlackholeDamageBuff.SetDamageMultiplier(buff, count * DAMAGE_MULTIPLIER);
             }
         }
-        public const float DAMAGE_MULTIPLIER = 0.15f;
+        public const float DAMAGE_MULTIPLIER = 0.1f;
     }
 }
