@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-09-24 08:12+0800\n"
-"PO-Revision-Date: 2025-09-24 20:20+0800\n"
+"POT-Creation-Date: 2025-09-25 12:27+0800\n"
+"PO-Revision-Date: 2025-09-25 12:27+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1102,11 +1102,11 @@ msgstr "Dream Crystals slowly regenerate their health."
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>2000</color>\n"
-"恢复速度：<color=red>40/秒</color>\n"
+"恢复速度：<color=red>60/秒</color>\n"
 "技能：<color=red>进入无敌状态，并为周围的器械恢复耐久</color>"
 msgstr ""
 "Toughness: <color=red>2000</color>\n"
-"Regeneration: <color=red>40/s</color>\n"
+"Regeneration: <color=red>60/s</color>\n"
 "Evocation: <color=red>Become invincible, regenerate toughness for surrounding contraptions</color>"
 
 #. Flavor for contraptions mvz2:dream_crystal
@@ -1293,7 +1293,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "修复时间：<color=red>60秒</color>\n"
-"技能：<color=red>引发4秒地震，对所有地面上的敌方怪物造成总共25%最大生命的伤害</color>"
+"技能：<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命的伤害</color>"
 msgstr ""
 "Repair time：<color=red>60 seconds</color>\n"
 "Evocation: <color=red>Makes a earthquake for 4 seconds, dealing a total damage of 25% maximum health to all enemies on the ground</"
@@ -1791,6 +1791,30 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid "这东西哪有那么重量级，都被你们吹到天上去了！"
 msgstr "Its real name is George."
+
+#. Header for contraptions mvz2:elastic_cloud
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "弹性云会以自身的耐久为代价，弹开接触到的敌方怪物和子弹。"
+msgstr "Elastic Clouds sacrifice their own toughness to bounce away enemy monsters and bullets upon contact."
+
+#. Properties for contraptions mvz2:elastic_cloud
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"耐久：<color=red>3000</color>\n"
+"耐久消耗：<color=red>150（怪物），20（子弹）</color>\n"
+"技能：<color=red>击退并弹飞半径2.5格内的所有敌方怪物</color>"
+msgstr ""
+"Toughness: <color=red>3000</color>\n"
+"Toughness Cost: <color=red>150 (Per monster), 20 (Per bullet)</color>\n"
+"Evocation: <color=red>Knock back and bounce away all enemy monsters within a radius of 2.5 tiles</color>"
+
+#. Flavor for contraptions mvz2:elastic_cloud
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "“说了多少遍了，我们这里不提供网络服务器！”"
+msgstr "\"How many times do we have to say it? We don't provide web servers here!\""
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -5022,6 +5046,18 @@ msgstr "Wooden Fan"
 msgctxt "entity.tooltip"
 msgid "吹动一整行的怪物"
 msgstr "Blow away an entire lane of monsters"
+
+#. Name for entity mvz2:elastic_cloud
+#: Entity meta file
+msgctxt "entity.name"
+msgid "弹性云"
+msgstr "Elastic Cloud"
+
+#. Tooltip for entity mvz2:elastic_cloud
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "弹走接触到的怪物"
+msgstr "Bounce away monsters upon contact"
 
 #. Name for entity mvz2:infectenser
 #: Entity meta file

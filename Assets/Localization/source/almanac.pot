@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-09-24 08:12+0800\n"
+"POT-Creation-Date: 2025-09-25 12:27+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -989,7 +989,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "耐久：<color=red>2000</color>\n"
-"恢复速度：<color=red>40/秒</color>\n"
+"恢复速度：<color=red>60/秒</color>\n"
 "技能：<color=red>进入无敌状态，并为周围的器械恢复耐久</color>"
 msgstr ""
 
@@ -1143,7 +1143,7 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid ""
 "修复时间：<color=red>60秒</color>\n"
-"技能：<color=red>引发4秒地震，对所有地面上的敌方怪物造成总共25%最大生命的伤害</color>"
+"技能：<color=red>引发4秒地震，对所有地面上的敌人造成总共25%最大生命的伤害</color>"
 msgstr ""
 
 #. Flavor for contraptions mvz2:thunder_drum
@@ -1530,6 +1530,27 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "这东西哪有那么重量级，都被你们吹到天上去了！"
+msgstr ""
+
+#. Header for contraptions mvz2:elastic_cloud
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "弹性云会以自身的耐久为代价，弹开接触到的敌方怪物和子弹。"
+msgstr ""
+
+#. Properties for contraptions mvz2:elastic_cloud
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"耐久：<color=red>3000</color>\n"
+"耐久消耗：<color=red>150（怪物），20（子弹）</color>\n"
+"技能：<color=red>击退并弹飞半径2.5格内的所有敌方怪物</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:elastic_cloud
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "“说了多少遍了，我们这里不提供网络服务器！”"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -4268,6 +4289,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "吹动一整行的怪物"
+msgstr ""
+
+#. Name for entity mvz2:elastic_cloud
+#: Entity meta file
+msgctxt "entity.name"
+msgid "弹性云"
+msgstr ""
+
+#. Tooltip for entity mvz2:elastic_cloud
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "弹走接触到的怪物"
 msgstr ""
 
 #. Name for entity mvz2:infectenser

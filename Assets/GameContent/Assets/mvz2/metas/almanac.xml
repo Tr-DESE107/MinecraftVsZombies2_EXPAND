@@ -441,7 +441,7 @@
             </header>
             <properties>
                 <p>耐久：<![CDATA[<color=red>2000</color>]]></p>
-                <p>恢复速度：<![CDATA[<color=red>40/秒</color>]]></p>
+                <p>恢复速度：<![CDATA[<color=red>60/秒</color>]]></p>
                 <p>技能：<![CDATA[<color=red>进入无敌状态，并为周围的器械恢复耐久</color>]]></p>
             </properties>
             <flavor>
@@ -791,7 +791,19 @@
                 <p>这东西哪有那么重量级，都被你们吹到天上去了！</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:elastic_cloud">
+            <header>
+                <p>弹性云会以自身的耐久为代价，弹开接触到的敌方怪物和子弹。</p>
+            </header>
+            <properties>
+                <p>耐久：<![CDATA[<color=red>3000</color>]]></p>
+                <p>耐久消耗：<![CDATA[<color=red>150（怪物），20（子弹）</color>]]></p>
+                <p>技能：<![CDATA[<color=red>击退并弹飞半径2.5格内的所有敌方怪物</color>]]></p>
+            </properties>
+            <flavor>
+                <p>“说了多少遍了，我们这里不提供网络服务器！”</p>
+            </flavor>
+        </entry>
         <entry/>
 
         <!-- Chapter 6 -->
