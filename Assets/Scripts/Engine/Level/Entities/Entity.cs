@@ -19,7 +19,7 @@ using UnityEngine;
 
 namespace PVZEngine.Entities
 {
-    public sealed class Entity : IBuffTarget, IAuraSource, IModifierContainer, IPropertyModifyTarget, ILevelSourceTarget
+    public sealed class Entity : IAuraSource, IModifierContainer, IPropertyModifyTarget, ILevelSourceTarget, IModeledBuffTarget
     {
         #region 公有方法
 
@@ -712,69 +712,10 @@ namespace PVZEngine.Entities
         {
             return modelInterface;
         }
-        public void ChangeModel(NamespaceID id)
+        public void ChangeModel(NamespaceID modelID)
         {
-            ModelID = id;
-            OnChangeModel?.Invoke(id);
-        }
-        public void SetModelProperty(string name, object? value)
-        {
-            modelInterface?.SetModelProperty(name, value);
-        }
-        public void TriggerModel(string name)
-        {
-            modelInterface?.TriggerModel(name);
-        }
-        public void SetShaderInt(string name, int value)
-        {
-            modelInterface?.SetShaderInt(name, value);
-        }
-        public void SetShaderFloat(string name, float value)
-        {
-            modelInterface?.SetShaderFloat(name, value);
-        }
-        public void SetShaderColor(string name, Color value)
-        {
-            modelInterface?.SetShaderColor(name, value);
-        }
-        public IModelInterface? CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
-        {
-            return modelInterface?.CreateChildModel(anchorName, key, modelID);
-        }
-        public bool RemoveChildModel(NamespaceID key)
-        {
-            return modelInterface?.RemoveChildModel(key) ?? false;
-        }
-        public IModelInterface? GetChildModel(NamespaceID key)
-        {
-            return modelInterface?.GetChildModel(key);
-        }
-        public void UpdateModel()
-        {
-            modelInterface?.UpdateModel();
-        }
-        public void TriggerAnimation(string name)
-        {
-            modelInterface?.TriggerAnimation(name);
-        }
-        public void SetAnimationBool(string name, bool value)
-        {
-            modelInterface?.SetAnimationBool(name, value);
-        }
-        public void SetAnimationInt(string name, int value)
-        {
-            modelInterface?.SetAnimationInt(name, value);
-        }
-        public void SetAnimationFloat(string name, float value)
-        {
-            modelInterface?.SetAnimationFloat(name, value);
-        }
-        #endregion
-
-        #region 模型插入
-        public ModelInsertion[] GetModelInsertions()
-        {
-            return buffs.SelectMany(b => b.GetModelInsertions()).ToArray();
+            ModelID = modelID;
+            OnChangeModel?.Invoke(modelID);
         }
         #endregion
 
@@ -1052,7 +993,6 @@ namespace PVZEngine.Entities
             buffs.OnBuffAdded += OnBuffAddedCallback;
             buffs.OnBuffRemoved += OnBuffRemovedCallback;
         }
-        IModelInterface? IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         LevelEngine IBuffTarget.GetLevel() => Level;
         Entity? IBuffTarget.GetEntity() => this;
         Entity IAuraSource.GetEntity() => this;

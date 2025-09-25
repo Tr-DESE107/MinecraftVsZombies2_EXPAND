@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace PVZEngine.Grids
 {
-    public class LawnGrid : IPropertyModifyTarget, IBuffTarget
+    public class LawnGrid : IPropertyModifyTarget, IModeledBuffTarget
     {
         #region 公有事件
         public LawnGrid(LevelEngine level, GridDefinition definition, int lane, int column)
@@ -204,24 +204,6 @@ namespace PVZEngine.Grids
             buffs.OnBuffAdded += OnBuffAddedCallback;
             buffs.OnBuffRemoved += OnBuffRemovedCallback;
         }
-        private void OnBuffPropertyChangedCallback(IPropertyKey name)
-        {
-            properties.UpdateModifiedProperty(name);
-        }
-        private void OnBuffAddedCallback(Buff buff)
-        {
-            foreach (var insertion in buff.GetModelInsertions())
-            {
-                OnModelInsertionAdded?.Invoke(insertion);
-            }
-        }
-        private void OnBuffRemovedCallback(Buff buff)
-        {
-            foreach (var insertion in buff.GetModelInsertions())
-            {
-                OnModelInsertionRemoved?.Invoke(insertion);
-            }
-        }
         #endregion
 
         #region 模型
@@ -232,62 +214,6 @@ namespace PVZEngine.Grids
         public IModelInterface? GetModelInterface()
         {
             return modelInterface;
-        }
-        public void SetModelProperty(string name, object? value)
-        {
-            modelInterface?.SetModelProperty(name, value);
-        }
-        public void TriggerModel(string name)
-        {
-            modelInterface?.TriggerModel(name);
-        }
-        public void SetShaderInt(string name, int value)
-        {
-            modelInterface?.SetShaderInt(name, value);
-        }
-        public void SetShaderFloat(string name, float value)
-        {
-            modelInterface?.SetShaderFloat(name, value);
-        }
-        public void SetShaderColor(string name, Color value)
-        {
-            modelInterface?.SetShaderColor(name, value);
-        }
-        public IModelInterface? CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
-        {
-            return modelInterface?.CreateChildModel(anchorName, key, modelID);
-        }
-        public bool RemoveChildModel(NamespaceID key)
-        {
-            return modelInterface?.RemoveChildModel(key) ?? false;
-        }
-        public IModelInterface? GetChildModel(NamespaceID key)
-        {
-            return modelInterface?.GetChildModel(key);
-        }
-        public void UpdateModel()
-        {
-            modelInterface?.UpdateModel();
-        }
-        public void TriggerAnimation(string name)
-        {
-            modelInterface?.TriggerAnimation(name);
-        }
-        public void SetAnimationBool(string name, bool value)
-        {
-            modelInterface?.SetAnimationBool(name, value);
-        }
-        public void SetAnimationInt(string name, int value)
-        {
-            modelInterface?.SetAnimationInt(name, value);
-        }
-        public void SetAnimationFloat(string name, float value)
-        {
-            modelInterface?.SetAnimationFloat(name, value);
-        }
-        public ModelInsertion[] GetModelInsertions()
-        {
-            return buffs.SelectMany(b => b.GetModelInsertions()).ToArray();
         }
         #endregion
 
@@ -366,6 +292,27 @@ namespace PVZEngine.Grids
         }
         #endregion 方法
 
+        #region 事件回调
+        private void OnBuffPropertyChangedCallback(IPropertyKey name)
+        {
+            properties.UpdateModifiedProperty(name);
+        }
+        private void OnBuffAddedCallback(Buff buff)
+        {
+            foreach (var insertion in buff.GetModelInsertions())
+            {
+                OnModelInsertionAdded?.Invoke(insertion);
+            }
+        }
+        private void OnBuffRemovedCallback(Buff buff)
+        {
+            foreach (var insertion in buff.GetModelInsertions())
+            {
+                OnModelInsertionRemoved?.Invoke(insertion);
+            }
+        }
+        #endregion
+
         #region 网格属性
         public T? GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
@@ -382,7 +329,6 @@ namespace PVZEngine.Grids
         #endregion
 
         #region IBuffTarget实现
-        IModelInterface? IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         LevelEngine IBuffTarget.GetLevel() => Level;
         Entity? IBuffTarget.GetEntity() => null;
         bool IBuffTarget.Exists() => true;

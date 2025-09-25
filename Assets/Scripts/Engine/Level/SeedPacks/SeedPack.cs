@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace PVZEngine.SeedPacks
 {
-    public abstract class SeedPack : IBuffTarget, IPropertyModifyTarget, IAuraSource
+    public abstract class SeedPack : IPropertyModifyTarget, IAuraSource, IModeledBuffTarget
     {
         public SeedPack(LevelEngine level, SeedDefinition definition, long id)
         {
@@ -171,25 +171,7 @@ namespace PVZEngine.SeedPacks
         {
             modelInterface = model;
         }
-        public IModelInterface? CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
-        {
-            return modelInterface?.CreateChildModel(anchorName, key, modelID);
-        }
-        public bool RemoveChildModel(NamespaceID key)
-        {
-            return modelInterface?.RemoveChildModel(key) ?? false;
-        }
-        public IModelInterface? GetChildModel(NamespaceID key)
-        {
-            return modelInterface?.GetChildModel(key);
-        }
-        #endregion
-
-        #region 模型插入
-        public ModelInsertion[] GetModelInsertions()
-        {
-            return buffs.SelectMany(b => b.GetModelInsertions()).ToArray();
-        }
+        public IModelInterface? GetModelInterface() => modelInterface;
         #endregion
 
         #region 序列化
@@ -220,7 +202,6 @@ namespace PVZEngine.SeedPacks
         {
             properties.RemoveFallbackCache(key);
         }
-        IModelInterface? IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         LevelEngine IBuffTarget.GetLevel() => Level;
         Entity? IBuffTarget.GetEntity() => null;
         bool IBuffTarget.Exists() => true;

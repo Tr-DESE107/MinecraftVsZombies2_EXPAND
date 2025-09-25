@@ -17,7 +17,7 @@ using UnityEngine;
 
 namespace PVZEngine.Armors
 {
-    public class Armor : IBuffTarget, IPropertyModifyTarget, IAuraSource
+    public class Armor : IPropertyModifyTarget, IAuraSource, IModeledBuffTarget
     {
         private Armor()
         {
@@ -26,7 +26,7 @@ namespace PVZEngine.Armors
             Definition = null!;
 
             properties = new PropertyBlock(this);
-            buffs.OnPropertyChanged += UpdateBuffedProperty;
+            InitBuffEvents();
         }
         public Armor(Entity owner, NamespaceID slot, ArmorDefinition definition) : this()
         {
@@ -64,31 +64,18 @@ namespace PVZEngine.Armors
             return Definition.GetColliderConstructors(entity, slot);
         }
 
+        #region 事件回调
+        private void OnBuffedPropertyChangedCallback(IPropertyKey name)
+        {
+            properties.UpdateModifiedProperty(name);
+        }
+        #endregion
+
         #region 动画
         public IModelInterface? GetModelInterface()
         {
             var key = EngineArmorExt.GetModelKeyOfArmorSlot(Slot);
             return Owner.GetChildModel(key);
-        }
-        public void TriggerAnimation(string name)
-        {
-            GetModelInterface()?.TriggerAnimation(name);
-        }
-        public void SetAnimationBool(string name, bool value)
-        {
-            GetModelInterface()?.SetAnimationBool(name, value);
-        }
-        public void SetAnimationInt(string name, int value)
-        {
-            GetModelInterface()?.SetAnimationInt(name, value);
-        }
-        public void SetAnimationFloat(string name, float value)
-        {
-            GetModelInterface()?.SetAnimationFloat(name, value);
-        }
-        public void SetModelProperty(string name, object value)
-        {
-            GetModelInterface()?.SetModelProperty(name, value);
         }
         #endregion
 
@@ -104,10 +91,6 @@ namespace PVZEngine.Armors
         private void UpdateAllBuffedProperties(bool triggersEvaluation)
         {
             properties.UpdateAllModifiedProperties(triggersEvaluation);
-        }
-        private void UpdateBuffedProperty(IPropertyKey name)
-        {
-            properties.UpdateModifiedProperty(name);
         }
         bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object? value)
         {
@@ -151,6 +134,10 @@ namespace PVZEngine.Armors
 
         #region 增益
         public BuffReference GetBuffReference(Buff buff) => new BuffReferenceArmor(Owner.ID, Slot, buff.ID);
+        private void InitBuffEvents()
+        {
+            buffs.OnPropertyChanged += OnBuffedPropertyChangedCallback;
+        }
         #endregion
 
         #region 光环
@@ -208,7 +195,7 @@ namespace PVZEngine.Armors
             armor.Slot = seri.slot;
             armor.Health = seri.health;
             armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level, armor);
-            armor.buffs.OnPropertyChanged += armor.UpdateBuffedProperty;
+            armor.InitBuffEvents();
             armor.properties = PropertyBlock.FromSerializable(seri.properties, armor);
             armor.UpdateAllBuffedProperties(false);
             return armor;
@@ -222,7 +209,6 @@ namespace PVZEngine.Armors
             if (seri.auras != null)
                 auras.LoadFromSerializable(Level, seri.auras);
         }
-        IModelInterface? IBuffTarget.GetInsertedModel(NamespaceID key) => null;
         LevelEngine IBuffTarget.GetLevel() => Level;
         Entity? IBuffTarget.GetEntity() => Owner;
         bool IBuffTarget.Exists() => Owner != null && Owner.Exists() && Owner.IsEquippingArmor(this);
