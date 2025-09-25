@@ -149,6 +149,7 @@ namespace MVZ2.Level
             UpdateFrameUI(deltaTime, gameSpeed);
 
             // 更新网格。
+            UpdateGridsFrame(deltaTime, gameSpeed);
             UpdateGridHighlight();
 
             // 更新输入。

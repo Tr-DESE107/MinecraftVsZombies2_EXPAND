@@ -53,6 +53,7 @@ namespace PVZEngine.Grids
             var z = Level.GetEntityLaneZ(Lane);
             return Level.GetGroundY(x, z);
         }
+
         #region 添加占据实体
         private HashSet<Entity> GetOrCreateLayerEntityHashSet(NamespaceID layer)
         {
@@ -209,11 +210,87 @@ namespace PVZEngine.Grids
         }
         private void OnBuffAddedCallback(Buff buff)
         {
+            foreach (var insertion in buff.GetModelInsertions())
+            {
+                OnModelInsertionAdded?.Invoke(insertion);
+            }
         }
         private void OnBuffRemovedCallback(Buff buff)
         {
+            foreach (var insertion in buff.GetModelInsertions())
+            {
+                OnModelInsertionRemoved?.Invoke(insertion);
+            }
         }
         #endregion
+
+        #region 模型
+        public void SetModelInterface(IModelInterface? model)
+        {
+            modelInterface = model;
+        }
+        public IModelInterface? GetModelInterface()
+        {
+            return modelInterface;
+        }
+        public void SetModelProperty(string name, object? value)
+        {
+            modelInterface?.SetModelProperty(name, value);
+        }
+        public void TriggerModel(string name)
+        {
+            modelInterface?.TriggerModel(name);
+        }
+        public void SetShaderInt(string name, int value)
+        {
+            modelInterface?.SetShaderInt(name, value);
+        }
+        public void SetShaderFloat(string name, float value)
+        {
+            modelInterface?.SetShaderFloat(name, value);
+        }
+        public void SetShaderColor(string name, Color value)
+        {
+            modelInterface?.SetShaderColor(name, value);
+        }
+        public IModelInterface? CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
+        {
+            return modelInterface?.CreateChildModel(anchorName, key, modelID);
+        }
+        public bool RemoveChildModel(NamespaceID key)
+        {
+            return modelInterface?.RemoveChildModel(key) ?? false;
+        }
+        public IModelInterface? GetChildModel(NamespaceID key)
+        {
+            return modelInterface?.GetChildModel(key);
+        }
+        public void UpdateModel()
+        {
+            modelInterface?.UpdateModel();
+        }
+        public void TriggerAnimation(string name)
+        {
+            modelInterface?.TriggerAnimation(name);
+        }
+        public void SetAnimationBool(string name, bool value)
+        {
+            modelInterface?.SetAnimationBool(name, value);
+        }
+        public void SetAnimationInt(string name, int value)
+        {
+            modelInterface?.SetAnimationInt(name, value);
+        }
+        public void SetAnimationFloat(string name, float value)
+        {
+            modelInterface?.SetAnimationFloat(name, value);
+        }
+        public ModelInsertion[] GetModelInsertions()
+        {
+            return buffs.SelectMany(b => b.GetModelInsertions()).ToArray();
+        }
+        #endregion
+
         public SerializableGrid Serialize()
         {
             return new SerializableGrid()
@@ -280,6 +357,7 @@ namespace PVZEngine.Grids
                 }
             }
 #pragma warning restore CS0612 // 类型或成员已过时
+            properties.UpdateAllModifiedProperties(false);
         }
         public void LoadAuras(SerializableGrid seri)
         {
@@ -304,7 +382,7 @@ namespace PVZEngine.Grids
         #endregion
 
         #region IBuffTarget实现
-        IModelInterface? IBuffTarget.GetInsertedModel(NamespaceID key) => null;
+        IModelInterface? IBuffTarget.GetInsertedModel(NamespaceID key) => GetChildModel(key);
         LevelEngine IBuffTarget.GetLevel() => Level;
         Entity? IBuffTarget.GetEntity() => null;
         bool IBuffTarget.Exists() => true;
@@ -337,11 +415,17 @@ namespace PVZEngine.Grids
         }
         #endregion
 
+        #region 事件
+        public event Action<ModelInsertion>? OnModelInsertionAdded;
+        public event Action<ModelInsertion>? OnModelInsertionRemoved;
+        #endregion
+
         #region 属性
         public LevelEngine Level { get; private set; }
         public int Lane { get; set; }
         public int Column { get; set; }
         public GridDefinition Definition { get; set; }
+        private IModelInterface? modelInterface;
         BuffList IBuffTarget.Buffs => buffs;
         private BuffList buffs = new BuffList();
         private Dictionary<NamespaceID, HashSet<Entity>> layerEntities = new Dictionary<NamespaceID, HashSet<Entity>>();

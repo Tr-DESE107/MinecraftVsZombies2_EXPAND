@@ -879,6 +879,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: bfce65959617bce4ab0ffb4a5d19df4c, type: 3}
   - name: level/grids/bevel
     sprite: {fileID: 21300000, guid: 173171cbb92903f4abbd185ff17f0e74, type: 3}
+  - name: level/grids/golden_grid
+    sprite: {fileID: 21300000, guid: f6b4ceef27227b94aabc22a85d5eae78, type: 3}
+  - name: level/grids/golden_grid_cloud
+    sprite: {fileID: 21300000, guid: cd68e6940e19fea4380d9bca7fb77473, type: 3}
+  - name: level/grids/golden_grid_slope
+    sprite: {fileID: 21300000, guid: a352f6d9e2e0b4847a4098f315cd2802, type: 3}
+  - name: level/grids/golden_grid_water
+    sprite: {fileID: 21300000, guid: e24ff6ec892f18b448dbf22d3d1b3c08, type: 3}
   - name: level/grids/normal
     sprite: {fileID: 21300000, guid: 50c9e8ccf09318c4c811ae6d530b985a, type: 3}
   - name: level/halloween/halloween

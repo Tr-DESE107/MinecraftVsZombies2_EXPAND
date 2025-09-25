@@ -10,6 +10,7 @@ using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.Conventions;
+using MVZ2Logic.BsonSerializers;
 using MVZ2Logic.Saves;
 using PVZEngine;
 using PVZEngine.Armors;
@@ -39,6 +40,7 @@ namespace MVZ2Logic
             RegisterSerializer(new Vector2IntSerializer());
             RegisterSerializer(new ColorSerializer());
             RegisterSerializer(new RandomGeneratorSerializer());
+            RegisterSerializer(new SpriteReferenceSerializer(defaultNsp));
             RegisterSerializer(new NamespaceIDSerializer(defaultNsp));
             RegisterSerializer(new PropertyBlockSerializer());
 

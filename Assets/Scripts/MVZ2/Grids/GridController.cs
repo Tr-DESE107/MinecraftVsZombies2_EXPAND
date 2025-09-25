@@ -4,8 +4,11 @@ using System;
 using MVZ2.HeldItems;
 using MVZ2.Level;
 using MVZ2.Managers;
+using MVZ2.Models;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
+using PVZEngine.Buffs;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,9 +17,47 @@ namespace MVZ2.Grids
 {
     public class GridController : MonoBehaviour, ILevelRaycastReceiver
     {
+        #region 生命周期
+        private void Awake()
+        {
+            holdStreakHandler.OnPointerInteraction += (_, d, i) => OnPointerInteraction?.Invoke(this, d, i);
+        }
         public void UpdateFixed()
         {
             holdStreakHandler.UpdateHoldAndStreak();
+            if (model.Exists())
+                model.UpdateFixed();
+        }
+        public void UpdateFrame(float deltaTime)
+        {
+            if (model.Exists())
+            {
+                model.UpdateFrame(deltaTime);
+                model.UpdateAnimators(deltaTime);
+            }
+        }
+        public void Init(GridInitData data)
+        {
+            grid = data.grid;
+            BuildModel(data.modelBuilder);
+            grid.OnModelInsertionAdded += OnModelInsertionAddedCallback;
+            grid.OnModelInsertionRemoved += OnModelInsertionRemovedCallback;
+            UpdateModelInsertions();
+        }
+        #endregion
+
+        #region 显示
+        public void BuildModel(ModelBuilder builder)
+        {
+            if (model.Exists())
+            {
+                Destroy(model.gameObject);
+            }
+            model = builder.Build(modelRoot);
+        }
+        public Model? GetModel()
+        {
+            return model;
         }
         public void UpdateGridView(GridViewData viewData)
         {
@@ -28,6 +69,9 @@ namespace MVZ2.Grids
             sprSize.y = size.y + Mathf.Abs(BevelHeight);
             spriteRenderer.size = sprSize;
         }
+        #endregion
+
+        #region 设置属性
         public void SetColor(Color color)
         {
             spriteRenderer.color = color;
@@ -53,6 +97,9 @@ namespace MVZ2.Grids
             }
             BevelHeight = height;
         }
+        #endregion
+
+        #region 坐标转换
         public Vector2 TransformWorld2ColliderPosition(Vector3 worldPosition)
         {
             var pos2D = (Vector2)transform.position;
@@ -69,10 +116,27 @@ namespace MVZ2.Grids
 
             return new Vector2(colliderX, colliderY);
         }
-        private void Awake()
+        #endregion
+
+        #region 模型
+        private void UpdateModelInsertions()
         {
-            holdStreakHandler.OnPointerInteraction += (_, d, i) => OnPointerInteraction?.Invoke(this, d, i);
+            if (model.Exists() && grid != null)
+                model.UpdateModelInsertions(grid.GetModelInsertions());
         }
+        private void OnModelInsertionAddedCallback(ModelInsertion insertion)
+        {
+            if (model.Exists())
+                model.AddModelInsertion(insertion);
+        }
+        private void OnModelInsertionRemovedCallback(ModelInsertion insertion)
+        {
+            if (model.Exists())
+                model.RemoveModelInsertion(insertion.key);
+        }
+        #endregion
+
+        #region ILevelRaycasterReceiver接口实现
         bool ILevelRaycastReceiver.IsValidReceiver(LevelEngine level, HeldItemDefinition definition, IHeldItemData data, PointerEventData eventData)
         {
             if (definition == null)
@@ -92,10 +156,31 @@ namespace MVZ2.Grids
         {
             return spriteRenderer.sortingOrder;
         }
+        #endregion
+
+        #region 序列化
+        public SerializableGridController ToSerializable()
+        {
+            return new SerializableGridController()
+            {
+                model = model?.ToSerializable()
+            };
+        }
+        public void LoadFromSerializable(SerializableGridController seri)
+        {
+            if (seri.model != null && model.Exists())
+            {
+                model.LoadFromSerializable(seri.model);
+                UpdateModelInsertions();
+            }
+        }
+        #endregion
+
         public event Action<GridController, PointerEventData, PointerInteraction>? OnPointerInteraction;
         public int Lane { get; set; }
         public int Column { get; set; }
         public float BevelHeight { get; private set; }
+        private LawnGrid? grid;
         [SerializeField]
         private Vector2 size;
         [SerializeField]
@@ -106,11 +191,23 @@ namespace MVZ2.Grids
         private LevelPointerInteractionHandler holdStreakHandler = null!;
         [SerializeField]
         private PolygonCollider2D polygonCollider = null!;
+        [SerializeField]
+        private Transform modelRoot = null!;
+        private Model? model = null;
+    }
+    public struct GridInitData
+    {
+        public LawnGrid grid;
+        public ModelBuilder modelBuilder;
     }
     public struct GridViewData
     {
         public Vector2 position;
         public Sprite? sprite;
         public float slope;
+    }
+    public class SerializableGridController
+    {
+        public SerializableModelData? model;
     }
 }

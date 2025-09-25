@@ -37,6 +37,7 @@ namespace MVZ2.Level
             WriteToSerializable_Twinkle(seri);
             WriteToSerializable_Tools(seri);
             WriteToSerializable_UI(seri);
+            WriteToSerializable_Grids(seri);
             return seri;
         }
         public bool ValidateGameStateHeader(SerializableLevelControllerHeader header)
@@ -70,7 +71,7 @@ namespace MVZ2.Level
                 ReadFromSerializable_UI(seri);
                 ReadFromSerializable_Cry(seri);
                 ReadFromSerializable_Audio(seri);
-                CreateGridControllers();
+                ReadFromSerializable_Grids(seri);
                 ReadFromSerializable_Parts(seri);
                 ReadFromSerializable_Entities(seri);
                 ReadFromSerializable_Model(seri);

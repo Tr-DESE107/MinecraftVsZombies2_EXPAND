@@ -29,6 +29,8 @@
         </armor>
     </armorconfig>
 
+    <model name="grid_placeholder" type="grid" path="mvz2:grid/placeholder" width="80" height="80" xOffset="0" yOffset="0"/>
+    <model name="golden_grid" type="grid" path="mvz2:grid/golden" width="80" height="80" xOffset="0" yOffset="0"/>
     <!-- Contraptions -->
     <model name="dispenser" type="entity" path="mvz2:contraption/prologue/dispenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="furnace" type="entity" path="mvz2:contraption/prologue/furnace" width="64" height="64" xOffset="0" yOffset="-28"/>

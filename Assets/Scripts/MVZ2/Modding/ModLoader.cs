@@ -11,6 +11,7 @@ using MVZ2.Managers;
 using MVZ2.Metas;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.SeedPacks;
 using MVZ2Logic;
@@ -31,6 +32,7 @@ using PVZEngine;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
+using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -484,6 +486,8 @@ namespace MVZ2.Modding
             LoadCommandProperties(mod);
             // 加载所有笔记属性。
             LoadNoteProperties(mod);
+            // 加载所有地格属性。
+            LoadGridProperties(mod);
         }
         private void LoadAreaProperties(Mod mod)
         {
@@ -643,6 +647,22 @@ namespace MVZ2.Modding
                 def.SetProperty(LogicNoteProps.NOTE_SPRITE, meta.sprite);
                 def.SetProperty(LogicNoteProps.FLIP_NOTE_SPRITE, meta.flipSprite);
                 def.SetProperty(LogicNoteProps.START_TALK, meta.startTalk);
+                mod.AddDefinition(def);
+            }
+        }
+        private void LoadGridProperties(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (GridDefinition def in mod.GetAllGridDefinitions())
+            {
+                if (def == null)
+                    continue;
+                var id = def.GetID();
+                var meta = res.GetGridMeta(id);
+                if (meta == null)
+                    continue;
+                def.SetProperty(VanillaGridProps.OVERLAY_SPRITE, meta.OverlaySprite);
+                def.SetProperty(VanillaGridProps.SLOPE, meta.Slope);
                 mod.AddDefinition(def);
             }
         }

@@ -3039,6 +3039,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 464c93f6d53dc70469dd235a268f4b03
+    m_Address: mvz2:grid/golden
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 467655dda6a792442875b3c72b9aaf73
     m_Address: mvz2:icon/wither_particles
     m_ReadOnly: 0
@@ -6895,6 +6902,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a352f6d9e2e0b4847a4098f315cd2802
+    m_Address: mvz2:level/grids/golden_grid_slope
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a375b3420dd9da54b8197294f005405b
     m_Address: mvz2:huge_wave
     m_ReadOnly: 0
@@ -8554,6 +8568,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd68e6940e19fea4380d9bca7fb77473
+    m_Address: mvz2:level/grids/golden_grid_cloud
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd9fb24b2c51dc9499b06218585ad8b9
     m_Address: mvz2:boon
     m_ReadOnly: 0
@@ -8577,6 +8598,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cdc07d6a33f067848b8319cdd46d36c3
     m_Address: mvz2:cart/bowl_chariot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cddac52a1a0cac942b3be561994d0041
+    m_Address: mvz2:grid/placeholder
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9393,6 +9421,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e24ff6ec892f18b448dbf22d3d1b3c08
+    m_Address: mvz2:level/grids/golden_grid_water
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e25feebc4fa807143817bf9a87129767
     m_Address: mvz2:pickup/starshards/default
@@ -10268,6 +10303,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6b4ceef27227b94aabc22a85d5eae78
+    m_Address: mvz2:level/grids/golden_grid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f70064fbad3e8e249acbd5365f606f06
     m_Address: mvz2:starshard_rings/castle

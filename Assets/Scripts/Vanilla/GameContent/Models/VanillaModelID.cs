@@ -7,10 +7,14 @@ namespace MVZ2.GameContent.Models
 {
     public static class VanillaModelID
     {
+        public const string TYPE_GRID = "grid";
         public const string TYPE_HELD_ITEM = "held";
         public const string TYPE_ARMOR = "armor";
         public const string TYPE_ICON = "icon";
         public const string TYPE_UI = "ui";
+
+        public static readonly NamespaceID gridPlaceHolder = Get("grid_placeholder", TYPE_GRID);
+        public static readonly NamespaceID goldenGrid = Get("golden_grid", TYPE_GRID);
 
         public static readonly NamespaceID zombie = Get("zombie", EngineModelID.TYPE_ENTITY);
         public static readonly NamespaceID moneyChest = Get("money_chest", EngineModelID.TYPE_ENTITY);

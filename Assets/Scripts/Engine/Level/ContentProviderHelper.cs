@@ -66,6 +66,10 @@ namespace PVZEngine
         {
             return provider.GetDefinition<GridDefinition>(EngineDefinitionTypes.GRID, defRef);
         }
+        public static GridDefinition[] GetAllGridDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<GridDefinition>(EngineDefinitionTypes.GRID);
+        }
         public static BuffDefinition? GetBuffDefinition(this IGameContent provider, NamespaceID? defRef)
         {
             return provider.GetDefinition<BuffDefinition>(EngineDefinitionTypes.BUFF, defRef);
