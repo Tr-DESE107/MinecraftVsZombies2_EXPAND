@@ -21,8 +21,7 @@ namespace PVZEngine.Entities
 {
     public sealed class Entity : IAuraSource, IModifierContainer, IPropertyModifyTarget, ILevelSourceTarget, IModeledBuffTarget
     {
-        #region 公有方法
-
+        #region 构造器
         public Entity(LevelEngine level, long id, ILevelSourceReference? spawnerSource, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerSource)
         {
             Definition = definition;
@@ -49,11 +48,13 @@ namespace PVZEngine.Entities
             Cache = new EntityCache();
             properties = new PropertyBlock(this);
         }
+        #endregion
+
+        #region 生命周期
         public void Init()
         {
             OnInit();
             Definition.Init(this);
-            auras.PostAdd();
             Cache.UpdateAll(this);
             var param = new EntityCallbackParams()
             {
@@ -75,11 +76,7 @@ namespace PVZEngine.Entities
                 }
                 auras.Update();
                 buffs.Update();
-                var param = new EntityCallbackParams()
-                {
-                    entity = this
-                };
-                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, param, Type);
+                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_UPDATE, new EntityCallbackParams(this), Type);
             }
             catch (Exception ex)
             {
@@ -87,6 +84,36 @@ namespace PVZEngine.Entities
             }
             time++;
         }
+        public bool Exists()
+        {
+            return !Removed;
+        }
+        public void Remove()
+        {
+            if (!Removed)
+            {
+                Removed = true;
+                Level.RemoveEntity(this);
+
+                // 将取用的传送带种子放回传送带池中。
+                foreach (var pair in takenConveyorSeeds)
+                {
+                    Level.PutSeedToConveyorPool(pair.Key, pair.Value);
+                }
+                takenConveyorSeeds.Clear();
+
+                // 触发实体移除回调。
+                Definition.PostRemove(this);
+                var param = new EntityCallbackParams()
+                {
+                    entity = this
+                };
+                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REMOVE, param, Type);
+            }
+        }
+        #endregion
+
+        #region 父子级
         public void SetParent(Entity? parent)
         {
             var oldParent = Parent;
@@ -104,38 +131,9 @@ namespace PVZEngine.Entities
         {
             return children.ToArray();
         }
-        public bool Exists()
-        {
-            return !Removed;
-        }
-        public void Remove()
-        {
-            if (!Removed)
-            {
-                Removed = true;
-                Level.RemoveEntity(this);
-                foreach (var pair in takenConveyorSeeds)
-                {
-                    Level.PutSeedToConveyorPool(pair.Key, pair.Value);
-                }
-                takenConveyorSeeds.Clear();
-                auras.PostRemove();
-                buffs.RemoveAuras();
-                Definition.PostRemove(this);
-                var param = new EntityCallbackParams()
-                {
-                    entity = this
-                };
-                Level.Triggers.RunCallbackFiltered(LevelCallbacks.POST_ENTITY_REMOVE, param, Type);
-            }
-        }
-        public bool IsEntityOf(NamespaceID id)
-        {
-            return Definition.GetID() == id;
-        }
+        #endregion
 
-        #region 伤害
-
+        #region 死亡
         public void Die(Entity? source = null, BodyDamageResult? damage = null)
         {
             Die(new DamageEffectList(), source, damage);
@@ -202,7 +200,7 @@ namespace PVZEngine.Entities
         }
         #endregion 魅惑
 
-        #region 增益属性
+        #region 属性
         public T? GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
         {
             return properties.GetProperty<T>(name, ignoreBuffs);
@@ -215,13 +213,16 @@ namespace PVZEngine.Entities
         {
             properties.SetPropertyObject(name, value);
         }
-        private void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
+        #endregion
+
+        #region 增益属性
+        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
         {
-            if (!modifierCaches.TryGetValue(name, out var list))
-                return;
-            results.AddRange(list);
+            var entityPropertyNames = modifierCaches.Keys;
+            var buffPropertyNames = buffs.GetModifierPropertyNames();
+            return entityPropertyNames.Union(buffPropertyNames);
         }
-        private void UpdateAllBuffedProperties(bool triggersEvaluation)
+        private void UpdateAllModifiedProperties(bool triggersEvaluation)
         {
             properties.UpdateAllModifiedProperties(triggersEvaluation);
         }
@@ -255,12 +256,6 @@ namespace PVZEngine.Entities
             value = default;
             return false;
         }
-        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
-        {
-            var entityPropertyNames = modifierCaches.Keys;
-            var buffPropertyNames = buffs.GetModifierPropertyNames();
-            return entityPropertyNames.Union(buffPropertyNames);
-        }
         PropertyModifier[] IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
         {
             return Definition.GetModifiers().Where(m => name.Equals(m.UsingContainerPropertyName)).ToArray();
@@ -270,7 +265,13 @@ namespace PVZEngine.Entities
             GetModifierItems(name, results);
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
+        private void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
+        {
+            if (!modifierCaches.TryGetValue(name, out var list))
+                return;
+            results.AddRange(list);
+        }
+        void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
         {
             if (triggersEvaluation)
             {
@@ -284,10 +285,30 @@ namespace PVZEngine.Entities
             Cache.UpdateProperty(this, name, beforeValue, afterValue);
             PostPropertyChanged?.Invoke(name, beforeValue, afterValue);
         }
+        private void UpdateModifierCaches()
+        {
+            foreach (var modifier in Definition.GetModifiers())
+            {
+                var propName = modifier.PropertyName;
+                if (!modifierCaches.TryGetValue(propName, out var list))
+                {
+                    list = new List<ModifierContainerItem>();
+                    modifierCaches.Add(propName, list);
+                }
+                list.Add(new ModifierContainerItem(this, modifier));
+            }
+        }
+        T? IModifierContainer.GetProperty<T>(PropertyKey<T> name) where T : default => GetProperty<T>(name);
         #endregion
 
         #region 增益
         public BuffReference GetBuffReference(Buff buff) => new BuffReferenceEntity(ID, buff.ID);
+        private void InitBuffList()
+        {
+            buffs.OnPropertyChanged += UpdateModifiedProperty;
+            buffs.OnBuffAdded += OnBuffAddedCallback;
+            buffs.OnBuffRemoved += OnBuffRemovedCallback;
+        }
         #endregion
 
         #region 光环
@@ -298,6 +319,15 @@ namespace PVZEngine.Entities
         public AuraEffect[] GetAuraEffects()
         {
             return auras.GetAll();
+        }
+        private void CreateAuraEffects()
+        {
+            var auraDefs = Definition.GetAuras();
+            for (int i = 0; i < auraDefs.Length; i++)
+            {
+                var auraDef = auraDefs[i];
+                auras.Add(Level, new AuraEffect(auraDef, i, this));
+            }
         }
         #endregion
 
@@ -352,8 +382,6 @@ namespace PVZEngine.Entities
             var nextPos = Position + velocity * simulationSpeed;
             return nextPos;
         }
-
-
         private Vector3 GetNextVelocity(float simulationSpeed = 1)
         {
             Vector3 velocity = Velocity;
@@ -367,7 +395,6 @@ namespace PVZEngine.Entities
 
             return velocity;
         }
-
         public void UpdatePhysics(float simulationSpeed = 1)
         {
             Vector3 nextVelocity = GetNextVelocity(simulationSpeed);
@@ -590,7 +617,7 @@ namespace PVZEngine.Entities
             };
             Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, param);
             OnEquipArmor?.Invoke(slot, armor);
-            armor.PostAdd();
+            Level.IncreaseLevelObjectReference(armor);
         }
         public void RemoveArmor(NamespaceID slot)
         {
@@ -612,7 +639,8 @@ namespace PVZEngine.Entities
             };
             Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, param);
             OnRemoveArmor?.Invoke(slot, armor);
-            armor.PostRemove();
+
+            Level.DecreaseLevelObjectReference(armor);
         }
         public void DestroyArmor(NamespaceID slot, ArmorDestroyInfo info)
         {
@@ -701,7 +729,6 @@ namespace PVZEngine.Entities
             return time % interval == offset;
         }
         #endregion
-        public bool IsFacingLeft() => this.FaceLeftAtDefault() != (Cache.GetFinalScale().x < 0);
 
         #region 模型
         public void SetModelInterface(IModelInterface? model)
@@ -796,12 +823,6 @@ namespace PVZEngine.Entities
             seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
             return seri;
         }
-        public static Entity? Deserialize(SerializableEntity seri, LevelEngine level)
-        {
-            var entity = CreateDeserializingEntity(seri, level);
-            entity?.ApplyDeserialize(seri);
-            return entity;
-        }
         public void ApplyDeserialize(SerializableEntity seri)
         {
             time = seri.time;
@@ -871,7 +892,7 @@ namespace PVZEngine.Entities
             LoadAuras(seri);
 
             UpdateModifierCaches();
-            UpdateAllBuffedProperties(false);
+            UpdateAllModifiedProperties(false);
             Cache.UpdateAll(this);
         }
         public static Entity? CreateDeserializingEntity(SerializableEntity seri, LevelEngine level)
@@ -913,18 +934,24 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 杂项
+        public bool IsEntityOf(NamespaceID id)
+        {
+            return Definition.GetID() == id;
+        }
+        public bool IsFacingLeft() => this.FaceLeftAtDefault() != (Cache.GetFinalScale().x < 0);
         public override string ToString()
         {
             return $"{ID}({this.Definition.GetID()})";
         }
         #endregion
 
-        #region 私有方法
+        #region 事件回调
         private void OnInit()
         {
             PreviousPosition = Position;
             Health = this.GetMaxHealth();
-            UpdateAllBuffedProperties(true);
+            UpdateAllModifiedProperties(true);
             Cache.UpdateAll(this);
         }
         private void OnUpdate()
@@ -965,40 +992,30 @@ namespace PVZEngine.Entities
                 OnModelInsertionRemoved?.Invoke(insertion);
             }
         }
-        private void CreateAuraEffects()
+        #endregion
+
+        #region 接口实现
+        LevelEngine ILevelObject.GetLevel() => Level;
+        Entity? ILevelObject.GetEntity() => this;
+        IEnumerable<ILevelObject> ILevelObject.GetChildrenObjects()
         {
-            var auraDefs = Definition.GetAuras();
-            for (int i = 0; i < auraDefs.Length; i++)
+            foreach (var armorPair in armorDict)
             {
-                var auraDef = auraDefs[i];
-                auras.Add(Level, new AuraEffect(auraDef, i, this));
+                yield return armorPair.Value;
+            }
+            foreach (var buff in buffs)
+            {
+                yield return buff;
             }
         }
-        private void UpdateModifierCaches()
+        void ILevelObject.OnAddToLevel(LevelEngine level)
         {
-            foreach (var modifier in Definition.GetModifiers())
-            {
-                var propName = modifier.PropertyName;
-                if (!modifierCaches.TryGetValue(propName, out var list))
-                {
-                    list = new List<ModifierContainerItem>();
-                    modifierCaches.Add(propName, list);
-                }
-                list.Add(new ModifierContainerItem(this, modifier));
-            }
+            auras.PostAdd();
         }
-        private void InitBuffList()
+        void ILevelObject.OnRemoveFromLevel(LevelEngine level)
         {
-            buffs.OnPropertyChanged += UpdateModifiedProperty;
-            buffs.OnBuffAdded += OnBuffAddedCallback;
-            buffs.OnBuffRemoved += OnBuffRemovedCallback;
+            auras.PostRemove();
         }
-        LevelEngine IBuffTarget.GetLevel() => Level;
-        Entity? IBuffTarget.GetEntity() => this;
-        Entity IAuraSource.GetEntity() => this;
-        LevelEngine IAuraSource.GetLevel() => Level;
-        bool IAuraSource.IsValid() => Exists();
-        T? IModifierContainer.GetProperty<T>(PropertyKey<T> name) where T : default => GetProperty<T>(name);
         #endregion
 
         #region 事件

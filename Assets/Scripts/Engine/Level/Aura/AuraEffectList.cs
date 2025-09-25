@@ -42,14 +42,6 @@ namespace PVZEngine.Auras
         {
             return auraEffects.ToArray();
         }
-        public void Clear()
-        {
-            foreach (var auraEffect in auraEffects)
-            {
-                auraEffect.PostRemove();
-            }
-            auraEffects.Clear();
-        }
         public void Update()
         {
             foreach (var aura in auraEffects)

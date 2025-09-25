@@ -45,16 +45,7 @@ namespace PVZEngine.SeedPacks
             UpdateAllBuffedProperties(true);
             OnDefinitionChanged?.Invoke(definition);
         }
-
-        public void PostAdd(LevelEngine level)
-        {
-            auras.PostAdd();
-        }
-        public void PostRemove(LevelEngine level)
-        {
-            auras.PostRemove();
-            buffs.RemoveAuras();
-        }
+        public abstract bool Exists();
 
         #region 事件回调
         private void OnBuffAddedCallback(Buff buff)
@@ -105,7 +96,7 @@ namespace PVZEngine.SeedPacks
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
+        void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
         {
         }
         PropertyModifier[]? IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
@@ -202,12 +193,23 @@ namespace PVZEngine.SeedPacks
         {
             properties.RemoveFallbackCache(key);
         }
-        LevelEngine IBuffTarget.GetLevel() => Level;
-        Entity? IBuffTarget.GetEntity() => null;
-        bool IBuffTarget.Exists() => true;
-        Entity? IAuraSource.GetEntity() => null;
-        LevelEngine IAuraSource.GetLevel() => Level;
-        bool IAuraSource.IsValid() => true;
+        LevelEngine ILevelObject.GetLevel() => Level;
+        Entity? ILevelObject.GetEntity() => null;
+        IEnumerable<ILevelObject> ILevelObject.GetChildrenObjects()
+        {
+            foreach (var buff in buffs)
+            {
+                yield return buff;
+            }
+        }
+        void ILevelObject.OnAddToLevel(LevelEngine level)
+        {
+            auras.PostAdd();
+        }
+        void ILevelObject.OnRemoveFromLevel(LevelEngine level)
+        {
+            auras.PostRemove();
+        }
         public event Action<SeedDefinition>? OnDefinitionChanged;
         public event Action<ModelInsertion>? OnModelInsertionAdded;
         public event Action<ModelInsertion>? OnModelInsertionRemoved;

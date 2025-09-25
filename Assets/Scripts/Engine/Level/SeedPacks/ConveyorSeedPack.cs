@@ -15,6 +15,10 @@ namespace PVZEngine.SeedPacks
         {
             return Level.GetConveyorSeedPackIndex(this);
         }
+        public override bool Exists()
+        {
+            return GetIndex() >= 0;
+        }
         public override BuffReference GetBuffReference(Buff buff)
         {
             return new BuffReferenceConveyorSeedPack(ID, buff.ID);
@@ -34,5 +38,9 @@ namespace PVZEngine.SeedPacks
             return new ConveyorSeedPack(level, definition, seri.id);
         }
         #endregion
+        public override string ToString()
+        {
+            return $"ConveyorSeedPack_{Definition}";
+        }
     }
 }

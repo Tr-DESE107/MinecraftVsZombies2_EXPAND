@@ -9,7 +9,6 @@ using PVZEngine.Callbacks;
 using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
-using PVZEngine.Models;
 using PVZEngine.Modifiers;
 using UnityEngine;
 
@@ -183,7 +182,7 @@ namespace PVZEngine.Level
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
+        void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
         {
         }
         PropertyModifier[]? IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
@@ -220,6 +219,49 @@ namespace PVZEngine.Level
         public Buff CreateBuff(BuffDefinition buffDef, long buffID)
         {
             return new Buff(this, buffDef, buffID);
+        }
+        #endregion
+
+        #region 引用计数
+        public void IncreaseLevelObjectReference(ILevelObject obj)
+        {
+            if (levelObjectReferences.TryGetValue(obj, out var count))
+            {
+                levelObjectReferences[obj] = count + 1;
+            }
+            else
+            {
+                levelObjectReferences.Add(obj, 1);
+                obj.OnAddToLevel(this);
+            }
+            foreach (var child in obj.GetChildrenObjects())
+            {
+                IncreaseLevelObjectReference(child);
+            }
+        }
+        public void DecreaseLevelObjectReference(ILevelObject obj)
+        {
+            if (levelObjectReferences.TryGetValue(obj, out var count))
+            {
+                count--;
+                if (count <= 0)
+                {
+                    levelObjectReferences.Remove(obj);
+                    foreach (var child in obj.GetChildrenObjects())
+                    {
+                        DecreaseLevelObjectReference(child);
+                    }
+                    obj.OnRemoveFromLevel(this);
+                }
+                else
+                {
+                    levelObjectReferences[obj] = count;
+                }
+            }
+        }
+        public bool HasLevelObjectReference(ILevelObject obj)
+        {
+            return levelObjectReferences.ContainsKey(obj);
         }
         #endregion
 
@@ -294,9 +336,11 @@ namespace PVZEngine.Level
             // 加载所有BUFF。
             level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
             level.buffs.OnPropertyChanged += level.UpdateBuffedProperty;
-
-            // 所有实体、种子包和BUFF都已加载完毕。
-
+            // 关卡拥有的所有BUFF引用计数+1
+            foreach (var buff in level.buffs)
+            {
+                level.IncreaseLevelObjectReference(buff);
+            }
 
             // 加载所有种子包、实体、BUFF的详细信息。
             // 因为有光环这种东西的存在，可能会引用buff，所以需要在buff加载完之后加载。
@@ -305,8 +349,10 @@ namespace PVZEngine.Level
             level.ReadEntitiesFromSerializable(seri);
             // 加载所有网格的属性，需要引用实体。
             level.ReadGridsFromSerializable(seri);
+            // 所有实体、种子包和BUFF都已加载完毕。
             if (seri.buffs != null)
                 level.buffs.LoadAuras(seri.buffs, level);
+
 
             // 在实体加载后面
             if (seri.collisionSystem != null)
@@ -344,10 +390,22 @@ namespace PVZEngine.Level
         #endregion
 
         #region 私有方法
-        IModelInterface? IBuffTarget.GetInsertedModel(NamespaceID key) => null;
-        LevelEngine IBuffTarget.GetLevel() => this;
-        Entity? IBuffTarget.GetEntity() => null;
-        bool IBuffTarget.Exists() => true;
+        LevelEngine ILevelObject.GetLevel() => this;
+        Entity? ILevelObject.GetEntity() => null;
+        bool ILevelObject.Exists() => true;
+        void ILevelObject.OnAddToLevel(LevelEngine level)
+        {
+        }
+        void ILevelObject.OnRemoveFromLevel(LevelEngine level)
+        {
+        }
+        IEnumerable<ILevelObject> ILevelObject.GetChildrenObjects()
+        {
+            foreach (var pair in levelObjectReferences)
+            {
+                yield return pair.Key;
+            }
+        }
         #endregion
 
         #region 属性字段
@@ -367,6 +425,7 @@ namespace PVZEngine.Level
         private BuffList buffs = new BuffList();
 
         private List<ILevelComponent> levelComponents = new List<ILevelComponent>();
+        private Dictionary<ILevelObject, int> levelObjectReferences = new Dictionary<ILevelObject, int>();
         #endregion 保存属性
     }
 }

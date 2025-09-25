@@ -66,7 +66,8 @@ namespace MVZ2.Tests
             var json = seriEnt.ToBson();
 
             SerializableEntity seriEnt2 = SerializeHelper.FromBson<SerializableEntity>(json);
-            var entity2 = Entity.Deserialize(seriEnt2, level);
+            var entity2 = Entity.CreateDeserializingEntity(seriEnt2, level);
+            entity2.ApplyDeserialize(seriEnt2);
 
             SerializableEntity seriEnt3 = entity2.Serialize();
             var json2 = seriEnt3.ToBson();

@@ -187,6 +187,7 @@ namespace MVZ2Logic.Artifacts
                     continue;
                 artifact.OnHighlighted += artifactList.OnItemHighlightedCallback;
                 artifactList.artifacts[i] = artifact;
+                level.IncreaseLevelObjectReference(artifact);
             }
             return artifactList;
         }

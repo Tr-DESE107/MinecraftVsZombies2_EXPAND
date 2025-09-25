@@ -16,6 +16,10 @@ namespace PVZEngine.SeedPacks
         {
             return Level.GetSeedPackIndex(this);
         }
+        public override bool Exists()
+        {
+            return GetIndex() >= 0;
+        }
         public override BuffReference GetBuffReference(Buff buff)
         {
             return new BuffReferenceClassicSeedPack(ID, buff.ID);
@@ -46,5 +50,9 @@ namespace PVZEngine.SeedPacks
             return new ClassicSeedPack(level, definition, seri.id);
         }
         #endregion
+        public override string ToString()
+        {
+            return $"ClassicSeedPack_{Definition}";
+        }
     }
 }

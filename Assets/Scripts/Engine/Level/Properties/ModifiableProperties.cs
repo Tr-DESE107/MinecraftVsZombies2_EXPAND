@@ -154,7 +154,7 @@ namespace PVZEngine.Level
             {
                 buffedProperties.RemovePropertyObject(name);
             }
-            Container.UpdateModifiedProperty(name, beforeValue, value, triggersEvaluation);
+            Container.OnPropertyChanged(name, beforeValue, value, triggersEvaluation);
         }
         public void UpdateModifiedProperty<T>(PropertyKey<T> name, bool triggersEvaluation = true)
         {
@@ -174,7 +174,7 @@ namespace PVZEngine.Level
             {
                 buffedProperties.RemoveProperty(name);
             }
-            Container.UpdateModifiedProperty(name, beforeValue, value, triggersEvaluation);
+            Container.OnPropertyChanged(name, beforeValue, value, triggersEvaluation);
         }
         #endregion
         public SerializableModifiableProperties ToSerializable()

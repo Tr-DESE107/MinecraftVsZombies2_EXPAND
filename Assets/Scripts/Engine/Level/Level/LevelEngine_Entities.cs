@@ -49,7 +49,9 @@ namespace PVZEngine.Level
                 {
                     var entity = Entity.CreateDeserializingEntity(ent, this);
                     if (entity != null)
+                    {
                         entities.Add(ent.id, entity);
+                    }
                 }
             }
             if (seri.entityTrash != null)
@@ -70,7 +72,9 @@ namespace PVZEngine.Level
                 {
                     var seriEnt = seri.entities[i];
                     var id = seriEnt.id;
-                    entities[id].ApplyDeserialize(seriEnt);
+                    var entity = entities[id];
+                    entity.ApplyDeserialize(seriEnt);
+                    IncreaseLevelObjectReference(entity);
                 }
             }
             if (seri.entityTrash != null)
@@ -101,6 +105,7 @@ namespace PVZEngine.Level
                 param.Apply(spawned);
             }
             entities.Add(id, spawned);
+            IncreaseLevelObjectReference(spawned);
             OnEntitySpawn?.Invoke(spawned);
             spawned.Init();
             return spawned;
@@ -153,6 +158,7 @@ namespace PVZEngine.Level
             entities.Remove(id);
             entityTrash.Add(id, entity);
             RemoveEntityCollision(entity);
+            DecreaseLevelObjectReference(entity);
             OnEntityRemove?.Invoke(entity);
         }
         #endregion

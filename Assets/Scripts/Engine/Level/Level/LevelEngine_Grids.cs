@@ -39,7 +39,9 @@ namespace PVZEngine.Level
                 }
                 int lane = Mathf.FloorToInt(i / maxColumnCount);
                 int column = i % maxColumnCount;
-                grids[i] = new LawnGrid(this, definition, lane, column);
+                var grid = new LawnGrid(this, definition, lane, column);
+                grids[i] = grid;
+                IncreaseLevelObjectReference(grid);
             }
         }
         #endregion

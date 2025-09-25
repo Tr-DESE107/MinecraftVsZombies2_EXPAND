@@ -7,10 +7,38 @@ namespace PVZEngine.Level
 {
     public interface IPropertyModifyTarget
     {
+        /// <summary>
+        /// 在属性表中不存在某一属性时，退化而返回的某些数值。
+        /// </summary>
+        /// <param name="name">属性键。</param>
+        /// <param name="value">返回的数值。</param>
+        /// <returns>是否成功返回。</returns>
         bool GetFallbackProperty(IPropertyKey name, out object? value);
+        /// <summary>
+        /// 获取修改某个属性的所有修改器。
+        /// </summary>
+        /// <param name="name">属性键。</param>
+        /// <param name="results">返回结果填充列表。</param>
         void GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results);
-        void UpdateModifiedProperty(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation);
+        /// <summary>
+        /// 在某个属性发生变动时触发的回调。
+        /// </summary>
+        /// <param name="name">属性键。</param>
+        /// <param name="beforeValue">该属性之前的值。</param>
+        /// <param name="afterValue">该属性之后的值。</param>
+        /// <param name="triggersEvaluation">是否会触发某些属性的重新评估。如最大生命值变化后，当前生命值等比例缩放。</param>
+        void OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation);
+        /// <summary>
+        /// <para>获取用于修改一个属性，而所使用的其他属性的所有修改器。</para>
+        /// <example>例如：将Buff的multiplier属性中的值乘算到实体的damage属性上，则<paramref name="name"/>参数为multiplier属性键，返回值则是所有使用了multiplier属性的修改器。</example>
+        /// </summary>
+        /// <param name="name">获取到的修改器所使用的属性键。</param>
+        /// <returns>所有使用了该属性键的修改器。</returns>
         PropertyModifier[]? GetModifiersUsingProperty(IPropertyKey name);
+        /// <summary>
+        /// 获取所有被修改过的属性键。
+        /// </summary>
+        /// <returns>获取到的属性键。</returns>
         IEnumerable<IPropertyKey> GetModifiedProperties();
     }
 }

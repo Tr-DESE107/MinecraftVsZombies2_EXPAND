@@ -24,7 +24,7 @@ namespace PVZEngine.Level
             if (seedPacks[index] != null)
                 return;
             seedPacks[index] = seed;
-            seed.PostAdd(this);
+            IncreaseLevelObjectReference(seed);
             OnSeedAdded?.Invoke(index);
         }
         private long AllocSeedPackID()
@@ -44,7 +44,7 @@ namespace PVZEngine.Level
             if (seedPack == null)
                 return false;
             seedPacks[index] = null;
-            seedPack.PostRemove(this);
+            DecreaseLevelObjectReference(seedPack);
             OnSeedRemoved?.Invoke(index);
             return true;
         }
@@ -188,6 +188,7 @@ namespace PVZEngine.Level
                 if (seriSeed == null)
                     continue;
                 seed.ApplyDeserializedProperties(this, seriSeed);
+                IncreaseLevelObjectReference(seed);
             }
         }
         #endregion

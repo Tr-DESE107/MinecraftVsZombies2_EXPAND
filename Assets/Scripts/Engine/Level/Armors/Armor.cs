@@ -50,15 +50,6 @@ namespace PVZEngine.Armors
             result = result ?? new ArmorDestroyInfo(Owner, this, Slot, new DamageEffectList(), null, null);
             Owner.DestroyArmor(Slot, result);
         }
-        public void PostAdd()
-        {
-            auras.PostAdd();
-        }
-        public void PostRemove()
-        {
-            auras.PostRemove();
-            buffs.RemoveAuras();
-        }
         public IEnumerable<ColliderConstructor> GetColliderConstructors(Entity entity, NamespaceID slot)
         {
             return Definition.GetColliderConstructors(entity, slot);
@@ -110,7 +101,7 @@ namespace PVZEngine.Armors
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
+        void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
         {
             if (triggersEvaluation)
             {
@@ -200,6 +191,10 @@ namespace PVZEngine.Armors
             armor.UpdateAllBuffedProperties(false);
             return armor;
         }
+        public override string ToString()
+        {
+            return $"Armor_{Definition}";
+        }
         public void LoadAuras(SerializableArmor seri)
         {
             if (seri.buffs != null)
@@ -209,12 +204,24 @@ namespace PVZEngine.Armors
             if (seri.auras != null)
                 auras.LoadFromSerializable(Level, seri.auras);
         }
-        LevelEngine IBuffTarget.GetLevel() => Level;
-        Entity? IBuffTarget.GetEntity() => Owner;
-        bool IBuffTarget.Exists() => Owner != null && Owner.Exists() && Owner.IsEquippingArmor(this);
-        Entity IAuraSource.GetEntity() => Owner;
-        LevelEngine IAuraSource.GetLevel() => Level;
-        bool IAuraSource.IsValid() => Owner != null && Owner.Exists() && Owner.IsEquippingArmor(this);
+        LevelEngine ILevelObject.GetLevel() => Level;
+        Entity? ILevelObject.GetEntity() => Owner;
+        bool ILevelObject.Exists() => Owner != null && Owner.Exists() && Owner.IsEquippingArmor(this);
+        void ILevelObject.OnAddToLevel(LevelEngine level)
+        {
+            auras.PostAdd();
+        }
+        void ILevelObject.OnRemoveFromLevel(LevelEngine level)
+        {
+            auras.PostRemove();
+        }
+        IEnumerable<ILevelObject> ILevelObject.GetChildrenObjects()
+        {
+            foreach (var buff in buffs)
+            {
+                yield return buff;
+            }
+        }
 
         #region 属性字段
         public LevelEngine Level => Owner.Level;

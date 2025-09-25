@@ -329,9 +329,22 @@ namespace PVZEngine.Grids
         #endregion
 
         #region IBuffTarget实现
-        LevelEngine IBuffTarget.GetLevel() => Level;
-        Entity? IBuffTarget.GetEntity() => null;
-        bool IBuffTarget.Exists() => true;
+        LevelEngine ILevelObject.GetLevel() => Level;
+        Entity? ILevelObject.GetEntity() => null;
+        bool ILevelObject.Exists() => true;
+        void ILevelObject.OnAddToLevel(LevelEngine level)
+        {
+        }
+        void ILevelObject.OnRemoveFromLevel(LevelEngine level)
+        {
+        }
+        IEnumerable<ILevelObject> ILevelObject.GetChildrenObjects()
+        {
+            foreach (var buff in buffs)
+            {
+                yield return buff;
+            }
+        }
         #endregion
 
         #region IPropertyModifyTarget实现
@@ -356,10 +369,15 @@ namespace PVZEngine.Grids
         {
             buffs.GetModifierItems(name, results);
         }
-        void IPropertyModifyTarget.UpdateModifiedProperty(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
+        void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
         {
         }
         #endregion
+
+        public override string ToString()
+        {
+            return $"LawnGrid_{Lane}x{Column}";
+        }
 
         #region 事件
         public event Action<ModelInsertion>? OnModelInsertionAdded;

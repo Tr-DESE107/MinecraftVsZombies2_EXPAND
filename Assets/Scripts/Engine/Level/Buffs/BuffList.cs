@@ -266,13 +266,6 @@ namespace PVZEngine.Buffs
                 buff.Update();
             }
         }
-        public void RemoveAuras()
-        {
-            foreach (var buff in buffs)
-            {
-                buff.RemoveAuras();
-            }
-        }
         private bool AddBuffImplement(Buff buff)
         {
             if (buff == null)

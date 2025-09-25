@@ -27,7 +27,7 @@ namespace PVZEngine.Level
                 return null;
             var seedPack = new ConveyorSeedPack(this, seedDefinition, AllocSeedPackID());
             conveyorSeedPacks.Insert(index, seedPack);
-            seedPack.PostAdd(this);
+            IncreaseLevelObjectReference(seedPack);
             OnConveyorSeedAdded?.Invoke(index);
             return seedPack;
         }
@@ -40,7 +40,7 @@ namespace PVZEngine.Level
                 return false;
             var seedPack = conveyorSeedPacks[index];
             conveyorSeedPacks.RemoveAt(index);
-            seedPack.PostRemove(this);
+            DecreaseLevelObjectReference(seedPack);
             OnConveyorSeedRemoved?.Invoke(index);
             return true;
         }
@@ -151,6 +151,7 @@ namespace PVZEngine.Level
                 if (seriSeed == null)
                     continue;
                 seed.ApplyDeserializedProperties(this, seriSeed);
+                IncreaseLevelObjectReference(seed);
             }
         }
         #endregion
