@@ -166,6 +166,14 @@ namespace MVZ2.Vanilla.Contraptions
             return true;
         }
         #endregion
+
+        #region 立即激发
+        public static readonly PropertyMeta<bool> NO_EVOKE = Get<bool>("no_evoke");
+        public static bool NoEvoke(this Entity entity)
+        {
+            return entity.GetProperty<bool>(NO_EVOKE);
+        }
+        #endregion
     }
 }
 

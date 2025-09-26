@@ -7,6 +7,7 @@ namespace MVZ2Logic.Models
         public const string background = "Background";
         public const string pool = "Pool";
         public const string night = "Night";
+        public const string grid = "Grid";
         public const string shadow = "Shadow";
         public const string places = "Places";
         public const string carriers = "Carriers";

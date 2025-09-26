@@ -164,6 +164,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 047996c4841327442a24b5f86e763852
+    m_Address: mvz2:entity/effects/pagoda_laser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04aa3823146ebe94bbb7892155a53211
     m_Address: mvz2:units/colliders/spider
     m_ReadOnly: 0
@@ -215,6 +222,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 05a6ec8521020404c9c82ea5d9243bbc
     m_Address: mvz2:entity/contraptions/golden_apple
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05a99924b9cf1f54087955dfe63848e1
+    m_Address: mvz2:entity/contraptions/jeweled_pagoda
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -838,6 +852,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13b6d5b3963809543b2c3ae66757af81
     m_Address: mvz2:damage/hit3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13bbabbd7e460614e86bc689de623059
+    m_Address: mvz2:gold
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -2516,6 +2537,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b69e29138f5dca40863736310abcdc4
     m_Address: mvz2:boss/wither
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b7a228ae2a7d014c98080474f73e92b
+    m_Address: mvz2:contraption/ship/jeweled_pagoda
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4628,6 +4656,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d19f900e36343048a4dac575a84e01d
+    m_Address: mvz2:sweeping_beam
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d34689b106ed35498dffaa3069fa3f5
     m_Address: mvz2:ui/zoom
     m_ReadOnly: 0
@@ -5168,6 +5203,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7afc460a58e08a643b63f7672c37747d
     m_Address: mvz2:units/boat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b0c65aa1b6f186488a0e171913281ba
+    m_Address: mvz2:effect/pagoda_laser
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

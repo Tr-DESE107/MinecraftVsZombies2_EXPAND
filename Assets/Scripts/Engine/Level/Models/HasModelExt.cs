@@ -26,6 +26,18 @@ public static class HasModelExt
     {
         self.GetModelInterface()?.SetShaderColor(name, value);
     }
+    public static void SetTint(this IModelInterface self, Color value)
+    {
+        self.SetShaderColor("_Color", value);
+    }
+    public static void SetColorOffset(this IModelInterface self, Color value)
+    {
+        self.SetShaderColor("_ColorOffset", value);
+    }
+    public static void SetHSVOffset(this IModelInterface self, Vector3 hsv)
+    {
+        self.SetShaderVector("_HSVOffset", hsv);
+    }
     public static IModelInterface? CreateChildModel(this IHasModel self, string anchorName, NamespaceID key, NamespaceID modelID)
     {
         return self.GetModelInterface()?.CreateChildModel(anchorName, key, modelID);

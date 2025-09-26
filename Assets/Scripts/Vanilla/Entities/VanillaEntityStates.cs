@@ -8,6 +8,7 @@ namespace MVZ2.Vanilla.Entities
         public const int WALK = 1;
         public const int ATTACK = 2;
         public const int DEAD = 3;
+        public const int DISAPPEAR = 4;
 
         public const int CONTRAPTION_COOLDOWN = 101;
         public const int CONTRAPTION_SPECIAL = 102;
@@ -54,6 +55,10 @@ namespace MVZ2.Vanilla.Entities
 
         public const int TESLA_COIL_IDLE = IDLE;
         public const int TESLA_COIL_ATTACK = ATTACK;
+
+        public const int JEWELED_PAGODA_ASCENT = IDLE;
+        public const int JEWELED_PAGODA_LASER = ATTACK;
+        public const int JEWELED_PAGODA_DISAPPEAR = DISAPPEAR;
 
         // Enemies
         public const int NECROMANCER_CAST = ENEMY_CAST;
@@ -142,5 +147,9 @@ namespace MVZ2.Vanilla.Entities
         public const int CRUSHING_WALLS_ENRAGED = WALK;
         public const int CRUSHING_WALLS_CLOSED = ATTACK;
         public const int CRUSHING_WALLS_STOPPED = DEAD;
+
+        public const int PAGODA_LASER_EXPAND = IDLE;
+        public const int PAGODA_LASER_SWIPE = ATTACK;
+        public const int PAGODA_LASER_SUBTRACT = DISAPPEAR;
     }
 }

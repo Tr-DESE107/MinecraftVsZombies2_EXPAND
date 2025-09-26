@@ -79,6 +79,13 @@ namespace MVZ2.Models
                 return;
             model.SetShaderColor(name, value);
         }
+        public void SetShaderVector(string name, Vector4 value)
+        {
+            var model = GetModel();
+            if (!model.Exists())
+                return;
+            model.SetShaderVector(name, value);
+        }
         public IModelInterface? CreateChildModel(string anchorName, NamespaceID key, NamespaceID modelID)
         {
             var model = GetModel();

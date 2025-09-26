@@ -589,6 +589,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: efce82eceb86bb44f90591042d0607b3, type: 3}
   - name: entity/contraptions/infectenser
     sprite: {fileID: 21300000, guid: d8130bf7140daa14a9605dddcd5bd851, type: 3}
+  - name: entity/contraptions/jeweled_pagoda
+    sprite: {fileID: 21300000, guid: 05a99924b9cf1f54087955dfe63848e1, type: 3}
   - name: entity/contraptions/lily_pad
     sprite: {fileID: 21300000, guid: e81ac283d392c4f40badaaf0d30184b2, type: 3}
   - name: entity/contraptions/magichest_flash
@@ -673,6 +675,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ffe7678ba632c984daedf8d9223f6c42, type: 3}
   - name: entity/effects/nightmare_portal_mask
     sprite: {fileID: 21300000, guid: 04dcfd1cd164cbb41b834f5a6fdfba4b, type: 3}
+  - name: entity/effects/pagoda_laser
+    sprite: {fileID: 21300000, guid: 047996c4841327442a24b5f86e763852, type: 3}
   - name: entity/effects/pow
     sprite: {fileID: 21300000, guid: 8bf802c92af01e14ab7d98dedcdb86a1, type: 3}
   - name: entity/effects/rain

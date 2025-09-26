@@ -339,6 +339,9 @@
     <sound name="glowstone">
         <sample path="mvz2:glowstone" weight="1" />
     </sound>
+    <sound name="gold">
+        <sample path="mvz2:gold" weight="1" />
+    </sound>
     <sound name="grass">
         <sample path="mvz2:random/grass1" weight="1" />
         <sample path="mvz2:random/grass2" weight="1" />
@@ -748,6 +751,9 @@
     </sound>
     <sound name="stunned">
         <sample path="mvz2:stunned" weight="1" />
+    </sound>
+    <sound name="sweeping_beam">
+        <sample path="mvz2:sweeping_beam" weight="1" />
     </sound>
     <sound name="swing">
         <sample path="mvz2:swing" weight="1" />

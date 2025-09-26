@@ -62,11 +62,11 @@ namespace MVZ2.GameContent.Pickups
             else
             {
                 var velocity = pickup.Velocity;
-                if (pickup.Position.z < GetMinZ(pickup) && velocity.z < 0 || pickup.Position.z > GetMaxZ(pickup) && velocity.z > 0)
+                if (pickup.Position.z < GetMinZ(pickup) && velocity.z < 0 || pickup.Position.z > GetMaxZ(pickup) && velocity.z >= 0)
                 {
                     velocity.z *= -1;
                 }
-                if (pickup.Position.x < GetMinX() && velocity.x < 0 || pickup.Position.x > GetMaxX() && velocity.x > 0)
+                if (pickup.Position.x < GetMinX() && velocity.x < 0 || pickup.Position.x > GetMaxX() && velocity.x >= 0)
                 {
                     velocity.x *= -1;
                 }

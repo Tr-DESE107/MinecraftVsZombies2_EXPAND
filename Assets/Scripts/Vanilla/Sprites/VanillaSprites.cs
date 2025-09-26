@@ -9,10 +9,6 @@ namespace MVZ2.GameContent.Sprites
     public static class VanillaSprites
     {
         public static readonly SpriteReference starshardDefault = Get("starshards/default");
-        public static readonly SpriteReference goldenGrid = Get("level/grids/golden_grid");
-        public static readonly SpriteReference goldenGridWater = Get("level/grids/golden_grid_water");
-        public static readonly SpriteReference goldenGridCloud = Get("level/grids/golden_grid_cloud");
-        public static readonly SpriteReference goldenGridSlope = Get("level/grids/golden_grid_slope");
         private static SpriteReference Get(string name)
         {
             var id = new NamespaceID(VanillaMod.spaceName, name);

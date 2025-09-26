@@ -572,6 +572,7 @@
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:instantEvoke" value="false" />
+                <bool name="mvz2:no_evoke" value="true" />
                 <int name="mvz2:maxTimeout" value="30" />
                 <int name="mvz2:waterInteraction" value="0" />
                 <int name="mvz2:airInteraction" value="0" />
@@ -984,6 +985,9 @@
             </properties>
         </contraption>
         <contraption id="elastic_cloud" name="弹性云" tooltip="弹走接触到的怪物">
+            <unlock>
+                <condition required="mvz2:level.ship_8"/>
+            </unlock>
             <behaviours>
                 <behaviour id="mvz2:model_damage_percent" />
                 <behaviour id="mvz2:elastic_cloud/projectile" />
@@ -1003,6 +1007,32 @@
 
                 <int name="mvz2:cost" value="75" />
                 <id name="mvz2:rechargeId" value="mvz2:long" />
+            </properties>
+        </contraption>
+        <contraption id="jeweled_pagoda" name="珠光宝塔" tooltip="禁用一整列地格并生成星之碎片">
+            <unlock>
+                <condition required="mvz2:level.ship_9"/>
+            </unlock>
+            <properties>
+                <bool name="mvz2:cannotDig" value="true" />
+                <bool name="mvz2:invisible" value="true" />
+                <bool name="mvz2:invincible" value="true" />
+                <bool name="mvz2:canDeactive" value="false" />
+                <bool name="mvz2:loyal" value="true" />
+                <bool name="mvz2:instantEvoke" value="false" />
+                <bool name="mvz2:no_evoke" value="true" />
+                <int name="mvz2:waterInteraction" value="0" />
+                <int name="mvz2:airInteraction" value="0" />
+                <float name="mvz2:gravity" value="0" />
+                <vector3 name="mvz2:size" x="0" y="0" z="0" />
+                <id name="mvz2:placement" value="mvz2:any" />
+                <idArray name="mvz2:gridLayers" value="" />
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="240" y="240" z="240" />
+                <color name="mvz2:lightColor" value="#FFFF7F" />
+
+                <int name="mvz2:cost" value="175" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </contraption>
 
@@ -1142,6 +1172,7 @@
             </behaviours>
             <properties>
                 <bool name="mvz2:instantEvoke" value="false" />
+                <bool name="mvz2:no_evoke" value="true" />
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:defensive" value="true" />
                 <float name="mvz2:maxHealth" value="2500" />
@@ -1172,6 +1203,7 @@
                 <bool name="mvz2:canDeactive" value="false" />
                 <bool name="mvz2:loyal" value="true" />
                 <bool name="mvz2:instantEvoke" value="false" />
+                <bool name="mvz2:no_evoke" value="true" />
                 <vector3 name="mvz2:size" x="48" y="48" z="48" />
 
                 <int name="mvz2:cost" value="0" />
@@ -3129,5 +3161,6 @@
                 <vector3 name="mvz2:size" x="720" y="160" z="80" />
             </properties>
         </effect>
+        <effect id="pagoda_laser" />
     </entries>
 </entities>

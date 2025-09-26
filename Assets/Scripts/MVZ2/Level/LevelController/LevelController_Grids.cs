@@ -92,6 +92,7 @@ namespace MVZ2.Level
                 };
 
                 gridUI.UpdateGridView(viewData);
+                gridUI.UpdateFrame(0);
             }
 
         }

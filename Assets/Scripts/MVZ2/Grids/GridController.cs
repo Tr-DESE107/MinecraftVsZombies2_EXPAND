@@ -7,6 +7,7 @@ using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -54,6 +55,13 @@ namespace MVZ2.Grids
                 Destroy(model.gameObject);
             }
             model = builder.Build(modelRoot);
+            if (model.Exists())
+            {
+                if (model is EntityModel entityModel)
+                {
+                    entityModel.SortingLayerName = SortingLayers.grid;
+                }
+            }
         }
         public Model? GetModel()
         {
