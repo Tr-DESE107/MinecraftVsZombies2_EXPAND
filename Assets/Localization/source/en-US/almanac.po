@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-09-25 12:36+0800\n"
-"PO-Revision-Date: 2025-09-25 12:37+0800\n"
+"POT-Creation-Date: 2025-09-26 05:57+0800\n"
+"PO-Revision-Date: 2025-09-26 18:04+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1815,6 +1815,37 @@ msgstr ""
 msgctxt "contraptions.description"
 msgid "“说了多少遍了，我们这里不提供网络服务器！”"
 msgstr "\"How many times do we have to say it? We don't provide web servers here!\""
+
+#. Header for contraptions mvz2:jeweled_pagoda
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "珠光宝塔会暂时禁用一整行内的所有空地格，并在立即生产星之碎片后消失。"
+msgstr "Jeweled Pagodas temporarily disable all empty tiles in an entire row, then vanish after instantly producing starshards."
+
+#. Properties for contraptions mvz2:jeweled_pagoda
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"禁用时长：<color=red>3分钟</color>\n"
+"产量：<color=red>1星之碎片/3禁用的地格</color>\n"
+"技能：<color=red>无</color>"
+msgstr ""
+"Disable Duration: <color=red>3 minutes</color>\n"
+"Production: <color=red>1 starshard / 3 disabled tiles</color>\n"
+"Evocation: <color=red>None</color>"
+
+#. Flavor for contraptions mvz2:jeweled_pagoda
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"毗沙门天的宝塔的仿制品，同样拥有带来财富的能力，可以将物体变成黄金以及各色的美丽珠宝。\n"
+"不过不要把这种珠宝三个摆放在一条线上，不然它们会消失。\n"
+"更不要把这种珠宝四个、五个放在一条线上，或者交叉摆放，除非你真的想缺胳膊少腿。"
+msgstr ""
+"A replica of The Jeweled Pagoda of Bishamonten, it likewise possesses the power to bring wealth, capable of turning objects into gold "
+"and beautiful jewels of every color.\n"
+"But be careful—don’t line up three of these jewels in a row, or they will vanish.\n"
+"And NEVER place four or five in a line, or in a cross formation… unless you truly want to BE JEWELED."
 
 #. Header for contraptions mvz2:infectenser
 #: Almanac meta file
@@ -5058,6 +5089,18 @@ msgstr "Elastic Cloud"
 msgctxt "entity.tooltip"
 msgid "弹走接触到的怪物"
 msgstr "Bounce away monsters upon contact"
+
+#. Name for entity mvz2:jeweled_pagoda
+#: Entity meta file
+msgctxt "entity.name"
+msgid "珠光宝塔"
+msgstr "Jeweled Pagoda\v"
+
+#. Tooltip for entity mvz2:jeweled_pagoda
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "禁用一整列地格并生成星之碎片"
+msgstr "Disable an entire lane for starshards"
 
 #. Name for entity mvz2:infectenser
 #: Entity meta file

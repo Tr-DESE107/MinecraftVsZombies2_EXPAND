@@ -782,7 +782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: f1bd1ce7e414d804eac33ef3112b8c07, type: 3}
       propertyPath: renderers.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: f1bd1ce7e414d804eac33ef3112b8c07, type: 3}
       propertyPath: animators.Array.data[0]
@@ -800,6 +800,14 @@ PrefabInstance:
       propertyPath: renderers.Array.data[1]
       value: 
       objectReference: {fileID: 6660798044709961442}
+    - target: {fileID: 4945177359727147975, guid: f1bd1ce7e414d804eac33ef3112b8c07, type: 3}
+      propertyPath: renderers.Array.data[2]
+      value: 
+      objectReference: {fileID: 6983100699767270482}
+    - target: {fileID: 4945177359727147975, guid: f1bd1ce7e414d804eac33ef3112b8c07, type: 3}
+      propertyPath: renderers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1875971014078533612}
     - target: {fileID: 4945177359727147975, guid: f1bd1ce7e414d804eac33ef3112b8c07, type: 3}
       propertyPath: modelAnchors.Array.data[0]
       value: 

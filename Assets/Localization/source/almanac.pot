@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-09-25 12:36+0800\n"
+"POT-Creation-Date: 2025-09-26 05:57+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1551,6 +1551,30 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "“说了多少遍了，我们这里不提供网络服务器！”"
+msgstr ""
+
+#. Header for contraptions mvz2:jeweled_pagoda
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "珠光宝塔会暂时禁用一整行内的所有空地格，并在立即生产星之碎片后消失。"
+msgstr ""
+
+#. Properties for contraptions mvz2:jeweled_pagoda
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"禁用时长：<color=red>3分钟</color>\n"
+"产量：<color=red>1星之碎片/3禁用的地格</color>\n"
+"技能：<color=red>无</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:jeweled_pagoda
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"毗沙门天的宝塔的仿制品，同样拥有带来财富的能力，可以将物体变成黄金以及各色的美丽珠宝。\n"
+"不过不要把这种珠宝三个摆放在一条线上，不然它们会消失。\n"
+"更不要把这种珠宝四个、五个放在一条线上，或者交叉摆放，除非你真的想缺胳膊少腿。"
 msgstr ""
 
 #. Header for contraptions mvz2:infectenser
@@ -4301,6 +4325,18 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "弹走接触到的怪物"
+msgstr ""
+
+#. Name for entity mvz2:jeweled_pagoda
+#: Entity meta file
+msgctxt "entity.name"
+msgid "珠光宝塔"
+msgstr ""
+
+#. Tooltip for entity mvz2:jeweled_pagoda
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "禁用一整列地格并生成星之碎片"
 msgstr ""
 
 #. Name for entity mvz2:infectenser

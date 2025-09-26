@@ -804,7 +804,21 @@
                 <p>“说了多少遍了，我们这里不提供网络服务器！”</p>
             </flavor>
         </entry>
-        <entry/>
+        <entry id="mvz2:jeweled_pagoda">
+            <header>
+                <p>珠光宝塔会暂时禁用一整行内的所有空地格，并在立即生产星之碎片后消失。</p>
+            </header>
+            <properties>
+                <p>禁用时长：<![CDATA[<color=red>3分钟</color>]]></p>
+                <p>产量：<![CDATA[<color=red>1星之碎片/3禁用的地格</color>]]></p>
+                <p>技能：<![CDATA[<color=red>无</color>]]></p>
+            </properties>
+            <flavor>
+                <p>毗沙门天的宝塔的仿制品，同样拥有带来财富的能力，可以将物体变成黄金以及各色的美丽珠宝。</p>
+                <p>不过不要把这种珠宝三个摆放在一条线上，不然它们会消失。</p>
+                <p>更不要把这种珠宝四个、五个放在一条线上，或者交叉摆放，除非你真的想缺胳膊少腿。</p>
+            </flavor>
+        </entry>
 
         <!-- Chapter 6 -->
         <entry/>
