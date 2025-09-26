@@ -121,7 +121,7 @@ namespace MVZ2.Map
             while (queue.Count > 0)
             {
                 var talk = queue.Dequeue();
-                if (!NamespaceID.IsValid(talk))
+                if (!Main.ResourceManager.CanStartTalk(talk, 0))
                     continue;
                 Main.SaveManager.SetMapTalk(talk);
                 await talkController.SimpleStartTalkAsync(talk, 0, 3);

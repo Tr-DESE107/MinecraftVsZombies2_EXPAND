@@ -54,7 +54,7 @@ namespace MVZ2.Store
             while (queue.Count > 0)
             {
                 var talk = queue.Dequeue();
-                if (!NamespaceID.IsValid(talk))
+                if (!Main.ResourceManager.CanStartTalk(talk, 0))
                     continue;
                 ui.SetStoreUIVisible(false);
                 await talkController.SimpleStartTalkAsync(talk, 0, 1);

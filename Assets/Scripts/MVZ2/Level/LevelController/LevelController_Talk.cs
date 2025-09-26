@@ -53,7 +53,7 @@ namespace MVZ2.Level
         private async Task StartLevelIntroDialog()
         {
             var talkID = GetTalkIDOfType(StageMetaTalk.TYPE_START);
-            if (!NamespaceID.IsValid(talkID))
+            if (!Main.ResourceManager.CanStartTalk(talkID, 0))
                 return;
 
             await talkController.SimpleStartTalkAsync(talkID, 0, 2, () =>
@@ -67,7 +67,7 @@ namespace MVZ2.Level
         private async Task<bool> StartLevelOutroDialog()
         {
             var talkID = GetTalkIDOfType(StageMetaTalk.TYPE_END);
-            if (!NamespaceID.IsValid(talkID))
+            if (!Main.ResourceManager.CanStartTalk(talkID, 0))
                 return false;
 
             bool played = false;
