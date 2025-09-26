@@ -46,8 +46,7 @@ namespace MVZ2.Metas
             var deathMessage = node.GetAttribute("deathMessage")?.Replace("\\n", "\n") ?? string.Empty;
             var tooltip = node.GetAttribute("tooltip")?.Replace("\\n", "\n") ?? string.Empty;
 
-            XMLConditionList? unlockConditions = null;
-            var unlockNode = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
+            XMLConditionList? unlockConditions = node.GetUnlockConditionsOrObsolete("unlock", "unlock", defaultNsp);
 
             var behaviours = new List<NamespaceID>();
             var behavioursNode = node["behaviours"];
