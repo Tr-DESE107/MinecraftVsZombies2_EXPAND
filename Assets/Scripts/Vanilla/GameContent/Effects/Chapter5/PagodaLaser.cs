@@ -30,8 +30,8 @@ namespace MVZ2.GameContent.Effects
             stateMachine.Init(entity);
             var lane = entity.GetLane();
             var column = 0;
-            var x = entity.Level.GetColumnX(column) + entity.Level.GetGridWidth() * 0.5f;
-            var z = entity.Level.GetLaneZ(lane) + entity.Level.GetGridHeight() * 0.5f;
+            var x = entity.Level.GetColumnCenterX(column);
+            var z = entity.Level.GetLaneCenterZ(lane);
             var y = entity.Level.GetGroundY(x, z);
             SetDestination(entity, new Vector3(x, y, z));
             entity.SetModelProperty("Dest", GetDestination(entity));
@@ -135,7 +135,7 @@ namespace MVZ2.GameContent.Effects
                 var startDestination = GetDestination(entity);
                 var destination = startDestination;
                 destination += Vector3.right * speed;
-                var maxX = level.GetColumnX(level.GetMaxColumnCount() - 1) + level.GetGridWidth() * 0.5f;
+                var maxX = level.GetColumnCenterX(level.GetMaxColumnCount() - 1);
                 destination.x = Mathf.Min(destination.x, maxX);
                 destination.y = level.GetGroundY(destination.x, destination.z);
                 SetDestination(entity, destination);

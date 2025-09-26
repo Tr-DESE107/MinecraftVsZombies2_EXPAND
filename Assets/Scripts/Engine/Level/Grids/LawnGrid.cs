@@ -2,20 +2,16 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using PVZEngine.Base;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
-using PVZEngine.Models;
-using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace PVZEngine.Grids
 {
-    public class LawnGrid : IPropertyModifyTarget, IModeledBuffTarget
+    public partial class LawnGrid : IPropertyModifyTarget, IModeledBuffTarget
     {
-        #region 公有事件
+        #region 构造器
         public LawnGrid(LevelEngine level, GridDefinition definition, int lane, int column)
         {
             Level = level;
@@ -25,20 +21,33 @@ namespace PVZEngine.Grids
             properties = new PropertyBlock(this);
             InitBuffList();
         }
+        #endregion
+
+        #region 生命周期
         public void Update()
         {
             try
             {
-                buffs.Update();
+                UpdateBuffs();
             }
             catch (Exception ex)
             {
                 Debug.LogError($"更新地格时出现错误：{ex}");
             }
         }
+        #endregion
+
+        #region 位置
         public int GetIndex()
         {
             return Level.GetGridIndex(Column, Lane);
+        }
+        public Vector3 GetCenterPosition()
+        {
+            var x = Level.GetColumnCenterX(Column);
+            var z = Level.GetLaneCenterZ(Lane);
+            var y = Level.GetGroundY(x, z);
+            return new Vector3(x, y, z);
         }
         public Vector3 GetEntityPosition()
         {
@@ -53,282 +62,9 @@ namespace PVZEngine.Grids
             var z = Level.GetEntityLaneZ(Lane);
             return Level.GetGroundY(x, z);
         }
-
-        #region 添加占据实体
-        private HashSet<Entity> GetOrCreateLayerEntityHashSet(NamespaceID layer)
-        {
-            if (!layerEntities.TryGetValue(layer, out var hashSet))
-            {
-                hashSet = new HashSet<Entity>();
-                layerEntities.Add(layer, hashSet);
-            }
-            return hashSet;
-        }
-        private void AddReversedLayerEntity(NamespaceID layer, Entity entity)
-        {
-            if (reverseLayerEntities.TryGetValue(entity, out var layerHashSet))
-            {
-                layerHashSet.Add(layer);
-            }
-            else
-            {
-                layerHashSet = new HashSet<NamespaceID>() { layer };
-                reverseLayerEntities.Add(entity, layerHashSet);
-            }
-        }
-        public void AddLayerEntity(NamespaceID layer, Entity entity)
-        {
-            var hashSet = GetOrCreateLayerEntityHashSet(layer);
-            hashSet.Add(entity);
-            AddReversedLayerEntity(layer, entity);
-        }
         #endregion
 
-        #region 移除占据实体
-        public void RemoveLayerEntity(NamespaceID layer, Entity entity)
-        {
-            if (layerEntities.TryGetValue(layer, out var hashSet))
-            {
-                hashSet.Remove(entity);
-                if (hashSet.Count <= 0)
-                {
-                    layerEntities.Remove(layer);
-                }
-            }
-            if (reverseLayerEntities.TryGetValue(entity, out var reverseHashSet))
-            {
-                reverseHashSet.Remove(layer);
-                if (reverseHashSet.Count <= 0)
-                {
-                    reverseLayerEntities.Remove(entity);
-                }
-            }
-        }
-        public void RemoveGridEntity(Entity entity)
-        {
-            if (reverseLayerEntities.TryGetValue(entity, out var reversedHashSet))
-            {
-                foreach (var layer in reversedHashSet)
-                {
-                    if (layerEntities.TryGetValue(layer, out var hashSet))
-                    {
-                        hashSet.Remove(entity);
-                        if (hashSet.Count <= 0)
-                        {
-                            layerEntities.Remove(layer);
-                        }
-                    }
-                }
-                reversedHashSet.Clear();
-                reverseLayerEntities.Remove(entity);
-            }
-        }
-        #endregion
-
-        #region 获取占据实体
-        public Entity? GetLayerEntity(NamespaceID layer)
-        {
-            if (layerEntities.TryGetValue(layer, out var hashSet))
-            {
-                return hashSet.FirstOrDefault();
-            }
-            return null;
-        }
-        public Entity[] GetLayerEntities(NamespaceID layer)
-        {
-            if (layerEntities.TryGetValue(layer, out var hashSet))
-            {
-                return hashSet.ToArray();
-            }
-            return Array.Empty<Entity>();
-        }
-        public void GetLayerEntities(NamespaceID layer, List<Entity> results)
-        {
-            if (layerEntities.TryGetValue(layer, out var hashSet))
-            {
-                results.AddRange(hashSet);
-            }
-        }
-        public bool IsEntityOnLayer(Entity entity, NamespaceID layer)
-        {
-            if (layerEntities.TryGetValue(layer, out var hashSet))
-            {
-                return hashSet.Contains(entity);
-            }
-            return false;
-        }
-        public bool HasEntity(Entity entity)
-        {
-            return reverseLayerEntities.ContainsKey(entity);
-        }
-        public bool IsEmpty()
-        {
-            return layerEntities.Count == 0;
-        }
-        public Entity[] GetEntities()
-        {
-            return reverseLayerEntities.Keys.ToArray();
-        }
-        public NamespaceID[] GetLayers()
-        {
-            return layerEntities.Keys.ToArray();
-        }
-        #endregion
-
-        #region 获取实体占据层
-        public NamespaceID[] GetEntityLayers(Entity entity)
-        {
-            if (reverseLayerEntities.TryGetValue(entity, out var reverseHashSet))
-            {
-                return reverseHashSet.ToArray();
-            }
-            return Array.Empty<NamespaceID>();
-        }
-        public void GetEntityLayersNonAlloc(Entity entity, List<NamespaceID> results)
-        {
-            if (reverseLayerEntities.TryGetValue(entity, out var reverseHashSet))
-            {
-                results.AddRange(reverseHashSet);
-            }
-        }
-        #endregion
-
-        #region 增益
-        public BuffReference GetBuffReference(Buff buff)
-        {
-            return new BuffReferenceLawnGrid(GetIndex(), buff.ID);
-        }
-        private void InitBuffList()
-        {
-            buffs.OnPropertyChanged += OnBuffPropertyChangedCallback;
-            buffs.OnBuffAdded += OnBuffAddedCallback;
-            buffs.OnBuffRemoved += OnBuffRemovedCallback;
-        }
-        #endregion
-
-        #region 模型
-        public void SetModelInterface(IModelInterface? model)
-        {
-            modelInterface = model;
-        }
-        public IModelInterface? GetModelInterface()
-        {
-            return modelInterface;
-        }
-        #endregion
-
-        public SerializableGrid Serialize()
-        {
-            return new SerializableGrid()
-            {
-                lane = Lane,
-                column = Column,
-                definitionID = Definition.GetID(),
-                layerEntityLists = layerEntities.ToDictionary(p => p.Key.ToString(), p => p.Value.Select(e => e.ID).ToArray()),
-                properties = properties.ToSerializable(),
-                buffs = buffs.ToSerializable()
-            };
-        }
-        public static LawnGrid? Deserialize(SerializableGrid seri, LevelEngine level)
-        {
-            var definition = level.Content.GetGridDefinition(seri.definitionID);
-            if (definition == null)
-            {
-                var exception = new MissingDefinitionException($"Trying to deserialize a grid with missing definition {seri.definitionID}.");
-                Debug.LogException(exception);
-                return null;
-            }
-            var grid = new LawnGrid(level, definition, seri.lane, seri.column);
-            return grid;
-        }
-        public void LoadFromSerializable(SerializableGrid seri, LevelEngine level)
-        {
-            properties = PropertyBlock.FromSerializable(seri.properties, this);
-            buffs = BuffList.FromSerializable(seri.buffs, level, this);
-            InitBuffList();
-            layerEntities.Clear();
-            reverseLayerEntities.Clear();
-#pragma warning disable CS0612 // 类型或成员已过时
-            if (seri.layerEntityLists != null)
-            {
-                foreach (var pair in seri.layerEntityLists)
-                {
-                    var layer = NamespaceID.ParseStrict(pair.Key);
-                    var entityHashSet = new HashSet<Entity>();
-                    foreach (var entityID in pair.Value)
-                    {
-                        var entity = level.FindEntityByID(entityID);
-                        if (entity == null)
-                            continue;
-
-                        entityHashSet.Add(entity);
-                        AddReversedLayerEntity(layer, entity);
-                    }
-                    layerEntities.Add(layer, entityHashSet);
-                }
-            }
-            else if (seri.layerEntities != null)
-            {
-                foreach (var pair in seri.layerEntities)
-                {
-                    var layer = NamespaceID.ParseStrict(pair.Key);
-                    var entity = level.FindEntityByID(pair.Value);
-                    if (entity == null)
-                        continue;
-
-                    var layerHashSet = new HashSet<NamespaceID>() { layer };
-                    var entityHashSet = new HashSet<Entity>() { entity };
-                    layerEntities.Add(layer, entityHashSet);
-                    reverseLayerEntities.Add(entity, layerHashSet);
-                }
-            }
-#pragma warning restore CS0612 // 类型或成员已过时
-            properties.UpdateAllModifiedProperties(false);
-        }
-        public void LoadAuras(SerializableGrid seri)
-        {
-            if (seri.buffs != null)
-                buffs.LoadAuras(seri.buffs, Level);
-        }
-        #endregion 方法
-
-        #region 事件回调
-        private void OnBuffPropertyChangedCallback(IPropertyKey name)
-        {
-            properties.UpdateModifiedProperty(name);
-        }
-        private void OnBuffAddedCallback(Buff buff)
-        {
-            foreach (var insertion in buff.GetModelInsertions())
-            {
-                OnModelInsertionAdded?.Invoke(insertion);
-            }
-        }
-        private void OnBuffRemovedCallback(Buff buff)
-        {
-            foreach (var insertion in buff.GetModelInsertions())
-            {
-                OnModelInsertionRemoved?.Invoke(insertion);
-            }
-        }
-        #endregion
-
-        #region 网格属性
-        public T? GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
-        {
-            return properties.GetProperty<T>(name, ignoreBuffs);
-        }
-        public void SetProperty<T>(PropertyKey<T> name, T value)
-        {
-            properties.SetProperty(name, value);
-        }
-        public void SetPropertyObject(IPropertyKey name, object value)
-        {
-            properties.SetPropertyObject(name, value);
-        }
-        #endregion
-
-        #region IBuffTarget实现
+        #region ILevelObject实现
         LevelEngine ILevelObject.GetLevel() => Level;
         Entity? ILevelObject.GetEntity() => null;
         bool ILevelObject.Exists() => true;
@@ -347,41 +83,11 @@ namespace PVZEngine.Grids
         }
         #endregion
 
-        #region IPropertyModifyTarget实现
-        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object? value)
-        {
-            if (Definition == null)
-            {
-                value = default;
-                return false;
-            }
-            return Definition.TryGetPropertyObject(name, out value);
-        }
-        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
-        {
-            return buffs.GetModifierPropertyNames();
-        }
-        PropertyModifier[]? IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
-        {
-            return null;
-        }
-        void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
-        {
-            buffs.GetModifierItems(name, results);
-        }
-        void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
-        {
-        }
-        #endregion
-
+        #region 杂项
         public override string ToString()
         {
             return $"LawnGrid_{Lane}x{Column}";
         }
-
-        #region 事件
-        public event Action<ModelInsertion>? OnModelInsertionAdded;
-        public event Action<ModelInsertion>? OnModelInsertionRemoved;
         #endregion
 
         #region 属性
@@ -389,12 +95,6 @@ namespace PVZEngine.Grids
         public int Lane { get; set; }
         public int Column { get; set; }
         public GridDefinition Definition { get; set; }
-        private IModelInterface? modelInterface;
-        BuffList IBuffTarget.Buffs => buffs;
-        private BuffList buffs = new BuffList();
-        private Dictionary<NamespaceID, HashSet<Entity>> layerEntities = new Dictionary<NamespaceID, HashSet<Entity>>();
-        private Dictionary<Entity, HashSet<NamespaceID>> reverseLayerEntities = new Dictionary<Entity, HashSet<NamespaceID>>();
-        private PropertyBlock properties;
         #endregion 属性
     }
 }

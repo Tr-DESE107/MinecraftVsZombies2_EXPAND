@@ -120,8 +120,8 @@ namespace MVZ2.GameContent.Contraptions
                     var column = grid.Column;
                     var lane = grid.Lane;
                     Detection.OverlapGridGroundNonAlloc(level, column, lane, faction, EntityCollisionHelper.MASK_VULNERABLE, 0, detectBuffer);
-                    var x = level.GetColumnX(column) + level.GetGridWidth() * 0.5f;
-                    var z = level.GetLaneZ(lane) + level.GetGridHeight() * 0.5f;
+                    var x = level.GetColumnCenterX(column);
+                    var z = level.GetLaneCenterZ(lane);
                     var y = level.GetGroundY(x, z);
                     source.Spawn(VanillaEffectID.waterLightningParticles, new Vector3(x, y, z));
                 }

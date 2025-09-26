@@ -49,7 +49,7 @@ namespace PVZEngine.Level
         #region 序列化
         private void WriteGridsToSerializable(SerializableLevel level)
         {
-            level.grids = grids.Select(g => g.Serialize()).ToArray();
+            level.grids = grids.Select(g => g.ToSerializable()).ToArray();
         }
         private void LoadGridsFromSerializable(SerializableLevel seri)
         {
@@ -69,7 +69,7 @@ namespace PVZEngine.Level
             {
                 var grid = grids[i];
                 var seriGrid = seri.grids[i];
-                grid.LoadAuras(seriGrid);
+                grid.LoadAurasFromSerializable(seriGrid);
             }
         }
         #endregion
@@ -94,10 +94,15 @@ namespace PVZEngine.Level
             return GetLane(z - entityLaneZOffset + GetGridHeight() * 0.5f);
         }
         public float GetEntityLaneZ(int lane) => GetEntityLaneZFloat(lane);
+        public float GetLaneCenterZ(int lane) => GetLaneCenterZFloat(lane);
         public float GetLaneZ(int lane) => GetLaneZFloat(lane);
         public float GetEntityLaneZFloat(float lane)
         {
             return GetLaneZFloat(lane) + entityLaneZOffset;
+        }
+        public float GetLaneCenterZFloat(float lane)
+        {
+            return GetLaneZFloat(lane) + GetGridHeight() * 0.5f;
         }
         public float GetLaneZFloat(float lane)
         {
@@ -128,8 +133,13 @@ namespace PVZEngine.Level
             return Mathf.FloorToInt((x - GetGridLeftX()) / GetGridWidth());
         }
         public float GetEntityColumnX(int column) => GetEntityColumnXFloat(column);
+        public float GetColumnCenterX(int column) => GetColumnCenterXFloat(column);
         public float GetColumnX(int column) => GetColumnXFloat(column);
         public float GetEntityColumnXFloat(float column)
+        {
+            return GetColumnXFloat(column) + GetGridWidth() * 0.5f;
+        }
+        public float GetColumnCenterXFloat(float column)
         {
             return GetColumnXFloat(column) + GetGridWidth() * 0.5f;
         }

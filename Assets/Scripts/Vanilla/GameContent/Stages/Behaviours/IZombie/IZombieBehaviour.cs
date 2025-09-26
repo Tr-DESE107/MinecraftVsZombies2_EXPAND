@@ -176,7 +176,7 @@ namespace MVZ2.GameContent.Stages
             for (int lane = 0; lane < map.Lanes; lane++)
             {
                 var x = level.GetColumnX(map.Columns);
-                var z = level.GetLaneZ(lane) + level.GetGridHeight() * 0.5f;
+                var z = level.GetLaneCenterZ(lane);
                 var y = level.GetGroundY(x, z);
                 var pos = new Vector3(x, y, z);
                 level.Spawn(VanillaEffectID.redline, pos, null);
