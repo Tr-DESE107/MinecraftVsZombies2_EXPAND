@@ -23,11 +23,14 @@ namespace PVZEngine.Grids
                 buffs = buffs.ToSerializable()
             };
         }
-        public void LoadFromSerializable(SerializableGrid seri, LevelEngine level)
+        public void InitFromSerializable(SerializableGrid seri)
         {
             properties = PropertyBlock.FromSerializable(seri.properties, this);
-            buffs = BuffList.FromSerializable(seri.buffs, level, this);
+            buffs = BuffList.FromSerializable(seri.buffs, Level, this);
             InitBuffList();
+        }
+        public void LoadFromSerializable(SerializableGrid seri)
+        {
             layerEntities.Clear();
             reverseLayerEntities.Clear();
 #pragma warning disable CS0612 // 类型或成员已过时
@@ -39,7 +42,7 @@ namespace PVZEngine.Grids
                     var entityHashSet = new HashSet<Entity>();
                     foreach (var entityID in pair.Value)
                     {
-                        var entity = level.FindEntityByID(entityID);
+                        var entity = Level.FindEntityByID(entityID);
                         if (entity == null)
                             continue;
 
@@ -54,7 +57,7 @@ namespace PVZEngine.Grids
                 foreach (var pair in seri.layerEntities)
                 {
                     var layer = NamespaceID.ParseStrict(pair.Key);
-                    var entity = level.FindEntityByID(pair.Value);
+                    var entity = Level.FindEntityByID(pair.Value);
                     if (entity == null)
                         continue;
 
@@ -65,12 +68,12 @@ namespace PVZEngine.Grids
                 }
             }
 #pragma warning restore CS0612 // 类型或成员已过时
-            properties.UpdateAllModifiedProperties(false);
-        }
-        public void LoadAurasFromSerializable(SerializableGrid seri)
-        {
+
+            // 光环
             if (seri.buffs != null)
                 buffs.LoadAuras(seri.buffs, Level);
+            // 加载后更新
+            properties.UpdateAllModifiedProperties(false);
         }
         #endregion
     }

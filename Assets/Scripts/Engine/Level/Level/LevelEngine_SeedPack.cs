@@ -172,10 +172,12 @@ namespace PVZEngine.Level
         #region 序列化
         private void WriteSeedPacksToSerializable(SerializableLevel seri)
         {
+            seri.currentSeedPackID = currentSeedPackID;
             seri.seedPacks = seedPacks.Select(g => g != null ? g.Serialize() : null).ToArray();
         }
         private void CreateSeedPacksFromSerializable(SerializableLevel seri)
         {
+            currentSeedPackID = seri.currentSeedPackID;
             seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.Deserialize(g, this) : null).ToArray();
         }
         private void ReadSeedPacksFromSerializable(SerializableLevel seri)
