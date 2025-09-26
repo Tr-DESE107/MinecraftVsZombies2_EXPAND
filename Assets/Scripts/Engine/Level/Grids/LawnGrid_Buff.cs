@@ -48,6 +48,18 @@ namespace PVZEngine.Grids
         }
         #endregion
 
+        #region 序列化
+        private void WriteBuffsToSerializable(SerializableGrid seri)
+        {
+            seri.buffs = buffs.ToSerializable();
+        }
+        private void LoadBuffsFromSerializable(SerializableGrid seri)
+        {
+            buffs = BuffList.FromSerializable(seri.buffs, Level, this);
+            InitBuffList();
+        }
+        #endregion
+
         #region 事件
         public event Action<ModelInsertion>? OnModelInsertionAdded;
         public event Action<ModelInsertion>? OnModelInsertionRemoved;

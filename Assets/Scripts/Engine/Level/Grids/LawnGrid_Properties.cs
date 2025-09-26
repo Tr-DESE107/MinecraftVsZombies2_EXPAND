@@ -50,6 +50,17 @@ namespace PVZEngine.Grids
         }
         #endregion
 
+        #region 序列化
+        private void WritePropertiesToSerializable(SerializableGrid seri)
+        {
+            seri.properties = properties.ToSerializable();
+        }
+        private void LoadPropertiesFromSerializable(SerializableGrid seri)
+        {
+            properties = PropertyBlock.FromSerializable(seri.properties, this);
+        }
+        #endregion
+
         #region 属性
         private PropertyBlock properties;
         #endregion 属性

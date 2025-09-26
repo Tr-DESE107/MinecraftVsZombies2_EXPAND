@@ -148,6 +148,53 @@ namespace PVZEngine.Grids
         }
         #endregion
 
+        #region 序列化
+        private void WriteLayersToSerializable(SerializableGrid seri)
+        {
+            seri.layerEntityLists = layerEntities.ToDictionary(p => p.Key.ToString(), p => p.Value.Select(e => e.ID).ToArray());
+        }
+        private void LoadLayersFromSerializable(SerializableGrid seri)
+        {
+            layerEntities.Clear();
+            reverseLayerEntities.Clear();
+#pragma warning disable CS0612 // 类型或成员已过时
+            if (seri.layerEntityLists != null)
+            {
+                foreach (var pair in seri.layerEntityLists)
+                {
+                    var layer = NamespaceID.ParseStrict(pair.Key);
+                    var entityHashSet = new HashSet<Entity>();
+                    foreach (var entityID in pair.Value)
+                    {
+                        var entity = Level.FindEntityByID(entityID);
+                        if (entity == null)
+                            continue;
+
+                        entityHashSet.Add(entity);
+                        AddReversedLayerEntity(layer, entity);
+                    }
+                    layerEntities.Add(layer, entityHashSet);
+                }
+            }
+            else if (seri.layerEntities != null)
+            {
+                foreach (var pair in seri.layerEntities)
+                {
+                    var layer = NamespaceID.ParseStrict(pair.Key);
+                    var entity = Level.FindEntityByID(pair.Value);
+                    if (entity == null)
+                        continue;
+
+                    var layerHashSet = new HashSet<NamespaceID>() { layer };
+                    var entityHashSet = new HashSet<Entity>() { entity };
+                    layerEntities.Add(layer, entityHashSet);
+                    reverseLayerEntities.Add(entity, layerHashSet);
+                }
+            }
+#pragma warning restore CS0612 // 类型或成员已过时
+        }
+        #endregion
+
         #region 属性
         private Dictionary<NamespaceID, HashSet<Entity>> layerEntities = new Dictionary<NamespaceID, HashSet<Entity>>();
         private Dictionary<Entity, HashSet<NamespaceID>> reverseLayerEntities = new Dictionary<Entity, HashSet<NamespaceID>>();
