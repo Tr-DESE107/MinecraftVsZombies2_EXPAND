@@ -37,8 +37,8 @@ namespace PVZEngine.Level
         private void WriteEntitiesToSerializable(SerializableLevel seri)
         {
             seri.currentEntityID = currentEntityID;
-            seri.entities = entities.Values.Select(e => e.Serialize()).ToList();
-            seri.entityTrash = entityTrash.Values.Select(e => e.Serialize()).ToList();
+            seri.entities = entities.Values.Select(e => e.ToSerializable()).ToList();
+            seri.entityTrash = entityTrash.Values.Select(e => e.ToSerializable()).ToList();
         }
         private void CreateEntitiesFromSerializable(SerializableLevel seri)
         {
@@ -47,7 +47,7 @@ namespace PVZEngine.Level
             {
                 foreach (var ent in seri.entities)
                 {
-                    var entity = Entity.CreateDeserializingEntity(ent, this);
+                    var entity = Entity.CreateFromSerializable(ent, this);
                     if (entity != null)
                     {
                         entities.Add(ent.id, entity);
@@ -58,7 +58,7 @@ namespace PVZEngine.Level
             {
                 foreach (var ent in seri.entityTrash)
                 {
-                    var entity = Entity.CreateDeserializingEntity(ent, this);
+                    var entity = Entity.CreateFromSerializable(ent, this);
                     if (entity != null)
                         entityTrash.Add(ent.id, entity);
                 }
@@ -73,7 +73,7 @@ namespace PVZEngine.Level
                     var seriEnt = seri.entities[i];
                     var id = seriEnt.id;
                     var entity = entities[id];
-                    entity.ApplyDeserialize(seriEnt);
+                    entity.LoadFromSerializable(seriEnt);
                     IncreaseLevelObjectReference(entity);
                 }
             }
@@ -83,7 +83,7 @@ namespace PVZEngine.Level
                 {
                     var seriEnt = seri.entityTrash[i];
                     var id = seriEnt.id;
-                    entityTrash[id].ApplyDeserialize(seriEnt);
+                    entityTrash[id].LoadFromSerializable(seriEnt);
                 }
             }
         }
