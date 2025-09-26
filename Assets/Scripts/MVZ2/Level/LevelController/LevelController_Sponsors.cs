@@ -35,6 +35,10 @@ namespace MVZ2.Level
             {
                 ShowMoonlightSensorSponsorName(entity);
             }
+            else if (entity.IsEntityOf(VanillaContraptionID.gunpowderBarrel))
+            {
+                ShowGunpowderBarrelSensorSponsorName(entity);
+            }
         }
         private void ShowFurnaceSponsorName(Entity furnace)
         {
@@ -50,6 +54,17 @@ namespace MVZ2.Level
         private void ShowMoonlightSensorSponsorName(Entity sensor)
         {
             var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Sensor.TYPE, SponsorPlans.Sensor.MOONLIGHT_SENSOR);
+            if (names.Length <= 0)
+                return;
+            sensor.Spawn(VanillaEffectID.floatingText, sensor.GetCenter(), rng.Next())?.Let(e =>
+            {
+                var name = names.Random(e.RNG);
+                FloatingText.SetText(e, name);
+            });
+        }
+        private void ShowGunpowderBarrelSensorSponsorName(Entity sensor)
+        {
+            var names = Main.SponsorManager.GetSponsorPlanNames(SponsorPlans.Furnace.TYPE, SponsorPlans.Furnace.GUNPOWDER_BARREL);
             if (names.Length <= 0)
                 return;
             sensor.Spawn(VanillaEffectID.floatingText, sensor.GetCenter(), rng.Next())?.Let(e =>
