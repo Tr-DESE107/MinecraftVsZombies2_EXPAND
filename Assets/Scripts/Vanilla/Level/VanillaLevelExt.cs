@@ -920,13 +920,13 @@ namespace MVZ2.Vanilla.Level
                             }
                         }
                     }
-                    if (isPossible)
-                    {
-                        possible.Add(grid);
-                    }
                     if (isPrefered)
                     {
                         preferred.Add(grid);
+                    }
+                    else if (isPossible) // 如果是优先选择的地格，则不可以出现在所有可能的地格中，否则可能会导致两个障碍物生成在一起。
+                    {
+                        possible.Add(grid);
                     }
                 }
             }
