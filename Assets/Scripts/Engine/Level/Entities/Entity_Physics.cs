@@ -112,6 +112,16 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 序列化
+        private void LoadPhysicsFromSerializable(SerializableEntity seri)
+        {
+            PreviousPosition = seri.previousPosition;
+            Position = seri.position;
+            IsOnGround = seri.isOnGround;
+            Velocity = seri.velocity;
+        }
+        #endregion
+
         #region 属性字段
         public Vector3 PreviousPosition { get; private set; }
         public Vector3 Position

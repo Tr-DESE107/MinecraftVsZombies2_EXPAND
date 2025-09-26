@@ -80,6 +80,36 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 序列化
+        private void LoadGridsFromSerializable(SerializableEntity seri)
+        {
+#pragma warning disable CS0612 // 类型或成员已过时
+            if (seri.takenGridIndexes != null)
+            {
+                foreach (var index in seri.takenGridIndexes)
+                {
+                    var grid = Level.GetGrid(index);
+                    if (grid == null)
+                        continue;
+                    takenGrids.Add(grid);
+                }
+            }
+            else if (seri.takenGrids != null)
+            {
+                foreach (var info in seri.takenGrids)
+                {
+                    if (info == null || info.layers == null)
+                        continue;
+                    var grid = Level.GetGrid(info.grid);
+                    if (grid == null)
+                        continue;
+                    takenGrids.Add(grid);
+                }
+            }
+#pragma warning restore CS0612 // 类型或成员已过时
+        }
+        #endregion
+
         #region 属性字段
         private List<LawnGrid> takenGrids = new List<LawnGrid>();
         #endregion

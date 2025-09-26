@@ -16,6 +16,7 @@ namespace PVZEngine.Entities
     {
         public long id;
         public long time;
+        [Obsolete]
         public int type;
         public int state;
         public long target;

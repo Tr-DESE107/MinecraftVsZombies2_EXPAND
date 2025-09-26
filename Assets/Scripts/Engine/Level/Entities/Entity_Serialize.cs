@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using PVZEngine.Armors;
 using PVZEngine.Base;
-using PVZEngine.Buffs;
 using PVZEngine.Level;
 using Tools;
 using UnityEngine;
@@ -21,7 +20,6 @@ namespace PVZEngine.Entities
             seri.time = time;
             seri.initSeed = InitSeed;
             seri.spawnerSource = SpawnerReference;
-            seri.type = Type;
             seri.state = State;
             seri.rng = RNG.ToSerializable();
             seri.dropRng = DropRNG.ToSerializable();
@@ -72,105 +70,62 @@ namespace PVZEngine.Entities
                 Debug.LogException(exception);
                 return null;
             }
-            var entity = new Entity(level, seri.type, seri.id, seri.spawnerSource);
-            entity.Definition = definition;
-
-            // 先于光环加载，不然找不到Buff
-            entity.buffs = BuffList.FromSerializable(seri.buffs, level, entity);
-            entity.InitBuffEvents();
+            var entity = new Entity(level, seri.id, definition, seri.spawnerSource);
+            entity.InitFromSerializable(seri);
             return entity;
         }
-        public void LoadFromSerializable(SerializableEntity seri)
+        private void InitFromSerializable(SerializableEntity seri)
         {
-            time = seri.time;
-            InitSeed = seri.initSeed;
-            RNG = seri.rng != null ? RandomGenerator.FromSerializable(seri.rng) : new RandomGenerator(InitSeed);
-            DropRNG = seri.dropRng != null ? RandomGenerator.FromSerializable(seri.dropRng) : new RandomGenerator(InitSeed);
             State = seri.state;
-            Target = Level.FindEntityByID(seri.target);
-
-            ModelID = seri.modelID ?? Definition.GetID();
-            Parent = Level.FindEntityByID(seri.parent);
-            PreviousPosition = seri.previousPosition;
-            Position = seri.position;
-            Velocity = seri.velocity;
-            CollisionMaskHostile = seri.collisionMaskHostile;
-            CollisionMaskFriendly = seri.collisionMaskFriendly;
             RenderRotation = seri.renderRotation;
             takenConveyorSeeds = seri.takenConveyorSeeds.ToDictionary(p => NamespaceID.ParseStrict(p.Key), p => p.Value);
             Timeout = seri.timeout;
+            time = seri.time;
 
-            // 护甲
-            armorDict.Clear();
-            if (seri.armors != null)
-            {
-                foreach (var pair in seri.armors)
-                {
-                    if (pair.Value == null)
-                        continue;
-                    var slot = NamespaceID.ParseStrict(pair.Key);
-                    var armor = Armor.Deserialize(pair.Value, this);
-                    if (armor == null)
-                        continue;
-                    armorDict.Add(slot, armor);
-                }
-            }
-
+            // 生命
             IsDead = seri.isDead;
             Health = seri.health;
-            IsOnGround = seri.isOnGround;
-            properties = PropertyBlock.FromSerializable(seri.properties, this);
 
+            // 随机数
+            InitSeed = seri.initSeed;
+            RNG = seri.rng != null ? RandomGenerator.FromSerializable(seri.rng) : new RandomGenerator(InitSeed);
+            DropRNG = seri.dropRng != null ? RandomGenerator.FromSerializable(seri.dropRng) : new RandomGenerator(InitSeed);
+
+            // 增益
+            LoadBuffsFromSerializable(seri);
+            // 模型
+            LoadModelFromSerializable(seri);
+            // 物理
+            LoadPhysicsFromSerializable(seri);
+            // 碰撞
+            LoadCollisionFromSerializable(seri);
+            // 护甲
+            LoadArmorsFromSerializable(seri);
+            // 属性
+            LoadPropertiesFromSerializable(seri);
+            // 地格
+            LoadGridsFromSerializable(seri);
+        }
+        public void LoadFromSerializable(SerializableEntity seri)
+        {
+            // 其他实体引用
+            LoadEntityReferencesFromSerializable(seri);
+            // 光环
+            LoadAurasFromSerializable(seri);
+            // 加载后更新
+            UpdateAfterLoadFinished();
+        }
+        private void LoadEntityReferencesFromSerializable(SerializableEntity seri)
+        {
+            Parent = Level.FindEntityByID(seri.parent);
+            Target = Level.FindEntityByID(seri.target);
             children.AddRange(seri.children.Select(e => Level.FindEntityByID(e)).OfType<Entity>());
-#pragma warning disable CS0612 // 类型或成员已过时
-            if (seri.takenGridIndexes != null)
-            {
-                foreach (var index in seri.takenGridIndexes)
-                {
-                    var grid = Level.GetGrid(index);
-                    if (grid == null)
-                        continue;
-                    takenGrids.Add(grid);
-                }
-            }
-            else if (seri.takenGrids != null)
-            {
-                foreach (var info in seri.takenGrids)
-                {
-                    if (info == null || info.layers == null)
-                        continue;
-                    var grid = Level.GetGrid(info.grid);
-                    if (grid == null)
-                        continue;
-                    takenGrids.Add(grid);
-                }
-            }
-#pragma warning restore CS0612 // 类型或成员已过时
-            LoadAuras(seri);
-
+        }
+        private void UpdateAfterLoadFinished()
+        {
             UpdateModifierCaches();
             UpdateAllModifiedProperties(false);
             Cache.UpdateAll(this);
-        }
-        public void LoadAuras(SerializableEntity seri)
-        {
-            if (seri.buffs != null)
-                buffs.LoadAuras(seri.buffs, Level);
-
-            CreateAuraEffects();
-            if (seri.auras != null)
-                auras.LoadFromSerializable(Level, seri.auras);
-
-            foreach (var pair in armorDict)
-            {
-                var armor = pair.Value;
-                if (armor == null || seri.armors == null)
-                    continue;
-                var seriArmor = seri.armors.Values.FirstOrDefault(a => a.slot == pair.Key);
-                if (seriArmor == null)
-                    continue;
-                armor.LoadAuras(seriArmor);
-            }
         }
         #endregion
     }

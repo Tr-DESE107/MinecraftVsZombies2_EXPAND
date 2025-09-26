@@ -16,32 +16,34 @@ namespace PVZEngine.Entities
     public sealed partial class Entity : IAuraSource, IModifierContainer, IPropertyModifyTarget, ILevelSourceTarget, IModeledBuffTarget
     {
         #region 构造器
-        public Entity(LevelEngine level, long id, ILevelSourceReference? spawnerSource, EntityDefinition definition, int seed) : this(level, definition.Type, id, spawnerSource)
+        public Entity(LevelEngine level, long id, ILevelSourceReference? spawnerSource, EntityDefinition definition, int seed) : this(level, id, definition, spawnerSource)
         {
-            Definition = definition;
-            ModelID = definition.GetModelID();
             InitSeed = seed;
             RNG = new RandomGenerator(seed);
             DropRNG = new RandomGenerator(RNG.Next());
+
+            InitBuffEvents();
             CreateAuraEffects();
             UpdateModifierCaches();
             Cache.UpdateAll(this);
         }
-        private Entity(LevelEngine level, int type, long id, ILevelSourceReference? spawnerSource)
+        private Entity(LevelEngine level, long id, EntityDefinition definition, ILevelSourceReference? spawnerSource)
         {
-            Definition = null!;
-            ModelID = null!;
-            RNG = null!;
-            DropRNG = null!;
-
-            Level = level;
-            Type = type;
-            TypeCollisionFlag = EntityCollisionHelper.GetTypeMask(type);
-            ID = id;
-            SpawnerReference = spawnerSource;
-            InitBuffEvents();
             Cache = new EntityCache();
             properties = new PropertyBlock(this);
+
+            Level = level;
+
+            ID = id;
+            SpawnerReference = spawnerSource;
+
+            Definition = definition;
+            ModelID = definition.GetModelID();
+            Type = definition.Type;
+            TypeCollisionFlag = EntityCollisionHelper.GetTypeMask(Type);
+
+            RNG = null!;
+            DropRNG = null!;
         }
         #endregion
 
@@ -293,7 +295,6 @@ namespace PVZEngine.Entities
         public RandomGenerator DropRNG { get; private set; }
         public bool Removed { get; private set; }
         public EntityDefinition Definition { get; private set; }
-        public NamespaceID ModelID { get; private set; }
         public ILevelSourceReference? SpawnerReference { get; private set; }
         public Entity? Parent { get; private set; }
         public LevelEngine Level { get; private set; }

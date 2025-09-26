@@ -24,6 +24,14 @@ namespace PVZEngine.Entities
         public BuffReference GetBuffReference(Buff buff) => new BuffReferenceEntity(ID, buff.ID);
         #endregion
 
+        #region 序列化
+        private void LoadBuffsFromSerializable(SerializableEntity seri)
+        {
+            buffs = BuffList.FromSerializable(seri.buffs, Level, this);
+            InitBuffEvents();
+        }
+        #endregion
+
         #region 事件回调
         private void OnBuffAddedCallback(Buff buff)
         {

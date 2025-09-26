@@ -171,6 +171,26 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 序列化
+        private void LoadArmorsFromSerializable(SerializableEntity seri)
+        {
+            armorDict.Clear();
+            if (seri.armors != null)
+            {
+                foreach (var pair in seri.armors)
+                {
+                    if (pair.Value == null)
+                        continue;
+                    var slot = NamespaceID.ParseStrict(pair.Key);
+                    var armor = Armor.Deserialize(pair.Value, this);
+                    if (armor == null)
+                        continue;
+                    armorDict.Add(slot, armor);
+                }
+            }
+        }
+        #endregion
+
         #region 事件
         public event Action<NamespaceID, Armor>? OnEquipArmor;
         public event Action<NamespaceID, Armor>? OnRemoveArmor;

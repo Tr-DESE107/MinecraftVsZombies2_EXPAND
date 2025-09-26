@@ -331,8 +331,6 @@ namespace PVZEngine.Level
             level.CreateConveyorFromSerializable(seri);
             // 加载所有实体。
             level.CreateEntitiesFromSerializable(seri);
-            // 加载所有网格。
-            level.LoadGridsFromSerializable(seri);
             // 加载所有BUFF。
             level.buffs = BuffList.FromSerializable(seri.buffs, level, level);
             level.buffs.OnPropertyChanged += level.UpdateBuffedProperty;
@@ -341,7 +339,11 @@ namespace PVZEngine.Level
             {
                 level.IncreaseLevelObjectReference(buff);
             }
+            // 所有实体、种子包和BUFF都已加载完毕。
 
+
+            // 加载所有网格。
+            level.LoadGridsFromSerializable(seri);
             // 加载所有种子包、实体、BUFF的详细信息。
             // 因为有光环这种东西的存在，可能会引用buff，所以需要在buff加载完之后加载。
             level.ReadSeedPacksFromSerializable(seri);
@@ -349,7 +351,6 @@ namespace PVZEngine.Level
             level.ReadEntitiesFromSerializable(seri);
             // 加载所有网格的属性，需要引用实体。
             level.ReadGridsFromSerializable(seri);
-            // 所有实体、种子包和BUFF都已加载完毕。
             if (seri.buffs != null)
                 level.buffs.LoadAuras(seri.buffs, level);
 

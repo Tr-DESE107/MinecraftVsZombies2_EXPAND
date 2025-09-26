@@ -99,6 +99,13 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 序列化
+        private void LoadPropertiesFromSerializable(SerializableEntity seri)
+        {
+            properties = PropertyBlock.FromSerializable(seri.properties, this);
+        }
+        #endregion
+
         #region 事件
         public event Action<IPropertyKey, object?, object?>? PostPropertyChanged;
         #endregion

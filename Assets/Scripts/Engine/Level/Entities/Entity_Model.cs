@@ -23,11 +23,19 @@ namespace PVZEngine.Entities
         }
         #endregion
 
+        #region 序列化
+        private void LoadModelFromSerializable(SerializableEntity seri)
+        {
+            ModelID = seri.modelID ?? Definition.GetID();
+        }
+        #endregion
+
         #region 事件
         public event Action<NamespaceID>? OnChangeModel;
         #endregion
 
         #region 属性字段
+        public NamespaceID ModelID { get; private set; }
         private IModelInterface? modelInterface;
         #endregion
     }
