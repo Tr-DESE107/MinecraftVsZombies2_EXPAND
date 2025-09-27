@@ -66,7 +66,7 @@ namespace PVZEngine.Grids
         #endregion
 
         #region 属性
-        BuffList IBuffTarget.Buffs => buffs;
+        IBuffList IBuffTarget.Buffs => buffs;
         private BuffList buffs = new BuffList();
         #endregion 属性
     }

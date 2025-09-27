@@ -229,7 +229,7 @@ namespace PVZEngine.Armors
         public NamespaceID Slot { get; set; }
         public ArmorDefinition Definition { get; private set; }
         public float Health { get; set; }
-        BuffList IBuffTarget.Buffs => buffs;
+        IBuffList IBuffTarget.Buffs => buffs;
         private BuffList buffs = new BuffList();
         private PropertyBlock properties;
         private AuraEffectList auras = new AuraEffectList();

@@ -55,7 +55,7 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 属性字段
-        BuffList IBuffTarget.Buffs => buffs;
+        IBuffList IBuffTarget.Buffs => buffs;
         private BuffList buffs = new BuffList();
         #endregion
     }

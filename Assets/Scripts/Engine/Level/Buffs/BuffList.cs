@@ -9,7 +9,7 @@ using PVZEngine.Modifiers;
 
 namespace PVZEngine.Buffs
 {
-    public class BuffList : IEnumerable<Buff>
+    public class BuffList : IEnumerable<Buff>, IBuffList
     {
         #region 增益操作
         public bool AddBuff(Buff buff, IBuffTarget target)
@@ -352,6 +352,13 @@ namespace PVZEngine.Buffs
             {
                 AddModifierCaches(buff);
             }
+        }
+        #endregion
+
+        #region 插入模型
+        public ModelInsertion[] GetModelInsertions()
+        {
+            return buffs.SelectMany(b => b.GetModelInsertions()).ToArray();
         }
         #endregion
 

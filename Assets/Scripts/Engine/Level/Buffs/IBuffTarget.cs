@@ -6,7 +6,7 @@ namespace PVZEngine.Buffs
 {
     public interface IBuffTarget : ILevelObject
     {
-        BuffList Buffs { get; }
+        IBuffList Buffs { get; }
         BuffReference GetBuffReference(Buff buff);
     }
 }
