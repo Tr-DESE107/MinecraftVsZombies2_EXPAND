@@ -173,12 +173,12 @@ namespace PVZEngine.Level
         private void WriteSeedPacksToSerializable(SerializableLevel seri)
         {
             seri.currentSeedPackID = currentSeedPackID;
-            seri.seedPacks = seedPacks.Select(g => g != null ? g.Serialize() : null).ToArray();
+            seri.seedPacks = seedPacks.Select(g => g != null ? g.ToSerializable() : null).ToArray();
         }
         private void CreateSeedPacksFromSerializable(SerializableLevel seri)
         {
             currentSeedPackID = seri.currentSeedPackID;
-            seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.Deserialize(g, this) : null).ToArray();
+            seedPacks = seri.seedPacks.Select(g => g != null ? ClassicSeedPack.CreateFromSerializable(g, this) : null).ToArray();
         }
         private void ReadSeedPacksFromSerializable(SerializableLevel seri)
         {
@@ -189,7 +189,7 @@ namespace PVZEngine.Level
                 var seriSeed = seri.seedPacks.FirstOrDefault(s => s != null && s.id == seed.ID);
                 if (seriSeed == null)
                     continue;
-                seed.ApplyDeserializedProperties(this, seriSeed);
+                seed.LoadFromSerializable(this, seriSeed);
                 IncreaseLevelObjectReference(seed);
             }
         }

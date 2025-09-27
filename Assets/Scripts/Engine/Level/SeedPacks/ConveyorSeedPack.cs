@@ -24,18 +24,20 @@ namespace PVZEngine.SeedPacks
             return new BuffReferenceConveyorSeedPack(ID, buff.ID);
         }
         #region 序列化
-        public SerializableConveyorSeedPack Serialize()
+        public SerializableConveyorSeedPack ToSerializable()
         {
             var seri = new SerializableConveyorSeedPack();
-            ApplySerializableProperties(seri);
+            SaveToSerializable(seri);
             return seri;
         }
-        public static ConveyorSeedPack? Deserialize(SerializableConveyorSeedPack seri, LevelEngine level)
+        public static ConveyorSeedPack? CreateFromSerializable(SerializableConveyorSeedPack seri, LevelEngine level)
         {
             var definition = level.Content.GetSeedDefinition(seri.seedID);
             if (definition == null)
                 return null;
-            return new ConveyorSeedPack(level, definition, seri.id);
+            var seedPack = new ConveyorSeedPack(level, definition, seri.id);
+            seedPack.InitFromSerializable(seri);
+            return seedPack;
         }
         #endregion
         public override string ToString()

@@ -36,18 +36,20 @@ namespace PVZEngine.SeedPacks
             }
         }
         #region 序列化
-        public SerializableClassicSeedPack Serialize()
+        public SerializableClassicSeedPack ToSerializable()
         {
             var seri = new SerializableClassicSeedPack();
-            ApplySerializableProperties(seri);
+            SaveToSerializable(seri);
             return seri;
         }
-        public static ClassicSeedPack? Deserialize(SerializableClassicSeedPack seri, LevelEngine level)
+        public static ClassicSeedPack? CreateFromSerializable(SerializableClassicSeedPack seri, LevelEngine level)
         {
             var definition = level.Content.GetSeedDefinition(seri.seedID);
             if (definition == null)
                 return null;
-            return new ClassicSeedPack(level, definition, seri.id);
+            var seedPack = new ClassicSeedPack(level, definition, seri.id);
+            seedPack.InitFromSerializable(seri);
+            return seedPack;
         }
         #endregion
         public override string ToString()

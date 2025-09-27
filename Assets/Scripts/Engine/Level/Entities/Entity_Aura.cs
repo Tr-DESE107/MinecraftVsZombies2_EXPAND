@@ -2,13 +2,10 @@
 
 using System.Linq;
 using PVZEngine.Auras;
-using PVZEngine.Buffs;
-using PVZEngine.Level;
-using PVZEngine.Modifiers;
 
 namespace PVZEngine.Entities
 {
-    public sealed partial class Entity : IAuraSource, IModifierContainer, IPropertyModifyTarget, ILevelSourceTarget, IModeledBuffTarget
+    public partial class Entity
     {
         #region 光环
         public AuraEffect GetAuraEffect<T>() where T : AuraEffectDefinition
