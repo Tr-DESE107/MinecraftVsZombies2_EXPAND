@@ -2785,7 +2785,7 @@
         </effect>
         <effect id="vortex">
             <properties>
-                <string name="mvz2:sortingLayer" value="Pool" />
+                <string name="mvz2:sortingLayer" value="GroundMasked" />
                 <int name="mvz2:sortingOrder" value="100" />
                 <bool name="mvz2:decorative" value="false" />
                 <int name="mvz2:maxTimeout" value="30" />
@@ -3147,7 +3147,7 @@
                 <behaviour operator="add" id="mvz2:water_stain_blown"/>
             </behaviours>
             <properties>
-                <string name="mvz2:sortingLayer" value="Pool" />
+                <string name="mvz2:sortingLayer" value="GroundMasked" />
                 <int name="mvz2:sortingOrder" value="100" />
                 <int name="mvz2:maxTimeout" value="600" />
                 <vector3 name="mvz2:size" x="32" y="8" z="32" />

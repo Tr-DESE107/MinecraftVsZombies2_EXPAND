@@ -5,7 +5,7 @@ namespace MVZ2Logic.Models
     public static class SortingLayers
     {
         public const string background = "Background";
-        public const string pool = "Pool";
+        public const string groundMasked = "GroundMasked";
         public const string night = "Night";
         public const string grid = "Grid";
         public const string shadow = "Shadow";

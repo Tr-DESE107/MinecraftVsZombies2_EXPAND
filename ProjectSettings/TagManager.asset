@@ -41,7 +41,7 @@ TagManager:
   - name: Background
     uniqueID: 2237204161
     locked: 0
-  - name: Pool
+  - name: GroundMasked
     uniqueID: 2595234015
     locked: 0
   - name: Receivers

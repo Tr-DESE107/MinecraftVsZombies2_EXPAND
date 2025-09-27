@@ -951,7 +951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2652443272416795725, guid: 6e5e04db548a4f948a9b6d8821a2cbe6, type: 3}
       propertyPath: m_SortingLayer
-      value: -7
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 2652443272416795725, guid: 6e5e04db548a4f948a9b6d8821a2cbe6, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1071,10 +1071,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2788884118917599212}
     m_Modifications:
-    - target: {fileID: 2652443272416795725, guid: 6e5e04db548a4f948a9b6d8821a2cbe6, type: 3}
-      propertyPath: m_SortingLayer
-      value: -7
-      objectReference: {fileID: 0}
     - target: {fileID: 2961347322520547227, guid: 6e5e04db548a4f948a9b6d8821a2cbe6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

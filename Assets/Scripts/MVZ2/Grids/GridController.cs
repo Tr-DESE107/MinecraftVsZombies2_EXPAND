@@ -5,6 +5,7 @@ using MVZ2.HeldItems;
 using MVZ2.Level;
 using MVZ2.Managers;
 using MVZ2.Models;
+using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
 using MVZ2Logic.Models;
@@ -27,7 +28,9 @@ namespace MVZ2.Grids
         {
             holdStreakHandler.UpdateHoldAndStreak();
             if (model.Exists())
+            {
                 model.UpdateFixed();
+            }
         }
         public void UpdateFrame(float deltaTime)
         {
@@ -35,6 +38,11 @@ namespace MVZ2.Grids
             {
                 model.UpdateFrame(deltaTime);
                 model.UpdateAnimators(deltaTime);
+                if (model is EntityModel entityModel && grid != null)
+                {
+                    entityModel.SortingLayerName = grid.GetSortingLayer();
+                    entityModel.SortingOrder = grid.GetSortingOrder();
+                }
             }
         }
         public void Init(GridInitData data)
@@ -55,13 +63,6 @@ namespace MVZ2.Grids
                 Destroy(model.gameObject);
             }
             model = builder.Build(modelRoot);
-            if (model.Exists())
-            {
-                if (model is EntityModel entityModel)
-                {
-                    entityModel.SortingLayerName = SortingLayers.grid;
-                }
-            }
         }
         public Model? GetModel()
         {
@@ -179,6 +180,7 @@ namespace MVZ2.Grids
             if (seri.model != null && model.Exists())
             {
                 model.LoadFromSerializable(seri.model);
+                model.UpdateFrame(0);
                 UpdateModelInsertions();
             }
         }
