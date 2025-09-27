@@ -1151,6 +1151,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17b5db58744a62b40aa838a035741a85
+    m_Address: mvz2:entity/contraption/Eradicator
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 17f5395d50f99fb4db1fd94d850e5eba
     m_Address: mvz2:damage/small_hit2
     m_ReadOnly: 0
@@ -1459,6 +1466,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f71764d951b29f4b92dd2f546c131d2
+    m_Address: mvz2:mobile_blueprint/Eradicator
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f79614fcb97c93488cfbb1f01cd6ec4
     m_Address: mvz2:achievements/mesmerised_matchup
     m_ReadOnly: 0
@@ -1675,6 +1689,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 235a1574b20a5384c89fef0fdc6558c6
+    m_Address: mvz2:enemy/EXPAND/MindElite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23645a3b80625764cbb9c90ed96f0024
     m_Address: mvz2:ui/level/mobile/energy_slot
@@ -8869,6 +8890,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2e96058c96b6ec44a4ef62502b72388
+    m_Address: mvz2:entity/enemy/MindElite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c321612661c274844b82586aba232f9f
     m_Address: mvz2:characters/crazy_villager
     m_ReadOnly: 0
@@ -11017,6 +11045,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f351fd25bfb08f5488840ebdbfc23a63
+    m_Address: mvz2:contraption/EXPAND/Eradicator
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f45a057d7f3b72d4883d7d18d28ea03a
     m_Address: mvz2:ui/level/mobile/card_command_block_mobile
