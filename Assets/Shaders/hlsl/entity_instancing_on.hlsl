@@ -12,7 +12,7 @@
 #if DEPTH_TEST
 #include "depth_test.hlsl"
 #endif
-
+        
 #if CIRCLE_TILED
 #include "circle_tile.hlsl"
 #endif
@@ -20,46 +20,51 @@
 struct appdata_entity
 {
     float4 vertex : POSITION;
-    float4 color : COLOR;
+    float4 color : COLOR0;
     float2 uv : TEXCOORD0;
+    UNITY_VERTEX_INPUT_INSTANCE_ID
 };
 
 struct v2f_entity
 {
     float4 vertex : SV_POSITION;
-    float4 color : COLOR;
+    float4 color : COLOR0;
     float2 uv : TEXCOORD0;
     float4 world : TEXCOORD1;
     float2 levelUV : TEXCOORD2;
     float2 noiseUV : TEXCOORD3;
+    UNITY_VERTEX_INPUT_INSTANCE_ID 
 };
+
 sampler2D _MainTex;
 float4 _MainTex_ST;
-float4 _Color;
-half4 _ColorOffset;
-float3 _HSVOffset;
-int _Grayscale;
-half3 _GrayscaleFactor;
+UNITY_INSTANCING_BUFFER_START(Props)
+UNITY_DEFINE_INSTANCED_PROP(float4, _Color)
+UNITY_DEFINE_INSTANCED_PROP(half4, _ColorOffset)
+UNITY_DEFINE_INSTANCED_PROP(float3, _HSVOffset)
+UNITY_DEFINE_INSTANCED_PROP(int, _Grayscale)
+UNITY_DEFINE_INSTANCED_PROP(half3, _GrayscaleFactor)
+UNITY_INSTANCING_BUFFER_END(Props)
 
-// Burn
 sampler2D _BurnNoise;
 float4 _BurnNoise_ST;
-half _BurnValue;
-half4 _BurnEdgeColor;
-half4 _BurnFireColor;
-float _BurnEdgeThreshold;
+UNITY_INSTANCING_BUFFER_START(Burn_Props)
+UNITY_DEFINE_INSTANCED_PROP(half, _BurnValue)
+UNITY_DEFINE_INSTANCED_PROP(half4, _BurnEdgeColor)
+UNITY_DEFINE_INSTANCED_PROP(half4, _BurnFireColor)
+UNITY_DEFINE_INSTANCED_PROP(float, _BurnEdgeThreshold)
+UNITY_INSTANCING_BUFFER_END(Burn_Props)
 burn_struct GetBurnParameters(v2f_entity i)
 {
     burn_struct o;
     o.noise = _BurnNoise;
-    o.value = _BurnValue;
-    o.edgeThresold = _BurnEdgeThreshold;
-    o.edgeColor = _BurnEdgeColor;
-    o.fireColor = _BurnFireColor;
+    o.value = UNITY_ACCESS_INSTANCED_PROP(Burn_Props, _BurnValue);
+    o.edgeThresold = UNITY_ACCESS_INSTANCED_PROP(Burn_Props, _BurnEdgeThreshold);
+    o.edgeColor = UNITY_ACCESS_INSTANCED_PROP(Burn_Props, _BurnEdgeColor);
+    o.fireColor = UNITY_ACCESS_INSTANCED_PROP(Burn_Props, _BurnFireColor);
     o.uv = float4(i.uv, i.noiseUV);
     return o;
 }
-
 
 v2f_entity EntityVert(appdata_entity v)
 {
@@ -78,20 +83,21 @@ v2f_entity EntityVert(appdata_entity v)
 
 half4 EntityFrag(v2f_entity i) : SV_Target
 {
+    UNITY_SETUP_INSTANCE_ID(i);
 #if DEPTH_TEST
     ClipDepth(i.world, i.levelUV);
 #endif
     
     half4 col = tex2D(_MainTex, i.uv);
     col *= i.color;
-    if (_Grayscale > 0)
+    if (UNITY_ACCESS_INSTANCED_PROP(Props, _Grayscale) > 0)
     {
-        col = Grayscale(col, _GrayscaleFactor);
+        col = Grayscale(col, UNITY_ACCESS_INSTANCED_PROP(Props, _GrayscaleFactor));
     }
-    col *= _Color;
-    col = ModifyHSV(col, _HSVOffset);
+    col *= UNITY_ACCESS_INSTANCED_PROP(Props, _Color);
+    col = ModifyHSV(col, UNITY_ACCESS_INSTANCED_PROP(Props, _HSVOffset));
                 
-    col.rgb = col.rgb + _ColorOffset.rgb;
+    col.rgb = col.rgb + UNITY_ACCESS_INSTANCED_PROP(Props, _ColorOffset).rgb;
                             
 #if CIRCLE_TILED
     CircleTile(col, i.uv);

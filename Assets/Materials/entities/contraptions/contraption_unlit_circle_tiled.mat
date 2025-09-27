@@ -12,10 +12,11 @@ Material:
   m_Parent: {fileID: 2100000, guid: 5d7c92befb9b92b43a7cd49aa9ad0e8d, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - BURN_ON
   - CIRCLE_TILED
+  - DEPTH_TEST
   - ETC1_EXTERNAL_ALPHA
   m_InvalidKeywords:
+  - BURN_ON
   - CIRCLETILED_ON
   - COLORED_ON
   - TILED_ON

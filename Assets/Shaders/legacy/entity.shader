@@ -13,8 +13,6 @@
 		_GrayscaleFactor("Grayscale Factor", Vector) = (0.598,1.174,0.224,0)
 
 		[Header(Burn)]
-		[Toggle(BURN_ON)]
-		_Burn("Can Burn", Int) = 0
 		_BurnNoise("Noise Tex", 2D) = "white"{}
 		_BurnValue("Value", Range(0, 1)) = 0
 		_BurnEdgeColor("Edge Color", Color) = (0,0.5,0.5,1)
@@ -31,8 +29,6 @@
 		_CircleClockwise("Clockwise", Int) = 0
 		
 		[Header(HSV)]
-		[Toggle(HSV_TINT)]
-		_HSVTint("HSVTint", Int) = 0
 		_HSVOffset("HSV Offset", Vector) = (0,0,0,0)
         
         _LevelMapST ("Level Map ST", Vector) = (14, 10.2, 0, 0)
@@ -78,15 +74,18 @@
             Name "Main"
 
             HLSLPROGRAM
-            #include "../hlsl/entity.hlsl"
             #pragma vertex EntityVert
             #pragma fragment EntityFrag
             #pragma multi_compile_instancing
-            #pragma shader_feature _ BURN_ON
-            #pragma shader_feature _ HSV_TINT
             #pragma shader_feature _ CIRCLE_TILED
             #pragma shader_feature _ LIT
             #pragma shader_feature _ DEPTH_TEST
+
+#if defined(INSTANCING_ON)
+            #include "../hlsl/entity_instancing_on.hlsl"
+#else
+            #include "../hlsl/entity.hlsl"
+#endif
             ENDHLSL
         }
     }
