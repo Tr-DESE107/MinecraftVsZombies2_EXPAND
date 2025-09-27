@@ -38,9 +38,6 @@ namespace PVZEngine.Armors
         }
         public void LoadAurasFromSerializable(SerializableArmor seri)
         {
-            if (seri.buffs != null)
-                buffs.LoadAuras(seri.buffs, Level);
-
             CreateAuraEffects();
             if (seri.auras != null)
                 auras.LoadFromSerializable(Level, seri.auras);

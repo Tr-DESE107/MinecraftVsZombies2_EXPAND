@@ -21,20 +21,15 @@ namespace PVZEngine.Grids
         public void InitFromSerializable(SerializableGrid seri)
         {
             LoadPropertiesFromSerializable(seri);
-            LoadBuffsFromSerializable(seri);
+            InitBuffsFromSerializable(seri);
         }
         public void LoadFromSerializable(SerializableGrid seri)
         {
             LoadLayersFromSerializable(seri);
             // 光环
-            LoadAurasFromSerializable(seri);
+            LoadBuffsFromSerializable(seri);
             // 加载后更新
             properties.UpdateAllModifiedProperties(false);
-        }
-        private void LoadAurasFromSerializable(SerializableGrid seri)
-        {
-            if (seri.buffs != null)
-                buffs.LoadAuras(seri.buffs, Level);
         }
         #endregion
     }

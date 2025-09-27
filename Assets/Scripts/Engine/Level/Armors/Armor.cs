@@ -109,6 +109,7 @@ namespace PVZEngine.Armors
         }
         public void LoadFromSerializable(SerializableArmor seri)
         {
+            LoadBuffsFromSerializable(seri);
             LoadAurasFromSerializable(seri);
             UpdateAllBuffedProperties(false);
         }

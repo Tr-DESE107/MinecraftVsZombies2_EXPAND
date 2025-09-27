@@ -79,7 +79,7 @@ namespace PVZEngine.Level
             // 创建所有实体。
             CreateEntitiesFromSerializable(seri);
             // 创建所有BUFF。
-            ReadBuffsFromSerializable(seri);
+            InitBuffsFromSerializable(seri);
             // 所有实体、种子包和BUFF都已加载完毕。
 
 
@@ -91,7 +91,7 @@ namespace PVZEngine.Level
             ReadEntitiesFromSerializable(seri);
             // 加载所有网格的属性。
             ReadGridsFromSerializable(seri);
-            LoadBuffAurasFromSerializable(seri);
+            LoadBuffsFromSerializable(seri);
         }
         private void WriteEnergyToSerializable(SerializableLevel seri)
         {

@@ -43,7 +43,7 @@ namespace PVZEngine.Entities
             {
                 if (pair.Value == null)
                     continue;
-                seri.armors.Add(pair.Key.ToString(), pair.Value.Serialize());
+                seri.armors.Add(pair.Key.ToString(), pair.Value.ToSerializable());
             }
 
             seri.isDead = IsDead;
@@ -92,7 +92,7 @@ namespace PVZEngine.Entities
             DropRNG = seri.dropRng != null ? RandomGenerator.FromSerializable(seri.dropRng) : new RandomGenerator(InitSeed);
 
             // 增益
-            LoadBuffsFromSerializable(seri);
+            InitBuffsFromSerializable(seri);
             // 模型
             LoadModelFromSerializable(seri);
             // 物理
@@ -100,7 +100,7 @@ namespace PVZEngine.Entities
             // 碰撞
             LoadCollisionFromSerializable(seri);
             // 护甲
-            LoadArmorsFromSerializable(seri);
+            InitArmorsFromSerializable(seri);
             // 属性
             LoadPropertiesFromSerializable(seri);
             // 地格
@@ -112,6 +112,10 @@ namespace PVZEngine.Entities
             LoadEntityReferencesFromSerializable(seri);
             // 光环
             LoadAurasFromSerializable(seri);
+            // 增益
+            LoadBuffsFromSerializable(seri);
+            // 护甲
+            LoadArmorsFromSerializable(seri);
             // 加载后更新
             UpdateAfterLoadFinished();
         }

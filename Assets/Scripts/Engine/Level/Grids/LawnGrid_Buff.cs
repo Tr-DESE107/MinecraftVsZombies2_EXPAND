@@ -53,10 +53,15 @@ namespace PVZEngine.Grids
         {
             seri.buffs = buffs.ToSerializable();
         }
+        private void InitBuffsFromSerializable(SerializableGrid seri)
+        {
+            buffs = BuffList.CreateFromSerializable(seri.buffs, Level, this);
+            InitBuffList();
+        }
         private void LoadBuffsFromSerializable(SerializableGrid seri)
         {
-            buffs = BuffList.FromSerializable(seri.buffs, Level, this);
-            InitBuffList();
+            if (seri.buffs != null)
+                buffs.LoadFromSerializable(seri.buffs);
         }
         #endregion
 

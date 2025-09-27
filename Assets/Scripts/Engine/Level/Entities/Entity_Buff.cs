@@ -25,10 +25,15 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 序列化
+        private void InitBuffsFromSerializable(SerializableEntity seri)
+        {
+            buffs = BuffList.CreateFromSerializable(seri.buffs, Level, this);
+            InitBuffEvents();
+        }
         private void LoadBuffsFromSerializable(SerializableEntity seri)
         {
-            buffs = BuffList.FromSerializable(seri.buffs, Level, this);
-            InitBuffEvents();
+            if (seri.buffs != null)
+                buffs.LoadFromSerializable(seri.buffs);
         }
         #endregion
 

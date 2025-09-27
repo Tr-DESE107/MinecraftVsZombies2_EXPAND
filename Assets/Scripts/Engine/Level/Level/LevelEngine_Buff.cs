@@ -32,9 +32,9 @@ namespace PVZEngine.Level
         {
             seri.buffs = buffs.ToSerializable();
         }
-        private void ReadBuffsFromSerializable(SerializableLevel seri)
+        private void InitBuffsFromSerializable(SerializableLevel seri)
         {
-            buffs = BuffList.FromSerializable(seri.buffs, this, this);
+            buffs = BuffList.CreateFromSerializable(seri.buffs, this, this);
             buffs.OnPropertyChanged += UpdateBuffedProperty;
             // 关卡拥有的所有BUFF引用计数+1
             foreach (var buff in buffs)
@@ -42,10 +42,10 @@ namespace PVZEngine.Level
                 IncreaseLevelObjectReference(buff);
             }
         }
-        private void LoadBuffAurasFromSerializable(SerializableLevel seri)
+        private void LoadBuffsFromSerializable(SerializableLevel seri)
         {
             if (seri.buffs != null)
-                buffs.LoadAuras(seri.buffs, this);
+                buffs.LoadFromSerializable(seri.buffs);
         }
         #endregion
 

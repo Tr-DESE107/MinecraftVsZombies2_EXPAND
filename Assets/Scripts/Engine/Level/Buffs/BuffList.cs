@@ -367,11 +367,11 @@ namespace PVZEngine.Buffs
         {
             return new SerializableBuffList()
             {
-                buffs = buffs.ConvertAll(b => b.Serialize()),
+                buffs = buffs.ConvertAll(b => b.ToSerializable()),
                 currentBuffID = currentBuffID,
             };
         }
-        public static BuffList FromSerializable(SerializableBuffList? serializable, LevelEngine level, IBuffTarget target)
+        public static BuffList CreateFromSerializable(SerializableBuffList? serializable, LevelEngine level, IBuffTarget target)
         {
             var buffList = new BuffList();
 
@@ -382,7 +382,7 @@ namespace PVZEngine.Buffs
             {
                 foreach (var seriBuff in serializable.buffs)
                 {
-                    var buff = Buff.Deserialize(seriBuff, level, target);
+                    var buff = Buff.CreateFromSerializable(seriBuff, level, target);
                     if (buff == null)
                         continue;
                     buff.OnPropertyChanged += buffList.OnPropertyChangedCallback;
@@ -393,7 +393,7 @@ namespace PVZEngine.Buffs
             buffList.UpdateModifierCaches();
             return buffList;
         }
-        public void LoadAuras(SerializableBuffList serializable, LevelEngine level)
+        public void LoadFromSerializable(SerializableBuffList serializable)
         {
             foreach (var buff in buffs)
             {
@@ -402,7 +402,7 @@ namespace PVZEngine.Buffs
                 var seriBuff = serializable.buffs.FirstOrDefault(b => b.id == buff.ID);
                 if (seriBuff == null)
                     continue;
-                buff.LoadAuras(seriBuff, level);
+                buff.LoadFromSerializable(seriBuff);
             }
         }
         #endregion

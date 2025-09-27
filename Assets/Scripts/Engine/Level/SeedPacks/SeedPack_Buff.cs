@@ -46,13 +46,13 @@ namespace PVZEngine.SeedPacks
         }
         private void InitBuffsFromSerializable(SerializableSeedPack seri)
         {
-            buffs = BuffList.FromSerializable(seri.buffs, Level, this);
+            buffs = BuffList.CreateFromSerializable(seri.buffs, Level, this);
             InitBuffs();
         }
         private void LoadBuffsFromSerializable(SerializableSeedPack seri)
         {
             if (seri.buffs != null)
-                buffs.LoadAuras(seri.buffs, Level);
+                buffs.LoadFromSerializable(seri.buffs);
         }
         #endregion
 
