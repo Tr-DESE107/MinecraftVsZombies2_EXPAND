@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-09-26 05:57+0800\n"
-"PO-Revision-Date: 2025-09-26 21:14+0800\n"
+"POT-Creation-Date: 2025-09-27 12:52+0800\n"
+"PO-Revision-Date: 2025-09-27 12:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -393,7 +393,7 @@ msgstr "Very Light"
 #: Almanac meta file
 msgctxt "almanac_tag_enum.description"
 msgid "受到的击退极大"
-msgstr "\vTakes extreme knockback"
+msgstr "Takes extreme knockback"
 
 #. Name for almanac tag enum value -1 of enum mass
 #: Almanac meta file
@@ -5094,12 +5094,12 @@ msgstr "Bounce away monsters upon contact"
 #: Entity meta file
 msgctxt "entity.name"
 msgid "珠光宝塔"
-msgstr "Jeweled Pagoda\v"
+msgstr "Jeweled Pagoda"
 
 #. Tooltip for entity mvz2:jeweled_pagoda
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "禁用一整列地格并生成星之碎片"
+msgid "禁用一整行地格并生成星之碎片"
 msgstr "Disable an entire lane for starshards"
 
 #. Name for entity mvz2:infectenser

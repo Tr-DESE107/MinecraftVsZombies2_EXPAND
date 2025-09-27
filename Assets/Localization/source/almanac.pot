@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-09-26 05:57+0800\n"
+"POT-Creation-Date: 2025-09-27 12:52+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4336,7 +4336,7 @@ msgstr ""
 #. Tooltip for entity mvz2:jeweled_pagoda
 #: Entity meta file
 msgctxt "entity.tooltip"
-msgid "禁用一整列地格并生成星之碎片"
+msgid "禁用一整行地格并生成星之碎片"
 msgstr ""
 
 #. Name for entity mvz2:infectenser

@@ -1009,7 +1009,7 @@
                 <id name="mvz2:rechargeId" value="mvz2:long" />
             </properties>
         </contraption>
-        <contraption id="jeweled_pagoda" name="珠光宝塔" tooltip="禁用一整列地格并生成星之碎片">
+        <contraption id="jeweled_pagoda" name="珠光宝塔" tooltip="禁用一整行地格并生成星之碎片">
             <unlock>
                 <condition required="mvz2:level.ship_9"/>
             </unlock>
