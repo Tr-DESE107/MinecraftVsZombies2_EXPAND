@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using PVZEngine.Auras;
 using PVZEngine.Base;
 using PVZEngine.Buffs;
@@ -11,14 +10,13 @@ using PVZEngine.Entities;
 using PVZEngine.Level;
 using PVZEngine.Level.Collisions;
 using PVZEngine.Models;
-using PVZEngine.Modifiers;
-using Tools;
 using UnityEngine;
 
 namespace PVZEngine.Armors
 {
-    public class Armor : IPropertyModifyTarget, IAuraSource, IModeledBuffTarget
+    public partial class Armor : IPropertyModifyTarget, IAuraSource, IModeledBuffTarget
     {
+        #region 构造器
         private Armor()
         {
             Owner = null!;
@@ -37,32 +35,31 @@ namespace PVZEngine.Armors
 
             CreateAuraEffects();
         }
+        #endregion
+
+        #region 生命周期
         public void Update()
         {
             Health = Mathf.Min(Health, this.GetMaxHealth());
-            if (Definition != null)
-                Definition.PostUpdate(this);
-            auras.Update();
-            buffs.Update();
+            Definition?.PostUpdate(this);
+            UpdateAuras();
+            UpdateBuffs();
         }
         public void Destroy(ArmorDestroyInfo? result = null)
         {
             result = result ?? new ArmorDestroyInfo(Owner, this, Slot, new DamageEffectList(), null, null);
             Owner.DestroyArmor(Slot, result);
         }
+        #endregion
+
+        #region 碰撞
         public IEnumerable<ColliderConstructor> GetColliderConstructors(Entity entity, NamespaceID slot)
         {
             return Definition.GetColliderConstructors(entity, slot);
         }
-
-        #region 事件回调
-        private void OnBuffedPropertyChangedCallback(IPropertyKey name)
-        {
-            properties.UpdateModifiedProperty(name);
-        }
         #endregion
 
-        #region 动画
+        #region 模型
         public IModelInterface? GetModelInterface()
         {
             var key = EngineArmorExt.GetModelKeyOfArmorSlot(Slot);
@@ -70,104 +67,21 @@ namespace PVZEngine.Armors
         }
         #endregion
 
-        #region 属性
-        public T? GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
+        #region 序列化
+        public SerializableArmor ToSerializable()
         {
-            return properties.GetProperty<T>(name, ignoreBuffs);
-        }
-        public void SetProperty<T>(PropertyKey<T> name, T? value)
-        {
-            properties.SetProperty(name, value);
-        }
-        private void UpdateAllBuffedProperties(bool triggersEvaluation)
-        {
-            properties.UpdateAllModifiedProperties(triggersEvaluation);
-        }
-        bool IPropertyModifyTarget.GetFallbackProperty(IPropertyKey name, out object? value)
-        {
-            if (Definition != null)
-            {
-                if (Definition.TryGetPropertyObject(name, out var prop))
-                {
-                    value = prop;
-                    return true;
-                }
-            }
-            value = default;
-            return false;
-        }
-
-        void IPropertyModifyTarget.GetModifierItems(IPropertyKey name, List<ModifierContainerItem> results)
-        {
-            buffs.GetModifierItems(name, results);
-        }
-        void IPropertyModifyTarget.OnPropertyChanged(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
-        {
-            if (triggersEvaluation)
-            {
-                if (EngineArmorProps.MAX_HEALTH.Equals(name))
-                {
-                    var before = beforeValue.ToGeneric<float>();
-                    var after = afterValue.ToGeneric<float>();
-                    Health = Mathf.Min(after, Health * (after / before));
-                }
-            }
-        }
-        PropertyModifier[]? IPropertyModifyTarget.GetModifiersUsingProperty(IPropertyKey name)
-        {
-            return null;
-        }
-        IEnumerable<IPropertyKey> IPropertyModifyTarget.GetModifiedProperties()
-        {
-            return buffs.GetModifierPropertyNames();
-        }
-        #endregion
-
-        #region 增益
-        public BuffReference GetBuffReference(Buff buff) => new BuffReferenceArmor(Owner.ID, Slot, buff.ID);
-        private void InitBuffEvents()
-        {
-            buffs.OnPropertyChanged += OnBuffedPropertyChangedCallback;
-        }
-        #endregion
-
-        #region 光环
-        public AuraEffect GetAuraEffect<T>() where T : AuraEffectDefinition
-        {
-            return auras.Get<T>();
-        }
-        public AuraEffect[] GetAuraEffects()
-        {
-            return auras.GetAll();
-        }
-        private void CreateAuraEffects()
-        {
-            var auraDefs = Definition.GetAuras();
-            for (int i = 0; i < auraDefs.Length; i++)
-            {
-                var auraDef = auraDefs[i];
-                auras.Add(Level, new AuraEffect(auraDef, i, this));
-            }
-        }
-        #endregion
-
-        public static bool Exists([NotNullWhen(true)] Armor? armor)
-        {
-            return armor != null && armor.Owner != null && armor.Definition != null && armor.Health > 0;
-        }
-        public SerializableArmor Serialize()
-        {
-            return new SerializableArmor()
+            var seri = new SerializableArmor()
             {
                 health = Health,
                 slot = Slot,
-                definitionID = Definition.GetID(),
-                buffs = buffs.ToSerializable(),
-                properties = properties.ToSerializable(),
-                auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray()
+                definitionID = Definition.GetID()
             };
+            WriteBuffsToSerializable(seri);
+            WriteAurasToSerializable(seri);
+            WritePropertiesToSerializable(seri);
+            return seri;
         }
-        public static Armor? Deserialize(SerializableArmor seri, Entity owner)
+        public static Armor? CreateFromSerializable(SerializableArmor seri, Entity owner)
         {
             var definition = owner.Level.Content.GetArmorDefinition(seri.definitionID);
             if (definition == null)
@@ -185,25 +99,34 @@ namespace PVZEngine.Armors
             armor.Definition = definition;
             armor.Slot = seri.slot;
             armor.Health = seri.health;
-            armor.buffs = BuffList.FromSerializable(seri.buffs, owner.Level, armor);
-            armor.InitBuffEvents();
-            armor.properties = PropertyBlock.FromSerializable(seri.properties, armor);
-            armor.UpdateAllBuffedProperties(false);
+            armor.InitFromSerializable(seri);
             return armor;
         }
+        private void InitFromSerializable(SerializableArmor seri)
+        {
+            InitBuffsFromSerializable(seri);
+            InitPropertiesFromSerializable(seri);
+        }
+        public void LoadFromSerializable(SerializableArmor seri)
+        {
+            LoadAurasFromSerializable(seri);
+            UpdateAllBuffedProperties(false);
+        }
+        #endregion
+
+        #region 杂项
+        public static bool Exists([NotNullWhen(true)] Armor? armor)
+        {
+            return armor != null && armor.Owner != null && armor.Definition != null && armor.Health > 0;
+        }
+
         public override string ToString()
         {
             return $"Armor_{Definition}";
         }
-        public void LoadAuras(SerializableArmor seri)
-        {
-            if (seri.buffs != null)
-                buffs.LoadAuras(seri.buffs, Level);
+        #endregion
 
-            CreateAuraEffects();
-            if (seri.auras != null)
-                auras.LoadFromSerializable(Level, seri.auras);
-        }
+        #region ILevelObject接口实现
         LevelEngine ILevelObject.GetLevel() => Level;
         Entity? ILevelObject.GetEntity() => Owner;
         bool ILevelObject.Exists() => Owner != null && Owner.Exists() && Owner.IsEquippingArmor(this);
@@ -222,6 +145,7 @@ namespace PVZEngine.Armors
                 yield return buff;
             }
         }
+        #endregion
 
         #region 属性字段
         public LevelEngine Level => Owner.Level;
@@ -229,10 +153,6 @@ namespace PVZEngine.Armors
         public NamespaceID Slot { get; set; }
         public ArmorDefinition Definition { get; private set; }
         public float Health { get; set; }
-        IBuffList IBuffTarget.Buffs => buffs;
-        private BuffList buffs = new BuffList();
-        private PropertyBlock properties;
-        private AuraEffectList auras = new AuraEffectList();
         #endregion
     }
 }

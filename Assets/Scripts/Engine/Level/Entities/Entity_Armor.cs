@@ -172,7 +172,7 @@ namespace PVZEngine.Entities
         #endregion
 
         #region 序列化
-        private void LoadArmorsFromSerializable(SerializableEntity seri)
+        private void InitArmorsFromSerializable(SerializableEntity seri)
         {
             armorDict.Clear();
             if (seri.armors != null)
@@ -182,11 +182,24 @@ namespace PVZEngine.Entities
                     if (pair.Value == null)
                         continue;
                     var slot = NamespaceID.ParseStrict(pair.Key);
-                    var armor = Armor.Deserialize(pair.Value, this);
+                    var armor = Armor.CreateFromSerializable(pair.Value, this);
                     if (armor == null)
                         continue;
                     armorDict.Add(slot, armor);
                 }
+            }
+        }
+        private void LoadArmorsFromSerializable(SerializableEntity seri)
+        {
+            foreach (var pair in armorDict)
+            {
+                var armor = pair.Value;
+                if (armor == null || seri.armors == null)
+                    continue;
+                var seriArmor = seri.armors.Values.FirstOrDefault(a => a.slot == pair.Key);
+                if (seriArmor == null)
+                    continue;
+                armor.LoadFromSerializable(seriArmor);
             }
         }
         #endregion
