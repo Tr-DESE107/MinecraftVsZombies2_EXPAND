@@ -1,9 +1,18 @@
 #include "UnityCG.cginc"
 
+#ifndef LEVEL
 #include "level.hlsl"
+#endif
 #include "burn.hlsl"
 #include "hsv.hlsl"
 #include "grayscale.hlsl"
+
+#ifndef FLAGS
+#include "flags.hlsl"
+#endif
+#ifndef TERRAIN
+#include "terrain.hlsl"
+#endif
 
 #if LIT
 #include "lighting.hlsl"
@@ -78,6 +87,7 @@ v2f_entity EntityVert(appdata_entity v)
 
 half4 EntityFrag(v2f_entity i) : SV_Target
 {
+    ClipTerrain(i.levelUV);
 #if DEPTH_TEST
     ClipDepth(i.world, i.levelUV);
 #endif

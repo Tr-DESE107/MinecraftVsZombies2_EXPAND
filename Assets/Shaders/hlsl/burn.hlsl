@@ -1,3 +1,5 @@
+#define BURN
+
 struct burn_struct
 {
     sampler2D noise;

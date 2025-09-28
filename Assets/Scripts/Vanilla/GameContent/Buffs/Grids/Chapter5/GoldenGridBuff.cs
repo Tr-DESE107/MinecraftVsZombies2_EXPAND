@@ -20,6 +20,7 @@ namespace MVZ2.GameContent.Buffs.Grids
     {
         public GoldenGridBuff(string nsp, string name) : base(nsp, name)
         {
+            AddModifier(new BooleanModifier(VanillaGridProps.IS_WATER, false));
             AddModifier(new BooleanModifier(VanillaGridProps.DISABLED, true));
             AddModelInsertion(LogicModelHelper.ANCHOR_CENTER, MODEL_KEY, VanillaModelID.goldenGrid);
         }
@@ -73,11 +74,11 @@ namespace MVZ2.GameContent.Buffs.Grids
             {
                 return TYPE_SLOPE;
             }
-            if (grid.IsCloud())
+            if (grid.Definition.IsCloud())
             {
                 return TYPE_CLOUD;
             }
-            if (grid.IsWater())
+            if (grid.Definition.IsWater())
             {
                 return TYPE_WATER;
             }

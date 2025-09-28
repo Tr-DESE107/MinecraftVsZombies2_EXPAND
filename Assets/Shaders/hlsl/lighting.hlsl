@@ -71,7 +71,7 @@ bool LightDisabled()
 
 float4 ApplyLight(float4 col, float2 lightUV)
 {
-    if (!LightDisabled() && _LightStarted)
+    if (!LightDisabled() && _LightStarted && false)
     {
         float4 light = GetLight(lightUV);
         float4 colLin = ToLinear(col);

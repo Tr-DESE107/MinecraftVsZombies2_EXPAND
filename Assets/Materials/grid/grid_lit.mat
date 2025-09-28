@@ -93,6 +93,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TerrainTexture:
+        m_Texture: {fileID: 8600000, guid: cfb42bcc1e929724a9326fbe86e6158d, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BackgroundLit: 1
@@ -143,6 +147,8 @@ Material:
     - _StencilPassOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
+    - _TerrainFlagReference: 0
+    - _TerrainMask: 0
     - _TexAlpha: 1
     - _UVSec: 0
     - _WhiteAlpha: 0

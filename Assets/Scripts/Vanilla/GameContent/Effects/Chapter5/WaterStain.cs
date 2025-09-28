@@ -37,6 +37,11 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
+            if (!entity.IsAboveLand())
+            {
+                entity.Remove();
+                return;
+            }
             var t = Mathf.Clamp01(entity.Timeout / (float)Ticks.FromSeconds(MAX_FADE_SECONDS));
             var colorMulti = new Color(1, 1, 1, t);
             var scaleMulti = Vector3.one * t;

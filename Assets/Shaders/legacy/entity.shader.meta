@@ -7,6 +7,7 @@ ShaderImporter:
   - _BurnNoise: {fileID: 2800000, guid: e336ff858b2a96e4588529934206cbad, type: 3}
   - _LightMapSpot: {fileID: 8600000, guid: 520d28ea1cee7004bbda9e94e545703c, type: 2}
   - _DepthMap: {fileID: 2800000, guid: 7bf9c6f0c642bdd42af1ea3a5cb5bdbc, type: 3}
+  - _TerrainTexture: {fileID: 8600000, guid: cfb42bcc1e929724a9326fbe86e6158d, type: 2}
   - _AlphaTex: {instanceID: 0}
   nonModifiableTextures: []
   userData: 

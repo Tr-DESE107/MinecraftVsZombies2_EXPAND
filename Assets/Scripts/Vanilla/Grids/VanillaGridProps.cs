@@ -20,11 +20,19 @@ namespace MVZ2.Vanilla.Grids
             return grid.GetProperty<bool>(IS_SLAB);
         }
         public static readonly PropertyMeta<bool> IS_WATER = Get<bool>("is_water");
+        public static bool IsWater(this GridDefinition definition)
+        {
+            return definition.GetProperty<bool>(IS_WATER);
+        }
         public static bool IsWater(this LawnGrid grid)
         {
             return grid.GetProperty<bool>(IS_WATER);
         }
         public static readonly PropertyMeta<bool> IS_AIR = Get<bool>("is_air");
+        public static bool IsCloud(this GridDefinition definition)
+        {
+            return definition.GetProperty<bool>(IS_AIR);
+        }
         public static bool IsCloud(this LawnGrid grid)
         {
             return grid.GetProperty<bool>(IS_AIR);
@@ -72,7 +80,7 @@ namespace MVZ2.Vanilla.Grids
         #endregion
 
         #region ≈≈–Ú≤„
-        public static readonly PropertyMeta<string> SORTING_LAYER = Get<string>("sorting_layer", SortingLayers.groundMasked);
+        public static readonly PropertyMeta<string> SORTING_LAYER = Get<string>("sorting_layer", SortingLayers.ground);
         public static string? GetSortingLayer(this LawnGrid grid)
         {
             return grid.GetProperty<string>(SORTING_LAYER);

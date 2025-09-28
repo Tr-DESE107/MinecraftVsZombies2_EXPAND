@@ -2,7 +2,6 @@
 
 int _DepthTest;
 sampler2D _DepthMap;
-float4 _DepthMapST;
 float _DepthOffset;
 
 

@@ -1,4 +1,5 @@
 #include "UnityCG.cginc"
+#define LEVEL
 
 float4 _LevelMapST;
 float2 GetLevelUV(float4 vertex)
