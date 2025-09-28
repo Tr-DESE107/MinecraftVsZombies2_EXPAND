@@ -97,12 +97,13 @@ half4 EntityFrag(v2f_entity i) : SV_Target
     CircleTile(col, i.uv);
 #endif
     
+    burn_struct burnParams = GetBurnParameters(i);
+    col = Burn(col, burnParams);
+    
 #if LIT
     col = ApplyLight(col, i.levelUV);
 #endif
     
-    burn_struct burnParams = GetBurnParameters(i);
-    col = Burn(col, burnParams);
     clip(col.a - 0.01);
     
     return col;
