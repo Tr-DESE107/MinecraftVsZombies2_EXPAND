@@ -23,6 +23,8 @@ namespace MVZ2.Models
         }
         public SpriteReference? GetSpriteReference()
         {
+            if (string.IsNullOrEmpty(propertyName))
+                return null;
             return Model.GetProperty<SpriteReference>(propertyName);
         }
         private SpriteRenderer Renderer
@@ -38,6 +40,6 @@ namespace MVZ2.Models
         }
         private SpriteRenderer? sprRenderer;
         private SpriteReference? beforeReference;
-        public string propertyName;
+        public string? propertyName;
     }
 }

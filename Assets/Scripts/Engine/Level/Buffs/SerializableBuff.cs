@@ -11,6 +11,6 @@ namespace PVZEngine.Buffs
         public long id;
         public NamespaceID? definitionID;
         public SerializablePropertyDictionary? propertyDict;
-        public SerializableAuraEffect[]? auras;
+        public SerializableAuraEffect?[]? auras;
     }
 }

@@ -49,13 +49,15 @@ namespace PVZEngine.Auras
                 aura.UpdateAuraInterval();
             }
         }
-        public void LoadFromSerializable(LevelEngine level, IEnumerable<SerializableAuraEffect> effects)
+        public void LoadFromSerializable(LevelEngine level, IEnumerable<SerializableAuraEffect?> effects)
         {
             if (effects == null)
                 return;
             foreach (var aura in auraEffects)
             {
-                var seri = effects.FirstOrDefault(e => e.id == aura.ID);
+                var seri = effects.FirstOrDefault(e => e != null && e.id == aura.ID);
+                if (seri == null)
+                    continue;
                 aura.LoadFromSerializable(level, seri);
             }
         }

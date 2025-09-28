@@ -14,7 +14,7 @@ namespace PVZEngine.SeedPacks
         public long currentBuffID;
         public SerializableBuffList? buffs;
         public SerializablePropertyBlock? properties;
-        public SerializableAuraEffect[]? auras;
+        public SerializableAuraEffect?[]? auras;
     }
     [Serializable]
     public class SerializableClassicSeedPack : SerializableSeedPack

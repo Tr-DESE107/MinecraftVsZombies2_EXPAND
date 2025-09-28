@@ -28,7 +28,7 @@ namespace MVZ2.Managers
         {
             return talksCacheDict.Keys.ToArray();
         }
-        public bool CanStartTalk([NotNullWhen(true)]NamespaceID? groupId, int sectionIndex)
+        public bool CanStartTalk([NotNullWhen(true)] NamespaceID? groupId, int sectionIndex)
         {
             var section = GetTalkSection(groupId, sectionIndex);
             if (section == null)

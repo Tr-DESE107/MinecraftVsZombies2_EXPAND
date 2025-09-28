@@ -13,6 +13,7 @@ namespace PVZEngine.Grids
                 column = Column,
                 definitionID = Definition.GetID(),
             };
+            WriteAurasToSerializable(seri);
             WritePropertiesToSerializable(seri);
             WriteBuffsToSerializable(seri);
             WriteLayersToSerializable(seri);
@@ -26,8 +27,10 @@ namespace PVZEngine.Grids
         public void LoadFromSerializable(SerializableGrid seri)
         {
             LoadLayersFromSerializable(seri);
-            // 光环
+            // 增益
             LoadBuffsFromSerializable(seri);
+            // 光环
+            LoadAurasFromSerializable(seri);
             // 加载后更新
             properties.UpdateAllModifiedProperties(false);
         }

@@ -61,7 +61,7 @@ namespace PVZEngine.Entities
         public List<TakenGridInfo>? takenGrids;
         public List<int>? takenGridIndexes;
 
-        public SerializableAuraEffect[]? auras;
+        public SerializableAuraEffect?[]? auras;
 
         [Serializable]
         [Obsolete]

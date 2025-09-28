@@ -13,6 +13,6 @@ namespace MVZ2Logic.Artifacts
         public NamespaceID? definitionID;
         public SerializableRNG? rng;
         public SerializablePropertyDictionary? propertyDict;
-        public SerializableAuraEffect[]? auras;
+        public SerializableAuraEffect?[]? auras;
     }
 }

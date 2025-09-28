@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -9,7 +10,7 @@ using UnityEngine;
 
 namespace PVZEngine.Grids
 {
-    public partial class LawnGrid : IPropertyModifyTarget, IModeledBuffTarget
+    public partial class LawnGrid : IAuraSource, IPropertyModifyTarget, IModeledBuffTarget
     {
         #region 构造器
         public LawnGrid(LevelEngine level, GridDefinition definition, int lane, int column)
@@ -20,6 +21,7 @@ namespace PVZEngine.Grids
             Definition = definition;
             properties = new PropertyBlock(this);
             InitBuffList();
+            CreateAuraEffects();
         }
         #endregion
 
@@ -28,6 +30,7 @@ namespace PVZEngine.Grids
         {
             try
             {
+                UpdateAuras();
                 UpdateBuffs();
             }
             catch (Exception ex)

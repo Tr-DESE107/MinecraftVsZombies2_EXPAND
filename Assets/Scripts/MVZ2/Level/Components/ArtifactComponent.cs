@@ -108,6 +108,8 @@ namespace MVZ2.Level.Components
         {
             if (seri is not SerializableArtifactComponent comp)
                 return;
+            if (comp.artifacts == null)
+                return;
             artifacts.LoadFromSerializable(comp.artifacts);
         }
         private void UpdateUIArtifacts()
