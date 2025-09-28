@@ -22,7 +22,7 @@ namespace PVZEngine.SeedPacks
 
             properties = new PropertyBlock(this);
             InitBuffs();
-            InitAuras();
+            CreateAuraEffects();
         }
         #endregion
 

@@ -22,7 +22,10 @@ namespace MVZ2.Level.Components
         {
             return new EmptySerializableLevelComponent();
         }
-        public override void LoadSerializable(ISerializableLevelComponent seri)
+        public override void InitFromSerializable(ISerializableLevelComponent seri)
+        {
+        }
+        public override void LoadFromSerializable(ISerializableLevelComponent seri)
         {
         }
         public virtual void PostLevelLoad()

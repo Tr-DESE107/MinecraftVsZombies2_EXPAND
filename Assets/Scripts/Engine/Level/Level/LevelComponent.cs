@@ -10,7 +10,8 @@ namespace PVZEngine.Level
         void OnStart();
         void Update();
         ISerializableLevelComponent ToSerializable();
-        void LoadSerializable(ISerializableLevelComponent seri);
+        void InitFromSerializable(ISerializableLevelComponent seri);
+        void LoadFromSerializable(ISerializableLevelComponent seri);
     }
     public abstract class LevelComponent : ILevelComponent
     {
@@ -24,7 +25,8 @@ namespace PVZEngine.Level
         public virtual void OnStart() { }
         public virtual void Update() { }
         public abstract ISerializableLevelComponent ToSerializable();
-        public abstract void LoadSerializable(ISerializableLevelComponent seri);
+        public abstract void InitFromSerializable(ISerializableLevelComponent seri);
+        public abstract void LoadFromSerializable(ISerializableLevelComponent seri);
 
         public NamespaceID GetID() => id;
         public LevelEngine Level { get; private set; }

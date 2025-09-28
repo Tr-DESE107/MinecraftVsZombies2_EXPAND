@@ -7,7 +7,7 @@ namespace PVZEngine.SeedPacks
 {
     public partial class SeedPack
     {
-        private void InitAuras()
+        private void CreateAuraEffects()
         {
             var auraCount = Definition.GetAuraCount();
             for (int i = 0; i < auraCount; i++)
@@ -21,15 +21,27 @@ namespace PVZEngine.SeedPacks
             auras.Update();
         }
 
+        #region 获取
+        public AuraEffect GetAuraEffect<T>() where T : AuraEffectDefinition
+        {
+            return auras.Get<T>();
+        }
+        public AuraEffect[] GetAuraEffects()
+        {
+            return auras.GetAll();
+        }
+        #endregion
+
         #region 序列化
         protected void SaveAurasToSerializable(SerializableSeedPack seri)
         {
             seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
         }
-        public void LoadAurasFromSerializable(SerializableSeedPack seri)
+        private void LoadAurasFromSerializable(SerializableSeedPack seri)
         {
-            if (seri.auras != null)
-                auras.LoadFromSerializable(Level, seri.auras);
+            if (seri.auras == null)
+                return;
+            auras.LoadFromSerializable(Level, seri.auras);
         }
         #endregion
 

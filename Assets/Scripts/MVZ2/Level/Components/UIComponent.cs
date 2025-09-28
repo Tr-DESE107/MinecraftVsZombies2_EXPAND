@@ -120,7 +120,7 @@ namespace MVZ2.Level.Components
                 targetID = TargetID
             };
         }
-        public override void LoadSerializable(ISerializableLevelComponent seri)
+        public override void InitFromSerializable(ISerializableLevelComponent seri)
         {
             if (seri is not SerializableUIComponent comp)
                 return;

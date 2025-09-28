@@ -65,6 +65,7 @@ namespace PVZEngine.Level
             ReadCollisionFromSerializable(seri);
             // 能量
             ReadEnergyFromSerializable(seri);
+
             // 加载后更新
             UpdateAfterReadFromSerializable(seri);
         }
@@ -117,7 +118,7 @@ namespace PVZEngine.Level
         {
             UpdateAllBuffedProperties(false);
         }
-        public void LoadFromSerializable(SerializableLevel seri)
+        public void InitComponentsFromSerializable(SerializableLevel seri)
         {
             if (seri.components != null)
             {
@@ -126,7 +127,20 @@ namespace PVZEngine.Level
                     var comp = levelComponents.FirstOrDefault(c => c.GetID().ToString() == seriComp.Key);
                     if (comp == null)
                         continue;
-                    comp.LoadSerializable(seriComp.Value);
+                    comp.InitFromSerializable(seriComp.Value);
+                }
+            }
+        }
+        public void LoadComponentsFromSerializable(SerializableLevel seri)
+        {
+            if (seri.components != null)
+            {
+                foreach (var seriComp in seri.components)
+                {
+                    var comp = levelComponents.FirstOrDefault(c => c.GetID().ToString() == seriComp.Key);
+                    if (comp == null)
+                        continue;
+                    comp.LoadFromSerializable(seriComp.Value);
                 }
             }
         }

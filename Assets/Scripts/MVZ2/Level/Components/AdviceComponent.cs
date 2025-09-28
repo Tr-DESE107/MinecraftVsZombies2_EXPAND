@@ -79,7 +79,7 @@ namespace MVZ2.Level.Components
                 adviceArgs = AdviceArgs?.ToArray(),
             };
         }
-        public override void LoadSerializable(ISerializableLevelComponent seri)
+        public override void InitFromSerializable(ISerializableLevelComponent seri)
         {
             if (seri is not SerializableAdviceComponent comp)
                 return;

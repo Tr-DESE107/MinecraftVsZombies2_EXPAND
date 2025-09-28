@@ -58,7 +58,7 @@ namespace PVZEngine.Entities
                 seri.takenGridIndexes.Add(grid.GetIndex());
             }
 
-            seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
+            WriteAurasToSerializable(seri);
             return seri;
         }
         public static Entity? CreateFromSerializable(SerializableEntity seri, LevelEngine level)
@@ -90,6 +90,7 @@ namespace PVZEngine.Entities
             InitSeed = seri.initSeed;
             RNG = seri.rng != null ? RandomGenerator.FromSerializable(seri.rng) : new RandomGenerator(InitSeed);
             DropRNG = seri.dropRng != null ? RandomGenerator.FromSerializable(seri.dropRng) : new RandomGenerator(InitSeed);
+
 
             // 增益
             InitBuffsFromSerializable(seri);

@@ -23,7 +23,6 @@ namespace PVZEngine.Entities
             DropRNG = new RandomGenerator(RNG.Next());
 
             InitBuffEvents();
-            CreateAuraEffects();
             UpdateModifierCaches();
             Cache.UpdateAll(this);
         }
@@ -41,6 +40,8 @@ namespace PVZEngine.Entities
             ModelID = definition.GetModelID();
             Type = definition.Type;
             TypeCollisionFlag = EntityCollisionHelper.GetTypeMask(Type);
+            // 光环
+            CreateAuraEffects();
 
             RNG = null!;
             DropRNG = null!;

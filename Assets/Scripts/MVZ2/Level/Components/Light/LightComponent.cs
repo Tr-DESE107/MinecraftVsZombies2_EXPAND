@@ -37,9 +37,9 @@ namespace MVZ2.Level.Components
                 }).ToArray()
             };
         }
-        public override void LoadSerializable(ISerializableLevelComponent seri)
+        public override void InitFromSerializable(ISerializableLevelComponent seri)
         {
-            base.LoadSerializable(seri);
+            base.InitFromSerializable(seri);
             if (seri is not SerializableLightComponent serializable)
                 return;
             if (serializable.lightSources == null)

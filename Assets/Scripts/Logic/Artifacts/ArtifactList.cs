@@ -167,10 +167,10 @@ namespace MVZ2Logic.Artifacts
         {
             return new SerializableArtifactList()
             {
-                artifacts = artifacts == null ? Array.Empty<SerializableArtifact>() : artifacts.Select(b => b == null ? null : b.Serialize()).ToArray()
+                artifacts = artifacts == null ? Array.Empty<SerializableArtifact>() : artifacts.Select(b => b == null ? null : b.ToSerializable()).ToArray()
             };
         }
-        public static ArtifactList FromSerializable(SerializableArtifactList serializable, LevelEngine level)
+        public static ArtifactList CreateFromSerializable(SerializableArtifactList serializable, LevelEngine level)
         {
             if (serializable.artifacts == null)
             {
@@ -182,7 +182,7 @@ namespace MVZ2Logic.Artifacts
                 var seri = serializable.artifacts[i];
                 if (seri == null)
                     continue;
-                var artifact = Artifact.Deserialize(seri, level);
+                var artifact = Artifact.CreateFromSerializable(seri, level);
                 if (artifact == null)
                     continue;
                 artifact.OnHighlighted += artifactList.OnItemHighlightedCallback;
@@ -190,6 +190,24 @@ namespace MVZ2Logic.Artifacts
                 level.IncreaseLevelObjectReference(artifact);
             }
             return artifactList;
+        }
+        public void LoadFromSerializable(SerializableArtifactList serializable)
+        {
+            if (serializable.artifacts == null)
+                return;
+
+            for (int i = 0; i < artifacts.Length; i++)
+            {
+                if (i >= serializable.artifacts.Length)
+                    continue;
+                var seri = serializable.artifacts[i];
+                if (seri == null)
+                    continue;
+                var artifact = artifacts[i];
+                if (artifact == null)
+                    continue;
+                artifact.LoadFromSerializable(seri);
+            }
         }
         #endregion
 

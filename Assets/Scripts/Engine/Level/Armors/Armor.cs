@@ -99,6 +99,7 @@ namespace PVZEngine.Armors
             armor.Definition = definition;
             armor.Slot = seri.slot;
             armor.Health = seri.health;
+            armor.CreateAuraEffects();
             armor.InitFromSerializable(seri);
             return armor;
         }

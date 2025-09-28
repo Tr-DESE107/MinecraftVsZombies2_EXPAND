@@ -7,20 +7,6 @@ namespace PVZEngine.Armors
 {
     public partial class Armor
     {
-        public void UpdateAuras()
-        {
-            auras.Update();
-        }
-
-        #region 光环
-        public AuraEffect GetAuraEffect<T>() where T : AuraEffectDefinition
-        {
-            return auras.Get<T>();
-        }
-        public AuraEffect[] GetAuraEffects()
-        {
-            return auras.GetAll();
-        }
         private void CreateAuraEffects()
         {
             var auraDefs = Definition.GetAuras();
@@ -30,18 +16,34 @@ namespace PVZEngine.Armors
                 auras.Add(Level, new AuraEffect(auraDef, i, this));
             }
         }
+        private void UpdateAuras()
+        {
+            auras.Update();
+        }
+
+        #region 获取
+        public AuraEffect GetAuraEffect<T>() where T : AuraEffectDefinition
+        {
+            return auras.Get<T>();
+        }
+        public AuraEffect[] GetAuraEffects()
+        {
+            return auras.GetAll();
+        }
         #endregion
 
+        #region 序列化
         private void WriteAurasToSerializable(SerializableArmor seri)
         {
             seri.auras = auras.GetAll().Select(a => a.ToSerializable()).ToArray();
         }
-        public void LoadAurasFromSerializable(SerializableArmor seri)
+        private void LoadAurasFromSerializable(SerializableArmor seri)
         {
-            CreateAuraEffects();
-            if (seri.auras != null)
-                auras.LoadFromSerializable(Level, seri.auras);
+            if (seri.auras == null)
+                return;
+            auras.LoadFromSerializable(Level, seri.auras);
         }
+        #endregion
 
         #region 属性字段
         private AuraEffectList auras = new AuraEffectList();

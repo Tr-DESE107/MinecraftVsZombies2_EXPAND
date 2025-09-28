@@ -14,7 +14,10 @@ namespace MVZ2.Level.Components
         {
             return new EmptySerializableLevelComponent();
         }
-        public virtual void LoadSerializable(ISerializableLevelComponent seri)
+        public virtual void InitFromSerializable(ISerializableLevelComponent seri)
+        {
+        }
+        public virtual void LoadFromSerializable(ISerializableLevelComponent seri)
         {
         }
         public virtual void OnStart()

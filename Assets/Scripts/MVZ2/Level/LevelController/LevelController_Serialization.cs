@@ -63,7 +63,8 @@ namespace MVZ2.Level
                 level = LevelEngine.CreateFromSerializable(seri.level, game, game, GetCollisionSystem());
                 InitLevelEngine(level, game, areaID, stageID);
 
-                level.LoadFromSerializable(seri.level);
+                level.InitComponentsFromSerializable(seri.level);
+                level.LoadComponentsFromSerializable(seri.level);
 
                 ReadFromSerializable_ProgressBar(seri);
                 ReadFromSerializable_Twinkle(seri);
