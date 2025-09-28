@@ -14,10 +14,10 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public NightmareDecrepifyBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new NamespaceIDModifier(VanillaLevelProps.PICKAXE_DISABLE_ID, VanillaBlueprintErrors.decrepify));
+            AddModifier(new NamespaceIDModifier(VanillaLevelProps.PICKAXE_DISABLE_ID, SetOperator.Set, VanillaBlueprintErrors.decrepify));
             AddModifier(new BooleanModifier(VanillaLevelProps.PICKAXE_DISABLE_ICON, true));
 
-            AddModifier(new NamespaceIDModifier(VanillaLevelProps.STARSHARD_DISABLE_ID, VanillaBlueprintErrors.decrepify));
+            AddModifier(new NamespaceIDModifier(VanillaLevelProps.STARSHARD_DISABLE_ID, SetOperator.Set, VanillaBlueprintErrors.decrepify));
             AddModifier(new BooleanModifier(VanillaLevelProps.STARSHARD_DISABLE_ICON, true));
         }
         public override void PostAdd(Buff buff)

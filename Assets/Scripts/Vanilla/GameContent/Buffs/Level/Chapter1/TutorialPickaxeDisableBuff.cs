@@ -13,7 +13,7 @@ namespace MVZ2.GameContent.Buffs.Level
     {
         public TutorialPickaxeDisableBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new NamespaceIDModifier(VanillaLevelProps.PICKAXE_DISABLE_ID, VanillaBlueprintErrors.tutorial));
+            AddModifier(new NamespaceIDModifier(VanillaLevelProps.PICKAXE_DISABLE_ID, SetOperator.Set, VanillaBlueprintErrors.tutorial));
         }
     }
 }

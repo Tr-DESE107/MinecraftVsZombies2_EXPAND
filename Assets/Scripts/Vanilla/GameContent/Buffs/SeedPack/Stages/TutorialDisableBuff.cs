@@ -12,7 +12,7 @@ namespace MVZ2.GameContent.Buffs.SeedPacks
     {
         public TutorialDisableBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new NamespaceIDModifier(EngineSeedProps.DISABLE_ID, VanillaBlueprintErrors.tutorial));
+            AddModifier(new NamespaceIDModifier(EngineSeedProps.DISABLE_ID, SetOperator.Set, VanillaBlueprintErrors.tutorial));
         }
     }
 }
