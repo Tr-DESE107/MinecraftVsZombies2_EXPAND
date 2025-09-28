@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Buffs
         public CharmBuff(string nsp, string name) : base(nsp, name)
         {
             AddModifier(new ColorModifier(EngineEntityProps.COLOR_OFFSET, new Color(1, 0, 1, 0.5f)));
-            AddModifier(new IntModifier(EngineEntityProps.FACTION, NumberOperator.Set, PROP_FACTION));
+            AddModifier(new IntModifier(EngineEntityProps.FACTION, IntegerOperator.Set, PROP_FACTION));
         }
         public override void PostUpdate(Buff buff)
         {

@@ -17,7 +17,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
         {
             AddModifier(new FloatModifier(VanillaEntityProps.FALL_RESISTANCE, NumberOperator.Add, 10000));
             AddModifier(new FloatModifier(EngineEntityProps.GRAVITY, NumberOperator.Multiply, 0));
-            AddModifier(new IntModifier(VanillaEnemyProps.STATE_OVERRIDE, NumberOperator.Set, VanillaEntityStates.ENEMY_PARACHUTE));
+            AddModifier(new IntModifier(VanillaEnemyProps.STATE_OVERRIDE, IntegerOperator.Set, VanillaEntityStates.ENEMY_PARACHUTE));
         }
         public override void PostAdd(Buff buff)
         {

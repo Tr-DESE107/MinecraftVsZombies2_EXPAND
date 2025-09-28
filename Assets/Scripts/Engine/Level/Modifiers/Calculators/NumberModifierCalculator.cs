@@ -53,23 +53,6 @@ namespace PVZEngine.Modifiers
         protected abstract T AddValue(T? value1, T? value2);
         protected abstract T MultiplyValue(T value1, T? value2);
     }
-    public class IntCalculator : NumberModifierCalculator<int>
-    {
-        protected override int GetDefaultMultiple()
-        {
-            return 1;
-        }
-
-        protected override int AddValue(int value1, int value2)
-        {
-            return value1 + value2;
-        }
-
-        protected override int MultiplyValue(int value1, int value2)
-        {
-            return value1 * value2;
-        }
-    }
     public class FloatCalculator : NumberModifierCalculator<float>
     {
         protected override float GetDefaultMultiple()

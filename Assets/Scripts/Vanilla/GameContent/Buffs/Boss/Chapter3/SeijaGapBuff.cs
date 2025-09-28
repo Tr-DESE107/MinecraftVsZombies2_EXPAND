@@ -16,7 +16,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
     {
         public SeijaGapBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, NumberOperator.Set, EntityCollisionHelper.DETECTION_IGNORE, VanillaModifierPriorities.FORCE));
+            AddModifier(new IntModifier(EngineEntityProps.COLLISION_DETECTION, IntegerOperator.Set, EntityCollisionHelper.DETECTION_IGNORE, VanillaModifierPriorities.FORCE));
             AddModifier(new BooleanModifier(EngineEntityProps.INVINCIBLE, true));
             AddModifier(new Vector3Modifier(VanillaEntityProps.SHADOW_SCALE, NumberOperator.Multiply, PROP_SHADOW_SCALE));
         }

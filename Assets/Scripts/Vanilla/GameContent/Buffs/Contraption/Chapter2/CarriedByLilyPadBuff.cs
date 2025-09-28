@@ -13,7 +13,7 @@ namespace MVZ2.GameContent.Buffs.Contraptions
     {
         public CarriedByLilyPadBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new IntModifier(VanillaEntityProps.WATER_INTERACTION, NumberOperator.Set, WaterInteraction.NONE, VanillaModifierPriorities.FORCE));
+            AddModifier(new IntModifier(VanillaEntityProps.WATER_INTERACTION, IntegerOperator.Set, WaterInteraction.NONE, VanillaModifierPriorities.FORCE));
         }
     }
 }
