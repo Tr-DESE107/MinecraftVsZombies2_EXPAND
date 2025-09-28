@@ -2285,6 +2285,10 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -6034685484396218449, guid: 8a2e7dea253a9e84c910acffe8c3e79e, type: 3}
     - {fileID: 7749991839993489328, guid: 8a2e7dea253a9e84c910acffe8c3e79e, type: 3}
+  - name: mainmenu/view/ship
+    spritesheet:
+    - {fileID: 1340712246, guid: efe7279b9efd4e149afa436e1e203195, type: 3}
+    - {fileID: -977079479, guid: efe7279b9efd4e149afa436e1e203195, type: 3}
   - name: ui/almanac/attribute_tags
     spritesheet:
     - {fileID: -1117650150, guid: c419009eb7b0cae44aca6be02f48b0d4, type: 3}

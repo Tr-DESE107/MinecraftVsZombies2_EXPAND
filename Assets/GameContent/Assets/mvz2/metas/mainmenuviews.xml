@@ -25,4 +25,9 @@
             <condition required="mvz2:entered_mausoleum" />
         </conditions>
     </view>
+    <view id="ship" priority="500" spritesheet="mvz2:mainmenu/view/ship">
+        <conditions>
+            <condition required="mvz2:entered_ship" />
+        </conditions>
+    </view>
 </views>

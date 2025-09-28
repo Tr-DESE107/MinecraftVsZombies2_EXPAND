@@ -10003,6 +10003,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efe7279b9efd4e149afa436e1e203195
+    m_Address: mvz2:mainmenu/view/ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0125c799657eb041aea02f63549e0a0
     m_Address: mvz2:level/dream/nightmare_sky
     m_ReadOnly: 0
