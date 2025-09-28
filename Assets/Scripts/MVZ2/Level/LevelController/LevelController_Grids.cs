@@ -86,7 +86,7 @@ namespace MVZ2.Level
 
                 var viewData = new GridViewData()
                 {
-                    position = new Vector2(worldPos.x, worldPos.y),
+                    position = worldPos,
                     sprite = sprite,
                     slope = slope,
                 };

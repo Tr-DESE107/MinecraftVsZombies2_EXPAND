@@ -212,7 +212,7 @@ namespace MVZ2.Grids
     }
     public struct GridViewData
     {
-        public Vector2 position;
+        public Vector3 position;
         public Sprite? sprite;
         public float slope;
     }
