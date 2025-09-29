@@ -124,6 +124,13 @@ namespace MVZ2.Vanilla.Entities
         protected virtual void OnEnterState(Entity entity, int state) { }
         protected virtual void OnExitState(Entity entity, int state) { }
 
+        public int GetAnimationState(int stateNum)
+        {
+            var state = GetState(stateNum);
+            if (state == null)
+                return 0;
+            return state.animationState;
+        }
         public void SetAnimationSubstate(Entity entity, int substate)
         {
             entity.SetAnimationInt("AnimationSubstate", substate);

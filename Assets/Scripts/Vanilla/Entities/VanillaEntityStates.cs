@@ -19,6 +19,7 @@ namespace MVZ2.Vanilla.Entities
         public const int ENEMY_SIT = 203;
         public const int ENEMY_PARACHUTE = 204;
         public const int ENEMY_LEAVE = 205;
+        public const int ENEMY_SPECIAL_2 = 206;
 
         public const int BOSS_APPEAR = 300;
         public const int BOSS_ATTACK_2 = 301;
@@ -78,6 +79,13 @@ namespace MVZ2.Vanilla.Entities
         public const int MUTANT_ZOMBIE_ATTACK = ATTACK;
         public const int MUTANT_ZOMBIE_THROW = ENEMY_CAST;
         public const int MUTANT_ZOMBIE_DEATH = DEAD;
+
+        public const int POP_CAPTAIN_IDLE = IDLE;
+        public const int POP_CAPTAIN_WALK = WALK;
+        public const int POP_CAPTAIN_ATTACK = ATTACK;
+        public const int POP_CAPTAIN_SMASH_DOWN = ENEMY_SPECIAL;
+        public const int POP_CAPTAIN_SMASH_UP = ENEMY_SPECIAL_2;
+        public const int POP_CAPTAIN_DEATH = DEAD;
 
         // Bosses
         public const int FRANKENSTEIN_IDLE = IDLE;

@@ -2214,6 +2214,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33c49e1a293e6d94f8836070fff9c226
+    m_Address: mvz2:entity/armor/pop_captain_cap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33c5bcab4db531b46920a0ffc599e988
     m_Address: mvz2:chaptertransitions
     m_ReadOnly: 0
@@ -2380,6 +2387,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3751b098f9b403943aaf5f03eb4626e9
+    m_Address: mvz2:entity/enemy/pop_captain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37615d759a134794786c955d0039509e
     m_Address: mvz2:options/lengthen_board
@@ -5278,6 +5292,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c81dbe9d57058b479a153ae0532ced6
+    m_Address: mvz2:armor/pop_captain_cap
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c89b0491eb022c44b0ba1cde6b4486e
     m_Address: mvz2:enemy/prologue/flag_zombie
     m_ReadOnly: 0
@@ -6293,6 +6314,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9303069b7e7b65a4388dcc5d16a3325f
+    m_Address: mvz2:enemy/ship/pop_captain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9314f1d33a68e1e40b9abba26d9eb400
     m_Address: mvz2:options/return_pearl
     m_ReadOnly: 0
@@ -6495,6 +6523,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9825285f92864984384fbf2d953d36d0
+    m_Address: mvz2:bones/bulky
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 983c95778175afa4899ce4ca543a5a13
     m_Address: mvz2:units/colliders/wither_skeleton

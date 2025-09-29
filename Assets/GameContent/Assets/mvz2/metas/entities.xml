@@ -36,6 +36,7 @@
                 <int name="mvz2:waterInteraction" value="1" />
                 <int name="mvz2:airInteraction" value="2" />
 
+                <float name="mvz2:changeLaneSpeed" value="10" />
                 <bool name="mvz2:receivesLight" value="true" />
                 <bool name="mvz2:canDeactive" value="true" />
                 <bool name="mvz2:instantEvoke" value="true" />
@@ -1655,6 +1656,30 @@
                 <vector3 name="mvz2:size" x="64" y="44" z="64" />
 
                 <int name="mvz2:cost" value="100" />
+            </properties>
+        </enemy>
+        <enemy id="pop_captain" name="大力船长僵尸" deathMessage="永久停泊" >
+            <unlock>
+                <condition required="mvz2:level.ship_8"/>
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:enemy_melee"/>
+            </behaviours>
+            <properties>
+                <float name="mvz2:mass" value="1" />
+                <float name="mvz2:maxHealth" value="1100" />
+                <float name="mvz2:maxAttackHeight" value="80" />
+                <float name="mvz2:speed" value="1" />
+                <float name="mvz2:range" value="60" />
+                <vector3 name="mvz2:size" x="40" y="110" z="40" />
+                <id name="mvz2:crySound" value="mvz2:zombie_cry" />
+                <id name="mvz2:deathSound" value="mvz2:zombie_death" />
+                <id name="mvz2:shape" value="mvz2:bulky" />
+                <float name="mvz2:cryPitch" value="0.75" />
+
+                <vector3 name="mvz2:shadowScale" x="1.25" y="1.25" z="1.25" />
+
+                <int name="mvz2:cost" value="200" />
             </properties>
         </enemy>
 
