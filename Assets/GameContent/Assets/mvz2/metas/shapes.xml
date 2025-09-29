@@ -115,6 +115,20 @@
             </armor>
         </armors>
     </shape>
+    <shape id="bulky">
+        <armors>
+            <armor slot="mvz2:main">
+                <position x="-3" y="101" z="0"/>
+                <scale x="1.25" y="1.25" z="1.25"/>
+            </armor>
+            <armor slot="mvz2:shield">
+                <position x="-35" y="48" z="0"/>
+            </armor>
+            <armor slot="mvz2:shield" type="mvz2:handheld">
+                <position x="-20" y="48" z="0"/>
+            </armor>
+        </armors>
+    </shape>
     <shape id="mutant_zombie">
         <armors>
             <armor slot="mvz2:main">
