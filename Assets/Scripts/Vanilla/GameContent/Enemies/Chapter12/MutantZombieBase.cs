@@ -35,7 +35,7 @@ namespace MVZ2.Vanilla.Enemies
         {
             base.UpdateLogic(entity);
             stateMachine.UpdateLogic(entity);
-            entity.SetAnimationBool("HasImp", HasImp(entity));
+            entity.SetModelProperty("NoImp", !HasImp(entity));
             entity.SetModelProperty("Weapon", entity.State == STATE_DEATH ? -1 : GetWeapon(entity));
         }
         public override void PostDeath(Entity entity, DeathInfo info)
