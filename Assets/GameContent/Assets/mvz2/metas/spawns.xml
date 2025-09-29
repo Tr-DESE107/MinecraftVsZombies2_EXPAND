@@ -128,7 +128,7 @@
         <weight base="2000" />
     </entry>
 
-    <!-- Mausoleum -->
+    <!-- Ship -->
     <entry id="undead_flying_object" type="custom" >
         <preview variant="3" />
         <entity id="mvz2:undead_flying_object" variant="-1"/>
@@ -142,6 +142,7 @@
     <entry id="cannoneer_zombie" >
         <entity id="mvz2:cannoneer_zombie"/>
         <spawn level="4" minWave="10" />
+        <terrain water="true" air="true"/>
         <weight base="1500" />
     </entry>
     <entry id="zombie_cloud" >
