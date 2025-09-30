@@ -207,6 +207,7 @@ namespace MVZ2.Modding
                 var name = meta.ID;
                 var def = new MetaArmorDefinition(nsp, name, meta.ColliderConstructors);
                 def.SetArmorType(meta.Type);
+                def.SetIgnored(meta.Ignored);
 
                 // 加载护甲的属性。
                 foreach (var pair in meta.Properties)

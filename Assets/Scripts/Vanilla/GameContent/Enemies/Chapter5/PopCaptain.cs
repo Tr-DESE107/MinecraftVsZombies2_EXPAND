@@ -46,8 +46,12 @@ namespace MVZ2.Vanilla.Enemies
         }
         public static bool NoAnchor(Entity entity) => entity.GetBehaviourField<bool>(PROP_NO_ANCHOR);
         public static void SetNoAnchor(Entity entity, bool value) => entity.SetBehaviourField(PROP_NO_ANCHOR, value);
+        public static bool SmashUpwards(Entity entity) => entity.GetBehaviourField<bool>(PROP_SMASH_UPWARDS);
+        public static void SetSmashUpwards(Entity entity, bool value) => entity.SetBehaviourField(PROP_SMASH_UPWARDS, value);
 
         public static readonly VanillaEntityPropertyMeta<bool> PROP_NO_ANCHOR = new VanillaEntityPropertyMeta<bool>("no_anchor");
+
+        public static readonly VanillaEntityPropertyMeta<bool> PROP_SMASH_UPWARDS = new VanillaEntityPropertyMeta<bool>("smash_upwards");
         public const float STUN_SECONDS = 3;
         private static EntityStateMachine stateMachine = new MutantZombieStateMachine();
         private static Detector smashDetector = new PopCaptainDetector(0);

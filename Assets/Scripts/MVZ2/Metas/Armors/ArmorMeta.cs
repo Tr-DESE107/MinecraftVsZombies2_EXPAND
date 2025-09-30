@@ -19,6 +19,7 @@ namespace MVZ2.Metas
         }
 
         public string ID { get; private set; }
+        public bool Ignored { get; private set; }
         public NamespaceID? Type { get; private set; }
         public NamespaceID[] Behaviours { get; private set; }
         public ColliderConstructor[] ColliderConstructors { get; private set; }
@@ -33,6 +34,7 @@ namespace MVZ2.Metas
                 return null;
             }
 
+            bool ignored = node.GetAttributeBool("ignored") ?? false;
             var type = node.GetAttributeNamespaceID("type", defaultNsp);
 
             var behavioursNode = node["behaviours"];
@@ -73,7 +75,8 @@ namespace MVZ2.Metas
 
             return new ArmorMeta(id, behaviours.ToArray(), colliders.ToArray(), properties)
             {
-                Type = type
+                Type = type,
+                Ignored = ignored,
             };
         }
     }

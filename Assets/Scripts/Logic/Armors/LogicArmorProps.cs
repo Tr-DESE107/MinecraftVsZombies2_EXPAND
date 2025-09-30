@@ -21,6 +21,19 @@ namespace MVZ2.Vanilla.Entities
         {
             armor.SetProperty<NamespaceID>(ARMOR_TYPE, value);
         }
+        public static readonly PropertyMeta<bool> IGNORED = Get<bool>("ignored");
+        public static bool IsIgnored(this ArmorDefinition armor)
+        {
+            return armor.GetProperty<bool>(IGNORED);
+        }
+        public static bool IsIgnored(this Armor armor)
+        {
+            return armor.GetProperty<bool>(IGNORED);
+        }
+        public static void SetIgnored(this ArmorDefinition armor, bool value)
+        {
+            armor.SetProperty<bool>(IGNORED, value);
+        }
     }
 }
 

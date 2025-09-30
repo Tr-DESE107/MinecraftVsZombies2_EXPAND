@@ -1666,6 +1666,7 @@
                 <behaviour operator="add" id="mvz2:enemy_melee"/>
             </behaviours>
             <properties>
+                <id name="mvz2:starting_armor" value="mvz2:pop_captain_cap" />
                 <float name="mvz2:mass" value="1" />
                 <float name="mvz2:maxHealth" value="1100" />
                 <float name="mvz2:maxAttackHeight" value="80" />

@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Damages;
+using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Shells;
@@ -42,7 +43,9 @@ namespace MVZ2.Vanilla.Enemies
             }
             else if (CheckSmash(zombie))
             {
-                targetState = STATE_SMASH_DOWN;
+                var smashUpwards = SmashUpwards(zombie);
+                targetState = smashUpwards ? STATE_SMASH_UP : STATE_SMASH_DOWN;
+                SetSmashUpwards(zombie, !smashUpwards);
             }
             else if (CheckAttack(zombie))
             {
@@ -107,6 +110,8 @@ namespace MVZ2.Vanilla.Enemies
         }
         public static void Smash(Entity entity, int rowOffset)
         {
+            if (NoAnchor(entity))
+                return;
             // 检测第一个目标。
             var center = entity.GetCenter();
             var targetCollider = damageDetector.DetectWithTheLeast(entity, c => c.GetBoundingBox().SqrDistance(center));
