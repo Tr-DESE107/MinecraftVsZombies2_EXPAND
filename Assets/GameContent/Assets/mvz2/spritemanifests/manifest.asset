@@ -265,6 +265,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 7ad59fee145905345a3241aca0804d48, type: 3}
   - name: mobile_blueprint/iron_helmetted_zombie
     sprite: {fileID: 21300000, guid: a2c663f155f7ff44eb88ea0b4b0a285e, type: 3}
+  - name: mobile_blueprint/jeweled_pagoda
+    sprite: {fileID: 21300000, guid: 91145db7ce144ae46b011cc317c0fd39, type: 3}
   - name: mobile_blueprint/leather_capped_zombie
     sprite: {fileID: 21300000, guid: 682a1f5ec6af4b54d81d95c0fcf56384, type: 3}
   - name: mobile_blueprint/lengthen_board
@@ -305,6 +307,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 333296bf7a142dd43a413222f3881bcb, type: 3}
   - name: mobile_blueprint/pistenser
     sprite: {fileID: 21300000, guid: cdec7faf255eabe4195b58d4652126e3, type: 3}
+  - name: mobile_blueprint/pop_captain
+    sprite: {fileID: 21300000, guid: 9f4e32b5f413e874aa0d2661531c8b78, type: 3}
   - name: mobile_blueprint/punchton
     sprite: {fileID: 21300000, guid: 1d8a7cdd4327da14ea5a749df090984d, type: 3}
   - name: mobile_blueprint/random_china
@@ -515,6 +519,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 58755531f1cc59b4ab7563c5bedf58b2, type: 3}
   - name: entity/armor/mesmerizer_crown
     sprite: {fileID: 21300000, guid: 5a0ed5d8cf792294fb28827ccdea1c42, type: 3}
+  - name: entity/armor/pop_captain_cap
+    sprite: {fileID: 21300000, guid: 33c49e1a293e6d94f8836070fff9c226, type: 3}
   - name: entity/armor/wicked_hermit_hat
     sprite: {fileID: 21300000, guid: 97bbf718dcb8d714cbce072750f648a2, type: 3}
   - name: entity/boss/gun_fire
@@ -2074,6 +2080,19 @@ MonoBehaviour:
     - {fileID: -938367861, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: 516429795, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
     - {fileID: -1181326684, guid: 7f65243c614e7c64abc683911c4ad91c, type: 3}
+  - name: entity/enemy/pop_captain
+    spritesheet:
+    - {fileID: -441383929, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+    - {fileID: -1066980213, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+    - {fileID: 1112227603, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+    - {fileID: 1171143249, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+    - {fileID: -1047550356, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+    - {fileID: -1581189439, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+    - {fileID: 694089054, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+    - {fileID: -579956557, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+    - {fileID: -497240914, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+    - {fileID: -662110431, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
+    - {fileID: -1722542415, guid: 3751b098f9b403943aaf5f03eb4626e9, type: 3}
   - name: entity/enemy/reverse_satellite
     spritesheet:
     - {fileID: 1053308388, guid: 95a0ff4bc65b3c3489a4dd2274848c9d, type: 3}
