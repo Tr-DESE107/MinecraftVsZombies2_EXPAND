@@ -1404,7 +1404,7 @@
             <properties>
                 <p>生命：<![CDATA[<color=red>1100</color>]]></p>
                 <p>伤害：<![CDATA[<color=red>100（冲击）</color>]]></p>
-                <p>特殊：<![CDATA[<color=red>直接击杀受器械移动影响的，目标位置上的器械</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>若被移动的器械移动到已有器械的位置，原来的器械将直接被摧毁。</color>]]></p>
             </properties>
             <flavor>
                 <p>他以前当水手的时候喜欢吃菠菜，不过自从他当了船长之后，他就更喜欢吃橘子了。</p>
