@@ -159,37 +159,14 @@ namespace MVZ2.Vanilla.Enemies
                 // 如果目标是器械：
                 var lane = target.GetLane();
                 var column = target.GetColumn();
-                var grid = entity.Level.GetGrid(column, lane + rowOffset);
-                if (grid == null)
+                var targetGrid = entity.Level.GetGrid(column, lane + rowOffset);
+                if (targetGrid == null)
                 {
                     // 如果目标地格不存在，直接秒杀器械。
                     target.Die(damageEffects, entity, damageOutput.BodyResult);
                 }
                 else
                 {
-                    // 如果目标地格存在：
-
-                    var conflictLayers = target.GetGridLayersToTake();
-                    if (conflictLayers != null)
-                    {
-                        // 找到目标地格上冲突的实体。
-                        var conflictEntities = new HashSet<Entity>();
-                        foreach (var layer in conflictLayers)
-                        {
-                            var layerEntities = grid.GetLayerEntities(layer);
-                            foreach (var ent in layerEntities)
-                            {
-                                if (ent == target)
-                                    continue;
-                                conflictEntities.Add(ent);
-                            }
-                        }
-                        // 如果目标地格有冲突的实体，秒杀冲突的实体。
-                        foreach (var conflict in conflictEntities)
-                        {
-                            conflict.Die(entity);
-                        }
-                    }
                     // 移动器械到目标地格。
                     target.StartChangingLane(lane + rowOffset);
                     // 将目标眩晕。

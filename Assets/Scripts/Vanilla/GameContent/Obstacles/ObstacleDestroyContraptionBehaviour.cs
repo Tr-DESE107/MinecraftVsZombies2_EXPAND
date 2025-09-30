@@ -16,20 +16,7 @@ namespace MVZ2.GameContent.Obstacles
         public override void Init(Entity entity)
         {
             base.Init(entity);
-            entity.UpdateTakenGrids();
-
-            var grids = entity.GetGridsToTake();
-            foreach (var grid in grids)
-            {
-                var statueTakenLayers = entity.GetTakingGridLayers(grid);
-                foreach (var contraption in entity.Level.FindEntities(e => e.Type == EntityTypes.PLANT && e.GetGridsToTake().Contains(grid)))
-                {
-                    var contraptionTakenLayers = contraption.GetTakingGridLayers(grid);
-                    if (contraptionTakenLayers.Intersect(statueTakenLayers).Count() <= 0)
-                        continue;
-                    contraption.Die();
-                }
-            }
+            entity.DestroyConflictGridEntities();
         }
     }
 }

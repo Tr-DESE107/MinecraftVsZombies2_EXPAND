@@ -34,6 +34,7 @@ using PVZEngine.Level;
 using Tools;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 using GridLayerData = System.Tuple<PVZEngine.Grids.LawnGrid, PVZEngine.NamespaceID>;
 
 namespace MVZ2.Vanilla.Entities
@@ -555,6 +556,40 @@ namespace MVZ2.Vanilla.Entities
             GetCurrentGridLayersToTakeNonAlloc(entity, takenGridLayerDataBuffer);
             entityGridUpdater.Update(targetGridLayerDataBuffer, takenGridLayerDataBuffer, g => entity.TakeGrid(g.Item1, g.Item2), g => entity.ReleaseGrid(g.Item1, g.Item2));
         }
+        public static void DestroyConflictGridEntities(this Entity entity)
+        {
+            entity.UpdateTakenGrids();
+
+            var grids = entity.GetGridsToTake();
+            foreach (var grid in grids)
+            {
+                var takenLayers = entity.GetGridLayersToTake();
+                if (takenLayers != null)
+                {
+                    entity.DestroyConflictGridEntities(grid, takenLayers);
+                }
+            }
+        }
+        public static void DestroyConflictGridEntities(this Entity entity, LawnGrid grid, NamespaceID[] layers)
+        {
+            // 找到目标地格上冲突的实体。
+            var conflictEntities = new HashSet<Entity>();
+            foreach (var layer in layers)
+            {
+                var layerEntities = grid.GetLayerEntities(layer);
+                foreach (var ent in layerEntities)
+                {
+                    if (ent == entity)
+                        continue;
+                    conflictEntities.Add(ent);
+                }
+            }
+            // 如果目标地格有冲突的实体，秒杀冲突的实体。
+            foreach (var conflict in conflictEntities)
+            {
+                conflict.Die(entity);
+            }
+    }
         private static void GetTargetGridLayersToTakeNonAlloc(Entity entity, List<GridLayerData> buffer)
         {
             if (!entity.ExistsAndAlive())

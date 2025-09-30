@@ -3,6 +3,7 @@
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Buffs;
+using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
 
@@ -70,6 +71,14 @@ namespace MVZ2.GameContent.Buffs.Carts
         }
         public static void Stop(Buff buff)
         {
+            var entity = buff.GetEntity();
+            if (entity != null)
+            {
+                if (entity.GetGridLayersToTake() != null)
+                {
+                    entity.DestroyConflictGridEntities();
+                }
+            }
             buff.Remove();
         }
         public static int GetTarget(Buff entity) => entity.GetProperty<int>(PROP_TARGET);
