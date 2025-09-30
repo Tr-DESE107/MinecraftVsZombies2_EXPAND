@@ -809,7 +809,7 @@
                 <p>珠光宝塔会暂时禁用一整行内的所有空地格，并在立即生产星之碎片后消失。</p>
             </header>
             <properties>
-                <p>禁用时长：<![CDATA[<color=red>3分钟</color>]]></p>
+                <p>禁用时长：<![CDATA[<color=red>4分钟</color>]]></p>
                 <p>产量：<![CDATA[<color=red>1星之碎片/3禁用的地格</color>]]></p>
                 <p>技能：<![CDATA[<color=red>无</color>]]></p>
             </properties>

@@ -89,7 +89,7 @@ namespace MVZ2.GameContent.Buffs.Grids
         public const int TYPE_CLOUD = 2;
         public const int TYPE_SLOPE = 3;
         public const float FLASH_SECONDS = 1;
-        public const float MAX_TIMEOUT_SECONDS = 180;
+        public const float MAX_TIMEOUT_SECONDS = 240;
         public static readonly NamespaceID MODEL_KEY = VanillaModelKeys.goldenGrid;
         public static readonly VanillaBuffPropertyMeta<float> PROP_DISAPPEAR_VALUE = new VanillaBuffPropertyMeta<float>("disappear_value");
         public static readonly VanillaBuffPropertyMeta<FrameTimer> PROP_FLASH_TIMER = new VanillaBuffPropertyMeta<FrameTimer>("flash_timer");
