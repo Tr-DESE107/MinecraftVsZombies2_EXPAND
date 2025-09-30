@@ -8,7 +8,6 @@ using MVZ2.Models;
 using MVZ2.Vanilla.Grids;
 using MVZ2Logic;
 using MVZ2Logic.HeldItems;
-using MVZ2Logic.Models;
 using PVZEngine.Buffs;
 using PVZEngine.Grids;
 using PVZEngine.Level;
