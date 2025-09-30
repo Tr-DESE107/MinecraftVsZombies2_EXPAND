@@ -76,6 +76,7 @@ namespace MVZ2.GameContent.Buffs
             public const string entityPhysics = "entity_physics";
             public const string faction = "faction";
             public const string changeLane = "change_lane";
+            public const string changeGrid = "change_grid";
             public const string damageColor = "damage_color";
             public const string temporaryUpdateBeforeGame = "temporary_update_before_game";
 

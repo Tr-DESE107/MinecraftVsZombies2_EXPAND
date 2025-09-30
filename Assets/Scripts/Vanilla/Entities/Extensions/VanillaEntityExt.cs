@@ -34,7 +34,6 @@ using PVZEngine.Level;
 using Tools;
 using UnityEditor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 using GridLayerData = System.Tuple<PVZEngine.Grids.LawnGrid, PVZEngine.NamespaceID>;
 
 namespace MVZ2.Vanilla.Entities
@@ -471,6 +470,28 @@ namespace MVZ2.Vanilla.Entities
             ChangeLaneBuff.Stop(buff);
         }
         #endregion
+
+        #region 换格
+        public static void StartChangingGrid(this Entity entity, int column, int lane)
+        {
+            var buff = entity.GetFirstBuff<ChangeGridBuff>();
+            if (buff == null)
+            {
+                buff = entity.AddBuff<ChangeGridBuff>();
+            }
+            var level = entity.Level;
+            column = Math.Clamp(column, 0, level.GetMaxColumnCount() - 1);
+            lane = Math.Clamp(lane, 0, level.GetMaxLaneCount() - 1);
+            ChangeGridBuff.Start(buff, column, lane);
+        }
+        public static void StopChangingGrid(this Entity entity)
+        {
+            var buff = entity.GetFirstBuff<ChangeGridBuff>();
+            if (buff == null)
+                return;
+            ChangeGridBuff.Stop(buff);
+        }
+        #endregion
         public static bool IsVulnerableEntity(this Entity entity)
         {
             return entity.Type == EntityTypes.PLANT || entity.Type == EntityTypes.ENEMY || entity.Type == EntityTypes.OBSTACLE || entity.Type == EntityTypes.BOSS;
@@ -589,7 +610,7 @@ namespace MVZ2.Vanilla.Entities
             {
                 conflict.Die(entity);
             }
-    }
+        }
         private static void GetTargetGridLayersToTakeNonAlloc(Entity entity, List<GridLayerData> buffer)
         {
             if (!entity.ExistsAndAlive())
