@@ -36,16 +36,18 @@ namespace PVZEngine.Level
         {
             buffs = BuffList.CreateFromSerializable(seri.buffs, this, this);
             buffs.OnPropertyChanged += UpdateBuffedProperty;
-            // 关卡拥有的所有BUFF引用计数+1
-            foreach (var buff in buffs)
-            {
-                IncreaseLevelObjectReference(buff);
-            }
         }
         private void LoadBuffsFromSerializable(SerializableLevel seri)
         {
             if (seri.buffs != null)
+            {
                 buffs.LoadFromSerializable(seri.buffs);
+                // 关卡拥有的所有BUFF引用计数+1
+                foreach (var buff in buffs)
+                {
+                    IncreaseLevelObjectReference(buff);
+                }
+            }
         }
         #endregion
 

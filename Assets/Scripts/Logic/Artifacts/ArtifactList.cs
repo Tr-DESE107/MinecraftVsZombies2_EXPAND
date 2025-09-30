@@ -187,7 +187,6 @@ namespace MVZ2Logic.Artifacts
                     continue;
                 artifact.OnHighlighted += artifactList.OnItemHighlightedCallback;
                 artifactList.artifacts[i] = artifact;
-                level.IncreaseLevelObjectReference(artifact);
             }
             return artifactList;
         }
@@ -207,6 +206,7 @@ namespace MVZ2Logic.Artifacts
                 if (artifact == null)
                     continue;
                 artifact.LoadFromSerializable(seri);
+                Level.IncreaseLevelObjectReference(artifact);
             }
         }
         #endregion

@@ -41,7 +41,6 @@ namespace PVZEngine.Level
                 int column = i % maxColumnCount;
                 var grid = new LawnGrid(this, definition, lane, column);
                 grids[i] = grid;
-                IncreaseLevelObjectReference(grid);
             }
         }
         #endregion
@@ -70,6 +69,7 @@ namespace PVZEngine.Level
                 var grid = grids[i];
                 var seriGrid = seri.grids[i];
                 grid.LoadFromSerializable(seriGrid);
+                IncreaseLevelObjectReference(grid);
             }
         }
         #endregion
