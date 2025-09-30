@@ -71,18 +71,19 @@ bool LightDisabled()
 
 float4 ApplyLight(float4 col, float2 lightUV)
 {
-    if (!LightDisabled() && _LightStarted && false)
+    if (!LightDisabled() && _LightStarted)
     {
         float4 light = GetLight(lightUV);
         float4 colLin = ToLinear(col);
         float4 lightLin = ToLinear(light);
         colLin.rgb *= lightLin.rgb * saturate(lightLin.a);
         colLin.rgb = saturate(colLin.rgb);
-        col = ToGamma(colLin);
         if (_BackgroundLit)
         {
-            col *= _BackgroundTint;
+            float4 tintLin = ToLinear(_BackgroundTint);
+            colLin *= tintLin;
         }
+        col = ToGamma(colLin);
     }
     return col;
 }
