@@ -5,6 +5,7 @@ using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Models;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -35,7 +36,16 @@ namespace MVZ2.Vanilla.Enemies
             base.UpdateLogic(entity);
             stateMachine.UpdateLogic(entity);
             entity.SetModelProperty("NoAnchor", NoAnchor(entity));
-            entity.SetAnimationBool("HoldingAnchor", !NoAnchor(entity) && stateMachine.GetAnimationState(stateMachine.GetEntityState(entity)) <= 1);
+
+            var animatorInterface = entity.GetAnimatorInterface(VanillaAnimatorKeys.main);
+            if (animatorInterface != null)
+            {
+                bool holdingAnchor = !NoAnchor(entity) && stateMachine.GetAnimationState(stateMachine.GetEntityState(entity)) <= 2;
+                var targetWeight = holdingAnchor ? 1f : 0f;
+                var weight = animatorInterface.GetLayerWeight("AnchorArm");
+                weight = weight * 0.5f + targetWeight * 0.5f;
+                animatorInterface.SetLayerWeight("AnchorArm", weight);
+            }
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {

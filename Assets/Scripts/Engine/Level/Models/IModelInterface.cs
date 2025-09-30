@@ -11,6 +11,7 @@ namespace PVZEngine.Models
         void SetAnimationBool(string name, bool value);
         void SetAnimationInt(string name, int value);
         void SetAnimationFloat(string name, float value);
+        IAnimatorInterface? GetAnimatorInterface(string name);
         void SetModelProperty(string name, object? value);
         void TriggerModel(string name);
         void SetShaderInt(string name, int value);

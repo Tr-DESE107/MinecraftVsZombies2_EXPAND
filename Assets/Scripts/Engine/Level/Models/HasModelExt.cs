@@ -70,4 +70,8 @@ public static class HasModelExt
     {
         self.GetModelInterface()?.SetAnimationFloat(name, value);
     }
+    public static IAnimatorInterface? GetAnimatorInterface(this IHasModel self, string name)
+    {
+        return self.GetModelInterface()?.GetAnimatorInterface(name);
+    }
 }

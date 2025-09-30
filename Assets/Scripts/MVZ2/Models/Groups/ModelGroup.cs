@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using UnityEngine;
 
 namespace MVZ2.Models
@@ -11,22 +12,23 @@ namespace MVZ2.Models
         #region 动画器
         public void UpdateFrame(float deltaTime)
         {
-            foreach (var animator in animators)
+            foreach (var element in animators)
             {
                 if (testMode && Application.isEditor)
                 {
-                    animator.enabled = true;
+                    element.Animator.enabled = true;
                 }
             }
         }
         public void UpdateAnimators(float deltaTime)
         {
-            foreach (var animator in animators)
+            foreach (var element in animators)
             {
-                if (!animator || !animator.gameObject.activeInHierarchy)
+                if (!element || !element.gameObject.activeInHierarchy)
                     continue;
                 if (!testMode || !Application.isEditor)
                 {
+                    var animator = element.Animator;
                     animator.enabled = false;
                     animator.Update(deltaTime);
                 }
@@ -34,46 +36,60 @@ namespace MVZ2.Models
         }
         public void GetAnimatorsToUpdate(IList<Animator> results)
         {
-            foreach (var animator in animators)
+            foreach (var element in animators)
             {
                 if (testMode && Application.isEditor)
                     continue;
-                if (!animator)
+                if (!element || !element.gameObject.activeInHierarchy)
                     continue;
+                var animator = element.Animator;
                 if (!animator.runtimeAnimatorController)
-                    continue;
-                if (!animator.gameObject.activeInHierarchy)
                     continue;
                 results.Add(animator);
             }
         }
         public void TriggerAnimator(string name)
         {
-            foreach (var animator in animators)
+            foreach (var element in animators)
             {
+                var animator = element.Animator;
                 animator.SetTrigger(name);
             }
         }
         public void SetAnimatorBool(string name, bool value)
         {
-            foreach (var animator in animators)
+            foreach (var element in animators)
             {
+                var animator = element.Animator;
                 animator.SetBool(name, value);
             }
         }
         public void SetAnimatorInt(string name, int value)
         {
-            foreach (var animator in animators)
+            foreach (var element in animators)
             {
+                var animator = element.Animator;
                 animator.SetInteger(name, value);
             }
         }
         public void SetAnimatorFloat(string name, float value)
         {
-            foreach (var animator in animators)
+            foreach (var element in animators)
             {
+                var animator = element.Animator;
                 animator.SetFloat(name, value);
             }
+        }
+        public AnimatorElement? GetAnimatorElement(string name)
+        {
+            foreach (var element in animators)
+            {
+                if (element.elementName == name)
+                {
+                    return element;
+                }
+            }
+            return null;
         }
 
         #endregion
@@ -148,7 +164,17 @@ namespace MVZ2.Models
             transforms.ReplaceList(trans);
 
             var anims = GetComponentsInChildren<Animator>(true)
-                .Where(g => g.IsDirectChild<ModelGroup>(this));
+                .Where(g => g.IsDirectChild<ModelGroup>(this))
+                .Select((r, i) =>
+                {
+                    var element = r.GetComponent<AnimatorElement>();
+                    if (!element)
+                    {
+                        element = r.gameObject.AddComponent<AnimatorElement>();
+                        element.elementName = i == 0 ? "main" : $"element_{i}";
+                    }
+                    return element;
+                });
             animators.ReplaceList(anims);
         }
         #endregion
@@ -163,18 +189,18 @@ namespace MVZ2.Models
                 {
                     if (i >= serializable.animators.Length)
                         break;
-                    var animator = animators[i];
+                    var element = animators[i];
                     var data = serializable.animators[i];
-                    if (data == null)
+                    if (!element.Exists() || data == null)
                         continue;
-                    data.Deserialize(animator);
+                    data.Deserialize(element.Animator);
                 }
             }
             LoadFromSerializable(serializable);
         }
         protected void SaveToSerializableGroup(SerializableModelGroup serializable)
         {
-            serializable.animators = animators.Select(a => new SerializableAnimator(a)).ToArray();
+            serializable.animators = animators.Select(a => a.ToSerializable()).ToArray();
         }
         protected virtual void LoadFromSerializable(SerializableModelGroup serializable)
         {
@@ -184,13 +210,14 @@ namespace MVZ2.Models
         #region 生命周期
         private void Awake()
         {
-            foreach (var animator in animators)
+            foreach (var element in animators)
             {
-                if (!animator)
+                if (!element)
                 {
                     Debug.LogWarning($"Model {gameObject.name} has a missing animator!");
                     return;
                 }
+                var animator = element.Animator;
                 animator.logWarnings = false;
             }
         }
@@ -202,7 +229,7 @@ namespace MVZ2.Models
         [SerializeField]
         protected List<ModelAnchor> modelAnchors = new List<ModelAnchor>();
         [SerializeField]
-        protected List<Animator> animators = new List<Animator>();
+        protected List<AnimatorElement> animators = new List<AnimatorElement>();
         [SerializeField]
         protected List<TransformElement> transforms = new List<TransformElement>();
         #endregion

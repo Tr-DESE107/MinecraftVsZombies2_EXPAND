@@ -153,6 +153,10 @@ namespace MVZ2.Models
         {
             GraphicGroup.SetAnimatorFloat(name, value);
         }
+        public IAnimatorInterface? GetAnimatorInterface(string name)
+        {
+            return GraphicGroup.GetAnimatorElement(name);
+        }
         #endregion
 
         #region 序列化
@@ -493,6 +497,7 @@ namespace MVZ2.Models
         public Dictionary<string, bool>? boolParameters = new Dictionary<string, bool>();
         public Dictionary<string, int>? intParameters = new Dictionary<string, int>();
         public Dictionary<string, float>? floatParameters = new Dictionary<string, float>();
+        public List<float>? layerWeights = new List<float>();
 
         public SerializableAnimator(Animator animator)
         {
@@ -519,6 +524,7 @@ namespace MVZ2.Models
                     transitionTime = transition.normalizedTime
                 };
                 playingDatas[i] = playingData;
+                layerWeights.Add(animator.GetLayerWeight(i));
             }
 
             foreach (AnimatorControllerParameter para in animator.parameters)
@@ -577,6 +583,16 @@ namespace MVZ2.Models
                 foreach (var pair in floatParameters)
                 {
                     animator.SetFloat(pair.Key, pair.Value);
+                }
+            }
+            if (layerWeights != null)
+            {
+                for (int i = 0; i < animator.layerCount; i++)
+                {
+                    if (i >= layerWeights.Count)
+                        continue;
+                    var weight = layerWeights[i];
+                    animator.SetLayerWeight(i, weight);
                 }
             }
 

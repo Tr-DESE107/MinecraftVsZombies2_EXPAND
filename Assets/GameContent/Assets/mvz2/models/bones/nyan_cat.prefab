@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5720725798795184051}
   - component: {fileID: 308903791723782118}
+  - component: {fileID: 3066477091911372790}
   m_Layer: 0
   m_Name: NyanCat
   m_TagString: Untagged
@@ -55,6 +56,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3066477091911372790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002039924827060435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: nyan_cat
 --- !u!1 &4097761420418625887
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3916170044722360369}
   - component: {fileID: 379152483500823866}
+  - component: {fileID: 7985019255770278390}
   m_Layer: 0
   m_Name: Nyaightmare
   m_TagString: Untagged
@@ -600,6 +615,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7985019255770278390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676965910574335608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementName: nyaightmare
 --- !u!1001 &1882108812532055999
 PrefabInstance:
   m_ObjectHideFlags: 0

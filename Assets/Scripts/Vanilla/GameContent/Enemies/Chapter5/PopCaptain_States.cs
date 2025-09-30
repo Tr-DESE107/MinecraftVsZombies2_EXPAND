@@ -313,7 +313,7 @@ namespace MVZ2.Vanilla.Enemies
             }
             public const int SUBSTATE_START = 0;
             public const int SUBSTATE_DROP = 1;
-            public const float DEATH_SECONDS = 3;
+            public const float DEATH_SECONDS = 2.5f;
         }
         #endregion
 

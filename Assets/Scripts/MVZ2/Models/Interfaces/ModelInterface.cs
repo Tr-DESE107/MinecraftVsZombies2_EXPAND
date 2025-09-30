@@ -44,6 +44,13 @@ namespace MVZ2.Models
                 return;
             targetModel.SetAnimatorFloat(name, value);
         }
+        public IAnimatorInterface? GetAnimatorInterface(string name)
+        {
+            var targetModel = GetModel();
+            if (!targetModel.Exists())
+                return null;
+            return targetModel.GetAnimatorInterface(name);
+        }
         public void SetModelProperty(string name, object? value)
         {
             var model = GetModel();

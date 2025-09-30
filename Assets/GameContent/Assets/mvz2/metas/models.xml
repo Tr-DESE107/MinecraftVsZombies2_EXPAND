@@ -201,7 +201,9 @@
             <int name="Variant" value="2" />
         </properties>
     </model>
-    <model name="pop_captain" type="entity" path="mvz2:enemy/ship/pop_captain" width="76" height="132" xOffset="8" yOffset="-60"/>
+    <model name="pop_captain" type="entity" path="mvz2:enemy/ship/pop_captain" width="76" height="132" xOffset="8" yOffset="-60">
+        <animator updateOnShot="true" />  
+    </model>
 
     <model name="mutant_zombie" type="entity" path="mvz2:enemy/shrine/mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
     <model name="mega_mutant_zombie" type="entity" path="mvz2:enemy/shrine/mega_mutant_zombie" width="200" height="180" xOffset="0" yOffset="-90"/>
