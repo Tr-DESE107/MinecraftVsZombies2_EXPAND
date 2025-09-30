@@ -3,7 +3,7 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using PVZEngine;
@@ -15,7 +15,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.ghost)]
-    public class Ghost : MeleeEnemy
+    public class Ghost : AIEntityBehaviour
     {
         public Ghost(string nsp, string name) : base(nsp, name)
         {

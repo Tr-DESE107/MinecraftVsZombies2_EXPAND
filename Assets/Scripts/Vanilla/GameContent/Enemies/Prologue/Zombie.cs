@@ -5,7 +5,7 @@ using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.Vanilla;
-using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using PVZEngine.Buffs;
@@ -17,7 +17,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.zombie)]
-    public class Zombie : MeleeEnemy
+    public class Zombie : AIEntityBehaviour
     {
         public Zombie(string nsp, string name) : base(nsp, name)
         {

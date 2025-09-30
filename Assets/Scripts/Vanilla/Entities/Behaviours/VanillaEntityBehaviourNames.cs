@@ -18,8 +18,24 @@ namespace MVZ2.Vanilla.Entities
 
         #region Enemies
         public const string enemyCommon = "enemy_common";
+        public const string enemyState = "enemy_state";
         public const string enemyMelee = "enemy_melee";
+        public const string enemyWalk = "enemy_walk";
+        public const string enemyDeathTimeout = "enemy_death_timeout";
+
+        public const string skeleton_State = "skeleton/state";
+        public const string napstablook_State = "napstablook/state";
+        public const string spider_State = "spider/state";
+        public const string spider_Melee = "spider/melee";
+        public const string ghast_State = "ghast/state";
+        public const string dullahan_State = "dullahan/state";
         public const string damageByGold = "damage_by_gold";
+        public const string reverseSatellite_State = "reverse_satellite/state";
+        public const string skeletonHorse_State = "skeleton_horse/state";
+        public const string skeletonHorse_Melee = "skeleton_horse/melee";
+        public const string skeletonMage_State = "skeleton_mage/state";
+        public const string wickedHermitZombie_State = "wicked_hermit_zombie/state";
+        public const string undeadFlyingObject_State = "undead_flying_object/state";
         #endregion
 
         #region Obstacles

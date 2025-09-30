@@ -20,31 +20,44 @@ namespace MVZ2.Vanilla.Enemies
         {
         }
 
-        protected override void UpdateAI(Entity enemy)
+        #region 更新
+        protected override void UpdateAI(Entity entity)
         {
-            var targetID = GetMeleeTarget(enemy);
-            if (targetID != null && !ValidateMeleeTarget(enemy, targetID.GetEntity(enemy.Level)))
+            base.UpdateAI(entity);
+            if (!MeleeEnabled(entity))
+                return;
+            var targetID = GetMeleeTarget(entity);
+            if (targetID != null && !ValidateMeleeTarget(entity, targetID.GetEntity(entity.Level)))
             {
-                SetMeleeTarget(enemy, null);
+                SetMeleeTarget(entity, null);
             }
-            base.UpdateAI(enemy);
+
+            if (entity.State == VanillaEntityStates.ATTACK)
+            {
+                MeleeAttack(entity);
+            }
         }
+        #endregion
+
+        #region 碰撞
         public override void PostCollision(EntityCollision collision, int state)
         {
-            if (!collision.Collider.IsForMain())
+            base.PostCollision(collision, state);
+            var entity = collision.Entity;
+            if (!MeleeEnabled(entity))
                 return;
-            if (!collision.OtherCollider.IsForMain())
+            if (!collision.Collider.IsForMain() || !collision.OtherCollider.IsForMain())
                 return;
             if (state != EntityCollisionHelper.STATE_EXIT)
             {
-                MeleeCollision(collision.Entity, collision.Other);
+                CollisionStay(entity, collision.Other);
             }
             else
             {
-                CancelMeleeAttack(collision.Entity, collision.Other);
+                CollisionExit(entity, collision.Other);
             }
         }
-        private void MeleeCollision(Entity enemy, Entity other)
+        private void CollisionStay(Entity enemy, Entity other)
         {
             var targetID = GetMeleeTarget(enemy);
             var currentTarget = targetID?.GetEntity(enemy.Level);
@@ -61,7 +74,18 @@ namespace MVZ2.Vanilla.Enemies
                 SetMeleeTarget(enemy, new EntityID(target));
             }
         }
-        private bool ValidateMeleeTarget(Entity enemy, [NotNullWhen(true)] Entity? target)
+        private void CollisionExit(Entity enemy, Entity other)
+        {
+            var meleeTarget = GetMeleeTarget(enemy);
+            if (meleeTarget != null && meleeTarget.ID == other.ID)
+            {
+                SetMeleeTarget(enemy, null);
+            }
+        }
+        #endregion
+
+        #region 检验目标
+        protected virtual bool ValidateMeleeTarget(Entity enemy, [NotNullWhen(true)] Entity? target)
         {
             if (target == null || !target.Exists() || target.IsDead)
                 return false;
@@ -83,18 +107,21 @@ namespace MVZ2.Vanilla.Enemies
             }
             return true;
         }
-        private void CancelMeleeAttack(Entity enemy, Entity other)
+        #endregion
+
+        #region 攻击
+        public virtual bool MeleeEnabled(Entity entity)
         {
-            var meleeTarget = GetMeleeTarget(enemy);
-            if (meleeTarget != null && meleeTarget.ID == other.ID)
-            {
-                SetMeleeTarget(enemy, null);
-            }
+            return true;
         }
-        public static bool CanMeleeAttack(Entity enemy)
+        public static bool HasMeleeTarget(Entity enemy)
         {
             var meleeTarget = GetMeleeTarget(enemy);
             return meleeTarget != null && meleeTarget.Exists(enemy.Level);
+        }
+        public static bool IsMeleeAttacking(Entity entity)
+        {
+            return entity.State == VanillaEntityStates.ATTACK;
         }
         public static void MeleeAttack(Entity enemy)
         {
@@ -117,8 +144,12 @@ namespace MVZ2.Vanilla.Enemies
             target.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.MUTE, VanillaDamageEffects.ENEMY_MELEE), enemy);
             enemy.Level.Triggers.RunCallback(VanillaLevelCallbacks.POST_ENEMY_MELEE_ATTACK, new VanillaLevelCallbacks.EnemyMeleeAttackParams(enemy, target, damage));
         }
+        #endregion
+
+        #region 属性
         public static EntityID? GetMeleeTarget(Entity entity) => entity.GetProperty<EntityID>(PROP_MELEE_TARGET);
         public static void SetMeleeTarget(Entity entity, EntityID? value) => entity.SetProperty(PROP_MELEE_TARGET, value);
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_MELEE_TARGET = new VanillaEntityPropertyMeta<EntityID>("melee_target");
+        #endregion
     }
 }

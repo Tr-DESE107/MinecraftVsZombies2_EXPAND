@@ -3,7 +3,7 @@
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
-using MVZ2.Vanilla.Enemies;
+using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
@@ -14,7 +14,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.cannoneerZombie)]
-    public class CannoneerZombie : MeleeEnemy
+    public class CannoneerZombie : AIEntityBehaviour
     {
         public CannoneerZombie(string nsp, string name) : base(nsp, name)
         {

@@ -10,7 +10,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -21,7 +20,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.reverseSatellite)]
-    public class ReverseSatellite : StateEnemy
+    public class ReverseSatellite : AIEntityBehaviour
     {
         public ReverseSatellite(string nsp, string name) : base(nsp, name)
         {
@@ -54,20 +53,14 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
 
-            if (enemy.State == STATE_LEAVING)
+            switch (enemy.State)
             {
-                var velocity = enemy.Velocity;
-                if (velocity.x < 6)
-                {
-                    velocity.x += 0.1f;
-                }
-                enemy.Velocity = velocity;
-
-                var pos = enemy.Position;
-                if (pos.x > VanillaLevelExt.RIGHT_BORDER || pos.y > 640f || pos.z < -40f)
-                {
-                    enemy.Remove();
-                }
+                case STATE_STAY:
+                    UpdateStateWalk(enemy);
+                    break;
+                case STATE_LEAVING:
+                    UpdateStateLeaving(enemy);
+                    break;
             }
         }
         public override void PostDeath(Entity entity, DeathInfo info)
@@ -93,20 +86,7 @@ namespace MVZ2.GameContent.Enemies
                 entity.Remove();
             }
         }
-        protected override int GetActionState(Entity enemy)
-        {
-            var state = base.GetActionState(enemy);
-            if (state == VanillaEntityStates.ATTACK)
-            {
-                state = STATE_STAY;
-            }
-            if (state == STATE_STAY && IsLeft(enemy))
-            {
-                state = STATE_LEAVING;
-            }
-            return state;
-        }
-        protected override void UpdateStateWalk(Entity enemy)
+        private void UpdateStateWalk(Entity enemy)
         {
             var pos = enemy.Position;
             var velocity = enemy.Velocity;
@@ -149,15 +129,46 @@ namespace MVZ2.GameContent.Enemies
             var leaveTimer = GetLeaveTimer(enemy);
             leaveTimer?.Run();
         }
-        public static FrameTimer? GetLeaveTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, FIELD_LEAVE_TIMER);
-        public static void SetLeaveTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(ID, FIELD_LEAVE_TIMER, value);
-        public static bool IsLeft(Entity entity) => entity.GetBehaviourField<bool>(ID, FIELD_LEFT);
-        public static void SetLeft(Entity entity, bool value) => entity.SetBehaviourField(ID, FIELD_LEFT, value);
+        private void UpdateStateLeaving(Entity enemy)
+        {
+            var velocity = enemy.Velocity;
+            if (velocity.x < 6)
+            {
+                velocity.x += 0.1f;
+            }
+            enemy.Velocity = velocity;
+
+            var pos = enemy.Position;
+            if (pos.x > VanillaLevelExt.RIGHT_BORDER || pos.y > 640f || pos.z < -40f)
+            {
+                enemy.Remove();
+            }
+        }
+        public static FrameTimer? GetLeaveTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(FIELD_LEAVE_TIMER);
+        public static void SetLeaveTimer(Entity entity, FrameTimer value) => entity.SetBehaviourField(FIELD_LEAVE_TIMER, value);
+        public static bool IsLeft(Entity entity) => entity.GetBehaviourField<bool>(FIELD_LEFT);
+        public static void SetLeft(Entity entity, bool value) => entity.SetBehaviourField(FIELD_LEFT, value);
         public const int STATE_STAY = VanillaEntityStates.WALK;
         public const int STATE_LEAVING = VanillaEntityStates.ENEMY_SPECIAL;
         public const int LEAVE_TIME = 900;
         public static readonly VanillaEntityPropertyMeta<bool> FIELD_LEFT = new VanillaEntityPropertyMeta<bool>("is_left");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_LEAVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("LeaveTimer");
-        private static readonly NamespaceID ID = VanillaEnemyID.reverseSatellite;
+
+        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.reverseSatellite_State)]
+        public class StateBehaviour : EnemyStateBehaviour
+        {
+            public StateBehaviour(string nsp, string name) : base(nsp, name)
+            {
+            }
+            protected override int GetActiveState(Entity enemy)
+            {
+                var state = base.GetActiveState(enemy);
+                if (state == STATE_STAY && IsLeft(enemy))
+                {
+                    state = STATE_LEAVING;
+                }
+                return state;
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.wickedHermitZombie)]
-    public class WickedHermitZombie : MeleeEnemy
+    public class WickedHermitZombie : AIEntityBehaviour
     {
         public WickedHermitZombie(string nsp, string name) : base(nsp, name)
         {
@@ -44,35 +44,6 @@ namespace MVZ2.GameContent.Enemies
                 }
             }
         }
-        protected override int GetActionState(Entity enemy)
-        {
-            var state = base.GetActionState(enemy);
-            if (state == VanillaEntityStates.WALK)
-            {
-                if (!IsWarpped(enemy))
-                {
-                    var talismanID = GetTalismanZombie(enemy);
-                    var talisman = talismanID?.GetEntity(enemy.Level);
-                    if (talisman != null)
-                    {
-                        bool tooClose;
-                        if (enemy.IsFacingLeft())
-                        {
-                            tooClose = talisman.Position.x > enemy.Position.x - TALISMAN_DISTANCE;
-                        }
-                        else
-                        {
-                            tooClose = talisman.Position.x < enemy.Position.x + TALISMAN_DISTANCE;
-                        }
-                        if (tooClose)
-                        {
-                            state = VanillaEntityStates.IDLE;
-                        }
-                    }
-                }
-            }
-            return state;
-        }
         public static void SetWarpped(Entity entity, bool value)
         {
             entity.SetBehaviourField(PROP_WARPPED, value);
@@ -93,5 +64,42 @@ namespace MVZ2.GameContent.Enemies
         public const float TALISMAN_DISTANCE = 80;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_WARPPED = new VanillaEntityPropertyMeta<bool>("warpped");
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_TALISMAN_ZOMBIE = new VanillaEntityPropertyMeta<EntityID>("MoveTimer");
+
+        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.wickedHermitZombie_State)]
+        public class StateBehaviour : EnemyStateBehaviour
+        {
+            public StateBehaviour(string nsp, string name) : base(nsp, name)
+            {
+            }
+            protected override int GetActiveState(Entity enemy)
+            {
+                var state = base.GetActiveState(enemy);
+                if (state == VanillaEntityStates.WALK)
+                {
+                    if (!IsWarpped(enemy))
+                    {
+                        var talismanID = GetTalismanZombie(enemy);
+                        var talisman = talismanID?.GetEntity(enemy.Level);
+                        if (talisman != null)
+                        {
+                            bool tooClose;
+                            if (enemy.IsFacingLeft())
+                            {
+                                tooClose = talisman.Position.x > enemy.Position.x - TALISMAN_DISTANCE;
+                            }
+                            else
+                            {
+                                tooClose = talisman.Position.x < enemy.Position.x + TALISMAN_DISTANCE;
+                            }
+                            if (tooClose)
+                            {
+                                state = VanillaEntityStates.IDLE;
+                            }
+                        }
+                    }
+                }
+                return state;
+            }
+        }
     }
 }

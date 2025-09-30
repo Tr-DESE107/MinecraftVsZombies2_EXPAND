@@ -24,7 +24,7 @@ namespace MVZ2.GameContent.GlobalCallbacks
             var level = entity.Level;
             if (!level.IsIZombie())
                 return;
-            if (entity.Definition.HasBehaviour<MeleeEnemy>())
+            if (entity.Definition.HasBehaviour<EnemyMeleeBehaviour>())
             {
                 entity.AddBuff<IZombieAttackBoosterBuff>();
             }

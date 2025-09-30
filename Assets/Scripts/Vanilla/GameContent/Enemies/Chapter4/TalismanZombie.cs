@@ -2,7 +2,6 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
@@ -14,7 +13,7 @@ using Tools;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.talismanZombie)]
-    public class TalismanZombie : MeleeEnemy
+    public class TalismanZombie : AIEntityBehaviour
     {
         public TalismanZombie(string nsp, string name) : base(nsp, name)
         {
@@ -25,7 +24,15 @@ namespace MVZ2.GameContent.Enemies
             base.Init(entity);
             SetMoveTimer(entity, new FrameTimer(MOVE_INTERVAL));
         }
-        protected override void WalkUpdate(Entity enemy)
+        protected override void UpdateAI(Entity entity)
+        {
+            base.UpdateAI(entity);
+            if (entity.State == VanillaEntityStates.WALK)
+            {
+                JumpUpdate(entity);
+            }
+        }
+        private void JumpUpdate(Entity enemy)
         {
             var timer = GetMoveTimer(enemy);
             if (timer.RunToExpiredAndNotNull())

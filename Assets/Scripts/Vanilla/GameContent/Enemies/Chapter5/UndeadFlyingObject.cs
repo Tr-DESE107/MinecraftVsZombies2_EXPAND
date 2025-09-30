@@ -21,7 +21,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.undeadFlyingObject)]
-    public class UndeadFlyingObject : StateEnemy
+    public class UndeadFlyingObject : AIEntityBehaviour
     {
         public UndeadFlyingObject(string nsp, string name) : base(nsp, name)
         {
@@ -45,6 +45,15 @@ namespace MVZ2.GameContent.Enemies
                 entity.PlaySound(VanillaSoundID.ufo, volume: 0.5f);
             }
             entity.SetAnimationInt("Variant", entity.GetVariant());
+        }
+        protected override void UpdateAI(Entity entity)
+        {
+            base.UpdateAI(entity);
+            var variant = entity.GetVariant();
+            if (behaviours.TryGetValue(variant, out var behaviour))
+            {
+                behaviour.UpdateActionState(entity, entity.State);
+            }
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -83,24 +92,6 @@ namespace MVZ2.GameContent.Enemies
                 behaviour.PostDeath(entity, info);
             }
             entity.Remove();
-        }
-        protected override int GetActionState(Entity enemy)
-        {
-            var baseState = base.GetActionState(enemy);
-            if (baseState != STATE_IDLE && baseState != STATE_DEATH)
-            {
-                return GetUFOState(enemy);
-            }
-            return baseState;
-        }
-        protected override void UpdateActionState(Entity enemy, int state)
-        {
-            base.UpdateActionState(enemy, state);
-            var variant = enemy.GetVariant();
-            if (behaviours.TryGetValue(variant, out var behaviour))
-            {
-                behaviour.UpdateActionState(enemy, state);
-            }
         }
         public static void EnterUpdate(Entity enemy)
         {
@@ -237,5 +228,16 @@ namespace MVZ2.GameContent.Enemies
             { VARIANT_BLUE, new UFOBehaviourBlue() },
             { VARIANT_RAINBOW, new UFOBehaviourRainbow() },
         };
+        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.undeadFlyingObject_State)]
+        public class StateBehaviour : EnemyStateBehaviour
+        {
+            public StateBehaviour(string nsp, string name) : base(nsp, name)
+            {
+            }
+            protected override int GetActiveState(Entity enemy)
+            {
+                return GetUFOState(enemy);
+            }
+        }
     }
 }

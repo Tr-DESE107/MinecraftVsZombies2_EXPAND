@@ -13,7 +13,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.skeleton)]
-    public class Skeleton : StateEnemy
+    public class Skeleton : AIEntityBehaviour
     {
         public Skeleton(string nsp, string name) : base(nsp, name)
         {
@@ -38,6 +38,16 @@ namespace MVZ2.GameContent.Enemies
                 enemy.Target = null;
             }
             base.UpdateAI(enemy);
+
+            switch (enemy.State)
+            {
+                case STATE_ATTACK:
+                    PullBow(enemy);
+                    break;
+                default:
+                    UnleaseBow(enemy);
+                    break;
+            }
         }
         protected override void UpdateLogic(Entity entity)
         {
@@ -49,37 +59,20 @@ namespace MVZ2.GameContent.Enemies
         public static bool GetBowFired(Entity enemy) => enemy.GetBehaviourField<bool>(ID, PROP_BOW_FIRED);
         public static void SetBowPower(Entity enemy, int value) => enemy.SetBehaviourField(ID, PROP_BOW_POWER, value);
         public static void SetBowFired(Entity enemy, bool value) => enemy.SetBehaviourField(ID, PROP_BOW_FIRED, value);
-        protected override void UpdateStateWalk(Entity enemy)
-        {
-            base.UpdateStateWalk(enemy);
-            SetBowFired(enemy, false);
-            var bowPower = GetBowPower(enemy);
-            if (bowPower > 0)
-            {
-                bowPower -= (int)(enemy.GetAttackSpeed() * BOW_POWER_RESTORE_SPEED);
-                bowPower = Mathf.Max(bowPower, 0);
-            }
-            SetBowPower(enemy, bowPower);
-        }
-        protected override void UpdateStateAttack(Entity enemy)
-        {
-            base.UpdateStateAttack(enemy);
-            RangedAttack(enemy);
-        }
-        protected virtual bool CanShoot(Entity enemy)
+        private bool CanShoot(Entity enemy)
         {
             return enemy.Position.x <= enemy.Level.GetEntityColumnX(enemy.Level.GetMaxColumnCount() - 1);
         }
-        protected virtual Entity? FindTarget(Entity entity)
+        private Entity? FindTarget(Entity entity)
         {
             var collider = detector.Detect(entity);
             return collider?.Entity;
         }
-        protected virtual bool ValidateTarget(Entity entity, Entity target)
+        private bool ValidateTarget(Entity entity, Entity target)
         {
             return detector.ValidateTarget(entity, target);
         }
-        protected virtual void RangedAttack(Entity entity)
+        private void PullBow(Entity entity)
         {
             bool bowFired = GetBowFired(entity);
             var bowPower = GetBowPower(entity);
@@ -105,12 +98,41 @@ namespace MVZ2.GameContent.Enemies
             }
             SetBowPower(entity, bowPower);
         }
+        private void UnleaseBow(Entity enemy)
+        {
+            SetBowFired(enemy, false);
+            var bowPower = GetBowPower(enemy);
+            if (bowPower > 0)
+            {
+                bowPower -= (int)(enemy.GetAttackSpeed() * BOW_POWER_RESTORE_SPEED);
+                bowPower = Mathf.Max(bowPower, 0);
+            }
+            SetBowPower(enemy, bowPower);
+        }
         private Detector detector;
         private static readonly NamespaceID ID = VanillaEnemyID.skeleton;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_BOW_FIRED = new VanillaEntityPropertyMeta<bool>("bowFired");
         public static readonly VanillaEntityPropertyMeta<int> PROP_BOW_POWER = new VanillaEntityPropertyMeta<int>("bowPower");
+        public const int STATE_WALK = VanillaEntityStates.WALK;
+        public const int STATE_ATTACK = VanillaEntityStates.ATTACK;
         public const int BOW_POWER_PULL_SPEED = 100;
         public const int BOW_POWER_RESTORE_SPEED = 1000;
         public const int BOW_POWER_MAX = 10000;
+        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skeleton_State)]
+        public class StateBehaviour : EnemyStateBehaviour
+        {
+            public StateBehaviour(string nsp, string name) : base(nsp, name)
+            {
+            }
+            protected override int GetActiveState(Entity enemy)
+            {
+                var state = base.GetActiveState(enemy);
+                if (state == STATE_WALK && enemy.Target.ExistsAndAlive())
+                {
+                    state = STATE_ATTACK;
+                }
+                return state;
+            }
+        }
     }
 }

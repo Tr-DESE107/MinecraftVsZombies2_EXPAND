@@ -62,6 +62,8 @@ namespace MVZ2.Vanilla.Entities
         public const int JEWELED_PAGODA_DISAPPEAR = DISAPPEAR;
 
         // Enemies
+        public const int NAPSTABLOOK_ANGRY = ATTACK;
+
         public const int NECROMANCER_CAST = ENEMY_CAST;
 
         public const int SPIDER_CLIMB = ENEMY_CAST;

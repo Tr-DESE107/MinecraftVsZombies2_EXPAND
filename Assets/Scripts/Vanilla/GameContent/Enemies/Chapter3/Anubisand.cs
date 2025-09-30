@@ -2,7 +2,6 @@
 
 using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
@@ -15,7 +14,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.anubisand)]
-    public class Anubisand : StateEnemy
+    public class Anubisand : AIEntityBehaviour
     {
         public Anubisand(string nsp, string name) : base(nsp, name)
         {

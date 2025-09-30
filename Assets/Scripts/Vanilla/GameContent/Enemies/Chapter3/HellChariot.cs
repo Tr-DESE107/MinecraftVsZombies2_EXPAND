@@ -3,7 +3,6 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
@@ -17,7 +16,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.hellChariot)]
-    public class HellChariot : StateEnemy
+    public class HellChariot : AIEntityBehaviour
     {
         public HellChariot(string nsp, string name) : base(nsp, name)
         {

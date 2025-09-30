@@ -6,7 +6,6 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Shells;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -17,7 +16,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.motherTerror)]
-    public class MotherTerror : MeleeEnemy
+    public class MotherTerror : AIEntityBehaviour
     {
         public MotherTerror(string nsp, string name) : base(nsp, name)
         {

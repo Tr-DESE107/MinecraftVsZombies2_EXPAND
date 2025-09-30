@@ -3,7 +3,6 @@
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using PVZEngine.Damages;
@@ -14,7 +13,7 @@ using UnityEngine;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.berserker)]
-    public class Berserker : MeleeEnemy
+    public class Berserker : AIEntityBehaviour
     {
         public Berserker(string nsp, string name) : base(nsp, name)
         {

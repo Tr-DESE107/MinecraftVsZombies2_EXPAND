@@ -85,7 +85,7 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (!NoAnchor(zombie))
                 return false;
-            return EnemyMeleeBehaviour.CanMeleeAttack(zombie);
+            return EnemyMeleeBehaviour.HasMeleeTarget(zombie);
         }
         public class AttackState : EntityStateMachineState
         {
@@ -93,7 +93,6 @@ namespace MVZ2.Vanilla.Enemies
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
-                EnemyMeleeBehaviour.MeleeAttack(entity);
                 UpdateState(entity);
             }
         }

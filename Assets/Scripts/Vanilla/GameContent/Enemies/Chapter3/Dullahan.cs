@@ -16,7 +16,7 @@ using PVZEngine.Level;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.dullahan)]
-    public class Dullahan : MeleeEnemy
+    public class Dullahan : AIEntityBehaviour
     {
         public Dullahan(string nsp, string name) : base(nsp, name)
         {
@@ -48,20 +48,6 @@ namespace MVZ2.GameContent.Enemies
             if (!head.ExistsAndAlive())
                 return;
             CharmBuff.CloneCharm(buff, head);
-        }
-        protected override int GetActionState(Entity enemy)
-        {
-            var baseState = base.GetActionState(enemy);
-            if (baseState == VanillaEntityStates.WALK)
-            {
-                var horse = enemy.GetRidingEntity();
-                var hasHorse = horse.ExistsAndAlive();
-                if (hasHorse)
-                {
-                    return STATE_IDLE;
-                }
-            }
-            return baseState;
         }
         protected override void UpdateAI(Entity enemy)
         {
@@ -124,5 +110,27 @@ namespace MVZ2.GameContent.Enemies
         public static readonly VanillaEntityPropertyMeta<bool> FIELD_HEAD_DROPPED = new VanillaEntityPropertyMeta<bool>("HeadDropped");
         public const int STATE_IDLE = VanillaEntityStates.IDLE;
         private static readonly NamespaceID ID = VanillaEnemyID.dullahan;
+
+        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.dullahan_State)]
+        public class StateBehaviour : EnemyStateBehaviour
+        {
+            public StateBehaviour(string nsp, string name) : base(nsp, name)
+            {
+            }
+            protected override int GetActiveState(Entity enemy)
+            {
+                var baseState = base.GetActiveState(enemy);
+                if (baseState == VanillaEntityStates.WALK)
+                {
+                    var horse = enemy.GetRidingEntity();
+                    var hasHorse = horse.ExistsAndAlive();
+                    if (hasHorse)
+                    {
+                        return Dullahan.STATE_IDLE;
+                    }
+                }
+                return baseState;
+            }
+        }
     }
 }

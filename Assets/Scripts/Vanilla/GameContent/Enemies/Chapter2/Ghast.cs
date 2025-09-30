@@ -13,7 +13,6 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic;
-using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -23,7 +22,7 @@ using Tools;
 namespace MVZ2.GameContent.Enemies
 {
     [EntityBehaviourDefinition(VanillaEnemyNames.ghast)]
-    public class Ghast : StateEnemy
+    public class Ghast : AIEntityBehaviour
     {
         public Ghast(string nsp, string name) : base(nsp, name)
         {
@@ -41,6 +40,7 @@ namespace MVZ2.GameContent.Enemies
         }
         protected override void UpdateAI(Entity enemy)
         {
+            base.UpdateAI(enemy);
             if (CanShoot(enemy))
             {
                 var shootTimer = GetStateTimer(enemy);
@@ -80,7 +80,7 @@ namespace MVZ2.GameContent.Enemies
                     }
                 }
             }
-            base.UpdateAI(enemy);
+            UpdateFlying(enemy);
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
@@ -93,16 +93,11 @@ namespace MVZ2.GameContent.Enemies
         }
         public static FrameTimer? GetStateTimer(Entity enemy)
         {
-            return enemy.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
+            return enemy.GetBehaviourField<FrameTimer>(PROP_STATE_TIMER);
         }
         public static void SetStateTimer(Entity enemy, FrameTimer value)
         {
-            enemy.SetBehaviourField(ID, PROP_STATE_TIMER, value);
-        }
-        protected override void UpdateStateAttack(Entity enemy)
-        {
-            base.UpdateStateAttack(enemy);
-            WalkUpdate(enemy);
+            enemy.SetBehaviourField(PROP_STATE_TIMER, value);
         }
         protected virtual bool CanShoot(Entity enemy)
         {
@@ -138,10 +133,35 @@ namespace MVZ2.GameContent.Enemies
             });
             self.PlaySound(VanillaSoundID.fireCharge, scale.x);
         }
+        private void UpdateFlying(Entity entity)
+        {
+            if (entity.State == STATE_WALK || entity.State == STATE_ATTACK)
+            {
+                entity.UpdateWalkVelocity();
+            }
+        }
         private Detector detector;
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         public const int SHOOT_COOLDOWN = 135;
         public const int SHOOT_DURATION = 15;
-        public static readonly NamespaceID ID = VanillaEnemyID.ghast;
+        public const int STATE_WALK = VanillaEntityStates.WALK;
+        public const int STATE_ATTACK = VanillaEntityStates.ATTACK;
+
+        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.ghast_State)]
+        public class StateBehaviour : EnemyStateBehaviour
+        {
+            public StateBehaviour(string nsp, string name) : base(nsp, name)
+            {
+            }
+            protected override int GetActiveState(Entity enemy)
+            {
+                var state = base.GetActiveState(enemy);
+                if (state == STATE_WALK && enemy.Target.ExistsAndAlive())
+                {
+                    state = STATE_ATTACK;
+                }
+                return state;
+            }
+        }
     }
 }

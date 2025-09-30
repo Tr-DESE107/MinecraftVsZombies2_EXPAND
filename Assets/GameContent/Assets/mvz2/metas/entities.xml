@@ -57,6 +57,10 @@
         <enemy id="2" parent="entity">
             <behaviours>
                 <behaviour operator="add" id="mvz2:enemy_common"/>
+                <behaviour operator="add" id="mvz2:enemy_state"/>
+                <behaviour operator="add" id="mvz2:enemy_melee"/>
+                <behaviour operator="add" id="mvz2:enemy_walk"/>
+                <behaviour operator="add" id="mvz2:enemy_death_timeout"/>
                 <behaviour operator="add" id="mvz2:model_damage_percent"/>
             </behaviours>
             <properties>
@@ -214,6 +218,32 @@
                 <id name="mvz2:shape" value="mvz2:small_spider" />
             </properties>
         </smallSpider>
+        <mutantZombie id="2" parent="enemy">
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_death_timeout"/>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+            </behaviours>
+            <properties>
+                <float name="mvz2:mass" value="2" />
+                <float name="mvz2:maxHealth" value="3000" />
+                <float name="mvz2:maxAttackHeight" value="100" />
+                <float name="mvz2:speed" value="1" />
+                <float name="mvz2:range" value="40" />
+                <vector3 name="mvz2:size" x="80" y="170" z="60" />
+                <id name="mvz2:crySound" value="mvz2:mutant_cry" />
+                <id name="mvz2:deathSound" value="mvz2:mutant_death" />
+                <id name="mvz2:shape" value="mvz2:mutant_zombie" />
+                <float name="mvz2:takenCrushDamage" value="900" />
+                <bool name="mvz2:immuneVortex" value="true" />
+                <int name="mvz2:vehicleInteraction" value="2" />
+
+                <vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
+
+                <int name="mvz2:cost" value="300" />
+                <int name="mvz2:waterInteraction" value="3" />
+            </properties>
+        </mutantZombie>
         <energyPickup id="6" parent="pickup">
             <behaviours>
                 <behaviour operator="add" id="mvz2:pickup_collect_value"/>
@@ -1241,6 +1271,11 @@
             <unlock>
                 <condition required="mvz2:level.halloween_1"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="add" id="mvz2:skeleton/state"/>
+            </behaviours>
             <properties>
                 <float name="mvz2:range" value="800" />
                 <vector3 name="mvz2:shotOffset" x="10" y="40" z="0" />
@@ -1320,6 +1355,12 @@
             <unlock>
                 <condition required="mvz2:level.dream_1"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="add" id="mvz2:spider/state"/>
+                <behaviour operator="add" id="mvz2:spider/melee"/>
+            </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="160" />
                 <float name="mvz2:maxAttackHeight" value="30" />
@@ -1368,6 +1409,11 @@
             <unlock>
                 <condition required="mvz2:level.dream_6"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_walk"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="add" id="mvz2:ghast/state"/>
+            </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-2" />
                 <bool name="mvz2:undead" value="false" />
@@ -1483,6 +1529,8 @@
                 <condition required="mvz2:level.castle_6"/>
             </unlock>
             <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="add" id="mvz2:dullahan/state"/>
                 <behaviour operator="add" id="mvz2:damage_by_gold"/>
             </behaviours>
             <properties>
@@ -1503,6 +1551,7 @@
             </unlock>
             <behaviours>
                 <behaviour operator="add" id="mvz2:fragmented"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="2" />
@@ -1528,6 +1577,9 @@
             <unlock>
                 <condition required="mvz2:level.castle_9"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:flying_enemy" value="true" />
                 <vector3 name="mvz2:size" x="38" y="103" z="38" />
@@ -1556,6 +1608,9 @@
             <unlock>
                 <condition required="mvz2:level.mausoleum_3"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_walk"/>
+            </behaviours>
             <properties>
                 <int name="mvz2:cost" value="75" />
             </properties>
@@ -1564,6 +1619,10 @@
             <unlock>
                 <condition required="mvz2:level.mausoleum_3"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="add" id="mvz2:wicked_hermit_zombie/state"/>
+            </behaviours>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:wicked_hermit_hat" />
                 <int name="mvz2:cost" value="150" />
@@ -1592,6 +1651,11 @@
             <unlock>
                 <condition required="mvz2:level.ship_1"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="add" id="mvz2:undead_flying_object/state"/>
+            </behaviours>
             <properties>
                 <id name="mvz2:modelId" value="mvz2:entity.undead_flying_object_red" />
                 <float name="mvz2:maxHealth" value="100" />
@@ -1618,6 +1682,7 @@
                 <condition required="mvz2:level.ship_6"/>
             </unlock>
             <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-2" />
@@ -1666,7 +1731,8 @@
                 <condition required="mvz2:level.ship_8"/>
             </unlock>
             <behaviours>
-                <behaviour operator="add" id="mvz2:enemy_melee"/>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_death_timeout"/>
             </behaviours>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:pop_captain_cap" />
@@ -1687,54 +1753,20 @@
             </properties>
         </enemy>
 
-        <enemy id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" >
+        <mutantZombie id="mutant_zombie" name="突变僵尸" deathMessage="你怎么进门的？" >
+            <unlock>
+                <condition required="mvz2:level.shrine_8"/>
+            </unlock>
+        </mutantZombie>
+        <mutantZombie id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？">
             <unlock>
                 <condition required="mvz2:level.shrine_8"/>
             </unlock>
             <properties>
-                <float name="mvz2:mass" value="2" />
-                <float name="mvz2:maxHealth" value="3000" />
-                <float name="mvz2:maxAttackHeight" value="100" />
-                <float name="mvz2:speed" value="1" />
-                <float name="mvz2:range" value="40" />
-                <vector3 name="mvz2:size" x="80" y="170" z="60" />
-                <id name="mvz2:crySound" value="mvz2:mutant_cry" />
-                <id name="mvz2:deathSound" value="mvz2:mutant_death" />
-                <id name="mvz2:shape" value="mvz2:mutant_zombie" />
-                <float name="mvz2:takenCrushDamage" value="900" />
-                <bool name="mvz2:immuneVortex" value="true" />
-                <int name="mvz2:vehicleInteraction" value="2" />
-
-                <vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
-
-                <int name="mvz2:cost" value="300" />
-                <int name="mvz2:waterInteraction" value="3" />
-            </properties>
-        </enemy>
-        <enemy id="mega_mutant_zombie" name="超级突变僵尸" deathMessage="你怎么进门的？">
-            <unlock>
-                <condition required="mvz2:level.shrine_8"/>
-            </unlock>
-            <properties>
-                <float name="mvz2:mass" value="2" />
                 <float name="mvz2:maxHealth" value="6000" />
-                <float name="mvz2:maxAttackHeight" value="100" />
-                <float name="mvz2:speed" value="1" />
-                <float name="mvz2:range" value="40" />
-                <vector3 name="mvz2:size" x="80" y="170" z="60" />
-                <id name="mvz2:crySound" value="mvz2:mutant_cry" />
-                <id name="mvz2:deathSound" value="mvz2:mutant_death" />
-                <id name="mvz2:shape" value="mvz2:mutant_zombie" />
-                <float name="mvz2:takenCrushDamage" value="900" />
-                <bool name="mvz2:immuneVortex" value="true" />
-                <int name="mvz2:vehicleInteraction" value="2" />
-
-                <vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
-
                 <int name="mvz2:cost" value="500" />
-                <int name="mvz2:waterInteraction" value="3" />
             </properties>
-        </enemy>
+        </mutantZombie>
         <enemy id="imp" name="小鬼僵尸" deathMessage="被偷家了">
             <properties>
                 <float name="mvz2:mass" value="-1" />
@@ -1753,6 +1785,11 @@
             <unlock>
                 <condition required="mvz2:level.halloween_8"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_walk"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
@@ -1775,6 +1812,11 @@
             <unlock>
                 <condition required="mvz2:level.halloween_6"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="add" id="mvz2:napstablook/state"/>
+            </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-2" />
                 <bool name="mvz2:harmless" value="true" />
@@ -1796,6 +1838,11 @@
             <unlock>
                 <condition required="mvz2:level.castle_1"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="add" id="mvz2:reverse_satellite/state"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
@@ -1816,6 +1863,12 @@
             <unlock>
                 <condition required="mvz2:level.castle_6"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="add" id="mvz2:skeleton_horse/state"/>
+                <behaviour operator="add" id="mvz2:skeleton_horse/melee"/>
+            </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="400" />
                 <float name="mvz2:fallResistance" value="15" />
@@ -1854,6 +1907,9 @@
                 <condition required="mvz2:level.castle_9"/>
             </unlock>
             <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="remove" id="mvz2:enemy_walk"/>
                 <behaviour operator="add" id="mvz2:fragmented"/>
                 <behaviour operator="add" id="mvz2:timeout_death"/>
             </behaviours>
@@ -1880,6 +1936,11 @@
             <unlock>
                 <condition required="mvz2:level.castle_7"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="remove" id="mvz2:enemy_walk"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
@@ -1901,6 +1962,9 @@
             <unlock>
                 <condition required="mvz2:level.castle_11"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+            </behaviours>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:bedserker_helmet" />
                 <float name="mvz2:range" value="80" />
@@ -1933,6 +1997,11 @@
             <unlock>
                 <condition required="mvz2:level.mausoleum_7"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="add" id="mvz2:skeleton_mage/state"/>
+            </behaviours>
             <properties>
                 <float name="mvz2:range" value="800" />
                 <vector3 name="mvz2:shotOffset" x="10" y="54" z="0" />
@@ -1951,6 +2020,9 @@
                 <condition required="mvz2:level.mausoleum_6"/>
             </unlock>
             <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="remove" id="mvz2:enemy_walk"/>
                 <behaviour operator="add" id="mvz2:fragmented"/>
                 <behaviour operator="add" id="mvz2:timeout_death"/>
             </behaviours>
