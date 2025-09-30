@@ -1397,6 +1397,19 @@
                 <p>至少这朵云没有对你竖中指。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:pop_captain">
+            <header>
+                <p>大力船长僵尸会使用铁锚将遇到的器械打飞到上方或下方的一行。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>1100</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>100（冲击）</color>]]></p>
+                <p>特殊：<![CDATA[<color=red>直接击杀受器械移动影响的，目标位置上的器械</color>]]></p>
+            </properties>
+            <flavor>
+                <p>他以前当水手的时候喜欢吃菠菜，不过自从他当了船长之后，他就更喜欢吃橘子了。</p>
+            </flavor>
+        </entry>
     </enemies>
     <artifacts>
         <entry id="mvz2:almanac">

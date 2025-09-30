@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-09-27 12:52+0800\n"
-"PO-Revision-Date: 2025-09-27 12:54+0800\n"
+"POT-Creation-Date: 2025-09-30 07:41+0800\n"
+"PO-Revision-Date: 2025-09-30 19:44+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2781,6 +2781,30 @@ msgctxt "enemies.description"
 msgid "至少这朵云没有对你竖中指。"
 msgstr "At least this cloud doesn’t flip you off."
 
+#. Header for enemies mvz2:pop_captain
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "大力船长僵尸会使用铁锚将遇到的器械打飞到上方或下方的一行。"
+msgstr "Pop Captains use their anchor to knock contraptions they encounter onto the upper or lower lane."
+
+#. Properties for enemies mvz2:pop_captain
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid ""
+"生命：<color=red>1100</color>\n"
+"伤害：<color=red>100（冲击）</color>\n"
+"特殊：<color=red>直接击杀受器械移动影响的，目标位置上的器械</color>"
+msgstr ""
+"Toughness: <color=red>1100</color>\n"
+"Damage: <color=red>100 (Impact)</color>\n"
+"Special: <color=red>Directly destroy contraptions on the target position that got knocked by other contraptions</color>"
+
+#. Flavor for enemies mvz2:pop_captain
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "他以前当水手的时候喜欢吃菠菜，不过自从他当了船长之后，他就更喜欢吃橘子了。"
+msgstr "His real name is Tain."
+
 #. Header for artifacts mvz2:almanac
 #: Almanac meta file
 msgctxt "artifacts.description"
@@ -5551,6 +5575,18 @@ msgstr "Zombie Cloud"
 msgctxt "death_message"
 msgid "你就云吧"
 msgstr "Head in the clouds"
+
+#. Name for entity mvz2:pop_captain
+#: Entity meta file
+msgctxt "entity.name"
+msgid "大力船长僵尸"
+msgstr "Pop Captain"
+
+#. Death message for entity mvz2:pop_captain
+#: Entity meta file
+msgctxt "death_message"
+msgid "永久停泊"
+msgstr "Eternal anchorage"
 
 #. Name for entity mvz2:mutant_zombie
 #: Entity meta file
