@@ -151,6 +151,11 @@
         <terrain water="true" air="true"/>
         <weight base="2000" />
     </entry>
+    <entry id="pop_captain" >
+        <entity id="mvz2:pop_captain"/>
+        <spawn level="5" minWave="10" />
+        <weight base="1000" />
+    </entry>
     
     <entry id="mutant_zombie" >
         <entity id="mvz2:mutant_zombie"/>
