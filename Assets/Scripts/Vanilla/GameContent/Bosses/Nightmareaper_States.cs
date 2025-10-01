@@ -81,7 +81,7 @@ namespace MVZ2.GameContent.Bosses
         #region 出现
         public class AppearState : EntityStateMachineState
         {
-            public AppearState() : base(STATE_APPEAR) { }
+            public AppearState() : base(STATE_APPEAR, ANIMATION_STATE_APPEAR) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -107,7 +107,7 @@ namespace MVZ2.GameContent.Bosses
         #region 空闲
         public class IdleState : EntityStateMachineState
         {
-            public IdleState() : base(STATE_IDLE) { }
+            public IdleState() : base(STATE_IDLE, ANIMATION_STATE_IDLE) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -211,7 +211,7 @@ namespace MVZ2.GameContent.Bosses
         #region 戳刺
         public class JabState : EntityStateMachineState
         {
-            public JabState() : base(STATE_JAB) { }
+            public JabState() : base(STATE_JAB, ANIMATION_STATE_JAB) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -316,7 +316,7 @@ namespace MVZ2.GameContent.Bosses
         #region 旋转
         public class SpinState : EntityStateMachineState
         {
-            public SpinState() : base(STATE_SPIN) { }
+            public SpinState() : base(STATE_SPIN, ANIMATION_STATE_SPIN) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -478,7 +478,7 @@ namespace MVZ2.GameContent.Bosses
         #region 黑暗
         public class DarknessState : EntityStateMachineState
         {
-            public DarknessState() : base(STATE_DARKNESS) { }
+            public DarknessState() : base(STATE_DARKNESS, ANIMATION_STATE_DARKNESS) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -506,7 +506,7 @@ namespace MVZ2.GameContent.Bosses
         #region 复活
         public class ResurrectState : EntityStateMachineState
         {
-            public ResurrectState() : base(STATE_REVIVE) { }
+            public ResurrectState() : base(STATE_REVIVE, ANIMATION_STATE_REVIVE) { }
 
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
@@ -552,7 +552,7 @@ namespace MVZ2.GameContent.Bosses
         #region 激怒
         public class EnragedState : EntityStateMachineState
         {
-            public EnragedState() : base(STATE_ENRAGE) { }
+            public EnragedState() : base(STATE_ENRAGE, ANIMATION_STATE_ENRAGE) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -643,7 +643,7 @@ namespace MVZ2.GameContent.Bosses
         #region 死亡
         public class DeathState : EntityStateMachineState
         {
-            public DeathState() : base(STATE_DEATH) { }
+            public DeathState() : base(STATE_DEATH, ANIMATION_STATE_DEATH) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -722,5 +722,14 @@ namespace MVZ2.GameContent.Bosses
         public const int STATE_REVIVE = VanillaEntityStates.NIGHTMAREAPER_REVIVE;
         public const int STATE_ENRAGE = VanillaEntityStates.NIGHTMAREAPER_ENRAGE;
         public const int STATE_DEATH = VanillaEntityStates.NIGHTMAREAPER_DEATH;
+
+        public const int ANIMATION_STATE_IDLE = 0;
+        public const int ANIMATION_STATE_APPEAR = 1;
+        public const int ANIMATION_STATE_JAB = 2;
+        public const int ANIMATION_STATE_DEATH = 3;
+        public const int ANIMATION_STATE_SPIN = 4;
+        public const int ANIMATION_STATE_DARKNESS = 5;
+        public const int ANIMATION_STATE_REVIVE = 6;
+        public const int ANIMATION_STATE_ENRAGE = 7;
     }
 }
