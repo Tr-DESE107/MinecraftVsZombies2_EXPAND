@@ -31,7 +31,7 @@ namespace MVZ2.Models
         {
             base.UpdateElements();
             var newRenderers = GetComponentsInChildren<Renderer>(true)
-                .Where(g => g.IsDirectChild<ModelGroup>(this) && g is not SpriteMask && g.gameObject.layer != Layers.LIGHT)
+                .Where(g => g.IsDirectChild<ModelGroup>(this) && g is not SpriteMask && g.gameObject.layer != Layers.LIGHT_TEXTURE)
                 .Select(r =>
                 {
                     var element = r.GetComponent<RendererElement>();

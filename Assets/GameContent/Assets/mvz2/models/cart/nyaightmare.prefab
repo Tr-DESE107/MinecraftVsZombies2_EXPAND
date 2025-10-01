@@ -148,29 +148,8 @@ PrefabInstance:
     - {fileID: 6593373198288570027, guid: 7265f8a33ab317f44ba9a985f1f557ff, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 278464897479289565, guid: 7265f8a33ab317f44ba9a985f1f557ff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4008682351123704333}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7265f8a33ab317f44ba9a985f1f557ff, type: 3}
---- !u!1 &1782675399542792575 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 278464897479289565, guid: 7265f8a33ab317f44ba9a985f1f557ff, type: 3}
-  m_PrefabInstance: {fileID: 1972606933004733346}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4008682351123704333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782675399542792575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  excludedInGroup: 0
 --- !u!4 &2757741944541419862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4406046704167441140, guid: 7265f8a33ab317f44ba9a985f1f557ff, type: 3}
@@ -319,7 +298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: renderers.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[0]
@@ -361,10 +340,6 @@ PrefabInstance:
       propertyPath: renderers.Array.data[5]
       value: 
       objectReference: {fileID: 432624583071349157}
-    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
-      propertyPath: renderers.Array.data[6]
-      value: 
-      objectReference: {fileID: 4008682351123704333}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: modelAnchors.Array.data[0]
       value: 

@@ -56,10 +56,7 @@ PrefabInstance:
     - {fileID: 5100120474829633108, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6392115557415551133, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 98247678038829265}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
 --- !u!114 &604890696636739596 stripped
 MonoBehaviour:
@@ -215,24 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &4647050055736469695 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6392115557415551133, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
-  m_PrefabInstance: {fileID: 1785950326719850530}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &98247678038829265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4647050055736469695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ce2b2a42b33624081ebb4fff663cf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  excludedInGroup: 0
 --- !u!114 &5152341602771314315 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6865793980421344937, guid: e2da601d0c99f6743b4b5ae97e3ce88e, type: 3}
@@ -521,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: renderers.Array.size
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: transforms.Array.size
@@ -583,10 +562,6 @@ PrefabInstance:
       propertyPath: renderers.Array.data[10]
       value: 
       objectReference: {fileID: 6121957107883099768}
-    - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
-      propertyPath: renderers.Array.data[11]
-      value: 
-      objectReference: {fileID: 98247678038829265}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: transforms.Array.data[0]
       value: 
