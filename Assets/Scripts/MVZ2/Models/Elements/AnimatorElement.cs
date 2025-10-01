@@ -60,7 +60,7 @@ namespace MVZ2.Models
             return new SerializableAnimator(Animator);
         }
         private Animator animator = null!;
-        public string elementName;
+        public string? elementName;
 
     }
 }

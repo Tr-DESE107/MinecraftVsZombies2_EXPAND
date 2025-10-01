@@ -39,7 +39,7 @@ namespace MVZ2.Grids
                 model.UpdateAnimators(deltaTime);
                 if (model is EntityModel entityModel && grid != null)
                 {
-                    entityModel.SortingLayerName = grid.GetSortingLayer();
+                    entityModel.SortingLayerName = grid.GetSortingLayer() ?? string.Empty;
                     entityModel.SortingOrder = grid.GetSortingOrder();
                 }
             }
