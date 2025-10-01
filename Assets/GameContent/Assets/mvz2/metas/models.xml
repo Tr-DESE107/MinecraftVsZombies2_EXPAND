@@ -74,10 +74,10 @@
     <model name="desire_pot" type="entity" path="mvz2:contraption/mausoleum/desire_pot" width="64" height="64" xOffset="0" yOffset="-28"/>
 
     <model name="gunpowder_barrel" type="entity" path="mvz2:contraption/ship/gunpowder_barrel" width="64" height="64" xOffset="0" yOffset="-28"/>
-    <model name="repeatenser" type="entity" path="mvz2:contraption/ship/repeatenser" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="triplenser" type="entity" path="mvz2:contraption/ship/triplenser" width="64" height="64" xOffset="0" yOffset="-28"/>
-    <model name="beacon" type="entity" path="mvz2:contraption/ship/beacon" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="firework_dispenser" type="entity" path="mvz2:contraption/ship/firework_dispenser" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="repeatenser" type="entity" path="mvz2:contraption/ship/repeatenser" width="64" height="64" xOffset="0" yOffset="-28"/>
+    <model name="beacon" type="entity" path="mvz2:contraption/ship/beacon" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="wooden_fan" type="entity" path="mvz2:contraption/ship/wooden_fan" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="elastic_cloud" type="entity" path="mvz2:contraption/ship/elastic_cloud" width="64" height="64" xOffset="0" yOffset="-28"/>
     <model name="jeweled_pagoda" type="entity" path="mvz2:contraption/ship/jeweled_pagoda" width="64" height="64" xOffset="0" yOffset="-28"/>
@@ -186,10 +186,6 @@
             </parameters>
         </animator>    
     </model>
-    <model name="cannoneer_zombie" type="entity" path="mvz2:enemy/ship/cannoneer_zombie" width="85" height="92" xOffset="22" yOffset="-41">
-        <armorconfig>mvz2:humanoid</armorconfig>
-    </model>
-    <model name="cannonball_zombie" type="entity" path="mvz2:enemy/ship/cannonball_zombie" width="36" height="32" xOffset="0" yOffset="-16"/>
     <model name="zombie_cloud" type="entity" path="mvz2:enemy/ship/zombie_cloud" width="86" height="44" xOffset="0" yOffset="-22"/>
     <model name="zombie_cloud_thunder" type="entity" path="mvz2:enemy/ship/zombie_cloud" width="86" height="44" xOffset="0" yOffset="-22">
         <properties>
@@ -201,6 +197,10 @@
             <int name="Variant" value="2" />
         </properties>
     </model>
+    <model name="cannoneer_zombie" type="entity" path="mvz2:enemy/ship/cannoneer_zombie" width="85" height="92" xOffset="22" yOffset="-41">
+        <armorconfig>mvz2:humanoid</armorconfig>
+    </model>
+    <model name="cannonball_zombie" type="entity" path="mvz2:enemy/ship/cannonball_zombie" width="36" height="32" xOffset="0" yOffset="-16"/>
     <model name="pop_captain" type="entity" path="mvz2:enemy/ship/pop_captain" width="76" height="132" xOffset="8" yOffset="-60">
         <animator updateOnShot="true" />  
     </model>

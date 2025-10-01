@@ -97,6 +97,7 @@
     <entry id="dullahan_head" noEndless="true">
         <entity id="mvz2:dullahan_head" />
         <spawn level="2" minWave="5" />
+        <terrain water="true" air="true"/>
         <weight base="2500" />
     </entry>
     <entry id="hell_chariot" >

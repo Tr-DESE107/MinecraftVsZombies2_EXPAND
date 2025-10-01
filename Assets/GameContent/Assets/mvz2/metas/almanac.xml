@@ -723,20 +723,6 @@
                 <p>那么——等等，我为什么要告诉你这些？</p>
             </flavor>
         </entry>
-        <entry id="mvz2:repeatenser">
-            <header>
-                <p>连射发射器一次能发射两支箭矢。</p>
-            </header>
-            <properties>
-                <p>发射速度：<![CDATA[<color=red>2支/1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>]]></p>
-            </properties>
-            <flavor>
-                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
-                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
-            </flavor>
-        </entry>
         <entry id="mvz2:triplenser">
             <header>
                 <p>三头发射器一次能发射三行的箭矢。如果它位于最外侧的行，则改为向它自己所在的一行额外发射箭矢。</p>
@@ -751,19 +737,6 @@
                 <p>……确定它喜欢看的是典故的内容吗？</p>
             </flavor>
         </entry>
-        <entry id="mvz2:beacon">
-            <header>
-                <p>信标能向后方、上方、下方、前上方、前下方五个方向同时发射星星手里剑。</p>
-            </header>
-            <properties>
-                <p>发射速度：<![CDATA[<color=red>5发/1.5秒</color>]]></p>
-                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
-                <p>技能：<![CDATA[<color=red>召唤10颗陨石，打击场上随机位置</color>]]></p>
-            </properties>
-            <flavor>
-                <p>它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。</p>
-            </flavor>
-        </entry>
         <entry id="mvz2:firework_dispenser">
             <header>
                 <p>烟花发射器会自动轰击上方高空中的敌人。</p>
@@ -776,6 +749,33 @@
             </properties>
             <flavor>
                 <p>烟花发射器很喜欢过节，尤其是那种盛大的节日——由于之前的器械扰民事件，它被禁止在平常的日子里放烟花。但是当盛大的节日到来之际，它可要好好的放个够了。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:repeatenser">
+            <header>
+                <p>连射发射器一次能发射两支箭矢。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>2支/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>]]></p>
+            </properties>
+            <flavor>
+                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
+                <p>它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。</p>
+            </flavor>
+        </entry>
+        <entry id="mvz2:beacon">
+            <header>
+                <p>信标能向后方、上方、下方、前上方、前下方五个方向同时发射星星手里剑。</p>
+            </header>
+            <properties>
+                <p>发射速度：<![CDATA[<color=red>5发/1.5秒</color>]]></p>
+                <p>伤害：<![CDATA[<color=red>20</color>]]></p>
+                <p>技能：<![CDATA[<color=red>召唤10颗陨石，打击场上随机位置</color>]]></p>
+            </properties>
+            <flavor>
+                <p>它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。</p>
             </flavor>
         </entry>
         <entry id="mvz2:wooden_fan">
@@ -1360,6 +1360,17 @@
                 <p>如果你的农场里大面积地种植了小麦，或者圈养了很多的奶牛，那你可一定要小心这帮家伙了。</p>
             </flavor>
         </entry>
+        <entry id="mvz2:zombie_cloud">
+            <header>
+                <p>僵尸云飞在空中，向下降雨形成水迹，踩到水迹的怪物会向前滑动。</p>
+            </header>
+            <properties>
+                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+            </properties>
+            <flavor>
+                <p>至少这朵云没有对你竖中指。</p>
+            </flavor>
+        </entry>
         <entry id="mvz2:cannoneer_zombie">
             <header>
                 <p>炮手僵尸的重型铁炮可以帮他阻挡子弹，并且每隔一段时间便会发射一只炮弹僵尸。</p>
@@ -1384,17 +1395,6 @@
             <flavor>
                 <p>没错，炮弹也是一只僵尸！</p>
                 <p>而且特别害怕被脚踩！</p>
-            </flavor>
-        </entry>
-        <entry id="mvz2:zombie_cloud">
-            <header>
-                <p>僵尸云飞在空中，向下降雨形成水迹，踩到水迹的怪物会向前滑动。</p>
-            </header>
-            <properties>
-                <p>生命：<![CDATA[<color=red>200</color>]]></p>
-            </properties>
-            <flavor>
-                <p>至少这朵云没有对你竖中指。</p>
             </flavor>
         </entry>
         <entry id="mvz2:pop_captain">

@@ -38,9 +38,9 @@ namespace MVZ2.GameContent.Enemies
 
         public const string undeadFlyingObject = "undead_flying_object";
         public const string ufo = undeadFlyingObject;
+        public const string zombieCloud = "zombie_cloud";
         public const string cannoneerZombie = "cannoneer_zombie";
         public const string cannonballZombie = "cannonball_zombie";
-        public const string zombieCloud = "zombie_cloud";
         public const string popCaptain = "pop_captain";
 
         public const string mutantZombie = "mutant_zombie";
@@ -93,9 +93,9 @@ namespace MVZ2.GameContent.Enemies
 
         public static readonly NamespaceID undeadFlyingObject = Get(VanillaEnemyNames.undeadFlyingObject);
         public static readonly NamespaceID ufo = undeadFlyingObject;
+        public static readonly NamespaceID zombieCloud = Get(VanillaEnemyNames.zombieCloud);
         public static readonly NamespaceID cannoneerZombie = Get(VanillaEnemyNames.cannoneerZombie);
         public static readonly NamespaceID cannonballZombie = Get(VanillaEnemyNames.cannonballZombie);
-        public static readonly NamespaceID zombieCloud = Get(VanillaEnemyNames.zombieCloud);
         public static readonly NamespaceID popCaptain = Get(VanillaEnemyNames.popCaptain);
 
         public static readonly NamespaceID mutantZombie = Get(VanillaEnemyNames.mutantZombie);
