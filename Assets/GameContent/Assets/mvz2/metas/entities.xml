@@ -1272,9 +1272,8 @@
                 <condition required="mvz2:level.halloween_1"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton/state"/>
                 <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="add" id="mvz2:skeleton/state"/>
             </behaviours>
             <properties>
                 <float name="mvz2:range" value="800" />
@@ -1356,10 +1355,8 @@
                 <condition required="mvz2:level.dream_1"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
-                <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="add" id="mvz2:spider/state"/>
-                <behaviour operator="add" id="mvz2:spider/melee"/>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:spider/state"/>
+                <behaviour operator="replace" source="mvz2:enemy_melee" id="mvz2:spider/melee"/>
             </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="160" />
@@ -1411,8 +1408,7 @@
             </unlock>
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_walk"/>
-                <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="add" id="mvz2:ghast/state"/>
+                <behaviour operator="replace" source="mvz2:enemy_melee" id="mvz2:ghast/state"/>
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-2" />
@@ -1529,8 +1525,7 @@
                 <condition required="mvz2:level.castle_6"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
-                <behaviour operator="add" id="mvz2:dullahan/state"/>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:dullahan/state"/>
                 <behaviour operator="add" id="mvz2:damage_by_gold"/>
             </behaviours>
             <properties>
@@ -1620,8 +1615,7 @@
                 <condition required="mvz2:level.mausoleum_3"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
-                <behaviour operator="add" id="mvz2:wicked_hermit_zombie/state"/>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:wicked_hermit_zombie/state"/>
             </behaviours>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:wicked_hermit_hat" />
@@ -1652,9 +1646,8 @@
                 <condition required="mvz2:level.ship_1"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:undead_flying_object/state"/>
                 <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="add" id="mvz2:undead_flying_object/state"/>
             </behaviours>
             <properties>
                 <id name="mvz2:modelId" value="mvz2:entity.undead_flying_object_red" />
@@ -1813,9 +1806,8 @@
                 <condition required="mvz2:level.halloween_6"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:napstablook/state"/>
                 <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="add" id="mvz2:napstablook/state"/>
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-2" />
@@ -1839,9 +1831,8 @@
                 <condition required="mvz2:level.castle_1"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:reverse_satellite/state"/>
                 <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="add" id="mvz2:reverse_satellite/state"/>
             </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
@@ -1864,10 +1855,8 @@
                 <condition required="mvz2:level.castle_6"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
-                <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="add" id="mvz2:skeleton_horse/state"/>
-                <behaviour operator="add" id="mvz2:skeleton_horse/melee"/>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_horse/state"/>
+                <behaviour operator="replace" source="mvz2:enemy_melee" id="mvz2:skeleton_horse/melee"/>
             </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="400" />
@@ -1998,9 +1987,8 @@
                 <condition required="mvz2:level.mausoleum_7"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:skeleton_mage/state"/>
                 <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="add" id="mvz2:skeleton_mage/state"/>
             </behaviours>
             <properties>
                 <float name="mvz2:range" value="800" />

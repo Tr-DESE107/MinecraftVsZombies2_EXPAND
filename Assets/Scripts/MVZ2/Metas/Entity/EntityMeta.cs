@@ -93,6 +93,7 @@ namespace MVZ2.Metas
     public class EntityBehaviourItem
     {
         public BehaviourOperator Operator { get; private set; }
+        public NamespaceID? SourceID { get; private set; }
         public NamespaceID ID { get; private set; }
         public EntityBehaviourItem(BehaviourOperator @operator, NamespaceID iD)
         {
@@ -113,18 +114,24 @@ namespace MVZ2.Metas
             {
                 op = o;
             }
-            return new EntityBehaviourItem(op, id);
+            var sourceID = node.GetAttributeNamespaceID("source", defaultNsp);
+            return new EntityBehaviourItem(op, id)
+            {
+                SourceID = sourceID
+            };
         }
         private static Dictionary<string, BehaviourOperator> operatorDict = new Dictionary<string, BehaviourOperator>()
         {
             { "add", BehaviourOperator.Add },
             { "remove", BehaviourOperator.Remove },
+            { "replace", BehaviourOperator.Replace },
         };
 
     }
     public enum BehaviourOperator
     {
         Add,
-        Remove
+        Remove,
+        Replace
     }
 }

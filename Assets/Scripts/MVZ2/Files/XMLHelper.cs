@@ -211,6 +211,24 @@ namespace MVZ2.IO
                 case BehaviourOperator.Remove:
                     behaviours.Remove(item.ID);
                     break;
+                case BehaviourOperator.Replace:
+                    if (NamespaceID.IsValid(item.SourceID))
+                    {
+                        var index = behaviours.IndexOf(item.SourceID);
+                        if (index >= 0)
+                        {
+                            behaviours[index] = item.ID;
+                        }
+                        else
+                        {
+                            Log.LogWarning($"Failed to replace behaviour {item.SourceID} to {item.ID}, cannot find the behaviour to replace.");
+                        }
+                    }
+                    else
+                    {
+                        Log.LogWarning($"Failed to replace behaviour to {item.ID}, the behaviour id to replace is invalid.");
+                    }
+                    break;
             }
         }
         public static void FillBehaviourProperties(this XmlNode node, Dictionary<string, object?> properties, string defaultNsp)
