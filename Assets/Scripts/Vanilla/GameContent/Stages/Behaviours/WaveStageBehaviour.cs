@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Stages
             if (waveTimer.RunToExpiredAndNotNull())
             {
                 SetWaveMaxHealth(level, 0);
-                waveTimer.ResetSeconds(level.GetWaveMaxTime());
+                waveTimer.ResetSeconds(level.GetWaveMaxSeconds());
                 level.RunWave();
             }
         }
@@ -123,7 +123,7 @@ namespace MVZ2.GameContent.Stages
                 return;
 
             // 还没到加速时间。
-            if (waveTimer.Frame >= waveTimer.MaxFrame - level.GetWaveAdvanceTime())
+            if (waveTimer.Frame >= waveTimer.MaxFrame - Ticks.FromSeconds(level.GetWaveAdvanceSeconds()))
                 return;
 
             // 敌人的血量没有低于阈值，不加速。
@@ -153,7 +153,7 @@ namespace MVZ2.GameContent.Stages
         private void NextWave(LevelEngine level)
         {
             var waveTimer = GetWaveTimer(level);
-            waveTimer?.ResetSeconds(level.GetWaveMaxTime());
+            waveTimer?.ResetSeconds(level.GetWaveMaxSeconds());
             SetWaveMaxHealth(level, 0);
             level.NextWave();
             if (level.IsFinalWave(level.CurrentWave))
