@@ -5,6 +5,7 @@ using MVZ2.GameContent.Buffs.Effects;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -50,11 +51,11 @@ namespace MVZ2.GameContent.Effects
             if (target != null && target.Exists())
             {
                 var targetPosition = entity.Position + Vector3.right * 40;
-                if (target.State == VanillaEntityStates.BREAKOUT_PEARL_RETURN)
+                if (target.State == STATE_RETURN)
                 {
                     target.Velocity = (targetPosition - target.Position) * 0.5f;
                 }
-                else if (target.State == VanillaEntityStates.BREAKOUT_PEARL_IDLE)
+                else if (target.State == STATE_IDLE)
                 {
                     target.Position = targetPosition;
                     target.Velocity = Vector3.zero;
@@ -145,7 +146,7 @@ namespace MVZ2.GameContent.Effects
                 e.SetParent(board);
             });
             board.Target = pearl;
-            board.State = VanillaEntityStates.BREAKOUT_PEARL_IDLE;
+            board.State = STATE_IDLE;
             return pearl;
         }
         public static void ReturnPearl(Entity board, Entity pearl)
@@ -153,7 +154,7 @@ namespace MVZ2.GameContent.Effects
             var level = board.Level;
             board.Target = pearl;
             pearl.SetParent(board);
-            board.State = VanillaEntityStates.BREAKOUT_PEARL_RETURN;
+            board.State = STATE_RETURN;
         }
         public static void FirePearl(Entity board)
         {
@@ -163,7 +164,7 @@ namespace MVZ2.GameContent.Effects
                 board.Target = null;
                 pearl.SetParent(null);
                 pearl.Velocity = Vector3.right * PEARL_SPEED;
-                board.State = VanillaEntityStates.BREAKOUT_PEARL_FIRED;
+                board.State = STATE_FIRED;
             }
         }
         public static bool IsUpgraded(Entity board)
@@ -306,6 +307,9 @@ namespace MVZ2.GameContent.Effects
         public static readonly VanillaEntityPropertyMeta<Vector3> PROP_NEXT_DISPLACEMENT = new VanillaEntityPropertyMeta<Vector3>("NextDisplacement");
         public const int MAX_RESPAWN_COUNTDOWN = 90;
         public const float PEARL_SPEED = 15;
+        public const int STATE_IDLE = VanillaEffectStates.IDLE;
+        public const int STATE_RETURN = VanillaEffectStates.BREAKOUT_BOARD_RETURN;
+        public const int STATE_FIRED = VanillaEffectStates.BREAKOUT_BOARD_FIRED;
         public const float MAX_X = VanillaLevelExt.RIGHT_BORDER - 40;
         public const float MIN_X = VanillaLevelExt.LEFT_BORDER + 40;
         private List<Entity> boardsBuffer = new List<Entity>();

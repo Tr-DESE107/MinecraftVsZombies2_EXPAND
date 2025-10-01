@@ -71,23 +71,31 @@ namespace MVZ2.GameContent.Enemies
         {
             return entity.HasBuff<NapstablookAngryBuff>();
         }
-        public const int STATE_ANGRY = VanillaEntityStates.NAPSTABLOOK_ANGRY;
-    }
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.napstablook_State)]
-    public class Napstablook_State : EnemyStateBehaviour
-    {
-        public Napstablook_State(string nsp, string name) : base(nsp, name)
+        public const int STATE_ANGRY = VanillaEnemyStates.NAPSTABLOOK_ANGRY;
+        public const int ANIMATION_STATE_ANGRY = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
+
+        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.napstablook_State)]
+        public class Napstablook_State : EnemyStateBehaviour
         {
-        }
-        protected override int GetActiveState(Entity enemy)
-        {
-            if (Napstablook.IsAngry(enemy))
+            public Napstablook_State(string nsp, string name) : base(nsp, name)
             {
-                return VanillaEntityStates.ATTACK;
             }
-            else
+            public override int GetAnimationState(int state)
             {
-                return VanillaEntityStates.WALK;
+                switch (state)
+                {
+                    case STATE_ANGRY:
+                        return ANIMATION_STATE_ANGRY;
+                }
+                return base.GetAnimationState(state);
+            }
+            protected override int GetActiveState(Entity enemy)
+            {
+                if (Napstablook.IsAngry(enemy))
+                {
+                    return STATE_ANGRY;
+                }
+                return base.GetActiveState(enemy);
             }
         }
     }

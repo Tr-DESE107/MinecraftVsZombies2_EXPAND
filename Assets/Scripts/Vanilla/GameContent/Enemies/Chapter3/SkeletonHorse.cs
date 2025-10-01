@@ -135,9 +135,11 @@ namespace MVZ2.GameContent.Enemies
         public const int JUMP_STATE_NONE = 0;
         public const int JUMP_STATE_JUMP = 1;
         public const int JUMP_STATE_LAND = 2;
-        public const int STATE_GALLOP = VanillaEntityStates.SKELETON_HORSE_GALLOP;
-        public const int STATE_JUMP = VanillaEntityStates.SKELETON_HORSE_JUMP;
-        public const int STATE_LAND = VanillaEntityStates.SKELETON_HORSE_LAND;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_GALLOP = VanillaEnemyStates.SKELETON_HORSE_GALLOP;
+        public const int STATE_JUMP = VanillaEnemyStates.SKELETON_HORSE_JUMP;
+        public const int STATE_LAND = VanillaEnemyStates.SKELETON_HORSE_LAND;
         private Detector detector;
         private Detector blocksJumpDetector;
 
@@ -147,41 +149,53 @@ namespace MVZ2.GameContent.Enemies
             public StateBehaviour(string nsp, string name) : base(nsp, name)
             {
             }
+            public override int GetAnimationState(int state)
+            {
+                switch (state)
+                {
+                    case STATE_JUMP:
+                        return ANIMATION_STATE_JUMP;
+                    case STATE_GALLOP:
+                        return ANIMATION_STATE_GALLOP;
+                    case STATE_LAND:
+                        return ANIMATION_STATE_LAND;
+                }
+                return base.GetAnimationState(state);
+            }
             protected override int GetActiveState(Entity enemy)
             {
-                var state = base.GetActiveState(enemy);
-                if (state == VanillaEntityStates.WALK || state == VanillaEntityStates.ATTACK)
+                var jumpState = GetJumpState(enemy);
+                if (jumpState == JUMP_STATE_LAND)
                 {
-                    var jumpState = GetJumpState(enemy);
-                    if (jumpState == JUMP_STATE_LAND)
-                    {
-                        return STATE_LAND;
-                    }
-                    else if (jumpState == JUMP_STATE_JUMP)
-                    {
-                        return STATE_JUMP;
-                    }
-                    else if (GetGallopTime(enemy) > 0)
-                    {
-                        return STATE_GALLOP;
-                    }
+                    return STATE_LAND;
                 }
-                return state;
+                else if (jumpState == JUMP_STATE_JUMP)
+                {
+                    return STATE_JUMP;
+                }
+                else if (GetGallopTime(enemy) > 0)
+                {
+                    return STATE_GALLOP;
+                }
+                return base.GetActiveState(enemy);
             }
-            [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skeletonHorse_Melee)]
-            public class MeleeBehaviour : EnemyMeleeBehaviour
+            public const int ANIMATION_STATE_JUMP = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
+            public const int ANIMATION_STATE_GALLOP = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 1;
+            public const int ANIMATION_STATE_LAND = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 2;
+        }
+        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skeletonHorse_Melee)]
+        public class MeleeBehaviour : EnemyMeleeBehaviour
+        {
+            public MeleeBehaviour(string nsp, string name) : base(nsp, name)
             {
-                public MeleeBehaviour(string nsp, string name) : base(nsp, name)
-                {
-                }
-                protected override bool ValidateMeleeTarget(Entity enemy, [NotNullWhen(true)] Entity? target)
-                {
-                    if (!base.ValidateMeleeTarget(enemy, target))
-                        return false;
-                    if (!Detection.IsInFrontOf(enemy, target))
-                        return false;
-                    return true;
-                }
+            }
+            protected override bool ValidateMeleeTarget(Entity enemy, [NotNullWhen(true)] Entity? target)
+            {
+                if (!base.ValidateMeleeTarget(enemy, target))
+                    return false;
+                if (!Detection.IsInFrontOf(enemy, target))
+                    return false;
+                return true;
             }
         }
     }

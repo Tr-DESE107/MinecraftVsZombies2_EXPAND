@@ -47,7 +47,7 @@ namespace MVZ2.Vanilla.Enemies
             }
             else if (CheckAttackTarget(zombie))
             {
-                targetState = STATE_ATTACK;
+                targetState = STATE_SMASH;
             }
             if (zombie.State != targetState)
             {
@@ -58,7 +58,7 @@ namespace MVZ2.Vanilla.Enemies
         #region 空闲
         public class IdleState : EntityStateMachineState
         {
-            public IdleState() : base(STATE_IDLE) { }
+            public IdleState() : base(STATE_IDLE, ANIMATION_STATE_IDLE) { }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
@@ -70,7 +70,7 @@ namespace MVZ2.Vanilla.Enemies
         #region 行走
         public class WalkState : EntityStateMachineState
         {
-            public WalkState() : base(STATE_WALK) { }
+            public WalkState() : base(STATE_WALK, ANIMATION_STATE_WALK) { }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
@@ -87,7 +87,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         public class AttackState : EntityStateMachineState
         {
-            public AttackState() : base(STATE_ATTACK) { }
+            public AttackState() : base(STATE_SMASH, ANIMATION_STATE_SMASH) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -184,7 +184,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         public class ThrowState : EntityStateMachineState
         {
-            public ThrowState() : base(STATE_THROW) { }
+            public ThrowState() : base(STATE_THROW, ANIMATION_STATE_THROW) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -235,7 +235,7 @@ namespace MVZ2.Vanilla.Enemies
         #region 死亡
         public class DeathState : EntityStateMachineState
         {
-            public DeathState() : base(STATE_DEATH) { }
+            public DeathState() : base(STATE_DEATH, ANIMATION_STATE_DEATH) { }
             public override void OnEnter(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnEnter(stateMachine, entity);
@@ -284,11 +284,17 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        public const int STATE_IDLE = VanillaEntityStates.MUTANT_ZOMBIE_IDLE;
-        public const int STATE_WALK = VanillaEntityStates.MUTANT_ZOMBIE_WALK;
-        public const int STATE_ATTACK = VanillaEntityStates.MUTANT_ZOMBIE_ATTACK;
-        public const int STATE_THROW = VanillaEntityStates.MUTANT_ZOMBIE_THROW;
-        public const int STATE_DEATH = VanillaEntityStates.MUTANT_ZOMBIE_DEATH;
+        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_SMASH = VanillaEnemyStates.MUTANT_ZOMBIE_SMASH;
+        public const int STATE_THROW = VanillaEnemyStates.MUTANT_ZOMBIE_THROW;
+        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
+
+        public const int ANIMATION_STATE_IDLE = EnemyStateBehaviour.ANIMATION_STATE_IDLE;
+        public const int ANIMATION_STATE_WALK = EnemyStateBehaviour.ANIMATION_STATE_WALK;
+        public const int ANIMATION_STATE_DEATH = EnemyStateBehaviour.ANIMATION_STATE_DEATH;
+        public const int ANIMATION_STATE_SMASH = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
+        public const int ANIMATION_STATE_THROW = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 1;
     }
 
 }

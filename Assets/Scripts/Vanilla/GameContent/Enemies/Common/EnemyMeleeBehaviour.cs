@@ -32,7 +32,7 @@ namespace MVZ2.Vanilla.Enemies
                 SetMeleeTarget(entity, null);
             }
 
-            if (entity.State == VanillaEntityStates.ATTACK)
+            if (entity.State == STATE_MELEE_ATTACK)
             {
                 MeleeAttack(entity);
             }
@@ -121,7 +121,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         public static bool IsMeleeAttacking(Entity entity)
         {
-            return entity.State == VanillaEntityStates.ATTACK;
+            return entity.State == STATE_MELEE_ATTACK;
         }
         public static void MeleeAttack(Entity enemy)
         {
@@ -151,5 +151,7 @@ namespace MVZ2.Vanilla.Enemies
         public static void SetMeleeTarget(Entity entity, EntityID? value) => entity.SetProperty(PROP_MELEE_TARGET, value);
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_MELEE_TARGET = new VanillaEntityPropertyMeta<EntityID>("melee_target");
         #endregion
+
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
     }
 }

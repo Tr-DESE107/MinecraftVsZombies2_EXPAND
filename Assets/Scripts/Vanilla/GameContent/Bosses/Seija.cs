@@ -4,6 +4,7 @@ using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
@@ -231,16 +232,16 @@ namespace MVZ2.GameContent.Bosses
         private const int BACKFLIP_ENEMY_COUNT = 3;
         private const float ADJUST_Z_THRESOLD = 5;
 
-        private const int STATE_IDLE = VanillaEntityStates.SEIJA_IDLE;
-        private const int STATE_APPEAR = VanillaEntityStates.SEIJA_APPEAR;
-        private const int STATE_DANMAKU = VanillaEntityStates.SEIJA_DANMAKU;
-        private const int STATE_HAMMER = VanillaEntityStates.SEIJA_HAMMER;
-        private const int STATE_BACKFLIP = VanillaEntityStates.SEIJA_BACKFLIP;
-        private const int STATE_FRONTFLIP = VanillaEntityStates.SEIJA_FRONTFLIP;
-        private const int STATE_GAP_BOMB = VanillaEntityStates.SEIJA_GAP_BOMB;
-        private const int STATE_CAMERA = VanillaEntityStates.SEIJA_CAMERA;
-        private const int STATE_FABRIC = VanillaEntityStates.SEIJA_FABRIC;
-        private const int STATE_FAINT = VanillaEntityStates.SEIJA_FAINT;
+        private const int STATE_IDLE = VanillaBossStates.IDLE;
+        private const int STATE_APPEAR = VanillaBossStates.APPEAR;
+        private const int STATE_FAINT = VanillaBossStates.DEATH;
+        private const int STATE_DANMAKU = VanillaBossStates.SEIJA_DANMAKU;
+        private const int STATE_HAMMER = VanillaBossStates.SEIJA_HAMMER;
+        private const int STATE_BACKFLIP = VanillaBossStates.SEIJA_BACKFLIP;
+        private const int STATE_FRONTFLIP = VanillaBossStates.SEIJA_FRONTFLIP;
+        private const int STATE_GAP_BOMB = VanillaBossStates.SEIJA_GAP_BOMB;
+        private const int STATE_CAMERA = VanillaBossStates.SEIJA_CAMERA;
+        private const int STATE_FABRIC = VanillaBossStates.SEIJA_FABRIC;
         #endregion 常量
 
         private static Detector hammerCheckDetector = new SeijaDetector(SeijaDetector.MODE_DETECT);

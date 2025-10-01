@@ -44,7 +44,7 @@ namespace MVZ2.GameContent.Contraptions
                 EvokedUpdate(entity);
             }
             entity.SetAnimationBool("IsOn", !entity.IsAIFrozen());
-            entity.SetAnimationInt("State", GetAnimationState(entity));
+            entity.SetAnimationInt("ForceState", GetAnimationState(entity));
         }
         protected override void OnEvoke(Entity entity)
         {

@@ -16,10 +16,11 @@ namespace MVZ2.Vanilla.Enemies
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
-            if (entity.State == VanillaEntityStates.WALK)
+            if (entity.State == STATE_WALK)
             {
                 entity.UpdateWalkVelocity();
             }
         }
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
     }
 }

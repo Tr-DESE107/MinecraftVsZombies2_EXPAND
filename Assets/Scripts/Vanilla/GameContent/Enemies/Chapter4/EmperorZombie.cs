@@ -5,6 +5,7 @@ using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Detections;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
@@ -35,7 +36,7 @@ namespace MVZ2.GameContent.Enemies
 
             if (entity.IsDead)
                 return;
-            if (entity.State == VanillaEntityStates.ATTACK)
+            if (entity.State == STATE_MELEE_ATTACK)
                 return;
             var stateTimer = GetStateTimer(entity);
             if (entity.State == STATE_CAST)
@@ -97,8 +98,9 @@ namespace MVZ2.GameContent.Enemies
             }
         }
         #region 常量
-        public const int STATE_WALK = VanillaEntityStates.WALK;
-        public const int STATE_CAST = VanillaEntityStates.EMPEROR_ZOMBIE_CAST;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_CAST = VanillaEnemyStates.CAST;
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
         public const int CAST_COOLDOWN = 150;
         public const int CAST_TIME = 30;
         public const int SHIELD_DETECT_TIME = 30;

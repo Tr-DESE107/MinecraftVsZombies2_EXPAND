@@ -19,7 +19,7 @@ namespace MVZ2.Vanilla.Enemies
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (entity.State == VanillaEntityStates.DEAD)
+            if (entity.State == STATE_DEATH)
             {
                 var deathTimer = GetDeathTimer(entity);
                 if (deathTimer == null)
@@ -51,6 +51,7 @@ namespace MVZ2.Vanilla.Enemies
         {
             entity.SetBehaviourField(PROP_DEATH_TIMER, frameTimer);
         }
+        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DEATH_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("DeathTimer");
     }
 

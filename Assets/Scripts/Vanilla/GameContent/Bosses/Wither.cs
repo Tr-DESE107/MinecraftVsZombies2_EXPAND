@@ -8,6 +8,7 @@ using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
@@ -352,14 +353,14 @@ namespace MVZ2.GameContent.Bosses
             new Vector3(0, 104, 16),
         };
 
-        private const int STATE_IDLE = VanillaEntityStates.WITHER_IDLE;
-        private const int STATE_APPEAR = VanillaEntityStates.WITHER_APPEAR;
-        private const int STATE_CHARGE = VanillaEntityStates.WITHER_CHARGE;
-        private const int STATE_EAT = VanillaEntityStates.WITHER_EAT;
-        private const int STATE_SWITCH = VanillaEntityStates.WITHER_SWITCH;
-        private const int STATE_SUMMON = VanillaEntityStates.WITHER_SUMMON;
-        private const int STATE_STUNNED = VanillaEntityStates.WITHER_STUNNED;
-        private const int STATE_DEATH = VanillaEntityStates.WITHER_DEATH;
+        private const int STATE_IDLE = VanillaBossStates.IDLE;
+        private const int STATE_APPEAR = VanillaBossStates.APPEAR;
+        private const int STATE_STUNNED = VanillaBossStates.STUNNED;
+        private const int STATE_DEATH = VanillaBossStates.DEATH;
+        private const int STATE_CHARGE = VanillaBossStates.WITHER_CHARGE;
+        private const int STATE_EAT = VanillaBossStates.WITHER_EAT;
+        private const int STATE_SWITCH = VanillaBossStates.WITHER_SWITCH;
+        private const int STATE_SUMMON = VanillaBossStates.WITHER_SUMMON;
 
         public const int PHASE_1 = 0;
         public const int PHASE_2 = 1;

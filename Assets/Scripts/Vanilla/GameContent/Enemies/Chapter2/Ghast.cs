@@ -49,7 +49,7 @@ namespace MVZ2.GameContent.Enemies
                     shootTimer.Run(enemy.GetAttackSpeed());
                     switch (enemy.State)
                     {
-                        case VanillaEntityStates.WALK:
+                        case STATE_WALK:
                             if (shootTimer.Expired)
                             {
                                 var target = FindTarget(enemy);
@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Enemies
                                 }
                             }
                             break;
-                        case VanillaEntityStates.ATTACK:
+                        case STATE_ATTACK:
                             if (shootTimer.Expired)
                             {
                                 var target = FindTarget(enemy);
@@ -144,14 +144,23 @@ namespace MVZ2.GameContent.Enemies
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         public const int SHOOT_COOLDOWN = 135;
         public const int SHOOT_DURATION = 15;
-        public const int STATE_WALK = VanillaEntityStates.WALK;
-        public const int STATE_ATTACK = VanillaEntityStates.ATTACK;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_ATTACK = VanillaEnemyStates.GHAST_ATTACK;
 
         [EntityBehaviourDefinition(VanillaEntityBehaviourNames.ghast_State)]
         public class StateBehaviour : EnemyStateBehaviour
         {
             public StateBehaviour(string nsp, string name) : base(nsp, name)
             {
+            }
+            public override int GetAnimationState(int state)
+            {
+                switch (state)
+                {
+                    case STATE_ATTACK:
+                        return ANIMATION_STATE_ATTACK;
+                }
+                return base.GetAnimationState(state);
             }
             protected override int GetActiveState(Entity enemy)
             {

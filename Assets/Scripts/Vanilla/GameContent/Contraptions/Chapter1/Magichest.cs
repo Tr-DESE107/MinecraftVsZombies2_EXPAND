@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Contraptions
 
         public override bool CanEvoke(Entity entity)
         {
-            return base.CanEvoke(entity) && (entity.State == VanillaEntityStates.MAGICHEST_IDLE || entity.State == VanillaEntityStates.MAGICHEST_OPEN);
+            return base.CanEvoke(entity) && (entity.State == STATE_IDLE || entity.State == STATE_OPEN);
         }
         protected override void OnEvoke(Entity entity)
         {
@@ -92,11 +92,11 @@ namespace MVZ2.GameContent.Contraptions
         {
             switch (entity.State)
             {
-                case VanillaEntityStates.MAGICHEST_IDLE:
+                case STATE_IDLE:
                     {
                         if (openDetector.DetectExists(entity))
                         {
-                            entity.State = VanillaEntityStates.MAGICHEST_OPEN;
+                            entity.State = STATE_OPEN;
                             entity.PlaySound(VanillaSoundID.chestOpen);
                             var stateTimer = GetStateTimer(entity);
                             stateTimer?.ResetTime(15);
@@ -105,12 +105,12 @@ namespace MVZ2.GameContent.Contraptions
                         break;
                     }
 
-                case VanillaEntityStates.MAGICHEST_OPEN:
+                case STATE_OPEN:
                     {
                         var stateTimer = GetStateTimer(entity);
                         if (!openDetector.DetectExists(entity))
                         {
-                            entity.State = VanillaEntityStates.IDLE;
+                            entity.State = STATE_IDLE;
                             entity.PlaySound(VanillaSoundID.chestClose);
                         }
                         else
@@ -121,7 +121,7 @@ namespace MVZ2.GameContent.Contraptions
                                 if (nearest != null)
                                 {
                                     Eat(entity, nearest);
-                                    entity.State = VanillaEntityStates.MAGICHEST_EAT;
+                                    entity.State = STATE_EAT;
                                     stateTimer.ResetTime(30);
                                 }
                             }
@@ -130,19 +130,19 @@ namespace MVZ2.GameContent.Contraptions
                         break;
                     }
 
-                case VanillaEntityStates.MAGICHEST_EAT:
+                case STATE_EAT:
                     {
                         var stateTimer = GetStateTimer(entity);
                         if (stateTimer.RunToExpiredAndNotNull())
                         {
-                            entity.State = VanillaEntityStates.MAGICHEST_CLOSE;
+                            entity.State = STATE_CLOSE;
                             stateTimer.ResetTime(30);
                             entity.PlaySound(VanillaSoundID.chestClose);
                         }
                         break;
                     }
 
-                case VanillaEntityStates.MAGICHEST_CLOSE:
+                case STATE_CLOSE:
                     {
                         var stateTimer = GetStateTimer(entity);
                         if (stateTimer.RunToExpiredAndNotNull())
@@ -165,28 +165,28 @@ namespace MVZ2.GameContent.Contraptions
         {
             switch (entity.State)
             {
-                case VanillaEntityStates.MAGICHEST_IDLE:
+                case STATE_IDLE:
                     {
-                        entity.State = VanillaEntityStates.MAGICHEST_OPEN;
+                        entity.State = STATE_OPEN;
                         entity.PlaySound(VanillaSoundID.chestOpen);
                         var stateTimer = GetStateTimer(entity);
                         stateTimer?.ResetTime(15);
                         break;
                     }
 
-                case VanillaEntityStates.MAGICHEST_OPEN:
+                case STATE_OPEN:
                     {
                         var stateTimer = GetStateTimer(entity);
                         if (stateTimer.RunToExpiredAndNotNull())
                         {
-                            entity.State = VanillaEntityStates.MAGICHEST_LOMS;
+                            entity.State = STATE_LOMS;
                             stateTimer.ResetTime(90);
                             entity.TriggerAnimation("Loms");
                         }
                         break;
                     }
 
-                case VanillaEntityStates.MAGICHEST_LOMS:
+                case STATE_LOMS:
                     {
                         var stateTimer = GetStateTimer(entity);
                         if (stateTimer != null)
@@ -199,7 +199,7 @@ namespace MVZ2.GameContent.Contraptions
                             }
                             if (stateTimer.Expired)
                             {
-                                entity.State = VanillaEntityStates.MAGICHEST_IDLE;
+                                entity.State = STATE_IDLE;
                                 entity.PlaySound(VanillaSoundID.chestClose);
                                 entity.SetEvoked(false);
                             }
@@ -210,11 +210,16 @@ namespace MVZ2.GameContent.Contraptions
         }
         private bool IsOpen(Entity entity)
         {
-            return entity.State == VanillaEntityStates.MAGICHEST_OPEN || entity.State == VanillaEntityStates.MAGICHEST_EAT;
+            return entity.State == STATE_OPEN || entity.State == STATE_EAT;
         }
         public static readonly NamespaceID ID = VanillaContraptionID.magichest;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_FLASH_VISIBLE = new VanillaEntityPropertyMeta<bool>("FlashVisible");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
+        public const int STATE_IDLE = VanillaContraptionStates.IDLE;
+        public const int STATE_OPEN = VanillaContraptionStates.MAGICHEST_OPEN;
+        public const int STATE_EAT = VanillaContraptionStates.MAGICHEST_EAT;
+        public const int STATE_CLOSE = VanillaContraptionStates.MAGICHEST_CLOSE;
+        public const int STATE_LOMS = VanillaContraptionStates.MAGICHEST_LOMS;
         private Detector openDetector;
         private Detector eatDetector;
     }

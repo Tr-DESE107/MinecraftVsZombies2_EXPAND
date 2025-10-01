@@ -63,7 +63,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.OnEvoke(entity);
             entity.SetEvoked(true);
-            entity.State = VanillaEntityStates.PISTENSER_SEED;
+            entity.State = STATE_SEED;
             var evocationTimer = GetEvocationTimer(entity);
             evocationTimer.Reset();
             entity.PlaySound(VanillaSoundID.pistonIn);
@@ -146,12 +146,12 @@ namespace MVZ2.GameContent.Contraptions
         {
             var evocationTimer = GetEvocationTimer(entity);
             evocationTimer.Run();
-            if (entity.State == VanillaEntityStates.PISTENSER_SEED)
+            if (entity.State == STATE_SEED)
             {
                 if (evocationTimer.Frame <= 15)
                 {
                     SeedSpikeBalls(entity);
-                    entity.State = VanillaEntityStates.IDLE;
+                    entity.State = STATE_IDLE;
                 }
             }
             else
@@ -232,6 +232,8 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly VanillaEntityPropertyMeta<int> PROP_EXTEND_DIRECTION = new VanillaEntityPropertyMeta<int>("ExtendDirection");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_EVOCATION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("EvocationTimer");
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_EXTEND_TARGET = new VanillaEntityPropertyMeta<EntityID>("ExtendTarget");
+        public const int STATE_IDLE = VanillaContraptionStates.IDLE;
+        public const int STATE_SEED = VanillaContraptionStates.PISTENSER_SEED;
         public const float BASE_SHOT_HEIGHT = 30;
         public const float EXTEND_SPEED = 10;
         public const int EVOCATION_TIME = 30;

@@ -218,5 +218,8 @@
                 <param name="id" type="id" idType="armor">盔甲ID。</param>
             </params>
         </variant>
+        <variant subname="paratroops">
+            <description>生成一队伞兵僵尸。</description>
+        </variant>
     </command>
 </commands>

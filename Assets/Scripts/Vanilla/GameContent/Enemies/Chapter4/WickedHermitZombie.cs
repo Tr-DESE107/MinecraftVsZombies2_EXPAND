@@ -62,6 +62,8 @@ namespace MVZ2.GameContent.Enemies
         }
         public const int MOVE_INTERVAL = 30;
         public const float TALISMAN_DISTANCE = 80;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_WARPPED = new VanillaEntityPropertyMeta<bool>("warpped");
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_TALISMAN_ZOMBIE = new VanillaEntityPropertyMeta<EntityID>("MoveTimer");
 
@@ -74,7 +76,7 @@ namespace MVZ2.GameContent.Enemies
             protected override int GetActiveState(Entity enemy)
             {
                 var state = base.GetActiveState(enemy);
-                if (state == VanillaEntityStates.WALK)
+                if (state == STATE_WALK)
                 {
                     if (!IsWarpped(enemy))
                     {
@@ -93,7 +95,7 @@ namespace MVZ2.GameContent.Enemies
                             }
                             if (tooClose)
                             {
-                                state = VanillaEntityStates.IDLE;
+                                state = STATE_IDLE;
                             }
                         }
                     }

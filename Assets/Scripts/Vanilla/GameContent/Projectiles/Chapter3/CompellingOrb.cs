@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Effects;
 using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Projectiles;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
@@ -76,8 +77,8 @@ namespace MVZ2.GameContent.Projectiles
         }
         public static void SetStateTimer(Entity entity, FrameTimer timer) => entity.SetBehaviourField(ID, PROP_STATE_TIMER, timer);
         public static FrameTimer? GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
-        public const int STATE_IDLE = VanillaEntityStates.IDLE;
-        public const int STATE_FLY = VanillaEntityStates.WALK;
+        public const int STATE_IDLE = VanillaProjectileStates.IDLE;
+        public const int STATE_FLY = VanillaProjectileStates.COMPELLING_ORB_FLY;
 
         private static readonly NamespaceID ID = VanillaProjectileID.compellingOrb;
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");

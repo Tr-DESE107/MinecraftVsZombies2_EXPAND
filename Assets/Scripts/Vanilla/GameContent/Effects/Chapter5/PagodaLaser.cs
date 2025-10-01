@@ -3,6 +3,7 @@
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Contraptions;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.Properties;
@@ -28,6 +29,7 @@ namespace MVZ2.GameContent.Effects
             base.Init(entity);
             entity.PlaySound(VanillaSoundID.sweepingBeam);
             stateMachine.Init(entity);
+            stateMachine.StartState(entity, STATE_EXPAND);
             var lane = entity.GetLane();
             var column = 0;
             var x = entity.Level.GetColumnCenterX(column);
@@ -64,9 +66,9 @@ namespace MVZ2.GameContent.Effects
         }
         public static void SetDestination(Entity entity, Vector3 value) => entity.SetProperty(PROP_DESTINATION, value);
         public static Vector3 GetDestination(Entity entity) => entity.GetProperty<Vector3>(PROP_DESTINATION);
-        public const int STATE_EXPAND = VanillaEntityStates.PAGODA_LASER_EXPAND;
-        public const int STATE_SWIPE = VanillaEntityStates.PAGODA_LASER_SWIPE;
-        public const int STATE_SUBTRACT = VanillaEntityStates.PAGODA_LASER_SUBTRACT;
+        public const int STATE_EXPAND = VanillaEffectStates.PAGODA_LASER_EXPAND;
+        public const int STATE_SWIPE = VanillaEffectStates.PAGODA_LASER_SWIPE;
+        public const int STATE_SUBTRACT = VanillaEffectStates.PAGODA_LASER_SUBTRACT;
         public static readonly Vector3 POSITION_OFFSET = new Vector3(0, 16, 0);
         public EntityStateMachine stateMachine = new PagodaLaserStateMachine();
         public static readonly VanillaEntityPropertyMeta<Vector3> PROP_SCALE_MULTIPLIER = new VanillaEntityPropertyMeta<Vector3>("scale_multiplier", Vector3.zero);

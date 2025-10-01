@@ -8,6 +8,7 @@ using MVZ2.GameContent.Difficulties;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Detections;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
@@ -714,14 +715,14 @@ namespace MVZ2.GameContent.Bosses
             STATE_SPIN,
             STATE_REVIVE
         };
-        public const int STATE_APPEAR = VanillaEntityStates.NIGHTMAREAPER_APPEAR;
-        public const int STATE_IDLE = VanillaEntityStates.NIGHTMAREAPER_IDLE;
-        public const int STATE_JAB = VanillaEntityStates.NIGHTMAREAPER_JAB;
-        public const int STATE_SPIN = VanillaEntityStates.NIGHTMAREAPER_SPIN;
-        public const int STATE_DARKNESS = VanillaEntityStates.NIGHTMAREAPER_DARKNESS;
-        public const int STATE_REVIVE = VanillaEntityStates.NIGHTMAREAPER_REVIVE;
-        public const int STATE_ENRAGE = VanillaEntityStates.NIGHTMAREAPER_ENRAGE;
-        public const int STATE_DEATH = VanillaEntityStates.NIGHTMAREAPER_DEATH;
+        public const int STATE_APPEAR = VanillaBossStates.APPEAR;
+        public const int STATE_IDLE = VanillaBossStates.IDLE;
+        public const int STATE_DEATH = VanillaBossStates.DEATH;
+        public const int STATE_JAB = VanillaBossStates.NIGHTMAREAPER_JAB;
+        public const int STATE_SPIN = VanillaBossStates.NIGHTMAREAPER_SPIN;
+        public const int STATE_DARKNESS = VanillaBossStates.NIGHTMAREAPER_DARKNESS;
+        public const int STATE_REVIVE = VanillaBossStates.NIGHTMAREAPER_REVIVE;
+        public const int STATE_ENRAGE = VanillaBossStates.NIGHTMAREAPER_ENRAGE;
 
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_APPEAR = 1;

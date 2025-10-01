@@ -65,12 +65,15 @@ namespace MVZ2.Metas
 
             var paramList = new List<CommandMetaParam>();
             var paramsNode = node["params"];
-            for (int i = 0; i < paramsNode.ChildNodes.Count; i++)
+            if (paramsNode != null)
             {
-                var childNode = paramsNode.ChildNodes[i];
-                if (childNode.Name == "param")
+                for (int i = 0; i < paramsNode.ChildNodes.Count; i++)
                 {
-                    paramList.Add(CommandMetaParam.FromXmlNode(childNode, defaultNsp));
+                    var childNode = paramsNode.ChildNodes[i];
+                    if (childNode.Name == "param")
+                    {
+                        paramList.Add(CommandMetaParam.FromXmlNode(childNode, defaultNsp));
+                    }
                 }
             }
             return new CommandMetaVariant(paramList.ToArray())

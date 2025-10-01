@@ -47,7 +47,7 @@ namespace MVZ2.Vanilla.Enemies
             }
             else if (CheckAttack(zombie))
             {
-                targetState = STATE_ATTACK;
+                targetState = STATE_MELEE_ATTACK;
             }
             if (stateMachine.GetEntityState(zombie) != targetState || restart)
             {
@@ -89,7 +89,7 @@ namespace MVZ2.Vanilla.Enemies
         }
         public class AttackState : EntityStateMachineState
         {
-            public AttackState() : base(STATE_ATTACK, ANIMATION_STATE_ATTACK) { }
+            public AttackState() : base(STATE_MELEE_ATTACK, ANIMATION_STATE_ATTACK) { }
             public override void OnUpdateAI(EntityStateMachine stateMachine, Entity entity)
             {
                 base.OnUpdateAI(stateMachine, entity);
@@ -286,19 +286,19 @@ namespace MVZ2.Vanilla.Enemies
         }
         #endregion
 
-        public const int STATE_IDLE = VanillaEntityStates.POP_CAPTAIN_IDLE;
-        public const int STATE_WALK = VanillaEntityStates.POP_CAPTAIN_WALK;
-        public const int STATE_ATTACK = VanillaEntityStates.POP_CAPTAIN_ATTACK;
-        public const int STATE_SMASH_DOWN = VanillaEntityStates.POP_CAPTAIN_SMASH_DOWN;
-        public const int STATE_SMASH_UP = VanillaEntityStates.POP_CAPTAIN_SMASH_UP;
-        public const int STATE_DEATH = VanillaEntityStates.POP_CAPTAIN_DEATH;
+        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_SMASH_DOWN = VanillaEnemyStates.POP_CAPTAIN_SMASH_DOWN;
+        public const int STATE_SMASH_UP = VanillaEnemyStates.POP_CAPTAIN_SMASH_UP;
+        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
 
-        public const int ANIMATION_STATE_IDLE = 0;
-        public const int ANIMATION_STATE_WALK = 1;
-        public const int ANIMATION_STATE_ATTACK = 2;
-        public const int ANIMATION_STATE_DEATH = 3;
-        public const int ANIMATION_STATE_SMASH_DOWN = 4;
-        public const int ANIMATION_STATE_SMASH_UP = 5;
+        public const int ANIMATION_STATE_IDLE = EnemyStateBehaviour.ANIMATION_STATE_IDLE;
+        public const int ANIMATION_STATE_WALK = EnemyStateBehaviour.ANIMATION_STATE_WALK;
+        public const int ANIMATION_STATE_ATTACK = EnemyStateBehaviour.ANIMATION_STATE_ATTACK;
+        public const int ANIMATION_STATE_DEATH = EnemyStateBehaviour.ANIMATION_STATE_DEATH;
+        public const int ANIMATION_STATE_SMASH_DOWN = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
+        public const int ANIMATION_STATE_SMASH_UP = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 1;
     }
 
 }

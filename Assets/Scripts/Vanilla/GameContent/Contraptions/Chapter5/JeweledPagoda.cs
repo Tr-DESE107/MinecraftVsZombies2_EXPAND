@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Pickups;
+using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine.Entities;
@@ -24,6 +25,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             base.Init(entity);
             stateMachine.Init(entity);
+            stateMachine.StartState(entity, STATE_ASCENT);
         }
         protected override void UpdateAI(Entity pagoda)
         {
@@ -48,9 +50,9 @@ namespace MVZ2.GameContent.Contraptions
         public static void AddDisabledGridCount(Entity pagoda, int value) => SetDisabledGridCount(pagoda, GetDisabledGridCount(pagoda) + value);
         public static void SetDisabledGridCount(Entity pagoda, int value) => pagoda.SetProperty(PROP_DISABLED_GRID_COUNT, value);
         public static int GetDisabledGridCount(Entity pagoda) => pagoda.GetProperty<int>(PROP_DISABLED_GRID_COUNT);
-        public const int STATE_ASCENT = VanillaEntityStates.JEWELED_PAGODA_ASCENT;
-        public const int STATE_LASER = VanillaEntityStates.JEWELED_PAGODA_LASER;
-        public const int STATE_DISAPPEAR = VanillaEntityStates.JEWELED_PAGODA_DISAPPEAR;
+        public const int STATE_ASCENT = VanillaContraptionStates.JEWELED_PAGODA_ASCENT;
+        public const int STATE_LASER = VanillaContraptionStates.JEWELED_PAGODA_LASER;
+        public const int STATE_DISAPPEAR = VanillaContraptionStates.JEWELED_PAGODA_DISAPPEAR;
         public const float TARGET_RELATIVE_Y = 64;
         public const int GRIDS_PER_STARSHARD = 3;
         public EntityStateMachine stateMachine = new PagodaStateMachine();

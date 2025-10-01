@@ -60,14 +60,14 @@ namespace MVZ2.GameContent.Contraptions
                 var target = fireBreathDetector.Detect(entity);
                 if (target != null && !entity.IsAIFrozen())
                 {
-                    entity.State = VanillaEntityStates.TOTENSER_FIRE_BREATH;
+                    entity.State = STATE_FIRE_BREATH;
                 }
                 else
                 {
-                    entity.State = VanillaEntityStates.IDLE;
+                    entity.State = STATE_IDLE;
                 }
             }
-            if (entity.State == VanillaEntityStates.TOTENSER_FIRE_BREATH)
+            if (entity.State == STATE_FIRE_BREATH)
             {
                 var fireBreath = GetFireBreath(entity);
                 var position = entity.Position + Vector3.up * 5;
@@ -140,6 +140,8 @@ namespace MVZ2.GameContent.Contraptions
         public static readonly VanillaEntityPropertyMeta<int> PROP_EVOCATION_TIME = new VanillaEntityPropertyMeta<int>("EvocationTime");
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_FIRE_BREATH = new VanillaEntityPropertyMeta<EntityID>("FireBreath");
         private Detector fireBreathDetector;
+        public const int STATE_IDLE = VanillaContraptionStates.IDLE;
+        public const int STATE_FIRE_BREATH = VanillaContraptionStates.TOTENSER_FIRE_BREATH;
         public const int FIRE_DETECT_INTERVAL = 7;
         public const int THROW_JAVELIN_TIME = 30;
         public const int MAX_EVOCATION_TIME = 48;

@@ -7,7 +7,7 @@ using PVZEngine.Level;
 namespace MVZ2.Vanilla.Enemies
 {
     [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyState)]
-    public class EnemyStateBehaviour : EnemyBehaviour
+    public class EnemyStateBehaviour : EnemyBehaviour, IEnemyStateBehaviour
     {
         public EnemyStateBehaviour(string nsp, string name) : base(nsp, name)
         {
@@ -18,16 +18,21 @@ namespace MVZ2.Vanilla.Enemies
             base.UpdateAI(entity);
             entity.State = GetActionState(entity);
             entity.SetAnimationInt("State", entity.State);
+            entity.SetAnimationInt("AnimationState", GetAnimationState(entity.State));
+        }
+        public virtual int GetAnimationState(int state)
+        {
+            return state;
         }
         private int GetActionState(Entity enemy)
         {
             if (enemy.IsDead)
             {
-                return VanillaEntityStates.DEAD;
+                return STATE_DEATH;
             }
             else if (enemy.IsPreviewEnemy())
             {
-                return VanillaEntityStates.IDLE;
+                return STATE_IDLE;
             }
             else
             {
@@ -43,16 +48,24 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (EnemyMeleeBehaviour.HasMeleeTarget(enemy))
             {
-                return VanillaEntityStates.ATTACK;
+                return VanillaEnemyStates.MELEE_ATTACK;
             }
             else if (enemy.IsCasting())
             {
-                return VanillaEntityStates.ENEMY_CAST;
+                return VanillaEnemyStates.CAST;
             }
             else
             {
-                return VanillaEntityStates.WALK;
+                return VanillaEnemyStates.WALK;
             }
         }
+        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
+        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
+        public const int ANIMATION_STATE_IDLE = 0;
+        public const int ANIMATION_STATE_WALK = 1;
+        public const int ANIMATION_STATE_ATTACK = 2;
+        public const int ANIMATION_STATE_CAST = 4;
+        public const int ANIMATION_STATE_DEATH = 4;
+        public const int ANIMATION_STATE_PRIVATE = 10000;
     }
 }

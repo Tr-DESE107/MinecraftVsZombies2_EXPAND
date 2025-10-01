@@ -60,7 +60,7 @@ namespace MVZ2.GameContent.Contraptions
                 return;
 
             var devourer = collision.Entity;
-            if (devourer.State != VanillaEntityStates.CONTRAPTION_SPECIAL)
+            if (!IsPacmanGhost(devourer))
                 return;
             var other = collision.Other;
             if (!devourer.IsHostile(other))
@@ -91,11 +91,11 @@ namespace MVZ2.GameContent.Contraptions
             {
                 UpdateNotEvoked(devourer);
             }
-            devourer.SetModelProperty("Mill", devourer.State != VanillaEntityStates.CONTRAPTION_SPECIAL);
+            devourer.SetModelProperty("Mill", !IsPacmanGhost(devourer));
         }
         private void UpdateEvoked(Entity devourer)
         {
-            if (devourer.State != VanillaEntityStates.CONTRAPTION_SPECIAL)
+            if (!IsPacmanGhost(devourer))
             {
                 UpdateEvokedDevour(devourer);
             }
@@ -162,7 +162,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             var devourTimer = GetDevourTimer(devourer);
             devourTimer?.ResetTime(EVOCATION_DURATION);
-            devourer.State = VanillaEntityStates.CONTRAPTION_SPECIAL;
+            devourer.State = STATE_GHOST;
             FindPacmanGhostTarget(devourer);
             devourer.CollisionMaskHostile |= EntityCollisionHelper.MASK_VULNERABLE;
         }
@@ -207,7 +207,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private void UpdateDevourerPosition(Entity devourer)
         {
-            if (devourer.State != VanillaEntityStates.CONTRAPTION_SPECIAL)
+            if (!IsPacmanGhost(devourer))
             {
                 if (devourer.Target != null)
                 {
@@ -263,9 +263,17 @@ namespace MVZ2.GameContent.Contraptions
         public static int GetTargetGridIndex(Entity entity) => entity.GetBehaviourField<int>(PROP_TARGET_GRID_INDEX);
         public static void SetTargetGridIndex(Entity entity, int value) => entity.SetBehaviourField(PROP_TARGET_GRID_INDEX, value);
         #endregion
+
+        public static bool IsPacmanGhost(Entity entity)
+        {
+            return entity.State == STATE_GHOST;
+        }
+
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DEVOUR_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("devourTimer");
         public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_INDEX = new VanillaEntityPropertyMeta<int>("targetGridIndex");
         public Detector evokedDetector;
+        public const int STATE_IDLE = VanillaContraptionStates.IDLE;
+        public const int STATE_GHOST = VanillaContraptionStates.DEVOURER_GHOST;
         public const int DEVOUR_TIME = 135;
         public const int EVOCATION_DURATION = 450;
         public const float EVOKED_MOVE_SPEED = 4;

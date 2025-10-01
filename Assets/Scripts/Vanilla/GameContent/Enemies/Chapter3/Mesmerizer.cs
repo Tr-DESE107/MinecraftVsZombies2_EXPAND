@@ -4,6 +4,7 @@ using MVZ2.GameContent.Detections;
 using MVZ2.GameContent.Projectiles;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.Detections;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
@@ -108,9 +109,9 @@ namespace MVZ2.GameContent.Enemies
         private const int CAST_COOLDOWN = 300;
         private const int CONTROL_DETECT_TIME = 30;
 
-        public const int STATE_WALK = VanillaEntityStates.WALK;
-        public const int STATE_ATTACK = VanillaEntityStates.ATTACK;
-        public const int STATE_CAST = VanillaEntityStates.MESMERIZER_CAST;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_CAST = VanillaEnemyStates.CAST;
         private Detector detector;
         public static readonly NamespaceID ID = VanillaEnemyID.mesmerizer;
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_ORB = new VanillaEntityPropertyMeta<EntityID>("Orb");

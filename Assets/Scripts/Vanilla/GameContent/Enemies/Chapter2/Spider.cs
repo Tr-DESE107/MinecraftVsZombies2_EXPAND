@@ -25,7 +25,7 @@ namespace MVZ2.GameContent.Enemies
         {
             base.UpdateAI(entity);
 
-            if (entity.State == VanillaEntityStates.SPIDER_CLIMB)
+            if (entity.State == STATE_CLIMB)
             {
                 var climbTarget = GetClimbTarget(entity);
                 if (climbTarget != null && climbTarget.Exists())
@@ -61,7 +61,7 @@ namespace MVZ2.GameContent.Enemies
                     entity.AddBuff<SpiderClimbBuff>();
                 }
 
-                if (entity.State == VanillaEntityStates.SPIDER_CLIMB)
+                if (entity.State == STATE_CLIMB)
                 {
                     // 正在攀爬目标上行走。
                     var velocity = entity.Velocity;
@@ -154,6 +154,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public static readonly NamespaceID ID = VanillaEnemyID.spider;
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_CLIMB_TARGET_ID = new VanillaEntityPropertyMeta<EntityID>("ClimbTargetID");
+        public const int STATE_CLIMB = VanillaEnemyStates.SPIDER_CLIMB;
 
         [EntityBehaviourDefinition(VanillaEntityBehaviourNames.spider_State)]
         public class Spider_State : EnemyStateBehaviour
@@ -161,11 +162,20 @@ namespace MVZ2.GameContent.Enemies
             public Spider_State(string nsp, string name) : base(nsp, name)
             {
             }
+            public override int GetAnimationState(int state)
+            {
+                switch (state)
+                {
+                    case STATE_CLIMB:
+                        return EnemyStateBehaviour.ANIMATION_STATE_IDLE;
+                }
+                return base.GetAnimationState(state);
+            }
             protected override int GetActiveState(Entity enemy)
             {
                 if (Spider.IsClimbingVertically(enemy))
                 {
-                    return VanillaEntityStates.SPIDER_CLIMB;
+                    return STATE_CLIMB;
                 }
                 return base.GetActiveState(enemy);
             }

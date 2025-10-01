@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.Damages;
 using MVZ2.Vanilla.Callbacks;
+using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using PVZEngine;
@@ -27,7 +28,7 @@ namespace MVZ2.GameContent.Enemies
         protected override void UpdateAI(Entity entity)
         {
             base.UpdateAI(entity);
-            if (entity.State == VanillaEntityStates.WALK)
+            if (entity.State == STATE_WALK)
             {
                 JumpUpdate(entity);
             }
@@ -73,6 +74,7 @@ namespace MVZ2.GameContent.Enemies
             return entity.GetBehaviourField<FrameTimer>(PROP_MOVE_TIMER);
         }
         public const int MOVE_INTERVAL = 30;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_MOVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("MoveTimer");
     }
 }

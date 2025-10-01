@@ -64,12 +64,12 @@ namespace MVZ2.GameContent.Contraptions
             base.OnEvoke(entity);
             var timer = GetStateTimer(entity);
             timer?.ResetTime(30);
-            entity.State = VanillaEntityStates.PUNCHTON_IDLE;
+            entity.State = STATE_IDLE;
             entity.SetEvoked(true);
         }
         private void AttackUpdate(Entity entity)
         {
-            if (entity.State == VanillaEntityStates.PUNCHTON_IDLE)
+            if (entity.State == STATE_IDLE)
             {
                 var extension = GetArmExtension(entity);
                 extension = extension * 0.5f;
@@ -79,11 +79,11 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     var timer = GetStateTimer(entity);
                     timer?.ResetTime(30);
-                    entity.State = VanillaEntityStates.PUNCHTON_PUNCH;
+                    entity.State = STATE_PUNCH;
                     Punch(entity);
                 }
             }
-            else if (entity.State == VanillaEntityStates.PUNCHTON_PUNCH)
+            else if (entity.State == STATE_PUNCH)
             {
                 var extension = GetArmExtension(entity);
                 extension = extension * 0.5f + entity.GetRange() * 0.5f;
@@ -93,7 +93,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (timer.RunToExpiredAndNotNull())
                 {
                     timer.ResetTime(RESTORE_TIME);
-                    entity.State = VanillaEntityStates.PUNCHTON_BROKEN;
+                    entity.State = STATE_BROKEN;
 
                     // Spawn droken piston palm.
                     var direction = entity.GetFacingDirection();
@@ -106,7 +106,7 @@ namespace MVZ2.GameContent.Contraptions
                     });
                 }
             }
-            else if (entity.State == VanillaEntityStates.PUNCHTON_BROKEN)
+            else if (entity.State == STATE_BROKEN)
             {
                 var extension = GetArmExtension(entity);
                 extension = extension * 0.5f;
@@ -116,7 +116,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (timer.RunToExpiredAndNotNull())
                 {
                     timer.Reset();
-                    entity.State = VanillaEntityStates.PUNCHTON_IDLE;
+                    entity.State = STATE_IDLE;
                 }
             }
         }
@@ -139,7 +139,7 @@ namespace MVZ2.GameContent.Contraptions
         }
         private void EvokedUpdate(Entity entity)
         {
-            if (entity.State == VanillaEntityStates.PUNCHTON_IDLE)
+            if (entity.State == STATE_IDLE)
             {
                 var extension = GetArmExtension(entity);
                 extension = extension * 0.5f;
@@ -150,10 +150,10 @@ namespace MVZ2.GameContent.Contraptions
                 {
                     LongPunch(entity);
                     timer.ResetTime(30);
-                    entity.State = VanillaEntityStates.PUNCHTON_PUNCH;
+                    entity.State = STATE_PUNCH;
                 }
             }
-            else if (entity.State == VanillaEntityStates.PUNCHTON_PUNCH)
+            else if (entity.State == STATE_PUNCH)
             {
                 var extension = GetArmExtension(entity);
                 extension = extension * 0.5f + 1400 * 0.5f;
@@ -163,7 +163,7 @@ namespace MVZ2.GameContent.Contraptions
                 if (timer.RunToExpiredAndNotNull())
                 {
                     timer.Reset();
-                    entity.State = VanillaEntityStates.PUNCHTON_IDLE;
+                    entity.State = STATE_IDLE;
                     entity.SetEvoked(false);
                 }
             }
@@ -187,15 +187,15 @@ namespace MVZ2.GameContent.Contraptions
         }
         private int GetArmState(Entity entity)
         {
-            if (entity.IsEvoked() && entity.State == VanillaEntityStates.PUNCHTON_IDLE)
+            if (entity.IsEvoked() && entity.State == STATE_IDLE)
                 return 2;
-            if (entity.State == VanillaEntityStates.PUNCHTON_BROKEN)
+            if (entity.State == STATE_BROKEN)
                 return 1;
             return 0;
         }
         private float GetArmFixBlend(Entity entity)
         {
-            if (entity.State != VanillaEntityStates.PUNCHTON_BROKEN)
+            if (entity.State != STATE_BROKEN)
                 return 1;
             var timer = GetStateTimer(entity);
             return timer?.GetPassedPercentage() ?? 0;
@@ -220,6 +220,9 @@ namespace MVZ2.GameContent.Contraptions
         }
         public const int RESTORE_TIME = 600;
         public const float EVOKED_DAMAGE_MULTIPLIER = 5;
+        public const int STATE_IDLE = VanillaContraptionStates.IDLE;
+        public const int STATE_PUNCH = VanillaContraptionStates.PUNCHTON_PUNCH;
+        public const int STATE_BROKEN = VanillaContraptionStates.PUNCHTON_BROKEN;
         private static readonly NamespaceID ID = VanillaContraptionID.punchton;
         public static readonly VanillaEntityPropertyMeta<float> PROP_ARM_EXTENSION = new VanillaEntityPropertyMeta<float>("ArmExtension");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");

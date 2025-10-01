@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Effects;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Callbacks;
@@ -39,18 +40,18 @@ namespace MVZ2.GameContent.Effects
             if (other.Type != EntityTypes.ENEMY)
                 return;
             var hoe = collision.Entity;
-            if (hoe.State != VanillaEntityStates.HOE_IDLE)
+            if (hoe.State != STATE_IDLE)
                 return;
             if (!hoe.IsHostile(other))
                 return;
-            hoe.State = VanillaEntityStates.HOE_TRIGGERED;
+            hoe.State = STATE_TRIGGERED;
             hoe.SetAnimationBool("Triggered", true);
             hoe.PlaySound(VanillaSoundID.swing);
         }
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (entity.State == VanillaEntityStates.HOE_TRIGGERED)
+            if (entity.State == STATE_TRIGGERED)
             {
                 var timer = GetStateTimer(entity);
                 if (timer.RunToExpiredAndNotNull())
@@ -67,11 +68,11 @@ namespace MVZ2.GameContent.Effects
                         target.Die(entity);
                         entity.PlaySound(VanillaSoundID.bonk);
                     }
-                    entity.State = VanillaEntityStates.HOE_DAMAGED;
+                    entity.State = STATE_DAMAGED;
                     timer.ResetTime(30);
                 }
             }
-            else if (entity.State == VanillaEntityStates.HOE_DAMAGED)
+            else if (entity.State == STATE_DAMAGED)
             {
                 var timer = GetStateTimer(entity);
                 if (timer.RunToExpiredAndNotNull())
@@ -97,6 +98,9 @@ namespace MVZ2.GameContent.Effects
         public static FrameTimer? GetStateTimer(Entity entity) => entity.GetBehaviourField<FrameTimer>(ID, PROP_STATE_TIMER);
 
         public static readonly NamespaceID ID = VanillaEffectID.hoe;
+        public const int STATE_IDLE = VanillaEffectStates.IDLE;
+        public const int STATE_TRIGGERED = VanillaEffectStates.HOE_TRIGGERED;
+        public const int STATE_DAMAGED = VanillaEffectStates.HOE_DAMAGED;
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
         private List<EntityCollision> damageBuffer = new List<EntityCollision>();
     }

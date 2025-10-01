@@ -11,6 +11,7 @@ using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.HeldItems;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Carts;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Grids;
 using MVZ2.Vanilla.HeldItems;
@@ -48,7 +49,7 @@ namespace MVZ2.Vanilla.Level
             var carts = game.GetEntities(EntityTypes.CART);
             for (int i = 0; i < game.GetMaxLaneCount(); i++)
             {
-                if (carts.Any(c => c.GetLane() == i && c.State == VanillaEntityStates.IDLE))
+                if (carts.Any(c => c.GetLane() == i && c.State == VanillaCartStates.IDLE))
                     continue;
                 game.Spawn(cartRef, new Vector3(x - i * xInterval, 0, game.GetEntityLaneZ(i)), null);
             }

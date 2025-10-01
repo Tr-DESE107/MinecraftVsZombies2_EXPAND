@@ -108,7 +108,8 @@ namespace MVZ2.GameContent.Enemies
 
         public static readonly VanillaEntityPropertyMeta<EntityID> FIELD_HEAD = new VanillaEntityPropertyMeta<EntityID>("Head");
         public static readonly VanillaEntityPropertyMeta<bool> FIELD_HEAD_DROPPED = new VanillaEntityPropertyMeta<bool>("HeadDropped");
-        public const int STATE_IDLE = VanillaEntityStates.IDLE;
+        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
         private static readonly NamespaceID ID = VanillaEnemyID.dullahan;
 
         [EntityBehaviourDefinition(VanillaEntityBehaviourNames.dullahan_State)]
@@ -120,7 +121,7 @@ namespace MVZ2.GameContent.Enemies
             protected override int GetActiveState(Entity enemy)
             {
                 var baseState = base.GetActiveState(enemy);
-                if (baseState == VanillaEntityStates.WALK)
+                if (baseState == STATE_WALK)
                 {
                     var horse = enemy.GetRidingEntity();
                     var hasHorse = horse.ExistsAndAlive();

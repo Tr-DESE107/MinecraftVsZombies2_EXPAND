@@ -26,7 +26,7 @@ namespace MVZ2.Vanilla.Enemies
         protected override void UpdateLogic(Entity entity)
         {
             base.UpdateLogic(entity);
-            if (entity.State == VanillaEntityStates.DEAD)
+            if (entity.State == STATE_DEATH)
             {
                 UpdateStateDead(entity);
             }
@@ -48,11 +48,11 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (enemy.IsDead)
             {
-                return VanillaEntityStates.DEAD;
+                return STATE_DEATH;
             }
             else if (enemy.IsPreviewEnemy())
             {
-                return VanillaEntityStates.IDLE;
+                return STATE_IDLE;
             }
             else
             {
@@ -63,11 +63,11 @@ namespace MVZ2.Vanilla.Enemies
                 }
                 else if (enemy.Target != null)
                 {
-                    return VanillaEntityStates.ATTACK;
+                    return STATE_MELEE_ATTACK;
                 }
                 else
                 {
-                    return VanillaEntityStates.WALK;
+                    return STATE_WALK;
                 }
             }
         }
@@ -76,16 +76,16 @@ namespace MVZ2.Vanilla.Enemies
             enemy.SetAnimationInt("State", state);
             switch (state)
             {
-                case VanillaEntityStates.WALK:
+                case STATE_WALK:
                     UpdateStateWalk(enemy);
                     break;
-                case VanillaEntityStates.ATTACK:
+                case STATE_MELEE_ATTACK:
                     UpdateStateAttack(enemy);
                     break;
-                case VanillaEntityStates.ENEMY_CAST:
+                case STATE_CAST:
                     UpdateStateCast(enemy);
                     break;
-                case VanillaEntityStates.IDLE:
+                case STATE_IDLE:
                     UpdateStateIdle(enemy);
                     break;
             }
@@ -122,6 +122,11 @@ namespace MVZ2.Vanilla.Enemies
         {
         }
         private const string PROP_REGION = "state_enemy";
+        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_CAST = VanillaEnemyStates.CAST;
+        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
         [EntityPropertyRegistry(PROP_REGION)]
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_DEATH_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("DeathTimer");
     }

@@ -160,8 +160,8 @@ namespace MVZ2.GameContent.Contraptions
         public static void SetTargetEntity(Entity entity, NamespaceID value) => entity.SetBehaviourField(PROP_TARGET_ENTITY, value);
         public const int IDLE_TIME = 69;
         public const int WORK_TIME = 27;
-        public const int STATE_IDLE = VanillaEntityStates.IDLE;
-        public const int STATE_WORKING = VanillaEntityStates.CONTRAPTION_SPECIAL;
+        public const int STATE_IDLE = VanillaContraptionStates.IDLE;
+        public const int STATE_WORKING = VanillaContraptionStates.COMMAND_BLOCK_WORKING;
 
         private static readonly VanillaEntityPropertyMeta<bool> PROP_TRIGGERED = new VanillaEntityPropertyMeta<bool>("triggered");
         private static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_PRODUCTION_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("ProductionTimer");
