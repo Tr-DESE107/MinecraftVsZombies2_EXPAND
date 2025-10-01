@@ -1150,9 +1150,10 @@
             <talk type="map" value="mvz2:ship_6_map"/>
         </talks>
         <conveyor>
-            <entry id="mvz2:beacon" count="20"/>
-            <entry id="mvz2:lightning_orb" count="5"/>
-            <entry id="mvz2:magichest" count="3" minCount="0"/>
+            <entry id="mvz2:punchton" count="20"/>
+            <entry id="mvz2:stone_shield" count="20"/>
+            <entry id="mvz2:tnt" count="3" minCount="0"/>
+            <entry id="mvz2:magichest" count="1" minCount="0"/>
         </conveyor>
         <clear pickupModel="mvz2:entity.blueprint_pickup" pickupContentID="mvz2:firework_dispenser"/>
         <spawns flags="2" pointsMultiplier="2" pointsAddition="1">
