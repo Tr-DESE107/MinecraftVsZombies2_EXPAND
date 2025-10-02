@@ -1482,6 +1482,9 @@
             <unlock>
                 <condition required="mvz2:level.castle_6"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:damage_by_gold"/>
+            </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="300" />
                 <vector3 name="mvz2:size" x="38" y="77" z="38" />
@@ -1830,6 +1833,9 @@
             <unlock>
                 <condition required="mvz2:level.castle_6"/>
             </unlock>
+            <behaviours>
+                <behaviour operator="add" id="mvz2:damage_by_gold"/>
+            </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-1" />
                 <float name="mvz2:speed" value="2" />

@@ -38,14 +38,6 @@ namespace MVZ2.GameContent.Enemies
             entity.SetAnimationBool("Sitting", true);
             entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
         }
-        public override void PreTakeDamage(DamageInput input, CallbackResult result)
-        {
-            base.PreTakeDamage(input, result);
-            if (input.Effects.HasEffect(VanillaDamageEffects.GOLD))
-            {
-                input.Multiply(3);
-            }
-        }
         private void PostEntityCharmCallback(VanillaLevelCallbacks.PostApplyStatusEffectParams param, CallbackResult result)
         {
             var entity = param.entity;

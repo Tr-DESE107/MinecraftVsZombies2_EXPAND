@@ -19,6 +19,7 @@ namespace MVZ2.Vanilla.Entities
         #region Enemies
         public const string enemyCommon = "enemy_common";
         public const string enemyMelee = "enemy_melee";
+        public const string damageByGold = "damage_by_gold";
         #endregion
 
         #region Obstacles

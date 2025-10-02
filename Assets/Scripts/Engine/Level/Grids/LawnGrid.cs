@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace PVZEngine.Grids
 {
-    public partial class LawnGrid : IAuraSource, IPropertyModifyTarget, IModeledBuffTarget
+    public partial class LawnGrid : IAuraSource, IPropertyModifyTarget, IModeledBuffTarget, ILevelSourceTarget
     {
         #region 构造器
         public LawnGrid(LevelEngine level, GridDefinition definition, int lane, int column)
