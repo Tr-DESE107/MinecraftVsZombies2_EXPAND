@@ -33,6 +33,7 @@
     <!-- Core -->
     <buff id="gem_carrier" polarity="none" level="2000" target="enemy" />
     <buff id="change_lane" polarity="none" level="3000" target="entity" />
+    <buff id="change_grid" polarity="none" level="3000" target="entity" />
     <buff id="damage_color" polarity="none" level="5000" target="entity" />
     <buff id="entity_physics" polarity="none" level="5000" target="entity" />
     <buff id="faction" polarity="none" level="5000" target="entity" />
