@@ -18,7 +18,7 @@ namespace MVZ2.GameContent.Enemies
             switch (state)
             {
                 case STATE_CLIMB:
-                    return EnemyStateBehaviour.ANIMATION_STATE_IDLE;
+                    return ANIMATION_STATE_IDLE;
             }
             return base.GetAnimationState(state);
         }

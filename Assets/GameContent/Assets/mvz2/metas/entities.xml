@@ -60,7 +60,7 @@
                 <behaviour operator="add" id="mvz2:enemy_state"/>
                 <behaviour operator="add" id="mvz2:enemy_melee"/>
                 <behaviour operator="add" id="mvz2:enemy_walk"/>
-                <behaviour operator="add" id="mvz2:enemy_death_timeout"/>
+                <behaviour operator="add" id="mvz2:enemy_death_disappear"/>
                 <behaviour operator="add" id="mvz2:model_damage_percent"/>
             </behaviours>
             <properties>
@@ -193,6 +193,14 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
+
+        <specialEnemy id="2" parent="enemy">
+            <behaviours>
+                <behaviour operator="remove" id="mvz2:enemy_state"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="remove" id="mvz2:enemy_walk"/>
+            </behaviours>
+        </specialEnemy>
         <humanoid id="2" parent="enemy">
             <properties>
                 <id name="mvz2:shape" value="mvz2:humanoid" />
@@ -220,9 +228,9 @@
         </smallSpider>
         <mutantZombie id="2" parent="enemy">
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_death_timeout"/>
                 <behaviour operator="remove" id="mvz2:enemy_state"/>
                 <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="remove" id="mvz2:enemy_death_disappear"/>
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="2" />
@@ -1407,8 +1415,9 @@
                 <condition required="mvz2:level.dream_6"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_walk"/>
-                <behaviour operator="replace" source="mvz2:enemy_melee" id="mvz2:ghast/state"/>
+                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:ghast/state"/>
+                <behaviour operator="replace" source="mvz2:enemy_walk" id="mvz2:ghast/move"/>
+                <behaviour operator="remove" id="mvz2:enemy_melee"/>
             </behaviours>
             <properties>
                 <float name="mvz2:mass" value="-2" />
@@ -1725,7 +1734,7 @@
             </unlock>
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_state"/>
-                <behaviour operator="remove" id="mvz2:enemy_death_timeout"/>
+                <behaviour operator="remove" id="mvz2:enemy_death_disappear"/>
             </behaviours>
             <properties>
                 <id name="mvz2:starting_armor" value="mvz2:pop_captain_cap" />
@@ -1774,15 +1783,10 @@
         </enemy>
 
         <!-- Token Enemies-->
-        <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" >
+        <specialEnemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" >
             <unlock>
                 <condition required="mvz2:level.halloween_8"/>
             </unlock>
-            <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
-                <behaviour operator="remove" id="mvz2:enemy_walk"/>
-                <behaviour operator="remove" id="mvz2:enemy_melee"/>
-            </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
@@ -1800,7 +1804,7 @@
 
                 <int name="mvz2:cost" value="25" />
             </properties>
-        </enemy>
+        </specialEnemy>
         <enemy id="napstablook" name="小幽灵" deathMessage="抱歉……我不是有意这么做的……">
             <unlock>
                 <condition required="mvz2:level.halloween_6"/>
@@ -1826,14 +1830,12 @@
                 <int name="mvz2:cost" value="0" />
             </properties>
         </enemy>
-        <enemy id="reverse_satellite" name="反则卫星" deathMessage="？" >
+        <specialEnemy id="reverse_satellite" name="反则卫星" deathMessage="？" >
             <unlock>
                 <condition required="mvz2:level.castle_1"/>
             </unlock>
             <behaviours>
-                <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:reverse_satellite/state"/>
-                <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="remove" id="mvz2:enemy_walk"/>
+                <behaviour operator="add" id="mvz2:reverse_satellite/state"/>
             </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
@@ -1850,7 +1852,7 @@
 
                 <int name="mvz2:cost" value="25" />
             </properties>
-        </enemy>
+        </specialEnemy>
         <enemy id="skeleton_horse" name="骷髅马" deathMessage="死因：死马" >
             <unlock>
                 <condition required="mvz2:level.castle_6"/>
@@ -1892,14 +1894,11 @@
                 <int name="mvz2:cost" value="50" />
             </properties>
         </enemy>
-        <enemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？" >
+        <specialEnemy id="soulsand" name="灵魂沙" deathMessage="你被埋了？" >
             <unlock>
                 <condition required="mvz2:level.castle_9"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
-                <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="remove" id="mvz2:enemy_walk"/>
                 <behaviour operator="add" id="mvz2:fragmented"/>
                 <behaviour operator="add" id="mvz2:timeout_death"/>
             </behaviours>
@@ -1921,16 +1920,11 @@
 
                 <int name="mvz2:cost" value="25" />
             </properties>
-        </enemy>
-        <enemy id="seija_cursed_doll" name="正邪的诅咒人偶" deathMessage="？" >
+        </specialEnemy>
+        <specialEnemy id="seija_cursed_doll" name="正邪的诅咒人偶" deathMessage="？" >
             <unlock>
                 <condition required="mvz2:level.castle_7"/>
             </unlock>
-            <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
-                <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="remove" id="mvz2:enemy_walk"/>
-            </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />
                 <bool name="mvz2:notActiveEnemy" value="true" />
@@ -1947,7 +1941,7 @@
 
                 <int name="mvz2:cost" value="25" />
             </properties>
-        </enemy>
+        </specialEnemy>
         <witherSkeleton id="bedserker" name="床战士" deathMessage="晚安" >
             <unlock>
                 <condition required="mvz2:level.castle_11"/>
@@ -2004,14 +1998,11 @@
                 <int name="mvz2:cost" value="75" />
             </properties>
         </humanoid>
-        <enemy id="shikaisen_staff" name="尸解仙之杖" deathMessage="？" >
+        <specialEnemy id="shikaisen_staff" name="尸解仙之杖" deathMessage="？" >
             <unlock>
                 <condition required="mvz2:level.mausoleum_6"/>
             </unlock>
             <behaviours>
-                <behaviour operator="remove" id="mvz2:enemy_state"/>
-                <behaviour operator="remove" id="mvz2:enemy_melee"/>
-                <behaviour operator="remove" id="mvz2:enemy_walk"/>
                 <behaviour operator="add" id="mvz2:fragmented"/>
                 <behaviour operator="add" id="mvz2:timeout_death"/>
             </behaviours>
@@ -2035,7 +2026,7 @@
 
                 <int name="mvz2:cost" value="125" />
             </properties>
-        </enemy>
+        </specialEnemy>
 
         <!-- Obstacles -->
         <obstacle id="gargoyle_statue" name="石像鬼雕像">

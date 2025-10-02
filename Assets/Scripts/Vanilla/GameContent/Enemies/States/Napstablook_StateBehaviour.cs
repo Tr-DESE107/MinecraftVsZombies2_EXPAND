@@ -28,7 +28,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 return STATE_ANGRY;
             }
-            return base.GetActiveState(enemy);
+            return STATE_WALK;
         }
         public const int STATE_ANGRY = VanillaEnemyStates.NAPSTABLOOK_ANGRY;
         public const int ANIMATION_STATE_ANGRY = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;

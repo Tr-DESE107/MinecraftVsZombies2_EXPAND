@@ -9,10 +9,10 @@ using Tools;
 
 namespace MVZ2.Vanilla.Enemies
 {
-    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyDeathTimeout)]
-    public class EnemyDeathTimeoutBehaviour : EntityBehaviourDefinition
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyDeathDisappear)]
+    public class EnemyDeathDisappearBehaviour : EntityBehaviourDefinition
     {
-        public EnemyDeathTimeoutBehaviour(string nsp, string name) : base(nsp, name)
+        public EnemyDeathDisappearBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
 

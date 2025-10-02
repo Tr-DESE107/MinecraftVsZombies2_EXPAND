@@ -15,12 +15,11 @@ namespace MVZ2.GameContent.Enemies
         }
         protected override int GetActiveState(Entity enemy)
         {
-            var state = base.GetActiveState(enemy);
-            if (state == STATE_WALK && ReverseSatellite.IsLeft(enemy))
+            if (ReverseSatellite.IsLeft(enemy))
             {
-                state = STATE_LEAVE;
+                return STATE_LEAVE;
             }
-            return state;
+            return STATE_WALK;
         }
     }
 }

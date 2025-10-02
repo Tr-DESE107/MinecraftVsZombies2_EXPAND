@@ -80,7 +80,6 @@ namespace MVZ2.GameContent.Enemies
                     }
                 }
             }
-            UpdateFlying(enemy);
         }
         public override void PostDeath(Entity entity, DeathInfo info)
         {
@@ -132,13 +131,6 @@ namespace MVZ2.GameContent.Enemies
                 GhastFireChargeBuff.SetDamageMultiplier(buff, scale.x);
             });
             self.PlaySound(VanillaSoundID.fireCharge, scale.x);
-        }
-        private void UpdateFlying(Entity entity)
-        {
-            if (entity.State == STATE_WALK || entity.State == STATE_RANGED_ATTACK)
-            {
-                entity.UpdateWalkVelocity();
-            }
         }
         private Detector detector;
         public static readonly VanillaEntityPropertyMeta<FrameTimer> PROP_STATE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("StateTimer");
