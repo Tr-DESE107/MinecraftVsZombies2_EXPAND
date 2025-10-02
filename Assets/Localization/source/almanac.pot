@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-09-30 11:16+0800\n"
+"POT-Creation-Date: 2025-10-02 09:01+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1422,29 +1422,6 @@ msgid ""
 "那么——等等，我为什么要告诉你这些？"
 msgstr ""
 
-#. Header for contraptions mvz2:repeatenser
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "连射发射器一次能发射两支箭矢。"
-msgstr ""
-
-#. Properties for contraptions mvz2:repeatenser
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid ""
-"发射速度：<color=red>2支/1.5秒</color>\n"
-"伤害：<color=red>20</color>\n"
-"技能：<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>"
-msgstr ""
-
-#. Flavor for contraptions mvz2:repeatenser
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid ""
-"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。\n"
-"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。"
-msgstr ""
-
 #. Header for contraptions mvz2:triplenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -1468,27 +1445,6 @@ msgid ""
 "……确定它喜欢看的是典故的内容吗？"
 msgstr ""
 
-#. Header for contraptions mvz2:beacon
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "信标能向后方、上方、下方、前上方、前下方五个方向同时发射星星手里剑。"
-msgstr ""
-
-#. Properties for contraptions mvz2:beacon
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid ""
-"发射速度：<color=red>5发/1.5秒</color>\n"
-"伤害：<color=red>20</color>\n"
-"技能：<color=red>召唤10颗陨石，打击场上随机位置</color>"
-msgstr ""
-
-#. Flavor for contraptions mvz2:beacon
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。"
-msgstr ""
-
 #. Header for contraptions mvz2:firework_dispenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -1509,6 +1465,50 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "烟花发射器很喜欢过节，尤其是那种盛大的节日——由于之前的器械扰民事件，它被禁止在平常的日子里放烟花。但是当盛大的节日到来之际，它可要好好的放个够了。"
+msgstr ""
+
+#. Header for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "连射发射器一次能发射两支箭矢。"
+msgstr ""
+
+#. Properties for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>2支/1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。\n"
+"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。"
+msgstr ""
+
+#. Header for contraptions mvz2:beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "信标能向后方、上方、下方、前上方、前下方五个方向同时发射星星手里剑。"
+msgstr ""
+
+#. Properties for contraptions mvz2:beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>5发/1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>召唤10颗陨石，打击场上随机位置</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。"
 msgstr ""
 
 #. Header for contraptions mvz2:wooden_fan
@@ -2264,6 +2264,24 @@ msgctxt "enemies.description"
 msgid "如果你的农场里大面积地种植了小麦，或者圈养了很多的奶牛，那你可一定要小心这帮家伙了。"
 msgstr ""
 
+#. Header for enemies mvz2:zombie_cloud
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "僵尸云飞在空中，向下降雨形成水迹，踩到水迹的怪物会向前滑动。"
+msgstr ""
+
+#. Properties for enemies mvz2:zombie_cloud
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "生命：<color=red>200</color>"
+msgstr ""
+
+#. Flavor for enemies mvz2:zombie_cloud
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "至少这朵云没有对你竖中指。"
+msgstr ""
+
 #. Header for enemies mvz2:cannoneer_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -2305,24 +2323,6 @@ msgctxt "enemies.description"
 msgid ""
 "没错，炮弹也是一只僵尸！\n"
 "而且特别害怕被脚踩！"
-msgstr ""
-
-#. Header for enemies mvz2:zombie_cloud
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "僵尸云飞在空中，向下降雨形成水迹，踩到水迹的怪物会向前滑动。"
-msgstr ""
-
-#. Properties for enemies mvz2:zombie_cloud
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "生命：<color=red>200</color>"
-msgstr ""
-
-#. Flavor for enemies mvz2:zombie_cloud
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "至少这朵云没有对你竖中指。"
 msgstr ""
 
 #. Header for enemies mvz2:pop_captain
@@ -4276,18 +4276,6 @@ msgctxt "entity.tooltip"
 msgid "提供大量能量，但有爆炸的风险"
 msgstr ""
 
-#. Name for entity mvz2:repeatenser
-#: Entity meta file
-msgctxt "entity.name"
-msgid "连射发射器"
-msgstr ""
-
-#. Tooltip for entity mvz2:repeatenser
-#: Entity meta file
-msgctxt "entity.tooltip"
-msgid "一次射出两支箭矢"
-msgstr ""
-
 #. Name for entity mvz2:triplenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -4300,18 +4288,6 @@ msgctxt "entity.tooltip"
 msgid "一次射出三行的箭矢"
 msgstr ""
 
-#. Name for entity mvz2:beacon
-#: Entity meta file
-msgctxt "entity.name"
-msgid "信标"
-msgstr ""
-
-#. Tooltip for entity mvz2:beacon
-#: Entity meta file
-msgctxt "entity.tooltip"
-msgid "向五个方向发射手里剑"
-msgstr ""
-
 #. Name for entity mvz2:firework_dispenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -4322,6 +4298,30 @@ msgstr ""
 #: Entity meta file
 msgctxt "entity.tooltip"
 msgid "轰击周围高空的敌人"
+msgstr ""
+
+#. Name for entity mvz2:repeatenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "连射发射器"
+msgstr ""
+
+#. Tooltip for entity mvz2:repeatenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "一次射出两支箭矢"
+msgstr ""
+
+#. Name for entity mvz2:beacon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "信标"
+msgstr ""
+
+#. Tooltip for entity mvz2:beacon
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "向五个方向发射手里剑"
 msgstr ""
 
 #. Name for entity mvz2:wooden_fan
@@ -4762,6 +4762,18 @@ msgctxt "death_message"
 msgid "被抓走了！"
 msgstr ""
 
+#. Name for entity mvz2:zombie_cloud
+#: Entity meta file
+msgctxt "entity.name"
+msgid "僵尸云"
+msgstr ""
+
+#. Death message for entity mvz2:zombie_cloud
+#: Entity meta file
+msgctxt "death_message"
+msgid "你就云吧"
+msgstr ""
+
 #. Name for entity mvz2:cannoneer_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -4784,18 +4796,6 @@ msgstr ""
 #: Entity meta file
 msgctxt "death_message"
 msgid "-1up"
-msgstr ""
-
-#. Name for entity mvz2:zombie_cloud
-#: Entity meta file
-msgctxt "entity.name"
-msgid "僵尸云"
-msgstr ""
-
-#. Death message for entity mvz2:zombie_cloud
-#: Entity meta file
-msgctxt "death_message"
-msgid "你就云吧"
 msgstr ""
 
 #. Name for entity mvz2:pop_captain
@@ -5440,16 +5440,16 @@ msgctxt "artifact.tooltip"
 msgid "击杀怪物时有概率掉落神秘礼物"
 msgstr ""
 
-#. Name for artifact mvz2:sorceress_scroll
+#. Name for artifact mvz2:sorcerers_scroll
 #: Artifact meta file
 msgctxt "artifact.name"
 msgid "魔人经卷"
 msgstr ""
 
-#. Tooltip for artifact mvz2:sorceress_scroll
+#. Tooltip for artifact mvz2:sorcerers_scroll
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "禁用星之碎片，+100%器械伤害"
+msgid "禁用星之碎片，+25%器械伤害、耐久、攻击速度和生产速度"
 msgstr ""
 
 #. Name for artifact mvz2:dragon_claw

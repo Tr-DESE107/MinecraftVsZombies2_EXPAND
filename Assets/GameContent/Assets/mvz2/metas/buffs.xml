@@ -182,6 +182,8 @@
     <buff id="elastic_cloud_bounce_cooldown" polarity="none" level="1000" target="contraption"/>
     <buff id="elastic_cloud_evocation" polarity="none" level="1000" target="contraption"/>
     <buff id="golden_grid" polarity="negative" level="0" target="grid" />
+    <buff id="sorcerers_scroll_stats" polarity="positive" level="2000" target="contraption" />
+    <buff id="sorcerers_scroll_starshard" polarity="negative" level="1000" target="level" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />

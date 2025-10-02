@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-09-30 11:16+0800\n"
-"PO-Revision-Date: 2025-09-30 23:16+0800\n"
+"POT-Creation-Date: 2025-10-02 09:01+0800\n"
+"PO-Revision-Date: 2025-10-04 22:43+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1652,34 +1652,6 @@ msgstr ""
 "Charcoal (the product of burning wood)\n"
 "So—wait, why should I be telling you this?"
 
-#. Header for contraptions mvz2:repeatenser
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "连射发射器一次能发射两支箭矢。"
-msgstr "Repeatenser can shoot 2 arrows at once."
-
-#. Properties for contraptions mvz2:repeatenser
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid ""
-"发射速度：<color=red>2支/1.5秒</color>\n"
-"伤害：<color=red>20</color>\n"
-"技能：<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>"
-msgstr ""
-"Fire rate: <color=red>2 shots/1.5s</color>\n"
-"Damage: <color=red>20</color>\n"
-"Evocation: <color=red>Rapidly fires 60 arrows, finishing with a large arrow</color>"
-
-#. Flavor for contraptions mvz2:repeatenser
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid ""
-"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。\n"
-"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。"
-msgstr ""
-"It wasn't fortunate enough to join the ranks of the H.F.P.D soldiers because it had to say everything twice.\n"
-"It wasn't fortunate enough to join the ranks of the H.F.P.D soldiers because it had to say everything twice."
-
 #. Header for contraptions mvz2:triplenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -1709,30 +1681,6 @@ msgstr ""
 "It adores a lot of classic tales – <i>Goldilocks and the Three Bears</i>, <i>The Three Little Pigs</i>, <i>The Three Musketeers</"
 "i>...\n"
 "...Are you sure you actually care about the stories?"
-
-#. Header for contraptions mvz2:beacon
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "信标能向后方、上方、下方、前上方、前下方五个方向同时发射星星手里剑。"
-msgstr "Beacons shoot starikens in five directions at a time: back, up, down, front-up, and front-down."
-
-#. Properties for contraptions mvz2:beacon
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid ""
-"发射速度：<color=red>5发/1.5秒</color>\n"
-"伤害：<color=red>20</color>\n"
-"技能：<color=red>召唤10颗陨石，打击场上随机位置</color>"
-msgstr ""
-"Fire rate: <color=red>5 shots/1.5s</color>\n"
-"Damage: <color=red>20</color>\n"
-"Evocation: <color=red>Summon 10 meteors to strike random positions on the battlefield</color>"
-
-#. Flavor for contraptions mvz2:beacon
-#: Almanac meta file
-msgctxt "contraptions.description"
-msgid "它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。"
-msgstr "It's not made with the Nether Star, just a counterfeit product made from a dispenser that can shoot shurikens."
 
 #. Header for contraptions mvz2:firework_dispenser
 #: Almanac meta file
@@ -1764,6 +1712,58 @@ msgstr ""
 "Firework Dispenser is quite fond of festivals, especially grand ones. Due to previous noise complaints involving some contraptions, it "
 "is prohibited from setting off fireworks on ordinary days. But when major holidays arrive—it’s time to let loose and set off fireworks "
 "to its heart’s content."
+
+#. Header for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "连射发射器一次能发射两支箭矢。"
+msgstr "Repeatenser can shoot 2 arrows at once."
+
+#. Properties for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>2支/1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>快速发射60支箭矢，最后发射一支大箭矢</color>"
+msgstr ""
+"Fire rate: <color=red>2 shots/1.5s</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Rapidly fires 60 arrows, finishing with a large arrow</color>"
+
+#. Flavor for contraptions mvz2:repeatenser
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。\n"
+"它没能有幸加入高频脉冲发射器的士兵队伍，因为它每次说话都要说两遍。"
+msgstr ""
+"It wasn't fortunate enough to join the ranks of the H.F.P.D soldiers because it had to say everything twice.\n"
+"It wasn't fortunate enough to join the ranks of the H.F.P.D soldiers because it had to say everything twice."
+
+#. Header for contraptions mvz2:beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "信标能向后方、上方、下方、前上方、前下方五个方向同时发射星星手里剑。"
+msgstr "Beacons shoot starikens in five directions at a time: back, up, down, front-up, and front-down."
+
+#. Properties for contraptions mvz2:beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>5发/1.5秒</color>\n"
+"伤害：<color=red>20</color>\n"
+"技能：<color=red>召唤10颗陨石，打击场上随机位置</color>"
+msgstr ""
+"Fire rate: <color=red>5 shots/1.5s</color>\n"
+"Damage: <color=red>20</color>\n"
+"Evocation: <color=red>Summon 10 meteors to strike random positions on the battlefield</color>"
+
+#. Flavor for contraptions mvz2:beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "它其实不是用下界之星做的，只是一个会发射手里剑的发射器改成的假冒伪劣产品而已。"
+msgstr "It's not made with the Nether Star, just a counterfeit product made from a dispenser that can shoot shurikens."
 
 #. Header for contraptions mvz2:wooden_fan
 #: Almanac meta file
@@ -2708,6 +2708,26 @@ msgctxt "enemies.description"
 msgid "如果你的农场里大面积地种植了小麦，或者圈养了很多的奶牛，那你可一定要小心这帮家伙了。"
 msgstr "Watch out for these if you have large patches of wheat planted in your fields, or keep herds of cows!"
 
+#. Header for enemies mvz2:zombie_cloud
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "僵尸云飞在空中，向下降雨形成水迹，踩到水迹的怪物会向前滑动。"
+msgstr ""
+"Zombie Cloud floats in the sky, releasing rain that creates puddles on the ground. Monsters stepping on these puddles will slide "
+"forward."
+
+#. Properties for enemies mvz2:zombie_cloud
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "生命：<color=red>200</color>"
+msgstr "Toughness: <color=red>200</color>"
+
+#. Flavor for enemies mvz2:zombie_cloud
+#: Almanac meta file
+msgctxt "enemies.description"
+msgid "至少这朵云没有对你竖中指。"
+msgstr "At least this cloud doesn’t flip you off."
+
 #. Header for enemies mvz2:cannoneer_zombie
 #: Almanac meta file
 msgctxt "enemies.description"
@@ -2760,26 +2780,6 @@ msgid ""
 msgstr ""
 "Yes, indeed! This cannonball is also a ZOMBIE!\n"
 "And it's especially afraid of being stomped on!"
-
-#. Header for enemies mvz2:zombie_cloud
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "僵尸云飞在空中，向下降雨形成水迹，踩到水迹的怪物会向前滑动。"
-msgstr ""
-"Zombie Cloud floats in the sky, releasing rain that creates puddles on the ground. Monsters stepping on these puddles will slide "
-"forward."
-
-#. Properties for enemies mvz2:zombie_cloud
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "生命：<color=red>200</color>"
-msgstr "Toughness: <color=red>200</color>"
-
-#. Flavor for enemies mvz2:zombie_cloud
-#: Almanac meta file
-msgctxt "enemies.description"
-msgid "至少这朵云没有对你竖中指。"
-msgstr "At least this cloud doesn’t flip you off."
 
 #. Header for enemies mvz2:pop_captain
 #: Almanac meta file
@@ -5043,18 +5043,6 @@ msgctxt "entity.tooltip"
 msgid "提供大量能量，但有爆炸的风险"
 msgstr "Provide massive energy, but may explode"
 
-#. Name for entity mvz2:repeatenser
-#: Entity meta file
-msgctxt "entity.name"
-msgid "连射发射器"
-msgstr "Repeatenser"
-
-#. Tooltip for entity mvz2:repeatenser
-#: Entity meta file
-msgctxt "entity.tooltip"
-msgid "一次射出两支箭矢"
-msgstr "Shoot 2 arrows at a time"
-
 #. Name for entity mvz2:triplenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -5067,18 +5055,6 @@ msgctxt "entity.tooltip"
 msgid "一次射出三行的箭矢"
 msgstr "Shoot arrows in 3 lanes"
 
-#. Name for entity mvz2:beacon
-#: Entity meta file
-msgctxt "entity.name"
-msgid "信标"
-msgstr "Beacon"
-
-#. Tooltip for entity mvz2:beacon
-#: Entity meta file
-msgctxt "entity.tooltip"
-msgid "向五个方向发射手里剑"
-msgstr "Shoot shurikens in 5 directions"
-
 #. Name for entity mvz2:firework_dispenser
 #: Entity meta file
 msgctxt "entity.name"
@@ -5090,6 +5066,30 @@ msgstr "Firework Dispenser"
 msgctxt "entity.tooltip"
 msgid "轰击周围高空的敌人"
 msgstr "Blow up nearby flying enemies"
+
+#. Name for entity mvz2:repeatenser
+#: Entity meta file
+msgctxt "entity.name"
+msgid "连射发射器"
+msgstr "Repeatenser"
+
+#. Tooltip for entity mvz2:repeatenser
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "一次射出两支箭矢"
+msgstr "Shoot 2 arrows at a time"
+
+#. Name for entity mvz2:beacon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "信标"
+msgstr "Beacon"
+
+#. Tooltip for entity mvz2:beacon
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid "向五个方向发射手里剑"
+msgstr "Shoot shurikens in 5 directions"
 
 #. Name for entity mvz2:wooden_fan
 #: Entity meta file
@@ -5541,6 +5541,18 @@ msgctxt "death_message"
 msgid "被抓走了！"
 msgstr "Abducted!"
 
+#. Name for entity mvz2:zombie_cloud
+#: Entity meta file
+msgctxt "entity.name"
+msgid "僵尸云"
+msgstr "Zombie Cloud"
+
+#. Death message for entity mvz2:zombie_cloud
+#: Entity meta file
+msgctxt "death_message"
+msgid "你就云吧"
+msgstr "Head in the clouds"
+
 #. Name for entity mvz2:cannoneer_zombie
 #: Entity meta file
 msgctxt "entity.name"
@@ -5564,18 +5576,6 @@ msgstr "Zombie Cannonball"
 msgctxt "death_message"
 msgid "-1up"
 msgstr "-1up"
-
-#. Name for entity mvz2:zombie_cloud
-#: Entity meta file
-msgctxt "entity.name"
-msgid "僵尸云"
-msgstr "Zombie Cloud"
-
-#. Death message for entity mvz2:zombie_cloud
-#: Entity meta file
-msgctxt "death_message"
-msgid "你就云吧"
-msgstr "Head in the clouds"
 
 #. Name for entity mvz2:pop_captain
 #: Entity meta file
@@ -6219,17 +6219,17 @@ msgctxt "artifact.tooltip"
 msgid "击杀怪物时有概率掉落神秘礼物"
 msgstr "Enemies have a chance to drop mysterious gifts"
 
-#. Name for artifact mvz2:sorceress_scroll
+#. Name for artifact mvz2:sorcerers_scroll
 #: Artifact meta file
 msgctxt "artifact.name"
 msgid "魔人经卷"
-msgstr "Sorceress' Scroll"
+msgstr "Sorcerer's Scroll"
 
-#. Tooltip for artifact mvz2:sorceress_scroll
+#. Tooltip for artifact mvz2:sorcerers_scroll
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "禁用星之碎片，+100%器械伤害"
-msgstr "Disable starshards, +100% contraption damage"
+msgid "禁用星之碎片，+25%器械伤害、耐久、攻击速度和生产速度"
+msgstr "Disables starshards, +25% contraption damage, toughness, attack speed and production speed"
 
 #. Name for artifact mvz2:dragon_claw
 #: Artifact meta file
