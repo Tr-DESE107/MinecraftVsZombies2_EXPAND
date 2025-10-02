@@ -10,6 +10,7 @@ using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
@@ -47,7 +48,7 @@ namespace MVZ2.GameContent.Enemies
             if (!IsLeft(enemy))
             {
                 var leavingTimer = GetLeaveTimer(enemy);
-                if (leavingTimer == null || leavingTimer.Expired || enemy.Level.WaveState == VanillaLevelStates.STATE_AFTER_FINAL_WAVE || enemy.Level.IsAllEnemiesCleared())
+                if (leavingTimer.RunToExpiredOrNull() || enemy.Level.WaveState == VanillaLevelStates.STATE_AFTER_FINAL_WAVE || enemy.Level.IsAllEnemiesCleared())
                 {
                     SetLeft(enemy, true);
                 }
@@ -125,9 +126,6 @@ namespace MVZ2.GameContent.Enemies
             var magnitude = velocity.magnitude;
             magnitude += 0.05f;
             enemy.Velocity = velocity.normalized * magnitude;
-
-            var leaveTimer = GetLeaveTimer(enemy);
-            leaveTimer?.Run();
         }
         private void UpdateStateLeaving(Entity enemy)
         {
@@ -153,22 +151,5 @@ namespace MVZ2.GameContent.Enemies
         public const int LEAVE_TIME = 900;
         public static readonly VanillaEntityPropertyMeta<bool> FIELD_LEFT = new VanillaEntityPropertyMeta<bool>("is_left");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_LEAVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("LeaveTimer");
-
-        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.reverseSatellite_State)]
-        public class StateBehaviour : EnemyStateBehaviour
-        {
-            public StateBehaviour(string nsp, string name) : base(nsp, name)
-            {
-            }
-            protected override int GetActiveState(Entity enemy)
-            {
-                var state = base.GetActiveState(enemy);
-                if (state == STATE_STAY && IsLeft(enemy))
-                {
-                    state = STATE_LEAVE;
-                }
-                return state;
-            }
-        }
     }
 }

@@ -2,7 +2,6 @@
 
 using MVZ2.GameContent.Buffs.Contraptions;
 using MVZ2.Vanilla.Audios;
-using MVZ2.Vanilla.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -62,46 +61,7 @@ namespace MVZ2.GameContent.Enemies
         }
         public const int MOVE_INTERVAL = 30;
         public const float TALISMAN_DISTANCE = 80;
-        public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_IDLE = VanillaEnemyStates.IDLE;
         public static readonly VanillaEntityPropertyMeta<bool> PROP_WARPPED = new VanillaEntityPropertyMeta<bool>("warpped");
         public static readonly VanillaEntityPropertyMeta<EntityID> PROP_TALISMAN_ZOMBIE = new VanillaEntityPropertyMeta<EntityID>("MoveTimer");
-
-        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.wickedHermitZombie_State)]
-        public class StateBehaviour : EnemyStateBehaviour
-        {
-            public StateBehaviour(string nsp, string name) : base(nsp, name)
-            {
-            }
-            protected override int GetActiveState(Entity enemy)
-            {
-                var state = base.GetActiveState(enemy);
-                if (state == STATE_WALK)
-                {
-                    if (!IsWarpped(enemy))
-                    {
-                        var talismanID = GetTalismanZombie(enemy);
-                        var talisman = talismanID?.GetEntity(enemy.Level);
-                        if (talisman != null)
-                        {
-                            bool tooClose;
-                            if (enemy.IsFacingLeft())
-                            {
-                                tooClose = talisman.Position.x > enemy.Position.x - TALISMAN_DISTANCE;
-                            }
-                            else
-                            {
-                                tooClose = talisman.Position.x < enemy.Position.x + TALISMAN_DISTANCE;
-                            }
-                            if (tooClose)
-                            {
-                                state = STATE_IDLE;
-                            }
-                        }
-                    }
-                }
-                return state;
-            }
-        }
     }
 }

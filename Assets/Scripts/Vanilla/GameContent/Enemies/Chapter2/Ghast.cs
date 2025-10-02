@@ -146,22 +146,5 @@ namespace MVZ2.GameContent.Enemies
         public const int SHOOT_DURATION = 15;
         public const int STATE_WALK = VanillaEnemyStates.WALK;
         public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
-
-        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.ghast_State)]
-        public class StateBehaviour : EnemyStateBehaviour
-        {
-            public StateBehaviour(string nsp, string name) : base(nsp, name)
-            {
-            }
-            protected override int GetActiveState(Entity enemy)
-            {
-                var state = base.GetActiveState(enemy);
-                if (state == STATE_WALK && enemy.Target.ExistsAndAlive())
-                {
-                    state = STATE_RANGED_ATTACK;
-                }
-                return state;
-            }
-        }
     }
 }

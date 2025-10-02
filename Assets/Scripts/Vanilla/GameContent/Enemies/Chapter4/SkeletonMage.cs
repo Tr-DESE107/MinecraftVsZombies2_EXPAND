@@ -195,29 +195,5 @@ namespace MVZ2.GameContent.Enemies
             SkeletonMage.VARIANT_FROST,
             SkeletonMage.VARIANT_LIGHTNING
         };
-        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skeletonMage_State)]
-        public class StateBehaviour : EnemyStateBehaviour
-        {
-            public StateBehaviour(string nsp, string name) : base(nsp, name)
-            {
-            }
-            protected override int GetActiveState(Entity enemy)
-            {
-                var state = base.GetActiveState(enemy);
-                if (enemy.Target.ExistsAndAlive())
-                {
-                    var attackState = GetAttackState(enemy);
-                    if (attackState == ATTACK_STATE_CAST)
-                    {
-                        state = STATE_CAST;
-                    }
-                    else
-                    {
-                        state = STATE_RANGED_ATTACK;
-                    }
-                }
-                return state;
-            }
-        }
     }
 }

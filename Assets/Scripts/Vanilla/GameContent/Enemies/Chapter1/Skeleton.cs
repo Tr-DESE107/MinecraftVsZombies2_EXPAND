@@ -25,6 +25,7 @@ namespace MVZ2.GameContent.Enemies
         }
         protected override void UpdateAI(Entity enemy)
         {
+            base.UpdateAI(enemy);
             if (CanShoot(enemy))
             {
                 if (enemy.Target != null && !ValidateTarget(enemy, enemy.Target))
@@ -37,7 +38,6 @@ namespace MVZ2.GameContent.Enemies
             {
                 enemy.Target = null;
             }
-            base.UpdateAI(enemy);
 
             switch (enemy.State)
             {
@@ -118,21 +118,5 @@ namespace MVZ2.GameContent.Enemies
         public const int BOW_POWER_PULL_SPEED = 100;
         public const int BOW_POWER_RESTORE_SPEED = 1000;
         public const int BOW_POWER_MAX = 10000;
-        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skeleton_State)]
-        public class StateBehaviour : EnemyStateBehaviour
-        {
-            public StateBehaviour(string nsp, string name) : base(nsp, name)
-            {
-            }
-            protected override int GetActiveState(Entity enemy)
-            {
-                var state = base.GetActiveState(enemy);
-                if (state == STATE_WALK && enemy.Target.ExistsAndAlive())
-                {
-                    state = STATE_RANGED_ATTACK;
-                }
-                return state;
-            }
-        }
     }
 }

@@ -228,16 +228,5 @@ namespace MVZ2.GameContent.Enemies
             { VARIANT_BLUE, new UFOBehaviourBlue() },
             { VARIANT_RAINBOW, new UFOBehaviourRainbow() },
         };
-        [EntityBehaviourDefinition(VanillaEntityBehaviourNames.undeadFlyingObject_State)]
-        public class StateBehaviour : EnemyStateBehaviour
-        {
-            public StateBehaviour(string nsp, string name) : base(nsp, name)
-            {
-            }
-            protected override int GetActiveState(Entity enemy)
-            {
-                return GetUFOState(enemy);
-            }
-        }
     }
 }

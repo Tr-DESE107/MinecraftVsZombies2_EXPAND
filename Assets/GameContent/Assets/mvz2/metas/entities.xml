@@ -1833,6 +1833,7 @@
             <behaviours>
                 <behaviour operator="replace" source="mvz2:enemy_state" id="mvz2:reverse_satellite/state"/>
                 <behaviour operator="remove" id="mvz2:enemy_melee"/>
+                <behaviour operator="remove" id="mvz2:enemy_walk"/>
             </behaviours>
             <properties>
                 <bool name="mvz2:harmless" value="true" />

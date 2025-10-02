@@ -7,7 +7,7 @@ using PVZEngine.Level;
 namespace MVZ2.Vanilla.Enemies
 {
     [EntityBehaviourDefinition(VanillaEntityBehaviourNames.enemyState)]
-    public class EnemyStateBehaviour : EnemyBehaviour, IEnemyStateBehaviour
+    public class EnemyStateBehaviour : AIEntityBehaviour, IEnemyStateBehaviour
     {
         public EnemyStateBehaviour(string nsp, string name) : base(nsp, name)
         {
@@ -48,19 +48,24 @@ namespace MVZ2.Vanilla.Enemies
         {
             if (EnemyMeleeBehaviour.HasMeleeTarget(enemy))
             {
-                return VanillaEnemyStates.MELEE_ATTACK;
+                return STATE_MELEE_ATTACK;
             }
             else if (enemy.IsCasting())
             {
-                return VanillaEnemyStates.CAST;
+                return STATE_CAST;
             }
             else
             {
-                return VanillaEnemyStates.WALK;
+                return STATE_WALK;
             }
         }
         public const int STATE_IDLE = VanillaEnemyStates.IDLE;
+        public const int STATE_WALK = VanillaEnemyStates.WALK;
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
+        public const int STATE_CAST = VanillaEnemyStates.CAST;
         public const int STATE_DEATH = VanillaEnemyStates.DEATH;
+        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
+        public const int STATE_LEAVE = VanillaEnemyStates.LEAVE;
         public const int ANIMATION_STATE_IDLE = 0;
         public const int ANIMATION_STATE_WALK = 1;
         public const int ANIMATION_STATE_ATTACK = 2;
