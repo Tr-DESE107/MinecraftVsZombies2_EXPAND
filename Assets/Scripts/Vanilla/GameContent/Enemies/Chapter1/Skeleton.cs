@@ -41,7 +41,7 @@ namespace MVZ2.GameContent.Enemies
 
             switch (enemy.State)
             {
-                case STATE_ATTACK:
+                case STATE_RANGED_ATTACK:
                     PullBow(enemy);
                     break;
                 default:
@@ -114,7 +114,7 @@ namespace MVZ2.GameContent.Enemies
         public static readonly VanillaEntityPropertyMeta<bool> PROP_BOW_FIRED = new VanillaEntityPropertyMeta<bool>("bowFired");
         public static readonly VanillaEntityPropertyMeta<int> PROP_BOW_POWER = new VanillaEntityPropertyMeta<int>("bowPower");
         public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_ATTACK = VanillaEnemyStates.SKELETON_ATTACK;
+        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
         public const int BOW_POWER_PULL_SPEED = 100;
         public const int BOW_POWER_RESTORE_SPEED = 1000;
         public const int BOW_POWER_MAX = 10000;
@@ -124,21 +124,12 @@ namespace MVZ2.GameContent.Enemies
             public StateBehaviour(string nsp, string name) : base(nsp, name)
             {
             }
-            public override int GetAnimationState(int state)
-            {
-                switch (state)
-                {
-                    case STATE_ATTACK:
-                        return ANIMATION_STATE_ATTACK;
-                }
-                return base.GetAnimationState(state);
-            }
             protected override int GetActiveState(Entity enemy)
             {
                 var state = base.GetActiveState(enemy);
                 if (state == STATE_WALK && enemy.Target.ExistsAndAlive())
                 {
-                    state = STATE_ATTACK;
+                    state = STATE_RANGED_ATTACK;
                 }
                 return state;
             }

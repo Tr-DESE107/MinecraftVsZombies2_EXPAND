@@ -45,7 +45,7 @@ namespace MVZ2.GameContent.Enemies
                 case STATE_CAST:
                     UpdateStateCast(entity);
                     break;
-                case STATE_ATTACK:
+                case STATE_RANGED_ATTACK:
                     UpdateStateAttack(entity);
                     break;
             }
@@ -173,7 +173,7 @@ namespace MVZ2.GameContent.Enemies
         private Detector detector;
         public const int STATE_WALK = VanillaEnemyStates.WALK;
         public const int STATE_CAST = VanillaEnemyStates.CAST;
-        public const int STATE_ATTACK = VanillaEnemyStates.SKELETON_MAGE_ATTACK;
+        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
 
         public const int ATTACK_STATE_CAST = 0;
         public const int ATTACK_STATE_FIRE = 1;
@@ -201,15 +201,6 @@ namespace MVZ2.GameContent.Enemies
             public StateBehaviour(string nsp, string name) : base(nsp, name)
             {
             }
-            public override int GetAnimationState(int state)
-            {
-                switch (state)
-                {
-                    case STATE_ATTACK:
-                        return ANIMATION_STATE_ATTACK;
-                }
-                return base.GetAnimationState(state);
-            }
             protected override int GetActiveState(Entity enemy)
             {
                 var state = base.GetActiveState(enemy);
@@ -222,7 +213,7 @@ namespace MVZ2.GameContent.Enemies
                     }
                     else
                     {
-                        state = STATE_ATTACK;
+                        state = STATE_RANGED_ATTACK;
                     }
                 }
                 return state;

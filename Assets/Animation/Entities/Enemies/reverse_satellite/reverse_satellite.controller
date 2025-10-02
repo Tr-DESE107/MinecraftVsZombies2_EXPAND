@@ -141,9 +141,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 7
     m_ConditionEvent: AnimationState
     m_EventTreshold: 4
-  - m_ConditionMode: 7
-    m_ConditionEvent: AnimationState
-    m_EventTreshold: 10000
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6556127207411929333}
   m_Solo: 0

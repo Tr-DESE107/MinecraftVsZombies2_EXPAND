@@ -65,7 +65,7 @@ namespace MVZ2.GameContent.Enemies
                                 }
                             }
                             break;
-                        case STATE_ATTACK:
+                        case STATE_RANGED_ATTACK:
                             if (shootTimer.Expired)
                             {
                                 var target = FindTarget(enemy);
@@ -135,7 +135,7 @@ namespace MVZ2.GameContent.Enemies
         }
         private void UpdateFlying(Entity entity)
         {
-            if (entity.State == STATE_WALK || entity.State == STATE_ATTACK)
+            if (entity.State == STATE_WALK || entity.State == STATE_RANGED_ATTACK)
             {
                 entity.UpdateWalkVelocity();
             }
@@ -145,7 +145,7 @@ namespace MVZ2.GameContent.Enemies
         public const int SHOOT_COOLDOWN = 135;
         public const int SHOOT_DURATION = 15;
         public const int STATE_WALK = VanillaEnemyStates.WALK;
-        public const int STATE_ATTACK = VanillaEnemyStates.GHAST_ATTACK;
+        public const int STATE_RANGED_ATTACK = VanillaEnemyStates.RANGED_ATTACK;
 
         [EntityBehaviourDefinition(VanillaEntityBehaviourNames.ghast_State)]
         public class StateBehaviour : EnemyStateBehaviour
@@ -153,21 +153,12 @@ namespace MVZ2.GameContent.Enemies
             public StateBehaviour(string nsp, string name) : base(nsp, name)
             {
             }
-            public override int GetAnimationState(int state)
-            {
-                switch (state)
-                {
-                    case STATE_ATTACK:
-                        return ANIMATION_STATE_ATTACK;
-                }
-                return base.GetAnimationState(state);
-            }
             protected override int GetActiveState(Entity enemy)
             {
                 var state = base.GetActiveState(enemy);
                 if (state == STATE_WALK && enemy.Target.ExistsAndAlive())
                 {
-                    state = STATE_ATTACK;
+                    state = STATE_RANGED_ATTACK;
                 }
                 return state;
             }

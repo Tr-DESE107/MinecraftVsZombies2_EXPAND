@@ -9,14 +9,12 @@ namespace MVZ2.Vanilla.Enemies
         public const int MELEE_ATTACK = 2;
         public const int CAST = 3;
         public const int DEATH = 4;
-
-        public const int SKELETON_ATTACK = PRIVATE_NUMBER + 0;
+        public const int RANGED_ATTACK = 5;
+        public const int LEAVE = 6;
 
         public const int NAPSTABLOOK_ANGRY = PRIVATE_NUMBER + 0;
 
         public const int SPIDER_CLIMB = PRIVATE_NUMBER + 0;
-
-        public const int GHAST_ATTACK = PRIVATE_NUMBER + 0;
 
         public const int SKELETON_HORSE_JUMP = PRIVATE_NUMBER + 0;
         public const int SKELETON_HORSE_GALLOP = PRIVATE_NUMBER + 1;
@@ -25,13 +23,8 @@ namespace MVZ2.Vanilla.Enemies
         public const int MUTANT_ZOMBIE_SMASH = PRIVATE_NUMBER + 0;
         public const int MUTANT_ZOMBIE_THROW = PRIVATE_NUMBER + 1;
 
-        public const int REVERSE_SATELLITE_LEAVE = PRIVATE_NUMBER + 0;
-
-        public const int SKELETON_MAGE_ATTACK = PRIVATE_NUMBER + 0;
-
         public const int UFO_STAY = PRIVATE_NUMBER + 0;
         public const int UFO_ACT = PRIVATE_NUMBER + 1;
-        public const int UFO_LEAVE = PRIVATE_NUMBER + 2;
 
         public const int POP_CAPTAIN_SMASH_DOWN = PRIVATE_NUMBER + 0;
         public const int POP_CAPTAIN_SMASH_UP = PRIVATE_NUMBER + 1;

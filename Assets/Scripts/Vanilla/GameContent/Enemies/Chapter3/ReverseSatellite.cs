@@ -58,7 +58,7 @@ namespace MVZ2.GameContent.Enemies
                 case STATE_STAY:
                     UpdateStateWalk(enemy);
                     break;
-                case STATE_LEAVING:
+                case STATE_LEAVE:
                     UpdateStateLeaving(enemy);
                     break;
             }
@@ -149,8 +149,7 @@ namespace MVZ2.GameContent.Enemies
         public static bool IsLeft(Entity entity) => entity.GetBehaviourField<bool>(FIELD_LEFT);
         public static void SetLeft(Entity entity, bool value) => entity.SetBehaviourField(FIELD_LEFT, value);
         public const int STATE_STAY = VanillaEnemyStates.WALK;
-        public const int STATE_LEAVING = VanillaEnemyStates.REVERSE_SATELLITE_LEAVE;
-        public const int ANIMATION_STATE_LEAVING = EnemyStateBehaviour.ANIMATION_STATE_PRIVATE + 0;
+        public const int STATE_LEAVE = VanillaEnemyStates.LEAVE;
         public const int LEAVE_TIME = 900;
         public static readonly VanillaEntityPropertyMeta<bool> FIELD_LEFT = new VanillaEntityPropertyMeta<bool>("is_left");
         public static readonly VanillaEntityPropertyMeta<FrameTimer> FIELD_LEAVE_TIMER = new VanillaEntityPropertyMeta<FrameTimer>("LeaveTimer");
@@ -161,21 +160,12 @@ namespace MVZ2.GameContent.Enemies
             public StateBehaviour(string nsp, string name) : base(nsp, name)
             {
             }
-            public override int GetAnimationState(int state)
-            {
-                switch (state)
-                {
-                    case STATE_LEAVING:
-                        return ANIMATION_STATE_LEAVING;
-                }
-                return base.GetAnimationState(state);
-            }
             protected override int GetActiveState(Entity enemy)
             {
                 var state = base.GetActiveState(enemy);
                 if (state == STATE_STAY && IsLeft(enemy))
                 {
-                    state = STATE_LEAVING;
+                    state = STATE_LEAVE;
                 }
                 return state;
             }

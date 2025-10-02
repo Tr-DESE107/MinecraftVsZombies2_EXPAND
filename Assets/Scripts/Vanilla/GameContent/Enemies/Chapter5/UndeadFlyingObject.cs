@@ -210,11 +210,11 @@ namespace MVZ2.GameContent.Enemies
         public const float MAX_MOVE_SPEED = 15f;
         public const float MOVE_FACTOR = 0.5f;
 
-        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
         public const int STATE_IDLE = VanillaEnemyStates.IDLE;
+        public const int STATE_DEATH = VanillaEnemyStates.DEATH;
+        public const int STATE_LEAVE = VanillaEnemyStates.LEAVE;
         public const int STATE_STAY = VanillaEnemyStates.UFO_STAY;
         public const int STATE_ACT = VanillaEnemyStates.UFO_ACT;
-        public const int STATE_LEAVE = VanillaEnemyStates.UFO_LEAVE;
 
 
         public static readonly VanillaEntityPropertyMeta<int> PROP_TARGET_GRID_X = new VanillaEntityPropertyMeta<int>("target_grid_x");
