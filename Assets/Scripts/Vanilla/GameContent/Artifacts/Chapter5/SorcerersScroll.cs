@@ -2,6 +2,8 @@
 
 using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
+using MVZ2.GameContent.Effects;
+using MVZ2.Vanilla.Level;
 using MVZ2Logic;
 using MVZ2Logic.Artifacts;
 using PVZEngine.Auras;
@@ -22,7 +24,17 @@ namespace MVZ2.GameContent.Artifacts
         {
             base.PostUpdate(artifact);
             artifact.SetGlowing(true);
+
+            var level = artifact.Level;
+            var starshardCount = level.GetStarshardCount();
+            if (starshardCount > 0)
+            {
+                GemEffect.SpawnGemEffects(level, MONEY_PER_STARSHARD * starshardCount, level.GetStarshardEntityPosition(), null);
+                level.SetStarshardCount(0);
+                artifact.Highlight();
+            }
         }
+        public const int MONEY_PER_STARSHARD = 200;
         public class ContraptionAura : AuraEffectDefinition
         {
             public ContraptionAura() : base(VanillaBuffID.Contraption.sorcerersScrollStats)

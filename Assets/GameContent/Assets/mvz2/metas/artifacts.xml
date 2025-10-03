@@ -108,7 +108,7 @@
             <condition required="mvz2:artifact.dowsing_rods"/>
         </unlock>
     </artifact>
-    <artifact id="sorcerers_scroll" name="魔人经卷" tooltip="禁用星之碎片，+20%器械伤害、耐久、攻击速度和生产速度" sprite="mvz2:artifacts/sorcerers_scroll" >
+    <artifact id="sorcerers_scroll" name="魔人经卷" tooltip="禁用星之碎片并将每个变为200金钱，+25%器械耐久、攻击速度和生产速度" sprite="mvz2:artifacts/sorcerers_scroll" >
         <unlock>
             <condition required="mvz2:level.ship_11"/>
         </unlock>

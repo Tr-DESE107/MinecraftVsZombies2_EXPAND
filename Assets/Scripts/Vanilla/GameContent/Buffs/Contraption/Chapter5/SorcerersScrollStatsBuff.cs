@@ -12,10 +12,9 @@ namespace MVZ2.GameContent.Buffs.Contraptions
     {
         public SorcerersScrollStatsBuff(string nsp, string name) : base(nsp, name)
         {
-            AddModifier(new FloatModifier(VanillaEntityProps.DAMAGE, NumberOperator.AddMultiple, 0.2f));
-            AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.AddMultiple, 0.2f));
-            AddModifier(new FloatModifier(VanillaEntityProps.PRODUCE_SPEED, NumberOperator.AddMultiple, 0.2f));
-            AddModifier(new MaxHealthModifier(NumberOperator.AddMultiple, 0.2f));
+            AddModifier(new FloatModifier(VanillaEntityProps.ATTACK_SPEED, NumberOperator.AddMultiple, 0.25f));
+            AddModifier(new FloatModifier(VanillaEntityProps.PRODUCE_SPEED, NumberOperator.AddMultiple, 0.25f));
+            AddModifier(new MaxHealthModifier(NumberOperator.AddMultiple, 0.25f));
         }
     }
 }
