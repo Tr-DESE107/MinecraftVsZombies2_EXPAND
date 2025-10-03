@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
 "POT-Creation-Date: 2025-10-03 02:24+0800\n"
-"PO-Revision-Date: 2025-10-03 14:26+0800\n"
+"PO-Revision-Date: 2025-10-03 21:46+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3175,7 +3175,7 @@ msgstr "Railgun"
 #: Achievements meta file
 msgctxt "achievement"
 msgid "使用被闪电充能的TNT杀死一只炮手僵尸。"
-msgstr "Kill a Cannoneer Zombie using a charged TNT."
+msgstr "Kill a Cannoneer Zombie with charged TNT."
 
 #. Name for achievement mvz2:midas_touchdown
 #: Achievements meta file
