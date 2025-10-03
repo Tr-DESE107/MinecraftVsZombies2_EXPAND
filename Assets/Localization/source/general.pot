@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-03 02:04+0800\n"
+"POT-Creation-Date: 2025-10-03 02:24+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1242,104 +1242,128 @@ msgctxt "command.output"
 msgid "已保存关卡状态"
 msgstr ""
 
-# 命令输出
+# 命令输出-unlock，{0}为游戏状态名
 #: Scripts\Vanilla\VanillaStrings.cs:168
+msgctxt "command.output"
+msgid "已解锁游戏状态{0}"
+msgstr ""
+
+# 命令输出-unlock，{0}为游戏状态名
+#: Scripts\Vanilla\VanillaStrings.cs:170
+msgctxt "command.output"
+msgid "无法解锁游戏状态{0}：该状态已被解锁"
+msgstr ""
+
+# 命令输出-unlock，{0}为游戏状态名
+#: Scripts\Vanilla\VanillaStrings.cs:172
+msgctxt "command.output"
+msgid "已重新锁定游戏状态{0}"
+msgstr ""
+
+# 命令输出-unlock，{0}为游戏状态名
+#: Scripts\Vanilla\VanillaStrings.cs:174
+msgctxt "command.output"
+msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
+msgstr ""
+
+# 命令输出
+#: Scripts\Vanilla\VanillaStrings.cs:176
 msgctxt "command.output"
 msgid "命令格式错误"
 msgstr ""
 
 # 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:170
+#: Scripts\Vanilla\VanillaStrings.cs:178
 msgctxt "command.output"
 msgid "该命令只能在关卡中被调用"
 msgstr ""
 
 # 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:172
+#: Scripts\Vanilla\VanillaStrings.cs:180
 msgctxt "command.output"
 msgid "参数{0}格式错误"
 msgstr ""
 
 # 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:174
+#: Scripts\Vanilla\VanillaStrings.cs:182
 msgctxt "command.output"
 msgid "参数数量错误"
 msgstr ""
 
 # 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:176
+#: Scripts\Vanilla\VanillaStrings.cs:184
 msgctxt "command.output"
 msgid "参数{0}丢失"
 msgstr ""
 
 # 命令输出，{0}为有效参数列表
-#: Scripts\Vanilla\VanillaStrings.cs:178
+#: Scripts\Vanilla\VanillaStrings.cs:186
 msgctxt "command.output"
 msgid "参数错误，有效值为{0}"
 msgstr ""
 
 # 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:180
+#: Scripts\Vanilla\VanillaStrings.cs:188
 msgctxt "command.output"
 msgid "参数丢失，有效值为{0}"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:183
+#: Scripts\Vanilla\VanillaStrings.cs:191
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:185
+#: Scripts\Vanilla\VanillaStrings.cs:193
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:187
+#: Scripts\Vanilla\VanillaStrings.cs:195
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr ""
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:189
+#: Scripts\Vanilla\VanillaStrings.cs:197
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:192
+#: Scripts\Vanilla\VanillaStrings.cs:200
 msgctxt "command_parameter.type"
 msgid "真值"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:194
+#: Scripts\Vanilla\VanillaStrings.cs:202
 msgctxt "command_parameter.type"
 msgid "整数"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:196
+#: Scripts\Vanilla\VanillaStrings.cs:204
 msgctxt "command_parameter.type"
 msgid "实数"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:198
+#: Scripts\Vanilla\VanillaStrings.cs:206
 msgctxt "command_parameter.type"
 msgid "ID"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:200
+#: Scripts\Vanilla\VanillaStrings.cs:208
 msgctxt "command_parameter.type"
 msgid "命令"
 msgstr ""
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:202
+#: Scripts\Vanilla\VanillaStrings.cs:210
 msgctxt "command_parameter.type"
 msgid "未知"
 msgstr ""
@@ -4890,6 +4914,30 @@ msgstr ""
 #: Commands meta file
 msgctxt "command_variant.description"
 msgid "移除指定槽位的制品。"
+msgstr ""
+
+#. Description for command "mvz2:unlock"
+#: Commands meta file
+msgctxt "command.description"
+msgid "解锁或重新锁定某些游戏状态。"
+msgstr ""
+
+#. Description for command variant "mvz2:unlock add"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "解锁游戏状态。"
+msgstr ""
+
+#. Description for parameter id of command "mvz2:unlock add"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "状态ID。"
+msgstr ""
+
+#. Description for command variant "mvz2:unlock remove"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "重新锁定游戏状态。"
 msgstr ""
 
 #. Description for command "mvz2:test"

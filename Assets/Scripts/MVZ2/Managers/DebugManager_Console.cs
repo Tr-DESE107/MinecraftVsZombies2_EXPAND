@@ -287,7 +287,7 @@ namespace MVZ2.Managers
                         return Main.Game.GetArmorSlotDefinition(id) != null;
                     }
             }
-            return false;
+            return true;
         }
         public void FillSuggestions(string[] parts, List<string> currentSuggestions)
         {

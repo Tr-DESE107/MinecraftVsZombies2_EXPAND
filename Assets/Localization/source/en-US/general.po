@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-03 02:04+0800\n"
-"PO-Revision-Date: 2025-10-03 14:06+0800\n"
+"POT-Creation-Date: 2025-10-03 02:24+0800\n"
+"PO-Revision-Date: 2025-10-03 14:26+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -1221,100 +1221,124 @@ msgctxt "command.output"
 msgid "已保存关卡状态"
 msgstr "Level state has been successfully saved"
 
+# 命令输出-unlock，{0}为游戏状态名
 #: Scripts\Vanilla\VanillaStrings.cs:168
+msgctxt "command.output"
+msgid "已解锁游戏状态{0}"
+msgstr "Unlocked game state {0}"
+
+# 命令输出-unlock，{0}为游戏状态名
+#: Scripts\Vanilla\VanillaStrings.cs:170
+msgctxt "command.output"
+msgid "无法解锁游戏状态{0}：该状态已被解锁"
+msgstr "Cannot unlock game state {0}: This state is already unlocked"
+
+# 命令输出-unlock，{0}为游戏状态名
+#: Scripts\Vanilla\VanillaStrings.cs:172
+msgctxt "command.output"
+msgid "已重新锁定游戏状态{0}"
+msgstr "Relocked game state {0}"
+
+# 命令输出-unlock，{0}为游戏状态名
+#: Scripts\Vanilla\VanillaStrings.cs:174
+msgctxt "command.output"
+msgid "无法重新锁定游戏状态{0}：该状态未被解锁"
+msgstr "Cannot relock game state {0}: This state is not unlocked"
+
+#: Scripts\Vanilla\VanillaStrings.cs:176
 msgctxt "command.output"
 msgid "命令格式错误"
 msgstr "Wrong command format"
 
 # 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:170
+#: Scripts\Vanilla\VanillaStrings.cs:178
 msgctxt "command.output"
 msgid "该命令只能在关卡中被调用"
 msgstr "This command can only be called in a level."
 
-#: Scripts\Vanilla\VanillaStrings.cs:172
+#: Scripts\Vanilla\VanillaStrings.cs:180
 msgctxt "command.output"
 msgid "参数{0}格式错误"
 msgstr "Incorrect format of parameter {0}"
 
 # 命令输出
-#: Scripts\Vanilla\VanillaStrings.cs:174
+#: Scripts\Vanilla\VanillaStrings.cs:182
 msgctxt "command.output"
 msgid "参数数量错误"
 msgstr "Incorrect parameter count"
 
 # 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:176
+#: Scripts\Vanilla\VanillaStrings.cs:184
 msgctxt "command.output"
 msgid "参数{0}丢失"
 msgstr "Missing parameter {0}"
 
 # 命令输出，{0}为有效参数列表
-#: Scripts\Vanilla\VanillaStrings.cs:178
+#: Scripts\Vanilla\VanillaStrings.cs:186
 msgctxt "command.output"
 msgid "参数错误，有效值为{0}"
 msgstr "Incorrect parameter, valid values are {0}"
 
 # 命令输出，{0}为参数名
-#: Scripts\Vanilla\VanillaStrings.cs:180
+#: Scripts\Vanilla\VanillaStrings.cs:188
 msgctxt "command.output"
 msgid "参数丢失，有效值为{0}"
 msgstr "Missing parameter, valid values are {0}"
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:183
+#: Scripts\Vanilla\VanillaStrings.cs:191
 msgctxt "command.cheat_name"
 msgid "上帝模式"
 msgstr "Godmode"
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:185
+#: Scripts\Vanilla\VanillaStrings.cs:193
 msgctxt "command.cheat_name"
 msgid "无限能量"
 msgstr "Infinite Energy"
 
 # 作弊命令名称
-#: Scripts\Vanilla\VanillaStrings.cs:187
+#: Scripts\Vanilla\VanillaStrings.cs:195
 msgctxt "command.cheat_name"
 msgid "立即充能"
 msgstr "Instant Recharge"
 
-#: Scripts\Vanilla\VanillaStrings.cs:189
+#: Scripts\Vanilla\VanillaStrings.cs:197
 msgctxt "command.cheat_name"
 msgid "无限星之碎片"
 msgstr "Infinite Starshards"
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:192
+#: Scripts\Vanilla\VanillaStrings.cs:200
 msgctxt "command_parameter.type"
 msgid "真值"
 msgstr "Boolean"
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:194
+#: Scripts\Vanilla\VanillaStrings.cs:202
 msgctxt "command_parameter.type"
 msgid "整数"
 msgstr "Integer"
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:196
+#: Scripts\Vanilla\VanillaStrings.cs:204
 msgctxt "command_parameter.type"
 msgid "实数"
 msgstr "Real"
 
 # 按键名
-#: Scripts\Vanilla\VanillaStrings.cs:198
+#: Scripts\Vanilla\VanillaStrings.cs:206
 msgctxt "command_parameter.type"
 msgid "ID"
 msgstr "ID"
 
 # 命令参数类型
-#: Scripts\Vanilla\VanillaStrings.cs:200
+#: Scripts\Vanilla\VanillaStrings.cs:208
 msgctxt "command_parameter.type"
 msgid "命令"
 msgstr "Command"
 
-#: Scripts\Vanilla\VanillaStrings.cs:202
+#: Scripts\Vanilla\VanillaStrings.cs:210
 msgctxt "command_parameter.type"
 msgid "未知"
 msgstr "Unknown"
@@ -5137,6 +5161,30 @@ msgstr "The ID of the artifact."
 msgctxt "command_variant.description"
 msgid "移除指定槽位的制品。"
 msgstr "Removes the artifact of a certain slot."
+
+#. Description for command "mvz2:unlock"
+#: Commands meta file
+msgctxt "command.description"
+msgid "解锁或重新锁定某些游戏状态。"
+msgstr "Unlocks or relocks some game state."
+
+#. Description for command variant "mvz2:unlock add"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "解锁游戏状态。"
+msgstr "Unlocks a game state."
+
+#. Description for parameter id of command "mvz2:unlock add"
+#: Commands meta file
+msgctxt "command_parameter.description"
+msgid "状态ID。"
+msgstr "State ID."
+
+#. Description for command variant "mvz2:unlock remove"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "重新锁定游戏状态。"
+msgstr "Relocks a game state."
 
 #. Description for command "mvz2:test"
 #: Commands meta file
