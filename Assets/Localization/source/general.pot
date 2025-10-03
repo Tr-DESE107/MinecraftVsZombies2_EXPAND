@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-09-24 08:11+0800\n"
+"POT-Creation-Date: 2025-10-03 02:04+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3204,6 +3204,30 @@ msgctxt "achievement"
 msgid "使用欲望壶的技能抽到两张欲望壶。"
 msgstr ""
 
+#. Name for achievement mvz2:railgun
+#: Achievements meta file
+msgctxt "achievement"
+msgid "电磁炮"
+msgstr ""
+
+#. Description for achievement mvz2:railgun
+#: Achievements meta file
+msgctxt "achievement"
+msgid "使用被闪电充能的TNT杀死一只炮手僵尸。"
+msgstr ""
+
+#. Name for achievement mvz2:midas_touchdown
+#: Achievements meta file
+msgctxt "achievement"
+msgid "金无足赤"
+msgstr ""
+
+#. Description for achievement mvz2:midas_touchdown
+#: Achievements meta file
+msgctxt "achievement"
+msgid "在不使用重力的情况下，使一只无头骑士被地板杀死。"
+msgstr ""
+
 #. Name for music mvz2:mainmenu
 #: Music meta file
 msgctxt "music.name"
@@ -4890,6 +4914,12 @@ msgstr ""
 #: Commands meta file
 msgctxt "command_variant.description"
 msgid "生成一排带有特定盾牌的不同怪物。"
+msgstr ""
+
+#. Description for command variant "mvz2:test paratroops"
+#: Commands meta file
+msgctxt "command_variant.description"
+msgid "生成一队伞兵僵尸。"
 msgstr ""
 
 #. Name for difficulty 简单

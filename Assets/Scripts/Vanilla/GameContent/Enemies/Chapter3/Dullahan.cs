@@ -3,9 +3,11 @@
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Models;
+using MVZ2.Vanilla;
 using MVZ2.Vanilla.Callbacks;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
+using MVZ2Logic;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
@@ -76,9 +78,14 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
-                return;
-            DropHead(entity);
+            if (!info.HasEffect(VanillaDamageEffects.NO_DEATH_TRIGGER))
+            {
+                DropHead(entity);
+            }
+            if (info.Source is GridSourceReference gridSource && !info.HasEffect(VanillaDamageEffects.FALL_DAMAGE))
+            {
+                Global.Saves.Unlock(VanillaUnlockID.midasTouchdown);
+            }
         }
         public static Entity? DropHead(Entity entity)
         {

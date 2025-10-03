@@ -165,6 +165,14 @@ namespace MVZ2.Vanilla
         public const string COMMAND_CHEAT_DISABLED = "已禁用{0}";
         [TranslateMsg("命令输出-save", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_SAVE_SUCCESS = "已保存关卡状态";
+        [TranslateMsg("命令输出-unlock，{0}为游戏状态名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_UNLOCK_ADD_SUCCESS = "已解锁游戏状态{0}";
+        [TranslateMsg("命令输出-unlock，{0}为游戏状态名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_UNLOCK_ADD_FAILED_ALREADY_UNLOCKED = "无法解锁游戏状态{0}：该状态已被解锁";
+        [TranslateMsg("命令输出-unlock，{0}为游戏状态名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_UNLOCK_REMOVE_SUCCESS = "已重新锁定游戏状态{0}";
+        [TranslateMsg("命令输出-unlock，{0}为游戏状态名", CONTEXT_COMMAND_OUTPUT)]
+        public const string COMMAND_UNLOCK_REMOVE_FAILED_NOT_UNLOCKED = "无法重新锁定游戏状态{0}：该状态未被解锁";
         [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]
         public const string COMMAND_INCORRECT_FORMAT = "命令格式错误";
         [TranslateMsg("命令输出", CONTEXT_COMMAND_OUTPUT)]

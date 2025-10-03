@@ -40,6 +40,8 @@ namespace MVZ2.Vanilla
         public const string bonebreaker = "achievement.bonebreaker";
         public const string reforged = "achievement.reforged";
         public const string overdraw = "achievement.overdraw";
+        public const string railgun = "achievement.railgun";
+        public const string midasTouchdown = "achievement.midas_touchdown";
 
         public const string brokenLantern = "artifact.broken_lantern";
         public const string bottledBlackhole = "artifact.bottled_blackhole";
@@ -76,6 +78,8 @@ namespace MVZ2.Vanilla
         public static readonly NamespaceID bonebreaker = Get(VanillaUnlockNames.bonebreaker);
         public static readonly NamespaceID reforged = Get(VanillaUnlockNames.reforged);
         public static readonly NamespaceID overdraw = Get(VanillaUnlockNames.overdraw);
+        public static readonly NamespaceID railgun = Get(VanillaUnlockNames.railgun);
+        public static readonly NamespaceID midasTouchdown = Get(VanillaUnlockNames.midasTouchdown);
 
         public static readonly NamespaceID brokenLantern = Get(VanillaUnlockNames.brokenLantern);
         public static readonly NamespaceID bottledBlackhole = Get(VanillaUnlockNames.bottledBlackhole);

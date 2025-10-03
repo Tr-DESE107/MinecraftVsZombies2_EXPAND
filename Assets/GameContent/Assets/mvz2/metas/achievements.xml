@@ -39,4 +39,14 @@
             <condition required="mvz2:achievement.overdraw"/>
         </unlock>
     </achievement>
+    <achievement id="railgun" name="电磁炮" description="使用被闪电充能的TNT杀死一只炮手僵尸。" icon="mvz2:achievements/railgun">
+        <unlock>
+            <condition required="mvz2:achievement.railgun"/>
+        </unlock>
+    </achievement>
+    <achievement id="midas_touchdown" name="金无足赤" description="在不使用重力的情况下，使一只无头骑士被地板杀死。" icon="mvz2:achievements/midas_touchdown">
+        <unlock>
+            <condition required="mvz2:achievement.midas_touchdown"/>
+        </unlock>
+    </achievement>
 </achievements>
