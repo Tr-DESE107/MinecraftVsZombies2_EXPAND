@@ -1718,6 +1718,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26cdc94fcf90e7d41b47a89f4fc2c7f8
+    m_Address: mvz2:achievements/railgun
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 26dc0bfdc50bd814f9f2c3f60f62e366
     m_Address: mvz2:ui/effect/crushing_wall_right_censored
     m_ReadOnly: 0
@@ -6216,6 +6223,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91145db7ce144ae46b011cc317c0fd39
+    m_Address: mvz2:mobile_blueprint/jeweled_pagoda
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91391702dfa4fa749b9e1ea735de8da2
     m_Address: mvz2:mobile_blueprint/ghast
     m_ReadOnly: 0
@@ -6817,6 +6831,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f4e32b5f413e874aa0d2661531c8b78
+    m_Address: mvz2:mobile_blueprint/pop_captain
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f887f3e85dc48d4e8d4bd36aa0a9e12
     m_Address: mvz2:entity/effects/nightmare_portal_frame
@@ -8616,6 +8637,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd013cb802051944b8075dab86de61d0
+    m_Address: mvz2:achievements/midas_touchdown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd0fcd035e19f2b4c8f8a3029a1241d3
     m_Address: mvz2:entity/boss/seija_bomb
