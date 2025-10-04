@@ -14,6 +14,7 @@ namespace MVZ2.GameContent.HeldItems
         public const string forcePad = "force_pad";
         public const string breakoutBoard = "breakout_board";
         public const string blueprintPickup = "blueprint_pickup";
+        public const string physicalArt = "physical_art";
     }
     public static class VanillaHeldTypes
     {
@@ -24,6 +25,7 @@ namespace MVZ2.GameContent.HeldItems
         public static readonly NamespaceID forcePad = Get(VanillaHeldItemNames.forcePad);
         public static readonly NamespaceID breakoutBoard = Get(VanillaHeldItemNames.breakoutBoard);
         public static readonly NamespaceID blueprintPickup = Get(VanillaHeldItemNames.blueprintPickup);
+        public static readonly NamespaceID physicalArt = Get(VanillaHeldItemNames.physicalArt);
         public static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

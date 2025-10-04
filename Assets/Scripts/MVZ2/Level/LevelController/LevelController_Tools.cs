@@ -116,7 +116,7 @@ namespace MVZ2.Level
                 level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
-            level.SetHeldItem(VanillaHeldTypes.starshard);
+            level.SetHeldItem(VanillaHeldTypes.physicalArt);
         }
         private void UpdateStarshards()
         {

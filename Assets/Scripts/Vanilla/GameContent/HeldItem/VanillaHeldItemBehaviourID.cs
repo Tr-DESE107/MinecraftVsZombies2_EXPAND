@@ -16,6 +16,7 @@ namespace MVZ2.GameContent.HeldItems
         public const string blueprintPickup = "blueprint_pickup";
         public const string classicBlueprint = "classic_blueprint";
         public const string conveyorBlueprint = "conveyor_blueprint";
+        public const string physicalArt = "physical_art";
 
         public const string rightMouseCancel = "right_mouse_cancel";
         public const string triggerCart = "triggerCart";
@@ -33,6 +34,7 @@ namespace MVZ2.GameContent.HeldItems
         public static readonly NamespaceID blueprintPickup = Get(VanillaHeldItemBehaviourNames.blueprintPickup);
         public static readonly NamespaceID classicBlueprint = Get(VanillaHeldItemBehaviourNames.classicBlueprint);
         public static readonly NamespaceID conveyorBlueprint = Get(VanillaHeldItemBehaviourNames.conveyorBlueprint);
+        public static readonly NamespaceID physicalArt = Get(VanillaHeldItemBehaviourNames.physicalArt);
 
         public static readonly NamespaceID rightMouseCancel = Get(VanillaHeldItemBehaviourNames.rightMouseCancel);
         public static readonly NamespaceID triggerCart = Get(VanillaHeldItemBehaviourNames.triggerCart);

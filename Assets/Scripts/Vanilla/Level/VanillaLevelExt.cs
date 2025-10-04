@@ -69,7 +69,7 @@ namespace MVZ2.Vanilla.Level
         {
             return level.Explode(center, radius, faction, amount, effects, new EntitySourceReference(source), filter);
         }
-        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference source, Predicate<IEntityCollider>? filter = null)
+        public static DamageOutput[] Explode(this LevelEngine level, Vector3 center, float radius, int faction, float amount, DamageEffectList effects, ILevelSourceReference? source, Predicate<IEntityCollider>? filter = null)
         {
             List<DamageOutput> damageOutputs = new List<DamageOutput>();
             foreach (IEntityCollider entityCollider in level.OverlapSphere(center, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
