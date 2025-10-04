@@ -2,6 +2,7 @@
 
 using MVZ2.GameContent.HeldItems;
 using MVZ2.Vanilla.Entities;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -21,7 +22,9 @@ namespace MVZ2.GameContent.Pickups
         public override void PostCollect(Entity pickup)
         {
             base.PostCollect(pickup);
-            pickup.Level.SetHeldItem(VanillaHeldTypes.blueprintPickup, pickup.ID, 0);
+            var builder = new HeldItemBuilder(VanillaHeldTypes.breakoutBoard);
+            builder.SetEntityID(pickup.ID);
+            pickup.Level.SetHeldItem(builder);
             pickup.PlaySoundIfNotNull(pickup.GetCollectSound());
         }
     }

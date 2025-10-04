@@ -26,8 +26,7 @@ namespace MVZ2Logic.Level.Components
     }
     public interface IHeldItemComponent : ILevelComponent
     {
-        void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false);
-        void SetHeldItem(IHeldItemData data);
+        void SetHeldItem(IHeldItemBuilder builder);
         void ResetHeldItem();
         bool CancelHeldItem();
         IModelInterface? GetHeldItemModelInterface();

@@ -180,7 +180,7 @@ namespace MVZ2.GameContent.HeldItems
         }
         public override SeedPack? GetSeedPack(LevelEngine level, IHeldItemData data)
         {
-            return level.GetSeedPackAt((int)data.ID);
+            return level.GetSeedPackAt(data.GetSeedPackIndex());
         }
     }
     [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.conveyorBlueprint)]
@@ -192,11 +192,11 @@ namespace MVZ2.GameContent.HeldItems
 
         protected override void CostBlueprint(LawnGrid grid, IHeldItemData data)
         {
-            grid.Level.RemoveConveyorSeedPackAt((int)data.ID);
+            grid.Level.RemoveConveyorSeedPackAt(data.GetSeedPackIndex());
         }
         public override SeedPack? GetSeedPack(LevelEngine level, IHeldItemData data)
         {
-            return level.GetConveyorSeedPackAt((int)data.ID);
+            return level.GetConveyorSeedPackAt(data.GetSeedPackIndex());
         }
     }
 }

@@ -26,20 +26,24 @@ namespace MVZ2.Level
     {
         public void SetHeldItemUI(IHeldItemData data)
         {
-            var definition = data.Definition;
+            var definition = data.GetDefinition(level);
 
-            // 设置图标。
-            var modelID = definition.GetModelID(level, data);
-            SetHeldItemModel(modelID, definition, data);
 
-            // 显示触发器图标。
-            UpdateHeldItemIcons(definition, data);
+            if (definition != null)
+            {
+                // 设置图标。
+                var modelID = definition.GetModelID(level, data);
+                SetHeldItemModel(modelID, definition, data);
 
-            // 设置射线检测。
-            UpdateHeldItemRaycaster(definition, data, definition.GetRadius(level, data));
+                // 显示触发器图标。
+                UpdateHeldItemIcons(definition, data);
 
-            // 设置光标。
-            UpdateHeldItemCursor(data.Type, modelID);
+                // 设置射线检测。
+                UpdateHeldItemRaycaster(definition, data, definition.GetRadius(level, data));
+
+                // 设置光标。
+                UpdateHeldItemCursor(data.Type, modelID);
+            }
 
             // 更新网格。
             UpdateGridHighlight();
@@ -88,7 +92,7 @@ namespace MVZ2.Level
             bool triggerVisible = false;
             if (data.Type == VanillaHeldTypes.blueprintPickup)
             {
-                var blueprintPickup = level.GetHoldingEntity(data);
+                var blueprintPickup = data.GetHoldingEntity(level);
                 if (blueprintPickup != null)
                 {
                     var seedDef = BlueprintPickup.GetSeedDefinition(blueprintPickup);
@@ -106,8 +110,8 @@ namespace MVZ2.Level
                     triggerVisible = true;
                 }
             }
-            ui.SetHeldItemTrigger(triggerVisible, data.InstantTrigger);
-            ui.SetHeldItemImbued(data.InstantEvoke);
+            ui.SetHeldItemTrigger(triggerVisible, data.IsInstantTrigger());
+            ui.SetHeldItemImbued(data.IsInstantEvoke());
         }
         private void UpdateHeldItemRaycaster(HeldItemDefinition definition, IHeldItemData data, float radius)
         {

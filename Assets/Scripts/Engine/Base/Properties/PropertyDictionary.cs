@@ -70,6 +70,10 @@ namespace PVZEngine
         {
             return RemovePropertyObject(name);
         }
+        public void Clear()
+        {
+            propertyDict.Clear();
+        }
         public IPropertyKey[] GetPropertyNames()
         {
             return propertyDict.Keys.ToArray();

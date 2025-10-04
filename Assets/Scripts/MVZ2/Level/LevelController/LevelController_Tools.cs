@@ -70,7 +70,7 @@ namespace MVZ2.Level
             if (!level.CanUsePickaxe())
                 return;
             level.PlaySound(VanillaSoundID.pickaxe);
-            level.SetHeldItem(VanillaHeldTypes.pickaxe, 0, 0);
+            level.SetHeldItem(VanillaHeldTypes.pickaxe);
         }
         private void UI_OnPickaxePointerEnterCallback(PointerEventData eventData)
         {
@@ -116,7 +116,7 @@ namespace MVZ2.Level
                 level.PlaySound(VanillaSoundID.buzzer);
                 return;
             }
-            level.SetHeldItem(VanillaHeldTypes.starshard, 0, 0);
+            level.SetHeldItem(VanillaHeldTypes.starshard);
         }
         private void UpdateStarshards()
         {
@@ -159,7 +159,7 @@ namespace MVZ2.Level
             }
             if (!level.CanUseTrigger())
                 return;
-            level.SetHeldItem(VanillaHeldTypes.trigger, 0, 0);
+            level.SetHeldItem(VanillaHeldTypes.trigger);
         }
         private void UI_OnTriggerPointerEnterCallback(PointerEventData eventData)
         {

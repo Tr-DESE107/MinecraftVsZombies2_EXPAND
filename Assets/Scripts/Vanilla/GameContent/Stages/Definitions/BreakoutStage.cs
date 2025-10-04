@@ -6,6 +6,7 @@ using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Seeds;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
@@ -60,7 +61,10 @@ namespace MVZ2.GameContent.Stages
                 return;
             if (level.GetHeldItemType() == BuiltinHeldTypes.none)
             {
-                level.SetHeldItem(VanillaHeldTypes.breakoutBoard, board.ID, 100, true);
+                var builder = new HeldItemBuilder(VanillaHeldTypes.breakoutBoard, 100);
+                builder.SetEntityID(board.ID);
+                builder.SetCannotCancel(true);
+                level.SetHeldItem(builder);
             }
         }
         public override void OnPostEnemySpawned(Entity entity)

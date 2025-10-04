@@ -7,5 +7,6 @@ namespace MVZ2Logic
         public const string seedOption = "seed_option";
         public const string note = "note";
         public const string command = "command";
+        public const string heldItem = "held_item";
     }
 }

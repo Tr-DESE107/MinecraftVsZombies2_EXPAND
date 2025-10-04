@@ -6,6 +6,7 @@ using MVZ2.Vanilla;
 using MVZ2.Vanilla.HeldItems;
 using MVZ2Logic.Games;
 using MVZ2Logic.HeldItems;
+using MVZ2Logic.Level;
 using MVZ2Logic.Level.Components;
 using PVZEngine;
 using PVZEngine.Base;
@@ -18,6 +19,7 @@ namespace MVZ2.Level.Components
     {
         public HeldItemComponent(LevelEngine level, LevelController controller) : base(level, componentID, controller)
         {
+            info = new HeldItemData(BuiltinHeldTypes.none);
         }
         public override void PostAttach(LevelEngine level)
         {
@@ -27,7 +29,7 @@ namespace MVZ2.Level.Components
         public override void Update()
         {
             base.Update();
-            var definition = info.Definition;
+            var definition = GetHeldItemDefinition();
             if (definition != null)
             {
                 definition.Update(Level, Data);
@@ -35,48 +37,25 @@ namespace MVZ2.Level.Components
         }
         public bool IsHoldingItem()
         {
-            return NamespaceID.IsValid(Data.Type) && Data.Type != BuiltinHeldTypes.none;
+            var type = Data.Type;
+            return NamespaceID.IsValid(type) && type != BuiltinHeldTypes.none;
         }
-        public void SetHeldItem(NamespaceID type, long id, int priority, bool noCancel = false)
+        public void SetHeldItem(IHeldItemBuilder builder)
         {
-            var definition = Level.Content.GetHeldItemDefinition(type);
+            if (IsHoldingItem() && info.Priority > builder.Priority)
+                return;
+            var definition = Level.Content.GetHeldItemDefinition(builder.Type);
             if (definition == null)
             {
-                var exception = new MissingDefinitionException($"Trying to set a missing held item definition {type}.");
-                Log.LogException(exception);
-                return;
-            }
-            SetHeldItem(new HeldItemData()
-            {
-                Type = type,
-                ID = id,
-                Definition = definition,
-                Priority = priority,
-                NoCancel = noCancel
-            });
-        }
-        public void SetHeldItem(IHeldItemData value)
-        {
-            if (IsHoldingItem() && info.Priority > value.Priority)
-                return;
-            var definition = Level.Content.GetHeldItemDefinition(value.Type);
-            if (definition == null)
-            {
-                var exception = new MissingDefinitionException($"Trying to set a missing held item definition {value.Type}.");
+                var exception = new MissingDefinitionException($"Trying to set a missing held item definition {builder.Type}.");
                 Log.LogException(exception);
                 return;
             }
 
-            var before = info.Definition;
+            var before = GetHeldItemDefinition();
             before?.End(Level, Data);
 
-            info.Type = value.Type;
-            info.ID = value.ID;
-            info.Definition = definition;
-            info.Priority = value.Priority;
-            info.NoCancel = value.NoCancel;
-            info.InstantTrigger = value.InstantTrigger;
-            info.InstantEvoke = value.InstantEvoke;
+            info.Build(builder);
             Controller.SetHeldItemUI(info);
 
             definition.Begin(Level, Data);
@@ -96,26 +75,25 @@ namespace MVZ2.Level.Components
                 Log.LogException(exception);
                 return;
             }
-            var before = info.Definition;
+            var before = GetHeldItemDefinition();
             before?.End(Level, Data);
 
-            info.Type = type;
-            info.ID = 0;
-            info.Definition = definition;
-            info.Priority = 0;
-            info.NoCancel = false;
-            info.InstantTrigger = false;
-            info.InstantEvoke = false;
+            var builder = new HeldItemBuilder(type, 0);
+            info.Build(builder);
             Controller.SetHeldItemUI(info);
 
             Controller.UpdateEntityHeldTargetColliders(definition.GetHeldTargetMask(Level));
         }
         public bool CancelHeldItem()
         {
-            if (!IsHoldingItem() || info.NoCancel)
+            if (!IsHoldingItem() || info.CannotCancel())
                 return false;
             ResetHeldItem();
             return true;
+        }
+        private HeldItemDefinition? GetHeldItemDefinition()
+        {
+            return Data.GetDefinition(Level);
         }
         public IHeldItemData Data => info;
         private HeldItemData info;

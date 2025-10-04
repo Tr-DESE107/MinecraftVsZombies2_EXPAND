@@ -53,7 +53,8 @@ namespace MVZ2.GameContent.Pickups
         private static void UpdateModel(Entity pickup)
         {
             var level = pickup.Level;
-            bool isHolding = level.GetHeldItemType() == VanillaHeldTypes.blueprintPickup && level.GetHeldItemID() == pickup.ID;
+            var heldItemData = level.GetHeldItemData();
+            bool isHolding = heldItemData != null && heldItemData.Type == VanillaHeldTypes.blueprintPickup && heldItemData.GetEntityID() == pickup.ID;
             pickup.SetModelProperty("BlueprintID", GetBlueprintID(pickup));
             pickup.SetModelProperty("CommandBlock", IsCommandBlock(pickup));
             pickup.SetAnimationBool("HideEnergy", true);

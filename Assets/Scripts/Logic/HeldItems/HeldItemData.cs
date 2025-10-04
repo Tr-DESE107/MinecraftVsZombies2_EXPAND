@@ -5,14 +5,61 @@ using PVZEngine;
 
 namespace MVZ2Logic.HeldItems
 {
-    public struct HeldItemData : IHeldItemData
+    public class HeldItemData : IHeldItemData
     {
-        public NamespaceID Type { get; set; }
-        public long ID { get; set; }
-        public HeldItemDefinition Definition { get; set; }
-        public int Priority { get; set; }
-        public bool NoCancel { get; set; }
-        public bool InstantTrigger { get; set; }
-        public bool InstantEvoke { get; set; }
+        public HeldItemData(NamespaceID type)
+        {
+            Type = type;
+        }
+        public void SetProperty<T>(PropertyKey<T> key, T value)
+        {
+            properties.SetProperty(key, value);
+        }
+        public T? GetProperty<T>(PropertyKey<T> key)
+        {
+            return properties.GetProperty(key);
+        }
+        public void Build(IHeldItemBuilder builder)
+        {
+            Type = builder.Type;
+            Priority = builder.Priority;
+
+            properties.Clear();
+            foreach (var key in builder.GetPropertyKeys())
+            {
+                properties.SetPropertyObject(key, builder.GetPropertyObject(key));
+            }
+        }
+        public NamespaceID Type { get; private set; }
+        public int Priority { get; private set; }
+        private PropertyDictionary properties = new PropertyDictionary();
+    }
+    public class HeldItemBuilder : IHeldItemBuilder
+    {
+        public HeldItemBuilder(NamespaceID type, int priority = 0)
+        {
+            Type = type;
+            Priority = priority;
+        }
+
+        public void SetProperty<T>(PropertyKey<T> key, T value)
+        {
+            properties.SetProperty(key, value);
+        }
+        public T? GetProperty<T>(PropertyKey<T> key)
+        {
+            return properties.GetProperty(key);
+        }
+        public object? GetPropertyObject(IPropertyKey key)
+        {
+            return properties.GetPropertyObject(key);
+        }
+        public IPropertyKey[] GetPropertyKeys()
+        {
+            return properties.GetPropertyNames();
+        }
+        public NamespaceID Type { get; }
+        public int Priority { get; }
+        private PropertyDictionary properties = new PropertyDictionary();
     }
 }
