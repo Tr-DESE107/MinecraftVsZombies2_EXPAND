@@ -150,7 +150,7 @@ namespace MVZ2.Level
 
             // 更新网格。
             UpdateGridsFrame(deltaTime, gameSpeed);
-            UpdateGridHighlight();
+            UpdateHeldHighlight();
 
             // 更新输入。
             UpdateInput();
@@ -276,7 +276,6 @@ namespace MVZ2.Level
             UpdateCameraByLevel(level);
             UpdateMoney();
             ValidateHeldItem();
-            UpdateEntityHighlight();
 
             var uiSimulationSpeed = IsGamePaused() ? 0 : gameSpeed;
             foreach (var component in level.GetComponents())

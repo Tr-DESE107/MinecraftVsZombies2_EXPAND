@@ -34,6 +34,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID swordHeldItem = Get("sword", TYPE_HELD_ITEM);
         public static readonly NamespaceID defaultStartShardHeldItem = Get("starshard.default", TYPE_HELD_ITEM);
         public static readonly NamespaceID targetHeldItem = Get("target", TYPE_HELD_ITEM);
+        public static readonly NamespaceID physicalArt = Get("physical_art", TYPE_HELD_ITEM);
 
         public static readonly NamespaceID shortCircuit = Get("short_circuit", TYPE_ICON);
         public static readonly NamespaceID nocturnal = Get("nocturnal", TYPE_ICON);

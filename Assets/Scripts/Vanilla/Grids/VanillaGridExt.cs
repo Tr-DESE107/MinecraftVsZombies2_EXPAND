@@ -28,11 +28,11 @@ namespace MVZ2.Vanilla.Grids
                 var seedID = seedDef.GetID();
                 if (grid.CanPlaceBlueprint(seedID, out _))
                 {
-                    return HeldHighlight.Green();
+                    return HeldHighlight.Green(grid);
                 }
                 else
                 {
-                    return HeldHighlight.Red();
+                    return HeldHighlight.Red(grid);
                 }
             }
             return HeldHighlight.None;

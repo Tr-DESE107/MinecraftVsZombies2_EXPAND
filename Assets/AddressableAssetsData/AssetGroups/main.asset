@@ -1781,6 +1781,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a2318667fa50b94c85f46273dae8fbc
+    m_Address: mvz2:held/physical_art
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a4746211870c7249adf3104c2ebdac4
     m_Address: mvz2:talk/speech_bubble_no_arrow
     m_ReadOnly: 0
@@ -1985,6 +1992,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e2acf8f4e91cab468eae2cf860e025a
     m_Address: mvz2:artifacts/broken_lantern
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e64b12488b10c340838892bf9f9db3e
+    m_Address: mvz2:ui/physical_art
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -3010,6 +3024,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4512afe926ba882489e16c87aa81a65e
+    m_Address: mvz2:artifacts/sorcerers_scroll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4544057c662730c4797c8c0641b95ff3
     m_Address: mvz2:entity/pickups/zombie_scroll

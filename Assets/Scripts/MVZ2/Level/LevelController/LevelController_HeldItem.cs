@@ -2,10 +2,12 @@
 
 using System.Collections.Generic;
 using MVZ2.Cursors;
+using MVZ2.Entities;
 using MVZ2.GameContent.HeldItems;
 using MVZ2.GameContent.Pickups;
 using MVZ2.HeldItems;
 using MVZ2.Level.UI;
+using MVZ2.Managers;
 using MVZ2.Models;
 using MVZ2.Vanilla.Contraptions;
 using MVZ2.Vanilla.HeldItems;
@@ -46,7 +48,7 @@ namespace MVZ2.Level
             }
 
             // 更新网格。
-            UpdateGridHighlight();
+            UpdateHeldHighlight();
         }
         public Model? GetHeldItemModel()
         {
@@ -201,6 +203,125 @@ namespace MVZ2.Level
                 level.ResetHeldItem();
             }
         }
+
+        #region 高亮
+        private HeldHighlight GetCurrentHeldHighlight()
+        {
+            if (!IsGameRunning() || !level.IsHoldingItem())
+                return HeldHighlight.None;
+            if (hoveredEntity.Exists() && hoveredEntity.GetHoveredPointerCount() > 0)
+            {
+                return GetEntityHeldHighlight(hoveredEntity);
+            }
+            if (pointingGrid >= 0)
+            {
+                return GetGridHeldHighlight(pointingGrid, pointingGridPointerId);
+            }
+            if (pointingBlueprint >= 0)
+            {
+                return GetBlueprintHeldHighlight(pointingBlueprint, pointingBlueprintPointerId, pointingBlueprintConveyor);
+            }
+            if (isPointingLawnArea)
+            {
+                return GetLawnAreaHeldHighlight(pointingLawnArea, pointingLawnPointerId);
+            }
+            return HeldHighlight.None;
+        }
+        private HeldHighlight GetEntityHeldHighlight(EntityController entity)
+        {
+            var eventData = entity.GetHoveredPointerEventData(0);
+            var pointerId = eventData.pointerId;
+            var pointerPosition = Main.InputManager.GetPointerPosition(pointerId);
+            var worldPosition = levelCamera.Camera.ScreenToWorldPoint(pointerPosition);
+            var target = entity.GetHeldItemTarget(worldPosition);
+            var pointerParams = InputManager.GetPointerDataFromEventData(eventData);
+            return level.GetHeldHighlight(target, pointerParams);
+        }
+        private HeldHighlight GetGridHeldHighlight(int gridIndex, int pointerId)
+        {
+            var lane = level.GetGridLaneByIndex(gridIndex);
+            var column = level.GetGridColumnByIndex(gridIndex);
+            var grid = level.GetGrid(column, lane);
+            var gridUI = gridLayout.GetGrid(lane, column);
+            if (grid != null && gridUI.Exists())
+            {
+                var screenPos = Main.InputManager.GetPointerPosition(pointerId);
+                var worldPos = levelCamera.Camera.ScreenToWorldPoint(screenPos);
+                var position = gridUI.TransformWorld2ColliderPosition(worldPos);
+                var target = new HeldItemTargetGrid(grid, position);
+                var type = InputManager.GetPointerDataFromPointerId(pointerId);
+                return level.GetHeldHighlight(target, type);
+            }
+            return HeldHighlight.None;
+        }
+        private HeldHighlight GetBlueprintHeldHighlight(int blueprintIndex, int pointerId, bool conveyor)
+        {
+            var target = new HeldItemTargetBlueprint(level, blueprintIndex, conveyor);
+            var pointerParams = InputManager.GetPointerDataFromPointerId(pointerId);
+            return level.GetHeldHighlight(target, pointerParams);
+        }
+        private HeldHighlight GetLawnAreaHeldHighlight(LawnArea area, int pointerId)
+        {
+            var target = new HeldItemTargetLawn(level, area);
+            var pointerParams = InputManager.GetPointerDataFromPointerId(pointerId);
+            return level.GetHeldHighlight(target, pointerParams);
+        }
+        private void UpdateHeldHighlight()
+        {
+            var highlight = GetCurrentHeldHighlight();
+            UpdateHeldHighlight(highlight);
+        }
+        private void UpdateHeldHighlight(HeldHighlight highlight)
+        {
+            UpdateGridHighlight(highlight);
+            UpdateEntityHighlight(highlight);
+        }
+        private void UpdateGridHighlight(HeldHighlight highlight)
+        {
+            ClearGridHighlight();
+            if (highlight.mode != HeldHighlightMode.Grid)
+                return;
+            if (Main.InputManager.GetActivePointerType() == PointerTypes.TOUCH)
+            {
+                foreach (var gridHighlight in highlight.grids)
+                {
+                    var grid = gridHighlight.grid;
+                    HighlightAxisGrids(grid.Lane, grid.Column);
+                }
+            }
+            foreach (var gridHighlight in highlight.grids)
+            {
+                var grid = gridHighlight.grid;
+                var targetGridUI = gridLayout.GetGrid(grid.Lane, grid.Column);
+                if (targetGridUI != null)
+                {
+                    Color color = Color.clear;
+                    if (highlight.mode == HeldHighlightMode.Grid)
+                    {
+                        color = gridHighlight.valid ? Color.green : Color.red;
+                    }
+                    float rangeStart = gridHighlight.rangeStart;
+                    float rangeEnd = gridHighlight.rangeEnd;
+                    targetGridUI.SetColor(color);
+                    targetGridUI.SetDisplaySection(rangeStart, rangeEnd);
+                }
+            }
+        }
+        private void UpdateEntityHighlight(HeldHighlight highlight)
+        {
+            if (highlight.mode != HeldHighlightMode.Entity)
+            {
+                SetHighlightedEntity(null);
+                return;
+            }
+            var targetEntity = highlight.entity;
+            if (targetEntity != null)
+            {
+                var ctrl = GetEntityController(targetEntity);
+                SetHighlightedEntity(ctrl);
+            }
+        }
+        #endregion
 
         #region 属性字段
         private IModelInterface? heldItemModelInterface;

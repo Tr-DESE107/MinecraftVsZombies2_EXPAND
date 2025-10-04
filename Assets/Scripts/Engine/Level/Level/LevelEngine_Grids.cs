@@ -200,6 +200,12 @@ namespace PVZEngine.Level
         {
             return GetGrid(pos.x, pos.y);
         }
+        public LawnGrid? GetGridAt(Vector3 position)
+        {
+            var column = GetColumn(position.x);
+            var lane = GetLane(position.z);
+            return GetGrid(column, lane);
+        }
         public int GetGridIndex(int column, int lane)
         {
             return column + lane * GetMaxColumnCount();

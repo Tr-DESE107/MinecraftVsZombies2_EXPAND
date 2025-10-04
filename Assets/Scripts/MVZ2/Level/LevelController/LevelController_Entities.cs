@@ -11,7 +11,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Saves;
 using MVZ2Logic;
-using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine.Entities;
 using PVZEngine.Level;
@@ -171,31 +170,7 @@ namespace MVZ2.Level
         private void SetHoveredEntity(EntityController? entity)
         {
             hoveredEntity = entity;
-            UpdateEntityHighlight();
-        }
-        private void UpdateEntityHighlight()
-        {
-            if (!hoveredEntity.Exists() || hoveredEntity.GetHoveredPointerCount() <= 0)
-            {
-                SetHighlightedEntity(null);
-                return;
-            }
-            var eventData = hoveredEntity.GetHoveredPointerEventData(0);
-            var pointerId = eventData.pointerId;
-            var pointerPosition = Main.InputManager.GetPointerPosition(pointerId);
-            var worldPosition = levelCamera.Camera.ScreenToWorldPoint(pointerPosition);
-            var target = hoveredEntity.GetHeldItemTarget(worldPosition);
-            var pointerParams = InputManager.GetPointerDataFromEventData(eventData);
-            var highlight = level.GetHeldHighlight(target, pointerParams);
-            if (highlight.mode == HeldHighlightMode.Entity)
-            {
-                var targetEntity = highlight.entity;
-                if (targetEntity != null)
-                {
-                    var ctrl = GetEntityController(targetEntity);
-                    SetHighlightedEntity(ctrl);
-                }
-            }
+            UpdateHeldHighlight();
         }
         private void SetHighlightedEntity(EntityController? entity)
         {
