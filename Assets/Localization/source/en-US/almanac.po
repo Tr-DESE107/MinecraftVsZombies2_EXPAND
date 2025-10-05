@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-05 03:07+0800\n"
-"PO-Revision-Date: 2025-10-05 15:08+0800\n"
+"POT-Creation-Date: 2025-10-05 04:02+0800\n"
+"PO-Revision-Date: 2025-10-05 17:02+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3286,6 +3286,42 @@ msgstr ""
 "color>, <color=green>Green-Green-Green</color>, <color=blue>Blue-Blue-Blue</color>, and <color=red>Red</color>-<color=green>Green</"
 "color>-<color=blue>Blue</color>.\n"
 "How to play? Simply place two <color=red>Red</color> chips and one <color=blue>Blue</color> chip into the slots on the same side!"
+
+#. Header for artifacts mvz2:sorcerers_scroll
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "白莲赠送的魔法物品，通过咏唱来强化人的肉体。"
+msgstr "A magical item gifted by Byakuren that increases physical abilities through reciting spells."
+
+#. Properties for artifacts mvz2:sorcerers_scroll
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"效果：<color=red>星之碎片的效果改为格斗术</color>\n"
+"横向拖动：<color=red>冲拳，对一整行内的敌人造成1200点伤害并将其击飞</color>\n"
+"向下拖动：<color=red>俯冲，对半径1.5格内的敌人造成1800点伤害</color>\n"
+"向上拖动：<color=red>上勾拳，对半径2.5格内的敌人造成400点伤害并将其击飞</color>"
+msgstr ""
+"Effect: <color=red>Transforms the effect of starshards into combat skills</color>\vSwipe Horizontally: <color=red>Straight Punch, "
+"deals 1200 damage to all enemies in the entire lane and knocks them back</color>\vSwipe Down: <color=red>Dive, deals 1800 damage to "
+"enemies within a 1.5-tile radius</color>\n"
+"Swipe Up: <color=red>Uppercut, deals 400 damage to enemies within a 2.5-tile radius and knocks them back</color>"
+
+#. Flavor for artifacts mvz2:sorcerers_scroll
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"白莲在被封印到魔界的期间，曾使用魔界的物质制作过这样一款魔人经卷。\n"
+"这经卷完全由经文组成，没有纸这种文字载体。魔界的物质大多有自我意识，那魔人经卷也因此拥有自我意识，可以自动咏唱经文。\n"
+"而在那之后，白莲试着仿照魔人经卷制作一份复制品，然而没有魔界中的物质，因此就算充满魔力，效果也比之前的差上许多。\n"
+"不过，足以让史蒂夫这样的普通人类变成“超人”了。"
+msgstr ""
+"While sealed in Makai, Byakuren once used materials from Makai to create a sorcerer's sutra scroll.\n"
+"That scroll was composed entirely of sutras, lacking a paper medium. Most materials in Makai possess self-awareness, so the sutra "
+"scroll also became sentient and could chant the sutras automatically.\n"
+"Afterward, Byakuren attempted to create a replica of the scroll, but without the materials from Makai, the resulting item, though "
+"infused with magic, was far less effective than the original.\n"
+"However, it is still sufficient to transform an ordinary human like Steve into a \"Superhuman.\""
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file

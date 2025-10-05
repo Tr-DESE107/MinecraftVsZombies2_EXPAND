@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-05 03:07+0800\n"
+"POT-Creation-Date: 2025-10-05 04:02+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2746,6 +2746,32 @@ msgid ""
 "这个玩具形状是个四棱锥。它的底部有四个不同颜色的飞碟凹槽，每个颜色的凹槽里面都有三个飞碟。\n"
 "四个侧面中，每个侧面都有三个凹槽，凹槽周围分别被涂上了不同的颜色：<color=red>红红红</color>、<color=green>绿绿绿</color>、<color=blue>蓝蓝蓝</color>、<color=red>红</color><color=green>绿</color><color=blue>蓝</color>。\n"
 "你问我这个玩具怎么玩？很简单，只需要把2个<color=red>红色</color>的和1个<color=blue>蓝色</color>的飞碟放在同一面的凹槽上就行了！"
+msgstr ""
+
+#. Header for artifacts mvz2:sorcerers_scroll
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "白莲赠送的魔法物品，通过咏唱来强化人的肉体。"
+msgstr ""
+
+#. Properties for artifacts mvz2:sorcerers_scroll
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"效果：<color=red>星之碎片的效果改为格斗术</color>\n"
+"横向拖动：<color=red>冲拳，对一整行内的敌人造成1200点伤害并将其击飞</color>\n"
+"向下拖动：<color=red>俯冲，对半径1.5格内的敌人造成1800点伤害</color>\n"
+"向上拖动：<color=red>上勾拳，对半径2.5格内的敌人造成400点伤害并将其击飞</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:sorcerers_scroll
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"白莲在被封印到魔界的期间，曾使用魔界的物质制作过这样一款魔人经卷。\n"
+"这经卷完全由经文组成，没有纸这种文字载体。魔界的物质大多有自我意识，那魔人经卷也因此拥有自我意识，可以自动咏唱经文。\n"
+"而在那之后，白莲试着仿照魔人经卷制作一份复制品，然而没有魔界中的物质，因此就算充满魔力，效果也比之前的差上许多。\n"
+"不过，足以让史蒂夫这样的普通人类变成“超人”了。"
 msgstr ""
 
 #. Name for almanac group mvz2:bosses
