@@ -94,6 +94,8 @@ namespace MVZ2.GameContent.Effects
         public const string pagodaLaser = "pagoda_laser";
         public const string combatPunch = "combat_punch";
         public const string combatPunchTrail = "combat_punch_trail";
+        public const string combatSmash = "combat_smash";
+        public const string combatSmashTrail = "combat_smash_trail";
     }
     public static class VanillaEffectID
     {
@@ -184,6 +186,8 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID pagodaLaser = Get(VanillaEffectNames.pagodaLaser);
         public static readonly NamespaceID combatPunch = Get(VanillaEffectNames.combatPunch);
         public static readonly NamespaceID combatPunchTrail = Get(VanillaEffectNames.combatPunchTrail);
+        public static readonly NamespaceID combatSmash = Get(VanillaEffectNames.combatSmash);
+        public static readonly NamespaceID combatSmashTrail = Get(VanillaEffectNames.combatSmashTrail);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

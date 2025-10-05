@@ -399,6 +399,8 @@
     <model name="pagoda_laser" type="entity" path="mvz2:effect/pagoda_laser" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="combat_punch_trail" type="entity" path="mvz2:effect/combat_punch_trail" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
     <model name="combat_punch" type="entity" path="mvz2:effect/combat_punch" width="100" height="100" xOffset="0" yOffset="-40"/>
+    <model name="combat_smash_trail" type="entity" path="mvz2:effect/combat_smash_trail" shot="false" width="32" height="32" xOffset="0" yOffset="0"/>
+    <model name="combat_smash" type="entity" path="mvz2:effect/combat_smash" width="100" height="140" xOffset="0" yOffset="-40"/>
 
     <!-- Projectiles -->
     <model name="arrow" type="entity" path="mvz2:projectile/arrow" width="32" height="10" xOffset="0" yOffset="0"/>

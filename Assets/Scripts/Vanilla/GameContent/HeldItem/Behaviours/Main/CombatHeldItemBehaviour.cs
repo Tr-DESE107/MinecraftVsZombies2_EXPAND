@@ -217,13 +217,17 @@ namespace MVZ2.GameContent.HeldItems
         }
         private void CastCombatSmash(LevelEngine level, Vector3 position)
         {
-            var faction = level.Option.LeftFaction;
-            var radius = 120;
-            var damage = 1800;
-            ILevelSourceReference? source = null;
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
-            level.Explode(position, radius, faction, damage, damageEffects, source);
-            Explosion.Spawn(level, position, radius);
+            var column = level.GetColumn(position.x);
+            var lane = level.GetLane(position.z);
+            var x = level.GetEntityColumnX(column);
+            var z = level.GetEntityLaneZ(lane);
+            var y = level.GetGroundY(x, z);
+            var pos = new Vector3(x, y, z);
+            var param = new SpawnParams();
+            param.SetProperty(EngineEntityProps.FACTION, level.Option.LeftFaction);
+            param.SetProperty(VanillaEntityProps.DAMAGE, 1800f);
+            param.SetProperty(VanillaEntityProps.RANGE, 120f);
+            level.Spawn(VanillaEffectID.combatSmash, pos, null, param);
         }
         private void CastCombatUppercut(LevelEngine level, Vector3 position)
         {

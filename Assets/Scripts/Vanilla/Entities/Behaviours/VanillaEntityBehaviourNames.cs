@@ -93,6 +93,7 @@ namespace MVZ2.Vanilla.Entities
         public const string gas = "gas";
         public const string gasBlown = "gas_blown";
         public const string waterStainBlown = "water_stain_blown";
+        public const string stopParticlesWithoutParent = "stop_particles_without_parent";
         #endregion
     }
 }

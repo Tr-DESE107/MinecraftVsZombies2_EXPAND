@@ -4565,6 +4565,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68f28b4944673ed47805d4d9455edb75
+    m_Address: mvz2:entity/effects/combat_trail_smash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 691131bb6028ac44c8e585797df31cec
     m_Address: mvz2:talk/villager/villager_long2
     m_ReadOnly: 0
@@ -7791,6 +7798,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5fe632b2a79a0e41823bc43324571bf
+    m_Address: mvz2:effect/combat_smash_trail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b619b60be7108ed4fafb8ba9257d68ce
     m_Address: mvz2:entity/projectiles/cobble
     m_ReadOnly: 0
@@ -8525,6 +8539,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c90c19c3ecd357b4b94630b912dc5d2d
+    m_Address: mvz2:effect/combat_smash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c91919e3f10e9004f85638cba2384e3e
     m_Address: mvz2:entity/contraptions/force_wave
