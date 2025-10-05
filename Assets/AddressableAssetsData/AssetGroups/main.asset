@@ -241,6 +241,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 065657939ffb9974ab8e2e2ba5f9dae1
+    m_Address: mvz2:steve_roar2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 067521958e94fd440bf2d5a8c1b62383
     m_Address: mvz2:mobile_blueprint/zombie_cloud_thunder
     m_ReadOnly: 0
@@ -2570,6 +2577,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ab4bf99d00b74140b117a72ec590e59
+    m_Address: mvz2:steve_roar3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3afaf2b4c67113848b1fff109e80f52d
     m_Address: mvz2:revived
     m_ReadOnly: 0
@@ -3433,6 +3447,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d88a598c5aab984891215c1f4414390
     m_Address: mvz2:entity/projectiles/giant_spike
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4de17fa916d0f324b8a0e7936a1cc303
+    m_Address: mvz2:entity/effects/combat_trail_uppercut
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -4383,6 +4404,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63617a42dda0ce04eb7e3db54d32f599
+    m_Address: mvz2:effect/combat_uppercut_trail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63931386c553c1940b368a0c2054db20
     m_Address: mvz2:soul_sand_break7
     m_ReadOnly: 0
@@ -4578,6 +4606,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a138a85fdcc6c147a57a18eb4bb10f5
+    m_Address: mvz2:effect/combat_uppercut
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6a18698f112f8244db4b1e5de5873248
     m_Address: mvz2:ui/effect/crushing_wall_right
@@ -5977,6 +6012,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8aed62c87bd530a44ac53df8b4ede2b0
+    m_Address: mvz2:steve_roar1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8af07b31f932791429fddf24a251679f
     m_Address: mvz2:entity/projectiles/javelin

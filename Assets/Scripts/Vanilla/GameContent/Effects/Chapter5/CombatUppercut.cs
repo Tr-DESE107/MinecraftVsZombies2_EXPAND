@@ -35,17 +35,15 @@ namespace MVZ2.GameContent.Effects
             var position = entity.GetBounds().center;
             position.y = bounds.max.y;
             var damageEffects = new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
-            var outputs = entity.Explode(position, radius, faction, damage, damageEffects);
-            foreach (var output in outputs)
+            var level = entity.Level;
+            foreach (IEntityCollider entityCollider in level.OverlapSphere(position, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
             {
-                var result = output.BodyResult;
-                if (result == null)
-                    continue;
-                var target = result.Entity;
+                entityCollider.TakeDamage(damage, damageEffects, entity);
+                var target = entityCollider.Entity;
                 target.PlaySound(VanillaSoundID.punch);
                 target.PlaySound(VanillaSoundID.impact);
                 entity.Level.ShakeScreen(10, 0, 15);
-                if (target.Type == EntityTypes.ENEMY)
+                if (entityCollider.IsForMain() && target.Type == EntityTypes.ENEMY)
                 {
                     var knockbackMultiplier = target.GetStrongKnockbackMultiplier();
                     target.Velocity += direction * (10 * knockbackMultiplier) + Vector3.up * (20 * knockbackMultiplier);
