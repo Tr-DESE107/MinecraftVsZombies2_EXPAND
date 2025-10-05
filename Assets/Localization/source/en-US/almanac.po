@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-05 04:02+0800\n"
-"PO-Revision-Date: 2025-10-05 17:02+0800\n"
+"POT-Creation-Date: 2025-10-05 06:58+0800\n"
+"PO-Revision-Date: 2025-10-05 19:09+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3291,7 +3291,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid "白莲赠送的魔法物品，通过咏唱来强化人的肉体。"
-msgstr "A magical item gifted by Byakuren that increases physical abilities through reciting spells."
+msgstr "A magical item given by Byakuren, which strengthens the human body through chanting."
 
 #. Properties for artifacts mvz2:sorcerers_scroll
 #: Almanac meta file
@@ -3302,10 +3302,10 @@ msgid ""
 "向下拖动：<color=red>俯冲，对半径1.5格内的敌人造成1800点伤害</color>\n"
 "向上拖动：<color=red>上勾拳，对半径2.5格内的敌人造成400点伤害并将其击飞</color>"
 msgstr ""
-"Effect: <color=red>Transforms the effect of starshards into combat skills</color>\vSwipe Horizontally: <color=red>Straight Punch, "
-"deals 1200 damage to all enemies in the entire lane and knocks them back</color>\vSwipe Down: <color=red>Dive, deals 1800 damage to "
-"enemies within a 1.5-tile radius</color>\n"
-"Swipe Up: <color=red>Uppercut, deals 400 damage to enemies within a 2.5-tile radius and knocks them back</color>"
+"Effect: <color=red>Changes the effect of Starshards into fighting techniques</color>\n"
+"Horizontal drag: <color=red>Punch, deals 1200 damage to all enemies in an entire row and knocks them back</color>\n"
+"Downward drag: <color=red>Dive, deals 1800 damage to all enemies within a 1.5-tile radius</color>\n"
+"Upward drag: <color=red>Uppercut, deals 400 damage to all enemies within a 2.5-tile radius and knocks them back</color>"
 
 #. Flavor for artifacts mvz2:sorcerers_scroll
 #: Almanac meta file
@@ -3316,12 +3316,12 @@ msgid ""
 "而在那之后，白莲试着仿照魔人经卷制作一份复制品，然而没有魔界中的物质，因此就算充满魔力，效果也比之前的差上许多。\n"
 "不过，足以让史蒂夫这样的普通人类变成“超人”了。"
 msgstr ""
-"While sealed in Makai, Byakuren once used materials from Makai to create a sorcerer's sutra scroll.\n"
-"That scroll was composed entirely of sutras, lacking a paper medium. Most materials in Makai possess self-awareness, so the sutra "
-"scroll also became sentient and could chant the sutras automatically.\n"
-"Afterward, Byakuren attempted to create a replica of the scroll, but without the materials from Makai, the resulting item, though "
-"infused with magic, was far less effective than the original.\n"
-"However, it is still sufficient to transform an ordinary human like Steve into a \"Superhuman.\""
+"During her time sealed in Makai, Byakuren used materials from there to create the Sorcerer's Sutra Scroll.\n"
+"This scroll was composed entirely of sutras, without using any paper as a medium. Since most materials in Makai possess self-"
+"awareness, the Sorcerer's Sutra Scroll consequently also possesses self-awareness, being capable of automatically chanting sutras.\n"
+"After that, Byakuren attempted to create a replica of the Sorcerer's Sutra Scroll, but without using the materials from Makai, so even "
+"if it was brimming with magic, its effect was still much weaker than the original.\n"
+"However, it is still sufficient to turn an ordinary human like Steve into a \"superhuman\"."
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
@@ -6265,7 +6265,7 @@ msgstr "Sorcerer's Scroll"
 #: Artifact meta file
 msgctxt "artifact.tooltip"
 msgid "将星之碎片的效果变为格斗术"
-msgstr "Transforms the effect of starshards into combat skills"
+msgstr "Changes the effect of Starshards into fighting techniques"
 
 #. Name for artifact mvz2:dragon_claw
 #: Artifact meta file
