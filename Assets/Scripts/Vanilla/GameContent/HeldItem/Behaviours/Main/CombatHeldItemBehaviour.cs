@@ -21,10 +21,10 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.HeldItems
 {
-    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.physicalArt)]
-    public class PhysicalArtHeldItemBehaviour : HeldItemBehaviourDefinition
+    [HeldItemBehaviourDefinition(VanillaHeldItemBehaviourNames.combat)]
+    public class CombatHeldItemBehaviour : HeldItemBehaviourDefinition
     {
-        public PhysicalArtHeldItemBehaviour(string nsp, string name) : base(nsp, name)
+        public CombatHeldItemBehaviour(string nsp, string name) : base(nsp, name)
         {
         }
 
@@ -76,11 +76,11 @@ namespace MVZ2.GameContent.HeldItems
             if (grid == null)
                 return HeldHighlight.None;
 
-            var artType = GetPhyscialArtType(level, data);
+            var artType = GetCombatType(level, data);
             List<LawnGrid> grids = new List<LawnGrid>();
             switch (artType)
             {
-                case ArtType.Smash:
+                case CombatType.Smash:
                     for (int x = -1; x <= 1; x++)
                     {
                         for (int y = -1; y <= 1; y++)
@@ -91,7 +91,7 @@ namespace MVZ2.GameContent.HeldItems
                         }
                     }
                     break;
-                case ArtType.Uppercut:
+                case CombatType.Uppercut:
                     for (int x = -2; x <= 2; x++)
                     {
                         for (int y = -2; y <= 2; y++)
@@ -102,7 +102,7 @@ namespace MVZ2.GameContent.HeldItems
                         }
                     }
                     break;
-                case ArtType.Punch:
+                case CombatType.Punch:
                     for (int x = 0; x < level.GetMaxColumnCount(); x++)
                     {
                         var g = level.GetGrid(x, grid.Lane);
@@ -142,7 +142,7 @@ namespace MVZ2.GameContent.HeldItems
                 var level = target.GetLevel();
                 var pointer = Global.Input.GetPointerScreenPosition();
                 SetDragPosition(data, pointer);
-                CastPhyscialArt(level, data);
+                CastCombat(level, data);
                 level.ResetHeldItem();
             }
         }
@@ -169,7 +169,7 @@ namespace MVZ2.GameContent.HeldItems
                 }
             }
         }
-        private ArtType GetPhyscialArtType(LevelEngine level, IHeldItemData data)
+        private CombatType GetCombatType(LevelEngine level, IHeldItemData data)
         {
             var dragStartPosition = GetDragStartPosition(data);
             var dragPosition = GetDragPosition(data);
@@ -178,39 +178,39 @@ namespace MVZ2.GameContent.HeldItems
             var castPosition = level.ScreenToLawnPositionByRelativeY(dragStartPosition, 0);
             if (direction.sqrMagnitude <= SQR_THRESOLD || angle < 45 || angle >= 315)
             {
-                return ArtType.Smash;
+                return CombatType.Smash;
             }
             else if (angle > 135 && angle <= 225)
             {
-                return ArtType.Uppercut;
+                return CombatType.Uppercut;
             }
             else
             {
-                return ArtType.Punch;
+                return CombatType.Punch;
             }
         }
-        private void CastPhyscialArt(LevelEngine level, IHeldItemData data)
+        private void CastCombat(LevelEngine level, IHeldItemData data)
         {
-            var artType = GetPhyscialArtType(level, data);
+            var artType = GetCombatType(level, data);
             var dragStartPosition = GetDragStartPosition(data);
             var castPosition = level.ScreenToLawnPositionByRelativeY(dragStartPosition, 0);
-            if (artType == ArtType.Smash)
+            if (artType == CombatType.Punch)
             {
-                CastPhyscialArtDown(level, castPosition);
+                CastCombatPunch(level, castPosition);
             }
-            else if (artType == ArtType.Uppercut)
+            else if (artType == CombatType.Uppercut)
             {
-                CastPhyscialArtUp(level, castPosition);
+                CastCombatUppercut(level, castPosition);
             }
             else
             {
-                CastPhyscialArtHorizontal(level, castPosition);
+                CastCombatSmash(level, castPosition);
             }
             level.PlaySound(VanillaSoundID.evocation, castPosition);
             level.AddStarshardCount(-1);
             level.ResetHeldItem();
         }
-        private void CastPhyscialArtDown(LevelEngine level, Vector3 position)
+        private void CastCombatSmash(LevelEngine level, Vector3 position)
         {
             var faction = level.Option.LeftFaction;
             var radius = 120;
@@ -220,7 +220,7 @@ namespace MVZ2.GameContent.HeldItems
             level.Explode(position, radius, faction, damage, damageEffects, source);
             Explosion.Spawn(level, position, radius);
         }
-        private void CastPhyscialArtUp(LevelEngine level, Vector3 position)
+        private void CastCombatUppercut(LevelEngine level, Vector3 position)
         {
             var faction = level.Option.LeftFaction;
             var radius = 200;
@@ -242,7 +242,7 @@ namespace MVZ2.GameContent.HeldItems
             }
             Explosion.Spawn(level, position, radius);
         }
-        private void CastPhyscialArtHorizontal(LevelEngine level, Vector3 position)
+        private void CastCombatPunch(LevelEngine level, Vector3 position)
         {
             var faction = level.Option.LeftFaction;
             var damage = 1200;
@@ -269,7 +269,7 @@ namespace MVZ2.GameContent.HeldItems
         public override void GetModelID(LevelEngine level, IHeldItemData data, CallbackResult result)
         {
             base.GetModelID(level, data, result);
-            result.SetFinalValue(VanillaModelID.physicalArt);
+            result.SetFinalValue(VanillaModelID.combat);
         }
         public static void SetDragStartPosition(IHeldItemData data, Vector2 position)
         {
@@ -290,7 +290,7 @@ namespace MVZ2.GameContent.HeldItems
         public const float SQR_THRESOLD = 20 * 20;
         public static readonly PropertyMeta<Vector2> PROP_DRAG_START_POSITION = new PropertyMeta<Vector2>("drag_start_position");
         public static readonly PropertyMeta<Vector2> PROP_DRAG_POSITION = new PropertyMeta<Vector2>("drag_position");
-        public enum ArtType
+        public enum CombatType
         {
             Smash,
             Punch,

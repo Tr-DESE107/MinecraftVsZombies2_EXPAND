@@ -1130,6 +1130,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18f2b41dc9bdcbb489fce585ef42e904
+    m_Address: mvz2:entity/effects/combat_trail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 19334bb02ae9acb499abf76dbcaa51f9
     m_Address: mvz2:entity/contraption/beacon
     m_ReadOnly: 0
@@ -1782,7 +1789,7 @@ MonoBehaviour:
     - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a2318667fa50b94c85f46273dae8fbc
-    m_Address: mvz2:held/physical_art
+    m_Address: mvz2:held/combat
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -1998,7 +2005,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e64b12488b10c340838892bf9f9db3e
-    m_Address: mvz2:ui/physical_art
+    m_Address: mvz2:ui/combat
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

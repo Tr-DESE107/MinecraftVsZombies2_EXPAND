@@ -507,6 +507,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 43fcd92f2a72ca443ab18701d0b8563c, type: 3}
   - name: ui/close
     sprite: {fileID: 21300000, guid: ecbd7380d218ae0499f9db9112f463a4, type: 3}
+  - name: ui/combat
+    sprite: {fileID: 21300000, guid: 2e64b12488b10c340838892bf9f9db3e, type: 3}
   - name: ui/debug_console_icon
     sprite: {fileID: 21300000, guid: c853afac5f602874e877872193826015, type: 3}
   - name: ui/gear
@@ -649,6 +651,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a6f5c16aaaa862f4a8000dbbb824d5a0, type: 3}
   - name: entity/effects/camera_frame
     sprite: {fileID: 21300000, guid: 5005e9bfb3edbd84082f1c1dbc01250b, type: 3}
+  - name: entity/effects/combat_trail
+    sprite: {fileID: 21300000, guid: 18f2b41dc9bdcbb489fce585ef42e904, type: 3}
   - name: entity/effects/cursed_fire_particle
     sprite: {fileID: 21300000, guid: e2f7e29ca0c62d5468d4cab32fae9562, type: 3}
   - name: entity/effects/dark_hole_circle

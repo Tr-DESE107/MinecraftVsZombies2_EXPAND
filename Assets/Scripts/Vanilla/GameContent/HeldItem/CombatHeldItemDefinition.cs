@@ -6,16 +6,16 @@ using MVZ2Logic.HeldItems;
 
 namespace MVZ2.Vanilla.HeldItems
 {
-    [HeldItemDefinition(VanillaHeldItemNames.physicalArt)]
-    public class PhysicalArtHeldItemDefinition : HeldItemDefinition
+    [HeldItemDefinition(VanillaHeldItemNames.combat)]
+    public class CombatHeldItemDefinition : HeldItemDefinition
     {
-        public PhysicalArtHeldItemDefinition(string nsp, string name) : base(nsp, name)
+        public CombatHeldItemDefinition(string nsp, string name) : base(nsp, name)
         {
             AddBehaviour(VanillaHeldItemBehaviourID.rightMouseCancel);
             AddBehaviour(VanillaHeldItemBehaviourID.pickup);
             AddBehaviour(VanillaHeldItemBehaviourID.triggerCart);
             AddBehaviour(VanillaHeldItemBehaviourID.selectBlueprint);
-            AddBehaviour(VanillaHeldItemBehaviourID.physicalArt);
+            AddBehaviour(VanillaHeldItemBehaviourID.combat);
         }
     }
 }
