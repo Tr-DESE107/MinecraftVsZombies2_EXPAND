@@ -15,6 +15,7 @@ using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
 using PVZEngine.Damages;
+using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
 using UnityEngine;
@@ -62,55 +63,59 @@ namespace MVZ2.GameContent.HeldItems
 
             var dragged = IsDragging(data);
 
-            LawnGrid? grid = null;
+            List<LawnGrid> grids = new List<LawnGrid>();
             if (dragged)
             {
                 var startPosition = GetDragStartPosition(data);
                 var startLawnPosition = level.ScreenToLawnPositionByRelativeY(startPosition, 0);
-                grid = level.GetGridAt(startLawnPosition);
+                var grid = level.GetGridAt(startLawnPosition);
+                if (grid != null)
+                {
+                    var artType = GetCombatType(level, data);
+                    switch (artType)
+                    {
+                        case CombatType.Smash:
+                            for (int x = -1; x <= 1; x++)
+                            {
+                                for (int y = -1; y <= 1; y++)
+                                {
+                                    var g = level.GetGrid(grid.Column + x, grid.Lane + y);
+                                    if (g != null)
+                                        grids.Add(g);
+                                }
+                            }
+                            break;
+                        case CombatType.Uppercut:
+                            for (int x = -2; x <= 2; x++)
+                            {
+                                for (int y = -2; y <= 2; y++)
+                                {
+                                    var g = level.GetGrid(grid.Column + x, grid.Lane + y);
+                                    if (g != null)
+                                        grids.Add(g);
+                                }
+                            }
+                            break;
+                        case CombatType.Punch:
+                            for (int x = 0; x < level.GetMaxColumnCount(); x++)
+                            {
+                                var g = level.GetGrid(x, grid.Lane);
+                                if (g != null)
+                                    grids.Add(g);
+                            }
+                            break;
+                    }
+                }
             }
             else if (target is HeldItemTargetGrid gridTarget)
             {
-                grid = gridTarget.Target;
+                var grid = gridTarget.Target;
+                if (grid != null)
+                {
+                    grids.Add(grid);
+                }
             }
-            if (grid == null)
-                return HeldHighlight.None;
 
-            var artType = GetCombatType(level, data);
-            List<LawnGrid> grids = new List<LawnGrid>();
-            switch (artType)
-            {
-                case CombatType.Smash:
-                    for (int x = -1; x <= 1; x++)
-                    {
-                        for (int y = -1; y <= 1; y++)
-                        {
-                            var g = level.GetGrid(grid.Column + x, grid.Lane + y);
-                            if (g != null)
-                                grids.Add(g);
-                        }
-                    }
-                    break;
-                case CombatType.Uppercut:
-                    for (int x = -2; x <= 2; x++)
-                    {
-                        for (int y = -2; y <= 2; y++)
-                        {
-                            var g = level.GetGrid(grid.Column + x, grid.Lane + y);
-                            if (g != null)
-                                grids.Add(g);
-                        }
-                    }
-                    break;
-                case CombatType.Punch:
-                    for (int x = 0; x < level.GetMaxColumnCount(); x++)
-                    {
-                        var g = level.GetGrid(x, grid.Lane);
-                        if (g != null)
-                            grids.Add(g);
-                    }
-                    break;
-            }
             return new HeldHighlight()
             {
                 mode = HeldHighlightMode.Grid,
@@ -244,21 +249,15 @@ namespace MVZ2.GameContent.HeldItems
         }
         private void CastCombatPunch(LevelEngine level, Vector3 position)
         {
-            var faction = level.Option.LeftFaction;
-            var damage = 1200;
-            var direction = Vector3.right;
             var lane = level.GetLane(position.z);
-            ILevelSourceReference? source = null;
-            foreach (var entity in level.FindEntities(e => e.IsHostileEntity() && e.IsVulnerableEntity() && e.GetLane() == lane))
-            {
-                var damageEffects = new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
-                entity.TakeDamageSourced(damage, damageEffects, source);
-
-                var knockbackMultiplier = entity.GetStrongKnockbackMultiplier();
-                entity.Velocity += entity.GetFacingDirection() * (40f * knockbackMultiplier) + Vector3.up * (20f * knockbackMultiplier);
-
-                entity.ApplyStrongImpact();
-            }
+            var x = 0;
+            var z = level.GetEntityLaneZ(lane);
+            var y = level.GetGroundY(x, z);
+            var pos = new Vector3(x, y, z);
+            var param = new SpawnParams();
+            param.SetProperty(EngineEntityProps.FACTION, level.Option.LeftFaction);
+            param.SetProperty(VanillaEntityProps.DAMAGE, 1200f);
+            level.Spawn(VanillaEffectID.combatPunch, pos, null, param);
         }
         private bool IsDragging(IHeldItemData data)
         {

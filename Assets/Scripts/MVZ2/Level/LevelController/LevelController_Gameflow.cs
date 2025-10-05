@@ -87,6 +87,7 @@ namespace MVZ2.Level
             AddLevelCallbacks_Entities(level);
             AddLevelCallbacks_GameFlow(level);
             AddLevelCallbacks_Sponsors(level);
+            level.OnPropertyChanged += OnLevelPropertyChangedCallback;
 
             foreach (var controller in parts)
             {
@@ -321,6 +322,13 @@ namespace MVZ2.Level
                 case GameOverTypes.INSTANT:
                     GameOverInstantly(message);
                     break;
+            }
+        }
+        private void OnLevelPropertyChangedCallback(IPropertyKey name, object? beforeValue, object? afterValue, bool triggersEvaluation)
+        {
+            if (VanillaAreaProps.STARSHARD_ICON.Equals(name))
+            {
+                SetStarshardIcon();
             }
         }
         private async void OnEngineClearCallback()

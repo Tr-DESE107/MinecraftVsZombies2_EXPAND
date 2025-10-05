@@ -367,6 +367,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0872912d0982c2346bc613161b83e654
+    m_Address: mvz2:effect/combat_punch_trail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08aa6367ea055db4f9821346c863494d
     m_Address: mvz2:mausoleum
     m_ReadOnly: 0
@@ -3767,6 +3774,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56d9698bb3001c84ca50c3f36113cb5d
+    m_Address: mvz2:entity/effects/combat_trail_punch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 56f8b80b81069954a9380947b47bbe4e
     m_Address: mvz2:projectile/large_snowball
     m_ReadOnly: 0
@@ -4879,6 +4893,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 727d9b6ad4e6962458354304fc84ccbc
+    m_Address: mvz2:entity/effects/combat_trail_wave
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 729f6cb40a51da2449f5a7e7b4ead347
     m_Address: mvz2:enemy/mausoleum/shikaisen_zombie
@@ -9365,6 +9386,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd4675e804edf8a46bd5d3334beaff65
+    m_Address: mvz2:effect/combat_punch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd81e2f5e01461d4c9186fe9648f2c1f
     m_Address: mvz2:entity/effects/zombie_block

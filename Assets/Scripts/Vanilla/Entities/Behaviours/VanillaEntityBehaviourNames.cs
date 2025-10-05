@@ -6,6 +6,8 @@ namespace MVZ2.Vanilla.Entities
     {
         public const string timeoutDeath = "timeout_death";
         public const string timeoutRemove = "timeout_remove";
+        public const string timeoutRemoveWithoutParent = "timeout_remove_without_parent";
+        public const string followParent = "follow_parent";
         public const string modelDamagePercent = "model_damage_percent";
 
         #region Contraptions
