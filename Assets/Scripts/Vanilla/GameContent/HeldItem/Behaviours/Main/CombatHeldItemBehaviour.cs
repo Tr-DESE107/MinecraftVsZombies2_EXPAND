@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using MVZ2.GameContent.Damages;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Models;
 using MVZ2.HeldItems;
@@ -14,7 +13,6 @@ using MVZ2Logic.HeldItems;
 using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Callbacks;
-using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Grids;
 using PVZEngine.Level;
@@ -231,25 +229,17 @@ namespace MVZ2.GameContent.HeldItems
         }
         private void CastCombatUppercut(LevelEngine level, Vector3 position)
         {
-            var faction = level.Option.LeftFaction;
-            var radius = 200;
-            var damage = 400;
-            var direction = Vector3.right;
-            ILevelSourceReference? source = null;
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.EXPLOSION, VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
-            var outputs = level.Explode(position, radius, faction, damage, damageEffects, source);
-            foreach (var output in outputs)
-            {
-                var result = output.BodyResult;
-                if (result == null)
-                    continue;
-                var target = result.Entity;
-                var knockbackMultiplier = target.GetStrongKnockbackMultiplier();
-                target.Velocity += direction * (10 * knockbackMultiplier) + Vector3.up * (20 * knockbackMultiplier);
-
-                target.ApplyStrongImpact();
-            }
-            Explosion.Spawn(level, position, radius);
+            var column = level.GetColumn(position.x);
+            var lane = level.GetLane(position.z);
+            var x = level.GetEntityColumnX(column);
+            var z = level.GetEntityLaneZ(lane);
+            var y = level.GetGroundY(x, z);
+            var pos = new Vector3(x, y, z);
+            var param = new SpawnParams();
+            param.SetProperty(EngineEntityProps.FACTION, level.Option.LeftFaction);
+            param.SetProperty(VanillaEntityProps.DAMAGE, 400f);
+            param.SetProperty(VanillaEntityProps.RANGE, 200f);
+            level.Spawn(VanillaEffectID.combatUppercut, pos, null, param);
         }
         private void CastCombatPunch(LevelEngine level, Vector3 position)
         {

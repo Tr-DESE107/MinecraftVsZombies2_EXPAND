@@ -1137,13 +1137,6 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 18f2b41dc9bdcbb489fce585ef42e904
-    m_Address: mvz2:entity/effects/combat_trail
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Main
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 19334bb02ae9acb499abf76dbcaa51f9
     m_Address: mvz2:entity/contraption/beacon
     m_ReadOnly: 0

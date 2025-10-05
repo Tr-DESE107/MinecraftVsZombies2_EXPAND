@@ -96,6 +96,8 @@ namespace MVZ2.GameContent.Effects
         public const string combatPunchTrail = "combat_punch_trail";
         public const string combatSmash = "combat_smash";
         public const string combatSmashTrail = "combat_smash_trail";
+        public const string combatUppercut = "combat_uppercut";
+        public const string combatUppercutTrail = "combat_uppercut_trail";
     }
     public static class VanillaEffectID
     {
@@ -188,6 +190,8 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID combatPunchTrail = Get(VanillaEffectNames.combatPunchTrail);
         public static readonly NamespaceID combatSmash = Get(VanillaEffectNames.combatSmash);
         public static readonly NamespaceID combatSmashTrail = Get(VanillaEffectNames.combatSmashTrail);
+        public static readonly NamespaceID combatUppercut = Get(VanillaEffectNames.combatUppercut);
+        public static readonly NamespaceID combatUppercutTrail = Get(VanillaEffectNames.combatUppercutTrail);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

@@ -108,7 +108,7 @@
             <condition required="mvz2:artifact.dowsing_rods"/>
         </unlock>
     </artifact>
-    <artifact id="sorcerers_scroll" name="魔人经卷" tooltip="将星之碎片的效果变为体术" sprite="mvz2:artifacts/sorcerers_scroll" >
+    <artifact id="sorcerers_scroll" name="魔人经卷" tooltip="将星之碎片的效果变为格斗术" sprite="mvz2:artifacts/sorcerers_scroll" >
         <unlock>
             <condition required="mvz2:level.ship_11"/>
         </unlock>
