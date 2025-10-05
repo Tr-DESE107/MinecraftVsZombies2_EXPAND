@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-02 09:01+0800\n"
-"PO-Revision-Date: 2025-10-04 22:43+0800\n"
+"POT-Creation-Date: 2025-10-05 03:07+0800\n"
+"PO-Revision-Date: 2025-10-05 15:08+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -6228,8 +6228,8 @@ msgstr "Sorcerer's Scroll"
 #. Tooltip for artifact mvz2:sorcerers_scroll
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "禁用星之碎片，+25%器械伤害、耐久、攻击速度和生产速度"
-msgstr "Disables starshards, +25% contraption damage, toughness, attack speed and production speed"
+msgid "将星之碎片的效果变为格斗术"
+msgstr "Transforms the effect of starshards into combat skills"
 
 #. Name for artifact mvz2:dragon_claw
 #: Artifact meta file
@@ -6338,6 +6338,10 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "artifact.tooltip"
+#~ msgid "禁用星之碎片，+25%器械伤害、耐久、攻击速度和生产速度"
+#~ msgstr "Disables starshards, +25% contraption damage, toughness, attack speed and production speed"
 
 #~ msgctxt "entity_counter.name"
 #~ msgid "低矮敌人"

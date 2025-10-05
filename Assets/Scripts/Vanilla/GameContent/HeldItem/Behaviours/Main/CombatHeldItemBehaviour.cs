@@ -210,6 +210,7 @@ namespace MVZ2.GameContent.HeldItems
                 CastCombatSmash(level, castPosition);
             }
             level.PlaySound(VanillaSoundID.evocation, castPosition);
+            level.PlaySound(VanillaSoundID.steveRoar, castPosition);
             level.AddStarshardCount(-1);
             level.ResetHeldItem();
         }

@@ -186,6 +186,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID spring = Get("spring");
         public readonly static NamespaceID starshardAppear = Get("starshard_appear");
         public readonly static NamespaceID starshardUse = Get("starshard_use");
+        public readonly static NamespaceID steveRoar = Get("steve_roar");
         public readonly static NamespaceID stone = Get("stone");
         public readonly static NamespaceID stoneHatch = Get("stone_hatch");
         public readonly static NamespaceID stunned = Get("stunned");

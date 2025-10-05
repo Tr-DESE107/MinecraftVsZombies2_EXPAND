@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-02 09:01+0800\n"
+"POT-Creation-Date: 2025-10-05 03:07+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5449,7 +5449,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:sorcerers_scroll
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "禁用星之碎片，+25%器械伤害、耐久、攻击速度和生产速度"
+msgid "将星之碎片的效果变为格斗术"
 msgstr ""
 
 #. Name for artifact mvz2:dragon_claw
