@@ -50,9 +50,10 @@
         [Header(Terrain)]
         _TerrainTexture("Terrain Texture", 2D) = "black" {}
         _TerrainMask("Mask", Int) = 0
-        _TerrainFlagReference("Flag Reference", Int) = 0
+        _TerrainFlagRequired("Required Flag", Int) = 0
+        _TerrainFlagRequiredNot("Required Not Flag", Int) = 0
         [Toggle]
-        _TerrainReferenceNotEqual("Not Equal Reference", Int) = 0
+        _TerrainFlagReverse("Reverse", Int) = 0
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
         
