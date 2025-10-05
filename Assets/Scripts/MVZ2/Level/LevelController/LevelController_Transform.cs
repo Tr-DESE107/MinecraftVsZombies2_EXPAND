@@ -54,7 +54,7 @@ namespace MVZ2.Level
 
             return lawnPosition;
         }
-        public Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY)
+        public Vector3 ScreenToLawnPositionByRelativeY(Vector2 screenPosition, float relativeY, float precision = 0.2f)
         {
             var worldPosition = levelCamera.Camera.ScreenToWorldPoint(screenPosition);
             worldPosition.z = transform.position.z;
@@ -62,12 +62,17 @@ namespace MVZ2.Level
             var lawnPosition = TransToLawn(worldPosition);
             var targetY = lawnPosition.y;
             var x = lawnPosition.x;
-            var currentZ = targetY;
-            for (int i = 1; i < 8; i++)
+            float currentZ = 0;
+            var maxZ = targetY;
+            for (int i = 0; i < 16; i++)
             {
                 var yOffset = level.GetGroundY(x, currentZ) + relativeY;
-                var result = yOffset + currentZ;
-                currentZ = currentZ + (currentZ - result) * 0.5f;
+                var nextMaxZ = maxZ - yOffset;
+                currentZ = (currentZ + nextMaxZ) * 0.5f;
+                if (Mathf.Abs(targetY - (currentZ + yOffset)) <= precision)
+                {
+                    break;
+                }
             }
             lawnPosition.z = currentZ;
             lawnPosition.y = targetY - currentZ;

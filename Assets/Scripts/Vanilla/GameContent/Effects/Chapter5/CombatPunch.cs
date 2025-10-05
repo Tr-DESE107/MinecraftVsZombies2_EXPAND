@@ -31,7 +31,10 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            if (entity.Position.x >= VanillaLevelExt.GetBorderX(true))
+            var position = entity.Position;
+            position.y = entity.GetGroundY();
+            entity.Position = position;
+            if (entity.Position.x >= VanillaLevelExt.LEVEL_RIGHTMOST)
             {
                 entity.Remove();
             }
