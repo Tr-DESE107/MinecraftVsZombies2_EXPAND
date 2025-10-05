@@ -130,17 +130,11 @@ namespace MVZ2.Level
         }
         private void OnGridPointerEnterCallback(int lane, int column, PointerEventData data)
         {
-            if (IsGameRunning())
-            {
-                SetPointingGrid(level.GetGridIndex(column, lane), data.pointerId);
-            }
+            SetPointingGrid(level.GetGridIndex(column, lane), data.pointerId);
         }
         private void OnGridPointerExitCallback(int lane, int column, PointerEventData data)
         {
-            if (IsGameRunning())
-            {
-                ClearPointingGrid();
-            }
+            ClearPointingGrid();
         }
 
         #endregion
