@@ -23,7 +23,7 @@
                 <param name="z" type="float" optional="true">可选。要生成的实体位置的Z值。</param>
             </params>
         </variant>
-        <variant subname="grid">
+        <variant subname="tile">
             <description>在指定的地格位置生成实体。默认位置为场地中心。</description>
             <params>
                 <param name="id" type="id" idType="entity">要生成的实体ID。</param>
@@ -179,7 +179,7 @@
                 <param name="z" type="float" optional="true">可选。要生成的掉落物位置的Z值。</param>
             </params>
         </variant>
-        <variant subname="grid">
+        <variant subname="tile">
             <description>在指定的地格位置生成指定蓝图掉落物。默认位置为场地中心。</description>
             <params>
                 <param name="id" type="id" idType="blueprint">要生成的蓝图掉落物的对应实体ID。</param>

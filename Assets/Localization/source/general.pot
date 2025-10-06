@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-03 02:24+0800\n"
+"POT-Creation-Date: 2025-10-06 01:16+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -635,67 +635,67 @@ msgid "现在干掉铁盔僵尸！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:310
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:311
 msgctxt "advice.trigger_tutorial.0"
 msgid "放置TNT！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:312
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:313
 msgctxt "advice.trigger_tutorial.1"
 msgid "点击选中触发器！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:314
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:315
 msgctxt "advice.trigger_tutorial.2"
 msgid "点击以触发TNT！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:316
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:317
 msgctxt "advice.trigger_tutorial.3"
 msgid "干得漂亮！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:318
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:319
 msgctxt "advice.trigger_tutorial.4"
 msgid "选中触发器！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:320
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:321
 msgctxt "advice.trigger_tutorial.5"
 msgid "点击TNT蓝图！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:322
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:323
 msgctxt "advice.trigger_tutorial.6"
 msgid "放置TNT，它会立即被触发！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:324
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:325
 msgctxt "advice.trigger_tutorial.7"
 msgid "干得好！"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:326
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:327
 msgctxt "advice.trigger_tutorial.8"
 msgid "立即触发只限于一次性消耗类型的器械。"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:328
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:329
 msgctxt "advice.trigger_tutorial.9"
 msgid "如果你想交换这两个动作的效果，你可以在设置中更改。"
 msgstr ""
 
 # 教程关指引
-#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:330
+#: Scripts\Vanilla\GameContent\Stages\Definitions\TriggerTutorialStage.cs:331
 msgctxt "advice.trigger_tutorial.10"
 msgid "祝你好运！"
 msgstr ""
@@ -2761,7 +2761,7 @@ msgid ""
 msgstr ""
 
 # 实体提示
-#: Scripts\MVZ2\Level\LevelController\LevelController_Entities.cs:240
+#: Scripts\MVZ2\Level\LevelController\LevelController_Entities.cs:215
 msgctxt "entity.tooltip"
 msgid "在图鉴中查看"
 msgstr ""
@@ -4592,19 +4592,19 @@ msgctxt "command_parameter.description"
 msgid "可选。要生成的实体位置的Z值。"
 msgstr ""
 
-#. Description for command variant "mvz2:spawn grid"
+#. Description for command variant "mvz2:spawn tile"
 #: Commands meta file
 msgctxt "command_variant.description"
 msgid "在指定的地格位置生成实体。默认位置为场地中心。"
 msgstr ""
 
-#. Description for parameter column of command "mvz2:spawn grid"
+#. Description for parameter column of command "mvz2:spawn tile"
 #: Commands meta file
 msgctxt "command_parameter.description"
 msgid "可选。实体所在列。0代表最左侧一列，向右递增。"
 msgstr ""
 
-#. Description for parameter lane of command "mvz2:spawn grid"
+#. Description for parameter lane of command "mvz2:spawn tile"
 #: Commands meta file
 msgctxt "command_parameter.description"
 msgid "可选。实体所在行。0代表最上方一行，向下递增。"
@@ -4868,19 +4868,19 @@ msgctxt "command_parameter.description"
 msgid "可选。要生成的掉落物位置的Z值。"
 msgstr ""
 
-#. Description for command variant "mvz2:spawnblueprint grid"
+#. Description for command variant "mvz2:spawnblueprint tile"
 #: Commands meta file
 msgctxt "command_variant.description"
 msgid "在指定的地格位置生成指定蓝图掉落物。默认位置为场地中心。"
 msgstr ""
 
-#. Description for parameter column of command "mvz2:spawnblueprint grid"
+#. Description for parameter column of command "mvz2:spawnblueprint tile"
 #: Commands meta file
 msgctxt "command_parameter.description"
 msgid "可选。掉落物所在列。0代表最左侧一列，向右递增。"
 msgstr ""
 
-#. Description for parameter lane of command "mvz2:spawnblueprint grid"
+#. Description for parameter lane of command "mvz2:spawnblueprint tile"
 #: Commands meta file
 msgctxt "command_parameter.description"
 msgid "可选。掉落物所在行。0代表最上方一行，向下递增。"

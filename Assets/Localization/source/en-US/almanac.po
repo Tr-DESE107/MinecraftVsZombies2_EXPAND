@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-05 06:58+0800\n"
-"PO-Revision-Date: 2025-10-05 19:09+0800\n"
+"POT-Creation-Date: 2025-10-06 01:16+0800\n"
+"PO-Revision-Date: 2025-10-06 13:18+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -63,7 +63,7 @@ msgstr "Levitating Contraption"
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "不依赖于承载者便可放置在特殊格子上"
-msgstr "Can be placed on special grids without a carrier present"
+msgstr "Can be placed on special tiles without a carrier present"
 
 #. Name for almanac tag placement_infectenser
 #: Almanac meta file
@@ -135,7 +135,7 @@ msgstr "Primary Layer"
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "占据格子的主要位"
-msgstr "Occupies the primary layer of grids"
+msgstr "Occupies the primary layer of tiles"
 
 #. Name for almanac tag grid_layer_carrier
 #: Almanac meta file
@@ -147,7 +147,7 @@ msgstr "Carrier Layer"
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "占据格子的承载位"
-msgstr "Occupies the carrier layer of grids"
+msgstr "Occupies the carrier layer of tiles"
 
 #. Name for almanac tag grid_layer_protector
 #: Almanac meta file
@@ -159,7 +159,7 @@ msgstr "Protector Layer"
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "占据格子的保护位"
-msgstr "Occupies the protector layer of grids"
+msgstr "Occupies the protector layer of tiles"
 
 #. Name for almanac tag grid_layer_tool
 #: Almanac meta file
@@ -171,7 +171,7 @@ msgstr "Tool Layer"
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "占据格子的工具位"
-msgstr "Occupies the tool layer of grids"
+msgstr "Occupies the tool layer of tiles"
 
 #. Name for almanac tag shell
 #: Almanac meta file
@@ -757,7 +757,7 @@ msgid ""
 "伤害：<color=red>20</color>\n"
 "技能：<color=red>射出一个越滚越大的雪球</color>"
 msgstr ""
-"Range: <color=red>3.5 grids</color>\n"
+"Range: <color=red>3.5 tiles</color>\n"
 "Damage: <color=red>20</color>\n"
 "Evocation: <color=red>Shoot a snowball that gets bigger and bigger</color>"
 
@@ -802,7 +802,7 @@ msgid ""
 "照明半径：<color=red>1.5格</color>\n"
 "技能：<color=red>眩晕所有敌方怪物5秒，清除器械的精神控制状态</color>"
 msgstr ""
-"Radius: <color=red>1.5 grids</color>\n"
+"Radius: <color=red>1.5 tiles</color>\n"
 "Evocation: <color=red>Stun all enemy monsters for 5 seconds, remove the mind control status from all contraptions</color>"
 
 #. Flavor for contraptions mvz2:glowstone
@@ -857,7 +857,7 @@ msgid ""
 "技能：<color=red>炸出4个TNT分身</color>"
 msgstr ""
 "Damage: <color=red>1800</color>\n"
-"Radius: <color=red>1.5 grids</color>\n"
+"Radius: <color=red>1.5 tiles</color>\n"
 "Evocation: <color=red>Blast into 4 flying copies of itself that explode on impact</color>"
 
 #. Flavor for contraptions mvz2:tnt
@@ -956,7 +956,7 @@ msgstr "Lily Pads allow you to place non-aquatic contraptions on water."
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "技能：<color=red>在3x3范围内的水中召唤分身</color>"
-msgstr "Evocation: <color=red>Summon copies on 3x3 water grids</color>"
+msgstr "Evocation: <color=red>Summon copies on 3x3 water tiles</color>"
 
 #. Flavor for contraptions mvz2:lily_pad
 #: Almanac meta file
@@ -1567,7 +1567,7 @@ msgid ""
 msgstr ""
 "Lifetime: <color=red>8 seconds</color>\n"
 "Damage: <color=red>30/s</color>\n"
-"Radius: <color=red>1.5 grids</color>\n"
+"Radius: <color=red>1.5 tiles</color>\n"
 "Evocation: <color=red>Creates an annihilation field instead, instantly destroys all enemies and enemy projectiles in the radius</color>"
 
 #. Flavor for contraptions mvz2:black_hole_bomb
@@ -1631,7 +1631,7 @@ msgid ""
 "技能：<color=red>改为生成暴怒火药，提供100能量，但是会更快爆炸</color>"
 msgstr ""
 "Explosion Damage: <color=red>100 (Easy), 150 (Normal), 300 (Hard)</color>\n"
-"Explosion Radius: <color=red>1.5 grids</color>\n"
+"Explosion Radius: <color=red>1.5 tiles</color>\n"
 "Produce time: <color=red>36 seconds</color>\n"
 "Energy production: <color=red>50</color>\n"
 "Evocation: <color=red>Produce furious gunpowder instead, which provides 100 energy but explodes faster</color>"
@@ -1699,8 +1699,8 @@ msgid ""
 msgstr ""
 "Fire rate: <color=red>1 shot/3 seconds</color>\n"
 "Damage: <color=red>200, only damage flying enemies</color>\n"
-"Explosion Radius: <color=red>1.5 grids</color>\n"
-"Evocation: <color=red>Permanently +1 grid explosion radius</color>"
+"Explosion Radius: <color=red>1.5 tiles</color>\n"
+"Evocation: <color=red>Permanently +1 tile explosion radius</color>"
 
 #. Flavor for contraptions mvz2:firework_dispenser
 #: Almanac meta file
@@ -1863,7 +1863,7 @@ msgid ""
 "伤害：<color=red>20</color>\n"
 "技能：<color=red>使所有寄生中的机器人自爆</color>"
 msgstr ""
-"Range: <color=red>3.5 grids</color>\n"
+"Range: <color=red>3.5 tiles</color>\n"
 "Damage: <color=red>20</color>\n"
 "Evocation: <color=red>Make all parasitizing parabots self-destruct</color>"
 
