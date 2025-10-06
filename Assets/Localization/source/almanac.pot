@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-06 05:15+0800\n"
+"POT-Creation-Date: 2025-10-06 09:30+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5502,16 +5502,16 @@ msgctxt "artifact.tooltip"
 msgid "将星之碎片的效果变为格斗术"
 msgstr ""
 
-#. Name for artifact mvz2:dragon_claw
+#. Name for artifact mvz2:dragon_tooth
 #: Artifact meta file
 msgctxt "artifact.name"
-msgid "龙爪"
+msgid "龙牙"
 msgstr ""
 
-#. Tooltip for artifact mvz2:dragon_claw
+#. Tooltip for artifact mvz2:dragon_tooth
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "生命值低于50%的敌人受到的伤害+100%"
+msgid "生命值为50%或以下的敌人受到的伤害x200%"
 msgstr ""
 
 #. Message for blueprint error recharging

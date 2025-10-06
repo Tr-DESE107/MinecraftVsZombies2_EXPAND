@@ -7,5 +7,7 @@ namespace MVZ2.Vanilla.Modifiers
         public const int EARLY = 1000;
         public const int NORMAL = 0;
         public const int LATE = 1000;
+        public const int ADD_MULTIPLE = 1000;
+        public const int MULTIPLY = 2000;
     }
 }

@@ -113,9 +113,9 @@
             <condition required="mvz2:level.ship_11"/>
         </unlock>
     </artifact>
-    <artifact id="dragon_claw" name="龙爪" tooltip="生命值低于50%的敌人受到的伤害+100%" sprite="mvz2:artifacts/dragon_claw" >
+    <artifact id="dragon_tooth" name="龙牙" tooltip="生命值为50%或以下的敌人受到的伤害x200%" sprite="mvz2:artifacts/dragon_tooth" >
         <unlock>
-            <condition required="mvz2:artifact.dragon_claw"/>
+            <condition required="mvz2:artifact.dragon_tooth"/>
         </unlock>
     </artifact>
 

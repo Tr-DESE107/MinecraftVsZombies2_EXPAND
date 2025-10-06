@@ -67,6 +67,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1a62ec6260923674096be59047f89949, type: 3}
   - name: artifacts/dowsing_rods
     sprite: {fileID: 21300000, guid: bb0351b5a0eaaf74487e8b755535e76a, type: 3}
+  - name: artifacts/dragon_tooth
+    sprite: {fileID: 21300000, guid: 54ecd9cd84713b046b9df22f056c36c9, type: 3}
   - name: artifacts/dream_butterfly
     sprite: {fileID: 21300000, guid: 5d23376e7a066774ab671e71271015fc, type: 3}
   - name: artifacts/dream_key
@@ -729,6 +731,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 498cfe5e32569bc43ae84fc47f7622ce, type: 3}
   - name: entity/effects/vortex
     sprite: {fileID: 21300000, guid: 57a43fd6f9e8d124fb3ac37bc690d4aa, type: 3}
+  - name: entity/effects/vulnerable_particle
+    sprite: {fileID: 21300000, guid: ca6d456fa79f841498d3f9ba6f35e9db, type: 3}
   - name: entity/effects/water_splash
     sprite: {fileID: 21300000, guid: 9d730e080bace4646938c15cdabc88d0, type: 3}
   - name: entity/effects/water_stain

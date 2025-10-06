@@ -29,6 +29,10 @@ namespace PVZEngine.Buffs
         Buff[] GetBuffs<T>() where T : BuffDefinition;
         Buff[] GetBuffs(NamespaceID id);
         Buff[] GetBuffs(BuffDefinition definition);
+
+        int GetBuffCount<T>() where T : BuffDefinition;
+        int GetBuffCount(NamespaceID id);
+        int GetBuffCount(BuffDefinition definition);
         void GetBuffsNonAlloc<T>(List<Buff> results) where T : BuffDefinition;
 
         Buff? GetBuff(long id);

@@ -47,6 +47,7 @@ namespace MVZ2.GameContent.Models
         public static readonly NamespaceID parabotInsected = Get("parabot_insected", TYPE_ICON);
         public static readonly NamespaceID knockbackWave = Get("knockback_wave", TYPE_ICON);
         public static readonly NamespaceID divineShield = Get("divine_shield", TYPE_ICON);
+        public static readonly NamespaceID vulnerable = Get("vulnerable", TYPE_ICON);
 
         public static readonly NamespaceID mindSwap = Get("mind_swap", TYPE_UI);
         public static NamespaceID GetStarshardHeldItem(NamespaceID areaID)

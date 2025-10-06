@@ -250,6 +250,21 @@ namespace PVZEngine.Buffs
         }
         #endregion
 
+        #region 获取数量
+        public int GetBuffCount<T>() where T : BuffDefinition
+        {
+            return buffs.Count(b => b.Definition is T);
+        }
+        public int GetBuffCount(BuffDefinition definition)
+        {
+            return buffs.Count(b => b.Definition == definition);
+        }
+        public int GetBuffCount(NamespaceID id)
+        {
+            return buffs.Count(b => b.Definition.GetID() == id);
+        }
+        #endregion
+
         #region 获取全部
         public void GetAllBuffs(List<Buff> results)
         {

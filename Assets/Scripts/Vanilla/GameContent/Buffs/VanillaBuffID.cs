@@ -98,6 +98,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 5
             public const string aboveCloud = "above_cloud";
+            public const string dragonTooth = "dragon_tooth";
 
             // Random China
             public const string worldwideCelebration = "worldwide_celebration";
@@ -406,6 +407,7 @@ namespace MVZ2.GameContent.Buffs
 
             // Chapter 5
             public static readonly NamespaceID aboveCloud = Get(VanillaBuffNames.Entity.aboveCloud);
+            public static readonly NamespaceID dragonTooth = Get(VanillaBuffNames.Entity.dragonTooth);
 
             // Random China
             public static readonly NamespaceID worldwideCelebration = Get(VanillaBuffNames.Entity.worldwideCelebration);

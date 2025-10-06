@@ -37,6 +37,10 @@ namespace PVZEngine.Auras
             ClearBuffs();
             Definition.PostRemove(this);
         }
+        public int GetTargetCount()
+        {
+            return buffCaches.Count;
+        }
         public void UpdateAura()
         {
             if (!Source.Exists())
