@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-06 03:19+0800\n"
+"POT-Creation-Date: 2025-10-06 05:15+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2758,7 +2758,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid ""
-"效果：<color=red>击杀怪物时有10%概率掉落额外资源</color>\n"
+"效果：<color=red>击杀怪物时有25%概率掉落额外资源</color>\n"
 "绿宝石：<color=red>35%</color>\n"
 "红宝石：<color=red>9%</color>\n"
 "钻石：<color=red>1%</color>\n"
@@ -2769,7 +2769,7 @@ msgstr ""
 #. Flavor for artifacts mvz2:dowsing_rods
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "我用金属探测器探测到你的右肩里有个箭头，所以请你立即将所有财物交给我。"
+msgid "现在我要使用这个东西调查你的身体！"
 msgstr ""
 
 #. Header for artifacts mvz2:sorcerers_scroll
@@ -5487,7 +5487,7 @@ msgstr ""
 #. Tooltip for artifact mvz2:dowsing_rods
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "击杀怪物时有10%概率掉落额外资源"
+msgid "击杀怪物时有25%概率掉落额外资源"
 msgstr ""
 
 #. Name for artifact mvz2:sorcerers_scroll

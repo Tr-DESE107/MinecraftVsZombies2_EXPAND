@@ -1686,7 +1686,7 @@
                 <p>用于寻找宝物的工具。</p>
             </header>
             <properties>
-                <p>效果：<![CDATA[<color=red>击杀怪物时有10%概率掉落额外资源</color>]]></p>
+                <p>效果：<![CDATA[<color=red>击杀怪物时有25%概率掉落额外资源</color>]]></p>
                 <p>绿宝石：<![CDATA[<color=red>35%</color>]]></p>
                 <p>红宝石：<![CDATA[<color=red>9%</color>]]></p>
                 <p>钻石：<![CDATA[<color=red>1%</color>]]></p>
@@ -1694,7 +1694,7 @@
                 <p>随机蓝图：<![CDATA[<color=red>25%</color>]]></p>
             </properties>
             <flavor>
-                <p>我用金属探测器探测到你的右肩里有个箭头，所以请你立即将所有财物交给我。</p>
+                <p>现在我要使用这个东西调查你的身体！</p>
             </flavor>
         </entry>
         <entry id="mvz2:sorcerers_scroll">

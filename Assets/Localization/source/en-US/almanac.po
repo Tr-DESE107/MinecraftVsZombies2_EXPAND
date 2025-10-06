@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-06 03:19+0800\n"
-"PO-Revision-Date: 2025-10-06 15:29+0800\n"
+"POT-Creation-Date: 2025-10-06 05:15+0800\n"
+"PO-Revision-Date: 2025-10-06 17:15+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -3297,14 +3297,14 @@ msgstr "Tools used to search for treasures."
 #: Almanac meta file
 msgctxt "artifacts.description"
 msgid ""
-"效果：<color=red>击杀怪物时有10%概率掉落额外资源</color>\n"
+"效果：<color=red>击杀怪物时有25%概率掉落额外资源</color>\n"
 "绿宝石：<color=red>35%</color>\n"
 "红宝石：<color=red>9%</color>\n"
 "钻石：<color=red>1%</color>\n"
 "3红石：<color=red>30%</color>\n"
 "随机蓝图：<color=red>25%</color>"
 msgstr ""
-"Effect: <color=red>Monsters have 10% chance to drop additional resources</color>\n"
+"Effect: <color=red>Monsters have 25% chance to drop additional resources</color>\n"
 "Emerald: <color=red>35%</color>\n"
 "Ruby: <color=red>9%</color>\n"
 "Diamond: <color=red>1%</color>\n"
@@ -3314,8 +3314,8 @@ msgstr ""
 #. Flavor for artifacts mvz2:dowsing_rods
 #: Almanac meta file
 msgctxt "artifacts.description"
-msgid "我用金属探测器探测到你的右肩里有个箭头，所以请你立即将所有财物交给我。"
-msgstr "I detected an arrow in your right shoulder with a metal detector, so please hand over all your belongings to me immediately."
+msgid "现在我要使用这个东西调查你的身体！"
+msgstr "I'm going to run this over you, and see what we find."
 
 #. Header for artifacts mvz2:sorcerers_scroll
 #: Almanac meta file
@@ -6282,8 +6282,8 @@ msgstr "Dowsing Rods"
 #. Tooltip for artifact mvz2:dowsing_rods
 #: Artifact meta file
 msgctxt "artifact.tooltip"
-msgid "击杀怪物时有10%概率掉落额外资源"
-msgstr "Monsters have 10% chance to drop additional resources"
+msgid "击杀怪物时有25%概率掉落额外资源"
+msgstr "Monsters have 25% chance to drop additional resources"
 
 #. Name for artifact mvz2:sorcerers_scroll
 #: Artifact meta file
@@ -6404,6 +6404,10 @@ msgstr "Zombie Cloud (Thunder)"
 msgctxt "entity.name"
 msgid "僵尸云（雪）"
 msgstr "Zombie Cloud (Snow)"
+
+#~ msgctxt "artifacts.description"
+#~ msgid "我用金属探测器探测到你的右肩里有个箭头，所以请你立即将所有财物交给我。"
+#~ msgstr "I detected an arrow in your right shoulder with a metal detector, so please hand over all your belongings to me immediately."
 
 #~ msgctxt "artifact.tooltip"
 #~ msgid "禁用星之碎片，+25%器械伤害、耐久、攻击速度和生产速度"
