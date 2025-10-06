@@ -273,6 +273,11 @@ namespace MVZ2.Level
         }
         private void UpdateHeldHighlight(HeldHighlight highlight)
         {
+            if (hoveredEntity.Exists())
+            {
+                if (!hoveredEntity.isActiveAndEnabled || hoveredEntity.GetHoveredPointerCount() <= 0)
+                    SetHoveredEntity(null);
+            }
             UpdateGridHighlight(highlight);
             UpdateEntityHighlight(highlight);
         }
