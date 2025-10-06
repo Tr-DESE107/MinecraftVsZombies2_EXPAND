@@ -65,6 +65,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 2e2acf8f4e91cab468eae2cf860e025a, type: 3}
   - name: artifacts/dark_matter
     sprite: {fileID: 21300000, guid: 1a62ec6260923674096be59047f89949, type: 3}
+  - name: artifacts/dowsing_rods
+    sprite: {fileID: 21300000, guid: bb0351b5a0eaaf74487e8b755535e76a, type: 3}
   - name: artifacts/dream_butterfly
     sprite: {fileID: 21300000, guid: 5d23376e7a066774ab671e71271015fc, type: 3}
   - name: artifacts/dream_key

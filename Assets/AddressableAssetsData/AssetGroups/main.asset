@@ -8036,6 +8036,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb0351b5a0eaaf74487e8b755535e76a
+    m_Address: mvz2:artifacts/dowsing_rods
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb18e118fc0daf94cbcc3f5bc0d41d84
     m_Address: mvz2:touhou_death
     m_ReadOnly: 0

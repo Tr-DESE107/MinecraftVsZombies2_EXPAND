@@ -7,6 +7,10 @@ namespace Tools
 {
     public static class RandomHelper
     {
+        public static bool NextPercent(this RandomGenerator rng, float percent, float precision = 100000)
+        {
+            return rng.Next(100 * precision) < percent * precision;
+        }
         public static int WeightedRandom(this RandomGenerator rng, IEnumerable<int> weights)
         {
             var count = weights.Count();

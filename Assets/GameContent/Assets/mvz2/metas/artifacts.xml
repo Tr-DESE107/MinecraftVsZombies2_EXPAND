@@ -103,7 +103,7 @@
             <condition required="mvz2:level.ship_3"/>
         </unlock>
     </artifact>
-    <artifact id="dowsing_rods" name="探宝棒" tooltip="击杀怪物时有概率掉落神秘礼物" sprite="mvz2:artifacts/dowsing_rods" >
+    <artifact id="dowsing_rods" name="探宝棒" tooltip="击杀怪物时有10%概率掉落额外资源" sprite="mvz2:artifacts/dowsing_rods" >
         <unlock>
             <condition required="mvz2:artifact.dowsing_rods"/>
         </unlock>

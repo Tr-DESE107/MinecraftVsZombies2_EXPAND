@@ -31,6 +31,7 @@ namespace MVZ2.GameContent.Artifacts
         public const string eyeOfTheGiant = "eye_of_the_giant";
 
         public const string ufoToy = "ufo_toy";
+        public const string dowsingRods = "dowsing_rods";
         public const string sorcerersScroll = "sorcerers_scroll";
     }
     public static class VanillaArtifactID
@@ -59,6 +60,7 @@ namespace MVZ2.GameContent.Artifacts
         public static readonly NamespaceID eyeOfTheGiant = Get(VanillaArtifactNames.eyeOfTheGiant);
 
         public static readonly NamespaceID ufoToy = Get(VanillaArtifactNames.ufoToy);
+        public static readonly NamespaceID dowsingRods = Get(VanillaArtifactNames.dowsingRods);
         public static readonly NamespaceID sorcerersScroll = Get(VanillaArtifactNames.sorcerersScroll);
         private static NamespaceID Get(string name)
         {
