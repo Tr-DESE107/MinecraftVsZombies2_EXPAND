@@ -55,7 +55,6 @@ namespace MVZ2.GameContent.Pickups
             var level = pickup.Level;
             var heldItemData = level.GetHeldItemData();
             bool isHolding = heldItemData != null && heldItemData.Type == VanillaHeldTypes.blueprintPickup && heldItemData.GetEntityID() == pickup.ID;
-            pickup.SetModelProperty("BlueprintID", GetBlueprintID(pickup));
             pickup.SetModelProperty("CommandBlock", IsCommandBlock(pickup));
             pickup.SetAnimationBool("HideEnergy", true);
             pickup.SetAnimationBool("Dark", pickup.Timeout < 100 && pickup.Timeout % 20 < 10 && !isHolding);
