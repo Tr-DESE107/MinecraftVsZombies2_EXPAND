@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-06 09:30+0800\n"
-"PO-Revision-Date: 2025-10-06 21:30+0800\n"
+"POT-Creation-Date: 2025-10-06 10:30+0800\n"
+"PO-Revision-Date: 2025-10-07 21:45+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -2785,7 +2785,7 @@ msgstr ""
 #: Almanac meta file
 msgctxt "enemies.description"
 msgid "大力船长僵尸会使用铁锚将遇到的器械打飞到上方或下方的一行。"
-msgstr "Pop Captains use their anchor to knock contraptions they encounter onto the upper or lower lane."
+msgstr "Pop Captains use their anchors to knock contraptions they encounter onto the upper or lower lane."
 
 #. Properties for enemies mvz2:pop_captain
 #: Almanac meta file
@@ -2797,8 +2797,7 @@ msgid ""
 msgstr ""
 "Toughness: <color=red>1100</color>\n"
 "Damage: <color=red>100 (Impact)</color>\n"
-"Special: <color=red>When a contraption is pushed onto a tile with an existing contraption, the existing contraption is destroyed</"
-"color>"
+"Special: <color=red>Knocking a contraption onto the targeted tile will destroy existing contraptions on that tile</color>"
 
 #. Flavor for enemies mvz2:pop_captain
 #: Almanac meta file
@@ -3343,15 +3342,37 @@ msgctxt "artifacts.description"
 msgid ""
 "白莲在被封印到魔界的期间，曾使用魔界的物质制作过这样一款魔人经卷。\n"
 "这经卷完全由经文组成，没有纸这种文字载体。魔界的物质大多有自我意识，那魔人经卷也因此拥有自我意识，可以自动咏唱经文。\n"
-"而在那之后，白莲试着仿照魔人经卷制作一份复制品，然而没有魔界中的物质，因此就算充满魔力，效果也比之前的差上许多。\n"
+"而在那之后，白莲试着仿照魔人经卷制作仿制品，然而没有魔界中的物质，因此就算充满魔力，这仿制品的效果也比之前的差上许多。\n"
 "不过，足以让史蒂夫这样的普通人类变成“超人”了。"
 msgstr ""
 "During her time sealed in Makai, Byakuren used materials from there to create the Sorcerer's Sutra Scroll.\n"
 "This scroll was composed entirely of sutras, without using any paper as a medium. Since most materials in Makai possess self-"
 "awareness, the Sorcerer's Sutra Scroll consequently also possesses self-awareness, being capable of automatically chanting sutras.\n"
 "After that, Byakuren attempted to create a replica of the Sorcerer's Sutra Scroll, but without using the materials from Makai, so even "
-"if it was brimming with magic, its effect was still much weaker than the original.\n"
+"if it was brimming with magic, this replica's effect was still much weaker than the original.\n"
 "However, it is still sufficient to turn an ordinary human like Steve into a \"superhuman\"."
+
+#. Header for artifacts mvz2:dragon_tooth
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "红龙在打斗中掉下来的一颗牙齿。"
+msgstr "A tooth that fell from Red Dragon during the fight."
+
+#. Properties for artifacts mvz2:dragon_tooth
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>生命值为50%或以下的敌人受到的伤害x200%</color>"
+msgstr "Effect: <color=red>Enemies with 50% or less toughness take x200% damage</color>"
+
+#. Flavor for artifacts mvz2:dragon_tooth
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"多年前，高僧手持母亲的牙齿，陷入轮回。\n"
+"而如今，少年举起孩子的牙齿，助其解脱。\n"
+"这最后的“仿制品”你也拿到了。它的主人完全没有它母亲那般仁慈，口中喷出的满是残暴，对于弱者毫无任何慈悲之心。\n"
+"此仇，永世无法平息。"
+msgstr ""
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file

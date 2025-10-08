@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-06 09:30+0800\n"
+"POT-Creation-Date: 2025-10-06 10:30+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2794,8 +2794,30 @@ msgctxt "artifacts.description"
 msgid ""
 "白莲在被封印到魔界的期间，曾使用魔界的物质制作过这样一款魔人经卷。\n"
 "这经卷完全由经文组成，没有纸这种文字载体。魔界的物质大多有自我意识，那魔人经卷也因此拥有自我意识，可以自动咏唱经文。\n"
-"而在那之后，白莲试着仿照魔人经卷制作一份复制品，然而没有魔界中的物质，因此就算充满魔力，效果也比之前的差上许多。\n"
+"而在那之后，白莲试着仿照魔人经卷制作仿制品，然而没有魔界中的物质，因此就算充满魔力，这仿制品的效果也比之前的差上许多。\n"
 "不过，足以让史蒂夫这样的普通人类变成“超人”了。"
+msgstr ""
+
+#. Header for artifacts mvz2:dragon_tooth
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "红龙在打斗中掉下来的一颗牙齿。"
+msgstr ""
+
+#. Properties for artifacts mvz2:dragon_tooth
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid "效果：<color=red>生命值为50%或以下的敌人受到的伤害x200%</color>"
+msgstr ""
+
+#. Flavor for artifacts mvz2:dragon_tooth
+#: Almanac meta file
+msgctxt "artifacts.description"
+msgid ""
+"多年前，高僧手持母亲的牙齿，陷入轮回。\n"
+"而如今，少年举起孩子的牙齿，助其解脱。\n"
+"这最后的“仿制品”你也拿到了。它的主人完全没有它母亲那般仁慈，口中喷出的满是残暴，对于弱者毫无任何慈悲之心。\n"
+"此仇，永世无法平息。"
 msgstr ""
 
 #. Name for almanac group mvz2:bosses
