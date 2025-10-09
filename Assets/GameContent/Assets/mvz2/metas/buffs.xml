@@ -184,6 +184,7 @@
     <buff id="golden_grid" polarity="negative" level="0" target="grid" />
     <buff id="sorcerers_scroll_stats" polarity="positive" level="2000" target="contraption" />
     <buff id="sorcerers_scroll_starshard" polarity="negative" level="1000" target="level" />
+    <buff id="dragon_tooth" polarity="negative" level="0" target="enemy" />
 
     <!-- Random China -->
     <buff id="super_recharge" polarity="positive" level="0" target="blueprint" />
