@@ -36,10 +36,13 @@ namespace MVZ2.GameContent.Buffs.Contraptions
                     if (!entityCollider.IsMainCollider())
                         continue;
                     var target = entityCollider.Entity;
-                    var knockbackMultiplier = target.GetStrongKnockbackMultiplier();
-                    target.Velocity += entity.GetFacingDirection() * (10 * knockbackMultiplier) + Vector3.up * (20 * knockbackMultiplier);
+                    if (target.Type == EntityTypes.ENEMY)
+                    {
+                        var knockbackMultiplier = target.GetStrongKnockbackMultiplier();
+                        target.Velocity += entity.GetFacingDirection() * (10 * knockbackMultiplier) + Vector3.up * (20 * knockbackMultiplier);
 
-                    target.ApplyStrongImpact();
+                        target.ApplyStrongImpact();
+                    }
                 }
                 Explosion.Spawn(entity, center, radius);
                 entity.PlaySound(VanillaSoundID.explosion);
