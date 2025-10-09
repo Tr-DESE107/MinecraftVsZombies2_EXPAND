@@ -127,7 +127,7 @@ namespace MVZ2.GameContent.Contraptions
             punchDetector.DetectMultiple(entity, detectBuffer);
             foreach (var collider in detectBuffer)
             {
-                collider.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
+                collider.TakeDamage(entity.GetDamage(), new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.IMPACT, VanillaDamageEffects.MUTE), entity);
 
                 var ent = collider.Entity;
                 if (collider.IsForMain() && ent.Type == EntityTypes.ENEMY)
@@ -175,7 +175,7 @@ namespace MVZ2.GameContent.Contraptions
             evokedDetector.DetectMultiple(entity, detectBuffer);
             foreach (var collider in detectBuffer)
             {
-                collider.TakeDamage(entity.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE), entity);
+                collider.TakeDamage(entity.GetDamage() * EVOKED_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.IGNORE_ARMOR, VanillaDamageEffects.IMPACT, VanillaDamageEffects.MUTE), entity);
                 var ent = collider.Entity;
                 if (ent.Type == EntityTypes.ENEMY)
                 {

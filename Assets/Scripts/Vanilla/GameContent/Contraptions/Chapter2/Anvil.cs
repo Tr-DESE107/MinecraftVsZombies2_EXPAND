@@ -42,7 +42,7 @@ namespace MVZ2.GameContent.Contraptions
             if (!CanSmash(anvil, other))
                 return;
             float damageModifier = Mathf.Clamp(anvil.Velocity.magnitude, 0, 1);
-            collision.OtherCollider.TakeDamage(1800 * damageModifier, new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), anvil);
+            collision.OtherCollider.TakeDamage(1800 * damageModifier, new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), anvil);
         }
         public override bool CanEvoke(Entity entity)
         {
@@ -62,7 +62,7 @@ namespace MVZ2.GameContent.Contraptions
                     if (CanSmash(anvil, other))
                     {
                         float damageModifier = Mathf.Clamp(velocity.magnitude, 0, 1);
-                        target.TakeDamage(1800 * damageModifier, new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), anvil);
+                        target.TakeDamage(1800 * damageModifier, new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.MUTE, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), anvil);
                     }
                 }
             }
@@ -81,7 +81,7 @@ namespace MVZ2.GameContent.Contraptions
                         var ent = grid.GetLayerEntity(layer);
                         if (ent != null && CanSmash(anvil, ent))
                         {
-                            ent.Die(new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.SELF_DAMAGE), anvil, null);
+                            ent.Die(new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.SELF_DAMAGE), anvil, null);
                         }
                     }
                 }

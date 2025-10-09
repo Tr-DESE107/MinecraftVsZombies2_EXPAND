@@ -116,7 +116,7 @@ namespace MVZ2.Vanilla.Enemies
             if (targetCollider == null)
                 return;
             var damage = entity.GetDamage();
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.PUNCH);
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.IMPACT);
             var damageOutput = targetCollider.TakeDamage(damage, damageEffects, entity);
             // 如果伤害有效：
             if (!damageOutput.IsValid())

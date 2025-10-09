@@ -134,7 +134,7 @@ namespace MVZ2.GameContent.Bosses
             if (!other.IsInvincible() && other.Type == EntityTypes.PLANT)
             {
                 var crushDamage = 1000000;
-                var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
+                var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
                 if (result != null && result.HasAnyFatal())
                 {
                     other.PlaySound(VanillaSoundID.smash);
@@ -448,7 +448,7 @@ namespace MVZ2.GameContent.Bosses
             for (int i = 0; i < smashDetectBuffer.Count; i++)
             {
                 var collider = smashDetectBuffer[i];
-                collider.TakeDamage(entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), entity);
+                collider.TakeDamage(entity.GetDamage() * SMASH_DAMAGE_MULTIPLIER, new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.DAMAGE_BOTH_ARMOR_AND_BODY), entity);
                 damaged = true;
             }
             if (damaged)

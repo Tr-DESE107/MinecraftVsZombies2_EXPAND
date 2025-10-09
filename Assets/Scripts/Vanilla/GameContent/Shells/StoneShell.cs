@@ -20,7 +20,7 @@ namespace MVZ2.GameContent.Shells
         public override void EvaluateDamage(DamageInput damageInfo)
         {
             base.EvaluateDamage(damageInfo);
-            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.PUNCH))
+            if (damageInfo.Effects.HasEffect(VanillaDamageEffects.IMPACT))
             {
                 damageInfo.Multiply(20);
             }

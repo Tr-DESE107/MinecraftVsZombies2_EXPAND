@@ -40,7 +40,7 @@ namespace MVZ2.GameContent.Contraptions
         public override void PreTakeDamage(DamageInput input, CallbackResult result)
         {
             base.PreTakeDamage(input, result);
-            bool punch = input.Effects.HasEffect(VanillaDamageEffects.PUNCH);
+            bool punch = input.Effects.HasEffect(VanillaDamageEffects.IMPACT);
             if (input.Effects.HasEffect(VanillaDamageEffects.ENEMY_MELEE) || punch)
             {
                 var cloud = input.Entity;

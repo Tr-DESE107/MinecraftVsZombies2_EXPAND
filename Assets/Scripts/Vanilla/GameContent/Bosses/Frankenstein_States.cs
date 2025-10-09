@@ -498,7 +498,7 @@ namespace MVZ2.GameContent.Bosses
                         continue;
                     if (ent.Type == EntityTypes.PLANT)
                     {
-                        var damageOutput = ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.PUNCH), boss);
+                        var damageOutput = ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.IMPACT), boss);
                         if (damageOutput?.BodyResult?.Fatal ?? false)
                         {
                             boss.PlaySound(VanillaSoundID.smash);
@@ -600,11 +600,11 @@ namespace MVZ2.GameContent.Bosses
                 {
                     if (ent.Type == EntityTypes.PLANT)
                     {
-                        ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.PUNCH), boss);
+                        ent.TakeDamage(58115310, new DamageEffectList(VanillaDamageEffects.IMPACT), boss);
                     }
                     else
                     {
-                        ent.TakeDamage(1800, new DamageEffectList(VanillaDamageEffects.PUNCH), boss);
+                        ent.TakeDamage(1800, new DamageEffectList(VanillaDamageEffects.IMPACT), boss);
                     }
                 }
                 boss.Level.ShakeScreen(5, 0, 15);

@@ -55,7 +55,7 @@ namespace MVZ2.GameContent.Effects
 
                         var faction = entity.GetFaction();
                         var damage = entity.GetDamage();
-                        var damageEffects = new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
+                        var damageEffects = new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
                         collider.TakeDamage(damage, damageEffects, entity);
                         Explosion.Spawn(entity, collider.GetBoundingBox().center, 20);
                         entity.PlaySound(VanillaSoundID.punch);

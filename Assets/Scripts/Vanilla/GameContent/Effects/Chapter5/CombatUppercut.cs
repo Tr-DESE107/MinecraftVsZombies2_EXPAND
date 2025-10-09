@@ -33,7 +33,7 @@ namespace MVZ2.GameContent.Effects
             var bounds = entity.GetBounds();
             var position = entity.GetBounds().center;
             position.y = bounds.max.y;
-            var damageEffects = new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
+            var damageEffects = new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN);
             var level = entity.Level;
             foreach (IEntityCollider entityCollider in level.OverlapSphere(position, radius, faction, EntityCollisionHelper.MASK_VULNERABLE, 0))
             {

@@ -271,7 +271,7 @@ namespace MVZ2.GameContent.Bosses
                             foreach (var collider in smashDetectBuffer)
                             {
                                 var target = collider.Entity;
-                                var damageResult = collider.TakeDamage(target.GetTakenCrushDamage(), new DamageEffectList(VanillaDamageEffects.PUNCH, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), entity);
+                                var damageResult = collider.TakeDamage(target.GetTakenCrushDamage(), new DamageEffectList(VanillaDamageEffects.IMPACT, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), entity);
                                 if (damageResult != null && damageResult.BodyResult != null && damageResult.BodyResult.Fatal && damageResult.BodyResult.Entity.Type == EntityTypes.PLANT)
                                 {
                                     damageResult.Entity.PlaySound(VanillaSoundID.smash);

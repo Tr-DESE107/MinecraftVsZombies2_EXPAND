@@ -91,7 +91,7 @@ namespace MVZ2.GameContent.Enemies
             {
                 damage = chariot.GetDamage() * 0.1f;
             }
-            var output = collision.OtherCollider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), chariot);
+            var output = collision.OtherCollider.TakeDamage(damage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), chariot);
             if (output != null)
             {
                 if (output.BodyResult != null && output.BodyResult.Fatal && other.Type == EntityTypes.PLANT)

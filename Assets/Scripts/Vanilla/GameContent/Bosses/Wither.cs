@@ -96,7 +96,7 @@ namespace MVZ2.GameContent.Bosses
             }
             else
             {
-                var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
+                var result = otherCollider.TakeDamage(crushDamage, new DamageEffectList(VanillaDamageEffects.GRIND, VanillaDamageEffects.DAMAGE_BODY_AFTER_ARMOR_BROKEN), self);
                 if (result != null && result.HasAnyFatal())
                 {
                     other.PlaySound(VanillaSoundID.smash);
