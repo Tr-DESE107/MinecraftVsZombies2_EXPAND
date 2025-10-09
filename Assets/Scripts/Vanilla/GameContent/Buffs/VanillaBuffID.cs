@@ -59,6 +59,7 @@ namespace MVZ2.GameContent.Buffs
             public const string ufoSpawn = "ufo_spawn";
             public const string beaconMeteor = "beacon_meteor";
             public const string sorcerersScrollStarshard = "sorcerers_scroll_starshard";
+            public const string skywardNight = "skyward_night";
 
             // Random China
             public const string greedyVacuum = "greedy_vacuum";
@@ -176,7 +177,7 @@ namespace MVZ2.GameContent.Buffs
             public const string woodenFanBlow = "wooden_fan_blow";
             public const string elasticCloudBounceCooldown = "elastic_cloud_bounce_cooldown";
             public const string elasticCloudEvocation = "elastic_cloud_evocation";
-            public const string sorcerersScrollStats = "sorcerers_scroll_stats";
+            public const string skywardBeaconNight = "skyward_beacon_night";
         }
         public static class Enemy
         {
@@ -373,6 +374,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID ufoSpawn = Get(VanillaBuffNames.Level.ufoSpawn);
             public static readonly NamespaceID beaconMeteor = Get(VanillaBuffNames.Level.beaconMeteor);
             public static readonly NamespaceID sorcerersScrollStarshard = Get(VanillaBuffNames.Level.sorcerersScrollStarshard);
+            public static readonly NamespaceID skywardNight = Get(VanillaBuffNames.Level.skywardNight);
 
             // Random China
             public static readonly NamespaceID superRecharge = Get(VanillaBuffNames.Level.superRecharge);
@@ -485,7 +487,7 @@ namespace MVZ2.GameContent.Buffs
             public static readonly NamespaceID woodenFanBlow = Get(VanillaBuffNames.Contraption.woodenFanBlow);
             public static readonly NamespaceID elasticCloudBounceCooldown = Get(VanillaBuffNames.Contraption.elasticCloudBounceCooldown);
             public static readonly NamespaceID elasticCloudEvocation = Get(VanillaBuffNames.Contraption.elasticCloudEvocation);
-            public static readonly NamespaceID sorcerersScrollStats = Get(VanillaBuffNames.Contraption.sorcerersScrollStats);
+            public static readonly NamespaceID skywardBeaconNight = Get(VanillaBuffNames.Contraption.skywardBeaconNight);
         }
         public static class Enemy
         {

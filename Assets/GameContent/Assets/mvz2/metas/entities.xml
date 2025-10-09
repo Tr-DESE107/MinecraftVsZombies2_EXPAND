@@ -1141,6 +1141,31 @@
                 <id name="mvz2:rechargeId" value="mvz2:very_long" />
             </properties>
         </dispenser>
+        <contraption id="skyward_beacon" name="御天信标" tooltip="（需要信标）\n使用光柱定点打击位置">
+            <unlock>
+                <condition required="mvz2:contraption.skyward_beacon"/>
+            </unlock>
+            <behaviours>
+                <behaviour operator="add" id="skyward_beacon/trigger"/>
+                <behaviour operator="add" id="skyward_beacon/evoke"/>
+            </behaviours>
+            <properties>
+                <float name="damage" value="147" />
+                <bool name="mvz2:upgradeBlueprint" value="true" />
+                <id name="mvz2:upgradeFrom" value="mvz2:beacon" />
+
+                <bool name="mvz2:triggerActive" value="true" />
+                <id name="mvz2:placement" value="mvz2:upgrade" />
+                <vector3 name="mvz2:size" x="48" y="48" z="48" />
+
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="240" y="240" z="240" />
+                <color name="mvz2:lightColor" value="#FFFFFF" />
+
+                <int name="mvz2:cost" value="175" />
+                <id name="mvz2:rechargeId" value="mvz2:very_long" />
+            </properties>
+        </contraption>
         <dispenser id="high_frequency_pulse_dispenser" name="高频脉冲发射器" tooltip="（需要连射发射器）\n一次射出四支箭矢" >
             <unlock>
                 <condition required="mvz2:level.ship_5"/>
@@ -2684,6 +2709,18 @@
                 <vector3 name="mvz2:size" x="32" y="32" z="32" />
             </properties>
         </projectile>
+        <projectile id="falling_star">
+            <behaviours/>
+            <properties>
+                <bool name="mvz2:noDestroyOutsideLawn" value="true" />
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="80" y="80" z="80" />
+                <color name="mvz2:lightColor" value="#FFFFFF" />
+                <bool name="mvz2:piercing" value="true" />
+                <bool name="mvz2:pointToDirection" value="true" />
+                <vector3 name="mvz2:size" x="64" y="64" z="64" />
+            </properties>
+        </projectile>
 
         <!-- Effects -->
         <effect id="miner">
@@ -2729,6 +2766,9 @@
             </properties>
         </effect>
         <effect id="thunder_bolt">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:light_fadeout"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:decorative" value="false" />
                 <int name="mvz2:maxTimeout" value="30" />
@@ -2956,6 +2996,9 @@
             </properties>
         </effect>
         <effect id="slice_spark">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:light_fadeout"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:isLightSource" value="true" />
                 <vector3 name="mvz2:lightRange" x="80" y="80" z="80" />
@@ -3067,6 +3110,9 @@
             </properties>
         </effect>
         <effect id="thunder_bolt_horizontal">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:light_fadeout"/>
+            </behaviours>
             <properties>
                 <bool name="mvz2:decorative" value="false" />
                 <int name="mvz2:maxTimeout" value="30" />
@@ -3159,6 +3205,12 @@
             </properties>
         </effect>
         <effect id="spirit_universe">
+            <behaviours includeSelf="false">
+                <behaviour operator="add" id="mvz2:sky_background"/>
+                <properties behaviour="mvz2:sky_background">
+                    <float name="fade_in_speed" value="0.33333333" />
+                </properties>
+            </behaviours>
             <properties>
                 <string name="mvz2:sortingLayer" value="Background"/>
                 <int name="mvz2:sortingOrder" value="9999"/>
@@ -3296,6 +3348,44 @@
                 <int name="mvz2:maxTimeout" value="15" />
                 <vector3 name="mvz2:size" x="80" y="100" z="80" />
                 <bool name="mvz2:decorative" value="false" />
+            </properties>
+        </effect>
+        <effect id="skyward_beam">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:light_fadeout"/>
+            </behaviours>
+            <properties>
+                <int name="mvz2:maxTimeout" value="15" />
+                <vector3 name="mvz2:size" x="64" y="800" z="64" />
+                <bool name="mvz2:decorative" value="false" />
+                <bool name="mvz2:isLightSource" value="true" />
+                <vector3 name="mvz2:lightRange" x="120" y="800" z="120" />
+                <color name="mvz2:lightColor" value="#FFFFFF" />
+            </properties>
+        </effect>
+        <effect id="skyward_beacon_target">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:remove_without_parent"/>
+            </behaviours>
+            <properties>
+                <string name="mvz2:sortingLayer" value="Ground" />
+                <int name="mvz2:sortingOrder" value="1000" />
+            </properties>
+        </effect>
+        <effect id="skyward_sky">
+            <behaviours>
+                <behaviour operator="add" id="mvz2:sky_background"/>
+                <properties behaviour="mvz2:sky_background">
+                    <float name="fade_in_speed" value="3" />
+                </properties>
+            </behaviours>
+            <properties>
+                <string name="mvz2:sortingLayer" value="Background"/>
+                <int name="mvz2:sortingOrder" value="9999"/>
+                <int name="mvz2:maxTimeout" value="900"/>
+                <float name="mvz2:damage" value="55"/>
+                <bool name="mvz2:updateBeforeGame" value="true" />
+                <bool name="mvz2:updateAfterGameOver" value="true" />
             </properties>
         </effect>
     </entries>

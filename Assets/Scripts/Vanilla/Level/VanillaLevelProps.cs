@@ -296,5 +296,13 @@ namespace MVZ2.Vanilla.Level
             return game.GetProperty<NamespaceID>(STARSHARD_HELD_TYPE);
         }
         #endregion
+
+        #region 昼夜循环覆盖
+        public static readonly PropertyMeta<int> DAY_NIGHT_CYCLE_OVERRIDE = Get<int>("day_night_cycle_override");
+        public static int GetDayNightCycleOverride(this LevelEngine game)
+        {
+            return game.GetProperty<int>(DAY_NIGHT_CYCLE_OVERRIDE);
+        }
+        #endregion
     }
 }

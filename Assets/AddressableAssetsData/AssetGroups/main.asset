@@ -45,6 +45,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0121fc9dc727c4e42bcbcaf151c5a077
+    m_Address: mvz2:entity/effects/skyward_beacon_target
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 015dd19c4a87a8f40823a2f740f43a2a
     m_Address: mvz2:enemy/ship/zombie_cloud
     m_ReadOnly: 0
@@ -1340,6 +1347,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e506edb309b8d746a23a81efefd33c2
+    m_Address: mvz2:entity/effects/skyward_beam
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e61769d70b3e5d4eb4a6eddeb6ebdb9
     m_Address: mvz2:entity/effects/blackhole_ring
     m_ReadOnly: 0
@@ -1774,6 +1788,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28e059928341d4a478068901b17d82bb
+    m_Address: mvz2:effect/skyward_sky
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 294712fdf799501439ac34ed9fdf68c7
     m_Address: mvz2:entity/ghast/ghast_fire
     m_ReadOnly: 0
@@ -1954,6 +1975,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cf53512d9b273841ab042e10ac166b6
+    m_Address: mvz2:lightbeam2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d03bef912189c7478ee652c92c3e74d
     m_Address: mvz2:contraption/castle/tesla_coil
@@ -2366,6 +2394,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36364eaf3189ea241a7fe1ef5b5027fb
+    m_Address: mvz2:mobile_blueprint/skyward_beacon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 364cbf731035032499adb5896b6b058e
     m_Address: mvz2:grind2
@@ -3501,6 +3536,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f7414fe4f7f95d45bf01a7dc436be7a
+    m_Address: mvz2:contraption/upgrade/skyward_beacon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4fa4eb018eeee64479e6ea997fc1968a
     m_Address: mvz2:entity/contraption/firework_dispenser
     m_ReadOnly: 0
@@ -3752,6 +3794,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55752938e42a3f5469aa059a17daef73
+    m_Address: mvz2:star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 557650a8124565f438c2ed2e391e0a0b
     m_Address: mvz2:coin
@@ -4488,6 +4537,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 659b8ec0ab2fe364196ceecea037d086
+    m_Address: mvz2:lightbeam3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65b141497a801624881cf387625a6801
     m_Address: mvz2:entity/carts/pumpkin_carriage
     m_ReadOnly: 0
@@ -4935,6 +4991,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 713bbd59011cf674f8c72f330883df2f
+    m_Address: mvz2:lightbeam1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7255b794a3fcb9145becfcafa89b5c99
     m_Address: mvz2:talk/dialog_item_hide
@@ -6671,6 +6734,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98ad9b42c55992240a72acfab51a43c9
+    m_Address: mvz2:effect/skyward_beam
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 98ceb6465d489164ab22b423d1a3d218
     m_Address: mvz2:mobile_blueprint/wooden_dropper
     m_ReadOnly: 0
@@ -6988,6 +7058,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a001063ac6b540b42a716f3b66388328
     m_Address: mvz2:mobile_blueprint/stone_shield
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a01552dca04bda94385d92805ccac257
+    m_Address: mvz2:entity/projectiles/falling_star
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -7639,6 +7716,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b183abb28c7b13c4995d0fc7bfaa8299
     m_Address: mvz2:mainmenu/more_menus
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b18e3e85e3d64b14d9e17ae88b752b33
+    m_Address: mvz2:entity/contraption/skyward_beacon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -9352,6 +9436,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da1d371acf5421045830e7d61da9f1a7
+    m_Address: mvz2:effect/skyward_beacon_target
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da1e5b86ca4e6f14b951c51dbab910f5
     m_Address: mvz2:entity/skeleton/skeleton_cry1
     m_ReadOnly: 0
@@ -10191,6 +10282,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef9ec30ff6041c641975076d761893f8
+    m_Address: mvz2:projectile/falling_star
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: efa2647b249636d48bf202bfc200258a
     m_Address: mvz2:glass_break_big

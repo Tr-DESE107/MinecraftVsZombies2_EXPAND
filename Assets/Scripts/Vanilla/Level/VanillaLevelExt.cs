@@ -40,6 +40,11 @@ namespace MVZ2.Vanilla.Level
     {
         public static bool IsDay(this LevelEngine level)
         {
+            var dayNightCycle = level.GetDayNightCycleOverride();
+            if (dayNightCycle != VanillaDayNightCycles.NONE)
+            {
+                return dayNightCycle == VanillaDayNightCycles.DAY;
+            }
             var areaTags = level.GetAreaTags();
             return areaTags.Contains(VanillaAreaTags.day);
         }

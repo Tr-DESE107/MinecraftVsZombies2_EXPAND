@@ -52,6 +52,7 @@ namespace MVZ2.GameContent.Projectiles
         public const string beaconMeteor = "beacon_meteor";
         public const string firework = "firework";
         public const string fireworkBig = "firework_big";
+        public const string fallingStar = "falling_star";
     }
     public static class VanillaProjectileID
     {
@@ -100,6 +101,7 @@ namespace MVZ2.GameContent.Projectiles
         public static readonly NamespaceID beaconMeteor = Get(VanillaProjectileNames.beaconMeteor);
         public static readonly NamespaceID firework = Get(VanillaProjectileNames.firework);
         public static readonly NamespaceID fireworkBig = Get(VanillaProjectileNames.fireworkBig);
+        public static readonly NamespaceID fallingStar = Get(VanillaProjectileNames.fallingStar);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

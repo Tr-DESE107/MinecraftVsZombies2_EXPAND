@@ -16,11 +16,11 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
 {
-    [EntityBehaviourDefinition(VanillaEffectNames.spiritUniverse)]
-    public class SpiritUniverse : EffectBehaviour
+    [EntityBehaviourDefinition(VanillaEntityBehaviourNames.skyBackground)]
+    public class SkyBackground : EntityBehaviourDefinition
     {
         #region 公有方法
-        public SpiritUniverse(string nsp, string name) : base(nsp, name)
+        public SkyBackground(string nsp, string name) : base(nsp, name)
         {
             AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULTIPLIER));
             AddAura(new NightAura());
@@ -30,16 +30,21 @@ namespace MVZ2.GameContent.Effects
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            var tint = entity.GetProperty<Color>(PROP_TINT_MULTIPLIER);
-            var speed = 1 / 90f;
-            if ((entity.Timeout > 0 && entity.Timeout <= 30) || (entity.Level.IsGameOver() || !entity.Level.IsGameStarted()))
-            {
-                speed = -1 / 30f;
-            }
-            tint.a = Mathf.Clamp01(tint.a + speed);
-            entity.SetProperty(PROP_TINT_MULTIPLIER, tint);
+            bool disappearing = (entity.Timeout >= 0 && entity.Timeout < 30) || entity.Level.IsGameOver() || !entity.Level.IsGameStarted();
+            var propertyKey = disappearing ? PROP_FADE_OUT_SPEED : PROP_FADE_IN_SPEED;
+            var speedPerSecond = entity.GetProperty<float>(propertyKey);
+            var speed = Ticks.FromPerSecond(speedPerSecond);
+
+            var tintMulti = GetTintMultiplier(entity);
+            tintMulti.a = Mathf.Clamp01(tintMulti.a + speed);
+            SetTintMultiplier(entity, tintMulti);
         }
+        public static Color GetTintMultiplier(Entity entity) => entity.GetProperty<Color>(PROP_TINT_MULTIPLIER);
+        public static void SetTintMultiplier(Entity entity, Color color) => entity.SetProperty(PROP_TINT_MULTIPLIER, color);
+
         public static readonly PropertyMeta<Color> PROP_TINT_MULTIPLIER = new VanillaEntityPropertyMeta<Color>("tint_multiplier", new Color(1, 1, 1, 0));
+        public static readonly PropertyMeta<float> PROP_FADE_IN_SPEED = new VanillaEntityPropertyMeta<float>("fade_in_speed", 1f);
+        public static readonly PropertyMeta<float> PROP_FADE_OUT_SPEED = new VanillaEntityPropertyMeta<float>("fade_out_speed", -1f);
         public class NightAura : AuraEffectDefinition
         {
             public NightAura() : base(VanillaBuffID.Level.spiritUniverseNight)

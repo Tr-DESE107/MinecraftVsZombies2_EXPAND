@@ -355,6 +355,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c58e2047282dbf342864f9b099d799c4, type: 3}
   - name: mobile_blueprint/skeleton_warrior
     sprite: {fileID: 21300000, guid: de2f50015df9b2341aa191a0813d294f, type: 3}
+  - name: mobile_blueprint/skyward_beacon
+    sprite: {fileID: 21300000, guid: 36364eaf3189ea241a7fe1ef5b5027fb, type: 3}
   - name: mobile_blueprint/slenderman
     sprite: {fileID: 21300000, guid: 9c37df297dc5c5a47a8448c48eba0204, type: 3}
   - name: mobile_blueprint/small_dispenser
@@ -713,6 +715,10 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 3e0db9919161e1f4d8204af2dba2d3d6, type: 3}
   - name: entity/effects/shine_ring
     sprite: {fileID: 21300000, guid: 0fd484fcbd2c9ed4dbad79aa98011525, type: 3}
+  - name: entity/effects/skyward_beacon_target
+    sprite: {fileID: 21300000, guid: 0121fc9dc727c4e42bcbcaf151c5a077, type: 3}
+  - name: entity/effects/skyward_beam
+    sprite: {fileID: 21300000, guid: 1e506edb309b8d746a23a81efefd33c2, type: 3}
   - name: entity/effects/snowflake
     sprite: {fileID: 21300000, guid: 9584835b8a325b742a157b068f72ad5d, type: 3}
   - name: entity/effects/sonic_wave
@@ -819,6 +825,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 5087351033f1d0d4ab74797ba2defe46, type: 3}
   - name: entity/projectiles/dart
     sprite: {fileID: 21300000, guid: 0a0f7cbdb4c6650409a18d59ba158a03, type: 3}
+  - name: entity/projectiles/falling_star
+    sprite: {fileID: 21300000, guid: a01552dca04bda94385d92805ccac257, type: 3}
   - name: entity/projectiles/fireball
     sprite: {fileID: 21300000, guid: c8fd47e22cd27394895621742e549446, type: 3}
   - name: entity/projectiles/firework
@@ -1787,6 +1795,12 @@ MonoBehaviour:
     spritesheet:
     - {fileID: 1795380811, guid: 4b61b6a8f9cd754419a8862656f249c1, type: 3}
     - {fileID: 1116002968, guid: 4b61b6a8f9cd754419a8862656f249c1, type: 3}
+  - name: entity/contraption/skyward_beacon
+    spritesheet:
+    - {fileID: 2146546806, guid: b18e3e85e3d64b14d9e17ae88b752b33, type: 3}
+    - {fileID: -998674976, guid: b18e3e85e3d64b14d9e17ae88b752b33, type: 3}
+    - {fileID: -130671910, guid: b18e3e85e3d64b14d9e17ae88b752b33, type: 3}
+    - {fileID: 888369719, guid: b18e3e85e3d64b14d9e17ae88b752b33, type: 3}
   - name: entity/contraption/splitenser
     spritesheet:
     - {fileID: -391827783, guid: 824a13f315e37c0479a2e4a8e03f358f, type: 3}

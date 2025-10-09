@@ -105,6 +105,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID ironCurtain = Get("iron_curtain");
         public readonly static NamespaceID launch = Get("launch");
         public readonly static NamespaceID leatherHit = Get("leather_hit");
+        public readonly static NamespaceID lightbeam = Get("lightbeam");
         public readonly static NamespaceID lightningAttack = Get("lightning_attack");
         public readonly static NamespaceID loseMusic = Get("lose_music");
         public readonly static NamespaceID lowQualityEgypt = Get("low_quality_egypt");
@@ -184,6 +185,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID splashBig = Get("splash_big");
         public readonly static NamespaceID splat = Get("splat");
         public readonly static NamespaceID spring = Get("spring");
+        public readonly static NamespaceID star = Get("star");
         public readonly static NamespaceID starshardAppear = Get("starshard_appear");
         public readonly static NamespaceID starshardUse = Get("starshard_use");
         public readonly static NamespaceID steveRoar = Get("steve_roar");

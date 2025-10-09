@@ -71,7 +71,8 @@ namespace PVZEngine.Level
                 result = fallback;
                 return true;
             }
-            result = default;
+            result = name.DefaultValue;
+            AddFallbackCache(name, result);
             return false;
         }
         public bool TryGetProperty<T>(PropertyKey<T> name, out T? result, bool ignoreBuffs = false)
@@ -83,7 +84,7 @@ namespace PVZEngine.Level
                     return true;
                 }
             }
-            result = default;
+            result = name.DefaultValue;
             return false;
         }
         public T? GetProperty<T>(PropertyKey<T> name, bool ignoreBuffs = false)
@@ -92,9 +93,7 @@ namespace PVZEngine.Level
             {
                 return result;
             }
-            var value = name.DefaultValue;
-            AddFallbackCache(name, value);
-            return value;
+            return name.DefaultValue;
         }
         public object? GetPropertyObject(IPropertyKey name, bool ignoreBuffs = false)
         {
@@ -102,9 +101,7 @@ namespace PVZEngine.Level
             {
                 return result;
             }
-            var value = name.DefaultValue;
-            AddFallbackCache(name, value);
-            return value;
+            return name.DefaultValue;
         }
         public bool RemoveProperty(IPropertyKey name)
         {

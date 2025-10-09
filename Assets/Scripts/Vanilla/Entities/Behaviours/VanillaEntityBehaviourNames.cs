@@ -7,6 +7,8 @@ namespace MVZ2.Vanilla.Entities
         public const string timeoutDeath = "timeout_death";
         public const string timeoutRemove = "timeout_remove";
         public const string timeoutRemoveWithoutParent = "timeout_remove_without_parent";
+        public const string removeWithoutParent = "remove_without_parent";
+        public const string lightFadeout = "light_fadeout";
         public const string followParent = "follow_parent";
         public const string modelDamagePercent = "model_damage_percent";
 
@@ -16,6 +18,8 @@ namespace MVZ2.Vanilla.Entities
         public const string contraptionEvokeFireworkDispenser = "contraption_evoke_firework_dispenser";
         public const string elasticCloud_Projectile = "elastic_cloud/projectile";
         public const string elasticCloud_Evocation = "elastic_cloud/evocation";
+        public const string skywardBeacon_Trigger = "skyward_beacon/trigger";
+        public const string skywardBeacon_Evoke = "skyward_beacon/evoke";
         #endregion
 
         #region Enemies
@@ -94,6 +98,7 @@ namespace MVZ2.Vanilla.Entities
         public const string gasBlown = "gas_blown";
         public const string waterStainBlown = "water_stain_blown";
         public const string stopParticlesWithoutParent = "stop_particles_without_parent";
+        public const string skyBackground = "sky_background";
         #endregion
     }
 }

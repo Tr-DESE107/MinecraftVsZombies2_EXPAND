@@ -409,6 +409,11 @@
         <sample path="mvz2:damage/leather/leather_hit1" weight="1" />
         <sample path="mvz2:damage/leather/leather_hit2" weight="1" />
     </sound>
+    <sound name="lightbeam">
+        <sample path="mvz2:lightbeam1" weight="1" />
+        <sample path="mvz2:lightbeam2" weight="1" />
+        <sample path="mvz2:lightbeam3" weight="1" />
+    </sound>
     <sound name="lightning_attack">
         <sample path="mvz2:lightning_attack" weight="1" />
     </sound>
@@ -725,6 +730,9 @@
     </sound>
     <sound name="spring" priority="64">
         <sample path="mvz2:spring" weight="1" />
+    </sound>
+    <sound name="star">
+        <sample path="mvz2:star" weight="1" />
     </sound>
     <sound name="starshard_appear">
         <sample path="mvz2:starshard_appear" weight="1" />

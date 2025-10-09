@@ -20,5 +20,13 @@ namespace PVZEngine
         {
             return (float)ticks / tps;
         }
+        public static float FromPerSecond(float perSecond)
+        {
+            return perSecond / tps;
+        }
+        public static float ToPerSecond(float perTick)
+        {
+            return perTick * tps;
+        }
     }
 }

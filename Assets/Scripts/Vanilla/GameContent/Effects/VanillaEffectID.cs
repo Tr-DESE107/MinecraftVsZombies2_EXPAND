@@ -98,6 +98,9 @@ namespace MVZ2.GameContent.Effects
         public const string combatSmashTrail = "combat_smash_trail";
         public const string combatUppercut = "combat_uppercut";
         public const string combatUppercutTrail = "combat_uppercut_trail";
+        public const string skywardBeam = "skyward_beam";
+        public const string skywardBeaconTarget = "skyward_beacon_target";
+        public const string skywardSky = "skyward_sky";
     }
     public static class VanillaEffectID
     {
@@ -192,6 +195,9 @@ namespace MVZ2.GameContent.Effects
         public static readonly NamespaceID combatSmashTrail = Get(VanillaEffectNames.combatSmashTrail);
         public static readonly NamespaceID combatUppercut = Get(VanillaEffectNames.combatUppercut);
         public static readonly NamespaceID combatUppercutTrail = Get(VanillaEffectNames.combatUppercutTrail);
+        public static readonly NamespaceID skywardBeam = Get(VanillaEffectNames.skywardBeam);
+        public static readonly NamespaceID skywardBeaconTarget = Get(VanillaEffectNames.skywardBeaconTarget);
+        public static readonly NamespaceID skywardSky = Get(VanillaEffectNames.skywardSky);
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);
