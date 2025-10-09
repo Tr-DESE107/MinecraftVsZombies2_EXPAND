@@ -51,6 +51,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d062afaff4776ff409fec750fe591d05, type: 3}
   - name: arcade/nightmares_revenge
     sprite: {fileID: 21300000, guid: eb0eb64f7392deb41831563ed71fa81a, type: 3}
+  - name: arcade/the_giants_revenge
+    sprite: {fileID: 21300000, guid: 0d4b43785901a8f4390699a767958f94, type: 3}
   - name: arcade/whack_a_ghost
     sprite: {fileID: 21300000, guid: ba09814b17fbf24438727f22089f7192, type: 3}
   - name: arcade/withers_revenge
