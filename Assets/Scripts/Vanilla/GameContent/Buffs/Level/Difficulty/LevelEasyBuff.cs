@@ -44,8 +44,8 @@ namespace MVZ2.GameContent.Buffs.Level
 
             AddModifier(new FloatModifier(VanillaDifficultyLevelProps.WITHER_REGENERATION, NumberOperator.Set, 0));
 
-            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.STARSHARD_CARRIER_CHANCE_INCREAMENT, NumberOperator.Multiply, 2f));
-            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.REDSTONE_CARRIER_CHANCE_INCREAMENT, NumberOperator.Multiply, 2f));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.STARSHARD_CARRIER_COUNTER_INCREAMENT, NumberOperator.Multiply, 2f));
+            AddModifier(new FloatModifier(VanillaDifficultyLevelProps.REDSTONE_CARRIER_COUNTER_INCREAMENT, NumberOperator.Multiply, 2f));
         }
 
         public class BlueprintAura : AuraEffectDefinition
