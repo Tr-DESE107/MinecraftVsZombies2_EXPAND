@@ -5,8 +5,10 @@ using MVZ2.GameContent.Areas;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
+using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
+using MVZ2Logic.Level;
 using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
@@ -105,6 +107,7 @@ namespace MVZ2.GameContent.Spawns
                 var buff = level.AddBuff<UFOSpawnBuff>();
                 UFOSpawnBuff.SetVariant(buff, variant);
             }
+            level.PlaySound(VanillaSoundID.ufoAlert);
         }
         private void SpawnUFO(LevelEngine level, ref float totalPoints)
         {

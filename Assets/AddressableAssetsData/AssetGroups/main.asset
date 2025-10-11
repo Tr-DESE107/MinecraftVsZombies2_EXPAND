@@ -304,6 +304,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0720d0b4502d0bc4bb36d115414332fe
+    m_Address: mvz2:ufo_alert
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 073caa400cee98e4f9adafc78fdd521a
     m_Address: mvz2:entity/contraption/tesla_coil
     m_ReadOnly: 0

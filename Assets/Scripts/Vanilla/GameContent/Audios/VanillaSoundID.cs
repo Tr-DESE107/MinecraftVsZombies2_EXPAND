@@ -205,6 +205,7 @@ namespace MVZ2.Vanilla.Audios
         public readonly static NamespaceID travel = Get("travel");
         public readonly static NamespaceID tridentThunder = Get("trident_thunder");
         public readonly static NamespaceID ufo = Get("ufo");
+        public readonly static NamespaceID ufoAlert = Get("ufo_alert");
         public readonly static NamespaceID vortex = Get("vortex");
         public readonly static NamespaceID wakeup = Get("wakeup");
         public readonly static NamespaceID water = Get("water");
