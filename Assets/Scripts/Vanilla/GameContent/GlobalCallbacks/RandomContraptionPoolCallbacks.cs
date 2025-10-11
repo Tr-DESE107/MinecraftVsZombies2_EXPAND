@@ -22,9 +22,9 @@ namespace MVZ2.GameContent.GlobalCallbacks
     {
         public override void Apply(Mod mod)
         {
-            mod.AddTrigger(LevelCallbacks.POST_LEVEL_SETUP, PostLevelSetupCallback);
+            mod.AddTrigger(LevelCallbacks.POST_LEVEL_START, PostLevelStartCallback);
         }
-        private void PostLevelSetupCallback(LevelCallbackParams param, CallbackResult result)
+        private void PostLevelStartCallback(LevelCallbackParams param, CallbackResult result)
         {
             var level = param.level;
             var pool = GetRandomContraptionPool(level);
