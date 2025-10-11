@@ -694,6 +694,7 @@ namespace MVZ2.Entities
                 ShadowAlpha = entity.GetShadowAlpha();
                 ShadowOffset = entity.GetShadowOffset();
                 ShadowScale = entity.GetShadowScale();
+                entityCtrl.UpdateShadow();
 
                 dirtyProperties.Clear();
             }
@@ -756,16 +757,28 @@ namespace MVZ2.Entities
                             break;
 
                         case PropertyName.ShadowHidden:
-                            ShadowHidden = entity.IsShadowHidden();
+                            {
+                                ShadowHidden = entity.IsShadowHidden();
+                                entityCtrl.UpdateShadow();
+                            }
                             break;
                         case PropertyName.ShadowAlpha:
-                            ShadowAlpha = entity.GetShadowAlpha();
+                            {
+                                ShadowAlpha = entity.GetShadowAlpha();
+                                entityCtrl.UpdateShadow();
+                            }
                             break;
                         case PropertyName.ShadowOffset:
-                            ShadowOffset = entity.GetShadowOffset();
+                            {
+                                ShadowOffset = entity.GetShadowOffset();
+                                entityCtrl.UpdateShadow();
+                            }
                             break;
                         case PropertyName.ShadowScale:
-                            ShadowScale = entity.GetShadowScale();
+                            {
+                                ShadowScale = entity.GetShadowScale();
+                                entityCtrl.UpdateShadow();
+                            }
                             break;
 
                         case PropertyName.LightSource:
