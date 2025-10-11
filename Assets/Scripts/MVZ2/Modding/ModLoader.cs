@@ -3,7 +3,6 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.Seeds;
 using MVZ2.GameContent.Spawns;
 using MVZ2.GameContent.Stages;
@@ -242,60 +241,29 @@ namespace MVZ2.Modding
                     continue;
                 var name = meta.ID;
                 var type = meta.Type;
-                var spawnLevel = meta.SpawnLevel;
-                var terrain = meta.Terrain;
-                var weight = meta.Weight;
-                var excludedTags = terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>();
-                var water = meta.Terrain?.Water ?? false;
-                var air = meta.Terrain?.Air ?? false;
-                var noEndless = meta.NoEndless;
-                var previewEntity = meta.PreviewEntity;
-                var previewVariant = meta.PreviewVariant;
                 var entityID = meta.Entity;
-                var entityVariant = meta.EntityVariant;
-                var notInEndless = spawnLevel <= 0 || noEndless;
 
-                VanillaSpawnDefinition? spawnDef = null;
+                SpawnDefinition? spawnDef = null;
                 if (type == "entity")
                 {
                     if (NamespaceID.IsValid(entityID))
                     {
-                        spawnDef = new VanillaSpawnDefinition(nsp, name);
-                        var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
-                        var inLevel = new SpawnInLevelBehaviour(spawnLevel, entityID, water, air);
-                        var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                        spawnDef.SetBehaviours(inLevel, preview, endless);
+                        var def = new VanillaSpawnDefinition(nsp, name);
+                        var preview = new SpawnPreviewBehaviour();
+                        var inLevel = new SpawnInLevelBehaviour();
+                        var endless = new SpawnEndlessBehaviour();
+                        def.SetBehaviours(inLevel, preview, endless);
+                        spawnDef = def;
                     }
                 }
-                else if (name == VanillaSpawnNames.undeadFlyingObject)
+                else
                 {
-                    spawnDef = new VanillaSpawnDefinition(nsp, name);
-                    var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
-                    var inLevel = new UFOSpawnInLevelBehaviour(spawnLevel, entityVariant);
-                    var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                    spawnDef.SetBehaviours(inLevel, preview, endless);
-                }
-                else if (name == VanillaSpawnNames.undeadFlyingObjectBlitz)
-                {
-                    spawnDef = new VanillaSpawnDefinition(nsp, name);
-                    var preview = new SpawnPreviewBehaviour(previewEntity, previewVariant);
-                    var inLevel = new UFOSpawnInLevelBehaviour(spawnLevel, entityVariant, 0, 1, 20);
-                    var endless = new SpawnEndlessBehaviour(notInEndless, excludedTags);
-                    spawnDef.SetBehaviours(inLevel, preview, endless);
+                    spawnDef = mod.GetSpawnDefinition(new NamespaceID(nsp, name));
                 }
                 if (spawnDef == null)
                 {
                     Debug.LogWarning($"Could not create SpawnDefinition for spawn meta {nsp}:{name}");
                     continue;
-                }
-                spawnDef.SetProperty(VanillaSpawnProps.MIN_SPAWN_WAVE, meta.MinSpawnWave);
-                spawnDef.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
-                if (weight != null)
-                {
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_BASE, weight.Base);
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_START, weight.DecreaseStart);
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_END, weight.DecreaseEnd);
-                    spawnDef.SetProperty(VanillaSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
                 }
                 mod.AddDefinition(spawnDef);
             }
@@ -482,6 +450,7 @@ namespace MVZ2.Modding
             // 加载选项蓝图信息。
             LoadSeedOptionProperties(mod);
 
+            LoadSpawnProperties(mod);
             LoadStageProperties(mod);
             // 加载所有命令属性。
             LoadCommandProperties(mod);
@@ -631,6 +600,39 @@ namespace MVZ2.Modding
                 def.SetProperty<ICommandVariantMeta[]>(LogicCommandProps.VARIANTS, meta.Variants);
                 mod.AddDefinition(def);
             }
+        }
+        private void LoadSpawnProperties(Mod mod)
+        {
+            var nsp = mod.Namespace;
+            foreach (SpawnDefinition def in mod.GetAllSpawnDefinitions())
+            {
+                var meta = res.GetSpawnMeta(def.GetID());
+                if (meta == null)
+                    continue;
+                var weight = meta.Weight;
+                def.SetProperty(VanillaSpawnProps.PREVIEW_ENTITY, meta.PreviewEntity);
+                def.SetProperty(VanillaSpawnProps.PREVIEW_VARIANT, meta.PreviewVariant);
+                def.SetProperty(VanillaSpawnProps.PREVIEW_COUNT, meta.PreviewCount);
+
+                def.SetProperty(VanillaSpawnProps.MIN_SPAWN_WAVE, meta.MinSpawnWave);
+                def.SetProperty(VanillaSpawnProps.SPAWN_LEVEL, meta.SpawnLevel);
+                def.SetProperty(VanillaSpawnProps.SPAWN_IN_WATER, meta.Terrain?.Water ?? false);
+                def.SetProperty(VanillaSpawnProps.SPAWN_IN_AIR, meta.Terrain?.Air ?? false);
+                def.SetProperty(VanillaSpawnProps.SPAWN_ENTITY, meta.Entity);
+                def.SetProperty(VanillaSpawnProps.SPAWN_ENTITY_VARIANT, meta.EntityVariant);
+
+                def.SetProperty(VanillaSpawnProps.NO_ENDLESS, meta.NoEndless);
+                def.SetProperty(VanillaSpawnProps.EXCLUDED_AREA_TAGS, meta.Terrain?.ExcludedAreaTags ?? Array.Empty<NamespaceID>());
+
+                if (weight != null)
+                {
+                    def.SetProperty(VanillaSpawnProps.WEIGHT_BASE, weight.Base);
+                    def.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_START, weight.DecreaseStart);
+                    def.SetProperty(VanillaSpawnProps.WEIGHT_DECAY_END, weight.DecreaseEnd);
+                    def.SetProperty(VanillaSpawnProps.WEIGHT_DECAY, weight.DecreasePerFlag);
+                }
+            }
+
         }
         private void LoadNoteProperties(Mod mod)
         {

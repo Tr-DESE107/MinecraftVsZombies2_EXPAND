@@ -21,10 +21,8 @@ namespace PVZEngine.Definitions
         #region 生成
         public void PreSpawnAtWave(LevelEngine level, int wave, ref float totalPoints) => GetInLevelBehaviour().PreSpawnAtWave(this, level, wave, ref totalPoints);
         public int GetWeight(LevelEngine level) => GetInLevelBehaviour().GetWeight(this, level);
-        public int GetSpawnLevel(LevelEngine level) => GetInLevelBehaviour().GetSpawnLevel(this, level);
         public bool CanSpawnInLevel(LevelEngine level) => GetInLevelBehaviour().CanSpawnInLevel(this, level);
         public int GetRandomSpawnLane(LevelEngine level) => GetInLevelBehaviour().GetRandomSpawnLane(this, level);
-        public NamespaceID GetSpawnEntityID() => GetInLevelBehaviour().GetSpawnEntityID(this);
         protected abstract ISpawnInLevelBehaviour GetInLevelBehaviour();
         #endregion
 
@@ -38,8 +36,6 @@ namespace PVZEngine.Definitions
     public interface ISpawnInLevelBehaviour
     {
         void PreSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, ref float totalPoints);
-        NamespaceID GetSpawnEntityID(SpawnDefinition definition);
-        int GetSpawnLevel(SpawnDefinition definition, LevelEngine level);
         int GetWeight(SpawnDefinition definition, LevelEngine level);
         bool CanSpawnInLevel(SpawnDefinition definition, LevelEngine level);
         int GetRandomSpawnLane(SpawnDefinition definition, LevelEngine level);

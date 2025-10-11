@@ -131,14 +131,14 @@
 
     <!-- Ship -->
     <entry id="undead_flying_object" type="custom" >
-        <preview variant="3" />
         <entity id="mvz2:undead_flying_object" variant="-1"/>
-        <spawn level="2" />
+        <spawn level="2" minWave="3"/>
+        <preview variant="3" />
     </entry>
     <entry id="undead_flying_object_blitz" type="custom" noEndless="true" >
         <entity id="mvz2:undead_flying_object" variant="0"/>
-        <preview count="5" />
         <spawn level="1" />
+        <preview count="5" />
     </entry>
     <entry id="cannoneer_zombie" >
         <entity id="mvz2:cannoneer_zombie"/>

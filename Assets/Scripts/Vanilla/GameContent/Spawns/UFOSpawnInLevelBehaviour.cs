@@ -9,7 +9,6 @@ using MVZ2.Vanilla.Audios;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2Logic.Level;
-using PVZEngine;
 using PVZEngine.Buffs;
 using PVZEngine.Definitions;
 using PVZEngine.Grids;
@@ -21,18 +20,16 @@ namespace MVZ2.GameContent.Spawns
 {
     public class UFOSpawnInLevelBehaviour : ISpawnInLevelBehaviour
     {
-        public UFOSpawnInLevelBehaviour(int spawnLevel, int variant = -1, int minWave = 3, int intervalWaves = 5, int maxCount = 10)
+        public UFOSpawnInLevelBehaviour(int intervalWaves = 5, int maxCount = 10)
         {
-            SpawnLevel = spawnLevel;
-            Variant = variant;
-            MinWave = minWave;
             IntervalWaves = intervalWaves;
             MaxCount = maxCount;
         }
 
         public void PreSpawnAtWave(SpawnDefinition definition, LevelEngine level, int wave, ref float totalPoints)
         {
-            if (wave <= MinWave)
+            var minWave = definition.GetMinSpawnWave();
+            if (wave <= minWave)
                 return;
             var intervalWaves = IntervalWaves;
             bool finalWave = level.IsFinalWave(wave);
@@ -43,28 +40,29 @@ namespace MVZ2.GameContent.Spawns
                 var modular = flagModular % intervalWaves;
                 if (modular == (intervalWaves - 1) && !finalWave)
                 {
-                    PrepareUFO(level, totalPoints);
+                    PrepareUFO(definition, level, totalPoints);
                 }
                 else if (modular == 0)
                 {
-                    SpawnUFO(level, ref totalPoints);
+                    SpawnUFO(definition, level, ref totalPoints);
                 }
             }
             else
             {
                 if (!finalWave)
                 {
-                    PrepareUFO(level, totalPoints);
+                    PrepareUFO(definition, level, totalPoints);
                 }
-                SpawnUFO(level, ref totalPoints);
+                SpawnUFO(definition, level, ref totalPoints);
             }
         }
-        private void PrepareUFO(LevelEngine level, float totalPoints)
+        private void PrepareUFO(SpawnDefinition definition, LevelEngine level, float totalPoints)
         {
             var rng = new RandomGenerator(level.GetSpawnRNG().Next());
             int count = Mathf.Min(MaxCount, Mathf.CeilToInt(totalPoints * 0.3333333f));
+            var entityVariant = definition.GetSpawnEntityVariant();
 
-            bool random = Variant < 0;
+            bool random = entityVariant < 0;
             List<int> variantPool = new List<int>();
             int startIndex = 0;
             if (random)
@@ -79,7 +77,7 @@ namespace MVZ2.GameContent.Spawns
             }
             for (int i = 0; i < count; i++)
             {
-                int variant = Variant;
+                int variant = entityVariant;
                 if (random)
                 {
                     var typeIndex = (startIndex + i) % variantPool.Count;
@@ -109,10 +107,11 @@ namespace MVZ2.GameContent.Spawns
             }
             level.PlaySound(VanillaSoundID.ufoAlert);
         }
-        private void SpawnUFO(LevelEngine level, ref float totalPoints)
+        private void SpawnUFO(SpawnDefinition definition, LevelEngine level, ref float totalPoints)
         {
             var rng = level.GetSpawnRNG();
             HashSet<LawnGrid> possibleGrids = new HashSet<LawnGrid>();
+            var spawnLevel = definition.GetSpawnLevel();
             foreach (var buff in level.GetBuffs<UFOSpawnBuff>())
             {
                 var type = UFOSpawnBuff.GetVariant(buff);
@@ -134,7 +133,7 @@ namespace MVZ2.GameContent.Spawns
                     UndeadFlyingObject.SetTargetGridY(e, lane);
                     level.TriggerEnemySpawned(VanillaSpawnID.GetFromEntity(VanillaEnemyID.ufo), e);
                 });
-                totalPoints -= SpawnLevel;
+                totalPoints -= spawnLevel;
 
                 buff.Remove();
             }
@@ -145,11 +144,6 @@ namespace MVZ2.GameContent.Spawns
         }
         public bool CanSpawnInLevel(SpawnDefinition definition, LevelEngine level) => false;
         public int GetWeight(SpawnDefinition definition, LevelEngine level) => 0;
-        public int GetSpawnLevel(SpawnDefinition definition, LevelEngine level) => SpawnLevel;
-        public NamespaceID GetSpawnEntityID(SpawnDefinition definition) => VanillaEnemyID.ufo;
-        public int SpawnLevel { get; }
-        public int Variant { get; }
-        public int MinWave { get; }
         public int IntervalWaves { get; }
         public int MaxCount { get; }
     }

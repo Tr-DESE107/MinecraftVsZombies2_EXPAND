@@ -340,7 +340,7 @@ namespace MVZ2.Vanilla.Level
             {
                 // 当前所有可以生成的敌人。
                 // 不被当前波次限制。
-                var possibleSpawnDefs = validSpawnDefs.Where(def => def.GetSpawnLevel(level) <= totalPoints);
+                var possibleSpawnDefs = validSpawnDefs.Where(def => def.GetSpawnLevel() <= totalPoints);
 
                 // 没有可生成的敌人了，跳出
                 if (possibleSpawnDefs.Count() <= 0)
@@ -360,7 +360,7 @@ namespace MVZ2.Vanilla.Level
                 var rng = level.GetSpawnRNG();
                 var spawnDef = finalSpawnPool.WeightedRandom(i => i.GetWeight(level), rng);
                 level.SpawnEnemyAtRandomLane(spawnDef);
-                totalPoints -= spawnDef.GetSpawnLevel(level);
+                totalPoints -= spawnDef.GetSpawnLevel();
                 spawnedCount++;
             }
 
@@ -412,7 +412,10 @@ namespace MVZ2.Vanilla.Level
             var z = level.GetEntityLaneZ(lane);
             var y = level.GetGroundY(x, z);
             var pos = new Vector3(x, y, z);
-            return level.Spawn(spawnDef.GetSpawnEntityID(), pos, null)?.Let(e =>
+            var spawnEntityID = spawnDef.GetSpawnEntity();
+            if (!NamespaceID.IsValid(spawnEntityID))
+                return null;
+            return level.Spawn(spawnEntityID, pos, null)?.Let(e =>
             {
                 level.TriggerEnemySpawned(spawnDef.GetID(), e);
             });

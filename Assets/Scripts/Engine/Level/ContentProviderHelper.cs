@@ -94,6 +94,10 @@ namespace PVZEngine
         {
             return provider.GetDefinition<SpawnDefinition>(EngineDefinitionTypes.SPAWN, defRef);
         }
+        public static SpawnDefinition[] GetAllSpawnDefinitions(this IGameContent provider)
+        {
+            return provider.GetDefinitions<SpawnDefinition>(EngineDefinitionTypes.SPAWN);
+        }
         public static DifficultyDefinition? GetDifficultyDefinition(this IGameContent provider, NamespaceID? defRef)
         {
             return provider.GetDefinition<DifficultyDefinition>(EngineDefinitionTypes.DIFFICULTY, defRef);
