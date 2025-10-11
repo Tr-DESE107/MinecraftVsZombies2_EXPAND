@@ -8,6 +8,7 @@ using PVZEngine.Level;
 
 namespace MVZ2.GameContent.Stages
 {
+    [StageDefinition(VanillaStageNames.ship6)]
     public partial class UFOBlitzStage : StageDefinition
     {
         public UFOBlitzStage(string nsp, string name) : base(nsp, name)

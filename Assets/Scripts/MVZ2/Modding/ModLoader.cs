@@ -76,14 +76,20 @@ namespace MVZ2.Modding
                         }
                     }
 
-                    if (type.GetCustomAttribute<DefinitionAttribute>() is DefinitionAttribute definitionAttr && !type.IsAbstract)
+                    if (!type.IsAbstract)
                     {
-                        var name = definitionAttr.Name;
-                        var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
-                        var instance = constructor?.Invoke(new object[] { nsp, name });
-                        if (instance is Definition def)
+                        var definitionAttributes = type.GetCustomAttributes<DefinitionAttribute>();
+                        foreach (var attribute in definitionAttributes)
                         {
-                            mod.AddDefinition(def);
+                            if (attribute == null)
+                                continue;
+                            var name = attribute.Name;
+                            var constructor = type.GetConstructor(new Type[] { typeof(string), typeof(string) });
+                            var instance = constructor?.Invoke(new object[] { nsp, name });
+                            if (instance is Definition def)
+                            {
+                                mod.AddDefinition(def);
+                            }
                         }
                     }
 
@@ -286,36 +292,6 @@ namespace MVZ2.Modding
                     case StageTypes.TYPE_ENDLESS:
                         {
                             stageDef = new EndlessStage(nsp, meta.ID);
-                        }
-                        break;
-                    default:
-                        switch (meta.ID)
-                        {
-                            case VanillaStageNames.halloween6:
-                                stageDef = new WhackAGhostStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.dream6:
-                                stageDef = new BreakoutStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.castle6:
-                                stageDef = new LittleZombieStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.castle7:
-                                stageDef = new SeijaStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.ship6:
-                                stageDef = new UFOBlitzStage(nsp, meta.ID);
-                                break;
-
-                            case VanillaStageNames.whackAGhost:
-                                stageDef = new WhackAGhostStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.breakout:
-                                stageDef = new BreakoutStage(nsp, meta.ID);
-                                break;
-                            case VanillaStageNames.bigTroubleAndLittleZombie:
-                                stageDef = new LittleZombieStage(nsp, meta.ID);
-                                break;
                         }
                         break;
                 }

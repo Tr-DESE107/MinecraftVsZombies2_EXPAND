@@ -17,6 +17,7 @@ using UnityEngine;
 
 namespace MVZ2.GameContent.Stages
 {
+    [StageDefinition(VanillaStageNames.breakout)]
     public partial class BreakoutStage : StageDefinition
     {
         public BreakoutStage(string nsp, string name) : base(nsp, name)
@@ -44,10 +45,6 @@ namespace MVZ2.GameContent.Stages
             level.SetPickaxeActive(false);
             level.SetStarshardActive(false);
             level.SetTriggerActive(false);
-        }
-        public override void OnPostHugeWave(LevelEngine level)
-        {
-            base.OnPostHugeWave(level);
         }
         public override void OnUpdate(LevelEngine level)
         {
