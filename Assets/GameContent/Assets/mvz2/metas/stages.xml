@@ -1597,6 +1597,7 @@
 			<spawn id="mvz2:necromancer"/>
 			<spawn id="mvz2:skeleton_horse"/>
 			<spawn id="mvz2:ghast"/>
+			<spawn id="mvz2:VillagerGhast"/>
 			<spawn id="mvz2:AngryReverser"/>
 			<spawn id="mvz2:HostMutant"/>
 			<spawn id="mvz2:mutant_zombie"/>
@@ -1615,6 +1616,8 @@
 			<spawn id="mvz2:mega_mutant_zombie"/>
 			<spawn id="mvz2:HostMutant"/>
 			<spawn id="mvz2:HeavyGutant"/>
+			<spawn id="mvz2:MegaMutantVillager"/>
+			<spawn id="mvz2:MutantVillager"/>
 			
 		</spawns>
 		<properties>

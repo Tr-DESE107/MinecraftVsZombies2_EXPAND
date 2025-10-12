@@ -173,7 +173,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Berserker_4
+      name: Berserker_3
       rect:
         serializedVersion: 2
         x: 10
@@ -194,7 +194,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Berserker_5
+      name: Berserker_4
       rect:
         serializedVersion: 2
         x: 19

@@ -330,5 +330,23 @@
 		<terrain water="true"/>
 		<weight base="1600" />
 	</entry>
+	
+	<!--EXPAND E3-->
+	<entry id="VillagerGhast" entity="mvz2:VillagerGhast" >
+		<spawn level="3" minWave="10" />
+		<terrain water="true" air="true"/>
+		<weight base="2000" />
+	</entry>
+
+	<entry id="MutantVillager" entity="mvz2:MutantVillager" >
+		<spawn level="10" minWave="1"/>
+		<terrain water="true"/>
+		<weight base="1500" />
+	</entry>
+	<entry id="MegaMutantVillager" entity="mvz2:MegaMutantVillager" >
+		<spawn level="10" minWave="1"/>
+		<terrain water="true"/>
+		<weight base="1200" />
+	</entry>
 
 </spawns>

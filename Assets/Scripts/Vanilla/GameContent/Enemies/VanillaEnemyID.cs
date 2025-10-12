@@ -98,6 +98,13 @@ namespace MVZ2.GameContent.Enemies
         public const string skeletonMage = "skeleton_mage";
         public const string shikaisenStaff = "shikaisen_staff";
 
+
+
+        //EXPAND3
+        public const string MegaMutantVillager = "MegaMutantVillager";
+        public const string MutantVillager = "MutantVillager";
+        public const string VillagerGhast = "VillagerGhast";
+
     }
     public static class VanillaEnemyID
     {
@@ -192,6 +199,12 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID skeletonWarrior = Get(VanillaEnemyNames.skeletonWarrior);
         public static readonly NamespaceID skeletonMage = Get(VanillaEnemyNames.skeletonMage);
         public static readonly NamespaceID shikaisenStaff = Get(VanillaEnemyNames.shikaisenStaff);
+
+        //EXPAND3
+        public static readonly NamespaceID MegaMutantVillager = Get(VanillaEnemyNames.MegaMutantVillager);
+        public static readonly NamespaceID MutantVillager = Get(VanillaEnemyNames.MutantVillager);
+        public static readonly NamespaceID VillagerGhast = Get(VanillaEnemyNames.VillagerGhast);
+
         private static NamespaceID Get(string name)
         {
             return new NamespaceID(VanillaMod.spaceName, name);

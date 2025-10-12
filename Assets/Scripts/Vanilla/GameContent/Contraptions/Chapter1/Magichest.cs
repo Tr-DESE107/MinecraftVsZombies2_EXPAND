@@ -189,7 +189,7 @@ namespace MVZ2.GameContent.Contraptions
                         stateTimer.Run();
                         if (stateTimer.PassedFrame(30))
                         {
-                            var ghast = entity.SpawnWithParams(VanillaEnemyID.ghast, entity.GetCenter());
+                            var ghast = entity.SpawnWithParams(VanillaEnemyID.VillagerGhast, entity.GetCenter());
                             ghast.AddBuff<NightmareComeTrueBuff>();
                             entity.PlaySound(VanillaSoundID.fireCharge);
                         }

@@ -172,6 +172,11 @@
     <model name="shikaisen_staff" type="entity" path="mvz2:enemy/mausoleum/shikaisen_staff" width="24" height="64" xOffset="0" yOffset="-26"/>
 
 
+	<!--EXPAND En2-->
+	<model name="MegaMutantVillager" type="entity" path="mvz2:enemy/EXPAND/MegaMutantVillager" width="200" height="180" xOffset="0" yOffset="-90"/>
+	<model name="MutantVillager" type="entity" path="mvz2:enemy/EXPAND/MutantVillager" width="200" height="180" xOffset="0" yOffset="-90"/>
+	<model name="VillagerGhast" type="entity" path="mvz2:enemy/EXPAND/VillagerGhast" width="64" height="64" xOffset="0" yOffset="-28"/>
+
     <!-- Obstacles -->
     <model name="gargoyle_statue" type="entity" path="mvz2:obstacle/gargoyle_statue" width="64" height="96" xOffset="0" yOffset="-44"/>
     <model name="monster_spawner" type="entity" path="mvz2:obstacle/monster_spawner" width="64" height="64" xOffset="0" yOffset="-28"/>

@@ -249,6 +249,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ee5bd16036d662849b423ed4c594401d, type: 3}
   - name: mobile_blueprint/emperor_zombie
     sprite: {fileID: 21300000, guid: d018395fbcf32f44c92a79b061e11d83, type: 3}
+  - name: mobile_blueprint/Eradicator
+    sprite: {fileID: 21300000, guid: 1f71764d951b29f4b92dd2f546c131d2, type: 3}
   - name: mobile_blueprint/error_block
     sprite: {fileID: 21300000, guid: 4a95d1fe4c3e9f342a64658402ac3669, type: 3}
   - name: mobile_blueprint/Eviltombstone
@@ -1673,6 +1675,12 @@ MonoBehaviour:
     - {fileID: 320034190, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
     - {fileID: 1628297157, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
     - {fileID: 789365403, guid: 407fad964d6763c4485f90c8ab1d907a, type: 3}
+  - name: entity/contraption/Eradicator
+    spritesheet:
+    - {fileID: 460737641, guid: 17b5db58744a62b40aa838a035741a85, type: 3}
+    - {fileID: 2097030706, guid: 17b5db58744a62b40aa838a035741a85, type: 3}
+    - {fileID: -2081611256, guid: 17b5db58744a62b40aa838a035741a85, type: 3}
+    - {fileID: -1668233880, guid: 17b5db58744a62b40aa838a035741a85, type: 3}
   - name: entity/contraption/fire_block_0
     spritesheet:
     - {fileID: 1207791398, guid: 1143ec22777085e4da98117d2864f022, type: 3}
@@ -2077,6 +2085,13 @@ MonoBehaviour:
     - {fileID: 1260698952, guid: 6b23736b521bd0440b674f16a0460be6, type: 3}
     - {fileID: 523747295, guid: 6b23736b521bd0440b674f16a0460be6, type: 3}
     - {fileID: 1877517199, guid: 6b23736b521bd0440b674f16a0460be6, type: 3}
+  - name: entity/enemy/Berserker
+    spritesheet:
+    - {fileID: 103022094, guid: 01bed07da808e93428d93f2323c74c6a, type: 3}
+    - {fileID: -1826993731, guid: 01bed07da808e93428d93f2323c74c6a, type: 3}
+    - {fileID: -1499003850, guid: 01bed07da808e93428d93f2323c74c6a, type: 3}
+    - {fileID: 1022218844, guid: 01bed07da808e93428d93f2323c74c6a, type: 3}
+    - {fileID: -1414588138, guid: 01bed07da808e93428d93f2323c74c6a, type: 3}
   - name: entity/enemy/Berserker_clothing
     spritesheet:
     - {fileID: 174426161, guid: 40bc86920be37bc4cb2b15d875a1b62c, type: 3}
@@ -2097,6 +2112,13 @@ MonoBehaviour:
     spritesheet:
     - {fileID: -1078924827, guid: 7bf48cdb4ddd8074c8c39a084c5e181f, type: 3}
     - {fileID: -431149792, guid: 7bf48cdb4ddd8074c8c39a084c5e181f, type: 3}
+  - name: entity/enemy/BruteZombie
+    spritesheet:
+    - {fileID: -481261004, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
+    - {fileID: 713283044, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
+    - {fileID: -94971770, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
+    - {fileID: 1939102905, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
+    - {fileID: 578030354, guid: dfb8cb068f506d8459456dcf3e07d38b, type: 3}
   - name: entity/enemy/cave_spider
     spritesheet:
     - {fileID: -448787342, guid: 20cb1b235fabd9f49b957a6cb970904b, type: 3}
@@ -2257,6 +2279,24 @@ MonoBehaviour:
     - {fileID: 950147321, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
     - {fileID: 1781986370, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
     - {fileID: 269002808, guid: 4f7522d4b371a4c4c9601192a52d26fa, type: 3}
+  - name: entity/enemy/MegaMutantVillager
+    spritesheet:
+    - {fileID: 1467493411, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: 530912050, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: 328131257, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: 1806054383, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: -160147254, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: -673280958, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: -1560933257, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: -2147156013, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: 937813758, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: -23818147, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: -1185376987, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: 445035755, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: 2139505239, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: -2088907892, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: 1264209895, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
+    - {fileID: 1017625039, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
   - name: entity/enemy/MegaZombie
     spritesheet:
     - {fileID: -1468793151, guid: 948c5ad7c0a10bc4fad381b36a5d60d7, type: 3}
@@ -2288,6 +2328,13 @@ MonoBehaviour:
     - {fileID: -896746972, guid: de6983021191a2540a472d662b0fffde, type: 3}
     - {fileID: 294246357, guid: de6983021191a2540a472d662b0fffde, type: 3}
     - {fileID: 782296745, guid: de6983021191a2540a472d662b0fffde, type: 3}
+  - name: entity/enemy/MindElite
+    spritesheet:
+    - {fileID: -851593034, guid: c2e96058c96b6ec44a4ef62502b72388, type: 3}
+    - {fileID: -1556677161, guid: c2e96058c96b6ec44a4ef62502b72388, type: 3}
+    - {fileID: 391646557, guid: c2e96058c96b6ec44a4ef62502b72388, type: 3}
+    - {fileID: 1078314319, guid: c2e96058c96b6ec44a4ef62502b72388, type: 3}
+    - {fileID: 1320882283, guid: c2e96058c96b6ec44a4ef62502b72388, type: 3}
   - name: entity/enemy/MonkZombie
     spritesheet:
     - {fileID: -2077321725, guid: 9994cdef8f77dc64c8b87ec562fcc3cb, type: 3}
@@ -2320,6 +2367,23 @@ MonoBehaviour:
     - {fileID: -685330864, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
     - {fileID: 1408847349, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
     - {fileID: -1519332053, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
+  - name: entity/enemy/MutantVillager
+    spritesheet:
+    - {fileID: -1450277346, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: 1542626935, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: 1508592180, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: 845830593, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: 735842849, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: 405389507, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: 1716858624, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: -595206231, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: 1562072535, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: -824704080, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: 1795525224, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: -1001689994, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: -513111824, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: 1366798264, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
+    - {fileID: -189355057, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}
   - name: entity/enemy/mutant_zombie
     spritesheet:
     - {fileID: 1281193560, guid: f661948e8fac49542be1f0cbf157b316, type: 3}
@@ -2398,6 +2462,7 @@ MonoBehaviour:
     - {fileID: 2054211541, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
     - {fileID: 56546038, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
     - {fileID: 175646590, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
+    - {fileID: -1616175643, guid: c9f12aabd02fce54b9b5287418b50d8b, type: 3}
   - name: entity/enemy/nether_vanguard_shield
     spritesheet:
     - {fileID: 708459659, guid: 98be614d3bbda5a499685b92f54d26d8, type: 3}
@@ -2408,6 +2473,13 @@ MonoBehaviour:
     - {fileID: 581941778, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
     - {fileID: 1667340038, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
     - {fileID: -1788139634, guid: 70bddf2f49c9f784ab16859628feafb6, type: 3}
+  - name: entity/enemy/OldPlayer
+    spritesheet:
+    - {fileID: -2109401964, guid: ee0d57dfb3655654ab1350bdca84592b, type: 3}
+    - {fileID: -1358531518, guid: ee0d57dfb3655654ab1350bdca84592b, type: 3}
+    - {fileID: -1989913532, guid: ee0d57dfb3655654ab1350bdca84592b, type: 3}
+    - {fileID: 376626468, guid: ee0d57dfb3655654ab1350bdca84592b, type: 3}
+    - {fileID: 317478364, guid: ee0d57dfb3655654ab1350bdca84592b, type: 3}
   - name: entity/enemy/parasite_terror
     spritesheet:
     - {fileID: 395815112, guid: 8b6fcf46139505d41b1ef83b75aedd0d, type: 3}
@@ -2432,6 +2504,13 @@ MonoBehaviour:
     - {fileID: -1539263756, guid: f681e55e70c51fb4497ea6393646387a, type: 3}
     - {fileID: -42161522, guid: f681e55e70c51fb4497ea6393646387a, type: 3}
     - {fileID: 2130875584, guid: f681e55e70c51fb4497ea6393646387a, type: 3}
+  - name: entity/enemy/Player
+    spritesheet:
+    - {fileID: -945264565, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
+    - {fileID: 2054582241, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
+    - {fileID: -327640177, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
+    - {fileID: 1464070581, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
+    - {fileID: -1898690792, guid: 4375052f062b4324abcfb5860bc743ad, type: 3}
   - name: entity/enemy/Red_MonkZombie
     spritesheet:
     - {fileID: 195686219, guid: 4440268da916c7441be04ae4200cb5e4, type: 3}
@@ -2561,6 +2640,12 @@ MonoBehaviour:
     - {fileID: -469190119, guid: b4d85ffb8a267074f81e4c9862d40fed, type: 3}
     - {fileID: 1600815500, guid: b4d85ffb8a267074f81e4c9862d40fed, type: 3}
     - {fileID: -1075604742, guid: b4d85ffb8a267074f81e4c9862d40fed, type: 3}
+  - name: entity/enemy/VillagerGhast
+    spritesheet:
+    - {fileID: -1208811547, guid: 6fa12b075469f014a80ae6de1b91a3aa, type: 3}
+    - {fileID: 2141567946, guid: 6fa12b075469f014a80ae6de1b91a3aa, type: 3}
+    - {fileID: -208473136, guid: 6fa12b075469f014a80ae6de1b91a3aa, type: 3}
+    - {fileID: -1620906378, guid: 6fa12b075469f014a80ae6de1b91a3aa, type: 3}
   - name: entity/enemy/wicked_hermit_zombie
     spritesheet:
     - {fileID: -59632489, guid: 1d01491d6c38d40428fedd37cfac8db6, type: 3}

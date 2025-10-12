@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -278,7 +278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MutantVillager_10
+      name: MutantVillager_8
       rect:
         serializedVersion: 2
         x: 7
@@ -299,7 +299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MutantVillager_11
+      name: MutantVillager_9
       rect:
         serializedVersion: 2
         x: 39
@@ -320,7 +320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MutantVillager_12
+      name: MutantVillager_10
       rect:
         serializedVersion: 2
         x: 71
@@ -341,7 +341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MutantVillager_13
+      name: MutantVillager_11
       rect:
         serializedVersion: 2
         x: 166
@@ -362,7 +362,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MutantVillager_14
+      name: MutantVillager_12
       rect:
         serializedVersion: 2
         x: 339
@@ -383,7 +383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MutantVillager_8
+      name: MutantVillager_13
       rect:
         serializedVersion: 2
         x: 355
@@ -404,7 +404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MutantVillager_9
+      name: MutantVillager_14
       rect:
         serializedVersion: 2
         x: 410

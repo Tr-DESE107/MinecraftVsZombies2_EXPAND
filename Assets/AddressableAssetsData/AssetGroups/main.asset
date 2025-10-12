@@ -80,6 +80,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01bed07da808e93428d93f2323c74c6a
+    m_Address: mvz2:entity/enemy/Berserker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01ea06eaff14a0746a137123701e46b3
     m_Address: mvz2:entity/projectiles/arrow
     m_ReadOnly: 0
@@ -3235,6 +3242,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42f0b00584f2dae44b83bd13bce9cecc
+    m_Address: mvz2:enemy/EXPAND/MegaMutantVillager
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4339bf5f9f84c374c80373f3c986dc65
     m_Address: mvz2:ui/level/pickaxe_slot
     m_ReadOnly: 0
@@ -3255,6 +3269,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4375052f062b4324abcfb5860bc743ad
+    m_Address: mvz2:entity/enemy/Player
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 439af6a040ba009429682529df6aaa94
     m_Address: mvz2:ui/musicroom/track_button
@@ -5265,6 +5286,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6fa12b075469f014a80ae6de1b91a3aa
+    m_Address: mvz2:entity/enemy/VillagerGhast
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6fd8c4c1aa016fb4ca753e7d793584a7
     m_Address: mvz2:horse_gallop4
     m_ReadOnly: 0
@@ -5358,6 +5386,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 729f6cb40a51da2449f5a7e7b4ead347
     m_Address: mvz2:enemy/mausoleum/shikaisen_zombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72a69c810ee3ba641bd5de3fbbf3d32e
+    m_Address: mvz2:enemy/EXPAND/VillagerGhast
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
@@ -6818,6 +6853,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 912d19169545f9c4abbd98e6ac62753a
+    m_Address: mvz2:entity/enemy/MutantVillager
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91391702dfa4fa749b9e1ea735de8da2
     m_Address: mvz2:mobile_blueprint/ghast
     m_ReadOnly: 0
@@ -7973,6 +8015,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac304b08d634cf84aab0cb9bdf93d334
+    m_Address: mvz2:enemy/EXPAND/MutantVillager
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: acc2e6159831cab4bb25141293768c3c
     m_Address: mvz2:mobile_blueprint/furnace
     m_ReadOnly: 0
@@ -8021,6 +8070,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ada278ae5ff1fa840b8dd74240dc2c13
+    m_Address: mvz2:entity/enemy/MegaMutantVillager
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: adecf731c88b78646a29bb745f5ada9b
     m_Address: mvz2:mobile_blueprint/dream_crystal
@@ -9219,6 +9275,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9b9d4d511dfa304c885a395624de3d3
+    m_Address: mvz2:enemy/EXPAND/BruteZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c9bb0408ef5a7624eb4980e99c0c4888
     m_Address: mvz2:entity/enemies/dullahan_bended_arm
     m_ReadOnly: 0
@@ -10171,6 +10234,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfb8cb068f506d8459456dcf3e07d38b
+    m_Address: mvz2:entity/enemy/BruteZombie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dfd23f4bf547c91488f6d7e24b5d60ef
     m_Address: mvz2:choosing
     m_ReadOnly: 0
@@ -10719,6 +10789,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: edbf8d7615f557542ba5d6015f37ebf0
     m_Address: mvz2:entity/enemy/ReverserBody0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee0d57dfb3655654ab1350bdca84592b
+    m_Address: mvz2:entity/enemy/OldPlayer
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main
