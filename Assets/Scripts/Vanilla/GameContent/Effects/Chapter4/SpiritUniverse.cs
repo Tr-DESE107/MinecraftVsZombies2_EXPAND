@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using MVZ2.GameContent.Buffs;
 using MVZ2.GameContent.Buffs.Level;
 using MVZ2.Vanilla.Entities;
+using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
+using PVZEngine;
 using PVZEngine.Auras;
 using PVZEngine.Buffs;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using PVZEngine.Modifiers;
 using UnityEngine;
 
 namespace MVZ2.GameContent.Effects
@@ -19,29 +22,24 @@ namespace MVZ2.GameContent.Effects
         #region 公有方法
         public SpiritUniverse(string nsp, string name) : base(nsp, name)
         {
+            AddModifier(ColorModifier.Multiply(EngineEntityProps.TINT, PROP_TINT_MULTIPLIER));
             AddAura(new NightAura());
         }
         #endregion
 
-        public override void Init(Entity entity)
-        {
-            base.Init(entity);
-            var tint = entity.GetTint();
-            tint.a = 0;
-            entity.SetTint(tint);
-        }
         public override void Update(Entity entity)
         {
             base.Update(entity);
-            var tint = entity.GetTint();
+            var tint = entity.GetProperty<Color>(PROP_TINT_MULTIPLIER);
             var speed = 1 / 90f;
             if ((entity.Timeout > 0 && entity.Timeout <= 30) || (entity.Level.IsGameOver() || !entity.Level.IsGameStarted()))
             {
                 speed = -1 / 30f;
             }
             tint.a = Mathf.Clamp01(tint.a + speed);
-            entity.SetTint(tint);
+            entity.SetProperty(PROP_TINT_MULTIPLIER, tint);
         }
+        public static readonly PropertyMeta<Color> PROP_TINT_MULTIPLIER = new VanillaEntityPropertyMeta<Color>("tint_multiplier", new Color(1, 1, 1, 0));
         public class NightAura : AuraEffectDefinition
         {
             public NightAura() : base(VanillaBuffID.Level.spiritUniverseNight)

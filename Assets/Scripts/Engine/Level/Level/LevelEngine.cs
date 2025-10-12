@@ -9,6 +9,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace PVZEngine.Level
 {
@@ -161,6 +162,13 @@ namespace PVZEngine.Level
                 IncreaseLevelObjectReference(child);
             }
         }
+        public void IncreaseLevelObjectChildReference(ILevelObject parent, ILevelObject child)
+        {
+            if (parent == this || HasLevelObjectReference(parent))
+            {
+                IncreaseLevelObjectReference(child);
+            }
+        }
         public void DecreaseLevelObjectReference(ILevelObject obj)
         {
             if (levelObjectReferences.TryGetValue(obj, out var count))
@@ -179,6 +187,13 @@ namespace PVZEngine.Level
                 {
                     levelObjectReferences[obj] = count;
                 }
+            }
+        }
+        public void DecreaseLevelObjectChildReference(ILevelObject parent, ILevelObject child)
+        {
+            if (parent == this || HasLevelObjectReference(parent))
+            {
+                DecreaseLevelObjectReference(child);
             }
         }
         public bool HasLevelObjectReference(ILevelObject obj)

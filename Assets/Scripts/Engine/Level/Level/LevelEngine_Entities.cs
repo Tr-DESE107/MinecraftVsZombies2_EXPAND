@@ -105,9 +105,9 @@ namespace PVZEngine.Level
                 param.Apply(spawned);
             }
             entities.Add(id, spawned);
-            IncreaseLevelObjectReference(spawned);
             OnEntitySpawn?.Invoke(spawned);
             spawned.Init();
+            IncreaseLevelObjectReference(spawned);
             return spawned;
         }
         public Entity? SpawnSourced(EntityDefinition entityDef, Vector3 pos, ILevelSourceReference? source, SpawnParams? param = null) => SpawnSourced(entityDef, pos, source, NewEntitySeed(), param);

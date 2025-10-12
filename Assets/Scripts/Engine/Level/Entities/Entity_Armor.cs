@@ -62,7 +62,7 @@ namespace PVZEngine.Entities
             };
             Level.Triggers.RunCallback(LevelCallbacks.POST_EQUIP_ARMOR, param);
             OnEquipArmor?.Invoke(slot, armor);
-            Level.IncreaseLevelObjectReference(armor);
+            Level.IncreaseLevelObjectChildReference(this, armor);
         }
         public void RemoveArmor(NamespaceID slot)
         {
@@ -85,7 +85,7 @@ namespace PVZEngine.Entities
             Level.Triggers.RunCallback(LevelCallbacks.POST_REMOVE_ARMOR, param);
             OnRemoveArmor?.Invoke(slot, armor);
 
-            Level.DecreaseLevelObjectReference(armor);
+            Level.DecreaseLevelObjectChildReference(this, armor);
         }
         public void DestroyArmor(NamespaceID slot, ArmorDestroyInfo info)
         {

@@ -34,10 +34,7 @@ namespace PVZEngine.Buffs
             {
                 modifier.PostAdd(this, target);
             }
-            if (Target == Level || Level.HasLevelObjectReference(Target))
-            {
-                Level.IncreaseLevelObjectReference(this);
-            }
+            Level.IncreaseLevelObjectChildReference(Target, this);
             Definition.PostAdd(this);
         }
         public void Update()
@@ -53,10 +50,7 @@ namespace PVZEngine.Buffs
             {
                 modifier.PostRemove(this, Target);
             }
-            if (Target == Level || Level.HasLevelObjectReference(Target))
-            {
-                Level.DecreaseLevelObjectReference(this);
-            }
+            Level.DecreaseLevelObjectChildReference(Target, this);
             Definition.PostRemove(this);
             Target = null;
         }
