@@ -9,7 +9,6 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level.Collisions;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace PVZEngine.Level
 {
