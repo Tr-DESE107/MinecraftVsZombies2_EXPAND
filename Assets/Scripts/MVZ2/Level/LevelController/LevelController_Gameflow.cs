@@ -236,7 +236,11 @@ namespace MVZ2.Level
             level.PlaySound(VanillaSoundID.loseMusic);
             level.HideAdvice();
 
-            SetModelAnimatorBool("GameOver", true);
+            var areaModel = GetAreaModel();
+            if (areaModel != null)
+            {
+                areaModel.SetProperty("GameOver", true);
+            }
 
             ClearPointingGrid();
             SetUIVisibleState(VisibleState.Nothing);

@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 1554807909308335402}
   - component: {fileID: 3611676925950151824}
   - component: {fileID: 8759604003521552328}
+  - component: {fileID: 2555870367244244241}
   m_Layer: 12
   m_Name: Pillbox
   m_TagString: Untagged
@@ -241,6 +242,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   excludedInGroup: 0
+--- !u!114 &2555870367244244241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799299510679417759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a287da23b59d7e42be6baeb5ac11e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whenFalse: 0
+  propertyName: GameOver
 --- !u!1 &6401487629943323528
 GameObject:
   m_ObjectHideFlags: 0
