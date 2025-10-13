@@ -147,7 +147,18 @@
                 <stage price="10000" unlocks="mvz2:contraption.golden_dropper"/>
             </stages>
         </product>
-        <product />
+        <product id="skyward_beacon" blueprintId="mvz2:skyward_beacon">
+            <unlock>
+                <condition required="mvz2:level.ship_6"/>
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">把御天信标放在信标上，让它发射从天而降的致命光束，打击你所指定的位置！</talk>
+                <talk character="mvz2:tokiko">御天信标能升级信标，发射从天而降的光束，打击你想要的任意位置！</talk>
+            </talks>
+            <stages>
+                <stage price="14370" unlocks="mvz2:contraption.skyward_beacon"/>
+            </stages>
+        </product>
         <product />
         <product />
         <product />

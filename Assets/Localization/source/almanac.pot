@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-06 10:30+0800\n"
+"POT-Creation-Date: 2025-10-13 11:46+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,6 +93,18 @@ msgstr ""
 #: Almanac meta file
 msgctxt "almanac_tag.description"
 msgid "必须放置在木制投掷器上"
+msgstr ""
+
+#. Name for almanac tag placement_beacon
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：信标"
+msgstr ""
+
+#. Description for almanac tag placement_beacon
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在信标上"
 msgstr ""
 
 #. Name for almanac tag placement_repeatenser
@@ -1639,6 +1651,31 @@ msgstr ""
 #: Almanac meta file
 msgctxt "contraptions.description"
 msgid "它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！"
+msgstr ""
+
+#. Header for contraptions mvz2:skyward_beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。"
+msgstr ""
+
+#. Properties for contraptions mvz2:skyward_beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1发/3秒</color>\n"
+"伤害：<color=red>147</color>\n"
+"技能：<color=red>展开一片星空，将场地临时变为黑夜，空中会掉落总共300颗星星子弹，每颗星星造成55点伤害，持续30秒。</color>"
+msgstr ""
+
+#. Flavor for contraptions mvz2:skyward_beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"御天信标一直都是器械界的一位大歌星——我没在开双关玩笑，它是真的很有人气。\n"
+"在舞台上，它随手就能展开一片星空，让所有人在台下为这绚丽的景象欢呼，炒热现场气氛之后再来上一曲。演唱会的主办方都赚麻了。\n"
+"它喜欢研究各种剑，最喜欢的颜色是黄色，最喜欢的数字是1437。它和石制投掷器算是不错的朋友，但它也非常讨厌骷髅头。\n"
+"不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）"
 msgstr ""
 
 #. Header for contraptions mvz2:high_frequency_pulse_dispenser
@@ -4472,6 +4509,20 @@ msgctxt "entity.tooltip"
 msgid ""
 "（需要木制投掷器）\n"
 "投出反弹并产生绿宝石的金球"
+msgstr ""
+
+#. Name for entity mvz2:skyward_beacon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "御天信标"
+msgstr ""
+
+#. Tooltip for entity mvz2:skyward_beacon
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要信标）\n"
+"使用光柱定点打击位置"
 msgstr ""
 
 #. Name for entity mvz2:high_frequency_pulse_dispenser

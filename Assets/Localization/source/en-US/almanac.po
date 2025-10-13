@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-06 10:30+0800\n"
-"PO-Revision-Date: 2025-10-07 21:45+0800\n"
+"POT-Creation-Date: 2025-10-13 11:46+0800\n"
+"PO-Revision-Date: 2025-10-13 11:46+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -100,6 +100,18 @@ msgstr "Upgrade Contraption: Wooden Dropper"
 msgctxt "almanac_tag.description"
 msgid "必须放置在木制投掷器上"
 msgstr "Must be placed on Wooden Dropper"
+
+#. Name for almanac tag placement_beacon
+#: Almanac meta file
+msgctxt "almanac_tag.name"
+msgid "升级器械：信标"
+msgstr "Upgrade Contraption: Beacon"
+
+#. Description for almanac tag placement_beacon
+#: Almanac meta file
+msgctxt "almanac_tag.description"
+msgid "必须放置在信标上"
+msgstr "Must be placed on Beacon"
 
 #. Name for almanac tag placement_repeatenser
 #: Almanac meta file
@@ -1930,6 +1942,44 @@ msgctxt "contraptions.description"
 msgid "它把木制投掷器的笑话专利买下来了，所以它可以理所应当地玩鑫鑫鑫鑫鑫鑫鑫鑫鑫鑫制投掷器的笑话了！"
 msgstr "It bought the joke patent of the Wooden Dropper, so it can joke about Goooooooooooooooooooooooooooooolden Dropper deservedly!"
 
+#. Header for contraptions mvz2:skyward_beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid "御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。"
+msgstr ""
+"Skyward Beacons fire beams of light that continuously strike all enemies within a fixed area. Triggering them allows you to change the "
+"strike location."
+
+#. Properties for contraptions mvz2:skyward_beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"发射速度：<color=red>1发/3秒</color>\n"
+"伤害：<color=red>147</color>\n"
+"技能：<color=red>展开一片星空，将场地临时变为黑夜，空中会掉落总共300颗星星子弹，每颗星星造成55点伤害，持续30秒。</color>"
+msgstr ""
+"Fire rate: <color=red>1 shot/3 seconds</color>\n"
+"Damage: <color=red>147</color>\n"
+"Evocation: <color=red>Unfold a starry sky, temporarily changing day to night. A total of 300 star projectiles will fall from the sky "
+"for 30 seconds, with each star projectile dealing 55 damage.</color>"
+
+#. Flavor for contraptions mvz2:skyward_beacon
+#: Almanac meta file
+msgctxt "contraptions.description"
+msgid ""
+"御天信标一直都是器械界的一位大歌星——我没在开双关玩笑，它是真的很有人气。\n"
+"在舞台上，它随手就能展开一片星空，让所有人在台下为这绚丽的景象欢呼，炒热现场气氛之后再来上一曲。演唱会的主办方都赚麻了。\n"
+"它喜欢研究各种剑，最喜欢的颜色是黄色，最喜欢的数字是1437。它和石制投掷器算是不错的朋友，但它也非常讨厌骷髅头。\n"
+"不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）"
+msgstr ""
+"Skyward Beacon has always been a star singer in the contraption world—No pun intended, it's really popular.\n"
+"On stage, it can casually unfold a starry sky, making the audience cheer for the dazzling sight. After pumping up the atmosphere, it "
+"will follow up with a song. The concert organizers were absolutely raking in the profits.\n"
+"It enjoys studying various swords, its favorite color is yellow, and its favorite number is 1437. It gets along quite well with Stone "
+"Dropper, but it also really hates skeleton skulls.\n"
+"However, it has one bad habit: pretending to know things it actually doesn't (such as lying about how many rounds it supposedly "
+"reached in Endless Mode.)"
+
 #. Header for contraptions mvz2:high_frequency_pulse_dispenser
 #: Almanac meta file
 msgctxt "contraptions.description"
@@ -3373,6 +3423,11 @@ msgid ""
 "这最后的“仿制品”你也拿到了。它的主人完全没有它母亲那般仁慈，口中喷出的满是残暴，对于弱者毫无任何慈悲之心。\n"
 "此仇，永世无法平息。"
 msgstr ""
+"Years ago, as the high monk grasped the tooth from the mother, she became trapped in the cycle of repetition.\n"
+"Now, as Steve raises the tooth from the child in his hand, the cycle is broken.\n"
+"Even this final “replica” has been obtained by you. The tooth’s owner, unlike his mother, with not even an iota of her mercy, spat out "
+"nothing but cataclysm from its mouth. Compassion or kindness, it gave nothing of the sort to the weak.\n"
+"This eternal vengeance will never find its end."
 
 #. Name for almanac group mvz2:bosses
 #: Almanac meta file
@@ -5261,6 +5316,20 @@ msgid ""
 msgstr ""
 "(Requires Wooden Dropper)\n"
 "Fires bouncing golden balls which produce emeralds"
+
+#. Name for entity mvz2:skyward_beacon
+#: Entity meta file
+msgctxt "entity.name"
+msgid "御天信标"
+msgstr "Skyward Beacon"
+
+#. Tooltip for entity mvz2:skyward_beacon
+#: Entity meta file
+msgctxt "entity.tooltip"
+msgid ""
+"（需要信标）\n"
+"使用光柱定点打击位置"
+msgstr "(Requires Beacon) Strikes a certain spot using lightbeams"
 
 #. Name for entity mvz2:high_frequency_pulse_dispenser
 #: Entity meta file
