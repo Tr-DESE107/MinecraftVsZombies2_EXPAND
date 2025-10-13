@@ -159,5 +159,6 @@ namespace MVZ2.Metas
         public const string ID_TYPE_ARTIFACT = "artifact";
         public const string ID_TYPE_ARMOR = "armor";
         public const string ID_TYPE_ARMOR_SLOT = "armor_slot";
+        public const string ID_TYPE_UNLOCK = "unlock";
     }
 }

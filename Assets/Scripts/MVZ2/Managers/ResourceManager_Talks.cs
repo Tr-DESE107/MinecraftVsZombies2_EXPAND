@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2.Modding;
 using MVZ2.TalkData;
 using MVZ2.Vanilla;
 using PVZEngine;
@@ -96,6 +97,20 @@ namespace MVZ2.Managers
         }
         #endregion
 
+        private void LoadUnlocks_Talks(ModResource resource)
+        {
+            if (resource.TalkMetas == null)
+                return;
+            foreach (var pair in resource.TalkMetas)
+            {
+                if (pair.Value == null)
+                    continue;
+                foreach (var group in pair.Value.groups)
+                {
+                    AddConditionListUnlocks(group.archive?.unlockConditions);
+                }
+            }
+        }
         private Dictionary<NamespaceID, TalkGroup> talksCacheDict = new Dictionary<NamespaceID, TalkGroup>();
     }
 }

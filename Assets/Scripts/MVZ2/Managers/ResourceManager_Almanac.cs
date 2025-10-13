@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2.Modding;
 using MVZ2.Vanilla.Almanacs;
 using PVZEngine;
 using UnityEngine;
@@ -85,6 +86,33 @@ namespace MVZ2.Managers
         {
             var entry = GetAlmanacMetaEntry(VanillaAlmanacCategories.ENEMIES, id);
             return entry != null && entry.index >= 0;
+        }
+        private void LoadUnlocks_Almanac(ModResource resource)
+        {
+            if (resource.AlmanacMetaList == null)
+                return;
+            foreach (var category in resource.AlmanacMetaList.categories)
+            {
+                if (category.entries != null)
+                {
+                    foreach (var entry in category.entries)
+                    {
+                        AddConditionListUnlocks(entry.unlock);
+                        AddConditionListUnlocks(entry.encounterUnlock);
+                    }
+                }
+                if (category.groups != null)
+                {
+                    foreach (var group in category.groups)
+                    {
+                        foreach (var entry in group.entries)
+                        {
+                            AddConditionListUnlocks(entry.unlock);
+                            AddConditionListUnlocks(entry.encounterUnlock);
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2.Modding;
 using PVZEngine;
 using UnityEngine;
 
@@ -31,6 +32,16 @@ namespace MVZ2.Managers
         public AchievementMeta? GetAchievementMeta(NamespaceID entityID)
         {
             return achievementCacheDict.TryGetValue(entityID, out var meta) ? meta : null;
+        }
+        private void LoadUnlocks_Achievements(ModResource resource)
+        {
+            if (resource.AchievementMetaList != null)
+            {
+                foreach (var meta in resource.AchievementMetaList.metas)
+                {
+                    AddConditionListUnlocks(meta.Unlock);
+                }
+            }
         }
         private Dictionary<NamespaceID, AchievementMeta> achievementCacheDict = new Dictionary<NamespaceID, AchievementMeta>();
     }

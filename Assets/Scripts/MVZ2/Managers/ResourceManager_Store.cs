@@ -101,6 +101,30 @@ namespace MVZ2.Managers
                 productCacheDict.Add(new NamespaceID(modNamespace, meta.ID), meta);
             }
         }
+        private void LoadUnlocks_Store(ModResource resource)
+        {
+            if (resource.StoreMetaList == null)
+                return;
+            foreach (var product in resource.StoreMetaList.Products)
+            {
+                foreach (var entry in product.Stages)
+                {
+                    AddUnlock(entry.Unlocks);
+                }
+                AddConditionListUnlocks(product.UnlockConditions);
+            }
+            foreach (var preset in resource.StoreMetaList.Presets)
+            {
+                AddConditionListUnlocks(preset.Conditions);
+            }
+            if (resource.StoreMetaList.LoreTalks != null)
+            {
+                foreach (var talk in resource.StoreMetaList.LoreTalks.Talks)
+                {
+                    AddConditionListUnlocks(talk.Conditions);
+                }
+            }
+        }
         private void ClearResources_Store()
         {
             productCacheDict.Clear();

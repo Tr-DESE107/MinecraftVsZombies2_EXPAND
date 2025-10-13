@@ -33,6 +33,7 @@ namespace MVZ2.Managers
             commandIDSet.Clear();
             armorIDSet.Clear();
             armorSlotIDSet.Clear();
+            unlockIDSet.Clear();
             foreach (var def in Main.Game.GetDefinitions<EntityDefinition>(EngineDefinitionTypes.ENTITY))
             {
                 entityIDSet.Add(def.GetID().ToString());
@@ -56,6 +57,10 @@ namespace MVZ2.Managers
             foreach (var def in Main.Game.GetAllArmorSlotDefinitions())
             {
                 armorSlotIDSet.Add(def.GetID().ToString());
+            }
+            foreach (var unlock in Main.ResourceManager.GetAllUnlockConditions())
+            {
+                unlockIDSet.Add(unlock.ToString());
             }
         }
         public bool IsConsoleActive()
@@ -439,6 +444,14 @@ namespace MVZ2.Managers
                                     }
                                 }
                                 break;
+                            case CommandMetaParam.ID_TYPE_UNLOCK:
+                                {
+                                    foreach (var sug in unlockIDSet)
+                                    {
+                                        yield return sug;
+                                    }
+                                }
+                                break;
                         }
                     }
                     break;
@@ -543,6 +556,7 @@ namespace MVZ2.Managers
         private HashSet<string> artifactIDSet = new HashSet<string>();
         private HashSet<string> armorIDSet = new HashSet<string>();
         private HashSet<string> armorSlotIDSet = new HashSet<string>();
+        private HashSet<string> unlockIDSet = new HashSet<string>();
         private HashSet<NamespaceID> commandIDSet = new HashSet<NamespaceID>();
 
         public const char COMMAND_CHARACTER = CommandUtility.COMMAND_CHARACTER;

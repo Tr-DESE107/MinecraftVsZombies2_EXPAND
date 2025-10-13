@@ -33,6 +33,7 @@ namespace MVZ2.Metas
     {
         public string id;
         public string name = string.Empty;
+        [Obsolete]
         public NamespaceID? unlockCondition;
         public List<TalkCharacterVariant> variants = new List<TalkCharacterVariant>();
 
@@ -55,7 +56,6 @@ namespace MVZ2.Metas
             }
             var meta = new TalkCharacterMeta(id);
             meta.name = node.GetAttribute("name") ?? string.Empty;
-            meta.unlockCondition = node.GetAttributeNamespaceID("unlock", defaultNsp);
 
             var variantTemplates = new List<TalkCharacterVariantTemplate>();
             var variantChildNodes = node.ChildNodes;

@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2.Modding;
 using UnityEngine;
 
 namespace MVZ2.Managers
@@ -15,6 +16,15 @@ namespace MVZ2.Managers
             if (modResource?.StageMetaList == null)
                 return Array.Empty<StageMeta>();
             return modResource.StageMetaList.metas.ToArray();
+        }
+        private void LoadUnlocks_Stages(ModResource resource)
+        {
+            if (resource.StageMetaList == null)
+                return;
+            foreach (var meta in resource.StageMetaList.metas)
+            {
+                AddConditionListUnlocks(meta.UnlockConditions);
+            }
         }
     }
 }

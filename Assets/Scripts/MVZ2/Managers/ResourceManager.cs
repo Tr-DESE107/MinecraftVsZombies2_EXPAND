@@ -32,6 +32,7 @@ namespace MVZ2.Managers
             mainmenuViewCacheDict.Clear();
             ClearResources_Store();
             noteCache.Clear();
+            unlockConditionList.Clear();
         }
         public async Task Init()
         {
@@ -157,6 +158,7 @@ namespace MVZ2.Managers
                     arcadeCache.Add(new NamespaceID(modNamespace, meta.ID));
                 }
             }
+            LoadModResourceUnlocks(modResource);
         }
         private async Task LoadModResourcesMain(string modNamespace, ModResource modResource, TaskProgress progress)
         {

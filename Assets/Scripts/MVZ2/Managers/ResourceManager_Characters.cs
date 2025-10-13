@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MVZ2.Metas;
+using MVZ2.Modding;
 using MVZ2.Sprites;
 using MVZ2.Talk;
 using MVZ2.TalkData;
@@ -255,6 +256,21 @@ namespace MVZ2.Managers
             return spr;
         }
         #endregion
+
+
+        private void LoadUnlocks_Characters(ModResource resource)
+        {
+            if (resource.TalkCharacterMetaList == null)
+                return;
+            foreach (var meta in resource.TalkCharacterMetaList.metas)
+            {
+                foreach (var variant in meta.variants)
+                {
+                    AddConditionListUnlocks(variant.unlock);
+                }
+            }
+        }
+
         [SerializeField]
         private float characterImageScale = 0.7f;
         private Dictionary<Texture2D, Color32[]> characterTextureDict = new Dictionary<Texture2D, Color32[]>();
