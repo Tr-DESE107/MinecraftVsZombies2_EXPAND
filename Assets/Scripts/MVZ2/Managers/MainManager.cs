@@ -350,8 +350,10 @@ namespace MVZ2.Managers
         private TaskPipeline? loadPipeline;
         [SerializeField]
         private string builtinNamespace = "mvz2";
+#if UNITY_EDITOR
         [SerializeField]
         private PlatformMode platformMode = PlatformMode.Default;
+#endif
         [SerializeField]
         private bool fastMode;
         [SerializeField]
