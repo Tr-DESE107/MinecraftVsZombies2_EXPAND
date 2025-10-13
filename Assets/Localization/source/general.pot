@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 
 "Project-Id-Version: MinecraftVSZombies2\n"
-"POT-Creation-Date: 2025-10-12 07:13+0800\n"
+"POT-Creation-Date: 2025-10-13 11:56+0800\n"
 "Language-Team: Cuerzor\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4380,6 +4380,30 @@ msgstr ""
 #: Store meta file
 msgctxt "store_talk"
 msgid "有点吓人的大眼睛……它能让你的器械造成巨额伤害，但是攻击速度会变慢许多！"
+msgstr ""
+
+#. Store item description of mvz2:dowsing_rods by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "探宝棒！可以让你从怪物身上搜刮出一些战利品！"
+msgstr ""
+
+#. Store item description of mvz2:dowsing_rods by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "老鼠的探宝棒！可以让你从怪物们身上得到一些额外的东西！"
+msgstr ""
+
+#. Store item description of mvz2:dragon_tooth by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "红龙的牙齿！受重伤的敌人会受到两倍伤害！"
+msgstr ""
+
+#. Store item description of mvz2:dragon_tooth by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "红龙掉下来的牙齿！如果一个敌人受了重伤，它会受到更多的伤害！"
 msgstr ""
 
 #. Name for credits category 内容设计

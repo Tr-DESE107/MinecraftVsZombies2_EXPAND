@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: minecraftvszombies2\n"
-"POT-Creation-Date: 2025-10-12 07:13+0800\n"
-"PO-Revision-Date: 2025-10-12 19:15+0800\n"
+"POT-Creation-Date: 2025-10-13 11:56+0800\n"
+"PO-Revision-Date: 2025-10-13 11:59+0800\n"
 "Last-Translator: \n"
 "Language-Team: English, United States\n"
 "Language: en_US\n"
@@ -4609,6 +4609,35 @@ msgid "有点吓人的大眼睛……它能让你的器械造成巨额伤害，�
 msgstr ""
 "A big scary eye...It can make your contraptions deal massive damage, but "
 "attack much more slowly!"
+
+#. Store item description of mvz2:dowsing_rods by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "探宝棒！可以让你从怪物身上搜刮出一些战利品！"
+msgstr "Dowsing Rods! Makes you can scrape some loot from monsters!"
+
+#. Store item description of mvz2:dowsing_rods by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "老鼠的探宝棒！可以让你从怪物们身上得到一些额外的东西！"
+msgstr ""
+"The mouse's Dowsing Rods! You can get some extra things from the monsters!"
+
+#. Store item description of mvz2:dragon_tooth by character mvz2:crazy_villager
+#: Store meta file
+msgctxt "store_talk"
+msgid "红龙的牙齿！受重伤的敌人会受到两倍伤害！"
+msgstr ""
+"The red dragon's tooth! Enemies who are seriously damaged will receive twice "
+"the damage!"
+
+#. Store item description of mvz2:dragon_tooth by character mvz2:tokiko
+#: Store meta file
+msgctxt "store_talk"
+msgid "红龙掉下来的牙齿！如果一个敌人受了重伤，它会受到更多的伤害！"
+msgstr ""
+"The red dragon's fallen tooth! If an enemy is seriously damaged, it will "
+"suffer even more damage!"
 
 #. Name for credits category 内容设计
 #: Credits meta file

@@ -263,5 +263,29 @@
                 <stage price="15000" unlocks="mvz2:artifact.eye_of_the_giant"/>
             </stages>
         </product>
+        <product id="dowsing_rods" sprite="mvz2:artifacts/dowsing_rods">
+            <unlock>
+                <condition required="mvz2:level.ship_6"/>
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">探宝棒！可以让你从怪物身上搜刮出一些战利品！</talk>
+                <talk character="mvz2:tokiko">老鼠的探宝棒！可以让你从怪物们身上得到一些额外的东西！</talk>
+            </talks>
+            <stages>
+                <stage price="3330" unlocks="mvz2:artifact.dowsing_rods"/>
+            </stages>
+        </product>
+        <product id="dragon_tooth" sprite="mvz2:artifacts/dragon_tooth">
+            <unlock>
+                <condition required="mvz2:level.ship_11"/>
+            </unlock>
+            <talks>
+                <talk character="mvz2:crazy_villager">红龙的牙齿！受重伤的敌人会受到两倍伤害！</talk>
+                <talk character="mvz2:tokiko">红龙掉下来的牙齿！如果一个敌人受了重伤，它会受到更多的伤害！</talk>
+            </talks>
+            <stages>
+                <stage price="15000" unlocks="mvz2:artifact.dragon_tooth"/>
+            </stages>
+        </product>
     </products>
 </store>
