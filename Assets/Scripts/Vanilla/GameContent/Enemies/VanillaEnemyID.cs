@@ -104,6 +104,9 @@ namespace MVZ2.GameContent.Enemies
         public const string MegaMutantVillager = "MegaMutantVillager";
         public const string MutantVillager = "MutantVillager";
         public const string VillagerGhast = "VillagerGhast";
+        public const string Mannequin = "Mannequin";
+        public const string ImpMannequin = "ImpMannequin";
+        public const string MegaImpMannequin = "MegaImpMannequin";
 
     }
     public static class VanillaEnemyID
@@ -204,6 +207,9 @@ namespace MVZ2.GameContent.Enemies
         public static readonly NamespaceID MegaMutantVillager = Get(VanillaEnemyNames.MegaMutantVillager);
         public static readonly NamespaceID MutantVillager = Get(VanillaEnemyNames.MutantVillager);
         public static readonly NamespaceID VillagerGhast = Get(VanillaEnemyNames.VillagerGhast);
+        public static readonly NamespaceID Mannequin = Get(VanillaEnemyNames.Mannequin);
+        public static readonly NamespaceID ImpMannequin = Get(VanillaEnemyNames.ImpMannequin);
+        public static readonly NamespaceID MegaImpMannequin = Get(VanillaEnemyNames.MegaImpMannequin);
 
         private static NamespaceID Get(string name)
         {

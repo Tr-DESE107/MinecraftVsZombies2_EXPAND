@@ -1214,6 +1214,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18c2be0d7afd71a4b9d8e045e5d95b9d
+    m_Address: mvz2:enemy/EXPAND/ImpMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 19367036b5ca6424f82e919a1c6d205d
     m_Address: mvz2:entity/enemy/ReverserArm
     m_ReadOnly: 0
@@ -5824,6 +5831,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7aef34117c05ab749b352ce0a18ab190
+    m_Address: mvz2:enemy/EXPAND/MegaImpMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7afc460a58e08a643b63f7672c37747d
     m_Address: mvz2:units/boat
     m_ReadOnly: 0
@@ -7055,6 +7069,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94d9e3c30c3043e4089c03229e2d326d
+    m_Address: mvz2:enemy/EXPAND/Mannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94f2e4ecd6b77ab49ba575570f0518d5
     m_Address: mvz2:gensokyo
@@ -8647,6 +8668,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ba5959cbb21e70e46930dced2270fecb
     m_Address: mvz2:entity/contraption/pistenser
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba90c069a9046df44b03825b17415cbd
+    m_Address: mvz2:entity/enemy/Herobrine
     m_ReadOnly: 0
     m_SerializedLabels:
     - Main

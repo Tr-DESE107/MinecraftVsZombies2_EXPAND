@@ -8,7 +8,7 @@ namespace MVZ2.Vanilla.Enemies
     {
         public MutantVillager(string nsp, string name) : base(nsp, name)
         {
-            SetImpID(VanillaEnemyID.VillagerGhast);
+            SetImpID(VanillaEnemyID.ImpMannequin);
         }
     }
 }
