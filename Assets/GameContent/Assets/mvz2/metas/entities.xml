@@ -1706,7 +1706,7 @@
         </enemy>
         <enemy id="zombie_cloud" name="僵尸云" deathMessage="你就云吧" >
             <unlock>
-                <condition required="mvz2:level.ship_6"/>
+                <condition required="mvz2:level.ship_3"/>
             </unlock>
             <behaviours>
                 <behaviour operator="remove" id="mvz2:enemy_melee"/>
@@ -1730,7 +1730,7 @@
         </enemy>
         <zombie id="cannoneer_zombie" name="炮手僵尸" deathMessage="炮决！" >
             <unlock>
-                <condition required="mvz2:level.ship_3"/>
+                <condition required="mvz2:level.ship_6"/>
             </unlock>
             <properties>
                 <id name="mvz2:starting_shield" value="mvz2:cannon" />
@@ -1739,7 +1739,7 @@
         </zombie>
         <zombie id="cannonball_zombie" name="炮弹僵尸" deathMessage="-1up" >
             <unlock>
-                <condition required="mvz2:level.ship_4"/>
+                <condition required="mvz2:level.ship_7"/>
             </unlock>
             <properties>
                 <float name="mvz2:maxHealth" value="100" />
