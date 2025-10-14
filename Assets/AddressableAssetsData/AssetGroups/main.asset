@@ -4719,6 +4719,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b2ac3f4f375c3e4c9ae0837f95feb18
+    m_Address: mvz2:chapter_transition/title_ship
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b4f42cf51641ec4cb0ec0a85724237d
     m_Address: mvz2:random/netherrack/break6
     m_ReadOnly: 0

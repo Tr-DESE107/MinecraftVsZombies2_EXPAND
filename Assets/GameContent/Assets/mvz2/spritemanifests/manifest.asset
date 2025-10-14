@@ -117,6 +117,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: aa82843b9b0ef4c43a15446e94370464, type: 3}
   - name: chapter_transition/title_mausoleum
     sprite: {fileID: 21300000, guid: e67606b0e90b7e940844495857add1f7, type: 3}
+  - name: chapter_transition/title_ship
+    sprite: {fileID: 21300000, guid: 6b2ac3f4f375c3e4c9ae0837f95feb18, type: 3}
   - name: characters/armor_stand
     sprite: {fileID: 21300000, guid: 79a357758cd7dff4d83ebc2928ce0812, type: 3}
   - name: characters/hologram

@@ -3,4 +3,5 @@
     <transition id="dream" angle="60" textSprite="mvz2:chapter_transition/title_dream"/>
     <transition id="castle" angle="90" textSprite="mvz2:chapter_transition/title_castle"/>
     <transition id="mausoleum" angle="120" textSprite="mvz2:chapter_transition/title_mausoleum"/>
+    <transition id="ship" angle="150" textSprite="mvz2:chapter_transition/title_ship"/>
 </transitions>
