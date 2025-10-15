@@ -113,8 +113,8 @@ TextureImporter:
       name: MegaMutantVillager_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 138
+        x: 0
+        y: 116
         width: 60
         height: 59
       alignment: 5
@@ -134,8 +134,8 @@ TextureImporter:
       name: MegaMutantVillager_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 139
+        x: 65
+        y: 116
         width: 60
         height: 59
       alignment: 5
@@ -155,8 +155,8 @@ TextureImporter:
       name: MegaMutantVillager_2
       rect:
         serializedVersion: 2
-        x: 152
-        y: 157
+        x: 138
+        y: 135
         width: 36
         height: 49
       alignment: 2
@@ -176,8 +176,8 @@ TextureImporter:
       name: MegaMutantVillager_3
       rect:
         serializedVersion: 2
-        x: 189
-        y: 157
+        x: 175
+        y: 135
         width: 36
         height: 49
       alignment: 2
@@ -197,8 +197,8 @@ TextureImporter:
       name: MegaMutantVillager_4
       rect:
         serializedVersion: 2
-        x: 226
-        y: 176
+        x: 212
+        y: 154
         width: 36
         height: 30
       alignment: 2
@@ -218,8 +218,8 @@ TextureImporter:
       name: MegaMutantVillager_5
       rect:
         serializedVersion: 2
-        x: 263
-        y: 176
+        x: 249
+        y: 154
         width: 36
         height: 30
       alignment: 2
@@ -239,8 +239,8 @@ TextureImporter:
       name: MegaMutantVillager_6
       rect:
         serializedVersion: 2
-        x: 305
-        y: 117
+        x: 291
+        y: 95
         width: 54
         height: 91
       alignment: 7
@@ -260,8 +260,8 @@ TextureImporter:
       name: MegaMutantVillager_7
       rect:
         serializedVersion: 2
-        x: 481
-        y: 161
+        x: 467
+        y: 139
         width: 22
         height: 23
       alignment: 0
@@ -281,8 +281,8 @@ TextureImporter:
       name: MegaMutantVillager_8
       rect:
         serializedVersion: 2
-        x: 7
-        y: 68
+        x: 0
+        y: 53
         width: 31
         height: 60
       alignment: 2
@@ -302,8 +302,8 @@ TextureImporter:
       name: MegaMutantVillager_9
       rect:
         serializedVersion: 2
-        x: 39
-        y: 68
+        x: 32
+        y: 53
         width: 31
         height: 60
       alignment: 2
@@ -323,8 +323,8 @@ TextureImporter:
       name: MegaMutantVillager_10
       rect:
         serializedVersion: 2
-        x: 166
-        y: 23
+        x: 152
+        y: 1
         width: 173
         height: 70
       alignment: 0
@@ -344,8 +344,8 @@ TextureImporter:
       name: MegaMutantVillager_11
       rect:
         serializedVersion: 2
-        x: 339
-        y: 45
+        x: 325
+        y: 23
         width: 168
         height: 48
       alignment: 0
@@ -365,8 +365,8 @@ TextureImporter:
       name: MegaMutantVillager_12
       rect:
         serializedVersion: 2
-        x: 71
-        y: 83
+        x: 64
+        y: 68
         width: 31
         height: 45
       alignment: 2
@@ -386,8 +386,8 @@ TextureImporter:
       name: MegaMutantVillager_13
       rect:
         serializedVersion: 2
-        x: 363
-        y: 117
+        x: 349
+        y: 95
         width: 54
         height: 91
       alignment: 7
@@ -407,8 +407,8 @@ TextureImporter:
       name: MegaMutantVillager_14
       rect:
         serializedVersion: 2
-        x: 420
-        y: 117
+        x: 406
+        y: 95
         width: 54
         height: 91
       alignment: 7
@@ -420,27 +420,6 @@ TextureImporter:
       bones: []
       spriteID: e9f1432f235a050428527be69098f8c0
       internalID: 1264209895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MegaMutantVillager_15
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 55
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3e4531933bb01c45bd450d8753e155f
-      internalID: 1017625039
       vertices: []
       indices: 
       edges: []

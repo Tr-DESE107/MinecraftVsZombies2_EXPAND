@@ -349,4 +349,13 @@
 		<weight base="1200" />
 	</entry>
 
+	<entry id="ImpMannequin" entity="mvz2:ImpMannequin" >
+		<spawn level="2" />
+		<weight base="2000" />
+	</entry>
+	<entry id="MegaImpMannequin" entity="mvz2:MegaImpMannequin" >
+		<spawn level="2" />
+		<weight base="1000" />
+	</entry>
+	
 </spawns>

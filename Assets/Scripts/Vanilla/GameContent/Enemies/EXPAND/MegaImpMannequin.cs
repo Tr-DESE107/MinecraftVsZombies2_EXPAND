@@ -14,6 +14,7 @@ using MVZ2.Vanilla.Properties;
 using MVZ2Logic.Level;
 using PVZEngine;
 using Tools;
+using MVZ2.GameContent.Buffs.Contraptions;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -81,7 +82,12 @@ namespace MVZ2.GameContent.Enemies
                     var randomID = GetRandomSkeletonID(entity.RNG);
                     var spawnParam = entity.GetSpawnParams();
                     spawnParam.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
-                    entity.Spawn(randomID, entity.Position, spawnParam);
+                    var spawned = entity.Spawn(randomID, entity.Position, spawnParam);
+
+                    if (spawned != null && spawned.HasBuff<NocturnalBuff>())
+                    {
+                        spawned.RemoveBuffs<NocturnalBuff>();
+                    }
                 }
 
                 // 更新记录的血量
@@ -98,13 +104,17 @@ namespace MVZ2.GameContent.Enemies
         private static NamespaceID[] RandomSkeleton = new NamespaceID[]
         {
             //怪物出怪
-            VanillaContraptionID.dispenser,
+            VanillaContraptionID.DispenShield,
+            VanillaContraptionID.soulFurnace,
+            VanillaContraptionID.Eviltombstone,
 
         };
 
         private static int[] RandomSkeletonWeights = new int[]
         {
             1,
+            1,
+            10
         };
 
         // 存储“上次触发时的血量”的字段名

@@ -2016,6 +2016,19 @@
 			</properties>
 		</enemy>
 
+		<enemy id="MegaImpMannequin" name="超级小鬼玩家模型" deathMessage="被偷家了" unlock="mvz2:level.dream_10" >
+			<properties>
+				<float name="mvz2:mass" value="-1" />
+				<float name="mvz2:fallResistance" value="18"/>
+				<float name="mvz2:cryPitch" value="2"/>
+				<int name="mvz2:cost" value="50" />
+				<int name="mvz2:waterInteraction" value="2"/>
+				<float name="mvz2:maxHealth" value="300"/>
+				<float name="mvz2:speed" value="2.4"/>
+				<float name="mvz2:damage" value="100"/>
+			</properties>
+		</enemy>
+
         <!-- Token Enemies-->
         <enemy id="bone_wall" name="骨墙" deathMessage="你是怎么做到的？" unlock="mvz2:level.halloween_8">
             <properties>
