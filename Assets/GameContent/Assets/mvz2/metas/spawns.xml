@@ -357,5 +357,10 @@
 		<spawn level="2" />
 		<weight base="1000" />
 	</entry>
+	<entry id="MutantMannequin" entity="mvz2:MutantMannequin" >
+		<spawn level="10" minWave="1"/>
+		<terrain water="true"/>
+		<weight base="1500" />
+	</entry>
 	
 </spawns>

@@ -2303,7 +2303,6 @@ MonoBehaviour:
     - {fileID: 2139505239, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
     - {fileID: -2088907892, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
     - {fileID: 1264209895, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
-    - {fileID: 1017625039, guid: ada278ae5ff1fa840b8dd74240dc2c13, type: 3}
   - name: entity/enemy/MegaZombie
     spritesheet:
     - {fileID: -1468793151, guid: 948c5ad7c0a10bc4fad381b36a5d60d7, type: 3}
@@ -2374,6 +2373,25 @@ MonoBehaviour:
     - {fileID: -685330864, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
     - {fileID: 1408847349, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
     - {fileID: -1519332053, guid: 6f001492ba9cbb04ba86c462ba404049, type: 3}
+  - name: entity/enemy/MutantPlayer
+    spritesheet:
+    - {fileID: -2058901745, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: 1815311853, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: -394022170, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: -698458914, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: 1299604888, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: -452678386, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: 562931993, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: 1107671009, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: 1222575172, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: 1072875108, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: 1393398652, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: -2066819888, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: 95612202, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: -1114291404, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: 192497166, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: 1328172873, guid: ee295003326bab143a1417f70df50345, type: 3}
+    - {fileID: -882796582, guid: ee295003326bab143a1417f70df50345, type: 3}
   - name: entity/enemy/MutantVillager
     spritesheet:
     - {fileID: -1450277346, guid: 912d19169545f9c4abbd98e6ac62753a, type: 3}

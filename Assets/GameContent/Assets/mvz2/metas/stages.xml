@@ -1618,6 +1618,7 @@
 			<spawn id="mvz2:HeavyGutant"/>
 			<spawn id="mvz2:MegaMutantVillager"/>
 			<spawn id="mvz2:MutantVillager"/>
+			<spawn id="mvz2:MutantMannequin"/>
 			
 		</spawns>
 		<properties>
@@ -1625,7 +1626,7 @@
 		</properties>
 	</stage>
 
-	<stage id="MutantCrisis_2" name="巨人危机2" type="minigame" music="mvz2:minigame">
+	<stage id="MutantCrisis_2" name="神人危机" type="minigame" music="mvz2:minigame">
 		<clear pickupModel="mvz2:entity.trophy" trophy="true"/>
 		<spawns flags="2" firstWaveTime="600" pointsMultiplier="2" pointsAddition="1">
 
@@ -1633,6 +1634,8 @@
 			<spawn id="mvz2:MutantVillager"/>
 			<spawn id="mvz2:ImpMannequin"/>
 			<spawn id="mvz2:MegaImpMannequin"/>
+			<spawn id="mvz2:MutantMannequin"/>
+			<spawn id="mvz2:VillagerGhast"/>
 
 		</spawns>
 		<properties>

@@ -1802,6 +1802,13 @@ MonoBehaviour:
     - Main
     - Spritesheet
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 256961186a298874a9a530078a121323
+    m_Address: mvz2:entity/Villager/Villager_idle2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2574e617cf0030645966d0a257f50050
     m_Address: mvz2:ui/effect/crushing_wall_left
     m_ReadOnly: 0
@@ -2227,6 +2234,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sound
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e2a8c3f306700d46a8ca2a17f5e6629
+    m_Address: mvz2:enemy/EXPAND/MutantMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e2acf8f4e91cab468eae2cf860e025a
     m_Address: mvz2:artifacts/broken_lantern
@@ -3655,6 +3669,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a92d5897aa6c8f489653ea7f4663823
+    m_Address: mvz2:enemy/EXPAND/HerobrineMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a95d1fe4c3e9f342a64658402ac3669
     m_Address: mvz2:mobile_blueprint/error_block
     m_ReadOnly: 0
@@ -3766,6 +3787,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d2581c2d4f5eac45863fdaf29fe6d45
+    m_Address: mvz2:enemy/EXPAND/ImpHerobrineMannequin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Model
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d302cd3c2b446b43995be19e002dc43
     m_Address: mvz2:entity/enemy/HeavyGutant
@@ -4075,6 +4103,13 @@ MonoBehaviour:
     - Main
     - Sound
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54bc088c32f11c04db97b3da3dbe1c02
+    m_Address: mvz2:entity/Player/Player_hurt_Old
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 54f5475a618da3d4a9752053e92b7e1d
     m_Address: mvz2:mobile_blueprint/DispenShield
     m_ReadOnly: 0
@@ -4228,6 +4263,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58867fc35e08ae44f97f1bd5404d1851
+    m_Address: mvz2:entity/Villager/Villager_hit1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58b00e65f2d3cf54e95b866108f55a09
     m_Address: mvz2:artifacts/nether_star
@@ -6811,6 +6853,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 901a8af31c8774745b7cba5fe757669b
+    m_Address: mvz2:entity/Villager/Villager_hit4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 901de8865eb390d449fbb737be0c7d44
     m_Address: mvz2:talk/villager/villager_long3
     m_ReadOnly: 0
@@ -8043,6 +8092,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac4be31dfdb681b49ae5da9af213b7f3
+    m_Address: mvz2:entity/Villager/Villager_idle1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: acc2e6159831cab4bb25141293768c3c
     m_Address: mvz2:mobile_blueprint/furnace
     m_ReadOnly: 0
@@ -8456,6 +8512,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b57c31d52a32df248b1181ac484af54a
+    m_Address: mvz2:entity/Villager/Villager_hit3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b5bea0ef6d58f2d47ad694ab28830cba
     m_Address: mvz2:ui/level/level_progress_back
     m_ReadOnly: 0
@@ -8763,6 +8826,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Music
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc93b891ce52b7047965fd6a38b56012
+    m_Address: mvz2:entity/Player/Player_hurt2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bcd84c9f2a5e9694798c2f077f298a5d
     m_Address: mvz2:entity/enemy/PhaseSpider
@@ -9338,6 +9408,13 @@ MonoBehaviour:
     - Main
     - Meta
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca5f776eb6a05cb4f97b770a772ea7ee
+    m_Address: mvz2:entity/Villager/Villager_death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca8167ed573876f4ea54f79aecaa9514
     m_Address: mvz2:entity/mutant_zombie/mutant_death
     m_ReadOnly: 0
@@ -9456,6 +9533,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccd13bb555a3caa41b03769e2fd70345
+    m_Address: mvz2:entity/Villager/Villager_hit2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ccd2a604f2ad58647907f41a4d1443fa
     m_Address: mvz2:giant_roar
@@ -9751,6 +9835,13 @@ MonoBehaviour:
     - Main
     - Model
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d25d6b3ed50d84048a28e7f782df74cd
+    m_Address: mvz2:entity/Player/Player_hurt3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d26b719675efdbf49b1e6342f7270818
     m_Address: mvz2:entity/effects/breakout_board
     m_ReadOnly: 0
@@ -9946,6 +10037,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7a72faa739ccc741b622ae404599aa6
+    m_Address: mvz2:entity/Villager/Villager_idle3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7ad17d08589c04459d3a3030abbf9f5
     m_Address: mvz2:ui/gear_banned
@@ -10836,6 +10934,13 @@ MonoBehaviour:
     - Main
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee295003326bab143a1417f70df50345
+    m_Address: mvz2:entity/enemy/MutantPlayer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Spritesheet
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee5bd16036d662849b423ed4c594401d
     m_Address: mvz2:mobile_blueprint/dullahan_pro
     m_ReadOnly: 0
@@ -10968,6 +11073,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Main
     - Model
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f07888a4760122e4d9f13591b874dbe4
+    m_Address: mvz2:entity/Player/Player_hurt1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Main
+    - Sound
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0868a1c34ff49d46967deee9863b838
     m_Address: mvz2:entity/projectiles/note
