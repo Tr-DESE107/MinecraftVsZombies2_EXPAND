@@ -1100,6 +1100,7 @@
             <spawn id="mvz2:leather_capped_zombie"/>
             <spawn id="mvz2:iron_helmetted_zombie"/>
             <spawn id="mvz2:undead_flying_object"/>
+            <spawn id="mvz2:spider"/>
         </spawns>
     </stage>
     <stage id="ship_4" name="圣辇船" dayNumber="4" >
