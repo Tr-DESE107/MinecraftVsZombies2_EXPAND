@@ -513,15 +513,15 @@ namespace MVZ2.Models
                 SerializableAnimatorPlayingData playingData = new SerializableAnimatorPlayingData()
                 {
                     currentHash = current.shortNameHash,
-                    currentTime = current.normalizedTime,
+                    currentTime = current.normalizedTime % 1,
 
                     nextHash = next.shortNameHash,
-                    nextNormalizedTime = next.normalizedTime,
+                    nextNormalizedTime = next.normalizedTime % 1,
                     nextLength = next.length == Mathf.Infinity ? 0 : next.length,
 
                     transitionDuration = transition.duration,
                     transitionDurationUnit = (int)transition.durationUnit,
-                    transitionTime = transition.normalizedTime
+                    transitionTime = transition.normalizedTime % 1
                 };
                 playingDatas[i] = playingData;
                 layerWeights.Add(animator.GetLayerWeight(i));
@@ -605,7 +605,7 @@ namespace MVZ2.Models
                     if (playingData == null)
                         continue;
                     int currentNameHash = playingData.currentHash;
-                    float currentNormalizedTime = playingData.currentTime;
+                    float currentNormalizedTime = playingData.currentTime % 1;
 
                     animator.Play(currentNameHash, i, currentNormalizedTime);
                 }
@@ -618,12 +618,12 @@ namespace MVZ2.Models
                     int nextFullPathHash = playingData.nextHash;
                     if (nextFullPathHash != 0)
                     {
-                        float nextNormalizedTime = playingData.nextNormalizedTime;
+                        float nextNormalizedTime = playingData.nextNormalizedTime % 1;
                         float nextLength = playingData.nextLength;
 
                         var transitionDurationUnit = (DurationUnit)playingData.transitionDurationUnit;
                         float transitionDuration = playingData.transitionDuration;
-                        float transitionNormalizedTime = playingData.transitionTime;
+                        float transitionNormalizedTime = playingData.transitionTime % 1;
                         if (transitionDurationUnit == DurationUnit.Fixed)
                         {
                             animator.CrossFadeInFixedTime(nextFullPathHash, transitionDuration, i, nextLength, transitionNormalizedTime);
