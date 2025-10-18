@@ -245,6 +245,8 @@ namespace MVZ2.GameContent.Buffs
         }
         public static class Boss
         {
+            public const string bossRevenge = "boss_revenge";
+
             // Chapter 1
             public const string frankensteinSteel = "frankenstein_steel";
             public const string frankensteinTransforming = "frankenstein_transforming";
@@ -556,6 +558,7 @@ namespace MVZ2.GameContent.Buffs
         }
         public static class Boss
         {
+            public static readonly NamespaceID bossRevenge = Get(VanillaBuffNames.Boss.bossRevenge);
             // Chapter 1
             public static readonly NamespaceID frankensteinSteel = Get(VanillaBuffNames.Boss.frankensteinSteel);
             public static readonly NamespaceID frankensteinTransforming = Get(VanillaBuffNames.Boss.frankensteinTransforming);

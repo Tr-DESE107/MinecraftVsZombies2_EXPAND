@@ -7,6 +7,7 @@ using MVZ2.GameContent.Effects;
 using MVZ2.GameContent.Enemies;
 using MVZ2.GameContent.ProgressBars;
 using MVZ2.Vanilla.Audios;
+using MVZ2.Vanilla.Bosses;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Level;
 using MVZ2.Vanilla.Properties;
@@ -65,10 +66,13 @@ namespace MVZ2.GameContent.Stages
             if (frankensteinTimer.Expired)
             {
                 level.WaveState = VanillaLevelStates.STATE_BOSS_FIGHT;
-                targetEnemy?.Run(e => level.Spawn(VanillaBossID.frankenstein, targetEnemy.Position, targetEnemy))?.Let(e =>
-                {
-                    Frankenstein.DoTransformationEffects(e);
-                });
+                targetEnemy
+                    ?.Run(e => level.Spawn(VanillaBossID.frankenstein, targetEnemy.Position, targetEnemy))
+                    ?.Let(e => 
+                    {
+                        Frankenstein.DoTransformationEffects(e);
+                        e.ApplyBuffForBossRevenge();
+                    });
                 foreach (var ent in level.FindEntities(e => !e.IsDead && e.HasBuff<FrankensteinTransformerBuff>()))
                 {
                     ent.Remove();
