@@ -31,7 +31,7 @@ namespace MVZ2.GameContent.Detections
                 return false;
             if (target.Type != EntityTypes.PLANT && target.Type != EntityTypes.ENEMY)
                 return false;
-            if (target.HasBuff<DivineShieldBuff>())
+            if (target.HasBuff<DivineShieldBuff>() || target.HasBuff<DivineShieldCooldownBuff>())
                 return false;
             if (target.IsNotActiveEnemy())
                 return false;

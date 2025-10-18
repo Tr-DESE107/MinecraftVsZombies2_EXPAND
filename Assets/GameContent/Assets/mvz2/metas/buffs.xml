@@ -153,6 +153,7 @@
     <buff id="shikaisen_revive" polarity="positive" level="3000" target="enemy" />
     <buff id="slow" polarity="negative" level="0" target="enemy" />
     <buff id="divine_shield" polarity="positive" level="0" target="entity" />
+    <buff id="divine_shield_cooldown" polarity="negative" level="1000" target="entity" />
     <buff id="the_giant_transition" polarity="none" level="5000" target="level" />
     <buff id="the_giant_inactive" polarity="none" level="5000" target="boss" />
     <buff id="note_block_charged" polarity="positive" level="0" target="contraption" />
