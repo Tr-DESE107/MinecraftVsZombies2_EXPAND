@@ -1954,6 +1954,7 @@
                 <tags>
                     <tag id="mvz2:shell" value="mvz2:metal"/>
                     <tag id="mvz2:flying"/>
+                    <tag id="mvz2:not_undead"/>
                 </tags>
                 <header>
                     <p>反则卫星是在一大波僵尸出现后，在辉针城中出现的可疑飞行物，会将你的视野180度旋转。</p>
