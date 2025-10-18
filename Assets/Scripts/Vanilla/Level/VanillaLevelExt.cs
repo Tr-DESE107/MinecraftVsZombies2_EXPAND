@@ -604,7 +604,7 @@ namespace MVZ2.Vanilla.Level
                     {
                         position = lastEnemyPosition;
                     }
-                    level.Produce(VanillaPickupID.clearPickup, position, null);
+                    ClearPickup.Produce(level, position);
                 }
             }
         }

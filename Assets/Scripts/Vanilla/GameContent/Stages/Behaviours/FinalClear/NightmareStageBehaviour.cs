@@ -120,7 +120,7 @@ namespace MVZ2.GameContent.Stages
                         var y = level.GetGroundY(x, z);
                         position = new Vector3(x, y, z);
                     }
-                    level.Produce(VanillaPickupID.clearPickup, position, null);
+                    ClearPickup.Produce(level, position);
                 }
             }
             else

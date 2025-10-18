@@ -2286,6 +2286,7 @@
             <behaviours>
                 <behaviour operator="add" id="mvz2:pickup_collect_clear"/>
                 <behaviour operator="add" id="mvz2:pickup_stop_on_land"/>
+                <behaviour operator="add" id="mvz2:pickup_with_content"/>
             </behaviours>
             <properties>
                 <bool name="mvz2:important" value="true" />
