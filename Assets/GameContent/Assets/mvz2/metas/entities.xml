@@ -1641,6 +1641,7 @@
                 <behaviour operator="remove" id="mvz2:enemy_walk"/>
             </behaviours>
             <properties>
+                <float name="mvz2:maxHealth" value="350" />
                 <int name="mvz2:cost" value="75" />
             </properties>
         </humanoid>

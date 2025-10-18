@@ -1309,7 +1309,7 @@
                 <p>灵符僵尸跳跃前进，并能够在攻击的同时恢复生命值。</p>
             </header>
             <properties>
-                <p>生命：<![CDATA[<color=red>200</color>]]></p>
+                <p>生命：<![CDATA[<color=red>350</color>]]></p>
                 <p>速度：<![CDATA[<color=red>1</color>]]></p>
                 <p>特点：<![CDATA[<color=red>攻击时恢复等量生命值</color>]]></p>
             </properties>
