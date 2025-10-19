@@ -128,7 +128,9 @@ namespace MVZ2.Supporters
         private async Task<UnityWebRequest> Request(string url, string param)
         {
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
-            var strToCalc = apiToken + "params" + param + "ts" + timestamp + "user_id" + userID;
+
+            var token = DecryptToken();
+            var strToCalc = token + "params" + param + "ts" + timestamp + "user_id" + userID;
             var hash = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(strToCalc));
             var hashStr = string.Concat(hash.Select(b => b.ToString("x2")).ToArray());
 
@@ -193,17 +195,75 @@ namespace MVZ2.Supporters
         {
             currentSponsors = infos;
         }
+        #region 解密
+        private string DecryptToken()
+        {
+            try
+            {
+                return Decrypt(apiToken, key, iv);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("解密失败: " + ex.Message);
+                return string.Empty;
+            }
+        }
+        private static string Decrypt(string encryptedText, byte[] aesKey, byte[] aesIV)
+        {
+            try
+            {
+                byte[] aesEncryptedData = Convert.FromBase64String(encryptedText);
+                string decryptedText = AesDecrypt(aesEncryptedData, aesKey, aesIV);
+                return decryptedText;
+            }
+            catch (FormatException)
+            {
+                throw new ArgumentException("Base64格式无效");
+            }
+            catch (CryptographicException ex)
+            {
+                throw new ArgumentException("AES解密失败: " + ex.Message);
+            }
+        }
+        private static string AesDecrypt(byte[] encryptedData, byte[] key, byte[] iv)
+        {
+            using (Aes aesAlg = Aes.Create())
+            {
+                aesAlg.Key = key;
+                aesAlg.IV = iv;
+                aesAlg.Mode = CipherMode.CBC;
+                aesAlg.Padding = PaddingMode.PKCS7;
+
+                using (ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV))
+                using (MemoryStream msDecrypt = new MemoryStream(encryptedData))
+                using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                {
+                    return srDecrypt.ReadToEnd();
+                }
+            }
+        }
+        #endregion
+
         public MainManager Main => MainManager.Instance;
         private SponsorInfos? currentSponsors;
         [SerializeField]
-        private string userID = null!;
+        private string userID = string.Empty;
         [SerializeField]
-        private string apiToken = null!;
+        private string apiToken = string.Empty;
         [SerializeField]
         private string baseUrl = "https://afdian.com/api";
         [SerializeField]
         private string sponsorQueryPath = "/open/query-sponsor";
         [SerializeField]
         private int responseTimeout = 10;
+        private byte[] key = new byte[] {
+            0x58, 0x11, 0x58, 0x11, 0x53, 0x10, 0x53, 0x10,
+            0x58, 0x11, 0x58, 0x11, 0x53, 0x10, 0x53, 0x10
+        };
+        private byte[] iv = new byte[] {
+            0x11, 0x45, 0x14, 0x19, 0x19, 0x81, 0x08, 0x10,
+            0x11, 0x45, 0x14, 0x19, 0x19, 0x81, 0x08, 0x10
+        };
     }
 }
