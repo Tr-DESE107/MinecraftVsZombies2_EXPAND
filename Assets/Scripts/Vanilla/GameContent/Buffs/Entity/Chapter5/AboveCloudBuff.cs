@@ -96,11 +96,7 @@ namespace MVZ2.GameContent.Buffs
         {
             entity.PlayAirSplashEffect();
             entity.PlayAirSplashSound();
-            if (entity.Type == EntityTypes.ENEMY)
-            {
-                entity.Neutralize();
-            }
-            entity.Remove();
+            entity.RemoveDie();
             TriggerAirInteraction(entity, AirInteraction.ACTION_REMOVE);
         }
         private void FallInteraction(Entity entity)

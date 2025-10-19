@@ -59,15 +59,7 @@ namespace MVZ2.GameContent.Effects
             entity.Level.FindEntitiesNonAlloc(e => e.IsEntityOf(VanillaObstacleID.monsterSpawner) && e.IsHostile(entity) && (e.GetCenter() - entity.GetCenter()).sqrMagnitude <= sqrRange, detectBuffer);
             foreach (var target in detectBuffer)
             {
-                if (target.Type == EntityTypes.ENEMY)
-                {
-                    target.Neutralize();
-                    target.Remove();
-                }
-                else if (target.Type == EntityTypes.PLANT || target.Type == EntityTypes.OBSTACLE || target.Type == EntityTypes.PROJECTILE)
-                {
-                    target.Remove();
-                }
+                target.RemoveDie();
             }
         }
         public override void PostRemove(Entity entity)

@@ -82,8 +82,7 @@ namespace MVZ2.GameContent.Contraptions
         {
             entity.SetModelProperty("FlashScale", target.GetScaledSize());
             entity.SetModelProperty("FlashSourcePosition", target.GetCenter());
-            var effects = new DamageEffectList(VanillaDamageEffects.REMOVE_ON_DEATH, VanillaDamageEffects.NO_DEATH_TRIGGER);
-            target.Die(effects, entity);
+            target.RemoveDie();
             SetFlashVisible(entity, true);
             entity.AddBuff<MagichestInvincibleBuff>();
             entity.PlaySound(VanillaSoundID.magical);
