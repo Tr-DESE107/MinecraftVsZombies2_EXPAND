@@ -107,7 +107,7 @@ namespace MVZ2.GameContent.Enemies
             VanillaContraptionID.DispenShield,
             VanillaContraptionID.soulFurnace,
             VanillaContraptionID.necrotombstone,
-            VanillaContraptionID.infectenser,
+            VanillaContraptionID.smallDispenser,
             VanillaContraptionID.totenser,
 
         };

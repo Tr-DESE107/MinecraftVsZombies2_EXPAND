@@ -1,4 +1,3 @@
-using MVZ2.GameContent.Buffs.Enemies;
 using MVZ2.GameContent.Enemies;
 using MVZ2.Vanilla.Entities;
 using MVZ2.Vanilla.Properties;
@@ -9,23 +8,7 @@ using PVZEngine.Level;
 using Tools;
 using UnityEngine;
 using MVZ2.GameContent.Buffs.Contraptions;
-using MVZ2.GameContent.Buffs;
-using MVZ2.GameContent.Buffs.Enemies;
-using MVZ2.GameContent.Effects;
-using MVZ2.GameContent.Models;
-using MVZ2.Vanilla.Enemies;
-using MVZ2.Vanilla.Entities;
-using MVZ2.Vanilla.Level;
-using PVZEngine.Damages;
-using PVZEngine.Entities;
-using PVZEngine.Level;
-using UnityEngine;
 using MVZ2.GameContent.Contraptions;
-using MVZ2.Vanilla.Properties;
-using MVZ2Logic.Level;
-using PVZEngine;
-using Tools;
-using MVZ2.GameContent.Buffs.Contraptions;
 
 namespace MVZ2.Vanilla.Enemies
 {
@@ -71,7 +54,12 @@ namespace MVZ2.Vanilla.Enemies
                     var randomID = GetRandomSkeletonID(entity.RNG);
                     var spawnParam = entity.GetSpawnParams();
                     spawnParam.SetProperty(EngineEntityProps.FACTION, entity.GetFaction());
-                    entity.Spawn(randomID, entity.Position, spawnParam);
+                    var spawned = entity.Spawn(randomID, entity.Position, spawnParam);
+
+                    if (spawned != null && spawned.HasBuff<NocturnalBuff>())
+                    {
+                        spawned.RemoveBuffs<NocturnalBuff>();
+                    }
                 }
 
                 // 更新记录的血量
@@ -91,7 +79,7 @@ namespace MVZ2.Vanilla.Enemies
             VanillaContraptionID.DispenShield,
             VanillaContraptionID.soulFurnace,
             VanillaContraptionID.necrotombstone,
-            VanillaContraptionID.infectenser,
+            VanillaContraptionID.smallDispenser,
             VanillaContraptionID.totenser,
 
         };
