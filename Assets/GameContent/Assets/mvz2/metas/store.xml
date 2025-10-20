@@ -149,7 +149,7 @@
         </product>
          <product id="skyward_beacon" blueprintId="mvz2:skyward_beacon">
             <unlock>
-                <condition required="mvz2:level.ship_6"/>
+                <condition required="mvz2:level.mausoleum_9"/>
             </unlock>
             <talks>
                 <talk character="mvz2:crazy_villager">把御天信标放在信标上，让它发射从天而降的致命光束，打击你所指定的位置！</talk>

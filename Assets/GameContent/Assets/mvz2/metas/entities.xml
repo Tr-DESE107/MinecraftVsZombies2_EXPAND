@@ -36,6 +36,7 @@
                 <int name="mvz2:waterInteraction" value="1" />
                 <int name="mvz2:airInteraction" value="2" />
 
+				<float name="mvz2:changeLaneSpeed" value="10" />
                 <bool name="mvz2:receivesLight" value="true" />
                 <bool name="mvz2:canDeactive" value="true" />
                 <bool name="mvz2:instantEvoke" value="true" />
@@ -56,6 +57,11 @@
         <enemy id="2" parent="entity">
             <behaviours>
                 <behaviour operator="add" id="mvz2:enemy_common"/>
+				<behaviour operator="add" id="mvz2:enemy_state"/>
+				<behaviour operator="add" id="mvz2:enemy_melee"/>
+				<behaviour operator="add" id="mvz2:enemy_walk"/>
+				<behaviour operator="add" id="mvz2:enemy_death_disappear"/>
+				<behaviour operator="add" id="mvz2:model_damage_percent"/>
             </behaviours>
             <properties>
                 <float name="mvz2:maxHealth" value="200" />
@@ -187,6 +193,13 @@
                 <id name="mvz2:rechargeId" value="mvz2:short" />
             </properties>
         </dispenser>
+		<specialEnemy id="2" parent="enemy">
+			<behaviours>
+				<behaviour operator="remove" id="mvz2:enemy_state"/>
+				<behaviour operator="remove" id="mvz2:enemy_melee"/>
+				<behaviour operator="remove" id="mvz2:enemy_walk"/>
+			</behaviours>
+		</specialEnemy>
         <humanoid id="2" parent="enemy">
             <properties>
                 <id name="mvz2:shape" value="mvz2:humanoid" />
@@ -212,6 +225,32 @@
                 <id name="mvz2:shape" value="mvz2:small_spider" />
             </properties>
         </smallSpider>
+		<mutantZombie id="2" parent="enemy">
+			<behaviours>
+				<behaviour operator="remove" id="mvz2:enemy_state"/>
+				<behaviour operator="remove" id="mvz2:enemy_melee"/>
+				<behaviour operator="remove" id="mvz2:enemy_death_disappear"/>
+			</behaviours>
+			<properties>
+				<float name="mvz2:mass" value="2" />
+				<float name="mvz2:maxHealth" value="3000" />
+				<float name="mvz2:maxAttackHeight" value="100" />
+				<float name="mvz2:speed" value="1" />
+				<float name="mvz2:range" value="40" />
+				<vector3 name="mvz2:size" x="80" y="170" z="60" />
+				<id name="mvz2:crySound" value="mvz2:mutant_cry" />
+				<id name="mvz2:deathSound" value="mvz2:mutant_death" />
+				<id name="mvz2:shape" value="mvz2:mutant_zombie" />
+				<float name="mvz2:takenCrushDamage" value="900" />
+				<bool name="mvz2:immuneVortex" value="true" />
+				<int name="mvz2:vehicleInteraction" value="2" />
+
+				<vector3 name="mvz2:shadowScale" x="2" y="2" z="1" />
+
+				<int name="mvz2:cost" value="300" />
+				<int name="mvz2:waterInteraction" value="3" />
+			</properties>
+		</mutantZombie>
         <energyPickup id="6" parent="pickup">
             <behaviours>
                 <behaviour operator="add" id="mvz2:pickup_collect_value"/>
@@ -956,7 +995,7 @@
 
 		<contraption id="elastic_cloud" name="弹性云" tooltip="弹走接触到的怪物">
 			<unlock>
-				<condition required="mvz2:level.ship_8"/>
+				<condition required="mvz2:level.mausoleum_9"/>
 			</unlock>
 			<behaviours>
 				<behaviour id="mvz2:model_damage_percent" />
@@ -981,7 +1020,7 @@
 		</contraption>
 		<contraption id="jeweled_pagoda" name="珠光宝塔" tooltip="禁用一整行地格并生成星之碎片">
 			<unlock>
-				<condition required="mvz2:level.ship_9"/>
+				<condition required="mvz2:level.mausoleum_9"/>
 			</unlock>
 			<properties>
 				<bool name="mvz2:cannotDig" value="true" />

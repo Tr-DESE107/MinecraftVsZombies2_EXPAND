@@ -110,22 +110,22 @@
 
     <artifact id="ufo_toy" name="飞碟玩具" tooltip="拾取三个同色宝石后，再生成一个同色的宝石" sprite="mvz2:artifacts/ufo_toy" >
         <unlock>
-            <condition required="mvz2:level.ship_3"/>
+            <condition required="mvz2:level.mausoleum_11"/>
         </unlock>
     </artifact>
     <artifact id="dowsing_rods" name="探宝棒" tooltip="击杀怪物时有25%概率掉落额外资源" sprite="mvz2:artifacts/dowsing_rods" >
         <unlock>
-            <condition required="mvz2:artifact.dowsing_rods"/>
+            <condition required="mvz2:level.mausoleum_11"/>
         </unlock>
     </artifact>
     <artifact id="sorcerers_scroll" name="魔人经卷" tooltip="将星之碎片的效果变为格斗术" sprite="mvz2:artifacts/sorcerers_scroll" >
         <unlock>
-            <condition required="mvz2:level.ship_11"/>
+            <condition required="mvz2:level.mausoleum_11"/>
         </unlock>
     </artifact>
     <artifact id="dragon_tooth" name="龙牙" tooltip="生命值为50%或以下的敌人受到的伤害x200%" sprite="mvz2:artifacts/dragon_tooth" >
         <unlock>
-            <condition required="mvz2:artifact.dragon_tooth"/>
+            <condition required="mvz2:level.mausoleum_11"/>
         </unlock>
     </artifact>
 

@@ -847,8 +847,34 @@
                 <p>这东西哪有那么重量级，都被你们吹到天上去了！</p>
             </flavor>
         </entry>
-        <entry/>
-        <entry/>
+		<entry id="mvz2:elastic_cloud">
+			<header>
+				<p>弹性云会以自身的耐久为代价，弹开接触到的敌方怪物和子弹。</p>
+			</header>
+			<properties>
+				<p>耐久：<![CDATA[<color=red>3000</color>]]></p>
+				<p>耐久消耗：<![CDATA[<color=red>150（怪物），20（子弹）</color>]]></p>
+				<p>技能：<![CDATA[<color=red>击退并弹飞半径2.5格内的所有敌方怪物</color>]]></p>
+			</properties>
+			<flavor>
+				<p>“说了多少遍了，我们这里不提供网络服务器！”</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:jeweled_pagoda">
+			<header>
+				<p>珠光宝塔会暂时禁用一整行内的所有空地格，并在立即生产星之碎片后消失。</p>
+			</header>
+			<properties>
+				<p>禁用时长：<![CDATA[<color=red>4分钟</color>]]></p>
+				<p>产量：<![CDATA[<color=red>1星之碎片/3禁用的地格</color>]]></p>
+				<p>技能：<![CDATA[<color=red>无</color>]]></p>
+			</properties>
+			<flavor>
+				<p>毗沙门天的宝塔的仿制品，同样拥有带来财富的能力，可以将物体变成黄金以及各色的美丽珠宝。</p>
+				<p>不过不要把这种珠宝三个摆放在一条线上，不然它们会消失。</p>
+				<p>更不要把这种珠宝四个、五个放在一条线上，或者交叉摆放，除非你真的想缺胳膊少腿。</p>
+			</flavor>
+		</entry>
 
         <!-- Chapter 6 -->
         <entry/>
@@ -949,22 +975,6 @@
             </flavor>
         </entry>
 
-		<entry id="mvz2:Eradicator">
-			<header>
-				<p>发射器是你的第一道防线，它们发射箭来保卫你的房子。</p>
-			</header>
-			<properties>
-				<p>耐久：<![CDATA[<color=red>300</color>]]></p>
-				<p>发射速度：<![CDATA[<color=red>1.5秒</color>]]></p>
-				<p>特点：<![CDATA[<color=red>1/7概率发射紫箭</color>]]></p>
-				<p>伤害：<![CDATA[<color=red>普通箭矢20，紫箭80</color>]]></p>
-				<p>技能：<![CDATA[<color=red>快速发射60支箭矢</color>]]></p>
-			</properties>
-			<flavor>
-				<p>“有人问我为什么我能不需要红石就能发射箭，还有人问我为什么我能发射无数的箭。”发射器顿了一顿，“第一，我的栅栏连着一个脉冲，第二，我内部的弓附有耐久450和无限I。啥？你问我为啥会说话？”</p>
-			</flavor>
-		</entry>
-
 		<entry id="mvz2:GlowingObsidian">
             <header>
                 <p>发光的黑曜石的强力装甲能够抵御敌人的攻击，在死亡时会爆炸。</p>
@@ -981,7 +991,20 @@
                 <p>有说法认为他们能够像普通的器械黑曜石那样发射弹幕反击敌人，不知道是不是真的。</p>
             </flavor>
         </entry>
-		
+
+		<entry id="mvz2:Eradicator">
+			<header>
+				<p>根除者能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh"/>]]>血肉之躯的飞刀。</p>
+			</header>
+			<properties>
+				<p>伤害：<![CDATA[<color=red>蓝色飞刀25，红色飞刀50，飞刀对肉体伤害*2</color>]]></p>
+				<p>特点：<![CDATA[<color=red>1/7概率发射红色飞刀，蓝色飞刀可以穿透多个敌人，但无法穿透硬物</color>]]></p>
+				<p>技能：<![CDATA[<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>]]></p>
+			</properties>
+			<flavor>
+				<p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
+			</flavor>
+		</entry>
 		
 
 		<entry id="mvz2:DispenShield">
@@ -1003,20 +1026,14 @@
 
 		
 		
-		<!-- EXPAND 2 -->
-		<entry id="mvz2:Eradicator">
-			<header>
-				<p>根除者能发射穿透<![CDATA[<tag id="mvz2:shell" enum="mvz2:flesh"/>]]>血肉之躯的飞刀。</p>
-			</header>
-			<properties>
-				<p>伤害：<![CDATA[<color=red>蓝色飞刀25，红色飞刀50，飞刀对肉体伤害*2</color>]]></p>
-				<p>特点：<![CDATA[<color=red>1/7概率发射红色飞刀，蓝色飞刀可以穿透多个敌人，但无法穿透硬物</color>]]></p>
-				<p>技能：<![CDATA[<color=red>以至多10个敌人为中心创造飞刀圈，数秒后飞刀开始飞行</color>]]></p>
-			</properties>
-			<flavor>
-				<p>"发发，我从人生中学到了一件事情，发射器越是发射箭矢，就越会感到无力，除非超越箭矢……""你到底想说什么！""我不发射箭了，发发！"</p>
-			</flavor>
-		</entry>
+		
+		
+
+		<entry/>
+		<entry/>
+		<entry/>
+		<entry/>
+		<entry/>
 		
         <!-- Upgrades 1 -->
         <entry id="mvz2:infectenser">
@@ -1091,8 +1108,27 @@
 				<p><![CDATA[<color=#C6D1C5>图鉴没有写错。</color>]]></p>
 			</flavor>
 		</entry>
-        
-        <entry/>
+
+		<entry id="mvz2:skyward_beacon">
+			<tags>
+				<tag id="mvz2:placement_beacon"/>
+			</tags>
+			<header>
+				<p>御天信标会发射光柱持续打击一处定点内的所有敌人。触发它可以修改打击的定点位置。</p>
+			</header>
+			<properties>
+				<p>发射速度：<![CDATA[<color=red>1发/3秒</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>147</color>]]></p>
+				<p>技能：<![CDATA[<color=red>展开一片星空，将场地临时变为黑夜，空中会掉落总共300颗星星子弹，每颗星星造成55点伤害，持续30秒。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>御天信标一直都是器械界的一位大歌星——我没在开双关玩笑，它是真的很有人气。</p>
+				<p>在舞台上，它随手就能展开一片星空，让所有人在台下为这绚丽的景象欢呼，炒热现场气氛之后再来上一曲。演唱会的主办方都赚麻了。</p>
+				<p>它喜欢研究各种剑，最喜欢的颜色是黄色，最喜欢的数字是1437。它和石制投掷器算是不错的朋友，但它也非常讨厌骷髅头。</p>
+				<p>不过他有一个坏毛病：喜欢不懂装懂。（比如谎称自己在无尽模式中达到了多少多少轮。）</p>
+			</flavor>
+		</entry>
+
         <entry/>
         <entry/>
         <entry/>
@@ -2298,6 +2334,21 @@
                 <p>至少这朵云没有对你竖中指。</p>
             </flavor>
         </entry>
+
+		<entry id="mvz2:pop_captain">
+			<header>
+				<p>大力船长僵尸会使用铁锚将遇到的器械打飞到上方或下方的一行。</p>
+			</header>
+			<properties>
+				<p>生命：<![CDATA[<color=red>1100</color>]]></p>
+				<p>伤害：<![CDATA[<color=red>100（冲击）</color>]]></p>
+				<p>特殊：<![CDATA[<color=red>若被移动的器械移动到已有器械的位置，原来的器械将直接被摧毁。</color>]]></p>
+			</properties>
+			<flavor>
+				<p>他以前当水手的时候喜欢吃菠菜，不过自从他当了船长之后，他就更喜欢吃橘子了。</p>
+			</flavor>
+		</entry>
+		
     </enemies>
 	
     <artifacts>
@@ -2586,19 +2637,66 @@
             </flavor>
         </entry>
         <entry/>
-        <entry id="mvz2:ufo_toy">
-            <header>
-                <p>一个带有魔力的四棱锥玩具。</p>
-            </header>
-            <properties>
-                <p>效果：<![CDATA[<color=red>拾取三个同色宝石后，再生成一个同色的宝石</color>]]></p>
-            </properties>
-            <flavor>
-                <p>这个玩具形状是个四棱锥。它的底部有四个不同颜色的飞碟凹槽，每个颜色的凹槽里面都有三个飞碟。</p>
-                <p>四个侧面中，每个侧面都有三个凹槽，凹槽周围分别被涂上了不同的颜色：<![CDATA[<color=red>红红红</color>、<color=green>绿绿绿</color>、<color=blue>蓝蓝蓝</color>、<color=red>红</color><color=green>绿</color><color=blue>蓝</color>]]>。</p>
-                <p><![CDATA[你问我这个玩具怎么玩？很简单，只需要把2个<color=red>红色</color>的和1个<color=blue>蓝色</color>的飞碟放在同一面的凹槽上就行了！]]></p>
-            </flavor>
-        </entry>
+		<entry id="mvz2:ufo_toy">
+			<header>
+				<p>一个带有魔力的四棱锥玩具。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>拾取三个同色宝石后，再生成一个同色的宝石</color>]]></p>
+			</properties>
+			<flavor>
+				<p>这个玩具形状是个四棱锥。它的底部有四个不同颜色的飞碟凹槽，每个颜色的凹槽里面都有三个飞碟。</p>
+				<p>四个侧面中，每个侧面都有三个凹槽，凹槽周围分别被涂上了不同的颜色：<![CDATA[<color=red>红红红</color>、<color=green>绿绿绿</color>、<color=blue>蓝蓝蓝</color>、<color=red>红</color><color=green>绿</color><color=blue>蓝</color>]]>。</p>
+				<p><![CDATA[你问我这个玩具怎么玩？很简单，只需要把2个<color=red>红色</color>的和1个<color=blue>蓝色</color>的飞碟放在同一面的凹槽上就行了！]]></p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:dowsing_rods">
+			<header>
+				<p>用于寻找宝物的工具。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>击杀怪物时有25%概率掉落额外资源</color>]]></p>
+				<p>绿宝石：<![CDATA[<color=red>35%</color>]]></p>
+				<p>红宝石：<![CDATA[<color=red>9%</color>]]></p>
+				<p>钻石：<![CDATA[<color=red>1%</color>]]></p>
+				<p>3红石：<![CDATA[<color=red>30%</color>]]></p>
+				<p>随机蓝图：<![CDATA[<color=red>25%</color>]]></p>
+			</properties>
+			<flavor>
+				<p>现在我要使用这个东西调查你的身体！</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:sorcerers_scroll">
+			<header>
+				<p>白莲赠送的魔法物品，通过咏唱来强化人的肉体。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>星之碎片的效果改为格斗术</color>]]></p>
+				<p>横向拖动：<![CDATA[<color=red>冲拳，对一整行内的敌人造成1200点伤害并将其击飞</color>]]></p>
+				<p>向下拖动：<![CDATA[<color=red>俯冲，对半径1.5格内的敌人造成1800点伤害</color>]]></p>
+				<p>向上拖动：<![CDATA[<color=red>上勾拳，对半径2.5格内的敌人造成400点伤害并将其击飞</color>]]></p>
+			</properties>
+			<flavor>
+				<p>白莲在被封印到魔界的期间，曾使用魔界的物质制作过这样一款魔人经卷。</p>
+				<p>这经卷完全由经文组成，没有纸这种文字载体。魔界的物质大多有自我意识，那魔人经卷也因此拥有自我意识，可以自动咏唱经文。</p>
+				<p>而在那之后，白莲试着仿照魔人经卷制作仿制品，然而没有魔界中的物质，因此就算充满魔力，这仿制品的效果也比之前的差上许多。</p>
+				<p>不过，足以让史蒂夫这样的普通人类变成“超人”了。</p>
+			</flavor>
+		</entry>
+		<entry id="mvz2:dragon_tooth">
+			<header>
+				<p>红龙在打斗中掉下来的一颗牙齿。</p>
+			</header>
+			<properties>
+				<p>效果：<![CDATA[<color=red>生命值为50%或以下的敌人受到的伤害x200%</color>]]></p>
+			</properties>
+			<flavor>
+				<p>多年前，高僧手持母亲的牙齿，陷入轮回。</p>
+				<p>而如今，少年举起孩子的牙齿，助其解脱。</p>
+				<p>这最后的“仿制品”你也拿到了。它的主人完全没有它母亲那般仁慈，口中喷出的满是残暴，对于弱者毫无任何慈悲之心。</p>
+				<p>此仇，永世无法平息。</p>
+			</flavor>
+		</entry>
 
 
 		<entry id="mvz2:FrankensteinBrain">
