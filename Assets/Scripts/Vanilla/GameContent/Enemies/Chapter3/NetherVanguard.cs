@@ -38,7 +38,7 @@ namespace MVZ2.GameContent.Enemies
             base.UpdateLogic(entity);
             entity.SetModelDamagePercent();
 
-            if (entity.State == VanillaEntityStates.ATTACK)
+            if (entity.State == STATE_MELEE_ATTACK)
             {
                 WitherAOE(entity, 2f, entity.GetFaction());
             }
@@ -59,5 +59,6 @@ namespace MVZ2.GameContent.Enemies
 
 
         }
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
     }
 }

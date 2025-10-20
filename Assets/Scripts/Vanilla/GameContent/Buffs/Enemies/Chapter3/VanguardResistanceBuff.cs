@@ -4,6 +4,7 @@ using MVZ2.Vanilla.Entities;
 using PVZEngine.Buffs;
 using PVZEngine.Callbacks;
 using PVZEngine.Level;
+using MVZ2.Vanilla.Enemies;
 
 namespace MVZ2.GameContent.Buffs.Enemies
 {
@@ -35,7 +36,7 @@ namespace MVZ2.GameContent.Buffs.Enemies
 
 
             // 如果敌人处于攻击状态，则不减伤，直接返回
-            if (entity.State == VanillaEntityStates.ATTACK)
+            if (entity.State == STATE_MELEE_ATTACK)
             {
 
                 return;
@@ -55,5 +56,6 @@ namespace MVZ2.GameContent.Buffs.Enemies
 
         // 缓存用列表，避免每次分配，提升性能
         private List<Buff> buffBuffer = new List<Buff>();
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
     }
 }

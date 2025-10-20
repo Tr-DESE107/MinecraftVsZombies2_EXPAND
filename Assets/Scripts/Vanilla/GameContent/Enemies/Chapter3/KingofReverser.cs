@@ -52,7 +52,7 @@ namespace MVZ2.GameContent.Enemies
             // 如果正在召唤骷髅，切换到 NECROMANCER_CAST 动画
             if (state == STATE_WALK && IsSummoning(enemy))
             {
-                return VanillaEntityStates.NECROMANCER_CAST;
+                return STATE_CAST;
             }
 
             return state;
@@ -123,7 +123,7 @@ namespace MVZ2.GameContent.Enemies
                     }
                 }
             }
-            else if (entity.State == VanillaEntityStates.NECROMANCER_CAST)
+            else if (entity.State == STATE_CAST)
             {
                 var summonTimer = GetSummonTimer(entity);
                 summonTimer.Run(entity.GetAttackSpeed());
@@ -145,7 +145,7 @@ namespace MVZ2.GameContent.Enemies
             }
 
             // 清理召唤
-            if (entity.State == VanillaEntityStates.NECROMANCER_CAST)
+            if (entity.State == STATE_CAST)
             {
                 EndSummon(entity);
             }
@@ -275,9 +275,9 @@ namespace MVZ2.GameContent.Enemies
         private const int MAX_BONE_WALL_COUNT = 15;
 
         // 状态
-        public const int STATE_WALK = VanillaEntityStates.WALK;
-        public const int STATE_ATTACK = VanillaEntityStates.ATTACK;
-        public const int STATE_CAST = VanillaEntityStates.AngryReverser_CAST;
+        //public const int STATE_WALK = VanillaEntityStates.WALK;
+        //public const int STATE_ATTACK = VanillaEntityStates.ATTACK;
+        //public const int STATE_CAST = VanillaEntityStates.AngryReverser_CAST;
 
         // ID
         public static readonly NamespaceID ID = VanillaEnemyID.KingofReverser;

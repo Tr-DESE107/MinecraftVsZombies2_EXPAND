@@ -56,7 +56,7 @@ namespace MVZ2.GameContent.Enemies
         protected override int GetActionState(Entity enemy)
         {
             var baseState = base.GetActionState(enemy);
-            if (baseState == VanillaEntityStates.WALK)
+            if (baseState == STATE_WALK)
             {
                 var horse = enemy.GetRidingEntity();
                 var hasHorse = horse.ExistsAndAlive();
@@ -93,7 +93,7 @@ namespace MVZ2.GameContent.Enemies
             entity.SetAnimationBool("HoldingHead", !IsHeadDropped(entity));
             entity.SetModelDamagePercent();
 
-            if (entity.State == VanillaEntityStates.ATTACK)
+            if (entity.State == STATE_MELEE_ATTACK)
             {
                 WitherAOE(entity, 2f, entity.GetFaction());
             }
@@ -145,7 +145,7 @@ namespace MVZ2.GameContent.Enemies
 
         public static readonly VanillaEntityPropertyMeta<EntityID> FIELD_HEAD = new VanillaEntityPropertyMeta<EntityID>("Head");
         public static readonly VanillaEntityPropertyMeta<bool> FIELD_HEAD_DROPPED = new VanillaEntityPropertyMeta<bool>("HeadDropped");
-        public const int STATE_IDLE = VanillaEntityStates.IDLE;
         private static readonly NamespaceID ID = VanillaEnemyID.AssaultDullahan;
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
     }
 }

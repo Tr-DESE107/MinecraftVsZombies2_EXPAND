@@ -6,6 +6,7 @@ using PVZEngine.Buffs;
 using PVZEngine.Damages;
 using PVZEngine.Entities;
 using PVZEngine.Level;
+using MVZ2.Vanilla.Enemies;
 
 namespace MVZ2.GameContent.Enemies
 {
@@ -30,7 +31,7 @@ namespace MVZ2.GameContent.Enemies
             base.UpdateLogic(entity);
             entity.SetModelDamagePercent();
 
-            if (entity.State == VanillaEntityStates.ATTACK)
+            if (entity.State == STATE_MELEE_ATTACK)
             {
                 SixQiAOE(entity, 3.34f, entity.GetFaction());
             }
@@ -51,6 +52,6 @@ namespace MVZ2.GameContent.Enemies
 
 
         }
-
+        public const int STATE_MELEE_ATTACK = VanillaEnemyStates.MELEE_ATTACK;
     }
 }

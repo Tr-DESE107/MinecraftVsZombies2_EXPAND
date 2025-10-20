@@ -8,6 +8,7 @@ using PVZEngine.Definitions;
 using PVZEngine.Entities;
 using PVZEngine.Level;
 using UnityEngine;
+using MVZ2Logic.HeldItems;
 
 namespace MVZ2.GameContent.Stages
 {
@@ -34,7 +35,9 @@ namespace MVZ2.GameContent.Stages
             // 如果当前未持有物品，则给玩家发一把剑
             if (level.GetHeldItemType() == BuiltinHeldTypes.none)
             {
-                level.SetHeldItem(VanillaHeldTypes.sword, 0, 0, true);
+                var builder = new HeldItemBuilder(VanillaHeldTypes.sword);
+                builder.SetCannotCancel(true);
+                level.SetHeldItem(builder);
             }
 
             //// 运行雷电计时器

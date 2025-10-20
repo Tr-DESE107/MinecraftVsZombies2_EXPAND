@@ -46,7 +46,7 @@ namespace MVZ2.GameContent.Stages
                 var y = level.GetGroundY(x, z);
                 var seija = level.Spawn(VanillaBossID.seija, new Vector3(x, y, z), null);
                 seija.InflictRegenerationBuff(1000f, 300, new EntitySourceReference(seija));
-                Seija.StartState(seija, VanillaEntityStates.SEIJA_FRONTFLIP);
+                //seija.StartState(seija, VanillaEntityStates.SEIJA_FRONTFLIP);
                 level.SetProperty(FIELD_SEIJA_SPAWNED, true);
             }
         }

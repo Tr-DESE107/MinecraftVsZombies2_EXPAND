@@ -27,9 +27,9 @@ namespace MVZ2.GameContent.Enemies
         protected override int GetActionState(Entity enemy)
         {
             var state = base.GetActionState(enemy);
-            if (state == VanillaEntityStates.WALK && IsCasting(enemy))
+            if (state == STATE_WALK && IsCasting(enemy))
             {
-                return VanillaEntityStates.NECROMANCER_CAST;
+                return STATE_CAST;
             }
             return state;
         }
@@ -44,10 +44,10 @@ namespace MVZ2.GameContent.Enemies
 
             if (entity.IsDead)
                 return;
-            if (entity.State == VanillaEntityStates.ATTACK)
+            if (entity.State == STATE_MELEE_ATTACK)
                 return;
             var stateTimer = GetStateTimer(entity);
-            if (entity.State == VanillaEntityStates.NECROMANCER_CAST)
+            if (entity.State == STATE_CAST)
             {
                 stateTimer.Run(entity.GetAttackSpeed());
                 if (stateTimer.Expired)
@@ -75,7 +75,7 @@ namespace MVZ2.GameContent.Enemies
         public override void PostDeath(Entity entity, DeathInfo info)
         {
             base.PostDeath(entity, info);
-            if (entity.State == VanillaEntityStates.NECROMANCER_CAST)
+            if (entity.State == STATE_CAST)
             {
                 EndCasting(entity);
             }
