@@ -2073,10 +2073,6 @@
 				<behaviour operator="remove" id="mvz2:enemy_death_disappear"/>
 			</behaviours>
 			<properties>
-				<float name="mvz2:mass" value="-2" />
-				<float name="mvz2:gravity" value="0" />
-				<float name="mvz2:cryPitch" value="0.75" />
-				<id name="mvz2:shell" value="mvz2:cloud" />
 				<id name="mvz2:starting_armor" value="mvz2:pop_captain_cap" />
 				<float name="mvz2:mass" value="1" />
 				<float name="mvz2:maxHealth" value="1100" />
@@ -2085,17 +2081,10 @@
 				<float name="mvz2:range" value="60" />
 				<vector3 name="mvz2:size" x="40" y="110" z="40" />
 				<id name="mvz2:crySound" value="mvz2:zombie_cry" />
-				<id name="mvz2:hitSound" value="mvz2:cloth" />
 				<id name="mvz2:deathSound" value="mvz2:zombie_death" />
-				<id name="mvz2:shape" value="mvz2:zombie_cloud" />
-				<bool name="mvz2:flying_enemy" value="true" />
-				<bool name="mvz2:undead" value="false" />
-				<idArray name="mvz2:counter_tags" value="mvz2:flying_enemy" />
-				<vector3 name="mvz2:size" x="64" y="44" z="64" />
 				<id name="mvz2:shape" value="mvz2:bulky" />
 				<float name="mvz2:cryPitch" value="0.75" />
 
-				<int name="mvz2:cost" value="100" />
 				<vector3 name="mvz2:shadowScale" x="1.25" y="1.25" z="1.25" />
 
 				<int name="mvz2:cost" value="200" />

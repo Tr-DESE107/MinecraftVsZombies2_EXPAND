@@ -169,6 +169,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &147694630918066973 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 286007816669509086, guid: bded572031703084ca75d3a1a2cc8785, type: 3}
+  m_PrefabInstance: {fileID: 140928682859996867}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &175927733194741962 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 253794447945301513, guid: bded572031703084ca75d3a1a2cc8785, type: 3}
@@ -196,11 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f87b37dd2a765478553dcd1bee5c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &2708863424620079164 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2622076904073563903, guid: bded572031703084ca75d3a1a2cc8785, type: 3}
-  m_PrefabInstance: {fileID: 140928682859996867}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2889665807010320395 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3021504537333200584, guid: bded572031703084ca75d3a1a2cc8785, type: 3}
@@ -294,6 +300,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa61523c0bfc33409966415b747e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9125833472028976633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9174347918014972730, guid: bded572031703084ca75d3a1a2cc8785, type: 3}
+  m_PrefabInstance: {fileID: 140928682859996867}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706d77047cdcc024d88fcc21639ca7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6215124229026890694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -321,11 +338,11 @@ PrefabInstance:
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[0]
       value: 
-      objectReference: {fileID: 2708863424620079164}
+      objectReference: {fileID: 147694630918066973}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[1]
       value: 
-      objectReference: {fileID: 4983568615034880712}
+      objectReference: {fileID: 9125833472028976633}
     - target: {fileID: 4945177359727147975, guid: ac946405a2f0e214793398af6e8e9112, type: 3}
       propertyPath: animators.Array.data[2]
       value: 
